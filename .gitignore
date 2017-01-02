@@ -1,6 +1,7 @@
 bin/
-lib/
 footest/
+.project
+.settings/
 alvisnlp-rest/target/
 alvisnlp-rest/.classpath
 alvisnlp-rest/.project
