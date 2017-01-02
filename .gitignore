@@ -17,3 +17,4 @@ bibliome/.project
 bibliome/.settings
 bibliome/expose-repository.sh
 regression/
+bibliome/src/main/resources/org/bibliome/alvisnlp/resources/ncbi-taxon-names.txt
