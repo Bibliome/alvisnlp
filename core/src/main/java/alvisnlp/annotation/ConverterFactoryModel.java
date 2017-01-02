@@ -25,7 +25,6 @@ import java.util.Collection;
 
 import javax.tools.FileObject;
 import javax.tools.StandardLocation;
-import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactoryConfigurationError;
 
 import org.bibliome.util.xml.XMLUtils;
@@ -78,15 +77,14 @@ class ConverterFactoryModel extends AbstractFactoryModel {
 	 * Generates a template documentation for each converter registered for the target factory.
 	 * @param ctx
 	 * @throws TransformerFactoryConfigurationError
-	 * @throws TransformerException
 	 * @throws IOException
 	 */
-	void generateConvertersDoc(ModelContext ctx) throws TransformerFactoryConfigurationError, TransformerException, IOException {
+	void generateConvertersDoc(ModelContext ctx) throws TransformerFactoryConfigurationError, IOException {
 		for (ConverterModel converter : converters)
 			generateConverterDoc(ctx, converter);
 	}
 
-	private static void generateConverterDoc(ModelContext ctx, ConverterModel converter) throws TransformerFactoryConfigurationError, TransformerException, IOException {
+	private static void generateConverterDoc(ModelContext ctx, ConverterModel converter) throws TransformerFactoryConfigurationError, IOException {
 		String bundleName = converter.getBundleName();
 		int dot = bundleName.lastIndexOf('.');
 		String packageName = bundleName.substring(0, dot);

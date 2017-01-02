@@ -21,8 +21,6 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.logging.Logger;
 
-import javax.xml.transform.TransformerException;
-
 import org.bibliome.alvisnlp.modules.alvisre.AbstractAlvisRE.AlvisREResolvedObjects;
 import org.bibliome.alvisnlp.modules.alvisre.AlvisREPrepareCrossValidation.AlvisRETrainResolvedObjects;
 import org.bibliome.util.Iterators;
@@ -74,7 +72,7 @@ public abstract class AlvisREPrepareCrossValidation extends AbstractAlvisRE<Alvi
 			@SuppressWarnings("unused")
 			SectionsMerger merger = writeInputFiles(logger, evalCtx, corpus, inputDir);
 		}
-		catch (SAXException|IOException|TransformerException e) {
+		catch (SAXException|IOException e) {
 			rethrow(e);
 		}
 	}

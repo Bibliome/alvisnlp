@@ -119,16 +119,15 @@ class ModuleFactoryModel extends AbstractFactoryModel {
 	 * @param ctx
 	 * @throws IOException
 	 * @throws TransformerFactoryConfigurationError
-	 * @throws TransformerException
 	 * @throws XPathExpressionException
 	 * @throws SAXException
 	 */
-	void generateModuleDocs(ModelContext ctx) throws IOException, TransformerFactoryConfigurationError, TransformerException, XPathExpressionException, SAXException {
+	void generateModuleDocs(ModelContext ctx) throws IOException, TransformerFactoryConfigurationError, XPathExpressionException, SAXException {
 		for (ModuleModel module : modules)
 			generateModuleDoc(ctx, module);
 	}
 	
-	private static void generateModuleDoc(ModelContext ctx, ModuleModel module) throws IOException, TransformerFactoryConfigurationError, TransformerException, SAXException, XPathExpressionException {
+	private static void generateModuleDoc(ModelContext ctx, ModuleModel module) throws IOException, TransformerFactoryConfigurationError, SAXException, XPathExpressionException {
 		String bundleName = module.getBundleName();
 		int dot = bundleName.lastIndexOf('.');
 		String packageName = bundleName.substring(0, dot);

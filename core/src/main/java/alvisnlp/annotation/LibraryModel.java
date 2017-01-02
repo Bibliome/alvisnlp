@@ -195,7 +195,7 @@ class LibraryModel {
 		return annotation.docResourceBundle();
 	}
 	
-	void generateDocumentation(ModelContext ctx) throws SAXException, IOException, XPathExpressionException, TransformerFactoryConfigurationError, TransformerException {
+	void generateDocumentation(ModelContext ctx) throws SAXException, IOException, XPathExpressionException, TransformerFactoryConfigurationError {
 		String docResourceBundleName = getDocResourceBundleName();
 		int dot = docResourceBundleName.lastIndexOf('.');
 		String packageName = docResourceBundleName.substring(0, dot);

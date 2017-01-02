@@ -22,8 +22,6 @@ import java.io.InputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.xml.transform.TransformerException;
-
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.alvisre.AbstractAlvisRE.AlvisREResolvedObjects;
 import org.bibliome.util.xml.XMLUtils;
@@ -54,7 +52,7 @@ public abstract class AbstractAlvisRE<R extends AlvisREResolvedObjects> extends 
 		return null;
 	}
 
-	protected void writeConfigurationFile(ProcessingContext<Corpus> ctx, File outDir) throws SAXException, IOException, TransformerException, ProcessingException {
+	protected void writeConfigurationFile(ProcessingContext<Corpus> ctx, File outDir) throws SAXException, IOException, ProcessingException {
 		File configFile = new File(outDir, "config.xml");
 		Logger logger = getLogger(ctx);
 		logger.info("creating AlvisRE configuration file");

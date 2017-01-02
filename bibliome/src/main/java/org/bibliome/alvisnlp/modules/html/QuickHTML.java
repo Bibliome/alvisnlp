@@ -33,7 +33,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.logging.Logger;
 
-import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.xpath.XPathExpressionException;
 
@@ -116,7 +115,7 @@ public class QuickHTML extends SectionModule<SectionResolvedObjects> {
 		}
 	}
 	
-	private void generateDocuments(Logger logger, EvaluationContext evalCtx, Corpus corpus, Set<String> classes, Document docList) throws XPathExpressionException, IOException, SAXException, TransformerFactoryConfigurationError, TransformerException {
+	private void generateDocuments(Logger logger, EvaluationContext evalCtx, Corpus corpus, Set<String> classes, Document docList) throws XPathExpressionException, IOException, SAXException, TransformerFactoryConfigurationError {
 		logger.info("generating HTML documents");
 		Element docListUL = XMLUtils.evaluateElement(XPATH_DOCUMENT_LIST, docList);
 		Document docSkel = createDocumentSkeleton();
@@ -307,7 +306,7 @@ public class QuickHTML extends SectionModule<SectionResolvedObjects> {
 		return result;
 	}
 	
-	private void writeXHTMLDocument(Document xmlDoc, String name) throws TransformerFactoryConfigurationError, TransformerException {
+	private void writeXHTMLDocument(Document xmlDoc, String name) throws TransformerFactoryConfigurationError {
 		OutputFile file = new OutputFile(outDir, name + ".html");
 		XMLUtils.writeDOMToFile(xmlDoc, null, file);
 	}
