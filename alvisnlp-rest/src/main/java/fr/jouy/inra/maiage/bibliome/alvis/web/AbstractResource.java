@@ -8,12 +8,18 @@ public abstract class AbstractResource {
 		// XXX
 		// Force the JVM to load a class from the Module Factory.
 		// Otherwise META-INF/services is not loaded
-		forceLoadClass(org.bibliome.alvisnlp.BibliomeModuleFactory.class);
-		forceLoadClass(alvisnlp.corpus.expressions.ConstantsLibrary.class);
+		try {
+			forceLoadClass("org.bibliome.alvisnlp.BibliomeModuleFactory");
+			forceLoadClass("alvisnlp.corpus.expressions.ConstantsLibrary");
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 	
-	private static void forceLoadClass(Class<?> klass) {
-		System.err.println("Force load: " + klass.getCanonicalName());
+	private static void forceLoadClass(String name) throws ClassNotFoundException {
+		System.err.println("Force load: " + name);
+		Class.forName(name);
 	}
 
 	private final String urlBase;
