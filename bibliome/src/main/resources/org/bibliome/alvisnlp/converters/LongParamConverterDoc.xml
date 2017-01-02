@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+Copyright 2016 Institut National de la Recherche Agronomique
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<alvisnlp-doc author="Robert Bossy" date="2010-10-28">
+  <synopsis>
+    <p>Converts into a 64-bit signed integer.</p>
+  </synopsis>
+
+  <converter-doc>
+    <string-conversion>
+      <p>This converter accepts long integer values in Java syntax (see <a href="http://download.oracle.com/javase/7/docs/api/java/lang/Long.html#valueOf(java.lang.String)">Java long conversion</a>).</p>
+    </string-conversion>
+  
+    <xml-conversion>
+      <p>
+	<xverb><param value="LONG"/></xverb>
+	or
+	<xverb><param>LONG</param></xverb>
+	<em>LONG</em> is converted into a long integer as specified by the string conversion.
+      </p>
+    </xml-conversion>
+  </converter-doc>
+</alvisnlp-doc>

@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<alvisnlp-doc author="" date="" target="org.bibliome.alvisnlp.modules.cadixe.AlvisAEReader">
+<!--
+Copyright 2016 Institut National de la Recherche Agronomique
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+  <synopsis>
+    <p><this/> reads documents and annotations from an AlvisAE campaign.</p>
+  </synopsis>
+
+  <module-doc>
+    <description>
+      <p><this/> reads an AlvisAE server database and imports documents and annotation sets from a spcified campaign. The database connection is specified with <param name="url"/>, <param name="username"/>, <param name="password"/> and <param name="schema"/>. The <param name="campaignId"/> parameter is the campaign identifier in the AlvisAE database (the AlvisAE client displays this identifier).</p>
+
+      <p>
+	All AlvisAE annotations, including text-bound annotations, will be represented in AlvisNLP/ML as relation tuples:
+	<ul>
+	  <li>Each text-bound annotation will be stored as a tuple of the relation named <param name="textBoundRelationName"/>. Each fragment is represented in an annotation stored in the layer <param name="userLayerName"/> for user annotations, or <param name="htmlLayerName"/> for layout annotations. The tuple references the fragments through its arguments; their role name is <param name="textBoundFragmentRolePrefix"/> with the fragment order appended (starting at zero). Thus a single-fragment annotation will have a single argument with role <code>frag0</code>. The type of the annotation is stored in the feature <param name="typeFeature"/>.</li>
+	  <li>Each group annotation will be stored as a tuple of the relation named after the type of the annotation. Thus all groups of the same type are stored in the same relation. The group tuple references its items through its arguments; their role name is <param name="groupItemRolePrefix"/> with the item order appended (starting at zero). If <param name="linkToAnnotation"/> is <code>true</code> and the item is a text-bound annotation, then the argument points to the first fragment annotation instead of the tuple.</li>
+	  <li>Each relation annotation will be stored as a tuple of the relation named after the type of the annotation. Thus all AlvisAE relations of the same type are stored in the same AlvisNLP/ML relation. The relation tuple references its arguments in a straightforward way. If <param name="linkToAnnotation"/> is <code>true</code> and the item is a text-bound annotation, then the argument points to the first fragment annotation instead of the tuple.</li>
+	</ul>
+      </p>
+
+      <p><this/> imports the last annotation set saved before <param name="maxDate"/>. If <param name="maxDate"/> is not set, the <this/> imports the head annotation set.</p>
+    </description>
+  
+    <param-doc name="active">
+      <p>An expression evaluated as a boolean with the corpus as the context element. This module processes the corpus if the result is <code>true</code></p>
+    </param-doc>
+  
+    <param-doc name="groupItemRolePrefix">
+      <p>Prefix of the role names for group items.</p>
+    </param-doc>
+  
+    <param-doc name="constantAnnotationFeatures">
+      <p>Constant features to add to each annotation created by this module</p>
+    </param-doc>
+  
+    <param-doc name="password">
+      <p>JDBC connection password.</p>
+    </param-doc>
+  
+    <param-doc name="constantDocumentFeatures">
+      <p>Constant features to add to each document created by this module</p>
+    </param-doc>
+  
+    <param-doc name="typeFeature">
+      <p>Name of the feature where the annotation type is stored.</p>
+    </param-doc>
+  
+    <param-doc name="campaignId">
+      <p>Identifier of the campaign to import.</p>
+    </param-doc>
+  
+    <param-doc name="username">
+      <p>JDBC connection user.</p>
+    </param-doc>
+  
+    <param-doc name="constantRelationFeatures">
+      <p>Constant features to add to each relation created by this module</p>
+    </param-doc>
+  
+    <param-doc name="userLayerName">
+      <p>Name of the layer where to store user-created text-bound annotation fragments.</p>
+    </param-doc>
+  
+    <param-doc name="htmlLayerName">
+      <p>Name of the layer where to store layout text-bound annotation fragments.</p>
+    </param-doc>
+  
+    <param-doc name="constantSectionFeatures">
+      <p>Constant features to add to each section created by this module</p>
+    </param-doc>
+  
+    <param-doc name="sectionName">
+      <p>Name of the section where the document contents is stored.</p>
+    </param-doc>
+  
+    <param-doc name="url">
+      <p>JDBC connection URL, for instance: <code>jdbc:postgresql://hostname:port/dbname</code>.</p>
+    </param-doc>
+  
+    <param-doc name="textBoundFragmentRolePrefix">
+      <p>Prefix of the role names for text-bound fragments.</p>
+    </param-doc>
+  
+    <param-doc name="textBoundRelationName">
+      <p>Name of the relation containing text-bound annotation tuples.</p>
+    </param-doc>
+    
+    <param-doc name="schema">
+      <p>Name of the database schema where to fetch documents.</p>
+    </param-doc>
+    
+    <param-doc name="maxDate">
+      <p>Maximum date of the fetched annotation set (head annotation set if not set).</p>
+    </param-doc>
+
+    <param-doc name="constantTupleFeatures">
+      <p>Constant features to add to each tuple created by this module</p>
+    </param-doc>
+
+    <param-doc name="taskId">
+      <p/>
+    </param-doc>
+
+    <param-doc name="userId">
+      <p/>
+    </param-doc>
+
+    <param-doc name="linkToAnnotation">
+      <p>Either relations and groups that reference a text-bound annotation should be linked to the annotation that corresponds to the first fragment.</p>
+    </param-doc>
+  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+</alvisnlp-doc>

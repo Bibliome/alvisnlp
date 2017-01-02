@@ -1,0 +1,43 @@
+<!--
+Copyright 2016 Institut National de la Recherche Agronomique
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<alvisnlp-doc target="RegExp" author="Robert Bossy" date="2010-09-27">
+  <synopsis>
+    <p>Recherche une expression régulière dans le contenu des sections et crée une annotation pour chaque match.</p>
+  </synopsis>
+  <module>
+    <description>
+      <p><this/> recherche <param>pattern</param> dans le contenu des sctions, puis crée une annotation pour chaque match. L'annotation ainsi créée couvrera l'ensemble du match. L'annotation créée sera ajoutée dans la couche nommée <param>targetLayerName</param> de la section correspondante. Si <param>pattern</param> contient des groupes, alors les éléments de l'expression régulière à l'intérieur des groupes servira à la recherche mais le groupage ne pourra pas être exploité lors de la création de l'annotation.</p>
+      <p>L'annotation créée aura automatiquement les traits définis dans <param>constantAnnotationFeatures</param>.</p>
+      <p>Seuls les documents et les sections qui satisfont respectiovement <param>documentFilter</param> et <param>sectionFilter</param> seront traités.</p>
+    </description>
+    <param-doc name="pattern">
+      <p>Expression régulière à rechercher.</p>
+    </param-doc>
+    <param-doc name="targetLayerName">
+      <p>Nom de la couche où ajouter les annotations.</p>
+    </param-doc>
+    <param-doc name="constantAnnotationFeatures">
+      <p>Traits constants à ajouter à chaque annotation créée.</p>
+    </param-doc>
+    <param-doc name="documentFilter">
+      <p>Ne traite que les documents qui satisfont ce filtre.</p>
+    </param-doc>
+    <param-doc name="sectionFilter">
+      <p>Ne traite que les sections qui satisfont ce filtre.</p>
+    </param-doc>
+  </module>
+</alvisnlp-doc>

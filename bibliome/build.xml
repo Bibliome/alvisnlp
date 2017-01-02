@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+
+<project name="AlvisNLP Bibliome Module Factory" default="jarfile" basedir=".">
+  <tstamp/>
+  <property name="alvisnlp-bibliome.vendor" value="alvisnlp.vendor"/>
+  <property name="alvisnlp-bibliome.buildDate" value="${DSTAMP}${TSTAMP}"/>
+  <property name="alvisnlp-bibliome.version" value="${alvisnlp.version}"/>
+  <exec
+      executable="svnversion"
+      outputproperty="alvisnlp-bibliome.revision">
+    <arg value="-n"/>
+  </exec>
+
+
+  <property name="src" value="src/main/java"/>
+  <property name="gen" value="src/main/generated-java"/>
+  <property name="build" value="build"/>
+  <property name="resources" value="src/main/resources"/>
+
+  <property name="build.compiler" value="modern"/>
+
+  <property name="expressionParser" value="${src}/org/bibliome/alvisnlp/converters/expression/parser"/>
+
+
+
+
+  <target name="expressionParser">
+    <javacc
+	target="${expressionParser}/ExpressionGrammar.jj"
+	javacchome="${javacchome}"
+	buildparser="true"
+	buildtokenmanager="true"
+	errorreporting="true"
+	keeplinecolumn="true"
+	sanitycheck="true"
+	unicodeinput="true"
+	/>
+  </target>
+
+  <target name="clean.expressionParser">
+    <delete>
+      <fileset dir="${expressionParser}">
+	<include name="ParseException.java"/>
+	<include name="ExpressionParser.java"/>
+	<include name="ExpressionParserConstants.java"/>
+	<include name="ExpressionParserTokenManager.java"/>
+	<include name="SimpleCharStream.java"/>
+	<include name="Token.java"/>
+	<include name="TokenMgrError.java"/>
+      </fileset>
+    </delete>
+  </target>
+
+
+  <target name="build" depends="expressionParser">
+    <mkdir dir="${build}"/>
+    <mkdir dir="${gen}"/>
+    <javac
+	classpath="${core.jarfile}:${libs}:${java.class.path}"
+	destdir="${build}"
+	srcdir="${src}"
+	includes="**/*.java"
+	excludes="**/*.properties **/*.html **/*.css"
+	debug="${debug}"
+	>
+      <compilerarg line="-s bibliome/${gen}"/>
+      <compilerarg line="-processorpath ${bibliome-utils.jarfile}:${core.jarfile}"/>
+      <compilerarg line="-AmoduleFactoryName=org.bibliome.alvisnlp.BibliomeModuleFactory"/>
+      <compilerarg line="-AdataClass=alvisnlp.corpus.Corpus"/>
+      <compilerarg line="-AsequenceImplementationClass=org.bibliome.alvisnlp.modules.Sequence_Impl"/>
+      <compilerarg line="-AfactoryInterface=alvisnlp.factory.CorpusModuleFactory"/>
+      <compilerarg line="-AconverterFactoryName=org.bibliome.alvisnlp.BibliomeConverterFactory"/>
+      <compilerarg line="-AshellModule=org.bibliome.alvisnlp.modules.shell.Shell"/>
+      <compilerarg value="-Xlint:all"/>
+    </javac>
+  </target>
+
+  <target name="clean.build" depends="clean.expressionParser">
+    <delete dir="${build}"/>
+    <delete dir="${gen}"/>
+  </target>
+
+
+
+
+  <target name="jarfile" depends="build">
+    <copy todir="${build}">
+      <fileset dir="${src}">
+	<include name="**/*.properties"/>
+	<include name="**/*.xml"/>
+	<include name="**/*.xml"/>
+	<include name="**/*.html"/>
+	<include name="**/*.css"/>
+	<include name="**/*.sh"/>
+	<include name="**/*.js"/>
+	<include name="**/*.png"/>
+      </fileset>
+    </copy>
+
+    <jar destfile="${bibliome.jarfile}" basedir="${build}">
+      <manifest>
+	<attribute name="Built-By" value="${user.name}"/>
+	<attribute name="Implementation-Vendor" value="${alvisnlp-bibliome.vendor}"/>
+        <attribute name="Implementation-Title" value="AlvisNLP Bibliome Module Factory"/>
+        <attribute name="Implementation-Version" value="${alvisnlp-bibliome.version} rev ${alvisnlp-bibliome.revision} (${alvisnlp-bibliome.buildDate})"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="clean.jarfile">
+    <delete file="${biliome.jarfile}"/>
+  </target>
+  <target name="jarfile.clean" depends="clean.jarfile"/>
+
+  <target name="resources.jarfile">
+    <jar destfile="${resources.jarfile}" basedir="${resources}"/>
+  </target>
+
+  <target name="clean.resources.jarfile">
+    <delete file="${resources.jarfile}"/>
+  </target>
+  <target name="resources.jarfile.clean" depends="clean.resources.jarfile"/>
+</project>

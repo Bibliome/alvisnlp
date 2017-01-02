@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<!--
+Copyright 2016 Institut National de la Recherche Agronomique
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<alvisnlp-doc author="Robert Bossy" date="2010-10-28">
+  <synopsis>
+    <p>Matches a regular expression-like pattern on the sequence of annotations in a given layer.</p>
+  </synopsis>
+  <module-doc>
+    <description>
+      <p><this/> searches for <param name="pattern"/> on the sequence of annotations in layer <param name="layerName"/>. Note that in a layer, annotations are sorted in increasing order of start boundary, then decreasing order of end boundary; the order is undefined for annotations with the exact same span.</p>
+      <p>For each match, <this/> applies all actions specified by <param name="actions"/>. Each action concerns a sub-group of the pattern, if no sub-group is specified then the action applies to the whole match.</p>
+    </description>
+
+    <param-doc name="pattern">
+      <p>Pattern to match see <converter name="AnnotationPattern"/> for pattern syntax.</p>
+    </param-doc>
+
+    <param-doc name="constantAnnotationFeatures">
+      <p>Features to add to all annotations created by this module, these features are added for all actions that create an annotation.</p>
+    </param-doc>
+
+    <param-doc name="constantRelationFeatures">
+      <p>Features to add to all relations created by this module, these features are added for all realtions that have been created by an action that creates a tuple.</p>
+    </param-doc>
+  
+    <param-doc name="active">
+      <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is true.</p>
+    </param-doc>
+    
+    <param-doc name="constantTupleFeatures">
+      <p>Features to add to all tuples created by this module, these features are added for all actions that create a tuple.</p>
+    </param-doc>
+
+    <param-doc name="actions">
+      <p>Actions to perform each time the pattern is matched on the annotation sequence. See <converter name="MatchActionArray"/> for all available actions.</p>
+    </param-doc>
+
+    <param-doc name="documentFilter">
+      <p>Only process documents that satisfy this filter.</p>
+    </param-doc>
+
+    <param-doc name="sectionFilter">
+      <p>Only process sections that satisfy this filter.</p>
+    </param-doc>
+
+    <param-doc name="layerName">
+      <p>Match the pattern on the annotations contained in this layer.</p>
+    </param-doc>
+
+    <param-doc name="overlappingBehaviour">
+      <p>What to do if the layer contains overlapping annotations.</p>
+    </param-doc>
+
+    <param-doc name="annotationComparator">
+      <p>Comparator to use when removing overlaps.</p>
+    </param-doc>
+  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+</alvisnlp-doc>

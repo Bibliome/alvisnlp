@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!--
+Copyright 2016 Institut National de la Recherche Agronomique
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<alvisnlp-doc author="Robert Bossy" date="2010-10-28">
+  <synopsis>
+    <p>Converts into an annotation pattern to be used by <module name="PatternMatcher"/>.</p>
+  </synopsis>
+
+  <converter-doc>
+    <string-conversion>
+      <p>A pattern consists in a sequence of predicates. A predicate is a condition on an annotation, thus the pattern matches subsequences of annotations that yield true for each predicate.</p>
+      <p>Available predicates:
+      <ul>
+	<li><em>any</em>: yields true for any annotation;</li>
+	<li><em>featureKey</em>: yields true iff the annotation has the feature <em>featureKey</em>;</li>
+	<li><em>featureKey == "featureValue"</em>: yields true iff the annotation has the feature <em>featureKey</em> and its value is equal to <em>featureValue</em>;</li>
+	<li><em>"featureValue"</em>: yields true iff the feature <em>form</em> of the annotation is equal to <em>featureValue</em>, this is a short for <em>form == "featureValue"</em>;</li>
+	<li><em>/regexp/</em>: yields true iff the feature <em>form</em> of the annotation matches the regular expression <em>regexp</em> (<a href="http://download.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html">Java syntax</a>);</li>
+	<li><em>featureKey =~ "regexp"</em> or <em>featureKey =~ /regexp/</em>: yields true iff the annotation has the feature <em>featureKey</em> and its value matches the regular expression <em>regexp</em> (<a href="http://download.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html">Java syntax</a>);</li>
+	<li><em>featureKey op integer</em>: yields true iff the annotation has the feature <em>featureKey</em>, and its value can be converted into an integer, and this value satisfies the comparison according to the specified operator and integer, <em>op</em> can be either <em>==</em>, <em>!=</em>, <em>&lt;</em>, <em>&gt;</em>, <em>&lt;=</em> or <em>&gt;=</em>;</li>
+	<li><em>pred1 or pred2</em>: yields true iff one of predicates <em>pred1</em> or <em>pred2</em> yield true for the annotation;</li>
+	<li><em>pred1 and pred2</em>: yields true iff predicates <em>pred1</em> and <em>pred2</em> both yield true for the annotation;</li>
+	<li><em>not pred</em>: yields true iff the predicate <em>pred</em> yields false.</li>
+      </ul>
+      The operator precedence is the usual one (<em>or</em> &gt; <em>and</em> &gt; <em>not</em>). The precedence can be overriden using parentheses.
+     </p>
+     <p>Additionally the following two pseudo-predicates are available:
+     <ul>
+       <li><em>start</em>: matches the start of the annotation sequence, meaning that the following predicate must match the first annotation in the sequence;</li>
+       <li><em>end</em>: matches the end of the annotation sequence, meaning that the preceding predicate must match the last annotation in the sequence.</li>
+     </ul>
+     </p>
+     <p>Predicates can be quantified. The following quantifiers are available:
+     <ul>
+       <li><em>?</em>: matches the preceding predicate or group zero or once;</li>
+       <li><em>*</em>: matches the preceding predicate or group zero to several times (unlimited);</li>
+       <li><em>+</em>: matches the preceding predicate or group at least once (unlimited);</li>
+       <li><em>{n}</em>: matches the preceding predicate or group exactly <em>n</em> times;</li>
+       <li><em>{n,}</em>: matches the preceding predicate or group at least <em>n</em> times (unlimited);</li>
+       <li><em>{n,m}</em>: matches the preceding predicate or group at least <em>n</em> times but no more than <em>m</em> times.</li>
+     </ul>
+     These are <em>greedy</em> quantifiers. If there is a question mark (<em>?</em>) after the quantifier, then this quantifier is <em>reluctant</em>. See <a href="http://download.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html">Java Pattern documentation</a> for a complete description of greedy and reluctant quantifiers.</p>
+     <p>Predicate sequences may be grouped between square brackets. This allows the quantification of sub-patterns. Groups can be named by specifying the name after the opening bracket and </p>
+     <p>Examples:
+     <ul>
+       <li><em>posTag =~ /^N/ +</em>: matches a single annotation or an unlimited number of consecutive annotations whose feature <em>posTag</em> starts with a <em>N</em>;</li>
+       <li><em>posTag =~ /^J/ * posTag =~ /^N/ +</em>: matches nothing or an unlimited number of consecutive annotations whose feature <em>posTag</em> starts with a <em>J</em>, then followed by a single annotation or an unlimited number of consecutive annotations whose feature <em>posTag</em> starts with a <em>N</em>;</li>
+       <li><em>posTag =~ /^J/ * posTag =~ /^N/ * [head: posTag =~ /^N/ ]</em>: like the preceding one, but captures the last annotation of the match in a sub-pattern named <em>head</em>, this name can be referenced in <param module="PatternMatcher" name="actions"/>.</li>
+     </ul>
+     </p>
+    </string-conversion>
+
+    <xml-conversion>
+      <p>
+	<xverb><param value="PATTERN"/></xverb>
+	or
+	<xverb><param pattern="PATTERN"/></xverb>
+	or
+	<xverb><param>PATTERN</param></xverb>
+	<em>PATTERN</em> will be converted as a string.
+      </p>
+    </xml-conversion>
+  </converter-doc>
+</alvisnlp-doc>

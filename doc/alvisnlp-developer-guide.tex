@@ -1,0 +1,761 @@
+% Copyright 2016 Institut National de la Recherche Agronomique
+% 
+% Licensed under the Apache License, Version 2.0 (the "License");
+% you may not use this file except in compliance with the License.
+% You may obtain a copy of the License at
+% 
+%         http://www.apache.org/licenses/LICENSE-2.0
+% 
+% Unless required by applicable law or agreed to in writing, software
+% distributed under the License is distributed on an "AS IS" BASIS,
+% WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+% See the License for the specific language governing permissions and
+% limitations under the License.
+
+
+\documentclass[a4paper]{article}
+
+\usepackage[latin1]{inputenc}
+\usepackage{a4wide}
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage[english]{babel}
+
+\def\~{\discretionary{}{}{}} 
+
+\include{version}
+\include{common}
+
+\title{AlvisNLP Module Developer Guide\\version \version}
+\author{Robert Bossy}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Copyright}
+\license
+
+\section{Introduction}
+This document is a guide for developers who wish to put up additional modules types for AlvisNLP.
+
+\subsection{Prerequisites}
+AlvisNLP is written in Java 7, thus it requires a Java Virtual Machine and the JDK version 7.
+It has been tested with Sun JRE XXX in 32 bit and 64 bit versions.
+
+AlvisNLP is distributed as a Java binary (a JAR file) and Java sources under the terms of XXX licence.
+The only requirements for processing corpora with the binary distribution are the requirements for the modules you chose to apply.
+Indeed some modules may need external libraries or external programs.
+Since the set of available modules is extensible and subject to changes, the requirements of each module should be documented separately.
+The requirements of the modules supported by the BibliomeModuleFactory are specified in AlvisNLP user guide.
+
+\section{Quick tour of the document API}
+\label{DocumentAPI}
+
+In order to write a proper AlvisNLP module, you must be familiar with the AlvisNLP document API.
+Indeed your modules will most probably create documents, read or create documents metadata and sections, read or create section layers and annotations.
+The reference documentation of the document API can be found as a Javadoc for the package \texttt{alvisnlp.document}.
+
+Objects manipulated by modules are instances of the following classes:
+
+\subsection{Corpus}
+\texttt{Corpus} objects represent a corpus.
+AlvisNLP modules process one corpus at a time.
+The corpus to be processed will be passed to the module at runtime so there is probably little need to instanciate this class.
+
+\subsubsection{Useful methods}
+
+\texttt{Collection<Document> getAllDocuments()}\\
+\texttt{Document getDocument(String id)}\\
+\texttt{boolean hasDocument(String id)}\\
+\texttt{int numDocuments()}\\
+\texttt{void removeDocument(Document doc)}\\
+
+\texttt{Iterator<Document> documentIterator()}\\
+\texttt{Iterator<Document> documentIterator(Evaluator filter)}\\
+\texttt{Iterator<Section> sectionIterator(Evaluator documentIterator, Evaluator sectionIterator)}\\
+\texttt{Iterator<Annotation> annotationIterator(Evaluator documentIterator, Evaluator sectionIterator, String layerName, Evaluator filter)}
+
+\subsection{Document}
+\texttt{Document} objects represent documents.
+Some modules process one document at a time and need to explore the structure of each document of the processed corpus.
+
+There is no public \texttt{Document} constructor, but a static \texttt{getDocument} factory:
+\texttt{Document Document.getDocument(DocumentCreator dc, Corpus corpus, String id, Logger logger)}\\
+\texttt{dc} is a document creator, usually the module instance (see XXX).
+If the specified corpus contains a document with the specified identifier, then the behaviour depends on the document creator.
+If there is no document with the specified identifier, then this methods creates a new empty one.
+The new document is automatically added to the corpus.
+
+\subsubsection{Useful methods}
+
+\texttt{String getId()}\\
+\texttt{Corpus getCorpus()}\\
+\texttt{boolean hasSection(String name)}\\
+\texttt{int numSections()}\\
+\texttt{void removeSecion(Section sec)}\\
+
+\texttt{Itarator<Annotation> annotationIterator(Evaluator sectionFilter, String layerName, Evaluator filter)}\\
+\texttt{Iterator<Section> sectionIterator()}\\
+\texttt{Iterator<Section> sectionIterator(String name)}\\
+\texttt{Iterator<Section> sectionIterator(Evaluator filter)}\\
+
+\subsection{Section}
+Some modules process one section at a time and need to explore the contents of each section of the processed document.
+
+The only public \texttt{Section} constructor has the following signature:
+\texttt{Section(SectionCreator sc, Document doc, String name, String contents)}\\
+This constructor creates a section with the specified name and contents.
+The new section is added to the specified document.
+
+\subsubsection{Useful methods}
+
+\texttt{Document getDocument()}\\
+\texttt{String getName()}\\
+\texttt{int getOrder()}\\
+\texttt{String getContents()}\\
+
+\texttt{Layer getAllAnnotations()}\\
+\texttt{boolean hasLayer(String name)}\\
+\texttt{Layer getLayer(String name)}\\
+\texttt{Layer ensureLayer(String name)}\\
+\texttt{Layer getLayer(String name, Evaluator annotationFilter)}\\
+\texttt{Collection<Layer> getSentences(String tokenLayerName, String sentenceLayerName)}\\
+
+\texttt{Relation ensureRelation(RelationCreator rc, String name)}\\
+\texttt{Relation getRelation(String name)}\\
+\texttt{boolean hasRelation(String name)}\\
+\texttt{void removeRelation(Relation rel)}\\
+
+\subsection{Layer}
+Layers are annotation containers.
+Annotations in layers are ordered by start position.
+Annotations with the same start position are ordered by reverse end position.
+Annotations with the same start and end positions are ordered in an unspecified way, though the order is stable during the whole lifetime of the layer.
+
+\subsubsection{Constructors}
+
+\texttt{Layer(Section sec, String name)}\\
+This constructor creates a layer with the specified name and adds it to the specified section.
+If the section already contains a layer with the specified name, then an \texttt{IllegalArgumentException} is raised.
+
+\texttt{Layer(Section sec)}\\
+This creates an anonymous layer.
+The new layer belongs to the specified section, however the section retains no reference to the layer.
+This constructor is useful to build temporary annotation containers.
+
+\subsubsection{Useful methods}
+
+\texttt{String getName()}\\
+\texttt{Section getSection()}\\
+
+\texttt{Layer getAnonymousCopy()}\\
+
+\texttt{void add(Annotation a)}\\
+\texttt{Annotation get(int index)}\\
+\texttt{int index(Annotation a)}\\
+\texttt{boolean remove(Annotation a)}\\
+
+\texttt{boolean hasOverlaps()}\\
+\texttt{void removeOverlaps(Comparator<Annotation> comp, boolean removeEqual, boolean removeIncluded, boolean removeOverlapping)}\\
+\texttt{void removeOverlaps(Comparator<Annotation> comp)}\\
+
+\texttt{Layer after(int pos)}\\
+\texttt{Layer before(int pos)}\\
+\texttt{Layer between(int from, int to)}\\
+\texttt{Layer between(Annotation a)}\\
+\texttt{Layer including(int from, int to)}\\
+\texttt{Layer including(Annotation a)}\\
+\texttt{Layer overlapping(int from, int to)}\\
+\texttt{Layer overlapping(Annotation a)}\\
+\texttt{Layer span(int from, int to)}\\
+\texttt{Layer span(Annotation a)}\\
+
+\subsection{Annotation}
+An annotation belongs to a section, it is characterized by its start and end positions in the section contents.
+By convention start and end positions are zero-based.
+The start position is inclusive and the end position is exclusive.
+Thus the difference between the end and start positions is the length of the annotation.
+
+\subsubsection{Constructors}
+
+\texttt{Annotation(AnnotationCreator ac, Section sec, int start, int end)}\\
+This constructor creates an annotation for the specified section with the specified start and end positions.
+
+\texttt{Annotation(AnnotationCreator ac, Layer layer, int start, int end)}\\
+This constructor creates an annotation for the section to which belongs the specified layer with the specified start and end positions.
+The new annotation is added into the specified layer.
+
+\subsubsection{Useful methods}
+
+\texttt{int getStart()}\\
+\texttt{int getEnd()}\\
+\texttt{int getLength()}\\
+\texttt{Section getSection()}\\
+\texttt{String getForm()}\\
+
+\texttt{boolean includes(Annotation a)}\\
+\texttt{boolean overlaps(Annotation a)}\\
+\texttt{boolean sameSpan(Annotation a)}\\
+
+\subsection{Relation}
+A relation belongs to a section, it is characterized by a name.
+The relation name is unique withi a section.
+
+\subsubsection{Constructor}
+
+\texttt{Relation(RelationConstructor, Section sec, String name)}\\
+This constructor creates a relation in the specified section with the specified name.
+The new relation is added to the section.
+If the section already contains a relation with the specified name, then a \texttt{IllegalArgumentException} is raised.
+
+\subsubsection{Useful methods}
+
+\texttt{String getName()}\\
+\texttt{Section getSection()}\\
+\texttt{int size()}\\
+
+\texttt{Collection<Tuple> getTuples()}\\
+\texttt{void removeTuple(Tuple t)}\\
+\texttt{void removeTuples(Collection<Tuple> c)}\\
+
+\subsection{Tuple}
+A tuple belongs to a relation.
+It contains a set of key-value pairs, where keys are strings and values are annotations.
+Each key is unique and contains a single annotation value.
+The key is also called a \emph{role}, and the value the \emph{argument}.
+
+\subsubsection{Constructor}
+
+\texttt{Tuple(TupleCreator tc, Relation rel)}\\
+This constructor creates a tuple for the specified relation.
+The new tuple is added to the specified relation.
+
+\subsubsection{Useful methods}
+
+\texttt{Relation getRelation()}\\
+\texttt{int getArity()}\\
+\texttt{boolean hasArgument(Annotation a)}\\
+\texttt{boolean hasArgument(String role)}\\
+\texttt{boolean hasArgument(String role, Annotation a)}\\
+\texttt{Collection<String> getRoles()}\\
+\texttt{Collection<Annotation> getAllArguments()}\\
+\texttt{Annotation getArgument(String role)}\\
+\texttt{void setArgument(String role, Annotation a)}\\
+
+\subsection{Element}
+The classes \texttt{Corpus}, \texttt{Document}, \texttt{Section}, \texttt{Annotation}, \texttt{Relation} and \texttt{Tuple} are subclasses of \texttt{Element}.
+An element has a set of key/value pairs called features.
+These features can be used to store attributes and metadata.
+
+Feature keys are not unique: there may be several values for a single key.
+Though values of the same key retain the order they were inserted.
+By convention, if only one value is required, then the last one is used.
+
+Elements may have a single static feature whose key and value are constant.
+
+\begin{tabular}[hptb]{lll}
+  \textbf{Element type} & \textbf{Key} & \textbf{Value}\\
+  \texttt{Corpus} & - & -\\
+  \texttt{Document} & \emph{id} & document identifier\\
+  \texttt{Section} & \emph{name} & section name\\
+  \texttt{Annotation} & \emph{form} & annotation form\\
+  \texttt{Relation} & \emph{name} & relation name\\
+  \texttt{Tuple} & - & -\\
+\end{tabular}
+It is not possible to change the value of the static feature.
+
+\subsubsection{Useful methods}
+
+The following methods are accessible to all subclasses.
+
+\texttt{boolean hasFeature(String key)}\\
+\texttt{boolean isFeatureless()}\\
+\texttt{List<String> getFeature(String key)}\\
+\texttt{Collection<String> getFeatureKeys()}\\
+\texttt{String getLastFeature(String key)}\\
+\texttt{void addFeature(String key, String value)}\\
+\texttt{void addFeatures(Map<String,String> map)}\\
+\texttt{void addMultiFeatures(Map<String,List<String>> map)}\\
+\texttt{boolean removeFeature(String key)}\\
+\texttt{boolean removeFeature(String key, String value)}\\
+
+
+\section{Writing a module}
+
+\subsection{HelloWord}
+
+The source \ref{HelloWorld} shows the source of a \texttt{HelloWorld} module type.
+The first obvious thing to note is that a module type is implemented by a Java class.
+When AlvisNLP runs, it creates an instance the class coresponding to each module type in the plan.
+
+\codefile{HelloWorld module}{HelloWorld}{developper-examples/src/alvisnlp/hello/HelloWorld.java}
+
+All classes that implement a module type must:
+\begin{itemize}
+\item extend \texttt{alvisnlp.module.lib.CorpusModule};
+\item have the \texttt{alvisnlp.module.lib.AlvisNLPModule} annotation;
+\item be public;
+\item have a public null constructor.
+\end{itemize}
+
+The \texttt{CorpusModule} base class defines basic methods that allow AlvisNLP to handle the module.
+The \texttt{AlvisNLPModule} annotation tells the compiler that this class is a module type implementation.
+If this annotation is omitted, then AlvisNLP will not be able to instanciate a module of this type.
+
+Note that the \texttt{HelloWorld} class only implements one method: \texttt{process}.
+This is the method that AlvisNLP calls when the module must process a corpus.
+The first parameter is of type \texttt{ProcessingContext}, this interface allows modules to access some information about the current AlvisNLP instance and the current plan.
+The most useful methods are:
+\texttt{Locale getLocale()}\\
+\texttt{File getRootTempDir()}\\
+\texttt{void callExternal(External<T> ext)}\\
+
+The second parameter of the \texttt{process} method is the processed corpus.
+The \texttt{Corpus} interface is explained in \ref{DocumentAPI}.
+
+\subsection{Compiling HelloWord}
+Let us make our \texttt{HelloWord} module available to AlvisNLP.
+The compilation of the module is done with the \texttt{javac} program provided by the JDK.
+
+\subsubsection{CLASSPATH}
+The following libraries must be available to the compiler in order to process module sources:
+\begin{itemize}
+\item the JDK library;
+\item the AlvisNLP libraries, available in the \texttt{lib} directory of the AlvisNLP install directory, the mandatory libraries are \texttt{util.jar} and \texttt{alvisnlp.jar};
+\item any other library your modules use, in the case of \texttt{HelloWorld} there isn't any.
+\end{itemize}
+
+\subsubsection{Annotation Processor}
+In order to compile the Java class into a complete AlvisNLP module type, the compiler must load the annotation processors that will recognize AlvisNLP specific annotations, such as \texttt{AlvisNLPModule}.
+This is specified to the Java compiler with the \texttt{-processorpath} option.
+Both libraries \texttt{util.jar} and \texttt{alvisnlp.jar} must be specified to the compiler.
+
+The compiler will generate source files, you must specify the directory where to place them with the \texttt{-s} option.
+We strongly recommend to generate source files in a separate directory so generated and hand-written source files are well discrimminated.
+
+One of the generated files is a module factory (see \ref{ModuleFactories}).
+Its fully qualified name must be provided with the \texttt{-AmoduleFactoryName}.
+
+Putting it all together, the compilation command line looks like:
+
+\code{javac -cp \$LIBS -d build -processorpath \$LIBS -s gen-src -AmoduleFactoryName=alvisnlp.hello.HelloFactory src/alvisnlp/hello/HelloWorld.java}
+
+This command line assumes:
+\begin{itemize}
+\item \texttt{\$LIBS} contains the paths to \texttt{util.jar} and \texttt{alvisnlp.jar};
+\item directories \texttt{gen-src} and \texttt{build} exist, they will receive generated sources and class files respectively;
+\item the \texttt{HelloWorld.java} is located in the \texttt{src/alvisnlp/hello} directory.
+\end{itemize}
+
+\subsubsection{Compilation outcome}
+The compiler output looks like:
+\begin{verbatim}
+Note: processing module sources
+Note: looking for modules for model CORPUS (1 modules)
+Note:   generating gen-src/alvisnlp/hello/HelloFactory.java
+Note: checking for module classes to generate
+Note: checking for module documentation to generate
+Note:   generating gen-src/alvisnlp/hello/HelloWorldDoc.xml
+Note: scanning org.bibliome.util.service.Service
+Note:   class: alvisnlp.hello.HelloFactory
+Note: scanning org.bibliome.util.service.Services
+Note: writing file:build/META-INF/services/alvisnlp.factory.CorpusModuleFactory
+\end{verbatim}
+
+It basically says it scanned module classes and generated the following files:
+\begin{itemize}
+\item \texttt{gen-src/alvisnlp/hello/HelloFactory.java}: the module factory class
+\item \texttt{gen-src/alvisnlp/hello/HelloWorldDoc.xml}: a documentation skeleton for the module \texttt{HelloWorld}
+\item \texttt{build/META-INF/services/alvisnlp.factory.CorpusModuleFactory}: the service specification for modules
+\end{itemize}
+
+You can look into the contents of the generated files.
+Their function will be described in the next two sections.
+
+The final step is to wrap everything in a jar file:
+
+\code{jar cf hello.jar -C build .}
+
+\subsection{Module factories}
+\label{ModuleFactories}
+
+AlvisNLP instanciates modules with a module factory (\texttt{alvisnlp.factory.CorpusModuleFactory}).
+Each module factory can instanciate several module types.
+In our example the module factory can only instanciate the \texttt{alvisnlp.hello.HelloWorld} module type, the module type name has a short form: \texttt{HelloWorld}.
+The Bibliome Module Factory provided with the AlvisNLP distribution can instanciate more than fifty module types.
+
+AlvisNLP checks for available module factories at runtime using the \texttt{java.lang.ServiceLoader} standard facility.
+The JDK Service Loader requires that the module factory implementation is specified in the file \texttt{META-INF/services/alvisnlp.factory.CorpusModuleFactory} inside the jar file.
+Every class specified in the class path is automatically available to AlvisNLP.
+
+The Annotation Processor invoked during the compilation process generates the source file for a module factory as well as the \texttt{META-INF/services/alvisnlp.factory.CorpusModuleFactory}.
+So compiling modules altogether is generally sufficient to make them supported by a single module factory.
+The generated factory name is specified at compile time by the \texttt{-AmoduleFactoryName} option.
+
+In our example it is enough to put the \texttt{hello.jar} file in the Java class path to make the \texttt{HelloWorld} module type available for any user.
+
+\subsection{Using HelloWord}
+In order to use the \texttt{HelloWorld} module type, we need to set the \texttt{ALVISNLP\_HOME} to the AlvisNLP install root directory (see XXX).
+We also need to place the \texttt{hello.jar} file in the Java class path.
+Then we can launch AlvisNLP:
+
+\code{alvisnlp test.xml}
+
+Where \texttt{test.xml} looks like \ref{HelloWorldTest}.
+
+\codefile{HelloWorld test}{HelloWorldTest}{developper-examples/test.xml}
+
+The output of the processing log should contain something like:
+
+\begin{verbatim}
+[2012-01-24 19:34:44.238][developper-examples.hello] processing
+[2012-01-24 19:34:44.240][developper-examples.hello] hello world!
+[2012-01-24 19:34:44.240][developper-examples.hello] done in 0 ms
+\end{verbatim}
+
+\subsection{Documenting modules}
+The documentation of AlvisNLP module classes are embedded in their distribution.
+For each module type, AlvisNLP expects its documentation in an XML file in the same directory as the implementation class.
+The name of the file is the same as the class with the suffix \texttt{Doc.xml}.
+For the \texttt{HelloWorld} module type, this file would be \texttt{HelloWorldDoc.xml} in the same directory as \texttt{HelloWorld.java}.
+
+During the compilation, the annotation processor looks for a documentation file.
+If it cannot find a documentation file, then it generates a skeleton documentation file.
+A module documentation file has the following structure:
+\begin{itemize}
+\item[~] \texttt{<alvisnlp-doc>}
+  \begin{itemize}
+  \item[~] \texttt{<synopsis>}
+    \begin{itemize}
+    \item[$\rightarrow$] a short description of the module type
+    \end{itemize}
+  \item[~] \texttt{<module-doc>}
+    \begin{itemize}
+    \item[~] \texttt{<description>}
+      \begin{itemize}
+      \item[$\rightarrow$] the full description of the module type
+      \end{itemize}
+    \item[~] \texttt{<param-doc name="param1">}
+      \begin{itemize}
+      \item[$\rightarrow$] description of the effect of \texttt{param1}
+      \end{itemize}
+    \item[~] \texttt{<param-doc name="param2">}
+      \begin{itemize}
+      \item[$\rightarrow$] description of the effect of \texttt{param2}
+      \end{itemize}
+    \item[~] \ldots
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+Wherever contents is expected (arrows), you can use standard XHTML tags and some additional tags:
+\begin{itemize}
+\item \texttt{<tag name="\ldots">}: print an XML tag with the specified name in fixed-width font. This tag may contain:
+  \begin{itemize}
+  \item other \texttt{<tag>} tags;
+  \item \texttt{<attr name"\ldots" value="\ldots"/>} to specify one of this tag's attribute;
+  \item \texttt{<text>} that contains this tag's text contents.
+  \end{itemize}
+\item \texttt{<this/>}: displays the name of the documented module type.
+\item \texttt{<param name="\ldots"/>}: displays an anchor to the documentation for the specified parameter.
+\item \texttt{<module name="\ldots">}: displays an anchor to the documentation of the specified module.
+\item \texttt{<converter name="\ldots">}: displays an anchor to the documentation of the converter for the specified type.
+\end{itemize}
+
+The generated file has empty synposis and description slots.
+Additionally the compilers automatically creates an empty slot for each parameter.
+If the documentation file already exists, the compiler checks that all parameters are documented and that all documented parameters actually exist.
+In order to make the documentation available at runtime, keep in mind that:
+\begin{itemize}
+\item the documentation file must be in the jar file, so you'll have to copy the documentation files from the source directory to the build directory;
+\item the compiler generates the documentation file in the generated source directory (\texttt{-s} compiler option), so you'll have to move it to the source directory before editing it.
+\end{itemize}
+
+\subsubsection{I18N}
+AlvisNLP supports localized documentation of modules.
+In order to support the documentation of a module in a specific locale, just put a file named \texttt{ModuleClassDoc\_LOCALE.xml}.
+For instance, to provide a french translation of the \texttt{HelloWorld} module type, place the documentation in a file named \texttt{HelloWorldDoc\_fr.xml}.
+
+\subsection{Parameters}
+The \texttt{HelloWorld} module is not really useful since its message is constant.
+Now we will use the example of \texttt{PersonalHello} (\ref{PersonalHello}) whose message can be changed by setting a parameter.
+
+\codefile{PersonalHello module}{PersonalHello}{developper-examples/src/alvisnlp/hello/PersonalHello.java}
+
+Note that this module has a matching pair of accessors for a property \emph{name} (\texttt{getName} and \texttt{setName}).
+Also the getter has been annotated with \texttt{@Param}.
+This annotation is enough for the compiler to understand that this module type accepts a parameter \emph{name} of type \texttt{String}:
+\begin{itemize}
+\item AlvisNLP will set the parameter value read from the plan file through the setter method;
+\item the compiler will include a slot for this parameter in the generated documentation;
+\item if both getter and setter methods are abstract, then the compiler will generate an implementation, however both must be either abstract or concrete.
+\end{itemize}
+
+The type of a parameter is specified by the return type of the getter method.
+It must be a reference type or an array, not a primitive, neither void.
+
+The default value of a parameter is the value returned by the getter method after the module is instanciated and before the parameter has been set to any other value.
+The parameter is said to be unset when the getter method returns \texttt{null}.
+
+The \texttt{Param} annotation accepts the following properties:
+
+\subsubsection{mandatory}
+If \texttt{mandatory} is \texttt{true}, then it is an error for the parameter to be unset in a plan.
+If \texttt{mandatory} is \texttt{false}, then the parameter may be unset.
+It is the responsibility of the module implementation to handle the \texttt{null} value if the parameter is unset.
+By default a parameter is mandatory.
+
+\subsubsection{publicName}
+This property specifies the name of the parameter as it should appear in a plan file.
+By default the public name is the name of the getter method, stripped from the \emph{get} prefix and the first letter in lower case.
+
+\subsubsection{defaultDoc}
+The \texttt{defaultDoc} property is the text inserted in the generated documentation in the parameter slot.
+By default it is the empty string.
+
+\subsubsection{fileFlow}
+This property specifies how a file parameter will be used in the module.
+It only applies for parameters of the following types:
+\begin{itemize}
+\item \texttt{java.io.File}
+\item \texttt{org.bibliome.util.TextFile}
+\item \texttt{java.io.File[]}
+\item \texttt{org.bibliome.util.TextFile[]}
+\item \texttt{alvisnlp.module.types.FileMapping}
+\item \texttt{alvisnlp.module.types.TextFileMapping}
+\end{itemize}
+
+The type of this property is the enumeration \texttt{alvisnlp.module.FileFlow} with the following values:
+\begin{tabular}[hptb]{lll}
+  \textbf{Value}             & \textbf{Constraints}\\
+  \texttt{UNKNOWN}           & none\\
+  \texttt{INPUT\_FILE}       & exists, regular and readable\\
+  \texttt{OUTPUT\_FILE}      & if exists: regular and writeable, otherwise: parent directory must exist, be writable and traversable\\
+  \texttt{EXECUTALE\_FILE}   & exists, regular and executable\\
+  \texttt{INPUT\_DIRECTORY}  & exists, directory, readable, traversable\\
+  \texttt{OUTPUT\_DIRECTORY} & if exists: directory, writable and traversable, otherwise: parent directory must exist, be writable and traversable\\
+\end{tabular}
+
+The default value is \texttt{UNKNOWN}.
+If the parameter is of a file type, then we strongly advise to set this property to the appropriate value.
+It allows AlvisNLP to perform chacks on the parameter values before the processing starts.
+
+\subsubsection{minIntegerValue and maxIntegerValue}
+These properties specify the allowed boundaries of numeric parameters.
+They apply for parameters of the following types:
+\begin{itemize}
+\item \texttt{Integer}
+\item \texttt{Long}
+\item \texttt{Number}
+\item \texttt{Integer[]}
+\item \texttt{Long[]}
+\item \texttt{Number[]}
+\end{itemize}
+
+The default values for \texttt{minIntegerValue} and \texttt{maxIntegerValue} are \texttt{Integer.MIN\_VALUE} and \texttt{Integer.MAX\_VALUE} respectively.
+If the parameter is of a numeric type, then we strongly advise to set these properties to appropriate values.
+It allows AlvisNLP to perform chacks on the parameter values before the processing starts.
+
+\subsection{Base classes}
+Our examples extend the \texttt{CorpusModule} class.
+In fact there are several options for different uses, all of the ase classes inherit from \texttt{CorpusModule}.
+
+\subsubsection{\texttt{CorpusModule}}
+
+\paragraph{Parameters}
+\texttt{Expression getActive()}
+
+\paragraph{Useful methods}
+\texttt{String getId()}\\
+\texttt{String getPath()}\\
+
+\texttt{Logger getLogger(ProcessingContext<Corpus>)}\\
+\texttt{File getTempDir(File)}\\
+\texttt{Timer getTimer(ProcessingContext<Corpus>, String, TimerCategory, boolean)}\\
+
+\texttt{void processingException(String)}\\
+\texttt{void rethrow(Throwable)}\\
+
+\texttt{ExpressionResolver getGlobalExpressionResolver()}\\
+\texttt{ReferenceResolver<Boolean> booleanReference(ExpressionResolver, String)}\\
+\texttt{ReferenceResolver<Double> doubleReference(ExpressionResolver, String)}\\
+\texttt{ReferenceResolver<List<Element>> elementsReference(ExpressionResolver, String)}\\
+\texttt{ReferenceResolver<Integer> intReference(ExpressionResolver, String)}\\
+\texttt{ReferenceResolver<String> stringReference(ExpressionResolver, String)}\\
+
+\subsubsection{\texttt{DocumentModule}}
+Modules that inherit from \texttt{DocumentModule} process each document independently.
+Their main processing is an iteration over documents.
+\texttt{DocumentModule} inherits from \texttt{CorpusModule}.
+
+\paragraph{Parameters}
+\texttt{Expression getDocumentFilter()}
+
+\paragraph{Useful methods}
+\texttt{Iterator<Document> documentIterator(ProcessingContext<Corpus>, Corpus)}
+
+\subsubsection{\texttt{SectionModule}}
+Modules that inherit from \texttt{SectionModule} process each section independently.
+Their main processing is an iteration over sections.
+\texttt{SectionModule} inherits from \texttt{DocumentModule}.
+
+\paragraph{Parameters}
+\texttt{Expression getSectionFilter()}
+
+\paragraph{Abstract methods}
+\texttt{String[] addFeaturesToSectionFilter()}\\
+\texttt{String[] addLayersToSectionFilter()}
+
+\paragraph{Useful methods}
+\texttt{Iterator<Section> sectionIterator(ProcessingContext<Corpus>, Corpus)}\\
+\texttt{Iterator<Section> sectionIterator(ProcessingContext<Corpus>, Document)}
+
+\subsubsection{\texttt{FileReaderBase}}
+Modules that inherit from \texttt{FileReaderBase} read a file or files in a directory.
+Usually these files are parsed and fill the corpus with new documents and sections.
+
+\paragraph{Parameters}
+\texttt{File getSourcePath()}\\
+\texttt{Pattern getAcceptPattern()}\\
+\texttt{Boolean getRecursive()}
+
+\paragraph{Abstract methods}
+\texttt{void processFile(ProcessingContext<Corpus>, Corpus, File)}
+
+\subsection{Creators}
+In order to create elements, a module implementation must invoke the constructors of element subclasses.
+These constructors have a formal parameter of a \emph{creator} type depending on the element type:
+\begin{tabular}[hptb]{ll}
+  \textbf{Element type} & \textbf{Creator type}\\
+  \texttt{Document}   & \texttt{DocumentCreator}\\
+  \texttt{Section}    & \texttt{SectionCreator}\\
+  \texttt{Annotation} & \texttt{AnnotationCreator}\\
+  \texttt{Relation}   & \texttt{RelationCreator}\\
+  \texttt{Tuple}      & \texttt{TupleCreator}\\
+\end{tabular}
+
+These creator types are interfaces that define a pair of getter and setter that fills constant features to created elements.
+The general practice is to make the module implementation class implement the creator interface.
+You may or may not implement the abstract getter and setter methods.
+Indeed the getter is annotated as a module parameter, if you do not implement the accessor, then the compiler will.
+
+\subsection{Expressions and evaluators}
+One of the most pervasive and specific parameter types is \texttt{alvisnlp.document.expression.Expression}.
+It allows the user to specify an expression to be evaluated into a value that depends on the current state of the corpus.
+
+The \texttt{Expression} type is designed as an Abstract Syntax Tree (AST) node.
+That means that the only information it contains is:
+\begin{itemize}
+\item a constructor;
+\item a list of string operands, its length is called the \emph{string arity};
+\item a list of expression operands, its length is called the \emph{arity}.
+\end{itemize}
+
+In order to evaluate an expression, then it must be resolved into an evaluator of type \texttt{alvisnlp.document.expression.Evaluator}.
+The resolution process recognizes supported constructors and creates a corresponding evaluator.
+This evaluator can be evaluated into a boolean, an integer, a string or a list of elements.
+The resolution is performed by a resolver of type \texttt{alvisnlp.document.expression.ExpressionResolver}.
+You can get one with the \texttt{getGlobalExpressionResolver} method.
+The typical sequence of statements looks like this:
+
+\code{
+  public void process(ProcessingContext<Corpus> ctx) \{\\
+    ExpressionResolver resolver = getGlobalExpressionResolver();\\
+    Evaluator evaluator = resolver.resolve(resolver, ctx, expression);\\
+    \ldots\\
+    // evaluate to one of the supported types\\
+    boolean b = evaluator.evaluateBoolean(element);\\
+    int i = evaluator.evaluateInt(element);\\
+    String s = evaluator.evaluateString(element);\\
+    double d = evaluator.evaluateDouble(element);\\
+    Iterator<Element> it = evaluator.evaluateIterator(element);\\
+    List<Element> l = evaluator.evaluateList(element);\\
+  \}\\
+}
+
+\subsubsection{Child resolvers}
+The resolver returned by \texttt{getGlobalExpressionResolver} can be extended to support more constructors.
+In fact a resolver has a parent resolver; if an expression cannot be resolved then it is resolved by the parent resolver.
+The resolver returned by \texttt{getGlobalExpressionResolver} has no parent, so an unsupported constructor is an error.
+
+\paragraph{Action resolver}
+Some expressions have side effects on the corpus data structure: they create or delete elements, change features on elements, move annotations to layers, add or remove tuple arguments\ldots
+These expressions are not supported by the global expression resolver.
+In order to support them you have to instanciate \texttt{alvisnlp.document.expression.resolvers.ActionExpressionResolver} with the global resolver as parent.
+This resolver allows to distinguish between expressions that may have side effects.
+
+\paragraph{Reference resolver}
+In some cases, it is necessary to access a variable value in an expression, this value will depend on the processing.
+The \texttt{CorpusModule} provides factory methods that return resolvers that support a reference to a value.
+These methods accept two parameters: the parent resolver and the constructor that will resolve to the referenced value.
+The constructor is supported with both a string arity and expression arity of zero.
+You can set the value of the reference with the \texttt{setValue} method of the resolver returned by the factory method.
+
+\paragraph{Custom resolvers}
+XXX
+
+\paragraph{Library resolvers}
+XXX
+
+\subsection{Calling external programs}
+AlvisNLP/ML provides facilities to handle external programs.
+The processing context method \texttt{callExternal} will operate a system call using the command line, working directory and environment provided by the argument of type \texttt{alvisnlp.module.lib.External}.
+This object also handles the standard output and error of the called binary.
+
+\section{Parameter converters}
+In a plan each parameter is set using an XML tag: the tag name specifies the parameter name and the contents the parameter value.
+AlvisNLP/ML converts the contents of the tag to the corresponding parameter values through an instance of \texttt{alvisnlp.converters.ParamConverter}.
+The supported conversions and the instanciation of converters work the same way as modules:
+\begin{itemize}
+\item converters are instanciated by a \texttt{alvisnlp.converters.ParamConverterFactory};
+\item converter factories are discovered at runtime through Java service loading framework.
+\end{itemize}
+
+In order to support additional conversions you must:
+\begin{itemize}
+\item create a class that implemnts \texttt{ParamConverter};
+\item annotate this class with \texttt{alvisnlp.converters.lib.Converter};
+\item provide the compiler the \texttt{-AconverterFactoryName} option.
+\end{itemize}
+
+The compiler will generate a converter factory that supports all conversions annotated with \texttt{Converter}.
+Moreover the compiler wil register this factory in the service loading framework.
+The conversions will then be available to AlvisNLP/ML.
+
+\subsection{Base classes}
+
+\subsubsection{\texttt{AbstractParamConverter<T>}}
+
+\paragraph{Abstract Methods}
+\texttt{T convertTrimmed(String)}\\
+\texttt{T convertXML(String)}\\
+
+\paragraph{Useful methods}
+\texttt{void cannotConvertString(String, String)}\\
+\texttt{void cannotConvertXML(org.w3c.dom.Element, String)}\\
+
+\subsubsection{\texttt{SimpleParamConverter<T>}}
+\texttt{SimpleParamConverter} inherits from \texttt{AbstractParamConverter} and implements the \texttt{convertXML} method.
+The XML conversion consists in the string convertion of either:
+\begin{itemize}
+\item the value of the \texttt{value} attribute;
+\item the value of one of the alterante attributes;
+\item the string contents of the tag.
+\end{itemize}
+
+\paragraph{Abstract methods}
+\texttt{String[] getAlternateAttributes()}
+
+\subsubsection{\texttt{ArrayParamConverter<T>}}
+\texttt{ArrayParamConverter} inherits from \texttt{SimpleParamConverter}.
+This class is the base class for conversions to array types.
+String values are split with the comma (\texttt{','}) character and each element is converted using the appropriate converter.
+Thus this class assumes the conversion of the component type is supported.
+
+
+
+
+\end{document}
+
+

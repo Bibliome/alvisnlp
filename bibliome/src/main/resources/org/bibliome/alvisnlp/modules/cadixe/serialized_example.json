@@ -1,0 +1,1334 @@
+{
+    "document":{
+        "id":2,
+        "contents":"Application of molecular markers in breeding for leaf rust resistance in wheatGyula Vida1, Mariann Gál1, Andrea Uhrin1, Ottó Veisz1, Zhulin Wang2, Tibor Kiss1, Ildikó Karsai1 and Zoltán Bedő1AbstractThe breeding and cultivation of resistant wheat varieties is an effective way of controlling leaf rust. The use of molecular markers facilitates the incorporation of the major leaf rust resistance genes (Lr genes) responsible for resistance into new varieties and the pyramiding of these genes. Marker assisted selection was used to incorporate the currently effective Lr genes in Hungary (Lr9, Lr24, Lr25, Lr29, Lr35 and Lr37) into winter wheat varieties. The Lr genes were identiﬁed using STS, SCAR and RAPD markers closely linked to them. Investigations were made on how these markers could be utilised in plant breeding, and near-isogenic lines resembling the recurrent variety but each containing a different Lr gene were developed to form the initial stock for the pyramiding of resistance genes or creating multiline varieties. Molecular markers are also ideal for the identiﬁcation of resistance genes in wheat genotypes with unknown genetic background. The presence of Lr1, Lr10, Lr26, Lr34 and Lr37 resistance genes has been demonstrated using molecular markers in the Martonvásár gene pool.IntroductionImproving resistance to rust fungi is one of the major tasks facing wheat breeders all over the world. Wheat is attacked by three rust species: leaf rust (Puccinia triticina Eriks.), stem rust (P. graminis Pers.: Pers. f. sp. graminis Eriks. & E. Henn) and stripe (yellow) rust (P. striiformis Westend.). All three pathogens are capable of causing substantial economic losses, but their incidence varies due to their diverse ecological requirements. In Hungary the greatest damage is currently caused by leaf rust, which can be expected to infect wheat ﬁelds every year. During the ﬁrst half of the 20th century it was not thought to be of economic importance (HUSZ 1941), but since then it has been shown that under Hungarian conditions leaf rust may cause yield losses of up to 40% (BARABÁS and MATUZ 1983). The most environmentally sound, low cost method of controlling leaf rust is to breed and grow resistant wheat varieties. So far over 60 leaf rust resistance genes, i.e. Lr genes, have been identiﬁed and localised on the wheat chromosomes. In addition, a number of temporarily designated resistance genes and quantitative loci (QTLs) are able to provide total or partial protection against various rust pathotypes (MCINTOSH et al. 2008). The effectiveness of resistance genes depends on the composition of the pathogen population. As this changes dynamically, new pathotypes virulent to the given resistance gene multiply from time to time, so the resistance of a variety is not a constant trait. Any variety carrying a single resistance gene may become susceptible within a short time. The postulation of resistance genes is traditionally carried out using rust isolates with known virulence (KNOTT 1989), but this procedure is extremely time-, space- and labour-intensive and cannot be employed if no differential fungal isolate is available. In many cases resistance genes can only be identiﬁed using molecular markers (MELCHINGER 1990). Over the last 15 years many efﬁcient markers for leaf rust resistance genes have been described. The molecular markers most closely linked to Lr genes are listed in Table 1. The table only contains markers based on the PCR technique, as the majority of these can be applied relatively easily in wheat breeding programmes. Molecular markers are used for two purposes in resistance breeding: (1) to monitor the incorporation of designated resistance genes or QTLs into elite wheat genotypes (i.e. MAS, marker assisted selection), (2) to identify resistance genes in varieties and lines where the genetic background is unknown (i.e. gene detection). The Martonvásár wheat breeding programme makes use of molecular markers linked to leaf rust resistance genes for both of these purposes. Therefore, a backcross programme based on markers has been initiated to incorporate Lr genes that are currently effective in Hungary into Martonvásár wheat varieties, while the presence of Lr genes in the wheat varieties and lines bred in Martonvásár or used as parental partners in the breeding programme is also investigated.Materials and methodsMarker assisted selection and identiﬁcation of designated leaf rust resistance genes A backcross (BC) programme was started in the Agricultural Research Institute of the Hungarian Academy of Sciences  aimed at the transfer of effective Lr genes. Martonvásár winter wheat varieties with good agronomic and technological quality parameters, but susceptible or moderately resistant to leaf rust (Mv Emma, Mv Madrigál, Mv Pálma and Mv Magvas) were crossed with near-isogenic lines of Thatcher each carrying a different Lr gene [Lr9: Transfer/ Thatcher*6 (R.L.6010); Lr24: Thatcher*6/Agent; Lr25: Thatcher*6/Transec; Lr29: Thatcher*6/Cs7D-Ag#11; Lr35: Thatcher*6/R.L.5711] and with Renan (Lr37). The F1 plants were backcrossed to the recurrent parents. BC1 plants were selected by means of MAS from different backcross generations and these were again backcrossed with the recurrent parent. The choice of Lr genes for incorporation was based not only on their effectiveness, but also on whether reliable,  closely linked PCR markers were available. These were used for MAS in backcross (BC) generations segregating for the Lr genes. The CTAB (cetyl-trimethyl-ammonium bromide) method (ROGERS and BENDICH 1985) and the DNeasy® Plant Mini Kit (Qiagen®) were used to isolate DNA. In each combination 10-15 plants were tested for leaf rust resistance in the greenhouse and ﬁeld. In the seedling stage, the leaf rust resistance of the young plants was tested in the greenhouse parallel with the isolation of DNA, in order to monitor the efﬁciency. The plants were inoculated in the 2-leaf stage with a mixture of leaf rust uredospores collected from varieties with various genetic backgrounds and multiplied in the greenhouse. PCR-based primers were used for the detection of the Lr genes (Table 2). The PCR reactions were carried out as proposed by the authors cited in Table 2, after which the products were ampliﬁed using PTC-100 (MJ Research) and GeneAmp PCR System 9700 (Applied Biosystems) equipment. The ampliﬁed products were visible under UV light after electrophoresis on 1.2% agarose gels containing ethidium bromide. The presence of ﬁve leaf rust resistance genes (Lr1, Lr10, Lr26, Lr34 and Lr37) was analysed in the Martonvásár wheat pool. Molecular markers WR003 for Lr1 (QIU et al. 2007), ThLr10 for Lr10 (FEUILLET et al. 2003), IAG95 for Lr26 (MOHLER et al. 2001), csLV34 for Lr34 (LAGUDAH et al. 2006) and SC-Y15 for Lr37 (ROBERT et al. 1999) were applied using the published PCR protocols.Field testsThe ﬁeld leaf rust resistance of the plants (36 Thatcherbased near-isogenic lines, 4 recurrent parents, donor parents, BC plants, control: Thatcher) was evaluated in an artiﬁcially inoculated nursery. Rows of a spreader variety, planted around the tested genotypes, were inoculated in development stage 37-39 on the Zadoks scale (ZADOKS et al. 1974) using the uredospore mixture also used in the greenhouse experiments. The spore suspension was injected into the spreader plants using a hyperdermic syringe. The pathogen then spread naturally from these primary sources of infection. The extent of infection at development stage 77-83 was evaluated in terms of severity (according to the modiﬁed Cobb scale; STUBBS et al. 1986) and host response (resistant, moderately resistant, intermediate, moderately susceptible and susceptible). The average coefﬁcient of infection (ACI) was calculated from these two data by multiplying severity by an assigned constant value for the host response, for use in the statistical evaluation (STUBBS et al. 1986).Dihaploid programmeThe anther cultures were initiated from greenhouse-grown materials. Anthers in the mid-uninucleate stage were cultured on liquid MN6 induction medium (CHU et al. 1990). The cultures were kept in the dark at 29°C for 30 days, after which the embryogenic structures were transferred to 190-2 regeneration medium containing 0.09 M sucrose (ZHUANG and JIA 1983). Plant regeneration took place at 26°C with a 16-h light, 8-h dark photoperiod regime. Green plantlets were transferred to individual test tubes containing hormone-free 190-2 regeneration medium with 0.03 M sucrose and were vernalized for six weeks. Colchicine treatment took place after the vernalization treatment in the test tubes, after which the plants were planted into soil and grown till maturity.ResultsEffectiveness of leaf rust resistance genes in MartonvásárThe ﬁeld resistance of wheat genotypes carrying designated Lr genes has been tested for several decades in order to determine the efﬁciency of major leaf rust resistance genes. Each year Thatcher-based near-isogenic lines (NILs), each carrying a different resistance gene or allele, are sown in the experiments. The mean ACI values calculated from leaf rust infection data recorded in the artiﬁcially inoculated nursery in Martonvásár over the last seven years are presented in Figure 1. The results indicate that seven of the NILs carrying a single Lr gene or allele are still not infected by the pathogen or only to a negligible extent. Wheat lines carrying Lr9, Lr19, Lr24, Lr25, Lr28, Lr29 and Lr35 had excellent   resistance. In 2009 we detected moderately susceptible reaction (30-40MS) on wheat genotypes carrying Lr37 in their genetic background, there was no sign of infection on them earlier. The line exhibiting the greatest degree of infection was the NIL carrying Lr26.Marker assisted selection and gene pyramidingThe agronomic traits of Thatcher NILs are not adapted to Hungarian conditions, but in most cases these are the only source of resistance genes. The phenotype of the French variety Renan, which carries gene Lr37, is more similar to that of Hungarian varieties. A marker assisted backcross programme was set up to incorporate leaf rust resistance genes into four Martonvásár varieties (Mv Emma, Mv Madrigál, Mv Magvas, Mv Pálma). Combinations between Martonvásár wheat varieties and resistance sources carrying single Lr genes were ﬁrst created for genes Lr9, Lr24, Lr25 and Lr29, after which the programme was expanded to include two genes conferring adult plant resistance (Lr35 and Lr37). All selected Lr genes provide an excellent level of resistance to the Hungarian leaf rust population, while the recurrent parents chosen have good agronomic and quality traits. Mv Pálma, Mv Emma and Mv Madrigál are susceptible to the pathogen, while Mv Magvas is moderately resistant. After the PCR reaction conditions were optimised, all primers worked. This way MAS could be made in the segregating generations. Until now lines in the BC2-BC6 generation have been developed for various crosses (Table 3). The agronomic traits of BC5 and BC6 lines are very similar to those of the Martonvásár parent. As the linkage of the markers to the resistance genes is not complete, MAS of Lr genes was complemented in each case by phenotypic analysis. Only plants that were resistant to leaf rust and were found to carry the relevant resistance gene were used to create the next backcross generation.Since the use of Lr genes singly increases the danger of genetic vulnerability, combinations of lines carrying different genes were developed in order to pyramid the genes. The aim was to create genotypes carrying several resistance genes simultaneously, in the hope that these would have more durable resistance to leaf rust than those carrying a single gene. To date, different gene combinations have been developed for the four Martonvásár varieties. A doubled haploid (DH) programme has been set up based on anther culture in order to stabilise the gene combinations. The raising of DH plants is now underway for most of the combinations. So far, plants carrying two Lr genes in a stable condition have been identiﬁed for three combinations (Mv Emma Lr9+Lr24, Mv Pálma Lr9+Lr24 and Mv Pálma Lr9+Lr29).Identiﬁcation of designated leaf rust resistance genes using molecular markersThe second ﬁeld in which molecular markers are used in wheat resistance breeding is the determination of designated resistance genes in genotypes where the genetic background has not yet been clariﬁed. The presence of a number of genes is currently being analysed in wheat varieties and breeding lines bred in Martonvásár or used as parents in the breeding programme. Tests have been carried out for the presence of a total of 10 Lr genes (Lr1, Lr9, Lr10, Lr24, Lr25, Lr28, Lr29, Lr34, Lr35 and Lr37) in the breeding material, but so far only ﬁve genes have been found to be present. Lr1In hexaploid wheat Lr1 is located at the distal end of the long arm of chromosome 5D. This gene was the ﬁrst designated Lr gene and can still be found in many wheat varieties all over the world (MCINTOSH et al. 2008). Lr1 is one of the sequenced resistance genes, this way a functional marker is available for detection (QIU et al. 2007). Among 74 Martonvásár wheat varieties released since the beginning of the wheat breeding programme 11 carry the Lr1 resistance gene (Martonvásári 17, Mv Irma, Mv Madrigál, Mv Matador, Mv Summa, Mv Magvas, Mv Mezőföld, Mv Tamara, Mv Mazurka, Mv Hombár and Mv Laura).Lr10The Lr10 gene originates from bread wheat and is located on chromosome arm 1AS. Lr10 is the ﬁrst cloned resistance gene in wheat, according to literature it has a CC-NBS-LRR structure. Functional markers were designed to identify this resistance gene in the wheat genome (FEUILLET et al. 2003). Lr10 can be found in many wheat varieties with different geographical origin. In released Martonvásár varieties we could ﬁnd it in 15 of them (Martonvásári 13, Mv Matador, Mv Martina, Mv Kucsma, Mv Emese, Mv Palotás, Mv Prizma, Mv Matild, Mv Mambo, Mv Béres, Mv Garmada, Mv Hombár, Mv Gorsium, Mv Kemence and Mv Laura).Lr26Earlier results (KŐSZEGI et al. 2000) showed that Lr26, located on the 1BL.1RS translocation, was frequently found in Martonvásár varieties. This was conﬁrmed by recent results for 59 Martonvásár varieties, 36 of which contain the 1BL.1RS translocation (61%). However, Lr26 was detected at different frequencies in varieties registered before and after 2000. The 1BL.1RS translocation was present in 77.1% of the 35 older varieties, while this ﬁgure dropped to 37.5% in the 24 most recently registered genotypes. The  1BL.1RS translocation is also found in a large number of the varieties of non-Martonvásár origin used in the breeding programme, being detected in 53.4% of the wheat varieties and breeding lines examined.  Lr34Pedigree analysis of Martonvásár varieties demonstrated that Bezostaya 1, or its ancestor Bezostaya 4, was present in the pedigree of almost all varieties. In addition to registered Martonvásár varieties, a number of Martonvásár breeding lines were tested, along with crossing partners of other origin. Lr34 was found in 64 of 226 wheat varieties and lines examined (28.3%). The gene was detected in 34 of 128 varieties and lines of Martonvásár origin (26.6%), but the molecular marker identiﬁed the gene in only twelve of 73 registered varieties tested (Martonvásári 3, Martonvásári 13, Martonvásári 17, Mv Emese, Mv Garmada, Mv Gorsium, Mv Laura, Mv Mambó, Mv Pálma, Mv Palotás, Mv Táltos and Mv Vilma).Lr37Varieties of Western European origin are also used as parents in the Martonvásár crossing programme. Over the last few decades many varieties carrying Lr37 have been bred in Western Europe, so it was expected that the genome of the foreign crossing partners and of some of the Martonvásár wheat varieties and lines might contain this gene. The results of the PCR ampliﬁcations indicated its presence in Western European, North American and Eastern European cultivars and lines. Most of the lines carrying Lr37 originated from Switzerland, but it was also identiﬁed in French varieties, in three lines bred in the USA, in one breeding line from Serbia and in one Austrian variety. The analysis also showed the presence of the gene in the Martonvásár breeding material. Among the registered varieties Mv Vekni carries this leaf rust resistance gene and it has also been detected in several breeding lines.DiscussionAlthough major resistance genes have many disadvantages (AYLIFFE et al. 2008), they are still widely used in wheat resistance breeding. In recent years developments in molecular marker techniques and marker identiﬁcation have facilitated the spread of MAS. This is particularly true in the ﬁeld of breeding wheat for leaf rust resistance, where PCR-based markers are already available for almost half of the 60 or more designated resistance genes and alleles. Furthermore, all the effective resistance genes designated so far can be traced in segregating progeny populations by means of MAS.Experiments carried out in an artiﬁcially inoculated ﬁeld nursery indicated that several Lr genes still provide complete or excellent protection against this pathogen in Hungary. The incorporation of six of these genes into Martonvásár wheat varieties is now in progress. The aim is to develop sources adapted to Hungarian conditions, with far better agronomic traits than the original donor varieties. NILs developed from the same recurrent variety and each carrying a different Lr gene can be crossed with each other to pyramid resistance genes at the genotype level (NELSON 1978) which could result in better resistance if \u2018undefeated\u2019 resistance genes are introgressed into a single plant genotype (PINK 2002). Alternatively, multiline varieties can be produced from a mixture of lines (BROWNING and FREY 1969). The multiline concept can be further reﬁned using the \u2018mix and match\u2019 approach (PINK and PUDDEPHAT 1999), in which the line population forming the multiline variety is compiled on the basis of matching virulence. The aim of the programme cannot be to use lines containing a single resistance gene as varieties. Matching virulence has now been identiﬁed for almost all Lr genes in all wheat-growing areas of the world (MCINTOSH et al. 1995), so if any line carrying a resistance gene that is still effective today were to be grown on a larger area, virulent pathotypes would soon multiply in the pathogen population.The presence of Lr1 and Lr10 genes were assumed in the Martonvásár gene pool, but this was the ﬁrst time we could prove it using molecular markers. During investigations to detect designated resistance genes, a reduction in the proportion of varieties carrying the Lr26 resistance gene was noted among wheat varieties registered in recent years. This process has accelerated, primarily due to the greater value attached to technological quality traits. Varieties carrying the 1B/1R translocation have poorer bread-making quality due to the presence of storage proteins of the secalin type (DHALIWAL et al. 1987). As expected Lr34 was found in many Martonvásár varieties. Although this gene alone is capable of reducing the level of infection to almost half, as reported by SINGH and RAJARAM (2002) and conﬁrmed in the present work, resistance that is both excellent and durable can only be achieved if Lr34 is combined with 2 or 3 other genes (SINGH and RAJARAM 1992). Lr37 can be detected at high frequency in Western European wheat varieties. This is not the result of targeted resistance breeding against leaf rust, as this pathogen rarely causes serious economic losses in countries with a cool maritime climate. Another rust species, stripe rust, however, often causes damage to wheat ﬁelds. Lr37 originated from Aegilops ventricosa and the chromosome segment that became translocated into the wheat genome also carries the Yr17 resistance gene for yellow rust. This gene was successfully used by Western European breeders to ﬁght the pathogen for a number of years, but it has now lost its effectiveness (BAYLES et al. 2000). Unfortunately, pathotypes virulent to Lr37 have also appeared (ROBERT et al. 2000) and the virulence was also observed in Martonvásár during the 2008/2009 wheat season.Experience gained so far suggests that markers ﬂanking Lr genes can be used simply and effectively in marker assisted backcross programmes. Nevertheless, as the linkage between markers and resistance genes is not complete, regular phenotypic monitoring will be required if satisfactory parental genotypes are to be selected. According to our earlier results (GÁL et al. 2007) the ratio of false positive plants for the genes Lr9, Lr24, Lr25 and Lr29 was 1.3, 4.0, 9.5 and 7.6%, respectively. However, molecular markers can prove the presence of the requested resistance gene in the genetic background and in the case of plants carrying adult plant resistance genes - like Lr35 and Lr37 - this is the only way to choose appropriate parents for crossing programme. The  use of MAS, whereby breeders select for molecular markers linked to Lr genes, enables the pyramiding of more than one effective resistance gene. With the help of molecular markers, resistance genes are easy to detect in wheat varieties of unknown parentage. This information can then be used to design crossing programmes.Tables:Table 1: Molecular markers used for marker assisted selection of leaf rust resistance genesLr gene                   Marker type1                 Linkage2                      Name of the marker           ReferenceLr1                       RGA                          ﬂank                          Lr1RGA1                      QIU et al. 2007Lr3                       cDNA                         func                          TaR16                        DANNA et al. 2002Lr9                       SCAR                         ﬂank                          SCS5550                      GUPTA et al. 2005Lr10                      Functional                   func                          T10Rga1                      FEUILLET et al. 2003Lr13                      SSR                          ﬂank                          barc163-2B                   BANSAL et al. 2008Lr14                      SSR                          dist10                        gwm344                       HERRERA-FOESSEL et al. 2007Lr16                      SSR                          ﬂank                          wmc764                       MCCARTNEY et al. 2005Lr19                      STS                          ﬂank                          GBF/GBR                      PRINS et al. 2001Lr20                      STS                          ﬂank                          STS638                       KHAN et al. 2005Lr21                      Functional                   func                          Lr1L/Lr21R                   HUANG and GILL 2001Lr22a                     SSR                          ﬂank                          gwm455                       HIEBERT et al. 2007Lr24                      SCAR                         ﬂank                          SCS73719                     PRABHU et al. 2004Lr25                      SCAR                         ﬂank                          Lr25F20/Lr25R19              PROCUNIER 2009Lr26                      PCR-based                    ﬂank                          P6M12-P                      MAGO et al. 2005Lr28                      SCAR                         ﬂank                          SCS421570                    CHERUKURI et al. 2005Lr29                      SCAR                         ﬂank                          Lr29F18/Lr29R18              PROCUNIER 2009Lr34                      STS                          ﬂank                          csLV34                       LAGUDAH et al. 2006Lr35                      STS,                         ﬂank                          SR39 F2/R3,                  GOLD et al. 2002                          SCAR                                                       BCD260F1/35R2                SEYFARTH et al. 1999Lr37                      SCAR,                        ﬂank                          SC-Y15F/SC-Y15R              ROBERT et al. 1999                          CAPS                         ﬂank                          VENTRIUP/LN2                 HELGUERA et al. 2003Lr38                      SSR                          ﬂank                          wmc773                       MEBRATE et al. 2008Lr39                      SSR                          dist10                        gwm210                       RAUPP et al. 2001Lr46                      STS                          ﬂank                          XSTS1BL2/XSTS1BL9            MATEOS-HERNANDEZ et al. 2006Lr47                      CAPS                         ﬂank                          PS10R/PS10L                  HELGUERA et al. 2000Lr48                      SSR                          ﬂank                          gwm429b                      BANSAL et al. 2008Lr49                      SSR                          ﬂank                          barc163                      BANSAL et al. 2008Lr50                      SSR                          ﬂank                          gwm382                       BROWN-GUERDIRA et al. 2003Lr51                      CAPS                         ﬂank                          S30-13L/AGA7-759R            HELGUERA et al. 2005Lr52                      STS                          ﬂank                          txw200                       TAR et al. 2008Lr58                      SSR                          ﬂank                          cfd50                        KURAPARTHY et al. 2007Lr60                      SSR                          ﬂank                          barc149                      HIEBERT et al. 2008Lr63                      SSR                          ﬂank                          barc321                      KOLMER 2008Lr64                      SSR                          dist10                        barc104                      KOLMER 20081    CAPS, cleaved ampliﬁed polymorphic sequence; RGA, resistance gene analogue; SCAR, sequence characterized ampliﬁed region; SSR, simple sequence repeat; STS,    sequence-tagged site2    dist10, distance between marker and gene >10cM; ﬂank, ﬂanking marker; func, functional markerTable 2: DNA markers used for marker assisted selectionLr gene                       Marker                            Marker type            Size of ampliﬁed product (bp)          ReferencesLr9                           J13/1, J13/2                      STS                                  1100                     SCHACHERMAYR et al. 1994Lr24                          SC-H5/1, SC-H5/2                  SCAR                                  700                     DEDRYVER et al. 1996Lr25                          LR25F20, Lr25R19                  SCAR                                 1800                     PROCUNIER 2009Lr29                          UBC219                            RAPD                                 1000                     PROCUNIER et al. 1995Lr35                          BCD260F1/35R2                     STS                                   900                     SEYFARTH et al. 1999Lr37                          SC-Y15 F/R                        SCAR                                  580                     ROBERT ET AL. 1999Table 3: Progenies developed in the backcross programme (Martonvásár, 2009)Variety                              Lr9             Lr2 4          Lr25                Lr29               Lr35                Lr37Mv Emma                              BC6             BC6            BC6                 BC6                BC4                 BC4Mv Madrigál                          BC6             BC6            BC6                 BC4                BC5                 BC5Mv Magvas                            BC6             BC4            BC5                 BC6                BC5                 BC4Mv Pálma                             BC6             BC5            BC5                 BC6                BC5                 BC2",
+        "description":"1_Lr",
+        "props":{
+            "filePath":["/home/mig/fpapazian/Downloads/fsov/docFSOV2/1_Lr.txt"],
+            "shortName":["1_Lr"],
+            "hlink":["http://bibliome.jouy.inra.fr/Stane/demo_fsov/1_Lr.pdf"]
+        },
+        "owner":1
+    },
+    "annotation":[{
+        "id":19,
+        "owner":1,
+        "type":"UserAnnotation",
+        "timestamp":"2011-07-26 17:55:09 CEST",
+        "revision":0,
+        "description":"foo's annotation",
+        "head":true,
+        "text_annotations":[],
+        "groups":[],
+        "relations":[]
+    },{
+        "id":2,
+        "owner":1,
+        "type":"HtmlAnnotation",
+        "timestamp":"2011-07-26 17:53:58 CEST",
+        "revision":0,
+        "description":"HTML formatting",
+        "head":true,
+        "text_annotations":[{
+            "id":"fmt-1",
+            "properties":{
+        
+            },
+            "text":[[0,78]],
+            "type":"h1",
+            "kind":0
+        },{
+            "id":"fmt-2",
+            "properties":{
+        
+            },
+            "text":[[78,191]],
+            "type":"h2",
+            "kind":0
+        },{
+            "id":"fmt-3",
+            "properties":{
+        
+            },
+            "text":[[191,191]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-4",
+            "properties":{
+        
+            },
+            "text":[[191,199]],
+            "type":"h2",
+            "kind":0
+        },{
+            "id":"fmt-5",
+            "properties":{
+        
+            },
+            "text":[[1300,1300]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-6",
+            "properties":{
+        
+            },
+            "text":[[1300,1300]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-7",
+            "properties":{
+        
+            },
+            "text":[[1300,1300]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-8",
+            "properties":{
+        
+            },
+            "text":[[1300,1312]],
+            "type":"h2",
+            "kind":0
+        },{
+            "id":"fmt-9",
+            "properties":{
+        
+            },
+            "text":[[4373,4373]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-10",
+            "properties":{
+        
+            },
+            "text":[[4373,4373]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-11",
+            "properties":{
+        
+            },
+            "text":[[4373,4394]],
+            "type":"h2",
+            "kind":0
+        },{
+            "id":"fmt-12",
+            "properties":{
+        
+            },
+            "text":[[4394,4479]],
+            "type":"h3",
+            "kind":0
+        },{
+            "id":"fmt-13",
+            "properties":{
+        
+            },
+            "text":[[6184,6184]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-14",
+            "properties":{
+        
+            },
+            "text":[[6184,6184]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-15",
+            "properties":{
+        
+            },
+            "text":[[6891,6891]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-16",
+            "properties":{
+        
+            },
+            "text":[[6891,6891]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-17",
+            "properties":{
+        
+            },
+            "text":[[6891,6902]],
+            "type":"h3",
+            "kind":0
+        },{
+            "id":"fmt-18",
+            "properties":{
+        
+            },
+            "text":[[7950,7950]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-19",
+            "properties":{
+        
+            },
+            "text":[[7950,7950]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-20",
+            "properties":{
+        
+            },
+            "text":[[7950,7969]],
+            "type":"h3",
+            "kind":0
+        },{
+            "id":"fmt-21",
+            "properties":{
+        
+            },
+            "text":[[8732,8732]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-22",
+            "properties":{
+        
+            },
+            "text":[[8732,8732]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-23",
+            "properties":{
+        
+            },
+            "text":[[8732,8739]],
+            "type":"h2",
+            "kind":0
+        },{
+            "id":"fmt-24",
+            "properties":{
+        
+            },
+            "text":[[8739,8797]],
+            "type":"h3",
+            "kind":0
+        },{
+            "id":"fmt-25",
+            "properties":{
+        
+            },
+            "text":[[9779,9779]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-26",
+            "properties":{
+        
+            },
+            "text":[[9779,9779]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-27",
+            "properties":{
+        
+            },
+            "text":[[9779,9779]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-28",
+            "properties":{
+        
+            },
+            "text":[[9779,9779]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-29",
+            "properties":{
+        
+            },
+            "text":[[9779,9824]],
+            "type":"h3",
+            "kind":0
+        },{
+            "id":"fmt-30",
+            "properties":{
+        
+            },
+            "text":[[11405,11405]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-31",
+            "properties":{
+        
+            },
+            "text":[[12210,12210]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-32",
+            "properties":{
+        
+            },
+            "text":[[12210,12210]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-33",
+            "properties":{
+        
+            },
+            "text":[[12210,12210]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-34",
+            "properties":{
+        
+            },
+            "text":[[12210,12288]],
+            "type":"h3",
+            "kind":0
+        },{
+            "id":"fmt-35",
+            "properties":{
+        
+            },
+            "text":[[12872,12872]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-36",
+            "properties":{
+        
+            },
+            "text":[[12872,12872]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-37",
+            "properties":{
+        
+            },
+            "text":[[12872,12875]],
+            "type":"h4",
+            "kind":0
+        },{
+            "id":"fmt-38",
+            "properties":{
+        
+            },
+            "text":[[13478,13478]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-39",
+            "properties":{
+        
+            },
+            "text":[[13478,13478]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-40",
+            "properties":{
+        
+            },
+            "text":[[13478,13482]],
+            "type":"h4",
+            "kind":0
+        },{
+            "id":"fmt-41",
+            "properties":{
+        
+            },
+            "text":[[14096,14096]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-42",
+            "properties":{
+        
+            },
+            "text":[[14096,14096]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-43",
+            "properties":{
+        
+            },
+            "text":[[14096,14100]],
+            "type":"h4",
+            "kind":0
+        },{
+            "id":"fmt-44",
+            "properties":{
+        
+            },
+            "text":[[14824,14824]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-45",
+            "properties":{
+        
+            },
+            "text":[[14824,14824]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-46",
+            "properties":{
+        
+            },
+            "text":[[14824,14828]],
+            "type":"h4",
+            "kind":0
+        },{
+            "id":"fmt-47",
+            "properties":{
+        
+            },
+            "text":[[15533,15533]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-48",
+            "properties":{
+        
+            },
+            "text":[[15533,15533]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-49",
+            "properties":{
+        
+            },
+            "text":[[15533,15537]],
+            "type":"h4",
+            "kind":0
+        },{
+            "id":"fmt-50",
+            "properties":{
+        
+            },
+            "text":[[16440,16440]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-51",
+            "properties":{
+        
+            },
+            "text":[[16440,16440]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-52",
+            "properties":{
+        
+            },
+            "text":[[16440,16450]],
+            "type":"h2",
+            "kind":0
+        },{
+            "id":"fmt-53",
+            "properties":{
+        
+            },
+            "text":[[17041,17041]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-54",
+            "properties":{
+        
+            },
+            "text":[[18472,18472]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-55",
+            "properties":{
+        
+            },
+            "text":[[20272,20272]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-56",
+            "properties":{
+        
+            },
+            "text":[[21362,21362]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-57",
+            "properties":{
+        
+            },
+            "text":[[21362,21362]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-58",
+            "properties":{
+        
+            },
+            "text":[[21362,21362]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-59",
+            "properties":{
+        
+            },
+            "text":[[21362,21362]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-60",
+            "properties":{
+        
+            },
+            "text":[[21362,21369]],
+            "type":"h2",
+            "kind":0
+        },{
+            "id":"fmt-61",
+            "properties":{
+        
+            },
+            "text":[[21369,21369]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-62",
+            "properties":{
+        
+            },
+            "text":[[21369,21369]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-63",
+            "properties":{
+        
+            },
+            "text":[[21369,21460]],
+            "type":"h3",
+            "kind":0
+        },{
+            "id":"fmt-64",
+            "properties":{
+        
+            },
+            "text":[[21583,21583]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-65",
+            "properties":{
+        
+            },
+            "text":[[21712,21712]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-66",
+            "properties":{
+        
+            },
+            "text":[[21843,21843]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-67",
+            "properties":{
+        
+            },
+            "text":[[21974,21974]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-68",
+            "properties":{
+        
+            },
+            "text":[[22108,22108]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-69",
+            "properties":{
+        
+            },
+            "text":[[22240,22240]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-70",
+            "properties":{
+        
+            },
+            "text":[[22381,22381]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-71",
+            "properties":{
+        
+            },
+            "text":[[22516,22516]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-72",
+            "properties":{
+        
+            },
+            "text":[[22647,22647]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-73",
+            "properties":{
+        
+            },
+            "text":[[22777,22777]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-74",
+            "properties":{
+        
+            },
+            "text":[[22910,22910]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-75",
+            "properties":{
+        
+            },
+            "text":[[23043,23043]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-76",
+            "properties":{
+        
+            },
+            "text":[[23175,23175]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-77",
+            "properties":{
+        
+            },
+            "text":[[23303,23303]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-78",
+            "properties":{
+        
+            },
+            "text":[[23433,23433]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-79",
+            "properties":{
+        
+            },
+            "text":[[23568,23568]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-80",
+            "properties":{
+        
+            },
+            "text":[[23696,23696]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-81",
+            "properties":{
+        
+            },
+            "text":[[23829,23829]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-82",
+            "properties":{
+        
+            },
+            "text":[[23959,23959]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-83",
+            "properties":{
+        
+            },
+            "text":[[24093,24093]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-84",
+            "properties":{
+        
+            },
+            "text":[[24225,24225]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-85",
+            "properties":{
+        
+            },
+            "text":[[24359,24359]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-86",
+            "properties":{
+        
+            },
+            "text":[[24492,24492]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-87",
+            "properties":{
+        
+            },
+            "text":[[24623,24623]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-88",
+            "properties":{
+        
+            },
+            "text":[[24765,24765]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-89",
+            "properties":{
+        
+            },
+            "text":[[24899,24899]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-90",
+            "properties":{
+        
+            },
+            "text":[[25031,25031]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-91",
+            "properties":{
+        
+            },
+            "text":[[25163,25163]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-92",
+            "properties":{
+        
+            },
+            "text":[[25303,25303]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-93",
+            "properties":{
+        
+            },
+            "text":[[25437,25437]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-94",
+            "properties":{
+        
+            },
+            "text":[[25566,25566]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-95",
+            "properties":{
+        
+            },
+            "text":[[25702,25702]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-96",
+            "properties":{
+        
+            },
+            "text":[[25835,25835]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-97",
+            "properties":{
+        
+            },
+            "text":[[25960,25960]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-98",
+            "properties":{
+        
+            },
+            "text":[[26085,26085]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-99",
+            "properties":{
+        
+            },
+            "text":[[26086,26086]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-100",
+            "properties":{
+        
+            },
+            "text":[[26245,26245]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-101",
+            "properties":{
+        
+            },
+            "text":[[26269,26269]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-102",
+            "properties":{
+        
+            },
+            "text":[[26270,26270]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-103",
+            "properties":{
+        
+            },
+            "text":[[26367,26367]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-104",
+            "properties":{
+        
+            },
+            "text":[[26367,26367]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-105",
+            "properties":{
+        
+            },
+            "text":[[26367,26422]],
+            "type":"h3",
+            "kind":0
+        },{
+            "id":"fmt-106",
+            "properties":{
+        
+            },
+            "text":[[26558,26558]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-107",
+            "properties":{
+        
+            },
+            "text":[[26708,26708]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-108",
+            "properties":{
+        
+            },
+            "text":[[26854,26854]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-109",
+            "properties":{
+        
+            },
+            "text":[[26994,26994]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-110",
+            "properties":{
+        
+            },
+            "text":[[27141,27141]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-111",
+            "properties":{
+        
+            },
+            "text":[[27287,27287]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-112",
+            "properties":{
+        
+            },
+            "text":[[27431,27431]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-113",
+            "properties":{
+        
+            },
+            "text":[[27431,27431]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-114",
+            "properties":{
+        
+            },
+            "text":[[27431,27431]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-115",
+            "properties":{
+        
+            },
+            "text":[[27431,27506]],
+            "type":"h3",
+            "kind":0
+        },{
+            "id":"fmt-116",
+            "properties":{
+        
+            },
+            "text":[[27506,27506]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-117",
+            "properties":{
+        
+            },
+            "text":[[27637,27637]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-118",
+            "properties":{
+        
+            },
+            "text":[[27767,27767]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-119",
+            "properties":{
+        
+            },
+            "text":[[27897,27897]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-120",
+            "properties":{
+        
+            },
+            "text":[[28027,28027]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-121",
+            "properties":{
+        
+            },
+            "text":[[28157,28157]],
+            "type":"br",
+            "kind":0
+        },{
+            "id":"fmt-122",
+            "properties":{
+        
+            },
+            "text":[[28157,28157]],
+            "type":"br",
+            "kind":0
+        }],
+        "groups":[],
+        "relations":[]
+    }],
+    "annotation_sets":[{
+        "id":2,
+        "owner":1,
+        "type":"HtmlAnnotation",
+        "timestamp":"2011-07-26 17:53:58 CEST",
+        "revision":0,
+        "description":"HTML formatting",
+        "head":true,
+        "text_annotations":122,
+        "groups":0,
+        "relations":0
+    },{
+        "id":19,
+        "owner":2,
+        "type":"UserAnnotation",
+        "timestamp":"2011-07-26 17:55:09 CEST",
+        "revision":0,
+        "description":"claire's annotation",
+        "head":true,
+        "text_annotations":0,
+        "groups":0,
+        "relations":0
+    }],
+    "schema":{
+        "Marker":{
+            "kind":0, 
+            "type":"Marker", 
+            "color":"#FFFF00", 
+            "propDef":{ }, 
+            "txtBindingDef":{
+                "minFrag":1, 
+                "maxFrag":1, 
+                "boundRef":null, 
+                "crossingAllowed":true
+            }
+        }, 
+        "Marker_CoReference":{
+            "kind":1, 
+            "type":"Marker_CoReference", 
+            "color":"#C4C400", 
+            "propDef":{ }, 
+            "groupDef":{
+                "minComp":1, 
+                "maxComp":9999999, 
+                "compType":["Marker"], 
+                "homogeneous":true
+            }
+        }, 
+        "Gene":{
+            "kind":0, 
+            "type":"Gene", 
+            "color":"#87CEFA", 
+            "propDef":{ }, 
+            "txtBindingDef":{
+                "minFrag":1, 
+                "maxFrag":1, 
+                "boundRef":null, 
+                "crossingAllowed":true
+            }
+        }, 
+        "Gene_CoReference":{
+            "kind":1, 
+            "type":"Gene_CoReference", 
+            "color":"#6AA2C4", 
+            "propDef":{ }, 
+            "groupDef":{
+                "minComp":1, 
+                "maxComp":9999999, 
+                "compType":["Gene"], 
+                "homogeneous":true
+            }
+        }, 
+        "Trait":{
+            "kind":0, 
+            "type":"Trait", 
+            "color":"#7FFF00", 
+            "propDef":{ }, 
+            "txtBindingDef":{
+                "minFrag":1, 
+                "maxFrag":1, 
+                "boundRef":null, 
+                "crossingAllowed":true
+            }
+        }, 
+        "Trait_CoReference":{
+            "kind":1, 
+            "type":"Trait_CoReference", 
+            "color":"#62C400", 
+            "propDef":{ }, 
+            "groupDef":{
+                "minComp":1, 
+                "maxComp":9999999, 
+                "compType":["Trait"], 
+                "homogeneous":true
+            }
+        }, 
+        "Phenotype":{
+            "kind":0, 
+            "type":"Phenotype", 
+            "color":"#7FFFD4", 
+            "propDef":{ }, 
+            "txtBindingDef":{
+                "minFrag":1, 
+                "maxFrag":1, 
+                "boundRef":null, 
+                "crossingAllowed":true
+            }
+        }, 
+        "Phenotype_CoReference":{
+            "kind":1, 
+            "type":"Phenotype_CoReference", 
+            "color":"#62C4A3", 
+            "propDef":{ }, 
+            "groupDef":{
+                "minComp":1, 
+                "maxComp":9999999, 
+                "compType":["Phenotype"], 
+                "homogeneous":true
+            }
+        }, 
+        "Variety":{
+            "kind":0, 
+            "type":"Variety", 
+            "color":"#FF69B4", 
+            "propDef":{ }, 
+            "txtBindingDef":{
+                "minFrag":1, 
+                "maxFrag":1, 
+                "boundRef":null, 
+                "crossingAllowed":true
+            }
+        }, 
+        "Variety_CoReference":{
+            "kind":1, 
+            "type":"Variety_CoReference", 
+            "color":"#C4518A", 
+            "propDef":{ }, 
+            "groupDef":{
+                "minComp":1, 
+                "maxComp":9999999, 
+                "compType":["Variety"], 
+                "homogeneous":true
+            }
+        }, 
+        "AlleleSize":{
+            "kind":0, 
+            "type":"AlleleSize", 
+            "color":"#D3D3D3", 
+            "propDef":{ }, 
+            "txtBindingDef":{
+                "minFrag":1, 
+                "maxFrag":1, 
+                "boundRef":null, 
+                "crossingAllowed":true
+            }
+        }, 
+        "AlleleSize_CoReference":{
+            "kind":1, 
+            "type":"AlleleSize_CoReference", 
+            "color":"#C4C4C4", 
+            "propDef":{ }, 
+            "groupDef":{
+                "minComp":1, 
+                "maxComp":9999999, 
+                "compType":["AlleleSize"], 
+                "homogeneous":true
+            }
+        }, 
+        "Type":{
+            "kind":0, 
+            "type":"Type", 
+            "color":"#6e6cff", 
+            "propDef":{ }, 
+            "txtBindingDef":{
+                "minFrag":1, 
+                "maxFrag":1, 
+                "boundRef":null, 
+                "crossingAllowed":true
+            }
+        }, 
+        "Type_CoReference":{
+            "kind":1, 
+            "type":"Type_CoReference", 
+            "color":"#5553C4", 
+            "propDef":{ }, 
+            "groupDef":{
+                "minComp":1, 
+                "maxComp":9999999, 
+                "compType":["Type"], 
+                "homogeneous":true
+            }
+        }, 
+        "marker_alleleSize":{
+            "kind":2, 
+            "type":"marker_alleleSize", 
+            "color":"#5F9EA0", 
+            "propDef":{ }, 
+            "relationDef":[ {
+                "marker":["Marker","Marker_CoReference"]
+            },{
+                "alleleSize":["AlleleSize","AlleleSize_CoReference"]
+            } ]
+        }, 
+        "marker_of_type":{
+            "kind":2, 
+            "type":"marker_of_type", 
+            "color":"#800080", 
+            "propDef":{ }, 
+            "relationDef":[ {
+                "marker":["Marker","Marker_CoReference"]
+            },{
+                "type":["Type","Type_CoReference"]
+            } ]
+        }, 
+        "marker_tags_gene":{
+            "kind":2, 
+            "type":"marker_tags_gene", 
+            "color":"magenta", 
+            "propDef":{ }, 
+            "relationDef":[ {
+                "marker":["Marker","Marker_CoReference"]
+            },{
+                "gene":["Gene","Gene_CoReference"]
+            } ]
+        }, 
+        "gene_controls_trait":{
+            "kind":2, 
+            "type":"gene_controls_trait", 
+            "color":"orange", 
+            "propDef":{ }, 
+            "relationDef":[ {
+                "gene":["Gene","Gene_CoReference"]
+            },{
+                "trait":["Trait","Trait_CoReference"]
+            } ]
+        }, 
+        "genes_allele_expresses_phenotype":{
+            "kind":2, 
+            "type":"genes_allele_expresses_phenotype", 
+            "color":"green", 
+            "propDef":{ }, 
+            "relationDef":[ {
+                "gene":["Gene","Gene_CoReference"]
+            },{
+                "phenotype":["Phenotype","Phenotype_CoReference"]
+            } ]
+        }, 
+        "variety_has_phenotype":{
+            "kind":2, 
+            "type":"variety_has_phenotype", 
+            "color":"#c4ff00", 
+            "propDef":{ }, 
+            "relationDef":[ {
+                "variety":["Variety","Variety_CoReference"]
+            },{
+                "phenotype":["Phenotype","Phenotype_CoReference"]
+            } ]
+        }, 
+        "trait_has_value":{
+            "kind":2, 
+            "type":"trait_has_value", 
+            "color":"#DC143C", 
+            "propDef":{ }, 
+            "relationDef":[ {
+                "trait":["Trait","Trait_CoReference"]
+            },{
+                "phenotype":["Phenotype","Phenotype_CoReference"]
+            } ]
+        }, 
+        "marker_size_in_variety":{
+            "kind":2, 
+            "type":"marker_size_in_variety", 
+            "color":"grey", 
+            "propDef":{ }, 
+            "relationDef":[ {
+                "marker":["Marker","Marker_CoReference"]
+            },{
+                "alleleSize":["AlleleSize","AlleleSize_CoReference"]
+            },{
+                "variety":["Variety","Variety_CoReference"]
+            } ]
+        }, 
+        "marker_tags_gene_in_variety":{
+            "kind":2, 
+            "type":"marker_tags_gene_in_variety", 
+            "color":"blue", 
+            "propDef":{ }, 
+            "relationDef":[ {
+                "marker":["Marker","Marker_CoReference"]
+            },{
+                "gene":["Gene","Gene_CoReference"]
+            },{
+                "variety":["Variety","Variety_CoReference"]
+            } ]
+        }, 
+        "gene_expresses_phenotype_in_variety":{
+            "kind":2, 
+            "type":"gene_expresses_phenotype_in_variety", 
+            "color":"#DA70D6", 
+            "propDef":{ }, 
+            "relationDef":[ {
+                "gene":["Gene","Gene_CoReference"]
+            },{
+                "phenotype":["Phenotype","Phenotype_CoReference"]
+            },{
+                "variety":["Variety","Variety_CoReference"]
+            } ]
+        }, 
+        "trait_has_phenotype_in_variety":{
+            "kind":2, 
+            "type":"trait_has_phenotype_in_variety", 
+            "color":"#00FF7F", 
+            "propDef":{ }, 
+            "relationDef":[ {
+                "trait":["Trait","Trait_CoReference"]
+            },{
+                "phenotype":["Phenotype","Phenotype_CoReference"]
+            },{
+                "variety":["Variety","Variety_CoReference"]
+            } ]
+        }
+    } 
+}

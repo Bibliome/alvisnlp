@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!--
+Copyright 2016 Institut National de la Recherche Agronomique
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<alvisnlp-doc author="Robert Bossy" date="2010-10-28">
+  <synopsis>
+    <p>Reads a corpus in XML files.</p>
+  </synopsis>
+
+  <module-doc>
+    <description>
+      <p><this/> reads a corpus in the file(s) <param name="sourcePath"/>. These files must be in the corpus XML serialization format (see <a href="alvisnlp-corpus.dtd">alvisnlp-corpus.dtd</a>). The file may be in any XML format as long as a proper XSLT transform is given by <param name="xslTransform"/>; the result of this stylesheet must be a valid corpus XML serialization. The string parameters defined in <param name=""/> are passed to the stylesheet.</p>
+      <p>If <param name="sourcePath"/> is a path to a file, then <this/> will read this file. If <param name="sourcePath"/> is a path to a directory, then <this/> will read the files in this directory. If <param name="recursive"/> is set to true, then the files in sub-directories will be read recursively. <this/> only reads files whose name match <param name="acceptPattern"/>. If <param name="acceptPattern"/> is not set, then <this/> reads all files.</p>
+      <p>The created documents, sections, annotations, relations and tuples will have the features defined in <param name="constantDocumentFeatures"/>, <param name="constantSectionFeatures"/>, <param name="constantAnnotationFeatures"/>, <param name="constantRelationFeatures"/> and <param name="constantTupleFeatures"/> respectively.</p>
+    </description>
+  
+    <param-doc name="xslTransform">
+      <p>XSLT stylesheet. Allows to read arbitrary XML files by transforming into the document serialization format.</p>
+    </param-doc>
+  
+    <param-doc name="constantAnnotationFeatures">
+      <p>Constant features to add to each annotation created by this module</p>
+    </param-doc>
+  
+    <param-doc name="constantDocumentFeatures">
+      <p>Constant features to add to each document created by this module</p>
+    </param-doc>
+  
+    <param-doc name="active">
+      <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is true.</p>
+    </param-doc>
+  
+    <param-doc name="constantRelationFeatures">
+      <p>Constant features to add to each relation created by this module</p>
+    </param-doc>
+  
+    <param-doc name="stringParams">
+      <p>String parameters for the XSLT stylesheet.</p>
+    </param-doc>
+  
+    <param-doc name="constantSectionFeatures">
+      <p>Constant features to add to each section created by this module</p>
+    </param-doc>
+  
+    <param-doc name="sourcePath">
+      <p>Path to the source directory or source file.</p>
+    </param-doc>
+  
+    <param-doc name="constantTupleFeatures">
+      <p>Constant features to add to each tuple created by this module</p>
+    </param-doc>
+  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+</alvisnlp-doc>

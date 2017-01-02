@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!--
+Copyright 2016 Institut National de la Recherche Agronomique
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<alvisnlp-doc author="Robert Bossy" date="2010-10-28">
+  <synopsis>
+    <p>Reads files and adds a document in the corpus for each file.</p>
+  </synopsis>
+
+  <module-doc>
+    <description>
+      <p><this/> reads file(s) from <param name="sourcePath"/> and creates a document in the corpus for each file. The identifier of the created document is the absolute path of the corresponding file. The created document has a single section named <param name="section"/> whose contents is the contents of the corresponding file.</p>
+      <p>If <param name="sourcePath"/> is a path to a file, then <this/> will read this file. If <param name="sourcePath"/> is a path to a directory, then <this/> will read the files in this directory. If <param name="recursive"/> is set to true, then the files in sub-directories will be read recursively. <this/> only reads files whose name match <param name="acceptPattern"/>. If <param name="acceptPattern"/> is not set, then <this/> reads all files.</p>
+      <p>If <param name="linesLimit"/> is set, then <this/> creates a new document for each set of lines. For instance, if <param name="linesLimit"/> is set to 10 and a file contains 25 lines, then 3 documents are created: two containing 10 lines and one containing the las 5 lines.</p>
+      <p>Files are read using the same encoding <param name="charset"/>.</p>
+      <p>The created documents will all have the features defined in <param name="constantDocumentFeatures"/>. The unique section will have the features defined in <param name="constantSectionFeatures"/>.</p>
+    </description>
+  
+    <param-doc name="constantDocumentFeatures">
+      <p>Constant features to add to each document created by this module</p>
+    </param-doc>
+  
+    <param-doc name="active">
+      <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is true.</p>
+    </param-doc>
+      
+    <param-doc name="charset">
+      <p>Character set of the input files.</p>
+    </param-doc>
+  
+    <param-doc name="constantSectionFeatures">
+      <p>Constant features to add to each section created by this module</p>
+    </param-doc>
+  
+    <param-doc name="linesLimit">
+      <p>Maximum number of lines per document.</p>
+    </param-doc>
+  
+    <param-doc name="sourcePath">
+      <p>Path to the source directory or source file.</p>
+    </param-doc>
+  
+    <param-doc name="sectionName">
+      <p>Name of the single section containing the whole contents of a file.</p>
+    </param-doc>
+  
+    <param-doc name="sizeLimit">
+      <p>Maximum number of characters per document. No limit if not set.</p>
+    </param-doc>
+  
+    <param-doc name="baseNameId">
+      <p>Use the filename base name instead of the full path as document identifier.</p>
+    </param-doc>
+  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+</alvisnlp-doc>

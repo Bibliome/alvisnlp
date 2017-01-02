@@ -1,0 +1,526 @@
+% Copyright 2016 Institut National de la Recherche Agronomique
+% 
+% Licensed under the Apache License, Version 2.0 (the "License");
+% you may not use this file except in compliance with the License.
+% You may obtain a copy of the License at
+% 
+%         http://www.apache.org/licenses/LICENSE-2.0
+% 
+% Unless required by applicable law or agreed to in writing, software
+% distributed under the License is distributed on an "AS IS" BASIS,
+% WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+% See the License for the specific language governing permissions and
+% limitations under the License.
+
+
+\documentclass[a4paper]{book}
+
+\usepackage{hyperref}
+\usepackage{verbatim}
+\usepackage{a4wide}
+
+\include{version}
+\include{common}
+
+%\newcommand{\module}[2]{\subsection{#2}\label{#2}\textbf{Full name:} #1
+
+%\subsubsection*{Description}}
+
+%\newcommand{\parameters}{\subsubsection*{Parameters}}
+
+%\newcommand{\param}[3]{\paragraph{#1} \texttt{#2} \emph{#3}\\}
+
+
+\title{AlvisNLP/ML User Guide \version}
+\author{Robert Bossy}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{Copyright}
+\license
+
+% \chapter{Release notes}
+
+% \section{What's new}
+
+% \subsection{Since 0.2 (up to revision 3360)}
+
+% \paragraph{General}
+% \begin{itemize}
+% \item Version names are slightly different. Now they consist in two parts: 1) a release number (eg 0.3) and 2) a revision number (eg 3317). This is so one can make the difference between cutting-edge releases.
+% \item Added regression tests. Only one is available now: "newrenbio". It is not even a proper regression test but the intention is here.
+% \item Total separation of the AlvisNLP core library and the Bibliome Module Factory (BMF).
+% \item Prerequisites: FreeMarker is not a prerequisite anymore, JavaCC is now required for the core library and the BMF, Weka is a prerequisite for the BMF only.
+% \item Lots of bug fixes and some performance tweaks.
+% \end{itemize}
+
+% \paragraph{Data model and plan writing}
+% \begin{itemize}
+% \item Document/Section metadata and Annotation have been both replaced with an homogeneous concept: the feature. Features are key-value pairs, an Element can have several features with the same key. Document, Section and Annotation objects are Element.
+% \item Added Relation and Tuple (both are Element). A relation is attached to a section, has an arity and a role name for ach argument. A tuple is an instance of a relation and each argument is an annotation.
+% \item The usage of layer names is checked. A warning is issued if a layer name is used only once.
+% \item The plan supports the <import> tag that inserts the contents of an external file. UNTESTED.
+% \item Plan files can reference environment variables in parameter values. The syntax is: \$\{VARNAME\}.
+% \item For array and mapping parameters, the separator character (a comma by default) can be changed with the attribute "separator". For mapping parameters, the character between a key and a value (an equal sign by default) can be changed with the attribute "qualifier".
+% \item The parameter value can be in the <param> tag contents instead of the "value" attribute. Also for certain parameter types, the value attribute can have another name (eg "file", "regex").
+% \item XML input format now accepts dispatching to layers with the \texttt{l} attribute of the \texttt{a} element.
+% \end{itemize}
+
+% \paragraph{Command-line interface}
+% \begin{itemize}
+% \item Data dumping and resume mode is done via the Java object serialization format. It is faster than the proprietary XML serialization.
+% \item Comprehensive timing summary when the processing has finished.
+% \item The -log option is not silent on standard error anymore. It seems it was frustrating.
+% \item New option: -supportedConversions for documentation on converting into parameter types.
+% \item The launcher script allows to pass options to the JVM.
+% \end{itemize}
+
+% \paragraph{API}
+% \begin{itemize}
+% \item Complete rewriting of the module and converter framework. Module and converter services and module concrete classes are generated in a single call to the Java compiler.
+% \item The annotation processor uses JSR269 since APT is officially deprecated.
+% \item More javadoc comments.
+% \item @Param annotations now target parameter getters instead of the field. That felt more "standard".
+% \item Module interface has now methods init() and clear()
+% \item @Memoize annotation memoizes the return value of a method, this value is cleared in clear()
+% \item ParamHandler keeps track either the value has been modified or not. Special ParamHandler for files that keeps track of the file last modified date.
+% \item @AlvisNLPModule and @Param annotations now may contain a default documentation string.
+% \item Element constructors require an ElementCreator object, these are defined with @Param for constant feature definitions.
+% \item External was made an independent interface.
+% \item Timer API.
+% \item The ModuleException hierarchy was refined.
+% \item Utils: Strings, Iterators, Files, DefaultMap, Filters, ElementFilter.
+% \end{itemize}
+
+% \paragraph{Bibliome module factory}
+% \begin{itemize}
+% \item New modules: XMLReader, XMLWriter, GuessLanguage, LanguageProfiler, TermTagger, FileMapper, Count, Search, Script, Extract, TreeTaggerReader, AttestedTermsContentsProjector, AttestedTermsLayerProjector, TaxonProjector (UNTESTED), AnnotationClassifierTrain and AnnotationClassifierTag.
+% \item New untested modules: BioLG, LuceneIndexer.
+% \item Removed modules: PubMedReader, AdobeXMLReader, QPatCleanReader, GeneTrainReader.
+% \item Complete rewrite of TreeTagger.
+% \item Major module changes: sentence reinforcement in TreeTagger and YateaExtractor, saveDictFile parameter in projector modules, sentence boundary iff strong punctuation followed by an uppercase in SeSMig, parameter noBreakLayerName in SeSMig, multiple entries with the same key in projector modules, default feature and layer names were added in some modules.
+% \item XMLReader reads a corpus in XML serialized form, it may accept an XSLT in order to read arbitrary XML file. Provided stylesheets: pubmed2alvisnlp.xslt, qpatclean2alvisnlp.xslt, somexml2alvisnlp.xslt, epo2alvisnlp.xslt, gene-train2alvisnlp.xslt, rename-train2alvisnlp.xslt.
+% \end{itemize}
+
+
+\chapter{Introduction}
+This document describes the use of the AlvisNLP/ML software.
+AlvisNLP/ML is a processing pipeline that provides a linguistic and semantic annotation of text documents.
+
+AlvisNLP/ML key features are:
+\begin{itemize}
+\item customizable sequence of processing modules;
+\item extensible with custom processing modules;
+\item document and section aware;
+\item simple.
+\end{itemize}
+
+\section{Installing AlvisNLP/ML}
+
+\subsection{Prerequisites}
+AlvisNLP/ML is written in Java 7, thus it requires a Java Virtual Machine and the JDK version 7.
+It has been tested with Sun JRE in 32 bit and 64 bit versions.
+
+AlvisNLP/ML binary and sources are distributed under the terms of the Apache License v2.
+
+The distributions contain two parts: the core processing engine and the Bibliome Module Factory (BMF) containing a library of common and useful processing modules.
+The core engine only requires the JDK 7. and its compilation requires also 
+The BMF has one additional requirement: the Weka machine learning library.
+You can get it at \url{http://www.cs.waikato.ac.nz/ml/weka/}.
+
+If you intend to recompile AlvisNLP/ML from the sources, you will need Apache Ant available at \url{http://ant.apache.org/} and JavaCC available at \url{https://javacc.dev.java.net/}.
+
+\subsection{Installing}
+% Download the distribution archive from \url{XXX} and uncompress it.
+
+Extract the contents of the archive and place somewhere users can access.
+Herein, we will call this directory \texttt{ALVISNLP\_HOME}.
+
+Add \texttt{ALVISNLP\_HOME/bin} to your \texttt{PATH}.
+
+\subsection{Rebuilding}
+If you wish to rebuild the library, type \texttt{ant}.
+To rebuild the user and developer guides, type \texttt{ant guides}.
+To rebuild the Javadoc API reference, type \texttt{ant apidoc}.
+To rebuild the HTML modules documentaion, type \texttt{ant xhtml}.
+
+The build tool will print some information about the compilation process and generate three files named \texttt{alvisnlp-util.jar}, \texttt{alvisnlp-core.jar} and \texttt{alvisnlp-bibliome.jar} in the subdirectory \texttt{lib}.
+
+\section{Quick start}
+To process a corpus from command line, type:
+\code{\$ alvisnlp [options] PLANFILE}
+where \texttt{PLANFILE} is the path to a module sequence definition file (see section~\ref{PlanFile}).
+For a list of supported options, type:
+\code{\$ alvisnlp -help}
+
+\chapter{Basic knowledge}
+This section describes the basic knowledge required in order to understand clearly what happens when AlvisNLP/ML processes a corpus.
+
+\section{Corpus model}
+\label{CorpusModel}
+The \emph{corpus model} specifies how corpora and documents are represented internally by AlvisNLP/ML.
+The outline of the model is that:
+\begin{itemize}
+\item an AlvisNLP/ML instance processes a single corpus;
+\item a corpus contains a set of documents;
+\item each document contains a set of sections;
+\item each section has a contents, which is the text to be annotated;
+\end{itemize}
+
+\subsection{Corpus}
+AlvisNLP/ML processes one corpus at a time, so when a user runs the binary, processing modules will be applied to a single corpus.
+
+\subsection{Document}
+Each document has an identifier and contains some sections.
+The document identifier is a character string which is unique in the corpus (it is a key to the document).
+
+A document may have zero, one or several sections as described below.
+The order in which sections are added to documents is retained.
+
+\subsection{Section}
+A section has a name and a contents.
+The section name is not necessarily unique within the document.
+Its contents is represented as a character string, which is annotated by the processing modules.
+
+\section{Annotation model}
+\label{AnnotationModel}
+The \emph{annotation model} specifies how annotations are represented internally by AlvisNLP/ML.
+An \emph{annotation} is a fragment of text created by one of the processing modules.
+Each annotation belongs to a section (which in turn belongs to a document in the corpus).
+The annotation span is a pair of positions within the section contents representing the fragment the annotation refers to.
+By convention, the start and end positions are zero-based character positions in the character string of the section contents.
+Furthermore start positions are inclusive, whereas end positions are exclusive.
+
+Additionally annotations of a given section can be organized into \emph{layers}.
+A layer is basically a container for annotations.
+Each layer has a name that must be unique within a section.
+Within a layer, annotations are ordered by start position, annotations with the same start position are ordered by reverse end position.
+
+Each annotation can belong to on or several layers.
+Typically layers are used to store apart: words, named entities, sentences, etc.
+
+\section{Relations and tuples}
+\label{RelationsAndTuples}
+Each section can contain \emph{relations}.
+A relation is a container of \emph{tuples}.
+A tuple is a collection of key-value pairs, where the key is a string and the value an annotation.
+The key is called the \emph{role} and the value the \emph{argument}.
+For a given role, a tuple has a single argument.
+Relations and tuples are used for instance to represent syntactic dependencies.
+
+\section{Features}
+The corpus, documents, sections, relations and tuples may contain additional information represented as \emph{features}.
+A feature is a key-value pair, both key and value are strings.
+In a given element, the feature key is not unique: an element may have several values for a key.
+When a module needs a feature value, AlvisNLP/ML will generally consider the last inserted value.
+
+\section{Processing model}
+The \emph{processing model} defines how modules can be put to work together in a single processing pipeline.
+The AlvisNLP/ML processing is a simple linear sequence of modules; the corpus is entirely processed by a module before being processed by the next one.
+
+When AlvisNLP/ML is invoked, the corpus is empty, so the first module should probably be one that fills the corpus with documents read from an external source (files, database, URI, etc).
+The corpus is passed from one module to another, each one can read the state of the corpus as left by the previous one, then operates modifications before the corpus is handed over to the next module.
+
+\subsection{Modules capabilities}
+
+All modules are able to explore the current state of the corpus, that is to say they can get: 
+\begin{itemize}
+\item documents contained in the corpus (iteration or retrieval by identifier);
+\item sections of a given document;
+\item contents of a given section;
+\item layers of a given section;
+\item annotations of a given layer;
+\item relations of a given section;
+\item tuples of a given relation;
+\item features of a given element (document, section, annotation, relation or tuple).
+\end{itemize}
+
+Thus a module can read its input from the corpus.
+Additionaly a module can alter the state of the corpus, in particular a module may:
+\begin{itemize}
+\item create and remove documents in/from the corpus;
+\item create and remove sections in/from a document;
+\item create annotations in a section;
+\item create layers;
+\item add and remove annotations to/from layers;
+\item create and remove relations in/from a section;
+\item create and remove tuples in/from a relation;
+\item add and remove arguments to/from a tuple;
+\item add and remove features to elements (document, section, annotation, relation or tuple).
+\end{itemize}
+
+\subsection{Designing a sequence}
+The sequence of modules is free, according to the needs of each application.
+Each module is obtained as the instanciation of a module type.
+However, module sequences are built at run-time, following a description in XML format, later referred to as \emph{plan files}. 
+These plan files are given as an input to \texttt{alvisnlp} and will be described in the next section. 
+For now, let us mention that in order to build such a description, the user will typically rely on the following information:
+
+First, each module type is provided with an unique identifier.
+
+Second, each module type is documented with an informal description of the annotations required by one of its instance, and the annotations it will produce.
+For instance the modules which are instances of the class \texttt{alvisnlp.module.bibliome.RegExp} provided in the BMF match a regular expression on the contents of a section (see \ref{RegExp}).
+
+Finally a module of a given type accepts a number of \emph{parameters} used to:
+\begin{itemize}
+\item control the module behaviour specifics;
+\item indicate where to find external resources (\emph{e.g.} lexicons);
+\item make modules in the same sequence to read and write annotations in a coherent set of sections and layers.
+\end{itemize}
+The name, type and effect of each parameter should also be documented along with the module documentation.
+
+\chapter{Plan files}
+\label{PlanFile}
+When AlvisNLP/ML is invoked, it expects an argument indicating the path to an XML file describing the desired module sequence.
+This file specifies the modules that will process the corpus and the parameter values used to instanciate a module from its class.
+This section describes the structure of a module sequence file, hereby called \emph{plan file}.
+
+\section{A simple example}
+We shall use the example of a simple plan in order to introduce the structure of the plan file.
+In this example we want to perform the following steps:
+\begin{enumerate}
+\item read all files in a directory;
+\item look for numbers inside each file;
+\item write the result into a file.
+\end{enumerate}
+The plan in figure \ref{SimplePlan} describes such a sequence in a way AlvisNLP/ML understands it.
+All plan examples mentioned in this document can be found in the \texttt{bibliome/share/examples} directory of the source distribution.
+
+\codefile{A simple introductory plan file}{SimplePlan}{../bibliome/share/examples/numbers.xml}
+
+The root tag of any plan is \texttt{alvisnlp-plan}.
+This tag must have an attribute \texttt{id}, the value of this attribute is arbitrary and is used to identify the plan.
+
+Inside the \texttt{alvisnlp-plan} tag there are three \texttt{module} tags corresponding to each processing step we described above.
+Each \texttt{module} tag has two mandatory features: \texttt{class} indicates the type of the  module and \texttt{id} gives an identifier to the module.
+In this example the module types are taken from the BMF.
+Modules of type \texttt{org.bibliome.alvisnlp.modules.TextFileReader} open all files in a directory, create a document in the corpus for each file containing a single section with all the file contents.
+Modules of type \texttt{org.bibliome.alvisnlp.modules.RegExp} look for regular expressions in the sections contents and create an annotation for each match.
+
+Each module is given an identifier: \texttt{reader} and \texttt{numbers} respectively.
+Parameters are passed to each module through a set of tags.
+The name of the tag indicates the name of the module parameter, while the contents of the tag specifies the parameter value.
+The parameter name must match one of the parameter names handled by the module class, and the value must be convertible to the required data type for the parameter.
+
+The \texttt{reader} module, of class \texttt{TextFileReader}, has three parameters set: \texttt{sourcePath} indicates the path to the directory where files should be read, \texttt{sectionName} indicates the name of the single section containing the whole file text, and \texttt{acceptPattern} that indicates a pattern (in regular expression) that must match the read file names.
+Thus AlvisNLP/ML starts reading each file in the current directory, creates a document for each file containing a single section named \texttt{all} holding the whole contents of the file.
+
+The \texttt{numbers} module, of class \texttt{RegExp}, has also three parameters set: \texttt{pattern} indicates the regular expression this module should look for in the contents, \texttt{targetLayerName} indicates the name of the layer where annotations should be placed, and \texttt{constantAnnotationFeatures} that sets constant feature values for all annotations created by the module.
+Thus AlvisNLP/ML proceeds by searching in the contents occurrences of numbers through an appropriate regular expression, an annotation is created for each match and placed in the layer \texttt{numbers}.
+
+\section{Running a plan}
+
+To run this plan, go to the directory where you want files to be read and type:
+\code{\$ alvisnlp /path/to/alvisnlp/bibliome/share/examples/numbers.xml}
+AlvisNLP/ML is quite verbose and prints a lot of information about the progress of the corpus processing; figure \ref{SimpleOutput} shows a possible output for our example.
+
+\codefile{AlvisNLP/ML output}{SimpleOutput}{../bibliome/share/examples/numbers.log}
+
+AlvisNLP/ML messages usually fit in a single line and start with the time, then the processing step that issued the message, finally the message itself.
+The processing step can be either \texttt{alvisnlp} for general messages, or a module identifier for messages concerning the processing of this module.
+Note that module names are prefixed with the plan identifier (\texttt{example}) and a dot.
+
+\section{Writing the annotations}
+In the above example we ran AlvisNLP/ML on a corpus.
+The \texttt{reader} module created documents, the \texttt{numbers} module created annotations but all of this was in memory and lost at the end of the processing.
+Most probably you will want the documents and the annotations written in one or several files in one format or another.
+
+To achieve this, you must find a module that writes the corpus or a relevant part of the corpus into a file.
+If you find a writer module that suits you, then place this module at the end of the plan, setting the parameters appropriately.
+
+Alternatively you can require a dump of the corpus at the end of the last module of the plan.
+Figure \ref{DumpPlan} shows our example with a dump requirement on module \texttt{numbers}.
+Notice that dumping is specified by the \texttt{dump} XML attribute set to the path of the output file.
+
+\codefile{A plan file with a corpus dump requirement}{DumpPlan}{../bibliome/share/examples/numbers_dump.xml}
+
+The dump file is a Java object serialization containing the whole corpus.
+It is not human-readable.
+We shall see that a dump file can be used to resume a plan that failed at a certain point.
+
+\section{Getting help}
+
+\subsection{Which modules are supported?}
+
+If you wonder which modules are supported by your version of AlvisNLP/ML, just type:
+\code{\$ alvisnlp -supportedModules}
+
+Figure \ref{SupportedModules} shows an example of output.
+Module names are given with the full package and class name.
+This is exactly the string that should appear in the \texttt{class} XML feature in \texttt{module} tags in the plan file.
+However, if there are no possible ambiguity the short class name (after the last dot) is enough.
+
+\codefile{Example of output with -supportedModules option}{SupportedModules}{supported_modules.txt}
+
+\subsection{How to use a given module?}
+
+Module implementors are encouraged to provide a user documentation along with the modules implementation.
+To get the user documentation provided for a particular module, type:
+
+\code{\$ alvisnlp -moduleDoc RegExp}
+
+Figure~\ref{RegExpDoc} shows the possible output of this command.
+
+\codefile{Module user documentation}{RegExpDoc}{RegExp.txt}
+
+The documentation contains the module name, a description of its functionality and finally lists all available parameters.
+Each parameter name is followed by its type, its mandatory level and a description of the effect of the parameter on the module behaviour.
+
+Mandatory levels can be either:
+\begin{flushleft}
+\begin{tabular}{rl}
+\textbf{optional}: & it is not necessary to set this parameter in order to use the module;\\
+\textbf{required}: & users must set this parameter in order to use the module;\\
+\textbf{default: \emph{value}}: & the parameter is mandatory though a default value is provided.\\
+\end{tabular}
+\end{flushleft}
+
+It is possible for implementors to provide the user with documentation in different languages.
+AlvisNLP/ML determines the language available for the required documentation that suits the best to your environment locale.
+However you can force AlvisNLP/ML to look for a specific locale with the \texttt{-locale} option.
+For instance if we add to the above command line \texttt{-locale fr\_FR}, AlvisNLP/ML prints the user documentation in french.
+If the documentation is not available in french, then it will print it in english.
+
+\subsection{How do I set parameters with strange types?}
+
+Parameter types could be any Java data type, however module implementors are required to provide a way to convert an XML element into the appropriate data type.
+Implementors are also encouraged to provide a user documentation for these conversions.
+In order to see the documentation for the conversion to a given type, type:
+
+\code{\$ alvisnlp -conversionDoc TypeName}
+
+Note that types ending with \texttt{[]} are arrays of values.
+
+\chapter{Advanced usage}
+
+\section{Resuming plans}
+In some cases AlvisNLP/ML may be used repeatedly with the same plan on the same corpus.
+This usually happens when adjusting a new module or fine tuning parameters.
+Usually the first modules run seamlessly and the one being tuned either fails or doesn't give the expected results.
+
+It is possible to specify a dump file to AlvisNLP/ML so that it skips the modules that already have processed the corpus.
+To resume a plan from a dump file, type:
+
+\code{\$ alvisnlp -resume DUMPFILE PLANFILE}
+
+where DUMPFILE if a dump file written in a previous run with the same plan file.
+Beware that changes in parameters of modules preceding the dump are ignored since these modules will be skipped.
+Deeper changes in the module sequence before the dump may result in more unpredictible results, do that only if you know what you are doing.
+
+\section{Module sequences}
+Modules can be gathered into sequences: in the plan file just enclose the module definitions between \texttt{sequence} tags.
+A sequence must be given an identifier with the \texttt{id} attribute.
+
+Sequences are a way to gather modules for increased clarity of the plan.
+Additionally, if the BMF is used, sequences accept the \texttt{active} parameter, so the whole sequence can be submitted to conditional processing.
+
+If a module is included in a sequence, then its identifier is prefixed with the identifier of the sequence and a dot ('.').
+Thus when sequences contain sequences, the identifier of modules is the path from the outermost sequence (the plan itself) to the innermost sequence separated by dots.
+
+\section{Plan inclusion}
+A plan file can include another plan file.
+The \texttt{import} tag tells AlvisNLP/ML to include another plan as if it were a sequence.
+The \texttt{file} attribute specifies the file to include.
+
+\section{Conditional processing}
+It is possible to specify that a module should process a corpus only if a certain condition is met.
+In all BMF modules, this condition is set through the \texttt{active} parameter (see \ref{Active}).
+
+This feature can be used to avoid writing several similar plans.
+In some cases one wants to experiment by removing or replacing one or several modules.
+Dirty solutions consist on:
+\begin{itemize}
+\item duplicating the plan file: however it leaves the user the task of making sure all duplicates are synchronized;
+\item commenting and decommenting module specifications: tedious.
+\end{itemize}
+
+The conditional processing provides a clean way to implement minor plan variations.
+The \texttt{active} parameter can test the value of a feature of the corpus.
+Additionally corpus features can be set in command line interface with the \texttt{-feat} option.
+
+\section{AlvisNLP/ML and OGE}
+AlvisNLP/ML can be invoked with the \texttt{qsub} family of programs that are part of the Oracle Grid Engine.
+By default AlvisNLP/ML is registered in the grid queue with the following options:
+\begin{itemize}
+\item use of \texttt{/bin/bash} shell;
+\item import all the environment variable values from where \texttt{qsub} was invoked;
+\item run on the current working directory.
+\end{itemize}
+
+One has to make sure that the Java Runtime Environment and the AlvisNLP/ML JAR files are accessible from the grid nodes.
+
+\chapter{Bibliome Module Factory}
+
+\section{Element expressions}
+\label{Expression}
+Parameter with type \emph{Expression} are used to set a value that depends on specific circumstances.
+Expressions are evaluated with a context element, a module documentation should always specify the element that will be used to evaluate a particular expression.
+
+An expression can be evaluated to one of these types:
+\begin{itemize}
+\item boolean (\emph{true} or \emph{false});
+\item integer;
+\item floating point number;
+\item string;
+\item list of elements.
+\end{itemize}
+Again a module documentation should always specify to which type an expression will be evaluated.
+
+\subsection{Expression reference}
+
+See \url{https://migale.jouy.inra.fr/redmine/projects/alvisnlp/wiki/Element_Expression}.
+
+\section{Common parameters}
+
+\subsection{\texttt{active}}
+\label{Active}
+The \emph{active} parameter controls either the module will process the corpus or not.
+This parameter is of type \emph{Expression} (see \ref{Expression}).
+If it evaluates to \emph{true}, then the module will process the corpus.
+Otherwise AlvisNLP/ML skips the module and runs the next one.
+
+If \emph{active} is not set, then AlvisNLP/ML will run the module.
+
+\subsection{Document and section filters}
+Some modules process sequentially each document in the corpus.
+For these modules, the \emph{documentFilter} parameter controls either a document should be processed.
+This parameter is of type \emph{Expression} (see \ref{Expression}).
+It is evaluated as a boolean for each document, then the document is processed only if the result is \emph{true}.
+
+Some modules process sequentially each section in each document in the corpus.
+These modules accept the \emph{documentFilter} parameter and will only process sections in documents for which it was evaluated to \emph{true}.
+Additionnally the \emph{sectionFilter} parameter controls which section should be processed.
+This parameter is of type \emph{Expression} (see \ref{Expression}).
+It is evaluated as a boolean for each section, then the section is processed only if the result is \emph{true}.
+
+By default modules processes all documents and all sections.
+
+\subsection{Default and constant element features}
+Modules that create elements always add a feature with the key equal ``creator'' and the value equal to the module identifier.
+In this way all elements keep track of the module that created them.
+The key for this feature can be modified with the command line option \texttt{-creator}.
+
+Additionally some parameters allow to set constant features on all created elements:
+\begin{itemize}
+\item \emph{constantDocumentFeatures} for created documents;
+\item \emph{constantSectionFeatures} for created sections;
+\item \emph{constantRelationFeatures} for created relations;
+\item \emph{constantTupleFeatures} for created tuples;
+\item \emph{constantAnnotationFeatures} for created annotations.
+\end{itemize}
+
+These parameters are mappings from strings to strings in the form: \emph{``key1=value1,key2=value2,\ldots''}.
+These key-value pairs are added as is on created elements.
+
+% \chapter{Bibliome Module Factory reference}
+% The module classes described below are part of the module factory provided by Bibliome embedded with the current AlvisNLP/ML application.
+
+% \label{BibliomeModuleFactory}
+
+% See \url{http://bibliome.jouy.inra.fr/alvisnlp/devel/bibliome/}.
+
+% \include{BibliomeModuleFactory}
+
+\end{document}

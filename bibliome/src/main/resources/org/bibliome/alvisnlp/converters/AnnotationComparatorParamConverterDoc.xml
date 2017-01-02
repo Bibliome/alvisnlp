@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+Copyright 2016 Institut National de la Recherche Agronomique
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<alvisnlp-doc author="Robert Bossy" date="2010-10-28">
+  <synopsis>
+    <p>Converts into an annotation comparison function.</p>
+  </synopsis>
+
+  <converter-doc>
+    <string-conversion>
+      <p>Accepted values:
+      <ul>
+	<li><em>start</em>: compare annotations by their start position;</li>
+	<li><em>end</em>: compare annotations by their end position;</li>
+	<li><em>length</em>: compare annotations by their length in number of characters;</li>
+	<li><em>order</em>: compare annotations by their start position, then by the inverse of end position;</li>
+      </ul>
+      By prepending <em>reverse-</em>, the comparison is reversed.
+      </p>
+      <p>A composite comparator may be specified by separating multiple values with commas (","). In this case the first comparator is used, if annotations are equal, then the second is used, etc. The <em>order</em> comparator is thus equivalent to <em>start,reverse-end</em>.</p>
+    </string-conversion>
+  
+    <xml-conversion>
+      <p>
+	<xverb><param value="COMPARATOR"/></xverb>
+	or
+	<xverb><param comparator="COMPARATOR"/></xverb>
+	or
+	<xverb><param>COMPARATOR</param></xverb>
+	<em>COMPARATOR</em> is converted into an annotation comparator as specified by the string conversion.
+      </p>
+    </xml-conversion>
+  </converter-doc>
+</alvisnlp-doc>

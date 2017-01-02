@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="../static/style/apidoc2xhtml.xslt"?>
+<alvisnlp-api version="0.5rc"><!-- XXX -->
+	<api-section name="modules">
+		<title>Modules</title>
+		<api-function name="list-modules">
+			<title>List supported modules</title>
+			<url>/api/modules</url>
+			<method>GET</method>
+			<parameters>
+				<param name="synopsis">
+					<p>Embed the synopsis of each module.</p>
+				</param>
+			</parameters>
+			<responses>
+				<resp status="200 OK">
+					<p>Success</p>
+				</resp>
+			</responses>
+			<description>
+				<p>Returns the list of supported modules in XML format.</p>
+				<p>If <param>synopsis</param> is <code>true</code>, then the synopsis is embedded with each module.</p>
+				<p>If this function is called with a client that supports the <code>xml-stylesheet</code> processing instruction, then the list of modules is displayed in HTML. Most web browsers support <code>xsl-stylesheet</code>.</p>
+			</description>
+		</api-function>
+
+	<api-function name="module-doc">
+		<title>Module documentation</title>
+		<url>/modules/{class}</url>
+		<method>GET</method>
+		<parameters>
+			<param name="class">
+				<p>Name of the class of the module to document.</p>
+			</param>
+		</parameters>
+		<responses>
+			<resp status="200 OK">
+				<p>Success</p>
+			</resp>
+			<resp status="404 NOT&#xA0;FOUND">
+				<p>The specified module class is not supported.</p>
+			</resp>
+		</responses>
+		<description>
+			<p>Returns the documentation for the specified module class.</p>
+			<p>If this function is called with a client that supports the <code>xml-stylesheet</code> processing instruction, then the module documentation is displayed in HTML. Most web browsers support <code>xsl-stylesheet</code>.</p>
+		</description>
+	</api-function>
+	</api-section>
+	
+	<api-section name="converters">
+		<title>Converters</title>
+	<api-function name="list-converters">
+		<title>List supported converters</title>
+		<url>/api/converters</url>
+		<method>GET</method>
+		<parameters>
+			<param name="synopsis">
+				<p>Embed the synopsis of each converter.</p>
+			</param>
+		</parameters>
+		<responses>
+			<resp status="200 OK">
+				<p>Success</p>
+			</resp>
+		</responses>
+		<description>
+			<p>Returns the list of supported converters in XML format.</p>
+			<p>If <param>synopsis</param> is <code>true</code>, then the synopsis is embedded with each converter.</p>
+			<p>If this function is called with a client that supports the <code>xml-stylesheet</code> processing instruction, then the list of converters is displayed in HTML. Most web browsers support <code>xsl-stylesheet</code>.</p>
+		</description>
+	</api-function>
+
+	<api-function name="converter-doc">
+		<title>Converter documentation</title>
+		<url>/converter/{type}</url>
+		<method>GET</method>
+		<parameters>
+			<param name="type">
+				<p>Type of the converter to document.</p>
+			</param>
+		</parameters>
+		<responses>
+			<resp status="200 OK">
+				<p>Success</p>
+			</resp>
+			<resp status="404 NOT&#xA0;FOUND">
+				<p>The specified type has no supported converter.</p>
+			</resp>
+		</responses>
+		<description>
+			<p>Returns the documentation for the converter for the specified type.</p>
+			<p>If this function is called with a client that supports the <code>xml-stylesheet</code> processing instruction, then the converter documentation is displayed in HTML. Most web browsers support <code>xsl-stylesheet</code>.</p>
+		</description>
+	</api-function>
+	</api-section>
+	
+	<api-section name="libraries">
+		<title>Libraries</title>
+	<api-function name="list-libraries">
+		<title>List supported expression libraries</title>
+		<url>/api/libraries</url>
+		<method>GET</method>
+		<parameters>
+			<param name="synopsis">
+				<p>Embed the synopsis of each library.</p>
+			</param>
+		</parameters>
+		<responses>
+			<resp status="200 OK">
+				<p>Success</p>
+			</resp>
+		</responses>
+		<description>
+			<p>Returns the list of supported libraries in XML format.</p>
+			<p>If <param>synopsis</param> is <code>true</code>, then the synopsis is embedded with each library.</p>
+			<p>If this function is called with a client that supports the <code>xml-stylesheet</code> processing instruction, then the list of libraries is displayed in HTML. Most web browsers support <code>xsl-stylesheet</code>.</p>
+		</description>
+	</api-function>
+
+	<api-function name="library-doc">
+		<title>Library documentation</title>
+		<url>/libraries/{name}</url>
+		<method>GET</method>
+		<parameters>
+			<param name="name">
+				<p>Name of the library to document.</p>
+			</param>
+		</parameters>
+		<responses>
+			<resp status="200 OK">
+				<p>Success</p>
+			</resp>
+			<resp status="404 NOT&#xA0;FOUND">
+				<p>The specified library is not supported.</p>
+			</resp>
+		</responses>
+		<description>
+			<p>Returns the documentation for the library with the specified specified name.</p>
+			<p>If this function is called with a client that supports the <code>xml-stylesheet</code> processing instruction, then the library documentation is displayed in HTML. Most web browsers support <code>xsl-stylesheet</code>.</p>
+		</description>
+	</api-function>
+	</api-section>
+	
+	<api-section name="plans">
+		<title>Plans</title>
+	<api-function name="list-plans">
+		<title>List supported plans</title>
+		<url>/api/plans</url>
+		<method>GET</method>
+		<parameters>
+			<param name="synopsis">
+				<p>Embed the synopsis of each plan.</p>
+			</param>
+		</parameters>
+		<responses>
+			<resp status="200 OK">
+				<p>Success</p>
+			</resp>
+		</responses>
+		<description>
+			<p>Returns the list of supported plans in XML format.</p>
+			<p>If <param>synopsis</param> is <code>true</code>, then the synopsis is embedded with each plan.</p>
+			<p>If this function is called with a client that supports the <code>xml-stylesheet</code> processing instruction, then the list of plans is displayed in HTML. Most web browsers support <code>xsl-stylesheet</code>.</p>
+		</description>
+	</api-function>
+
+	<api-function name="plan-doc">
+		<title>Plan documentation</title>
+		<url>/plans/{name}</url>
+		<method>GET</method>
+		<parameters>
+			<param name="name">
+				<p>Name of the plan to document.</p>
+			</param>
+		</parameters>
+		<responses>
+			<resp status="200 OK">
+				<p>Success</p>
+			</resp>
+			<resp status="404 NOT&#xA0;FOUND">
+				<p>The plan with the specified name is not supported.</p>
+			</resp>
+		</responses>
+		<description>
+			<p>Returns the documentation for the plan with the specified name.</p>
+			<p>If this function is called with a client that supports the <code>xml-stylesheet</code> processing instruction, then the plan documentation is displayed in HTML. Most web browsers support <code>xsl-stylesheet</code>.</p>
+		</description>
+	</api-function>
+	</api-section>
+	
+	<api-section name="runs">
+		<title>Runs</title>
+	<api-function name="run-start">
+		<title>Run start</title>
+		<url>/runs</url>
+		<method>POST</method>
+		<parameters>
+			<param name="async">
+				<p>Boolean. Request asynchronous run.</p>
+			</param>
+			<param name="plan">
+				<p>Name of the plan to run.</p>
+			</param>
+			<param name="*">
+				<p>Plan parameter.</p>
+			</param>
+			<param name="xml-*">
+				<p>Plan parameter as XML.</p>
+			</param>
+			<param name="text-*">
+				<p>Plan file parameter as text.</p>
+			</param>
+			<param name="upload-*">
+				<p>Plan file parameter as file upload.</p>
+			</param>
+		</parameters>
+		<responses>
+			<resp status="200 OK">
+				<p>Asynchronous run success.</p>
+			</resp>
+			<resp status="202 ACCEPTED">
+				<p>Synchronous run success.</p>
+			</resp>
+			<resp status="422 UNPROCESSABLE">
+				<p>The plan with the specified name is not supported, or there is an error in the plan parameters.</p>
+			</resp>
+		</responses>
+		<description>
+			<p>Executes the plan specified by <param>plan</param>.</p>
+			<p>This function expects parameters from the query string and/or <code>multipart/form-data</code>. If <param>async</param> is <code>true</code>, then an asynchonous execution of the plan is required. That means that the server will return after the plan has been executed. If the specified plan does not accept asynchronous runs, then this function returns <code>422</code>.</p>
+			<p>All parameters except <param>plan</param> and <param>async</param> are passed to the plan.</p>
+			<p>Parameter names with the <code>xml-</code> prefix will be converted from an XML value. The <code>xml-</code> prefix is used to pass complex parameter values.</p>
+			<p>Parameter names with the <code>text-</code> prefix will be converted as files containing the value of the parameter. The <code>text-</code> prefix is used to pass pasted text.</p>
+			<p>Parameter names with the <code>upload-</code> prefix will be converted as files containing the uploaded data. The <code>upload-</code> prefix is ised to pass file uploads.</p>
+			<p>If this function is called with a client that supports the <code>xml-stylesheet</code> processing instruction, then the run status is displayed in HTML. Most web browsers support <code>xsl-stylesheet</code>.</p>
+		</description>
+	</api-function>
+
+	<api-function name="run-status">
+		<title>Check run status</title>
+		<url>/runs/{id}</url>
+		<method>GET</method>
+		<parameters>
+			<param name="id">
+				<p>Identifier of the run.</p>
+			</param>
+		</parameters>
+		<responses>
+			<resp status="200 OK">
+				<p>Success.</p>
+			</resp>
+			<resp status="404 NOT&#xA0;FOUND">
+				<p>The specified run identifier does not exist.</p>
+			</resp>
+			<resp status="410 GONE">
+				<p>The specified run has been deleted.</p>
+			</resp>
+		</responses>
+		<description>
+			<p>Retreives the run with the specified identifier. Note that if the execution has failed, the the return code is still <code>200</code>.</p>
+			<p>If this function is called with a client that supports the <code>xml-stylesheet</code> processing instruction, then the run status is displayed in HTML. Most web browsers support <code>xsl-stylesheet</code>. If the run has not finished, then the page is refreshed after 10 seconds.</p>
+		</description>
+	</api-function>
+
+	<api-function name="run-output">
+		<title>Fetch run output</title>
+		<url>/runs/{id}/output/{path}</url>
+		<method>GET</method>
+		<parameters>
+			<param name="id">
+				<p>Identifier of the run.</p>
+			</param>
+			<param name="path">
+				<p>Patho of the output file or directory.</p>
+			</param>
+		</parameters>
+		<responses>
+			<resp status="200 OK">
+				<p>Success.</p>
+			</resp>
+			<resp status="404 NOT&#xA0;FOUND">
+				<p>The specified run identifier does not exist, or has not finished, or the required output file or directory does not exist.</p>
+			</resp>
+			<resp status="410 GONE">
+				<p>The specified run has been deleted.</p>
+			</resp>
+		</responses>
+		<description>
+			<p>Retreives the specified output file or directory of the run with the specified identifier.</p>
+			<p>If the specified <param>path</param> is a file, then the server returns its contents as <code>octet/stream</code>. If the <param>path</param> is a directory, then a list of contents is returned as XML.</p>
+			<p>If this function is called with a client that supports the <code>xml-stylesheet</code> processing instruction, then the run status is displayed in HTML. Most web browsers support <code>xsl-stylesheet</code>. If the run has not finished, then the page is refreshed after 10 seconds.</p>
+		</description>
+	</api-function>
+
+	<api-function name="run-delete">
+		<title>Delete run</title>
+		<url>/runs/{id}</url>
+		<method>DELETE</method>
+		<parameters>
+			<param name="id">
+				<p>Identifier of the run.</p>
+			</param>
+		</parameters>
+		<responses>
+			<resp status="200 OK">
+				<p>Success.</p>
+			</resp>
+			<resp status="404 NOT&#xA0;FOUND">
+				<p>The specified run identifier does not exist.</p>
+			</resp>
+			<resp status="410 GONE">
+				<p>The specified run has been already deleted.</p>
+			</resp>
+		</responses>
+		<description>
+			<p>Deletes the specified run. If the run has not finished yet, then this function will attempt to cancel it.</p>
+			<p>The run status and the output will not be available after deletion. A call to <api-function>run-status</api-function> or <api-function>run-output</api-function> will return <code>410</code>, then after a while <code>404</code>.</p>
+		</description>
+	</api-function>
+
+	</api-section>
+</alvisnlp-api>
+<!-- function template -->
+<!-- 
+	<api-function name="">
+		<title></title>
+		<url></url>
+		<method></method>
+		<parameters>
+			<param name="">
+				<p></p>
+			</param>
+		</parameters>
+		<responses>
+			<resp status="">
+				<p></p>
+			</resp>
+		</responses>
+		<description><p></p></description>
+	</api-function>
+ -->

@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!--
+Copyright 2016 Institut National de la Recherche Agronomique
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<alvisnlp-doc author="Robert Bossy" date="2010-10-28">
+  <synopsis>
+    <p>Runs <em>tree-tagger</em>.</p>
+  </synopsis>
+
+  <module-doc>
+    <description>
+      <p><this/> applies <em>tree-tagger</em> on annotations in <param name="wordLayerName"/> by generating an appropriate input file. This file will contain one line for each annotation. The first column, the token surface form, is the value of the <param name="formFeature"/> feature. The second column, the token predefined POS tag, is the value <param name="posFeature"/> feature. The third column, the token predefined lemma, is the value of <param name="lemmaFeature"/> feature. If <param name="posFeature"/> or <param name="lemmaFeature"/> are not defined, then the second and third column are left blank.</p>
+      <p>The <em>tree-tagger</em> binary is specified by <param name="treeTaggerExecutable"/> and the language model to use is specified by <param name="parFile"/>. Additionally a lexicon file can be given through <param name="lexiconFile"/>.</p>
+      <p>If <param name="sentenceLayerName"/> is defined, then <this/> considers annotations in this layer as sentences. Sentence boundaries are reinforced by providing <em>tree-tagger</em> an additional end-of-sentence marker.</p>
+      <p>Once <em>tree-tagger</em> has processed the corpus, <this/> adds the predicted POS tag and lemma to the respective <param name="posFeature"/> and <param name="lemmaFeature"/> features of the corresponding annotations.</p>
+      <p>If <param name="recordDir"/> and <param name="recordFeatures"/> are both defined, then <em>tree-tagger</em> predictions are written into files in one file per section in the <param name="recordDir"/> directory. <param name="recordFeatures"/> is an array of feature names to record. An additional feature <em>n</em> is recognized as the annotation ordinal in the section.</p>
+    </description>
+  
+    <param-doc name="recordDir">
+      <p>Path to the directory where to write tree-tagger result files (one file per section).</p>
+    </param-doc>
+  
+    <param-doc name="sentenceLayerName">
+      <p>Name of the layer containing sentence annotations, sentences are reinforced.</p>
+    </param-doc>
+  
+    <param-doc name="active">
+      <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is true.</p>
+    </param-doc>
+      
+    <param-doc name="inputCharset">
+      <p>Tree-tagger input corpus character set.</p>
+    </param-doc>
+  
+    <param-doc name="recordFeatures">
+      <p>List of attributes to display in result files.</p>
+    </param-doc>
+    
+    <param-doc name="recordCharset">
+      <p>Character encoding of the result files.</p>
+    </param-doc>
+
+    <param-doc name="constantAnnotationFeatures">
+      <p>Constant features to add to each annotation created by this module</p>
+    </param-doc>
+  
+    <param-doc name="outputCharset">
+      <p>Tree-tagger output character set.</p>
+    </param-doc>
+  
+    <param-doc name="lexiconFile">
+      <p>Path to a tree-tagger lexicon file, if set the lexicon will be applied to the corpus before treetagger processes it.</p>
+    </param-doc>
+  
+    <param-doc name="noUnknownLemma">
+      <p>Either to replace unknown lemmas with the surface form.</p>
+    </param-doc>
+  
+    <param-doc name="wordLayerName">
+      <p>Name of the layer containing the word annotations.</p>
+    </param-doc>
+  
+    <param-doc name="lemmaFeature">
+      <p>Name of the feature to set with the lemma.</p>
+    </param-doc>
+  
+    <param-doc name="documentFilter">
+      <p>Only process document that satisfy this filter.</p>
+    </param-doc>
+  
+    <param-doc name="sectionFilter">
+      <p>Process only sections that satisfy this filter.</p>
+    </param-doc>
+  
+    <param-doc name="treeTaggerExecutable">
+      <p>Path to the tree-tagger executable file.</p>
+    </param-doc>
+  
+    <param-doc name="parFile">
+      <p>Path to the language model file.</p>
+    </param-doc>
+  
+    <param-doc name="formFeature">
+      <p>Name of the feature denoting the token surface form.</p>
+    </param-doc>
+  
+    <param-doc name="posFeature">
+      <p>Name of the feature to set with the POS tag.</p>
+    </param-doc>
+  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+</alvisnlp-doc>

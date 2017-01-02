@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+Copyright 2016 Institut National de la Recherche Agronomique
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<alvisnlp-doc author="Robert Bossy" date="2010-10-28">
+  <synopsis>
+    <p>Compiles a regular expression.</p>
+  </synopsis>
+
+  <converter-doc>
+    <string-conversion>
+      <p>Parses the value as a regular expression in Java Regular Expression Format (see <a href="http://download.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html">Java regexp</a>).</p>
+    </string-conversion>
+  
+    <xml-conversion>
+      <p>
+	<xverb><param value="PATTERN"/></xverb>
+	or
+	<xverb><param pattern="PATTERN"/></xverb>
+	or
+	<xverb><param regexp="PATTERN"/></xverb>
+	or
+	<xverb><param regex="PATTERN"/></xverb>
+	or
+	<xverb><param>PATTERN</param></xverb>
+	<em>PATTERN</em> is converted into a regular expression pattern as specified by the string conversion.
+      </p>
+    </xml-conversion>
+  </converter-doc>
+</alvisnlp-doc>

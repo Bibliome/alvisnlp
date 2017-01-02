@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+Copyright 2016 Institut National de la Recherche Agronomique
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<alvisnlp-doc author="Robert Bossy" date="2010-10-28">
+  <synopsis>
+    <p>Converts into an array of acions for <module name="PatternMatcher"/>.</p>
+  </synopsis>
+  <converter-doc>
+    <string-conversion>
+      <p>String conversion is not available for this type.</p>
+    </string-conversion>
+    <xml-conversion>
+      <p>The parameter element accepts any number of children elements. Each child element is converted into a single action. Available aactions are:
+      <ul>
+	<li>
+	  <xverb><addToLayer group="GROUP_NAME" layer="LAYER_NAME"/></xverb>:
+	  add all annotations in <em>GROUP</em> sub-pattern to the layer specified by <em>LAYER_NAME</em>. If the <em>group</em> attribute is not specified, then add all annotations in the match.
+	</li>
+	<li>
+	  <xverb><createAnnotation group="GROUP_NAME" layer="LAYER_NAME" features="FEATURES"/></xverb>:
+	  create an annotation that spans over the <em>GROUP</em> sub-pattern. If the <em>group</em> attribute is not specified, then the created annotation spans over the whole match. The created annotation is added to the layer <em>LAYER_NAME</em> and the features specified in <em>FEATURES</em> are added. The features follow the syntax described in the string conversion of <converter name="Mapping"/>.
+	</li>
+	<li>
+	  <xverb><removeAnnotations group="GROUP_NAME" layer="LAYER_NAME"/></xverb>:
+	  remove all annotations in <em>GROUP</em> sub-pattern from the layer named <em>LAYER_NAME</em>. If the <em>group</em> attribute is not specified, then all annotations of the match are removed. If <em>LAYER_NAME</em> is the same as the matched layer, then annotation removal is effective after all matches have been processed in the layer.
+	</li>
+	<li>
+	  <xverb><setFeatures group="GROUP_NAME" layer="LAYER_NAME" features="FEATURES"/></xverb>:
+	  add features to all annotations in <em>GROUP</em> sub-pattern. If the <em>group</em> attribute is not specified, then features are added to all annotations of the match. The features follow the syntax described in the string conversion of <converter name="Mapping"/>.
+	</li>
+	<li>
+	  <xverb><createTuple relation="RELATION_NAME" arguments="ARGS" features="FEATURES"/></xverb>:
+	  create a tuple in relation specified by <em>RELATION_NAME</em> for each match. Features specified by <em>FEATURES</em> are added to the created tuple. The features follow the syntax described in the string conversion of <converter name="Mapping"/>. <em>ARGS</em> is a comma separated list of arguments. Each argument must be in the form: <em>ROLE=GROUP</em>, where <em>ROLE</em> is a role name and <em>GROUP</em> is the name of a sub-pattern group. The argument is added with the specified role iff the specified group can be associated with a single annotation: the group matches a sequence of exactly one annotation or the group is the target of a <em>createAnnotation</em> action.
+	</li>
+      </ul>
+      </p>
+    </xml-conversion>
+  </converter-doc>
+</alvisnlp-doc>

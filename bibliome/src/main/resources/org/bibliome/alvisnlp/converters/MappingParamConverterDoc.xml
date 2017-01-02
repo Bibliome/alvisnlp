@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!--
+Copyright 2016 Institut National de la Recherche Agronomique
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<alvisnlp-doc author="Robert Bossy" date="2010-10-28">
+  <synopsis>
+    <p>Converts into a mapping from character strings keys to character strings values.</p>
+  </synopsis>
+
+  <converter-doc>
+    <string-conversion>
+      <p>Entries are separated by commas. The entry key and value are separated by an equal (<em>=</em>) character. Keys and values are stripped from leading and trailing whitespace characters.</p>
+      <p>The entry separator can be modified with the <em>separator</em> attribute. The separator between keys and their respective value can be modified with the <em>qualifier</em> attribute.</p>
+    </string-conversion>
+  
+    <xml-conversion>
+      <p>
+	<xverb><param value="MAPPING"/></xverb>
+	or
+	<xverb><param>MAPPING</param></xverb>
+	where <em>MAPPING</em> will be converted according to the string conversion specifications.
+      </p>
+      <p>
+	<xverb><param>
+	<entry key="KEY1" value="VALUE1"/>
+	<entry key="KEY2">VALUE2</entry>
+	...</param></xverb>
+	or
+	<xverb><param>
+	<KEY1>VALUE1</KEY1>
+	<KEY2>VALUE2</KEY2>
+	...</param></xverb>
+      </p>
+    </xml-conversion>
+  </converter-doc>
+</alvisnlp-doc>
