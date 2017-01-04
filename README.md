@@ -3,34 +3,57 @@
 AlvisNLP/ML is a configurable NLP batch processing pipeline.
 
 
-
 # Prerequisites
 
 * Java >= 7
 * Maven >= 3.0.5
 
 
+# Build
 
-# Build and Install
+`mvn clean package`
 
-1. Build with Maven
 
-`mvn clean install`
+# Command-line interface
 
-2. Install AlvisNLP/ML in your system
+## Install
 
 `./install.sh DIR`
 
 *DIR* is the base directory of your AlvisNLP/ML install.
 
 
-
-# Running AlvisNLP/ML
+## Running AlvisNLP/ML
 
 `DIR/bin/alvisnlp -help`
 
-
 *DIR* is the base directory of your AlvisNLP/ML install. You migh also add the *bin* sub-directory to the *PATH* environment variable.
 
-
 `export PATH=DIR/bin:$PATH`
+
+# Web service
+
+## Deploy
+
+Deploy the the `alvisnlp-rest/target/alvisnlp-rest.war` file in your favourite application container.
+
+For instance, on *glassfish*, run:
+
+`asadmin deploy --contextroot CONTEXT --name NAME alvisnlp-rest/target/alvisnlp-rest.war`
+
+## Set context parameters
+
+Set the following context parameters:
+
+| Variable | Description |
+| --- | --- |
+| `alvisnlp.url-base` | Absolute URL of the deployed AlvisNLP/ML application. |
+|     | It should usually be the URL of the container cocatenated with the application context root. |
+| `alvisnlp.processing-dir` | Directory where the data for each run will be stored. |
+| `alvisnlp.plan-dir` | Directory where exposed plans are found. |
+| `alvisnlp.executor-class` | Fully qualified name of the class that launches runs. |
+|     | Default: `fr.jouy.inra.maiage.bibliome.alvis.web.executor.ThreadExecutor`, executes each run in a separate thread on the same server. |
+
+## Use it
+
+From a browser open the URL of the AlvisNLP/ML application.
