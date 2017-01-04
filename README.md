@@ -15,23 +15,22 @@ AlvisNLP/ML is a configurable NLP batch processing pipeline.
 
 1. Build with Maven
 
-    mvn clean install
+`mvn clean install`
 
 2. Install AlvisNLP/ML in your system
 
-    ./install.sh DIR
+`./install.sh DIR`
 
-`DIR' is the base directory of your AlvisNLP/ML install.
-
-
-
-Running AlvisNLP/ML
--------------------
-
-DIR/bin/alvisnlp -help
+*DIR* is the base directory of your AlvisNLP/ML install.
 
 
-`DIR' is the base directory of your AlvisNLP/ML install. You migh also add the `bin' sub-directory to the `PATH' environment variable.
+
+# Running AlvisNLP/ML
+
+`DIR/bin/alvisnlp -help`
 
 
-export PATH=DIR/bin:$PATH
+*DIR* is the base directory of your AlvisNLP/ML install. You migh also add the *bin* sub-directory to the *PATH* environment variable.
+
+
+`export PATH=DIR/bin:$PATH`
