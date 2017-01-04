@@ -47,12 +47,10 @@ Set the following context parameters:
 
 | Variable | Description |
 | --- | --- |
-| `alvisnlp.url-base` | Absolute URL of the deployed AlvisNLP/ML application. |
-|     | It should usually be the URL of the container cocatenated with the application context root. |
+| `alvisnlp.url-base` | Absolute URL of the deployed AlvisNLP/ML application. <br> It should usually be the URL of the container cocatenated with the application context root. |
 | `alvisnlp.processing-dir` | Directory where the data for each run will be stored. |
 | `alvisnlp.plan-dir` | Directory where exposed plans are found. |
-| `alvisnlp.executor-class` | Fully qualified name of the class that launches runs. |
-|     | Default: `fr.jouy.inra.maiage.bibliome.alvis.web.executor.ThreadExecutor`, executes each run in a separate thread on the same server. |
+| `alvisnlp.executor-class` | Fully qualified name of the class that launches runs. <br> Default: `fr.jouy.inra.maiage.bibliome.alvis.web.executor.ThreadExecutor`, executes each run in a separate thread on the same server. |
 
 ## Use it
 
