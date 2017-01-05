@@ -24,3 +24,4 @@ bibliome/expose-repository.sh
 bibliome/maven-repository/
 regression/
 bibliome/src/main/resources/org/bibliome/alvisnlp/resources/ncbi-taxon-names.txt
+header.txt
