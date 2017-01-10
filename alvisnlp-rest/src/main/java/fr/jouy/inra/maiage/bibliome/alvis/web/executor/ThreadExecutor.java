@@ -34,7 +34,7 @@ public class ThreadExecutor implements AlvisNLPExecutor {
 	private static final int THREAD_POOL_SIZE = 6;
 	private static final ExecutorService THREAD_POOL = Executors.newFixedThreadPool(THREAD_POOL_SIZE);
 	private static final Map<String,Future<?>> RUNNING = new ConcurrentHashMap<String,Future<?>>();
-	
+
 	public ThreadExecutor() {
 		super();
 	}

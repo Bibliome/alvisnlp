@@ -58,7 +58,7 @@ public class DRMAAExecutor implements AlvisNLPExecutor {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
 	private static JobTemplate createJobTemplate(ServletContext servletContext, Session session, Run run) throws DrmaaException {
 		JobTemplate result = session.createJobTemplate();
 		result.setRemoteCommand("java");

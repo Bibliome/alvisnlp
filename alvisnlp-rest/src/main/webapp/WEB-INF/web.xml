@@ -45,15 +45,15 @@ limitations under the License.
 	</servlet-mapping>
 	<context-param>
 		<param-name>alvisnlp.plan-dir</param-name>
-		<param-value>/home/rbossy/code/alvisnlp/trunk/plan-test</param-value>
+		<param-value>/home/rbossy/public_html/alvisnlp/plans</param-value>
 	</context-param>
 	<context-param>
 		<param-name>alvisnlp.url-base</param-name>
-		<param-value>http://localhost:8080/alvisnlp-rest/</param-value>
+		<param-value>http://localhost:8080/alvisnlp-rest</param-value>
 	</context-param>
 	<context-param>
 		<param-name>alvisnlp.processing-dir</param-name>
-		<param-value>/home/rbossy/tmp/</param-value>
+		<param-value>/home/rbossy/public_html/alvisnlp/runs</param-value>
 	</context-param>
 	<context-param>
 		<param-name>alvisnlp.executor-class</param-name>
