@@ -26,7 +26,7 @@ limitations under the License.
 			<head>
 		        <link rel="stylesheet">
 		        	<xsl:attribute name="href">
-		        		<xsl:value-of select="concat(/*/@url-base, 'static/style/alvisnlp.css')"/>
+		        		<xsl:value-of select="concat(/*/@url-base, '/static/style/alvisnlp.css')"/>
 		        	</xsl:attribute>
 		        </link>
 		        

@@ -26,7 +26,7 @@ limitations under the License.
 			<head>
 		        <link rel="stylesheet">
 		        	<xsl:attribute name="href">
-		        		<xsl:value-of select="concat(/*/@url-base, 'static/style/alvisnlp.css')"/>
+		        		<xsl:value-of select="concat(/*/@url-base, '/static/style/alvisnlp.css')"/>
 		        	</xsl:attribute>
 		        </link>
 		        
@@ -66,7 +66,7 @@ limitations under the License.
 			<div id="nav-up">
 				<a>
 					<xsl:attribute name="href">
-						<xsl:value-of select="concat(/*/@url-base, $path)"/>
+						<xsl:value-of select="concat(/*/@url-base, '/', $path)"/>
 					</xsl:attribute>
 					&lt;Back
 				</a>
@@ -138,7 +138,7 @@ limitations under the License.
 					<xsl:value-of select="concat('item ', $class)"/>
 				</xsl:attribute>
 				<xsl:attribute name="href">
-					<xsl:value-of select="concat(/*/@url-base, 'api/', $list, '/', @short-target)"/>
+					<xsl:value-of select="concat(/*/@url-base, '/api/', $list, '/', @short-target)"/>
 				</xsl:attribute>
 				<xsl:value-of select="@short-target"/>
 			</a>
