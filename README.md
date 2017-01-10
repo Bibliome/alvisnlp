@@ -8,6 +8,9 @@ AlvisNLP/ML is a configurable NLP batch processing pipeline.
 * Java >= 7
 * Maven >= 3.0.5
 
+# Download
+
+Clone the git repository or download from https://github.com/Bibliome/alvisnlp
 
 # Build
 
