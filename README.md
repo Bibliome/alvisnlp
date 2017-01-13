@@ -12,14 +12,14 @@ AlvisNLP/ML is a configurable NLP batch processing pipeline.
 
 Clone the git repository or download from https://github.com/Bibliome/alvisnlp
 
-# Build and install into the homedir of the package
+# Build and install from the package homedir
 
 `mvn clean install`
 
 
 # Command-line interface
 
-## Install from the homedir of the package
+## Install from the package homedir
 
 `./install.sh DIR`
 
