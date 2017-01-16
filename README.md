@@ -1,7 +1,12 @@
 # Description
 
-AlvisNLP/ML is a configurable NLP batch processing pipeline.
+AlvisNLP/ML is a configurable NLP batch processing pipeline. It annotates text documents for the semantic annotation of textual documents. It integrates Natural Language Processing (NLP) tools for sentence and word segmentation, named-entity recognition, term analysis, semantic typing and relation extraction. These tools rely on resources such as terminologies or ontologies for the adaptation to the application domain. Alvis NLP/ML contains several tools for (semi)-automatic acquisition of these resources, using Machine Learning (ML) techniques. New components can be easily integrated into the pipeline. Part of this work has been funded by the European project Alvis and the French project Quaero.
 
+See
+- Nédellec et al., Handbook on Ontology, 2009.
+ 
+      
+Please contact [Robert Bossy](robert.bossy@inra.fr) if you have any questions.
 
 # Prerequisites
 
