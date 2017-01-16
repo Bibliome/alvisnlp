@@ -55,6 +55,12 @@ Set the following context parameters:
 | `alvisnlp.plan-dir` | Directory where exposed plans are found. |
 | `alvisnlp.executor-class` | Fully qualified name of the class that launches runs. <br> Default: `fr.jouy.inra.maiage.bibliome.alvis.web.executor.ThreadExecutor`, executes each run in a separate thread on the same server. |
 
+## Jetty Maven Plugin
+
+You can quick-test the Web Service with the Jetty Maven Plugin:
+
+`mvn jetty:run-war`
+
 ## Use it
 
 From a browser open the URL of the AlvisNLP/ML application.
