@@ -230,7 +230,13 @@
       <version>3.4</version>
     </dependency>
 
-
+    <!--
+    <dependency>
+      <groupId>edu.stanford.nlp</groupId>
+      <artifactId>stanford-parser</artifactId>
+      <version>3.7.0</version>
+    </dependency>
+    -->
 
 
     <dependency>

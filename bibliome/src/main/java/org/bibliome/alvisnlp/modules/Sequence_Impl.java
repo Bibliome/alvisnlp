@@ -87,6 +87,17 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
     @Override
     public void removeModule(Module<Corpus> module) {
         moduleSequence.remove(module);
+        Collection<String> toRemove = new ArrayList<String>();
+        for (CompositeParamHandler<Corpus> cph : params.values()) {
+        	ParamHandler<Corpus> ph = cph.firstHandler();
+        	Module<?> m = ph.getModule();
+        	if (m == module) {
+        		toRemove.add(cph.getName());
+        	}
+        }
+        for (String name : toRemove) {
+        	params.remove(name);
+        }
     }
 
     @Override
