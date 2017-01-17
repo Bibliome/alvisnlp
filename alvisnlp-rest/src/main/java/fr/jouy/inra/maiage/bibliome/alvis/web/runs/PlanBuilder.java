@@ -176,4 +176,8 @@ public class PlanBuilder {
 	public File getPlanDir() {
 		return planDir;
 	}
+
+	public CompoundCorpusModuleFactory getModuleFactory() {
+		return moduleFactory;
+	}
 }

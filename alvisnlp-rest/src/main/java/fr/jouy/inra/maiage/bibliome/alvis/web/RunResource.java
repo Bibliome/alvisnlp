@@ -123,10 +123,13 @@ public class RunResource extends AbstractResource {
 		return createRunResponse(run, async);
 	}
 
-	private Run createRun(Sequence<Corpus> plan, HttpContext httpContext, FormDataMultiPart formData, AlvisNLPExecutor executor) throws IOException {
+	//XXX visibility
+	Run createRun(Sequence<Corpus> plan, HttpContext httpContext, FormDataMultiPart formData, AlvisNLPExecutor executor) throws IOException {
 		Run result = new Run(rootProcessingDir, plan, executor);
 		HttpRequestContext requestContext = httpContext.getRequest();
-		setFormParams(formData, result);
+		if (formData != null) {
+			setFormParams(formData, result);
+		}
 		setQueryParams(requestContext, result);
 		result.write();
 		return result;
@@ -170,7 +173,8 @@ public class RunResource extends AbstractResource {
 		}
 	}
 
-	private static void setParam(Run run, String name, String value) throws IOException {
+	//XXX visibility
+	static void setParam(Run run, String name, String value) throws IOException {
 		if (name.startsWith(ParamValue.METHOD_XML + "-")) {
 			name = name.substring(4);
 			run.addXMLParamValue(name, value);
@@ -184,7 +188,7 @@ public class RunResource extends AbstractResource {
 		}
 	}
 	
-	private static AlvisNLPExecutor getExecutor(ServletContext servletContext) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
+	static AlvisNLPExecutor getExecutor(ServletContext servletContext) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
 		String executorClassName = AlvisNLPContextParameter.EXECUTOR_CLASS.getStringValue(servletContext);
 		Class<?> klass = Class.forName(executorClassName);
 		if (!AlvisNLPExecutor.class.isAssignableFrom(klass)) {
@@ -294,14 +298,14 @@ public class RunResource extends AbstractResource {
 		result.setAttribute("human-size", getHumanSize(size));
 		return result;
 	}
-	
+
 	private static final String[] SIZE_UNITS = {
 		"bytes",
 		"KB",
 		"MB",
 		"GB"
 	};
-	
+
 	private static String getHumanSize(long size) {
 		long n = size;
 		int u;
@@ -351,5 +355,9 @@ public class RunResource extends AbstractResource {
 		}
 		run.cancel();
 		return Response.ok().build();
+	}
+
+	PlanBuilder getPlanBuilder() {
+		return planBuilder;
 	}
 }
