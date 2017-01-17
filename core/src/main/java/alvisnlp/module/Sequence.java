@@ -125,7 +125,7 @@ public interface Sequence<T extends Annotable> extends Module<T> {
 			addParamHandler(ph);
 		}
 
-		private final ParamHandler<T> firstHandler() {
+		public final ParamHandler<T> firstHandler() {
 			return paramHandlers.get(0);
 		}
 		
