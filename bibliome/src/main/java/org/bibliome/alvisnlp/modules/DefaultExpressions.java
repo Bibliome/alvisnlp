@@ -41,11 +41,13 @@ public class DefaultExpressions {
 	public static final Expression SECTION_SENTENCES = sectionLayer(DefaultNames.getSentenceLayer());
 	public static final Expression SECTION_CONTENTS = ExpressionParser.parseUnsafe("contents");
 	public static final Expression SECTION_DEPENDENCIES = ExpressionParser.parseUnsafe("relations:" + DefaultNames.getDependencyRelationName());
+	public static final Expression SECTION_ANNOTATIONS = ExpressionParser.parseUnsafe("layer");
+	public static final Expression SECTION_TUPLES = ExpressionParser.parseUnsafe("relations.tuples");
 	public static final Expression ANNOTATION_START = ExpressionParser.parseUnsafe("start");
 	public static final Expression ANNOTATION_END = ExpressionParser.parseUnsafe("end");
 	public static final Expression CORPUS_DOCUMENTS = ExpressionParser.parseUnsafe("documents");
 	public static final Expression DOCUMENT_SECTIONS = ExpressionParser.parseUnsafe("sections");
-
+	
 	public static Expression feature(String name) {
 		return ExpressionParser.parseUnsafe("@" + name);
 	}
