@@ -131,22 +131,26 @@ public class RunResource extends AbstractResource {
 		Run result = new Run(rootProcessingDir, plan, executor);
 		HttpRequestContext requestContext = httpContext.getRequest();
 		if (formData != null) {
-			setFormParams(formData, result);
+			setFormParams(formData, result, excludedParams);
 		}
 		setQueryParams(requestContext, result, excludedParams);
 		result.write();
 		return result;
 	}
 
-	private static void setFormParams(FormDataMultiPart formData, Run run) throws IOException {
+	private static void setFormParams(FormDataMultiPart formData, Run run, String... excluded) throws IOException {
+		Collection<String> ex = new HashSet<String>(Arrays.asList(excluded));
 		Map<String,List<FormDataBodyPart>> formFields = formData.getFields();
 		for (Map.Entry<String,List<FormDataBodyPart>> e : formFields.entrySet()) {
+			String name = e.getKey();
+			if (ex.contains(name)) {
+				continue;
+			}
 			List<FormDataBodyPart> fields = e.getValue();
 			if (fields.isEmpty()) {
 				continue;
 			}
 			FormDataBodyPart field = fields.get(fields.size() - 1);
-			String name = e.getKey();
 			if (name.startsWith(ParamValue.METHOD_UPLOAD + "-")) {
 				name = name.substring(7);
 				ContentDisposition cd = field.getContentDisposition();
