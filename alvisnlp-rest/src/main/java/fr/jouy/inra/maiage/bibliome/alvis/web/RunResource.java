@@ -23,6 +23,9 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -95,7 +98,7 @@ public class RunResource extends AbstractResource {
 			return createErrorRespose("missing plan name");
 		}
 		AlvisNLPExecutor executor = getExecutor(servletContext);
-		Run run = createRun(plan, httpContext, formData, executor);
+		Run run = createRun(plan, httpContext, formData, executor, "plan");
 		try {
 			planBuilder.setParams(run, plan);
 			planBuilder.check(plan);
@@ -124,13 +127,13 @@ public class RunResource extends AbstractResource {
 	}
 
 	//XXX visibility
-	Run createRun(Sequence<Corpus> plan, HttpContext httpContext, FormDataMultiPart formData, AlvisNLPExecutor executor) throws IOException {
+	Run createRun(Sequence<Corpus> plan, HttpContext httpContext, FormDataMultiPart formData, AlvisNLPExecutor executor, String... excludedParams) throws IOException {
 		Run result = new Run(rootProcessingDir, plan, executor);
 		HttpRequestContext requestContext = httpContext.getRequest();
 		if (formData != null) {
 			setFormParams(formData, result);
 		}
-		setQueryParams(requestContext, result);
+		setQueryParams(requestContext, result, excludedParams);
 		result.write();
 		return result;
 	}
@@ -157,15 +160,17 @@ public class RunResource extends AbstractResource {
 		}
 	}
 
-	private static void setQueryParams(HttpRequestContext requestContext, Run run) throws IOException {
+	private static void setQueryParams(HttpRequestContext requestContext, Run run, String... excluded) throws IOException {
+		Collection<String> ex = new HashSet<String>(Arrays.asList(excluded));
+		ex.add("plan");
 		MultivaluedMap<String,String> params = requestContext.getQueryParameters();
 		for (Map.Entry<String,List<String>> e : params.entrySet()) {
-			List<String> values = e.getValue();
-			if (values.isEmpty()) {
+			String name = e.getKey();
+			if (ex.contains(name)) {
 				continue;
 			}
-			String name = e.getKey();
-			if (name.equals("plan")) {
+			List<String> values = e.getValue();
+			if (values.isEmpty()) {
 				continue;
 			}
 			String value = values.get(values.size() - 1);

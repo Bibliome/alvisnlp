@@ -180,4 +180,8 @@ public class PlanBuilder {
 	public CompoundCorpusModuleFactory getModuleFactory() {
 		return moduleFactory;
 	}
+
+	public CompoundParamConverterFactory getConverterFactory() {
+		return converterFactory;
+	}
 }

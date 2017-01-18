@@ -7,6 +7,8 @@ import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.ws.rs.DefaultValue;
@@ -21,9 +23,17 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 
+import org.bibliome.alvisnlp.modules.pubannotation.PubAnnotationExport;
+import org.bibliome.util.service.AmbiguousAliasException;
+import org.bibliome.util.service.UnsupportedServiceException;
 import org.xml.sax.SAXException;
 
 import alvisnlp.corpus.Corpus;
+import alvisnlp.factory.ModuleFactory;
+import alvisnlp.module.AbstractModuleVisitor;
+import alvisnlp.module.Module;
+import alvisnlp.module.ModuleException;
+import alvisnlp.module.ModuleVisitor;
 import alvisnlp.module.Sequence;
 
 import com.sun.jersey.api.core.HttpContext;
@@ -58,7 +68,7 @@ public class PubAnnotation extends AbstractResource {
 		PlanBuilder planBuilder = runResource.getPlanBuilder();
 		Sequence<Corpus> plan = planBuilder.buildPlan(planName);
 		AlvisNLPExecutor executor = RunResource.getExecutor(servletContext);
-		Run run = runResource.createRun(plan, httpContext, null, executor);
+		Run run = runResource.createRun(plan, httpContext, null, executor, "text", "sourcedb", "sourceid");
 		injectInputText(run, text, sourcedb, sourceid);
 		planBuilder.setParams(run, plan);
 		planBuilder.check(plan);
@@ -80,13 +90,34 @@ public class PubAnnotation extends AbstractResource {
 			URLConnection conn = url.openConnection();
 			conn.connect();
 			try (InputStream is = conn.getInputStream()) {
-				run.addUploadParamValue("text", String.format("%s:%s", sourcedb, sourceid), is);
+				run.addUploadParamValue("text", "text", is);
 			}
 		}
 		else {
 			run.addTextParamValue("text", text);
 		}
 	}
+
+	private static List<Module<Corpus>> getExporters(PlanBuilder planBuiler, Sequence<Corpus> plan) throws ModuleException, UnsupportedServiceException, AmbiguousAliasException {
+		List<Module<Corpus>> result = new ArrayList<Module<Corpus>>();
+		plan.accept(EXPORTER_VISITOR, result);
+		if (result.isEmpty()) {
+			ModuleFactory<Corpus> moduleFactory = planBuiler.getModuleFactory();
+			Module<Corpus> exporter = moduleFactory.getService(PubAnnotationExport.class);
+			result.add(exporter);
+		}
+		return result;
+	}
+	
+	private static final ModuleVisitor<Corpus,List<Module<Corpus>>> EXPORTER_VISITOR = new AbstractModuleVisitor<Corpus,List<Module<Corpus>>>() {
+		@Override
+		public void visitModule(Module<Corpus> module, List<Module<Corpus>> param) throws ModuleException {
+			String type = module.getModuleClass();
+			if (type.equals(PubAnnotationExport.class)) {
+				param.add(module);
+			}
+		}
+	};
 
 	@GET
 	@Path("/annotations/{id}")
