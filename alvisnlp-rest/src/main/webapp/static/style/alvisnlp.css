@@ -370,8 +370,16 @@ td.api-resp-status {
 	background-color: AAFFAA;
 }
 
+.status-3XX {
+	background-color: FFFFAA;
+}
+
 .status-4XX {
 	background-color: FFAAAA;
+}
+
+.status-5XX {
+	background-color: FF9999;
 }
 
 td.api-resp-descr {

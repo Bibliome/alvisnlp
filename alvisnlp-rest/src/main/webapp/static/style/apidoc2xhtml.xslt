@@ -181,12 +181,14 @@ limitations under the License.
 			<xsl:value-of select="."/>
 		</xsl:variable>
 		<code>
-			<a>
-				<xsl:attribute name="href">
-					<xsl:value-of select="concat('#', $name)"/>
-				</xsl:attribute>
-				<xsl:value-of select="//api-function[@name = $name]/url"/>
-			</a>
+			<xsl:for-each select="//api-function[@name = $name]">
+				<a>
+					<xsl:attribute name="href">
+						<xsl:value-of select="concat('#', $name)"/>
+					</xsl:attribute>
+					<xsl:value-of select="title"/>
+				</a>
+			</xsl:for-each>
 		</code>
 	</xsl:template>
 	
