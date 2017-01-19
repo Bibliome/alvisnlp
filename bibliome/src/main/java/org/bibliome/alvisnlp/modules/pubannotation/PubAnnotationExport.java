@@ -28,7 +28,7 @@ import alvisnlp.module.lib.Param;
 @AlvisNLPModule(beta=true)
 public class PubAnnotationExport extends SectionModule<PubAnnotationExportResolvedObjects> {
 	private OutputFile outFile;
-	private DenominationSpecification[] denominations = { new DenominationSpecification() };
+	private DenotationSpecification[] denotations = { new DenotationSpecification() };
 	private RelationSpecification[] relations = { new RelationSpecification() };
 
 	@SuppressWarnings("unchecked")
@@ -75,20 +75,20 @@ public class PubAnnotationExport extends SectionModule<PubAnnotationExportResolv
 	}
 	
 	public static class PubAnnotationExportResolvedObjects extends SectionResolvedObjects {
-		private DenominationSpecification.Resolved[] denominations;
+		private DenotationSpecification.Resolved[] denotations;
 		private RelationSpecification.Resolved[] relations;
 		
 		private PubAnnotationExportResolvedObjects(ProcessingContext<Corpus> ctx, PubAnnotationExport module) throws ResolverException {
 			super(ctx, module);
 			LibraryResolver resolver = module.getLibraryResolver(ctx);
-			this.denominations = resolver.resolveArray(module.denominations, DenominationSpecification.Resolved.class);
+			this.denotations = resolver.resolveArray(module.denotations, DenotationSpecification.Resolved.class);
 			this.relations = resolver.resolveArray(module.relations, RelationSpecification.Resolved.class);
 		}
 
 		@Override
 		public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
 			super.collectUsedNames(nameUsage, defaultType);
-			nameUsage.collectUsedNamesArray(denominations, defaultType);
+			nameUsage.collectUsedNamesArray(denotations, defaultType);
 			nameUsage.collectUsedNamesArray(relations, defaultType);
 		}
 		
@@ -96,15 +96,15 @@ public class PubAnnotationExport extends SectionModule<PubAnnotationExportResolv
 		JSONObject convert(EvaluationContext ctx, Section sec) {
 			JSONObject result = new JSONObject();
 			result.put("text", sec.getContents());
-			result.put("denominations", getDenominations(ctx, sec));
+			result.put("denotations", getDenotations(ctx, sec));
 			result.put("relations", getRelations(ctx, sec));
 			return result;
 		}
 		
-		private JSONArray getDenominations(EvaluationContext ctx, Section sec) {
+		private JSONArray getDenotations(EvaluationContext ctx, Section sec) {
 			JSONArray result = new JSONArray();
-			for (DenominationSpecification.Resolved ds : denominations) {
-				ds.addDenominations(ctx, sec, result);
+			for (DenotationSpecification.Resolved ds : denotations) {
+				ds.addDenotations(ctx, sec, result);
 			}
 			System.err.println("result = " + result);
 			return result;
@@ -125,8 +125,8 @@ public class PubAnnotationExport extends SectionModule<PubAnnotationExportResolv
 	}
 
 	@Param
-	public DenominationSpecification[] getDenominations() {
-		return denominations;
+	public DenotationSpecification[] getDenotations() {
+		return denotations;
 	}
 
 	@Param
@@ -138,8 +138,8 @@ public class PubAnnotationExport extends SectionModule<PubAnnotationExportResolv
 		this.outFile = outFile;
 	}
 
-	public void setDenominations(DenominationSpecification[] denominations) {
-		this.denominations = denominations;
+	public void setDenotations(DenotationSpecification[] denotations) {
+		this.denotations = denotations;
 	}
 
 	public void setRelations(RelationSpecification[] relations) {

@@ -1,7 +1,7 @@
 package org.bibliome.alvisnlp.modules.pubannotation;
 
 import org.bibliome.alvisnlp.modules.DefaultExpressions;
-import org.bibliome.alvisnlp.modules.pubannotation.DenominationSpecification.Resolved;
+import org.bibliome.alvisnlp.modules.pubannotation.DenotationSpecification.Resolved;
 import org.bibliome.util.Iterators;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -18,13 +18,13 @@ import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.NameUser;
 
-public class DenominationSpecification implements Resolvable<Resolved> {
+public class DenotationSpecification implements Resolvable<Resolved> {
 	private final Expression instances;
 	private final Expression begin;
 	private final Expression end;
 	private final Expression obj;
 
-	public DenominationSpecification(Expression instances, Expression begin, Expression end, Expression obj) {
+	public DenotationSpecification(Expression instances, Expression begin, Expression end, Expression obj) {
 		super();
 		this.instances = instances;
 		this.begin = begin;
@@ -32,11 +32,11 @@ public class DenominationSpecification implements Resolvable<Resolved> {
 		this.obj = obj;
 	}
 
-	public DenominationSpecification(Expression obj) {
+	public DenotationSpecification(Expression obj) {
 		this(DefaultExpressions.SECTION_ANNOTATIONS, DefaultExpressions.ANNOTATION_START, DefaultExpressions.ANNOTATION_END, obj);
 	}
 
-	public DenominationSpecification() {
+	public DenotationSpecification() {
 		this(DefaultExpressions.feature("ref"));
 	}
 
@@ -51,7 +51,7 @@ public class DenominationSpecification implements Resolvable<Resolved> {
 		private final Evaluator end;
 		private final Evaluator obj;
 
-		private Resolved(LibraryResolver resolver, DenominationSpecification spec) throws ResolverException {
+		private Resolved(LibraryResolver resolver, DenotationSpecification spec) throws ResolverException {
 			this.instances = spec.instances.resolveExpressions(resolver);
 			this.begin = spec.begin.resolveExpressions(resolver);
 			this.end = spec.end.resolveExpressions(resolver);
@@ -67,15 +67,15 @@ public class DenominationSpecification implements Resolvable<Resolved> {
 		}
 		
 		@SuppressWarnings("unchecked")
-		void addDenominations(EvaluationContext ctx, Section sec, JSONArray denominations) {
+		void addDenotations(EvaluationContext ctx, Section sec, JSONArray denotations) {
 			for (Element e : Iterators.loop(instances.evaluateElements(ctx, sec))) {
-				JSONObject j = convertDenomination(ctx, e);
-				denominations.add(j);
+				JSONObject j = convertDenotation(ctx, e);
+				denotations.add(j);
 			}
 		}
 
 		@SuppressWarnings("unchecked")
-		private JSONObject convertDenomination(EvaluationContext ctx, Element e) {
+		private JSONObject convertDenotation(EvaluationContext ctx, Element e) {
 			JSONObject result = new JSONObject();
 			result.put("id", e.getStringId());
 			result.put("span", convertSpan(ctx, e));

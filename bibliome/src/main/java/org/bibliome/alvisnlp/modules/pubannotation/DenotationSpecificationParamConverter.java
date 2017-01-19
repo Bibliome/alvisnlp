@@ -11,16 +11,16 @@ import alvisnlp.converters.lib.AbstractParamConverter;
 import alvisnlp.converters.lib.Converter;
 import alvisnlp.corpus.expressions.Expression;
 
-@Converter(targetType=DenominationSpecification.class)
-public class DenominationSpecificationParamConverter extends AbstractParamConverter<DenominationSpecification> {
+@Converter(targetType=DenotationSpecification.class)
+public class DenotationSpecificationParamConverter extends AbstractParamConverter<DenotationSpecification> {
 	@Override
-	protected DenominationSpecification convertTrimmed(String stringValue) throws ConverterException {
+	protected DenotationSpecification convertTrimmed(String stringValue) throws ConverterException {
 		Expression obj = convertComponent(Expression.class, stringValue);
-		return new DenominationSpecification(obj);
+		return new DenotationSpecification(obj);
 	}
 
 	@Override
-	protected DenominationSpecification convertXML(Element xmlValue) throws ConverterException {
+	protected DenotationSpecification convertXML(Element xmlValue) throws ConverterException {
 		List<Element> children = XMLUtils.childrenElements(xmlValue);
 		if (children.isEmpty()) {
 			return convert(xmlValue.getTextContent());
@@ -34,8 +34,8 @@ public class DenominationSpecificationParamConverter extends AbstractParamConver
 			switch (child.getTagName()) {
 				case "instances":
 				case "inst":
-				case "denominations":
-				case "denom":
+				case "denotations":
+				case "denot":
 					instances = expr;
 					break;
 				case "begin":
@@ -54,6 +54,6 @@ public class DenominationSpecificationParamConverter extends AbstractParamConver
 					cannotConvertXML(xmlValue, "unexpected tag " + child.getTagName());
 			}
 		}
-		return new DenominationSpecification(instances, begin, end, obj);
+		return new DenotationSpecification(instances, begin, end, obj);
 	}
 }
