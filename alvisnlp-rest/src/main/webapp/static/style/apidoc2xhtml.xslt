@@ -37,7 +37,7 @@ limitations under the License.
 					<div id="nav-up">
 						<a>
 							<xsl:attribute name="href">
-								<xsl:value-of select="alvisnlp-api/@url-base"/>
+								<xsl:value-of select="concat(alvisnlp-api/@url-base, '/')"/>
 							</xsl:attribute>
 							&lt;Back
 						</a>
