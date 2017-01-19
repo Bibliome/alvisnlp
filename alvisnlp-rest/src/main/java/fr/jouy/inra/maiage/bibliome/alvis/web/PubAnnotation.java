@@ -12,7 +12,9 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.ws.rs.DefaultValue;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
@@ -37,6 +39,7 @@ import alvisnlp.module.ModuleVisitor;
 import alvisnlp.module.Sequence;
 
 import com.sun.jersey.api.core.HttpContext;
+import com.sun.jersey.multipart.FormDataMultiPart;
 
 import fr.jouy.inra.maiage.bibliome.alvis.web.executor.AlvisNLPExecutor;
 import fr.jouy.inra.maiage.bibliome.alvis.web.runs.PlanBuilder;
@@ -57,7 +60,7 @@ public class PubAnnotation extends AbstractResource {
 
 	@GET
 	@Path("/plans/{plan}")
-	public Response annotate(
+	public Response annotate_GET(
 			@Context ServletContext servletContext,
 			@Context HttpContext httpContext,
 			@PathParam("plan") String planName,
@@ -65,10 +68,35 @@ public class PubAnnotation extends AbstractResource {
 			@QueryParam("sourcedb") @DefaultValue("") String sourcedb,
 			@QueryParam("sourceid") @DefaultValue("") String sourceid
 			) throws Exception {
+		return annotate(servletContext, httpContext, planName, text, sourcedb, sourceid, null);
+	}
+	
+	@POST
+	@Path("/plans/{plan}")
+	public Response annotate_POST(
+			@Context ServletContext servletContext,
+			@PathParam("plan") String planName,
+			@FormParam("text") @DefaultValue("") String text,
+			@FormParam("sourcedb") @DefaultValue("") String sourcedb,
+			@FormParam("sourceid") @DefaultValue("") String sourceid,
+			FormDataMultiPart formData
+			) throws Exception {
+		return annotate(servletContext, null, planName, text, sourcedb, sourceid, formData);
+	}
+	
+	private Response annotate(
+			ServletContext servletContext,
+			HttpContext httpContext,
+			String planName,
+			String text,
+			String sourcedb,
+			String sourceid,
+			FormDataMultiPart formData
+			) throws Exception {
 		PlanBuilder planBuilder = runResource.getPlanBuilder();
 		Sequence<Corpus> plan = planBuilder.buildPlan(planName);
 		AlvisNLPExecutor executor = RunResource.getExecutor(servletContext);
-		Run run = runResource.createRun(plan, httpContext, null, executor, "text", "sourcedb", "sourceid");
+		Run run = runResource.createRun(plan, httpContext, formData, executor, "text", "sourcedb", "sourceid");
 		injectInputText(run, text, sourcedb, sourceid);
 		planBuilder.setParams(run, plan);
 		planBuilder.check(plan);
@@ -98,6 +126,7 @@ public class PubAnnotation extends AbstractResource {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private static List<Module<Corpus>> getExporters(PlanBuilder planBuiler, Sequence<Corpus> plan) throws ModuleException, UnsupportedServiceException, AmbiguousAliasException {
 		List<Module<Corpus>> result = new ArrayList<Module<Corpus>>();
 		plan.accept(EXPORTER_VISITOR, result);

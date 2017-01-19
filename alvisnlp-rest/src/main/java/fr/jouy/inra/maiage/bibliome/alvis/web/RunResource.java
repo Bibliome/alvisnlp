@@ -129,11 +129,13 @@ public class RunResource extends AbstractResource {
 	//XXX visibility
 	Run createRun(Sequence<Corpus> plan, HttpContext httpContext, FormDataMultiPart formData, AlvisNLPExecutor executor, String... excludedParams) throws IOException {
 		Run result = new Run(rootProcessingDir, plan, executor);
-		HttpRequestContext requestContext = httpContext.getRequest();
 		if (formData != null) {
 			setFormParams(formData, result, excludedParams);
 		}
-		setQueryParams(requestContext, result, excludedParams);
+		if (httpContext != null) {
+			HttpRequestContext requestContext = httpContext.getRequest();
+			setQueryParams(requestContext, result, excludedParams);
+		}
 		result.write();
 		return result;
 	}
