@@ -79,13 +79,14 @@ public class PubAnnotation extends AbstractResource {
 	@Consumes({ MediaType.MULTIPART_FORM_DATA })
 	public Response annotate_POST_MULTIPART(
 			@Context ServletContext servletContext,
+			@Context HttpContext httpContext,
 			@PathParam("plan") String planName,
 			@FormDataParam("text") @DefaultValue("") String text,
 			@FormDataParam("sourcedb") @DefaultValue("") String sourcedb,
 			@FormDataParam("sourceid") @DefaultValue("") String sourceid,
 			FormDataMultiPart formData
 			) throws Exception {
-		return annotate(servletContext, null, planName, text, sourcedb, sourceid, null, formData);
+		return annotate(servletContext, httpContext, planName, text, sourcedb, sourceid, null, formData);
 	}
 	
 	@POST
@@ -93,13 +94,14 @@ public class PubAnnotation extends AbstractResource {
 	@Consumes({ MediaType.APPLICATION_FORM_URLENCODED })
 	public Response annotate_POST_URLENCODED(
 			@Context ServletContext servletContext,
+			@Context HttpContext httpContext,
 			@PathParam("plan") String planName,
 			@FormParam("text") @DefaultValue("") String text,
 			@FormParam("sourcedb") @DefaultValue("") String sourcedb,
 			@FormParam("sourceid") @DefaultValue("") String sourceid,
 			MultivaluedMap<String,String> formParams
 			) throws Exception {
-		return annotate(servletContext, null, planName, text, sourcedb, sourceid, formParams, null);
+		return annotate(servletContext, httpContext, planName, text, sourcedb, sourceid, formParams, null);
 	}
 	
 	private Response annotate(
