@@ -98,7 +98,7 @@ public class RunResource extends AbstractResource {
 			return createErrorRespose("missing plan name");
 		}
 		AlvisNLPExecutor executor = getExecutor(servletContext);
-		Run run = createRun(plan, httpContext, formData, executor, "plan");
+		Run run = createRun(plan, httpContext, null, formData, executor, "plan");
 		try {
 			planBuilder.setParams(run, plan);
 			planBuilder.check(plan);
@@ -127,14 +127,18 @@ public class RunResource extends AbstractResource {
 	}
 
 	//XXX visibility
-	Run createRun(Sequence<Corpus> plan, HttpContext httpContext, FormDataMultiPart formData, AlvisNLPExecutor executor, String... excludedParams) throws IOException {
+	Run createRun(Sequence<Corpus> plan, HttpContext httpContext, MultivaluedMap<String,String> formParams, FormDataMultiPart formData, AlvisNLPExecutor executor, String... excludedParams) throws IOException {
 		Run result = new Run(rootProcessingDir, plan, executor);
 		if (formData != null) {
 			setFormParams(formData, result, excludedParams);
 		}
+		if (formParams != null) {
+			setMultivaluedMapParams(formParams, result, excludedParams);
+		}
 		if (httpContext != null) {
 			HttpRequestContext requestContext = httpContext.getRequest();
-			setQueryParams(requestContext, result, excludedParams);
+			MultivaluedMap<String,String> params = requestContext.getQueryParameters();
+			setMultivaluedMapParams(params, result, excludedParams);
 		}
 		result.write();
 		return result;
@@ -165,11 +169,9 @@ public class RunResource extends AbstractResource {
 			}
 		}
 	}
-
-	private static void setQueryParams(HttpRequestContext requestContext, Run run, String... excluded) throws IOException {
+	
+	private static void setMultivaluedMapParams(MultivaluedMap<String,String> params, Run run, String... excluded) throws IOException {
 		Collection<String> ex = new HashSet<String>(Arrays.asList(excluded));
-		ex.add("plan");
-		MultivaluedMap<String,String> params = requestContext.getQueryParameters();
 		for (Map.Entry<String,List<String>> e : params.entrySet()) {
 			String name = e.getKey();
 			if (ex.contains(name)) {

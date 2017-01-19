@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletContext;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DefaultValue;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
@@ -21,6 +22,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
@@ -40,6 +42,7 @@ import alvisnlp.module.Sequence;
 
 import com.sun.jersey.api.core.HttpContext;
 import com.sun.jersey.multipart.FormDataMultiPart;
+import com.sun.jersey.multipart.FormDataParam;
 
 import fr.jouy.inra.maiage.bibliome.alvis.web.executor.AlvisNLPExecutor;
 import fr.jouy.inra.maiage.bibliome.alvis.web.runs.PlanBuilder;
@@ -68,20 +71,35 @@ public class PubAnnotation extends AbstractResource {
 			@QueryParam("sourcedb") @DefaultValue("") String sourcedb,
 			@QueryParam("sourceid") @DefaultValue("") String sourceid
 			) throws Exception {
-		return annotate(servletContext, httpContext, planName, text, sourcedb, sourceid, null);
+		return annotate(servletContext, httpContext, planName, text, sourcedb, sourceid, null, null);
 	}
 	
 	@POST
 	@Path("/plans/{plan}")
-	public Response annotate_POST(
+	@Consumes({ MediaType.MULTIPART_FORM_DATA })
+	public Response annotate_POST_MULTIPART(
+			@Context ServletContext servletContext,
+			@PathParam("plan") String planName,
+			@FormDataParam("text") @DefaultValue("") String text,
+			@FormDataParam("sourcedb") @DefaultValue("") String sourcedb,
+			@FormDataParam("sourceid") @DefaultValue("") String sourceid,
+			FormDataMultiPart formData
+			) throws Exception {
+		return annotate(servletContext, null, planName, text, sourcedb, sourceid, null, formData);
+	}
+	
+	@POST
+	@Path("/plans/{plan}")
+	@Consumes({ MediaType.APPLICATION_FORM_URLENCODED })
+	public Response annotate_POST_URLENCODED(
 			@Context ServletContext servletContext,
 			@PathParam("plan") String planName,
 			@FormParam("text") @DefaultValue("") String text,
 			@FormParam("sourcedb") @DefaultValue("") String sourcedb,
 			@FormParam("sourceid") @DefaultValue("") String sourceid,
-			FormDataMultiPart formData
+			MultivaluedMap<String,String> formParams
 			) throws Exception {
-		return annotate(servletContext, null, planName, text, sourcedb, sourceid, formData);
+		return annotate(servletContext, null, planName, text, sourcedb, sourceid, formParams, null);
 	}
 	
 	private Response annotate(
@@ -91,12 +109,13 @@ public class PubAnnotation extends AbstractResource {
 			String text,
 			String sourcedb,
 			String sourceid,
+			MultivaluedMap<String,String> formParams,
 			FormDataMultiPart formData
 			) throws Exception {
 		PlanBuilder planBuilder = runResource.getPlanBuilder();
 		Sequence<Corpus> plan = planBuilder.buildPlan(planName);
 		AlvisNLPExecutor executor = RunResource.getExecutor(servletContext);
-		Run run = runResource.createRun(plan, httpContext, formData, executor, "text", "sourcedb", "sourceid");
+		Run run = runResource.createRun(plan, httpContext, formParams, formData, executor, "text", "sourcedb", "sourceid");
 		injectInputText(run, text, sourcedb, sourceid);
 		planBuilder.setParams(run, plan);
 		planBuilder.check(plan);
