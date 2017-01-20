@@ -345,6 +345,7 @@ limitations under the License.
 			<title>Request document annotation</title>
 			<url>/pubannotation/plans/{plan}</url>
 			<method>GET</method>
+			<method>POST</method>
 			<parameters>
 				<param name="plan">
 					<p>Name of the annotation plan, <strong>must conform to PubAnnotation plan conventions</strong>.</p>
@@ -358,11 +359,9 @@ limitations under the License.
 				<param name="sourceid">
 					<p>Identifier of the text to annotate in <param>sourcedb</param>.</p>
 				</param>
-				<!-- 
 				<param name="*">
 					<p>Plan parameters.</p>
 				</param>
-				-->
 			</parameters>
 			<responses>
 				<resp status="303 SEE OTHER">
