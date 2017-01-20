@@ -49,16 +49,11 @@ import fr.jouy.inra.maiage.bibliome.alvis.web.runs.PlanBuilder;
 import fr.jouy.inra.maiage.bibliome.alvis.web.runs.Run;
 
 @Path("/pubannotation")
-public class PubAnnotation extends AbstractResource {
+public class PubAnnotation extends RunLauncher {
 	public static final String JSON_OUTPUT_FILE = "pubannotation.json";
 
-	private final File rootProcessingDir;
-	private final RunResource runResource;
-	
 	public PubAnnotation(@Context ServletContext servletContext, @Context UriInfo uriInfo) throws SecurityException, IllegalArgumentException {
 		super(servletContext, uriInfo);
-		this.rootProcessingDir = AlvisNLPContextParameter.ROOT_PROCESSING_DIR.getFileValue(servletContext);
-		this.runResource = new RunResource(servletContext, uriInfo);
 	}
 
 	@GET
@@ -114,10 +109,9 @@ public class PubAnnotation extends AbstractResource {
 			MultivaluedMap<String,String> formParams,
 			FormDataMultiPart formData
 			) throws Exception {
-		PlanBuilder planBuilder = runResource.getPlanBuilder();
 		Sequence<Corpus> plan = planBuilder.buildPlan(planName);
-		AlvisNLPExecutor executor = RunResource.getExecutor(servletContext);
-		Run run = runResource.createRun(plan, httpContext, formParams, formData, executor, "text", "sourcedb", "sourceid");
+		AlvisNLPExecutor executor = getExecutor(servletContext);
+		Run run = createRun(plan, httpContext, formParams, formData, executor, "text", "sourcedb", "sourceid");
 		injectInputText(run, text, sourcedb, sourceid);
 		planBuilder.setParams(run, plan);
 		planBuilder.check(plan);
