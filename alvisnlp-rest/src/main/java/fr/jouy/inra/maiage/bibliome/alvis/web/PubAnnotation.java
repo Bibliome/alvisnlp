@@ -57,46 +57,49 @@ public class PubAnnotation extends RunLauncher {
 	}
 
 	@GET
-	@Path("/plans/{plan}")
+	@Path("/plans/{plan}/{sync:sync|async}")
 	public Response annotate_GET(
 			@Context ServletContext servletContext,
 			@Context HttpContext httpContext,
 			@PathParam("plan") String planName,
+			@PathParam("sync") String sync,
 			@QueryParam("text") @DefaultValue("") String text,
 			@QueryParam("sourcedb") @DefaultValue("") String sourcedb,
 			@QueryParam("sourceid") @DefaultValue("") String sourceid
 			) throws Exception {
-		return annotate(servletContext, httpContext, planName, text, sourcedb, sourceid, null, null);
+		return annotate(servletContext, httpContext, planName, text, sourcedb, sourceid, null, null, sync.equals("async"));
 	}
 	
 	@POST
-	@Path("/plans/{plan}")
+	@Path("/plans/{plan}/{sync:sync|async}")
 	@Consumes({ MediaType.MULTIPART_FORM_DATA })
 	public Response annotate_POST_MULTIPART(
 			@Context ServletContext servletContext,
 			@Context HttpContext httpContext,
 			@PathParam("plan") String planName,
+			@PathParam("sync") String sync,
 			@FormDataParam("text") @DefaultValue("") String text,
 			@FormDataParam("sourcedb") @DefaultValue("") String sourcedb,
 			@FormDataParam("sourceid") @DefaultValue("") String sourceid,
 			FormDataMultiPart formData
 			) throws Exception {
-		return annotate(servletContext, httpContext, planName, text, sourcedb, sourceid, null, formData);
+		return annotate(servletContext, httpContext, planName, text, sourcedb, sourceid, null, formData, sync.equals("async"));
 	}
 	
 	@POST
-	@Path("/plans/{plan}")
+	@Path("/plans/{plan}/{sync:sync|async}")
 	@Consumes({ MediaType.APPLICATION_FORM_URLENCODED })
 	public Response annotate_POST_URLENCODED(
 			@Context ServletContext servletContext,
 			@Context HttpContext httpContext,
 			@PathParam("plan") String planName,
+			@PathParam("sync") String sync,
 			@FormParam("text") @DefaultValue("") String text,
 			@FormParam("sourcedb") @DefaultValue("") String sourcedb,
 			@FormParam("sourceid") @DefaultValue("") String sourceid,
 			MultivaluedMap<String,String> formParams
 			) throws Exception {
-		return annotate(servletContext, httpContext, planName, text, sourcedb, sourceid, formParams, null);
+		return annotate(servletContext, httpContext, planName, text, sourcedb, sourceid, formParams, null, sync.equals("async"));
 	}
 	
 	private Response annotate(
@@ -107,7 +110,8 @@ public class PubAnnotation extends RunLauncher {
 			String sourcedb,
 			String sourceid,
 			MultivaluedMap<String,String> formParams,
-			FormDataMultiPart formData
+			FormDataMultiPart formData,
+			boolean async
 			) throws Exception {
 		Sequence<Corpus> plan = planBuilder.buildPlan(planName);
 		AlvisNLPExecutor executor = getExecutor(servletContext);
@@ -115,11 +119,14 @@ public class PubAnnotation extends RunLauncher {
 		injectInputText(run, text, sourcedb, sourceid);
 		planBuilder.setParams(run, plan);
 		planBuilder.check(plan);
-		run.execute(servletContext, planBuilder, false);
-		return createRunResponse(run);
+		run.execute(servletContext, planBuilder, async);
+		if (async) {
+			return fetch(run.getId());
+		}
+		return createSyncRunResponse(run);
 	}
 
-	private Response createRunResponse(Run run) throws MalformedURLException {
+	private Response createSyncRunResponse(Run run) throws MalformedURLException {
 		URL url = new URL(getURLBase() + "/api/pubannotation/annotations/" + run.getId());
 		return Response
 				.status(Status.SEE_OTHER)

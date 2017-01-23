@@ -106,7 +106,6 @@ public class PubAnnotationExport extends SectionModule<PubAnnotationExportResolv
 			for (DenotationSpecification.Resolved ds : denotations) {
 				ds.addDenotations(ctx, sec, result);
 			}
-			System.err.println("result = " + result);
 			return result;
 		}
 		

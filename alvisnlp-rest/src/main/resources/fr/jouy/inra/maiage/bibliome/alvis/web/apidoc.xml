@@ -337,13 +337,13 @@ limitations under the License.
 
 	</api-section>
 	
-	
+
 	<api-section name="pubannotation">
-			<title>PubAnnotation endpoint</title>
-	
-		<api-function name="pubannotation-request">
-			<title>Request document annotation</title>
-			<url>/pubannotation/plans/{plan}</url>
+		<title>PubAnnotation endpoint</title>
+
+		<api-function name="pubannotation-request-sync">
+			<title>Request synchronous document annotation</title>
+			<url>/pubannotation/plans/{plan}/sync</url>
 			<method>GET</method>
 			<method>POST</method>
 			<parameters>
@@ -370,7 +370,49 @@ limitations under the License.
 			</responses>
 			<description>
 				<p>Annotates the text specified either by <param>text</param> or by the pair <param>sourcedb</param>/<param>sourceid</param>.</p>
-				<p>The annotation is asynchronous. If successful, the response header <code>Location</code> contains an URL to the results URL (see <api-function>pubannotation-annotations</api-function>).</p>
+				<p>The annotation is synchronous. If successful, the response header <code>Location</code> contains an URL to the results URL (see <api-function>pubannotation-annotations</api-function>).</p>
+				<p>For further details, see the PubAnnotation <a href="httphttp://www.pubannotation.org/docs/annotation-server-api/">annotation server specification</a>.</p>
+				<h5>Caveat</h5>
+				<p>
+				In order to work properly, the plan must abide to two conventions:
+				<ul>
+					<li>The plan must accept a parameter named <param>text</param>. This paremeter must be an alias to the source of a <em>TextFileReader</em> module.</li>
+					<li>The plan must export the annotations with a <em>PubAnnotationExport</em> module. The export must write to a file named <code>pubannotation.json</code></li>
+				</ul>
+				</p>
+			</description>
+		</api-function>
+
+		<api-function name="pubannotation-request-async">
+			<title>Request asynchronous document annotation</title>
+			<url>/pubannotation/plans/{plan}/async</url>
+			<method>GET</method>
+			<method>POST</method>
+			<parameters>
+				<param name="plan">
+					<p>Name of the annotation plan, <strong>must conform to PubAnnotation plan conventions</strong>.</p>
+				</param>
+				<param name="text">
+					<p>Text to annotate.</p>
+				</param>
+				<param name="sourcedb">
+					<p>Source database of the text to annotate.</p>
+				</param>
+				<param name="sourceid">
+					<p>Identifier of the text to annotate in <param>sourcedb</param>.</p>
+				</param>
+				<param name="*">
+					<p>Plan parameters.</p>
+				</param>
+			</parameters>
+			<responses>
+				<resp status="200 OK">
+					<p>The request has completed.</p>
+				</resp>
+			</responses>
+			<description>
+				<p>Annotates the text specified either by <param>text</param> or by the pair <param>sourcedb</param>/<param>sourceid</param>.</p>
+				<p>The annotation is asynchronous. If successful, the result is returned in the response body as PubAnnotation JSON.</p>
 				<p>For further details, see the PubAnnotation <a href="httphttp://www.pubannotation.org/docs/annotation-server-api/">annotation server specification</a>.</p>
 				<h5>Caveat</h5>
 				<p>
@@ -388,7 +430,9 @@ limitations under the License.
 			<url>/pubannotation/annotations/{id}</url>
 			<method>GET</method>
 			<parameters>
-				<param name="id">Identifier of the run.</param>
+				<param name="id">
+					<p>Identifier of the run.</p>
+				</param>
 			</parameters>
 			<responses>
 				<resp status="200 OK">
@@ -399,7 +443,7 @@ limitations under the License.
 				</resp>
 			</responses>
 			<description>
-				<p>Retrieves the annotations in <a href="http://www.pubannotation.org/docs/annotation-format/">PubAnnotation format</a> after a call to <api-function>pubannotation-request</api-function>.</p>
+				<p>Retrieves the annotations in <a href="http://www.pubannotation.org/docs/annotation-format/">PubAnnotation format</a> after a call to <api-function>pubannotation-request-sync</api-function>.</p>
 				<p>Note that <param>id</param> is a valid run identifier that can be passed to <api-function>run-status</api-function>, <api-function>run-output</api-function>, and <api-function>run-delete</api-function>.</p>
 			</description>
 		</api-function>
