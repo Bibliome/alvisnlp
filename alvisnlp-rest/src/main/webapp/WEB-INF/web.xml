@@ -56,6 +56,10 @@ limitations under the License.
 		<param-value>/home/rbossy/public_html/alvisnlp/runs</param-value>
 	</context-param>
 	<context-param>
+		<param-name>alvisnlp.resource-dir</param-name>
+		<param-value>/home/rbossy/public_html/alvisnlp/resources</param-value>
+	</context-param>
+	<context-param>
 		<param-name>alvisnlp.executor-class</param-name>
 		<param-value>fr.jouy.inra.maiage.bibliome.alvis.web.executor.ThreadExecutor</param-value>
 	</context-param>

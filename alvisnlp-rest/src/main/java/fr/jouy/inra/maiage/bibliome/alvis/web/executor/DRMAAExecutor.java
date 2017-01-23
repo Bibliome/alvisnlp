@@ -67,6 +67,7 @@ public class DRMAAExecutor implements AlvisNLPExecutor {
 				DRMAAContextParameter.JARS_PATH.getStringValue(servletContext),
 				DRMAAExecutor.class.getCanonicalName(),
 				AlvisNLPContextParameter.ROOT_PROCESSING_DIR.getStringValue(servletContext),
+				AlvisNLPContextParameter.RESOURCE_DIR.getStringValue(servletContext),
 				AlvisNLPContextParameter.PLAN_DIR.getStringValue(servletContext),
 				run.getId()
 				));
@@ -119,10 +120,11 @@ public class DRMAAExecutor implements AlvisNLPExecutor {
 
 	public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, SAXException, IOException {
 		File rootProcessingDir = new File(args[0]);
-		File planDir = new File(args[1]);
-		String runId = args[2];
+		File resourceDir = new File(args[1]);
+		File planDir = new File(args[2]);
+		String runId = args[3];
 		Run run = Run.read(rootProcessingDir, runId);
-		PlanBuilder planBuilder = new PlanBuilder(planDir);
+		PlanBuilder planBuilder = new PlanBuilder(planDir, resourceDir);
 		run.process(planBuilder);
 	}
 }

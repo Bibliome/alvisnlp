@@ -22,6 +22,7 @@ import javax.servlet.ServletContext;
 
 public enum AlvisNLPContextParameter {
 	URL_BASE("alvisnlp.url-base"),
+	RESOURCE_DIR("alvisnlp.resource-dir"),
 	ROOT_PROCESSING_DIR("alvisnlp.processing-dir"),
 	PLAN_DIR("alvisnlp.plan-dir"),
 	EXECUTOR_CLASS("alvisnlp.executor-class");

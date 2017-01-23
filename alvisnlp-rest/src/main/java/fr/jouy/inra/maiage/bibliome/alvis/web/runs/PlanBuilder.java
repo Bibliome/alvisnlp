@@ -19,6 +19,7 @@ package fr.jouy.inra.maiage.bibliome.alvis.web.runs;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.logging.Handler;
@@ -57,18 +58,23 @@ import fr.jouy.inra.maiage.bibliome.alvis.web.AlvisNLPContextParameter;
 public class PlanBuilder {
 	private static final String ALVISNLP_LOGGER_NAME = "alvisnlp-rest.plan-builder";
 	private final File planDir;
+	private final File resourceDir;
 	private final Logger logger;
 	private final CompoundCorpusModuleFactory moduleFactory;
 	private final CompoundParamConverterFactory converterFactory;
 
 	public PlanBuilder(ServletContext servletContext) {
-		this(AlvisNLPContextParameter.PLAN_DIR.getFileValue(servletContext));
+		this(
+				AlvisNLPContextParameter.PLAN_DIR.getFileValue(servletContext),
+				AlvisNLPContextParameter.RESOURCE_DIR.getFileValue(servletContext)
+				);
 	}
 	
-	public PlanBuilder(File planDir) {
+	public PlanBuilder(File planDir, File resourceDir) {
 		super();
 
 		this.planDir = planDir;
+		this.resourceDir = resourceDir;
 
 		logger = Logger.getLogger(ALVISNLP_LOGGER_NAME);
 		Level logLevel = Level.INFO;
@@ -104,7 +110,10 @@ public class PlanBuilder {
         DocumentBuilder docBuilder = createDocumentBuilder();
         File inputDir = run.getInputDir();
         String inputPath = inputDir.getAbsolutePath();
-        List<String> inputPaths = Collections.singletonList(inputPath);
+        String resourcePath = resourceDir.getAbsolutePath();
+        List<String> inputPaths = new ArrayList<String>();
+        inputPaths.add(inputPath);
+        inputPaths.add(resourcePath);
         File outputDir = run.getOutputDir();
         String outputPath = outputDir.getAbsolutePath();
 		return new PlanLoader<Corpus>(moduleFactory, converterFactory, null, inputPaths, outputPath, docBuilder, "creator", Collections.<String,String> emptyMap());
