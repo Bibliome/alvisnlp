@@ -294,6 +294,15 @@ limitations under the License.
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
+
+	<xsl:template match="converter">
+		<xsl:element name="a">
+			<xsl:attribute name="href">
+				<xsl:value-of select="concat(/alvisnlp-doc/@url-base, '/api/converters/', @name)"/>
+			</xsl:attribute>
+			<xsl:value-of select="@name"/>
+		</xsl:element>
+	</xsl:template>
 	
 	<xsl:template match="a">
 		<xsl:copy>
