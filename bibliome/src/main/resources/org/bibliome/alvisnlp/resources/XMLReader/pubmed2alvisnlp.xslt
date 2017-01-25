@@ -1,112 +1,54 @@
-<!--
-Copyright 2016, 2017 Institut National de la Recherche Agronomique
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-        http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
--->
-
-
-<xsl:stylesheet version = "1.0"
+<xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:a="xalan://org.bibliome.alvisnlp.modules.xml.XMLReader2"
+                xmlns:inline="http://bibliome.jouy.inra.fr/alvisnlp/bibliome-module-factory/inline"
+                extension-element-prefixes="a inline"
                 >
 
-  <xsl:import href="alvisnlp-util.xslt"/>
-
-  <xsl:param name="pmid">pmid</xsl:param>
-  <xsl:param name="year">year</xsl:param>
-  <xsl:param name="authors">authors</xsl:param>
-  <xsl:param name="substance">substance</xsl:param>
-  <xsl:param name="mesh">mesh</xsl:param>
-  <xsl:param name="title">title</xsl:param>
-  <xsl:param name="abstract">abstract</xsl:param>
-
-  <xsl:template match="/PubmedArticleSet">
-    <xsl:element name="alvisnlp-corpus">
-      <xsl:apply-templates select="PubmedArticle/MedlineCitation"/>
-    </xsl:element>
-  </xsl:template>
-
-  <xsl:template match="/MedlineCitationSet">
-    <xsl:element name="alvisnlp-corpus">
-      <xsl:apply-templates select="MedlineCitation"/>
-    </xsl:element>
+  <xsl:template match="/">
+    <xsl:apply-templates select="MedlineCitationSet/MedlineCitation"/>
   </xsl:template>
 
   <xsl:template match="MedlineCitation">
-    <xsl:variable name="id" select="PMID"/>
-    <xsl:element name="document">
-      <xsl:attribute name="id">
-	<xsl:value-of select="$id"/>
-      </xsl:attribute>
-      <xsl:call-template name="meta">
-	<xsl:with-param name="name" select="$pmid"/>
-	<xsl:with-param name="value" select="$id"/>
-      </xsl:call-template>
-
-      <xsl:apply-templates select="Article/Journal/PubDate/Year"/>
-      <xsl:apply-templates select="Article/AuthorList/Author"/>
-      <xsl:apply-templates select="ChemicalList/Chemical/NameOfSubstance"/>
-      <xsl:apply-templates select="MeshHeadingList/MeshHeading/DescriptorName[@MajorTopicYN = 'Y']"/>
-
-      <xsl:call-template name="section">
-	<xsl:with-param name="name" select="$title"/>
-	<xsl:with-param name="contents" select="Article/ArticleTitle"/>
-      </xsl:call-template>
-
-      <xsl:call-template name="section">
-	<xsl:with-param name="name" select="$abstract"/>
-	<xsl:with-param name="contents" select="Article/Abstract/AbstractText"/>
-      </xsl:call-template>
-    </xsl:element>
-  </xsl:template>
-
-  <xsl:template match="Year">
-    <xsl:call-template name="meta">
-      <xsl:with-param name="name" select="$year"/>
-      <xsl:with-param name="value" select="."/>
-    </xsl:call-template>
-  </xsl:template>
-
-  <xsl:template match="Author">
-    <xsl:call-template name="meta">
-      <xsl:with-param name="name" select="$authors"/>
-      <xsl:with-param name="value">
+    <a:document xpath-id="PMID">
+      <a:feature name="issn" xpath-value="Article/Journal/ISSN"/>
+      <a:feature name="journal" xpath-value="Article/Journal/Title"/>
+      <a:feature name="abbrev" xpath-value="Article/Journal/ISOAbbreviation"/>
+      <a:feature name="year" xpath-value="Article/Journal/JournalIssue/PubDate/Year"/>
+      <a:section name="title" xpath-contents="Article/ArticleTitle"/>
+      <xsl:for-each select="Article/Abstract/AbstractText">
+	<a:section name="abstract" xpath-contents=".">
+	  <a:feature key="label" xpath-value="@Label"/>
+	</a:section>
+      </xsl:for-each>
+      <xsl:for-each select="Article/AuthorList/Author">
+	<xsl:variable name="fore-name" select="ForeName"/>
+	<xsl:variable name="last-name" select="LastName"/>
 	<xsl:choose>
-	  <xsl:when test="ForeName">
-	    <xsl:value-of select="concat(LastName, ' ', ForeName)"/>
-	  </xsl:when>
-	  <xsl:when test="Initials">
-	    <xsl:value-of select="concat(LastName, ' ', Initials)"/>
+	  <xsl:when test="$fore-name = ''">
+	    <a:section name="author" xpath-contents="$last-name">
+	      <a:annotation start="0" end="string-length($last-name)" layers="name">
+		<a:feature key="name-type" value="last-name"/>
+	      </a:annotation>
+	    </a:section>
 	  </xsl:when>
 	  <xsl:otherwise>
-	    <xsl:value-of select="ForeName"/>
+	    <a:section name="author" xpath-contents="concat($fore-name, ' ', $last-name)">
+	      <a:annotation start="0" end="string-length($fore-name)" layers="name">
+		<a:feature key="name-type" value="first-name"/>
+	      </a:annotation>
+	      <a:annotation start="string-length($fore-name) + 1" end="string-length($fore-name) + string-length($last-name) + 1" layers="name">
+		<a:feature key="name-type" value="last-name"/>
+	      </a:annotation>
+	    </a:section>
 	  </xsl:otherwise>
 	</xsl:choose>
-      </xsl:with-param>
-    </xsl:call-template>
-  </xsl:template>
-
-  <xsl:template match="NameOfSubstance">
-    <xsl:call-template name="meta">
-      <xsl:with-param name="name" select="$substance"/>
-      <xsl:with-param name="value" select="."/>
-    </xsl:call-template>
-  </xsl:template>
-
-  <xsl:template match="DescriptorName">
-    <xsl:call-template name="meta">
-      <xsl:with-param name="name" select="$mesh"/>
-      <xsl:with-param name="value" select="."/>
-    </xsl:call-template>
+      </xsl:for-each>
+      <xsl:for-each select="ChemicalList/Chemical/NameOfSubstance|MeshHeadingList/MeshHeading/DescriptorName">
+	<a:feature name="mesh-name" xpath-value="."/>
+	<a:feature name="mesh-id" xpath-value="@UI"/>
+      </xsl:for-each>
+    </a:document>
   </xsl:template>
 
 </xsl:stylesheet>
