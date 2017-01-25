@@ -413,19 +413,23 @@ public class PlanLoader<T extends Annotable> {
 		setModuleId(logger, result, elt);
 		result.setCreatorNameFeature(creatorNameFeature);
 		setDefaultParams(result);
-		for (Node child : XMLUtils.childrenNodes(elt)) {
+		setModuleParams(elt, result);
+		return result;
+	}
+	
+	private void setModuleParams(Element parent, Module<T> module) throws PlanException, ParameterException, UnsupportedServiceException, ConverterException, SAXException, IOException, URISyntaxException {
+		for (Node child : XMLUtils.childrenNodes(parent)) {
 			if (child instanceof Comment)
 				continue;
 			if (checkEmptyText(child))
 				continue;
 			if (child instanceof Element) {
 				Element childElement = (Element) child;
-				setParam(childElement, result);
+				setParam(childElement, module);
 				continue;
 			}
 			throw new PlanException("unexpected node: " + child);
 		}
-		return result;
 	}
 	
 	private void setDefaultParams(Module<T> module) throws ParameterException, UnsupportedServiceException, PlanException, ConverterException, SAXException, IOException, URISyntaxException {
@@ -446,7 +450,9 @@ public class PlanLoader<T extends Annotable> {
 	
 	private Module<T> importPlan(Logger logger, Element elt) throws PlanException, ModuleException, SAXException, IOException, ServiceException, ConverterException, URISyntaxException {
 		String sourceString = XMLUtils.attributeOrValue(elt, SOURCE_ATTRIBUTE_NAME, ALTERNATE_SOURCE_ATTRIBUTE_NAMES);
-		return loadSource(logger, sourceString);
+		Module<T> result = loadSource(logger, sourceString);
+		setModuleParams(elt, result);
+		return result;
 	}
 
 	private ParamConverter getParamConverterInstance(Class<?> paramType) throws UnsupportedServiceException {
