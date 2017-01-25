@@ -1,0 +1,58 @@
+<alvisnlp-plan id="reader">
+  <param name="source">
+    <alias module="genia-json" param="source"/>
+    <alias module="lll" param="source"/>
+    <alias module="pubtator" param="sourcePath"/>
+    <alias module="text" param="sourcePath"/>
+    <alias module="pdf" param="source"/>
+    <alias module="doc" param="source"/>
+    <alias module="tree-tagger" param="sourcePath"/>
+    <alias module="wok" param="source"/>
+    <alias module="endnote" param="sourcePath"/>
+    <alias module="html" param="sourcePath"/>
+    <alias module="prod-inra" param="sourcePath"/>
+    <alias module="pubmed" param="sourcePath"/>
+    <alias module="pmc" param="sourcePath"/>
+  </param>
+  
+  <genia-json class="GeniaJSONReader"/>
+
+  <lll class="LLLReader"/>
+
+  <pubtator class="PubTatorReader"/>
+
+  <text class="TextFileReader">
+    <baseNameId/>
+  </text>
+
+  <pdf class="TikaReader"/>
+
+  <doc class="TikaReader"/>
+
+  <tree-tagger class="TreeTaggerReader">
+    <sectionName>text</sectionName>
+  </tree-tagger>
+
+  <wok class="WebOfKnowledgeReader"/>
+
+  <endnote class="XMLReader2">
+    <xslTransform>res://org.bibliome.alvisnlp.resources.XMLReader/endnote2alvisnlp.xslt</xslTransform>
+  </endnote>
+
+  <html class="XMLReader2">
+    <xslTransform>res://org.bibliome.alvisnlp.resources.XMLReader/html2alvisnlp.xslt</xslTransform>
+    <html/>
+  </html>
+
+  <prod-inra class="XMLReader2">
+    <xslTransform>res://org.bibliome.alvisnlp.resources.XMLReader/prodINRA2alvisnlp.xslt</xslTransform>
+  </prod-inra>
+
+  <pubmed class="XMLReader2">
+    <xslTransform>res://org.bibliome.alvisnlp.resources.XMLReader/pubmed2alvisnlp.xslt</xslTransform>
+  </pubmed>
+
+  <pmc class="XMLReader2">
+    <xslTransform>res://org.bibliome.alvisnlp.resources.XMLReader/pmc2alvisnlp.xslt</xslTransform>
+  </pmc>
+</alvisnlp-plan>
