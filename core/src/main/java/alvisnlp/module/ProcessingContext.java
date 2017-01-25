@@ -120,3 +120,4 @@ public interface ProcessingContext<T extends Annotable> {
 	
 	Annotable.Dumper<T> getDumper(File file) throws IOException;
 }
+

@@ -19,12 +19,15 @@ limitations under the License.
 package org.bibliome.alvisnlp.modules;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.expressions.ResolverException;
@@ -38,12 +41,14 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.Sequence;
 import alvisnlp.module.UnexpectedParameterException;
 import alvisnlp.module.lib.AlvisNLPModule;
+import alvisnlp.module.lib.Param;
 
 @AlvisNLPModule
 public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequence<Corpus> {
     private final List<Module<Corpus>> moduleSequence = new ArrayList<Module<Corpus>>();
     private final Map<String,CompositeParamHandler<Corpus>> params = new HashMap<String,CompositeParamHandler<Corpus>>();
     private final Map<String,String> properties = new LinkedHashMap<String,String>();
+    private String[] select;
 
     public Sequence_Impl() {
     	super();
@@ -102,9 +107,19 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
 
     @Override
     public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
-        for (Module<Corpus> mod : moduleSequence) {
-			ctx.processCorpus(mod, corpus);
-		}
+    	if (select == null) {
+    		for (Module<Corpus> mod : moduleSequence) {
+    			ctx.processCorpus(mod, corpus);
+    		}
+    	}
+    	else {
+    		Set<String> set = new HashSet<String>(Arrays.asList(select));
+    		for (Module<Corpus> mod : moduleSequence) {
+    			if (set.contains(mod.getId())) {
+    				ctx.processCorpus(mod, corpus);
+    			}
+    		}
+    	}
     }
 
     @Override
@@ -226,5 +241,14 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
 	@Override
 	public void setProperty(String name, String value) {
 		properties.put(name, value);
+	}
+
+	@Param(mandatory=false)
+	public String[] getSelect() {
+		return select;
+	}
+
+	public void setSelect(String[] select) {
+		this.select = select;
 	}
 }

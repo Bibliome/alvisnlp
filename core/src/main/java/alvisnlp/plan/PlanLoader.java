@@ -81,6 +81,8 @@ public class PlanLoader<T extends Annotable> {
 
 	public static final String ACTIVE_PARAM_ELEMENT_NAME = "active";
 
+	public static final String SELECT_PARAM_ELEMENT_NAME = "select";
+
 	public static final String USER_FUNCTIONS_PARAM_ELEMENT_NAME = "userFunctions";
 	
 	public static final String SHELL_ELEMENT_NAME = "shell";
@@ -302,6 +304,10 @@ public class PlanLoader<T extends Annotable> {
 					continue;
 				}
 				if (ACTIVE_PARAM_ELEMENT_NAME.equals(childName)) {
+					setParam(childElement, result);
+					continue;
+				}
+				if (SELECT_PARAM_ELEMENT_NAME.equals(childName)) {
 					setParam(childElement, result);
 					continue;
 				}
