@@ -26,7 +26,7 @@ limitations under the License.
     </description>
 
     <param-doc name="pattern">
-      <p>Pattern to match see <converter name="AnnotationPattern"/> for pattern syntax.</p>
+      <p>Pattern to match see <converter name="ElementPattern"/> for pattern syntax.</p>
     </param-doc>
 
     <param-doc name="constantAnnotationFeatures">
