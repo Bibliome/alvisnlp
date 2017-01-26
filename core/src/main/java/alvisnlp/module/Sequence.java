@@ -178,7 +178,11 @@ public interface Sequence<T extends Annotable> extends Module<T> {
 		}
 
 		@Override
-		public <P> void accept(ModuleVisitor<T,P> visitor, P param) {
+		public <P> void accept(ModuleVisitor<T,P> visitor, P param) throws ModuleException {
+			for (ParamHandler<T> ph : paramHandlers) {
+				ph.accept(visitor, param);
+				return;
+			}
 		}
 
 		@Override

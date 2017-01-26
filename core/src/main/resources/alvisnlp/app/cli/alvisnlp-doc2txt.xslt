@@ -29,22 +29,26 @@ limitations under the License.
 	<xsl:param name="xml-conversion" />
 	<xsl:param name="functions" />
 
+  <xsl:template match="/">
+  	<xsl:apply-templates select="//alvisnlp-doc"/>
+  </xsl:template>
+
   <xsl:template match="alvisnlp-doc">
     <xsl:value-of select="$name"/>
     <xsl:text>
-    </xsl:text>    
-    <xsl:value-of select="@target"/>
+    </xsl:text>
+    <xsl:value-of select="@short-target"/>
     <xsl:text>
 
 </xsl:text>
     <xsl:apply-templates select="synopsis"/>
-    <xsl:apply-templates select="module-doc|converter-doc|library-doc"/>
+    <xsl:apply-templates select="module-doc|plan-doc|converter-doc|library-doc"/>
   </xsl:template>
 
-  <xsl:template match="module-doc">
+  <xsl:template match="module-doc|plan-doc">
     <xsl:apply-templates select="description"/>
     <xsl:text>
-</xsl:text>    
+</xsl:text>
     <xsl:value-of select="$parameters"/>
     <xsl:text>
 </xsl:text>
@@ -100,7 +104,7 @@ limitations under the License.
   <xsl:template match="param-doc">
     <xsl:text>
     </xsl:text>
-    <xsl:value-of select="concat(@name, ' (', @mandatory, ')')"/>
+    <xsl:value-of select="concat(@name, ' (', @short-type, ' ', @mandatory, ')')"/>
     <xsl:text>
 </xsl:text>
     <xsl:apply-templates select="p"/>    
@@ -164,7 +168,7 @@ limitations under the License.
 
   <xsl:template match="attr"><xsl:value-of select="concat(' ', @name, '=')"/>"<xsl:value-of select="@value"/>"</xsl:template>
 
-  <xsl:template match="this"><xsl:value-of select="/alvisnlp-doc/@target"/></xsl:template>
+  <xsl:template match="this"><xsl:value-of select="//alvisnlp-doc/@short-target"/></xsl:template>
 
   <xsl:template match="param"><xsl:value-of select="@name"/></xsl:template>
 

@@ -343,8 +343,9 @@ public class PlanLoader<T extends Annotable> {
 						locale = Locale.getDefault();
 					}
 					Document doc = docBuilder.newDocument();
-					doc.adoptNode(childElement);
-					doc.appendChild(childElement);
+					Element copyElement = (Element) childElement.cloneNode(true);
+					doc.adoptNode(copyElement);
+					doc.appendChild(copyElement);
 					documentation.setDocument(locale, doc);
 					continue;
 				}

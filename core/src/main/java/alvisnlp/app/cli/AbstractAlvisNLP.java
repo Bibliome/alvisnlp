@@ -109,8 +109,8 @@ import alvisnlp.plan.PlanLoader;
  */
 public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFactory<A>,C extends CommandLineProcessingContext<A>> extends CLIOParser {
 	private static final String DEFAULT_PARAM_VALUES_RESOURCE_NAME = "default-param-values.xml";
-	private static final String XPATH_PLAN_ALIAS = "/alvisnlp-plan/param[alias]";
 	private static final String TYPE_ATTRIBUTE_NAME = "type";
+	private static final String SHORT_TYPE_ATTRIBUTE_NAME = "short-type";
 	
 	private final Versioned version = new Versioned("alvisnlp.app.AlvisNLPVersion");
 	private final M moduleFactory = getModuleFactory();
@@ -338,6 +338,19 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 		this.writePlan = true;
 	}
 	
+	@CLIOption("-planDoc")
+	public final void planDoc() throws TransformerConfigurationException {
+		Source xslt = new StreamSource(getClass().getResourceAsStream(noColors ? "alvisnlp-doc2txt.xslt" : "alvisnlp-doc2ansi.xslt"));
+		TransformerFactory transformerFactory = TransformerFactory.newInstance();
+		xmlDocTransformer = transformerFactory.newTransformer(xslt);
+		xmlDocTransformer.setParameter("name", bundle.getString(DocResourceConstants.MODULE_NAME).toUpperCase(locale));
+		xmlDocTransformer.setParameter("synopsis", bundle.getString(DocResourceConstants.SYNOPSIS).toUpperCase(locale));
+		xmlDocTransformer.setParameter("description", bundle.getString(DocResourceConstants.MODULE_DESCRIPTION).toUpperCase(locale));
+		xmlDocTransformer.setParameter("parameters", bundle.getString(DocResourceConstants.MODULE_PARAMETERS).toUpperCase(locale));
+		setNoProcess();
+		this.writePlan = true;
+	}
+
 	/**
 	 * CLI option: print supported modules.
 	 */
@@ -372,15 +385,20 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     	Module<A> mod = moduleFactory.getServiceByAlias(name);
     	Documentation documentation = mod.getDocumentation();
     	Document result = documentation.getDocument(locale);
-    	Element alvisnlpDocElt = XMLUtils.evaluateElement("/alvisnlp-doc", result);
-    	alvisnlpDocElt.setAttribute("target", name);
-    	alvisnlpDocElt.setAttribute("short-target", name);
-    	Element moduleElt = XMLUtils.evaluateElement("module-doc", alvisnlpDocElt);
+    	supplementModuleDocumentation(mod, result, name, name);
+    	return result;
+	}
+	
+	private void supplementModuleDocumentation(Module<A> mod, Document doc, String target, String shortTarget) throws XPathExpressionException {
+    	Element alvisnlpDocElt = XMLUtils.evaluateElement("//alvisnlp-doc", doc);
+    	alvisnlpDocElt.setAttribute("target", target);
+    	alvisnlpDocElt.setAttribute("short-target", shortTarget);
+    	Element moduleElt = XMLUtils.evaluateElement("module-doc|plan-doc", alvisnlpDocElt);
     	List<Element> paramDocs = XMLUtils.evaluateElements("param-doc", moduleElt);
     	for (ParamHandler<A> ph : mod.getAllParamHandlers()) {
     		List<Element> l = XMLUtils.evaluateElements("param-doc[@name = '" + ph.getName() + "']", moduleElt);
     		if (l.isEmpty()) {
-    			Element pe = result.createElement("param-doc");
+    			Element pe = doc.createElement("param-doc");
     			pe.setAttribute("name", ph.getName());
     			continue;
     		}
@@ -391,11 +409,14 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     		try {
 				ParamHandler<A> ph = mod.getParamHandler(p.getAttribute("name"));
 				p.setAttribute("mandatory", getParamStatus(ph));
-			} catch (UnexpectedParameterException upe) {
+        		Class<?> type = ph.getType();
+        		p.setAttribute(TYPE_ATTRIBUTE_NAME, type.getCanonicalName());
+        		p.setAttribute(SHORT_TYPE_ATTRIBUTE_NAME, type.getSimpleName());
+			}
+    		catch (UnexpectedParameterException upe) {
 				p.getParentNode().removeChild(p);
 			}
     	}
-    	return result;
 	}
 	
 	private String getParamStatus(ParamHandler<A> ph) {
@@ -841,15 +862,9 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
         	}
         }
         planTimer.stop();
-        
+
         if (writePlan) {
-        	for (Element alias : XMLUtils.evaluateElements(XPATH_PLAN_ALIAS, doc)) {
-        		String name = alias.getAttribute(PlanLoader.NAME_ATTRIBUTE_NAME);
-        		ParamHandler<A> ph = result.getParamHandler(name);
-        		Class<?> type = ph.getType();
-        		String typeName = type.getCanonicalName();
-        		alias.setAttribute(TYPE_ATTRIBUTE_NAME, typeName);
-        	}
+        	supplementModuleDocumentation(result, doc, planFile, result.getId());
     		Source xSource = new DOMSource(doc);
     		Result xResult = new StreamResult(System.out);
     		xmlDocTransformer.transform(xSource, xResult);
