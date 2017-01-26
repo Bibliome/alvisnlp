@@ -21,12 +21,6 @@ limitations under the License.
     <lp2lpConf>/bibdev/install/lp2lp/lp2lp.conf</lp2lpConf>
   </module>
 
-  <module class="org.bibliome.alvisnlp.modules.cadixe.AlvisAEReader2">
-    <url>jdbc:postgresql://bddev:5432/annotation</url>
-    <username>annotation_admin</username>
-    <password>annotdba84</password>
-  </module>
-
   <module class="org.bibliome.alvisnlp.modules.ccg.CCGParser">
     <executable>/bibdev/install/CCG/bin/parser</executable>
     <parserModel>/bibdev/install/CCG/models/parser</parserModel>

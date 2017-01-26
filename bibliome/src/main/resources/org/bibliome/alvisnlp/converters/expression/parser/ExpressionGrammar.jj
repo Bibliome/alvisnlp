@@ -657,8 +657,9 @@ private Quantifier quantifier():
   }
 | < LCURLY > min=intConstant() (< COMMA > { range = true; } (max=intConstant())?)? < RCURLY > reluctant=reluctant()
   {
-    if (range)
+    if (range) {
       return new Quantifier(Integer.parseInt(min), max == null ? null : Integer.parseInt(max), reluctant ? QuantifierType.RELUCTANT : QuantifierType.GREEDY);
+    }
     return new Quantifier(Integer.parseInt(min), Integer.parseInt(min), reluctant ? QuantifierType.RELUCTANT : QuantifierType.GREEDY);
   }
 }
