@@ -163,7 +163,7 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 		private final File scriptFile;
 		private final File inputFile;
 		private final File outputFile;
-		
+
 		private Ab3PExternal(ProcessingContext<Corpus> ctx, Corpus corpus) throws IOException {
 			logger = getLogger(ctx);
 			File tmpDir = getTempDir(ctx);
