@@ -452,7 +452,9 @@ public class PlanLoader<T extends Annotable> {
 	private Module<T> importPlan(Logger logger, Element elt) throws PlanException, ModuleException, SAXException, IOException, ServiceException, ConverterException, URISyntaxException {
 		String sourceString = XMLUtils.attributeOrValue(elt, SOURCE_ATTRIBUTE_NAME, ALTERNATE_SOURCE_ATTRIBUTE_NAMES);
 		Module<T> result = loadSource(logger, sourceString);
-		setModuleParams(elt, result);
+		if (!XMLUtils.childrenElements(elt).isEmpty()) {
+			setModuleParams(elt, result);
+		}
 		return result;
 	}
 
