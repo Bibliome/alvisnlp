@@ -106,11 +106,13 @@ public abstract class XMLReader2 extends CorpusModule<ResolvedObjects> implement
 	}
     
     @TimeThis(task="read-xslt", category=TimerCategory.LOAD_RESOURCE)
-	protected Transformer getTransformer(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx) throws ModuleException {
+	protected Transformer getTransformer(ProcessingContext<Corpus> ctx) throws ModuleException {
     	Transformer result = null;
     	try {
     		TransformerFactory transformerFactory = TransformerFactory.newInstance();
     		InputStream is = xslTransform.getInputStream();
+    		Logger logger = getLogger(ctx);
+    		logger.info("using transform: " + xslTransform.getStreamName(is));
     		Source source = new StreamSource(is);
 			result = transformerFactory.newTransformer(source);
 			is.close();
