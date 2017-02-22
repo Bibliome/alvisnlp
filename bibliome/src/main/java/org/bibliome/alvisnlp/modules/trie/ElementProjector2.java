@@ -86,7 +86,7 @@ public abstract class ElementProjector2 extends TrieProjector<ElementProjectorRe
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		for (Element entry : Iterators.loop(resObj.entries.evaluateElements(evalCtx, corpus))) {
 			String key = resObj.key.evaluateString(evalCtx, entry);
-			System.err.println("key = " + key);
+//			System.err.println("key = " + key);
 			trie.addEntry(key, entry);
 		}
 	}
