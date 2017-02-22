@@ -53,16 +53,18 @@ public class RemoveAnnotations extends AbstractMatchAction {
 			if (a != null)
 				annotations.add(a);
 		}
-		for (String ln : layerNames) {
-			if (ln.equals(ctx.getMatchedLayerName()))
-				for (Annotation a : annotations)
-					ctx.removeAnnotation(a);
-			else {
-				Layer layer = section.ensureLayer(ln);
-				for (Annotation a : annotations)
-						layer.remove(a);
-			}
-		}
+//		for (String ln : layerNames) {
+			for (Annotation a : annotations)
+				ctx.removeAnnotation(a);
+//			if (ln.equals(ctx.getMatchedLayerName()))
+//				for (Annotation a : annotations)
+//					ctx.removeAnnotation(a);
+//			else {
+//				Layer layer = section.ensureLayer(ln);
+//				for (Annotation a : annotations)
+//						layer.remove(a);
+//			}
+//		}
 	}
 
 	@Override
