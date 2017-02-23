@@ -17,6 +17,7 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.xml;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -57,6 +58,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -150,6 +152,12 @@ public abstract class XMLReader2 extends CorpusModule<ResolvedObjects> implement
 		spf.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
 	    org.xml.sax.XMLReader xmlReader = spf.newSAXParser().getXMLReader();
 	    xmlReader.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+	    xmlReader.setEntityResolver(new EntityResolver() {
+	        @Override
+			public InputSource resolveEntity(String pid, String sid) throws SAXException {
+	            return new InputSource(new ByteArrayInputStream(new byte[] {}));
+	        }
+	    });
 	    return new SAXSource(xmlReader, new InputSource(file));
 	}
 	
