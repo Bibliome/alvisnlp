@@ -26,6 +26,7 @@ import java.util.regex.Pattern;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.Result;
 import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
@@ -34,6 +35,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.sax.SAXResult;
+import javax.xml.transform.sax.SAXSource;
 import javax.xml.transform.stream.StreamSource;
 
 import org.apache.xalan.extensions.ExpressionContext;
@@ -127,7 +129,7 @@ public abstract class XMLReader2 extends CorpusModule<ResolvedObjects> implement
 	}
 
     @TimeThis(task="read-file", category=TimerCategory.LOAD_RESOURCE)
-	protected Source getSource(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, InputStream file) throws SAXException, IOException {
+	protected Source getSource(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, InputStream file) throws SAXException, IOException, ParserConfigurationException {
 		if (html) {
 	        DOMParser parser = new DOMParser();
 	        parser.setFeature("http://xml.org/sax/features/namespaces", false);
@@ -144,7 +146,10 @@ public abstract class XMLReader2 extends CorpusModule<ResolvedObjects> implement
 	        Document doc = parser.getDocument();
 	        return new DOMSource(doc);
 		}
-		return new StreamSource(file);
+		SAXParserFactory spf = SAXParserFactory.newInstance();
+		spf.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
+	    org.xml.sax.XMLReader xmlReader = spf.newSAXParser().getXMLReader();
+	    return new SAXSource(xmlReader, new InputSource(file));
 	}
 	
 	@Override
@@ -173,7 +178,7 @@ public abstract class XMLReader2 extends CorpusModule<ResolvedObjects> implement
     		Source source = getSource(ctx, file);
     		doTransform(ctx, transformer, source);
     	}
-    	catch (TransformerException|SAXException e) {
+    	catch (TransformerException|SAXException|ParserConfigurationException e) {
     		rethrow(e);
 		}
 	}
