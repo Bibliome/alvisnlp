@@ -149,6 +149,7 @@ public abstract class XMLReader2 extends CorpusModule<ResolvedObjects> implement
 		SAXParserFactory spf = SAXParserFactory.newInstance();
 		spf.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
 	    org.xml.sax.XMLReader xmlReader = spf.newSAXParser().getXMLReader();
+	    xmlReader.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
 	    return new SAXSource(xmlReader, new InputSource(file));
 	}
 	
