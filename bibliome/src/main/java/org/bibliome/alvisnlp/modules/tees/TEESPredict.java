@@ -11,11 +11,13 @@ import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.DefaultNames;
 import alvisnlp.corpus.Document;
 import alvisnlp.corpus.Layer;
+import alvisnlp.corpus.NameType;
 import alvisnlp.corpus.Section;
 import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.ProcessingContext;
+import alvisnlp.module.lib.Param;
 
 public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 	private String tokenLayerName = DefaultNames.getWordLayer();
@@ -46,6 +48,24 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 		return null;
 	}
 
+	@Param(nameType = NameType.LAYER)
+	public String getTokenLayerName() {
+		return tokenLayerName;
+	}
+
+	@Param(nameType = NameType.LAYER)
+	public String getSentenceLayerName() {
+		return sentenceLayerName;
+	}
+
+	public void setTokenLayerName(String tokenLayerName) {
+		this.tokenLayerName = tokenLayerName;
+	}
+
+	public void setSentenceLayerName(String sentenceLayerName) {
+		this.sentenceLayerName = sentenceLayerName;
+	}
+
 	private void iteratorSnippet(ProcessingContext<Corpus> ctx, Corpus corpus) {
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
@@ -73,7 +93,7 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 				}
 				
 				// iteration des sentences dans une section
-				for (Layer sentLayer : sec.getSentences(tokenLayerName, sentenceLayerName)) {
+				for (Layer sentLayer : sec.getSentences(getTokenLayerName(), getSentenceLayerName())) {
 					Annotation sent = sentLayer.getSentenceAnnotation();
 					// faire qqch avec sent
 					// iteration des mots dans une sentence
