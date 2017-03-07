@@ -19,6 +19,7 @@ import alvisnlp.corpus.Document;
 
 public class Corpus2InteractionXML {
 
+	
 	public CorpusTEES createTheCorpus(Corpus corpus) {
 		CorpusTEES corpusTEES = new CorpusTEES(); 
 		
@@ -64,7 +65,7 @@ public class Corpus2InteractionXML {
 		sentenceTees.setCharOffset("sentenceAlvis.get(i).charOffset"); // sentence charOffset
 		// entities
 		sentenceTees.getEntity().addAll(createTheEntities(sentenceAlvis.get(i), corpus)); // entities of the sentence
-		// interaction
+		// interactions
 		sentenceTees.getInteraction().addAll(createTheInteractions(sentenceAlvis.get(i), corpus)); // interaction of the sentence
 		// set the analyses to the sentence
 		sentenceTees.setAnalyses(createTheAnalyses(sentenceAlvis.get(i), corpus)); // analysis of the sentence
