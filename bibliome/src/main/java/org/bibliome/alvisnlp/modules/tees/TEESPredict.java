@@ -109,6 +109,12 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 //		}
 //	}
 
+	/**
+	 * Access the alvis corpus and create the TEES Corpus and documents
+	 * @param ctx
+	 * @param corpusAlvis
+	 * @return
+	 */
 	public CorpusTEES createTheTeesCorpus(ProcessingContext<Corpus> ctx, Corpus corpusAlvis) {
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
@@ -121,7 +127,7 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 			CorpusTEES.Document documentTees = new CorpusTEES.Document();
 			// adding the id of the TEES document
 			documentTees.setId(documentAlvis.getId());
-			// set all sentences the TEES document
+			// set all sentences the TEES document /!\ instruction to be to be changed
 			documentTees.getSentence().addAll(createTheTeesSentences(sectionIterator(evalCtx, documentAlvis), corpusAlvis));
 			// adding the document to the TEES corpus
 			corpusTEES.getDocument().add(documentTees);
@@ -151,14 +157,16 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 				sentenceTees.setText(sentenceAlvis.getForm()); // is it the text content  ?
 				sentenceTees.setCharOffset(sentenceAlvis.getStart() + "-" + sentenceAlvis.getEnd());
 				// sentenceTees.setTail(sentenceAlvis.??));
-
-				// add all the entities
-				sentenceTees.getEntity().addAll(createTheTeesEntities(sentLayer));
 				
-				// The tees interactions of this sentence
+	
+
+				// add all the entities, /!\ instruction to be to be changed
+				sentenceTees.getEntity().addAll(createTheTeesEntities(sentLayer, corpus));
+				
+				// The tees interactions of this sentence /!\ instruction to be to be changed
 				// sentenceTees.getInteraction().addAll(createTheInteractions(sentenceAlvis.get(i), corpus)); 
 				
-				// the tees analyses of this sentence
+				// the tees analyses of this sentence /!\ instruction to be to be changed
 				// sentenceTees.setAnalyses(createTheAnalyses(sentenceAlvis.get(i), corpus)); 
 				
 				// adding
@@ -175,9 +183,10 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 	 * @param sentenceAlvis
 	 * @return
 	 */
-	private ArrayList<CorpusTEES.Document.Sentence.Entity> createTheTeesEntities(Layer entitylayer) {
+	private ArrayList<CorpusTEES.Document.Sentence.Entity> createTheTeesEntities(Layer entitylayer, Corpus corpus) {
 		ArrayList<CorpusTEES.Document.Sentence.Entity> entities = new ArrayList<CorpusTEES.Document.Sentence.Entity>();
 
+		// loop on entities
 		for (Annotation entityAlvis : entitylayer) {
 			CorpusTEES.Document.Sentence.Entity entityTees = new CorpusTEES.Document.Sentence.Entity();
 			entityTees.setId(entityAlvis.getStringId());
@@ -185,8 +194,9 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 			entityTees.setOrigOffset(entityAlvis.getStart() + "-" + entityAlvis.getEnd()); // is it, I'm not sure
 			// entityTees.setHeadOffset(???);
 			entityTees.setText(entityAlvis.getForm());
-			entityTees.setGiven(true); // is it ?
+			entityTees.setType(entityAlvis.getLastFeature("ANNOTATIONFEATUREKEY"));
 			// entityTees.setType(token.);
+			
 		}
 		return entities;
 	}
