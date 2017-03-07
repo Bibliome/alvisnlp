@@ -15,6 +15,8 @@ import org.bibliome.alvisnlp.modules.tees.CorpusTEES.Document.Sentence.Interacti
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Document;
 
+
+
 public class Corpus2InteractionXML {
 	CorpusTEES corpusTEES = new CorpusTEES();
 
@@ -71,7 +73,7 @@ public class Corpus2InteractionXML {
 	}
 
 	/**
-	 * 
+	 * Access the alvis corpus and create all the entities of a sentence
 	 * @param sentenceAlvis
 	 * @return
 	 */
@@ -83,7 +85,7 @@ public class Corpus2InteractionXML {
 	
 	
 	/**
-	 * 
+	 * Access the alvis corpus and create all the interactions of a sentence
 	 * @param sentenceAlvis
 	 * @return
 	 */
@@ -96,6 +98,7 @@ public class Corpus2InteractionXML {
 
 	
 	/**
+	 * Access the alvis corpus and create all the interactions of a sentence
 	 * 
 	 * @param corpus
 	 * @return
@@ -112,7 +115,7 @@ public class Corpus2InteractionXML {
 	}
 
 	/**
-	 * 
+	 * Access the alvis corpus and create the tokenization to put into the analyses of a sentence
 	 * @param corpus
 	 * @return
 	 */
@@ -138,7 +141,7 @@ public class Corpus2InteractionXML {
 	
 	
 	/**
-	 * 
+	 * Access the alvis corpus and create the parse to put into the analyses of a sentence
 	 * @param corpus
 	 * @return
 	 */
