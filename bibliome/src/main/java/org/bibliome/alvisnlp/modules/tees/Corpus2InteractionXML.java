@@ -18,10 +18,11 @@ import alvisnlp.corpus.Document;
 
 
 public class Corpus2InteractionXML {
-	CorpusTEES corpusTEES = new CorpusTEES();
+	CorpusTEES corpusTEES = null;
 
-	public void convert(Corpus corpus) {
-
+	public CorpusTEES createTheCorpus(Corpus corpus) {
+		corpusTEES = new CorpusTEES(); 
+		
 		Iterator<Document> documentIt = corpus.documentIterator();
 
 		while (documentIt.hasNext()) {
@@ -37,7 +38,8 @@ public class Corpus2InteractionXML {
 			// adding the document to the TEES corpus
 			corpusTEES.getDocument().add(documentTees);
 		}
-
+		 
+		return corpusTEES;
 	}
 
 
@@ -53,7 +55,7 @@ public class Corpus2InteractionXML {
 		// elments to access sentences into alvis
 		Object sentenceAlvis = new Object();
 		
-		//*** adding the list of sentences to a document
+		// for *** adding the list of sentences to a document
 		CorpusTEES.Document.Sentence sentenceTees = new CorpusTEES.Document.Sentence();
 		sentenceTees.setId(value);
 		sentenceTees.setText(value);
@@ -64,10 +66,10 @@ public class Corpus2InteractionXML {
 		// interaction
 		sentenceTees.getInteraction().addAll(createTheInteractions(sentenceAlvis, corpus));
 		// set the analyses to the sentence
-		sentenceTees.setAnalyses(createAnalyses(sentenceAlvis, corpus));
+		sentenceTees.setAnalyses(createTheAnalyses(sentenceAlvis, corpus));
 		// adding
 		sentences.add(sentenceTees);
-		//*** end adding the list of sentences to a document
+		//*** end for adding the list of sentences to a document
 		
 		return sentences;
 	}
@@ -103,13 +105,13 @@ public class Corpus2InteractionXML {
 	 * @param corpus
 	 * @return
 	 */
-	private CorpusTEES.Document.Sentence.Analyses createAnalyses(Object sentenceAlvis, Corpus corpus) {
+	private CorpusTEES.Document.Sentence.Analyses createTheAnalyses(Object sentenceAlvis, Corpus corpus) {
 		// create an analyse
 		CorpusTEES.Document.Sentence.Analyses analysesTees = new CorpusTEES.Document.Sentence.Analyses();
 		// set tokenization to the analyse
-		analysesTees.setTokenization(createTokenization(corpus));
+		analysesTees.setTokenization(createTheTokenization(corpus));
 		// set parsing to the analyse
-		analysesTees.setParse(createParse(corpus));
+		analysesTees.setParse(createTheParse(corpus));
 
 		return analysesTees;
 	}
@@ -119,7 +121,7 @@ public class Corpus2InteractionXML {
 	 * @param corpus
 	 * @return
 	 */
-	private CorpusTEES.Document.Sentence.Analyses.Tokenization createTokenization(Corpus corpus) {
+	private CorpusTEES.Document.Sentence.Analyses.Tokenization createTheTokenization(Corpus corpus) {
 		CorpusTEES.Document.Sentence.Analyses.Tokenization tokenization = new CorpusTEES.Document.Sentence.Analyses.Tokenization();
 		tokenization.setProteinNameSplitter(value);
 		tokenization.setSource(value);
@@ -145,7 +147,7 @@ public class Corpus2InteractionXML {
 	 * @param corpus
 	 * @return
 	 */
-	private CorpusTEES.Document.Sentence.Analyses.Parse createParse(Corpus corpus) {
+	private CorpusTEES.Document.Sentence.Analyses.Parse createTheParse(Corpus corpus) {
 		CorpusTEES.Document.Sentence.Analyses.Parse parse = new CorpusTEES.Document.Sentence.Analyses.Parse();
 		parse.setParser(value);
 		parse.setPennstring(value);
