@@ -111,7 +111,7 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 	public void setDependentRole(String dependentRole) {
 		this.dependentRole = dependentRole;
 	}
-
+	
 	public void setTokenLayerName(String tokenLayerName) {
 		this.tokenLayerName = tokenLayerName;
 	}
