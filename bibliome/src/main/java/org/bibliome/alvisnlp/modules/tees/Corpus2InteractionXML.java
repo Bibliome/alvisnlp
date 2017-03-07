@@ -18,10 +18,9 @@ import alvisnlp.corpus.Document;
 
 
 public class Corpus2InteractionXML {
-	CorpusTEES corpusTEES = null;
 
 	public CorpusTEES createTheCorpus(Corpus corpus) {
-		corpusTEES = new CorpusTEES(); 
+		CorpusTEES corpusTEES = new CorpusTEES(); 
 		
 		Iterator<Document> documentIt = corpus.documentIterator();
 
@@ -53,23 +52,27 @@ public class Corpus2InteractionXML {
 		ArrayList<CorpusTEES.Document.Sentence> sentences = new ArrayList<CorpusTEES.Document.Sentence>();
 		
 		// elments to access sentences into alvis
-		Object sentenceAlvis = new Object();
+		ArrayList<Object> sentenceAlvis = new ArrayList<Object>();
 		
 		// for *** adding the list of sentences to a document
+		for (int i = 0; i < sentenceAlvis.size(); i++) {// for *** adding the list of sentences to a document
+			
 		CorpusTEES.Document.Sentence sentenceTees = new CorpusTEES.Document.Sentence();
-		sentenceTees.setId(value);
-		sentenceTees.setText(value);
-		sentenceTees.setTail(value);
-		sentenceTees.setCharOffset(value);
+		sentenceTees.setId("sentenceAlvis.get(i).id"); // sentence id
+		sentenceTees.setText("sentenceAlvis.get(i).text"); // sentence text
+		sentenceTees.setTail("sentenceAlvis.get(i).tail"); // sentence tail
+		sentenceTees.setCharOffset("sentenceAlvis.get(i).charOffset"); // sentence charOffset
 		// entities
-		sentenceTees.getEntity().addAll(createTheEntities(sentenceAlvis, corpus));
+		sentenceTees.getEntity().addAll(createTheEntities(sentenceAlvis.get(i), corpus)); // entities of the sentence
 		// interaction
-		sentenceTees.getInteraction().addAll(createTheInteractions(sentenceAlvis, corpus));
+		sentenceTees.getInteraction().addAll(createTheInteractions(sentenceAlvis.get(i), corpus)); // interaction of the sentence
 		// set the analyses to the sentence
-		sentenceTees.setAnalyses(createTheAnalyses(sentenceAlvis, corpus));
+		sentenceTees.setAnalyses(createTheAnalyses(sentenceAlvis.get(i), corpus)); // analysis of the sentence
 		// adding
 		sentences.add(sentenceTees);
-		//*** end for adding the list of sentences to a document
+		}//*** end for adding the list of sentences to a document
+		
+	
 		
 		return sentences;
 	}
