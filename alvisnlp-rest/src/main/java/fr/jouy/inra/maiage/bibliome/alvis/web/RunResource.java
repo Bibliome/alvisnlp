@@ -113,7 +113,7 @@ public class RunResource extends RunLauncher {
 	private Response createRunResponse(Run run, boolean async) throws MalformedURLException {
 		Document doc = run.toXML(true);
 		supplementDocument(doc);
-		URL url = new URL(getURLBase() + "api/runs/" + run.getId());
+		URL url = new URL(getURLBase() + "/api/runs/" + run.getId());
 		Status status = async ? Status.OK : Status.ACCEPTED;
 		return Response
 				.status(status)
