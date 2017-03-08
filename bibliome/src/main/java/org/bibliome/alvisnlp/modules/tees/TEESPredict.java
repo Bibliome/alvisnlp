@@ -39,20 +39,17 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
 	}
-	
+
 	@Override
 	protected String[] addLayersToSectionFilter() {
-		return new String[] {
-				tokenLayerName,
-				sentenceLayerName
-		};
+		return new String[] { tokenLayerName, sentenceLayerName };
 	}
 
 	@Override
@@ -82,20 +79,20 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 	}
 
 	@Param(nameType = NameType.ARGUMENT)
-			public String getHeadRole() {
-				return headRole;
+	public String getHeadRole() {
+		return headRole;
 	}
 
 	@Param(nameType = NameType.ARGUMENT)
 	public String getDependentRole() {
-				return dependentRole;
+		return dependentRole;
 	}
 
 	@Param(nameType = NameType.RELATION)
 	public String getDependencyRelationName() {
-				return dependencyRelationName;
+		return dependencyRelationName;
 	}
-			
+
 	public void setDependencyRelationName(String dependencyRelationName) {
 		this.dependencyRelationName = dependencyRelationName;
 	}
@@ -115,7 +112,7 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 	public void setDependentRole(String dependentRole) {
 		this.dependentRole = dependentRole;
 	}
-	
+
 	public void setTokenLayerName(String tokenLayerName) {
 		this.tokenLayerName = tokenLayerName;
 	}
@@ -149,7 +146,7 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 					a.getLastFeature("ANNOTATIONFEATUREKEY");
 					a.getSection();
 				}
-				
+
 				// iteration des sentences dans une section
 				for (Layer sentLayer : sec.getSentences(getTokenLayerName(), getSentenceLayerName())) {
 					Annotation sent = sentLayer.getSentenceAnnotation();
@@ -159,7 +156,7 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 						// faire qqch avec token
 					}
 				}
-				
+
 				// iteration des relations dans une section
 				for (Relation rel : sec.getAllRelations()) {
 					// faire qqch avec la relation, par ex
@@ -181,9 +178,9 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 						}
 					}
 				}
-				
+
 				// une relation en particulier
-				Relation dependencies = sec.getRelation(dependencyRelationName );
+				Relation dependencies = sec.getRelation(dependencyRelationName);
 				// iterer les tuples
 				for (Tuple dep : dependencies.getTuples()) {
 					String label = dep.getLastFeature(dependencyLabelFeatureName);
@@ -193,21 +190,22 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 				}
 			}
 		}
-		
+
 		// on peut iterer les sections sans passer par les documents
 		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
 			//
 		}
 	}
-	
+
 	/***
 	 * 
 	 * 
-	 *  Mapping adds
+	 * Mapping adds
 	 */
-	
+
 	/**
 	 * Access the alvis corpus and create the TEES Corpus and documents
+	 * 
 	 * @param ctx
 	 * @param corpusAlvis
 	 * @return
@@ -224,8 +222,10 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 			CorpusTEES.Document documentTees = new CorpusTEES.Document();
 			// adding the id of the TEES document
 			documentTees.setId(documentAlvis.getId());
-			// set all sentences the TEES document /!\ instruction to be to be changed
-			documentTees.getSentence().addAll(createTheTeesSentences(sectionIterator(evalCtx, documentAlvis), corpusAlvis));
+			// set all sentences the TEES document /!\ instruction to be to be
+			// changed
+			documentTees.getSentence()
+					.addAll(createTheTeesSentences(sectionIterator(evalCtx, documentAlvis), corpusAlvis));
 			// adding the document to the TEES corpus
 			corpusTEES.getDocument().add(documentTees);
 		}
@@ -241,7 +241,7 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 	 */
 	private ArrayList<CorpusTEES.Document.Sentence> createTheTeesSentences(Iterator<Section> sectionIt, Corpus corpus) {
 		ArrayList<CorpusTEES.Document.Sentence> sentences = new ArrayList<CorpusTEES.Document.Sentence>();
-		
+
 		// loop on sections
 		for (Section sectionAlvis : Iterators.loop(sectionIt)) {
 			// loop on sentences
@@ -251,20 +251,24 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 				// mapping to a tees sentence
 				CorpusTEES.Document.Sentence sentenceTees = new CorpusTEES.Document.Sentence();
 				sentenceTees.setId(sentenceAlvis.getStringId());
-				sentenceTees.setText(sentenceAlvis.getForm()); // is it the text content  ?
+				sentenceTees.setText(sentenceAlvis.getForm()); // is it the text
+																// content ?
 				sentenceTees.setCharOffset(sentenceAlvis.getStart() + "-" + sentenceAlvis.getEnd());
 				// sentenceTees.setTail(sentenceAlvis.??));
-				
-	
+
 				// add all the entities, /!\ instruction to be to be changed
 				sentenceTees.getEntity().addAll(createTheTeesEntities(sentLayer, corpus));
-				
-				// The tees interactions of this sentence /!\ instruction to be to be changed
-				sentenceTees.getInteraction().addAll(createTheInteractions(sectionAlvis.getAllRelations())); 
-				
-				// the tees analyses of this sentence /!\ instruction to be to be changed
-				// sentenceTees.setAnalyses(createTheAnalyses(sentenceAlvis.get(i), corpus)); 
-				
+
+				// The tees interactions of this sentence /!\ instruction to be
+				// to be changed
+				sentenceTees.getInteraction()
+						.addAll(createTheInteractions(sentenceAlvis, sectionAlvis.getAllRelations()));
+
+				// the tees analyses of this sentence /!\ instruction to be to
+				// be changed
+				// sentenceTees.setAnalyses(createTheAnalyses(sentenceAlvis.get(i),
+				// corpus));
+
 				// adding
 				sentences.add(sentenceTees);
 			}
@@ -273,7 +277,7 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 		return sentences;
 	}
 
-	private ArrayList<Interaction> createTheInteractions(Collection<Relation> allRelations) {
+	private ArrayList<Interaction> createTheInteractions(Annotation sentenceAlvis, Collection<Relation> allRelations) {
 		ArrayList<Interaction> interactions = new ArrayList<Interaction>();
 		// iteration des relations dans une section
 		for (Relation rel : allRelations) {
@@ -282,34 +286,31 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 			rel.getName();
 			rel.getSection();
 			rel.getLastFeature("RELFEATUREKEY");
-			
+
 			interaction.setId(rel.getStringId());
 			// iteration des tuples d'une relation
 			interaction.setOrigId(rel.getStringId());
 			//
 			// interaction.setType(rel.getType());
-			
+
 			for (Tuple t : rel.getTuples()) {
 				// faire qqch avec t, par ex
 				t.getRelation();
 				t.getLastFeature("TUPLEFEATUREKEY");
-				t.getArgument("ROLE");
-				
-				if(t.getArity()==2){
-					
-					Iterator<Element> itr = t.getAllArguments().iterator();
-					Element arg1 = itr.next();
-					interaction.setE1(arg1.getStringId());
+				t.getArgument("ROLE1");
+				t.getArgument("ROLE2");
 
-					Element arg2 = itr.next();
-					interaction.setE2(arg2.getStringId());
-					
-				}
+				interaction.setE1(arg1.getStringId());
+
+				interaction.setE2(arg2.getStringId());
+
 			}
-		interactions.add(interaction);
 		}
-		
-		return interactions;
+		interactions.add(interaction);
+	}
+
+	return interactions;
+
 	}
 
 	/**
@@ -326,14 +327,17 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 			CorpusTEES.Document.Sentence.Entity entityTees = new CorpusTEES.Document.Sentence.Entity();
 			entityTees.setId(entityAlvis.getStringId());
 			entityTees.setCharOffset(entityAlvis.getStart() + "-" + entityAlvis.getEnd());
-			entityTees.setOrigOffset(entityAlvis.getStart() + "-" + entityAlvis.getEnd()); // is it, I'm not sure
+			entityTees.setOrigOffset(entityAlvis.getStart() + "-" + entityAlvis.getEnd()); // is
+																							// it,
+																							// I'm
+																							// not
+																							// sure
 			// entityTees.setHeadOffset(???);
 			entityTees.setText(entityAlvis.getForm());
 			entityTees.setType(entityAlvis.getLastFeature("ANNOTATIONFEATUREKEY"));
 			// entityTees.setType(token.);
-			
+
 		}
 		return entities;
-
 	}
 }
