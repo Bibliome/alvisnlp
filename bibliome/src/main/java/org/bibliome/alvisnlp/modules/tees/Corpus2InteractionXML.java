@@ -127,17 +127,17 @@ public class Corpus2InteractionXML {
 	 */
 	private CorpusTEES.Document.Sentence.Analyses.Tokenization createTheTokenization(Corpus corpus) {
 		CorpusTEES.Document.Sentence.Analyses.Tokenization tokenization = new CorpusTEES.Document.Sentence.Analyses.Tokenization();
-		tokenization.setProteinNameSplitter(value);
-		tokenization.setSource(value);
-		tokenization.setTokenizer(value);
+		tokenization.setProteinNameSplitter(false);
+		tokenization.setSource("value");
+		tokenization.setTokenizer("value");
 
 		// set the list of tokens
 		CorpusTEES.Document.Sentence.Analyses.Tokenization.Token token = new CorpusTEES.Document.Sentence.Analyses.Tokenization.Token();
-		token.setId(value);
-		token.setHeadScore(value);
-		token.setPOS(value);
-		token.setText(value);
-		token.setCharOffset(value);
+		token.setId("value");
+		token.setHeadScore(0);
+		token.setPOS("value");
+		token.setText("value");
+		token.setCharOffset("value");
 		tokenization.getToken().add(token);
 		// end set the list of tokens
 
@@ -153,29 +153,29 @@ public class Corpus2InteractionXML {
 	 */
 	private CorpusTEES.Document.Sentence.Analyses.Parse createTheParse(Corpus corpus) {
 		CorpusTEES.Document.Sentence.Analyses.Parse parse = new CorpusTEES.Document.Sentence.Analyses.Parse();
-		parse.setParser(value);
-		parse.setPennstring(value);
-		parse.setProteinNameSplitter(value);
-		parse.setSource(value);
-		parse.setStanford(value);
-		parse.setTokenizer(value);
+		parse.setParser("value");
+		parse.setPennstring("value");
+		parse.setProteinNameSplitter(false);
+		parse.setSource("value");
+		parse.setStanford("value");
+		parse.setTokenizer("value");
 
 		// add the list of dependency to the parse
 		CorpusTEES.Document.Sentence.Analyses.Parse.Dependency dependency = new CorpusTEES.Document.Sentence.Analyses.Parse.Dependency();
-		dependency.setId(value);
-		dependency.setT1(value);
-		dependency.setT2(value);
-		dependency.setType(value);
+		dependency.setId("value");
+		dependency.setT1("value");
+		dependency.setT2("value");
+		dependency.setType("value");
 		parse.getDependency().add(dependency);
 		// end add list of dependency to the parse
 
 		// set the list of prhrase to the parse
 		CorpusTEES.Document.Sentence.Analyses.Parse.Phrase phrase = new CorpusTEES.Document.Sentence.Analyses.Parse.Phrase();
-		phrase.setId(value);
-		phrase.setBegin(value);
-		phrase.setEnd(value);
-		phrase.setType(value);
-		phrase.setCharOffset(value);
+		phrase.setId("value");
+		phrase.setBegin(0);
+		phrase.setEnd(0);
+		phrase.setType("value");
+		phrase.setCharOffset("value");
 		parse.getPhrase().add(phrase);
 		// end set the list of phrase to the parse
 
