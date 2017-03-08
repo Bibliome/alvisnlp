@@ -252,7 +252,6 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 				// sentenceTees.setTail(sentenceAlvis.??));
 				
 	
-
 				// add all the entities, /!\ instruction to be to be changed
 				sentenceTees.getEntity().addAll(createTheTeesEntities(sentLayer, corpus));
 				
