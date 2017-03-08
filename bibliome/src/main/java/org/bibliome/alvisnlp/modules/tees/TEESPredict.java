@@ -1,9 +1,13 @@
 package org.bibliome.alvisnlp.modules.tees;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
+import org.bibliome.alvisnlp.modules.tees.CorpusTEES.Document.Sentence.Interaction;
 import org.bibliome.util.Iterators;
 
 import alvisnlp.corpus.Annotation;
@@ -256,7 +260,7 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 				sentenceTees.getEntity().addAll(createTheTeesEntities(sentLayer, corpus));
 				
 				// The tees interactions of this sentence /!\ instruction to be to be changed
-				// sentenceTees.getInteraction().addAll(createTheInteractions(sentenceAlvis.get(i), corpus)); 
+				sentenceTees.getInteraction().addAll(createTheInteractions(sectionAlvis.getAllRelations())); 
 				
 				// the tees analyses of this sentence /!\ instruction to be to be changed
 				// sentenceTees.setAnalyses(createTheAnalyses(sentenceAlvis.get(i), corpus)); 
@@ -267,6 +271,45 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 		} // *** end for adding the list of sentences to a document
 
 		return sentences;
+	}
+
+	private ArrayList<Interaction> createTheInteractions(Collection<Relation> allRelations) {
+		ArrayList<Interaction> interactions = new ArrayList<Interaction>();
+		// iteration des relations dans une section
+		for (Relation rel : allRelations) {
+			Interaction interaction = new Interaction();
+			// faire qqch avec la relation, par ex
+			rel.getName();
+			rel.getSection();
+			rel.getLastFeature("RELFEATUREKEY");
+			
+			interaction.setId(rel.getStringId());
+			// iteration des tuples d'une relation
+			interaction.setOrigId(rel.getStringId());
+			//
+			// interaction.setType(rel.getType());
+			
+			for (Tuple t : rel.getTuples()) {
+				// faire qqch avec t, par ex
+				t.getRelation();
+				t.getLastFeature("TUPLEFEATUREKEY");
+				t.getArgument("ROLE");
+				
+				if(t.getArity()==2){
+					
+					Iterator<Element> itr = t.getAllArguments().iterator();
+					Element arg1 = itr.next();
+					interaction.setE1(arg1.getStringId());
+
+					Element arg2 = itr.next();
+					interaction.setE2(arg2.getStringId());
+					
+				}
+			}
+		interactions.add(interaction);
+		}
+		
+		return interactions;
 	}
 
 	/**
