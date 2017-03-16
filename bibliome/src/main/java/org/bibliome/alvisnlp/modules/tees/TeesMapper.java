@@ -119,7 +119,7 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 				createTheTeesEntities(sentenceTees, sentenceTees.getId(), sentenceAlvis, alvisEntitiesLayer, corpus, ctx);
 
 				// add the TEES interactions
-				logger.info("creating the TEES interactions :" + sectionAlvis.relations.toString());
+				logger.info("creating the TEES interactions ");
 				Relation alvisRelationsCollection = sectionAlvis.getRelation(this.getRelationName());
 				createTheInteractions(sentenceTees, sentenceTees.getId(), sentenceAlvis, alvisRelationsCollection, corpus, ctx);
 				
