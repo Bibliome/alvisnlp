@@ -1,14 +1,22 @@
 package org.bibliome.alvisnlp.modules.tees;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Logger;
 
-import org.bibliome.alvisnlp.modules.SectionModule;
-import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.alvisnlp.modules.tees.CorpusTEES.Document.Sentence.Interaction;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+
 import org.bibliome.util.Iterators;
+import org.bibliome.util.files.ExecutableFile;
+import org.bibliome.util.files.InputDirectory;
+import org.bibliome.util.files.InputFile;
+import org.bibliome.util.files.OutputFile;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -23,30 +31,135 @@ import alvisnlp.corpus.Section;
 import alvisnlp.corpus.Tuple;
 import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.corpus.expressions.ResolverException;
+import alvisnlp.module.Module;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.ProcessingContext;
+import alvisnlp.module.lib.AlvisNLPModule;
+import alvisnlp.module.lib.External;
 import alvisnlp.module.lib.Param;
 
-public class TEESPredict extends SectionModule<SectionResolvedObjects> {
-	private String tokenLayerName = DefaultNames.getWordLayer();
-	private String sentenceLayerName = DefaultNames.getSentenceLayer();
+@AlvisNLPModule
+public class TEESPredict extends TeesMapper {
+	
+
+	
+	private ExecutableFile executable;
+	private InputDirectory model;
+	private InputDirectory workDir;
+	private String omitSteps;
+	
+	private String internalEncoding = "UTF-8";
+	
 	private String dependencyRelationName = DefaultNames.getDependencyRelationName();
 	private String dependencyLabelFeatureName = DefaultNames.getDependencyLabelFeatureName();
 	private String sentenceRole = DefaultNames.getDependencySentenceRole();
+	
 	private String headRole = DefaultNames.getDependencyHeadRole();
 	private String dependentRole = DefaultNames.getDependencyDependentRole();
 	
-	// NE feature key
-	private String namedEntityFeatureName4Entities = DefaultNames.getNamedEntityTypeFeature();
-	private String namedEntityFeatureName4Events = DefaultNames.getNamedEntityTypeFeature();
-	//
-	private boolean givenEntities = true;
-
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
-		// TODO Auto-generated method stub
+		Logger logger = getLogger(ctx);
+		EvaluationContext evalCtx = new EvaluationContext(logger);
+		
+		try {		
+			 
+		logger.info("creating the External module object ");
+		TEESPredictExternal teesPredictExt = new TEESPredictExternal(ctx);
+		
+		logger.info("Setting the jaxb params ");
+		JAXBContext jaxbContext = JAXBContext.newInstance(CorpusTEES.class);
+		Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+		jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
+		logger.info("marsalling the object ");
+		CorpusTEES corpusTees = this.createTheTeesCorpus(ctx, corpus);
+		jaxbMarshaller.marshal(corpusTees, teesPredictExt.getInput());
+		
+		logger.info("calling tees-predict ");
+		callExternal(ctx, "run-tees-predict", teesPredictExt, internalEncoding, "classify.py");
+		
+		 }  catch (JAXBException e) {
+				e.printStackTrace();
+	      }
+	}
+	
+	
+	
+	
+	private final class TEESPredictExternal implements External<Corpus> {
+		private final OutputFile input;
+		private final InputFile output;
+		private final File log;
+		private final ProcessingContext<Corpus> ctx;
+
+		private TEESPredictExternal(ProcessingContext<Corpus> ctx) {
+			super();
+			this.ctx = ctx;
+			File tmp = getTempDir(ctx);
+			this.input = new OutputFile(workDir.getAbsolutePath(), "tees-o" + ".xml");
+			this.output = new InputFile(workDir.getAbsolutePath(), "tees-i" + ".xml");
+			this.log = new File(workDir, "ccg.log");
+		}
+
+		@Override
+		public Module<Corpus> getOwner() {
+			return TEESPredict.this;
+		}
+
+		@Override
+		public String[] getCommandLineArgs() throws ModuleException {
+			List<String> clArgs = new ArrayList<String>();
+			clArgs.addAll(Arrays.asList(
+					executable.getAbsolutePath(),
+					"--model",
+					model.getAbsolutePath(),
+					"--omitSteps",
+					omitSteps.toString(),
+					"--input",
+					this.input.getAbsolutePath(),
+					"--output",
+					this.output.getAbsolutePath(),
+					"--workdir",
+					workDir.getAbsolutePath()
+			));
+			return clArgs.toArray(new String[clArgs.size()]);
+		}
+
+		@Override
+		public String[] getEnvironment() throws ModuleException {
+			return null;
+		}
+
+		@Override
+		public File getWorkingDirectory() throws ModuleException {
+			return null;
+		}
+
+		@Override
+		public void processOutput(BufferedReader out, BufferedReader err) throws ModuleException {
+			Logger logger = getLogger(ctx);
+			try {
+				logger.fine("CCG standard error:");
+				for (String line = err.readLine(); line != null; line = err.readLine()) {
+					logger.fine("    " + line);
+				}
+				logger.fine("end of CCG standard error");
+			}
+			catch (IOException ioe) {
+				logger.warning("could not read CCG standard error: " + ioe.getMessage());
+			}
+		}
+
+		
+		public OutputFile getInput() {
+			return input;
+		}
+
+		public InputFile getOutput() {
+			return output;
+		}
 	}
 
 	@Override
@@ -56,7 +169,7 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 
 	@Override
 	protected String[] addLayersToSectionFilter() {
-		return new String[] { tokenLayerName, sentenceLayerName };
+		return new String[] { this.getTokenLayerName(), this.getSentenceLayerName()};
 	}
 
 	@Override
@@ -65,15 +178,15 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 		return null;
 	}
 
-	@Param(nameType = NameType.LAYER)
-	public String getTokenLayerName() {
-		return tokenLayerName;
-	}
-
-	@Param(nameType = NameType.LAYER)
-	public String getSentenceLayerName() {
-		return sentenceLayerName;
-	}
+//	@Param(nameType = NameType.LAYER)
+//	public String getTokenLayerName() {
+//		return tokenLayerName;
+//	}
+//
+//	@Param(nameType = NameType.LAYER)
+//	public String getSentenceLayerName() {
+//		return sentenceLayerName;
+//	}
 
 	@Param(nameType = NameType.FEATURE)
 	public String getDependencyLabelFeatureName() {
@@ -104,6 +217,7 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 		this.dependencyRelationName = dependencyRelationName;
 	}
 
+
 	public void setDependencyLabelFeatureName(String dependencyLabelFeatureName) {
 		this.dependencyLabelFeatureName = dependencyLabelFeatureName;
 	}
@@ -120,38 +234,46 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 		this.dependentRole = dependentRole;
 	}
 
-	public void setTokenLayerName(String tokenLayerName) {
-		this.tokenLayerName = tokenLayerName;
+
+	@Param
+	public ExecutableFile getExecutable() {
+		return executable;
 	}
 
-	public void setSentenceLayerName(String sentenceLayerName) {
-		this.sentenceLayerName = sentenceLayerName;
+	public void setExecutable(ExecutableFile executable) {
+		this.executable = executable;
 	}
 
-	public String getNamedEntityFeatureName4Entities() {
-		return namedEntityFeatureName4Entities;
+	@Param
+	public InputDirectory getModel() {
+		return model;
 	}
 
-	public void setNamedEntityFeatureName4Entities(String namedEntityFeatureName) {
-		this.namedEntityFeatureName4Entities = namedEntityFeatureName;
+	public void setModel(InputDirectory model) {
+		this.model = model;
 	}
 
-	public String getNamedEntityFeatureName4Events() {
-		return namedEntityFeatureName4Events;
+	@Param
+	public String getOmitSteps() {
+		return omitSteps;
 	}
 
-	public void setNamedEntityFeatureName4Events(String namedEntityFeatureName4Events) {
-		this.namedEntityFeatureName4Events = namedEntityFeatureName4Events;
+	public void setOmitSteps(String omitSteps) {
+		this.omitSteps = omitSteps;
 	}
 
-	public boolean isGivenEntities() {
-		return givenEntities;
+	@Param
+	public InputDirectory getWorkDir() {
+		return workDir;
 	}
 
-	public void setGivenEntities(boolean givenEntities) {
-		this.givenEntities = givenEntities;
+	public void setWorkDir(InputDirectory workDir) {
+		this.workDir = workDir;
 	}
 
+	
+	
+	
 	private void iteratorSnippet(ProcessingContext<Corpus> ctx, Corpus corpus) {
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
@@ -230,157 +352,5 @@ public class TEESPredict extends SectionModule<SectionResolvedObjects> {
 		}
 	}
 
-	/***
-	 * 
-	 * 
-	 * Mapping adds
-	 */
-
-	/**
-	 * Access the alvis corpus and create the TEES Corpus and documents
-	 * 
-	 * @param ctx
-	 * @param corpusAlvis
-	 * @return
-	 */
-	public CorpusTEES createTheTeesCorpus(ProcessingContext<Corpus> ctx, Corpus corpusAlvis) {
-		int docId = 0;
-		Logger logger = getLogger(ctx);
-		EvaluationContext evalCtx = new EvaluationContext(logger);
-
-		CorpusTEES corpusTEES = new CorpusTEES();
-
-		// loop on documents
-		for (Document documentAlvis : Iterators.loop(documentIterator(evalCtx, corpusAlvis))) {
-			// create a TEES document
-			CorpusTEES.Document documentTees = new CorpusTEES.Document();
-			// add id of the TEES document		
-			documentTees.setId("TEES.d"+ docId++);
-			// adding all the sentences the TEES document
-			Iterator<Section> alvisSectionsIterator = sectionIterator(evalCtx, documentAlvis);
-			documentTees.getSentence().addAll(createTheTeesSentences(documentTees.getId(), alvisSectionsIterator, documentAlvis, corpusAlvis));
-			// adding the document to the TEES corpus
-			corpusTEES.getDocument().add(documentTees);
-		}
-
-		return corpusTEES;
-	}
-
-	/**
-	 * Access the alvis corpus and create all the TEES Sentences
-	 * 
-	 * @param documentAlvis
-	 * @return
-	 */
-	private ArrayList<CorpusTEES.Document.Sentence> createTheTeesSentences(String docId, Iterator<Section> alvisSectionsIterator, Document documentAlvus, Corpus corpus) {
-		int sentId = 0;
-		// create a TEES sentence list
-		ArrayList<CorpusTEES.Document.Sentence> sentences = new ArrayList<CorpusTEES.Document.Sentence>();
-
-		// loop on sections
-		for (Section sectionAlvis : Iterators.loop(alvisSectionsIterator)) {
-			// loop on sentences
-			for (Layer sentLayer : sectionAlvis.getSentences(getTokenLayerName(), getSentenceLayerName())) {
-				// access to an alvis sentence
-				Annotation sentenceAlvis = sentLayer.getSentenceAnnotation();
-				
-				// create a Tees sentence
-				CorpusTEES.Document.Sentence sentenceTees = new CorpusTEES.Document.Sentence();
-				
-				// add general information to sentence
-				sentenceTees.setId(docId + ".s" + sentId++);
-				sentenceTees.setText(sentenceAlvis.getForm()); 
-				sentenceTees.setCharOffset(sentenceAlvis.getStart() + "-" + sentenceAlvis.getEnd());
-				
-				// add the TEES entities
-				Layer alvisEntitiesLayer = sectionAlvis.ensureLayer(this.getTokenLayerName());
-				sentenceTees.getEntity().clear();
-				sentenceTees.getEntity().addAll(createTheTeesEntities(sentenceTees.getId(), sentenceAlvis, alvisEntitiesLayer, corpus));
-
-				// add the TEES interactions
-				Collection<Relation> alvisRelationsCollection = sectionAlvis.getAllRelations();
-				sentenceTees.getInteraction().clear();
-				sentenceTees.getInteraction().addAll(createTheInteractions(sentenceTees.getId(), sentenceAlvis, alvisRelationsCollection, corpus));
-				sentences.add(sentenceTees);
-				
-				// add the analyses
-				
-			}
-		} // *** end for adding the list of sentences to a document
-
-		return sentences;
-	}
-
-	
-
-	/**
-	 * Access the alvis corpus and create all the entities of a sentence
-	 * 
-	 * @param sentenceAlvis
-	 * @return
-	 */
-	private ArrayList<CorpusTEES.Document.Sentence.Entity> createTheTeesEntities(String sentId, Annotation sentenceAlvis, Layer alvisEntitiesLayer, Corpus corpus) {
-		int entId = 0;
-		// create tees entities list
-		ArrayList<CorpusTEES.Document.Sentence.Entity> entities = new ArrayList<CorpusTEES.Document.Sentence.Entity>();
-
-		// loop on entities
-		for (Annotation entityAlvis : alvisEntitiesLayer) {
-			// create a tees entity 
-			CorpusTEES.Document.Sentence.Entity entityTees = new CorpusTEES.Document.Sentence.Entity();
-			// add id
-			entityTees.setId(sentId + ".e" + entId++);
-			// add origin id
-			entityTees.setOrigId(entityAlvis.getStringId());
-			// add offset
-			entityTees.setCharOffset(entityAlvis.getStart() + "-" + entityAlvis.getEnd());
-			// add origin offset
-			entityTees.setOrigOffset(entityAlvis.getStart() + "-" + entityAlvis.getEnd()); 
-			// add text
-			entityTees.setText(entityAlvis.getForm());
-			// add type
-			entityTees.setType(entityAlvis.getLastFeature(this.getNamedEntityFeatureName4Entities()));
-			// add status of the entities
-			entityTees.setGiven(this.isGivenEntities());
-
-
-		}
-		return entities;
-	}
-
-	
-	private ArrayList<Interaction> createTheInteractions(String sentId, Annotation sentenceAlvis, Collection<Relation> allRelations, Corpus corpus) {
-		int intId = 0;
-		ArrayList<Interaction> interactions = new ArrayList<Interaction>();
-		
-		// loop  relations
-		for (Relation rel : allRelations) {
-			// loop  Tuples
-			for (Tuple t : rel.getTuples()) {
-				// get the relation arguments
-				Element leftE = t.getArgument(this.headRole);
-				Element rightE = t.getArgument(this.dependentRole);
-
-				// filter out the binary arguments
-				if(sentenceAlvis.includes(DownCastElement.toAnnotation(leftE)) && sentenceAlvis.includes(DownCastElement.toAnnotation(rightE))){
-				// create a tees interaction
-				Interaction interaction = new Interaction();
-				// add id
-				interaction.setId(sentId + ".i" + intId++);
-				// add left entity
-				interaction.setE1(leftE.getStringId());
-				// add right entity
-				interaction.setE2(rightE.getStringId());
-				// add the relation is directed
-				interaction.setDirected(true);
-				// add the type of the relation
-				interaction.setType(t.getLastFeature(this.getNamedEntityFeatureName4Events()));
-				// add the interaction to the interaction list
-				interactions.add(interaction);
-				}
-			}
-		}
-			return interactions;
-	}
 
 }

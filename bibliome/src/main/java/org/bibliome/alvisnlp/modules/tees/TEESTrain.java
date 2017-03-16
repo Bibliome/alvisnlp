@@ -8,8 +8,14 @@ import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.ProcessingContext;
 
-public class TEESTrain  extends SectionModule<SectionResolvedObjects>  {
+public class TEESTrain  extends TeesMapper  {
 
+	
+	
+	
+	
+	
+	
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		// TODO Auto-generated method stub
@@ -32,5 +38,17 @@ public class TEESTrain  extends SectionModule<SectionResolvedObjects>  {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
