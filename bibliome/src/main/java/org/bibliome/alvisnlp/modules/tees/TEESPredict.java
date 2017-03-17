@@ -11,12 +11,16 @@ import java.util.logging.Logger;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
 
+import org.apache.tika.utils.RegexUtils;
 import org.bibliome.util.Iterators;
 import org.bibliome.util.files.ExecutableFile;
 import org.bibliome.util.files.InputDirectory;
 import org.bibliome.util.files.InputFile;
 import org.bibliome.util.files.OutputFile;
+import org.codehaus.plexus.util.DirectoryScanner;
+import org.jsoup.nodes.Document.OutputSettings;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -45,7 +49,7 @@ public class TEESPredict extends TeesMapper {
 	
 	private ExecutableFile executable;
 	private InputDirectory model;
-	private InputDirectory workDir;
+	private InputDirectory workDir = null ;
 	private String omitSteps;
 	
 	private String internalEncoding = "UTF-8";
@@ -70,15 +74,40 @@ public class TEESPredict extends TeesMapper {
 		
 		logger.info("Setting the jaxb params ");
 		JAXBContext jaxbContext = JAXBContext.newInstance(CorpusTEES.class);
-		Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-		jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+
 
 		logger.info("marsalling the object ");
-		CorpusTEES corpusTees = this.createTheTeesCorpus(ctx, corpus);
-		jaxbMarshaller.marshal(corpusTees, teesPredictExt.getInput());
+		Marshaller jaxbm = jaxbContext.createMarshaller();
+		jaxbm.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+		jaxbm.marshal(this.createTheTeesCorpus(ctx, corpus), teesPredictExt.getInput());
 		
 		logger.info("calling tees-predict ");
 		callExternal(ctx, "run-tees-predict", teesPredictExt, internalEncoding, "classify.py");
+		
+		
+		//
+		DirectoryScanner scanner = new DirectoryScanner();
+		String [] patterns = {teesPredictExt.getOutputStem() + "*.xml.gz"};
+		scanner.setIncludes(patterns);
+		scanner.setBasedir(teesPredictExt.getWorkingDirectory());
+		scanner.setCaseSensitive(false);
+		scanner.scan();
+		String[] files = scanner.getIncludedFiles();
+		String output = "";
+		for (int i = 0; i < files.length; i++) {
+			logger.info("the sacnned output files is : " +files[i]);
+			if(files[i].matches(teesPredictExt.getOutputStem()+"*(pred|edge|event)")) {
+				logger.info("the output file is : " +files[i] ); 
+				output = files[i];
+			}
+		}
+
+		
+		logger.info("marsalling the object ");
+	    Unmarshaller jaxbu = jaxbContext.createUnmarshaller();
+	    CorpusTEES corpusTEES = (CorpusTEES) jaxbu.unmarshal(new File(teesPredictExt.getWorkingDirectory() + "/" + output));
+
+	    logger.info("number of documents : " + corpusTEES.getDocument().size());
 		
 		 }  catch (JAXBException e) {
 				e.printStackTrace();
@@ -91,16 +120,21 @@ public class TEESPredict extends TeesMapper {
 	private final class TEESPredictExternal implements External<Corpus> {
 		private final OutputFile input;
 		private final InputFile output;
+		private final String outputStem;
 		private final File log;
 		private final ProcessingContext<Corpus> ctx;
+		private final File baseDir;
 
 		private TEESPredictExternal(ProcessingContext<Corpus> ctx) {
 			super();
 			this.ctx = ctx;
 			File tmp = getTempDir(ctx);
-			this.input = new OutputFile(workDir.getAbsolutePath(), "tees-o" + ".xml");
-			this.output = new InputFile(workDir.getAbsolutePath(), "tees-i" + ".xml");
-			this.log = new File(workDir, "ccg.log");
+			baseDir = tmp;
+			this.input = new OutputFile(tmp.getAbsolutePath(), "tees-o" + ".xml");
+			this.output = new InputFile(tmp.getAbsolutePath(), "tees-i" + ".xml");
+			this.outputStem = "tees-i";
+			this.log = new File(tmp, "log.log");
+			
 		}
 
 		@Override
@@ -120,10 +154,14 @@ public class TEESPredict extends TeesMapper {
 					"--input",
 					this.input.getAbsolutePath(),
 					"--output",
-					this.output.getAbsolutePath(),
-					"--workdir",
-					workDir.getAbsolutePath()
+					this.outputStem,
+					"--clearAll",
+					"True"
 			));
+			if(workDir!=null){
+				clArgs.add("--workdir");
+				clArgs.add(workDir.getAbsolutePath());
+			}
 			return clArgs.toArray(new String[clArgs.size()]);
 		}
 
@@ -134,21 +172,21 @@ public class TEESPredict extends TeesMapper {
 
 		@Override
 		public File getWorkingDirectory() throws ModuleException {
-			return null;
+			return this.baseDir;
 		}
 
 		@Override
 		public void processOutput(BufferedReader out, BufferedReader err) throws ModuleException {
 			Logger logger = getLogger(ctx);
 			try {
-				logger.fine("CCG standard error:");
+				logger.fine("TEES standard error:");
 				for (String line = err.readLine(); line != null; line = err.readLine()) {
 					logger.fine("    " + line);
 				}
-				logger.fine("end of CCG standard error");
+				logger.fine("end of TEES classifier error");
 			}
 			catch (IOException ioe) {
-				logger.warning("could not read CCG standard error: " + ioe.getMessage());
+				logger.warning("could not read TEES standard error: " + ioe.getMessage());
 			}
 		}
 
@@ -159,6 +197,10 @@ public class TEESPredict extends TeesMapper {
 
 		public InputFile getOutput() {
 			return output;
+		}
+
+		public String getOutputStem() {
+			return outputStem;
 		}
 	}
 
@@ -262,7 +304,7 @@ public class TEESPredict extends TeesMapper {
 		this.omitSteps = omitSteps;
 	}
 
-	@Param
+	@Param(mandatory=false)
 	public InputDirectory getWorkDir() {
 		return workDir;
 	}

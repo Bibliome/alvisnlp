@@ -30,6 +30,7 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 	
 	private String tokenLayerName = DefaultNames.getWordLayer();
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
+	private String pos = DefaultNames.getPosTagFeature();
 	
 	// NE feature key
 	private String namedEntityLayerName = null;
@@ -167,6 +168,9 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 			// add text
 			entityTees.setText(entityAlvis.getForm());
 			// add type
+//			for (String feat : entityAlvis.getFeatureKeys()) {
+//				logger.info(feat + " ----- " + entityAlvis.getFeature(feat).toString());	
+//			}
 			entityTees.setType(entityAlvis.getLastFeature(this.getNamedEntityTypeFeatureName()));
 			// set given
 			if(this.getNamedEntityLayerName()!=null) entityTees.setGiven(true);
@@ -220,38 +224,6 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 			sentenceTees.getInteraction().add(interaction);
 		}
 		
-		
-//		if (allRelations != null) for (Relation rel : allRelations) {
-//			// loop  Tuples
-//			
-//			for (Tuple t : rel.getTuples()) {
-//				Interaction interaction = new Interaction();
-//				interaction.setId(sentId + ".i" + intId++);
-//				interaction.setE1(null);
-//				interaction.setE1(null);
-//				
-//				logger.info("check stop, tuple" + t.getFeatureKeys());
-//				// setting the arguments
-//				for (String role : t.getRoles()) {
-//					Element arg = t.getArgument(role);
-//					if(arg == null) continue;
-//					if(role.compareToIgnoreCase(this.getHeadRole())==0){
-//						Annotation ann = DownCastElement.toAnnotation(arg);
-//						if(ann != null) interaction.setE1(ann.getStringId());
-//					}
-//					else if(role.compareToIgnoreCase(this.getDependentRole())==0){
-//						Annotation ann = DownCastElement.toAnnotation(arg);
-//						if(ann != null) interaction.setE2(ann.getStringId());
-//					}
-//				} // end setting the arguments
-//				
-//				if (interaction.getE1()!= null && interaction.getE2() != null){
-//					logger.info("adding the interaction " + interaction.getId());
-//					interaction.setDirected(true);
-//					interactions.add(interaction);
-//				}	
-//			}			
-//		}
 		logger.info("End adding interactions");
 	}
 
@@ -323,5 +295,13 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 
 	public void setArg2(String arg2) {
 		this.arg2 = arg2;
+	}
+
+	public String getPos() {
+		return pos;
+	}
+
+	public void setPos(String pos) {
+		this.pos = pos;
 	}
 }
