@@ -1,8 +1,12 @@
 package org.bibliome.alvisnlp.modules.tees;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.zip.GZIPInputStream;
 
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
@@ -19,6 +23,7 @@ import alvisnlp.corpus.NameType;
 import alvisnlp.corpus.Relation;
 import alvisnlp.corpus.Section;
 import alvisnlp.corpus.Tuple;
+import alvisnlp.corpus.creators.RelationCreator;
 import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.Param;
@@ -226,9 +231,19 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 		
 		logger.info("End adding interactions");
 	}
-
 	
-	//// getttttttttttt setttt
+	// 
+	
+	
+	public void addRelations(CorpusTEES corpusTEES){
+		RelationCreator rc = null ;
+		Section section = null;
+		String name = null;
+		Relation relation =  new Relation(rc, section, name);
+	}
+	
+	
+	// getter and setter
 	
 	@Param(nameType = NameType.LAYER)
 	public String getTokenLayerName() {

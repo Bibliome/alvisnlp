@@ -2,11 +2,17 @@ package org.bibliome.alvisnlp.modules.tees;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.zip.GZIPInputStream;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -87,31 +93,28 @@ public class TEESPredict extends TeesMapper {
 		
 		//
 		DirectoryScanner scanner = new DirectoryScanner();
-		String [] patterns = {teesPredictExt.getOutputStem() + "*.xml.gz"};
+		String [] patterns = {teesPredictExt.getOutputStem() + "*pred*.xml.gz"};
 		scanner.setIncludes(patterns);
 		scanner.setBasedir(teesPredictExt.getWorkingDirectory());
 		scanner.setCaseSensitive(false);
 		scanner.scan();
 		String[] files = scanner.getIncludedFiles();
-		String output = "";
-		for (int i = 0; i < files.length; i++) {
-			logger.info("the sacnned output files is : " +files[i]);
-			if(files[i].matches(teesPredictExt.getOutputStem()+"*(pred|edge|event)")) {
-				logger.info("the output file is : " +files[i] ); 
-				output = files[i];
-			}
-		}
 
 		
 		logger.info("marsalling the object ");
 	    Unmarshaller jaxbu = jaxbContext.createUnmarshaller();
-	    CorpusTEES corpusTEES = (CorpusTEES) jaxbu.unmarshal(new File(teesPredictExt.getWorkingDirectory() + "/" + output));
+	    //CorpusTEES corpusTEES = (CorpusTEES) jaxbu.unmarshal(new File(files[0]));
+
+	    CorpusTEES corpusTEES = (CorpusTEES) jaxbu.unmarshal(new File(teesPredictExt.ungz(files[0])));
 
 	    logger.info("number of documents : " + corpusTEES.getDocument().size());
 		
 		 }  catch (JAXBException e) {
 				e.printStackTrace();
-	      }
+	      } catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	
@@ -190,6 +193,42 @@ public class TEESPredict extends TeesMapper {
 			}
 		}
 
+		
+		
+		// handle .gz files
+		 public String ungz(String file) throws IOException
+		    {
+		        // open the input (compressed) file.
+		        FileInputStream stream = new FileInputStream(file);
+		        String outname = null;
+		        FileOutputStream output = null;
+		        try
+		        {
+		            // open the gziped file to decompress.
+		            GZIPInputStream gzipstream = new GZIPInputStream(stream);
+		            byte[] buffer = new byte[2048];
+
+		            // create the output file without the .gz extension.
+		            outname = file.substring(0, file.length()-3);
+		            output = new FileOutputStream(outname);
+
+		            // and copy it to a new file
+		            int len;
+		            while((len = gzipstream.read(buffer ))>0)
+		            {
+		                output.write(buffer, 0, len);
+		            }
+		        }
+		        finally
+		        {
+		            // both streams must always be closed.
+		            if(output != null) output.close();
+		            stream.close();
+		        }
+		        
+		        return outname;
+		    }
+		
 		
 		public OutputFile getInput() {
 			return input;
