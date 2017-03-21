@@ -179,7 +179,7 @@ public class TEESPredict extends TeesMapper {
 		}
 
 		public File getInteractionFile() throws IOException, ModuleException {
-			return new File(this.baseDir.getAbsolutePath(), this.getPredictionPath());
+			return new File(this.getPredictionPath());
 		}
 
 
