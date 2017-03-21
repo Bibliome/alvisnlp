@@ -3,6 +3,7 @@ package org.bibliome.alvisnlp.modules.tees;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -47,86 +48,71 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.External;
 import alvisnlp.module.lib.Param;
+import alvisnlp.module.types.Mapping;
 
 @AlvisNLPModule
 public class TEESPredict extends TeesMapper {
-	
 
-	
 	private ExecutableFile executable;
 	private InputDirectory model;
-	private InputDirectory workDir = null ;
-	private String omitSteps;
-	
+	private InputDirectory workDir = null;
+	private String omitSteps = "PREPROCESS=SPLIT-SENTENCES,NE";
+
 	private String internalEncoding = "UTF-8";
-	
+
 	private String dependencyRelationName = DefaultNames.getDependencyRelationName();
 	private String dependencyLabelFeatureName = DefaultNames.getDependencyLabelFeatureName();
 	private String sentenceRole = DefaultNames.getDependencySentenceRole();
-	
+
 	private String headRole = DefaultNames.getDependencyHeadRole();
 	private String dependentRole = DefaultNames.getDependencyDependentRole();
-	
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
-		
-		try {		
-			 
-		logger.info("creating the External module object ");
-		TEESPredictExternal teesPredictExt = new TEESPredictExternal(ctx);
-		
-		logger.info("Setting the jaxb params ");
-		JAXBContext jaxbContext = JAXBContext.newInstance(CorpusTEES.class);
 
+		try {
 
-		logger.info("marsalling the object ");
-		Marshaller jaxbm = jaxbContext.createMarshaller();
-		jaxbm.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-		jaxbm.marshal(this.createTheTeesCorpus(ctx, corpus), teesPredictExt.getInput());
-		
-		logger.info("calling tees-predict ");
-		callExternal(ctx, "run-tees-predict", teesPredictExt, internalEncoding, "classify.py");
-		
-		
-		//
-		DirectoryScanner scanner = new DirectoryScanner();
-		String [] patterns = {teesPredictExt.getOutputStem() + "*pred*.xml.gz"};
-		scanner.setIncludes(patterns);
-		scanner.setBasedir(teesPredictExt.getWorkingDirectory());
-		scanner.setCaseSensitive(false);
-		scanner.scan();
-		String[] files = scanner.getIncludedFiles();
+			logger.info("creating the External module object ");
+			TEESPredictExternal teesPredictExt = new TEESPredictExternal(ctx);
 
-		
-		logger.info("marsalling the object ");
-	    Unmarshaller jaxbu = jaxbContext.createUnmarshaller();
-	    //CorpusTEES corpusTEES = (CorpusTEES) jaxbu.unmarshal(new File(files[0]));
+			logger.info("Setting the jaxb params ");
+			JAXBContext jaxbContext = JAXBContext.newInstance(CorpusTEES.class);
 
-	    CorpusTEES corpusTEES = (CorpusTEES) jaxbu.unmarshal(new File(teesPredictExt.ungz(files[0])));
+			logger.info("marsalling the object ");
+			Marshaller jaxbm = jaxbContext.createMarshaller();
+			jaxbm.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+			jaxbm.marshal(this.createTheTeesCorpus(ctx, corpus), teesPredictExt.getInput());
 
-	    logger.info("number of documents : " + corpusTEES.getDocument().size());
-		
-		 }  catch (JAXBException e) {
-				e.printStackTrace();
-	      } catch (IOException e) {
+			logger.info("calling tees-predict ");
+			callExternal(ctx, "run-tees-predict", teesPredictExt, internalEncoding, "classify.py");
+
+			logger.info("Reading corpus from " + teesPredictExt.getInteractionFile());
+			logger.info("unmarsalling the object ");
+			Unmarshaller jaxbu = jaxbContext.createUnmarshaller();
+			CorpusTEES corpusTEES = (CorpusTEES) jaxbu.unmarshal(teesPredictExt.getInteractionFile());
+
+			logger.info("adding detected relations to Corpus ");
+			this.addRelations2CorpusAlvis(corpusTEES, corpus, ctx);
+
+			logger.info("number of documents : " + corpusTEES.getDocument().size());
+
+		} catch (JAXBException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
-	
-	
-	
+
 	private final class TEESPredictExternal implements External<Corpus> {
 		private final OutputFile input;
 		private final InputFile output;
 		private final String outputStem;
 		private final File log;
 		private final ProcessingContext<Corpus> ctx;
-		private final File baseDir;
+		public final File baseDir;
 
 		private TEESPredictExternal(ProcessingContext<Corpus> ctx) {
 			super();
@@ -137,7 +123,6 @@ public class TEESPredict extends TeesMapper {
 			this.output = new InputFile(tmp.getAbsolutePath(), "tees-i" + ".xml");
 			this.outputStem = "tees-i";
 			this.log = new File(tmp, "log.log");
-			
 		}
 
 		@Override
@@ -148,20 +133,21 @@ public class TEESPredict extends TeesMapper {
 		@Override
 		public String[] getCommandLineArgs() throws ModuleException {
 			List<String> clArgs = new ArrayList<String>();
-			clArgs.addAll(Arrays.asList(
-					executable.getAbsolutePath(),
-					"--model",
-					model.getAbsolutePath(),
+			clArgs.addAll(Arrays.asList(executable.getAbsolutePath(), 
+					"--model", 
+					model.getAbsolutePath(), 
 					"--omitSteps",
-					omitSteps.toString(),
-					"--input",
-					this.input.getAbsolutePath(),
-					"--output",
-					this.outputStem,
-					"--clearAll",
-					"True"
-			));
-			if(workDir!=null){
+					omitSteps.toString(), 
+					"--input", 
+					this.input.getAbsolutePath(), 
+					"--output", this.outputStem));
+			if (workDir == null) {
+				clArgs.add("--workdir");
+				clArgs.add(baseDir.getAbsolutePath());
+			}
+			else {
+				clArgs.add("--clearAll");
+				clArgs.add("True");
 				clArgs.add("--workdir");
 				clArgs.add(workDir.getAbsolutePath());
 			}
@@ -187,49 +173,58 @@ public class TEESPredict extends TeesMapper {
 					logger.fine("    " + line);
 				}
 				logger.fine("end of TEES classifier error");
-			}
-			catch (IOException ioe) {
+			} catch (IOException ioe) {
 				logger.warning("could not read TEES standard error: " + ioe.getMessage());
 			}
 		}
 
-		
-		
-		// handle .gz files
-		 public String ungz(String file) throws IOException
-		    {
-		        // open the input (compressed) file.
-		        FileInputStream stream = new FileInputStream(file);
-		        String outname = null;
-		        FileOutputStream output = null;
-		        try
-		        {
-		            // open the gziped file to decompress.
-		            GZIPInputStream gzipstream = new GZIPInputStream(stream);
-		            byte[] buffer = new byte[2048];
+		public File getInteractionFile() throws IOException, ModuleException {
+			return new File(this.baseDir.getAbsolutePath(), this.getPredictionPath());
+		}
 
-		            // create the output file without the .gz extension.
-		            outname = file.substring(0, file.length()-3);
-		            output = new FileOutputStream(outname);
 
-		            // and copy it to a new file
-		            int len;
-		            while((len = gzipstream.read(buffer ))>0)
-		            {
-		                output.write(buffer, 0, len);
-		            }
-		        }
-		        finally
-		        {
-		            // both streams must always be closed.
-		            if(output != null) output.close();
-		            stream.close();
-		        }
-		        
-		        return outname;
-		    }
-		
-		
+		public String getPredictionPath() throws ModuleException, IOException {
+			Logger logger = getLogger(ctx);
+			//
+			DirectoryScanner scanner = new DirectoryScanner();
+			String[] patterns = {this.getOutputStem() + "*pred*.xml.gz" };
+			scanner.setIncludes(patterns);
+			scanner.setBasedir(this.baseDir.getAbsolutePath());
+			scanner.setCaseSensitive(false);
+			scanner.scan();
+			String[] files = scanner.getIncludedFiles();
+
+			logger.info("localizing the prediction file : " + files[0]);
+			
+			File file = new File(this.baseDir.getAbsolutePath(), files[0]);
+			FileInputStream stream = new FileInputStream(file);
+			String outname = null;
+			FileOutputStream output = null;
+			try {
+				// open the gziped file to decompress.
+				GZIPInputStream gzipstream = new GZIPInputStream(stream);
+				byte[] buffer = new byte[2048];
+
+				// create the output file without the .gz extension.
+				outname = file.getAbsolutePath().substring(0, file.getAbsolutePath().length() - 3);
+				output = new FileOutputStream(outname);
+
+				// and copy it to a new file
+				int len;
+				while ((len = gzipstream.read(buffer)) > 0) {
+					output.write(buffer, 0, len);
+				}
+			} finally {
+				// both streams must always be closed.
+				if (output != null)
+					output.close();
+				stream.close();
+			}
+
+			return outname;
+			
+		}
+
 		public OutputFile getInput() {
 			return input;
 		}
@@ -241,6 +236,7 @@ public class TEESPredict extends TeesMapper {
 		public String getOutputStem() {
 			return outputStem;
 		}
+
 	}
 
 	@Override
@@ -250,7 +246,7 @@ public class TEESPredict extends TeesMapper {
 
 	@Override
 	protected String[] addLayersToSectionFilter() {
-		return new String[] { this.getTokenLayerName(), this.getSentenceLayerName()};
+		return new String[] { this.getTokenLayerName(), this.getSentenceLayerName() };
 	}
 
 	@Override
@@ -258,16 +254,6 @@ public class TEESPredict extends TeesMapper {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-//	@Param(nameType = NameType.LAYER)
-//	public String getTokenLayerName() {
-//		return tokenLayerName;
-//	}
-//
-//	@Param(nameType = NameType.LAYER)
-//	public String getSentenceLayerName() {
-//		return sentenceLayerName;
-//	}
 
 	@Param(nameType = NameType.FEATURE)
 	public String getDependencyLabelFeatureName() {
@@ -298,7 +284,6 @@ public class TEESPredict extends TeesMapper {
 		this.dependencyRelationName = dependencyRelationName;
 	}
 
-
 	public void setDependencyLabelFeatureName(String dependencyLabelFeatureName) {
 		this.dependencyLabelFeatureName = dependencyLabelFeatureName;
 	}
@@ -314,7 +299,6 @@ public class TEESPredict extends TeesMapper {
 	public void setDependentRole(String dependentRole) {
 		this.dependentRole = dependentRole;
 	}
-
 
 	@Param
 	public ExecutableFile getExecutable() {
@@ -334,7 +318,7 @@ public class TEESPredict extends TeesMapper {
 		this.model = model;
 	}
 
-	@Param
+	@Param(mandatory = false)
 	public String getOmitSteps() {
 		return omitSteps;
 	}
@@ -343,7 +327,7 @@ public class TEESPredict extends TeesMapper {
 		this.omitSteps = omitSteps;
 	}
 
-	@Param(mandatory=false)
+	@Param(mandatory = false)
 	public InputDirectory getWorkDir() {
 		return workDir;
 	}
@@ -352,9 +336,6 @@ public class TEESPredict extends TeesMapper {
 		this.workDir = workDir;
 	}
 
-	
-	
-	
 	private void iteratorSnippet(ProcessingContext<Corpus> ctx, Corpus corpus) {
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
@@ -402,9 +383,9 @@ public class TEESPredict extends TeesMapper {
 						// faire qqch avec t, par ex
 						t.getRelation();
 						t.getLastFeature("TUPLEFEATUREKEY");
-						
+
 						t.getArgument("ROLE");
-		
+
 						// iterer les arguments
 						for (String role : t.getRoles()) {
 							Element arg = t.getArgument(role);
@@ -432,6 +413,5 @@ public class TEESPredict extends TeesMapper {
 			//
 		}
 	}
-
 
 }

@@ -1,12 +1,10 @@
 package org.bibliome.alvisnlp.modules.tees;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
-import java.util.zip.GZIPInputStream;
 
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
@@ -23,14 +21,15 @@ import alvisnlp.corpus.NameType;
 import alvisnlp.corpus.Relation;
 import alvisnlp.corpus.Section;
 import alvisnlp.corpus.Tuple;
-import alvisnlp.corpus.creators.RelationCreator;
+import alvisnlp.corpus.creators.TupleCreator;
 import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.Param;
+import alvisnlp.module.types.Mapping;
 
 
 
-public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
+public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> implements TupleCreator {
 
 	
 	private String tokenLayerName = DefaultNames.getWordLayer();
@@ -39,11 +38,17 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 	
 	// NE feature key
 	private String namedEntityLayerName = null;
-	private String namedEntityTypeFeatureName = DefaultNames.getNamedEntityTypeFeature();
+	private String neFeatureName = DefaultNames.getNamedEntityTypeFeature();
 	
+	// Re to predict
 	private String relationName = null;
-	private String arg1 = null;
-	private String arg2 = null;
+	private String relationRole1 = null;
+	private String relationRole2 = null;
+	
+	
+	// Link memories
+	Map<String, Section> sentId2Sections =  new HashMap<String, Section>();
+	Map<String, Element> entId2Elements =  new HashMap<String, Element>();
 	
 	
 	/***
@@ -82,6 +87,7 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 			logger.info("number of sentences " + documentTees.getSentence().size());
 			//
 			corpusTEES.getDocument().add(documentTees);
+			//doc2docNames.put(documentTees.getId(), documentAlvis.getId());
 		}
 
 		return corpusTEES;
@@ -97,9 +103,6 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 		int sentId = 0;
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
-		
-		// create a TEES sentence list
-		//ArrayList<CorpusTEES.Document.Sentence> sentences = new ArrayList<CorpusTEES.Document.Sentence>();
 
 		// loop on sections
 		for (Section sectionAlvis : Iterators.loop(alvisSectionsIterator)) {
@@ -131,6 +134,9 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 				
 				// add the set sentence
 				sentences.add(sentenceTees);
+				
+				//sent2secId.put(sentenceTees.getId(), sectionAlvis.getStringId());
+				sentId2Sections.put(sentenceTees.getId(), sectionAlvis);
 				
 				// add the analyses ???
 				
@@ -173,15 +179,13 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 			// add text
 			entityTees.setText(entityAlvis.getForm());
 			// add type
-//			for (String feat : entityAlvis.getFeatureKeys()) {
-//				logger.info(feat + " ----- " + entityAlvis.getFeature(feat).toString());	
-//			}
-			entityTees.setType(entityAlvis.getLastFeature(this.getNamedEntityTypeFeatureName()));
+			entityTees.setType(entityAlvis.getLastFeature(this.getNeFeatureName()));
 			// set given
 			if(this.getNamedEntityLayerName()!=null) entityTees.setGiven(true);
 			else entityTees.setGiven(false);
-			//
+			// add the entity
 			sentenceTees.getEntity().add(entityTees);
+			entId2Elements.put(entityTees.getId(), entityAlvis);
 			}
 		}
 	}
@@ -195,9 +199,9 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 		// loop  relations
 		if(allRelations!=null) for (Tuple r : allRelations.getTuples()) {
 
-			logger.info("check stop, roles" + r.getRoles().toString());			
-			Element ag1 = r.getArgument(this.getArg1());			
-			Element ag2 = r.getArgument(this.getArg2());
+					
+			Element ag1 = r.getArgument(this.getRelationRole1());			
+			Element ag2 = r.getArgument(this.getRelationRole2());
 			
 			Annotation ann1 = DownCastElement.toAnnotation(ag1);
 			Annotation ann2 = DownCastElement.toAnnotation(ag2);
@@ -206,8 +210,8 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 			
 			CorpusTEES.Document.Sentence.Interaction interaction = new CorpusTEES.Document.Sentence.Interaction();
 			interaction.setId(sentId + ".i" + intId++);
-			//String label = dep.getLastFeature(dependencyLabelFeatureName);
-			//Element sentence = dep.getArgument(sentenceRole);
+			logger.info("creating interaction " + r.getRoles().toString());	
+			
 			
 			// from oldId to charOffsetId
 			for (int i = 0; i < sentenceTees.getEntity().size(); i++) {
@@ -219,9 +223,7 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 					interaction.setE2(sentenceTees.getEntity().get(i).getId());
 				}
 			}
-			//interaction.setE1(ann1.getStringId() + ":(" + (ann1.getStart()-sentenceAlvis.getStart())+"-"+(ann1.getEnd()-sentenceAlvis.getStart())+")");
-			//interaction.setE2(ann2.getStringId() + ":(" + (ann2.getStart()-sentenceAlvis.getStart())+"-"+(ann2.getEnd()-sentenceAlvis.getStart())+")");
-			
+
 			interaction.setType(this.getRelationName());
 			interaction.setOrigId(r.getStringId());
 			
@@ -235,11 +237,31 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 	// 
 	
 	
-	public void addRelations(CorpusTEES corpusTEES){
-		RelationCreator rc = null ;
-		Section section = null;
-		String name = null;
-		Relation relation =  new Relation(rc, section, name);
+	public void addRelations2CorpusAlvis(CorpusTEES corpusTEES, Corpus corpusAlvis, ProcessingContext<Corpus> ctx){
+		Logger logger = getLogger(ctx);
+		EvaluationContext evalCtx = new EvaluationContext(logger);
+
+		for (int i = 0; i < corpusTEES.getDocument().size(); i++) {
+			for (int j = 0; j < corpusTEES.getDocument().get(i).getSentence().size(); j++) {
+
+				Section sectionAlvis = sentId2Sections.get(corpusTEES.getDocument().get(i).getSentence().get(j).getId());
+				
+				
+				Relation relation = sectionAlvis.ensureRelation(this, this.getRelationName());
+				logger.info("getting relation :" + relation.getName());
+				
+				CorpusTEES.Document.Sentence sentenceTEES = corpusTEES.getDocument().get(i).getSentence().get(j);
+				
+				
+				for (int k = 0; k < sentenceTEES.getInteraction().size(); k++) {
+					Tuple tuple = new Tuple(this, relation);
+					tuple.setArgument(this.getRelationRole1(), entId2Elements.get(sentenceTEES.getInteraction().get(k).getE1()));
+					tuple.setArgument(this.getRelationRole2(), entId2Elements.get(sentenceTEES.getInteraction().get(k).getE2()));
+					relation.addTuple(tuple);
+					logger.info("creating tuple :" + tuple.getStringId());
+				}
+			}
+		}
 	}
 	
 	
@@ -249,6 +271,11 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 	public String getTokenLayerName() {
 		return tokenLayerName;
 	}
+	
+	public void setTokenLayerName(String tokenLayerName) {
+		this.tokenLayerName = tokenLayerName;
+	}
+
 
 	@Param(nameType = NameType.LAYER)
 	public String getSentenceLayerName() {
@@ -265,9 +292,6 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 		this.namedEntityLayerName = namedEntityLayerName;
 	}
 	
-	public void setTokenLayerName(String tokenLayerName) {
-		this.tokenLayerName = tokenLayerName;
-	}
 
 	public void setSentenceLayerName(String sentenceLayerName) {
 		this.sentenceLayerName = sentenceLayerName;
@@ -275,13 +299,13 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 
 	
 	@Param(nameType = NameType.FEATURE)
-	public String getNamedEntityTypeFeatureName() {
-		return namedEntityTypeFeatureName;
+	public String getNeFeatureName() {
+		return neFeatureName;
 	}
 
 
-	public void setNamedEntityTypeFeatureName(String namedEntityTypeFeatureName) {
-		this.namedEntityTypeFeatureName = namedEntityTypeFeatureName;
+	public void setNeFeatureName(String namedEntityTypeFeatureName) {
+		this.neFeatureName = namedEntityTypeFeatureName;
 	}
 
 	@Param
@@ -295,21 +319,21 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 //	
 
 	@Param
-	public String getArg1() {
-		return arg1;
+	public String getRelationRole1() {
+		return relationRole1;
 	}
 
-	public void setArg1(String arg1) {
-		this.arg1 = arg1;
+	public void setRelationRole1(String arg1) {
+		this.relationRole1 = arg1;
 	}
 
 	@Param
-	public String getArg2() {
-		return arg2;
+	public String getRelationRole2() {
+		return relationRole2;
 	}
 
-	public void setArg2(String arg2) {
-		this.arg2 = arg2;
+	public void setRelationRole2(String arg2) {
+		this.relationRole2 = arg2;
 	}
 
 	public String getPos() {
@@ -319,4 +343,31 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> {
 	public void setPos(String pos) {
 		this.pos = pos;
 	}
+	
+	
+
+	@Override
+	public Mapping getConstantTupleFeatures() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setConstantTupleFeatures(Mapping constantRelationFeatures) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Mapping getConstantRelationFeatures() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setConstantRelationFeatures(Mapping constantRelationFeatures) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }
