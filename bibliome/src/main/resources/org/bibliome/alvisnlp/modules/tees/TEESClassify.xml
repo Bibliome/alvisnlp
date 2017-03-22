@@ -15,7 +15,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<alvisnlp-doc author="Mouhamadou Ba" date="2012-03-21" target="org.bibliome.alvisnlp.modules.tees.TEESPredict">
+<alvisnlp-doc author="Mouhamadou Ba" date="2012-03-21" target="org.bibliome.alvisnlp.modules.tees.TEESClassify">
   <synopsis>
     <p>Runs TEES Classify on a corpus</p>
   </synopsis>
@@ -56,10 +56,6 @@ limitations under the License.
     
   <param-doc name="omitSteps">
   <p>Set the preprocessing steps to omit in the form of PREPROCESS=[SPLIT-SENTENCES][,NER][,PARSE][,FIND-HEADS]</p></param-doc>
-  
-    <param-doc name="workDir">
-  	<p>Specifies the work directory to use.</p></param-doc>
-  
   
   </module-doc>
 </alvisnlp-doc>

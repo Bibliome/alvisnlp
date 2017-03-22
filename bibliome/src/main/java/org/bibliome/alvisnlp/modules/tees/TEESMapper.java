@@ -9,6 +9,8 @@ import java.util.logging.Logger;
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 import org.bibliome.util.Iterators;
+import org.bibliome.util.files.ExecutableFile;
+import org.bibliome.util.files.InputDirectory;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -27,28 +29,41 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.types.Mapping;
 
+/**
+ * 
+ * @author mba
+ *
+ */
 
+public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> implements TupleCreator {
 
-public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> implements TupleCreator {
-
-	
+	// layer and features
 	private String tokenLayerName = DefaultNames.getWordLayer();
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
 	private String pos = DefaultNames.getPosTagFeature();
-	
-	// NE feature key
 	private String namedEntityLayerName = null;
 	private String neFeatureName = DefaultNames.getNamedEntityTypeFeature();
 	
-	// Re to predict
+	// relation to predict
 	private String relationName = null;
 	private String relationRole1 = null;
 	private String relationRole2 = null;
 	
+	// corpus params
+	private String corporaType = "cName";
+	protected Map<String, CorpusTEES> corpora = new HashMap<String, CorpusTEES>();
+	protected String defaultKey = "default";
+	
+	// execution params
+	private ExecutableFile executable;
+	private String omitSteps = "PREPROCESS=SPLIT-SENTENCES,NE";
+	private String model;
+	private InputDirectory workDir = null;
+	
 	
 	// Link memories
-	Map<String, Section> sentId2Sections =  new HashMap<String, Section>();
-	Map<String, Element> entId2Elements =  new HashMap<String, Element>();
+	private Map<String, Section> sentId2Sections =  new HashMap<String, Section>();
+	private Map<String, Element> entId2Elements =  new HashMap<String, Element>();
 	
 	
 	/***
@@ -64,12 +79,10 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> i
 	 * @param corpusAlvis
 	 * @return
 	 */
-	public CorpusTEES createTheTeesCorpus(ProcessingContext<Corpus> ctx, Corpus corpusAlvis) {
+	public void createTheTeesCorpus(ProcessingContext<Corpus> ctx, Corpus corpusAlvis) {
 		int docId = 0;
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
-
-		CorpusTEES corpusTEES = new CorpusTEES();
 
 		// loop on documents
 		logger.info("creating the TEES documents ");
@@ -85,12 +98,17 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> i
 			createTheTeesSentences(documentTees.getSentence(), documentTees.getId(), alvisSectionsIterator, documentAlvis, corpusAlvis, ctx);
 			// adding the document to the TEES corpus
 			logger.info("number of sentences " + documentTees.getSentence().size());
-			//
-			corpusTEES.getDocument().add(documentTees);
-			//doc2docNames.put(documentTees.getId(), documentAlvis.getId());
+			
+			// splitting the documents according to their feature key
+			String c = documentAlvis.getLastFeature(this.getCorporaType());
+			if(c ==  null){
+				if(corpora.get(this.defaultKey) == null) this.corpora.put(this.defaultKey, new CorpusTEES());
+				this.corpora.get(this.defaultKey).getDocument().add(documentTees);
+			}
+			else{
+				this.corpora.get(c).getDocument().add(documentTees);
+			}
 		}
-
-		return corpusTEES;
 	}
 
 	/**
@@ -138,10 +156,10 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> i
 				//sent2secId.put(sentenceTees.getId(), sectionAlvis.getStringId());
 				sentId2Sections.put(sentenceTees.getId(), sectionAlvis);
 				
-				// add the analyses ???
+				// add the analyses todo
 				
 			}
-		} // *** end for adding the list of sentences to a document
+		}
 		
 
 		return sentences;
@@ -199,21 +217,25 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> i
 		// loop  relations
 		if(allRelations!=null) for (Tuple r : allRelations.getTuples()) {
 
-					
+			// getting the argument from roles
 			Element ag1 = r.getArgument(this.getRelationRole1());			
 			Element ag2 = r.getArgument(this.getRelationRole2());
 			
+			// downcasting argument elements as annotations
 			Annotation ann1 = DownCastElement.toAnnotation(ag1);
 			Annotation ann2 = DownCastElement.toAnnotation(ag2);
 			
+			// is the sentence contains the argument annotations
 			if(sentenceAlvis.includes(ann1)==false || sentenceAlvis.includes(ann2)==false) continue;
 			
+			// creating interaction
 			CorpusTEES.Document.Sentence.Interaction interaction = new CorpusTEES.Document.Sentence.Interaction();
+			// setting id
 			interaction.setId(sentId + ".i" + intId++);
 			logger.info("creating interaction " + r.getRoles().toString());	
 			
 			
-			// from oldId to charOffsetId
+			// getting tees entities ids from alvis ids
 			for (int i = 0; i < sentenceTees.getEntity().size(); i++) {
 				if(sentenceTees.getEntity().get(i).getOrigId().compareToIgnoreCase(ann1.getStringId())==0)
 				{
@@ -224,20 +246,22 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> i
 				}
 			}
 
+			// setting relation type 
 			interaction.setType(this.getRelationName());
+			// setting relation originId
 			interaction.setOrigId(r.getStringId());
-			
+			// setting as a directed interaction
 			interaction.setDirected(true);
+			// adding interaction
 			sentenceTees.getInteraction().add(interaction);
 		}
 		
 		logger.info("End adding interactions");
 	}
 	
-	// 
 	
 	
-	public void addRelations2CorpusAlvis(CorpusTEES corpusTEES, Corpus corpusAlvis, ProcessingContext<Corpus> ctx){
+	public void setRelations2CorpusAlvis(CorpusTEES corpusTEES, Corpus corpusAlvis, ProcessingContext<Corpus> ctx){
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 
@@ -254,6 +278,7 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> i
 				
 				
 				for (int k = 0; k < sentenceTEES.getInteraction().size(); k++) {
+					if (sentenceTEES.getInteraction().get(k).getType().compareToIgnoreCase(this.getRelationName())!=0) continue;
 					Tuple tuple = new Tuple(this, relation);
 					tuple.setArgument(this.getRelationRole1(), entId2Elements.get(sentenceTEES.getInteraction().get(k).getE1()));
 					tuple.setArgument(this.getRelationRole2(), entId2Elements.get(sentenceTEES.getInteraction().get(k).getE2()));
@@ -265,7 +290,40 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> i
 	}
 	
 	
-	// getter and setter
+
+	/**
+	 * feature handlers
+	 */
+
+	@Override
+	public Mapping getConstantTupleFeatures() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setConstantTupleFeatures(Mapping constantRelationFeatures) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Mapping getConstantRelationFeatures() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setConstantRelationFeatures(Mapping constantRelationFeatures) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	/** 
+	 * getter and setter
+	 * 
+	 */
 	
 	@Param(nameType = NameType.LAYER)
 	public String getTokenLayerName() {
@@ -308,7 +366,7 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> i
 		this.neFeatureName = namedEntityTypeFeatureName;
 	}
 
-	@Param
+	@Param(mandatory = false)
 	public String getRelationName() {
 		return relationName;
 	}
@@ -316,9 +374,8 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> i
 	public void setRelationName(String relationName) {
 		this.relationName = relationName;
 	}
-//	
 
-	@Param
+	@Param(mandatory = false)
 	public String getRelationRole1() {
 		return relationRole1;
 	}
@@ -327,7 +384,7 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> i
 		this.relationRole1 = arg1;
 	}
 
-	@Param
+	@Param(mandatory = false)
 	public String getRelationRole2() {
 		return relationRole2;
 	}
@@ -344,30 +401,65 @@ public abstract class TeesMapper extends SectionModule<SectionResolvedObjects> i
 		this.pos = pos;
 	}
 	
+
+	public String getCorporaType() {
+		return corporaType;
+	}
+
+	public void setCorporaType(String corporaType) {
+		this.corporaType = corporaType;
+	}
 	
-
-	@Override
-	public Mapping getConstantTupleFeatures() {
-		// TODO Auto-generated method stub
-		return null;
+	@Param(mandatory = false)
+	public String getOmitSteps() {
+		return omitSteps;
 	}
 
-	@Override
-	public void setConstantTupleFeatures(Mapping constantRelationFeatures) {
-		// TODO Auto-generated method stub
+	public void setOmitSteps(String omitSteps) {
+		this.omitSteps = omitSteps;
+	}
+	
+	
+	@Param
+	public ExecutableFile getExecutable() {
+		return executable;
+	}
+
+	public void setExecutable(ExecutableFile executable) {
+		this.executable = executable;
+	}
+	
+	@Param
+	public String getModel() {
+		return model;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
+	
+	
+	public InputDirectory getWorkDir() {
+		return workDir;
+	}
+
+	public void setWorkDir(InputDirectory workDir) {
+		this.workDir = workDir;
+	}
+
+	void simulatingCorpora(Corpus corpusAlvis, ProcessingContext<Corpus> ctx){
+		Logger logger = getLogger(ctx);
+		EvaluationContext evalCtx = new EvaluationContext(logger);
+		int it =0;
+
+		// loop on documents
+		logger.info("creating the TEES documents ");
+		for (Document documentAlvis : Iterators.loop(documentIterator(evalCtx, corpusAlvis))) {
 		
-	}
-
-	@Override
-	public Mapping getConstantRelationFeatures() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setConstantRelationFeatures(Mapping constantRelationFeatures) {
-		// TODO Auto-generated method stub
-		
+		if(it < 2*corpusAlvis.countDocuments()/4) documentAlvis.addFeature(this.corporaType, "train");
+		else if(it < 3*corpusAlvis.countDocuments()/4) documentAlvis.addFeature(this.corporaType, "dev");
+		else documentAlvis.addFeature(this.corporaType, "test");
+		}
 	}
 	
 }
