@@ -14,6 +14,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-python $TEES_PRE_EXE --input  $TEES_TRAIN_IN --output $TEES_TRAIN_OUT --omitSteps $OMITSTEPS
+python $TEES_PRE_EXE --input  $TEES_TRAIN_IN --output $TEES_TRAIN_OUT --omitSteps $OMITSTEPS --debug true
 
-python $TEES_CLASSIFY_EXE --input $TEES_TRAIN_OUT --output $OUTSTREAM  -o $WORKDIR --model $MODEL --omitSteps PREPROCESS
+python $TEES_CLASSIFY_EXE --input $TEES_TRAIN_OUT --output $OUTSTREAM  --workdir $WORKDIR --model $MODEL --omitSteps PREPROCESS --debug true

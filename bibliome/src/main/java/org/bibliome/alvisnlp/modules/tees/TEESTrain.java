@@ -13,7 +13,6 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import org.bibliome.alvisnlp.modules.geniatagger.GeniaTagger;
 import org.bibliome.util.Files;
 import org.bibliome.util.files.OutputFile;
 
