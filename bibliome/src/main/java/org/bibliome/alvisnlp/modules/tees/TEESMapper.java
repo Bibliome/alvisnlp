@@ -1,5 +1,6 @@
 package org.bibliome.alvisnlp.modules.tees;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -50,15 +51,16 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	private String relationRole2 = null;
 	
 	// corpus params
-	private String corporaType = "cName";
+	private String corporaSetFeature = "set";
 	protected Map<String, CorpusTEES> corpora = new HashMap<String, CorpusTEES>();
 	protected String defaultKey = "default";
 	
 	// execution params
 	private ExecutableFile executable;
-	private String omitSteps = "PREPROCESS=SPLIT-SENTENCES,NE";
+	private String omitSteps = "SPLIT-SENTENCES,NE";
 	private String model;
 	private InputDirectory workDir = null;
+	private String teesHome;
 	
 	
 	// Link memories
@@ -80,34 +82,36 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	 * @return
 	 */
 	public void createTheTeesCorpus(ProcessingContext<Corpus> ctx, Corpus corpusAlvis) {
-		int docId = 0;
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 
 		// loop on documents
 		logger.info("creating the TEES documents ");
 		for (Document documentAlvis : Iterators.loop(documentIterator(evalCtx, corpusAlvis))) {
+	
+			// splitting the documents according to their corpus set
+			String set = documentAlvis.getLastFeature(this.getCorporaSetFeature());
+			if(set ==  null){
+				set = this.defaultKey;
+				if(corpora.get(set) == null) {
+					this.corpora.put(set, new CorpusTEES());
+				}
+			}
+			
 			// create a TEES document
-			CorpusTEES.Document documentTees = new CorpusTEES.Document();
-			// add id of the TEES document		
-			documentTees.setId("ALVIS.d"+ docId++);
-			logger.info("creating the TEES document " + documentTees.getId());
-			// adding all the sentences the TEES document
+			CorpusTEES.Document documentTees = new CorpusTEES.Document();		
+			// setting the doc id
+			documentTees.setId("ALVIS.d" + corpora.get(set).getDocument().size());
+			logger.info("adding the document" + documentTees.getId() + " to " + set + " Set");
+			// setting the doc sentences
 			logger.info("creating the TEES sentences of this document " + documentTees.getId());
 			Iterator<Section> alvisSectionsIterator = sectionIterator(evalCtx, documentAlvis);
-			createTheTeesSentences(documentTees.getSentence(), documentTees.getId(), alvisSectionsIterator, documentAlvis, corpusAlvis, ctx);
-			// adding the document to the TEES corpus
+			createTheTeesSentences(documentTees.getSentence(), documentTees.getId(), alvisSectionsIterator,
+					documentAlvis, corpusAlvis, ctx);
 			logger.info("number of sentences " + documentTees.getSentence().size());
+			// adding the document
+			this.corpora.get(set).getDocument().add(documentTees);
 			
-			// splitting the documents according to their feature key
-			String c = documentAlvis.getLastFeature(this.getCorporaType());
-			if(c ==  null){
-				if(corpora.get(this.defaultKey) == null) this.corpora.put(this.defaultKey, new CorpusTEES());
-				this.corpora.get(this.defaultKey).getDocument().add(documentTees);
-			}
-			else{
-				this.corpora.get(c).getDocument().add(documentTees);
-			}
 		}
 	}
 
@@ -149,6 +153,7 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 				logger.info("creating the TEES interactions ");
 				Relation alvisRelationsCollection = sectionAlvis.getRelation(this.getRelationName());
 				createTheInteractions(sentenceTees, sentenceTees.getId(), sentenceAlvis, alvisRelationsCollection, corpus, ctx);
+				
 				
 				// add the set sentence
 				sentences.add(sentenceTees);
@@ -253,7 +258,10 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 			// setting as a directed interaction
 			interaction.setDirected(true);
 			// adding interaction
+			if(interaction.getE1()!=null && interaction.getE2()!=null){
 			sentenceTees.getInteraction().add(interaction);
+			}
+			else intId--;
 		}
 		
 		logger.info("End adding interactions");
@@ -402,12 +410,12 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	}
 	
 
-	public String getCorporaType() {
-		return corporaType;
+	public String getCorporaSetFeature() {
+		return corporaSetFeature;
 	}
 
-	public void setCorporaType(String corporaType) {
-		this.corporaType = corporaType;
+	public void setCorporaSetFeature(String corporaType) {
+		this.corporaSetFeature = corporaType;
 	}
 	
 	@Param(mandatory = false)
@@ -420,7 +428,7 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	}
 	
 	
-	@Param
+	@Param(mandatory = false)
 	public ExecutableFile getExecutable() {
 		return executable;
 	}
@@ -429,7 +437,7 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 		this.executable = executable;
 	}
 	
-	@Param
+	@Param(mandatory = false)
 	public String getModel() {
 		return model;
 	}
@@ -446,20 +454,16 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	public void setWorkDir(InputDirectory workDir) {
 		this.workDir = workDir;
 	}
-
-	void simulatingCorpora(Corpus corpusAlvis, ProcessingContext<Corpus> ctx){
-		Logger logger = getLogger(ctx);
-		EvaluationContext evalCtx = new EvaluationContext(logger);
-		int it =0;
-
-		// loop on documents
-		logger.info("creating the TEES documents ");
-		for (Document documentAlvis : Iterators.loop(documentIterator(evalCtx, corpusAlvis))) {
-		
-		if(it < 2*corpusAlvis.countDocuments()/4) documentAlvis.addFeature(this.corporaType, "train");
-		else if(it < 3*corpusAlvis.countDocuments()/4) documentAlvis.addFeature(this.corporaType, "dev");
-		else documentAlvis.addFeature(this.corporaType, "test");
-		}
+	
+	@Param(mandatory=true)
+	public String getTeesHome() {
+		return teesHome;
 	}
+
+
+	public void setTeesHome(String tEESHome) {
+		teesHome = tEESHome;
+	}
+
 	
 }

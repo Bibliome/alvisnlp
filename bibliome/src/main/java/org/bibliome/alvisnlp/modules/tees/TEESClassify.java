@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,6 +17,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
+import org.bibliome.util.Files;
 import org.bibliome.util.files.OutputFile;
 import org.codehaus.plexus.util.DirectoryScanner;
 
@@ -38,11 +40,7 @@ import alvisnlp.module.lib.Param;
  */
 
 @AlvisNLPModule
-public class TEESClassify extends TEESMapper {
-
-
-
-	
+public class TEESClassify extends TEESMapper {	
 
 	private String internalEncoding = "UTF-8";
 
@@ -60,9 +58,7 @@ public class TEESClassify extends TEESMapper {
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 
-		try {
-			this.simulatingCorpora(corpus, ctx);
-			
+		try {		
 			logger.info("creating the External module object ");
 			TEESClassifyExternal teesClassifyExt = new TEESClassifyExternal(ctx);
 
@@ -73,7 +69,7 @@ public class TEESClassify extends TEESMapper {
 			jaxbm.marshal(this.prepareTEESCorpora(ctx, corpus), teesClassifyExt.getInput());
 
 			logger.info("calling tees-predict ");
-			callExternal(ctx, "run-tees-predict", teesClassifyExt, internalEncoding, "classify.py");
+			callExternal(ctx, "run-tees-predict", teesClassifyExt, internalEncoding, "tees-classify.py");
 
 			logger.info("Accessing the test prediction file");
 			Unmarshaller jaxbu = jaxbContext.createUnmarshaller();
@@ -207,49 +203,76 @@ public class TEESClassify extends TEESMapper {
 		private final String outputStem;
 		private final ProcessingContext<Corpus> ctx;
 		public final File baseDir;
+		private final File script;
 
-		private TEESClassifyExternal(ProcessingContext<Corpus> ctx) {
+		private TEESClassifyExternal(ProcessingContext<Corpus> ctx) throws IOException {
 			super();
 			this.ctx = ctx;
 			File tmp = getTempDir(ctx);
 			baseDir = tmp;
 			this.input = new OutputFile(tmp.getAbsolutePath(), "tees-o" + ".xml");
 			this.outputStem = "tees-i";
+			
+			//
+			script = new File(tmp, "classify.sh");
+			// same ClassLoader as this class
+			InputStream is = TEESTrain.class.getResourceAsStream("classify.sh");
+			Files.copy(is, script, 1024, true);
+			script.setExecutable(true);
 		}
 
 		@Override
 		public Module<Corpus> getOwner() {
 			return TEESClassify.this;
 		}
-
+		
+		
 		@Override
 		public String[] getCommandLineArgs() throws ModuleException {
 			List<String> clArgs = new ArrayList<String>();
-			clArgs.addAll(Arrays.asList(getExecutable().getAbsolutePath(), 
-					"--model", 
-					getModel(), 
-					"--omitSteps",
-					getOmitSteps().toString(), 
-					"--input", 
-					this.input.getAbsolutePath(), 
-					"--output", this.outputStem));
-			if (getWorkDir() == null) {
-				clArgs.add("--workdir");
-				clArgs.add(baseDir.getAbsolutePath());
-				// workDir = new InputDirectory(baseDir.getAbsolutePath());
-			}
-			else {
-				clArgs.add("--clearAll");
-				clArgs.add("True");
-				clArgs.add("--workdir");
-				clArgs.add(getWorkDir().getAbsolutePath());
-			}
+			clArgs.addAll(Arrays.asList(script.getAbsolutePath()
+					));
 			return clArgs.toArray(new String[clArgs.size()]);
 		}
 
+//		@Override
+//		public String[] getCommandLineArgs() throws ModuleException {
+//			List<String> clArgs = new ArrayList<String>();
+//			clArgs.addAll(Arrays.asList(getExecutable().getAbsolutePath(), 
+//					"--model", 
+//					getModel(), 
+//					"--omitSteps",
+//					getOmitSteps().toString(), 
+//					"--input", 
+//					this.input.getAbsolutePath(), 
+//					"--output", this.outputStem));
+//			if (getWorkDir() == null) {
+//				clArgs.add("--workdir");
+//				clArgs.add(baseDir.getAbsolutePath());
+//				// workDir = new InputDirectory(baseDir.getAbsolutePath());
+//			}
+//			else {
+//				clArgs.add("--clearAll");
+//				clArgs.add("True");
+//				clArgs.add("--workdir");
+//				clArgs.add(getWorkDir().getAbsolutePath());
+//			}
+//			return clArgs.toArray(new String[clArgs.size()]);
+//		}
+
 		@Override
 		public String[] getEnvironment() throws ModuleException {
-			return null;
+			return new String[] {
+					"TEES_DIR=" + getTeesHome(),
+					"TEES_PRE_EXE=" + getTeesHome() + "/Detectors/Preprocessor.py",
+					"TEES_TRAIN_EXE=" + getTeesHome() + "/train.py",
+					"TEES_TRAIN_IN="  + this.input.getAbsolutePath(),
+					"TEES_TRAIN_OUT=" + this.baseDir.getAbsolutePath() + "/train_pre.xml",
+					"OUTSTREAM=" + this.outputStem, 
+					"OMITSTEP=" + getOmitSteps().toString(),
+					"WORKDIR" + this.baseDir.getAbsolutePath(),
+					"MODEL=" + getModel()
+				};
 		}
 
 		@Override
