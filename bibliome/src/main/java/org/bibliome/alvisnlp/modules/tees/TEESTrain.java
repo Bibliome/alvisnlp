@@ -214,7 +214,7 @@ public class TEESTrain extends TEESMapper {
 					"OMITSTEPS=" + getOmitSteps().toString(),
 					"TEES_TEST_IN="  + this.testInput.getAbsolutePath(),
 					"TEES_TEST_OUT=" + this.baseDir.getAbsolutePath() + "/test_pre.xml",
-					"WORKDIR" + this.baseDir.getAbsolutePath(),
+					"WORKDIR=" + this.baseDir.getAbsolutePath(),
 					"MODEL=" + getModel()
 				};
 		}
