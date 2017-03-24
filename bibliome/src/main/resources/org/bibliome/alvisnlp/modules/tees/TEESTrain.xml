@@ -17,12 +17,12 @@ limitations under the License.
 
 <alvisnlp-doc author="Mouhamadou Ba" date="2012-03-21" target="org.bibliome.alvisnlp.modules.tees.TEESTrain">
   <synopsis>
-    <p>Runs TEES Classify on a corpus</p>
+    <p>Train a model that predict an Alvis relation with TEES Trainer</p>
   </synopsis>
 
   <module-doc>
     <description>
-      <p><this/> executes the TEES train on <param name="Corpus"/> and record the results in <param name="Relation"/>. The param <param name="relationName"/> sets the name of the binary rlation to predict. <param name="relationRole1"/> and and <param name="relationRole"/> set the two roles of the relation.<this/></p>
+      <p><this/> executes the TEES training on <param name="Corpus"/> and record the results in <param name="Relation"/>. Param <param name="relationName"/> sets the name of the binary relation to predict. <param name="relationRole1"/> and <param name="relationRole"/> set the two roles of the relation. Params <param name="trainSetFeature"/>, <param name="devSetFeature"/> and <param name="testSetFeature"/> give respectively the features key of the train, dev and test corpus. <this/></p>
     </description>
 
   

@@ -17,7 +17,7 @@ limitations under the License.
 
 <alvisnlp-doc author="Mouhamadou Ba" date="2012-03-21" target="org.bibliome.alvisnlp.modules.tees.TEESClassify">
   <synopsis>
-    <p>Runs TEES Classify on a corpus</p>
+    <p> Classify an alvis relation with the TEES Classifier</p>
   </synopsis>
 
   <module-doc>

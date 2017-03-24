@@ -269,7 +269,7 @@ public class TEESClassify extends TEESMapper {
 					"TEES_TRAIN_IN="  + this.input.getAbsolutePath(),
 					"TEES_TRAIN_OUT=" + this.baseDir.getAbsolutePath() + "/train_pre.xml",
 					"OUTSTREAM=" + this.outputStem, 
-					"OMITSTEP=" + getOmitSteps().toString(),
+					"OMITSTEPS=" + getOmitSteps().toString(),
 					"WORKDIR" + this.baseDir.getAbsolutePath(),
 					"MODEL=" + getModel()
 				};
