@@ -29,6 +29,7 @@ import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.Module;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.ProcessingContext;
+import alvisnlp.module.ProcessingException;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.External;
 import alvisnlp.module.lib.Param;
@@ -51,7 +52,8 @@ public class TEESClassify extends TEESMapper {
 	private String headRole = DefaultNames.getDependencyHeadRole();
 	private String dependentRole = DefaultNames.getDependencyDependentRole();
 	
-	private String corpusKey = null;
+
+	private String setFeature = null;
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -94,12 +96,15 @@ public class TEESClassify extends TEESMapper {
 	 * @param ctx
 	 * @param corpusAlvis
 	 * @return
+	 * @throws ProcessingException 
 	 */
-	public CorpusTEES prepareTEESCorpora(ProcessingContext<Corpus> ctx, Corpus corpusAlvis){
-		if(this.getCorpusKey()==null) this.setCorpusKey(this.defaultKey); 
-		this.corpora.put(this.getCorpusKey(), new CorpusTEES());
+	public CorpusTEES prepareTEESCorpora(ProcessingContext<Corpus> ctx, Corpus corpusAlvis) throws ProcessingException{
+		if(this.getSetFeature()==null){
+			processingException("could not classify : corpus set doesn't exist");
+		} 
+		this.corpora.put(this.getSetFeature(), new CorpusTEES());
 		this.createTheTeesCorpus(ctx, corpusAlvis);	
-		return this.corpora.get(this.getCorpusKey());
+		return this.corpora.get(this.getSetFeature());
 	}
 	
 	/**
@@ -183,16 +188,17 @@ public class TEESClassify extends TEESMapper {
 		this.dependentRole = dependentRole;
 	}
 
-	public String getCorpusKey() {
-		return corpusKey;
+	@Param
+	public String getSetFeature() {
+		return setFeature;
 	}
 
 
-	public void setCorpusKey(String corpusKey) {
-		this.corpusKey = corpusKey;
+	public void setSetFeature(String setFeature) {
+		this.setFeature = setFeature;
 	}
-	
-	
+
+
 	/**
 	 * 
 	 * @author mba
@@ -265,13 +271,13 @@ public class TEESClassify extends TEESMapper {
 			return new String[] {
 					"TEES_DIR=" + getTeesHome(),
 					"TEES_PRE_EXE=" + getTeesHome() + "/Detectors/Preprocessor.py",
-					"TEES_TRAIN_EXE=" + getTeesHome() + "/train.py",
-					"TEES_TRAIN_IN="  + this.input.getAbsolutePath(),
-					"TEES_TRAIN_OUT=" + this.baseDir.getAbsolutePath() + "/train_pre.xml",
+					"TEES_CLASSIFY_EXE=" + getTeesHome() + "/classify.py",
+					"TEES_CORPUS_IN="  + this.input.getAbsolutePath(),
+					"TEES_CORPUS_OUT=" + this.baseDir.getAbsolutePath() + "/train_pre.xml",
 					"OUTSTREAM=" + this.outputStem, 
 					"OMITSTEPS=" + getOmitSteps().toString(),
 					"WORKDIR=" + this.baseDir.getAbsolutePath(),
-					"MODEL=" + getModel()
+					"MODEL=" + getModel().getAbsolutePath()
 				};
 		}
 

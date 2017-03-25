@@ -57,7 +57,7 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	// execution params
 	private ExecutableFile executable;
 	private String omitSteps = "SPLIT-SENTENCES,NE";
-	private String model;
+	private InputDirectory model;
 	private InputDirectory workDir = null;
 	private String teesHome;
 	
@@ -437,11 +437,11 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	}
 	
 	@Param(mandatory = false)
-	public String getModel() {
+	public InputDirectory getModel() {
 		return model;
 	}
 
-	public void setModel(String model) {
+	public void setModel(InputDirectory model) {
 		this.model = model;
 	}
 	
