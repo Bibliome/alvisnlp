@@ -59,7 +59,7 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	private String omitSteps = "SPLIT-SENTENCES,NE";
 	private InputDirectory model;
 	private InputDirectory workDir = null;
-	private String teesHome;
+	private InputDirectory teesHome;
 	
 	
 	// Link memories
@@ -455,12 +455,12 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	}
 	
 	@Param(mandatory=true)
-	public String getTeesHome() {
+	public InputDirectory getTeesHome() {
 		return teesHome;
 	}
 
 
-	public void setTeesHome(String tEESHome) {
+	public void setTeesHome(InputDirectory tEESHome) {
 		teesHome = tEESHome;
 	}
 
