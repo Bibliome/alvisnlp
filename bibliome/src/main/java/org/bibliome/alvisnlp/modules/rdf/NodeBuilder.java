@@ -17,11 +17,11 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.rdf;
 
+import org.apache.jena.rdf.model.RDFNode;
+
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.module.NameUser;
-
-import com.hp.hpl.jena.rdf.model.RDFNode;
 
 interface NodeBuilder extends NameUser {
 	RDFNode createNode(EvaluationContext ctx, Element elt);

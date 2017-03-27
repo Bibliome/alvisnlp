@@ -21,6 +21,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.Property;
+import org.apache.jena.rdf.model.RDFNode;
+import org.apache.jena.rdf.model.Resource;
 import org.bibliome.util.Iterators;
 
 import alvisnlp.corpus.Element;
@@ -36,11 +40,6 @@ import alvisnlp.documentation.Documentation;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.NameUser;
-
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.Property;
-import com.hp.hpl.jena.rdf.model.RDFNode;
-import com.hp.hpl.jena.rdf.model.Resource;
 
 public class StatementLibrary extends FunctionLibrary {
 	private final Model model;

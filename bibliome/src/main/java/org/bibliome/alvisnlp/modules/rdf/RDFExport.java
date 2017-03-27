@@ -22,8 +22,14 @@ import java.io.OutputStream;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import org.apache.jena.fuseki.embedded.FusekiEmbeddedServer;
+import org.apache.jena.query.Dataset;
+import org.apache.jena.query.DatasetFactory;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
+import org.apache.jena.shared.PrefixMapping;
 import org.apache.log4j.BasicConfigurator;
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
@@ -50,10 +56,6 @@ import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
 import alvisnlp.module.types.Mapping;
 
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.shared.PrefixMapping;
-
 @AlvisNLPModule(beta=true)
 public class RDFExport extends CorpusModule<RDFExportResolvedObjects> {
 	private OutputDirectory outDir;
@@ -63,6 +65,7 @@ public class RDFExport extends CorpusModule<RDFExportResolvedObjects> {
 	private Expression[] statements;
 	private RDFFormat format = RDFFormat.RDFXML_ABBREV;
 	private Mapping prefixes = new Mapping();
+	private Boolean startServer = false;
 
 	static class RDFExportResolvedObjects extends ResolvedObjects {
 		private final Evaluator files;
@@ -142,6 +145,11 @@ public class RDFExport extends CorpusModule<RDFExportResolvedObjects> {
 			}
 		}
 		logger.info("wrote " + count + " statements");
+		if (startServer) {
+			Dataset ds = DatasetFactory.assemble(resObj.model);
+			FusekiEmbeddedServer server = FusekiEmbeddedServer.create().add("alvisnlp", ds).build();
+			server.start();
+		}
 	}
 	
 	@TimeThis(task="write-rdf", category=TimerCategory.EXPORT)

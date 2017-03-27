@@ -20,13 +20,13 @@ package org.bibliome.alvisnlp.modules.rdf;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.Resource;
+
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
-
-import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.Resource;
 
 public class ElementResourceMap implements ResourceBuilder {
 	private final Model model;

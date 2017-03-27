@@ -20,6 +20,7 @@ package org.bibliome.alvisnlp.modules.rdf;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.jena.rdf.model.Resource;
 import org.bibliome.util.Iterators;
 import org.bibliome.util.StringCat;
 
@@ -36,8 +37,6 @@ import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.documentation.Documentation;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
-
-import com.hp.hpl.jena.rdf.model.Resource;
 
 class URILibrary extends FunctionLibrary {
 	private final ElementResourceMap resourceMap;

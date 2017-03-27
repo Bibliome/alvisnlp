@@ -17,10 +17,10 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.rdf;
 
+import org.apache.jena.rdf.model.Resource;
+
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.EvaluationContext;
-
-import com.hp.hpl.jena.rdf.model.Resource;
 
 interface ResourceBuilder extends NodeBuilder {
 	@Override
