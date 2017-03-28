@@ -23,7 +23,7 @@ Clone the git repository or download from https://github.com/Bibliome/alvisnlp
 
 # Build and install from the package homedir
 
-`mvn clean package`
+`mvn clean install`
 
 
 # Command-line interface

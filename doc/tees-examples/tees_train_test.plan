@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<alvisnlp-plan id="tees_classigy_test">
+<!--***************************************************************************$
+  <!-Etape 1 : Read = dans un autre fichier-->
+
+
+  <train class="BioNLPSTReader">
+    <textDir>share/corpus/train</textDir>
+    <a1Dir>share/corpus/train</a1Dir><!-- optional -->
+    <a2Dir>share/corpus/train</a2Dir>
+    <textBoundAsAnnotations/>
+    <constantDocumentFeatures>set=train</constantDocumentFeatures>
+  </train>
+
+  <dev class="BioNLPSTReader">
+    <textDir>share/corpus/dev</textDir>
+    <a1Dir>share/corpus/dev</a1Dir><!-- optional -->
+    <a2Dir>share/corpus/dev</a2Dir>
+    <textBoundAsAnnotations/>
+    <constantDocumentFeatures>set=dev</constantDocumentFeatures>
+  </dev>
+
+  <test class="BioNLPSTReader">
+    <textDir>share/corpus/test</textDir>
+    <a1Dir>share/corpus/test</a1Dir><!-- optional -->
+    <!--a2Dir>share/corpus/test</a2Dir-->
+    <textBoundAsAnnotations/>
+    <constantDocumentFeatures>set=test</constantDocumentFeatures>
+  </test>
+
+  <import>res://org.bibliome.alvisnlp.resources/segmentation.plan</import>
+
+  <module id="genia" class="GeniaTagger">
+    <geniaDir>/home/mba/Documents/geniatagger-3.0.2/</geniaDir>
+  </module>
+
+  <merge-entities class="MergeLayers">
+	<sourceLayerNames>Protein,RNA,Genotype,Development_Phase,Tissue,Promoter,Protein_Family,Environmental_Factor,Protein_Domain,Regulatory_Network</sourceLayerNames>
+	<targetLayerName>named-entities</targetLayerName>
+  </merge-entities>
+
+  <module id="TEESTrain" class="TEESTrain">
+	<!-- entities-->
+	<namedEntityLayerName>named-entities</namedEntityLayerName>
+	<neFeatureName>type</neFeatureName>
+	<!-- corpus features-->
+	<trainSetFeature>train</trainSetFeature>
+	<devSetFeature>dev</devSetFeature>
+	<testSetFeature>test</testSetFeature>
+	<!-- relation-->
+	<relationName>Interacts_With</relationName>
+	<relationRole1>Agent</relationRole1>
+	<relationRole2>Target</relationRole2>
+	<!-- tees model, directory and executable -->
+	<model>.</model>
+	<teesHome>/home/mba/Documents/TEES-master</teesHome>
+	<!-- omitted steps -->
+	<omitSteps>SPLIT-SENTENCES,NER</omitSteps>
+  </module>
+	
+</alvisnlp-plan>
