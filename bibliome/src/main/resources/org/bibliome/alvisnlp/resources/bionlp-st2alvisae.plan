@@ -1,0 +1,66 @@
+<alvisnlp-plan id="bionlp-st2alvisae">
+  <alvisnlp-doc author="Robert Bossy" beta="true" date="2017-03-08">
+    <synopsis>
+      <p>Converts BioNLP-ST files into AlvisAE JSON.</p>
+    </synopsis>
+    <plan-doc>
+      <description>
+        <p><this/> reads <code>.txt</code>, <code>.a1</code>code>, and <code>.a2</code> files from the stream specified by <param name="source"/> and writes AlvisAE JSON files in the directory specified by <param name="out"/>.</p>
+	<p>If <code>.a1</code> or <code>.a2</code> files are not in the same directory, then they can be specified with <param name="a1Dir"/> and <param name="a2Dir"/> respectively.</p>
+	<p><param name="doc-label"/> is an expression evaluated as a string that specifies the document description (how the document is displayed in AlvisAE).</p>
+      </description>
+    </plan-doc>
+  </alvisnlp-doc>
+
+  <param name="source">
+    <alias module="read" param="textDir"/>
+    <alias module="read" param="a1Dir"/>
+    <alias module="read" param="a2Dir"/>
+  </param>
+
+  <param name="a1Dir">
+    <alias module="read" param="a1Dir"/>
+  </param>
+
+  <param name="a2Dir">
+    <alias module="read" param="a2Dir"/>
+  </param>
+
+  <param name="out">
+    <alias module="write" param="outDir"/>
+  </param>
+
+  <param name="doc-label">
+    <alias module="write" param="documentDescription"/>
+  </param>
+
+  <read class="BioNLPSTReader">
+    <typeFeatureName>__TYPE</typeFeatureName>
+    <idFeatureName>__ID</idFeatureName>
+    <fragmentCountFeatureName>__FRAGMENTS</fragmentCountFeatureName>
+    <kindFeatureName>__KIND</kindFeatureName>
+  </read>
+
+  <write class="ExportCadixeJSON">
+    <documentProperties>DocumentID=@id</documentProperties>
+    <documentDescription>@id</documentDescription>
+    <annotationSets>
+      <element type="UserAnnotation">
+	<text>
+	  <instances>relations[@__KIND == "text"].tuples</instances>
+	  <type>relation.@name</type>
+	  <fragments>args</fragments>
+	  <propdef>nav:features[@key != "__TYPE" and @key != "__ID" and @key != "__FRAGMENTS" and @key != "__KIND"]</propdef>
+	</text>
+
+	<relation>
+	  <instances>relations[@__KIND == "relation"].tuples</instances>
+	  <type>relation.@name</type>
+	  <argdef>nav:arguments</argdef>
+	  <role>@role</role>
+	  <propdef>nav:features[@key != "__TYPE" and @key != "__ID" and @key != "__FRAGMENTS" and @key != "__KIND"]</propdef>
+	</relation>
+      </element>
+    </annotationSets>
+  </write>
+</alvisnlp-plan>
