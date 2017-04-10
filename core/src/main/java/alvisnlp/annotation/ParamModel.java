@@ -26,6 +26,7 @@ import javax.lang.model.type.ArrayType;
 import javax.lang.model.type.DeclaredType;
 import javax.lang.model.type.ErrorType;
 import javax.lang.model.type.ExecutableType;
+import javax.lang.model.type.IntersectionType;
 import javax.lang.model.type.NoType;
 import javax.lang.model.type.NullType;
 import javax.lang.model.type.PrimitiveType;
@@ -246,6 +247,11 @@ class ParamModel {
 
 		@Override
 		public Boolean visitUnion(UnionType arg0, Boolean arg1) {
+			return false;
+		}
+
+		@Override
+		public Boolean visitIntersection(IntersectionType t, Boolean p) {
 			return false;
 		}
 	};
