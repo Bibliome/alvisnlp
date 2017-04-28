@@ -4,6 +4,9 @@ ALVISNLP_SRC=$(readlink -f .)
 NO_COMPILE=
 WORKING_DIR=$(readlink -f _regression)
 TESTS_DIR=
+INCLUDE=
+EXCLUDE=
+
 
 function log() {
     echo -e "$@" >&2
@@ -42,11 +45,18 @@ is run.
 
 Options:
 
-  -h, --help                print help
-  -a, --alvisnlp-sources    AlvisNLP sources directory (default: $ALVISNLP_SRC)
-  -n, --no-compile          do not compile AlvisNLP
-  -w, --working-directory   base working directory for test runs
-                            (default: $WORKING_DIR)
+  -h, --help                    print help
+  -a, --alvisnlp-sources=DIR    AlvisNLP sources directory
+                                (default: $ALVISNLP_SRC)
+  -n, --no-compile              do not compile AlvisNLP
+  -w, --working-directory=DIR   base working directory for test runs
+                                (default: $WORKING_DIR)
+  -i, --include=NAME            include the specified test and exclude the
+                                others. This option can be specified more than
+                                once.
+  -x, --exclude=NAME            exclude the specified test. This option can be
+                                specified more than once.
+
 
 Tests:
 
@@ -65,8 +75,10 @@ to perform the test with the \`errexit' option.
     check-file      checks that a generated file is identical to a reference
                     file. The generated file must have been produced by a
                     AlvisNLP run. The reference file must be present in the test
-                    directory. Both the generated and reference files must have
-                    the same name.
+                    directory. The first and second arguments specify the
+                    reference and the generated file names respectively. If both
+                    files have the same name, then the second argument may be
+                    omitted.
 
 EOF
 }
@@ -86,6 +98,14 @@ do
 	    ;;
 	-w|--working-directory)
 	    WORKING_DIRECTORY=$(readlink -f "$1")
+	    shift
+	    ;;
+	-i|--include)
+	    INCLUDE=" $1 $INCLUDE"
+	    shift
+	    ;;
+	-x|--exclude)
+	    EXCLUDE=" $1 $EXCLUDE"
 	    shift
 	    ;;
 	-h|-?|--help)
@@ -142,12 +162,18 @@ log
 
 
 function run-alvisnlp() {
-    "$INSTALL_DIR"/bin/alvisnlp -verbose -log "$TEST_WD"/alvisnlp.log -inputDir "$TEST_DIR" -inputDir "$TESTS_DIR"/resources
+    "$INSTALL_DIR"/bin/alvisnlp -verbose -log "$TEST_WD"/alvisnlp.log -inputDir "$TEST_DIR" -inputDir "$TESTS_DIR"/share "$@"
 }
 
 function check-file() {
-    file="$1"
-    diff -q "$TEST_DIR"/"$file" "$TEST_WD"/"$file"
+    ref="$1"
+    gen="$2"
+    if [ -z "$gen" ]
+    then
+	gen="$ref"
+    fi
+    echo Comparing files "$TEST_DIR"/"$ref" "$TEST_WD"/"$gen"
+    diff -q "$TEST_DIR"/"$ref" "$TEST_WD"/"$gen"
 }
 
 export -f run-alvisnlp
@@ -159,6 +185,23 @@ for t in $(find "$TESTS_DIR" -type f -name test.sh);
 do
     export TEST_DIR=$(dirname "$t")
     TEST_NAME=$(echo "$TEST_DIR" | sed -e "s,$TESTS_DIR/,,")
+    if [ -n "$INCLUDE" ]
+    then
+	if grep -q -w "$TEST_NAME" <<<"$INCLUDE"
+	then
+	    :
+	else
+	    warn Skipping not included: "$t"
+	    log
+	    continue
+	fi
+    fi
+    if grep -q -w "$TEST_NAME" <<<"$EXCLUDE"
+    then
+	warn Skipping excluded: "$t"
+	log
+	continue
+    fi
     TESTS="$TESTS $TEST_NAME"
     export TEST_WD="$WORKING_DIR"/"$TEST_NAME"
     mkdir -p "$TEST_WD"
@@ -180,9 +223,9 @@ then
     exit 1
 fi
 
-if [ -z "$FAIL" ]
+if [ -z "$FAILED" ]
 then
     ok Congratulations: all tests passed
 else
-    fail The following tests failed: "$FAILED"
+    fail The following tests failed:"$FAILED"
 fi
