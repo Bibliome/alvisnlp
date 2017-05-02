@@ -14,7 +14,7 @@ Please contact [Robert Bossy](mailto:robert.bossy@inra.fr) if you have any quest
 
 # Prerequisites
 
-* Java >= 7
+* Java >= 8
 * Maven >= 3.0.5
 
 # Download
