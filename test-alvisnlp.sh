@@ -2,8 +2,8 @@
 
 ALVISNLP_SRC=$(readlink -f .)
 NO_COMPILE=
-WORKING_DIR=$(readlink -f _regression)
-TESTS_DIR=
+WORKING_DIR=$(readlink -f .test)
+TESTS_DIR=$(readlink -f alvisnlp-test)
 INCLUDE=
 EXCLUDE=
 
