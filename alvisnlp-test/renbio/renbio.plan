@@ -38,13 +38,13 @@
     <train class="TrainingElementClassifier">
       <algorithm>weka.classifiers.bayes.NaiveBayes</algorithm>
       <classifierFile>classifier.model</classifierFile>
-      <relationDefinition load="attributes2.xml"/>
+      <relationDefinition load="attributes.xml"/>
       <examples>documents[@set=="train"].sections.layer:PredictedBacteria</examples>
       <arffFile>renbio.arff</arffFile>
     </train>
 
     <tag class="TaggingElementClassifier">
-      <relationDefinition load="attributes2.xml"/>
+      <relationDefinition load="attributes.xml"/>
       <classifierFile inhibitCheck="yes">classifier.model</classifierFile>
       <predictedClassFeatureKey>predictedClass</predictedClassFeatureKey>
       <examples>documents[@set=="dev"].sections.layer:PredictedBacteria</examples>

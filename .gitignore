@@ -27,3 +27,4 @@ bibliome/src/main/resources/org/bibliome/alvisnlp/resources/ncbi-taxon-names.txt
 header.txt
 expose-repository.sh
 maven-repository/
+.test/

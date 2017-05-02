@@ -3,7 +3,7 @@
 ALVISNLP_SRC=$(readlink -f .)
 NO_COMPILE=
 WORKING_DIR=$(readlink -f .test)
-TESTS_DIR=$(readlink -f alvisnlp-test)
+export TESTS_DIR=$(readlink -f alvisnlp-test)
 INCLUDE=
 EXCLUDE=
 
@@ -162,7 +162,8 @@ log
 
 
 function run-alvisnlp() {
-    "$INSTALL_DIR"/bin/alvisnlp -verbose -log "$TEST_WD"/alvisnlp.log -inputDir "$TEST_DIR" -inputDir "$TESTS_DIR"/share "$@"
+    echo "$INSTALL_DIR"/bin/alvisnlp -verbose -log "$TEST_WD"/alvisnlp.log -inputDir "$TEST_WD" -inputDir "$TEST_DIR" -inputDir "$TESTS_DIR"/share "$@"
+    "$INSTALL_DIR"/bin/alvisnlp -verbose -log "$TEST_WD"/alvisnlp.log -inputDir "$TEST_WD" -inputDir "$TEST_DIR" -inputDir "$TESTS_DIR"/share "$@"
 }
 
 function check-file() {
