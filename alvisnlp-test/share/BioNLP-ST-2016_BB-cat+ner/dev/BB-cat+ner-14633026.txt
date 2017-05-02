@@ -1,0 +1,5 @@
+Characterization of a mosquitocidal Bacillus thuringiensis serovar sotto strain isolated from Okinawa, Japan.
+To characterize the mosquitocidal activity of parasporal inclusions of the Bacillus thuringiensis serovar sotto strain 96-OK-85-24, for comparison with two well-characterized mosquitocidal strains.
+The strain 96-OK-85-24 significantly differed from the existing mosquitocidal B. thuringiensis strains in: (1) lacking the larvicidal activity against Culex pipiens molestus and haemolytic activity, and (2) SDS-PAGE profiles, immunological properties and N-terminal amino acid sequences of parasporal inclusion proteins.
+It is clear from the results that the strain 96-OK-85-24 synthesizes a novel mosquitocidal Cry protein with a unique toxicity spectrum.
+This is the first report of the occurrence of a mosquitocidal B. thuringiensis strain with an unusual toxicity spectrum, lacking the activity against the culicine mosquito.

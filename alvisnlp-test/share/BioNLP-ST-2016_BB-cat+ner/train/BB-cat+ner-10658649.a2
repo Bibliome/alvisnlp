@@ -1,0 +1,16 @@
+T3	Bacteria 59 81	Streptococcus pyogenes
+T4	Bacteria 133 155	Streptococcus pyogenes
+T5	Habitat 164 173	host cell
+T6	Habitat 280 289	host cell
+T7	Habitat 332 340	vaccines
+T8	Bacteria 420 433	streptococcal
+T9	Bacteria 610 621	S. pyogenes
+T10	Bacteria 1118 1129	S. pyogenes
+N1	NCBI_Taxonomy Annotation:T3 Referent:1314
+N2	NCBI_Taxonomy Annotation:T4 Referent:1314
+N3	OntoBiotope Annotation:T5 Referent:OBT:000056
+N4	OntoBiotope Annotation:T6 Referent:OBT:000056
+N5	OntoBiotope Annotation:T7 Referent:OBT:000099
+N6	NCBI_Taxonomy Annotation:T8 Referent:1314
+N7	NCBI_Taxonomy Annotation:T9 Referent:1314
+N8	NCBI_Taxonomy Annotation:T10 Referent:1314

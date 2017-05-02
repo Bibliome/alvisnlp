@@ -1,0 +1,28 @@
+T3	Bacteria 38 62	Agrobacterium rhizogenes
+T4	Habitat 110 117	tobacco
+T5	Bacteria 129 153	Agrobacterium rhizogenes
+T6	Habitat 331 341	hairy-root
+T7	Habitat 408 413	plant
+T8	Habitat 580 585	plant
+T9	Habitat 639 643	root
+T10	Habitat 657 675	tobacco leaf discs
+T11	Habitat 657 669	tobacco leaf
+T12	Habitat 657 664	tobacco
+T13	Habitat 677 730	Tobacco plants expressing a chimeric 35S::rolBTR gene
+T14	Habitat 753 780	off-shoots at the stem base
+T15	Habitat 771 775	stem
+T16	Habitat 794 831	wrinkled leaves with epinastic growth
+N1	NCBI_Taxonomy Annotation:T3 Referent:359
+N2	OntoBiotope Annotation:T4 Referent:OBT:001923
+N3	NCBI_Taxonomy Annotation:T5 Referent:359
+N4	OntoBiotope Annotation:T6 Referent:OBT:001877
+N5	OntoBiotope Annotation:T7 Referent:OBT:000219
+N6	OntoBiotope Annotation:T8 Referent:OBT:000219
+N7	OntoBiotope Annotation:T9 Referent:OBT:001877
+N8	OntoBiotope Annotation:T10 Referent:OBT:000741
+N9	OntoBiotope Annotation:T11 Referent:OBT:000849
+N10	OntoBiotope Annotation:T12 Referent:OBT:001923
+N11	OntoBiotope Annotation:T13 Referent:OBT:001923
+N12	OntoBiotope Annotation:T14 Referent:OBT:000417
+N13	OntoBiotope Annotation:T15 Referent:OBT:001935
+N14	OntoBiotope Annotation:T16 Referent:OBT:000849

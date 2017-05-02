@@ -1,0 +1,34 @@
+T3	Habitat 0 5	Human
+T4	Habitat 10 14	tick
+T5	Bacteria 15 34	spotted fever group
+T6	Bacteria 35 45	Rickettsia
+T7	Bacteria 105 124	spotted fever group
+T8	Bacteria 125 136	rickettsiae
+T9	Habitat 198 203	ticks
+T10	Habitat 218 224	humans
+T11	Habitat 387 392	human
+T12	Habitat 421 497	patients suffering from rickettsial disease of different degrees of severity
+T13	Bacteria 769 787	Rickettsia conorii
+T14	Bacteria 879 906;922 927	R. conorii reference strain no. 7
+T15	Bacteria 879 906;909 917	R. conorii reference strain Moroccan
+T16	Bacteria 1151 1170	spotted fever group
+T17	Habitat 1191 1196	ticks
+T18	Habitat 1201 1207	humans
+T19	Bacteria 1375 1385	R. conorii
+N1	OntoBiotope Annotation:T3 Referent:OBT:001804
+N2	OntoBiotope Annotation:T4 Referent:OBT:000937
+N3	NCBI_Taxonomy Annotation:T5 Referent:114277
+N4	NCBI_Taxonomy Annotation:T6 Referent:780
+N5	NCBI_Taxonomy Annotation:T7 Referent:114277
+N6	NCBI_Taxonomy Annotation:T8 Referent:780
+N7	OntoBiotope Annotation:T9 Referent:OBT:000937
+N8	OntoBiotope Annotation:T10 Referent:OBT:002187
+N9	OntoBiotope Annotation:T11 Referent:OBT:002187
+N10	OntoBiotope Annotation:T12 Referent:OBT:002216
+N11	NCBI_Taxonomy Annotation:T13 Referent:781
+N12	NCBI_Taxonomy Annotation:T14 Referent:781
+N13	NCBI_Taxonomy Annotation:T15 Referent:781
+N14	NCBI_Taxonomy Annotation:T16 Referent:114277
+N15	OntoBiotope Annotation:T17 Referent:OBT:000937
+N16	OntoBiotope Annotation:T18 Referent:OBT:002187
+N17	NCBI_Taxonomy Annotation:T19 Referent:781

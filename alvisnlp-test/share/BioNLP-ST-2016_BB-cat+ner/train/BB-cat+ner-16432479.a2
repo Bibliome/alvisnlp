@@ -1,0 +1,10 @@
+T5	Bacteria 215 236	Neisseria gonorrhoeae
+T6	Habitat 408 420	laboratories
+T7	Bacteria 573 587	N. gonorrhoeae
+T8	Bacteria 969 983	N. gonorrhoeae
+T9	Bacteria 1394 1408	N. gonorrhoeae
+N1	NCBI_Taxonomy Annotation:T5 Referent:485
+N2	OntoBiotope Annotation:T6 Referent:OBT:000609
+N3	NCBI_Taxonomy Annotation:T7 Referent:485
+N4	NCBI_Taxonomy Annotation:T8 Referent:485
+N5	NCBI_Taxonomy Annotation:T9 Referent:485

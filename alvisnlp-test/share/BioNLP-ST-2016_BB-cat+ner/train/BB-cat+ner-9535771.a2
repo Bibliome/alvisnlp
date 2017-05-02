@@ -1,0 +1,16 @@
+T3	Habitat 39 48	mammalian
+T4	Bacteria 86 102	Escherichia coli
+T5	Bacteria 128 144	Escherichia coli
+T6	Habitat 183 192	mammalian
+T7	Bacteria 304 311	E. coli
+T8	Bacteria 752 759	E. coli
+T9	Habitat 802 811	mammalian
+T10	Bacteria 965 972	E. coli
+N1	OntoBiotope Annotation:T3 Referent:OBT:001295
+N2	NCBI_Taxonomy Annotation:T4 Referent:562
+N3	NCBI_Taxonomy Annotation:T5 Referent:562
+N4	OntoBiotope Annotation:T6 Referent:OBT:001295
+N5	NCBI_Taxonomy Annotation:T7 Referent:562
+N6	NCBI_Taxonomy Annotation:T8 Referent:562
+N7	OntoBiotope Annotation:T9 Referent:OBT:001295
+N8	NCBI_Taxonomy Annotation:T10 Referent:562

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-plan id="ccg">
+  <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
+
+  <import>res://org.bibliome.alvisnlp.resources/segmentation.plan</import>
+
+  <pos class="CCGPosTagger" />
+
+  <parse class="CCGParser">
+    <lpTransformation/>
+  </parse>
+
+  <results class="TabularExport">
+    <outDir>.</outDir>
+    <files>$</files>
+    <fileName>"dependencies.txt"</fileName>
+    <lines>documents.sections.relations:dependencies.tuples</lines>
+    <columns>document.@id,section.@name,args:sentence.start,@label,args:head.@form,args:dependent.@form</columns>
+    <headers>"DOC","SEC","SENT START","LABEL","HEAD","DEPENDENT"</headers>
+  </results>
+</alvisnlp-plan>

@@ -1,0 +1,34 @@
+T3	Bacteria 357 378	Staphylococcus aureus
+T4	Habitat 523 531	clinical
+T5	Habitat 555 686	clinical materials (amniotic fluid, intrauterine secretions, exudates of the pelvic dead space) of patients with various infections
+T6	Habitat 575 589	amniotic fluid
+T7	Habitat 591 603	intrauterine
+T8	Habitat 591 614	intrauterine secretions
+T9	Habitat 616 649	exudates of the pelvic dead space
+T10	Habitat 632 649	pelvic dead space
+T11	Habitat 654 686	patients with various infections
+T12	Habitat 903 914	body fluids
+T13	Habitat 903 907	body
+T14	Habitat 919 926	genital
+T15	Habitat 919 934	genital tissues
+T16	Habitat 1756 1771	genital tissues
+T17	Habitat 1947 1976	women with genital infections
+T18	Habitat 1958 1965	genital
+N1	NCBI_Taxonomy Annotation:T3 Referent:1280
+N2	OntoBiotope Annotation:T4 Referent:OBT:002133
+N3	OntoBiotope Annotation:T5 Referent:OBT:000065
+N4	OntoBiotope Annotation:T5 Referent:OBT:002133
+N5	OntoBiotope Annotation:T6 Referent:OBT:000315
+N6	OntoBiotope Annotation:T7 Referent:OBT:000520
+N7	OntoBiotope Annotation:T8 Referent:OBT:000492
+N8	OntoBiotope Annotation:T9 Referent:OBT:000103
+N9	OntoBiotope Annotation:T10 Referent:OBT:000126
+N10	OntoBiotope Annotation:T11 Referent:OBT:002216
+N11	OntoBiotope Annotation:T12 Referent:OBT:000103
+N12	OntoBiotope Annotation:T13 Referent:OBT:000212
+N13	OntoBiotope Annotation:T14 Referent:OBT:000381
+N14	OntoBiotope Annotation:T15 Referent:OBT:000198
+N15	OntoBiotope Annotation:T16 Referent:OBT:000381
+N16	OntoBiotope Annotation:T17 Referent:OBT:002296
+N17	OntoBiotope Annotation:T17 Referent:OBT:002216
+N18	OntoBiotope Annotation:T18 Referent:OBT:000381

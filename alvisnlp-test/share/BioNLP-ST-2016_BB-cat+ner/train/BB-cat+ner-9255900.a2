@@ -1,0 +1,16 @@
+T3	Bacteria 13 34	Helicobacter pullorum
+T4	Habitat 40 63	patients with enteritis
+T5	Bacteria 65 86	Helicobacter pullorum
+T6	Habitat 146 166	asymptomatic poultry
+T7	Habitat 181 186	human
+T8	Bacteria 213 224	H. pullorum
+T9	Habitat 244 269	immunocompromised patient
+T10	Bacteria 438 459	Helicobacter pullorum
+N1	NCBI_Taxonomy Annotation:T3 Referent:35818
+N2	OntoBiotope Annotation:T4 Referent:OBT:002187
+N3	NCBI_Taxonomy Annotation:T5 Referent:35818
+N4	OntoBiotope Annotation:T6 Referent:OBT:002165
+N5	OntoBiotope Annotation:T7 Referent:OBT:001804
+N6	NCBI_Taxonomy Annotation:T8 Referent:35818
+N7	OntoBiotope Annotation:T9 Referent:OBT:002148
+N8	NCBI_Taxonomy Annotation:T10 Referent:35818

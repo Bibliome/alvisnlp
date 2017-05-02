@@ -1,0 +1,13 @@
+T3	Habitat 124 128	frog
+T4	Habitat 210 214	food
+T5	Bacteria 224 248	Escherichia coli O157:H7
+T6	Habitat 482 506	high salt concentrations
+T7	Habitat 994 1016	commercial apple juice
+T8	Habitat 1005 1010	apple
+N1	OntoBiotope Annotation:T3 Referent:OBT:000921
+N2	OntoBiotope Annotation:T4 Referent:OBT:000035
+N3	NCBI_Taxonomy Annotation:T5 Referent:83334
+N4	OntoBiotope Annotation:T6 Referent:OBT:000245
+N5	OntoBiotope Annotation:T6 Referent:OBT:000001
+N6	OntoBiotope Annotation:T7 Referent:OBT:001750
+N7	OntoBiotope Annotation:T8 Referent:OBT:002019

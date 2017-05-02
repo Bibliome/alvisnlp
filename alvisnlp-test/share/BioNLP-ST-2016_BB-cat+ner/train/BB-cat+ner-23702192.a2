@@ -1,0 +1,45 @@
+T6	Bacteria 67 88	Clostridium difficile
+T7	Bacteria 100 121	Clostridium difficile
+T8	Habitat 273 278	colon
+T9	Habitat 407 492	inpatient cases of CDI (48.6% female; median age, 62.5 years; range, 0.1-103.7 years)
+T10	Habitat 500 511	Mayo Clinic
+T11	Habitat 550 586	Patients with severe-complicated CDI
+T12	Habitat 652 671	intensive care unit
+T13	Habitat 907 928	hospitalized patients
+T14	Habitat 907 919	hospitalized
+T15	Habitat 968 978	inpatients
+T16	Habitat 1134 1157	population-based cohort
+T17	Habitat 1360 1370	inpatients
+T18	Habitat 1388 1397	leukocyte
+T19	Habitat 1431 1436	serum
+T20	Habitat 1646 1654	patients
+T21	Habitat 1786 1796	leukocytes
+T22	Habitat 1800 1813	blood samples
+T23	Habitat 1828 1833	serum
+T24	Habitat 1855 1867	gastric acid
+T25	Habitat 1855 1862	gastric
+T26	Habitat 1989 2010	hospitalized patients
+T27	Habitat 1989 2001	hospitalized
+N1	NCBI_Taxonomy Annotation:T6 Referent:1496
+N2	NCBI_Taxonomy Annotation:T7 Referent:1496
+N3	OntoBiotope Annotation:T8 Referent:OBT:000930
+N4	OntoBiotope Annotation:T9 Referent:OBT:002216
+N5	OntoBiotope Annotation:T10 Referent:OBT:001801
+N6	OntoBiotope Annotation:T11 Referent:OBT:002216
+N7	OntoBiotope Annotation:T12 Referent:OBT:000213
+N8	OntoBiotope Annotation:T13 Referent:OBT:001835
+N9	OntoBiotope Annotation:T13 Referent:OBT:002216
+N10	OntoBiotope Annotation:T14 Referent:OBT:001835
+N11	OntoBiotope Annotation:T15 Referent:OBT:002216
+N12	OntoBiotope Annotation:T16 Referent:OBT:002216
+N13	OntoBiotope Annotation:T17 Referent:OBT:002216
+N14	OntoBiotope Annotation:T18 Referent:OBT:000471
+N15	OntoBiotope Annotation:T19 Referent:OBT:000571
+N16	OntoBiotope Annotation:T20 Referent:OBT:002216
+N17	OntoBiotope Annotation:T21 Referent:OBT:000471
+N18	OntoBiotope Annotation:T22 Referent:OBT:000316
+N19	OntoBiotope Annotation:T23 Referent:OBT:000571
+N20	OntoBiotope Annotation:T24 Referent:OBT:000455
+N21	OntoBiotope Annotation:T25 Referent:OBT:000953
+N22	OntoBiotope Annotation:T26 Referent:OBT:002216
+N23	OntoBiotope Annotation:T27 Referent:OBT:001835

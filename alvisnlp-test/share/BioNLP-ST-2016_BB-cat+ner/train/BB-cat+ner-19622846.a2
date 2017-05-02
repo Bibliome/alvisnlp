@@ -1,0 +1,37 @@
+T3	Bacteria 13 34	Staphylococcus aureus
+T4	Bacteria 45 49	MRSA
+T5	Habitat 53 93	environmental surfaces in a jail setting
+T6	Habitat 81 85	jail
+T7	Habitat 107 111	jail
+T8	Habitat 107 134	jail environmental surfaces
+T9	Bacteria 217 238	Staphylococcus aureus
+T10	Bacteria 240 244	MRSA
+T11	Habitat 283 319	primary and secondary mannitol salts
+T12	Habitat 324 358	oxacillin-resistant screening agar
+T13	Bacteria 391 400	S. aureus
+T14	Bacteria 473 482	S. aureus
+T15	Bacteria 535 539	MRSA
+T16	Habitat 705 719	inmates' nasal
+T17	Habitat 705 712	inmates
+T18	Bacteria 739 743	MRSA
+T19	Habitat 857 880	correctional facilities
+T20	Bacteria 948 952	MRSA
+N1	NCBI_Taxonomy Annotation:T3 Referent:1280
+N2	NCBI_Taxonomy Annotation:T4 Referent:1280
+N3	OntoBiotope Annotation:T5 Referent:OBT:000011
+N4	OntoBiotope Annotation:T6 Referent:OBT:000562
+N5	OntoBiotope Annotation:T7 Referent:OBT:000562
+N6	OntoBiotope Annotation:T8 Referent:OBT:000011
+N7	NCBI_Taxonomy Annotation:T9 Referent:1280
+N8	NCBI_Taxonomy Annotation:T10 Referent:1280
+N9	OntoBiotope Annotation:T11 Referent:OBT:000001
+N10	OntoBiotope Annotation:T12 Referent:OBT:000013
+N11	OntoBiotope Annotation:T12 Referent:OBT:000073
+N12	NCBI_Taxonomy Annotation:T13 Referent:1280
+N13	NCBI_Taxonomy Annotation:T14 Referent:1280
+N14	NCBI_Taxonomy Annotation:T15 Referent:1280
+N15	OntoBiotope Annotation:T16 Referent:OBT:000277
+N16	OntoBiotope Annotation:T17 Referent:OBT:002234
+N17	NCBI_Taxonomy Annotation:T18 Referent:1280
+N18	OntoBiotope Annotation:T19 Referent:OBT:000562
+N19	NCBI_Taxonomy Annotation:T20 Referent:1280

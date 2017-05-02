@@ -1,0 +1,52 @@
+T3	Bacteria 181 198	Coxiella burnetii
+T4	Bacteria 250 267	Coxiella burnetii
+T5	Bacteria 376 387	C. burnetii
+T6	Habitat 401 405	mice
+T7	Bacteria 537 548	C. burnetii
+T8	Habitat 621 630	SCID mice
+T9	Bacteria 639 650	C. burnetii
+T10	Habitat 651 658	aerosol
+T11	Habitat 742 753	aerosolized
+T12	Bacteria 754 765	C. burnetii
+T13	Bacteria 816 827	C. burnetii
+T14	Bacteria 973 984	C. burnetii
+T15	Habitat 1064 1070	murine
+T16	Bacteria 1213 1224	C. burnetii
+T17	Bacteria 1317 1328	C. burnetii
+T18	Habitat 1342 1346	mice
+T19	Bacteria 1381 1392	C. burnetii
+T20	Bacteria 1457 1468	C. burnetii
+T21	Bacteria 1516 1527	C. burnetii
+T22	Habitat 1541 1552	macrophages
+T23	Bacteria 1582 1593	C. burnetii
+T24	Bacteria 1634 1645	C. burnetii
+T25	Habitat 1661 1678	human macrophages
+T26	Habitat 1661 1666	human
+T27	Bacteria 1811 1822	C. burnetii
+T28	Bacteria 1945 1956	C. burnetii
+N1	NCBI_Taxonomy Annotation:T3 Referent:777
+N2	NCBI_Taxonomy Annotation:T4 Referent:777
+N3	NCBI_Taxonomy Annotation:T5 Referent:777
+N4	OntoBiotope Annotation:T6 Referent:OBT:002153
+N5	NCBI_Taxonomy Annotation:T7 Referent:777
+N6	OntoBiotope Annotation:T8 Referent:OBT:002153
+N7	NCBI_Taxonomy Annotation:T9 Referent:777
+N8	OntoBiotope Annotation:T10 Referent:OBT:000030
+N9	OntoBiotope Annotation:T11 Referent:OBT:000030
+N10	NCBI_Taxonomy Annotation:T12 Referent:777
+N11	NCBI_Taxonomy Annotation:T13 Referent:777
+N12	NCBI_Taxonomy Annotation:T14 Referent:777
+N13	OntoBiotope Annotation:T15 Referent:OBT:001768
+N14	NCBI_Taxonomy Annotation:T16 Referent:777
+N15	NCBI_Taxonomy Annotation:T17 Referent:777
+N16	OntoBiotope Annotation:T18 Referent:OBT:002153
+N17	NCBI_Taxonomy Annotation:T19 Referent:777
+N18	NCBI_Taxonomy Annotation:T20 Referent:777
+N19	NCBI_Taxonomy Annotation:T21 Referent:777
+N20	OntoBiotope Annotation:T22 Referent:OBT:002022
+N21	NCBI_Taxonomy Annotation:T23 Referent:777
+N22	NCBI_Taxonomy Annotation:T24 Referent:777
+N23	OntoBiotope Annotation:T25 Referent:OBT:002022
+N24	OntoBiotope Annotation:T26 Referent:OBT:001804
+N25	NCBI_Taxonomy Annotation:T27 Referent:777
+N26	NCBI_Taxonomy Annotation:T28 Referent:777

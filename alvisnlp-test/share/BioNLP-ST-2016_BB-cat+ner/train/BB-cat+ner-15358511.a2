@@ -1,0 +1,64 @@
+T3	Bacteria 14 38	Escherichia coli O157:H7
+T4	Habitat 48 65	tryptic soy broth
+T5	Habitat 56 59	soy
+T6	Habitat 70 84	nutrient broth
+T7	Habitat 88 93	apple
+T8	Habitat 88 93;106 114	apple surfaces
+T9	Habitat 98 105	lettuce
+T10	Habitat 98 114	lettuce surfaces
+T11	Habitat 129 133	cell
+T12	Habitat 238 255	tryptic soy broth
+T13	Habitat 246 249	soy
+T14	Habitat 257 260	TSB
+T15	Habitat 266 280	nutrient broth
+T16	Habitat 282 284	NB
+T17	Bacteria 301 325	Escherichia coli O157:H7
+T18	Habitat 339 346	lettuce
+T19	Habitat 339 346;357 365	lettuce surfaces
+T20	Habitat 351 365	apple surfaces
+T21	Habitat 351 356	apple
+T22	Habitat 380 384	cell
+T23	Habitat 501 503	NB
+T24	Habitat 521 528	lettuce
+T25	Habitat 521 528;539 547	lettuce surfaces
+T26	Habitat 533 538	apple
+T27	Habitat 533 547	apple surfaces
+T28	Habitat 572 575	TSB
+T29	Habitat 577 580	TSB
+T30	Habitat 590 592	NB
+T31	Bacteria 626 641	E. coli O157:H7
+T32	Habitat 658 661	TSB
+T33	Habitat 704 706	NB
+T34	Bacteria 922 937	E. coli O157:H7
+N1	NCBI_Taxonomy Annotation:T3 Referent:83334
+N2	OntoBiotope Annotation:T4 Referent:OBT:000001
+N3	OntoBiotope Annotation:T5 Referent:OBT:002162
+N4	OntoBiotope Annotation:T6 Referent:OBT:000001
+N5	OntoBiotope Annotation:T7 Referent:OBT:002019
+N6	OntoBiotope Annotation:T8 Referent:OBT:000392
+N7	OntoBiotope Annotation:T9 Referent:OBT:002085
+N8	OntoBiotope Annotation:T10 Referent:OBT:000392
+N9	OntoBiotope Annotation:T11 Referent:OBT:000056
+N10	OntoBiotope Annotation:T12 Referent:OBT:000001
+N11	OntoBiotope Annotation:T13 Referent:OBT:002162
+N12	OntoBiotope Annotation:T14 Referent:OBT:000001
+N13	OntoBiotope Annotation:T15 Referent:OBT:000001
+N14	OntoBiotope Annotation:T16 Referent:OBT:000001
+N15	NCBI_Taxonomy Annotation:T17 Referent:83334
+N16	OntoBiotope Annotation:T18 Referent:OBT:002085
+N17	OntoBiotope Annotation:T19 Referent:OBT:000392
+N18	OntoBiotope Annotation:T20 Referent:OBT:000392
+N19	OntoBiotope Annotation:T21 Referent:OBT:002019
+N20	OntoBiotope Annotation:T22 Referent:OBT:000056
+N21	OntoBiotope Annotation:T23 Referent:OBT:000001
+N22	OntoBiotope Annotation:T24 Referent:OBT:002085
+N23	OntoBiotope Annotation:T25 Referent:OBT:000392
+N24	OntoBiotope Annotation:T26 Referent:OBT:002019
+N25	OntoBiotope Annotation:T27 Referent:OBT:000392
+N26	OntoBiotope Annotation:T28 Referent:OBT:000001
+N27	OntoBiotope Annotation:T29 Referent:OBT:000001
+N28	OntoBiotope Annotation:T30 Referent:OBT:000001
+N29	NCBI_Taxonomy Annotation:T31 Referent:83334
+N30	OntoBiotope Annotation:T32 Referent:OBT:000001
+N31	OntoBiotope Annotation:T33 Referent:OBT:000001
+N32	NCBI_Taxonomy Annotation:T34 Referent:83334

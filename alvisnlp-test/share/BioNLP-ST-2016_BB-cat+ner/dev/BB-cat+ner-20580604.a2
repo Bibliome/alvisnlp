@@ -1,0 +1,90 @@
+T3	Habitat 13 46	probiotic fermented milk beverage
+T4	Bacteria 58 92	Lactobacillus casei strain Shirota
+T5	Habitat 118 139	intestinal microbiota
+T6	Habitat 118 128	intestinal
+T7	Habitat 149 211	intestinal environment of healthy individuals with soft stools
+T8	Habitat 175 211	healthy individuals with soft stools
+T9	Habitat 200 211	soft stools
+T10	Habitat 239 262	fermented milk beverage
+T11	Bacteria 277 311	Lactobacillus casei strain Shirota
+T12	Bacteria 313 316	LcS
+T13	Habitat 348 354	bottle
+T14	Habitat 368 378	probiotics
+T15	Habitat 382 388	bottle
+T16	Habitat 419 429	intestinal
+T17	Habitat 419 440	intestinal microbiota
+T18	Habitat 449 511	intestinal environment of healthy individuals with soft stools
+T19	Habitat 475 511	healthy individuals with soft stools
+T20	Habitat 500 511	soft stools
+T21	Habitat 540 554	healthy adults
+T22	Habitat 563 574	soft stools
+T23	Habitat 652 662	probiotics
+T24	Habitat 853 862	probiotic
+T25	Habitat 878 883	stool
+T26	Habitat 961 988	water content of the stools
+T27	Habitat 982 988	stools
+T28	Habitat 1006 1021	probiotic group
+T29	Habitat 1006 1015	probiotic
+T30	Habitat 1034 1047	placebo group
+T31	Bacteria 1054 1057	LcS
+T32	Habitat 1121 1126	stool
+T33	Habitat 1165 1174	probiotic
+T34	Bacteria 1200 1214	bifidobacteria
+T35	Habitat 1222 1228	stools
+T36	Habitat 1302 1312	probiotics
+T37	Habitat 1467 1476	probiotic
+T38	Habitat 1467 1476;1489 1495	probiotic groups
+T39	Habitat 1481 1495	placebo groups
+T40	Habitat 1601 1634	probiotic fermented milk beverage
+T41	Habitat 1642 1651	intestine
+T42	Habitat 1717 1722	stool
+T43	Bacteria 1760 1774	bifidobacteria
+T44	Habitat 1778 1813	healthy individuals with soft stool
+T45	Habitat 1803 1813	soft stool
+N1	OntoBiotope Annotation:T3 Referent:OBT:002086
+N2	OntoBiotope Annotation:T3 Referent:OBT:000663
+N3	NCBI_Taxonomy Annotation:T4 Referent:1582
+N4	OntoBiotope Annotation:T5 Referent:OBT:000033
+N5	OntoBiotope Annotation:T6 Referent:OBT:001893
+N6	OntoBiotope Annotation:T7 Referent:OBT:001893
+N7	OntoBiotope Annotation:T8 Referent:OBT:001894
+N8	OntoBiotope Annotation:T9 Referent:OBT:000703
+N9	OntoBiotope Annotation:T10 Referent:OBT:002086
+N10	NCBI_Taxonomy Annotation:T11 Referent:1582
+N11	NCBI_Taxonomy Annotation:T12 Referent:1582
+N12	OntoBiotope Annotation:T13 Referent:OBT:002086
+N13	OntoBiotope Annotation:T14 Referent:OBT:000663
+N14	OntoBiotope Annotation:T15 Referent:OBT:002086
+N15	OntoBiotope Annotation:T15 Referent:OBT:000663
+N16	OntoBiotope Annotation:T16 Referent:OBT:001893
+N17	OntoBiotope Annotation:T17 Referent:OBT:000033
+N18	OntoBiotope Annotation:T18 Referent:OBT:001893
+N19	OntoBiotope Annotation:T19 Referent:OBT:001894
+N20	OntoBiotope Annotation:T20 Referent:OBT:000703
+N21	OntoBiotope Annotation:T21 Referent:OBT:001894
+N22	OntoBiotope Annotation:T21 Referent:OBT:002185
+N23	OntoBiotope Annotation:T22 Referent:OBT:000703
+N24	OntoBiotope Annotation:T23 Referent:OBT:000663
+N25	OntoBiotope Annotation:T24 Referent:OBT:000663
+N26	OntoBiotope Annotation:T25 Referent:OBT:000703
+N27	OntoBiotope Annotation:T26 Referent:OBT:000103
+N28	OntoBiotope Annotation:T27 Referent:OBT:000703
+N29	OntoBiotope Annotation:T28 Referent:OBT:002185
+N30	OntoBiotope Annotation:T29 Referent:OBT:000663
+N31	OntoBiotope Annotation:T30 Referent:OBT:002185
+N32	NCBI_Taxonomy Annotation:T31 Referent:1582
+N33	OntoBiotope Annotation:T32 Referent:OBT:000703
+N34	OntoBiotope Annotation:T33 Referent:OBT:000663
+N35	NCBI_Taxonomy Annotation:T34 Referent:1678
+N36	OntoBiotope Annotation:T35 Referent:OBT:000703
+N37	OntoBiotope Annotation:T36 Referent:OBT:000663
+N38	OntoBiotope Annotation:T37 Referent:OBT:000663
+N39	OntoBiotope Annotation:T38 Referent:OBT:002185
+N40	OntoBiotope Annotation:T39 Referent:OBT:002185
+N41	OntoBiotope Annotation:T40 Referent:OBT:001277
+N42	OntoBiotope Annotation:T40 Referent:OBT:002086
+N43	OntoBiotope Annotation:T41 Referent:OBT:001893
+N44	OntoBiotope Annotation:T42 Referent:OBT:000703
+N45	NCBI_Taxonomy Annotation:T43 Referent:1678
+N46	OntoBiotope Annotation:T44 Referent:OBT:001894
+N47	OntoBiotope Annotation:T45 Referent:OBT:000703

@@ -1,0 +1,4 @@
+T3	Bacteria 369 391	Salmonella typhimurium
+T4	Bacteria 415 431	Escherichia coli
+N1	NCBI_Taxonomy Annotation:T3 Referent:90371
+N2	NCBI_Taxonomy Annotation:T4 Referent:562

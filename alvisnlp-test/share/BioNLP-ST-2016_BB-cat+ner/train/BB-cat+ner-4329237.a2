@@ -1,0 +1,10 @@
+T2	Habitat 53 125	Macaca mulatta sensitized with bacille Calmette Guerin cell wall vaccine
+T3	Habitat 53 67;133 182	Macaca mulatta infected with virulent Mycobacterium tuberculosis
+T4	Habitat 84 125	bacille Calmette Guerin cell wall vaccine
+T5	Bacteria 84 107	bacille Calmette Guerin
+T6	Bacteria 156 182	Mycobacterium tuberculosis
+N1	OntoBiotope Annotation:T2 Referent:OBT:001747
+N2	OntoBiotope Annotation:T3 Referent:OBT:001747
+N3	OntoBiotope Annotation:T4 Referent:OBT:000099
+N4	NCBI_Taxonomy Annotation:T5 Referent:33892
+N5	NCBI_Taxonomy Annotation:T6 Referent:1773

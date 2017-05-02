@@ -1,0 +1,62 @@
+T7	Bacteria 120 141	Staphylococcus aureus
+T8	Habitat 161 169	patients
+T9	Habitat 175 187	nursing home
+T10	Bacteria 245 266	Staphylococcus aureus
+T11	Bacteria 268 272	MRSA
+T12	Habitat 292 316	skilled nursing facility
+T13	Habitat 318 321	SNF
+T14	Bacteria 513 517	MRSA
+T15	Habitat 532 544	SNF patients
+T16	Habitat 532 535	SNF
+T17	Bacteria 593 597	MRSA
+T18	Habitat 604 612	patients
+T19	Habitat 618 631	community SNF
+T20	Habitat 633 638	Nares
+T21	Habitat 633 638;649 662	Nares swab cultures
+T22	Habitat 643 648	stool
+T23	Habitat 643 662	stool swab cultures
+T24	Habitat 697 705	patients
+T25	Habitat 719 727	patients
+T26	Bacteria 739 743	MRSA
+T27	Habitat 761 785	oxacillin screening agar
+T28	Bacteria 1090 1094	MRSA
+T29	Habitat 1192 1213	patients from one SNF
+T30	Habitat 1210 1213	SNF
+T31	Bacteria 1583 1587	MRSA
+T32	Habitat 1606 1618	SNF patients
+T33	Habitat 1606 1609	SNF
+N1	NCBI_Taxonomy Annotation:T7 Referent:1280
+N2	OntoBiotope Annotation:T8 Referent:OBT:002310
+N3	OntoBiotope Annotation:T9 Referent:OBT:000922
+N4	NCBI_Taxonomy Annotation:T10 Referent:1280
+N5	NCBI_Taxonomy Annotation:T11 Referent:1280
+N6	OntoBiotope Annotation:T12 Referent:OBT:000922
+N7	OntoBiotope Annotation:T12 Referent:OBT:001423
+N8	OntoBiotope Annotation:T13 Referent:OBT:001423
+N9	OntoBiotope Annotation:T13 Referent:OBT:000922
+N10	NCBI_Taxonomy Annotation:T14 Referent:1280
+N11	OntoBiotope Annotation:T15 Referent:OBT:002133
+N12	OntoBiotope Annotation:T16 Referent:OBT:001423
+N13	OntoBiotope Annotation:T16 Referent:OBT:000922
+N14	NCBI_Taxonomy Annotation:T17 Referent:1280
+N15	OntoBiotope Annotation:T18 Referent:OBT:002133
+N16	OntoBiotope Annotation:T19 Referent:OBT:001423
+N17	OntoBiotope Annotation:T19 Referent:OBT:000922
+N18	OntoBiotope Annotation:T20 Referent:OBT:000277
+N19	OntoBiotope Annotation:T21 Referent:OBT:000641
+N20	OntoBiotope Annotation:T21 Referent:OBT:000001
+N21	OntoBiotope Annotation:T22 Referent:OBT:000703
+N22	OntoBiotope Annotation:T23 Referent:OBT:001117
+N23	OntoBiotope Annotation:T23 Referent:OBT:000001
+N24	OntoBiotope Annotation:T24 Referent:OBT:002133
+N25	OntoBiotope Annotation:T25 Referent:OBT:002133
+N26	NCBI_Taxonomy Annotation:T26 Referent:1280
+N27	OntoBiotope Annotation:T27 Referent:OBT:000073
+N28	NCBI_Taxonomy Annotation:T28 Referent:1280
+N29	OntoBiotope Annotation:T29 Referent:OBT:002133
+N30	OntoBiotope Annotation:T30 Referent:OBT:000922
+N31	OntoBiotope Annotation:T30 Referent:OBT:001423
+N32	NCBI_Taxonomy Annotation:T31 Referent:1280
+N33	OntoBiotope Annotation:T32 Referent:OBT:002133
+N34	OntoBiotope Annotation:T33 Referent:OBT:000922
+N35	OntoBiotope Annotation:T33 Referent:OBT:001423

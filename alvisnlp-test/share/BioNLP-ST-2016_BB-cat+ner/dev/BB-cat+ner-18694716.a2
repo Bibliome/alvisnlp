@@ -1,0 +1,10 @@
+T3	Habitat 222 268	LTQ Orbitrap high-resolution mass spectrometer
+T4	Habitat 710 776	mixtures of pure compounds and uniformly 13C-labeled cell extracts
+T5	Habitat 751 767	13C-labeled cell
+T6	Bacteria 1035 1066	Methylobacterium extorquens AM1
+T7	Habitat 1328 1339	LTQ Obitrap
+N1	OntoBiotope Annotation:T3 Referent:OBT:000072
+N2	OntoBiotope Annotation:T4 Referent:OBT:000001
+N3	OntoBiotope Annotation:T5 Referent:OBT:000056
+N4	NCBI_Taxonomy Annotation:T6 Referent:272630
+N5	OntoBiotope Annotation:T7 Referent:OBT:000072

@@ -1,0 +1,46 @@
+T3	Bacteria 58 70	Listeria sp.
+T4	Bacteria 75 97	Listeria monocytogenes
+T5	Habitat 103 134	chicken nugget processing plant
+T6	Habitat 103 110	chicken
+T7	Habitat 103 117	chicken nugget
+T8	Bacteria 277 289	Listeria sp.
+T9	Bacteria 294 316	Listeria monocytogenes
+T10	Habitat 477 481	food
+T11	Habitat 477 490	food handlers
+T12	Habitat 510 541	chicken nugget processing plant
+T13	Habitat 510 524	chicken nugget
+T14	Habitat 662 677	selective agars
+T15	Habitat 679 685	PALCAM
+T16	Habitat 687 690	LPM
+T17	Habitat 696 700	HCLA
+T18	Habitat 1041 1056	product samples
+T19	Habitat 1087 1099	food handler
+T20	Habitat 1087 1091	food
+T21	Habitat 1200 1204	food
+T22	Habitat 1200 1213	food handlers
+T23	Habitat 1227 1242	product samples
+N1	NCBI_Taxonomy Annotation:T3 Referent:1637
+N2	NCBI_Taxonomy Annotation:T4 Referent:1639
+N3	OntoBiotope Annotation:T5 Referent:OBT:001748
+N4	OntoBiotope Annotation:T6 Referent:OBT:001790
+N5	OntoBiotope Annotation:T7 Referent:OBT:001790
+N6	OntoBiotope Annotation:T7 Referent:OBT:001997
+N7	NCBI_Taxonomy Annotation:T8 Referent:1637
+N8	NCBI_Taxonomy Annotation:T9 Referent:1639
+N9	OntoBiotope Annotation:T10 Referent:OBT:000035
+N10	OntoBiotope Annotation:T11 Referent:OBT:002230
+N11	OntoBiotope Annotation:T12 Referent:OBT:001748
+N12	OntoBiotope Annotation:T13 Referent:OBT:001790
+N13	OntoBiotope Annotation:T13 Referent:OBT:001997
+N14	OntoBiotope Annotation:T14 Referent:OBT:000073
+N15	OntoBiotope Annotation:T15 Referent:OBT:000073
+N16	OntoBiotope Annotation:T16 Referent:OBT:000073
+N17	OntoBiotope Annotation:T17 Referent:OBT:000073
+N18	OntoBiotope Annotation:T18 Referent:OBT:001790
+N19	OntoBiotope Annotation:T18 Referent:OBT:001997
+N20	OntoBiotope Annotation:T19 Referent:OBT:002230
+N21	OntoBiotope Annotation:T20 Referent:OBT:000035
+N22	OntoBiotope Annotation:T21 Referent:OBT:000035
+N23	OntoBiotope Annotation:T22 Referent:OBT:002230
+N24	OntoBiotope Annotation:T23 Referent:OBT:001790
+N25	OntoBiotope Annotation:T23 Referent:OBT:001997

@@ -1,0 +1,26 @@
+T3	Bacteria 59 80	Escherichia coli O157
+T4	Bacteria 167 183	Escherichia coli
+T5	Habitat 246 257	human cells
+T6	Habitat 246 251	human
+T7	Habitat 278 293	eukaryotic cell
+T8	Bacteria 442 447	Sakai
+T9	Bacteria 476 498	E. coli (EHEC) O157:H7
+T10	Bacteria 875 879	EHEC
+T11	Bacteria 987 992	Sakai
+T12	Bacteria 1007 1011	EHEC
+T13	Habitat 1063 1068	plant
+T14	Bacteria 1110 1118	Shigella
+T15	Bacteria 1476 1483	E. coli
+N1	NCBI_Taxonomy Annotation:T3 Referent:1045010
+N2	NCBI_Taxonomy Annotation:T4 Referent:562
+N3	OntoBiotope Annotation:T5 Referent:OBT:000056
+N4	OntoBiotope Annotation:T6 Referent:OBT:001804
+N5	OntoBiotope Annotation:T7 Referent:OBT:000056
+N6	NCBI_Taxonomy Annotation:T8 Referent:386585
+N7	NCBI_Taxonomy Annotation:T9 Referent:83334
+N8	NCBI_Taxonomy Annotation:T10 Referent:386585
+N9	NCBI_Taxonomy Annotation:T11 Referent:386585
+N10	NCBI_Taxonomy Annotation:T12 Referent:562
+N11	OntoBiotope Annotation:T13 Referent:OBT:000219
+N12	NCBI_Taxonomy Annotation:T14 Referent:620
+N13	NCBI_Taxonomy Annotation:T15 Referent:562

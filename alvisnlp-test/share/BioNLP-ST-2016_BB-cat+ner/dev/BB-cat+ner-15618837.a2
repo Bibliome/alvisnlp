@@ -1,0 +1,30 @@
+T6	Bacteria 14 33	Helicobacter pylori
+T7	Bacteria 163 182	Helicobacter pylori
+T8	Habitat 196 214	dyspeptic patients
+T9	Habitat 327 358	patients with chronic dyspepsia
+T10	Habitat 371 377	clinic
+T11	Habitat 393 409	Gastric biopsies
+T12	Bacteria 441 450	H. pylori
+T13	Habitat 504 537	Patients with H. pylori infection
+T14	Bacteria 518 527	H. pylori
+T15	Bacteria 626 635	H. pylori
+T16	Bacteria 722 731	H. pylori
+T17	Bacteria 817 826	H. pylori
+T18	Bacteria 1092 1101	H. pylori
+T19	Bacteria 1379 1388	H. pylori
+T20	Habitat 1402 1420	dyspeptic patients
+N1	NCBI_Taxonomy Annotation:T6 Referent:210
+N2	NCBI_Taxonomy Annotation:T7 Referent:210
+N3	OntoBiotope Annotation:T8 Referent:OBT:002187
+N4	OntoBiotope Annotation:T9 Referent:OBT:002187
+N5	OntoBiotope Annotation:T10 Referent:OBT:001801
+N6	OntoBiotope Annotation:T11 Referent:OBT:000953
+N7	NCBI_Taxonomy Annotation:T12 Referent:210
+N8	OntoBiotope Annotation:T13 Referent:OBT:002216
+N9	NCBI_Taxonomy Annotation:T14 Referent:210
+N10	NCBI_Taxonomy Annotation:T15 Referent:210
+N11	NCBI_Taxonomy Annotation:T16 Referent:210
+N12	NCBI_Taxonomy Annotation:T17 Referent:210
+N13	NCBI_Taxonomy Annotation:T18 Referent:210
+N14	NCBI_Taxonomy Annotation:T19 Referent:210
+N15	OntoBiotope Annotation:T20 Referent:OBT:002187

@@ -1,0 +1,6 @@
+T3	Bacteria 0 12	Methylocella
+T4	Bacteria 98 121	Methylocella silvestris
+T5	Bacteria 308 320	Methylocella
+N1	NCBI_Taxonomy Annotation:T3 Referent:120652
+N2	NCBI_Taxonomy Annotation:T4 Referent:199596
+N3	NCBI_Taxonomy Annotation:T5 Referent:199596

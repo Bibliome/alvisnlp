@@ -1,0 +1,28 @@
+T3	Habitat 45 65	large yellow croaker
+T4	Habitat 67 87	Pseudosciaena crocea
+T5	Habitat 338 358	large yellow croaker
+T6	Habitat 360 380	Pseudosciaena crocea
+T7	Habitat 833 839	spleen
+T8	Habitat 874 880	muscle
+T9	Bacteria 972 995	Vibrio parahaemolyticus
+T10	Habitat 1010 1015	blood
+T11	Habitat 1017 1023	spleen
+T12	Habitat 1028 1033	liver
+T13	Habitat 1087 1093	spleen
+T14	Habitat 1205 1210	liver
+T15	Habitat 1361 1368	mammals
+T16	Habitat 1408 1428	large yellow croaker
+N1	OntoBiotope Annotation:T3 Referent:OBT:002160
+N2	OntoBiotope Annotation:T4 Referent:OBT:002160
+N3	OntoBiotope Annotation:T5 Referent:OBT:002160
+N4	OntoBiotope Annotation:T6 Referent:OBT:002160
+N5	OntoBiotope Annotation:T7 Referent:OBT:000560
+N6	OntoBiotope Annotation:T8 Referent:OBT:000767
+N7	NCBI_Taxonomy Annotation:T9 Referent:670
+N8	OntoBiotope Annotation:T10 Referent:OBT:000316
+N9	OntoBiotope Annotation:T11 Referent:OBT:000560
+N10	OntoBiotope Annotation:T12 Referent:OBT:001852
+N11	OntoBiotope Annotation:T13 Referent:OBT:000560
+N12	OntoBiotope Annotation:T14 Referent:OBT:001852
+N13	OntoBiotope Annotation:T15 Referent:OBT:001295
+N14	OntoBiotope Annotation:T16 Referent:OBT:002160

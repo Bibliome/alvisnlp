@@ -1,0 +1,33 @@
+T3	Bacteria 0 21	Arhodomonas aquaeolei
+T4	Habitat 92 110	subterranean brine
+T5	Bacteria 112 133	Arhodomonas aquaeolei
+T6	Habitat 171 207	petroleum reservoir production fluid
+T7	Habitat 171 180	petroleum
+T8	Habitat 171 190	petroleum reservoir
+T9	Bacteria 677 688	Arhodomonas
+T10	Bacteria 766 780	Proteobacteria
+T11	Bacteria 851 863	A. aquaeolei
+T12	Bacteria 891 913	purple sulfur bacteria
+T13	Bacteria 926 944	Ectothiorhodospira
+T14	Bacteria 949 959	Chromatium
+T15	Habitat 974 1000	phototrophic microorganism
+T16	Habitat 1048 1072	subterranean environment
+T17	Bacteria 1261 1272	strain HA-1
+T18	Bacteria 1276 1286	ATCC 49307
+N1	NCBI_Taxonomy Annotation:T3 Referent:2369
+N2	OntoBiotope Annotation:T4 Referent:OBT:001920
+N3	OntoBiotope Annotation:T4 Referent:OBT:000048
+N4	NCBI_Taxonomy Annotation:T5 Referent:2369
+N5	OntoBiotope Annotation:T6 Referent:OBT:000914
+N6	OntoBiotope Annotation:T7 Referent:OBT:000914
+N7	OntoBiotope Annotation:T8 Referent:OBT:001243
+N8	NCBI_Taxonomy Annotation:T9 Referent:2368
+N9	NCBI_Taxonomy Annotation:T10 Referent:1224
+N10	NCBI_Taxonomy Annotation:T11 Referent:2369
+N11	NCBI_Taxonomy Annotation:T12 Referent:1046
+N12	NCBI_Taxonomy Annotation:T13 Referent:1051
+N13	NCBI_Taxonomy Annotation:T14 Referent:1047
+N14	OntoBiotope Annotation:T15 Referent:OBT:000020
+N15	OntoBiotope Annotation:T16 Referent:OBT:000048
+N16	NCBI_Taxonomy Annotation:T17 Referent:2369
+N17	NCBI_Taxonomy Annotation:T18 Referent:2369

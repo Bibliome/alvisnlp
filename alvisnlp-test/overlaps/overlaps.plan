@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-plan id="remove-overlaps">
+  <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
+
+  <taxa class="SimpleProjector2">
+    <dictFile>taxa+id_Bacteria.txt</dictFile>
+    <targetLayerName>taxaO</targetLayerName>
+    <valueFeatures>,taxid</valueFeatures>
+    <caseInsensitive/>
+    <skipWhitespace/>
+    <constantAnnotationFeatures>ne-type=taxon</constantAnnotationFeatures>
+  </taxa>
+
+  <copy class="Action">
+    <target>documents.sections.layer:taxaO</target>
+    <action>add:taxaA|add:taxaB</action>
+    <addToLayer/>
+  </copy>
+
+  <remove>
+    <A class="RemoveOverlaps">
+      <layerName>taxaA</layerName>
+      <removeEqual/>
+      <removeIncluded/>
+      <removeOverlapping/>
+    </A>
+    
+    <B class="RemoveOverlaps">
+      <layerName>taxaB</layerName>
+      <removeEqual>no</removeEqual>
+      <removeIncluded/>
+      <removeOverlapping>no</removeOverlapping>
+    </B>
+  </remove>
+  
+  <compare>
+    <O class="CompareElements">
+      <sections>documents.sections</sections>
+      <reference>layer:Bacteria</reference>
+      <predicted>layer:taxaO</predicted>
+      <face>@form</face>
+      <outFile>compareO.txt</outFile>
+      <similarity>strict</similarity>
+    </O>
+
+    <A class="CompareElements">
+      <sections>documents.sections</sections>
+      <reference>layer:Bacteria</reference>
+      <predicted>layer:taxaA</predicted>
+      <face>@form</face>
+      <outFile>compareA.txt</outFile>
+      <similarity>strict</similarity>
+    </A>
+
+    <B class="CompareElements">
+      <sections>documents.sections</sections>
+      <reference>layer:Bacteria</reference>
+      <predicted>layer:taxaB</predicted>
+      <face>@form</face>
+      <outFile>compareB.txt</outFile>
+      <similarity>strict</similarity>
+    </B>
+  </compare>
+</alvisnlp-plan>

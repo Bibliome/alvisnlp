@@ -1,0 +1,76 @@
+T3	Habitat 15 20	ozone
+T4	Habitat 77 82	foods
+T5	Habitat 94 99	Ozone
+T6	Habitat 101 103	O3
+T7	Habitat 181 185	food
+T8	Habitat 181 194	food industry
+T9	Habitat 296 301	ozone
+T10	Habitat 367 380	food products
+T11	Habitat 382 387	Ozone
+T12	Habitat 547 552	Ozone
+T13	Habitat 709 714	ozone
+T14	Habitat 862 867	ozone
+T15	Habitat 985 990	ozone
+T16	Habitat 1105 1114	additives
+T17	Habitat 1122 1127	acids
+T18	Habitat 1129 1140	surfactants
+T19	Habitat 1146 1152	sugars
+T20	Habitat 1155 1160	Ozone
+T21	Habitat 1181 1185	food
+T22	Habitat 1181 1194	food industry
+T23	Habitat 1236 1251	product surface
+T24	Habitat 1256 1261	water
+T25	Habitat 1273 1278	Ozone
+T26	Habitat 1326 1348	contaminant microflora
+T27	Habitat 1352 1356	meat
+T28	Habitat 1358 1365	poultry
+T29	Habitat 1367 1371	eggs
+T30	Habitat 1373 1377	fish
+T31	Habitat 1379 1385	fruits
+T32	Habitat 1387 1397	vegetables
+T33	Habitat 1403 1412	dry foods
+T34	Habitat 1489 1507	pesticide residues
+T35	Habitat 1518 1539	agricultural products
+T36	Habitat 1558 1563	ozone
+T37	Habitat 1617 1629	food surface
+T38	Habitat 1690 1694	food
+T39	Habitat 1803 1808	ozone
+T40	Habitat 1836 1840	food
+N1	OntoBiotope Annotation:T3 Referent:OBT:000293
+N2	OntoBiotope Annotation:T4 Referent:OBT:000035
+N3	OntoBiotope Annotation:T5 Referent:OBT:000293
+N4	OntoBiotope Annotation:T6 Referent:OBT:000293
+N5	OntoBiotope Annotation:T7 Referent:OBT:000035
+N6	OntoBiotope Annotation:T8 Referent:OBT:001255
+N7	OntoBiotope Annotation:T9 Referent:OBT:000293
+N8	OntoBiotope Annotation:T10 Referent:OBT:000035
+N9	OntoBiotope Annotation:T11 Referent:OBT:000293
+N10	OntoBiotope Annotation:T12 Referent:OBT:000293
+N11	OntoBiotope Annotation:T13 Referent:OBT:000293
+N12	OntoBiotope Annotation:T14 Referent:OBT:000293
+N13	OntoBiotope Annotation:T15 Referent:OBT:000293
+N14	OntoBiotope Annotation:T16 Referent:OBT:000293
+N15	OntoBiotope Annotation:T17 Referent:OBT:000293
+N16	OntoBiotope Annotation:T18 Referent:OBT:000293
+N17	OntoBiotope Annotation:T19 Referent:OBT:000924
+N18	OntoBiotope Annotation:T20 Referent:OBT:000293
+N19	OntoBiotope Annotation:T21 Referent:OBT:000035
+N20	OntoBiotope Annotation:T22 Referent:OBT:001255
+N21	OntoBiotope Annotation:T23 Referent:OBT:000035
+N22	OntoBiotope Annotation:T24 Referent:OBT:000132
+N23	OntoBiotope Annotation:T25 Referent:OBT:000293
+N24	OntoBiotope Annotation:T26 Referent:OBT:000033
+N25	OntoBiotope Annotation:T27 Referent:OBT:001203
+N26	OntoBiotope Annotation:T28 Referent:OBT:001482
+N27	OntoBiotope Annotation:T29 Referent:OBT:001204
+N28	OntoBiotope Annotation:T30 Referent:OBT:001224
+N29	OntoBiotope Annotation:T31 Referent:OBT:001950
+N30	OntoBiotope Annotation:T32 Referent:OBT:000839
+N31	OntoBiotope Annotation:T33 Referent:OBT:000877
+N32	OntoBiotope Annotation:T34 Referent:OBT:001776
+N33	OntoBiotope Annotation:T35 Referent:OBT:000022
+N34	OntoBiotope Annotation:T36 Referent:OBT:000293
+N35	OntoBiotope Annotation:T37 Referent:OBT:000035
+N36	OntoBiotope Annotation:T38 Referent:OBT:000035
+N37	OntoBiotope Annotation:T39 Referent:OBT:000293
+N38	OntoBiotope Annotation:T40 Referent:OBT:000035

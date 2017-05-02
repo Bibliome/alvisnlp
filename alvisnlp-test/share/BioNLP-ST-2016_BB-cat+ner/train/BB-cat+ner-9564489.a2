@@ -1,0 +1,7 @@
+T2	Habitat 0 17	Gingivomandibular
+T3	Bacteria 35 57	Mycobacterium kansasii
+T4	Habitat 63 80	patient with AIDS
+N1	OntoBiotope Annotation:T2 Referent:OBT:002036
+N2	OntoBiotope Annotation:T2 Referent:OBT:001868
+N3	NCBI_Taxonomy Annotation:T3 Referent:1768
+N4	OntoBiotope Annotation:T4 Referent:OBT:002311

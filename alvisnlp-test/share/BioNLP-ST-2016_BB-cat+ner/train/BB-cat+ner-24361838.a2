@@ -1,0 +1,59 @@
+T3	Bacteria 62 101	Salmonella enterica serovar Typhimurium
+T4	Habitat 105 113	chickens
+T5	Bacteria 132 154	Salmonella Typhimurium
+T6	Habitat 207 214	chicken
+T7	Habitat 207 230	chicken faecal material
+T8	Bacteria 279 289	Salmonella
+T9	Habitat 293 301	chickens
+T10	Bacteria 505 519	S. Typhimurium
+T11	Bacteria 524 532	S. Hadar
+T12	Bacteria 630 644	S. Typhimurium
+T13	Habitat 807 817	host cells
+T14	Bacteria 941 955	S. Typhimurium
+T15	Habitat 1239 1249	host cells
+T16	Habitat 1350 1362	intracloacal
+T17	Habitat 1411 1419	chickens
+T18	Bacteria 1452 1466	S. Typhimurium
+T19	Bacteria 1499 1513	S. Typhimurium
+T20	Bacteria 1557 1567	Salmonella
+T21	Bacteria 1634 1648	S. Typhimurium
+T22	Bacteria 1715 1725	Salmonella
+T23	Habitat 1735 1750	visceral organs
+T24	Habitat 1855 1861	caecal
+T25	Habitat 1855 1880	caecal wall of the chicks
+T26	Habitat 1874 1880	chicks
+T27	Bacteria 2003 2013	Salmonella
+T28	Habitat 2023 2049	caecal content of chickens
+T29	Habitat 2023 2029	caecal
+T30	Habitat 2041 2049	chickens
+N1	NCBI_Taxonomy Annotation:T3 Referent:90371
+N2	OntoBiotope Annotation:T4 Referent:OBT:002229
+N3	NCBI_Taxonomy Annotation:T5 Referent:90371
+N4	OntoBiotope Annotation:T6 Referent:OBT:002229
+N5	OntoBiotope Annotation:T7 Referent:OBT:000703
+N6	NCBI_Taxonomy Annotation:T8 Referent:590
+N7	OntoBiotope Annotation:T9 Referent:OBT:002229
+N8	NCBI_Taxonomy Annotation:T10 Referent:90371
+N9	NCBI_Taxonomy Annotation:T11 Referent:149385
+N10	NCBI_Taxonomy Annotation:T12 Referent:90371
+N11	OntoBiotope Annotation:T13 Referent:OBT:000056
+N12	NCBI_Taxonomy Annotation:T14 Referent:90371
+N13	OntoBiotope Annotation:T15 Referent:OBT:000056
+N14	OntoBiotope Annotation:T16 Referent:OBT:001344
+N15	OntoBiotope Annotation:T17 Referent:OBT:000323
+N16	OntoBiotope Annotation:T17 Referent:OBT:002229
+N17	NCBI_Taxonomy Annotation:T18 Referent:90371
+N18	NCBI_Taxonomy Annotation:T19 Referent:90371
+N19	NCBI_Taxonomy Annotation:T20 Referent:590
+N20	NCBI_Taxonomy Annotation:T21 Referent:90371
+N21	NCBI_Taxonomy Annotation:T22 Referent:590
+N22	OntoBiotope Annotation:T23 Referent:OBT:000096
+N23	OntoBiotope Annotation:T24 Referent:OBT:001260
+N24	OntoBiotope Annotation:T25 Referent:OBT:000905
+N25	OntoBiotope Annotation:T26 Referent:OBT:000323
+N26	OntoBiotope Annotation:T26 Referent:OBT:002177
+N27	OntoBiotope Annotation:T26 Referent:OBT:002229
+N28	NCBI_Taxonomy Annotation:T27 Referent:590
+N29	OntoBiotope Annotation:T28 Referent:OBT:001340
+N30	OntoBiotope Annotation:T29 Referent:OBT:001260
+N31	OntoBiotope Annotation:T30 Referent:OBT:002229

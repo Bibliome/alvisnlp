@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<relation>
+  <attribute name="dict">nav:xspan:ProjectedBacteria</attribute>
+
+  <attribute name="genus">@form =~ "^[A-Z][a-z]+$"</attribute>
+  <attribute name="genus_species">@form =~ "^[A-Z][a-z]+ [a-z]+$"</attribute>
+  <attribute name="genus_species_strain">@form =~ "^[A-Z][a-z]+ [a-z]+ [^a-z]+$"</attribute>
+  <attribute name="strain">@form =~ "^[^a-z]+$"</attribute>
+  <attribute name="latin_suffix">@form =~ "(us|is|as|um)$"</attribute>
+  <attribute name="nomenclature">@form =~ "(sp\\.|spp\\.|ssp\\.)"</attribute>
+
+  <!--
+  <bag prefix="following__" feature="form" loadValues="following.txt">after:words{0,2}</bag>
+  <bag prefix="preceding__" feature="form" loadValues="preceding.txt">before:words{-2,-1}</bag>
+  -->
+  
+  <attribute name="class" class="yes">nav:xspan:Bacteria</attribute>
+</relation>

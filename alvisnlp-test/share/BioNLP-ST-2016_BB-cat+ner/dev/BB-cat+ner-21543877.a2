@@ -1,0 +1,6 @@
+T3	Bacteria 102 134	Mycobacterium tuberculosis H37Rv
+T4	Habitat 218 234	human population
+T5	Bacteria 517 543	Mycobacterium tuberculosis
+N1	NCBI_Taxonomy Annotation:T3 Referent:83332
+N2	OntoBiotope Annotation:T4 Referent:OBT:001804
+N3	NCBI_Taxonomy Annotation:T5 Referent:83332

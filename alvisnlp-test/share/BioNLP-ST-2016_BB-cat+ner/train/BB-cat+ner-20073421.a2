@@ -1,0 +1,38 @@
+T6	Bacteria 71 97	Francisella tularensis LVS
+T7	Habitat 101 107	murine
+T8	Habitat 101 118	murine macrophage
+T9	Habitat 101 138	murine macrophage-like cell line J774
+T10	Bacteria 140 162	Francisella tularensis
+T11	Habitat 185 190	human
+T12	Habitat 251 262	human cells
+T13	Habitat 251 256	human
+T14	Bacteria 300 317	F. tularensis LVS
+T15	Habitat 328 338	macrophage
+T16	Habitat 328 358	macrophage-like cell line J774
+T17	Bacteria 405 412	E. coli
+T18	Habitat 456 466	J774 cells
+T19	Bacteria 569 582	F. tularensis
+T20	Bacteria 688 701	F. tularensis
+T21	Habitat 728 742	J774 cell line
+T22	Bacteria 839 852	F. tularensis
+N1	NCBI_Taxonomy Annotation:T6 Referent:263
+N2	OntoBiotope Annotation:T7 Referent:OBT:001768
+N3	OntoBiotope Annotation:T8 Referent:OBT:002022
+N4	OntoBiotope Annotation:T9 Referent:OBT:000029
+N5	OntoBiotope Annotation:T9 Referent:OBT:002022
+N6	NCBI_Taxonomy Annotation:T10 Referent:263
+N7	OntoBiotope Annotation:T11 Referent:OBT:001804
+N8	OntoBiotope Annotation:T12 Referent:OBT:000056
+N9	OntoBiotope Annotation:T13 Referent:OBT:001804
+N10	NCBI_Taxonomy Annotation:T14 Referent:263
+N11	OntoBiotope Annotation:T15 Referent:OBT:002022
+N12	OntoBiotope Annotation:T16 Referent:OBT:000029
+N13	OntoBiotope Annotation:T16 Referent:OBT:002022
+N14	NCBI_Taxonomy Annotation:T17 Referent:562
+N15	OntoBiotope Annotation:T18 Referent:OBT:002022
+N16	OntoBiotope Annotation:T18 Referent:OBT:000029
+N17	NCBI_Taxonomy Annotation:T19 Referent:263
+N18	NCBI_Taxonomy Annotation:T20 Referent:263
+N19	OntoBiotope Annotation:T21 Referent:OBT:002022
+N20	OntoBiotope Annotation:T21 Referent:OBT:000029
+N21	NCBI_Taxonomy Annotation:T22 Referent:263

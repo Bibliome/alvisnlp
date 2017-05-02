@@ -1,0 +1,57 @@
+T3	Habitat 147 166	cerebrospinal fluid
+T4	Habitat 168 171	CSF
+T5	Habitat 188 232	patients diagnosed with bacterial meningitis
+T6	Bacteria 294 318	Streptococcus pneumoniae
+T7	Bacteria 320 342	Haemophilus influenzae
+T8	Bacteria 348 369	Mycoplasma pneumoniae
+T9	Bacteria 414 436	Neisseria meningitidis
+T10	Bacteria 438 454	Escherichia coli
+T11	Bacteria 456 480	Streptococcus agalactiae
+T12	Bacteria 482 503	Staphylococcus aureus
+T13	Bacteria 509 531	Listeria monocytogenes
+T14	Habitat 605 635	CSF from neonates and children
+T15	Habitat 605 608;649 660	CSF from adults
+T16	Habitat 614 622	neonates
+T17	Habitat 627 635	children
+T18	Habitat 654 660	adults
+T19	Habitat 815 818	CSF
+T20	Habitat 1009 1017	clinical
+T21	Bacteria 1252 1265	H. influenzae
+T22	Habitat 1271 1274	CSF
+T23	Bacteria 1307 1320	S. pneumoniae
+T24	Bacteria 1330 1343	S. agalactiae
+T25	Bacteria 1352 1359	E. coli
+T26	Bacteria 1368 1384	L. monocytogenes
+T27	Bacteria 1397 1410	M. pneumoniae
+T28	Habitat 1499 1538	patients with antibiotic administration
+N1	OntoBiotope Annotation:T3 Referent:OBT:000306
+N2	OntoBiotope Annotation:T4 Referent:OBT:000306
+N3	OntoBiotope Annotation:T5 Referent:OBT:002216
+N4	NCBI_Taxonomy Annotation:T6 Referent:1313
+N5	NCBI_Taxonomy Annotation:T7 Referent:727
+N6	NCBI_Taxonomy Annotation:T8 Referent:2104
+N7	NCBI_Taxonomy Annotation:T9 Referent:487
+N8	NCBI_Taxonomy Annotation:T10 Referent:562
+N9	NCBI_Taxonomy Annotation:T11 Referent:1311
+N10	NCBI_Taxonomy Annotation:T12 Referent:1280
+N11	NCBI_Taxonomy Annotation:T13 Referent:1639
+N12	OntoBiotope Annotation:T14 Referent:OBT:000306
+N13	OntoBiotope Annotation:T15 Referent:OBT:000306
+N14	OntoBiotope Annotation:T16 Referent:OBT:002293
+N15	OntoBiotope Annotation:T16 Referent:OBT:002316
+N16	OntoBiotope Annotation:T16 Referent:OBT:002216
+N17	OntoBiotope Annotation:T17 Referent:OBT:002146
+N18	OntoBiotope Annotation:T17 Referent:OBT:002307
+N19	OntoBiotope Annotation:T17 Referent:OBT:002216
+N20	OntoBiotope Annotation:T18 Referent:OBT:002185
+N21	OntoBiotope Annotation:T18 Referent:OBT:002216
+N22	OntoBiotope Annotation:T19 Referent:OBT:000306
+N23	OntoBiotope Annotation:T20 Referent:OBT:002133
+N24	NCBI_Taxonomy Annotation:T21 Referent:727
+N25	OntoBiotope Annotation:T22 Referent:OBT:000306
+N26	NCBI_Taxonomy Annotation:T23 Referent:1313
+N27	NCBI_Taxonomy Annotation:T24 Referent:1311
+N28	NCBI_Taxonomy Annotation:T25 Referent:562
+N29	NCBI_Taxonomy Annotation:T26 Referent:1639
+N30	NCBI_Taxonomy Annotation:T27 Referent:1313
+N31	OntoBiotope Annotation:T28 Referent:OBT:002201

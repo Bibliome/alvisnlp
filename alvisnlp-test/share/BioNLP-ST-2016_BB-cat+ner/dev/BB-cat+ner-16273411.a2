@@ -1,0 +1,18 @@
+T3	Habitat 25 33	neonatal
+T4	Bacteria 57 77	Klebsiella pneumonia
+T5	Bacteria 321 341	Klebsiella pneumonia
+T6	Habitat 375 381	humans
+T7	Habitat 386 393	animals
+T8	Habitat 600 606	humans
+T9	Bacteria 608 628	Klebsiella pneumonia
+T10	Habitat 642 695	placenta of a 38-year-old secondary recurrent aborter
+T11	Habitat 656 695	38-year-old secondary recurrent aborter
+N1	OntoBiotope Annotation:T3 Referent:OBT:002293
+N2	NCBI_Taxonomy Annotation:T4 Referent:573
+N3	NCBI_Taxonomy Annotation:T5 Referent:573
+N4	OntoBiotope Annotation:T6 Referent:OBT:001804
+N5	OntoBiotope Annotation:T7 Referent:OBT:000218
+N6	OntoBiotope Annotation:T8 Referent:OBT:001804
+N7	NCBI_Taxonomy Annotation:T9 Referent:573
+N8	OntoBiotope Annotation:T10 Referent:OBT:000577
+N9	OntoBiotope Annotation:T11 Referent:OBT:002297

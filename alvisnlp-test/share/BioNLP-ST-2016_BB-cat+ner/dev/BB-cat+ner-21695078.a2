@@ -1,0 +1,46 @@
+T3	Bacteria 22 41	Chlamydia muridarum
+T4	Habitat 42 53	respiratory
+T5	Bacteria 100 121	Chlamydia trachomatis
+T6	Habitat 187 193	infant
+T7	Habitat 219 231	female mouse
+T8	Habitat 241 254	genital tract
+T9	Bacteria 255 264	chlamydia
+T10	Habitat 364 371	oviduct
+T11	Habitat 435 442	mucosal
+T12	Habitat 516 520	mice
+T13	Habitat 529 539	intranasal
+T14	Bacteria 551 563	C. muridarum
+T15	Habitat 617 621	mice
+T16	Habitat 654 658	lung
+T17	Habitat 705 716	neutrophils
+T18	Habitat 721 728	T-cells
+T19	Habitat 738 743	lungs
+T20	Habitat 808 827	TLR2-deficient mice
+T21	Habitat 941 945	lung
+T22	Bacteria 953 962	Chlamydia
+T23	Habitat 1003 1010	mucosal
+T24	Habitat 1044 1060	mucosal surfaces
+N1	NCBI_Taxonomy Annotation:T3 Referent:83560
+N2	OntoBiotope Annotation:T4 Referent:OBT:000164
+N3	NCBI_Taxonomy Annotation:T5 Referent:813
+N4	OntoBiotope Annotation:T6 Referent:OBT:002177
+N5	OntoBiotope Annotation:T7 Referent:OBT:000724
+N6	OntoBiotope Annotation:T7 Referent:OBT:002153
+N7	OntoBiotope Annotation:T8 Referent:OBT:000381
+N8	NCBI_Taxonomy Annotation:T9 Referent:810
+N9	OntoBiotope Annotation:T10 Referent:OBT:000381
+N10	OntoBiotope Annotation:T11 Referent:OBT:000862
+N11	OntoBiotope Annotation:T12 Referent:OBT:002153
+N12	OntoBiotope Annotation:T13 Referent:OBT:000277
+N13	NCBI_Taxonomy Annotation:T14 Referent:83560
+N14	OntoBiotope Annotation:T15 Referent:OBT:000724
+N15	OntoBiotope Annotation:T15 Referent:OBT:002153
+N16	OntoBiotope Annotation:T16 Referent:OBT:000287
+N17	OntoBiotope Annotation:T17 Referent:OBT:000471
+N18	OntoBiotope Annotation:T18 Referent:OBT:001342
+N19	OntoBiotope Annotation:T19 Referent:OBT:000287
+N20	OntoBiotope Annotation:T20 Referent:OBT:002153
+N21	OntoBiotope Annotation:T21 Referent:OBT:000287
+N22	NCBI_Taxonomy Annotation:T22 Referent:810
+N23	OntoBiotope Annotation:T23 Referent:OBT:000862
+N24	OntoBiotope Annotation:T24 Referent:OBT:001333

@@ -1,0 +1,20 @@
+T3	Bacteria 38 60	Haemophilus influenzae
+T4	Habitat 79 115	children attending a day care center
+T5	Habitat 100 115	day care center
+T6	Bacteria 128 169	nontypeable Haemophilus influenzae (NTHi)
+T7	Habitat 188 219	throats of two healthy children
+T8	Habitat 203 219	healthy children
+T9	Bacteria 386 390	NTHi
+T10	Bacteria 428 432	NTHi
+T11	Habitat 452 470	colonized children
+N1	NCBI_Taxonomy Annotation:T3 Referent:727
+N2	OntoBiotope Annotation:T4 Referent:OBT:002146
+N3	OntoBiotope Annotation:T5 Referent:OBT:000583
+N4	NCBI_Taxonomy Annotation:T6 Referent:727
+N5	OntoBiotope Annotation:T7 Referent:OBT:000374
+N6	OntoBiotope Annotation:T8 Referent:OBT:002146
+N7	OntoBiotope Annotation:T8 Referent:OBT:001894
+N8	NCBI_Taxonomy Annotation:T9 Referent:727
+N9	NCBI_Taxonomy Annotation:T10 Referent:727
+N10	OntoBiotope Annotation:T11 Referent:OBT:002146
+N11	OntoBiotope Annotation:T11 Referent:OBT:001894

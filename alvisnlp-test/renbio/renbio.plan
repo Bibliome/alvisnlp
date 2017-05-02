@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-plan id="newrenbio">
+  <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
+
+  <taxa class="SimpleProjector2">
+    <dictFile>taxa+id_Bacteria.txt</dictFile>
+    <targetLayerName>ProjectedBacteria</targetLayerName>
+    <valueFeatures>,taxid</valueFeatures>
+    <caseInsensitive/>
+    <skipWhitespace/>
+    <constantAnnotationFeatures>ne-type=taxon</constantAnnotationFeatures>
+  </taxa>
+
+  <import>res://org.bibliome.alvisnlp.resources/segmentation.plan</import>
+
+  <!--
+  <tt class="TreeTagger">
+    <noUnknownLemma/>
+    </tt>
+    -->
+
+  <tokenizer class="OgmiosTokenizer">
+    <targetLayerName>tokens</targetLayerName>
+    <tokenTypeFeature>type</tokenTypeFeature>
+    <separatorTokens>false</separatorTokens>
+  </tokenizer>
+
+  <ngrams class="NGrams">
+    <tokenLayerName>tokens</tokenLayerName>
+    <targetLayerName>PredictedBacteria</targetLayerName>
+    <sentenceLayerName>sentences</sentenceLayerName>
+    <maxNGramSize>5</maxNGramSize>
+    <!--<keepAnnotations>ProjectedBacteria</keepAnnotations>-->
+    <documentFilter>@set == "train" or @set == "dev"</documentFilter>
+  </ngrams>
+
+  <renbio>
+    <train class="TrainingElementClassifier">
+      <algorithm>weka.classifiers.bayes.NaiveBayes</algorithm>
+      <classifierFile>classifier.model</classifierFile>
+      <relationDefinition load="attributes2.xml"/>
+      <examples>documents[@set=="train"].sections.layer:PredictedBacteria</examples>
+      <arffFile>renbio.arff</arffFile>
+    </train>
+
+    <tag class="TaggingElementClassifier">
+      <relationDefinition load="attributes2.xml"/>
+      <classifierFile inhibitCheck="yes">classifier.model</classifierFile>
+      <predictedClassFeatureKey>predictedClass</predictedClassFeatureKey>
+      <examples>documents[@set=="dev"].sections.layer:PredictedBacteria</examples>
+    </tag>
+
+    <remove-negatives class="Action">
+      <target>documents[@set=="dev"].sections.layer:PredictedBacteria[@predictedClass == "0"]</target>
+      <action>delete</action>
+      <deleteElements>true</deleteElements>
+    </remove-negatives>
+  </renbio>
+
+  <evaluate>
+    <projection class="LayerComparator">
+      <referenceLayerName>Bacteria</referenceLayerName>
+      <predictedLayerName>ProjectedBacteria</predictedLayerName>
+      <outFile>projected.txt</outFile>
+      <documentFilter>@set == "dev"</documentFilter>
+    </projection>
+
+    <weka class="LayerComparator">
+      <referenceLayerName>Bacteria</referenceLayerName>
+      <predictedLayerName>PredictedBacteria</predictedLayerName>
+      <outFile>weka.txt</outFile>
+      <documentFilter>@set == "dev"</documentFilter>
+    </weka>
+  </evaluate>
+</alvisnlp-plan>

@@ -1,0 +1,4 @@
+T2	Bacteria 22 30	Serratia
+T3	Habitat 39 68	Hospital S. Camillo De Lellis
+N1	NCBI_Taxonomy Annotation:T2 Referent:613
+N2	OntoBiotope Annotation:T3 Referent:OBT:001835

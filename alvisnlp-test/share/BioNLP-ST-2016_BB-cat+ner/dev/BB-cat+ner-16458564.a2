@@ -1,0 +1,87 @@
+T6	Habitat 41 49	children
+T7	Habitat 210 246	children less than five years of age
+T8	Habitat 307 329	children with diarrhea
+T9	Habitat 338 366	age-matched healthy controls
+T10	Habitat 733 755	children with diarrhea
+T11	Bacteria 800 816	Escherichia coli
+T12	Bacteria 818 830	Shigella spp
+T13	Bacteria 852 872	Bacteroides fragilis
+T14	Bacteria 941 955	Salmonella spp
+T15	Bacteria 959 974	Vibrio cholerae
+T16	Bacteria 1018 1025	E. coli
+T17	Habitat 1046 1081	children less than two years of age
+T18	Bacteria 1089 1101	Shigella spp
+T19	Bacteria 1123 1134	B. fragilis
+T20	Habitat 1159 1173	older children
+T21	Bacteria 1189 1196	E. coli
+T22	Bacteria 1201 1213	Shigella spp
+T23	Habitat 1321 1353	Children attending the hospitals
+T24	Habitat 1344 1353	hospitals
+T25	Habitat 1416 1428	Watery stool
+T26	Habitat 1485 1497	mucous stool
+T27	Habitat 1485 1491	mucous
+T28	Habitat 1528 1534	stools
+T29	Habitat 1604 1613	hospitals
+T30	Habitat 1631 1639	children
+T31	Habitat 1682 1690	children
+T32	Habitat 1746 1757	piped water
+T33	Habitat 1764 1771	latrine
+T34	Habitat 1807 1814	mothers
+T35	Habitat 1864 1872	children
+T36	Habitat 1894 1901	mothers
+T37	Bacteria 2058 2074	Escherichia coli
+T38	Bacteria 2076 2088	Shigella spp
+T39	Bacteria 2110 2130	Bacteroides fragilis
+T40	Habitat 2177 2185	children
+T41	Habitat 2245 2263	fresh water supply
+T42	Habitat 2245 2256	fresh water
+T43	Habitat 2265 2287	unhygienic septic tank
+T44	Habitat 2422 2430	children
+N1	OntoBiotope Annotation:T6 Referent:OBT:002146
+N2	OntoBiotope Annotation:T7 Referent:OBT:002146
+N3	OntoBiotope Annotation:T8 Referent:OBT:002146
+N4	OntoBiotope Annotation:T8 Referent:OBT:002115
+N5	OntoBiotope Annotation:T9 Referent:OBT:002146
+N6	OntoBiotope Annotation:T9 Referent:OBT:001894
+N7	OntoBiotope Annotation:T10 Referent:OBT:002146
+N8	OntoBiotope Annotation:T10 Referent:OBT:002115
+N9	NCBI_Taxonomy Annotation:T11 Referent:562
+N10	NCBI_Taxonomy Annotation:T12 Referent:620
+N11	NCBI_Taxonomy Annotation:T13 Referent:817
+N12	NCBI_Taxonomy Annotation:T14 Referent:590
+N13	NCBI_Taxonomy Annotation:T15 Referent:666
+N14	NCBI_Taxonomy Annotation:T16 Referent:562
+N15	OntoBiotope Annotation:T17 Referent:OBT:002115
+N16	OntoBiotope Annotation:T17 Referent:OBT:002154
+N17	NCBI_Taxonomy Annotation:T18 Referent:620
+N18	NCBI_Taxonomy Annotation:T19 Referent:817
+N19	OntoBiotope Annotation:T20 Referent:OBT:002146
+N20	OntoBiotope Annotation:T20 Referent:OBT:002115
+N21	NCBI_Taxonomy Annotation:T21 Referent:562
+N22	NCBI_Taxonomy Annotation:T22 Referent:620
+N23	OntoBiotope Annotation:T23 Referent:OBT:002307
+N24	OntoBiotope Annotation:T23 Referent:OBT:002216
+N25	OntoBiotope Annotation:T24 Referent:OBT:001835
+N26	OntoBiotope Annotation:T25 Referent:OBT:000703
+N27	OntoBiotope Annotation:T26 Referent:OBT:000703
+N28	OntoBiotope Annotation:T27 Referent:OBT:000640
+N29	OntoBiotope Annotation:T28 Referent:OBT:000703
+N30	OntoBiotope Annotation:T29 Referent:OBT:001835
+N31	OntoBiotope Annotation:T30 Referent:OBT:002307
+N32	OntoBiotope Annotation:T30 Referent:OBT:002216
+N33	OntoBiotope Annotation:T30 Referent:OBT:002201
+N34	OntoBiotope Annotation:T31 Referent:OBT:002307
+N35	OntoBiotope Annotation:T31 Referent:OBT:002216
+N36	OntoBiotope Annotation:T32 Referent:OBT:001210
+N37	OntoBiotope Annotation:T33 Referent:OBT:000579
+N38	OntoBiotope Annotation:T34 Referent:OBT:002298
+N39	OntoBiotope Annotation:T35 Referent:OBT:002146
+N40	OntoBiotope Annotation:T36 Referent:OBT:002298
+N41	NCBI_Taxonomy Annotation:T37 Referent:562
+N42	NCBI_Taxonomy Annotation:T38 Referent:620
+N43	NCBI_Taxonomy Annotation:T39 Referent:817
+N44	OntoBiotope Annotation:T40 Referent:OBT:002146
+N45	OntoBiotope Annotation:T41 Referent:OBT:000838
+N46	OntoBiotope Annotation:T42 Referent:OBT:001697
+N47	OntoBiotope Annotation:T43 Referent:OBT:001924
+N48	OntoBiotope Annotation:T44 Referent:OBT:002146

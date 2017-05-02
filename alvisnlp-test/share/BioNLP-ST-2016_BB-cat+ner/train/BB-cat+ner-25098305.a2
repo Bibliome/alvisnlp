@@ -1,0 +1,48 @@
+T3	Habitat 17 40	upper respiratory tract
+T4	Bacteria 53 63	Mycoplasma
+T5	Habitat 67 96	free-ranging gopher tortoises
+T6	Habitat 98 117	Gopherus polyphemus
+T7	Habitat 145 168	Upper respiratory tract
+T8	Habitat 191 206	gopher tortoise
+T9	Habitat 208 227	Gopherus polyphemus
+T10	Habitat 399 432	Georgia, USA tortoise populations
+T11	Bacteria 476 496	Mycoplasma agassizii
+T12	Bacteria 501 523	Mycoplasma testudineum
+T13	Habitat 578 606	Georgia tortoise populations
+T14	Bacteria 640 652	M. agassizii
+T15	Bacteria 827 841	M. testudineum
+T16	Habitat 925 934	tortoises
+T17	Habitat 1018 1027	tortoises
+T18	Habitat 1086 1095	tortoises
+T19	Habitat 1138 1147	tortoises
+T20	Bacteria 1172 1186	M. testudineum
+T21	Habitat 1267 1283	gopher tortoises
+T22	Bacteria 1329 1341	M. agassizii
+T23	Bacteria 1346 1360	M. testudineum
+T24	Habitat 1376 1415	Georgia populations of gopher tortoises
+T25	Habitat 1643 1663	tortoise populations
+T26	Habitat 1732 1741	tortoises
+N1	OntoBiotope Annotation:T3 Referent:OBT:000261
+N2	NCBI_Taxonomy Annotation:T4 Referent:2093
+N3	OntoBiotope Annotation:T5 Referent:OBT:001351
+N4	OntoBiotope Annotation:T6 Referent:OBT:001351
+N5	OntoBiotope Annotation:T7 Referent:OBT:000261
+N6	OntoBiotope Annotation:T8 Referent:OBT:001351
+N7	OntoBiotope Annotation:T9 Referent:OBT:001351
+N8	OntoBiotope Annotation:T10 Referent:OBT:001351
+N9	NCBI_Taxonomy Annotation:T11 Referent:33922
+N10	NCBI_Taxonomy Annotation:T12 Referent:244584
+N11	OntoBiotope Annotation:T13 Referent:OBT:001351
+N12	NCBI_Taxonomy Annotation:T14 Referent:33922
+N13	NCBI_Taxonomy Annotation:T15 Referent:244584
+N14	OntoBiotope Annotation:T16 Referent:OBT:001351
+N15	OntoBiotope Annotation:T17 Referent:OBT:001351
+N16	OntoBiotope Annotation:T18 Referent:OBT:001351
+N17	OntoBiotope Annotation:T19 Referent:OBT:001351
+N18	NCBI_Taxonomy Annotation:T20 Referent:244584
+N19	OntoBiotope Annotation:T21 Referent:OBT:001351
+N20	NCBI_Taxonomy Annotation:T22 Referent:33922
+N21	NCBI_Taxonomy Annotation:T23 Referent:244584
+N22	OntoBiotope Annotation:T24 Referent:OBT:001351
+N23	OntoBiotope Annotation:T25 Referent:OBT:001351
+N24	OntoBiotope Annotation:T26 Referent:OBT:001351

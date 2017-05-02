@@ -1,0 +1,16 @@
+T3	Bacteria 13 36	Vibrio parahaemolyticus
+T4	Habitat 42 50	clinical
+T5	Bacteria 173 195	Vibro parahaemolyticus
+T6	Habitat 210 218	clinical
+T7	Habitat 373 397	gastroenteritis patients
+T8	Habitat 411 427	healthy carriers
+T9	Habitat 480 485	water
+T10	Habitat 490 502	fish samples
+N1	NCBI_Taxonomy Annotation:T3 Referent:670
+N2	OntoBiotope Annotation:T4 Referent:OBT:002133
+N3	NCBI_Taxonomy Annotation:T5 Referent:670
+N4	OntoBiotope Annotation:T6 Referent:OBT:002133
+N5	OntoBiotope Annotation:T7 Referent:OBT:002216
+N6	OntoBiotope Annotation:T8 Referent:OBT:001894
+N7	OntoBiotope Annotation:T9 Referent:OBT:000132
+N8	OntoBiotope Annotation:T10 Referent:OBT:001902

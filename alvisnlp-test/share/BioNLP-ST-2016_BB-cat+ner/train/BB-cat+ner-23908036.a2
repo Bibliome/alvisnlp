@@ -1,0 +1,8 @@
+T3	Bacteria 79 101	Pseudomonas aeruginosa
+T4	Bacteria 103 125	Pseudomonas aeruginosa
+T5	Habitat 198 221	susceptible individuals
+T6	Bacteria 373 391	P. aeruginosa PAO1
+N1	NCBI_Taxonomy Annotation:T3 Referent:287
+N2	NCBI_Taxonomy Annotation:T4 Referent:287
+N3	OntoBiotope Annotation:T5 Referent:OBT:001804
+N4	NCBI_Taxonomy Annotation:T6 Referent:208964

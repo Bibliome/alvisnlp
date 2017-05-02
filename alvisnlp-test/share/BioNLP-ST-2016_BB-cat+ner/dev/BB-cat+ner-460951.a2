@@ -1,0 +1,24 @@
+T3	Bacteria 9 21	mycobacteria
+T4	Habitat 34 43	pulmonary
+T5	Bacteria 181 193	mycobacteria
+T6	Habitat 208 217	pulmonary
+T7	Habitat 350 360	lymph node
+T8	Habitat 350 355	lymph
+T9	Habitat 375 383	children
+T10	Bacteria 417 446	M. fortuitum-chelonei complex
+T11	Habitat 463 484	superficial abscesses
+T12	Bacteria 500 510	M. marinum
+T13	Bacteria 530 541	M. ulcerans
+N1	NCBI_Taxonomy Annotation:T3 Referent:1763
+N2	OntoBiotope Annotation:T4 Referent:OBT:000287
+N3	NCBI_Taxonomy Annotation:T5 Referent:1763
+N4	OntoBiotope Annotation:T6 Referent:OBT:000287
+N5	OntoBiotope Annotation:T7 Referent:OBT:000548
+N6	OntoBiotope Annotation:T8 Referent:OBT:000302
+N7	OntoBiotope Annotation:T9 Referent:OBT:002146
+N8	OntoBiotope Annotation:T9 Referent:OBT:002187
+N9	NCBI_Taxonomy Annotation:T10 Referent:1766
+N10	NCBI_Taxonomy Annotation:T10 Referent:1774
+N11	OntoBiotope Annotation:T11 Referent:OBT:000506
+N12	NCBI_Taxonomy Annotation:T12 Referent:1781
+N13	NCBI_Taxonomy Annotation:T13 Referent:1809

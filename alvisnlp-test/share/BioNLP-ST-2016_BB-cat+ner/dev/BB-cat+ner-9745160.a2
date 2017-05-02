@@ -1,0 +1,63 @@
+T6	Habitat 59 67	duodenal
+T7	Habitat 59 73	duodenal ulcer
+T8	Bacteria 79 98	Helicobacter pylori
+T9	Habitat 165 179	duodenal ulcer
+T10	Habitat 165 173	duodenal
+T11	Bacteria 196 215	Helicobacter pylori
+T12	Habitat 546 553	patient
+T13	Habitat 664 730	patients with active duodenal ulcer disease and H pylori infection
+T14	Habitat 685 693	duodenal
+T15	Habitat 685 699	duodenal ulcer
+T16	Bacteria 712 720	H pylori
+T17	Bacteria 783 796	Campylobacter
+T18	Bacteria 1271 1279	H pylori
+T19	Bacteria 1419 1427	H pylori
+T20	Habitat 1436 1441	ulcer
+T21	Habitat 1488 1496	patients
+T22	Habitat 1560 1568	patients
+T23	Bacteria 1627 1635	H pylori
+T24	Bacteria 1651 1659	H pylori
+T25	Habitat 1776 1781	ulcer
+T26	Habitat 1883 1891	patients
+T27	Habitat 1985 2023	patients with PPI-based triple therapy
+T28	Habitat 2065 2107	patients with bismuth-based triple therapy
+T29	Habitat 2232 2240	patients
+T30	Bacteria 2358 2366	H pylori
+T31	Habitat 2508 2522	duodenal ulcer
+T32	Habitat 2508 2516	duodenal
+T33	Bacteria 2539 2547	H pylori
+N1	OntoBiotope Annotation:T6 Referent:OBT:001293
+N2	OntoBiotope Annotation:T7 Referent:OBT:000935
+N3	NCBI_Taxonomy Annotation:T8 Referent:210
+N4	OntoBiotope Annotation:T9 Referent:OBT:000935
+N5	OntoBiotope Annotation:T10 Referent:OBT:001293
+N6	NCBI_Taxonomy Annotation:T11 Referent:210
+N7	OntoBiotope Annotation:T12 Referent:OBT:002133
+N8	OntoBiotope Annotation:T13 Referent:OBT:002216
+N9	OntoBiotope Annotation:T13 Referent:OBT:002236
+N10	OntoBiotope Annotation:T14 Referent:OBT:001293
+N11	OntoBiotope Annotation:T15 Referent:OBT:000935
+N12	NCBI_Taxonomy Annotation:T16 Referent:210
+N13	NCBI_Taxonomy Annotation:T17 Referent:194
+N14	NCBI_Taxonomy Annotation:T18 Referent:210
+N15	NCBI_Taxonomy Annotation:T19 Referent:210
+N16	OntoBiotope Annotation:T20 Referent:OBT:000935
+N17	OntoBiotope Annotation:T21 Referent:OBT:002216
+N18	OntoBiotope Annotation:T21 Referent:OBT:002236
+N19	OntoBiotope Annotation:T22 Referent:OBT:002216
+N20	OntoBiotope Annotation:T22 Referent:OBT:002236
+N21	NCBI_Taxonomy Annotation:T23 Referent:210
+N22	NCBI_Taxonomy Annotation:T24 Referent:210
+N23	OntoBiotope Annotation:T25 Referent:OBT:000538
+N24	OntoBiotope Annotation:T26 Referent:OBT:002216
+N25	OntoBiotope Annotation:T26 Referent:OBT:002236
+N26	OntoBiotope Annotation:T27 Referent:OBT:002216
+N27	OntoBiotope Annotation:T27 Referent:OBT:002236
+N28	OntoBiotope Annotation:T27 Referent:OBT:002186
+N29	OntoBiotope Annotation:T28 Referent:OBT:002216
+N30	OntoBiotope Annotation:T28 Referent:OBT:002236
+N31	OntoBiotope Annotation:T29 Referent:OBT:002133
+N32	NCBI_Taxonomy Annotation:T30 Referent:210
+N33	OntoBiotope Annotation:T31 Referent:OBT:000935
+N34	OntoBiotope Annotation:T32 Referent:OBT:001293
+N35	NCBI_Taxonomy Annotation:T33 Referent:210

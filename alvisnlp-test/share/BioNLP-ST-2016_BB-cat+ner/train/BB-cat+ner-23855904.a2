@@ -1,0 +1,28 @@
+T5	Bacteria 57 70	Campylobacter
+T6	Habitat 85 102	UK retail poultry
+T7	Habitat 205 213	clinical
+T8	Bacteria 214 227	Campylobacter
+T9	Habitat 296 310	retail poultry
+T10	Habitat 331 336	human
+T11	Bacteria 432 445	Campylobacter
+T12	Habitat 449 463	retail poultry
+T13	Bacteria 1002 1020	Campylobacter coli
+T14	Habitat 1388 1395	chicken
+T15	Bacteria 1407 1420	Campylobacter
+T16	Bacteria 1558 1571	Campylobacter
+T17	Habitat 1644 1650	humans
+T18	Habitat 1779 1794	farmed chickens
+N1	NCBI_Taxonomy Annotation:T5 Referent:194
+N2	OntoBiotope Annotation:T6 Referent:OBT:001482
+N3	OntoBiotope Annotation:T7 Referent:OBT:002133
+N4	NCBI_Taxonomy Annotation:T8 Referent:194
+N5	OntoBiotope Annotation:T9 Referent:OBT:001482
+N6	OntoBiotope Annotation:T10 Referent:OBT:001804
+N7	NCBI_Taxonomy Annotation:T11 Referent:194
+N8	OntoBiotope Annotation:T12 Referent:OBT:001482
+N9	NCBI_Taxonomy Annotation:T13 Referent:195
+N10	OntoBiotope Annotation:T14 Referent:OBT:001790
+N11	NCBI_Taxonomy Annotation:T15 Referent:194
+N12	NCBI_Taxonomy Annotation:T16 Referent:194
+N13	OntoBiotope Annotation:T17 Referent:OBT:001804
+N14	OntoBiotope Annotation:T18 Referent:OBT:002229

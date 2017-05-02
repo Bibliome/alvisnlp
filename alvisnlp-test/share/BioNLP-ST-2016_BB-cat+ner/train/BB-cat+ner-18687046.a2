@@ -1,0 +1,44 @@
+T6	Habitat 55 77	central nervous system
+T7	Habitat 238 246	patients
+T8	Habitat 343 349	facial
+T9	Habitat 447 469	central nervous system
+T10	Habitat 471 474	CNS
+T11	Habitat 587 595	Patients
+T12	Habitat 612 638	trauma intensive care unit
+T13	Habitat 640 644	TICU
+T14	Habitat 724 736	brain injury
+T15	Habitat 724 729	brain
+T16	Habitat 1187 1190	ICU
+T17	Habitat 1362 1365	ICU
+T18	Habitat 1430 1438	patients
+T19	Habitat 1531 1539	patients
+T20	Habitat 1579 1582	CNS
+T21	Habitat 1644 1652	patients
+T22	Habitat 1687 1690	CNS
+T23	Habitat 1748 1755	patient
+T24	Habitat 1828 1835	patient
+T25	Habitat 1971 1983	blood stream
+T26	Habitat 2039 2051	blood stream
+T27	Habitat 2242 2245	CNS
+N1	OntoBiotope Annotation:T6 Referent:OBT:000831
+N2	OntoBiotope Annotation:T7 Referent:OBT:002133
+N3	OntoBiotope Annotation:T8 Referent:OBT:001325
+N4	OntoBiotope Annotation:T9 Referent:OBT:000831
+N5	OntoBiotope Annotation:T10 Referent:OBT:000831
+N6	OntoBiotope Annotation:T11 Referent:OBT:002133
+N7	OntoBiotope Annotation:T12 Referent:OBT:000213
+N8	OntoBiotope Annotation:T13 Referent:OBT:000213
+N9	OntoBiotope Annotation:T14 Referent:OBT:000507
+N10	OntoBiotope Annotation:T15 Referent:OBT:001828
+N11	OntoBiotope Annotation:T16 Referent:OBT:000213
+N12	OntoBiotope Annotation:T17 Referent:OBT:000213
+N13	OntoBiotope Annotation:T18 Referent:OBT:002133
+N14	OntoBiotope Annotation:T19 Referent:OBT:002133
+N15	OntoBiotope Annotation:T20 Referent:OBT:000831
+N16	OntoBiotope Annotation:T21 Referent:OBT:002133
+N17	OntoBiotope Annotation:T22 Referent:OBT:000831
+N18	OntoBiotope Annotation:T23 Referent:OBT:002133
+N19	OntoBiotope Annotation:T24 Referent:OBT:002133
+N20	OntoBiotope Annotation:T25 Referent:OBT:000316
+N21	OntoBiotope Annotation:T26 Referent:OBT:000316
+N22	OntoBiotope Annotation:T27 Referent:OBT:000831

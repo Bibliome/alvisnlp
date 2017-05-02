@@ -1,0 +1,102 @@
+T3	Bacteria 11 36	Lactobacillus gasseri K 7
+T4	Bacteria 48 64	Escherichia coli
+T5	Habitat 86 98	Caco-2 cells
+T6	Habitat 114 118	pigs
+T7	Habitat 114 134	pigs' jejunal tissue
+T8	Habitat 120 127	jejunal
+T9	Bacteria 151 182	Lactobacillus (Lb.) gasseri K 7
+T10	Bacteria 206 229	Escherichia coli O8:K88
+T11	Habitat 233 243	intestinal
+T12	Habitat 233 250	intestinal mucosa
+T13	Habitat 266 287	cultured Caco-2 cells
+T14	Habitat 303 307	pigs
+T15	Habitat 303 332	pigs' small intestinal tissue
+T16	Habitat 309 325	small intestinal
+T17	Bacteria 334 346	Lactobacilli
+T18	Bacteria 378 385	E. coli
+T19	Bacteria 394 401	E. coli
+T20	Bacteria 412 419	E. coli
+T21	Bacteria 493 505	lactobacilli
+T22	Habitat 509 542	fully differentiated Caco-2 cells
+T23	Bacteria 602 609	E. coli
+T24	Bacteria 673 680	E. coli
+T25	Habitat 692 698	Caco-2
+T26	Habitat 785 790	cells
+T27	Bacteria 827 834	E. coli
+T28	Bacteria 859 874	Lb. gasseri K 7
+T29	Bacteria 925 932	E. coli
+T30	Bacteria 992 1004	lactobacilli
+T31	Bacteria 1050 1057	E. coli
+T32	Bacteria 1065 1072	E. coli
+T33	Bacteria 1073 1085	lactobacilli
+T34	Habitat 1165 1171	tissue
+T35	Habitat 1185 1198	pigs' jejunum
+T36	Habitat 1185 1189	pigs
+T37	Bacteria 1228 1235	E. coli
+T38	Bacteria 1305 1320	Lb. gasseri K 7
+T39	Bacteria 1422 1429	E. coli
+T40	Bacteria 1434 1449	Lb. gasseri K 7
+T41	Habitat 1459 1473	jejunal mucosa
+T42	Habitat 1459 1466	jejunal
+T43	Bacteria 1684 1691	E. coli
+T44	Bacteria 1695 1707	lactobacilli
+T45	Habitat 1724 1731	jejunal
+T46	Habitat 1724 1738	jejunal tissue
+T47	Bacteria 1755 1770	Lb. gasseri K 7
+T48	Bacteria 1809 1816	E. coli
+T49	Habitat 1829 1847	Caco-2 enterocytes
+T50	Habitat 1911 1914	pig
+T51	Habitat 1911 1929	pig jejunal tissue
+T52	Habitat 1915 1922	jejunal
+N1	NCBI_Taxonomy Annotation:T3 Referent:1334627
+N2	NCBI_Taxonomy Annotation:T4 Referent:562
+N3	OntoBiotope Annotation:T5 Referent:OBT:000029
+N4	OntoBiotope Annotation:T5 Referent:OBT:000240
+N5	OntoBiotope Annotation:T6 Referent:OBT:002257
+N6	OntoBiotope Annotation:T7 Referent:OBT:002020
+N7	OntoBiotope Annotation:T8 Referent:OBT:001289
+N8	NCBI_Taxonomy Annotation:T9 Referent:1334627
+N9	NCBI_Taxonomy Annotation:T10 Referent:1010796
+N10	OntoBiotope Annotation:T11 Referent:OBT:001893
+N11	OntoBiotope Annotation:T12 Referent:OBT:002020
+N12	OntoBiotope Annotation:T13 Referent:OBT:000240
+N13	OntoBiotope Annotation:T13 Referent:OBT:000029
+N14	OntoBiotope Annotation:T14 Referent:OBT:002257
+N15	OntoBiotope Annotation:T15 Referent:OBT:002020
+N16	OntoBiotope Annotation:T16 Referent:OBT:002194
+N17	NCBI_Taxonomy Annotation:T17 Referent:1334627
+N18	NCBI_Taxonomy Annotation:T18 Referent:1010796
+N19	NCBI_Taxonomy Annotation:T19 Referent:1010796
+N20	NCBI_Taxonomy Annotation:T20 Referent:1010796
+N21	NCBI_Taxonomy Annotation:T21 Referent:1334627
+N22	OntoBiotope Annotation:T22 Referent:OBT:000056
+N23	NCBI_Taxonomy Annotation:T23 Referent:1010796
+N24	NCBI_Taxonomy Annotation:T24 Referent:1010796
+N25	OntoBiotope Annotation:T25 Referent:OBT:000056
+N26	OntoBiotope Annotation:T26 Referent:OBT:000056
+N27	NCBI_Taxonomy Annotation:T27 Referent:1010796
+N28	NCBI_Taxonomy Annotation:T28 Referent:1334627
+N29	NCBI_Taxonomy Annotation:T29 Referent:1010796
+N30	NCBI_Taxonomy Annotation:T30 Referent:1334627
+N31	NCBI_Taxonomy Annotation:T31 Referent:1010796
+N32	NCBI_Taxonomy Annotation:T32 Referent:1010796
+N33	NCBI_Taxonomy Annotation:T33 Referent:1334627
+N34	OntoBiotope Annotation:T34 Referent:OBT:002020
+N35	OntoBiotope Annotation:T35 Referent:OBT:001289
+N36	OntoBiotope Annotation:T36 Referent:OBT:002257
+N37	NCBI_Taxonomy Annotation:T37 Referent:1010796
+N38	NCBI_Taxonomy Annotation:T38 Referent:1334627
+N39	NCBI_Taxonomy Annotation:T39 Referent:1010796
+N40	NCBI_Taxonomy Annotation:T40 Referent:1334627
+N41	OntoBiotope Annotation:T41 Referent:OBT:002020
+N42	OntoBiotope Annotation:T42 Referent:OBT:001289
+N43	NCBI_Taxonomy Annotation:T43 Referent:1010796
+N44	NCBI_Taxonomy Annotation:T44 Referent:1334627
+N45	OntoBiotope Annotation:T45 Referent:OBT:001289
+N46	OntoBiotope Annotation:T46 Referent:OBT:002020
+N47	NCBI_Taxonomy Annotation:T47 Referent:1334627
+N48	NCBI_Taxonomy Annotation:T48 Referent:1010796
+N49	OntoBiotope Annotation:T49 Referent:OBT:000240
+N50	OntoBiotope Annotation:T50 Referent:OBT:002257
+N51	OntoBiotope Annotation:T51 Referent:OBT:002020
+N52	OntoBiotope Annotation:T52 Referent:OBT:001289

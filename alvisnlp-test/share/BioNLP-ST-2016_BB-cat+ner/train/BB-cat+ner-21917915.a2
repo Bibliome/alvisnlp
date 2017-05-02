@@ -1,0 +1,10 @@
+T3	Bacteria 43 64	Staphylococcus aureus
+T4	Habitat 163 170	mammals
+T5	Habitat 355 360	human
+T6	Bacteria 372 393	Staphylococcus aureus
+T7	Bacteria 723 732	S. aureus
+N1	NCBI_Taxonomy Annotation:T3 Referent:1280
+N2	OntoBiotope Annotation:T4 Referent:OBT:001295
+N3	OntoBiotope Annotation:T5 Referent:OBT:001804
+N4	NCBI_Taxonomy Annotation:T6 Referent:1280
+N5	NCBI_Taxonomy Annotation:T7 Referent:1280

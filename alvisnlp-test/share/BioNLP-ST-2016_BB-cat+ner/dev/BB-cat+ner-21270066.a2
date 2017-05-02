@@ -1,0 +1,52 @@
+T3	Habitat 39 47	perianal
+T4	Habitat 39 58	perianal ulceration
+T5	Habitat 217 255	HIV-positive men who have sex with men
+T6	Habitat 252 255	men
+T7	Habitat 257 260	MSM
+T8	Habitat 263 271	Patients
+T9	Habitat 333 339	rectal
+T10	Habitat 347 399	MSM attending sexually transmitted infection clinics
+T11	Habitat 361 399	sexually transmitted infection clinics
+T12	Habitat 492 501	anorectal
+T13	Habitat 565 634	HIV-infected patients presenting with isolated perianal ulcer disease
+T14	Habitat 612 626	perianal ulcer
+T15	Habitat 612 620	perianal
+T16	Habitat 688 694	rectal
+T17	Bacteria 695 716	Chlamydia trachomatis
+T18	Bacteria 968 977	chlamydia
+T19	Habitat 1032 1050	MSM with proctitis
+T20	Habitat 1113 1144	MSM with perianal ulcer disease
+T21	Habitat 1122 1130	perianal
+T22	Habitat 1122 1136	perianal ulcer
+N1	OntoBiotope Annotation:T3 Referent:OBT:000920
+N2	OntoBiotope Annotation:T4 Referent:OBT:000538
+N3	OntoBiotope Annotation:T5 Referent:OBT:002294
+N4	OntoBiotope Annotation:T5 Referent:OBT:002311
+N5	OntoBiotope Annotation:T6 Referent:OBT:002294
+N6	OntoBiotope Annotation:T7 Referent:OBT:002294
+N7	OntoBiotope Annotation:T7 Referent:OBT:002115
+N8	OntoBiotope Annotation:T8 Referent:OBT:002216
+N9	OntoBiotope Annotation:T8 Referent:OBT:002294
+N10	OntoBiotope Annotation:T9 Referent:OBT:000952
+N11	OntoBiotope Annotation:T10 Referent:OBT:002294
+N12	OntoBiotope Annotation:T10 Referent:OBT:002311
+N13	OntoBiotope Annotation:T10 Referent:OBT:002216
+N14	OntoBiotope Annotation:T11 Referent:OBT:001801
+N15	OntoBiotope Annotation:T12 Referent:OBT:000920
+N16	OntoBiotope Annotation:T12 Referent:OBT:000952
+N17	OntoBiotope Annotation:T13 Referent:OBT:002311
+N18	OntoBiotope Annotation:T13 Referent:OBT:002294
+N19	OntoBiotope Annotation:T13 Referent:OBT:002236
+N20	OntoBiotope Annotation:T14 Referent:OBT:000538
+N21	OntoBiotope Annotation:T15 Referent:OBT:000920
+N22	OntoBiotope Annotation:T16 Referent:OBT:000952
+N23	NCBI_Taxonomy Annotation:T17 Referent:813
+N24	NCBI_Taxonomy Annotation:T18 Referent:813
+N25	OntoBiotope Annotation:T19 Referent:OBT:002294
+N26	OntoBiotope Annotation:T19 Referent:OBT:002216
+N27	OntoBiotope Annotation:T19 Referent:OBT:002311
+N28	OntoBiotope Annotation:T20 Referent:OBT:002294
+N29	OntoBiotope Annotation:T20 Referent:OBT:002236
+N30	OntoBiotope Annotation:T20 Referent:OBT:002311
+N31	OntoBiotope Annotation:T21 Referent:OBT:000920
+N32	OntoBiotope Annotation:T22 Referent:OBT:000538

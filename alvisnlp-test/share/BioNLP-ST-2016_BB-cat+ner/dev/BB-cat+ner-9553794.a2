@@ -1,0 +1,68 @@
+T3	Bacteria 26 50	Carnobacterium piscicola
+T4	Habitat 66 145	vacuum- and modified-atmosphere-packed cold-smoked salmon stored at 5 degrees C
+T5	Habitat 151 161	microflora
+T6	Habitat 165 191	spoiled cold-smoked salmon
+T7	Bacteria 223 243	lactic acid bacteria
+T8	Bacteria 245 248	LAB
+T9	Habitat 466 498	vacuum-packed cold-smoked salmon
+T10	Habitat 570 580	microflora
+T11	Habitat 597 600;621 658	LAB with an associate Gram-negative flora
+T12	Bacteria 597 600	LAB
+T13	Bacteria 815 818	LAB
+T14	Habitat 1003 1018	vacuum packages
+T15	Habitat 1047 1067	vacuum-packed salmon
+T16	Bacteria 1087 1097	Vibrio sp.
+T17	Bacteria 1110 1120	V. marinus
+T18	Bacteria 1122 1140	Enterobacteriaceae
+T19	Bacteria 1142 1166	Enterobacter agglomerans
+T20	Bacteria 1168 1189	Serratia liquefaciens
+T21	Bacteria 1194 1212	Rahnella aquatilis
+T22	Bacteria 1231 1251	Aeromonas hydrophila
+T23	Habitat 1318 1332	LAB microflora
+T24	Bacteria 1318 1321	LAB
+T25	Bacteria 1350 1374	Carnobacterium piscicola
+T26	Bacteria 1422 1425	LAB
+T27	Bacteria 1513 1527	Carnobacterium
+T28	Bacteria 1578 1590	C. piscicola
+T29	Habitat 1661 1701	cold-smoked salmon stored at 5 degrees C
+T30	Habitat 1707 1713	salmon
+T31	Bacteria 1848 1860	C. piscicola
+T32	Bacteria 2107 2110	LAB
+N1	NCBI_Taxonomy Annotation:T3 Referent:2751
+N2	OntoBiotope Annotation:T4 Referent:OBT:001656
+N3	OntoBiotope Annotation:T4 Referent:OBT:001349
+N4	OntoBiotope Annotation:T4 Referent:OBT:001145
+N5	OntoBiotope Annotation:T4 Referent:OBT:000895
+N6	OntoBiotope Annotation:T5 Referent:OBT:000033
+N7	OntoBiotope Annotation:T6 Referent:OBT:001656
+N8	OntoBiotope Annotation:T6 Referent:OBT:000578
+N9	NCBI_Taxonomy Annotation:T7 Referent:186826
+N10	NCBI_Taxonomy Annotation:T8 Referent:186826
+N11	OntoBiotope Annotation:T9 Referent:OBT:001656
+N12	OntoBiotope Annotation:T9 Referent:OBT:001145
+N13	OntoBiotope Annotation:T10 Referent:OBT:000033
+N14	OntoBiotope Annotation:T11 Referent:OBT:000033
+N15	NCBI_Taxonomy Annotation:T12 Referent:186826
+N16	NCBI_Taxonomy Annotation:T13 Referent:186826
+N17	OntoBiotope Annotation:T14 Referent:OBT:001145
+N18	OntoBiotope Annotation:T14 Referent:OBT:001656
+N19	OntoBiotope Annotation:T15 Referent:OBT:001656
+N20	OntoBiotope Annotation:T15 Referent:OBT:001145
+N21	NCBI_Taxonomy Annotation:T16 Referent:678
+N22	NCBI_Taxonomy Annotation:T17 Referent:90736
+N23	NCBI_Taxonomy Annotation:T18 Referent:543
+N24	NCBI_Taxonomy Annotation:T19 Referent:549
+N25	NCBI_Taxonomy Annotation:T20 Referent:614
+N26	NCBI_Taxonomy Annotation:T21 Referent:34038
+N27	NCBI_Taxonomy Annotation:T22 Referent:644
+N28	OntoBiotope Annotation:T23 Referent:OBT:000033
+N29	NCBI_Taxonomy Annotation:T24 Referent:186826
+N30	NCBI_Taxonomy Annotation:T25 Referent:2751
+N31	NCBI_Taxonomy Annotation:T26 Referent:186826
+N32	NCBI_Taxonomy Annotation:T27 Referent:2751
+N33	NCBI_Taxonomy Annotation:T28 Referent:2751
+N34	OntoBiotope Annotation:T29 Referent:OBT:001656
+N35	OntoBiotope Annotation:T29 Referent:OBT:000895
+N36	OntoBiotope Annotation:T30 Referent:OBT:001656
+N37	NCBI_Taxonomy Annotation:T31 Referent:2751
+N38	NCBI_Taxonomy Annotation:T32 Referent:186826

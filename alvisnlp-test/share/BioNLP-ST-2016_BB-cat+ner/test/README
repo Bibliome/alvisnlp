@@ -1,0 +1,50 @@
+Test Data for BioNLP'16 Shared Task on Event Extraction -- Bacteria Biotopes named-entity recognition and categorization (BB-cat+ner)
+
+
+- Contains 54 documents with manual annotations of entities and their attachment to their referential
+
+- For more information about the BB tasks, see:
+
+  http://2016.bionlp-st.org/tasks/bb3
+
+- For format details, please refer to the following address:
+
+  http://2013.bionlp-st.org/file-formats
+
+
+
+
+Contents
+--------
+
+  ** `.txt' files: each file contains the text contents of a document. Each document is a PubMed abstract (including the title) about bacteria. The `.txt' files are encoded in UTF-8. The name of the files follow the pattern:
+
+        BB-cat+ner-PMID.txt
+
+     where PMID is the PubMed identifier of the abstract.
+
+  ** `.a1' files: for each document, the corresponding `.a1' file contains entities of type Title and Paragraph that indicate respectively the title of the abstract and each paragraph of the abstract.
+
+
+
+
+History
+-------
+
+29 January 2016, training and development data release
+03 February 2016, corrections to training and development data, addition of a license
+07 March 2016, minor corrections to training and development data
+25 March 2016, test data release
+
+
+
+Authors
+-------
+
+BioNLP'13 Shared Task organizers,
+bionlpsharedtask@gmail.com
+http://2016.bionlp-st.org/
+
+For questions and remarks concerning specifically the BB task:
+Robert Bossy
+Robert.Bossy@jouy.inra.fr

@@ -1,0 +1,46 @@
+T3	Bacteria 38 59	Chlamydia trachomatis
+T4	Bacteria 64 75	C. psittaci
+T5	Habitat 87 98	McCoy cells
+T6	Habitat 118 126	clinical
+T7	Bacteria 258 279	Chlamydia trachomatis
+T8	Bacteria 284 295	C. psittaci
+T9	Habitat 307 340	cycloheximide-treated McCoy cells
+T10	Bacteria 413 427	C. trachomatis
+T11	Habitat 452 460	clinical
+T12	Bacteria 478 489	C. psittaci
+T13	Bacteria 526 540	C. trachomatis
+T14	Bacteria 646 657	C. psittaci
+T15	Bacteria 688 702	C. trachomatis
+T16	Habitat 715 732	cases of trachoma
+T17	Bacteria 747 756;760 761	serotypes B
+T18	Bacteria 747 758	serotypes A
+T19	Bacteria 747 756;766 767	serotypes C
+T20	Habitat 870 889	oculogenital origin
+T21	Bacteria 904 917	serotypes D-I
+T22	Bacteria 1083 1094	C. psittaci
+T23	Bacteria 1188 1198	chlamydiae
+N1	NCBI_Taxonomy Annotation:T3 Referent:813
+N2	NCBI_Taxonomy Annotation:T4 Referent:83554
+N3	OntoBiotope Annotation:T5 Referent:OBT:000056
+N4	OntoBiotope Annotation:T5 Referent:OBT:000029
+N5	OntoBiotope Annotation:T6 Referent:OBT:002133
+N6	NCBI_Taxonomy Annotation:T7 Referent:813
+N7	NCBI_Taxonomy Annotation:T8 Referent:83554
+N8	OntoBiotope Annotation:T9 Referent:OBT:000056
+N9	OntoBiotope Annotation:T9 Referent:OBT:000029
+N10	NCBI_Taxonomy Annotation:T10 Referent:813
+N11	OntoBiotope Annotation:T11 Referent:OBT:002133
+N12	NCBI_Taxonomy Annotation:T12 Referent:83554
+N13	NCBI_Taxonomy Annotation:T13 Referent:813
+N14	NCBI_Taxonomy Annotation:T14 Referent:83554
+N15	NCBI_Taxonomy Annotation:T15 Referent:813
+N16	OntoBiotope Annotation:T16 Referent:OBT:002205
+N17	NCBI_Taxonomy Annotation:T17 Referent:813
+N18	NCBI_Taxonomy Annotation:T18 Referent:813
+N19	NCBI_Taxonomy Annotation:T19 Referent:813
+N20	OntoBiotope Annotation:T20 Referent:OBT:000268
+N21	OntoBiotope Annotation:T20 Referent:OBT:000381
+N22	NCBI_Taxonomy Annotation:T21 Referent:813
+N23	NCBI_Taxonomy Annotation:T22 Referent:83554
+N24	NCBI_Taxonomy Annotation:T23 Referent:83554
+N25	NCBI_Taxonomy Annotation:T23 Referent:813

@@ -1,0 +1,6 @@
+T3	Bacteria 54 76	Haemophilus influenzae
+T4	Bacteria 731 747	Escherichia coli
+T5	Bacteria 915 937	Haemophilus influenzae
+N1	NCBI_Taxonomy Annotation:T3 Referent:727
+N2	NCBI_Taxonomy Annotation:T4 Referent:562
+N3	NCBI_Taxonomy Annotation:T5 Referent:727

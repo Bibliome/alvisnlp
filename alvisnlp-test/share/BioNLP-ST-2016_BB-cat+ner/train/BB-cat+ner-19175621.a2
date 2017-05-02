@@ -1,0 +1,26 @@
+T3	Bacteria 57 76	Salmonella enterica
+T4	Habitat 140 147	animals
+T5	Habitat 152 158	humans
+T6	Bacteria 175 194	Salmonella enterica
+T7	Habitat 220 237	Spanish hospitals
+T8	Bacteria 271 278	Virchow
+T9	Bacteria 286 297	Livingstone
+T10	Bacteria 422 445	S. enterica Livingstone
+T11	Bacteria 553 572	S. enterica Virchow
+T12	Bacteria 666 673	Virchow
+T13	Habitat 909 916	animals
+T14	Bacteria 976 987	S. enterica
+T15	Habitat 1007 1016	hospitals
+N1	NCBI_Taxonomy Annotation:T3 Referent:28901
+N2	OntoBiotope Annotation:T4 Referent:OBT:000218
+N3	OntoBiotope Annotation:T5 Referent:OBT:001804
+N4	NCBI_Taxonomy Annotation:T6 Referent:28901
+N5	OntoBiotope Annotation:T7 Referent:OBT:001835
+N6	NCBI_Taxonomy Annotation:T8 Referent:48409
+N7	NCBI_Taxonomy Annotation:T9 Referent:260680
+N8	NCBI_Taxonomy Annotation:T10 Referent:260680
+N9	NCBI_Taxonomy Annotation:T11 Referent:48409
+N10	NCBI_Taxonomy Annotation:T12 Referent:48409
+N11	OntoBiotope Annotation:T13 Referent:OBT:000218
+N12	NCBI_Taxonomy Annotation:T14 Referent:28901
+N13	OntoBiotope Annotation:T15 Referent:OBT:001835

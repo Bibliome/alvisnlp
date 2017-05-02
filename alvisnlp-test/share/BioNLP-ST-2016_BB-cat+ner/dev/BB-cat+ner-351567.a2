@@ -1,0 +1,8 @@
+T3	Bacteria 115 131	Escherichia coli
+T4	Habitat 171 196	cellophane membrane disks
+T5	Bacteria 884 891	E. coli
+T6	Bacteria 921 924	Eco
+N1	NCBI_Taxonomy Annotation:T3 Referent:562
+N2	OntoBiotope Annotation:T4 Referent:OBT:000072
+N3	NCBI_Taxonomy Annotation:T5 Referent:562
+N4	NCBI_Taxonomy Annotation:T6 Referent:562

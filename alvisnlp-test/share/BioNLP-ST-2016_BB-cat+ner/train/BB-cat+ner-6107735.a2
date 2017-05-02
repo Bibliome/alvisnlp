@@ -1,0 +1,39 @@
+T3	Habitat 14 23	Pelecypod
+T4	Habitat 89 95	people
+T5	Bacteria 214 233	Vibrio cholerae O:1
+T6	Habitat 251 285	household contacts of the patients
+T7	Habitat 251 260	household
+T8	Habitat 277 285	patients
+T9	Habitat 329 366	people with V. cholerae O:1 infection
+T10	Bacteria 341 356	V. cholerae O:1
+T11	Habitat 407 422	marine bivalves
+T12	Habitat 407 413	marine
+T13	Habitat 440 447	arselle
+T14	Habitat 449 459	pelecypods
+T15	Habitat 592 599	arselle
+T16	Bacteria 601 616	V. cholerae O:1
+T17	Habitat 652 657	water
+T18	Habitat 662 670	bivalves
+T19	Habitat 687 734	lagoon on the outskirts of the city of Cagliari
+T20	Habitat 701 734	outskirts of the city of Cagliari
+T21	Habitat 736 743	Arselle
+N1	OntoBiotope Annotation:T3 Referent:OBT:001230
+N2	OntoBiotope Annotation:T4 Referent:OBT:002216
+N3	NCBI_Taxonomy Annotation:T5 Referent:127906
+N4	OntoBiotope Annotation:T6 Referent:OBT:001804
+N5	OntoBiotope Annotation:T7 Referent:OBT:000113
+N6	OntoBiotope Annotation:T8 Referent:OBT:002216
+N7	OntoBiotope Annotation:T9 Referent:OBT:002216
+N8	NCBI_Taxonomy Annotation:T10 Referent:127906
+N9	OntoBiotope Annotation:T11 Referent:OBT:001230
+N10	OntoBiotope Annotation:T12 Referent:OBT:000078
+N11	OntoBiotope Annotation:T13 Referent:OBT:001230
+N12	OntoBiotope Annotation:T14 Referent:OBT:001230
+N13	OntoBiotope Annotation:T15 Referent:OBT:001230
+N14	NCBI_Taxonomy Annotation:T16 Referent:127906
+N15	OntoBiotope Annotation:T17 Referent:OBT:000132
+N16	OntoBiotope Annotation:T18 Referent:OBT:000903
+N17	OntoBiotope Annotation:T18 Referent:OBT:001230
+N18	OntoBiotope Annotation:T19 Referent:OBT:002104
+N19	OntoBiotope Annotation:T20 Referent:OBT:000114
+N20	OntoBiotope Annotation:T21 Referent:OBT:001230

@@ -1,0 +1,35 @@
+T6	Bacteria 44 63	Helicobactor pylori
+T7	Habitat 77 85	children
+T8	Bacteria 119 138	Helicobacter pylori
+T9	Bacteria 140 148	H.pylori
+T10	Bacteria 206 214	H.pylori
+T11	Habitat 228 236	children
+T12	Habitat 288 327	children with digestive system symptoms
+T13	Habitat 302 318	digestive system
+T14	Bacteria 470 478	H.pylori
+T15	Habitat 490 521	Serum samples of these patients
+T16	Habitat 513 521	patients
+T17	Bacteria 741 749	H.pylori
+T18	Habitat 815 823	children
+T19	Bacteria 936 944	H.pylori
+T20	Bacteria 1381 1389	H.pylori
+T21	Bacteria 1713 1721	H.pylori
+N1	NCBI_Taxonomy Annotation:T6 Referent:210
+N2	OntoBiotope Annotation:T7 Referent:OBT:002146
+N3	NCBI_Taxonomy Annotation:T8 Referent:210
+N4	NCBI_Taxonomy Annotation:T9 Referent:210
+N5	NCBI_Taxonomy Annotation:T10 Referent:210
+N6	OntoBiotope Annotation:T11 Referent:OBT:002146
+N7	OntoBiotope Annotation:T12 Referent:OBT:002307
+N8	OntoBiotope Annotation:T12 Referent:OBT:002187
+N9	OntoBiotope Annotation:T13 Referent:OBT:000286
+N10	NCBI_Taxonomy Annotation:T14 Referent:210
+N11	OntoBiotope Annotation:T15 Referent:OBT:000571
+N12	OntoBiotope Annotation:T16 Referent:OBT:002187
+N13	OntoBiotope Annotation:T16 Referent:OBT:002307
+N14	NCBI_Taxonomy Annotation:T17 Referent:210
+N15	OntoBiotope Annotation:T18 Referent:OBT:002307
+N16	OntoBiotope Annotation:T18 Referent:OBT:002187
+N17	NCBI_Taxonomy Annotation:T19 Referent:210
+N18	NCBI_Taxonomy Annotation:T20 Referent:210
+N19	NCBI_Taxonomy Annotation:T21 Referent:210

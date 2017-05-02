@@ -1,0 +1,56 @@
+T3	Habitat 0 25	Gamma/delta T lymphocytes
+T4	Habitat 33 58	BCG granulomatous lesions
+T5	Bacteria 33 36	BCG
+T6	Habitat 37 50	granulomatous
+T7	Habitat 78 81;93 99	man models
+T8	Habitat 86 99	animal models
+T9	Habitat 123 154	TCR-gamma delta-bearing T cells
+T10	Habitat 156 175	gamma delta T cells
+T11	Bacteria 194 206	mycobacteria
+T12	Bacteria 238 251	mycobacterial
+T13	Habitat 288 307	gamma delta T cells
+T14	Habitat 370 375	cells
+T15	Habitat 383 396	granulomatous
+T16	Habitat 441 460	gamma delta T cells
+T17	Habitat 472 486	BCG granulomas
+T18	Bacteria 472 475	BCG
+T19	Habitat 531 544	T-lymphocytes
+T20	Habitat 560 584	BCG granulomatous lesion
+T21	Bacteria 560 563	BCG
+T22	Habitat 564 577	granulomatous
+T23	Habitat 686 705	gamma delta T cells
+T24	Habitat 743 774	BCG granulomas without necrosis
+T25	Bacteria 743 746	BCG
+T26	Habitat 821 840	gamma delta T cells
+T27	Habitat 868 944	granulomas with central caseous necrosis, calcification and fibrotic changes
+T28	Habitat 998 1028	CD8+ gamma delta T lymphocytes
+T29	Habitat 1048 1061	BCG granuloma
+T30	Bacteria 1048 1051	BCG
+N1	OntoBiotope Annotation:T3 Referent:OBT:001342
+N2	OntoBiotope Annotation:T4 Referent:OBT:000231
+N3	NCBI_Taxonomy Annotation:T5 Referent:33892
+N4	OntoBiotope Annotation:T6 Referent:OBT:000222
+N5	OntoBiotope Annotation:T7 Referent:OBT:002294
+N6	OntoBiotope Annotation:T8 Referent:OBT:000218
+N7	OntoBiotope Annotation:T9 Referent:OBT:001342
+N8	OntoBiotope Annotation:T10 Referent:OBT:001342
+N9	NCBI_Taxonomy Annotation:T11 Referent:1763
+N10	NCBI_Taxonomy Annotation:T12 Referent:1763
+N11	OntoBiotope Annotation:T13 Referent:OBT:001342
+N12	OntoBiotope Annotation:T14 Referent:OBT:001342
+N13	OntoBiotope Annotation:T15 Referent:OBT:000222
+N14	OntoBiotope Annotation:T16 Referent:OBT:001342
+N15	OntoBiotope Annotation:T17 Referent:OBT:000222
+N16	NCBI_Taxonomy Annotation:T18 Referent:33892
+N17	OntoBiotope Annotation:T19 Referent:OBT:001342
+N18	OntoBiotope Annotation:T20 Referent:OBT:000231
+N19	NCBI_Taxonomy Annotation:T21 Referent:33892
+N20	OntoBiotope Annotation:T22 Referent:OBT:000222
+N21	OntoBiotope Annotation:T23 Referent:OBT:001342
+N22	OntoBiotope Annotation:T24 Referent:OBT:000222
+N23	NCBI_Taxonomy Annotation:T25 Referent:33892
+N24	OntoBiotope Annotation:T26 Referent:OBT:001342
+N25	OntoBiotope Annotation:T27 Referent:OBT:000222
+N26	OntoBiotope Annotation:T28 Referent:OBT:001342
+N27	OntoBiotope Annotation:T29 Referent:OBT:000222
+N28	NCBI_Taxonomy Annotation:T30 Referent:33892

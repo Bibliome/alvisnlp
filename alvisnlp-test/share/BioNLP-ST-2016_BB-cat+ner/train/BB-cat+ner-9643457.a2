@@ -1,0 +1,29 @@
+T3	Habitat 31 41	neutrophil
+T4	Bacteria 106 122	Escherichia coli
+T5	Habitat 135 141	cattle
+T6	Habitat 149 161	healthy cows
+T7	Habitat 163 173	neutrophil
+T8	Bacteria 285 301	Escherichia coli
+T9	Habitat 403 414	neutrophils
+T10	Habitat 519 530	neutrophils
+T11	Habitat 635 639	cows
+T12	Habitat 685 696	neutrophils
+T13	Bacteria 1054 1061	E. coli
+T14	Habitat 1265 1275	neutrophil
+T15	Habitat 1313 1324	neutrophils
+T16	Habitat 1476 1501	severely diseased animals
+N1	OntoBiotope Annotation:T3 Referent:OBT:002025
+N2	NCBI_Taxonomy Annotation:T4 Referent:562
+N3	OntoBiotope Annotation:T5 Referent:OBT:002302
+N4	OntoBiotope Annotation:T6 Referent:OBT:002312
+N5	OntoBiotope Annotation:T7 Referent:OBT:002025
+N6	NCBI_Taxonomy Annotation:T8 Referent:562
+N7	OntoBiotope Annotation:T9 Referent:OBT:002025
+N8	OntoBiotope Annotation:T10 Referent:OBT:002025
+N9	OntoBiotope Annotation:T11 Referent:OBT:002312
+N10	OntoBiotope Annotation:T12 Referent:OBT:002025
+N11	NCBI_Taxonomy Annotation:T13 Referent:562
+N12	OntoBiotope Annotation:T14 Referent:OBT:002025
+N13	OntoBiotope Annotation:T15 Referent:OBT:002025
+N14	OntoBiotope Annotation:T16 Referent:OBT:002312
+N15	OntoBiotope Annotation:T16 Referent:OBT:000563

@@ -1,0 +1,48 @@
+T3	Habitat 61 70	pediatric
+T4	Habitat 178 189	respiratory
+T5	Habitat 256 267	respiratory
+T6	Habitat 281 290	pediatric
+T7	Habitat 339 372	children less than 2 years of age
+T8	Habitat 418 488	children greater than 9 years of age who had lower respiratory illness
+T9	Habitat 469 480	respiratory
+T10	Habitat 490 495	Males
+T11	Habitat 543 550	females
+T12	Habitat 573 578	males
+T13	Habitat 648 666	patients with WARI
+T14	Habitat 668 679	respiratory
+T15	Bacteria 750 771	Mycoplasma pneumoniae
+T16	Habitat 807 814	Patient
+T17	Habitat 904 933	children under 5 years of age
+T18	Bacteria 950 971	Mycoplasma pneumoniae
+T19	Habitat 1007 1048	school age children with wheezing illness
+T20	Habitat 1124 1138	diagnosticians
+T21	Habitat 1146 1157	researchers
+T22	Habitat 1193 1204	respiratory
+N1	OntoBiotope Annotation:T3 Referent:OBT:002307
+N2	OntoBiotope Annotation:T4 Referent:OBT:000164
+N3	OntoBiotope Annotation:T5 Referent:OBT:000164
+N4	OntoBiotope Annotation:T6 Referent:OBT:002307
+N5	OntoBiotope Annotation:T7 Referent:OBT:002307
+N6	OntoBiotope Annotation:T8 Referent:OBT:002307
+N7	OntoBiotope Annotation:T8 Referent:OBT:002187
+N8	OntoBiotope Annotation:T9 Referent:OBT:000164
+N9	OntoBiotope Annotation:T10 Referent:OBT:002167
+N10	OntoBiotope Annotation:T10 Referent:OBT:002307
+N11	OntoBiotope Annotation:T11 Referent:OBT:002191
+N12	OntoBiotope Annotation:T11 Referent:OBT:002307
+N13	OntoBiotope Annotation:T12 Referent:OBT:002167
+N14	OntoBiotope Annotation:T12 Referent:OBT:002307
+N15	OntoBiotope Annotation:T13 Referent:OBT:002187
+N16	OntoBiotope Annotation:T13 Referent:OBT:002307
+N17	OntoBiotope Annotation:T14 Referent:OBT:000164
+N18	NCBI_Taxonomy Annotation:T15 Referent:2104
+N19	OntoBiotope Annotation:T16 Referent:OBT:002307
+N20	OntoBiotope Annotation:T16 Referent:OBT:002187
+N21	OntoBiotope Annotation:T17 Referent:OBT:002307
+N22	OntoBiotope Annotation:T17 Referent:OBT:002187
+N23	NCBI_Taxonomy Annotation:T18 Referent:2104
+N24	OntoBiotope Annotation:T19 Referent:OBT:002307
+N25	OntoBiotope Annotation:T19 Referent:OBT:002187
+N26	OntoBiotope Annotation:T20 Referent:OBT:002252
+N27	OntoBiotope Annotation:T21 Referent:OBT:002265
+N28	OntoBiotope Annotation:T22 Referent:OBT:000164

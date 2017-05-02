@@ -1,0 +1,78 @@
+T3	Bacteria 10 29	Helicobacter pylori
+T4	Habitat 86 93	gastric
+T5	Habitat 128 135	gastric
+T6	Bacteria 165 184	Helicobacter pylori
+T7	Bacteria 250 259	H. pylori
+T8	Habitat 343 350	gastric
+T9	Bacteria 416 425	H. pylori
+T10	Habitat 416 443	H. pylori-positive subjects
+T11	Bacteria 452 461	H. pylori
+T12	Habitat 452 479	H. pylori-negative subjects
+T13	Habitat 527 534	gastric
+T14	Habitat 527 541	gastric mucosa
+T15	Bacteria 555 564	H. pylori
+T16	Habitat 555 581	H. pylori-infected monkeys
+T17	Habitat 596 611	control monkeys
+T18	Bacteria 646 655	H. pylori
+T19	Habitat 676 684	children
+T20	Habitat 705 719	gastric mucosa
+T21	Habitat 705 712	gastric
+T22	Bacteria 770 779	H. pylori
+T23	Habitat 802 809	gastric
+T24	Habitat 871 878	gastric
+T25	Bacteria 947 956	H. pylori
+T26	Habitat 965 978;1001 1015	patients with gastric cancer
+T27	Habitat 965 996	patients with chronic gastritis
+T28	Habitat 1001 1008	gastric
+T29	Bacteria 1048 1057	H. pylori
+T30	Habitat 1061 1099	young Japanese gastric cancer patients
+T31	Habitat 1076 1083	gastric
+T32	Bacteria 1181 1190	H. pylori
+T33	Habitat 1231 1238	gastric
+T34	Habitat 1249 1270	young Japanese people
+T35	Bacteria 1309 1318	H. pylori
+T36	Habitat 1360 1367	gastric
+T37	Habitat 1360 1374	gastric mucosa
+T38	Habitat 1400 1407	gastric
+T39	Bacteria 1552 1561	H. pylori
+N1	NCBI_Taxonomy Annotation:T3 Referent:210
+N2	OntoBiotope Annotation:T4 Referent:OBT:000953
+N3	OntoBiotope Annotation:T5 Referent:OBT:000953
+N4	NCBI_Taxonomy Annotation:T6 Referent:210
+N5	NCBI_Taxonomy Annotation:T7 Referent:210
+N6	OntoBiotope Annotation:T8 Referent:OBT:000953
+N7	OntoBiotope Annotation:T10 Referent:OBT:002216
+N8	NCBI_Taxonomy Annotation:T9 Referent:210
+N9	OntoBiotope Annotation:T12 Referent:OBT:001894
+N10	NCBI_Taxonomy Annotation:T11 Referent:210
+N11	OntoBiotope Annotation:T13 Referent:OBT:000953
+N12	OntoBiotope Annotation:T14 Referent:OBT:000965
+N13	OntoBiotope Annotation:T16 Referent:OBT:000563
+N14	OntoBiotope Annotation:T16 Referent:OBT:002099
+N15	OntoBiotope Annotation:T16 Referent:OBT:000323
+N16	NCBI_Taxonomy Annotation:T15 Referent:210
+N17	OntoBiotope Annotation:T17 Referent:OBT:002099
+N18	OntoBiotope Annotation:T17 Referent:OBT:000323
+N19	NCBI_Taxonomy Annotation:T18 Referent:210
+N20	OntoBiotope Annotation:T19 Referent:OBT:002146
+N21	OntoBiotope Annotation:T20 Referent:OBT:000965
+N22	OntoBiotope Annotation:T21 Referent:OBT:000953
+N23	NCBI_Taxonomy Annotation:T22 Referent:210
+N24	OntoBiotope Annotation:T23 Referent:OBT:000953
+N25	OntoBiotope Annotation:T24 Referent:OBT:000953
+N26	NCBI_Taxonomy Annotation:T25 Referent:210
+N27	OntoBiotope Annotation:T26 Referent:OBT:002237
+N28	OntoBiotope Annotation:T27 Referent:OBT:002216
+N29	OntoBiotope Annotation:T28 Referent:OBT:000953
+N30	NCBI_Taxonomy Annotation:T29 Referent:210
+N31	OntoBiotope Annotation:T30 Referent:OBT:002307
+N32	OntoBiotope Annotation:T30 Referent:OBT:002237
+N33	OntoBiotope Annotation:T31 Referent:OBT:000953
+N34	NCBI_Taxonomy Annotation:T32 Referent:210
+N35	OntoBiotope Annotation:T33 Referent:OBT:000953
+N36	OntoBiotope Annotation:T34 Referent:OBT:002146
+N37	NCBI_Taxonomy Annotation:T35 Referent:210
+N38	OntoBiotope Annotation:T36 Referent:OBT:000953
+N39	OntoBiotope Annotation:T37 Referent:OBT:000965
+N40	OntoBiotope Annotation:T38 Referent:OBT:000953
+N41	NCBI_Taxonomy Annotation:T39 Referent:210

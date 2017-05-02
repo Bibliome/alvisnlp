@@ -1,0 +1,10 @@
+T3	Bacteria 71 93	Salmonella typhimurium
+T4	Bacteria 166 194	Salmonella typhimurium (993)
+T5	Bacteria 271 281	Salmonella
+T6	Bacteria 294 299	(993)
+T7	Bacteria 620 634	S. typhimurium
+N1	NCBI_Taxonomy Annotation:T3 Referent:90371
+N2	NCBI_Taxonomy Annotation:T4 Referent:90371
+N3	NCBI_Taxonomy Annotation:T5 Referent:590
+N4	NCBI_Taxonomy Annotation:T6 Referent:90371
+N5	NCBI_Taxonomy Annotation:T7 Referent:90371

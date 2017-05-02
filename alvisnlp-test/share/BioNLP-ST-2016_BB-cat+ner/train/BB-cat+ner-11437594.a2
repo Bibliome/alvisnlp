@@ -1,0 +1,16 @@
+T3	Habitat 34 50	Chondrus crispus
+T4	Habitat 69 84	Pichia pastoris
+T5	Habitat 171 196	red alga Chondrus crispus
+T6	Bacteria 296 312	Escherichia coli
+T7	Habitat 402 438	methylotrophic yeast Pichia pastoris
+T8	Habitat 541 552	P. pastoris
+T9	Habitat 958 982	Saccharomyces cerevisiae
+T10	Habitat 1086 1097	P. pastoris
+N1	OntoBiotope Annotation:T3 Referent:OBT:001922
+N2	OntoBiotope Annotation:T4 Referent:OBT:001749
+N3	OntoBiotope Annotation:T5 Referent:OBT:001922
+N4	NCBI_Taxonomy Annotation:T6 Referent:562
+N5	OntoBiotope Annotation:T7 Referent:OBT:001749
+N6	OntoBiotope Annotation:T8 Referent:OBT:001749
+N7	OntoBiotope Annotation:T9 Referent:OBT:001749
+N8	OntoBiotope Annotation:T10 Referent:OBT:001749

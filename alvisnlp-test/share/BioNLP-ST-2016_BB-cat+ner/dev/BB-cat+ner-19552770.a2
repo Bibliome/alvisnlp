@@ -1,0 +1,69 @@
+T6	Bacteria 29 42	Campylobacter
+T7	Habitat 46 56	partridges
+T8	Habitat 58 71	Perdix perdix
+T9	Bacteria 119 137	Campylobacter spp.
+T10	Habitat 141 171	commercially reared partridges
+T11	Habitat 173 186	Perdix perdix
+T12	Habitat 207 234	Cloacal swabs of partridges
+T13	Habitat 207 214	Cloacal
+T14	Habitat 224 234	partridges
+T15	Habitat 274 278;290 295	male birds
+T16	Habitat 283 295	female birds
+T17	Habitat 304 313	game bird
+T18	Habitat 304 318	game bird farm
+T19	Bacteria 400 418	Campylobacter spp.
+T20	Bacteria 480 498	Campylobacter spp.
+T21	Bacteria 615 633	Campylobacter spp.
+T22	Habitat 676 689	cloacal swabs
+T23	Bacteria 757 775	Campylobacter coli
+T24	Bacteria 857 877	Campylobacter jejuni
+T25	Bacteria 892 910	Campylobacter lari
+T26	Habitat 931 947	Adult partridges
+T27	Habitat 1005 1017	younger ones
+T28	Habitat 1063 1073	game birds
+T29	Bacteria 1117 1135	Campylobacter spp.
+T30	Habitat 1140 1145	human
+T31	Habitat 1162 1176	animal species
+T32	Bacteria 1243 1261	Campylobacter coli
+T33	Habitat 1265 1295	commercially reared partridges
+T34	Bacteria 1348 1361	Campylobacter
+N1	NCBI_Taxonomy Annotation:T6 Referent:194
+N2	OntoBiotope Annotation:T7 Referent:OBT:002065
+N3	OntoBiotope Annotation:T8 Referent:OBT:002065
+N4	NCBI_Taxonomy Annotation:T9 Referent:194
+N5	OntoBiotope Annotation:T10 Referent:OBT:002065
+N6	OntoBiotope Annotation:T10 Referent:OBT:001799
+N7	OntoBiotope Annotation:T11 Referent:OBT:002065
+N8	OntoBiotope Annotation:T12 Referent:OBT:001117
+N9	OntoBiotope Annotation:T13 Referent:OBT:001344
+N10	OntoBiotope Annotation:T14 Referent:OBT:002065
+N11	OntoBiotope Annotation:T14 Referent:OBT:001799
+N12	OntoBiotope Annotation:T15 Referent:OBT:000608
+N13	OntoBiotope Annotation:T15 Referent:OBT:002065
+N14	OntoBiotope Annotation:T15 Referent:OBT:001799
+N15	OntoBiotope Annotation:T16 Referent:OBT:000724
+N16	OntoBiotope Annotation:T16 Referent:OBT:002065
+N17	OntoBiotope Annotation:T16 Referent:OBT:001799
+N18	OntoBiotope Annotation:T17 Referent:OBT:001181
+N19	OntoBiotope Annotation:T18 Referent:OBT:000068
+N20	NCBI_Taxonomy Annotation:T19 Referent:194
+N21	NCBI_Taxonomy Annotation:T20 Referent:194
+N22	NCBI_Taxonomy Annotation:T21 Referent:194
+N23	OntoBiotope Annotation:T22 Referent:OBT:001117
+N24	NCBI_Taxonomy Annotation:T23 Referent:195
+N25	NCBI_Taxonomy Annotation:T24 Referent:197
+N26	NCBI_Taxonomy Annotation:T25 Referent:201
+N27	OntoBiotope Annotation:T26 Referent:OBT:000989
+N28	OntoBiotope Annotation:T26 Referent:OBT:001799
+N29	OntoBiotope Annotation:T26 Referent:OBT:002065
+N30	OntoBiotope Annotation:T27 Referent:OBT:000954
+N31	OntoBiotope Annotation:T27 Referent:OBT:002065
+N32	OntoBiotope Annotation:T27 Referent:OBT:001799
+N33	OntoBiotope Annotation:T28 Referent:OBT:001181
+N34	NCBI_Taxonomy Annotation:T29 Referent:194
+N35	OntoBiotope Annotation:T30 Referent:OBT:001804
+N36	OntoBiotope Annotation:T31 Referent:OBT:000218
+N37	NCBI_Taxonomy Annotation:T32 Referent:195
+N38	OntoBiotope Annotation:T33 Referent:OBT:002065
+N39	OntoBiotope Annotation:T33 Referent:OBT:001799
+N40	NCBI_Taxonomy Annotation:T34 Referent:194

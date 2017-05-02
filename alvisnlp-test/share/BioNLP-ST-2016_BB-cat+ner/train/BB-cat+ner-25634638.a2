@@ -1,0 +1,26 @@
+T3	Bacteria 76 98	Pseudomonas aeruginosa
+T4	Bacteria 178 200	Pseudomonas aeruginosa
+T5	Bacteria 202 215	P. aeruginosa
+T6	Habitat 480 488	clinical
+T7	Habitat 501 517	patients with CF
+T8	Habitat 584 589;598 612	lungs of CF patients
+T9	Habitat 590 612	airways of CF patients
+T10	Habitat 601 612	CF patients
+T11	Bacteria 668 681	P. aeruginosa
+T12	Bacteria 849 862	P. aeruginosa
+T13	Bacteria 984 1004	Burkholderia cepacia
+T14	Bacteria 1111 1139	Stenotrophomonas maltophilia
+T15	Bacteria 1141 1164	Mycobacterium abscessus
+N1	NCBI_Taxonomy Annotation:T3 Referent:287
+N2	NCBI_Taxonomy Annotation:T4 Referent:287
+N3	NCBI_Taxonomy Annotation:T5 Referent:287
+N4	OntoBiotope Annotation:T6 Referent:OBT:002225
+N5	OntoBiotope Annotation:T7 Referent:OBT:002225
+N6	OntoBiotope Annotation:T8 Referent:OBT:000287
+N7	OntoBiotope Annotation:T9 Referent:OBT:000124
+N8	OntoBiotope Annotation:T10 Referent:OBT:002225
+N9	NCBI_Taxonomy Annotation:T11 Referent:287
+N10	NCBI_Taxonomy Annotation:T12 Referent:287
+N11	NCBI_Taxonomy Annotation:T13 Referent:292
+N12	NCBI_Taxonomy Annotation:T14 Referent:40324
+N13	NCBI_Taxonomy Annotation:T15 Referent:36809

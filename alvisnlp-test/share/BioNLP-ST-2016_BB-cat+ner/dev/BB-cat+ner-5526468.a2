@@ -1,0 +1,4 @@
+T2	Bacteria 0 12	Vibrio fetus
+T3	Habitat 13 18	human
+N1	NCBI_Taxonomy Annotation:T2 Referent:196
+N2	OntoBiotope Annotation:T3 Referent:OBT:001804

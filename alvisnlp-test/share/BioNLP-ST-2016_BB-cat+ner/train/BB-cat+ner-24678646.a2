@@ -1,0 +1,52 @@
+T6	Bacteria 59 80	Staphylococcus aureus
+T7	Bacteria 82 86	MRSA
+T8	Bacteria 113 125	Enterococcus
+T9	Bacteria 127 130	VRE
+T10	Bacteria 263 284	Staphylococcus aureus
+T11	Bacteria 286 290	MRSA
+T12	Bacteria 316 328	Enterococcus
+T13	Bacteria 330 333	VRE
+T14	Habitat 401 408	patient
+T15	Bacteria 553 557	MRSA
+T16	Bacteria 562 565	VRE
+T17	Bacteria 658 662	MRSA
+T18	Bacteria 834 837	VRE
+T19	Bacteria 1268 1272	MRSA
+T20	Bacteria 1290 1293	VRE
+T21	Bacteria 1413 1417	MRSA
+T22	Habitat 1428 1436	patients
+T23	Bacteria 1454 1457	VRE
+T24	Habitat 1468 1476	patients
+T25	Bacteria 1523 1527	MRSA
+T26	Bacteria 1532 1535	VRE
+T27	Bacteria 1599 1603	MRSA
+T28	Bacteria 1651 1654	VRE
+T29	Bacteria 1755 1759	MRSA
+T30	Bacteria 1950 1954	MRSA
+T31	Bacteria 1959 1962	VRE
+N1	NCBI_Taxonomy Annotation:T6 Referent:1280
+N2	NCBI_Taxonomy Annotation:T7 Referent:1280
+N3	NCBI_Taxonomy Annotation:T8 Referent:1350
+N4	NCBI_Taxonomy Annotation:T9 Referent:1350
+N5	NCBI_Taxonomy Annotation:T10 Referent:1280
+N6	NCBI_Taxonomy Annotation:T11 Referent:1280
+N7	NCBI_Taxonomy Annotation:T12 Referent:1350
+N8	NCBI_Taxonomy Annotation:T13 Referent:1350
+N9	OntoBiotope Annotation:T14 Referent:OBT:002133
+N10	NCBI_Taxonomy Annotation:T15 Referent:1280
+N11	NCBI_Taxonomy Annotation:T16 Referent:1350
+N12	NCBI_Taxonomy Annotation:T17 Referent:1280
+N13	NCBI_Taxonomy Annotation:T18 Referent:1350
+N14	NCBI_Taxonomy Annotation:T19 Referent:1280
+N15	NCBI_Taxonomy Annotation:T20 Referent:1350
+N16	NCBI_Taxonomy Annotation:T21 Referent:1280
+N17	OntoBiotope Annotation:T22 Referent:OBT:002133
+N18	NCBI_Taxonomy Annotation:T23 Referent:1350
+N19	OntoBiotope Annotation:T24 Referent:OBT:002133
+N20	NCBI_Taxonomy Annotation:T25 Referent:1280
+N21	NCBI_Taxonomy Annotation:T26 Referent:1350
+N22	NCBI_Taxonomy Annotation:T27 Referent:1280
+N23	NCBI_Taxonomy Annotation:T28 Referent:1350
+N24	NCBI_Taxonomy Annotation:T29 Referent:1280
+N25	NCBI_Taxonomy Annotation:T30 Referent:1280
+N26	NCBI_Taxonomy Annotation:T31 Referent:1350

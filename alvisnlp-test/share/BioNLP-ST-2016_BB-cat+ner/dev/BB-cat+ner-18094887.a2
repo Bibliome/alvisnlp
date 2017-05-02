@@ -1,0 +1,142 @@
+T3	Bacteria 0 10	Rickettsia
+T4	Bacteria 94 105	rickettsial
+T5	Habitat 119 126	animals
+T6	Habitat 128 134	humans
+T7	Habitat 136 141	ticks
+T8	Habitat 147 152	fleas
+T9	Habitat 210 214	flea
+T10	Habitat 224 259	Adoratopsylla antiquorum antiquorum
+T11	Habitat 261 288	Ctenocephalides felis felis
+T12	Habitat 290 306	Polygenis atopus
+T13	Habitat 308 325	Polygenis rimatus
+T14	Habitat 327 352	Polygenis roberti roberti
+T15	Habitat 354 370	Polygenis tripus
+T16	Habitat 372 395	Rhopalopsyllus lugubris
+T17	Habitat 401 427	Rhopalopsyllus lutzi lutzi
+T18	Habitat 439 443	tick
+T19	Habitat 453 473	Amblyomma aureolatum
+T20	Habitat 475 495	Amblyomma cajennense
+T21	Habitat 497 516	Amblyomma dubitatum
+T22	Habitat 518 534	Ixodes loricatus
+T23	Habitat 540 564	Rhipicephalus sanguineus
+T24	Habitat 586 590	dogs
+T25	Habitat 592 596	cats
+T26	Habitat 602 610	opossums
+T27	Bacteria 612 628	Rickettsia felis
+T28	Bacteria 642 652	rickettsia
+T29	Habitat 669 674	fleas
+T30	Bacteria 684 701	Rickettsia bellii
+T31	Habitat 731 736	ticks
+T32	Habitat 745 751	animal
+T33	Habitat 745 751;761 766	animal blood
+T34	Habitat 755 766	human blood
+T35	Habitat 755 760	human
+T36	Bacteria 788 799	rickettsial
+T37	Habitat 813 819	animal
+T38	Habitat 813 819;830 834	animal sera
+T39	Habitat 824 829	human
+T40	Habitat 824 834	human sera
+T41	Bacteria 885 895	rickettsia
+T42	Bacteria 906 919	R. rickettsii
+T43	Bacteria 921 931	R. parkeri
+T44	Bacteria 933 941	R. felis
+T45	Bacteria 947 956	R. bellii
+T46	Habitat 964 971;995 999	opossum sera
+T47	Habitat 964 971	opossum
+T48	Habitat 973 976	dog
+T49	Habitat 973 976;995 999	dog sera
+T50	Habitat 978 983	horse
+T51	Habitat 978 983;995 999	horse sera
+T52	Habitat 989 994	human
+T53	Habitat 989 999	human sera
+T54	Bacteria 1011 1024	R. rickettsii
+T55	Bacteria 1087 1098	rickettsial
+T56	Habitat 1115 1119	sera
+T57	Bacteria 1179 1192	R. rickettsii
+T58	Habitat 1219 1226;1243 1247	opossum sera
+T59	Habitat 1219 1226	opossum
+T60	Habitat 1228 1231;1243 1247	dog sera
+T61	Habitat 1228 1231	dog
+T62	Habitat 1237 1247	horse sera
+T63	Habitat 1237 1242	horse
+T64	Bacteria 1288 1298	R. parkeri
+T65	Bacteria 1377 1390	R. rickettsii
+T66	Bacteria 1395 1405	R. parkeri
+T67	Habitat 1415 1422	animals
+T68	Habitat 1430 1436	humans
+N1	NCBI_Taxonomy Annotation:T3 Referent:780
+N2	NCBI_Taxonomy Annotation:T4 Referent:780
+N3	OntoBiotope Annotation:T5 Referent:OBT:000218
+N4	OntoBiotope Annotation:T6 Referent:OBT:001804
+N5	OntoBiotope Annotation:T7 Referent:OBT:000937
+N6	OntoBiotope Annotation:T8 Referent:OBT:001513
+N7	OntoBiotope Annotation:T9 Referent:OBT:001513
+N8	OntoBiotope Annotation:T10 Referent:OBT:001513
+N9	OntoBiotope Annotation:T11 Referent:OBT:001513
+N10	OntoBiotope Annotation:T12 Referent:OBT:001513
+N11	OntoBiotope Annotation:T13 Referent:OBT:001513
+N12	OntoBiotope Annotation:T14 Referent:OBT:001513
+N13	OntoBiotope Annotation:T15 Referent:OBT:001513
+N14	OntoBiotope Annotation:T16 Referent:OBT:001513
+N15	OntoBiotope Annotation:T17 Referent:OBT:001513
+N16	OntoBiotope Annotation:T18 Referent:OBT:000937
+N17	OntoBiotope Annotation:T19 Referent:OBT:000937
+N18	OntoBiotope Annotation:T20 Referent:OBT:000937
+N19	OntoBiotope Annotation:T21 Referent:OBT:000937
+N20	OntoBiotope Annotation:T22 Referent:OBT:000937
+N21	OntoBiotope Annotation:T23 Referent:OBT:001890
+N22	OntoBiotope Annotation:T24 Referent:OBT:002072
+N23	OntoBiotope Annotation:T25 Referent:OBT:002075
+N24	OntoBiotope Annotation:T26 Referent:OBT:001751
+N25	NCBI_Taxonomy Annotation:T27 Referent:42862
+N26	NCBI_Taxonomy Annotation:T28 Referent:780
+N27	OntoBiotope Annotation:T29 Referent:OBT:001513
+N28	NCBI_Taxonomy Annotation:T30 Referent:33990
+N29	OntoBiotope Annotation:T31 Referent:OBT:000937
+N30	OntoBiotope Annotation:T32 Referent:OBT:000218
+N31	OntoBiotope Annotation:T33 Referent:OBT:000316
+N32	OntoBiotope Annotation:T34 Referent:OBT:000316
+N33	OntoBiotope Annotation:T35 Referent:OBT:001804
+N34	NCBI_Taxonomy Annotation:T36 Referent:780
+N35	OntoBiotope Annotation:T37 Referent:OBT:000218
+N36	OntoBiotope Annotation:T38 Referent:OBT:000571
+N37	OntoBiotope Annotation:T38 Referent:OBT:000001
+N38	OntoBiotope Annotation:T39 Referent:OBT:001804
+N39	OntoBiotope Annotation:T40 Referent:OBT:000571
+N40	OntoBiotope Annotation:T40 Referent:OBT:000001
+N41	NCBI_Taxonomy Annotation:T41 Referent:780
+N42	NCBI_Taxonomy Annotation:T42 Referent:783
+N43	NCBI_Taxonomy Annotation:T43 Referent:35792
+N44	NCBI_Taxonomy Annotation:T44 Referent:42862
+N45	NCBI_Taxonomy Annotation:T45 Referent:33990
+N46	OntoBiotope Annotation:T46 Referent:OBT:000571
+N47	OntoBiotope Annotation:T46 Referent:OBT:000001
+N48	OntoBiotope Annotation:T47 Referent:OBT:001751
+N49	OntoBiotope Annotation:T48 Referent:OBT:002072
+N50	OntoBiotope Annotation:T49 Referent:OBT:000571
+N51	OntoBiotope Annotation:T49 Referent:OBT:000001
+N52	OntoBiotope Annotation:T50 Referent:OBT:002227
+N53	OntoBiotope Annotation:T51 Referent:OBT:000571
+N54	OntoBiotope Annotation:T51 Referent:OBT:000001
+N55	OntoBiotope Annotation:T52 Referent:OBT:001804
+N56	OntoBiotope Annotation:T53 Referent:OBT:000571
+N57	OntoBiotope Annotation:T53 Referent:OBT:000001
+N58	NCBI_Taxonomy Annotation:T54 Referent:783
+N59	NCBI_Taxonomy Annotation:T55 Referent:780
+N60	OntoBiotope Annotation:T56 Referent:OBT:000571
+N61	OntoBiotope Annotation:T56 Referent:OBT:000001
+N62	NCBI_Taxonomy Annotation:T57 Referent:783
+N63	OntoBiotope Annotation:T58 Referent:OBT:000571
+N64	OntoBiotope Annotation:T58 Referent:OBT:000001
+N65	OntoBiotope Annotation:T59 Referent:OBT:001751
+N66	OntoBiotope Annotation:T60 Referent:OBT:000571
+N67	OntoBiotope Annotation:T60 Referent:OBT:000001
+N68	OntoBiotope Annotation:T61 Referent:OBT:002072
+N69	OntoBiotope Annotation:T62 Referent:OBT:000571
+N70	OntoBiotope Annotation:T62 Referent:OBT:000001
+N71	OntoBiotope Annotation:T63 Referent:OBT:002227
+N72	NCBI_Taxonomy Annotation:T64 Referent:35792
+N73	NCBI_Taxonomy Annotation:T65 Referent:783
+N74	NCBI_Taxonomy Annotation:T66 Referent:35792
+N75	OntoBiotope Annotation:T67 Referent:OBT:000218
+N76	OntoBiotope Annotation:T68 Referent:OBT:001804

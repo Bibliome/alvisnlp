@@ -1,0 +1,18 @@
+T3	Bacteria 0 13	Campylobacter
+T4	Habitat 136 143	eukarya
+T5	Habitat 280 285	human
+T6	Habitat 280 302	human gastrointestinal
+T7	Bacteria 312 332	Campylobacter jejuni
+T8	Bacteria 422 431	C. jejuni
+T9	Bacteria 456 474	Campylobacter coli
+T10	Habitat 567 577	eukaryotes
+T11	Bacteria 815 828	Campylobacter
+N1	NCBI_Taxonomy Annotation:T3 Referent:194
+N2	OntoBiotope Annotation:T4 Referent:OBT:000036
+N3	OntoBiotope Annotation:T5 Referent:OBT:001804
+N4	OntoBiotope Annotation:T6 Referent:OBT:000286
+N5	NCBI_Taxonomy Annotation:T7 Referent:197
+N6	NCBI_Taxonomy Annotation:T8 Referent:197
+N7	NCBI_Taxonomy Annotation:T9 Referent:195
+N8	OntoBiotope Annotation:T10 Referent:OBT:000036
+N9	NCBI_Taxonomy Annotation:T11 Referent:194

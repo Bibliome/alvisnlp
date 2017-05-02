@@ -1,0 +1,56 @@
+T6	Bacteria 0 22	Non-O1 Vibrio cholerae
+T7	Habitat 37 60	patients with cirrhosis
+T8	Habitat 92 106	medical center
+T9	Habitat 162 180	cirrhotic patients
+T10	Bacteria 184 206	non-O1 Vibrio cholerae
+T11	Habitat 314 327	blood culture
+T12	Habitat 314 319	blood
+T13	Bacteria 340 358	non-O1 V. cholerae
+T14	Habitat 382 414	clinical microbiology laboratory
+T15	Habitat 448 516	Patients with underlying cirrhosis and the aforementioned bacteremia
+T16	Habitat 559 635	cirrhotic patients (16 male, five female; mean age, 50.9 yr; range 28-67 yr)
+T17	Habitat 670 677	Child B
+T18	Habitat 692 699	Child C
+T19	Habitat 777 784	Seafood
+T20	Habitat 813 821	seawater
+T21	Habitat 866 876	nosocomial
+T22	Habitat 957 964	ascites
+T23	Habitat 987 996	abdominal
+T24	Habitat 1166 1173	ascites
+T25	Habitat 1381 1413	patients with skin manifestation
+T26	Habitat 1395 1399	skin
+T27	Habitat 1415 1452	Patients with decompensated cirrhosis
+T28	Bacteria 1472 1490	non-O1 V. cholerae
+T29	Habitat 1524 1535	raw seafood
+T30	Habitat 1546 1550	skin
+T31	Habitat 1546 1557	skin wounds
+T32	Habitat 1561 1571	salt water
+N1	NCBI_Taxonomy Annotation:T6 Referent:66861
+N2	OntoBiotope Annotation:T7 Referent:OBT:002196
+N3	OntoBiotope Annotation:T8 Referent:OBT:001423
+N4	OntoBiotope Annotation:T9 Referent:OBT:002196
+N5	NCBI_Taxonomy Annotation:T10 Referent:66861
+N6	OntoBiotope Annotation:T11 Referent:OBT:000001
+N7	OntoBiotope Annotation:T12 Referent:OBT:000316
+N8	NCBI_Taxonomy Annotation:T13 Referent:66861
+N9	OntoBiotope Annotation:T14 Referent:OBT:000609
+N10	OntoBiotope Annotation:T14 Referent:OBT:000009
+N11	OntoBiotope Annotation:T15 Referent:OBT:002243
+N12	OntoBiotope Annotation:T15 Referent:OBT:002196
+N13	OntoBiotope Annotation:T16 Referent:OBT:002196
+N14	OntoBiotope Annotation:T17 Referent:OBT:002196
+N15	OntoBiotope Annotation:T18 Referent:OBT:002196
+N16	OntoBiotope Annotation:T19 Referent:OBT:000841
+N17	OntoBiotope Annotation:T20 Referent:OBT:002038
+N18	OntoBiotope Annotation:T21 Referent:OBT:000009
+N19	OntoBiotope Annotation:T22 Referent:OBT:000456
+N20	OntoBiotope Annotation:T23 Referent:OBT:000119
+N21	OntoBiotope Annotation:T24 Referent:OBT:000456
+N22	OntoBiotope Annotation:T25 Referent:OBT:002196
+N23	OntoBiotope Annotation:T26 Referent:OBT:000282
+N24	OntoBiotope Annotation:T27 Referent:OBT:002196
+N25	NCBI_Taxonomy Annotation:T28 Referent:66861
+N26	OntoBiotope Annotation:T29 Referent:OBT:000792
+N27	OntoBiotope Annotation:T30 Referent:OBT:000282
+N28	OntoBiotope Annotation:T31 Referent:OBT:002130
+N29	OntoBiotope Annotation:T32 Referent:OBT:001495

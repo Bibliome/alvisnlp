@@ -1,0 +1,16 @@
+T3	Bacteria 92 112	lactic acid bacteria
+T4	Bacteria 145 166	lactic acid bacterial
+T5	Bacteria 199 211	Enterococcus
+T6	Bacteria 216 229	Lactobacillus
+T7	Habitat 248 273	natural fermented koumiss
+T8	Habitat 278 285	yoghurt
+T9	Bacteria 665 685	lactic acid bacteria
+T10	Bacteria 1470 1494	Enterococcus durans HZ28
+N1	NCBI_Taxonomy Annotation:T3 Referent:186826
+N2	NCBI_Taxonomy Annotation:T4 Referent:186826
+N3	NCBI_Taxonomy Annotation:T5 Referent:1350
+N4	NCBI_Taxonomy Annotation:T6 Referent:1578
+N5	OntoBiotope Annotation:T7 Referent:OBT:002289
+N6	OntoBiotope Annotation:T8 Referent:OBT:002080
+N7	NCBI_Taxonomy Annotation:T9 Referent:186826
+N8	NCBI_Taxonomy Annotation:T10 Referent:53345

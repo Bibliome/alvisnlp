@@ -1,0 +1,28 @@
+T3	Bacteria 57 95	Xanthomonas campestris pv. vesicatoria
+T4	Habitat 132 137	plant
+T5	Bacteria 147 185	Xanthomonas campestris pv. vesicatoria
+T6	Habitat 287 297	plant cell
+T7	Habitat 287 292	plant
+T8	Bacteria 519 530	Xanthomonas
+T9	Habitat 675 685	plant cell
+T10	Habitat 675 680	plant
+T11	Habitat 816 821	plant
+T12	Habitat 826 832	animal
+T13	Bacteria 1170 1181	Xanthomonas
+T14	Bacteria 1385 1420	Pseudomonas syringae pv. maculicola
+T15	Bacteria 1478 1507	X. campestris pv. vesicatoria
+N1	NCBI_Taxonomy Annotation:T3 Referent:456327
+N2	OntoBiotope Annotation:T4 Referent:OBT:000219
+N3	NCBI_Taxonomy Annotation:T5 Referent:456327
+N4	OntoBiotope Annotation:T6 Referent:OBT:000056
+N5	OntoBiotope Annotation:T6 Referent:OBT:000162
+N6	OntoBiotope Annotation:T7 Referent:OBT:000219
+N7	NCBI_Taxonomy Annotation:T8 Referent:456327
+N8	OntoBiotope Annotation:T9 Referent:OBT:000162
+N9	OntoBiotope Annotation:T9 Referent:OBT:000056
+N10	OntoBiotope Annotation:T10 Referent:OBT:000219
+N11	OntoBiotope Annotation:T11 Referent:OBT:000219
+N12	OntoBiotope Annotation:T12 Referent:OBT:000218
+N13	NCBI_Taxonomy Annotation:T13 Referent:338
+N14	NCBI_Taxonomy Annotation:T14 Referent:59511
+N15	NCBI_Taxonomy Annotation:T15 Referent:456327

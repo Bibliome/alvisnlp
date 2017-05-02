@@ -1,0 +1,100 @@
+T3	Habitat 14 29	Artemisia annua
+T4	Habitat 33 40	broiler
+T5	Habitat 57 67	intestinal
+T6	Habitat 57 78	intestinal microbiota
+T7	Bacteria 102 125	Clostridium perfringens
+T8	Habitat 185 226	aerial parts of the plant Artemisia annua
+T9	Habitat 205 226	plant Artemisia annua
+T10	Habitat 235 249	essential oils
+T11	Bacteria 290 320	Clostridium perfringens Type A
+T12	Habitat 365 373	broilers
+T13	Habitat 449 470	dried A. annua leaves
+T14	Habitat 455 463	A. annua
+T15	Habitat 498 541	n-hexane extract from fresh A. annua leaves
+T16	Habitat 520 541	fresh A. annua leaves
+T17	Habitat 526 534	A. annua
+T18	Habitat 573 580	broiler
+T19	Habitat 611 631	Dried plant material
+T20	Habitat 617 622	plant
+T21	Habitat 642 646	feed
+T22	Habitat 658 662	body
+T23	Habitat 744 748	feed
+T24	Habitat 801 805	feed
+T25	Habitat 818 825	broiler
+T26	Habitat 899 903	feed
+T27	Habitat 944 949	birds
+T28	Habitat 977 993	n-hexane extract
+T29	Habitat 1118 1139	dried A. annua leaves
+T30	Habitat 1124 1132	A. annua
+T31	Habitat 1160 1188	n-hexane extract of A. annua
+T32	Habitat 1180 1188	A. annua
+T33	Habitat 1235 1243	broilers
+T34	Habitat 1261 1277	n-hexane extract
+T35	Habitat 1290 1300	intestinal
+T36	Bacteria 1301 1315	C. perfringens
+T37	Habitat 1364 1388	small intestinal lesions
+T38	Habitat 1364 1380	small intestinal
+T39	Habitat 1439 1483	birds supplemented with the n-hexane extract
+T40	Habitat 1467 1483	n-hexane extract
+T41	Habitat 1517 1541	challenged control birds
+T42	Habitat 1546 1582	birds receiving dried plant material
+T43	Habitat 1562 1582	dried plant material
+T44	Habitat 1568 1573	plant
+T45	Habitat 1610 1649	n-hexane extracts derived from A. annua
+T46	Habitat 1641 1649	A. annua
+N1	OntoBiotope Annotation:T3 Referent:OBT:000789
+N2	OntoBiotope Annotation:T4 Referent:OBT:002251
+N3	OntoBiotope Annotation:T5 Referent:OBT:001893
+N4	OntoBiotope Annotation:T6 Referent:OBT:000033
+N5	NCBI_Taxonomy Annotation:T7 Referent:1502
+N6	OntoBiotope Annotation:T8 Referent:OBT:000162
+N7	OntoBiotope Annotation:T9 Referent:OBT:000789
+N8	OntoBiotope Annotation:T10 Referent:OBT:000428
+N9	NCBI_Taxonomy Annotation:T11 Referent:1502
+N10	OntoBiotope Annotation:T12 Referent:OBT:002251
+N11	OntoBiotope Annotation:T13 Referent:OBT:000019
+N12	OntoBiotope Annotation:T13 Referent:OBT:000849
+N13	OntoBiotope Annotation:T14 Referent:OBT:000789
+N14	OntoBiotope Annotation:T15 Referent:OBT:000019
+N15	OntoBiotope Annotation:T16 Referent:OBT:000849
+N16	OntoBiotope Annotation:T17 Referent:OBT:000789
+N17	OntoBiotope Annotation:T18 Referent:OBT:002251
+N18	OntoBiotope Annotation:T19 Referent:OBT:000019
+N19	OntoBiotope Annotation:T19 Referent:OBT:000805
+N20	OntoBiotope Annotation:T19 Referent:OBT:000849
+N21	OntoBiotope Annotation:T20 Referent:OBT:000789
+N22	OntoBiotope Annotation:T21 Referent:OBT:000019
+N23	OntoBiotope Annotation:T22 Referent:OBT:000212
+N24	OntoBiotope Annotation:T23 Referent:OBT:000019
+N25	OntoBiotope Annotation:T24 Referent:OBT:000019
+N26	OntoBiotope Annotation:T25 Referent:OBT:002251
+N27	OntoBiotope Annotation:T26 Referent:OBT:000019
+N28	OntoBiotope Annotation:T27 Referent:OBT:002251
+N29	OntoBiotope Annotation:T28 Referent:OBT:000019
+N30	OntoBiotope Annotation:T28 Referent:OBT:000805
+N31	OntoBiotope Annotation:T29 Referent:OBT:000849
+N32	OntoBiotope Annotation:T29 Referent:OBT:000805
+N33	OntoBiotope Annotation:T29 Referent:OBT:000019
+N34	OntoBiotope Annotation:T30 Referent:OBT:000789
+N35	OntoBiotope Annotation:T31 Referent:OBT:000805
+N36	OntoBiotope Annotation:T31 Referent:OBT:000019
+N37	OntoBiotope Annotation:T32 Referent:OBT:000789
+N38	OntoBiotope Annotation:T33 Referent:OBT:002251
+N39	OntoBiotope Annotation:T34 Referent:OBT:000019
+N40	OntoBiotope Annotation:T34 Referent:OBT:000805
+N41	OntoBiotope Annotation:T35 Referent:OBT:001893
+N42	NCBI_Taxonomy Annotation:T36 Referent:1502
+N43	OntoBiotope Annotation:T37 Referent:OBT:000266
+N44	OntoBiotope Annotation:T38 Referent:OBT:002194
+N45	OntoBiotope Annotation:T39 Referent:OBT:002251
+N46	OntoBiotope Annotation:T40 Referent:OBT:000805
+N47	OntoBiotope Annotation:T40 Referent:OBT:000019
+N48	OntoBiotope Annotation:T41 Referent:OBT:002251
+N49	OntoBiotope Annotation:T42 Referent:OBT:002251
+N50	OntoBiotope Annotation:T43 Referent:OBT:000805
+N51	OntoBiotope Annotation:T43 Referent:OBT:000849
+N52	OntoBiotope Annotation:T43 Referent:OBT:000019
+N53	OntoBiotope Annotation:T44 Referent:OBT:000789
+N54	OntoBiotope Annotation:T45 Referent:OBT:000805
+N55	OntoBiotope Annotation:T45 Referent:OBT:000019
+N56	OntoBiotope Annotation:T46 Referent:OBT:000789

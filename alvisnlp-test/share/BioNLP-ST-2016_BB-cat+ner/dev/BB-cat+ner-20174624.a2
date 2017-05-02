@@ -1,0 +1,104 @@
+T5	Habitat 0 11	Neutrophils
+T6	Bacteria 29 37	Yersinia
+T7	Habitat 99 103	cell
+T8	Habitat 148 153	human
+T9	Habitat 148 174	human innate immune system
+T10	Habitat 213 224	macrophages
+T11	Habitat 229 257	polymorphonuclear leukocytes
+T12	Habitat 259 270	neutrophils
+T13	Habitat 274 278	PMNs
+T14	Bacteria 321 329	Yersinia
+T15	Habitat 347 360	innate immune
+T16	Habitat 390 396	humans
+T17	Bacteria 417 425	Yersinia
+T18	Bacteria 446 455	Y. pestis
+T19	Bacteria 460 481	Y. pseudotuberculosis
+T20	Bacteria 493 510	Y. enterocolitica
+T21	Habitat 540 558	murine macrophages
+T22	Habitat 540 546	murine
+T23	Habitat 540 546;563 578	murine dendritic cells
+T24	Bacteria 604 612	Yersinia
+T25	Habitat 624 634	neutrophil
+T26	Bacteria 724 732	Yersinia
+T27	Habitat 804 809	human
+T28	Habitat 804 838	human monocyte-derived macrophages
+T29	Habitat 840 844	HMDM
+T30	Habitat 850 861	neutrophils
+T31	Habitat 916 921	HMDMs
+T32	Habitat 938 943	human
+T33	Habitat 938 955	human neutrophils
+T34	Bacteria 990 998	Yersinia
+T35	Habitat 1017 1020	PMN
+T36	Habitat 1100 1103	PMN
+T37	Habitat 1142 1147	human
+T38	Habitat 1148 1152	PMNs
+T39	Bacteria 1190 1211	Y. pestis strain KIM6
+T40	Habitat 1282 1286	cell
+T41	Habitat 1294 1297	PMN
+T42	Bacteria 1458 1479	Y. pestis strain KIM6
+T43	Habitat 1495 1498	PMN
+T44	Habitat 1575 1583	PMN cell
+T45	Bacteria 1657 1671	Y. pestis KIM5
+T46	Bacteria 1698 1706	Yersinia
+T47	Habitat 1763 1768	human
+T48	Habitat 1763 1780	human neutrophils
+T49	Habitat 1802 1805	PMN
+T50	Bacteria 1864 1872	Yersinia
+T51	Habitat 1903 1911	PMN cell
+T52	Bacteria 1935 1943	Yersinia
+T53	Habitat 1958 1961	PMN
+T54	Habitat 2008 2027	human innate immune
+T55	Habitat 2008 2013	human
+T56	Habitat 2057 2060	PMN
+N1	OntoBiotope Annotation:T5 Referent:OBT:002025
+N2	NCBI_Taxonomy Annotation:T6 Referent:629
+N3	OntoBiotope Annotation:T7 Referent:OBT:000056
+N4	OntoBiotope Annotation:T8 Referent:OBT:001804
+N5	OntoBiotope Annotation:T9 Referent:OBT:000580
+N6	OntoBiotope Annotation:T10 Referent:OBT:002022
+N7	OntoBiotope Annotation:T11 Referent:OBT:000471
+N8	OntoBiotope Annotation:T12 Referent:OBT:002025
+N9	OntoBiotope Annotation:T13 Referent:OBT:002025
+N10	NCBI_Taxonomy Annotation:T14 Referent:629
+N11	OntoBiotope Annotation:T15 Referent:OBT:000580
+N12	OntoBiotope Annotation:T16 Referent:OBT:001804
+N13	NCBI_Taxonomy Annotation:T17 Referent:629
+N14	NCBI_Taxonomy Annotation:T18 Referent:632
+N15	NCBI_Taxonomy Annotation:T19 Referent:633
+N16	NCBI_Taxonomy Annotation:T20 Referent:630
+N17	OntoBiotope Annotation:T21 Referent:OBT:002022
+N18	OntoBiotope Annotation:T22 Referent:OBT:001768
+N19	OntoBiotope Annotation:T23 Referent:OBT:001925
+N20	NCBI_Taxonomy Annotation:T24 Referent:630
+N21	OntoBiotope Annotation:T25 Referent:OBT:002025
+N22	NCBI_Taxonomy Annotation:T26 Referent:629
+N23	OntoBiotope Annotation:T27 Referent:OBT:001804
+N24	OntoBiotope Annotation:T28 Referent:OBT:002022
+N25	OntoBiotope Annotation:T29 Referent:OBT:002022
+N26	OntoBiotope Annotation:T30 Referent:OBT:002025
+N27	OntoBiotope Annotation:T31 Referent:OBT:002022
+N28	OntoBiotope Annotation:T32 Referent:OBT:001804
+N29	OntoBiotope Annotation:T33 Referent:OBT:002025
+N30	NCBI_Taxonomy Annotation:T34 Referent:629
+N31	OntoBiotope Annotation:T35 Referent:OBT:002025
+N32	OntoBiotope Annotation:T36 Referent:OBT:002025
+N33	OntoBiotope Annotation:T37 Referent:OBT:001804
+N34	OntoBiotope Annotation:T38 Referent:OBT:002025
+N35	NCBI_Taxonomy Annotation:T39 Referent:187410
+N36	OntoBiotope Annotation:T40 Referent:OBT:000471
+N37	OntoBiotope Annotation:T41 Referent:OBT:002025
+N38	NCBI_Taxonomy Annotation:T42 Referent:187410
+N39	OntoBiotope Annotation:T43 Referent:OBT:002025
+N40	OntoBiotope Annotation:T44 Referent:OBT:002025
+N41	NCBI_Taxonomy Annotation:T45 Referent:187410
+N42	NCBI_Taxonomy Annotation:T46 Referent:629
+N43	OntoBiotope Annotation:T47 Referent:OBT:001804
+N44	OntoBiotope Annotation:T48 Referent:OBT:002025
+N45	OntoBiotope Annotation:T49 Referent:OBT:002025
+N46	NCBI_Taxonomy Annotation:T50 Referent:629
+N47	OntoBiotope Annotation:T51 Referent:OBT:002025
+N48	NCBI_Taxonomy Annotation:T52 Referent:629
+N49	OntoBiotope Annotation:T53 Referent:OBT:002025
+N50	OntoBiotope Annotation:T54 Referent:OBT:000580
+N51	OntoBiotope Annotation:T55 Referent:OBT:001804
+N52	OntoBiotope Annotation:T56 Referent:OBT:002025

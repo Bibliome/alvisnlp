@@ -1,0 +1,58 @@
+T3	Bacteria 41 64	Serratia marcescens MG1
+T4	Bacteria 87 106	Serratia marcescens
+T5	Habitat 157 163	ocular
+T6	Bacteria 199 216	S. marcescens MG1
+T7	Habitat 233 240	biofilm
+T8	Habitat 395 402	biofilm
+T9	Habitat 520 527;539 547	abiotic surfaces
+T10	Habitat 532 547	biotic surfaces
+T11	Habitat 604 637	hydrophilic tissue culture plates
+T12	Habitat 642 678	human corneal epithelial (HCE) cells
+T13	Habitat 642 647	human
+T14	Habitat 648 655	corneal
+T15	Habitat 656 666	epithelial
+T16	Habitat 731 746	abiotic surface
+T17	Habitat 782 805	HCE cell biotic surface
+T18	Habitat 782 790	HCE cell
+T19	Habitat 909 932	biotic HCE cell surface
+T20	Habitat 916 924	HCE cell
+T21	Habitat 971 986	abiotic surface
+T22	Habitat 1085 1100	abiotic surface
+T23	Habitat 1155 1170	abiotic surface
+T24	Habitat 1288 1302	biotic surface
+T25	Habitat 1477 1486	HCE cells
+T26	Bacteria 1513 1526	S. marcescens
+T27	Bacteria 1659 1676	S. marcescens MG1
+T28	Habitat 1745 1751;1764 1772	biotic surfaces
+T29	Habitat 1756 1772	abiotic surfaces
+T30	Habitat 1832 1847	abiotic surface
+T31	Habitat 1873 1887	biotic surface
+N1	NCBI_Taxonomy Annotation:T3 Referent:615
+N2	NCBI_Taxonomy Annotation:T4 Referent:615
+N3	OntoBiotope Annotation:T5 Referent:OBT:000268
+N4	NCBI_Taxonomy Annotation:T6 Referent:615
+N5	OntoBiotope Annotation:T7 Referent:OBT:000037
+N6	OntoBiotope Annotation:T8 Referent:OBT:000037
+N7	OntoBiotope Annotation:T9 Referent:OBT:000001
+N8	OntoBiotope Annotation:T10 Referent:OBT:000001
+N9	OntoBiotope Annotation:T11 Referent:OBT:000029
+N10	OntoBiotope Annotation:T12 Referent:OBT:000056
+N11	OntoBiotope Annotation:T13 Referent:OBT:001804
+N12	OntoBiotope Annotation:T14 Referent:OBT:000564
+N13	OntoBiotope Annotation:T15 Referent:OBT:000659
+N14	OntoBiotope Annotation:T16 Referent:OBT:000001
+N15	OntoBiotope Annotation:T17 Referent:OBT:000029
+N16	OntoBiotope Annotation:T18 Referent:OBT:000056
+N17	OntoBiotope Annotation:T19 Referent:OBT:000029
+N18	OntoBiotope Annotation:T20 Referent:OBT:000056
+N19	OntoBiotope Annotation:T21 Referent:OBT:000001
+N20	OntoBiotope Annotation:T22 Referent:OBT:000001
+N21	OntoBiotope Annotation:T23 Referent:OBT:000001
+N22	OntoBiotope Annotation:T24 Referent:OBT:000029
+N23	OntoBiotope Annotation:T25 Referent:OBT:000056
+N24	NCBI_Taxonomy Annotation:T26 Referent:615
+N25	NCBI_Taxonomy Annotation:T27 Referent:615
+N26	OntoBiotope Annotation:T28 Referent:OBT:000029
+N27	OntoBiotope Annotation:T29 Referent:OBT:000001
+N28	OntoBiotope Annotation:T30 Referent:OBT:000001
+N29	OntoBiotope Annotation:T31 Referent:OBT:000029

@@ -1,0 +1,53 @@
+T3	Bacteria 18 40	Pseudomonas aeruginosa
+T4	Habitat 44 54;65 86	paediatric cystic fibrosis units
+T5	Habitat 44 54	paediatric
+T6	Habitat 59 64	adult
+T7	Habitat 59 86	adult cystic fibrosis units
+T8	Bacteria 132 154	Pseudomonas aeruginosa
+T9	Habitat 158 184	cystic fibrosis (CF) units
+T10	Habitat 257 263	Sputum
+T11	Habitat 297 316	productive patients
+T12	Habitat 331 350;361 369	regional paediatric CF units
+T13	Habitat 331 339;355 369	regional adult CF units
+T14	Habitat 340 350	paediatric
+T15	Habitat 355 360	adult
+T16	Bacteria 398 411	P. aeruginosa
+T17	Habitat 579 585	sputum
+T18	Habitat 604 612	patients
+T19	Habitat 621 627	clinic
+T20	Bacteria 655 668	P. aeruginosa
+T21	Habitat 684 692	patients
+T22	Habitat 734 742	patients
+T23	Habitat 783 790	patient
+T24	Habitat 798 806	patients
+T25	Habitat 839 847	patients
+T26	Habitat 985 993	patients
+T27	Habitat 1045 1049	lung
+T28	Habitat 1177 1185	patients
+N1	NCBI_Taxonomy Annotation:T3 Referent:287
+N2	OntoBiotope Annotation:T4 Referent:OBT:000052
+N3	OntoBiotope Annotation:T5 Referent:OBT:002154
+N4	OntoBiotope Annotation:T5 Referent:OBT:002146
+N5	OntoBiotope Annotation:T6 Referent:OBT:002185
+N6	OntoBiotope Annotation:T7 Referent:OBT:000052
+N7	NCBI_Taxonomy Annotation:T8 Referent:287
+N8	OntoBiotope Annotation:T9 Referent:OBT:001423
+N9	OntoBiotope Annotation:T10 Referent:OBT:000740
+N10	OntoBiotope Annotation:T11 Referent:OBT:002225
+N11	OntoBiotope Annotation:T12 Referent:OBT:000052
+N12	OntoBiotope Annotation:T13 Referent:OBT:000052
+N13	OntoBiotope Annotation:T14 Referent:OBT:002146
+N14	OntoBiotope Annotation:T15 Referent:OBT:002185
+N15	NCBI_Taxonomy Annotation:T16 Referent:287
+N16	OntoBiotope Annotation:T17 Referent:OBT:000740
+N17	OntoBiotope Annotation:T18 Referent:OBT:002225
+N18	OntoBiotope Annotation:T19 Referent:OBT:001801
+N19	NCBI_Taxonomy Annotation:T20 Referent:287
+N20	OntoBiotope Annotation:T21 Referent:OBT:002225
+N21	OntoBiotope Annotation:T22 Referent:OBT:002225
+N22	OntoBiotope Annotation:T23 Referent:OBT:002225
+N23	OntoBiotope Annotation:T24 Referent:OBT:002225
+N24	OntoBiotope Annotation:T25 Referent:OBT:002225
+N25	OntoBiotope Annotation:T26 Referent:OBT:002225
+N26	OntoBiotope Annotation:T27 Referent:OBT:000287
+N27	OntoBiotope Annotation:T28 Referent:OBT:002225

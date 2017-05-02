@@ -1,0 +1,42 @@
+T3	Habitat 19 21	DC
+T4	Bacteria 66 92	Mycobacterium tuberculosis
+T5	Habitat 124 139	apoptotic cells
+T6	Habitat 183 186	DCs
+T7	Bacteria 459 485	Mycobacterium tuberculosis
+T8	Bacteria 487 490	Mtb
+T9	Habitat 562 564	DC
+T10	Habitat 616 619	DCs
+T11	Habitat 667 669	DC
+T12	Habitat 700 723	Annexin1-deficient mice
+T13	Bacteria 751 754	Mtb
+T14	Bacteria 788 791	Mtb
+T15	Habitat 809 820	CD8+ T cell
+T16	Habitat 893 938	Mtb-infected human blood monocyte-derived DCs
+T17	Habitat 893 917	Mtb-infected human blood
+T18	Bacteria 893 896	Mtb
+T19	Habitat 906 911	human
+T20	Habitat 906 926	human blood monocyte
+T21	Bacteria 1024 1027	Mtb
+T22	Bacteria 1105 1108	Mtb
+T23	Habitat 1145 1147	DC
+N1	OntoBiotope Annotation:T3 Referent:OBT:001925
+N2	NCBI_Taxonomy Annotation:T4 Referent:1773
+N3	OntoBiotope Annotation:T5 Referent:OBT:000056
+N4	OntoBiotope Annotation:T6 Referent:OBT:001925
+N5	NCBI_Taxonomy Annotation:T7 Referent:1773
+N6	NCBI_Taxonomy Annotation:T8 Referent:1773
+N7	OntoBiotope Annotation:T9 Referent:OBT:001925
+N8	OntoBiotope Annotation:T10 Referent:OBT:001925
+N9	OntoBiotope Annotation:T11 Referent:OBT:001925
+N10	OntoBiotope Annotation:T12 Referent:OBT:002153
+N11	NCBI_Taxonomy Annotation:T13 Referent:1773
+N12	NCBI_Taxonomy Annotation:T14 Referent:1773
+N13	OntoBiotope Annotation:T15 Referent:OBT:001342
+N14	OntoBiotope Annotation:T16 Referent:OBT:001925
+N15	OntoBiotope Annotation:T17 Referent:OBT:000316
+N16	NCBI_Taxonomy Annotation:T18 Referent:1773
+N17	OntoBiotope Annotation:T19 Referent:OBT:001804
+N18	OntoBiotope Annotation:T20 Referent:OBT:002023
+N19	NCBI_Taxonomy Annotation:T21 Referent:1773
+N20	NCBI_Taxonomy Annotation:T22 Referent:1773
+N21	OntoBiotope Annotation:T23 Referent:OBT:001925

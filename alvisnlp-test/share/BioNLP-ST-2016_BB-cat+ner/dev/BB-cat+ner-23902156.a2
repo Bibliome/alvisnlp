@@ -1,0 +1,12 @@
+T3	Habitat 68 89	Penicillium crustosum
+T4	Habitat 129 155	Penicillium brevicompactum
+T5	Habitat 258 279	Penicillium crustosum
+T6	Habitat 340 352	P. crustosum
+T7	Bacteria 479 495	Escherichia coli
+T8	Habitat 1101 1134	Penicillium-sensitive atopic sera
+N1	OntoBiotope Annotation:T3 Referent:OBT:000106
+N2	OntoBiotope Annotation:T4 Referent:OBT:000106
+N3	OntoBiotope Annotation:T5 Referent:OBT:000106
+N4	OntoBiotope Annotation:T6 Referent:OBT:000106
+N5	NCBI_Taxonomy Annotation:T7 Referent:562
+N6	OntoBiotope Annotation:T8 Referent:OBT:000001

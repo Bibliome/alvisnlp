@@ -1,0 +1,27 @@
+T3	Bacteria 17 32	Vibrio fischeri
+T4	Bacteria 106 121	Vibrio fischeri
+T5	Habitat 140 146	marine
+T6	Habitat 213 235	Hawaiian bobtail squid
+T7	Habitat 237 254	Euprymna scolopes
+T8	Habitat 262 273	light organ
+T9	Bacteria 371 382	V. fischeri
+T10	Habitat 424 438	juvenile squid
+T11	Habitat 424 452	juvenile squid's light organ
+T12	Bacteria 586 597	V. fischeri
+T13	Habitat 682 766	microheterogeneous mixture of mono- and diphosphorylated diglucosamine disaccharides
+T14	Bacteria 1691 1702	V. fischeri
+T15	Habitat 1739 1750	E. scolopes
+N1	NCBI_Taxonomy Annotation:T3 Referent:668
+N2	NCBI_Taxonomy Annotation:T4 Referent:668
+N3	OntoBiotope Annotation:T5 Referent:OBT:000078
+N4	OntoBiotope Annotation:T6 Referent:OBT:002112
+N5	OntoBiotope Annotation:T7 Referent:OBT:002112
+N6	OntoBiotope Annotation:T8 Referent:OBT:000537
+N7	NCBI_Taxonomy Annotation:T9 Referent:668
+N8	OntoBiotope Annotation:T10 Referent:OBT:002112
+N9	OntoBiotope Annotation:T10 Referent:OBT:000954
+N10	OntoBiotope Annotation:T11 Referent:OBT:000537
+N11	NCBI_Taxonomy Annotation:T12 Referent:668
+N12	OntoBiotope Annotation:T13 Referent:OBT:000001
+N13	NCBI_Taxonomy Annotation:T14 Referent:668
+N14	OntoBiotope Annotation:T15 Referent:OBT:002112

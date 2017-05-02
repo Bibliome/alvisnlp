@@ -1,0 +1,26 @@
+T3	Bacteria 16 33	Coxiella burnetii
+T4	Habitat 60 102	Purified preparations of Coxiella burnetii
+T5	Bacteria 85 102	Coxiella burnetii
+T6	Habitat 313 333	C. burnetii extracts
+T7	Bacteria 313 324	C. burnetii
+T8	Bacteria 347 358	C. burnetii
+T9	Habitat 373 389	normal yolk sacs
+T10	Habitat 604 610;624 633	normal yolk sacs
+T11	Habitat 615 633	infected yolk sacs
+T12	Habitat 764 770;784 793	normal yolk sacs
+T13	Habitat 775 793	infected yolk sacs
+T14	Habitat 850 869	C. burnetii extract
+T15	Bacteria 850 861	C. burnetii
+N1	NCBI_Taxonomy Annotation:T3 Referent:777
+N2	OntoBiotope Annotation:T4 Referent:OBT:000001
+N3	NCBI_Taxonomy Annotation:T5 Referent:777
+N4	OntoBiotope Annotation:T6 Referent:OBT:000001
+N5	NCBI_Taxonomy Annotation:T7 Referent:777
+N6	NCBI_Taxonomy Annotation:T8 Referent:777
+N7	OntoBiotope Annotation:T9 Referent:OBT:000918
+N8	OntoBiotope Annotation:T10 Referent:OBT:000918
+N9	OntoBiotope Annotation:T11 Referent:OBT:000918
+N10	OntoBiotope Annotation:T12 Referent:OBT:000918
+N11	OntoBiotope Annotation:T13 Referent:OBT:000918
+N12	OntoBiotope Annotation:T14 Referent:OBT:000001
+N13	NCBI_Taxonomy Annotation:T15 Referent:777

@@ -1,0 +1,4 @@
+T3	Bacteria 62 86	Streptococcus pneumoniae
+T4	Bacteria 535 559	Streptococcus pneumoniae
+N1	NCBI_Taxonomy Annotation:T3 Referent:1313
+N2	NCBI_Taxonomy Annotation:T4 Referent:1313

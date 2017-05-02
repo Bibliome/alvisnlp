@@ -1,0 +1,81 @@
+T3	Habitat 0 11	Respiratory
+T4	Bacteria 24 39	Kingella kingae
+T5	Habitat 46 62	healthy children
+T6	Bacteria 76 91	Kingella kingae
+T7	Habitat 119 133	young children
+T8	Habitat 205 222	respiratory tract
+T9	Habitat 249 273	normal flora of children
+T10	Habitat 265 273	children
+T11	Habitat 323 329;349 357	throat cultures
+T12	Habitat 323 329	throat
+T13	Habitat 334 348	nasopharyngeal
+T14	Habitat 334 357	nasopharyngeal cultures
+T15	Habitat 395 435	cohorts of children, ages 6 to 42 months
+T16	Habitat 463 478	day-care center
+T17	Bacteria 542 551	K. kingae
+T18	Habitat 553 559	throat
+T19	Habitat 553 568	throat cultures
+T20	Habitat 588 622	children ages 6 months to 14 years
+T21	Habitat 727 764	healthy infants younger than 6 months
+T22	Habitat 777 798	well-baby-care clinic
+T23	Habitat 782 786	baby
+T24	Habitat 873 888	throat cultures
+T25	Habitat 873 879	throat
+T26	Habitat 905 928	nasopharyngeal cultures
+T27	Habitat 905 919	nasopharyngeal
+T28	Habitat 946 961	day-care center
+T29	Habitat 946 971	day-care center attendees
+T30	Bacteria 977 986	K. kingae
+T31	Bacteria 1014 1023	K. kingae
+T32	Habitat 1105 1113	children
+T33	Habitat 1179 1187	children
+T34	Habitat 1300 1318	colonized children
+T35	Bacteria 1343 1352	K. kingae
+T36	Habitat 1382 1392	pharyngeal
+T37	Habitat 1408 1425	surgical patients
+T38	Habitat 1486 1515	infants younger than 6 months
+T39	Habitat 1530 1551	well-baby-care clinic
+T40	Habitat 1535 1539	baby
+N1	OntoBiotope Annotation:T3 Referent:OBT:000164
+N2	NCBI_Taxonomy Annotation:T4 Referent:504
+N3	OntoBiotope Annotation:T5 Referent:OBT:002146
+N4	OntoBiotope Annotation:T5 Referent:OBT:001894
+N5	NCBI_Taxonomy Annotation:T6 Referent:504
+N6	OntoBiotope Annotation:T7 Referent:OBT:002146
+N7	OntoBiotope Annotation:T8 Referent:OBT:000164
+N8	OntoBiotope Annotation:T9 Referent:OBT:000033
+N9	OntoBiotope Annotation:T10 Referent:OBT:002146
+N10	OntoBiotope Annotation:T11 Referent:OBT:000001
+N11	OntoBiotope Annotation:T12 Referent:OBT:000374
+N12	OntoBiotope Annotation:T13 Referent:OBT:000330
+N13	OntoBiotope Annotation:T14 Referent:OBT:000001
+N14	OntoBiotope Annotation:T15 Referent:OBT:002146
+N15	OntoBiotope Annotation:T15 Referent:OBT:002154
+N16	OntoBiotope Annotation:T16 Referent:OBT:000583
+N17	NCBI_Taxonomy Annotation:T17 Referent:504
+N18	OntoBiotope Annotation:T18 Referent:OBT:000374
+N19	OntoBiotope Annotation:T19 Referent:OBT:000001
+N20	OntoBiotope Annotation:T20 Referent:OBT:002146
+N21	OntoBiotope Annotation:T20 Referent:OBT:002154
+N22	OntoBiotope Annotation:T21 Referent:OBT:002177
+N23	OntoBiotope Annotation:T22 Referent:OBT:001801
+N24	OntoBiotope Annotation:T23 Referent:OBT:002154
+N25	OntoBiotope Annotation:T24 Referent:OBT:000001
+N26	OntoBiotope Annotation:T25 Referent:OBT:000374
+N27	OntoBiotope Annotation:T26 Referent:OBT:000001
+N28	OntoBiotope Annotation:T27 Referent:OBT:000330
+N29	OntoBiotope Annotation:T28 Referent:OBT:000583
+N30	OntoBiotope Annotation:T29 Referent:OBT:002307
+N31	OntoBiotope Annotation:T29 Referent:OBT:002216
+N32	NCBI_Taxonomy Annotation:T30 Referent:504
+N33	NCBI_Taxonomy Annotation:T31 Referent:504
+N34	OntoBiotope Annotation:T32 Referent:OBT:002146
+N35	OntoBiotope Annotation:T33 Referent:OBT:002146
+N36	OntoBiotope Annotation:T34 Referent:OBT:002146
+N37	OntoBiotope Annotation:T34 Referent:OBT:002216
+N38	NCBI_Taxonomy Annotation:T35 Referent:504
+N39	OntoBiotope Annotation:T36 Referent:OBT:001863
+N40	OntoBiotope Annotation:T37 Referent:OBT:002307
+N41	OntoBiotope Annotation:T38 Referent:OBT:002177
+N42	OntoBiotope Annotation:T39 Referent:OBT:001801
+N43	OntoBiotope Annotation:T40 Referent:OBT:002154

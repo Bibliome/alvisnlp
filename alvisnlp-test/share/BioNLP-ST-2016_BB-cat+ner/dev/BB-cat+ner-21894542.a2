@@ -1,0 +1,15 @@
+T3	Bacteria 28 40	Marinobacter
+T4	Bacteria 42 54	Marinobacter
+T5	Bacteria 78 97	Gammaproteobacteria
+T6	Habitat 190 204	world's oceans
+T7	Habitat 249 268	marine environments
+T8	Habitat 319 334	bacterial flora
+T9	Habitat 357 373	marine organisms
+N1	NCBI_Taxonomy Annotation:T3 Referent:2742
+N2	NCBI_Taxonomy Annotation:T4 Referent:2742
+N3	NCBI_Taxonomy Annotation:T5 Referent:1236
+N4	OntoBiotope Annotation:T6 Referent:OBT:002038
+N5	OntoBiotope Annotation:T7 Referent:OBT:000078
+N6	OntoBiotope Annotation:T8 Referent:OBT:000033
+N7	OntoBiotope Annotation:T9 Referent:OBT:000078
+N8	OntoBiotope Annotation:T9 Referent:OBT:000002
