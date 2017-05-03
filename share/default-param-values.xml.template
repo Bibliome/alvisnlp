@@ -21,12 +21,6 @@ limitations under the License.
     <lp2lpConf></lp2lpConf>
   </module>
 
-  <module class="org.bibliome.alvisnlp.modules.cadixe.AlvisAEReader2">
-    <url></url>
-    <username></username>
-    <password></password>
-  </module>
-
   <module class="org.bibliome.alvisnlp.modules.ccg.CCGParser">
     <executable></executable>
     <parserModel></parserModel>
@@ -50,10 +44,6 @@ limitations under the License.
     <geniaDir></geniaDir>
   </module>
 
-  <module class="org.bibliome.alvisnlp.modules.stanford.StanfordNER">
-    <classifierFile></classifierFile>
-  </module>
-
   <module class="org.bibliome.alvisnlp.modules.treetagger.TreeTagger">
     <treeTaggerExecutable></treeTaggerExecutable>
     <parFile></parFile>
@@ -72,4 +62,35 @@ limitations under the License.
     <configDir></configDir>
     <localeDir></localeDir>
   </module>
+
+  <module class="org.bibliome.alvisnlp.modules.Species">
+    <speciesDir></speciesDir>
+  </module>
+
+  <module class="org.bibliome.alvisnlp.modules.ab3p.Ab3P">
+    <installDir></installDir>
+  </module>
+
+  <module class="org.bibliome.alvisnlp.modules.chemspot.ChemSpotA">
+    <cRFModel></cRFModel>
+    <dictionary></dictionary>
+  </module>
+
+  <module class="org.bibliome.alvisnlp.modules.tees.TEESClassify">
+    <executable></executable>
+    <teesHome></teesHome>
+  </module>
+
+  <module class="org.bibliome.alvisnlp.modules.tees.TEESTrain">
+    <executable></executable>
+    <teesHome></teesHome>    
+  </module>
+
+  <module class="org.bibliome.alvisnlp.modules.wapiti.WapitiLabel">
+    <wapitiExecutable></wapitiExecutable>
+  </module>
+
+  <module class="org.bibliome.alvisnlp.modules.wapiti.WapitiTrain">
+    <wapitiExecutable></wapitiExecutable>
+  </module>  
 </default-param-values>
