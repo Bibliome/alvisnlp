@@ -1,0 +1,20 @@
+T1	Title 0 94	Detection of Staphylococcus aureus including MRSA on environmental surfaces in a jail setting.
+T2	Paragraph 95 964	We examined jail environmental surfaces to explore whether they might serve as reservoirs of viable methicillin-resistant Staphylococcus aureus (MRSA). We swabbed 132 surfaces, inoculated primary and secondary mannitol salts and oxacillin-resistant screening agar, and used API tests to identify S. aureus and E-tests to determine methicillin/oxacillin resistance. We recovered S. aureus from 10 (7.6%) surfaces; eight (6.1%) isolates were MRSA. We ran pulsed-field gel electrophoresis on six resistant isolates and observed three patterns, one of which was identical to that identified in a previous study of inmates' nasal specimens. Finding MRSA-contaminated surfaces on a variety of environmental surfaces in the absence of an overt outbreak emphasizes that correctional facilities should have protocols for environmental cleaning as a component of MRSA prevention.
+T3	Bacteria 13 34	Staphylococcus aureus
+T4	Bacteria 45 49	MRSA
+T5	Habitat 53 93	environmental surfaces in a jail setting
+T6	Habitat 81 85	jail
+T7	Habitat 107 111	jail
+T8	Habitat 107 134	jail environmental surfaces
+T9	Bacteria 217 238	Staphylococcus aureus
+T10	Bacteria 240 244	MRSA
+T11	Habitat 283 319	primary and secondary mannitol salts
+T12	Habitat 324 358	oxacillin-resistant screening agar
+T13	Bacteria 391 400	S. aureus
+T14	Bacteria 473 482	S. aureus
+T15	Bacteria 535 539	MRSA
+T16	Habitat 705 719	inmates' nasal
+T17	Habitat 705 712	inmates
+T18	Bacteria 739 743	MRSA
+T19	Habitat 857 880	correctional facilities
+T20	Bacteria 948 952	MRSA

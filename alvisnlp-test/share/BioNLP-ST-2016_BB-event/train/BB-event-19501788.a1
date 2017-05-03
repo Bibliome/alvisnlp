@@ -1,0 +1,29 @@
+T1	Title 0 123	Construction of an attenuated Pseudomonas fluorescens strain and evaluation of its potential as a cross-protective vaccine.
+T2	Paragraph 124 1683	Ferric uptake regulator (Fur) is a global transcription regulator that is ubiquitous to Gram-negative bacteria and regulates diverse biological processes, including iron uptake, cellular metabolism, stress response, and production of virulence determinants. As a result, for many pathogenic bacteria, Fur plays a crucial role in the course of infection and disease development. In this study, the fur gene was cloned from a pathogenic Pseudomonas fluorescens strain, TSS, isolated from diseased Japanese flounder cultured in a local farm. TSS Fur can partially complement the defective phenotype of an Escherichia coli fur mutant. A TSS fur null mutant, TFM, was constructed. Compared to TSS, TFM exhibits reduced growth ability, aberrant production of outer membrane proteins, decreased resistance against host serum bactericidal activity, impaired ability to disseminate in host blood and tissues, and drastic attenuation in overall bacterial virulence in a Japanese flounder infection model. When used as a live vaccine administered via the injection, immersion, and oral routes, TFM affords high levels of protection upon Japanese flounder against not only P. fluorescens infection but also Aeromonas hydrophila infection. Furthermore, a plasmid, pJAQ, was constructed, which expresses the coding element of the Vibrio harveyi antigen AgaV-DegQ. TFM harboring pJAQ can secret AgaV-DegQ into the extracellular milieu. Vaccination of Japanese flounder with live TFM/pJAQ elicited strong immunoprotection against both V. harveyi and A. hydrophila infections.
+T3	Bacteria 30 53	Pseudomonas fluorescens
+T4	Habitat 115 122	vaccine
+T5	Bacteria 559 594	Pseudomonas fluorescens strain, TSS
+T6	Habitat 610 661	diseased Japanese flounder cultured in a local farm
+T7	Habitat 651 661	local farm
+T8	Bacteria 663 666	TSS
+T9	Bacteria 726 742	Escherichia coli
+T10	Bacteria 757 776	TSS fur null mutant
+T11	Bacteria 778 781	TFM
+T12	Bacteria 812 815	TSS
+T13	Bacteria 817 820	TFM
+T14	Habitat 931 941	host serum
+T15	Habitat 1000 1010	host blood
+T16	Habitat 1000 1004;1015 1022	host tissues
+T17	Habitat 1084 1101	Japanese flounder
+T18	Habitat 1134 1146	live vaccine
+T19	Habitat 1194 1198	oral
+T20	Bacteria 1207 1210	TFM
+T21	Habitat 1250 1267	Japanese flounder
+T22	Bacteria 1285 1299	P. fluorescens
+T23	Bacteria 1319 1339	Aeromonas hydrophila
+T24	Bacteria 1440 1454	Vibrio harveyi
+T25	Bacteria 1474 1477	TFM
+T26	Habitat 1560 1577	Japanese flounder
+T27	Bacteria 1588 1591	TFM
+T28	Bacteria 1643 1653	V. harveyi
+T29	Bacteria 1658 1671	A. hydrophila

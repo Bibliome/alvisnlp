@@ -1,0 +1,52 @@
+Training Data for BioNLP'16 Shared Task on Event Extraction -- Bacteria Biotopes event extraction (BB-event)
+
+
+- Contains 61 documents with manual annotations of entities and events
+
+- For more information about the BB tasks, see:
+
+  http://2016.bionlp-st.org/tasks/bb3
+
+- For format details, please refer to the following address:
+
+  http://2013.bionlp-st.org/file-formats
+
+
+
+
+Contents
+--------
+
+  ** `.txt' files: each file contains the text contents of a document. Each document is a PubMed abstract (including the title) about bacteria. The `.txt' files are encoded in UTF-8. The name of the files follow the pattern:
+
+        BB-event-PMID.txt
+
+     where PMID is the PubMed identifier of the abstract.
+
+  ** `.a1' files: for each document, the corresponding `.a1' file contains the text-bound entities manually annotated. In this task the text-bound entities are given as input and will not be predicted. The annotations are expressed using the BioNLP-ST format (http://2013.bionlp-st.org/file-formats). The BB-event annotation schema (http://2016.bionlp-st.org/tasks/bb3) defines three entity types: Bateria, Habitat, and Geographical. Like in the `.txt' file, the surface form control is encoded in UTF-8. The unit of text-bound entity offsets are characters (and not bytes); UTF-8 multibyte characters (like characers with diacritics) count as one. `.a1' files also contain entities of type Title and Paragraph that indicate respectively the title of the abstract and each paragraph of the abstract.
+
+  ** `.a2' files: for each document, the corresponding `.a2' file contains events. In this task events are the target result and must be predicted. The events are expressed using the BioNLP-ST format (http://2013.bionlp-st.org/file-formats). There is a single event type: Lives_In between one Bacteria entity and one Habitat or Geographical entity.
+
+
+
+
+History
+-------
+
+29 January 2016, training and development data release
+03 February 2016, corrections to training and development data, addition of a license
+07 March 2016, minor corrections to training and development data
+
+
+
+
+Authors
+-------
+
+BioNLP'13 Shared Task organizers,
+bionlpsharedtask@gmail.com
+http://2016.bionlp-st.org/
+
+For questions and remarks concerning specifically the BB task:
+Robert Bossy
+Robert.Bossy@jouy.inra.fr

@@ -1,0 +1,52 @@
+T1	Title 0 135	Ability of Lactobacillus gasseri K 7 to inhibit Escherichia coli adhesion in vitro on Caco-2 cells and ex vivo on pigs' jejunal tissue.
+T2	Paragraph 136 1930	The ability of Lactobacillus (Lb.) gasseri K 7 to inhibit adhesion of Escherichia coli O8:K88 to intestinal mucosa was studied on cultured Caco-2 cells and ex vivo on pigs' small intestinal tissue. Lactobacilli were added simultaneously with E. coli, before E. coli and after E. coli for competition, exclusion and displacement assays. The concentration of lactobacilli on fully differentiated Caco-2 cells was 4.5+/-0.3 x 10(8) cfu/well, while the concentration of E. coli varied from 1.5 x 10(6) to 4.3 x 10(8) cfu/well. The number of E. coli adhered to Caco-2 monolayer (cfu/well) was lineary correlated (R(2)=0.97) to the concentration of added cells. In the assay simulating exclusion, E. coli adhesion was reduced by Lb. gasseri K 7 strain by 0.1 to 0.6 log cfu/well. The binding of E. coli was inhibited even more when incubated simultaneously with lactobacilli, particularly at the lowest concentration of E. coli (ratio E. coli/lactobacilli 1:248), where five-times reduction (or 0.7 log) was observed. When adhesion to tissue derived from pigs' jejunum was tested, concentration of E. coli was constant (6.9+/-0.14 x 10(7) cfu/ml), while the concentration of Lb. gasseri K 7 was 5.9 x 10(7) and 1.3 x 10(7) cfu/ml in two independent experiments, respectively. The adhesion of E. coli and Lb. gasseri K 7 cells to jejunal mucosa was similar (1.0+/-0.17 x 10(6) and 1.54+/-0.10 x 10(6) cfu/cm(2)) when the concentrations of single strains in suspensions were approximately the same. No significant competition, exclusion or displacement of E. coli by lactobacilli was observed on jejunal tissue. In conclusion, Lb. gasseri K 7 was found to be effective in reducing E. coli adhesion to Caco-2 enterocytes, but it was not able to do so in ex vivo conditions tested for pig jejunal tissue.
+T3	Bacteria 11 36	Lactobacillus gasseri K 7
+T4	Bacteria 48 64	Escherichia coli
+T5	Habitat 86 98	Caco-2 cells
+T6	Habitat 114 118	pigs
+T7	Habitat 114 134	pigs' jejunal tissue
+T8	Habitat 120 127	jejunal
+T9	Bacteria 151 182	Lactobacillus (Lb.) gasseri K 7
+T10	Bacteria 206 229	Escherichia coli O8:K88
+T11	Habitat 233 243	intestinal
+T12	Habitat 233 250	intestinal mucosa
+T13	Habitat 266 287	cultured Caco-2 cells
+T14	Habitat 303 307	pigs
+T15	Habitat 303 332	pigs' small intestinal tissue
+T16	Habitat 309 325	small intestinal
+T17	Bacteria 334 346	Lactobacilli
+T18	Bacteria 378 385	E. coli
+T19	Bacteria 394 401	E. coli
+T20	Bacteria 412 419	E. coli
+T21	Bacteria 493 505	lactobacilli
+T22	Habitat 509 542	fully differentiated Caco-2 cells
+T23	Bacteria 602 609	E. coli
+T24	Bacteria 673 680	E. coli
+T25	Habitat 692 698	Caco-2
+T26	Habitat 785 790	cells
+T27	Bacteria 827 834	E. coli
+T28	Bacteria 859 874	Lb. gasseri K 7
+T29	Bacteria 925 932	E. coli
+T30	Bacteria 992 1004	lactobacilli
+T31	Bacteria 1050 1057	E. coli
+T32	Bacteria 1065 1072	E. coli
+T33	Bacteria 1073 1085	lactobacilli
+T34	Habitat 1165 1171	tissue
+T35	Habitat 1185 1198	pigs' jejunum
+T36	Habitat 1185 1189	pigs
+T37	Bacteria 1228 1235	E. coli
+T38	Bacteria 1305 1320	Lb. gasseri K 7
+T39	Bacteria 1422 1429	E. coli
+T40	Bacteria 1434 1449	Lb. gasseri K 7
+T41	Habitat 1459 1473	jejunal mucosa
+T42	Habitat 1459 1466	jejunal
+T43	Bacteria 1684 1691	E. coli
+T44	Bacteria 1695 1707	lactobacilli
+T45	Habitat 1724 1731	jejunal
+T46	Habitat 1724 1738	jejunal tissue
+T47	Bacteria 1755 1770	Lb. gasseri K 7
+T48	Bacteria 1809 1816	E. coli
+T49	Habitat 1829 1847	Caco-2 enterocytes
+T50	Habitat 1911 1914	pig
+T51	Habitat 1911 1929	pig jejunal tissue
+T52	Habitat 1915 1922	jejunal

@@ -1,0 +1,15 @@
+T1	Title 0 96	XopC and XopJ, two novel type III effector proteins from Xanthomonas campestris pv. vesicatoria.
+T2	Paragraph 97 1660	Pathogenicity of the gram-negative plant pathogen Xanthomonas campestris pv. vesicatoria depends on a type III secretion (TTS) system which translocates bacterial effector proteins into the plant cell. Previous transcriptome analysis identified a genome-wide regulon of putative virulence genes that are coexpressed with the TTS system. In this study, we characterized two of these genes, xopC and xopJ. Both genes encode Xanthomonas outer proteins (Xops) that were shown to be secreted by the TTS system. In addition, type III-dependent translocation of both proteins into the plant cell was demonstrated using the AvrBs3 effector domain as a reporter. XopJ belongs to the AvrRxv/YopJ family of effector proteins from plant and animal pathogenic bacteria. By contrast, XopC does not share significant homology to proteins in the database. Sequence analysis revealed that the xopC locus contains several features that are reminiscent of pathogenicity islands. Interestingly, the xopC region is flanked by 62-bp inverted repeats that are also associated with members of the Xanthomonas avrBs3 effector family. Besides xopC, a second gene of the locus, designated hpaJ, was shown to be coexpressed with the TTS system. hpaJ encodes a protein with similarity to transglycosylases and to the Pseudomonas syringae pv. maculicola protein HopPmaG. HpaJ secretion and translocation by the X. campestris pv. vesicatoria TTS system was not detectable, which is consistent with its predicted Sec signal and a putative function as transglycosylase in the bacterial periplasm.
+T3	Bacteria 57 95	Xanthomonas campestris pv. vesicatoria
+T4	Habitat 132 137	plant
+T5	Bacteria 147 185	Xanthomonas campestris pv. vesicatoria
+T6	Habitat 287 297	plant cell
+T7	Habitat 287 292	plant
+T8	Bacteria 519 530	Xanthomonas
+T9	Habitat 675 685	plant cell
+T10	Habitat 675 680	plant
+T11	Habitat 816 821	plant
+T12	Habitat 826 832	animal
+T13	Bacteria 1170 1181	Xanthomonas
+T14	Bacteria 1385 1420	Pseudomonas syringae pv. maculicola
+T15	Bacteria 1478 1507	X. campestris pv. vesicatoria

@@ -1,0 +1,23 @@
+T1	Title 0 135	Evaluation of two commercial methods for the detection of Listeria sp. and Listeria monocytogenes in a chicken nugget processing plant.
+T2	Paragraph 136 1243	This study measures the detection performances of two rapid test systems (Listeria Rapid Test Clearview and Bax system) for the screening of Listeria sp. and Listeria monocytogenes, respectively. A total of 413 samples from different sources (product from (i) different stages of processing, (ii) different environments, and (iii) different food handlers), collected from a chicken nugget processing plant, were analysed by both rapid methods and a cultural method consisting of pre-enrichment, enrichment, and isolation onto selective agars (PALCAM, LPM, and HCLA). Overall, results showed an excellent correlation between data obtained using Clearview and the cultural method, with Clearview presenting an efficiency of 99%. Bax showed a lower correlation using the cultural method, with an efficiency of 71.1%. The type of sample did not affect the efficiency of Clearview, which varied from 98.1% for product samples to 100% for environmental and food handler samples, while for Bax it had a marked influence. Efficiency of Bax varied from as high as 100% for food handlers to 37.9% for product samples.
+T3	Bacteria 58 70	Listeria sp.
+T4	Bacteria 75 97	Listeria monocytogenes
+T5	Habitat 103 134	chicken nugget processing plant
+T6	Habitat 103 110	chicken
+T7	Habitat 103 117	chicken nugget
+T8	Bacteria 277 289	Listeria sp.
+T9	Bacteria 294 316	Listeria monocytogenes
+T10	Habitat 477 481	food
+T11	Habitat 477 490	food handlers
+T12	Habitat 510 541	chicken nugget processing plant
+T13	Habitat 510 524	chicken nugget
+T14	Habitat 662 677	selective agars
+T15	Habitat 679 685	PALCAM
+T16	Habitat 687 690	LPM
+T17	Habitat 696 700	HCLA
+T18	Habitat 1041 1056	product samples
+T19	Habitat 1087 1099	food handler
+T20	Habitat 1087 1091	food
+T21	Habitat 1200 1204	food
+T22	Habitat 1200 1213	food handlers
+T23	Habitat 1227 1242	product samples

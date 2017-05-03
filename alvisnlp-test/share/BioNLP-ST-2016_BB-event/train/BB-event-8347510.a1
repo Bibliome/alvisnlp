@@ -1,0 +1,18 @@
+T1	Title 0 111	Arhodomonas aquaeolei gen. nov., sp. nov., an aerobic, halophilic bacterium isolated from a subterranean brine.
+T2	Paragraph 112 1288	Arhodomonas aquaeolei gen. nov., sp. nov., isolated from a petroleum reservoir production fluid, is described. The single isolate was an obligately halophilic, aerobic, gram-negative, oval rod-shaped bacterium that was actively motile by means of a single polar flagellum. It was catalase and oxidase positive. The isolate had a specific requirement for NaCl; growth occurred at NaCl concentrations between 6 and 20%, and optimal growth occurred in the presence of 15% NaCl. This species metabolized primarily organic acids and required biotin for growth. The name Arhodomonas is proposed for the new genus, which was placed in the gamma subclass of the Proteobacteria on the basis of the results of a 16S rRNA sequence analysis. Although A. aquaeolei is most closely related to purple sulfur bacteria (the genera Ectothiorhodospira and Chromatium), it is not a phototrophic microorganism, which is consistent with its isolation from a subterranean environment. The major components of its cellular fatty acids were C16:0, C18:1, C19:0, C16:1, and C18:0 acids. The DNA base composition of the type strain is 67 mol% G+C. The type and only strain is strain HA-1 (= ATCC 49307).
+T3	Bacteria 0 21	Arhodomonas aquaeolei
+T4	Habitat 92 110	subterranean brine
+T5	Bacteria 112 133	Arhodomonas aquaeolei
+T6	Habitat 171 207	petroleum reservoir production fluid
+T7	Habitat 171 180	petroleum
+T8	Habitat 171 190	petroleum reservoir
+T9	Bacteria 677 688	Arhodomonas
+T10	Bacteria 766 780	Proteobacteria
+T11	Bacteria 851 863	A. aquaeolei
+T12	Bacteria 891 913	purple sulfur bacteria
+T13	Bacteria 926 944	Ectothiorhodospira
+T14	Bacteria 949 959	Chromatium
+T15	Habitat 974 1000	phototrophic microorganism
+T16	Habitat 1048 1072	subterranean environment
+T17	Bacteria 1261 1272	strain HA-1
+T18	Bacteria 1276 1286	ATCC 49307

@@ -1,0 +1,22 @@
+T1	Title 0 97	Grazing protozoa and the evolution of the Escherichia coli O157:H7 Shiga toxin-encoding prophage.
+T2	Paragraph 98 1305	Humans play little role in the epidemiology of Escherichia coli O157:H7, a commensal bacterium of cattle. Why then does E. coli O157:H7 code for virulence determinants, like the Shiga toxins (Stxs), responsible for the morbidity and mortality of colonized humans? One possibility is that the virulence of these bacteria to humans is coincidental and these virulence factors evolved for and are maintained for other roles they play in the ecology of these bacteria. Here, we test the hypothesis that the carriage of the Stx-encoding prophage of E. coli O157:H7 increases the rate of survival of E. coli in the presence of grazing protozoa, Tetrahymena pyriformis. In the presence but not the absence of Tetrahymena, the carriage of the Stx-encoding prophage considerably augments the fitness of E. coli K-12 as well as clinical isolates of E. coli O157 by increasing the rate of survival of the bacteria in the food vacuoles of these ciliates. Grazing protozoa in the environment or natural host are likely to play a significant role in the ecology and maintenance of the Stx-encoding prophage of E. coli O157:H7 and may well contribute to the evolution of the virulence of these bacteria to colonize humans.
+T3	Habitat 0 16	Grazing protozoa
+T4	Bacteria 42 66	Escherichia coli O157:H7
+T5	Habitat 98 104	Humans
+T6	Bacteria 145 169	Escherichia coli O157:H7
+T7	Habitat 196 202	cattle
+T8	Bacteria 218 233	E. coli O157:H7
+T9	Habitat 354 360	humans
+T10	Habitat 421 427	humans
+T11	Bacteria 642 657	E. coli O157:H7
+T12	Bacteria 692 699	E. coli
+T13	Habitat 719 735	grazing protozoa
+T14	Habitat 737 759	Tetrahymena pyriformis
+T15	Habitat 800 811	Tetrahymena
+T16	Bacteria 892 904	E. coli K-12
+T17	Habitat 916 924	clinical
+T18	Bacteria 937 949	E. coli O157
+T19	Habitat 1031 1039	ciliates
+T20	Habitat 1041 1057	Grazing protozoa
+T21	Bacteria 1194 1209	E. coli O157:H7
+T22	Habitat 1298 1304	humans

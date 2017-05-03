@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-plan id="read-BB-event">
+  <train class="BioNLPSTReader">
+    <textBoundAsAnnotations/>
+    <textDir>BioNLP-ST-2016_BB-event/train</textDir>
+    <a1Dir>BioNLP-ST-2016_BB-event/train</a1Dir>
+    <a2Dir>BioNLP-ST-2016_BB-event/train</a2Dir>
+    <constantDocumentFeatures>set=train</constantDocumentFeatures>
+  </train>
+
+  <dev class="BioNLPSTReader">
+    <textBoundAsAnnotations/>
+    <textDir>BioNLP-ST-2016_BB-event/dev</textDir>
+    <a1Dir>BioNLP-ST-2016_BB-event/dev</a1Dir>
+    <a2Dir>BioNLP-ST-2016_BB-event/dev</a2Dir>
+    <constantDocumentFeatures>set=dev</constantDocumentFeatures>
+  </dev>
+
+  <test class="BioNLPSTReader">
+    <textBoundAsAnnotations/>
+    <textDir>BioNLP-ST-2016_BB-event/test</textDir>
+    <a1Dir>BioNLP-ST-2016_BB-event/test</a1Dir>
+    <constantDocumentFeatures>set=test</constantDocumentFeatures>
+  </test>
+</alvisnlp-plan>

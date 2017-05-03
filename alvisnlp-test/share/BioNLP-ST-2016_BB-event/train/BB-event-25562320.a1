@@ -1,0 +1,23 @@
+T1	Title 0 103	Annexin1 regulates DC efferocytosis and cross-presentation during Mycobacterium tuberculosis infection.
+T2	Paragraph 104 1185	The phagocytosis of apoptotic cells and associated vesicles (efferocytosis) by DCs is an important mechanism for both self tolerance and host defense. Although some of the engulfment ligands involved in efferocytosis have been identified and studied in vitro, the contributions of these ligands in vivo remain ill defined. Here, we determined that during Mycobacterium tuberculosis (Mtb) infection, the engulfment ligand annexin1 is an important mediator in DC cross-presentation that increases efferocytosis in DCs and intrinsically enhances the capacity of the DC antigen-presenting machinery. Annexin1-deficient mice were highly susceptible to Mtb infection and showed an impaired Mtb antigen-specific CD8+ T cell response. Importantly, annexin1 expression was greatly downregulated in Mtb-infected human blood monocyte-derived DCs, indicating that reduction of annexin1 is a critical mechanism for immune evasion by Mtb. Collectively, these data indicate that annexin1 is essential in immunity to Mtb infection and mediates the power of DC efferocytosis and cross-presentation.
+T3	Habitat 19 21	DC
+T4	Bacteria 66 92	Mycobacterium tuberculosis
+T5	Habitat 124 139	apoptotic cells
+T6	Habitat 183 186	DCs
+T7	Bacteria 459 485	Mycobacterium tuberculosis
+T8	Bacteria 487 490	Mtb
+T9	Habitat 562 564	DC
+T10	Habitat 616 619	DCs
+T11	Habitat 667 669	DC
+T12	Habitat 700 723	Annexin1-deficient mice
+T13	Bacteria 751 754	Mtb
+T14	Bacteria 788 791	Mtb
+T15	Habitat 809 820	CD8+ T cell
+T16	Habitat 893 938	Mtb-infected human blood monocyte-derived DCs
+T17	Habitat 893 917	Mtb-infected human blood
+T18	Bacteria 893 896	Mtb
+T19	Habitat 906 911	human
+T20	Habitat 906 926	human blood monocyte
+T21	Bacteria 1024 1027	Mtb
+T22	Bacteria 1105 1108	Mtb
+T23	Habitat 1145 1147	DC

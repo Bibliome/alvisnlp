@@ -1,0 +1,31 @@
+T1	Title 0 153	Natural history of colonization with methicillin-resistant Staphylococcus aureus (MRSA) and vancomycin-resistant Enterococcus (VRE): a systematic review.
+T2	Paragraph 154 443	No published systematic reviews have assessed the natural history of colonization with methicillin-resistant Staphylococcus aureus (MRSA) or vancomycin-resistant Enterococcus (VRE). Time to clearance of colonization has important implications for patient care and infection control policy.
+T3	Paragraph 444 653	We performed parallel searches in OVID Medline for studies that reported the time to documented clearance of MRSA and VRE colonization in the absence of treatment, published between January 1990 and July 2012.
+T4	Paragraph 654 1897	For MRSA, we screened 982 articles, identified 16 eligible studies (13 observational studies and 3 randomized controlled trials), for a total of 1,804 non-duplicated subjects. For VRE, we screened 284 articles, identified 13 eligible studies (12 observational studies and 1 randomized controlled trial), for a total of 1,936 non-duplicated subjects. Studies reported varying definitions of clearance of colonization; no study reported time of initial colonization. Studies varied in the frequency of sampling, assays used for sampling, and follow-up period. The median duration of total follow-up was 38 weeks for MRSA and 25 weeks for VRE. Based on pooled analyses, the model-estimated median time to clearance was 88 weeks after documented colonization for MRSA-colonized patients and 26 weeks for VRE-colonized patients. In a secondary analysis, clearance rates for MRSA and VRE were compared by restricting the duration of follow-up for the MRSA studies to the maximum observed time point for VRE studies (43 weeks). With this restriction, the model-fitted median time to documented clearance for MRSA would occur at 41 weeks after documented colonization, demonstrating the sensitivity of the pooled estimate to length of study follow-up.
+T5	Paragraph 1898 2508	Few available studies report the natural history of MRSA and VRE colonization. Lack of a consistent definition of clearance, uncertainty regarding the time of initial colonization, variation in frequency of sampling for persistent colonization, assays employed and variation in duration of follow-up are limitations of the existing published literature. The heterogeneity of study characteristics limits interpretation of pooled estimates of time to clearance, however, studies included in this review suggest an increase in documented clearance over time, a result which is sensitive to duration of follow-up.
+T6	Bacteria 59 80	Staphylococcus aureus
+T7	Bacteria 82 86	MRSA
+T8	Bacteria 113 125	Enterococcus
+T9	Bacteria 127 130	VRE
+T10	Bacteria 263 284	Staphylococcus aureus
+T11	Bacteria 286 290	MRSA
+T12	Bacteria 316 328	Enterococcus
+T13	Bacteria 330 333	VRE
+T14	Habitat 401 408	patient
+T15	Bacteria 553 557	MRSA
+T16	Bacteria 562 565	VRE
+T17	Bacteria 658 662	MRSA
+T18	Bacteria 834 837	VRE
+T19	Bacteria 1268 1272	MRSA
+T20	Bacteria 1290 1293	VRE
+T21	Bacteria 1413 1417	MRSA
+T22	Habitat 1428 1436	patients
+T23	Bacteria 1454 1457	VRE
+T24	Habitat 1468 1476	patients
+T25	Bacteria 1523 1527	MRSA
+T26	Bacteria 1532 1535	VRE
+T27	Bacteria 1599 1603	MRSA
+T28	Bacteria 1651 1654	VRE
+T29	Bacteria 1755 1759	MRSA
+T30	Bacteria 1950 1954	MRSA
+T31	Bacteria 1959 1962	VRE

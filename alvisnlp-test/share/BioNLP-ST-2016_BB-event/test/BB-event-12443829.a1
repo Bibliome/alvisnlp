@@ -1,0 +1,14 @@
+T1	Title 0 118	Subtyping of Shiga toxin 2 variants in human-derived Shiga toxin-producing Escherichia coli strains isolated in Japan.
+T2	Paragraph 119 1177	Shiga toxin 2 (Stx2) variants have been found to exhibit not only antigenic divergence, but also differences in toxicity for tissue culture cells and animals. To clarify whether all or just a subset of Stx2 variants are important for the virulence of Shiga toxin-producing Escherichia coli, we designed PCR primers to detect and type all reported variants. We classified them into four groups according to the nucleotide sequences of the Stx2 family; for example, group 1 (G1) contains VT2vha and group 2 (G2) contains VT2d-Ount. The 120 strains of Shiga toxin-producing E. coli used in this study were isolated from humans in Japan between 1986 and 1999. Among the four variant groups, the G1 gene only was detected in 23 of the 120 clinical strains (19.2%) and all belonged to the O157 serotype. G1 is considered the most important Stx2 variant group in terms of human pathogenicity. A multiplex PCR that can detect the stx1, stx2, and G1 genes was developed as a means of rapid and easy typing to better understand the roles of the different types of Stx.
+T3	Habitat 39 44	human
+T4	Bacteria 75 91	Escherichia coli
+T5	Geographical 112 117	Japan
+T6	Habitat 244 264	tissue culture cells
+T7	Habitat 269 276	animals
+T8	Bacteria 392 408	Escherichia coli
+T9	Bacteria 690 697	E. coli
+T10	Habitat 736 742	humans
+T11	Geographical 746 751	Japan
+T12	Habitat 853 861	clinical
+T13	Bacteria 902 906	O157
+T14	Habitat 984 989	human

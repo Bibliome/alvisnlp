@@ -1,0 +1,32 @@
+T1	Title 0 135	Surveillance for upper respiratory tract disease and Mycoplasma in free-ranging gopher tortoises (Gopherus polyphemus) in Georgia, USA.
+T2	Paragraph 136 1742	Abstract Upper respiratory tract disease (URTD) in the gopher tortoise (Gopherus polyphemus) is highly contagious and has been implicated in the reduction of populations throughout the range. With the exception of a few limited studies, the prevalence of URTD in Georgia, USA tortoise populations is poorly known. We found that exposure to Mycoplasma agassizii and Mycoplasma testudineum, associated with URTD, varied geographically among 11 Georgia tortoise populations. The prevalence of antibodies to M. agassizii in individual populations was either very low (0-3%, n=7 populations) or very high (96-100%, n=4 populations), whereas there was variation in the prevalence of antibodies to M. testudineum among populations (20-61%, n=10) with only one site being negative. Five sites had tortoises with antibodies to both pathogens, and these were the only sites where we observed tortoises with clinical signs consistent with URTD. We did not find tortoises with clinical signs of URTD at sites with tortoises with antibodies only to M. testudineum, which provides evidence that this organism may be of limited pathogenicity for gopher tortoises. Collectively, these data indicate that both M. agassizii and M. testudineum are present in Georgia populations of gopher tortoises and that clinical disease is apparent in populations where both pathogens are present. Additional research is needed to better understand the role of these two pathogens, and other potential pathogens, in the overall health of tortoise populations, especially if future conservation efforts involve translocation of tortoises.
+T3	Habitat 17 40	upper respiratory tract
+T4	Bacteria 53 63	Mycoplasma
+T5	Habitat 67 96	free-ranging gopher tortoises
+T6	Habitat 98 117	Gopherus polyphemus
+T7	Geographical 122 129	Georgia
+T8	Geographical 131 134	USA
+T9	Habitat 145 168	Upper respiratory tract
+T10	Habitat 191 206	gopher tortoise
+T11	Habitat 208 227	Gopherus polyphemus
+T12	Habitat 399 432	Georgia, USA tortoise populations
+T13	Geographical 399 406	Georgia
+T14	Geographical 408 411	USA
+T15	Bacteria 476 496	Mycoplasma agassizii
+T16	Bacteria 501 523	Mycoplasma testudineum
+T17	Habitat 578 606	Georgia tortoise populations
+T18	Geographical 578 585	Georgia
+T19	Bacteria 640 652	M. agassizii
+T20	Bacteria 827 841	M. testudineum
+T21	Habitat 925 934	tortoises
+T22	Habitat 1018 1027	tortoises
+T23	Habitat 1086 1095	tortoises
+T24	Habitat 1138 1147	tortoises
+T25	Bacteria 1172 1186	M. testudineum
+T26	Habitat 1267 1283	gopher tortoises
+T27	Bacteria 1329 1341	M. agassizii
+T28	Bacteria 1346 1360	M. testudineum
+T29	Habitat 1376 1415	Georgia populations of gopher tortoises
+T30	Geographical 1376 1383	Georgia
+T31	Habitat 1643 1663	tortoise populations
+T32	Habitat 1732 1741	tortoises

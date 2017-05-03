@@ -1,0 +1,56 @@
+T1	Title 0 143	Neutrophils are resistant to Yersinia YopJ/P-induced apoptosis and are protected from ROS-mediated cell death by the type III secretion system.
+T2	Paragraph 144 664	The human innate immune system relies on the coordinated activity of macrophages and polymorphonuclear leukocytes (neutrophils or PMNs) for defense against bacterial pathogens. Yersinia spp. subvert the innate immune response to cause disease in humans. In particular, the Yersinia outer protein YopJ (Y. pestis and Y. pseudotuberculosis) and YopP (Y. enterocolitica) rapidly induce apoptosis in murine macrophages and dendritic cells. However, the effects of Yersinia Yop J/P on neutrophil fate are not clearly defined.
+T3	Paragraph 665 1672	In this study, we utilized wild-type and mutant strains of Yersinia to test the contribution of YopJ and YopP on induction of apoptosis in human monocyte-derived macrophages (HMDM) and neutrophils. Whereas YopJ and YopP similarly induced apoptosis in HMDMs, interaction of human neutrophils with virulence plasmid-containing Yersinia did not result in PMN caspase activation, release of LDH, or loss of membrane integrity greater than PMN controls. In contrast, interaction of human PMNs with the virulence plasmid-deficient Y. pestis strain KIM6 resulted in increased surface exposure of phosphatidylserine (PS) and cell death. PMN reactive oxygen species (ROS) production was inhibited in a virulence plasmid-dependent but YopJ/YopP-independent manner. Following phagocytic interaction with Y. pestis strain KIM6, inhibition of PMN ROS production with diphenyleneiodonium chloride resulted in a reduction of PMN cell death similar to that induced by the virulence plasmid-containing strain Y. pestis KIM5.
+T4	Paragraph 1673 2071	Our findings showed that Yersinia YopJ and/or YopP did not induce pronounced apoptosis in human neutrophils. Furthermore, robust PMN ROS production in response to virulence plasmid-deficient Yersinia was associated with increased PMN cell death, suggesting that Yersinia inhibition of PMN ROS production plays a role in evasion of the human innate immune response in part by limiting PMN apoptosis.
+T5	Habitat 0 11	Neutrophils
+T6	Bacteria 29 37	Yersinia
+T7	Habitat 99 103	cell
+T8	Habitat 148 153	human
+T9	Habitat 148 174	human innate immune system
+T10	Habitat 213 224	macrophages
+T11	Habitat 229 257	polymorphonuclear leukocytes
+T12	Habitat 259 270	neutrophils
+T13	Habitat 274 278	PMNs
+T14	Bacteria 321 329	Yersinia
+T15	Habitat 347 360	innate immune
+T16	Habitat 390 396	humans
+T17	Bacteria 417 425	Yersinia
+T18	Bacteria 446 455	Y. pestis
+T19	Bacteria 460 481	Y. pseudotuberculosis
+T20	Bacteria 493 510	Y. enterocolitica
+T21	Habitat 540 558	murine macrophages
+T22	Habitat 540 546	murine
+T23	Habitat 540 546;563 578	murine dendritic cells
+T24	Bacteria 604 612	Yersinia
+T25	Habitat 624 634	neutrophil
+T26	Bacteria 724 732	Yersinia
+T27	Habitat 804 809	human
+T28	Habitat 804 838	human monocyte-derived macrophages
+T29	Habitat 840 844	HMDM
+T30	Habitat 850 861	neutrophils
+T31	Habitat 916 921	HMDMs
+T32	Habitat 938 943	human
+T33	Habitat 938 955	human neutrophils
+T34	Bacteria 990 998	Yersinia
+T35	Habitat 1017 1020	PMN
+T36	Habitat 1100 1103	PMN
+T37	Habitat 1142 1147	human
+T38	Habitat 1148 1152	PMNs
+T39	Bacteria 1190 1211	Y. pestis strain KIM6
+T40	Habitat 1282 1286	cell
+T41	Habitat 1294 1297	PMN
+T42	Bacteria 1458 1479	Y. pestis strain KIM6
+T43	Habitat 1495 1498	PMN
+T44	Habitat 1575 1583	PMN cell
+T45	Bacteria 1657 1671	Y. pestis KIM5
+T46	Bacteria 1698 1706	Yersinia
+T47	Habitat 1763 1768	human
+T48	Habitat 1763 1780	human neutrophils
+T49	Habitat 1802 1805	PMN
+T50	Bacteria 1864 1872	Yersinia
+T51	Habitat 1903 1911	PMN cell
+T52	Bacteria 1935 1943	Yersinia
+T53	Habitat 1958 1961	PMN
+T54	Habitat 2008 2027	human innate immune
+T55	Habitat 2008 2013	human
+T56	Habitat 2057 2060	PMN

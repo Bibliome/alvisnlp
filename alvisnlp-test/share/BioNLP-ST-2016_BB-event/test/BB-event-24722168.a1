@@ -1,0 +1,54 @@
+T1	Title 0 176	Probiotic Lactobacillus rhamnosus GG enhanced Th1 cellular immunity but did not affect antibody responses in a human gut microbiota transplanted neonatal gnotobiotic pig model.
+T2	Paragraph 177 2157	This study aims to establish a human gut microbiota (HGM) transplanted gnotobiotic (Gn) pig model of human rotavirus (HRV) infection and diarrhea, and to verify the dose-effects of probiotics on HRV vaccine-induced immune responses. Our previous studies using the Gn pig model found that probiotics dose-dependently regulated both T cell and B cell immune responses induced by rotavirus vaccines. We generated the HGM transplanted neonatal Gn pigs through daily feeding of neonatal human fecal suspension to germ-free pigs for 3 days starting at 12 hours after birth. We found that attenuated HRV (AttHRV) vaccination conferred similar overall protection against rotavirus diarrhea and virus shedding in Gn pigs and HGM transplanted Gn pigs. HGM promoted the development of the neonatal immune system, as evidenced by the significantly enhanced IFN-γ producing T cell responses and reduction of regulatory T cells and their cytokine production in the AttHRV-vaccinated pigs. The higher dose Lactobacillus rhamnosus GG (LGG) feeding (14 doses, up to 109 colony-forming-unit [CFU]/dose) effectively increased the LGG counts in the HGM Gn pig intestinal contents and significantly enhanced HRV-specific IFN-γ producing T cell responses to the AttHRV vaccine. Lower dose LGG (9 doses, up to 106 CFU/dose) was ineffective. Neither doses of LGG significantly improved the protection rate, HRV-specific IgA and IgG antibody titers in serum, or IgA antibody titers in intestinal contents compared to the AttHRV vaccine alone, suggesting that an even higher dose of LGG is needed to overcome the influence of the microbiota to achieve the immunostimulatory effect in the HGM pigs. This study demonstrated that HGM Gn pig is an applicable animal model for studying immune responses to rotavirus vaccines and can be used for studying interventions (i.e., probiotics and prebiotics) that may enhance the immunogenicity and protective efficacy of vaccines through improving the gut microbiota.
+T3	Bacteria 10 36	Lactobacillus rhamnosus GG
+T4	Habitat 46 58	Th1 cellular
+T5	Habitat 111 116	human
+T6	Habitat 111 131	human gut microbiota
+T7	Habitat 111 175	human gut microbiota transplanted neonatal gnotobiotic pig model
+T8	Habitat 111 120	human gut
+T9	Habitat 208 274	human gut microbiota (HGM) transplanted gnotobiotic (Gn) pig model
+T10	Habitat 208 217	human gut
+T11	Habitat 208 213	human
+T12	Habitat 208 234	human gut microbiota (HGM)
+T13	Habitat 230 233	HGM
+T14	Habitat 278 283	human
+T15	Habitat 441 447	Gn pig
+T16	Habitat 508 514	T cell
+T17	Habitat 519 525	B cell
+T18	Habitat 591 624	HGM transplanted neonatal Gn pigs
+T19	Habitat 591 594	HGM
+T20	Habitat 650 681	neonatal human fecal suspension
+T21	Habitat 650 664	neonatal human
+T22	Habitat 650 670	neonatal human fecal
+T23	Habitat 685 699	germ-free pigs
+T24	Habitat 881 888	Gn pigs
+T25	Habitat 893 896	HGM
+T26	Habitat 893 917	HGM transplanted Gn pigs
+T27	Habitat 919 922	HGM
+T28	Habitat 955 977	neonatal immune system
+T29	Habitat 1038 1044	T cell
+T30	Habitat 1083 1090	T cells
+T31	Habitat 1128 1150	AttHRV-vaccinated pigs
+T32	Bacteria 1168 1194	Lactobacillus rhamnosus GG
+T33	Bacteria 1196 1199	LGG
+T34	Bacteria 1288 1291	LGG
+T35	Habitat 1306 1327	HGM Gn pig intestinal
+T36	Habitat 1306 1309	HGM
+T37	Habitat 1306 1336	HGM Gn pig intestinal contents
+T38	Habitat 1306 1316	HGM Gn pig
+T39	Habitat 1393 1399	T cell
+T40	Bacteria 1444 1447	LGG
+T41	Bacteria 1512 1515	LGG
+T42	Habitat 1604 1609	serum
+T43	Habitat 1637 1647	intestinal
+T44	Habitat 1637 1656	intestinal contents
+T45	Bacteria 1734 1737	LGG
+T46	Habitat 1781 1791	microbiota
+T47	Habitat 1839 1847	HGM pigs
+T48	Habitat 1839 1842	HGM
+T49	Habitat 1878 1888	HGM Gn pig
+T50	Habitat 1878 1881	HGM
+T51	Habitat 1906 1918	animal model
+T52	Habitat 2111 2119	vaccines
+T53	Habitat 2142 2145	gut
+T54	Habitat 2142 2156	gut microbiota

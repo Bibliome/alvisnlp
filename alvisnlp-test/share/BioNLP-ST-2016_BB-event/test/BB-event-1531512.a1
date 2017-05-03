@@ -1,0 +1,61 @@
+T1	Title 0 54	Wolinella recta in adult gingivitis and periodontitis.
+T2	Paragraph 55 1981	Wolinella recta has been associated with adult periodontitis, but its role in the disease remains uncertain. This report clarifies the distribution of W. recta in periodontally healthy and diseased subjects, and treated patients with recurrent disease. A specific polyclonal rabbit antiserum against W. recta strain 372 was used for indirect immunofluorescence localization of W. recta in dental plaque from untreated and treated patients. Supragingival plaque was collected from 15 periodontally healthy individuals (H), 10 adults with mild gingivitis (G1), 8 with severe gingivitis (G2) and 15 with periodontitis (AP). Subgingival samples from 23 diseased sites (G2 and AP) were examined as well. There was a significant difference (p = 0.000) between the proportions of W. recta in subgingival (4.4%) vs. supragingival (0.3%) plaque samples from AP. A significant difference (p = 0.000) in W. recta proportions was also detected between subgingival plaque samples of AP (4.4%) vs. G2 (1.2%). No significant difference in the mean % of W. recta was found between supragingival plaque of AP (0.3%) and G2 (0%), and samples of G1 (0.01%) and H (0.1%). In a separate study, 85 adults previously treated for moderate to severe adult periodontitis were monitored over a 12-month period for evidence of disease recurrence. Recurrent disease was detected at 32 sites in 18 subjects. Of these, 20 sites in 13 subjects were positive for W. recta. With subjects as the experimental unit, a significant increase in the proportions of W. recta was found at sites with recurrent disease (3.12%) as compared to stable, paired control sites (0.24%), but only when sites with breakdown and positive for W. recta were compared with their controls. These results indicate that W. recta is associated with some, but not all sites with advanced adult periodontitis. The association of W. recta with gingivitis was not statistically significant.
+T3	Bacteria 0 15	Wolinella recta
+T4	Habitat 19 24	adult
+T5	Bacteria 55 70	Wolinella recta
+T6	Habitat 96 101	adult
+T7	Bacteria 206 214	W. recta
+T8	Habitat 218 239;253 261	periodontally healthy   subjects
+T9	Habitat 218 231;244 261	periodontally  diseased subjects
+T10	Habitat 267 306	treated patients with recurrent disease
+T11	Habitat 319 346	polyclonal rabbit antiserum
+T12	Habitat 330 336	rabbit
+T13	Bacteria 355 374	W. recta strain 372
+T14	Bacteria 432 440	W. recta
+T15	Habitat 444 450	dental
+T16	Habitat 444 457	dental plaque
+T17	Habitat 463 472;485 493	untreated patients
+T18	Habitat 477 493	treated patients
+T19	Habitat 495 515	Supragingival plaque
+T20	Habitat 538 571	periodontally healthy individuals
+T21	Habitat 573 574	H
+T22	Habitat 580 586;651 669	adults  with periodontitis
+T23	Habitat 580 607	adults with mild gingivitis
+T24	Habitat 580 586;616 638	adults  with severe gingivitis
+T25	Habitat 609 611	G1
+T26	Habitat 640 642	G2
+T27	Habitat 671 673	AP
+T28	Habitat 676 695	Subgingival samples
+T29	Habitat 704 718	diseased sites
+T30	Habitat 720 722	G2
+T31	Habitat 727 729	AP
+T32	Bacteria 828 836	W. recta
+T33	Habitat 840 851;884 906	subgingival  plaque samples from AP
+T34	Habitat 863 876;884 906	supragingival   plaque samples from AP
+T35	Habitat 904 906	AP
+T36	Bacteria 948 956	W. recta
+T37	Habitat 995 1024;1039 1041	subgingival plaque samples of   G2
+T38	Habitat 995 1027	subgingival plaque samples of AP
+T39	Habitat 1025 1027	AP
+T40	Habitat 1039 1041	G2
+T41	Bacteria 1093 1101	W. recta
+T42	Habitat 1120 1140;1171 1184	supragingival plaque  samples of G1
+T43	Habitat 1120 1140;1171 1181;1197 1198	supragingival plaque samples of  H
+T44	Habitat 1120 1146	supragingival plaque of AP
+T45	Habitat 1120 1143;1158 1160	supragingival plaque of  G2
+T46	Habitat 1144 1146	AP
+T47	Habitat 1158 1160	G2
+T48	Habitat 1182 1184	G1
+T49	Habitat 1197 1198	H
+T50	Habitat 1231 1299	adults previously treated for moderate to severe adult periodontitis
+T51	Habitat 1280 1285	adult
+T52	Bacteria 1485 1493	W. recta
+T53	Bacteria 1580 1588	W. recta
+T54	Habitat 1602 1630	sites with recurrent disease
+T55	Habitat 1669 1682	control sites
+T56	Habitat 1706 1752	sites with breakdown and positive for W. recta
+T57	Bacteria 1744 1752	W. recta
+T58	Bacteria 1816 1824	W. recta
+T59	Habitat 1862 1901	sites with advanced adult periodontitis
+T60	Habitat 1882 1887	adult
+T61	Bacteria 1922 1930	W. recta

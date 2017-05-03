@@ -1,0 +1,21 @@
+T1	Title 0 181	Analysis of Genetic Algorithm for Rule-Set Production (GARP) modeling approach for predicting distributions of fleas implicated as vectors of plague, Yersinia pestis, in California.
+T2	Paragraph 182 1441	More than 20 species of fleas in California are implicated as potential vectors of Yersinia pestis. Extremely limited spatial data exist for plague vectors-a key component to understanding where the greatest risks for human, domestic animal, and wildlife health exist. This study increases the spatial data available for 13 potential plague vectors by using the ecological niche modeling system Genetic Algorithm for Rule-Set Production (GARP) to predict their respective distributions. Because the available sample sizes in our data set varied greatly from one species to another, we also performed an analysis of the robustness of GARP by using the data available for flea Oropsylla montana (Baker) to quantify the effects that sample size and the chosen explanatory variables have on the final species distribution map. GARP effectively modeled the distributions of 13 vector species. Furthermore, our analyses show that all of these modeled ranges are robust, with a sample size of six fleas or greater not significantly impacting the percentage of the in-state area where the flea was predicted to be found, or the testing accuracy of the model. The results of this study will help guide the sampling efforts of future studies focusing on plague vectors.
+T3	Habitat 111 116	fleas
+T4	Habitat 131 148	vectors of plague
+T5	Bacteria 150 165	Yersinia pestis
+T6	Geographical 170 180	California
+T7	Habitat 206 211	fleas
+T8	Geographical 215 225	California
+T9	Habitat 244 280	potential vectors of Yersinia pestis
+T10	Bacteria 265 280	Yersinia pestis
+T11	Habitat 323 337	plague vectors
+T12	Habitat 400 405	human
+T13	Habitat 407 422	domestic animal
+T14	Habitat 428 436	wildlife
+T15	Habitat 516 530	plague vectors
+T16	Habitat 852 856	flea
+T17	Habitat 857 882	Oropsylla montana (Baker)
+T18	Habitat 1054 1068	vector species
+T19	Habitat 1172 1177	fleas
+T20	Habitat 1263 1267	flea
+T21	Habitat 1426 1440	plague vectors

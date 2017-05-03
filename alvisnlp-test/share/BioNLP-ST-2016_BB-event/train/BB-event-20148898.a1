@@ -1,0 +1,29 @@
+T1	Title 0 122	The presence of professional phagocytes dictates the number of host cells targeted for Yop translocation during infection.
+T2	Paragraph 123 1600	Type III secretion systems deliver effector proteins from Gram-negative bacterial pathogens into host cells, where they disarm host defences, allowing the pathogens to establish infection. Although Yersinia pseudotuberculosis delivers its effector proteins, called Yops, into numerous cell types grown in culture, we show that during infection Y. pseudotuberculosis selectively targets Yops to professional phagocytes in Peyer's patches, mesenteric lymph nodes and spleen, although it colocalizes with B and T cells as well as professional phagocytes. Strikingly, in the absence of neutrophils, the number of cells with translocated Yops was significantly reduced although the bacterial loads were similar, indicating that Y. pseudotuberculosis did not arbitrarily deliver Yops to the available cells. Using isolated splenocytes, selective binding and selective targeting to professional phagocytes when bacteria were limiting was also observed, indicating that tissue architecture was not required for the tropism for professional phagocytes. In isolated splenocytes, YadA and Invasin increased the number of all cells types with translocated Yops, but professional phagocytes were still preferentially translocated with Yops in the absence of these adhesins. Together these results indicate that Y. pseudotuberculosis discriminates among cells it encounters during infection and selectively delivers Yops to phagocytes while refraining from translocation to other cell types.
+T3	Habitat 16 39	professional phagocytes
+T4	Habitat 63 73	host cells
+T5	Habitat 220 230	host cells
+T6	Bacteria 321 348	Yersinia pseudotuberculosis
+T7	Habitat 408 435	cell types grown in culture
+T8	Bacteria 467 488	Y. pseudotuberculosis
+T9	Habitat 517 559	professional phagocytes in Peyer's patches
+T10	Habitat 544 559	Peyer's patches
+T11	Habitat 561 583	mesenteric lymph nodes
+T12	Habitat 588 594	spleen
+T13	Habitat 625 626;633 638	B cells
+T14	Habitat 631 638	T cells
+T15	Habitat 650 673	professional phagocytes
+T16	Habitat 705 716	neutrophils
+T17	Habitat 732 760	cells with translocated Yops
+T18	Bacteria 846 867	Y. pseudotuberculosis
+T19	Habitat 918 923	cells
+T20	Habitat 931 951	isolated splenocytes
+T21	Habitat 998 1021	professional phagocytes
+T22	Habitat 1142 1165	professional phagocytes
+T23	Habitat 1170 1190	isolated splenocytes
+T24	Habitat 1237 1242	cells
+T25	Habitat 1277 1300	professional phagocytes
+T26	Bacteria 1421 1442	Y. pseudotuberculosis
+T27	Habitat 1463 1468	cells
+T28	Habitat 1533 1543	phagocytes
+T29	Habitat 1589 1593	cell

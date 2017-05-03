@@ -1,0 +1,26 @@
+T1	Title 0 159	Previous infection with Helicobacter pylori is the primary determinant of spontaneous gastric hypoacidity in human immunodeficiency virus-infected outpatients.
+T2	Paragraph 160 1282	To investigate the incidence and demographics of gastric hypoacidity among persons infected with human immunodeficiency virus (HIV), 146 asymptomatic subjects were evaluated with use of a radiotelemetry device (Heidelberg capsule). Gastric hypoacidity (minimum gastric pH of > or = 3) occurred in 24 subjects (17%). Demographic characteristics, CD4 cell counts, and Helicobacter pylori serological status were evaluated for an association with gastric pH. Subjects with hypoacidity were more likely to have positive H. pylori serology than were subjects without hypoacidity (15 of 24 vs. 23 of 74, respectively; P = .004). Multivariate analysis indicated that a positive H. pylori serology was the most significant predictor of hypoacidity, accounting for an increase in gastric pH of 39%. A history of injection drug use, heterosexual transmission of HIV, and male gender were also associated with an elevated gastric pH. CD4 cell counts did not contribute to predictions of gastric pH. A history of H. pylori infection is relatively common in HIV-positive black and Hispanic populations and is a predictor of gastric pH.
+T3	Bacteria 24 43	Helicobacter pylori
+T4	Habitat 86 93	gastric
+T5	Habitat 109 158	human immunodeficiency virus-infected outpatients
+T6	Habitat 209 216	gastric
+T7	Habitat 235 285	persons infected with human immunodeficiency virus
+T8	Habitat 297 318	asymptomatic subjects
+T9	Habitat 392 399	Gastric
+T10	Habitat 421 428	gastric
+T11	Habitat 505 513	CD4 cell
+T12	Bacteria 526 545	Helicobacter pylori
+T13	Habitat 604 611	gastric
+T14	Habitat 616 641	Subjects with hypoacidity
+T15	Bacteria 676 685	H. pylori
+T16	Habitat 705 733	subjects without hypoacidity
+T17	Bacteria 831 840	H. pylori
+T18	Habitat 931 938	gastric
+T19	Habitat 1021 1032	male gender
+T20	Habitat 1071 1078	gastric
+T21	Habitat 1083 1091	CD4 cell
+T22	Habitat 1136 1143	gastric
+T23	Bacteria 1161 1170	H. pylori
+T24	Habitat 1205 1217;1228 1248	HIV-positive Hispanic populations
+T25	Habitat 1205 1223;1237 1248	HIV-positive black populations
+T26	Habitat 1271 1278	gastric

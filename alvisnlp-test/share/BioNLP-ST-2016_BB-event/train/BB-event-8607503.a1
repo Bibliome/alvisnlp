@@ -1,0 +1,32 @@
+T1	Title 0 107	Non-O1 Vibrio cholerae bacteremia in patients with cirrhosis: 5-yr experience from a single medical center.
+T2	Paragraph 108 300	To assess the clinical features and susceptibility of cirrhotic patients to non-O1 Vibrio cholerae bacteremia and to provide our therapeutic experiences in this rare and high lethal infection.
+T3	Paragraph 301 547	Twenty-eight blood culture isolates of non-O1 V. cholerae were identified by our clinical microbiology laboratory between July 1989 and June 1994. Patients with underlying cirrhosis and the aforementioned bacteremia were retrospectively reviewed.
+T4	Paragraph 548 1414	Twenty-one cirrhotic patients (16 male, five female; mean age, 50.9 yr; range 28-67 yr) were identified and classified as Child B (6 cases) and Child C (15 cases). Bacteremic episodes occurred most often from March to September. Seafood ingestion (seven cases) and seawater exposure (two cases) were risk factors, but nosocomial infections were also noted in six cases. Presenting symptoms and signs included ascites (95.2%), fever (81%), abdominal pain (52.4%), diarrhea (33.3%), and cellulitis with bullae formation (19%). Concurrent spontaneous bacterial peritonitis was determined in 10 cases, seven with positive ascites cultures. Antibiotic therapy (either cephalothin with gentamicin or ceftriaxone alone) cured most of the bacteremic episodes. The overall case-fatality rate was 23.8%, but 75% of the deaths were observed in patients with skin manifestation.
+T5	Paragraph 1415 1668	Patients with decompensated cirrhosis are susceptible to non-O1 V. cholerae bacteremia and should not ingest raw seafood or expose skin wounds to salt water. A high index of suspicion and early administration of antibiotics may lower the mortality rate.
+T6	Bacteria 0 22	Non-O1 Vibrio cholerae
+T7	Habitat 37 60	patients with cirrhosis
+T8	Habitat 92 106	medical center
+T9	Habitat 162 180	cirrhotic patients
+T10	Bacteria 184 206	non-O1 Vibrio cholerae
+T11	Habitat 314 327	blood culture
+T12	Habitat 314 319	blood
+T13	Bacteria 340 358	non-O1 V. cholerae
+T14	Habitat 382 414	clinical microbiology laboratory
+T15	Habitat 448 516	Patients with underlying cirrhosis and the aforementioned bacteremia
+T16	Habitat 559 635	cirrhotic patients (16 male, five female; mean age, 50.9 yr; range 28-67 yr)
+T17	Habitat 670 677	Child B
+T18	Habitat 692 699	Child C
+T19	Habitat 777 784	Seafood
+T20	Habitat 813 821	seawater
+T21	Habitat 866 876	nosocomial
+T22	Habitat 957 964	ascites
+T23	Habitat 987 996	abdominal
+T24	Habitat 1166 1173	ascites
+T25	Habitat 1381 1413	patients with skin manifestation
+T26	Habitat 1395 1399	skin
+T27	Habitat 1415 1452	Patients with decompensated cirrhosis
+T28	Bacteria 1472 1490	non-O1 V. cholerae
+T29	Habitat 1524 1535	raw seafood
+T30	Habitat 1546 1550	skin
+T31	Habitat 1546 1557	skin wounds
+T32	Habitat 1561 1571	salt water

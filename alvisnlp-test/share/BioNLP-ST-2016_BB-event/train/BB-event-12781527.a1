@@ -1,0 +1,11 @@
+T1	Title 0 59	Campylobacter--a tale of two protein glycosylation systems.
+T2	Paragraph 60 926	Post-translational glycosylation is a universal modification of proteins in eukarya, archaea and bacteria. Two recent publications describe the first confirmed report of a bacterial N-linked glycosylation pathway in the human gastrointestinal pathogen Campylobacter jejuni. In addition, an O-linked glycosylation pathway has been identified and characterized in C. jejuni and the related species Campylobacter coli. Both pathways have similarity to the respective N- and O-linked glycosylation processes in eukaryotes. In bacteria, homologues of the genes in both pathways are found in other organisms, the complex glycans linked to the glycoproteins share common biosynthetic precursors and these modifications could play similar biological roles. Thus, Campylobacter provides a unique model system for the elucidation and exploitation of glycoprotein biosynthesis.
+T3	Bacteria 0 13	Campylobacter
+T4	Habitat 136 143	eukarya
+T5	Habitat 280 285	human
+T6	Habitat 280 302	human gastrointestinal
+T7	Bacteria 312 332	Campylobacter jejuni
+T8	Bacteria 422 431	C. jejuni
+T9	Bacteria 456 474	Campylobacter coli
+T10	Habitat 567 577	eukaryotes
+T11	Bacteria 815 828	Campylobacter

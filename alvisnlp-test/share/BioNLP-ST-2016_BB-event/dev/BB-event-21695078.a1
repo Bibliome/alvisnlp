@@ -1,0 +1,24 @@
+T1	Title 0 99	Enhanced virulence of Chlamydia muridarum respiratory infections in the absence of TLR2 activation.
+T2	Paragraph 100 1061	Chlamydia trachomatis is a common sexually transmitted pathogen and is associated with infant pneumonia. Data from the female mouse model of genital tract chlamydia infection suggests a requirement for TLR2-dependent signaling in the induction of inflammation and oviduct pathology. We hypothesized that the role of TLR2 in moderating mucosal inflammation is site specific. In order to investigate this, we infected mice via the intranasal route with C. muridarum and observed that in the absence of TLR2 activation, mice had more severe disease, higher lung cytokine levels, and an exaggerated influx of neutrophils and T-cells into the lungs. This could not be explained by impaired bacterial clearance as TLR2-deficient mice cleared the infection similar to controls. These data suggest that TLR2 has an anti-inflammatory function in the lung during Chlamydia infection, and that the role of TLR2 in mucosal inflammation varies at different mucosal surfaces.
+T3	Bacteria 22 41	Chlamydia muridarum
+T4	Habitat 42 53	respiratory
+T5	Bacteria 100 121	Chlamydia trachomatis
+T6	Habitat 187 193	infant
+T7	Habitat 219 231	female mouse
+T8	Habitat 241 254	genital tract
+T9	Bacteria 255 264	chlamydia
+T10	Habitat 364 371	oviduct
+T11	Habitat 435 442	mucosal
+T12	Habitat 516 520	mice
+T13	Habitat 529 539	intranasal
+T14	Bacteria 551 563	C. muridarum
+T15	Habitat 617 621	mice
+T16	Habitat 654 658	lung
+T17	Habitat 705 716	neutrophils
+T18	Habitat 721 728	T-cells
+T19	Habitat 738 743	lungs
+T20	Habitat 808 827	TLR2-deficient mice
+T21	Habitat 941 945	lung
+T22	Bacteria 953 962	Chlamydia
+T23	Habitat 1003 1010	mucosal
+T24	Habitat 1044 1060	mucosal surfaces

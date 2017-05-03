@@ -1,0 +1,41 @@
+T1	Title 0 63	Respiratory carriage of Kingella kingae among healthy children.
+T2	Paragraph 64 1552	The role of Kingella kingae as an invasive pathogen of young children is being increasingly recognized, but the niche of the organism in the respiratory tract and its prevalence in the normal flora of children remain unknown. To investigate these two aspects throat and nasopharyngeal cultures were obtained every 2 weeks from two cohorts of children, ages 6 to 42 months on enrollment, attending a day-care center in southern Israel. To determine the age-related prevalence of K. kingae, throat cultures were obtained from children ages 6 months to 14 years hospitalized for elective surgery who had not received antibiotics during the previous 30 days and from healthy infants younger than 6 months attending a well-baby-care clinic for routine vaccinations. During an 11-month follow-up 109 of 624 (27.5%) throat cultures but none of the nasopharyngeal cultures obtained from 48 day-care center attendees grew K. kingae. The monthly prevalence of K. kingae ranged from 6.1 to 34.6% with December and April peaks. Overall 35 of 48 (72.9%) children had at least one positive culture for the organism. Among the 27 children who had > or = 2 positive cultures, continuous and intermittent patterns of carriage were observed. None of the colonized children experienced an invasive K. kingae infection. The prevalence of pharyngeal carriage among surgical patients was 8.0%, and the organism was not isolated from any of the infants younger than 6 months attending the well-baby-care clinic.
+T3	Habitat 0 11	Respiratory
+T4	Bacteria 24 39	Kingella kingae
+T5	Habitat 46 62	healthy children
+T6	Bacteria 76 91	Kingella kingae
+T7	Habitat 119 133	young children
+T8	Habitat 205 222	respiratory tract
+T9	Habitat 249 273	normal flora of children
+T10	Habitat 265 273	children
+T11	Habitat 323 329;349 357	throat cultures
+T12	Habitat 323 329	throat
+T13	Habitat 334 348	nasopharyngeal
+T14	Habitat 334 357	nasopharyngeal cultures
+T15	Habitat 395 435	cohorts of children, ages 6 to 42 months
+T16	Habitat 463 478	day-care center
+T17	Geographical 482 497	southern Israel
+T18	Bacteria 542 551	K. kingae
+T19	Habitat 553 559	throat
+T20	Habitat 553 568	throat cultures
+T21	Habitat 588 622	children ages 6 months to 14 years
+T22	Habitat 727 764	healthy infants younger than 6 months
+T23	Habitat 777 798	well-baby-care clinic
+T24	Habitat 782 786	baby
+T25	Habitat 873 888	throat cultures
+T26	Habitat 873 879	throat
+T27	Habitat 905 928	nasopharyngeal cultures
+T28	Habitat 905 919	nasopharyngeal
+T29	Habitat 946 961	day-care center
+T30	Habitat 946 971	day-care center attendees
+T31	Bacteria 977 986	K. kingae
+T32	Bacteria 1014 1023	K. kingae
+T33	Habitat 1105 1113	children
+T34	Habitat 1179 1187	children
+T35	Habitat 1300 1318	colonized children
+T36	Bacteria 1343 1352	K. kingae
+T37	Habitat 1382 1392	pharyngeal
+T38	Habitat 1408 1425	surgical patients
+T39	Habitat 1486 1515	infants younger than 6 months
+T40	Habitat 1530 1551	well-baby-care clinic
+T41	Habitat 1535 1539	baby

@@ -1,0 +1,5 @@
+Mineral and carbon usage of two synthetic pyrethroid degrading bacterial isolates.
+To investigate the biodegrading ability and cometabolism of synthetic pyrethroid (SP) utilizing bacteria in cultures with various minerals and carbon sources.
+Previously isolated SP-degrading Pseudomonas sp. and Serratia sp. were used in cultures containing either flumethrin SP or cypermethrin SP formulations. The culture media consisted of either (i) water only, (ii) water and sucrose, (iii) mineral broth or (iv) mineral broth and sucrose. The growth of both organisms was greatest in the mineral broth and sucrose medium, but the growth-limiting factor for Pseudomonas sp. strain Circle was the mineral content whereas for Serratia sp. strain White it was the carbon substrate.
+The greatest extent of degradation of both SP-based compounds occurred with Pseudomonas sp. strain Circle but was dependant on the medium.
+This investigation could lead to the development of a relatively inexpensive medium supplement to enhance the microbial biodegradation of undesirable compounds, either in situ or ex situ. In this particular case, for the biodegradation of SPs used in sheep dip.

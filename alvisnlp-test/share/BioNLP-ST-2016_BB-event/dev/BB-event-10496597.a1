@@ -1,0 +1,37 @@
+T1	Title 0 137	The differential diagnosis of early gastric mucosa-associated lymphoma: polymerase chain reaction and paraffin section immunophenotyping.
+T2	Paragraph 138 2048	The distinction between benign florid lymphoid hyperplasia and low-grade gastric mucosal-associated lymphoid tissue (MALT) lymphoma may be a challenge. The presence of monoclonal B cells in Helicobacter pylori-chronic active gastritis has suggested that polymerase chain reaction (PCR) data should be viewed with caution. We investigated the reliability of PCR versus immunophenotyping in diagnosing early gastric MALT lymphoma. We studied 1511 biopsies from eight patients with high-grade primary gastric lymphoma, 25 with low-grade MALT lymphoma, 32 with atypical lymphoid infiltrates, and 39 with Helicobacter pylori-chronic active gastritis. Paraffin sections from all cases were stained with antibodies to CD20, CD3, AE1/AE3, kappa and lambda. PCR was performed on paraffin sections using the primer set VH-FR3/J(H). Using histopathology as the gold standard in diagnosis, we confirmed monoclonality in 22 of 25 MALT lymphomas (88%); a clonal band was found in 38% (15 of 39) of patients with chronic active gastritis. An immunophenotype pattern with predominance of CD20-positive cells in lymphocytic infiltrates was associated with monoclonality in 92% of cases. The presence of an enlarged irregular mantle zone was found in both monoclonal and polyclonal areas. An equal prevalence of B and T cells in lymphocytic infiltrates was associated with a polyclonal pattern in 24 of 31 cases (77%). Immunostaining of sIg (kappa and lambda) was difficult in paraffin sections and convincing proof of monoclonality was not obtained. Lymphoepithelial lesions were infrequent in gastric biopsies and their presence was highlighted with keratin stains. Because monoclonal B cells are observed in Helicobacter pylori-associated gastritis, the correct interpretation of clonality by PCR remains unclear. Paraffin section IHC using CD20 and CD3 is especially useful to confirm the diagnosis of gastric MALT lymphoma.
+T3	Habitat 36 50	gastric mucosa
+T4	Habitat 36 43	gastric
+T5	Habitat 211 253	gastric mucosal-associated lymphoid tissue
+T6	Habitat 211 226	gastric mucosal
+T7	Habitat 211 218	gastric
+T8	Habitat 255 259	MALT
+T9	Habitat 306 324	monoclonal B cells
+T10	Bacteria 328 347	Helicobacter pylori
+T11	Habitat 544 551	gastric
+T12	Habitat 544 556	gastric MALT
+T13	Habitat 603 652	patients with high-grade primary gastric lymphoma
+T14	Habitat 603 611;690 724	patients with atypical lymphoid infiltrates
+T15	Habitat 603 611;733 782	patients with Helicobacter pylori-chronic active gastritis
+T16	Habitat 603 611;657 685	patients with low-grade MALT lymphoma
+T17	Habitat 636 643	gastric
+T18	Habitat 672 676	MALT
+T19	Bacteria 738 757	Helicobacter pylori
+T20	Habitat 849 853	CD20
+T21	Habitat 855 858	CD3
+T22	Habitat 1055 1059	MALT
+T23	Habitat 1122 1160	patients with chronic active gastritis
+T24	Habitat 1210 1229	CD20-positive cells
+T25	Habitat 1233 1244	lymphocytic
+T26	Habitat 1432 1433;1440 1445	B cells
+T27	Habitat 1438 1445	T cells
+T28	Habitat 1449 1460	lymphocytic
+T29	Habitat 1671 1695	Lymphoepithelial lesions
+T30	Habitat 1671 1687	Lymphoepithelial
+T31	Habitat 1715 1722	gastric
+T32	Habitat 1796 1814	monoclonal B cells
+T33	Bacteria 1831 1850	Helicobacter pylori
+T34	Habitat 1964 1968	CD20
+T35	Habitat 1973 1976	CD3
+T36	Habitat 2026 2033	gastric
+T37	Habitat 2026 2038	gastric MALT

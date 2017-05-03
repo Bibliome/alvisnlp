@@ -1,0 +1,50 @@
+T1	Title 0 68	Etiology and epidemiology of diarrhea in children in Hanoi, Vietnam.
+T2	Paragraph 69 272	This paper provides a preliminary picture of diarrhea with regards to etiology, clinical symptoms, and some related epidemiologic factors in children less than five years of age living in Hanoi, Vietnam.
+T3	Paragraph 273 586	The study population included 587 children with diarrhea and 249 age-matched healthy controls. The identification of pathogens was carried out by the conventional methods in combination with ELISA, immunoseparation, and PCR. The antibiotic susceptibility was determined by MIC following the NCCLS recommendations.
+T4	Paragraph 587 2024	Of those with diarrhea, 40.9% were less than one year old and 71.0% were less than two years old. A potential pathogen was identified in 67.3% of children with diarrhea. They were group A rotavirus, diarrheagenic Escherichia coli, Shigella spp, and enterotoxigenic Bacteroides fragilis, with prevalences of 46.7%, 22.5%, 4.7%, and 7.3%, respectively. No Salmonella spp or Vibrio cholerae were isolated. Rotavirus and diarrheagenic E. coli were predominant in children less than two years of age, while Shigella spp, and enterotoxigenic B. fragilis were mostly seen in the older children. Diarrheagenic E. coli and Shigella spp showed high prevalence of resistance to ampicillin, chloramphenicol, and to trimethoprim/sulfamethoxazole. Children attending the hospitals had fever (43.6%), vomiting (53.8%), and dehydration (82.6%). Watery stool was predominant with a prevalence of 66.4%, followed by mucous stool (21.0%). The mean episodes of stools per day was seven, ranging from two to 23 episodes. Before attending hospitals, 162/587 (27.6%) children had been given antibiotics. Overall, more children got diarrhea in (i) poor families; (ii) families where piped water and a latrine were lacking; (iii) families where mothers washed their hands less often before feeding the children; (iv) families where mothers had a low level of education; (v) families where information on health and sanitation less often reached their households.
+T5	Paragraph 2025 2431	Group A rotavirus, diarrheagenic Escherichia coli, Shigella spp, and enterotoxigenic Bacteroides fragilis play an important role in causing diarrhea in children in Hanoi, Vietnam. Epidemiological factors such as lack of fresh water supply, unhygienic septic tank, low family income, lack of health information, and low educational level of parents could contribute to the morbidity of diarrhea in children.
+T6	Habitat 41 49	children
+T7	Geographical 53 58	Hanoi
+T8	Geographical 60 67	Vietnam
+T9	Habitat 210 246	children less than five years of age
+T10	Geographical 257 262	Hanoi
+T11	Geographical 264 271	Vietnam
+T12	Habitat 307 329	children with diarrhea
+T13	Habitat 338 366	age-matched healthy controls
+T14	Habitat 733 755	children with diarrhea
+T15	Bacteria 800 816	Escherichia coli
+T16	Bacteria 818 830	Shigella spp
+T17	Bacteria 852 872	Bacteroides fragilis
+T18	Bacteria 941 955	Salmonella spp
+T19	Bacteria 959 974	Vibrio cholerae
+T20	Bacteria 1018 1025	E. coli
+T21	Habitat 1046 1081	children less than two years of age
+T22	Bacteria 1089 1101	Shigella spp
+T23	Bacteria 1123 1134	B. fragilis
+T24	Habitat 1159 1173	older children
+T25	Bacteria 1189 1196	E. coli
+T26	Bacteria 1201 1213	Shigella spp
+T27	Habitat 1321 1353	Children attending the hospitals
+T28	Habitat 1344 1353	hospitals
+T29	Habitat 1416 1428	Watery stool
+T30	Habitat 1485 1497	mucous stool
+T31	Habitat 1485 1491	mucous
+T32	Habitat 1528 1534	stools
+T33	Habitat 1604 1613	hospitals
+T34	Habitat 1631 1639	children
+T35	Habitat 1682 1690	children
+T36	Habitat 1746 1757	piped water
+T37	Habitat 1764 1771	latrine
+T38	Habitat 1807 1814	mothers
+T39	Habitat 1864 1872	children
+T40	Habitat 1894 1901	mothers
+T41	Bacteria 2058 2074	Escherichia coli
+T42	Bacteria 2076 2088	Shigella spp
+T43	Bacteria 2110 2130	Bacteroides fragilis
+T44	Habitat 2177 2185	children
+T45	Geographical 2189 2194	Hanoi
+T46	Geographical 2196 2203	Vietnam
+T47	Habitat 2245 2263	fresh water supply
+T48	Habitat 2245 2256	fresh water
+T49	Habitat 2265 2287	unhygienic septic tank
+T50	Habitat 2422 2430	children

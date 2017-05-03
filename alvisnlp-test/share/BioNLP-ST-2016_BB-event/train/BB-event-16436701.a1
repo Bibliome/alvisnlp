@@ -1,0 +1,8 @@
+T1	Title 0 91	Antibacterial properties of dermaseptin S4 derivatives under extreme incubation conditions.
+T2	Paragraph 92 1342	Antibacterial properties of the frog-derived peptide dermaseptin S4 and a series of synthetic derivatives against the food pathogen Escherichia coli O157:H7 were investigated under extreme incubation conditions. The 28-mer analog K4K20S4 (P28) displayed an MIC of 8 microM and rapid bactericidal kinetics under standard culture conditions. Potent bactericidal properties were maintained at high salt concentrations, under acidic or basic conditions, and at extreme temperatures. The N-terminal 14-mer sequence (P14) displayed higher potency (MIC, 4 microM) but only within a narrow range of incubation conditions, pointing to the importance of the C-terminal domain of P28. The potency range was reextended upon conjugation of aminododecanoic acid to P14. The resulting lipopeptide was even more potent (MIC, 2 microM) and affected bacterial viability under most of the conditions tested, including in commercial apple juice. The mechanistic implications of peptides' hydrophobicity, charge, structure, and binding to an idealized membrane were probed and are discussed here. Collectively, the data indicate interest in simple peptide-based compounds for design of antimicrobials that affect pathogens under a variable range of incubation conditions.
+T3	Habitat 124 128	frog
+T4	Habitat 210 214	food
+T5	Bacteria 224 248	Escherichia coli O157:H7
+T6	Habitat 482 506	high salt concentrations
+T7	Habitat 994 1016	commercial apple juice
+T8	Habitat 1005 1010	apple

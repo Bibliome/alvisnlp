@@ -1,0 +1,16 @@
+T1	Title 0 131	Characterization of a cryptic plasmid pD403 from Lactobacillus plantarum and construction of shuttle vectors based on its replicon.
+T2	Paragraph 132 1562	A cryptic plasmid pD403 was isolated from Lactobacillus plantarum D403 derived from fermented dairy products. It was 2,791 bp in size with a G+C content of 37%. Nucleotide sequence analysis revealed two open reading frames, orf1 and orf2. ORF1 (318 amino acids) was identified as a replication protein (RepA). ORF2 (137 amino acids) shared 31% similarity with the transcriptional regulator of Ralstonia pickettii 12D. Functional investigation indicated that ORF2 (Tra) had the ability of improving the transformation efficiency. The origin of replication was predicted, suggesting that pD403 was a rolling-circle-replication (RCR) plasmid. An Escherichia coli/Lactobacillus shuttle vector pCD4032 was constructed based on the pD403 replicon, and proved to be successfully transformed into various lactobacilli including Lactobacillus casei, Lactobacillus plantarum, Lactobacillus fermentum, and Lactobacillus brevis. The transformation efficiencies were ranged from 1.3 x 10(2) to 7 x 10(4) transformants per microgram DNA. Furthermore, an expression vector pCD4033 was developed with the promoter of the lactate dehydrogenase from Lactobacillus delbrueckii 11842. The green fluorescent protein (gfp) as a reporter was expressed successfully in various lactobacilli tested, suggesting that the expression vector pCD4033 had the potential to be used as a molecular tool for heterologous gene cloning and expression in lactobacilli.
+T3	Bacteria 49 72	Lactobacillus plantarum
+T4	Bacteria 174 202	Lactobacillus plantarum D403
+T5	Habitat 216 240	fermented dairy products
+T6	Bacteria 525 548	Ralstonia pickettii 12D
+T7	Bacteria 775 791	Escherichia coli
+T8	Bacteria 792 805	Lactobacillus
+T9	Bacteria 929 941	lactobacilli
+T10	Bacteria 952 971	Lactobacillus casei
+T11	Bacteria 973 996	Lactobacillus plantarum
+T12	Bacteria 998 1021	Lactobacillus fermentum
+T13	Bacteria 1027 1047	Lactobacillus brevis
+T14	Bacteria 1264 1295	Lactobacillus delbrueckii 11842
+T15	Bacteria 1385 1397	lactobacilli
+T16	Bacteria 1549 1561	lactobacilli

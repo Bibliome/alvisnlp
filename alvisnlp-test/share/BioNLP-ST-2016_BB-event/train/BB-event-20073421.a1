@@ -1,0 +1,22 @@
+T1	Title 0 139	The effect of interferon-gamma and lipopolysaccharide on the growth of Francisella tularensis LVS in murine macrophage-like cell line J774.
+T2	Paragraph 140 263	Francisella tularensis, a causative agent of human tularemia, displaying the ability to proliferate inside the human cells.
+T3	Paragraph 264 440	To evaluate the growth potential of F. tularensis LVS strain in macrophage-like cell line J774 modulated by recombinant interferon gamma and E. coli derived lipopolysaccharide.
+T4	Paragraph 441 712	Stimulation of J774 cells either by interferon-gamma or lipopolysaccharide alone, or especially in combination before infection F. tularensis, revealed protective effects. Higher concentrations of stimulating agents were needed to inhibit ongoing F. tularensis infection.
+T5	Paragraph 713 853	Stimulation of J774 cell line by combination of interferon-gamma with lipopolysaccharide inhibits the intracellular growth of F. tularensis.
+T6	Bacteria 71 97	Francisella tularensis LVS
+T7	Habitat 101 107	murine
+T8	Habitat 101 118	murine macrophage
+T9	Habitat 101 138	murine macrophage-like cell line J774
+T10	Bacteria 140 162	Francisella tularensis
+T11	Habitat 185 190	human
+T12	Habitat 251 262	human cells
+T13	Habitat 251 256	human
+T14	Bacteria 300 317	F. tularensis LVS
+T15	Habitat 328 338	macrophage
+T16	Habitat 328 358	macrophage-like cell line J774
+T17	Bacteria 405 412	E. coli
+T18	Habitat 456 466	J774 cells
+T19	Bacteria 569 582	F. tularensis
+T20	Bacteria 688 701	F. tularensis
+T21	Habitat 728 742	J774 cell line
+T22	Bacteria 839 852	F. tularensis

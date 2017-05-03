@@ -1,0 +1,16 @@
+T1	Title 0 128	A putative rolB gene homologue of the Agrobacterium rhizogenes TR-DNA has different morphogenetic activity in tobacco than rolB.
+T2	Paragraph 129 1214	Agrobacterium rhizogenes strains of the agropine type harbor on their Ri-plasmid two T-DNAs, a left TL-DNA and a right TR-DNA. The rolB gene of the TL-DNA is the major factor in the pathogenesis of the hairy-root disease and its constitutive expression interfere profoundly with plant morphogenesis. We have tested whether the expression of its sequence related putative homologue from the TR-DNA (rolBTR) may cause also bacterial virulence or affect plant development. Unlike rolB, rolBTR is unable to induce root formation on tobacco leaf discs. Tobacco plants expressing a chimeric 35S::rolBTR gene have reduced stature, off-shoots at the stem base and bent and wrinkled leaves with epinastic growth. 14 N-terminal amino acids which are absent in the rolB protein are indispensable to rolBTR protein activity. The characteristic tyrosine phosphatase super family motif CX5R is absent in the rolBTR protein. For rolB this motif is possibly functionally relevant. We conclude that the rolBTR gene product has morphogenic activity but is not a functional homologue of the rolB protein.
+T3	Bacteria 38 62	Agrobacterium rhizogenes
+T4	Habitat 110 117	tobacco
+T5	Bacteria 129 153	Agrobacterium rhizogenes
+T6	Habitat 331 341	hairy-root
+T7	Habitat 408 413	plant
+T8	Habitat 580 585	plant
+T9	Habitat 639 643	root
+T10	Habitat 657 675	tobacco leaf discs
+T11	Habitat 657 669	tobacco leaf
+T12	Habitat 657 664	tobacco
+T13	Habitat 677 730	Tobacco plants expressing a chimeric 35S::rolBTR gene
+T14	Habitat 753 780	off-shoots at the stem base
+T15	Habitat 771 775	stem
+T16	Habitat 794 831	wrinkled leaves with epinastic growth

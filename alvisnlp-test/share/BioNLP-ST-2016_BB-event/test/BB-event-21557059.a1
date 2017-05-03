@@ -1,0 +1,14 @@
+T1	Title 0 38	Adhesion by pathogenic corynebacteria.
+T2	Paragraph 39 1359	Pathogenic members of the genus Corynebacterium cause a wide range of serious infections in humans including diphtheria. Adhesion to host cells is a crucial step during infection. In Corynebacterium diphtheriae, adhesion is mediated primarily by filamentous structures called pili or fimbriae that are covalently attached to the bacterial cell wall. C. diphtheriae produces three distinct pilus structures, SpaA-, SpaD- and SpaH-type pili. Similar to other types, the prototype SpaA pilus consists of SpaA forming the pilus shaft and two minor pilins SpaB and SpaC located at the base and at the tip, respectively. The minor pilins SpaB/SpaC are critical for bacterial binding to human pharyngeal cells, and thus represent the major adhesins of corynebacteria. Like pili of many other gram-positive microbes, the assembly of corynebacterial pili occurs by a two-step mechanism, whereby pilins are covalently polymerized by a transpeptidase enzyme named pilin-specific sortase and the generated pilus polymer is subsequently anchored to the cell wall peptidoglycan via the base pilin by the housekeeping sortase or a non-polymerizing sortase. This chapter reviews the current knowledge of corynebacterial adhesion, with a specific focus on pilus structures, their assembly, and the mechanism of adhesion mediated by pili.
+T3	Bacteria 23 37	corynebacteria
+T4	Bacteria 71 86	Corynebacterium
+T5	Habitat 131 137	humans
+T6	Habitat 172 182	host cells
+T7	Bacteria 222 249	Corynebacterium diphtheriae
+T8	Bacteria 389 403	C. diphtheriae
+T9	Habitat 719 724	human
+T10	Habitat 719 741	human pharyngeal cells
+T11	Habitat 725 735	pharyngeal
+T12	Bacteria 784 798	corynebacteria
+T13	Bacteria 864 879	corynebacterial
+T14	Bacteria 1227 1242	corynebacterial

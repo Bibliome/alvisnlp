@@ -1,0 +1,22 @@
+T1	Title 0 107	Low dose, short-term triple therapy for cure of Helicobacter pylori infection and healing of peptic ulcers.
+T2	Paragraph 108 312	The aim of this study was to confirm the efficacy and tolerability of a new, low dose, short-term triple therapy for cure of Helicobacter pylori infection, as suggested by Bazzoli, in a larger population.
+T3	Paragraph 313 705	On an "intention-to-treat" basis, 116 patients with active (n = 41) or healed (n = 47) peptic ulcer disease or ulcer-like dyspepsia (n = 28) and H. pylori infection received a 1-wk course of omeprazole 20 mg b.i.d., clarythromycin 250 mg b.i.d., and tinidazole 500 mg b.i.d.. Four weeks after treatment withdrawal, cure of H. pylori infection was evaluated by rapid urease test and histology.
+T4	Paragraph 706 1055	One hundred and sixteen patients returned for follow-up. In 108 patients, H. pylori could not be identified 4 wk after cessation of therapy. The eradication rate was calculated to 93%. In addition, all patients with active peptic ulcers showed complete healing at follow-up despite no further treatment. Drug acceptance and compliance was excellent.
+T5	Paragraph 1056 1402	Triple therapy as suggested by Bazzoli with omeprazole (in this study given b.i.d. for better compliance), clarythromycin, and tinidazole is indeed highly effective for both cure of H. pylori infection and for healing of peptic ulcers, is easy to perform, is cheap, and is without clinically significant side effects, even in a larger population.
+T6	Bacteria 48 67	Helicobacter pylori
+T7	Habitat 93 106	peptic ulcers
+T8	Bacteria 233 252	Helicobacter pylori
+T9	Habitat 351 364;424 444;454 477	patients with ulcer-like dyspepsia and H. pylori infection
+T10	Habitat 351 371;400 420;454 477	patients with active peptic ulcer disease and H. pylori infection
+T11	Habitat 351 364;384 390;400 420;454 477	patients with healed peptic ulcer disease and H. pylori infection
+T12	Habitat 400 412	peptic ulcer
+T13	Habitat 424 429	ulcer
+T14	Bacteria 458 467	H. pylori
+T15	Bacteria 636 645	H. pylori
+T16	Habitat 730 738	patients
+T17	Habitat 770 778	patients
+T18	Bacteria 780 789	H. pylori
+T19	Habitat 908 942	patients with active peptic ulcers
+T20	Habitat 922 942	active peptic ulcers
+T21	Bacteria 1238 1247	H. pylori
+T22	Habitat 1277 1290	peptic ulcers

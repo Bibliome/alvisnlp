@@ -1,0 +1,23 @@
+T1	Title 0 152	Amino acid requirements of strains of Chlamydia trachomatis and C. psittaci growing in McCoy cells: relationship with clinical syndrome and host origin.
+T2	Paragraph 153 1309	The effects of omission of individual amino acids from growth medium on the multiplication of a range of Chlamydia trachomatis and C. psittaci strains in cycloheximide-treated McCoy cells have been assessed. Differences in requirements were revealed which for C. trachomatis strains correlated with clinical syndrome and for C. psittaci with host origin. All 11 strains of C. trachomatis examined showed a requirement for addition of histidine to the medium; this was not shown by any of four C. psittaci strains. Among the strains of C. trachomatis, three from cases of trachoma, representing serotypes A, B and C, showed a distinctive requirement for the addition of tryptophan to the medium, whilst six strains of oculogenital origin, representing serotypes D-I, exhibited no requirement for tryptophan or methionine; a lymphogranuloma venereum and a 'fast variant' strain both showed a requirement for methionine. Of the four C. psittaci strains from different hosts, three showed distinct patterns of amino acid requirements. All chlamydiae required the addition of valine to medium and the majority required leucine, phenylalanine and also glutamine.
+T3	Bacteria 38 59	Chlamydia trachomatis
+T4	Bacteria 64 75	C. psittaci
+T5	Habitat 87 98	McCoy cells
+T6	Habitat 118 126	clinical
+T7	Bacteria 258 279	Chlamydia trachomatis
+T8	Bacteria 284 295	C. psittaci
+T9	Habitat 307 340	cycloheximide-treated McCoy cells
+T10	Bacteria 413 427	C. trachomatis
+T11	Habitat 452 460	clinical
+T12	Bacteria 478 489	C. psittaci
+T13	Bacteria 526 540	C. trachomatis
+T14	Bacteria 646 657	C. psittaci
+T15	Bacteria 688 702	C. trachomatis
+T16	Habitat 715 732	cases of trachoma
+T17	Bacteria 747 756;760 761	serotypes B
+T18	Bacteria 747 758	serotypes A
+T19	Bacteria 747 756;766 767	serotypes C
+T20	Habitat 870 889	oculogenital origin
+T21	Bacteria 904 917	serotypes D-I
+T22	Bacteria 1083 1094	C. psittaci
+T23	Bacteria 1188 1198	chlamydiae

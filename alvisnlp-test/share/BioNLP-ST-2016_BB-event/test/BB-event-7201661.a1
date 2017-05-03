@@ -1,0 +1,29 @@
+T1	Title 0 62	In vitro adhesion of Staphylococcus strains to rabbit tissues.
+T2	Paragraph 63 1569	Differences in the in vitro adhesion of Staphylococcus strains on rabbit tissues were evaluated by viable unit counts and radio-labeling. Among coagulase-positive strains, two freshly isolated strains and the Cowan I strain adhered much more than the Wood 46 strain especially to peritoneum. In addition, the Smith strain, which is coagulase-positive and encapsulated, showed on rabbit peritoneum a degree of adhesion smaller than that of the Cowan I strain and similar to that of the Wood 46 strain. These quantitative results were corroborated by examination of the bacteria on thin sections of peritoneum or on whole mesentery samples with fluorescence microscopy. With fluorochroming either with acridine orange or fluorescent homologous antibodies, we could detect a preferential localization of the bacteria on the epithelium and also on fibers of the mesentery. Even if the Cowan I strain produces Protein A, this substance does not seem to have been involved in the adhesion of this strain to rabbit tissues, since IgG did not affect the degree of its adhesion. Treatment by Na metaperiodate of the peritoneum had an inhibitory effect of about 50% on the degree of adhesion; several other known inhibitors had no effect. The higher affinity of the Cowan I strain for the peritoneum or the mesentery, when compared with the Wood 46 strain, is an observation which could contribute to the study and understanding of adhesion, presumably an element of the experimental pathogenicity of Staphylococcus.
+T3	Bacteria 21 35	Staphylococcus
+T4	Habitat 47 53	rabbit
+T5	Habitat 47 61	rabbit tissues
+T6	Bacteria 103 117	Staphylococcus
+T7	Habitat 129 143	rabbit tissues
+T8	Habitat 129 135	rabbit
+T9	Bacteria 272 279	Cowan I
+T10	Bacteria 314 321	Wood 46
+T11	Habitat 343 353	peritoneum
+T12	Bacteria 372 377	Smith
+T13	Habitat 442 448	rabbit
+T14	Habitat 442 459	rabbit peritoneum
+T15	Bacteria 506 513	Cowan I
+T16	Bacteria 548 555	Wood 46
+T17	Habitat 660 670	peritoneum
+T18	Habitat 683 700	mesentery samples
+T19	Habitat 884 894	epithelium
+T20	Habitat 921 930	mesentery
+T21	Bacteria 944 951	Cowan I
+T22	Habitat 1064 1078	rabbit tissues
+T23	Habitat 1064 1070	rabbit
+T24	Habitat 1170 1180	peritoneum
+T25	Bacteria 1319 1326	Cowan I
+T26	Habitat 1342 1352	peritoneum
+T27	Habitat 1360 1369	mesentery
+T28	Bacteria 1394 1401	Wood 46
+T29	Bacteria 1554 1568	Staphylococcus

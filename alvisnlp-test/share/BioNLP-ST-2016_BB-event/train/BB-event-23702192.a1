@@ -1,0 +1,30 @@
+T1	Title 0 99	Clinical factors associated with development of severe-complicated Clostridium difficile infection.
+T2	Paragraph 100 379	Clostridium difficile infection (CDI) can cause life-threatening complications. Severe-complicated CDI is characterized by hypotension, shock, sepsis, ileus, megacolon, and colon perforation. We created a model to identify clinical factors associated with severe-complicated CDI.
+T3	Paragraph 380 1316	We analyzed data from 1446 inpatient cases of CDI (48.6% female; median age, 62.5 years; range, 0.1-103.7 years) at the Mayo Clinic from June 28, 2007, to June 25, 2010. Patients with severe-complicated CDI (n = 487) were identified as those who required admission to the intensive care unit or colectomy, or died, within 30 days of CDI diagnosis. Logistic regression models were used to identify variables that were independently associated with the occurrence of severe-complicated CDI in 2 cohorts. One cohort comprised all hospitalized patients; the other comprised a subset of these inpatients who were residents of Olmsted County, Minnesota to assess the association of comorbid conditions with the development of severe-complicated infection in a population-based cohort. The linear combinations of variables identified by using logistic regression models provided scores to predict the risk of developing severe-complicated CDI.
+T4	Paragraph 1317 1758	In a multivariable model that included all inpatients, increasing age, leukocyte count >15 × 10(9)/L, increase in serum level of creatinine >1.5-fold from baseline, and use of proton pump inhibitors or narcotic medications were independently associated with severe-complicated CDI. In the secondary analysis, which included only patients from Olmsted County, comorbid conditions were not significantly associated with severe-complicated CDI.
+T5	Paragraph 1759 2080	Older age, high numbers of leukocytes in blood samples, an increased serum level of creatinine, gastric acid suppression, and use of narcotic medications were independently associated with development of severe-complicated CDI in hospitalized patients. Early aggressive monitoring and intervention could improve outcomes.
+T6	Bacteria 67 88	Clostridium difficile
+T7	Bacteria 100 121	Clostridium difficile
+T8	Habitat 273 278	colon
+T9	Habitat 407 492	inpatient cases of CDI (48.6% female; median age, 62.5 years; range, 0.1-103.7 years)
+T10	Habitat 500 511	Mayo Clinic
+T11	Habitat 550 586	Patients with severe-complicated CDI
+T12	Habitat 652 671	intensive care unit
+T13	Habitat 907 928	hospitalized patients
+T14	Habitat 907 919	hospitalized
+T15	Habitat 968 978	inpatients
+T16	Geographical 1001 1015	Olmsted County
+T17	Geographical 1017 1026	Minnesota
+T18	Habitat 1134 1157	population-based cohort
+T19	Habitat 1360 1370	inpatients
+T20	Habitat 1388 1397	leukocyte
+T21	Habitat 1431 1436	serum
+T22	Habitat 1646 1654	patients
+T23	Geographical 1660 1674	Olmsted County
+T24	Habitat 1786 1796	leukocytes
+T25	Habitat 1800 1813	blood samples
+T26	Habitat 1828 1833	serum
+T27	Habitat 1855 1867	gastric acid
+T28	Habitat 1855 1862	gastric
+T29	Habitat 1989 2010	hospitalized patients
+T30	Habitat 1989 2001	hospitalized

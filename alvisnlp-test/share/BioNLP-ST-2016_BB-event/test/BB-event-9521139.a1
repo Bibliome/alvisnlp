@@ -1,0 +1,33 @@
+T1	Title 0 103	Capsular serotype and antibiotic resistance of Streptococcus pneumoniae isolates in two Chilean cities.
+T2	Paragraph 104 1344	We compared the incidence of nasopharyngeal colonization by Streptococcus pneumoniae, the serotypes causing mucosal and invasive diseases, and the antibiotic resistance of these strains in patients admitted to three large hospitals and children attending day care centers in two Chilean cities (Santiago and Temuco). The populations in both cities were similar in ethnic background, socioeconomic status, family size, and access to medical care. Significant differences in nasopharyngeal colonization rates, in serotypes causing infections, and in antibiotic resistance were found between the two cities. In children 0 to 2 years of age, 42% were colonized with S. pneumoniae in Santiago compared to 14% in Temuco. A total of 41 serotypes were identified in both Chilean cities studied. Six serotypes were found only in Santiago; 14 serotypes were found only in Temuco. Antibiotic-resistant serotypes 6A, 6B, 14, 19F, and 23F were detected only in Santiago. We show that important differences in the incidence of nasopharyngeal carriage, infection, and S. pneumoniae serotypes can exist in similar populations in different areas of the same country. Our findings are relevant for prevention strategies, antibiotic usage, and vaccine design.
+T3	Bacteria 47 71	Streptococcus pneumoniae
+T4	Habitat 88 102	Chilean cities
+T5	Habitat 133 147	nasopharyngeal
+T6	Bacteria 164 188	Streptococcus pneumoniae
+T7	Habitat 212 219	mucosal
+T8	Habitat 293 335	patients admitted to three large hospitals
+T9	Habitat 320 335	large hospitals
+T10	Habitat 340 375	children attending day care centers
+T11	Habitat 359 375	day care centers
+T12	Habitat 383 397	Chilean cities
+T13	Geographical 399 407	Santiago
+T14	Geographical 412 418	Temuco
+T15	Habitat 445 451	cities
+T16	Habitat 577 591	nasopharyngeal
+T17	Habitat 701 707	cities
+T18	Habitat 712 740	children 0 to 2 years of age
+T19	Bacteria 766 779	S. pneumoniae
+T20	Geographical 783 791	Santiago
+T21	Geographical 811 817	Temuco
+T22	Habitat 867 881	Chilean cities
+T23	Geographical 924 932	Santiago
+T24	Geographical 966 972	Temuco
+T25	Bacteria 1005 1007	6A
+T26	Bacteria 1009 1011	6B
+T27	Bacteria 1013 1015	14
+T28	Bacteria 1017 1020	19F
+T29	Bacteria 1026 1029	23F
+T30	Geographical 1052 1060	Santiago
+T31	Habitat 1117 1131	nasopharyngeal
+T32	Bacteria 1157 1170	S. pneumoniae
+T33	Habitat 1329 1336	vaccine

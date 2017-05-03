@@ -1,0 +1,30 @@
+T1	Title 0 87	Clonal strains of Pseudomonas aeruginosa in paediatric and adult cystic fibrosis units.
+T2	Paragraph 88 1551	Despite recent reports of clonal strains of Pseudomonas aeruginosa in cystic fibrosis (CF) units, the need for routine microbiological surveillance remains contentious. Sputum was collected prospectively from productive patients attending the regional paediatric and adult CF units in Brisbane, Australia. All P. aeruginosa isolates were typed using pulsed-field gel electrophoresis. Spirometry, anthropometrics, hospitalisations and antibiotic sensitivity data were recorded. The first 100 sputum samples (first 50 patients at each clinic) harboured 163 isolates of P. aeruginosa. A total of 39 patients shared a common strain (pulsotype 2), 20 patients shared a strain with at least one other patient and 41 patients harboured unique strains. Eight patients shared a strain identical to a previously reported Australian transmissible strain (pulsotype 1). Compared with the unique strain group, patients harbouring pulsotype 2 were younger and had poorer lung function. Treatment requirements were similar in these two groups, as were the rates of multiresistance. In conclusion, 59% of patients harboured a clonal strain, supporting the need for routine microbiological surveillance. In contrast to previously described clonal strains, the dominant pulsotype was indistinguishable from nonclonal strains with respect to both colonial morphology and multiresistance. The clinical significance of clonal strains remains uncertain and requires longitudinal study.
+T3	Bacteria 18 40	Pseudomonas aeruginosa
+T4	Habitat 44 54;65 86	paediatric cystic fibrosis units
+T5	Habitat 44 54	paediatric
+T6	Habitat 59 64	adult
+T7	Habitat 59 86	adult cystic fibrosis units
+T8	Bacteria 132 154	Pseudomonas aeruginosa
+T9	Habitat 158 184	cystic fibrosis (CF) units
+T10	Habitat 257 263	Sputum
+T11	Habitat 297 316	productive patients
+T12	Habitat 331 350;361 369	regional paediatric CF units
+T13	Habitat 331 339;355 369	regional adult CF units
+T14	Habitat 340 350	paediatric
+T15	Habitat 355 360	adult
+T16	Geographical 373 381	Brisbane
+T17	Geographical 383 392	Australia
+T18	Bacteria 398 411	P. aeruginosa
+T19	Habitat 579 585	sputum
+T20	Habitat 604 612	patients
+T21	Habitat 621 627	clinic
+T22	Bacteria 655 668	P. aeruginosa
+T23	Habitat 684 692	patients
+T24	Habitat 734 742	patients
+T25	Habitat 783 790	patient
+T26	Habitat 798 806	patients
+T27	Habitat 839 847	patients
+T28	Habitat 985 993	patients
+T29	Habitat 1045 1049	lung
+T30	Habitat 1177 1185	patients

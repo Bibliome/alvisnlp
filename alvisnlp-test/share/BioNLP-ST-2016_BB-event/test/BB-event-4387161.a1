@@ -1,0 +1,9 @@
+T1	Title 0 68	Uridine diphosphate D-glucose dehydrogenase of Aerobacter aerogenes.
+T2	Paragraph 69 1045	Uridine diphosphate d-glucose dehydrogenase (EC 1.1.1.22) from Aerobacter aerogenes has been partially purified and its properties have been investigated. The molecular weight of the enzyme is between 70,000 and 100,000. Uridine diphosphate d-glucose is a substrate; the diphosphoglucose derivatives of adenosine, cytidine, guanosine, and thymidine are not substrates. Nicotinamide adenine dinucleotide (NAD), but not nicotinamide adenine dinucleotide phosphate, is active as hydrogen acceptor. The pH optimum is between 9.4 and 9.7; the K(m) is 0.6 mm for uridine diphosphate d-glucose and 0.06 mm for NAD. Inhibition of the enzyme by uridine diphosphate d-xylose is noncooperative and of mixed type; the K(i) is 0.08 mm. Thus, uridine diphosphate d-glucose dehydrogenase from A. aerogenes differs from the enzyme from mammalian liver, higher plants, and Cryptococcus laurentii, in which uridine diphosphate d-xylose functions as a cooperative, allosteric feedback inhibitor.
+T3	Bacteria 47 68	Aerobacter aerogenes.
+T4	Bacteria 132 152	Aerobacter aerogenes
+T5	Bacteria 847 859	A. aerogenes
+T6	Habitat 889 898	mammalian
+T7	Habitat 889 904	mammalian liver
+T8	Habitat 906 919	higher plants
+T9	Habitat 925 947	Cryptococcus laurentii

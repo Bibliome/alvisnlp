@@ -1,0 +1,29 @@
+T1	Title 0 104	Rapid detection of eight causative pathogens for the diagnosis of bacterial meningitis by real-time PCR.
+T2	Paragraph 105 1735	We aimed to detect causative pathogens in cerebrospinal fluid (CSF) collected from patients diagnosed with bacterial meningitis by real-time polymerase chain reaction (PCR). In addition to Streptococcus pneumoniae, Haemophilus influenzae, and Mycoplasma pneumoniae described previously, five other pathogens, Neisseria meningitidis, Escherichia coli, Streptococcus agalactiae, Staphylococcus aureus, and Listeria monocytogenes, were targeted, based on a large-scale surveillance in Japan. Results in CSF from neonates and children (n=150), and from adults (n=18) analyzed by real-time PCR with molecular beacon probes were compared with those of conventional culturing. The total time from DNA extraction from CSF to PCR analysis was 1.5 h. The limit of detection for these pathogens ranged from 5 copies to 28 copies per tube. Nonspecific positive reactions were not recognized for 37 microorganisms in clinical isolates as a negative control. The pathogens were detected in 72.0% of the samples by real-time PCR, but in only 48.2% by culture, although the microorganisms were completely concordant. With the real-time PCR, the detection rate of H. influenzae from CSF was high, at 45.2%, followed by S. pneumoniae (21.4%), S. agalactiae (2.4%), E. coli (1.8%), L. monocytogenes (0.6%), and M. pneumoniae (0.6%). The detection rate with PCR was significantly better than that with cultures in patients with antibiotic administration (chi2=18.3182; P=0.0000). In conclusion, detection with real-time PCR is useful for rapidly identifying the causative pathogens of meningitis and for examining the clinical course of chemotherapy.
+T3	Habitat 147 166	cerebrospinal fluid
+T4	Habitat 168 171	CSF
+T5	Habitat 188 232	patients diagnosed with bacterial meningitis
+T6	Bacteria 294 318	Streptococcus pneumoniae
+T7	Bacteria 320 342	Haemophilus influenzae
+T8	Bacteria 348 369	Mycoplasma pneumoniae
+T9	Bacteria 414 436	Neisseria meningitidis
+T10	Bacteria 438 454	Escherichia coli
+T11	Bacteria 456 480	Streptococcus agalactiae
+T12	Bacteria 482 503	Staphylococcus aureus
+T13	Bacteria 509 531	Listeria monocytogenes
+T14	Geographical 587 592	Japan
+T15	Habitat 605 635	CSF from neonates and children
+T16	Habitat 605 608;649 660	CSF from adults
+T17	Habitat 614 622	neonates
+T18	Habitat 627 635	children
+T19	Habitat 654 660	adults
+T20	Habitat 815 818	CSF
+T21	Habitat 1009 1017	clinical
+T22	Bacteria 1252 1265	H. influenzae
+T23	Habitat 1271 1274	CSF
+T24	Bacteria 1307 1320	S. pneumoniae
+T25	Bacteria 1330 1343	S. agalactiae
+T26	Bacteria 1352 1359	E. coli
+T27	Bacteria 1368 1384	L. monocytogenes
+T28	Bacteria 1397 1410	M. pneumoniae
+T29	Habitat 1499 1538	patients with antibiotic administration

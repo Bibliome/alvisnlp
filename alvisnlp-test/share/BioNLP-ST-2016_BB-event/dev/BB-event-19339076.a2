@@ -1,0 +1,6 @@
+R1	Lives_In Bacteria:T16 Location:T20
+R2	Lives_In Bacteria:T16 Location:T17
+R3	Lives_In Bacteria:T23 Location:T28
+R4	Lives_In Bacteria:T23 Location:T26
+*	Equiv T29 T26
+*	Equiv T30 T28

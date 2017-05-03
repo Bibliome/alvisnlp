@@ -1,0 +1,33 @@
+T1	Title 0 188	Genotyping by restriction endonuclease analysis compared to phenotyping by antibiogram for typing methicillin-resistant Staphylococcus aureus strains colonizing patients in a nursing home.
+T2	Paragraph 189 545	To assist in defining patterns of methicillin-resistant Staphylococcus aureus (MRSA) colonization in a skilled nursing facility (SNF), we compared genotyping by field-inversion gel electrophoresis (FIGE) restriction endonuclease digestion analysis (REA) with phenotyping by antibiogram for defining strain relatedness among MRSA isolates from SNF patients.
+T3	Paragraph 546 632	Prospective screening culture surveillance for MRSA among patients in a community SNF.
+T4	Paragraph 633 877	Nares and stool swab cultures were obtained from newly admitted patients and from all patients quarterly. MRSA were isolated by oxacillin screening agar. Antibiograms were determined by the disk-diffusion method, and genotyping was by FIGE REA.
+T5	Paragraph 878 1159	It was shown that, among isolates with the same genotypes, many had different antibiograms; among isolates with the same antibiograms, many had different genotypes; and the discriminatory indices for isolates of MRSA by FIGE REA and by antibiogram were 0.56 and 0.78, respectively.
+T6	Paragraph 1160 1632	Our study demonstrated that, in patients from one SNF, genotyping by FIGE REA identified two prevalent REA DNA types, but with variability of antibiogram patterns within each DNA type; the antibiogram also identified prevalent patterns with variability of REA DNA type within each antibiogram pattern. The discriminatory index of antibiograms alone, or of genotypes alone as determined by FIGE REA, was poor for strains of MRSA isolated from the SNF patients in our study.
+T7	Bacteria 120 141	Staphylococcus aureus
+T8	Habitat 161 169	patients
+T9	Habitat 175 187	nursing home
+T10	Bacteria 245 266	Staphylococcus aureus
+T11	Bacteria 268 272	MRSA
+T12	Habitat 292 316	skilled nursing facility
+T13	Habitat 318 321	SNF
+T14	Bacteria 513 517	MRSA
+T15	Habitat 532 544	SNF patients
+T16	Habitat 532 535	SNF
+T17	Bacteria 593 597	MRSA
+T18	Habitat 604 612	patients
+T19	Habitat 618 631	community SNF
+T20	Habitat 633 638	Nares
+T21	Habitat 633 638;649 662	Nares swab cultures
+T22	Habitat 643 648	stool
+T23	Habitat 643 662	stool swab cultures
+T24	Habitat 697 705	patients
+T25	Habitat 719 727	patients
+T26	Bacteria 739 743	MRSA
+T27	Habitat 761 785	oxacillin screening agar
+T28	Bacteria 1090 1094	MRSA
+T29	Habitat 1192 1213	patients from one SNF
+T30	Habitat 1210 1213	SNF
+T31	Bacteria 1583 1587	MRSA
+T32	Habitat 1606 1618	SNF patients
+T33	Habitat 1606 1609	SNF

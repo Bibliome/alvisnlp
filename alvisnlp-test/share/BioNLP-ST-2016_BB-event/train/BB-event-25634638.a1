@@ -1,0 +1,15 @@
+T1	Title 0 99	Real-time monitoring of hydrogen cyanide (HCN) and ammonia (NH₃) emitted by Pseudomonas aeruginosa.
+T2	Paragraph 100 1302	We present the real-time monitoring of hydrogen cyanide (HCN) production from Pseudomonas aeruginosa (P. aeruginosa) strains in vitro, using laser-based photoacoustic spectroscopy. Simultaneously, the production of ammonia (NH3) was measured, and the influence of different factors (e.g. the medium, temperature and antibiotics treatment) was assessed. Both reference strains and clinical isolates of patients with CF were studied, and compared to other pathogens commonly present in lungs/airways of CF patients. Hydrogen cyanide production starts to rise as soon as P. aeruginosa bacteria reach the stationary phase ((9.0-9.5) × 10(9) colony forming units, CFUs), up to concentrations of 14.5 microliters per hour (µl h(-1)). Different strains of P. aeruginosa produced HCN to varying degrees, and addition of tobramycin strongly reduced HCN production within 2 h from application. Burkholderia cepacia also produced HCN (up to 0.35µl h(-1) in 9.0  ×  10(9) CFU) while other pathogens (Aspergillus fumigatus, Stenotrophomonas maltophilia, Mycobacterium abscessus) did not produce detectable levels. Our study reveals for the first time a broad overview of the dynamics of the HCN production in vitro.
+T3	Bacteria 76 98	Pseudomonas aeruginosa
+T4	Bacteria 178 200	Pseudomonas aeruginosa
+T5	Bacteria 202 215	P. aeruginosa
+T6	Habitat 480 488	clinical
+T7	Habitat 501 517	patients with CF
+T8	Habitat 584 589;598 612	lungs of CF patients
+T9	Habitat 590 612	airways of CF patients
+T10	Habitat 601 612	CF patients
+T11	Bacteria 668 681	P. aeruginosa
+T12	Bacteria 849 862	P. aeruginosa
+T13	Bacteria 984 1004	Burkholderia cepacia
+T14	Bacteria 1111 1139	Stenotrophomonas maltophilia
+T15	Bacteria 1141 1164	Mycobacterium abscessus

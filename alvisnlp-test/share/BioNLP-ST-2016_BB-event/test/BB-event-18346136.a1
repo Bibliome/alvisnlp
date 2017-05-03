@@ -1,0 +1,19 @@
+T1	Title 0 107	Detection of Salmonella enterica in food using two-step enrichment and real-time polymerase chain reaction.
+T2	Paragraph 108 226	A new real-time polymerase chain reaction-based method was developed for the detection of Salmonella enterica in food.
+T3	Paragraph 227 1229	The method consisted of a novel two-step enrichment involving overnight incubation in buffered peptone water and a 5-h subculture in Rappaport-Vassiliadis medium, lysis of bacterial cells and a Salmonella-specific 5'-nuclease real-time PCR with an exogenous internal amplification control. Because a two-step enrichment was used, the detection limit for dead S. enterica cells in artificially contaminated ice cream and salami samples was high at 10(7 )CFU (25 g)(-1), eliminating potential false-positive results. When the method was evaluated with a range of 100 naturally contaminated food samples, three positive samples were detected by both the real-time PCR-based method and by the standard microbiological method, according to EN ISO 6579. When the real-time PCR-based method was evaluated alongside the standard microbiological method according to EN ISO 6579 with 36 food samples artificially contaminated at a level of 10(0 )CFU (25 g)(-1), identical results were obtained from both methods.
+T4	Paragraph 1230 1368	The real-time PCR-based method involving a two-step enrichment produced equivalent results to EN ISO 6579 on the day after sample receipt.
+T5	Paragraph 1369 1445	The developed method is suitable for rapid detection of S. enterica in food.
+T6	Bacteria 13 32	Salmonella enterica
+T7	Habitat 36 40	food
+T8	Bacteria 198 217	Salmonella enterica
+T9	Habitat 221 225	food
+T10	Habitat 313 335	buffered peptone water
+T11	Habitat 360 388	Rappaport-Vassiliadis medium
+T12	Bacteria 421 431	Salmonella
+T13	Bacteria 586 597	S. enterica
+T14	Habitat 607 632;647 661	artificially contaminated salami samples
+T15	Habitat 607 642	artificially contaminated ice cream
+T16	Habitat 792 827	naturally contaminated food samples
+T17	Habitat 1104 1142	food samples artificially contaminated
+T18	Bacteria 1425 1436	S. enterica
+T19	Habitat 1440 1444	food

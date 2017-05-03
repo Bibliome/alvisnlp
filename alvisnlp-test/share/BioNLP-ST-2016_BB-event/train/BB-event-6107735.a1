@@ -1,0 +1,26 @@
+T1	Title 0 55	Recurrence of Pelecypod-associated cholera in Sardinia.
+T2	Paragraph 56 934	From Oct. 30 to Nov. 7, 1979, 10 people in the Sardinian province of Cagliari had onset of bacteriologically confirmed cholera. Two symptom-free excretors of Vibrio cholerae O:1 were detected in household contacts of the patients. There were no deaths. All but 1 of the 12 people with V. cholerae O:1 infection gave a history of recent consumption of marine bivalves known locally as arselle (pelecypods). Triplicate matched neighbourhood controls for each of the first 7 cases identified were also interviewed; none had recently eaten arselle. V. cholerae O:1 was also recovered from samples of water and bivalves obtained from a lagoon on the outskirts of the city of Cagliari. Arselle had also been implicated as the vehicle of transmission in 1973 in the last outbreak of cholera in Sardinia. It seems unlikely that cholera transmission had persisted locally in the interim.
+T3	Habitat 14 23	Pelecypod
+T4	Geographical 46 54	Sardinia
+T5	Habitat 89 95	people
+T6	Geographical 103 112	Sardinian
+T7	Geographical 125 133	Cagliari
+T8	Bacteria 214 233	Vibrio cholerae O:1
+T9	Habitat 251 285	household contacts of the patients
+T10	Habitat 251 260	household
+T11	Habitat 277 285	patients
+T12	Habitat 329 366	people with V. cholerae O:1 infection
+T13	Bacteria 341 356	V. cholerae O:1
+T14	Habitat 407 422	marine bivalves
+T15	Habitat 407 413	marine
+T16	Habitat 440 447	arselle
+T17	Habitat 449 459	pelecypods
+T18	Habitat 592 599	arselle
+T19	Bacteria 601 616	V. cholerae O:1
+T20	Habitat 652 657	water
+T21	Habitat 662 670	bivalves
+T22	Habitat 687 734	lagoon on the outskirts of the city of Cagliari
+T23	Habitat 701 734	outskirts of the city of Cagliari
+T24	Geographical 726 734	Cagliari
+T25	Habitat 736 743	Arselle
+T26	Geographical 843 851	Sardinia

@@ -1,0 +1,18 @@
+T1	Title 0 202	[Experimental and clinical studies of flomoxef in the field of obstetrics and gynecology. Representative Committee Members of the Research Team for Infections in the Field of Obstetrics and Gynecology].
+T2	Paragraph 203 1977	Flomoxef (FMOX) has a broad antibacterial spectrum against Gram-positive and Gram-negative bacteria; especially its potent antibacterial activity against Staphylococcus aureus is a significant advantage that may not be found with other cephem compounds. In our determination of its antibacterial potency against various clinical isolates obtained from clinical materials (amniotic fluid, intrauterine secretions, exudates of the pelvic dead space) of patients with various infections, we obtained results representing specific features of this drug. From the results, the drug may be expected to produce an excellent effect in the treatment of various infections. Our study on drug concentrations in body fluids and genital tissues demonstrated a good transfer of this drug into various tissues; in every tissue examined, the drug administered by the usual method in the usual dose yielded a concentration exceeding MIC for principal pathogens, thus promising a good clinical response. Indeed a high clinical efficacy rate of 90.1% (good to very good responses) was obtained in a clinical trial involving 222 cases. Administration of the drug in 2 g quantity daily produced a high response rate of 92.8%. It was especially noteworthy that a good response was obtained in 30 of 32 cases (93.8%) in which other cephem compounds had failed. In evaluation of the bacteriological effect, furthermore, the drug showed an excellent rate of bacterial elimination. In conclusion, this drug is expected to be greatly useful in the light of its good transfer into genital tissues and its strong antibacterial activities against Gram-positive cocci, Gram-negative bacteria and anaerobes as well as against multiple bacterial infections predominating among women with genital infections.
+T3	Bacteria 357 378	Staphylococcus aureus
+T4	Habitat 523 531	clinical
+T5	Habitat 555 686	clinical materials (amniotic fluid, intrauterine secretions, exudates of the pelvic dead space) of patients with various infections
+T6	Habitat 575 589	amniotic fluid
+T7	Habitat 591 603	intrauterine
+T8	Habitat 591 614	intrauterine secretions
+T9	Habitat 616 649	exudates of the pelvic dead space
+T10	Habitat 632 649	pelvic dead space
+T11	Habitat 654 686	patients with various infections
+T12	Habitat 903 914	body fluids
+T13	Habitat 903 907	body
+T14	Habitat 919 926	genital
+T15	Habitat 919 934	genital tissues
+T16	Habitat 1756 1771	genital tissues
+T17	Habitat 1947 1976	women with genital infections
+T18	Habitat 1958 1965	genital

@@ -1,0 +1,76 @@
+T1	Title 0 160	Lack of a role of cytotoxic necrotizing factor 1 toxin from Escherichia coli in bacterial pathogenicity and host cytokine response in infected germfree piglets.
+T2	Paragraph 161 2493	Some Escherichia coli strains isolated from intestinal or extraintestinal infections in pigs produce cytotoxic necrotizing factor 1 (CNF1). In order to analyze the role of CNF1 in the pathogenesis of porcine colibacillosis, newborn colostrum-deprived germfree piglets were orally inoculated with a wild-type CNF1-producing strain (M623) or with an isogenic cnf1 mutant (M623DeltaCNF1). The two isogenic strains induced a high mortality with similar lung and serosal inflammatory lesions, indicating that both strains were pathogenic in these piglets. Bacterial counts in various organs of inoculated piglets revealed an intestinal predisposition of M623 and M623DeltaCNF1 strains for the cecum and colon. Extraintestinal organs (lungs, liver, spleen, and kidney) were also colonized by both strains. Similar colonization of intestinal and extraintestinal tissues in animals inoculated with either strain was observed, except in the ileum, where M623 showed a higher colonization than M623DeltaCNF1. Intestinal (ileum and colon), extraintestinal (lung and kidney), and immune (mesenteric lymph nodes and spleen) tissues were sampled at 1 day postinoculation and analyzed for cytokine expression by a reverse transcriptase PCR technique. Inoculation with E. coli M623 induced an enhanced expression of inflammatory cytokines (interleukin-1alpha [IL-1alpha], tumor necrosis factor alpha, and IL-12p40) in the intestinal organs compared to uninoculated piglets or piglets inoculated with nonpathogenic intestinal E. coli 862B, which is also able to colonize the intestinal tract. There was little difference in cytokine transcript levels in the intestinal and extraintestinal organs in piglets inoculated with E. coli strains M623 or M623DeltaCNF1, except in the ileum, where IL-1alpha and IL-8 mRNA levels correlated with bacterial colonization. Expression of regulatory cytokines (gamma interferon and IL-4) was weak in immune tissues from piglets inoculated with M623 or M623DeltaCNF1. Taken together, our data indicate that the CNF1-producing strain, M623, is pathogenic and induces inflammatory cytokine expression in germfree, colostrum-deprived piglets. Nevertheless, in this model, the CNF1 toxin does not appear to be a major factor for pathogenicity or cytokine response, as demonstrated by the use of an isogenic cnf1 mutant.
+T3	Bacteria 60 76	Escherichia coli
+T4	Habitat 134 159	infected germfree piglets
+T5	Bacteria 166 182	Escherichia coli
+T6	Habitat 205 215	intestinal
+T7	Habitat 219 234	extraintestinal
+T8	Habitat 249 253	pigs
+T9	Habitat 361 368	porcine
+T10	Habitat 385 428	newborn colostrum-deprived germfree piglets
+T11	Habitat 393 402	colostrum
+T12	Bacteria 492 496	M623
+T13	Bacteria 531 544	M623DeltaCNF1
+T14	Habitat 610 614;627 647	lung inflammatory lesions
+T15	Habitat 610 614	lung
+T16	Habitat 619 626	serosal
+T17	Habitat 619 647	serosal inflammatory lesions
+T18	Habitat 703 710	piglets
+T19	Habitat 740 768	organs of inoculated piglets
+T20	Habitat 750 768	inoculated piglets
+T21	Habitat 781 791	intestinal
+T22	Bacteria 810 814	M623
+T23	Bacteria 819 832	M623DeltaCNF1
+T24	Habitat 849 854	cecum
+T25	Habitat 859 864	colon
+T26	Habitat 866 888	Extraintestinal organs
+T27	Habitat 866 881	Extraintestinal
+T28	Habitat 890 895	lungs
+T29	Habitat 897 902	liver
+T30	Habitat 904 910	spleen
+T31	Habitat 916 922	kidney
+T32	Habitat 985 995	intestinal
+T33	Habitat 985 995;1016 1023	intestinal tissues
+T34	Habitat 1000 1015	extraintestinal
+T35	Habitat 1000 1023	extraintestinal tissues
+T36	Habitat 1027 1064	animals inoculated with either strain
+T37	Habitat 1093 1098	ileum
+T38	Bacteria 1106 1110	M623
+T39	Bacteria 1145 1158	M623DeltaCNF1
+T40	Habitat 1160 1170;1272 1279	Intestinal  tissues
+T41	Habitat 1160 1170	Intestinal
+T42	Habitat 1172 1177	ileum
+T43	Habitat 1182 1187	colon
+T44	Habitat 1190 1205	extraintestinal
+T45	Habitat 1190 1205;1272 1279	extraintestinal tissues
+T46	Habitat 1207 1211	lung
+T47	Habitat 1216 1222	kidney
+T48	Habitat 1229 1235;1272 1279	immune tissues
+T49	Habitat 1229 1235	immune
+T50	Habitat 1237 1259	mesenteric lymph nodes
+T51	Habitat 1264 1270	spleen
+T52	Bacteria 1414 1426	E. coli M623
+T53	Habitat 1567 1577	intestinal
+T54	Habitat 1567 1584	intestinal organs
+T55	Habitat 1597 1617	uninoculated piglets
+T56	Habitat 1621 1682	piglets inoculated with nonpathogenic intestinal E. coli 862B
+T57	Habitat 1659 1669	intestinal
+T58	Bacteria 1670 1682	E. coli 862B
+T59	Habitat 1719 1735	intestinal tract
+T60	Habitat 1802 1812;1833 1839	intestinal  organs
+T61	Habitat 1817 1839	extraintestinal organs
+T62	Habitat 1843 1887	piglets inoculated with E. coli strains M623
+T63	Habitat 1843 1866;1891 1904	piglets inoculated with  M623DeltaCNF1
+T64	Bacteria 1867 1887	E. coli strains M623
+T65	Bacteria 1891 1904	M623DeltaCNF1
+T66	Habitat 1920 1925	ileum
+T67	Habitat 2079 2085	immune
+T68	Habitat 2079 2127	immune tissues from piglets inoculated with M623
+T69	Habitat 2079 2122;2131 2144	immune tissues from piglets inoculated with  M623DeltaCNF1
+T70	Habitat 2099 2122;2131 2144	piglets inoculated with  M623DeltaCNF1
+T71	Habitat 2099 2127	piglets inoculated with M623
+T72	Bacteria 2123 2127	M623
+T73	Bacteria 2131 2144	M623DeltaCNF1
+T74	Bacteria 2212 2216	M623
+T75	Habitat 2280 2316	germfree, colostrum-deprived piglets
+T76	Habitat 2290 2299	colostrum

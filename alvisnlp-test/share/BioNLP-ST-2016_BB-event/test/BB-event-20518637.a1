@@ -1,0 +1,33 @@
+T1	Title 0 135	Variation in the type and frequency of postoperative invasive Staphylococcus aureus infections according to type of surgical procedure.
+T2	Paragraph 136 325	To determine the epidemiological characteristics of postoperative invasive Staphylococcus aureus infection following 4 types of major surgical procedures.design. Retrospective cohort study.
+T3	Paragraph 326 428	Eleven hospitals (9 community hospitals and 2 tertiary care hospitals) in North Carolina and Virginia.
+T4	Paragraph 429 522	Adults undergoing orthopedic, neurosurgical, cardiothoracic, and plastic surgical procedures.
+T5	Paragraph 523 1042	We used previously validated, prospectively collected surgical surveillance data for surgical site infection and microbiological data for bloodstream infection. The study period was 2003 through 2006. We defined invasive S. aureus infection as either nonsuperficial incisional surgical site infection or bloodstream infection. Nonparametric bootstrapping was used to generate 95% confidence intervals (CIs). P values were generated using the Pearson chi2 test, Student t test, or Wilcoxon rank-sum test, as appropriate.
+T6	Paragraph 1043 2301	In total, 81,267 patients underwent 96,455 procedures during the study period. The overall incidence of invasive S. aureus infection was 0.47 infections per 100 procedures (95% CI, 0.43-0.52); 227 (51%) of 446 infections were due to methicillin-resistant S.aureus. Invasive S. aureus infection was more common after cardiothoracic procedures (incidence, 0.79 infections per 100 procedures [95%CI, 0.62-0.97]) than after orthopedic procedures (0.37 infections per 100 procedures [95% CI, 0.32-0.42]), neurosurgical procedures (0.62 infections per 100 procedures [95% CI, 0.53-0.72]), or plastic surgical procedures (0.32 infections per 100 procedures [95% CI, 0.17-0.47]) (P < .001). Similarly, S. aureus bloodstream infection was most common after cardiothoracic procedures (incidence, 0.57 infections per 100 procedures [95% CI, 0.43-0.72]; P < .001, compared with other procedure types), comprising almost three-quarters of the invasive S. aureus infections after these procedures. The highest rate of surgical site infection was observed after neurosurgical procedures (incidence, 0.50 infections per 100 procedures [95% CI, 0.42-0.59]; P < .001, compared with other procedure types), comprising 80% of invasive S.aureus infections after these procedures.
+T7	Paragraph 2302 2538	The frequency and type of postoperative invasive S. aureus infection varied significantly across procedure types. The highest risk procedures, such as cardiothoracic procedures, should be targeted for ongoing preventative interventions.
+T8	Bacteria 62 83	Staphylococcus aureus
+T9	Bacteria 211 232	Staphylococcus aureus
+T10	Habitat 333 342	hospitals
+T11	Habitat 346 365	community hospitals
+T12	Habitat 372 395	tertiary care hospitals
+T13	Geographical 400 414	North Carolina
+T14	Geographical 419 427	Virginia
+T15	Habitat 429 457;511 521	Adults undergoing orthopedic procedures
+T16	Habitat 429 446;474 488;511 521	Adults undergoing cardiothoracic procedures
+T17	Habitat 429 446;494 521	Adults undergoing plastic surgical procedures
+T18	Habitat 429 446;459 472;511 521	Adults undergoing neurosurgical procedures
+T19	Habitat 608 621	surgical site
+T20	Habitat 661 672	bloodstream
+T21	Bacteria 744 753	S. aureus
+T22	Habitat 774 813	nonsuperficial incisional surgical site
+T23	Habitat 827 838	bloodstream
+T24	Habitat 1060 1068	patients
+T25	Bacteria 1156 1165	S. aureus
+T26	Bacteria 1298 1306	S.aureus
+T27	Bacteria 1317 1326	S. aureus
+T28	Bacteria 1737 1746	S. aureus
+T29	Habitat 1747 1758	bloodstream
+T30	Bacteria 1982 1991	S. aureus
+T31	Habitat 2047 2060	surgical site
+T32	Bacteria 2258 2266	S.aureus
+T33	Bacteria 2351 2360	S. aureus

@@ -1,0 +1,40 @@
+T1	Title 0 126	Attenuated Bordetella pertussis vaccine protects against respiratory syncytial virus disease via an IL-17-dependent mechanism.
+T2	Paragraph 127 420	We attenuated virulent Bordetella pertussis by genetically eliminating or detoxifying three major toxins. This strain, named BPZE1, is being developed as a possible live nasal vaccine for the prevention of whooping cough. It is immunogenic and safe when given intranasally in adult volunteers.
+T3	Paragraph 421 596	Before testing in human infants, we wished to examine the potential effect of BPZE1 on a common pediatric infection (respiratory syncytial virus [RSV]) in a preclinical model.
+T4	Paragraph 597 780	BPZE1 was administered before or after RSV administration in adult or neonatal mice. Pathogen replication, inflammation, immune cell recruitment, and cytokine responses were measured.
+T5	Paragraph 781 1452	BPZE1 alone did not cause overt disease, but induced efflux of neutrophils into the airway lumen and production of IL-10 and IL-17 by mucosal CD4(+) T cells. Given intranasally before RSV infection, BPZE1 markedly attenuated RSV, preventing weight loss, reducing viral load, and attenuating lung cell recruitment. Given neonatally, BPZE1 also protected against RSV-induced weight loss even through to adulthood. Furthermore, it markedly increased IL-17 production by CD4(+) T cells and natural killer cells and recruited regulatory cells and neutrophils after virus challenge. Administration of anti-IL-17 antibodies ablated the protective effect of BPZE1 on RSV disease.
+T6	Paragraph 1453 1752	Rather than enhancing RSV disease, BPZE1 protected against viral infection, modified viral responses, and enhanced natural mucosal resistance. Prevention of RSV infection by BPZE1 seems in part to be caused by induction of IL-17. Clinical trial registered with www.clinicaltrials.gov (NCT 01188512).
+T7	Bacteria 11 31	Bordetella pertussis
+T8	Habitat 32 39	vaccine
+T9	Habitat 57 68	respiratory
+T10	Bacteria 150 170	Bordetella pertussis
+T11	Bacteria 252 257	BPZE1
+T12	Habitat 292 310	live nasal vaccine
+T13	Habitat 297 302	nasal
+T14	Habitat 403 419	adult volunteers
+T15	Habitat 439 452	human infants
+T16	Bacteria 499 504	BPZE1
+T17	Habitat 517 526	pediatric
+T18	Habitat 538 549	respiratory
+T19	Bacteria 597 602	BPZE1
+T20	Habitat 658 663;676 680	adult mice
+T21	Habitat 667 680	neonatal mice
+T22	Habitat 718 729	immune cell
+T23	Bacteria 781 786	BPZE1
+T24	Habitat 844 855	neutrophils
+T25	Habitat 865 871	airway
+T26	Habitat 865 877	airway lumen
+T27	Habitat 915 937	mucosal CD4(+) T cells
+T28	Habitat 915 922	mucosal
+T29	Bacteria 980 985	BPZE1
+T30	Habitat 1072 1081	lung cell
+T31	Habitat 1072 1076	lung
+T32	Bacteria 1113 1118	BPZE1
+T33	Habitat 1248 1262	CD4(+) T cells
+T34	Habitat 1267 1287	natural killer cells
+T35	Habitat 1302 1318	regulatory cells
+T36	Habitat 1323 1334	neutrophils
+T37	Bacteria 1431 1436	BPZE1
+T38	Bacteria 1488 1493	BPZE1
+T39	Habitat 1576 1583	mucosal
+T40	Bacteria 1627 1632	BPZE1

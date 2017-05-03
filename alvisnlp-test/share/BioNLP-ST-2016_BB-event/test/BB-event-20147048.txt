@@ -1,0 +1,2 @@
+Transformation of the plant Kalanchoë daigremontiana using Agrobacterium tumefaciens.
+Kalanchoë daigremontiana can be stably transformed using the Agrobacterium tumefaciens-mediated T-DNA transfer method, as described here. Sterilized plant tissue is cocultivated with an A. tumefaciens suspension, transformants are selected and the shoots are grown in rooting medium and then in soil. Plant phenotypes can be examined approximately 3 mo after transfer of plants to soil.

@@ -1,0 +1,45 @@
+T1	Title 0 212	Effects of a probiotic fermented milk beverage containing Lactobacillus casei strain Shirota on defecation frequency, intestinal microbiota, and the intestinal environment of healthy individuals with soft stools.
+T2	Paragraph 213 1814	The effects of drinking a fermented milk beverage that contains Lactobacillus casei strain Shirota (LcS) at 40 billion bacterial cells/bottle for 4 weeks (probiotics, 1 bottle/day) on defecation frequency, intestinal microbiota and the intestinal environment of healthy individuals with soft stools were evaluated. Thirty-four healthy adults who had soft stools were randomised into 2 groups, and the effects of a regular 4-week intake of probiotics were evaluated by a placebo-controlled, double-blind, parallel-group comparative design. Defecation frequency significantly decreased after the 4-week intake period compared with before the probiotic treatment. The stool quality significantly improved (hardened) compared to the placebo. Also, the water content of the stools was lower in the probiotic group than in the placebo group. Live LcS was recovered at 6.9 ± 1.3 and 7.2 ± 0.8 log(10) CFU per 1g of stool after 2 and 4 weeks, respectively, of probiotic treatment. The number of bifidobacteria in the stools also increased significantly compared with the level before starting the probiotics. The organic acid levels (total, acetic acid, propionic acid, and butyric acid) significantly increased compared with the level before intake in both the probiotic and placebo groups, but they returned to the original levels after the end of the intake period. These results suggest that probiotic fermented milk beverage has an intestine-conditioning effect by improving the frequency of defecation and stool quality and increasing the intrinsic bifidobacteria in healthy individuals with soft stool.
+T3	Habitat 13 46	probiotic fermented milk beverage
+T4	Bacteria 58 92	Lactobacillus casei strain Shirota
+T5	Habitat 118 139	intestinal microbiota
+T6	Habitat 118 128	intestinal
+T7	Habitat 149 211	intestinal environment of healthy individuals with soft stools
+T8	Habitat 175 211	healthy individuals with soft stools
+T9	Habitat 200 211	soft stools
+T10	Habitat 239 262	fermented milk beverage
+T11	Bacteria 277 311	Lactobacillus casei strain Shirota
+T12	Bacteria 313 316	LcS
+T13	Habitat 348 354	bottle
+T14	Habitat 368 378	probiotics
+T15	Habitat 382 388	bottle
+T16	Habitat 419 429	intestinal
+T17	Habitat 419 440	intestinal microbiota
+T18	Habitat 449 511	intestinal environment of healthy individuals with soft stools
+T19	Habitat 475 511	healthy individuals with soft stools
+T20	Habitat 500 511	soft stools
+T21	Habitat 540 554	healthy adults
+T22	Habitat 563 574	soft stools
+T23	Habitat 652 662	probiotics
+T24	Habitat 853 862	probiotic
+T25	Habitat 878 883	stool
+T26	Habitat 961 988	water content of the stools
+T27	Habitat 982 988	stools
+T28	Habitat 1006 1021	probiotic group
+T29	Habitat 1006 1015	probiotic
+T30	Habitat 1034 1047	placebo group
+T31	Bacteria 1054 1057	LcS
+T32	Habitat 1121 1126	stool
+T33	Habitat 1165 1174	probiotic
+T34	Bacteria 1200 1214	bifidobacteria
+T35	Habitat 1222 1228	stools
+T36	Habitat 1302 1312	probiotics
+T37	Habitat 1467 1476	probiotic
+T38	Habitat 1467 1476;1489 1495	probiotic groups
+T39	Habitat 1481 1495	placebo groups
+T40	Habitat 1601 1634	probiotic fermented milk beverage
+T41	Habitat 1642 1651	intestine
+T42	Habitat 1717 1722	stool
+T43	Bacteria 1760 1774	bifidobacteria
+T44	Habitat 1778 1813	healthy individuals with soft stool
+T45	Habitat 1803 1813	soft stool

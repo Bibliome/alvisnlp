@@ -1,0 +1,34 @@
+T1	Title 0 189	Attachment of Escherichia coli O157:H7 grown in tryptic soy broth and nutrient broth to apple and lettuce surfaces as related to cell hydrophobicity, surface charge, and capsule production.
+T2	Paragraph 190 1044	This study investigated the effect of growth in tryptic soy broth (TSB) and nutrient broth (NB) on the ability Escherichia coli O157:H7 to attach to lettuce and apple surfaces. In addition, cell surface hydrophobicity, charge and capsule production were determined on cells grown in these media. Cells grown in NB attached less to lettuce and apple surfaces than did those grown in TSB. TSB, but not NB, supported capsule production by E. coli O157:H7. Cells grown in TSB were more hydrophilic than those grown in NB. No difference was found in the electrokinetic properties of cells grown in these media. Electrostatic and hydrophobic interactions and surface proteins did not appear to play an important role in the attachment of E. coli O157:H7 to these surfaces. Of the factors studied, only capsule production was associated with attachment ability.
+T3	Bacteria 14 38	Escherichia coli O157:H7
+T4	Habitat 48 65	tryptic soy broth
+T5	Habitat 56 59	soy
+T6	Habitat 70 84	nutrient broth
+T7	Habitat 88 93	apple
+T8	Habitat 88 93;106 114	apple surfaces
+T9	Habitat 98 105	lettuce
+T10	Habitat 98 114	lettuce surfaces
+T11	Habitat 129 133	cell
+T12	Habitat 238 255	tryptic soy broth
+T13	Habitat 246 249	soy
+T14	Habitat 257 260	TSB
+T15	Habitat 266 280	nutrient broth
+T16	Habitat 282 284	NB
+T17	Bacteria 301 325	Escherichia coli O157:H7
+T18	Habitat 339 346	lettuce
+T19	Habitat 339 346;357 365	lettuce surfaces
+T20	Habitat 351 365	apple surfaces
+T21	Habitat 351 356	apple
+T22	Habitat 380 384	cell
+T23	Habitat 501 503	NB
+T24	Habitat 521 528	lettuce
+T25	Habitat 521 528;539 547	lettuce surfaces
+T26	Habitat 533 538	apple
+T27	Habitat 533 547	apple surfaces
+T28	Habitat 572 575	TSB
+T29	Habitat 577 580	TSB
+T30	Habitat 590 592	NB
+T31	Bacteria 626 641	E. coli O157:H7
+T32	Habitat 658 661	TSB
+T33	Habitat 704 706	NB
+T34	Bacteria 922 937	E. coli O157:H7

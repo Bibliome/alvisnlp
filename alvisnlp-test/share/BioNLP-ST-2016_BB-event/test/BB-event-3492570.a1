@@ -1,0 +1,23 @@
+T1	Title 0 88	Dexamethasone in the treatment of experimental Haemophilus influenzae type b meningitis.
+T2	Paragraph 89 1343	A model of experimental lapin meningitis was used to assess the effect of meningeal inflammation caused by Haemophilus influenzae type b on development of brain edema, increase in intracranial pressure, and production of brain lactate. Four treatments were assessed: dexamethasone alone, dexamethasone plus ceftriaxone, ceftriaxone alone, and no treatment. The brain water content in untreated rabbits with meningitis was 419 +/- 10 g of H2O/100g of dry weight after 29 hr of infection (vs. 405 +/- 14 in uninfected rabbits; P less than .05). In rabbits treated with dexamethasone, dexamethasone plus ceftriaxone, or ceftriaxone alone, these values were 404 +/- 12, 406 +/- 12, and 411 +/- 14 g, respectively (P greater than .05). The cerebrospinal fluid (CSF) pressure and lactate levels were significantly increased in all animals during the 24 hr of meningeal inflammation (P less than .005), and these levels were comparably reduced after 9 hr of treatment. Although the values for brain water content, CSF pressure, and lactate concentrations in infected animals treated with ceftriaxone plus dexamethasone were not significantly different from those in animals treated with ceftriaxone alone, the values were consistently lower in the former group.
+T3	Bacteria 47 76	Haemophilus influenzae type b
+T4	Habitat 113 118	lapin
+T5	Habitat 163 172	meningeal
+T6	Bacteria 196 225	Haemophilus influenzae type b
+T7	Habitat 244 249	brain
+T8	Habitat 310 315	brain
+T9	Habitat 450 455	brain
+T10	Habitat 450 506	brain water content in untreated rabbits with meningitis
+T11	Habitat 473 506	untreated rabbits with meningitis
+T12	Habitat 594 612	uninfected rabbits
+T13	Habitat 635 655;706 723	rabbits treated with ceftriaxone alone
+T14	Habitat 635 701	rabbits treated with dexamethasone, dexamethasone plus ceftriaxone
+T15	Habitat 824 843	cerebrospinal fluid
+T16	Habitat 845 848	CSF
+T17	Habitat 914 921	animals
+T18	Habitat 942 951	meningeal
+T19	Habitat 1075 1080	brain
+T20	Habitat 1075 1094	brain water content
+T21	Habitat 1096 1099	CSF
+T22	Habitat 1140 1200	infected animals treated with ceftriaxone plus dexamethasone
+T23	Habitat 1248 1286	animals treated with ceftriaxone alone

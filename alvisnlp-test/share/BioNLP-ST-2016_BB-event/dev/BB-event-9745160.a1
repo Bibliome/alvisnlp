@@ -1,0 +1,33 @@
+T1	Title 0 109	New one-week, low-dose triple therapy for the treatment of duodenal ulcer with Helicobacter pylori infection.
+T2	Paragraph 110 656	Antimicrobial therapy is the recommended treatment for duodenal ulcer associated with Helicobacter pylori infection. The eradication of bismuth-based triple therapy with bismuth subcitrate, metronidazole and amoxicillin is limited by low compliance, drug resistance and side-effects. Two-week proton pump inhibitor (PPI)-based triple therapy has a higher eradication rate but is costly. This study was designed to compare the efficacy, patient compliance and cost of short-term PPI-based triple therapy with those of bismuth-based triple therapy.
+T3	Paragraph 657 1547	Ninety patients with active duodenal ulcer disease and H pylori infection, proven with the 13C-urea breath test and CLO test (Campylobacter-like organism test) were treated randomly in three therapeutic groups: Group A, DeNol 120 mg, amoxicillin 500 mg and metronidazole 250 mg four times a day orally for 14 days; Group B, omeprazole 20 mg plus clarithromycin 500 mg twice a day and amoxicillin 500 mg four times a day for 14 days; Group C, omeprazole 20 mg, clarithromycin 250 mg and metronidazole 500 mg twice a day for seven days. Nizatidine 150 mg twice a day was given continuously following the end of anti-H pylori therapy for each group. Two months later, endoscopy, the CLO test and 13C-urea breath test were repeated to assess the eradication rate of H pylori and the ulcer-healing rate. Drug tolerance was evaluated by patients themselves by daily recording of any side-effects.
+T4	Paragraph 1548 2241	Eighty-four patients completed the entire course of therapy and evaluation for H pylori infection. The H pylori eradication rates in Groups A, B and C were 75% (21/28), 93% (26/28) and 89% (25/28), respectively (p = 0.466). The ulcer healing rate was 86% (24/28) in Group A and 89% (25/28) in Groups B and C (p = 0.764). A total of 74 patients (88%) were free from symptoms at the end of the triple therapy. Symptom relief was faster in patients with PPI-based triple therapy (Groups B and C) (days 3 and 4) than for patients with bismuth-based triple therapy (day 5). The cost of Group C therapy was lower than that for Groups A and B. There were no major side-effects in any of the patients.
+T5	Paragraph 2242 2579	One-week triple therapy with omeprazole, clarithromycin and metronidazole is highly effected for the eradication of H pylori. A therapeutic regime of one week's duration with lower cost, good compliance and mild side-effects may offer a good choice for treatment of duodenal ulcer associated with H pylori infection in clinical practice.
+T6	Habitat 59 67	duodenal
+T7	Habitat 59 73	duodenal ulcer
+T8	Bacteria 79 98	Helicobacter pylori
+T9	Habitat 165 179	duodenal ulcer
+T10	Habitat 165 173	duodenal
+T11	Bacteria 196 215	Helicobacter pylori
+T12	Habitat 546 553	patient
+T13	Habitat 664 730	patients with active duodenal ulcer disease and H pylori infection
+T14	Habitat 685 693	duodenal
+T15	Habitat 685 699	duodenal ulcer
+T16	Bacteria 712 720	H pylori
+T17	Bacteria 783 796	Campylobacter
+T18	Bacteria 1271 1279	H pylori
+T19	Bacteria 1419 1427	H pylori
+T20	Habitat 1436 1441	ulcer
+T21	Habitat 1488 1496	patients
+T22	Habitat 1560 1568	patients
+T23	Bacteria 1627 1635	H pylori
+T24	Bacteria 1651 1659	H pylori
+T25	Habitat 1776 1781	ulcer
+T26	Habitat 1883 1891	patients
+T27	Habitat 1985 2023	patients with PPI-based triple therapy
+T28	Habitat 2065 2107	patients with bismuth-based triple therapy
+T29	Habitat 2232 2240	patients
+T30	Bacteria 2358 2366	H pylori
+T31	Habitat 2508 2522	duodenal ulcer
+T32	Habitat 2508 2516	duodenal
+T33	Bacteria 2539 2547	H pylori

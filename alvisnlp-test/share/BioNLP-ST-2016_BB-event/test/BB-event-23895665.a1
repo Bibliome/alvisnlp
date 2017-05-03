@@ -1,0 +1,21 @@
+T1	Title 0 163	Comparison of laboratory costs of rapid molecular tests and conventional diagnostics for detection of tuberculosis and drug-resistant tuberculosis in South Africa.
+T2	Paragraph 164 537	The World Health Organization has endorsed the use of molecular methods for the detection of TB and drug-resistant TB as a rapid alternative to culture-based systems. In South Africa, the Xpert MTB/Rif assay and the GenoType MTBDRplus have been implemented into reference laboratories for diagnosis of TB and drug-resistance, but their costs have not been fully elucidated.
+T3	Paragraph 538 873	We conducted a detailed reference laboratory cost analysis of new rapid molecular assays (Xpert and MTBDRplus) for tuberculosis testing and drug-resistance testing in South Africa, and compared with the costs of conventional approaches involving sputum microscopy, liquid mycobacterial culture, and phenotypic drug sensitivity testing.
+T4	Paragraph 874 1171	From a laboratory perspective, Xpert MTB/RIF cost $14.93/sample and the MTBDRplus line probe assay cost $23.46/sample, compared to $16.88/sample using conventional automated liquid culture-based methods. Laboratory costs of Xpert and MTBDRplus were most influenced by cost of consumables (60-80%).
+T5	Paragraph 1172 1440	At current public sector pricing, Xpert MTB/RIF and MTBDRplus are comparable in cost to mycobacterial culture and conventional drug sensitivity testing. Overall, reference laboratories must balance costs with performance characteristics and the need for rapid results.
+T6	Habitat 14 24	laboratory
+T7	Geographical 150 162	South Africa
+T8	Geographical 334 346	South Africa
+T9	Bacteria 358 361	MTB
+T10	Habitat 436 448	laboratories
+T11	Habitat 572 582	laboratory
+T12	Geographical 705 717	South Africa
+T13	Habitat 784 790	sputum
+T14	Habitat 803 831	liquid mycobacterial culture
+T15	Habitat 881 891	laboratory
+T16	Bacteria 911 914	MTB
+T17	Habitat 1048 1062	liquid culture
+T18	Habitat 1078 1088	Laboratory
+T19	Bacteria 1212 1215	MTB
+T20	Habitat 1260 1281	mycobacterial culture
+T21	Habitat 1344 1356	laboratories

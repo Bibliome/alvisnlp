@@ -1,0 +1,36 @@
+T1	Title 0 73	Prevalence of thermotolerant Campylobacter in partridges (Perdix perdix).
+T2	Paragraph 74 206	To estimate the prevalence of thermotolerant Campylobacter spp. in commercially reared partridges (Perdix perdix) in southern Italy.
+T3	Paragraph 207 1018	Cloacal swabs of partridges (n = 240), equally distributed between male and female birds, from a game bird farm located in the Southern Italy were examined for the prevalence of thermotolerant Campylobacter spp. The samples were processed in order to detect thermotolerant Campylobacter spp. by culture methods. The positive samples were then confirmed by multiplex polymerase chain reaction. Thermotolerant Campylobacter spp. were isolated from 118 (49.2%) of the 240 cloacal swabs examined. As proved by PCR, 100% of the strains were identified as Campylobacter coli (118/118), and 15 (12.7%) out of the 118 positive samples were also positive for Campylobacter jejuni. In contrast, Campylobacter lari was not identified. Adult partridges showed a significantly higher prevalence (P < 0.05) than younger ones.
+T4	Paragraph 1019 1177	These results reinforce the assumption that game birds may be considered as potential carriers of Campylobacter spp. for human being and other animal species.
+T5	Paragraph 1178 1379	Although an earlier 1986 publication described the prevalence of Campylobacter coli in commercially reared partridges, this is the first report to confirm the species of Campylobacter using a PCR test.
+T6	Bacteria 29 42	Campylobacter
+T7	Habitat 46 56	partridges
+T8	Habitat 58 71	Perdix perdix
+T9	Bacteria 119 137	Campylobacter spp.
+T10	Habitat 141 171	commercially reared partridges
+T11	Habitat 173 186	Perdix perdix
+T12	Geographical 191 205	southern Italy
+T13	Habitat 207 234	Cloacal swabs of partridges
+T14	Habitat 207 214	Cloacal
+T15	Habitat 224 234	partridges
+T16	Habitat 274 278;290 295	male birds
+T17	Habitat 283 295	female birds
+T18	Habitat 304 313	game bird
+T19	Habitat 304 318	game bird farm
+T20	Geographical 334 348	Southern Italy
+T21	Bacteria 400 418	Campylobacter spp.
+T22	Bacteria 480 498	Campylobacter spp.
+T23	Bacteria 615 633	Campylobacter spp.
+T24	Habitat 676 689	cloacal swabs
+T25	Bacteria 757 775	Campylobacter coli
+T26	Bacteria 857 877	Campylobacter jejuni
+T27	Bacteria 892 910	Campylobacter lari
+T28	Habitat 931 947	Adult partridges
+T29	Habitat 1005 1017	younger ones
+T30	Habitat 1063 1073	game birds
+T31	Bacteria 1117 1135	Campylobacter spp.
+T32	Habitat 1140 1145	human
+T33	Habitat 1162 1176	animal species
+T34	Bacteria 1243 1261	Campylobacter coli
+T35	Habitat 1265 1295	commercially reared partridges
+T36	Bacteria 1348 1361	Campylobacter

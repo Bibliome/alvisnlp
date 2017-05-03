@@ -1,0 +1,16 @@
+T1	Title 0 52	Prevention and treatment of Staphylococcus biofilms.
+T2	Paragraph 53 866	Staphylococcus growth on medical devices represents a common occurrence that can lead to serious illness and death. Biomaterial-associated infection, mostly caused by Staphylococcus epidermidis and Staphylococcus aureus, is fairly complicated by the organism' development of a biofilm, which provides a microenvironment that protects from attack by the host immune system and antibiotics. In this review we present recent insights regarding S. aureus and S. epidermidis structural and functional factors that are effective in biofilm development and describe the regulation of their expression. On the basis of the knowledge gained, we also present the potential and limits of current biochemical and biophysical strategies aimed at preventing biofilm formation or at the treatment of established mature biofilms.
+T3	Bacteria 28 42	Staphylococcus
+T4	Habitat 43 51	biofilms
+T5	Bacteria 53 67	Staphylococcus
+T6	Habitat 78 93	medical devices
+T7	Habitat 169 180	Biomaterial
+T8	Bacteria 220 246	Staphylococcus epidermidis
+T9	Bacteria 251 272	Staphylococcus aureus
+T10	Habitat 330 337	biofilm
+T11	Habitat 406 424	host immune system
+T12	Bacteria 494 503	S. aureus
+T13	Bacteria 508 522	S. epidermidis
+T14	Habitat 579 586	biofilm
+T15	Habitat 797 804	biofilm
+T16	Habitat 838 865	established mature biofilms

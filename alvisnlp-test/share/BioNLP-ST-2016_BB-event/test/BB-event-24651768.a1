@@ -1,0 +1,20 @@
+T1	Title 0 133	Conjunctival scarring in trachoma is associated with the HLA-C ligand of KIR and is exacerbated by heterozygosity at KIR2DL2/KIR2DL3.
+T2	Paragraph 134 848	Chlamydia trachomatis is globally the predominant infectious cause of blindness and one of the most common bacterial causes of sexually transmitted infection. Infections of the conjunctiva cause the blinding disease trachoma, an immuno-pathological disease that is characterised by chronic conjunctival inflammation and fibrosis. The polymorphic Killer-cell Immunoglobulin-like Receptors (KIR) are found on Natural Killer cells and have co-evolved with the Human Leucocyte Antigen (HLA) class I system. Certain genetic constellations of KIR and HLA class I polymorphisms are associated with a number of diseases in which modulation of the innate responses to viral and intracellular bacterial pathogens is central.
+T3	Paragraph 849 1253	A sample of 134 Gambian pedigrees selected to contain at least one individual with conjunctival scarring in the F1 generation was used. Individuals (n = 830) were genotyped for HLA class I and KIR gene families. Family Based Association Tests and Case Pseudo-control tests were used to extend tests for transmission disequilibrium to take full advantage of the family design, genetic model and phenotype.
+T4	Paragraph 1254 1528	We found that the odds of trachomatous scarring increased with the number of genome copies of HLA-C2 (C1/C2 OR = 2.29 BHP-value = 0.006; C2/C2 OR = 3.97 BHP-value = 0.0004) and further increased when both KIR2DL2 and KIR2DL3 (C2/C2 OR = 5.95 BHP-value = 0.006) were present.
+T5	Paragraph 1529 2044	To explain the observations in the context of chlamydial infection and trachoma we propose a two-stage model of response and disease that balances the cytolytic response of KIR expressing NK cells with the ability to secrete interferon gamma, a combination that may cause pathology. The data presented indicate that HLA-C genotypes are important determinants of conjunctival scarring in trachoma and that KIR2DL2/KIR2DL3 heterozygosity further increases risk of conjunctival scarring in individuals carrying HLA-C2.
+T6	Habitat 0 12	Conjunctival
+T7	Bacteria 134 155	Chlamydia trachomatis
+T8	Habitat 311 322	conjunctiva
+T9	Habitat 424 436	conjunctival
+T10	Habitat 541 561	Natural Killer cells
+T11	Habitat 865 882	Gambian pedigrees
+T12	Geographical 865 872	Gambian
+T13	Habitat 916 953	individual with conjunctival scarring
+T14	Habitat 932 944	conjunctival
+T15	Habitat 985 996	Individuals
+T16	Bacteria 1575 1585	chlamydial
+T17	Habitat 1717 1725	NK cells
+T18	Habitat 1891 1903	conjunctival
+T19	Habitat 1991 2003	conjunctival
+T20	Habitat 2016 2027	individuals

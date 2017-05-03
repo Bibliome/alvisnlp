@@ -1,0 +1,25 @@
+T1	Title 0 89	Human and tick spotted fever group Rickettsia isolates from Israel: a genotypic analysis.
+T2	Paragraph 90 1386	The genomes of spotted fever group rickettsiae isolated in different geographical areas of Israel (two from ticks and four from humans, obtained over a span of 20 years) were studied by polymerase chain reaction (PCR) and restriction endonuclease fragment length polymorphism (RFLP) analysis. The human isolates were obtained from patients suffering from rickettsial disease of different degrees of severity. The PCR products obtained with five pairs of oligonucleotide primers (two primer sets derived from the 190-kDa polypeptide gene and three from the 120-kDa polypeptide gene) and cleaved with restriction endonucleases were used to study the Israeli isolates and reference Rickettsia conorii isolates. Subtle differences between the PCR-RFLP patterns of Israeli isolates and the two R. conorii reference strains (Moroccan and no. 7) were seen when the PCR products derived from the 190-kDa gene-derived primer sets were digested. All of the Israeli isolates were identical by RFLP analysis using all of the primer sets. This study showed that the Israeli spotted fever group isolates (from both ticks and humans) were genetically homogeneous by the criteria used in this study, despite the time and location differences in their original isolation, and different as a group from R. conorii.
+T3	Habitat 0 5	Human
+T4	Habitat 10 14	tick
+T5	Bacteria 15 34	spotted fever group
+T6	Bacteria 35 45	Rickettsia
+T7	Geographical 60 66	Israel
+T8	Bacteria 105 124	spotted fever group
+T9	Bacteria 125 136	rickettsiae
+T10	Geographical 181 187	Israel
+T11	Habitat 198 203	ticks
+T12	Habitat 218 224	humans
+T13	Habitat 387 392	human
+T14	Habitat 421 497	patients suffering from rickettsial disease of different degrees of severity
+T15	Geographical 738 745	Israeli
+T16	Bacteria 769 787	Rickettsia conorii
+T17	Geographical 850 857	Israeli
+T18	Bacteria 879 906;922 927	R. conorii reference strain no. 7
+T19	Bacteria 879 906;909 917	R. conorii reference strain Moroccan
+T20	Geographical 1037 1044	Israeli
+T21	Geographical 1143 1150	Israeli
+T22	Bacteria 1151 1170	spotted fever group
+T23	Habitat 1191 1196	ticks
+T24	Habitat 1201 1207	humans
+T25	Bacteria 1375 1385	R. conorii

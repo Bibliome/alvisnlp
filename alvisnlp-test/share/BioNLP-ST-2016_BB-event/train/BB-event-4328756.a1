@@ -1,0 +1,15 @@
+T1	Title 0 59	Biochemistry of Coxiella burnetii: Embden-Meyerhof pathway.
+T2	Paragraph 60 896	Purified preparations of Coxiella burnetii were examined for enzymes of the glycolytic pathway. Glucose-phosphate isomerase, fructose-1,6-diphosphatase, aldolase, glyceraldehyde-3-phosphate dehydrogenase, and pyruvate kinase were shown to be present in C. burnetii extracts. Heat-killed C. burnetii purified with normal yolk sacs demonstrated no activity after disruption. Aldolase was shown to be of the class II type by complete inhibition of activity in the presence of 8 x 10(-3)m ethylenediaminetetraacetic acid. The host enzyme activity (normal and infected yolk sacs) was not affected by the same treatment. When cellulose acetate electrophoresis was performed on the extracts, aldolase from both normal and infected yolk sacs exhibited five isozyme bands, whereas aldolase from the C. burnetii extract appeared as a single band.
+T3	Bacteria 16 33	Coxiella burnetii
+T4	Habitat 60 102	Purified preparations of Coxiella burnetii
+T5	Bacteria 85 102	Coxiella burnetii
+T6	Habitat 313 333	C. burnetii extracts
+T7	Bacteria 313 324	C. burnetii
+T8	Bacteria 347 358	C. burnetii
+T9	Habitat 373 389	normal yolk sacs
+T10	Habitat 604 610;624 633	normal yolk sacs
+T11	Habitat 615 633	infected yolk sacs
+T12	Habitat 764 770;784 793	normal yolk sacs
+T13	Habitat 775 793	infected yolk sacs
+T14	Habitat 850 869	C. burnetii extract
+T15	Bacteria 850 861	C. burnetii

@@ -1,0 +1,38 @@
+T1	Title 0 122	Identification of periodontal pathogens and severity of periodontitis in patients with and without chronic kidney disease.
+T2	Paragraph 123 376	In this study of patients with chronic periodontitis (CP), the severity of the disease and the main periodontal pathogens identified in patients with chronic kidney disease (CKD) were compared with those detected in individuals without systemic disease.
+T3	Paragraph 377 1124	Nineteen patients with CP without evidence of systemic disease (control group), 25 patients with CP and CKD who were in the pre-dialysis stages (pre-dialysis group), and 22 patients with CP and CKD who were on renal replacement therapy (RRT group) were examined. The severity of CP was based on the investigation of probing depth (PD) and clinical attachment level (CAL). The definition and stage of CKD were based on the criteria proposed by the Kidney Disease Outcomes Quality Initiative of the National Kidney Foundation. Glomerular filtration rate (GFR) was estimated using the equation of Modification of Diet in Renal Disease and the identification of microorganisms in subgingival plaque was performed using polymerase chain reaction (PCR).
+T4	Paragraph 1125 1543	Candida albicans, Porphyromonas gingivalis, Tannerella forsythia, and Treponema denticola were more common in patients who were on RRT and pre-dialysis than in control subjects. CP was more severe in patients with CKD. A strong association was observed between the frequency of C. albicans (P = 0.056), P.gingivalis (P = 0.008), T. denticola (P = 0.013) and CAL, when CKD patients were compared with the control group.
+T5	Paragraph 1544 1688	CP is more severe and is associated with increased frequency of C. albicans, P. gingivalis, T. forsythia, and T. denticola in patients with CKD.
+T6	Habitat 18 29	periodontal
+T7	Habitat 73 81;91 121	patients without chronic kidney disease
+T8	Habitat 73 86;99 121	patients with chronic kidney disease
+T9	Habitat 107 113	kidney
+T10	Habitat 140 175	patients with chronic periodontitis
+T11	Habitat 223 234	periodontal
+T12	Habitat 259 295	patients with chronic kidney disease
+T13	Habitat 281 287	kidney
+T14	Habitat 339 350	individuals
+T15	Habitat 386 402	patients with CP
+T16	Habitat 441 454	control group
+T17	Habitat 460 484	patients with CP and CKD
+T18	Habitat 522 540	pre-dialysis group
+T19	Habitat 550 574	patients with CP and CKD
+T20	Habitat 614 623	RRT group
+T21	Habitat 1053 1071	subgingival plaque
+T22	Habitat 1125 1141	Candida albicans
+T23	Bacteria 1143 1167	Porphyromonas gingivalis
+T24	Bacteria 1169 1189	Tannerella forsythia
+T25	Bacteria 1195 1214	Treponema denticola
+T26	Habitat 1235 1243	patients
+T27	Habitat 1285 1301	control subjects
+T28	Habitat 1325 1342	patients with CKD
+T29	Habitat 1403 1414	C. albicans
+T30	Bacteria 1428 1440	P.gingivalis
+T31	Bacteria 1454 1466	T. denticola
+T32	Habitat 1493 1505	CKD patients
+T33	Habitat 1529 1542	control group
+T34	Habitat 1608 1619	C. albicans
+T35	Bacteria 1621 1634	P. gingivalis
+T36	Bacteria 1636 1648	T. forsythia
+T37	Bacteria 1654 1666	T. denticola
+T38	Habitat 1670 1687	patients with CKD

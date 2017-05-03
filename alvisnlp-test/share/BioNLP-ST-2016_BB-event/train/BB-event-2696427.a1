@@ -1,0 +1,33 @@
+T1	Title 0 72	Presence of the fish pathogen Vibrio salmonicida in fish farm sediments.
+T2	Paragraph 73 920	The persistence of the fish pathogen Vibrio salmonicida in fish farm sediments was studied by use of fluorescent-antibody techniques. The specificities of the monoclonal antibodies and polyclonal rabbit serum used in the study were tested against a number of Vibrio strains, including 4 isolates from intestinal tracts of healthy fish and 98 isolates from sediments. V. salmonicida was detected in sediment samples from diseased farms several months after an outbreak of the disease. The bacterium was also detected in a sediment sample from a disease-free fish farm. No V. salmonicida could be detected in sediments not influenced by fish farming. The number of positive samples was generally higher with application of rabbit serum as opposed to use of monoclonal antibodies, indicating that the rabbit serum may cross-react with other bacteria.
+T3	Habitat 16 20	fish
+T4	Bacteria 30 48	Vibrio salmonicida
+T5	Habitat 52 61	fish farm
+T6	Habitat 52 71	fish farm sediments
+T7	Habitat 52 56	fish
+T8	Habitat 96 100	fish
+T9	Bacteria 110 128	Vibrio salmonicida
+T10	Habitat 132 141	fish farm
+T11	Habitat 132 151	fish farm sediments
+T12	Habitat 132 136	fish
+T13	Habitat 258 281	polyclonal rabbit serum
+T14	Habitat 269 275	rabbit
+T15	Bacteria 332 338	Vibrio
+T16	Habitat 374 407	intestinal tracts of healthy fish
+T17	Habitat 395 407	healthy fish
+T18	Habitat 429 438	sediments
+T19	Bacteria 440 454	V. salmonicida
+T20	Habitat 471 507	sediment samples from diseased farms
+T21	Habitat 493 507	diseased farms
+T22	Habitat 594 639	sediment sample from a disease-free fish farm
+T23	Habitat 617 639	disease-free fish farm
+T24	Habitat 630 634	fish
+T25	Bacteria 644 658	V. salmonicida
+T26	Habitat 680 689	sediments
+T27	Habitat 708 720	fish farming
+T28	Habitat 708 712	fish
+T29	Habitat 794 800	rabbit
+T30	Habitat 794 806	rabbit serum
+T31	Habitat 871 883	rabbit serum
+T32	Habitat 871 877	rabbit
+T33	Habitat 871 877	rabbit

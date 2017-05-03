@@ -1,0 +1,39 @@
+T1	Title 0 138	Group B Streptococcus β-hemolysin/cytolysin breaches maternal-fetal barriers to cause preterm birth and intrauterine fetal demise in vivo.
+T2	Paragraph 139 404	Maternal vaginal colonization with Streptococcus agalactiae (Group B Streptococcus [GBS]) is a precursor to chorioamnionitis, fetal infection, and neonatal sepsis, but the understanding of specific factors in the pathogenesis of ascending infection remains limited.
+T3	Paragraph 405 570	We used a new murine model to evaluate the contribution of the pore-forming GBS β-hemolysin/cytolysin (βH/C) to vaginal colonization, ascension, and fetal infection.
+T4	Paragraph 571 1148	Competition assays demonstrated a marked advantage to βH/C-expressing GBS during colonization. Intrauterine fetal demise and/or preterm birth were observed in 54% of pregnant mice colonized with wild-type (WT) GBS and 0% of those colonized with the toxin-deficient cylE knockout strain, despite efficient colonization and ascension by both strains. Robust placental inflammation, disruption of maternal-fetal barriers, and fetal infection were more frequent in animals colonized with WT bacteria. Histopathologic examination revealed bacterial tropism for fetal lung and liver.
+T5	Paragraph 1149 1518	Preterm birth and fetal demise are likely the direct result of toxin-induced damage and inflammation rather than differences in efficiency of ascension into the upper genital tract. These data demonstrate a distinct contribution of βH/C to GBS chorioamnionitis and subsequent fetal infection in vivo and showcase a model for this most proximal step in GBS pathogenesis.
+T6	Bacteria 0 21	Group B Streptococcus
+T7	Habitat 53 61	maternal
+T8	Habitat 62 67	fetal
+T9	Habitat 104 116	intrauterine
+T10	Habitat 104 122	intrauterine fetal
+T11	Habitat 139 155	Maternal vaginal
+T12	Habitat 139 147	Maternal
+T13	Bacteria 174 198	Streptococcus agalactiae
+T14	Bacteria 200 221	Group B Streptococcus
+T15	Bacteria 223 226	GBS
+T16	Habitat 265 270	fetal
+T17	Habitat 286 294	neonatal
+T18	Habitat 419 431	murine model
+T19	Bacteria 481 484	GBS
+T20	Habitat 517 524	vaginal
+T21	Habitat 554 559	fetal
+T22	Bacteria 641 644	GBS
+T23	Habitat 666 678	Intrauterine
+T24	Habitat 666 684	Intrauterine fetal
+T25	Habitat 737 750	pregnant mice
+T26	Bacteria 781 784	GBS
+T27	Habitat 927 936	placental
+T28	Habitat 965 973	maternal
+T29	Habitat 974 979	fetal
+T30	Habitat 994 999	fetal
+T31	Habitat 1032 1039	animals
+T32	Habitat 1127 1137	fetal lung
+T33	Habitat 1127 1132	fetal
+T34	Habitat 1127 1132;1142 1147	fetal liver
+T35	Habitat 1167 1172	fetal
+T36	Habitat 1310 1329	upper genital tract
+T37	Bacteria 1389 1392	GBS
+T38	Habitat 1425 1430	fetal
+T39	Bacteria 1501 1504	GBS

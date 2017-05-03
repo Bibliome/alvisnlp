@@ -1,0 +1,16 @@
+T1	Title 0 88	Molecular cloning and expression of MyD88 in large yellow croaker, Pseudosciaena crocea.
+T2	Paragraph 89 1466	Myeloid differentiation factor 88 (MyD88) is an adaptor protein involved in the interleukin-1 receptor and Toll-like receptor-induced activation of nuclear factor-kappaB (NF-kappaB). In this report, the full-length cDNA of MyD88 was cloned from the large yellow croaker, Pseudosciaena crocea. It was of 1574 bp, including a 5'-terminal untranslated region (UTR) of 89 bp, a 3'-terminal UTR of 621bp and an open reading frame (ORF) of 864 bp encoding a polypeptide of 287 amino acids. It contained a typical death domain at the N-terminal and a conservative Toll/IL-1R (TIR) domain structure at the C-terminal. The quantitative real-time reverse transcription PCR analysis revealed a broad expression of MyD88 with the highest expression in the spleen and the weakest expression in the muscle. The expression of MyD88 after challenge with formalin-inactivated Gram-negative bacterium Vibrio parahaemolyticus was tested in blood, spleen and liver. It suggested that the highest expression was in the spleen (p<0.05) with 1.9 times (at 48 h) as much as that in the control and the lowest expression of MyD88 was in the liver (p<0.05) with 0.29 times (at 3h) of that in the control. These results indicated that as a universal key adaptor in the Toll-like receptor pathway in mammals, MyD88 might play an important role in large yellow croaker defense against pathogenic infection.
+T3	Habitat 45 65	large yellow croaker
+T4	Habitat 67 87	Pseudosciaena crocea
+T5	Habitat 338 358	large yellow croaker
+T6	Habitat 360 380	Pseudosciaena crocea
+T7	Habitat 833 839	spleen
+T8	Habitat 874 880	muscle
+T9	Bacteria 972 995	Vibrio parahaemolyticus
+T10	Habitat 1010 1015	blood
+T11	Habitat 1017 1023	spleen
+T12	Habitat 1028 1033	liver
+T13	Habitat 1087 1093	spleen
+T14	Habitat 1205 1210	liver
+T15	Habitat 1361 1368	mammals
+T16	Habitat 1408 1428	large yellow croaker

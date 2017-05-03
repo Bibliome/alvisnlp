@@ -1,0 +1,35 @@
+T1	Title 0 173	A novel receptor - ligand pathway for entry of Francisella tularensis in monocyte-like THP-1 cells: interaction between surface nucleolin and bacterial elongation factor Tu.
+T2	Paragraph 174 689	Francisella tularensis, the causative agent of tularemia, is one of the most infectious human bacterial pathogens. It is phagocytosed by immune cells, such as monocytes and macrophages. The precise mechanisms that initiate bacterial uptake have not yet been elucidated. Participation of C3, CR3, class A scavenger receptors and mannose receptor in bacterial uptake have been already reported. However, contribution of an additional, as-yet-unidentified receptor for F. tularensis internalization has been suggested.
+T3	Paragraph 690 1808	We show here that cell-surface expressed nucleolin is a receptor for Francisella tularensis Live Vaccine Strain (LVS) and promotes LVS binding and infection of human monocyte-like THP-1 cells. The HB-19 pseudopeptide that binds specifically carboxy-terminal RGG domain of nucleolin inhibits LVS binding and infection of monocyte-like THP-1 cells. In a pull-down assay, elongation factor Tu (EF-Tu), a GTP-binding protein involved in protein translation, usually found in cytoplasm, was recovered among LVS bacterial membrane proteins bound on RGG domain of nucleolin. A specific polyclonal murine antibody was raised against recombinant LVS EF-Tu. By fluorescence and electron microscopy experiments, we found that a fraction of EF-Tu could be detected at the bacterial surface. Anti-EF-Tu antibodies reduced LVS binding to monocyte-like THP-1 cells and impaired infection, even in absence of complement and complement receptors. Interaction between EF-Tu and nucleolin was illustrated by two different pull-down assays using recombinant EF-Tu proteins and either RGG domain of nucleolin or cell solubilized nucleolin.
+T4	Paragraph 1809 2536	Altogether, our results demonstrate that the interaction between surface nucleolin and its bacterial ligand EF-Tu plays an important role in Francisella tularensis adhesion and entry process and may therefore facilitate invasion of host tissues. Since phagosomal escape and intra-cytosolic multiplication of LVS in infected monocytes are very similar to those of human pathogenic F. tularensis ssp tularensis, the mechanism of entry into monocyte-like THP-1 cells, involving interaction between EF-Tu and nucleolin, might be similar in the two subspecies. Thus, the use of either nucleolin-specific pseudopeptide HB-19 or recombinant EF-Tu could provide attractive therapeutic approaches for modulating F. tularensis infection.
+T5	Bacteria 47 69	Francisella tularensis
+T6	Habitat 73 98	monocyte-like THP-1 cells
+T7	Bacteria 174 196	Francisella tularensis
+T8	Habitat 262 267	human
+T9	Habitat 311 323	immune cells
+T10	Habitat 333 342	monocytes
+T11	Habitat 347 358	macrophages
+T12	Bacteria 640 653	F. tularensis
+T13	Habitat 708 712	cell
+T14	Bacteria 759 801	Francisella tularensis Live Vaccine Strain
+T15	Bacteria 803 806	LVS
+T16	Bacteria 821 824	LVS
+T17	Habitat 850 855	human
+T18	Habitat 850 881	human monocyte-like THP-1 cells
+T19	Habitat 856 881	monocyte-like THP-1 cells
+T20	Bacteria 981 984	LVS
+T21	Habitat 1010 1035	monocyte-like THP-1 cells
+T22	Bacteria 1192 1195	LVS
+T23	Habitat 1280 1286	murine
+T24	Bacteria 1327 1330	LVS
+T25	Bacteria 1499 1502	LVS
+T26	Habitat 1514 1539	monocyte-like THP-1 cells
+T27	Habitat 1781 1785	cell
+T28	Bacteria 1950 1972	Francisella tularensis
+T29	Habitat 2041 2053	host tissues
+T30	Bacteria 2117 2120	LVS
+T31	Habitat 2124 2142	infected monocytes
+T32	Habitat 2172 2177	human
+T33	Bacteria 2189 2217	F. tularensis ssp tularensis
+T34	Habitat 2247 2272	monocyte-like THP-1 cells
+T35	Bacteria 2512 2525	F. tularensis

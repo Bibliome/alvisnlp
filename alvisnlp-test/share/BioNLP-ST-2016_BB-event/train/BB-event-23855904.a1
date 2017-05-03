@@ -1,0 +1,20 @@
+T1	Title 0 159	Widespread acquisition of antimicrobial resistance among Campylobacter isolates from UK retail poultry and evidence for clonal expansion of resistant lineages.
+T2	Paragraph 160 837	Antimicrobial resistance is increasing among clinical Campylobacter cases and is common among isolates from other sources, specifically retail poultry - a major source of human infection. In this study the antimicrobial susceptibility of isolates from a UK-wide survey of Campylobacter in retail poultry in 2001 and 2004-5 was investigated. The occurrence of phenotypes resistant to tetracycline, quinolones (ciprofloxacin and naladixic acid), erythromycin, chloramphenicol and aminoglycosides was quantified. This was compared with a phylogeny for these isolates based upon Multi Locus Sequence Typing (MLST) to investigate the pattern of antimicrobial resistance acquisition.
+T3	Paragraph 838 1292	Antimicrobial resistance was present in all lineage clusters, but statistical testing showed a non-random distribution. Erythromycin resistance was associated with Campylobacter coli. For all antimicrobials tested, resistant isolates were distributed among relatively distant lineages indicative of widespread acquisition. There was also evidence of clustering of resistance phenotypes within lineages; indicative of local expansion of resistant strains.
+T4	Paragraph 1293 1795	These results are consistent with the widespread acquisition of antimicrobial resistance among chicken associated Campylobacter isolates, either through mutation or horizontal gene transfer, and the expansion of these lineages as a proportion of the population. As Campylobacter are not known to multiply outside of the host and long-term carriage in humans is extremely infrequent in industrialized countries, the most likely location for the proliferation of resistant lineages is in farmed chickens.
+T5	Bacteria 57 70	Campylobacter
+T6	Habitat 85 102	UK retail poultry
+T7	Geographical 85 87	UK
+T8	Habitat 205 213	clinical
+T9	Bacteria 214 227	Campylobacter
+T10	Habitat 296 310	retail poultry
+T11	Habitat 331 336	human
+T12	Geographical 414 416	UK
+T13	Bacteria 432 445	Campylobacter
+T14	Habitat 449 463	retail poultry
+T15	Bacteria 1002 1020	Campylobacter coli
+T16	Habitat 1388 1395	chicken
+T17	Bacteria 1407 1420	Campylobacter
+T18	Bacteria 1558 1571	Campylobacter
+T19	Habitat 1644 1650	humans
+T20	Habitat 1779 1794	farmed chickens

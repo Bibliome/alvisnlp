@@ -1,0 +1,42 @@
+T1	Title 0 110	Long-term Helicobacter pylori infection and the development of atrophic gastritis and gastric cancer in Japan.
+T2	Paragraph 111 1577	The incidence of gastric cancer and the prevalence of Helicobacter pylori are high in Japan, so it is an important issue whether long-term H. pylori infection leads to chronic atrophic gastritis, considered one of the precursors of gastric cancer. We have reported that the grade of atrophy was higher in H. pylori-positive subjects than in H. pylori-negative subjects. It has also been reported that the atrophy of gastric mucosa increased in H. pylori-infected monkeys compared with control monkeys in a 5-year follow-up study. Most H. pylori infections occur in children, and atrophy of the gastric mucosa progresses during aging. Long-term data show that H. pylori infection can lead to gastric atrophy and may play an important role in the development of gastric cancer. Interestingly, there was no difference in the prevalence of H. pylori between patients with chronic gastritis and gastric cancer in Japan, but the prevalence of H. pylori in young Japanese gastric cancer patients was significantly higher than in the control group. These data clearly show that H. pylori infection is one of the risk factors of gastric cancer in young Japanese people, There is no answer to whether curing H. pylori infection can reverse the atrophy of the gastric mucosa and decrease the risk of gastric cancer development. To clarify this issue, an intervention study must be done. A large clinical trial called the Japanese Intervention Trial of H. pylori is in progress.
+T3	Bacteria 10 29	Helicobacter pylori
+T4	Habitat 86 93	gastric
+T5	Geographical 104 109	Japan
+T6	Habitat 128 135	gastric
+T7	Bacteria 165 184	Helicobacter pylori
+T8	Geographical 197 202	Japan
+T9	Bacteria 250 259	H. pylori
+T10	Habitat 343 350	gastric
+T11	Bacteria 416 425	H. pylori
+T12	Habitat 416 443	H. pylori-positive subjects
+T13	Bacteria 452 461	H. pylori
+T14	Habitat 452 479	H. pylori-negative subjects
+T15	Habitat 527 534	gastric
+T16	Habitat 527 541	gastric mucosa
+T17	Bacteria 555 564	H. pylori
+T18	Habitat 555 581	H. pylori-infected monkeys
+T19	Habitat 596 611	control monkeys
+T20	Bacteria 646 655	H. pylori
+T21	Habitat 676 684	children
+T22	Habitat 705 719	gastric mucosa
+T23	Habitat 705 712	gastric
+T24	Bacteria 770 779	H. pylori
+T25	Habitat 802 809	gastric
+T26	Habitat 871 878	gastric
+T27	Bacteria 947 956	H. pylori
+T28	Habitat 965 978;1001 1015	patients with gastric cancer
+T29	Habitat 965 996	patients with chronic gastritis
+T30	Habitat 1001 1008	gastric
+T31	Geographical 1019 1024	Japan
+T32	Bacteria 1048 1057	H. pylori
+T33	Habitat 1061 1099	young Japanese gastric cancer patients
+T34	Habitat 1076 1083	gastric
+T35	Bacteria 1181 1190	H. pylori
+T36	Habitat 1231 1238	gastric
+T37	Habitat 1249 1270	young Japanese people
+T38	Bacteria 1309 1318	H. pylori
+T39	Habitat 1360 1367	gastric
+T40	Habitat 1360 1374	gastric mucosa
+T41	Habitat 1400 1407	gastric
+T42	Bacteria 1552 1561	H. pylori

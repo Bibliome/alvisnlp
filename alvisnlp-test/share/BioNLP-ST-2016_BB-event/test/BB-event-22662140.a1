@@ -1,0 +1,18 @@
+T1	Title 0 120	Genome-wide study of the defective sucrose fermenter strain of Vibrio cholerae from the Latin American cholera epidemic.
+T2	Paragraph 121 1682	The 7th cholera pandemic reached Latin America in 1991, spreading from Peru to virtually all Latin American countries. During the late epidemic period, a strain that failed to ferment sucrose dominated cholera outbreaks in the Northern Brazilian Amazon region. In order to understand the genomic characteristics and the determinants of this altered sucrose fermenting phenotype, the genome of the strain IEC224 was sequenced. This paper reports a broad genomic study of this strain, showing its correlation with the major epidemic lineage. The potentially mobile genomic regions are shown to possess GC content deviation, and harbor the main V. cholera virulence genes. A novel bioinformatic approach was applied in order to identify the putative functions of hypothetical proteins, and was compared with the automatic annotation by RAST. The genome of a large bacteriophage was found to be integrated to the IEC224's alanine aminopeptidase gene. The presence of this phage is shown to be a common characteristic of the El Tor strains from the Latin American epidemic, as well as its putative ancestor from Angola. The defective sucrose fermenting phenotype is shown to be due to a single nucleotide insertion in the V. cholerae sucrose-specific transportation gene. This frame-shift mutation truncated a membrane protein, altering its structural pore-like conformation. Further, the identification of a common bacteriophage reinforces both the monophyletic and African-Origin hypotheses for the main causative agent of the 1991 Latin America cholera epidemics.
+T3	Bacteria 63 78	Vibrio cholerae
+T4	Geographical 88 102	Latin American
+T5	Geographical 154 167	Latin America
+T6	Geographical 192 196	Peru
+T7	Geographical 214 238	Latin American countries
+T8	Geographical 348 380	Northern Brazilian Amazon region
+T9	Geographical 357 366	Brazilian
+T10	Bacteria 525 531	IEC224
+T11	Bacteria 763 773	V. cholera
+T12	Bacteria 1030 1036	IEC224
+T13	Bacteria 1141 1147	El Tor
+T14	Geographical 1165 1179	Latin American
+T15	Geographical 1228 1234	Angola
+T16	Bacteria 1338 1349	V. cholerae
+T17	Geographical 1583 1590	African
+T18	Geographical 1650 1663	Latin America

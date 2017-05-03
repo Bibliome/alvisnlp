@@ -1,0 +1,19 @@
+T1	Title 0 115	Modification of Streptococcus mutans Cnm by PgfS contributes to adhesion, endothelial cell invasion, and virulence.
+T2	Paragraph 116 1926	Expression of the surface protein Cnm has been directly implicated in the ability of certain strains of Streptococcus mutans to bind to collagen and to invade human coronary artery endothelial cells (HCAEC) and in the killing of Galleria mellonella. Sequencing analysis of Cnm(+) strains revealed that cnm is located between the core genes SMU.2067 and SMU.2069. Reverse transcription-PCR (RT-PCR) analysis showed that cnm is cotranscribed with SMU.2067, encoding a putative glycosyltransferase referred to here as PgfS (protein glycosyltransferase of streptococci). Notably, Cnm contains a threonine-rich domain predicted to undergo O-linked glycosylation. The previously shown abnormal migration pattern of Cnm, the presence of the threonine-rich domain, and the molecular linkage of cnm with pgfS lead us to hypothesize that PgfS modifies Cnm. A ΔpgfS strain showed defects in several traits associated with Cnm expression, including collagen binding, HCAEC invasion, and killing of G. mellonella. Western blot analysis revealed that Cnm from the ΔpgfS mutant migrated at a lower molecular weight than that from the parent strain. In addition, Cnm produced by ΔpgfS was highly susceptible to proteinase K degradation, in contrast to the high-molecular-weight Cnm version found in the parent strain. Lectin-binding analyses confirmed the glycosylated nature of Cnm and strongly suggested the presence of N-acetylglucosamine residues attached to Cnm. Based on these findings, the phenotypes observed in ΔpgfS are most likely associated with defects in Cnm glycosylation that affects protein function, stability, or both. In conclusion, this study demonstrates that Cnm is a glycoprotein and that posttranslational modification mediated by PgfS contributes to the virulence-associated phenotypes linked to Cnm.
+T3	Bacteria 16 36	Streptococcus mutans
+T4	Habitat 74 85	endothelial
+T5	Habitat 74 90	endothelial cell
+T6	Bacteria 220 240	Streptococcus mutans
+T7	Habitat 275 280	human
+T8	Habitat 275 314	human coronary artery endothelial cells
+T9	Habitat 281 296	coronary artery
+T10	Habitat 297 308	endothelial
+T11	Habitat 316 321	HCAEC
+T12	Habitat 345 364	Galleria mellonella
+T13	Bacteria 668 680	streptococci
+T14	Bacteria 965 970	ΔpgfS
+T15	Habitat 1071 1076	HCAEC
+T16	Habitat 1102 1115	G. mellonella
+T17	Bacteria 1166 1171	ΔpgfS
+T18	Bacteria 1279 1284	ΔpgfS
+T19	Bacteria 1620 1625	ΔpgfS

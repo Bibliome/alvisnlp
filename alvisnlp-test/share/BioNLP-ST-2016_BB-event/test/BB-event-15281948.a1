@@ -1,0 +1,26 @@
+T1	Title 0 82	Mineral and carbon usage of two synthetic pyrethroid degrading bacterial isolates.
+T2	Paragraph 83 241	To investigate the biodegrading ability and cometabolism of synthetic pyrethroid (SP) utilizing bacteria in cultures with various minerals and carbon sources.
+T3	Paragraph 242 766	Previously isolated SP-degrading Pseudomonas sp. and Serratia sp. were used in cultures containing either flumethrin SP or cypermethrin SP formulations. The culture media consisted of either (i) water only, (ii) water and sucrose, (iii) mineral broth or (iv) mineral broth and sucrose. The growth of both organisms was greatest in the mineral broth and sucrose medium, but the growth-limiting factor for Pseudomonas sp. strain Circle was the mineral content whereas for Serratia sp. strain White it was the carbon substrate.
+T4	Paragraph 767 905	The greatest extent of degradation of both SP-based compounds occurred with Pseudomonas sp. strain Circle but was dependant on the medium.
+T5	Paragraph 906 1167	This investigation could lead to the development of a relatively inexpensive medium supplement to enhance the microbial biodegradation of undesirable compounds, either in situ or ex situ. In this particular case, for the biodegradation of SPs used in sheep dip.
+T6	Habitat 191 240	cultures with various minerals and carbon sources
+T7	Bacteria 275 290	Pseudomonas sp.
+T8	Bacteria 295 307	Serratia sp.
+T9	Habitat 321 340;348 361	cultures containing flumethrin SP
+T10	Habitat 321 340;365 393	cultures containing cypermethrin SP formulations
+T11	Habitat 437 442	water
+T12	Habitat 454 471	water and sucrose
+T13	Habitat 454 459	water
+T14	Habitat 479 492	mineral broth
+T15	Habitat 501 526	mineral broth and sucrose
+T16	Habitat 501 514	mineral broth
+T17	Habitat 577 590	mineral broth
+T18	Habitat 577 609	mineral broth and sucrose medium
+T19	Habitat 595 609	sucrose medium
+T20	Bacteria 646 675	Pseudomonas sp. strain Circle
+T21	Habitat 684 699	mineral content
+T22	Bacteria 712 737	Serratia sp. strain White
+T23	Habitat 749 765	carbon substrate
+T24	Bacteria 843 872	Pseudomonas sp. strain Circle
+T25	Habitat 1157 1166	sheep dip
+T26	Habitat 1157 1162	sheep

@@ -1,0 +1,32 @@
+T1	Title 0 146	Evaluation of the role of Carnobacterium piscicola in spoilage of vacuum- and modified-atmosphere-packed cold-smoked salmon stored at 5 degrees C.
+T2	Paragraph 147 2138	The microflora on spoiled cold-smoked salmon often consists of a mixture of lactic acid bacteria (LAB) and Gram-negative bacteria. To elucidate the role of the different groups, a storage trial was carried out in which nisin and CO2 were used for the selective inhibition of the two bacterial groups. The shelf-life of vacuum-packed cold-smoked salmon, recorded by sensory evaluation, was four weeks at 5 degrees C and the microflora was composed of LAB (10(6)-10(7) cfu/g) with an associate Gram-negative flora in varying levels (10(5)-10(7) cfu/g). The addition of nisin and/or a CO2-atmosphere increased the shelf-life to five or six weeks and limited the level of LAB to about 10(4)-10(6), 10(3)-10(6) and 10(2)-10(4) cfu/g, respectively. CO2-atmosphere +/- nisin inhibited the growth of Gram-negative bacteria, whereas nisin had no effect on these in vacuum packages. The Gram-negative flora on vacuum-packed salmon was dominated by a Vibrio sp., resembling V. marinus, Enterobacteriaceae (Enterobacter agglomerans, Serratia liquefaciens and Rahnella aquatilis) and occasionally Aeromonas hydrophila. Irrespective of the addition of nisin and/or CO2-atmosphere, the LAB microflora was dominated by Carnobacterium piscicola, which was found to account for 87% of the 255 LAB isolates characterized. Whole-cell-protein patterns analysed by SDS-PAGE confirmed the Carnobacterium species identification. The spoilage potential of C. piscicola isolates was further studied by inoculation of approx. 10(6) cfu/g in cold-smoked salmon stored at 5 degrees C. The salmon did not spoil within 4 weeks of storage in vacuum- or CO2-atmosphere, and it is concluded that despite high levels (> 10(7) cfu/g) of C. piscicola, sensory rejection was caused by autolytic changes. This was supported by the development of soft texture and sour, rancid and bitter off-flavours at the point of spoilage, irrespective of the length of shelf-life and low or high total counts of LAB and Gram-negative bacteria.
+T3	Bacteria 26 50	Carnobacterium piscicola
+T4	Habitat 66 145	vacuum- and modified-atmosphere-packed cold-smoked salmon stored at 5 degrees C
+T5	Habitat 151 161	microflora
+T6	Habitat 165 191	spoiled cold-smoked salmon
+T7	Bacteria 223 243	lactic acid bacteria
+T8	Bacteria 245 248	LAB
+T9	Habitat 466 498	vacuum-packed cold-smoked salmon
+T10	Habitat 570 580	microflora
+T11	Habitat 597 600;621 658	LAB with an associate Gram-negative flora
+T12	Bacteria 597 600	LAB
+T13	Bacteria 815 818	LAB
+T14	Habitat 1003 1018	vacuum packages
+T15	Habitat 1047 1067	vacuum-packed salmon
+T16	Bacteria 1087 1097	Vibrio sp.
+T17	Bacteria 1110 1120	V. marinus
+T18	Bacteria 1122 1140	Enterobacteriaceae
+T19	Bacteria 1142 1166	Enterobacter agglomerans
+T20	Bacteria 1168 1189	Serratia liquefaciens
+T21	Bacteria 1194 1212	Rahnella aquatilis
+T22	Bacteria 1231 1251	Aeromonas hydrophila
+T23	Habitat 1318 1332	LAB microflora
+T24	Bacteria 1318 1321	LAB
+T25	Bacteria 1350 1374	Carnobacterium piscicola
+T26	Bacteria 1422 1425	LAB
+T27	Bacteria 1513 1527	Carnobacterium
+T28	Bacteria 1578 1590	C. piscicola
+T29	Habitat 1661 1701	cold-smoked salmon stored at 5 degrees C
+T30	Habitat 1707 1713	salmon
+T31	Bacteria 1848 1860	C. piscicola
+T32	Bacteria 2107 2110	LAB

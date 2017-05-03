@@ -1,0 +1,26 @@
+T1	Title 0 83	The role of routine immunohistochemistry for Helicobacter pylori in gastric biopsy.
+T2	Paragraph 84 1757	Helicobacter pylori infection is associated with gastritis, gastric ulcer, gastric adenocarcinoma, and mucosal associated lymphoid tissue lymphoma. Documenting the presence of H pylori in a gastric biopsy is essential for appropriate patient care. Several special stains and immunohistochemistry (IHC) stain for H pylori are available, and many laboratories are routinely using one of them. We introduced routine IHC for H pylori about a year ago, and this study aims to investigate the value of this protocol. A total of 224 patients qualified for the study criteria during this period. The diagnoses were chronic active gastritis (68), chronic gastritis (76), no pathologic abnormality (50), reactive gastropathy (24), and polyps (6). Fifty-four cases were positive for H pylori on IHC, including 50 chronic active gastritis and 4 chronic gastritis. The IHC positive rate was 73.5% (50/68) in chronic active gastritis, 5.3% (4/76) in chronic gastritis, and 0% (0/80) in other diagnoses. The sensitivity/specificity of finding H pylori by blindly reviewing hematoxylin and eosin slides was 100%/100%, 100%/100%, 95%/100%, and 100%/100% from the 4 authors. Our results showed that many gastric biopsies (35.7%, 80/224) had no pathologic abnormality or reactive gastropathy and did not need a routine IHC for H pylori. Hematoxylin and eosin slide review had a very good sensitivity and specificity with all levels of observers. In summary, IHC for H pylori should not be routinely used, especially during these economically challenging times. Immunohistochemistry should be reserved for unexplained gastritis and previously treated patients with likely low organism density.
+T3	Bacteria 45 64	Helicobacter pylori
+T4	Habitat 68 75	gastric
+T5	Bacteria 84 103	Helicobacter pylori
+T6	Habitat 144 151	gastric
+T7	Habitat 144 157	gastric ulcer
+T8	Habitat 159 166	gastric
+T9	Habitat 187 221	mucosal associated lymphoid tissue
+T10	Habitat 206 221	lymphoid tissue
+T11	Bacteria 260 268	H pylori
+T12	Habitat 274 281	gastric
+T13	Habitat 274 288	gastric biopsy
+T14	Habitat 318 325	patient
+T15	Bacteria 396 404	H pylori
+T16	Habitat 429 441	laboratories
+T17	Bacteria 505 513	H pylori
+T18	Habitat 610 618	patients
+T19	Habitat 809 815	polyps
+T20	Bacteria 856 864	H pylori
+T21	Bacteria 1112 1120	H pylori
+T22	Habitat 1270 1286	gastric biopsies
+T23	Habitat 1270 1277	gastric
+T24	Bacteria 1392 1400	H pylori
+T25	Bacteria 1531 1539	H pylori
+T26	Habitat 1696 1723	previously treated patients

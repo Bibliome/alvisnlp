@@ -1,0 +1,25 @@
+T1	Title 0 86	A large outbreak of Salmonella Paratyphi A infection among israeli travelers to Nepal.
+T2	Paragraph 87 312	In Asia, Salmonella Paratyphi A is an emerging infection, and travelers are increasingly at risk. During October 2009-November 2009, an outbreak in S. Paratyphi A infection was noted in Israeli travelers returning from Nepal.
+T3	Paragraph 313 540	An outbreak investigation included a standardized exposure questionnaire admitted to all patients and medical chart abstraction. Isolates were tested for antimicrobial susceptibility and pulsed-field gel electrophoresis (PFGE).
+T4	Paragraph 541 1173	During 1 October 2009-30 November 2009, 37 Israeli travelers returning from Nepal were diagnosed with S. Paratyphi A bacteremia. All 37 case isolates had an identical pattern on PFGE, and all were nalidixic acid resistant. Only 1 food venue was frequented by all the outbreak cases, with the largest number of exposures occurring around the Jewish New Year. All patients recovered without complications. Time to defervescence in 17 patients treated with ceftriaxone and azithromycin combination was 3.2 days (± 1.7), whereas in 13 cases treated with ceftriaxone monotherapy, the time to defervescence was 6.6 days (± 1.8; P < .001).
+T5	Paragraph 1174 1406	A point-source, "Paratyphoid Mary"-like outbreak was identified among Israeli travelers to Nepal. Combination Ceftriaxone-Azithromycin therapy may provide a therapeutic advantage over monotherapy, and merits further clinical trials.
+T6	Bacteria 20 42	Salmonella Paratyphi A
+T7	Habitat 59 76	israeli travelers
+T8	Geographical 80 85	Nepal
+T9	Geographical 90 94	Asia
+T10	Bacteria 96 118	Salmonella Paratyphi A
+T11	Habitat 149 158	travelers
+T12	Bacteria 235 249	S. Paratyphi A
+T13	Habitat 273 290	Israeli travelers
+T14	Geographical 306 311	Nepal
+T15	Habitat 402 410	patients
+T16	Habitat 584 601	Israeli travelers
+T17	Geographical 617 622	Nepal
+T18	Bacteria 643 657	S. Paratyphi A
+T19	Habitat 771 781	food venue
+T20	Habitat 771 775	food
+T21	Habitat 903 911	patients
+T22	Habitat 973 1035	patients treated with ceftriaxone and azithromycin combination
+T23	Habitat 1072 1114	cases treated with ceftriaxone monotherapy
+T24	Habitat 1244 1261	Israeli travelers
+T25	Geographical 1265 1270	Nepal

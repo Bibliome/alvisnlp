@@ -1,0 +1,35 @@
+T1	Title 0 132	Bile resistance in Lactococcus lactis strains varies with cellular fatty acid composition: analysis by using different growth media.
+T2	Paragraph 133 2382	Bile resistance is one of the basic characteristics of probiotic bacteria. The aim of this study was to investigate the characteristics of bile resistance in lactococci by studying the relationship between bile resistance and cellular fatty acid composition in lactococcci grown on different media. We determined the bile resistance of 14 strains in lactose-free M17 medium supplemented with either glucose only (GM17) or lactose only (LM17). Gas chromatographic analyses of free lipids extracted from the tested strains were used for determining their fatty acid composition. A correlation analysis of all strains grown in both media revealed significant positive correlations between bile resistance and relative contents of hexadecanoic acid and octadecenoic acid, and negative correlations between bile resistance and relative contents of hexadecenoic acid and C-19 cyclopropane fatty acid. It is also a fact that the fatty acids associated with bile resistance depended on species, strain, and/or growth medium. In L. lactis subsp. cremoris strains grown in GM17 medium, the bile-resistant strains had significantly more octadecenoic acid than the bile-sensitive strains. In LM17 medium, bile-resistant strains had significantly more octadecenoic acid and significantly less C-19 cyclopropane fatty acid than the bile-sensitive strains. In L. lactis subsp. lactis strains, bile resistances of some of the tested strains were altered by growth medium. Some strains were resistant to bile in GM17 medium but sensitive to bile in LM17 medium. Some strains were resistant in both media tested. The strains grown in GM17 medium had significantly more hexadecanoic acid and octadecenoic acid, and significantly less tetradecanoic acid, octadecadienoic acid and C-19 cyclopropane fatty acid than the strains grown in LM17 medium. In conclusion, the fatty acid compositions of the bile-resistant lactococci differed from those of the bile-sensitive ones. More importantly, our data suggest that altering their fatty acid composition (i.e. increased hexadecanoic acid and octadecenoic acid and decreased hexadecenoic acid and C-19 cyclopropane fatty acid) by changing growth conditions may be a useful way to enhance their bile resistance in lactococci.
+T3	Habitat 0 4	Bile
+T4	Bacteria 19 37	Lactococcus lactis
+T5	Habitat 133 137	Bile
+T6	Habitat 272 276	bile
+T7	Bacteria 291 301	lactococci
+T8	Habitat 339 343	bile
+T9	Bacteria 394 405	lactococcci
+T10	Habitat 450 454	bile
+T11	Habitat 483 524;532 551	lactose-free M17 medium supplemented with glucose only (GM17)
+T12	Habitat 483 524;555 574	lactose-free M17 medium supplemented with lactose only (LM17)
+T13	Habitat 819 823	bile
+T14	Habitat 935 939	bile
+T15	Habitat 1083 1087	bile
+T16	Bacteria 1153 1178	L. lactis subsp. cremoris
+T17	Habitat 1196 1207	GM17 medium
+T18	Habitat 1213 1217	bile
+T19	Habitat 1286 1290	bile
+T20	Habitat 1313 1324	LM17 medium
+T21	Habitat 1326 1330	bile
+T22	Habitat 1451 1455	bile
+T23	Bacteria 1478 1501	L. lactis subsp. lactis
+T24	Habitat 1511 1515	bile
+T25	Habitat 1620 1624	bile
+T26	Habitat 1628 1639	GM17 medium
+T27	Habitat 1657 1661	bile
+T28	Habitat 1665 1676	LM17 medium
+T29	Habitat 1749 1760	GM17 medium
+T30	Habitat 1948 1959	LM17 medium
+T31	Habitat 2011 2015	bile
+T32	Bacteria 2026 2036	lactococci
+T33	Habitat 2064 2068	bile
+T34	Habitat 2352 2356	bile
+T35	Bacteria 2371 2381	lactococci

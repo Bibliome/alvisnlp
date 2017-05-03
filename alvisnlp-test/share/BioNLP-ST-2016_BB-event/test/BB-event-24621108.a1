@@ -1,0 +1,45 @@
+T1	Title 0 128	Incorporation of essential oils and nanoparticles in pullulan films to control foodborne pathogens on meat and poultry products.
+T2	Paragraph 129 1803	The incorporation of essential oils and nanotechnology into edible films has the potential to improve the microbiological safety of foods. The aim of this study was to evaluate the effectiveness of pullulan films containing essential oils and nanoparticles against 4 foodborne pathogens. Initial experiments using plate overlay assays demonstrated that 2% oregano essential oil was active against Staphylococcus aureus and Salmonella Typhimurium, whereas Listeria monocytogenes and Escherichia coli O157:H7 were not inhibited. Two percent rosemary essential oil was active against S. aureus, L. monocytogenes, E. coli O157:H7, and S. Typhimurium, when compared with 1%. Zinc oxide nanoparticles at 110 nm were active against S. aureus, L. monocytogenes, E. coli O157:H7, and S. Typhimurium, when compared with 100 or 130 nm. Conversely, 100 nm silver (Ag) nanoparticles were more active against S. aureus than L. monocytogenes. Using the results from these experiments, the compounds exhibiting the greatest activity were incorporated into pullulan films and found to inhibit all or some of the 4 pathogens in plate overlay assays. In challenge studies, pullulan films containing the compounds effectively inhibited the pathogens associated with vacuum packaged meat and poultry products stored at 4 °C for up to 3 wk, as compared to control films. Additionally, the structure and cross-section of the films were evaluated using electron microscopy. The results from this study demonstrate that edible films made from pullulan and incorporated with essential oils or nanoparticles may improve the safety of refrigerated, fresh or further processed meat and poultry products.
+T3	Habitat 17 31	essential oils
+T4	Habitat 53 67	pullulan films
+T5	Habitat 79 88	foodborne
+T6	Habitat 102 106;119 127	meat products
+T7	Habitat 111 127	poultry products
+T8	Habitat 150 164	essential oils
+T9	Habitat 189 201	edible films
+T10	Habitat 261 266	foods
+T11	Habitat 327 341	pullulan films
+T12	Habitat 353 367	essential oils
+T13	Habitat 396 405	foodborne
+T14	Habitat 485 492	oregano
+T15	Habitat 485 506	oregano essential oil
+T16	Bacteria 526 547	Staphylococcus aureus
+T17	Bacteria 552 574	Salmonella Typhimurium
+T18	Bacteria 584 606	Listeria monocytogenes
+T19	Bacteria 611 635	Escherichia coli O157:H7
+T20	Habitat 668 676	rosemary
+T21	Habitat 668 690	rosemary essential oil
+T22	Bacteria 710 719	S. aureus
+T23	Bacteria 721 737	L. monocytogenes
+T24	Bacteria 739 754	E. coli O157:H7
+T25	Bacteria 760 774	S. Typhimurium
+T26	Bacteria 854 863	S. aureus
+T27	Bacteria 865 881	L. monocytogenes
+T28	Bacteria 883 898	E. coli O157:H7
+T29	Bacteria 904 918	S. Typhimurium
+T30	Bacteria 1024 1033	S. aureus
+T31	Bacteria 1039 1055	L. monocytogenes
+T32	Habitat 1169 1183	pullulan films
+T33	Habitat 1283 1297	pullulan films
+T34	Habitat 1375 1395;1408 1446	vacuum packaged meat products stored at 4 °C for up to 3 wk
+T35	Habitat 1375 1390;1400 1446	vacuum packaged poultry products stored at 4 °C for up to 3 wk
+T36	Habitat 1463 1476	control films
+T37	Habitat 1531 1536	films
+T38	Habitat 1624 1636	edible films
+T39	Habitat 1678 1692	essential oils
+T40	Habitat 1736 1748;1786 1802	refrigerated poultry products
+T41	Habitat 1736 1748;1777 1781;1794 1802	refrigerated meat products
+T42	Habitat 1750 1755;1786 1802	fresh poultry products
+T43	Habitat 1750 1755;1777 1781;1794 1802	fresh meat products
+T44	Habitat 1759 1781;1794 1802	further processed meat products
+T45	Habitat 1759 1776;1786 1802	further processed poultry products

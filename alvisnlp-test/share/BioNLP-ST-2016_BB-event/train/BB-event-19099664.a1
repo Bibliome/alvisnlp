@@ -1,0 +1,21 @@
+T1	Title 0 100	[Changes of pathogens and susceptibility to antibiotics in hematology ward from years 2001 to 2005].
+T2	Paragraph 101 1277	The purpose of this study was to determine the changes of pathogens in hematological ward and susceptibility of patients received chemotherapy to antibiotics. The pathogens were taken from blood, urine and sputum of patients who accepted chemotherapy from years 2001 to 2005, then were isolated and identified. The susceptibility test was performed by disk diffusion method. The results showed that the total of 418 strains were detected. Gram-negative bacteria were the most common of nosocomial infection. Pseudomonas aeruginosa, Enterobacter cloacae, E. coli account for the most of Gram negative- bacteria infection and most resistant to broad-spectrum penicillin, Acinetobacter baumannii showed a trend of increase. The ratios of gram positive bacteria and fungi were increased slowly, mainly as Enterococcus and Candida. Enterococcus is the most common cause of Gram-positive bacterial infection. Vancomycin resistance did not occur. It is concluded that Gram-negative bacteria are main cause of nosocomial infection in patients with hematological malignancies. Gram positive bacteria and fungi had been more frequent. Strains resistant to antimicrobial agents increase.
+T3	Habitat 59 74	hematology ward
+T4	Habitat 172 190	hematological ward
+T5	Habitat 213 243	patients received chemotherapy
+T6	Habitat 290 295;314 351	blood of patients who accepted chemotherapy
+T7	Habitat 297 302;314 351	urine of patients who accepted chemotherapy
+T8	Habitat 307 351	sputum of patients who accepted chemotherapy
+T9	Habitat 317 351	patients who accepted chemotherapy
+T10	Habitat 587 597	nosocomial
+T11	Bacteria 609 631	Pseudomonas aeruginosa
+T12	Bacteria 633 653	Enterobacter cloacae
+T13	Bacteria 655 662	E. coli
+T14	Bacteria 770 793	Acinetobacter baumannii
+T15	Habitat 863 868	fungi
+T16	Bacteria 902 914	Enterococcus
+T17	Habitat 919 926	Candida
+T18	Bacteria 928 940	Enterococcus
+T19	Habitat 1103 1113	nosocomial
+T20	Habitat 1127 1167	patients with hematological malignancies
+T21	Habitat 1196 1201	fungi

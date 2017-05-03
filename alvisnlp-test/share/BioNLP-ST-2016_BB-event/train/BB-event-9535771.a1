@@ -1,0 +1,10 @@
+T1	Title 0 103	Order of fusions between bacterial and mammalian proteins can determine solubility in Escherichia coli.
+T2	Paragraph 104 1049	We made fusions between Escherichia coli maltose-binding protein (MBP) and the mammalian aspartic proteinases pepsinogen or procathepsin D. When MBP was at the N-terminus, the fusions were soluble in E. coli. When the order was reversed, the chimeric proteins formed inclusion bodies. The data suggest that the solubility of fusion proteins is controlled by whether the protein domains emerging first from the ribosome normally fold into soluble or insoluble states. The soluble MBP-aspartic proteinase fusions were stable but proteolytically inactive. MBP-pepsinogen, however, was efficiently renatured from 8 M urea in vitro, suggesting that the E. coli cytoplasm does not support folding of the mammalian partner protein to the native state. Thus, inclusion body formation may be the consequence, rather than the cause, of non-native folding in vivo, and in E. coli soluble proteins may fold into states different from those reached in vitro.
+T3	Habitat 39 48	mammalian
+T4	Bacteria 86 102	Escherichia coli
+T5	Bacteria 128 144	Escherichia coli
+T6	Habitat 183 192	mammalian
+T7	Bacteria 304 311	E. coli
+T8	Bacteria 752 759	E. coli
+T9	Habitat 802 811	mammalian
+T10	Bacteria 965 972	E. coli

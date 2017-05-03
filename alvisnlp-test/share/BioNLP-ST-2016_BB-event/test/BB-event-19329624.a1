@@ -1,0 +1,24 @@
+T1	Title 0 74	Salinivibrio siamensis sp. nov., from fermented fish (pla-ra) in Thailand.
+T2	Paragraph 75 1468	A Gram-negative, facultatively anaerobic, moderately halophilic bacterium, strain ND1-1(T), was isolated from fermented fish (pla-ra) in Thailand. The cells were curved rods, motile and non-endospore-forming. The novel strain grew optimally at 37 degrees C, at pH 8 and in the presence of 9-10 % (w/v) NaCl. The predominant respiratory lipoquinone was Q-8. The major cellular fatty acids were C(16 : 0) and C(12 : 0). Polar lipid analysis revealed the presence of phosphatidylethanolamine, phosphatidylglycerol and diphosphatidylglycerol. The DNA G+C content was 49.0 mol%. Comparative 16S rRNA gene sequence analyses indicated that strain ND1-1(T) was closely related to Salinivibrio costicola, which comprises three subspecies, and Salinivibrio proteolyticus with gene sequence similarities of 98.3-98.6 %. Strain ND1-1(T) showed low levels of DNA-DNA relatedness with S. costicola subsp. costicola JCM 15095(T) (33.2 %), S. costicola subsp. alcaliphilus DSM 16359(T) (38.4 %), S. costicola subsp. vallismortis JCM 15096(T) (59.7 %), and S. proteolyticus AF-2004(T) (42.1 %). On the basis of the physiological and biochemical characteristics and the molecular data presented, strain ND1-1(T) should be classified as a novel species of the genus Salinivibrio for which the name Salinivibrio siamensis sp. nov. is proposed. The type strain is ND1-1(T) (=JCM 14472(T)=PCU 301(T)=TISTR 1810(T)).
+T3	Bacteria 0 22	Salinivibrio siamensis
+T4	Habitat 38 52	fermented fish
+T5	Habitat 54 60	pla-ra
+T6	Geographical 65 73	Thailand
+T7	Bacteria 157 165	ND1-1(T)
+T8	Habitat 185 199	fermented fish
+T9	Habitat 201 207	pla-ra
+T10	Geographical 212 220	Thailand
+T11	Bacteria 715 723	ND1-1(T)
+T12	Bacteria 747 769	Salinivibrio costicola
+T13	Bacteria 809 835	Salinivibrio proteolyticus
+T14	Bacteria 891 899	ND1-1(T)
+T15	Bacteria 999 1044	S. costicola subsp. alcaliphilus DSM 16359(T)
+T16	Bacteria 1055 1100	S. costicola subsp. vallismortis JCM 15096(T)
+T17	Bacteria 1115 1142	S. proteolyticus AF-2004(T)
+T18	Bacteria 1260 1268	ND1-1(T)
+T19	Bacteria 1322 1334	Salinivibrio
+T20	Bacteria 1354 1376	Salinivibrio siamensis
+T21	Bacteria 1418 1426	ND1-1(T)
+T22	Bacteria 1429 1441	JCM 14472(T)
+T23	Bacteria 1442 1452	PCU 301(T)
+T24	Bacteria 1453 1466	TISTR 1810(T)

@@ -1,0 +1,30 @@
+T1	Title 0 59	Gamma/delta T lymphocytes in the BCG granulomatous lesions.
+T2	Paragraph 60 1098	Recent studies in man and animal models have demonstrated that TCR-gamma delta-bearing T cells (gamma delta T cells) are activated by mycobacteria and accumulate in the sites of mycobacterial infection. Although the function of gamma delta T cells remains unclear, some data suggest a potential role for these cells in the granulomatous immune response. To address the presence of gamma delta T cells within the BCG granulomas, we have characterized the TCR phenotype of T-lymphocytes present in the BCG granulomatous lesion immunohistochemically using a monoclonal antibody to TCR delta 1 and others. Fairly large numbers of gamma delta T cells were located at the periphery of the BCG granulomas without necrosis and most of them also expressed CD8. However, gamma delta T cells were rarely present in the granulomas with central caseous necrosis, calcification and fibrotic changes. With these results, it might be speculated that the CD8+ gamma delta T lymphocytes participate in the BCG granuloma formation mainly in the early stage.
+T3	Habitat 0 25	Gamma/delta T lymphocytes
+T4	Habitat 33 58	BCG granulomatous lesions
+T5	Bacteria 33 36	BCG
+T6	Habitat 37 50	granulomatous
+T7	Habitat 78 81;93 99	man models
+T8	Habitat 86 99	animal models
+T9	Habitat 123 154	TCR-gamma delta-bearing T cells
+T10	Habitat 156 175	gamma delta T cells
+T11	Bacteria 194 206	mycobacteria
+T12	Bacteria 238 251	mycobacterial
+T13	Habitat 288 307	gamma delta T cells
+T14	Habitat 370 375	cells
+T15	Habitat 383 396	granulomatous
+T16	Habitat 441 460	gamma delta T cells
+T17	Habitat 472 486	BCG granulomas
+T18	Bacteria 472 475	BCG
+T19	Habitat 531 544	T-lymphocytes
+T20	Habitat 560 584	BCG granulomatous lesion
+T21	Bacteria 560 563	BCG
+T22	Habitat 564 577	granulomatous
+T23	Habitat 686 705	gamma delta T cells
+T24	Habitat 743 774	BCG granulomas without necrosis
+T25	Bacteria 743 746	BCG
+T26	Habitat 821 840	gamma delta T cells
+T27	Habitat 868 944	granulomas with central caseous necrosis, calcification and fibrotic changes
+T28	Habitat 998 1028	CD8+ gamma delta T lymphocytes
+T29	Habitat 1048 1061	BCG granuloma
+T30	Bacteria 1048 1051	BCG

@@ -1,0 +1,24 @@
+T1	Title 0 146	Gingival changes during pregnancy: III. Impact of clinical, microbiological, immunological and socio-demographic factors on gingival inflammation.
+T2	Paragraph 147 251	To identify predictor variables involved in exacerbated gingival inflammation associated with pregnancy.
+T3	Paragraph 252 1056	In this cohort study, 48 pregnant and 28 non-pregnant women without periodontitis were included. The pregnant women were evaluated in the first, second and third trimester and at 3 months postpartum, whilst the non-pregnant women were evaluated twice, with a 6-month interval. At each visit, clinical [plaque index (PlI) and gingival index (GI)], hormonal (salivary progesterone and estradiol), immunological [gingival crevicular fluid interleukin-1β, interleukin-6, tumour necrosis factor-α (TNF-α) and prostaglandin-E(2) ] and microbiological (periodontal pathogens culture) evaluations were performed. Statistical analysis was undertaken using exhaustive chi-square automatic interaction detection (exhaustive CHAID) to analyse the predictive value of the independent outcomes to develop pregnancy GI.
+T4	Paragraph 1057 1458	PlI was the strongest predictor implicated in the GI throughout pregnancy and after delivery. During the second and third trimesters the presence of Porphyromonas gingivalis significantly contributed to the worsening of gingival inflammation. When compared with the non-pregnant group, significant differences were found in TNF-α amounts and concentrations and in the third trimester site-specific GI.
+T5	Paragraph 1459 1654	Bacterial challenge to the gingival tissues, both quantitatively (PlI) and qualitatively (harbouring P. gingivalis) appears to affect the level of gingival inflammation observed during pregnancy.
+T6	Habitat 0 8	Gingival
+T7	Habitat 124 132	gingival
+T8	Habitat 203 211	gingival
+T9	Habitat 277 285;306 333	pregnant women without periodontitis
+T10	Habitat 293 333	non-pregnant women without periodontitis
+T11	Habitat 353 367	pregnant women
+T12	Habitat 463 481	non-pregnant women
+T13	Habitat 554 560	plaque
+T14	Habitat 577 585	gingival
+T15	Habitat 609 617	salivary
+T16	Habitat 662 670	gingival
+T17	Habitat 662 687	gingival crevicular fluid
+T18	Habitat 798 809	periodontal
+T19	Bacteria 1206 1230	Porphyromonas gingivalis
+T20	Habitat 1277 1285	gingival
+T21	Habitat 1323 1341	non-pregnant group
+T22	Habitat 1486 1502	gingival tissues
+T23	Bacteria 1560 1573	P. gingivalis
+T24	Habitat 1606 1614	gingival

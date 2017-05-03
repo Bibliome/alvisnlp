@@ -1,0 +1,15 @@
+T1	Title 0 94	Epidemiology, clinical manifestations, and outcomes of Streptococcus suis infection in humans.
+T2	Paragraph 95 1134	Streptococcus suis, a bacterium that affects pigs, is a neglected pathogen that causes systemic disease in humans. We conducted a systematic review and meta-analysis to summarize global estimates of the epidemiology, clinical characteristics, and outcomes of this zoonosis. We searched main literature databases for all studies through December 2012 using the search term "streptococcus suis." The prevalence of S. suis infection is highest in Asia; the primary risk factors are occupational exposure and eating of contaminated food. The pooled proportions of case-patients with pig-related occupations and history of eating high-risk food were 38.1% and 37.3%, respectively. The main clinical syndrome was meningitis (pooled rate 68.0%), followed by sepsis, arthritis, endocarditis, and endophthalmitis. The pooled case-fatality rate was 12.8%. Sequelae included hearing loss (39.1%) and vestibular dysfunction (22.7%). Our analysis identified gaps in the literature, particularly in assessing risk factors and sequelae of this infection.
+T3	Bacteria 55 73	Streptococcus suis
+T4	Habitat 87 93	humans
+T5	Bacteria 95 113	Streptococcus suis
+T6	Habitat 140 144	pigs
+T7	Habitat 202 208	humans
+T8	Bacteria 468 486	streptococcus suis
+T9	Bacteria 507 514	S. suis
+T10	Geographical 539 543	Asia
+T11	Habitat 610 627	contaminated food
+T12	Habitat 655 673;702 734	case-patients with history of eating high-risk food
+T13	Habitat 655 697	case-patients with pig-related occupations
+T14	Habitat 674 677	pig
+T15	Habitat 720 734	high-risk food

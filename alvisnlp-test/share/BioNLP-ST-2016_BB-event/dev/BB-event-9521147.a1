@@ -1,0 +1,25 @@
+T1	Title 0 174	Lipopolysaccharide from nonvirulent Ara+ Burkholderia pseudomallei isolates is immunologically indistinguishable from lipopolysaccharide from virulent Ara- clinical isolates.
+T2	Paragraph 175 1742	Different lines of evidence suggest that a discrepancy between the distribution of Burkholderia (Pseudomonas) pseudomallei in the environment and the distribution of the disease melioidosis is attributable, at least in part, to phenotypic differences between clinical and some environmental isolates. Two antigenically and biochemically distinct biotypes have been described, only one of which is virulent. In this study, lipopolysaccharides (LPSs) were extracted by the proteinase K digestion method from a total of 214 B. pseudomallei isolates, and their immunoreactivities with sera from patients with different clinical spectra and with other infections were evaluated. With the exception of4 isolates from a total of 214 tested, the sodium dodecyl sulfate-polyacrylamide gel electrophoresis silver-staining profiles of the LPSs from the two biotypes showed identical ladder patterns that were typical for smooth LPSs from other gram-negative bacteria. The 210 isolates with typical LPS patterns (119 Ara- clinical, 13 Ara- soil, 70 Ara+ soil, and 8 reference National Type Culture Collection strains) also exhibited similar immunoblot profiles against pooled sera from patients with melioidosis and hyperimmune mouse sera. Concordant findings were noted in the indirect enzyme-linked immunosorbent assay with Ara- and Ara+ LPSs to coat the microtiter plates. The LPSs of the different B. pseudomallei biotypes appear antigenically indistinguishable. It is, therefore, unlikely that this component is related to the virulence and pathogenicity of B. pseudomallei.
+T3	Bacteria 36 66	Ara+ Burkholderia pseudomallei
+T4	Bacteria 151 155	Ara-
+T5	Habitat 156 164	clinical
+T6	Bacteria 258 270;285 297	Burkholderia pseudomallei
+T7	Bacteria 272 283;285 297	Pseudomonas pseudomallei
+T8	Habitat 434 442	clinical
+T9	Bacteria 696 711	B. pseudomallei
+T10	Habitat 756 832	sera from patients with different clinical spectra and with other infections
+T11	Habitat 766 832	patients with different clinical spectra and with other infections
+T12	Bacteria 1180 1184	Ara-
+T13	Habitat 1185 1193	clinical
+T14	Bacteria 1198 1202	Ara-
+T15	Habitat 1203 1207	soil
+T16	Bacteria 1212 1216	Ara+
+T17	Habitat 1217 1221	soil
+T18	Habitat 1339 1374	sera from patients with melioidosis
+T19	Habitat 1349 1374	patients with melioidosis
+T20	Habitat 1379 1401	hyperimmune mouse sera
+T21	Habitat 1379 1396	hyperimmune mouse
+T22	Bacteria 1489 1493	Ara-
+T23	Bacteria 1498 1502	Ara+
+T24	Bacteria 1565 1580	B. pseudomallei
+T25	Bacteria 1726 1741	B. pseudomallei

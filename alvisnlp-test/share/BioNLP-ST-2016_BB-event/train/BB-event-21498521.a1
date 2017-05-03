@@ -1,0 +1,15 @@
+T1	Title 0 105	The lipid A from Vibrio fischeri lipopolysaccharide: a unique structure bearing a phosphoglycerol moiety.
+T2	Paragraph 106 1786	Vibrio fischeri, a bioluminescent marine bacterium, exists in an exclusive symbiotic relationship with the Hawaiian bobtail squid, Euprymna scolopes, whose light organ it colonizes. Previously, it has been shown that the lipopolysaccharide (LPS) or free lipid A of V. fischeri can trigger morphological changes in the juvenile squid's light organ that occur upon colonization. To investigate the structural features that might be responsible for this phenomenon, the lipid A from V. fischeri ES114 LPS was isolated and characterized by multistage mass spectrometry (MS(n)). A microheterogeneous mixture of mono- and diphosphorylated diglucosamine disaccharides was observed with variable states of acylation ranging from tetra- to octaacylated forms. All lipid A species, however, contained a set of conserved primary acyl chains consisting of an N-linked C14:0(3-OH) at the 2-position, an unusual N-linked C14:1(3-OH) at the 2'-position, and two O-linked C12:0(3-OH) fatty acids at the 3- and 3'-positions. The fatty acids found in secondary acylation were considerably more variable, with either a C12:0 or C16:1 at the 2-position, C14:0 or C14:0(3-OH) at the 2'-position, and C12:0 or no substituent at the 3'-position. Most surprising was the presence of an unusual set of modifications at the secondary acylation site of the 3-position consisting of phosphoglycerol (GroP), lysophosphatidic acid (GroP bearing C12:0, C16:0, or C16:1), or phosphatidic acid (GroP bearing either C16:0 + C12:0 or C16:0 + C16:1). Given their unusual nature, it is possible that these features of the V. fischeri lipid A may underlie the ability of E. scolopes to recognize its symbiotic partner.
+T3	Bacteria 17 32	Vibrio fischeri
+T4	Bacteria 106 121	Vibrio fischeri
+T5	Habitat 140 146	marine
+T6	Habitat 213 235	Hawaiian bobtail squid
+T7	Habitat 237 254	Euprymna scolopes
+T8	Habitat 262 273	light organ
+T9	Bacteria 371 382	V. fischeri
+T10	Habitat 424 438	juvenile squid
+T11	Habitat 424 452	juvenile squid's light organ
+T12	Bacteria 586 597	V. fischeri
+T13	Habitat 682 766	microheterogeneous mixture of mono- and diphosphorylated diglucosamine disaccharides
+T14	Bacteria 1691 1702	V. fischeri
+T15	Habitat 1739 1750	E. scolopes

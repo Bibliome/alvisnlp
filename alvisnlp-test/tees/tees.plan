@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-plan id="tees">
+  <import>BioNLP-ST-2016_BB-event/read.plan</import>
+  
+  <import>res://org.bibliome.alvisnlp.resources/segmentation.plan</import>
+  
+  <tt class="TreeTagger">
+    <noUnknownLemma />
+  </tt>
+
+  <tees>
+    <merge-ne-layers class="MergeLayers">
+      <sourceLayerNames>Bacteria,Habitat,Geographical</sourceLayerNames>
+      <targetLayerName>NamedEntities</targetLayerName>
+    </merge-ne-layers>
+    
+    <train class="TEESTrain">
+      <namedEntityLayerName>NamedEntity</namedEntityLayerName>
+      <neFeatureName>type</neFeatureName>
+      <relationName>Lives_In</relationName>
+      <relationRole1>Bacteria</relationRole1>
+      <relationRole2>Location</relationRole2>
+    </train>
+  </tees>
+</alvisnlp-plan>
