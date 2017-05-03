@@ -108,7 +108,6 @@ import alvisnlp.plan.PlanLoader;
  * @param <C>
  */
 public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFactory<A>,C extends CommandLineProcessingContext<A>> extends CLIOParser {
-	private static final String DEFAULT_PARAM_VALUES_RESOURCE_NAME = "default-param-values.xml";
 	private static final String TYPE_ATTRIBUTE_NAME = "type";
 	private static final String SHORT_TYPE_ATTRIBUTE_NAME = "short-type";
 	
@@ -693,14 +692,16 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     
     public Document getDefaultParamValuesDoc(DocumentBuilder docBuilder) throws SAXException, IOException {
     	try (InputStream is = getDefaultParamValuesStream()) {
+    		if (is == null) {
+    			return null;
+    		}
     		return docBuilder.parse(is);
     	}
 	}
     
     private InputStream getDefaultParamValuesStream() throws FileNotFoundException {
     	if (defaultParamValuesFile == null) {
-    		// same ClassLoader as this class
-    		return AbstractAlvisNLP.class.getResourceAsStream(DEFAULT_PARAM_VALUES_RESOURCE_NAME);
+    		return null;
     	}
     	return new FileInputStream(defaultParamValuesFile);
 	}
