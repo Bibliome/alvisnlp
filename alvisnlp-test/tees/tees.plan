@@ -4,9 +4,9 @@
   
   <import>res://org.bibliome.alvisnlp.resources/segmentation.plan</import>
   
-  <tt class="TreeTagger">
-    <noUnknownLemma />
-  </tt>
+  <genia class="GeniaTagger">
+    <geniaDir>/projet/maiage/save/textemig/projet-work/software/geniatagger-3.0.2</geniaDir>
+  </genia>
 
   <tees>
     <merge-ne-layers class="MergeLayers">
@@ -15,11 +15,20 @@
     </merge-ne-layers>
     
     <train class="TEESTrain">
-      <namedEntityLayerName>NamedEntity</namedEntityLayerName>
+      <namedEntityLayerName>NamedEntities</namedEntityLayerName>
       <neFeatureName>type</neFeatureName>
+
+      <trainSetFeature>train</trainSetFeature>
+      <devSetFeature>dev</devSetFeature>
+      <testSetFeature>test</testSetFeature>
+
       <relationName>Lives_In</relationName>
       <relationRole1>Bacteria</relationRole1>
       <relationRole2>Location</relationRole2>
+
+      <model>models</model>
+
+      <omitSteps>SPLIT-SENTENCES,NER</omitSteps>
     </train>
   </tees>
 </alvisnlp-plan>
