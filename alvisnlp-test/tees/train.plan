@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<alvisnlp-plan id="tees">
+<alvisnlp-plan id="tees-train">
   <import>BioNLP-ST-2016_BB-event/read.plan</import>
   
   <import>res://org.bibliome.alvisnlp.resources/segmentation.plan</import>
