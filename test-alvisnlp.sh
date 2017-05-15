@@ -162,8 +162,8 @@ log
 
 
 function run-alvisnlp() {
-    echo "$INSTALL_DIR"/bin/alvisnlp -verbose -log "$TEST_WD"/alvisnlp.log -inputDir "$TEST_WD" -inputDir "$TEST_DIR" -inputDir "$TESTS_DIR"/share "$@"
-    "$INSTALL_DIR"/bin/alvisnlp -verbose -log "$TEST_WD"/alvisnlp.log -inputDir "$TEST_WD" -inputDir "$TEST_DIR" -inputDir "$TESTS_DIR"/share "$@"
+    echo "$INSTALL_DIR"/bin/alvisnlp -verbose -log "$TEST_WD"/alvisnlp.log -inputDir "$TEST_WD" -inputDir "$TEST_DIR" -inputDir "$TESTS_DIR"/share -tmp "$TEST_WD"/tmp "$@"
+    "$INSTALL_DIR"/bin/alvisnlp -verbose -log "$TEST_WD"/alvisnlp.log -inputDir "$TEST_WD" -inputDir "$TEST_DIR" -inputDir "$TESTS_DIR"/share -tmp "$TEST_WD"/tmp "$@"
 }
 
 function check-file() {
