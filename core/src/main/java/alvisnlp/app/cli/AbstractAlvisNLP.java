@@ -683,6 +683,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     }
     
     private File buildRootTempDir(Logger logger) throws IOException {
+	tmpDir.mkdirs();
         File result = File.createTempFile("alvisnlp", "", tmpDir);
         result.delete();
         result.mkdirs();
