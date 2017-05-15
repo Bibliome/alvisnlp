@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-plan id="tees-predict">
+  <import>BioNLP-ST-2016_BB-event/read.plan</import>
+  
+  <keep-test class="Action">
+    <target>documents[@set != "test"]</target>
+    <action>delete</action>
+    <deleteElements/>
+  </keep-test>
+
+  <import>res://org.bibliome.alvisnlp.resources/segmentation.plan</import>
+  
+  <genia class="GeniaTagger">
+    <geniaDir>/projet/maiage/save/textemig/projet-work/software/geniatagger-3.0.2</geniaDir>
+  </genia>
+
+  <tees>
+    <merge-ne-layers class="MergeLayers">
+      <sourceLayerNames>Bacteria,Habitat,Geographical</sourceLayerNames>
+      <targetLayerName>NamedEntities</targetLayerName>
+    </merge-ne-layers>
+    
+    <classify class="TEESClassify">
+      <namedEntityLayerName>NamedEntities</namedEntityLayerName>
+      <neFeatureName>type</neFeatureName>
+
+      <setFeature>test</setFeature>
+
+      <relationName>Lives_In</relationName>
+      <relationRole1>Bacteria</relationRole1>
+      <relationRole2>Location</relationRole2>
+
+      <model>models/model-test</model>
+
+      <omitSteps>SPLIT-SENTENCES,NER</omitSteps>
+
+      <constantTupleFeatures>predicted=true</constantTupleFeatures>
+    </classify>
+
+    <match class="Action">
+      <target>documents.sections.relations:Lives_In.tuples[@predicted == "true"]</target>
+      <action>
+	relation.tuples[@predicted != "true" and target.args:Bacteria.@id == args:Bacteria.@id and target.args:Location.@id == args:Location.@id] as m.
+	set:arg:prediction(target).
+	target.set:arg:reference(m)
+      </action>
+      <setArguments/>
+    </match>
+  </tees>
+
+  <export>
+    <TP class="TabularExport">
+      <outDir>.</outDir>
+      <files>$</files>
+      <fileName>"TP.txt"</fileName>
+      <lines>documents.sections.relations:Lives_In.tuples[@predicted == "true" and args:reference]</lines>
+      <columns separator=";">
+	id:unique;
+	args:Bacteria.@id;
+	args:Bacteria.@form;
+	args:Location.@id;
+	args:Location.@form
+      </columns>
+    </TP>
+
+    <FP class="TabularExport">
+      <outDir>.</outDir>
+      <files>$</files>
+      <fileName>"FP.txt"</fileName>
+      <lines>documents.sections.relations:Lives_In.tuples[@predicted == "true" and not args:reference]</lines>
+      <columns separator=";">
+	id:unique;
+	args:Bacteria.@id;
+	args:Bacteria.@form;
+	args:Location.@id;
+	args:Location.@form
+      </columns>
+    </FP>
+
+    <FN class="TabularExport">
+      <outDir>.</outDir>
+      <files>$</files>
+      <fileName>"FN.txt"</fileName>
+      <lines>documents.sections.relations:Lives_In.tuples[@predicted != "true" and not args:prediction]</lines>
+      <columns separator=";">
+	id:unique;
+	args:Bacteria.@id;
+	args:Bacteria.@form;
+	args:Location.@id;
+	args:Location.@form
+      </columns>
+    </FN>
+  </export>
+</alvisnlp-plan>
