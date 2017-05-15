@@ -35,7 +35,7 @@ import alvisnlp.module.lib.Param;
  */
 
 @AlvisNLPModule
-public class TEESTrain extends TEESMapper {
+public abstract class TEESTrain extends TEESMapper {
 	
 	
 	private String trainSetFeature = null;

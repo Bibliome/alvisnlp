@@ -41,7 +41,7 @@ import alvisnlp.module.lib.Param;
  */
 
 @AlvisNLPModule
-public class TEESClassify extends TEESMapper {	
+public abstract class TEESClassify extends TEESMapper {	
 
 	private String internalEncoding = "UTF-8";
 

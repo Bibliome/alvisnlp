@@ -92,14 +92,18 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 			String set = documentAlvis.getLastFeature(this.getCorporaSetFeature());
 			if(set ==  null){
 				set = this.defaultKey;
+			}
 				if(corpora.get(set) == null) {
 					this.corpora.put(set, new CorpusTEES());
 				}
-			}
 			
 			// create a TEES document
 			CorpusTEES.Document documentTees = new CorpusTEES.Document();		
 			// setting the doc id
+			System.err.println("corpora = " + corpora);
+			System.err.println("set = " + set);
+			System.err.println("corpora.get(set) = " + corpora.get(set));
+			System.err.println("corpora.get(set).getDocument() = " + corpora.get(set).getDocument());
 			documentTees.setId("ALVIS.d" + corpora.get(set).getDocument().size());
 			logger.info("adding the document" + documentTees.getId() + " to " + set + " Set");
 			// setting the doc sentences
@@ -279,13 +283,13 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 				
 				
 				Relation relation = sectionAlvis.ensureRelation(this, this.getRelationName());
-				logger.info("getting relation :" + relation.getName());
 				
 				CorpusTEES.Document.Sentence sentenceTEES = corpusTEES.getDocument().get(i).getSentence().get(j);
 				
 				
 				for (int k = 0; k < sentenceTEES.getInteraction().size(); k++) {
-					if (sentenceTEES.getInteraction().get(k).getType().compareToIgnoreCase(this.getRelationName())!=0) continue;
+				    //if (sentenceTEES.getInteraction().get(k).getType().compareToIgnoreCase(this.getRelationName())!=0) continue;
+					
 					Tuple tuple = new Tuple(this, relation);
 					tuple.setArgument(this.getRelationRole1(), entId2Elements.get(sentenceTEES.getInteraction().get(k).getE1()));
 					tuple.setArgument(this.getRelationRole2(), entId2Elements.get(sentenceTEES.getInteraction().get(k).getE2()));
@@ -302,30 +306,6 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	 * feature handlers
 	 */
 
-	@Override
-	public Mapping getConstantTupleFeatures() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setConstantTupleFeatures(Mapping constantRelationFeatures) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Mapping getConstantRelationFeatures() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setConstantRelationFeatures(Mapping constantRelationFeatures) {
-		// TODO Auto-generated method stub
-		
-	}
-	
 	
 	/** 
 	 * getter and setter
