@@ -2,11 +2,11 @@
 <alvisnlp-plan id="tees-predict-test">
   <import>BioNLP-ST-2016_BB-event/read.plan</import>
   
-  <keep-test class="Action">
-    <target>documents[@set != "test"]</target>
+  <keep-train class="Action">
+    <target>documents[@set != "train"]</target>
     <action>delete</action>
     <deleteElements/>
-  </keep-test>
+  </keep-train>
 
   <import>res://org.bibliome.alvisnlp.resources/segmentation.plan</import>
   
@@ -22,13 +22,13 @@
       <namedEntityLayerName>NamedEntities</namedEntityLayerName>
       <neFeatureName>type</neFeatureName>
 
-      <setFeature>test</setFeature>
+      <setFeature>train</setFeature>
 
       <relationName>Lives_In</relationName>
       <relationRole1>Bacteria</relationRole1>
       <relationRole2>Location</relationRole2>
 
-      <model>models/model-test</model>
+      <model>model.zip</model>
 
       <omitSteps>SPLIT-SENTENCES,NER</omitSteps>
 
@@ -53,7 +53,6 @@
       <fileName>"TP.txt"</fileName>
       <lines>documents.sections.relations:Lives_In.tuples[@predicted == "true" and args:reference]</lines>
       <columns separator=";">
-	id:unique;
 	args:Bacteria.@id;
 	args:Bacteria.@form;
 	args:Location.@id;
@@ -67,7 +66,6 @@
       <fileName>"FP.txt"</fileName>
       <lines>documents.sections.relations:Lives_In.tuples[@predicted == "true" and not args:reference]</lines>
       <columns separator=";">
-	id:unique;
 	args:Bacteria.@id;
 	args:Bacteria.@form;
 	args:Location.@id;
@@ -81,7 +79,6 @@
       <fileName>"FN.txt"</fileName>
       <lines>documents.sections.relations:Lives_In.tuples[@predicted != "true" and not args:prediction]</lines>
       <columns separator=";">
-	id:unique;
 	args:Bacteria.@id;
 	args:Bacteria.@form;
 	args:Location.@id;

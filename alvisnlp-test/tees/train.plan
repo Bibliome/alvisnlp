@@ -24,7 +24,7 @@
       <relationRole1>Bacteria</relationRole1>
       <relationRole2>Location</relationRole2>
 
-      <model>models</model>
+      <model>model.zip</model>
 
       <omitSteps>SPLIT-SENTENCES,NER</omitSteps>
     </train>
