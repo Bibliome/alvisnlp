@@ -1847,6 +1847,8 @@ public class CorpusTEES {
                 protected String text;
                 @XmlAttribute(name = "type")
                 protected String type;
+                @XmlAttribute(name = "goldIds")
+                protected String goldIds;
 
                 /**
                  * Obtient la valeur de la propriété charOffset.
@@ -2039,6 +2041,14 @@ public class CorpusTEES {
                 public void setType(String value) {
                     this.type = value;
                 }
+
+				public String getGoldIds() {
+					return goldIds;
+				}
+
+				public void setGoldIds(String goldIds) {
+					this.goldIds = goldIds;
+				}
 
             }
 

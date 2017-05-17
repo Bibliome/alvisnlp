@@ -8,6 +8,9 @@ import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
+import org.bibliome.alvisnlp.modules.tees.CorpusTEES.Document.Sentence;
+import org.bibliome.alvisnlp.modules.tees.CorpusTEES.Document.Sentence.Entity;
+import org.bibliome.alvisnlp.modules.tees.CorpusTEES.Document.Sentence.Interaction;
 import org.bibliome.util.Iterators;
 import org.bibliome.util.files.ExecutableFile;
 import org.bibliome.util.files.InputDirectory;
@@ -27,7 +30,6 @@ import alvisnlp.corpus.creators.TupleCreator;
 import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.Param;
-import alvisnlp.module.types.Mapping;
 
 /**
  * 
@@ -57,7 +59,7 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	// execution params
 	private ExecutableFile executable;
 	private String omitSteps = "SPLIT-SENTENCES,NE";
-	private InputDirectory model;
+//	private InputDirectory model;
 	private InputDirectory workDir = null;
 	private InputDirectory teesHome;
 	
@@ -185,35 +187,38 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 		int entId = 0;
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
-		
+
 		// loop on entities
-		if (alvisEntitiesLayer!=null) for (Annotation entityAlvis : alvisEntitiesLayer) {
-			if(entityAlvis != null){
-			
-			if(sentenceAlvis.includes(entityAlvis)==false) continue;
-			// create a tees entity 
-			CorpusTEES.Document.Sentence.Entity entityTees = new CorpusTEES.Document.Sentence.Entity();
-			// add id
-			entityTees.setId(sentId + ".e" + entId++);
-			// add origin id
-			logger.info("creating the entity " + entityTees.getId());
-			entityTees.setOrigId(entityAlvis.getStringId());
-			// add offset
-			entityTees.setCharOffset((entityAlvis.getStart()- sentenceAlvis.getStart()) + "-" + (entityAlvis.getEnd()-sentenceAlvis.getStart()));
-			// add origin offset
-			entityTees.setOrigOffset(entityAlvis.getStart() + "-" + entityAlvis.getEnd()); 
-			// add text
-			entityTees.setText(entityAlvis.getForm());
-			// add type
-			entityTees.setType(entityAlvis.getLastFeature(this.getNeFeatureName()));
-			// set given
-			if(this.getNamedEntityLayerName()!=null) entityTees.setGiven(true);
-			else entityTees.setGiven(false);
-			// add the entity
-			sentenceTees.getEntity().add(entityTees);
-			entId2Elements.put(entityTees.getId(), entityAlvis);
+		if (alvisEntitiesLayer!=null)
+			for (Annotation entityAlvis : alvisEntitiesLayer) {
+				if(entityAlvis != null){
+					if(sentenceAlvis.includes(entityAlvis)==false)
+						continue;
+					// create a tees entity 
+					CorpusTEES.Document.Sentence.Entity entityTees = new CorpusTEES.Document.Sentence.Entity();
+					// add id
+					entityTees.setId(sentId + ".e" + entId++);
+					// add origin id
+					logger.info("creating the entity " + entityTees.getId());
+					entityTees.setOrigId(entityAlvis.getStringId());
+					// add offset
+					entityTees.setCharOffset((entityAlvis.getStart()- sentenceAlvis.getStart()) + "-" + (entityAlvis.getEnd()-sentenceAlvis.getStart()));
+					// add origin offset
+					entityTees.setOrigOffset(entityAlvis.getStart() + "-" + entityAlvis.getEnd()); 
+					// add text
+					entityTees.setText(entityAlvis.getForm());
+					// add type
+					entityTees.setType(entityAlvis.getLastFeature(this.getNeFeatureName()));
+					// set given
+					if(this.getNamedEntityLayerName()!=null)
+						entityTees.setGiven(true);
+					else
+						entityTees.setGiven(false);
+					// add the entity
+					sentenceTees.getEntity().add(entityTees);
+					entId2Elements.put(entityTees.getId(), entityAlvis);
+				}
 			}
-		}
 	}
 
 	
@@ -276,25 +281,42 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 
-		for (int i = 0; i < corpusTEES.getDocument().size(); i++) {
-			for (int j = 0; j < corpusTEES.getDocument().get(i).getSentence().size(); j++) {
+		for (CorpusTEES.Document docTEES : corpusTEES.getDocument()) {
+			for (Sentence sentenceTEES : docTEES.getSentence()) {
 
-				Section sectionAlvis = sentId2Sections.get(corpusTEES.getDocument().get(i).getSentence().get(j).getId());
+				Section sectionAlvis = sentId2Sections.get(sentenceTEES.getId());
 				
+				for (Entity entity : sentenceTEES.getEntity()) {
+					String goldIds = entity.getGoldIds();
+					if (goldIds == null) {
+						continue;
+					}
+					if (!entId2Elements.containsKey(goldIds)) {
+						continue;
+					}
+					if (entId2Elements.containsKey(entity.id)) {
+						continue;
+					}
+					Element elt = entId2Elements.get(goldIds);
+					entId2Elements.put(entity.id, elt);
+				}
 				
 				Relation relation = sectionAlvis.ensureRelation(this, this.getRelationName());
 				
-				CorpusTEES.Document.Sentence sentenceTEES = corpusTEES.getDocument().get(i).getSentence().get(j);
 				
-				
-				for (int k = 0; k < sentenceTEES.getInteraction().size(); k++) {
+				for (Interaction interaction : sentenceTEES.getInteraction()) {
 				    //if (sentenceTEES.getInteraction().get(k).getType().compareToIgnoreCase(this.getRelationName())!=0) continue;
+					logger.info("interaction.getType() = " + interaction.getType());
+					logger.info("interaction.getE1() = " + interaction.getE1());
+					logger.info("interaction.getE2() = " + interaction.getE2());
+					logger.info("entId2Elements.get(interaction.getE1()) = " + entId2Elements.get(interaction.getE1()));
+					logger.info("entId2Elements.get(interaction.getE2()) = " + entId2Elements.get(interaction.getE2()));
 					
 					Tuple tuple = new Tuple(this, relation);
-					tuple.setArgument(this.getRelationRole1(), entId2Elements.get(sentenceTEES.getInteraction().get(k).getE1()));
-					tuple.setArgument(this.getRelationRole2(), entId2Elements.get(sentenceTEES.getInteraction().get(k).getE2()));
+					tuple.setArgument(this.getRelationRole1(), entId2Elements.get(interaction.getE1()));
+					tuple.setArgument(this.getRelationRole2(), entId2Elements.get(interaction.getE2()));
 					relation.addTuple(tuple);
-					logger.info("creating tuple :" + tuple.getStringId());
+//					logger.info("creating tuple :" + tuple.getStringId());
 				}
 			}
 		}
@@ -414,15 +436,6 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 
 	public void setExecutable(ExecutableFile executable) {
 		this.executable = executable;
-	}
-	
-	@Param(mandatory = false)
-	public InputDirectory getModel() {
-		return model;
-	}
-
-	public void setModel(InputDirectory model) {
-		this.model = model;
 	}
 	
 	
