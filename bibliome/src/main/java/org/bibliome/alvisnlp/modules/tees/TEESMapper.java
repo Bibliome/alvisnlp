@@ -12,7 +12,6 @@ import org.bibliome.alvisnlp.modules.tees.CorpusTEES.Document.Sentence;
 import org.bibliome.alvisnlp.modules.tees.CorpusTEES.Document.Sentence.Entity;
 import org.bibliome.alvisnlp.modules.tees.CorpusTEES.Document.Sentence.Interaction;
 import org.bibliome.util.Iterators;
-import org.bibliome.util.files.ExecutableFile;
 import org.bibliome.util.files.InputDirectory;
 
 import alvisnlp.corpus.Annotation;
@@ -42,25 +41,21 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	// layer and features
 	private String tokenLayerName = DefaultNames.getWordLayer();
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
-	private String pos = DefaultNames.getPosTagFeature();
+	private String posFeature = DefaultNames.getPosTagFeature();
 	private String namedEntityLayerName = null;
-	private String neFeatureName = DefaultNames.getNamedEntityTypeFeature();
+	private String namedEntityTypeFeature = DefaultNames.getNamedEntityTypeFeature();
 	
 	// relation to predict
 	private String relationName = null;
-	private String relationRole1 = null;
-	private String relationRole2 = null;
+	private String leftRole = null;
+	private String rightRole = null;
 	
 	// corpus params
-	private String corporaSetFeature = "set";
 	protected Map<String, CorpusTEES> corpora = new HashMap<String, CorpusTEES>();
-	protected String defaultKey = "default";
 	
 	// execution params
-	private ExecutableFile executable;
 	private String omitSteps = "SPLIT-SENTENCES,NE";
 //	private InputDirectory model;
-	private InputDirectory workDir = null;
 	private InputDirectory teesHome;
 	
 	
@@ -74,6 +69,8 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	 * 
 	 * Mapping adds
 	 */
+	
+	protected abstract String getSet(Document doc);
 
 	/**
 	 * Access the alvis corpus and create the TEES Corpus and documents
@@ -91,13 +88,10 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 		for (Document documentAlvis : Iterators.loop(documentIterator(evalCtx, corpusAlvis))) {
 	
 			// splitting the documents according to their corpus set
-			String set = documentAlvis.getLastFeature(this.getCorporaSetFeature());
-			if(set ==  null){
-				set = this.defaultKey;
+			String set = getSet(documentAlvis);
+			if(corpora.get(set) == null) {
+				this.corpora.put(set, new CorpusTEES());
 			}
-				if(corpora.get(set) == null) {
-					this.corpora.put(set, new CorpusTEES());
-				}
 			
 			// create a TEES document
 			CorpusTEES.Document documentTees = new CorpusTEES.Document();		
@@ -129,7 +123,6 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	private List<CorpusTEES.Document.Sentence> createTheTeesSentences(List<CorpusTEES.Document.Sentence> sentences, String docId, Iterator<Section> alvisSectionsIterator, Document documentAlvus, Corpus corpus,  ProcessingContext<Corpus> ctx) {
 		int sentId = 0;
 		Logger logger = getLogger(ctx);
-		EvaluationContext evalCtx = new EvaluationContext(logger);
 
 		// loop on sections
 		for (Section sectionAlvis : Iterators.loop(alvisSectionsIterator)) {
@@ -186,7 +179,6 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	private void createTheTeesEntities(CorpusTEES.Document.Sentence sentenceTees, String sentId, Annotation sentenceAlvis, Layer alvisEntitiesLayer, Corpus corpus,  ProcessingContext<Corpus> ctx) {
 		int entId = 0;
 		Logger logger = getLogger(ctx);
-		EvaluationContext evalCtx = new EvaluationContext(logger);
 
 		// loop on entities
 		if (alvisEntitiesLayer!=null)
@@ -208,7 +200,7 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 					// add text
 					entityTees.setText(entityAlvis.getForm());
 					// add type
-					entityTees.setType(entityAlvis.getLastFeature(this.getNeFeatureName()));
+					entityTees.setType(entityAlvis.getLastFeature(this.getNamedEntityTypeFeature()));
 					// set given
 					if(this.getNamedEntityLayerName()!=null)
 						entityTees.setGiven(true);
@@ -225,14 +217,13 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	private void createTheInteractions(CorpusTEES.Document.Sentence sentenceTees, String sentId, Annotation sentenceAlvis, Relation allRelations, Corpus corpus, ProcessingContext<Corpus> ctx) {
 		int intId = 0;
 		Logger logger = getLogger(ctx);
-		EvaluationContext evalCtx = new EvaluationContext(logger);
 			
 		// loop  relations
 		if(allRelations!=null) for (Tuple r : allRelations.getTuples()) {
 
 			// getting the argument from roles
-			Element ag1 = r.getArgument(this.getRelationRole1());			
-			Element ag2 = r.getArgument(this.getRelationRole2());
+			Element ag1 = r.getArgument(this.getLeftRole());			
+			Element ag2 = r.getArgument(this.getRightRole());
 			
 			// downcasting argument elements as annotations
 			Annotation ann1 = DownCastElement.toAnnotation(ag1);
@@ -277,9 +268,8 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	
 	
 	
-	public void setRelations2CorpusAlvis(CorpusTEES corpusTEES, Corpus corpusAlvis, ProcessingContext<Corpus> ctx){
+	public void setRelations2CorpusAlvis(CorpusTEES corpusTEES, Corpus corpusAlvis, ProcessingContext<Corpus> ctx) {
 		Logger logger = getLogger(ctx);
-		EvaluationContext evalCtx = new EvaluationContext(logger);
 
 		for (CorpusTEES.Document docTEES : corpusTEES.getDocument()) {
 			for (Sentence sentenceTEES : docTEES.getSentence()) {
@@ -313,8 +303,8 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 					logger.info("entId2Elements.get(interaction.getE2()) = " + entId2Elements.get(interaction.getE2()));
 					
 					Tuple tuple = new Tuple(this, relation);
-					tuple.setArgument(this.getRelationRole1(), entId2Elements.get(interaction.getE1()));
-					tuple.setArgument(this.getRelationRole2(), entId2Elements.get(interaction.getE2()));
+					tuple.setArgument(this.getLeftRole(), entId2Elements.get(interaction.getE1()));
+					tuple.setArgument(this.getRightRole(), entId2Elements.get(interaction.getE2()));
 					relation.addTuple(tuple);
 //					logger.info("creating tuple :" + tuple.getStringId());
 				}
@@ -366,13 +356,13 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 
 	
 	@Param(nameType = NameType.FEATURE)
-	public String getNeFeatureName() {
-		return neFeatureName;
+	public String getNamedEntityTypeFeature() {
+		return namedEntityTypeFeature;
 	}
 
 
-	public void setNeFeatureName(String namedEntityTypeFeatureName) {
-		this.neFeatureName = namedEntityTypeFeatureName;
+	public void setNamedEntityTypeFeature(String namedEntityTypeFeature) {
+		this.namedEntityTypeFeature = namedEntityTypeFeature;
 	}
 
 	@Param(mandatory = false)
@@ -385,39 +375,31 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	}
 
 	@Param(mandatory = false)
-	public String getRelationRole1() {
-		return relationRole1;
+	public String getLeftRole() {
+		return leftRole;
 	}
 
-	public void setRelationRole1(String arg1) {
-		this.relationRole1 = arg1;
+	public void setLeftRole(String leftRole) {
+		this.leftRole = leftRole;
 	}
 
 	@Param(mandatory = false)
-	public String getRelationRole2() {
-		return relationRole2;
+	public String getRightRole() {
+		return rightRole;
 	}
 
-	public void setRelationRole2(String arg2) {
-		this.relationRole2 = arg2;
+	public void setRightRole(String rightRole) {
+		this.rightRole = rightRole;
 	}
 
-	public String getPos() {
-		return pos;
+	public String getPosFeature() {
+		return posFeature;
 	}
 
-	public void setPos(String pos) {
-		this.pos = pos;
+	public void setPosFeature(String posFeature) {
+		this.posFeature = posFeature;
 	}
 	
-
-	public String getCorporaSetFeature() {
-		return corporaSetFeature;
-	}
-
-	public void setCorporaSetFeature(String corporaType) {
-		this.corporaSetFeature = corporaType;
-	}
 	
 	@Param(mandatory = false)
 	public String getOmitSteps() {
@@ -426,25 +408,6 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 
 	public void setOmitSteps(String omitSteps) {
 		this.omitSteps = omitSteps;
-	}
-	
-	
-	@Param(mandatory = false)
-	public ExecutableFile getExecutable() {
-		return executable;
-	}
-
-	public void setExecutable(ExecutableFile executable) {
-		this.executable = executable;
-	}
-	
-	
-	public InputDirectory getWorkDir() {
-		return workDir;
-	}
-
-	public void setWorkDir(InputDirectory workDir) {
-		this.workDir = workDir;
 	}
 	
 	@Param(mandatory=true)

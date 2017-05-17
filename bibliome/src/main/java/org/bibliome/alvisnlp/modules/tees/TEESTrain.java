@@ -14,11 +14,10 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
 import org.bibliome.util.Files;
-import org.bibliome.util.files.InputFile;
 import org.bibliome.util.files.OutputFile;
 
 import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.expressions.EvaluationContext;
+import alvisnlp.corpus.Document;
 import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.Module;
 import alvisnlp.module.ModuleException;
@@ -39,11 +38,12 @@ import alvisnlp.module.lib.Param;
 public abstract class TEESTrain extends TEESMapper {
 	
 	
-	private String trainSetFeature = null;
-	private String devSetFeature = null;
-	private String testSetFeature = null;
+	private String trainSetValue = "train";
+	private String devSetValue = "dev";
+	private String testSetValue = "test";
 	private OutputFile model;
-	
+	private String corpusSetFeature = "set";
+
 
 	private String internalEncoding = "UTF-8";
 
@@ -51,7 +51,6 @@ public abstract class TEESTrain extends TEESMapper {
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 	
 		Logger logger = getLogger(ctx);
-		EvaluationContext evalCtx = new EvaluationContext(logger);
 
 		try {
 
@@ -62,9 +61,9 @@ public abstract class TEESTrain extends TEESMapper {
 			// marshaling
 			this.prepareTEESCorpora(ctx, corpus);
 			TEESTrainExternal teesTrainExt = new TEESTrainExternal(ctx);
-			jaxbm.marshal(this.corpora.get(this.getTrainSetFeature()), teesTrainExt.getTrainInput());
-			jaxbm.marshal(this.corpora.get(this.getDevSetFeature()), teesTrainExt.getDevInput());
-			jaxbm.marshal(this.corpora.get(this.getTestSetFeature()), teesTrainExt.getTestInput());
+			jaxbm.marshal(this.corpora.get(this.getTrainSetValue()), teesTrainExt.getTrainInput());
+			jaxbm.marshal(this.corpora.get(this.getDevSetValue()), teesTrainExt.getDevInput());
+			jaxbm.marshal(this.corpora.get(this.getTestSetValue()), teesTrainExt.getTestInput());
 
 			logger.info("TEES training ");
 			callExternal(ctx, "run-tees-train", teesTrainExt, internalEncoding, "tees-train.sh");
@@ -80,6 +79,12 @@ public abstract class TEESTrain extends TEESMapper {
 	}
 	
 	
+	@Override
+	protected String getSet(Document doc) {
+		return doc.getLastFeature(getCorpusSetFeature());
+	}
+
+
 	/**
 	 * Build TEES corpus from Alvis corpus
 	 * @param ctx
@@ -88,17 +93,16 @@ public abstract class TEESTrain extends TEESMapper {
 	 */
 	public void prepareTEESCorpora(ProcessingContext<Corpus> ctx, Corpus corpusAlvis) throws ProcessingException{
 		Logger logger = getLogger(ctx);
-		EvaluationContext evalCtx = new EvaluationContext(logger);
 		
 		logger.info("preparing the train, dev, test corpus");
-		this.corpora.put(this.getTrainSetFeature(), new CorpusTEES());
-		this.corpora.put(this.getDevSetFeature(), new CorpusTEES());
-		this.corpora.put(this.getTestSetFeature(), new CorpusTEES());
+		this.corpora.put(this.getTrainSetValue(), new CorpusTEES());
+		this.corpora.put(this.getDevSetValue(), new CorpusTEES());
+		this.corpora.put(this.getTestSetValue(), new CorpusTEES());
 		
 		logger.info("creating the train, dev, test corpus");
 		createTheTeesCorpus(ctx, corpusAlvis);
 		
-		if(this.corpora.get(this.getTrainSetFeature()).getDocument().size()==0 || this.corpora.get(this.getTrainSetFeature()).getDocument().size()==0 || this.corpora.get(this.getTrainSetFeature()).getDocument().size()==0){
+		if(this.corpora.get(this.getTrainSetValue()).getDocument().size()==0 || this.corpora.get(this.getTrainSetValue()).getDocument().size()==0 || this.corpora.get(this.getTrainSetValue()).getDocument().size()==0){
 			processingException("could not do training : train, dev or test is empty");
 		}
 	}
@@ -132,31 +136,31 @@ public abstract class TEESTrain extends TEESMapper {
 	 * 
 	 */
 	@Param(mandatory=true)
-	public String getTrainSetFeature() {
-		return trainSetFeature;
+	public String getTrainSetValue() {
+		return trainSetValue;
 	}
 
 
-	public void setTrainSetFeature(String train) {
-		this.trainSetFeature = train;
-	}
-
-	@Param(mandatory=true)
-	public String getDevSetFeature() {
-		return devSetFeature;
-	}
-
-	public void setDevSetFeature(String dev) {
-		this.devSetFeature = dev;
+	public void setTrainSetValue(String trainSetValue) {
+		this.trainSetValue = trainSetValue;
 	}
 
 	@Param(mandatory=true)
-	public String getTestSetFeature() {
-		return testSetFeature;
+	public String getDevSetValue() {
+		return devSetValue;
 	}
 
-	public void setTestSetFeature(String test) {
-		this.testSetFeature = test;
+	public void setDevSetValue(String devSetValue) {
+		this.devSetValue = devSetValue;
+	}
+
+	@Param(mandatory=true)
+	public String getTestSetValue() {
+		return testSetValue;
+	}
+
+	public void setTestSetValue(String testSetValue) {
+		this.testSetValue = testSetValue;
 	}
 
 	@Param
@@ -169,6 +173,14 @@ public abstract class TEESTrain extends TEESMapper {
 		this.model = model;
 	}
 
+	@Param
+	public String getCorpusSetFeature() {
+		return corpusSetFeature;
+	}
+
+	public void setCorpusSetFeature(String corpusSetFeature) {
+		this.corpusSetFeature = corpusSetFeature;
+	}
 
 	/**
 	 * 

@@ -24,8 +24,8 @@ import org.codehaus.plexus.util.DirectoryScanner;
 
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.DefaultNames;
+import alvisnlp.corpus.Document;
 import alvisnlp.corpus.NameType;
-import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.Module;
 import alvisnlp.module.ModuleException;
@@ -43,7 +43,8 @@ import alvisnlp.module.lib.Param;
 
 @AlvisNLPModule
 public abstract class TEESClassify extends TEESMapper {	
-
+	private static final String DEFAULT_SET = "corpus";
+	
 	private String internalEncoding = "UTF-8";
 
 	private String dependencyRelationName = DefaultNames.getDependencyRelationName();
@@ -53,15 +54,12 @@ public abstract class TEESClassify extends TEESMapper {
 	private String headRole = DefaultNames.getDependencyHeadRole();
 	private String dependentRole = DefaultNames.getDependencyDependentRole();
 	
-
-	private String setFeature = null;
 	
 	private InputFile model;
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
-		EvaluationContext evalCtx = new EvaluationContext(logger);
 
 		try {		
 			logger.info("creating the External module object ");
@@ -94,6 +92,12 @@ public abstract class TEESClassify extends TEESMapper {
 	}
 	
 	
+	@Override
+	protected String getSet(Document doc) {
+		return DEFAULT_SET;
+	}
+
+
 	/**
 	 * Build TEES corpus from Alvis corpus
 	 * @param ctx
@@ -101,13 +105,10 @@ public abstract class TEESClassify extends TEESMapper {
 	 * @return
 	 * @throws ProcessingException 
 	 */
-	public CorpusTEES prepareTEESCorpora(ProcessingContext<Corpus> ctx, Corpus corpusAlvis) throws ProcessingException{
-		if(this.getSetFeature()==null){
-			processingException("could not classify : corpus set doesn't exist");
-		} 
-		this.corpora.put(this.getSetFeature(), new CorpusTEES());
+	public CorpusTEES prepareTEESCorpora(ProcessingContext<Corpus> ctx, Corpus corpusAlvis) {
+		this.corpora.put(DEFAULT_SET, new CorpusTEES());
 		this.createTheTeesCorpus(ctx, corpusAlvis);	
-		return this.corpora.get(this.getSetFeature());
+		return this.corpora.get(DEFAULT_SET);
 	}
 	
 	/**
@@ -189,16 +190,6 @@ public abstract class TEESClassify extends TEESMapper {
 
 	public void setDependentRole(String dependentRole) {
 		this.dependentRole = dependentRole;
-	}
-
-	@Param
-	public String getSetFeature() {
-		return setFeature;
-	}
-
-
-	public void setSetFeature(String setFeature) {
-		this.setFeature = setFeature;
 	}
 
 	@Param
@@ -315,7 +306,7 @@ public abstract class TEESClassify extends TEESMapper {
 
 
 
-		public File getPredictionFile() throws ModuleException, IOException {
+		public File getPredictionFile() throws IOException {
 			Logger logger = getLogger(ctx);
 			//
 			DirectoryScanner scanner = new DirectoryScanner();
