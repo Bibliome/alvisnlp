@@ -14,6 +14,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
 import org.bibliome.util.Files;
+import org.bibliome.util.files.InputFile;
 import org.bibliome.util.files.OutputFile;
 
 import alvisnlp.corpus.Corpus;
@@ -41,6 +42,7 @@ public abstract class TEESTrain extends TEESMapper {
 	private String trainSetFeature = null;
 	private String devSetFeature = null;
 	private String testSetFeature = null;
+	private OutputFile model;
 	
 
 	private String internalEncoding = "UTF-8";
@@ -155,6 +157,16 @@ public abstract class TEESTrain extends TEESMapper {
 
 	public void setTestSetFeature(String test) {
 		this.testSetFeature = test;
+	}
+
+	@Param
+	public OutputFile getModel() {
+		return model;
+	}
+
+
+	public void setModel(OutputFile model) {
+		this.model = model;
 	}
 
 

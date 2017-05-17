@@ -18,6 +18,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 import org.bibliome.util.Files;
+import org.bibliome.util.files.InputFile;
 import org.bibliome.util.files.OutputFile;
 import org.codehaus.plexus.util.DirectoryScanner;
 
@@ -54,6 +55,8 @@ public abstract class TEESClassify extends TEESMapper {
 	
 
 	private String setFeature = null;
+	
+	private InputFile model;
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -196,6 +199,16 @@ public abstract class TEESClassify extends TEESMapper {
 
 	public void setSetFeature(String setFeature) {
 		this.setFeature = setFeature;
+	}
+
+	@Param
+	public InputFile getModel() {
+		return model;
+	}
+
+
+	public void setModel(InputFile model) {
+		this.model = model;
 	}
 
 
