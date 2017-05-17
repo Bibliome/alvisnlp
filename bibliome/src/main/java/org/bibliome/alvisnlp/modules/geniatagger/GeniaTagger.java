@@ -67,17 +67,18 @@ import alvisnlp.module.lib.TimeThis;
 
 @AlvisNLPModule
 public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
-	private String sentences = DefaultNames.getSentenceLayer();
-	private String words = DefaultNames.getWordLayer();
-	private String wordForm = Annotation.FORM_FEATURE_NAME;
-	private String pos = DefaultNames.getPosTagFeature();
-	private String lemma = DefaultNames.getCanonicalFormFeature();
-	private String chunk;
-	private String entity;
+	private String sentenceLayerName = DefaultNames.getSentenceLayer();
+	private String wordLayerName = DefaultNames.getWordLayer();
+	private String wordFormFeature = Annotation.FORM_FEATURE_NAME;
+	private String posFeature = DefaultNames.getPosTagFeature();
+	private String lemmaFeature = DefaultNames.getCanonicalFormFeature();
+	private String chunkFeature;
+	private String entityFeature;
 	private File geniaDir;
 	private File geniaTaggerExecutable = new File("geniatagger");
 	private String geniaCharset = "UTF-8";
 	private Expression sentenceFilter = ConstantsLibrary.TRUE;
+	private Boolean treeTaggerTagset = false;
 	
 	static class GeniaTaggerResolvedObjects extends SectionResolvedObjects {
 		private final Evaluator sentenceFilter;
@@ -124,7 +125,7 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 
 	@Override
 	protected String[] addLayersToSectionFilter() {
-		return new String[] { sentences, words };
+		return new String[] { sentenceLayerName, wordLayerName };
 	}
 	
 	@Override
@@ -160,7 +161,7 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
     }
 
 	private Iterator<Annotation> getSentenceIterator(EvaluationContext ctx, Corpus corpus, Evaluator resolvedDocumentFilter, Evaluator resolvedSectionFilter, Evaluator resolvedSentenceFilter) {
-        return Iterators.flatten(Mappers.apply(new AnnotationCollector(ctx, sentences, resolvedSentenceFilter), corpus.sectionIterator(ctx, resolvedDocumentFilter, resolvedSectionFilter)));
+        return Iterators.flatten(Mappers.apply(new AnnotationCollector(ctx, sentenceLayerName, resolvedSentenceFilter), corpus.sectionIterator(ctx, resolvedDocumentFilter, resolvedSectionFilter)));
 	}
 
 	protected class GeniaTaggerExternal implements External<Corpus> {
@@ -193,7 +194,7 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 		}
 		
 		private void writeSentence(Annotation sent, PrintStream ps) {
-			Layer wordLayer = sent.getSection().getLayer(words);
+			Layer wordLayer = sent.getSection().getLayer(wordLayerName);
 			StringBuilder sb = new StringBuilder();
 			boolean notFirst = false;
 			for (Annotation w : wordLayer.between(sent)) {
@@ -201,7 +202,7 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 					sb.append(' ');
 				else
 					notFirst = true;
-				Strings.escapeWhitespaces(sb, w.getLastFeature(wordForm));
+				Strings.escapeWhitespaces(sb, w.getLastFeature(wordFormFeature));
 			}
 			sb.append(" .");
 			ps.println(sb);
@@ -219,23 +220,51 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 		}
 
 		private void readSentence(Annotation sent, BufferedReader r) throws ProcessingException, IOException {
-			Layer wordLayer = sent.getSection().getLayer(words);
+			Layer wordLayer = sent.getSection().getLayer(wordLayerName);
 			for (Annotation w : wordLayer.between(sent)) {
 				String line = r.readLine();
 				if (line == null)
 					processingException("geniatagger output is short on lines");
 				List<String> cols = Strings.split(line, '\t', -1);
-				if (cols.size() != 5)
+				if (cols.size() != 5) {
 					processingException("malformed genia tagger output: " + line);
-				w.addFeature(lemma, cols.get(1));
-				w.addFeature(pos, cols.get(2));
-				w.addFeature(chunk, cols.get(3));
-				w.addFeature(entity, cols.get(4));
+				}
+				String form = cols.get(0);
+				String lemma = cols.get(1);
+				String pos = cols.get(2);
+				String chunk = cols.get(3);
+				String entity = cols.get(4);
+				w.addFeature(lemmaFeature, lemma);
+				w.addFeature(posFeature, getPOS(form, pos, lemma).intern());
+				w.addFeature(chunkFeature, chunk);
+				w.addFeature(entityFeature, entity);
 			}
 			if (r.readLine() == null) // final dot
 				processingException("geniatagger output is short on lines");
 			if (r.readLine() == null) // geniatagger adds a blank line after each sentence
 				processingException("geniatagger output is short on lines");
+		}
+		
+		private String getPOS(@SuppressWarnings("unused") String form, String pos, String lemma) {
+			if (!treeTaggerTagset) {
+				return pos;
+			}
+			if (lemma.equals("have") && pos.startsWith("VB")) {
+				return "VH" + pos.substring(2);
+			}
+			if (lemma.equals("be") && pos.startsWith("VB")) {
+				return "VV" + pos.substring(2);
+			}
+			if (pos.startsWith("NNP")) {
+				return "NP" + pos.substring(3);
+			}
+			if (pos.startsWith("PRP")) {
+				return "PP" + pos.substring(3);
+			}
+			if (pos.equals(".")) {
+				return "SENT";
+			}
+			return pos;
 		}
 
 		@Override
@@ -288,38 +317,38 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 	}
 
 	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing sentence annotations.")
-	public String getSentences() {
-		return sentences;
+	public String getSentenceLayerName() {
+		return sentenceLayerName;
 	}
 
 	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing word annotations.")
-	public String getWords() {
-		return words;
+	public String getWordLayerName() {
+		return wordLayerName;
 	}
 
 	@Param(nameType=NameType.FEATURE, defaultDoc = "Feature containing the word surface form.")
-	public String getWordForm() {
-		return wordForm;
+	public String getWordFormFeature() {
+		return wordFormFeature;
 	}
 
 	@Param(nameType=NameType.FEATURE, defaultDoc = "Feature where to put the POS tag.")
-	public String getPos() {
-		return pos;
+	public String getPosFeature() {
+		return posFeature;
 	}
 
 	@Param(nameType=NameType.FEATURE, defaultDoc = "Feature where to put the word lemma.")
-	public String getLemma() {
-		return lemma;
+	public String getLemmaFeature() {
+		return lemmaFeature;
 	}
 
 	@Param(nameType=NameType.FEATURE, defaultDoc = "Feature where to put the chunk status.", mandatory = false)
-	public String getChunk() {
-		return chunk;
+	public String getChunkFeature() {
+		return chunkFeature;
 	}
 
 	@Param(nameType=NameType.FEATURE, defaultDoc = "Feature where to put the entity status.", mandatory = false)
-	public String getEntity() {
-		return entity;
+	public String getEntityFeature() {
+		return entityFeature;
 	}
 
 	@Param(defaultDoc = "Directory where geniatagger is installed.")
@@ -342,36 +371,45 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 		return sentenceFilter;
 	}
 
+	@Param
+	public Boolean getTreeTaggerTagset() {
+		return treeTaggerTagset;
+	}
+
+	public void setTreeTaggerTagset(Boolean treeTaggerTagset) {
+		this.treeTaggerTagset = treeTaggerTagset;
+	}
+
 	public void setSentenceFilter(Expression sentenceFilter) {
 		this.sentenceFilter = sentenceFilter;
 	}
 
-	public void setSentences(String sentences) {
-		this.sentences = sentences;
+	public void setSentenceLayerName(String sentences) {
+		this.sentenceLayerName = sentences;
 	}
 
-	public void setWords(String words) {
-		this.words = words;
+	public void setWordLayerName(String words) {
+		this.wordLayerName = words;
 	}
 
-	public void setWordForm(String wordForm) {
-		this.wordForm = wordForm;
+	public void setWordFormFeature(String wordForm) {
+		this.wordFormFeature = wordForm;
 	}
 
-	public void setPos(String pos) {
-		this.pos = pos;
+	public void setPosFeature(String pos) {
+		this.posFeature = pos;
 	}
 
-	public void setLemma(String lemma) {
-		this.lemma = lemma;
+	public void setLemmaFeature(String lemma) {
+		this.lemmaFeature = lemma;
 	}
 
-	public void setChunk(String chunk) {
-		this.chunk = chunk;
+	public void setChunkFeature(String chunk) {
+		this.chunkFeature = chunk;
 	}
 
-	public void setEntity(String entity) {
-		this.entity = entity;
+	public void setEntityFeature(String entity) {
+		this.entityFeature = entity;
 	}
 
 	public void setGeniaDir(File geniaDir) {
