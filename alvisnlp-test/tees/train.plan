@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<alvisnlp-plan id="tees-train">
+<alvisnlp-plan id="tees-train-test">
   <import>BioNLP-ST-2016_BB-event/read.plan</import>
   
   <import>res://org.bibliome.alvisnlp.resources/segmentation.plan</import>
   
-  <genia class="GeniaTagger">
-    <geniaDir>/projet/maiage/save/textemig/projet-work/software/geniatagger-3.0.2</geniaDir>
-  </genia>
+  <genia class="GeniaTagger" />
 
   <tees>
     <merge-ne-layers class="MergeLayers">
