@@ -3,7 +3,6 @@ package org.bibliome.alvisnlp.modules.tees;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -45,15 +44,11 @@ import alvisnlp.module.lib.Param;
 public abstract class TEESClassify extends TEESMapper {	
 	private static final String DEFAULT_SET = "corpus";
 	
-	private String internalEncoding = "UTF-8";
-
 	private String dependencyRelationName = DefaultNames.getDependencyRelationName();
 	private String dependencyLabelFeatureName = DefaultNames.getDependencyLabelFeatureName();
 	private String sentenceRole = DefaultNames.getDependencySentenceRole();
-
 	private String headRole = DefaultNames.getDependencyHeadRole();
 	private String dependentRole = DefaultNames.getDependencyDependentRole();
-	
 	
 	private InputFile model;
 
@@ -72,7 +67,7 @@ public abstract class TEESClassify extends TEESMapper {
 			jaxbm.marshal(this.prepareTEESCorpora(ctx, corpus), teesClassifyExt.getInput());
 
 			logger.info("calling tees-predict ");
-			callExternal(ctx, "run-tees-predict", teesClassifyExt, internalEncoding, "tees-classify.py");
+			callExternal(ctx, "run-tees-predict", teesClassifyExt, INTERNAL_ENCODING, "tees-classify.py");
 
 			logger.info("Accessing the test prediction file");
 			Unmarshaller jaxbu = jaxbContext.createUnmarshaller();
@@ -83,11 +78,9 @@ public abstract class TEESClassify extends TEESMapper {
 
 			logger.info("number of documents : " + corpusTEES.getDocument().size());
 
-		} catch (JAXBException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		}
+		catch (JAXBException|IOException e) {
+			rethrow(e);
 		}
 	}
 	
@@ -118,7 +111,7 @@ public abstract class TEESClassify extends TEESMapper {
 	 * @param ctx
 	 */
 	public void writeTEESResult( CorpusTEES corpusTEES, Corpus corpusAlvis, ProcessingContext<Corpus> ctx){
-		this.setRelations2CorpusAlvis(corpusTEES, corpusAlvis, ctx);
+		this.setRelations2CorpusAlvis(corpusTEES);
 	}
 	
 	
@@ -133,16 +126,17 @@ public abstract class TEESClassify extends TEESMapper {
 
 	@Override
 	protected String[] addLayersToSectionFilter() {
-		return new String[] { this.getTokenLayerName(), this.getSentenceLayerName() };
+		return new String[] {
+				getTokenLayerName(), 
+				getSentenceLayerName()
+		};
 	}
 
 	@Override
 	protected String[] addFeaturesToSectionFilter() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-	
 	/**
 	 * Getters and setters
 	 */
@@ -197,11 +191,9 @@ public abstract class TEESClassify extends TEESMapper {
 		return model;
 	}
 
-
 	public void setModel(InputFile model) {
 		this.model = model;
 	}
-
 
 	/**
 	 * 
@@ -304,8 +296,6 @@ public abstract class TEESClassify extends TEESMapper {
 			}
 		}
 
-
-
 		public File getPredictionFile() throws IOException {
 			Logger logger = getLogger(ctx);
 			//
@@ -320,32 +310,21 @@ public abstract class TEESClassify extends TEESMapper {
 			logger.info("localizing the prediction file : " + files[0]);
 			
 			File file = new File(this.baseDir.getAbsolutePath(), files[0]);
-			FileInputStream stream = new FileInputStream(file);
-			String outname = null;
-			FileOutputStream output = null;
-			try {
-				// open the gziped file to decompress.
-				GZIPInputStream gzipstream = new GZIPInputStream(stream);
-				byte[] buffer = new byte[2048];
-
-				// create the output file without the .gz extension.
-				outname = file.getAbsolutePath().substring(0, file.getAbsolutePath().length() - 3);
-				output = new FileOutputStream(outname);
-
-				// and copy it to a new file
-				int len;
-				while ((len = gzipstream.read(buffer)) > 0) {
-					output.write(buffer, 0, len);
+			try (FileInputStream stream = new FileInputStream(file)) {
+				try (GZIPInputStream gzipstream = new GZIPInputStream(stream)) {
+//					byte[] buffer = new byte[2048];
+//					try (OutputStream output = new FileOutputStream(outname)) {
+//						int len;
+//						while ((len = gzipstream.read(buffer)) > 0) {
+//							output.write(buffer, 0, len);
+//						}
+//					}
+					String outname = file.getAbsolutePath().substring(0, file.getAbsolutePath().length() - 3);
+					File result = new File(outname);
+					Files.copy(gzipstream, result, 2048, false);
+					return result;
 				}
-			} finally {
-				// both streams must always be closed.
-				if (output != null)
-					output.close();
-				stream.close();
 			}
-
-			return new File(outname);
-			
 		}
 
 		public OutputFile getInput() {
@@ -356,14 +335,8 @@ public abstract class TEESClassify extends TEESMapper {
 		public String getOutputStem() {
 			return outputStem;
 		}
-
 	}
 
-
-	
-	
-	
-	
 //
 //	private void iteratorSnippet(ProcessingContext<Corpus> ctx, Corpus corpus) {
 //		Logger logger = getLogger(ctx);
@@ -443,6 +416,4 @@ public abstract class TEESClassify extends TEESMapper {
 //		}
 //	}
 //
-
-
 }

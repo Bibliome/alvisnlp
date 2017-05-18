@@ -36,24 +36,18 @@ import alvisnlp.module.lib.Param;
 
 @AlvisNLPModule
 public abstract class TEESTrain extends TEESMapper {
-	
-	
+	private String corpusSetFeature = "set";
 	private String trainSetValue = "train";
 	private String devSetValue = "dev";
 	private String testSetValue = "test";
+
 	private OutputFile model;
-	private String corpusSetFeature = "set";
-
-
-	private String internalEncoding = "UTF-8";
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
-	
 		Logger logger = getLogger(ctx);
 
 		try {
-
 			JAXBContext jaxbContext = JAXBContext.newInstance(CorpusTEES.class);
 			logger.info("Accessing the corpora");
 			Marshaller jaxbm = jaxbContext.createMarshaller();
@@ -66,24 +60,17 @@ public abstract class TEESTrain extends TEESMapper {
 			jaxbm.marshal(this.corpora.get(this.getTestSetValue()), teesTrainExt.getTestInput());
 
 			logger.info("TEES training ");
-			callExternal(ctx, "run-tees-train", teesTrainExt, internalEncoding, "tees-train.sh");
-
-
-		} catch (JAXBException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			callExternal(ctx, "run-tees-train", teesTrainExt, INTERNAL_ENCODING, "tees-train.sh");
 		}
-
+		catch (JAXBException|IOException e) {
+			rethrow(e);
+		}
 	}
-	
 	
 	@Override
 	protected String getSet(Document doc) {
 		return doc.getLastFeature(getCorpusSetFeature());
 	}
-
 
 	/**
 	 * Build TEES corpus from Alvis corpus
@@ -106,12 +93,10 @@ public abstract class TEESTrain extends TEESMapper {
 			processingException("could not do training : train, dev or test is empty");
 		}
 	}
-
 	
 	/**
 	 * object resolver and feature handler
 	 */
-	
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
@@ -119,17 +104,17 @@ public abstract class TEESTrain extends TEESMapper {
 
 	@Override
 	protected String[] addLayersToSectionFilter() {
-		// TODO Auto-generated method stub
-		return null;
+		return new String[] {
+				getTokenLayerName(),
+				getSentenceLayerName(),
+				getNamedEntityLayerName()
+		};
 	}
 
 	@Override
 	protected String[] addFeaturesToSectionFilter() {
-		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
 	
 	/**
 	 * getters and setters
@@ -262,7 +247,6 @@ public abstract class TEESTrain extends TEESMapper {
 			}
 		}
 
-
 		public OutputFile getTrainInput() {
 			return trainInput;
 		}
@@ -274,7 +258,5 @@ public abstract class TEESTrain extends TEESMapper {
 		public OutputFile getTestInput() {
 			return testInput;
 		}
-
 	}
-	
 }
