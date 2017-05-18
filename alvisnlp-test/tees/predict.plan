@@ -20,13 +20,11 @@
     
     <classify class="TEESClassify">
       <namedEntityLayerName>NamedEntities</namedEntityLayerName>
-      <neFeatureName>type</neFeatureName>
-
-      <setFeature>train</setFeature>
+      <namedEntityTypeFeature>type</namedEntityTypeFeature>
 
       <relationName>Lives_In</relationName>
-      <relationRole1>Bacteria</relationRole1>
-      <relationRole2>Location</relationRole2>
+      <leftRole>Bacteria</leftRole>
+      <rightRole>Location</rightRole>
 
       <model>model.zip</model>
 

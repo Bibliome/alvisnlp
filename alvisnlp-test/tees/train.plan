@@ -14,15 +14,11 @@
     
     <train class="TEESTrain">
       <namedEntityLayerName>NamedEntities</namedEntityLayerName>
-      <neFeatureName>type</neFeatureName>
-
-      <trainSetFeature>train</trainSetFeature>
-      <devSetFeature>dev</devSetFeature>
-      <testSetFeature>test</testSetFeature>
+      <namedEntityTypeFeature>type</namedEntityTypeFeature>
 
       <relationName>Lives_In</relationName>
-      <relationRole1>Bacteria</relationRole1>
-      <relationRole2>Location</relationRole2>
+      <leftRole>Bacteria</leftRole>
+      <rightRole>Location</rightRole>
 
       <model>model.zip</model>
 
