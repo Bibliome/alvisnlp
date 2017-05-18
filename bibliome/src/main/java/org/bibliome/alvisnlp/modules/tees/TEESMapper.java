@@ -49,7 +49,7 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	private String leftRole = null;
 	private String rightRole = null;
 	
-	private String omitSteps = "SPLIT-SENTENCES,NE";
+	private String omitSteps = "SPLIT-SENTENCES,NER";
 	private InputDirectory teesHome;
 
 	protected Map<String, CorpusTEES> corpora = new HashMap<String, CorpusTEES>();
@@ -89,17 +89,16 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 			// create a TEES document
 			CorpusTEES.Document documentTees = new CorpusTEES.Document();		
 			// setting the doc id
-			System.err.println("corpora = " + corpora);
-			System.err.println("set = " + set);
-			System.err.println("corpora.get(set) = " + corpora.get(set));
-			System.err.println("corpora.get(set).getDocument() = " + corpora.get(set).getDocument());
+//			System.err.println("corpora = " + corpora);
+//			System.err.println("set = " + set);
+//			System.err.println("corpora.get(set) = " + corpora.get(set));
+//			System.err.println("corpora.get(set).getDocument() = " + corpora.get(set).getDocument());
 			documentTees.setId("ALVIS.d" + corpora.get(set).getDocument().size());
 			logger.info("adding the document" + documentTees.getId() + " to " + set + " Set");
 			// setting the doc sentences
 			logger.info("creating the TEES sentences of this document " + documentTees.getId());
 			Iterator<Section> alvisSectionsIterator = sectionIterator(evalCtx, documentAlvis);
-			createTheTeesSentences(documentTees.getSentence(), documentTees.getId(), alvisSectionsIterator,
-					documentAlvis, ctx);
+			createTheTeesSentences(documentTees.getSentence(), documentTees.getId(), alvisSectionsIterator, ctx);
 			logger.info("number of sentences " + documentTees.getSentence().size());
 			// adding the document
 			this.corpora.get(set).getDocument().add(documentTees);
@@ -113,7 +112,7 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	 * 
 	 * @return
 	 */
-	private List<CorpusTEES.Document.Sentence> createTheTeesSentences(List<CorpusTEES.Document.Sentence> sentences, String docId, Iterator<Section> alvisSectionsIterator, Document documentAlvis, ProcessingContext<Corpus> ctx) {
+	private List<CorpusTEES.Document.Sentence> createTheTeesSentences(List<CorpusTEES.Document.Sentence> sentences, String docId, Iterator<Section> alvisSectionsIterator, ProcessingContext<Corpus> ctx) {
 		int sentId = 0;
 		Logger logger = getLogger(ctx);
 
@@ -390,7 +389,7 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	}
 	
 	
-	@Param(mandatory = false)
+	@Param
 	public String getOmitSteps() {
 		return omitSteps;
 	}

@@ -21,8 +21,6 @@
       <rightRole>Location</rightRole>
 
       <model>model.zip</model>
-
-      <omitSteps>SPLIT-SENTENCES,NER</omitSteps>
     </train>
   </tees>
 </alvisnlp-plan>

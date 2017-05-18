@@ -308,7 +308,7 @@ public abstract class TEESClassify extends TEESMapper {
 			String[] files = scanner.getIncludedFiles();
 
 			logger.info("localizing the prediction file : " + files[0]);
-			
+
 			File file = new File(this.baseDir.getAbsolutePath(), files[0]);
 			try (FileInputStream stream = new FileInputStream(file)) {
 				try (GZIPInputStream gzipstream = new GZIPInputStream(stream)) {

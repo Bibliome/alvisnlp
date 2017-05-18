@@ -28,8 +28,6 @@
 
       <model>model.zip</model>
 
-      <omitSteps>SPLIT-SENTENCES,NER</omitSteps>
-
       <constantTupleFeatures>predicted=true</constantTupleFeatures>
     </classify>
 
