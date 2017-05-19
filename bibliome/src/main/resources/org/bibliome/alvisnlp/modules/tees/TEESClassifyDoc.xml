@@ -50,7 +50,7 @@ limitations under the License.
       <p> Path to the trained model to use.</p>
     </param-doc>
  
-    <param-doc name="executable">
+    <param-doc name="teesHome">
       <p> Path to the tees Classify executable file.</p>
     </param-doc>
     
