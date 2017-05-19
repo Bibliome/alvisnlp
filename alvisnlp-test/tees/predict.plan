@@ -22,9 +22,9 @@
       <namedEntityLayerName>NamedEntities</namedEntityLayerName>
       <namedEntityTypeFeature>type</namedEntityTypeFeature>
 
-      <relationName>Lives_In</relationName>
-      <leftRole>Bacteria</leftRole>
-      <rightRole>Location</rightRole>
+      <schema>
+	<Lives_In>Bacteria,Location</Lives_In>
+      </schema>
 
       <model>model.zip</model>
 

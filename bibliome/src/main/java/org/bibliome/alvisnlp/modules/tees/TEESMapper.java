@@ -28,7 +28,9 @@ import alvisnlp.corpus.Tuple;
 import alvisnlp.corpus.creators.TupleCreator;
 import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.module.ProcessingContext;
+import alvisnlp.module.ProcessingException;
 import alvisnlp.module.lib.Param;
+import alvisnlp.module.types.MultiMapping;
 
 /**
  * 
@@ -45,9 +47,10 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	private String namedEntityTypeFeature = DefaultNames.getNamedEntityTypeFeature();
 	private String namedEntityLayerName = null;
 	
-	private String relationName = null;
-	private String leftRole = null;
-	private String rightRole = null;
+//	private String relationName = null;
+//	private String leftRole = null;
+//	private String rightRole = null;
+	private MultiMapping schema;
 	
 	private String omitSteps = "SPLIT-SENTENCES,NER";
 	private InputDirectory teesHome;
@@ -141,8 +144,7 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 
 				// add the TEES interactions
 				logger.info("creating the TEES interactions ");
-				Relation alvisRelationsCollection = sectionAlvis.getRelation(this.getRelationName());
-				createTheInteractions(sentenceTees, sentenceTees.getId(), sentenceAlvis, alvisRelationsCollection, ctx);
+				createTheInteractions(sentenceTees, sentenceTees.getId(), sentenceAlvis, ctx);
 				
 				
 				// add the set sentence
@@ -206,59 +208,69 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	}
 
 	
-	private void createTheInteractions(CorpusTEES.Document.Sentence sentenceTees, String sentId, Annotation sentenceAlvis, Relation allRelations, ProcessingContext<Corpus> ctx) {
+	private void createTheInteractions(CorpusTEES.Document.Sentence sentenceTees, String sentId, Annotation sentenceAlvis, ProcessingContext<Corpus> ctx) {
 		int intId = 0;
 		Logger logger = getLogger(ctx);
-			
-		// loop  relations
-		if(allRelations!=null) for (Tuple r : allRelations.getTuples()) {
-
-			// getting the argument from roles
-			Element ag1 = r.getArgument(this.getLeftRole());			
-			Element ag2 = r.getArgument(this.getRightRole());
-			
-			// downcasting argument elements as annotations
-			Annotation ann1 = DownCastElement.toAnnotation(ag1);
-			Annotation ann2 = DownCastElement.toAnnotation(ag2);
-			
-			// is the sentence contains the argument annotations
-			if(sentenceAlvis.includes(ann1)==false || sentenceAlvis.includes(ann2)==false) continue;
-			
-			// creating interaction
-			CorpusTEES.Document.Sentence.Interaction interaction = new CorpusTEES.Document.Sentence.Interaction();
-			// setting id
-			interaction.setId(sentId + ".i" + intId++);
-			logger.info("creating interaction " + r.getRoles().toString());	
-			
-			
-			// getting tees entities ids from alvis ids
-			for (int i = 0; i < sentenceTees.getEntity().size(); i++) {
-				if(sentenceTees.getEntity().get(i).getOrigId().compareToIgnoreCase(ann1.getStringId())==0)
-				{
-					interaction.setE1(sentenceTees.getEntity().get(i).getId());
-				}
-				else if(sentenceTees.getEntity().get(i).getOrigId().compareToIgnoreCase(ann2.getStringId())==0){
-					interaction.setE2(sentenceTees.getEntity().get(i).getId());
-				}
-			}
-
-			// setting relation type 
-			interaction.setType(this.getRelationName());
-			// setting relation originId
-			interaction.setOrigId(r.getStringId());
-			// setting as a directed interaction
-			interaction.setDirected(true);
-			// adding interaction
-			if(interaction.getE1()!=null && interaction.getE2()!=null){
-			sentenceTees.getInteraction().add(interaction);
-			}
-			else intId--;
-		}
 		
+		Section sec = sentenceAlvis.getSection();
+
+		for (Map.Entry<String,String[]> e : schema.entrySet()) {
+			String relName = e.getKey();
+			if (!sec.hasRelation(relName)) {
+				continue;
+			}
+			Relation rel = sec.getRelation(relName);
+			String[] roles = e.getValue();
+			for (Tuple t : rel.getTuples()) {
+
+				// getting the argument from roles
+				Element ag1 = t.getArgument(roles[0]);
+				Element ag2 = t.getArgument(roles[1]);
+
+				// downcasting argument elements as annotations
+				Annotation ann1 = DownCastElement.toAnnotation(ag1);
+				Annotation ann2 = DownCastElement.toAnnotation(ag2);
+
+				// is the sentence contains the argument annotations
+				if(!(sentenceAlvis.includes(ann1) && sentenceAlvis.includes(ann2))) {
+					continue;
+				}
+
+				// creating interaction
+				CorpusTEES.Document.Sentence.Interaction interaction = new CorpusTEES.Document.Sentence.Interaction();
+				// setting id
+				interaction.setId(sentId + ".i" + intId++);
+				logger.info("creating interaction " + t.getRoles().toString());	
+
+
+				// getting tees entities ids from alvis ids
+				for (int i = 0; i < sentenceTees.getEntity().size(); i++) {
+					if(sentenceTees.getEntity().get(i).getOrigId().compareToIgnoreCase(ann1.getStringId())==0)
+					{
+						interaction.setE1(sentenceTees.getEntity().get(i).getId());
+					}
+					else if(sentenceTees.getEntity().get(i).getOrigId().compareToIgnoreCase(ann2.getStringId())==0){
+						interaction.setE2(sentenceTees.getEntity().get(i).getId());
+					}
+				}
+
+				// setting relation type 
+				interaction.setType(relName);
+				// setting relation originId
+				interaction.setOrigId(t.getStringId());
+				// setting as a directed interaction
+				interaction.setDirected(true);
+				// adding interaction
+				if(interaction.getE1()!=null && interaction.getE2()!=null){
+					sentenceTees.getInteraction().add(interaction);
+				}
+				else intId--;
+			}
+		}
 		logger.info("End adding interactions");
 	}
 	
-	public void setRelations2CorpusAlvis(CorpusTEES corpusTEES) {
+	public void setRelations2CorpusAlvis(CorpusTEES corpusTEES) throws ProcessingException {
 		for (CorpusTEES.Document docTEES : corpusTEES.getDocument()) {
 			for (Sentence sentenceTEES : docTEES.getSentence()) {
 
@@ -279,9 +291,6 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 					entId2Elements.put(entity.id, elt);
 				}
 				
-				Relation relation = sectionAlvis.ensureRelation(this, this.getRelationName());
-				
-				
 				for (Interaction interaction : sentenceTEES.getInteraction()) {
 				    //if (sentenceTEES.getInteraction().get(k).getType().compareToIgnoreCase(this.getRelationName())!=0) continue;
 //					logger.info("interaction.getType() = " + interaction.getType());
@@ -289,23 +298,22 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 //					logger.info("interaction.getE2() = " + interaction.getE2());
 //					logger.info("entId2Elements.get(interaction.getE1()) = " + entId2Elements.get(interaction.getE1()));
 //					logger.info("entId2Elements.get(interaction.getE2()) = " + entId2Elements.get(interaction.getE2()));
-					
-					Tuple tuple = new Tuple(this, relation);
-					tuple.setArgument(this.getLeftRole(), entId2Elements.get(interaction.getE1()));
-					tuple.setArgument(this.getRightRole(), entId2Elements.get(interaction.getE2()));
-					relation.addTuple(tuple);
+					String type = interaction.getType();
+					if (!schema.containsKey(type)) {
+						processingException("TEES predicted something not in the schema: " + type);
+					}
+					String[] roles = schema.get(type);
+					Relation rel = sectionAlvis.ensureRelation(this, type);
+					Tuple tuple = new Tuple(this, rel);
+					tuple.setArgument(roles[0], entId2Elements.get(interaction.getE1()));
+					tuple.setArgument(roles[1], entId2Elements.get(interaction.getE2()));
+					rel.addTuple(tuple);
 //					logger.info("creating tuple :" + tuple.getStringId());
 				}
 			}
 		}
 	}
 	
-	
-
-	/**
-	 * feature handlers
-	 */
-
 	
 	/** 
 	 * getter and setter
@@ -353,31 +361,41 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 		this.namedEntityTypeFeature = namedEntityTypeFeature;
 	}
 
-	@Param(mandatory = false)
-	public String getRelationName() {
-		return relationName;
+//	@Param(mandatory = false)
+//	public String getRelationName() {
+//		return relationName;
+//	}
+//
+//	public void setRelationName(String relationName) {
+//		this.relationName = relationName;
+//	}
+//
+//	@Param(mandatory = false)
+//	public String getLeftRole() {
+//		return leftRole;
+//	}
+//
+//	public void setLeftRole(String leftRole) {
+//		this.leftRole = leftRole;
+//	}
+//
+//	@Param(mandatory = false)
+//	public String getRightRole() {
+//		return rightRole;
+//	}
+//
+//	public void setRightRole(String rightRole) {
+//		this.rightRole = rightRole;
+//	}
+	
+	
+	@Param
+	public MultiMapping getSchema() {
+		return schema;
 	}
 
-	public void setRelationName(String relationName) {
-		this.relationName = relationName;
-	}
-
-	@Param(mandatory = false)
-	public String getLeftRole() {
-		return leftRole;
-	}
-
-	public void setLeftRole(String leftRole) {
-		this.leftRole = leftRole;
-	}
-
-	@Param(mandatory = false)
-	public String getRightRole() {
-		return rightRole;
-	}
-
-	public void setRightRole(String rightRole) {
-		this.rightRole = rightRole;
+	public void setSchema(MultiMapping schema) {
+		this.schema = schema;
 	}
 
 	public String getPosFeature() {
@@ -387,7 +405,6 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	public void setPosFeature(String posFeature) {
 		this.posFeature = posFeature;
 	}
-	
 	
 	@Param
 	public String getOmitSteps() {

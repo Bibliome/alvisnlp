@@ -74,10 +74,9 @@ public abstract class TEESClassify extends TEESMapper {
 			CorpusTEES corpusTEES = (CorpusTEES) jaxbu.unmarshal(teesClassifyExt.getPredictionFile());
 
 			logger.info("adding detected relations to Corpus ");
-			this.writeTEESResult(corpusTEES, corpus, ctx);
-
+			setRelations2CorpusAlvis(corpusTEES);
+			
 			logger.info("number of documents : " + corpusTEES.getDocument().size());
-
 		}
 		catch (JAXBException|IOException e) {
 			rethrow(e);
@@ -102,18 +101,7 @@ public abstract class TEESClassify extends TEESMapper {
 		this.corpora.put(DEFAULT_SET, new CorpusTEES());
 		this.createTheTeesCorpus(ctx, corpusAlvis);	
 		return this.corpora.get(DEFAULT_SET);
-	}
-	
-	/**
-	 * Write the predicted relation into Alvis Corpus
-	 * @param corpusTEES
-	 * @param corpusAlvis
-	 * @param ctx
-	 */
-	public void writeTEESResult( CorpusTEES corpusTEES, Corpus corpusAlvis, ProcessingContext<Corpus> ctx){
-		this.setRelations2CorpusAlvis(corpusTEES);
-	}
-	
+	}	
 	
 	/**
 	 * Object resolver and Feature Handlers
