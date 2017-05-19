@@ -59,10 +59,10 @@ limitations under the License.
     </param-doc>
       
     <param-doc name="model">
-      <p> Path to the trained model to use.</p>
+      <p> Path to the directory where put the trained model</p>
     </param-doc>
  
-    <param-doc name="teesHomeDir">
+    <param-doc name="teesHome">
       <p> Path to tees home directory. </p>
     </param-doc>
     
