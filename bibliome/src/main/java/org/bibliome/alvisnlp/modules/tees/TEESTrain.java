@@ -55,11 +55,11 @@ public abstract class TEESTrain extends TEESMapper {
 			// marshaling
 			this.prepareTEESCorpora(ctx, corpus);
 			TEESTrainExternal teesTrainExt = new TEESTrainExternal(ctx);
-			jaxbm.marshal(this.corpora.get(this.getTrainSetValue()), teesTrainExt.getTrainInput());
-			jaxbm.marshal(this.corpora.get(this.getDevSetValue()), teesTrainExt.getDevInput());
-			jaxbm.marshal(this.corpora.get(this.getTestSetValue()), teesTrainExt.getTestInput());
+			jaxbm.marshal(getCorpus(getTrainSetValue()), teesTrainExt.getTrainInput());
+			jaxbm.marshal(getCorpus(getDevSetValue()), teesTrainExt.getDevInput());
+			jaxbm.marshal(getCorpus(getTestSetValue()), teesTrainExt.getTestInput());
 
-			logger.info("TEES training ");
+			logger.info("TEES training");
 			callExternal(ctx, "run-tees-train", teesTrainExt, INTERNAL_ENCODING, "tees-train.sh");
 		}
 		catch (JAXBException|IOException e) {
@@ -81,16 +81,14 @@ public abstract class TEESTrain extends TEESMapper {
 	public void prepareTEESCorpora(ProcessingContext<Corpus> ctx, Corpus corpusAlvis) throws ProcessingException{
 		Logger logger = getLogger(ctx);
 		
-		logger.info("preparing the train, dev, test corpus");
-		this.corpora.put(this.getTrainSetValue(), new CorpusTEES());
-		this.corpora.put(this.getDevSetValue(), new CorpusTEES());
-		this.corpora.put(this.getTestSetValue(), new CorpusTEES());
-		
 		logger.info("creating the train, dev, test corpus");
 		createTheTeesCorpus(ctx, corpusAlvis);
-		
-		if(this.corpora.get(this.getTrainSetValue()).getDocument().size()==0 || this.corpora.get(this.getTrainSetValue()).getDocument().size()==0 || this.corpora.get(this.getTrainSetValue()).getDocument().size()==0){
-			processingException("could not do training : train, dev or test is empty");
+
+		for (String set : new String[] { getTrainSetValue(), getDevSetValue(), getTestSetValue() }) {
+			CorpusTEES corpus = getCorpus(set);
+			if (corpus.getDocument().isEmpty()) {
+				processingException("could not do training : "+set+" is empty");
+			}
 		}
 	}
 	
@@ -115,44 +113,11 @@ public abstract class TEESTrain extends TEESMapper {
 	protected String[] addFeaturesToSectionFilter() {
 		return null;
 	}
-	
-	/**
-	 * getters and setters
-	 * 
-	 */
-	@Param(mandatory=true)
-	public String getTrainSetValue() {
-		return trainSetValue;
-	}
-
-
-	public void setTrainSetValue(String trainSetValue) {
-		this.trainSetValue = trainSetValue;
-	}
-
-	@Param(mandatory=true)
-	public String getDevSetValue() {
-		return devSetValue;
-	}
-
-	public void setDevSetValue(String devSetValue) {
-		this.devSetValue = devSetValue;
-	}
-
-	@Param(mandatory=true)
-	public String getTestSetValue() {
-		return testSetValue;
-	}
-
-	public void setTestSetValue(String testSetValue) {
-		this.testSetValue = testSetValue;
-	}
 
 	@Param
 	public OutputFile getModel() {
 		return model;
 	}
-
 
 	public void setModel(OutputFile model) {
 		this.model = model;
@@ -166,12 +131,34 @@ public abstract class TEESTrain extends TEESMapper {
 	public void setCorpusSetFeature(String corpusSetFeature) {
 		this.corpusSetFeature = corpusSetFeature;
 	}
+	
+	@Param
+	public String getTrainSetValue() {
+		return trainSetValue;
+	}
 
-	/**
-	 * 
-	 * @author mba
-	 *
-	 */
+	public void setTrainSetValue(String trainSetValue) {
+		this.trainSetValue = trainSetValue;
+	}
+
+	@Param
+	public String getDevSetValue() {
+		return devSetValue;
+	}
+
+	public void setDevSetValue(String devSetValue) {
+		this.devSetValue = devSetValue;
+	}
+
+	@Param
+	public String getTestSetValue() {
+		return testSetValue;
+	}
+
+	public void setTestSetValue(String testSetValue) {
+		this.testSetValue = testSetValue;
+	}
+
 	private final class TEESTrainExternal implements External<Corpus> {
 		private final OutputFile trainInput;
 		private final OutputFile devInput;
@@ -189,7 +176,6 @@ public abstract class TEESTrain extends TEESMapper {
 			this.devInput = new OutputFile(tmp.getAbsolutePath(), "devel-o" + ".xml");
 			this.testInput = new OutputFile(tmp.getAbsolutePath(), "test-o" + ".xml");
 			
-			//
 			script = new File(tmp, "train.sh");
 			// same ClassLoader as this class
 			InputStream is = TEESTrain.class.getResourceAsStream("train.sh");

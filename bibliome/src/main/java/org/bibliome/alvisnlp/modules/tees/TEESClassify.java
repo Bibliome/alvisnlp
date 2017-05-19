@@ -83,12 +83,10 @@ public abstract class TEESClassify extends TEESMapper {
 		}
 	}
 	
-	
 	@Override
 	protected String getSet(Document doc) {
 		return DEFAULT_SET;
 	}
-
 
 	/**
 	 * Build TEES corpus from Alvis corpus
@@ -98,15 +96,13 @@ public abstract class TEESClassify extends TEESMapper {
 	 * @throws ProcessingException 
 	 */
 	public CorpusTEES prepareTEESCorpora(ProcessingContext<Corpus> ctx, Corpus corpusAlvis) {
-		this.corpora.put(DEFAULT_SET, new CorpusTEES());
 		this.createTheTeesCorpus(ctx, corpusAlvis);	
-		return this.corpora.get(DEFAULT_SET);
-	}	
+		return getCorpus(DEFAULT_SET);
+	}
 	
 	/**
 	 * Object resolver and Feature Handlers
 	 */
-	
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
@@ -125,10 +121,6 @@ public abstract class TEESClassify extends TEESMapper {
 		return null;
 	}
 
-	/**
-	 * Getters and setters
-	 */
-	
 	@Param(nameType = NameType.FEATURE)
 	public String getDependencyLabelFeatureName() {
 		return dependencyLabelFeatureName;
@@ -225,31 +217,6 @@ public abstract class TEESClassify extends TEESMapper {
 			return clArgs.toArray(new String[clArgs.size()]);
 		}
 
-//		@Override
-//		public String[] getCommandLineArgs() throws ModuleException {
-//			List<String> clArgs = new ArrayList<String>();
-//			clArgs.addAll(Arrays.asList(getExecutable().getAbsolutePath(), 
-//					"--model", 
-//					getModel(), 
-//					"--omitSteps",
-//					getOmitSteps().toString(), 
-//					"--input", 
-//					this.input.getAbsolutePath(), 
-//					"--output", this.outputStem));
-//			if (getWorkDir() == null) {
-//				clArgs.add("--workdir");
-//				clArgs.add(baseDir.getAbsolutePath());
-//				// workDir = new InputDirectory(baseDir.getAbsolutePath());
-//			}
-//			else {
-//				clArgs.add("--clearAll");
-//				clArgs.add("True");
-//				clArgs.add("--workdir");
-//				clArgs.add(getWorkDir().getAbsolutePath());
-//			}
-//			return clArgs.toArray(new String[clArgs.size()]);
-//		}
-
 		@Override
 		public String[] getEnvironment() throws ModuleException {
 			return new String[] {
@@ -286,7 +253,7 @@ public abstract class TEESClassify extends TEESMapper {
 
 		public File getPredictionFile() throws IOException {
 			Logger logger = getLogger(ctx);
-			//
+
 			DirectoryScanner scanner = new DirectoryScanner();
 			String[] patterns = {this.getOutputStem() + "*pred*.xml.gz" };
 			scanner.setIncludes(patterns);
@@ -300,13 +267,6 @@ public abstract class TEESClassify extends TEESMapper {
 			File file = new File(this.baseDir.getAbsolutePath(), files[0]);
 			try (FileInputStream stream = new FileInputStream(file)) {
 				try (GZIPInputStream gzipstream = new GZIPInputStream(stream)) {
-//					byte[] buffer = new byte[2048];
-//					try (OutputStream output = new FileOutputStream(outname)) {
-//						int len;
-//						while ((len = gzipstream.read(buffer)) > 0) {
-//							output.write(buffer, 0, len);
-//						}
-//					}
 					String outname = file.getAbsolutePath().substring(0, file.getAbsolutePath().length() - 3);
 					File result = new File(outname);
 					Files.copy(gzipstream, result, 2048, false);
@@ -324,84 +284,4 @@ public abstract class TEESClassify extends TEESMapper {
 			return outputStem;
 		}
 	}
-
-//
-//	private void iteratorSnippet(ProcessingContext<Corpus> ctx, Corpus corpus) {
-//		Logger logger = getLogger(ctx);
-//		EvaluationContext evalCtx = new EvaluationContext(logger);
-//
-//		// iteration des documents du corpus
-//		for (Document doc : Iterators.loop(documentIterator(evalCtx, corpus))) {
-//			// faire qqch avec doc, par ex
-//			doc.getId();
-//			doc.getLastFeature("DOCFEATUREKEY");
-//			// iteration des sections du document
-//			for (Section sec : Iterators.loop(sectionIterator(evalCtx, doc))) {
-//				// faire qqch avec sec, par ex
-//				sec.getName();
-//				sec.getLastFeature("SECFEATUREKEY");
-//				sec.getDocument();
-//				// iteration des annotations d'un layer dans une section
-//				Layer layer = sec.ensureLayer("LAYERNAME");
-//				for (Annotation a : layer) {
-//					// faire qqch avec a, par ex
-//					a.getStart();
-//					a.getEnd();
-//					a.getLength();
-//					a.getLastFeature("ANNOTATIONFEATUREKEY");
-//					a.getSection();
-//				}
-//
-//				// iteration des sentences dans une section
-//				for (Layer sentLayer : sec.getSentences(getTokenLayerName(), getSentenceLayerName())) {
-//					Annotation sent = sentLayer.getSentenceAnnotation();
-//					// faire qqch avec sent
-//					// iteration des mots dans une sentence
-//					for (Annotation token : sentLayer) {
-//						// faire qqch avec token
-//					}
-//				}
-//
-//				// iteration des relations dans une section
-//				for (Relation rel : sec.getAllRelations()) {
-//					// faire qqch avec la relation, par ex
-//					rel.getName();
-//					rel.getSection();
-//					rel.getLastFeature("RELFEATUREKEY");
-//					// iteration des tuples d'une relation
-//					for (Tuple t : rel.getTuples()) {
-//						// faire qqch avec t, par ex
-//						t.getRelation();
-//						t.getLastFeature("TUPLEFEATUREKEY");
-//
-//						t.getArgument("ROLE");
-//
-//						// iterer les arguments
-//						for (String role : t.getRoles()) {
-//							Element arg = t.getArgument(role);
-//							// faire qqch avec arg, par ex
-//							arg.getLastFeature("FEATUREKEY");
-//							Annotation a = DownCastElement.toAnnotation(arg);
-//						}
-//					}
-//				}
-//
-//				// une relation en particulier
-//				Relation dependencies = sec.getRelation(dependencyRelationName);
-//				// iterer les tuples
-//				for (Tuple dep : dependencies.getTuples()) {
-//					String label = dep.getLastFeature(dependencyLabelFeatureName);
-//					Element sentence = dep.getArgument(sentenceRole);
-//					Element head = dep.getArgument(headRole);
-//					Element dependent = dep.getArgument(dependentRole);
-//				}
-//			}
-//		}
-//
-//		// on peut iterer les sections sans passer par les documents
-//		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-//			//
-//		}
-//	}
-//
 }
