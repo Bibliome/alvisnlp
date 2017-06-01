@@ -14,4 +14,4 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-python $TEES_PRE_EXE --input  $TEES_CORPUS_IN --output $TEES_CORPUS_OUT --omitSteps $OMITSTEPS --debug true && python $TEES_CLASSIFY_EXE --input $TEES_CORPUS_OUT --output $OUTSTREAM  --workdir $WORKDIR --model $MODEL --omitSteps PREPROCESS --debug true
+python $TEES_PRE_EXE --input  $TEES_CORPUS_IN --output $TEES_CORPUS_OUT --omitSteps $OMITSTEPS --debug true && python $TEES_CLASSIFY_EXE --input $TEES_CORPUS_OUT --output $OUTSTREAM  --workdir $WORKDIR --model $MODELSD --omitSteps PREPROCESS --debug true

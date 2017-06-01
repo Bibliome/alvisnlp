@@ -58,8 +58,12 @@ limitations under the License.
       <p> Feature key of the test set corpus. </p>
     </param-doc>
       
-    <param-doc name="model">
-      <p> Path to the directory where put the trained model</p>
+    <param-doc name="modelTargetDir">
+      <p> Path to the directory where to put the trained model</p>
+    </param-doc>
+    
+    <param-doc name="modelName">
+      <p> Give a name to the trained model </p>
     </param-doc>
  
     <param-doc name="teesHome">

@@ -41,7 +41,7 @@ limitations under the License.
   </module>
 
   <module class="org.bibliome.alvisnlp.modules.geniatagger.GeniaTagger">
-    <geniaDir></geniaDir>
+    <geniaDir>/home/mba/homemaiage/Documents/OpenMinTed/geniatagger-3.0.2/</geniaDir>
   </module>
 
   <module class="org.bibliome.alvisnlp.modules.treetagger.TreeTagger">
@@ -77,12 +77,10 @@ limitations under the License.
   </module>
 
   <module class="org.bibliome.alvisnlp.modules.tees.TEESClassify">
-    <executable></executable>
-    <teesHome></teesHome>
+    <teesHome>/home/mba/homemaiage/Documents/AlvisNLP/TEES/TEES-master/</teesHome>
   </module>
 
   <module class="org.bibliome.alvisnlp.modules.tees.TEESTrain">
-    <executable></executable>
     <teesHome></teesHome>    
   </module>
 

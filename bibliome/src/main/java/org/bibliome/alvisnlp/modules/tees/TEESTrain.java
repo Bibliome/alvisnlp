@@ -41,7 +41,8 @@ public abstract class TEESTrain extends TEESMapper {
 	private String devSetValue = "dev";
 	private String testSetValue = "test";
 
-	private OutputFile model;
+	private OutputFile modelTargetDir;
+	private String modelName = "test-model";
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -115,12 +116,12 @@ public abstract class TEESTrain extends TEESMapper {
 	}
 
 	@Param
-	public OutputFile getModel() {
-		return model;
+	public OutputFile getModelTargetDir() {
+		return modelTargetDir;
 	}
 
-	public void setModel(OutputFile model) {
-		this.model = model;
+	public void setModelTargetDir(OutputFile model) {
+		this.modelTargetDir = model;
 	}
 
 	@Param
@@ -157,6 +158,16 @@ public abstract class TEESTrain extends TEESMapper {
 
 	public void setTestSetValue(String testSetValue) {
 		this.testSetValue = testSetValue;
+	}
+
+	
+	@Param(mandatory=false)
+	public String getModelName() {
+		return modelName;
+	}
+
+	public void setModelName(String modelName) {
+		this.modelName = modelName;
 	}
 
 	private final class TEESTrainExternal implements External<Corpus> {
@@ -210,7 +221,8 @@ public abstract class TEESTrain extends TEESMapper {
 					"TEES_TEST_IN="  + this.testInput.getAbsolutePath(),
 					"TEES_TEST_OUT=" + this.baseDir.getAbsolutePath() + "/test_pre.xml",
 					"WORKDIR=" + this.baseDir.getAbsolutePath(),
-					"MODEL=" + getModel().getAbsolutePath()
+					"MODELTD=" + getModelTargetDir().getAbsolutePath(),
+					"MODEL_NAME=" + getModelName() 
 				};
 		}
 
