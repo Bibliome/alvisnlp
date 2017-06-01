@@ -46,7 +46,7 @@ limitations under the License.
       <p> First role of the relation to predict</p>
     </param-doc>
   
-    <param-doc name="modelSourceDir">
+    <param-doc name="teesModel">
       <p> Path to the trained model to use.</p>
     </param-doc>
  

@@ -50,7 +50,7 @@ public abstract class TEESClassify extends TEESMapper {
 	private String headRole = DefaultNames.getDependencyHeadRole();
 	private String dependentRole = DefaultNames.getDependencyDependentRole();
 	
-	private InputFile modelSourceDir;
+	private InputFile teesModel;
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -167,12 +167,12 @@ public abstract class TEESClassify extends TEESMapper {
 	}
 
 	@Param
-	public InputFile getModelSourceDir() {
-		return modelSourceDir;
+	public InputFile getTeesModel() {
+		return teesModel;
 	}
 
-	public void setModelSourceDir(InputFile model) {
-		this.modelSourceDir = model;
+	public void setTeesModel(InputFile model) {
+		this.teesModel = model;
 	}
 
 	/**
@@ -228,7 +228,7 @@ public abstract class TEESClassify extends TEESMapper {
 					"OUTSTREAM=" + this.outputStem, 
 					"OMITSTEPS=" + getOmitSteps().toString(),
 					"WORKDIR=" + this.baseDir.getAbsolutePath(),
-					"MODELSD=" + getModelSourceDir().getAbsolutePath()
+					"MODEL=" + getTeesModel().getAbsolutePath()
 				};
 		}
 
