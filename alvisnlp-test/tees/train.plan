@@ -20,7 +20,7 @@
 	<Lives_In>Bacteria,Location</Lives_In>
       </schema>
 
-      <model>model.zip</model>
+      <modelTargetDir>model.zip</modelTargetDir>
     </train>
   </tees>
 </alvisnlp-plan>
