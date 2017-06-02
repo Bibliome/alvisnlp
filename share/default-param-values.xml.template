@@ -77,7 +77,7 @@ limitations under the License.
   </module>
 
   <module class="org.bibliome.alvisnlp.modules.tees.TEESClassify">
-    <teesHome>/home/mba/homemaiage/Documents/AlvisNLP/TEES/TEES-master/</teesHome>
+    <teesHome></teesHome>
   </module>
 
   <module class="org.bibliome.alvisnlp.modules.tees.TEESTrain">
