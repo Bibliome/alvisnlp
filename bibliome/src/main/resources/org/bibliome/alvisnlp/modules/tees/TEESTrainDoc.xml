@@ -30,40 +30,37 @@ limitations under the License.
       <p> Name of the layer containing the named entities </p>
     </param-doc>
   
-    <param-doc name="neFeatureName">
+    <param-doc name="namedEntityTypeFeature">
       <p> Name of the feature to access the type of the named entities </p>
     </param-doc>
       
-    <param-doc name="relationName">
-      <p> Name of the relation to predict.</p>
-    </param-doc>
-  
-    <param-doc name="relationRole1">
-      <p> First role of the relation to predict</p>
-    </param-doc>
-    
-    <param-doc name="relationRole2">
-      <p> First role of the relation to predict</p>
+    <param-doc name="schema">
+      <p> 
+      	Give the schema of the relations to train i.e.  
+      	<schema>
+			<Lives_In>Bacteria,Location</Lives_In>
+      	</schema>
+      </p>
     </param-doc>
     
-    <param-doc name="trainSetFeature">
+    <param-doc name="trainSetValue">
       <p> Feature key of the train set corpus.</p>
     </param-doc>
     
-    <param-doc name="devSetFeature">
+    <param-doc name="devSetValue">
       <p> Feature key of the dev set corpus. </p>
     </param-doc>
     
-    <param-doc name="testSetFeature">
+    <param-doc name="testSetValue">
       <p> Feature key of the test set corpus. </p>
     </param-doc>
       
-    <param-doc name="modelTargetDir">
-      <p> Path to the directory where to put the trained model</p>
-    </param-doc>
-    
     <param-doc name="modelName">
-      <p> Give a name to the trained model </p>
+      <p> give a name to the trained model</p>
+    </param-doc>
+      
+    <param-doc name="modelTargetDir">
+      <p> Path to the directory where put the trained model</p>
     </param-doc>
  
     <param-doc name="teesHome">

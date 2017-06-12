@@ -30,20 +30,17 @@ limitations under the License.
       <p> Name of the layer containing the named entities </p>
     </param-doc>
   
-    <param-doc name="neFeatureName">
+    <param-doc name="namedEntityTypeFeature">
       <p> Name of the feature to access the type of the named entities </p>
     </param-doc>
       
-    <param-doc name="relationName">
-      <p> Name of the relation to predict.</p>
-    </param-doc>
-  
-    <param-doc name="relationRole1">
-      <p> First role of the relation to predict</p>
-    </param-doc>
-    
-    <param-doc name="relationRole2">
-      <p> First role of the relation to predict</p>
+    <param-doc name="schema">
+      <p> 
+      	Give the schema of the relations to train i.e.  
+      	<schema>
+			<Lives_In>Bacteria,Location</Lives_In>
+      	</schema>
+      </p>
     </param-doc>
   
     <param-doc name="teesModel">
