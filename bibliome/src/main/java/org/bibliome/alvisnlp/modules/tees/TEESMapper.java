@@ -112,7 +112,7 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	 */
 	private List<CorpusTEES.Document.Sentence> createTheTeesSentences(List<CorpusTEES.Document.Sentence> sentences, String docId, Iterator<Section> alvisSectionsIterator, ProcessingContext<Corpus> ctx) {
 		int sentId = 0;
-		Logger logger = getLogger(ctx);
+//		Logger logger = getLogger(ctx);
 
 		for (Section sectionAlvis : Iterators.loop(alvisSectionsIterator)) {
 			for (Layer sentLayer : sectionAlvis.getSentences(getTokenLayerName(), getSentenceLayerName())) {
@@ -134,7 +134,7 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 				createTheTeesEntities(sentenceTees, sentenceTees.getId(), sentenceAlvis, alvisEntitiesLayer, ctx);
 
 				// add the TEES interactions
-				logger.info("creating the TEES interactions ");
+//				logger.info("creating the TEES interactions ");
 				createTheInteractions(sentenceTees, sentenceTees.getId(), sentenceAlvis, ctx);
 				
 				// add the set sentence
