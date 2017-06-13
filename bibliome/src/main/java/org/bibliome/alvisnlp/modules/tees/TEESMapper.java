@@ -85,7 +85,7 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 
-		logger.info("creating the TEES documents ");
+		logger.info("Creating TEES input files");
 		for (Document documentAlvis : Iterators.loop(documentIterator(evalCtx, corpusAlvis))) {
 			String set = getSet(documentAlvis);
 //			if(corpora.get(set) == null) {
@@ -96,10 +96,10 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 			
 			CorpusTEES.Document documentTees = new CorpusTEES.Document();		
 			documentTees.setId("ALVIS.d" + corpus.getDocument().size());
-			logger.info("adding the document" + documentTees.getId() + " to " + set + " Set");
+//			logger.info("adding the document" + documentTees.getId() + " to " + set + " Set");
 			Iterator<Section> alvisSectionsIterator = sectionIterator(evalCtx, documentAlvis);
 			createTheTeesSentences(documentTees.getSentence(), documentTees.getId(), alvisSectionsIterator, ctx);
-			logger.info("number of sentences " + documentTees.getSentence().size());
+//			logger.info("number of sentences " + documentTees.getSentence().size());
 			corpus.getDocument().add(documentTees);
 		}
 	}
@@ -124,12 +124,12 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 				// create a Tees sentence
 				CorpusTEES.Document.Sentence sentenceTees = new CorpusTEES.Document.Sentence();
 				sentenceTees.setId(docId + ".s" + sentId++);
-				logger.info("creating the sentence : " + sentenceTees.getId());
+//				logger.info("creating the sentence : " + sentenceTees.getId());
 				sentenceTees.setText(sentenceAlvis.getForm()); 
 				sentenceTees.setCharOffset(sentenceAlvis.getStart() + "-" + sentenceAlvis.getEnd());
 				
 				// add the TEES entities
-				logger.info("creating the TEES entities");
+//				logger.info("creating the TEES entities");
 				Layer alvisEntitiesLayer = sectionAlvis.ensureLayer(getNamedEntityLayerName());
 				createTheTeesEntities(sentenceTees, sentenceTees.getId(), sentenceAlvis, alvisEntitiesLayer, ctx);
 
@@ -157,9 +157,9 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	 * 
 	 * @return
 	 */
-	private void createTheTeesEntities(CorpusTEES.Document.Sentence sentenceTees, String sentId, Annotation sentenceAlvis, Layer alvisEntitiesLayer, ProcessingContext<Corpus> ctx) {
+	private void createTheTeesEntities(CorpusTEES.Document.Sentence sentenceTees, String sentId, Annotation sentenceAlvis, Layer alvisEntitiesLayer, @SuppressWarnings("unused") ProcessingContext<Corpus> ctx) {
 		int entId = 0;
-		Logger logger = getLogger(ctx);
+//		Logger logger = getLogger(ctx);
 
 		// loop on entities
 		for (Annotation entityAlvis : alvisEntitiesLayer) {
@@ -169,7 +169,7 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 			// create a tees entity 
 			Entity entityTees = new CorpusTEES.Document.Sentence.Entity();
 			entityTees.setId(sentId + ".e" + entId++);
-			logger.info("creating the entity " + entityTees.getId());
+//			logger.info("creating the entity " + entityTees.getId());
 			entityTees.setOrigId(entityAlvis.getStringId());
 			entityTees.setCharOffset((entityAlvis.getStart()- sentenceAlvis.getStart()) + "-" + (entityAlvis.getEnd()-sentenceAlvis.getStart()));
 			entityTees.setOrigOffset(entityAlvis.getStart() + "-" + entityAlvis.getEnd()); 
@@ -199,7 +199,7 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 			String[] roles = e.getValue();
 			for (Tuple t : rel.getTuples()) {
 				if (!(t.hasArgument(roles[0]) && t.hasArgument(roles[1]))) {
-					logger.warning("tuple lacks argument");
+					logger.warning("tuple " + t + " lacks argument");
 					continue;
 				}
 				Element arg1 = t.getArgument(roles[0]);
@@ -215,7 +215,7 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 				// creating interaction
 				CorpusTEES.Document.Sentence.Interaction interaction = new CorpusTEES.Document.Sentence.Interaction();
 				interaction.setId(sentId + ".i" + intId++);
-				logger.info("creating interaction " + t.getRoles().toString());	
+//				logger.info("creating interaction " + t.getRoles().toString());	
 				interaction.setE1(origId2teesId.get(arg1.getStringId()));
 				interaction.setE2(origId2teesId.get(arg2.getStringId()));
 				interaction.setType(relName);

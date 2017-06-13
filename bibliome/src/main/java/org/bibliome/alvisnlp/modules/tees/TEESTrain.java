@@ -50,7 +50,7 @@ public abstract class TEESTrain extends TEESMapper {
 
 		try {
 			JAXBContext jaxbContext = JAXBContext.newInstance(CorpusTEES.class);
-			logger.info("Accessing the corpora");
+//			logger.info("Accessing the corpora");
 			Marshaller jaxbm = jaxbContext.createMarshaller();
 			jaxbm.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			// marshaling
@@ -60,7 +60,7 @@ public abstract class TEESTrain extends TEESMapper {
 			jaxbm.marshal(getCorpus(getDevSetValue()), teesTrainExt.getDevInput());
 			jaxbm.marshal(getCorpus(getTestSetValue()), teesTrainExt.getTestInput());
 
-			logger.info("TEES training");
+			logger.info("Training classifier");
 			callExternal(ctx, "run-tees-train", teesTrainExt, INTERNAL_ENCODING, "tees-train.sh");
 		}
 		catch (JAXBException|IOException e) {
@@ -80,9 +80,9 @@ public abstract class TEESTrain extends TEESMapper {
 	 * @throws ProcessingException 
 	 */
 	public void prepareTEESCorpora(ProcessingContext<Corpus> ctx, Corpus corpusAlvis) throws ProcessingException{
-		Logger logger = getLogger(ctx);
+//		Logger logger = getLogger(ctx);
 		
-		logger.info("creating the train, dev, test corpus");
+//		logger.info("creating the train, dev, test corpus");
 		createTheTeesCorpus(ctx, corpusAlvis);
 
 		for (String set : new String[] { getTrainSetValue(), getDevSetValue(), getTestSetValue() }) {
@@ -235,7 +235,7 @@ public abstract class TEESTrain extends TEESMapper {
 		public void processOutput(BufferedReader out, BufferedReader err) throws ModuleException {
 			Logger logger = getLogger(ctx);
 			try {
-				logger.fine("TEES standard error:");
+				logger.fine("TEES standard error");
 				for (String line = err.readLine(); line != null; line = err.readLine()) {
 					logger.fine("    " + line);
 				}

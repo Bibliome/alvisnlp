@@ -57,23 +57,23 @@ public abstract class TEESClassify extends TEESMapper {
 		Logger logger = getLogger(ctx);
 
 		try {		
-			logger.info("creating the External module object ");
+//			logger.info("creating the External module object ");
 			TEESClassifyExternal teesClassifyExt = new TEESClassifyExternal(ctx);
 
-			logger.info("producing a interaction xml ");
+//			logger.info("producing a interaction xml ");
 			JAXBContext jaxbContext = JAXBContext.newInstance(CorpusTEES.class);
 			Marshaller jaxbm = jaxbContext.createMarshaller();
 			jaxbm.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			jaxbm.marshal(this.prepareTEESCorpora(ctx, corpus), teesClassifyExt.getInput());
 
-			logger.info("calling tees-predict ");
+			logger.info("Predicting with TEES");
 			callExternal(ctx, "run-tees-predict", teesClassifyExt, INTERNAL_ENCODING, "tees-classify.py");
 
-			logger.info("Accessing the test prediction file");
+			logger.info("Reading TEES output");
 			Unmarshaller jaxbu = jaxbContext.createUnmarshaller();
 			CorpusTEES corpusTEES = (CorpusTEES) jaxbu.unmarshal(teesClassifyExt.getPredictionFile());
 
-			logger.info("adding detected relations to Corpus ");
+//			logger.info("adding detected relations to Corpus ");
 			setRelations2CorpusAlvis(corpusTEES);
 			
 			logger.info("number of documents : " + corpusTEES.getDocument().size());
@@ -252,7 +252,7 @@ public abstract class TEESClassify extends TEESMapper {
 		}
 
 		public File getPredictionFile() throws IOException {
-			Logger logger = getLogger(ctx);
+//			Logger logger = getLogger(ctx);
 
 			DirectoryScanner scanner = new DirectoryScanner();
 			String[] patterns = {this.getOutputStem() + "*pred*.xml.gz" };
@@ -262,7 +262,7 @@ public abstract class TEESClassify extends TEESMapper {
 			scanner.scan();
 			String[] files = scanner.getIncludedFiles();
 
-			logger.info("localizing the prediction file : " + files[0]);
+//			logger.info("localizing the prediction file : " + files[0]);
 
 			File file = new File(this.baseDir.getAbsolutePath(), files[0]);
 			try (FileInputStream stream = new FileInputStream(file)) {
