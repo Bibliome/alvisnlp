@@ -284,10 +284,5 @@
       <artifactId>alvisdb</artifactId>
       <version>0.0.1-SNAPSHOT</version>
     </dependency>
-    <dependency>
-    	<groupId>de.berlin.hu</groupId>
-    	<artifactId>chemspot</artifactId>
-    	<version>1.4</version>
-    </dependency>
   </dependencies>
 </project>
