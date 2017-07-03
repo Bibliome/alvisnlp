@@ -52,7 +52,7 @@ public final class Section extends AbstractElement {
     private final int                  ord;
     private final String               name;
     private final String               contents;
-    private final Map<String,Layer>    layers           = new HashMap<String,Layer>();
+    private final Map<String,Layer>    layers           = new LinkedHashMap<String,Layer>();
     private final Map<String,Relation> relations        = new LinkedHashMap<String,Relation>();
     private final String               fileName;
 

@@ -23,7 +23,7 @@ import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -150,7 +150,7 @@ public class PlanLoader<T extends Annotable> {
 	}
 
 	private static Map<String,List<Element>> buildDefaultParamValues(Document defaultParamValuesDoc) throws PlanException {
-		Map<String,List<Element>> result = new HashMap<String,List<Element>>();
+		Map<String,List<Element>> result = new LinkedHashMap<String,List<Element>>();
 		if (defaultParamValuesDoc == null) {
 			return result;
 		}

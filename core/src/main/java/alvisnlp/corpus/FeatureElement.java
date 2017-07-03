@@ -20,8 +20,8 @@ package alvisnlp.corpus;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -151,7 +151,7 @@ public class FeatureElement implements Element {
 
 	@Override
 	public Map<String,List<String>> getFeatures() {
-		Map<String,List<String>> result = new HashMap<String,List<String>>(element.getFeatures());
+		Map<String,List<String>> result = new LinkedHashMap<String,List<String>>(element.getFeatures());
 		result.put(KEY_FEATURE_KEY, Collections.singletonList(this.key));
 		result.put(VALUE_FEATURE_KEY, Collections.singletonList(this.value));
 		return result;

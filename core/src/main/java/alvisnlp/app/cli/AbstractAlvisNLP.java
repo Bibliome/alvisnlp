@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.EnumMap;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -122,11 +122,11 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	
 	private Level logLevel = Level.FINE;
 	private File logFile = null;
-	private Map<String,File> logFiles = new HashMap<String,File>();
+	private Map<String,File> logFiles = new LinkedHashMap<String,File>();
 	private boolean appendToLog = false;
 	private File tmpDir = new File("/tmp");
 	private boolean dumps = true;
-	private final Map<String,File> dumpModules = new HashMap<String,File>();
+	private final Map<String,File> dumpModules = new LinkedHashMap<String,File>();
 	private File defaultParamValuesFile = null;
 
 	private final List<ModuleParamSetter> params = new ArrayList<ModuleParamSetter>();
@@ -145,7 +145,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	private boolean writePlan = false;
 	protected int exitCode = 0;
 	private boolean cleanTmpDir = false;
-	private final Map<String,String> customEntities = new HashMap<String,String>();
+	private final Map<String,String> customEntities = new LinkedHashMap<String,String>();
 	private List<String> inputDirs;
 	private String outputDir;
 	private boolean noColors = false;
@@ -1014,7 +1014,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     	recLogTimer(logger, timer, 100, "");
     	
     	if (!noProcess) {
-    		Stats<Module<A>,Count> moduleStats = new CountStats<Module<A>>(new HashMap<Module<A>,Count>());
+    		Stats<Module<A>,Count> moduleStats = new CountStats<Module<A>>(new LinkedHashMap<Module<A>,Count>());
     		List<Module<A>> modules = CollectModules.visit(mainModule, false);
     		for (Module<A> m : modules)
     			moduleStats.incr(m, m.getTimer(ctx).getTime());

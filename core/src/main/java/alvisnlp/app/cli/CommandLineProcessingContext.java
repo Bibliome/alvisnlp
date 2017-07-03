@@ -25,7 +25,7 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.nio.charset.Charset;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
@@ -247,7 +247,7 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
 	
 	private static final class LoggerMap extends DefaultMap<String,Logger> {
 		public LoggerMap() {
-			super(true, new HashMap<String,Logger>());
+			super(true, new LinkedHashMap<String,Logger>());
 		}
 
 		@Override

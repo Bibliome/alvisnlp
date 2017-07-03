@@ -20,16 +20,11 @@ package alvisnlp.corpus;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.ElementType;
-import alvisnlp.corpus.ElementVisitor;
-import alvisnlp.corpus.Tuple;
 
 public final class ArgumentElement implements Element {
 	public static final String ROLE_FEATURE_KEY = "role";
@@ -159,7 +154,7 @@ public final class ArgumentElement implements Element {
 
 	@Override
 	public Map<String,List<String>> getFeatures() {
-		Map<String,List<String>> result = new HashMap<String,List<String>>();
+		Map<String,List<String>> result = new LinkedHashMap<String,List<String>>();
 		if (result.containsKey(ROLE_FEATURE_KEY))
 			result.get(ROLE_FEATURE_KEY).add(role);
 		else {

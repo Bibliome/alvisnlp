@@ -24,7 +24,6 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
@@ -390,7 +389,7 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
     	}
 
     	private void supplementParamDocElements(Element moduleDocElt) throws XPathExpressionException {
-    		Map<String,Element> result = new HashMap<String,Element>();
+    		Map<String,Element> result = new LinkedHashMap<String,Element>();
     		Collection<Element> toRemove = new ArrayList<Element>();
     		for (Element e : XMLUtils.evaluateElements(paramDocExpression, moduleDocElt)) {
     			if (!e.hasAttribute("name")) {
