@@ -11,7 +11,7 @@ import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.riot.RDFFormat;
+import org.apache.jena.riot.Lang;
 import org.apache.jena.shared.PrefixMapping;
 import org.apache.log4j.BasicConfigurator;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
@@ -37,11 +37,21 @@ import alvisnlp.module.types.Mapping;
 @AlvisNLPModule(beta=true)
 public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,Resource> {
 	private SourceStream source;
-	private String resourceTypeURI = "http://www.w3.org/2002/07/owl#Class";
-	private String[] labelURIs = {
-			"http://www.w3.org/2000/01/rdf-schema#label"
+	private String[] resourceTypeURIs = {
+			"owl:Class",
+			"skos:Concept"
 	};
-	private String uriFeatureName = "class";
+	private String[] labelURIs = {
+			"rdfs:label",
+			"skos:prefLabel",
+			"skos:altLabel",
+			"skos:hiddenLabel",
+			"skos:notation",
+			"oboInOwl:hasExactSynonym",
+			"oboInOwl:hasRelatedSynonym",
+			"oboInOwl:hasSynonym"
+	};
+	private String uriFeatureName;
 	private Mapping labelFeatures = new Mapping();
 
 	@Override
@@ -55,17 +65,19 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 		Model model = createModel(logger);
 		Property typeProp = model.getProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
 		Property[] labelPropertyProps = getProperties(model, labelURIs);
-		Resource resourceType = model.getResource(resourceTypeURI);
 		int nEntries = 0;
-		for (Resource res : Iterators.loop(model.listSubjectsWithProperty(typeProp , resourceType))) {
-			if (res.isAnon()) {
-				continue;
-			}
-			for (Property prop : labelPropertyProps) {
-				for (RDFNode node : Iterators.loop(model.listObjectsOfProperty(res, prop))) {
-					String label = getNodeValue(node);
-					trie.addEntry(label, res);
-					nEntries++;
+		for (String resourceTypeURI : resourceTypeURIs) {
+			Property resourceType = model.getProperty(model.expandPrefix(resourceTypeURI));
+			for (Resource res : Iterators.loop(model.listSubjectsWithProperty(typeProp , resourceType))) {
+				if (res.isAnon()) {
+					continue;
+				}
+				for (Property prop : labelPropertyProps) {
+					for (RDFNode node : Iterators.loop(model.listObjectsOfProperty(res, prop))) {
+						String label = getNodeValue(node);
+						trie.addEntry(label, res);
+						nEntries++;
+					}
 				}
 			}
 		}
@@ -75,7 +87,7 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 	private static Property[] getProperties(Model model, String[] uris) {
 		Property[] result = new Property[uris.length];
 		for (int i = 0; i < result.length; ++i) {
-			result[i] = model.getProperty(uris[i]);
+			result[i] = model.getProperty(model.expandPrefix(uris[i]));
 		}
 		return result;
 	}
@@ -97,11 +109,12 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 		Model model = ModelFactory.createDefaultModel();
 		model.setNsPrefixes(PrefixMapping.Standard);
 		model.setNsPrefix("xsd", "http://www.w3.org/2001/XMLSchema#");
+		model.setNsPrefix("skos", "http://www.w3.org/2004/02/skos/core#");
+		model.setNsPrefix("oboInOwl", "http://www.geneontology.org/formats/oboInOwl#");
 //		model.setNsPrefixes(module.prefixes);
 		for (BufferedReader r : Iterators.loop(source.getBufferedReaders())) {
 			logger.info("loading model from: " + source.getStreamName(r));
-//			RDFDataMgr.read(model, r, "boo", Lang.RDFXML);
-			model.read(r, RDFFormat.RDFXML_ABBREV.toString()/*XXX ???*/);
+			model.read(r, Lang.RDFXML.toString());
 		}
 		return model;
 	}
@@ -131,7 +144,7 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 		Model model = value.getModel();
 		for (Map.Entry<String,String> e : labelFeatures.entrySet()) {
 			String propURI = e.getValue();
-			Property prop = model.getProperty(propURI);
+			Property prop = model.getProperty(model.expandPrefix(propURI));
 			for (RDFNode node : Iterators.loop(model.listObjectsOfProperty(value, prop))) {
 				a.addFeature(e.getKey(), getNodeValue(node));
 			}
@@ -149,8 +162,8 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 	}
 
 	@Param
-	public String getResourceTypeURI() {
-		return resourceTypeURI;
+	public String[] getResourceTypeURIs() {
+		return resourceTypeURIs;
 	}
 
 	@Param
@@ -172,8 +185,8 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 		this.source = source;
 	}
 
-	public void setResourceTypeURI(String resourceTypeURI) {
-		this.resourceTypeURI = resourceTypeURI;
+	public void setResourceTypeURIs(String[] resourceTypeURIs) {
+		this.resourceTypeURIs = resourceTypeURIs;
 	}
 
 	public void setLabelURIs(String[] labelURIs) {
