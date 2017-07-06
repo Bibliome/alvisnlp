@@ -19,7 +19,7 @@ Please contact [Robert Bossy](mailto:robert.bossy@inra.fr) if you have any quest
 
 # Download
 
-Clone the git repository or download from https://github.com/Bibliome/alvisnlp
+`git clone https://github.com/Bibliome/alvisnlp`
 
 # Build and install from the package homedir
 
