@@ -35,15 +35,20 @@ limitations under the License.
   </xsl:template>
 
   <xsl:template match="alvisnlp-doc">
+  	<xsl:text>
+
+</xsl:text>
     <xsl:value-of select="ansi:bright(ansi:underline($name))"/>
     <xsl:text>
-    </xsl:text>    
+    </xsl:text>
     <xsl:value-of select="@short-target"/>
-    <xsl:text>
-
+<xsl:text>
 </xsl:text>
     <xsl:apply-templates select="synopsis"/>
     <xsl:apply-templates select="module-doc|plan-doc|converter-doc|library-doc"/>
+  	<xsl:text>
+
+</xsl:text>
   </xsl:template>
 
   <xsl:template match="module-doc|plan-doc">
@@ -54,7 +59,7 @@ limitations under the License.
     <xsl:text>
 </xsl:text>
     <xsl:apply-templates select="param-doc">
-      <xsl:sort select="@name"/>
+      <!-- <xsl:sort select="@name"/> -->
     </xsl:apply-templates>
   </xsl:template>
 
