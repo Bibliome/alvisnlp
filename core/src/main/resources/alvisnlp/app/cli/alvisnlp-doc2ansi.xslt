@@ -31,12 +31,10 @@ limitations under the License.
 	<xsl:param name="functions" />
 
   <xsl:template match="/">
-  	<xsl:message>Root: <xsl:value-of select="name()"/></xsl:message>
   	<xsl:apply-templates select="//alvisnlp-doc"/>
   </xsl:template>
 
   <xsl:template match="alvisnlp-doc">
-  	<xsl:message>Doc</xsl:message>
     <xsl:value-of select="ansi:bright(ansi:underline($name))"/>
     <xsl:text>
     </xsl:text>    
