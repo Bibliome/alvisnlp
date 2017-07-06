@@ -3,6 +3,7 @@ package org.bibliome.alvisnlp.modules.rdf;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Map;
+import java.util.Properties;
 import java.util.logging.Logger;
 
 import org.apache.jena.rdf.model.Literal;
@@ -14,7 +15,7 @@ import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.shared.PrefixMapping;
-import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.PropertyConfigurator;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 import org.bibliome.alvisnlp.modules.trie.TrieProjector;
 import org.bibliome.util.Iterators;
@@ -109,7 +110,11 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 	}
 
 	private Model createModel(Logger logger) throws IOException {
-		BasicConfigurator.configure();
+		Properties props = new Properties();
+		props.setProperty("log4j.rootLogger", "WARNING, A1");
+		props.setProperty("log4j.appender.A1", "org.apache.log4j.varia.NullAppender");
+//		BasicConfigurator.configure();
+		PropertyConfigurator.configure(props);
 		Model model = ModelFactory.createDefaultModel();
 		model.setNsPrefixes(PrefixMapping.Standard);
 		model.setNsPrefix("xsd", "http://www.w3.org/2001/XMLSchema#");
