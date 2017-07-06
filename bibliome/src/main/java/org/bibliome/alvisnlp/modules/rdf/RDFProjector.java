@@ -1,7 +1,7 @@
 package org.bibliome.alvisnlp.modules.rdf;
 
-import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Map;
 import java.util.logging.Logger;
 
@@ -12,6 +12,7 @@ import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.riot.Lang;
+import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.shared.PrefixMapping;
 import org.apache.log4j.BasicConfigurator;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
@@ -112,9 +113,11 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 		model.setNsPrefix("skos", "http://www.w3.org/2004/02/skos/core#");
 		model.setNsPrefix("oboInOwl", "http://www.geneontology.org/formats/oboInOwl#");
 //		model.setNsPrefixes(module.prefixes);
-		for (BufferedReader r : Iterators.loop(source.getBufferedReaders())) {
-			logger.info("loading model from: " + source.getStreamName(r));
-			model.read(r, Lang.RDFXML.toString());
+		for (InputStream is : Iterators.loop(source.getInputStreams())) {
+			logger.info("loading model from: " + source.getStreamName(is));
+//			System.err.println("is = " + is);
+//			model.read(is, null, Lang.RDFXML.toString());
+			RDFDataMgr.read(model, is, Lang.RDFXML);
 		}
 		return model;
 	}
