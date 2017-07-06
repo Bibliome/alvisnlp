@@ -166,7 +166,7 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
 		if (baseNameId) {
 			int slash = name.lastIndexOf(File.separatorChar) + 1;
 			int dot = name.lastIndexOf('.');
-			if (dot == -1)
+			if (dot == -1 || dot < slash)
 				dot = name.length();
 			name = name.substring(slash, dot);
 		}
