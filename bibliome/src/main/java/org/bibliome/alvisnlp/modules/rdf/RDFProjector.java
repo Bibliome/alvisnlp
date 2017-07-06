@@ -53,7 +53,10 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 			"oboInOwl:hasSynonym"
 	};
 	private String uriFeatureName;
-	private Mapping labelFeatures = new Mapping();
+	private Mapping labelFeatures = new Mapping(
+			"rdfs-label", "rdfs:label",
+			"skos-prefLabel", "skos:prefLabel"
+			);
 
 	@Override
 	@TimeThis(task="create-trie", category=TimerCategory.LOAD_RESOURCE)
