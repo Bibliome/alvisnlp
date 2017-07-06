@@ -37,6 +37,15 @@ public class Mapping extends LinkedHashMap<String,String> implements NameUser {
     public Mapping() {
         super();
     }
+    
+    public Mapping(String... keyAndValues) {
+    	if (keyAndValues.length % 2 != 0) {
+    		throw new IllegalArgumentException("odd");
+    	}
+    	for (int i = 0; i < keyAndValues.length; i += 2) {
+    		put(keyAndValues[i], keyAndValues[i+1]);
+    	}
+    }
 
 	@Override
 	public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
