@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Logger;
 
+import org.bibliome.alvisnlp.MiscUtils;
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 import org.bibliome.util.Iterators;
@@ -66,6 +67,7 @@ public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
+			MiscUtils.configureSilentLog4J();
 			Logger logger = getLogger(ctx);
 			EvaluationContext evalCtx = new EvaluationContext(logger );
 			AbstractSequenceClassifier<CoreLabel> classifier = createClassifier();

@@ -31,6 +31,7 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.riot.RDFFormat;
 import org.apache.jena.shared.PrefixMapping;
 import org.apache.log4j.BasicConfigurator;
+import org.bibliome.alvisnlp.MiscUtils;
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
 import org.bibliome.alvisnlp.modules.rdf.RDFExport.RDFExportResolvedObjects;
@@ -83,7 +84,7 @@ public class RDFExport extends CorpusModule<RDFExportResolvedObjects> {
 		}
 
 		private static Model createModel(RDFExport module) {
-			BasicConfigurator.configure();
+			MiscUtils.configureSilentLog4J();
 			Model model = ModelFactory.createDefaultModel();
 			model.setNsPrefixes(PrefixMapping.Standard);
 			model.setNsPrefix("xsd", "http://www.w3.org/2001/XMLSchema#");

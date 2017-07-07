@@ -16,6 +16,7 @@ import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.shared.PrefixMapping;
 import org.apache.log4j.PropertyConfigurator;
+import org.bibliome.alvisnlp.MiscUtils;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 import org.bibliome.alvisnlp.modules.trie.TrieProjector;
 import org.bibliome.util.Iterators;
@@ -110,11 +111,7 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 	}
 
 	private Model createModel(Logger logger) throws IOException {
-		Properties props = new Properties();
-		props.setProperty("log4j.rootLogger", "WARNING, A1");
-		props.setProperty("log4j.appender.A1", "org.apache.log4j.varia.NullAppender");
-//		BasicConfigurator.configure();
-		PropertyConfigurator.configure(props);
+		MiscUtils.configureSilentLog4J();
 		Model model = ModelFactory.createDefaultModel();
 		model.setNsPrefixes(PrefixMapping.Standard);
 		model.setNsPrefix("xsd", "http://www.w3.org/2001/XMLSchema#");
