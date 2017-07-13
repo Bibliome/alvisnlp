@@ -32,7 +32,7 @@ import alvisnlp.corpus.Section;
 import alvisnlp.corpus.Tuple;
 
 class XMLReaderContext {
-	private final XMLReader2 owner;
+	private final XMLReader owner;
 	private final Corpus corpus;
 	private final Deque<Element> elementStack = new ArrayDeque<Element>();
 	private final Deque<Document> documentStack = new ArrayDeque<Document>();
@@ -42,7 +42,7 @@ class XMLReaderContext {
 	private final Deque<Tuple> tupleStack = new ArrayDeque<Tuple>();
 	private final Deque<Map<String,Annotation>> refScope = new ArrayDeque<Map<String,Annotation>>();
 	
-	XMLReaderContext(XMLReader2 owner, Corpus corpus) {
+	XMLReaderContext(XMLReader owner, Corpus corpus) {
 		super();
 		this.owner = owner;
 		this.corpus = corpus;

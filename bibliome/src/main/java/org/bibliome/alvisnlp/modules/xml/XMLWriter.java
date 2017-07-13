@@ -44,7 +44,7 @@ import org.bibliome.alvisnlp.converters.expression.parser.ExpressionParser;
 import org.bibliome.alvisnlp.converters.expression.parser.ParseException;
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
-import org.bibliome.alvisnlp.modules.xml.XMLWriter2.XMLWriterResolvedObjects;
+import org.bibliome.alvisnlp.modules.xml.XMLWriter.XMLWriterResolvedObjects;
 import org.bibliome.util.Iterators;
 import org.bibliome.util.defaultmap.DefaultMap;
 import org.bibliome.util.files.OutputDirectory;
@@ -77,9 +77,8 @@ import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
 
-// RENAME: XMLWriter
-@AlvisNLPModule(beta=true)
-public class XMLWriter2 extends CorpusModule<XMLWriterResolvedObjects> {
+@AlvisNLPModule
+public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 	public static final String ALVISNLP_PROXY_NAMESPACE_URI = "http://bilbiome.jouy.inra.fr/alvisnlp/XMLReader2";
 	
 	private static final String ELEMENT_USER_DATA = "element";
@@ -94,7 +93,7 @@ public class XMLWriter2 extends CorpusModule<XMLWriterResolvedObjects> {
 		private final Evaluator roots;
 		private final Evaluator fileName;
 
-		private XMLWriterResolvedObjects(ProcessingContext<Corpus> ctx, XMLWriter2 module) throws ResolverException {
+		private XMLWriterResolvedObjects(ProcessingContext<Corpus> ctx, XMLWriter module) throws ResolverException {
 			super(ctx, module);
 			roots = rootResolver.resolveNullable(module.roots);
 			fileName = module.fileName.resolveExpressions(rootResolver);
