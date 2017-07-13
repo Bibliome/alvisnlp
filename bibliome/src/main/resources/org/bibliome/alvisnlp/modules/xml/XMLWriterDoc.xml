@@ -15,22 +15,50 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<alvisnlp-doc author="Robert Bossy" date="2010-10-28">
+<alvisnlp-doc author="Robert Bossy" date="2012-04-30" target="org.bibliome.alvisnlp.modules.xml.XMLWriter2">
   <synopsis>
-    <p>Writes an XML serialization of the corpus into a file.</p>
+    <p>Writes the corpus data structure into a file via an XSLT stylesheet.</p>
   </synopsis>
 
   <module-doc>
     <description>
-      <p><this/> serializes the current state of the corpus into <param name="outFile"/> in XML. The XML will conform to <a href="alvisnlp-corpus.dtd">alvisnlp-corpus.dtd</a>.</p>
+      <p><this/> evaluates <param name="roots"/> as a list of elements. The for each element, it writes a file using the <param name="xslTransform"/> stylesheet. The file name is specified by the evaluation of <param name="fileName"/> as a string with the root element as he context element. Relative file names are relative to <param name="outDir"/>.</p>
+      <p>The stylesheet operates on an empty XML document bound to the root element, however <this/> provides XSLT element and function extensions in order to retrieve elements as a DOM structure. All extensions are defined in the namespace <xverb>xalan://org.bibliome.alvisnlp.modules.xml.XMLWriter2</xverb>.</p>
+      <h3>Extension functions</h3>
+      <p>
+	<ul>
+	  <li><xverb>NodeSet elements(String expression)</xverb>: evaluates <em>expression</em> as a list of elements with the element bound to the context node as the context element. Each element is converted as an XML element; the result of this function is then a node set that can be used in a <xverb>for-each</xverb> statement. The returned elements have the name <xverb>element</xverb> in the <xverb>http://bibliome.jouy.inra.fr/alvisnlp/XMLReader2</xverb> namespace. For each feature of the element, the corresponding XML element has an attribute. Each returned XML element is bound to to the corresponding AlvisNLP/ML element.</li>
+	  <li><xverb>String string(String expression)</xverb>: evaluates <em>expression</em> as a string with the element bound to the context node as the context element. The string is returned.</li>
+	  <li><xverb>Number integer(String expression)</xverb>: evaluates <em>expression</em> as an integer with the element bound to the context node as the context element. The integer is returned.</li>
+	  <li><xverb>Number number(String expression)</xverb>: evaluates <em>expression</em> as a double with the element bound to the context node as the context element. The double is returned.</li>
+	  <li><xverb>NodeSet features()</xverb>: returns all features of the element bound to the context node as a node set. The returned XML elements have the name <xverb>feature</xverb> in the <xverb>http://bibliome.jouy.inra.fr/alvisnlp/XMLReader2</xverb> namespace. The feature name and values are set in the attributes <xverb>name</xverb> and <xverb>value</xverb>.</li>
+	  <li><xverb>NodeSet inline(String expression)</xverb>: evaluates <em>expression</em> as a list of elements with the element bound to the context node as the context element. If the context element was a section, and if the result contains annotations, then this funcion returns the section contents with the annotations as XML elements included in the text. This function is used to convert annotations into in-text XML format.</li>
+	</ul>
+      </p>
     </description>
   
-    <param-doc name="outFile">
-      <p>Path to the file where to write the corpus.</p>
+    <param-doc name="active">
+      <p>This expression is evaluated as a boolean with the corpus as the context element. If the value is false, then the module is not executed.</p>
     </param-doc>
   
-    <param-doc name="active">
-      <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is true.</p>
+    <param-doc name="xslTransform">
+      <p>XSLT stylesheet that specifies the output.</p>
+    </param-doc>
+  
+    <param-doc name="roots">
+      <p>Expression evaluated as a list of elements with the corpus as the context element. <this/> writes a file for each element in the result.</p>
+    </param-doc>
+  
+    <param-doc name="outDir">
+      <p>Base directory where all file are written.</p>
+    </param-doc>
+  
+    <param-doc name="fileName">
+      <p>Expression evaluated as a string with the file root element as the context element. The result specifies the file where to write the result.</p>
+    </param-doc>
+
+    <param-doc name="indent">
+      <p>Either to indent the resulting XML.</p>
     </param-doc>
   <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
 </alvisnlp-doc>

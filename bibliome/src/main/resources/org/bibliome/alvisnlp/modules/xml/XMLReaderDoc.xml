@@ -15,20 +15,43 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<alvisnlp-doc author="Robert Bossy" date="2010-10-28">
+<alvisnlp-doc author="Robert Bossy" date="2012-04-30" target="org.bibliome.alvisnlp.modules.xml.XMLReader2">
   <synopsis>
-    <p>Reads a corpus in XML files.</p>
+    <p>Reads XML files and creates elements.</p>
   </synopsis>
 
   <module-doc>
     <description>
-      <p><this/> reads a corpus in the file(s) <param name="sourcePath"/>. These files must be in the corpus XML serialization format (see <a href="alvisnlp-corpus.dtd">alvisnlp-corpus.dtd</a>). The file may be in any XML format as long as a proper XSLT transform is given by <param name="xslTransform"/>; the result of this stylesheet must be a valid corpus XML serialization. The string parameters defined in <param name=""/> are passed to the stylesheet.</p>
-      <p>If <param name="sourcePath"/> is a path to a file, then <this/> will read this file. If <param name="sourcePath"/> is a path to a directory, then <this/> will read the files in this directory. If <param name="recursive"/> is set to true, then the files in sub-directories will be read recursively. <this/> only reads files whose name match <param name="acceptPattern"/>. If <param name="acceptPattern"/> is not set, then <this/> reads all files.</p>
-      <p>The created documents, sections, annotations, relations and tuples will have the features defined in <param name="constantDocumentFeatures"/>, <param name="constantSectionFeatures"/>, <param name="constantAnnotationFeatures"/>, <param name="constantRelationFeatures"/> and <param name="constantTupleFeatures"/> respectively.</p>
+      <p><this/> reads its input from <param name="sourcePath"/> as XML and creates documents, sections, annotations, relations or tuples. The structure of the input XML is handled through the <param name="xlsTransform"/> XSLT stylesheet.</p>
+      <p><this/> also provides XSLT function and element extensions. The namespace for all extensions is <xverb>xalan://org.bibliome.alvisnlp.modules.xml.XMLReader2</xverb>.</p>
+      <h3>Element extensions</h3>
+      <p>
+	<ul>
+	  <li><xverb>document</xverb>: creates a document in the current corpus. The identifier is either a string specified by the attribute id, or an XPath expression specified by the xpath-id attribute. The expression is evaluated as a string.</li>
+	  <li><xverb>section</xverb>: creates a section in the current document; this element should occur inside a document element. The name of the section is either specified as a string in the name attribute, or as an XPath expression in the xpath-name attribute. The contents of the section is either specified as a string in the contents attribute, or as an XPath expression in the xpath-contents attribute.</li>
+	  <li><xverb>annotation</xverb>: creates an annotation in the current section; this element should occur inside a section element. The start and end positions are specified by the start and end attributes respectively. The value of these attributes are XPath expressions evaluated as integers. The layers in which the annotation should be added are either specified as a string by the layers attribute, or as an XPath expression by the xpath-layers attribute. The layers should be a space spearated list of layer names, the annotation will be added in each named layer. If the layers list is empty, then no annotation is created at all. Moreover an identifier for the created annotation may be specified either as a string by the ref attribute, or as an XPath expression by the xpath-ref attribute. This identifier can be referenced later to set tuple arguments.</li>
+	  <li><xverb>relation</xverb>: creates a relation in the current section; this element should occur inside a section element. The name of the relation is specified either as a string by the name attribute, or as an XPath expression by the xpath-name attribute.</li>
+	  <li><xverb>tuple</xverb>: creates a tuple inside the current relation; this element should occur inside a relation element.</li>
+	  <li><xverb>arg</xverb>: sets an argument of the current tuple; this element should occur inside a tuple element. The role of the argument is specified either as a string by the role attribute, or as an XPath expression by the xpath-role attribute. The identifier of the argument is specified either as a string by the ref attribute, or as an XPath expression by the xpath-ref attribute. The value must have been set previously in an annotation element.</li>
+	  <li><xverb>feature</xverb>: adds a feature to the current element; this element should occur inside a document, section, annotation, relation or tuple element. The name of the feature is set either as a string by the name attribute, or as an XPath expression by the xpath-name attribute. The value of the feature is set either as a string by the value attribute, or as an XPath expression by the xpath-value attribute.</li>
+	</ul>
+      </p>
+      <h3>Function extensions</h3>
+      <p>
+	<ul>
+	  <li><xverb>inline</xverb>: this function evaluates as a node set containing a copy of each element inside the current node. The elements will have two additional attributes start and end that indicate the character positions of the start and end tags. These attributes have the namespace http://bibliome.jouy.inra.fr/alvisnlp/bibliome-module-factory/inline. This function is useful to read in-text annotations.
+Note: the inline() function also process comment and processing instruction nodes. These nodes are then wrapped within an extra element named wrapper (in the namespace http://bibliome.jouy.inra.fr/alvisnlp/bibliome-module-factory/inline), which will have the two attributes start and end to indicate the character position where the comment or the processiçng instruction is inserted.
+          </li>
+	</ul>
+      </p>
     </description>
   
+    <param-doc name="active">
+      <p>This expression is evaluated as a boolean with the corpus as the context element. If the value is false, then the module is not executed.</p>
+    </param-doc>
+  
     <param-doc name="xslTransform">
-      <p>XSLT stylesheet. Allows to read arbitrary XML files by transforming into the document serialization format.</p>
+      <p>XSLT Stylesheet to apply on the input.</p>
     </param-doc>
   
     <param-doc name="constantAnnotationFeatures">
@@ -39,16 +62,12 @@ limitations under the License.
       <p>Constant features to add to each document created by this module</p>
     </param-doc>
   
-    <param-doc name="active">
-      <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is true.</p>
-    </param-doc>
-  
     <param-doc name="constantRelationFeatures">
       <p>Constant features to add to each relation created by this module</p>
     </param-doc>
   
     <param-doc name="stringParams">
-      <p>String parameters for the XSLT stylesheet.</p>
+      <p>Parameters to pass to the XSLT Stylesheet specified by <param name="xslTransform"/>.</p>
     </param-doc>
   
     <param-doc name="constantSectionFeatures">
@@ -61,6 +80,14 @@ limitations under the License.
   
     <param-doc name="constantTupleFeatures">
       <p>Constant features to add to each tuple created by this module</p>
+    </param-doc>
+
+    <param-doc name="html">
+      <p>Set to true if the input is HTML rather than XML.</p>
+    </param-doc>
+
+    <param-doc name="rawTagNames">
+      <p>If true, do not convert tag names to upper case.</p>
     </param-doc>
   <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
 </alvisnlp-doc>
