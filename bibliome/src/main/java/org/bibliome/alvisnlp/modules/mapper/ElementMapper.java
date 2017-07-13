@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.mapper.ElementMapper.ElementMapperResolvedObjects;
-import org.bibliome.alvisnlp.modules.mapper.Mapper2.MapperResolvedObjects;
+import org.bibliome.alvisnlp.modules.mapper.Mapper.MapperResolvedObjects;
 import org.bibliome.util.Iterators;
 import org.bibliome.util.defaultmap.DefaultMap;
 
@@ -41,7 +41,7 @@ import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 
 @AlvisNLPModule(beta=true)
-public class ElementMapper extends Mapper2<ElementMapperResolvedObjects,List<String>> {
+public class ElementMapper extends Mapper<ElementMapperResolvedObjects,List<String>> {
 	private Expression entries;
 	private Expression key;
 	private Expression[] values;

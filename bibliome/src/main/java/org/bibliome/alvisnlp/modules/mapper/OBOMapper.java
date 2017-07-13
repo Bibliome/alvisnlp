@@ -20,7 +20,7 @@ package org.bibliome.alvisnlp.modules.mapper;
 import java.io.IOException;
 import java.util.List;
 
-import org.bibliome.alvisnlp.modules.mapper.Mapper2.MapperResolvedObjects;
+import org.bibliome.alvisnlp.modules.mapper.Mapper.MapperResolvedObjects;
 import org.bibliome.util.defaultmap.DefaultMap;
 import org.bibliome.util.obo.OBOUtils;
 import org.obo.dataadapter.OBOParseException;
@@ -43,7 +43,7 @@ import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 
 @AlvisNLPModule
-public class OBOMapper extends Mapper2<MapperResolvedObjects,OBOClass> {
+public class OBOMapper extends Mapper<MapperResolvedObjects,OBOClass> {
 	private String[] oboFiles;
 	private String nameFeature;
 	private String idFeature;

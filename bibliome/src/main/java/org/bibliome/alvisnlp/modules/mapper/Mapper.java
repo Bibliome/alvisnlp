@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
-import org.bibliome.alvisnlp.modules.mapper.Mapper2.MapperResolvedObjects;
+import org.bibliome.alvisnlp.modules.mapper.Mapper.MapperResolvedObjects;
 import org.bibliome.util.Iterators;
 import org.bibliome.util.Timer;
 import org.bibliome.util.defaultmap.DefaultArrayListHashMap;
@@ -42,8 +42,7 @@ import alvisnlp.module.ProcessingException;
 import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.Param;
 
-// RENAME: Mapper
-public abstract class Mapper2<S extends MapperResolvedObjects,T> extends CorpusModule<S> {
+public abstract class Mapper<S extends MapperResolvedObjects,T> extends CorpusModule<S> {
 	private Expression target;
 	private Expression form;
     protected Boolean ignoreCase = false;
@@ -53,7 +52,7 @@ public abstract class Mapper2<S extends MapperResolvedObjects,T> extends CorpusM
     	private final Evaluator target;
 		private final Evaluator form;
 
-		public MapperResolvedObjects(ProcessingContext<Corpus> ctx, Mapper2<? extends MapperResolvedObjects,?> module) throws ResolverException {
+		public MapperResolvedObjects(ProcessingContext<Corpus> ctx, Mapper<? extends MapperResolvedObjects,?> module) throws ResolverException {
 			super(ctx, module);
 			target = rootResolver.resolveNullable(module.target);
 			form = rootResolver.resolveNullable(module.form);

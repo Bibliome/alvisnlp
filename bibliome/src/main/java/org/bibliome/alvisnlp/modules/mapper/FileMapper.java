@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.logging.Logger;
 
-import org.bibliome.alvisnlp.modules.mapper.Mapper2.MapperResolvedObjects;
+import org.bibliome.alvisnlp.modules.mapper.Mapper.MapperResolvedObjects;
 import org.bibliome.util.defaultmap.DefaultMap;
 import org.bibliome.util.filelines.FileLines;
 import org.bibliome.util.filelines.InvalidFileLineEntry;
@@ -42,9 +42,8 @@ import alvisnlp.module.lib.Param;
  * Maps features according to a mapping file.
  */
 
-// RENAME: FileMapper
 @AlvisNLPModule
-public class FileMapper2 extends Mapper2<MapperResolvedObjects,List<String>> {
+public class FileMapper extends Mapper<MapperResolvedObjects,List<String>> {
     private SourceStream                            mappingFile            = null;
     private Character                       separator              = '\t';
     private Integer keyColumn = 0;
