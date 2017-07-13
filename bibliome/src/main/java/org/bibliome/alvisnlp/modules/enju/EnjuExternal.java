@@ -56,7 +56,6 @@ import alvisnlp.module.ProcessingException;
 import alvisnlp.module.lib.External;
 import alvisnlp.module.lib.ModuleBase;
 
-// RENAME: EnjuExternal
 public class EnjuExternal implements External<Corpus> {
 	private static final Pattern ENJU_LINE_PATTERN = Pattern.compile("(?<start>\\d+)\t(?<end>\\d+)\t(?<kind>[a-z0-9_]+) (?<attr>.*)");
 	private static final Pattern ENJU_ATTRIBUTE_PATTERN = Pattern.compile("\\s*(?<key>[a-z0-9_]+)=\"(?<value>.*?)\"\\s*");
