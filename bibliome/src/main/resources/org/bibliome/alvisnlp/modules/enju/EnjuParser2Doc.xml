@@ -33,7 +33,7 @@ limitations under the License.
 -->
 
   <synopsis>
-    <p>synopsis</p>
+    <p>This module is an alias for <module name="EnjuParser"/></p>
   </synopsis>
 
   <module-doc>
