@@ -26,3 +26,4 @@ expose-repository.sh
 maven-repository/
 .test/
 share/default-param-values.xml
+_attic/
