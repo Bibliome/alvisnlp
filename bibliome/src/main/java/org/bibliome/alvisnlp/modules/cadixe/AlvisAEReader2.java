@@ -61,6 +61,7 @@ import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
 
+// RENAME: AlvisAEReader
 @AlvisNLPModule
 public abstract class AlvisAEReader2 extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, TupleCreator, AnnotationCreator {
 	private String url;

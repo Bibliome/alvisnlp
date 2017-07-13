@@ -27,7 +27,6 @@ import org.bibliome.util.pattern.SequenceMatcher;
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.DownCastElement;
 import alvisnlp.corpus.Element;
-import alvisnlp.corpus.Layer;
 import alvisnlp.corpus.NameType;
 import alvisnlp.corpus.Section;
 import alvisnlp.corpus.expressions.Evaluator;

@@ -39,7 +39,7 @@ import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
 
-@AlvisNLPModule(obsoleteUseInstead=Shell2.class)
+@AlvisNLPModule
 public abstract class Shell extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, TupleCreator {
 	private String prompt = "> ";
 	private OutputFile historyFile = new OutputFile(System.getProperty("user.home"), ".alvisnlp/shell_history");

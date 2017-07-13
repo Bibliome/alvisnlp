@@ -77,6 +77,7 @@ import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
 
+// RENAME: XMLWriter
 @AlvisNLPModule(beta=true)
 public class XMLWriter2 extends CorpusModule<XMLWriterResolvedObjects> {
 	public static final String ALVISNLP_PROXY_NAMESPACE_URI = "http://bilbiome.jouy.inra.fr/alvisnlp/XMLReader2";

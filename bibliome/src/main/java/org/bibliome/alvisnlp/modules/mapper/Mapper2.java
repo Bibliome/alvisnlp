@@ -42,6 +42,7 @@ import alvisnlp.module.ProcessingException;
 import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.Param;
 
+// RENAME: Mapper
 public abstract class Mapper2<S extends MapperResolvedObjects,T> extends CorpusModule<S> {
 	private Expression target;
 	private Expression form;

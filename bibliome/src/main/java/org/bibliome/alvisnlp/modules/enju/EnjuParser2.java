@@ -50,6 +50,7 @@ import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
 
+// RENAME: EnjuParser
 @AlvisNLPModule(beta=true)
 public abstract class EnjuParser2 extends SectionModule<EnjuParserResolvedObjects> implements TupleCreator {
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();

@@ -56,6 +56,7 @@ import alvisnlp.module.ProcessingException;
 import alvisnlp.module.lib.External;
 import alvisnlp.module.lib.ModuleBase;
 
+// RENAME: EnjuExternal
 public class EnjuExternal2 implements External<Corpus> {
 	private static final Pattern ENJU_LINE_PATTERN = Pattern.compile("(?<start>\\d+)\t(?<end>\\d+)\t(?<kind>[a-z0-9_]+) (?<attr>.*)");
 	private static final Pattern ENJU_ATTRIBUTE_PATTERN = Pattern.compile("\\s*(?<key>[a-z0-9_]+)=\"(?<value>.*?)\"\\s*");
@@ -91,7 +92,7 @@ public class EnjuExternal2 implements External<Corpus> {
 	private static ExecutableFile createScriptFile(File tempDir) throws IOException {
 		ExecutableFile result = new ExecutableFile(tempDir, "enju.sh");
 		// same ClassLoader as this class
-		InputStream is = EnjuParser.class.getResourceAsStream("enju.sh");
+		InputStream is = EnjuParser2.class.getResourceAsStream("enju.sh");
 		Files.copy(is, result, 1024, true);
 		result.setExecutable(true);
 		return result;

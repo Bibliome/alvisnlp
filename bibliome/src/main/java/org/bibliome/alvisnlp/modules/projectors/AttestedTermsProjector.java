@@ -41,6 +41,7 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 
+// REIMPLEMENT: TrieProjector
 @AlvisNLPModule
 public abstract class AttestedTermsProjector extends Projector<SectionResolvedObjects,String[],Dictionary<String[]>> {
 	private String termFeatureName = null;

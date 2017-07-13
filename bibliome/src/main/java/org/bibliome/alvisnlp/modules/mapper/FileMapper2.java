@@ -41,6 +41,8 @@ import alvisnlp.module.lib.Param;
 /**
  * Maps features according to a mapping file.
  */
+
+// RENAME: FileMapper
 @AlvisNLPModule
 public class FileMapper2 extends Mapper2<MapperResolvedObjects,List<String>> {
     private SourceStream                            mappingFile            = null;

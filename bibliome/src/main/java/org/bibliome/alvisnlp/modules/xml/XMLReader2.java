@@ -77,6 +77,7 @@ import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
 import alvisnlp.module.types.Mapping;
 
+// RENAME: XMLReader
 @AlvisNLPModule
 public abstract class XMLReader2 extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, TupleCreator {
 	private static final org.w3c.dom.Document document;
