@@ -30,10 +30,9 @@
     <targetLayerName>PredictedBacteria</targetLayerName>
     <sentenceLayerName>sentences</sentenceLayerName>
     <maxNGramSize>5</maxNGramSize>
-    <!--<keepAnnotations>ProjectedBacteria</keepAnnotations>-->
     <documentFilter>@set == "train" or @set == "dev"</documentFilter>
   </ngrams>
-
+  
   <renbio>
     <train class="TrainingElementClassifier">
       <algorithm>weka.classifiers.bayes.NaiveBayes</algorithm>
