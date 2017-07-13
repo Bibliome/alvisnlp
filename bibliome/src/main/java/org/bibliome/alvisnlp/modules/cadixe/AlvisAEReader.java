@@ -61,9 +61,8 @@ import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
 
-// RENAME: AlvisAEReader
 @AlvisNLPModule
-public abstract class AlvisAEReader2 extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, TupleCreator, AnnotationCreator {
+public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, TupleCreator, AnnotationCreator {
 	private String url;
 	private String schema;
 	private String username;
@@ -133,7 +132,7 @@ public abstract class AlvisAEReader2 extends CorpusModule<ResolvedObjects> imple
 	@TimeThis(task="open-connection")
 	protected Connection openConnection(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx) throws SQLException, ClassNotFoundException {
 //		Class.forName("org.postgresql.Driver");
-		Class.forName("org.postgresql.Driver", true, AlvisAEReader2.class.getClassLoader());
+		Class.forName("org.postgresql.Driver", true, AlvisAEReader.class.getClassLoader());
 		return DriverManager.getConnection(url, username, password);
 	}
 
