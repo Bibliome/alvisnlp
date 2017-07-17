@@ -1,21 +1,4 @@
-/*
-Copyright 2016, 2017 Institut National de la Recherche Agronomique
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-        http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
-
-
-package org.bibliome.alvisnlp.modules.projectors;
+package org.bibliome.alvisnlp.modules.trie;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -31,7 +14,6 @@ import java.util.Set;
 import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.alvisnlp.modules.trie.TyDIExportProjector;
 import org.bibliome.util.CartesianProduct;
 import org.bibliome.util.EquivalenceHashSets;
 import org.bibliome.util.EquivalenceSets;
@@ -39,29 +21,28 @@ import org.bibliome.util.filelines.EquivFileLines;
 import org.bibliome.util.filelines.FileLines;
 import org.bibliome.util.filelines.InvalidFileLineEntry;
 import org.bibliome.util.filelines.TabularFormat;
-import org.bibliome.util.newprojector.CharFilter;
-import org.bibliome.util.newprojector.CharMapper;
+import org.bibliome.util.marshall.Decoder;
+import org.bibliome.util.marshall.Encoder;
 import org.bibliome.util.newprojector.Dictionary;
 import org.bibliome.util.newprojector.Match;
 import org.bibliome.util.newprojector.Matcher;
-import org.bibliome.util.newprojector.State;
 import org.bibliome.util.newprojector.chars.Filters;
 import org.bibliome.util.newprojector.chars.Mappers;
 import org.bibliome.util.newprojector.states.AllValuesState;
 import org.bibliome.util.streams.SourceStream;
 import org.bibliome.util.streams.TargetStream;
+import org.bibliome.util.trie.Trie;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.DefaultNames;
 import alvisnlp.corpus.NameType;
 import alvisnlp.corpus.expressions.ResolverException;
+import alvisnlp.module.ModuleException;
 import alvisnlp.module.ProcessingContext;
-import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 
-@AlvisNLPModule(obsoleteUseInstead=TyDIExportProjector.class)
-public abstract class TyDIProjector extends Projector<SectionResolvedObjects,String,Dictionary<String>> {
+public abstract class TyDIExportProjector extends TrieProjector<SectionResolvedObjects,String> {
 	private String canonicalFormFeature = DefaultNames.getCanonicalFormFeature();
     private SourceStream lemmaFile = null;
     private SourceStream synonymsFile = null;
@@ -70,22 +51,11 @@ public abstract class TyDIProjector extends Projector<SectionResolvedObjects,Str
     private SourceStream mergeFile = null;
     private SourceStream typographicVariationsFile = null;
     private TargetStream saveDictFile = null;
-	
-	@Override
-	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
-		return new SectionResolvedObjects(ctx, this);
-	}
 
 	@Override
-	protected Dictionary<String> newDictionary(State<String> root, CharFilter charFilter, CharMapper charMapper) {
-		return new Dictionary<String>(new AllValuesState<String>(), charFilter, charMapper);
-	}
-
-	@Override
-	protected void fillDictionary(ProcessingContext<Corpus> ctx, Corpus corpus, Dictionary<String> dict) throws Exception {
-		Logger logger = getLogger(ctx);
+	protected void fillTrie(Logger logger, Trie<String> trie, Corpus corpus) throws IOException, ModuleException {
 		logger.info("reading lemma");
-		LemmaLines lemmaLines = new LemmaLines(ctx);
+		LemmaLines lemmaLines = new LemmaLines(logger);
 		BufferedReader r = lemmaFile.getBufferedReader();
 		lemmaLines.process(r, 0);
 		r.close();
@@ -102,14 +72,14 @@ public abstract class TyDIProjector extends Projector<SectionResolvedObjects,Str
 		r.close();
 		logger.fine(Integer.toString(lemmaLines.lemmaToTerm.size()) + " entries");
 		logger.info("saturating merged");
-		saturateMerged(ctx, lemmaLines.lemmaToTerm);
+		saturateMerged(logger, lemmaLines.lemmaToTerm);
 		logger.fine(Integer.toString(lemmaLines.lemmaToTerm.size()) + " entries");
 		logger.info("reading typographic variants");
         EquivalenceSets<String> variants = new EquivalenceHashSets<String>();
-        loadEquivalenceFile(ctx, typographicVariationsFile, variants);
+        loadEquivalenceFile(logger, typographicVariationsFile, variants);
 		if (acronymsFile != null) {
 			logger.info("reading acronyms");
-			loadEquivalenceFile(ctx, acronymsFile, variants);
+			loadEquivalenceFile(logger, acronymsFile, variants);
 		}
 		Dictionary<Set<String>> variantsDict = new Dictionary<Set<String>>(new AllValuesState<Set<String>>(), Filters.ACCEPT_ALL, Mappers.IDENTITY);
 		variantsDict.addEntries(variants.getMap());
@@ -185,7 +155,7 @@ public abstract class TyDIProjector extends Projector<SectionResolvedObjects,Str
             }*/
 		logger.info(String.format("%d entries", map.size()));
 		for (Map.Entry<String,String> e : map.entrySet())
-			dict.addEntry(e.getKey(), e.getValue());
+			trie.addEntry(e.getKey(), e.getValue());
 		if (saveDictFile != null) {
 			logger.info("saving developped terminology into " + saveDictFile.getName());
 			PrintStream ps = saveDictFile.getPrintStream();
@@ -199,12 +169,36 @@ public abstract class TyDIProjector extends Projector<SectionResolvedObjects,Str
 	}
 
 	@Override
-	protected void handleEntryValues(ProcessingContext<Corpus> ctx, Dictionary<String> dict, Annotation a, String entry) {
+	protected void finish() {
+	}
+
+	@Override
+	protected boolean marshallingSupported() {
+		return false;
+	}
+
+	@Override
+	protected Decoder<String> getDecoder() {
+		throw new UnsupportedOperationException("marshalling not supported");
+	}
+
+	@Override
+	protected Encoder<String> getEncoder() {
+		throw new UnsupportedOperationException("marshalling not supported");
+	}
+
+	@Override
+	protected void handleMatch(String entry, Annotation a) {
 		a.addFeature(canonicalFormFeature, entry);
 	}
+
+	@Override
+	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		return new SectionResolvedObjects(ctx, this);
+	}
 	
-    private void saturateMerged(ProcessingContext<Corpus> ctx, Map<String,String> map) throws FileNotFoundException, UnsupportedEncodingException, IOException, InvalidFileLineEntry {
-        EquivalenceSets<String> merged = loadEquivalenceFile(ctx, mergeFile, null);
+    private void saturateMerged(Logger logger, Map<String,String> map) throws FileNotFoundException, UnsupportedEncodingException, IOException, InvalidFileLineEntry {
+        EquivalenceSets<String> merged = loadEquivalenceFile(logger, mergeFile, null);
         Map<String,String> toAdd = new HashMap<String,String>();
         for (Map.Entry<String,String> e : map.entrySet()) {
             String lemma = e.getKey();
@@ -225,10 +219,10 @@ public abstract class TyDIProjector extends Projector<SectionResolvedObjects,Str
     	equivalenceSetsTabularFormat.setSkipEmpty(true);
     }
     
-    private EquivalenceSets<String> loadEquivalenceFile(ProcessingContext<Corpus> ctx, SourceStream source, EquivalenceSets<String> eqSets) throws FileNotFoundException, UnsupportedEncodingException, IOException, InvalidFileLineEntry {
+    private static EquivalenceSets<String> loadEquivalenceFile(Logger logger, SourceStream source, EquivalenceSets<String> eqSets) throws FileNotFoundException, UnsupportedEncodingException, IOException, InvalidFileLineEntry {
         if (eqSets == null)
             eqSets = new EquivalenceHashSets<String>();
-        EquivFileLines efl = new EquivFileLines(equivalenceSetsTabularFormat, getLogger(ctx));
+        EquivFileLines efl = new EquivFileLines(equivalenceSetsTabularFormat, logger);
         BufferedReader r = source.getBufferedReader();
         efl.process(r, eqSets);
         r.close();
@@ -262,8 +256,8 @@ public abstract class TyDIProjector extends Projector<SectionResolvedObjects,Str
          * @throws IOException
          *             Signals that an I/O exception has occurred.
          */
-        private LemmaLines(ProcessingContext<Corpus> ctx) {
-            super(TyDIProjector.this.getLogger(ctx));
+        private LemmaLines(Logger logger) {
+            super(logger);
             getFormat().setNumColumns(2);
         }
 
@@ -375,15 +369,5 @@ public abstract class TyDIProjector extends Projector<SectionResolvedObjects,Str
 
 	public void setTypographicVariationsFile(SourceStream typographicVariationsFile) {
 		this.typographicVariationsFile = typographicVariationsFile;
-	}
-
-	@Override
-	protected String[] addFeaturesToSectionFilter() {
-		return null;
-	}
-
-	@Override
-	protected String[] addLayersToSectionFilter() {
-		return null;
 	}
 }
