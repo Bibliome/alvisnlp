@@ -43,7 +43,7 @@ import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 
 @Library("cpath")
-public abstract class PathLibrary2 extends FunctionLibrary {
+public abstract class PathLibrary extends FunctionLibrary {
 	private static final class PathNode {
 		private final PathNode prev;
 		private final Element element;
