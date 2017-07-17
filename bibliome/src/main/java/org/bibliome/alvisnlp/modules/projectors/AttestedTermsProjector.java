@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
+import org.bibliome.alvisnlp.modules.treetagger.TreeTaggerTermsProjector;
 import org.bibliome.util.StringCat;
 import org.bibliome.util.filelines.FileLines;
 import org.bibliome.util.filelines.InvalidFileLineEntry;
@@ -41,8 +42,7 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 
-// REIMPLEMENT: TrieProjector
-@AlvisNLPModule
+@AlvisNLPModule(obsoleteUseInstead=TreeTaggerTermsProjector.class)
 public abstract class AttestedTermsProjector extends Projector<SectionResolvedObjects,String[],Dictionary<String[]>> {
 	private String termFeatureName = null;
 	private String posFeatureName = DefaultNames.getPosTagFeature();
