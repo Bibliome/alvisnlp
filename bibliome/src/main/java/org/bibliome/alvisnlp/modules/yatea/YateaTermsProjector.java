@@ -23,10 +23,12 @@ import org.xml.sax.helpers.DefaultHandler;
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.DefaultNames;
+import alvisnlp.corpus.NameType;
 import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
+import alvisnlp.module.lib.Param;
 
 @AlvisNLPModule
 public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedObjects,Term> {
@@ -193,5 +195,86 @@ public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedO
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
+	}
+
+	@Param
+	public Boolean getMnpOnly() {
+		return mnpOnly;
+	}
+
+	@Param
+	public Boolean getProjectLemmas() {
+		return projectLemmas;
+	}
+
+	@Param
+	public SourceStream getYateaFile() {
+		return yateaFile;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getTermId() {
+		return termId;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getMonoHeadId() {
+		return monoHeadId;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getTermLemma() {
+		return termLemma;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getTermPOS() {
+		return termPOS;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getHead() {
+		return head;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getModifier() {
+		return modifier;
+	}
+
+	public void setMnpOnly(Boolean mnpOnly) {
+		this.mnpOnly = mnpOnly;
+	}
+
+	public void setProjectLemmas(Boolean projectLemmas) {
+		this.projectLemmas = projectLemmas;
+	}
+
+	public void setYateaFile(SourceStream yateaFile) {
+		this.yateaFile = yateaFile;
+	}
+
+	public void setTermId(String termId) {
+		this.termId = termId;
+	}
+
+	public void setMonoHeadId(String monoHeadId) {
+		this.monoHeadId = monoHeadId;
+	}
+
+	public void setTermLemma(String termLemma) {
+		this.termLemma = termLemma;
+	}
+
+	public void setTermPOS(String termPOS) {
+		this.termPOS = termPOS;
+	}
+
+	public void setHead(String head) {
+		this.head = head;
+	}
+
+	public void setModifier(String modifier) {
+		this.modifier = modifier;
 	}
 }
