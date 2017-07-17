@@ -27,8 +27,10 @@ import alvisnlp.corpus.NameType;
 import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.ProcessingContext;
+import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import alvisnlp.module.lib.TimeThis;
 
 @AlvisNLPModule
 public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedObjects,Term> {
@@ -195,6 +197,12 @@ public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedO
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
+	}
+
+	@Override
+	@TimeThis(task="create-trie", category=TimerCategory.LOAD_RESOURCE)
+	protected Trie<Term> getTrie(ProcessingContext<Corpus> ctx, Logger logger, Corpus corpus) throws IOException, ModuleException {
+		return super.getTrie(ctx, logger, corpus);
 	}
 
 	@Param
