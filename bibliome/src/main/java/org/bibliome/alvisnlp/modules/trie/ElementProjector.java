@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.alvisnlp.modules.trie.ElementProjector2.ElementProjectorResolvedObjects;
+import org.bibliome.alvisnlp.modules.trie.ElementProjector.ElementProjectorResolvedObjects;
 import org.bibliome.util.Iterators;
 import org.bibliome.util.marshall.Decoder;
 import org.bibliome.util.marshall.Encoder;
@@ -47,7 +47,7 @@ import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
 
 @AlvisNLPModule
-public abstract class ElementProjector2 extends TrieProjector<ElementProjectorResolvedObjects,Element> implements ActionInterface {
+public abstract class ElementProjector extends TrieProjector<ElementProjectorResolvedObjects,Element> implements ActionInterface {
 	private Expression entries;
 	private Expression key;
 	private Expression action;
@@ -59,7 +59,7 @@ public abstract class ElementProjector2 extends TrieProjector<ElementProjectorRe
 		private final Evaluator action;
 		private final EvaluationContext actionEvalCtx;
 		
-		ElementProjectorResolvedObjects(ElementProjector2 module, ProcessingContext<Corpus> ctx) throws ResolverException {
+		ElementProjectorResolvedObjects(ElementProjector module, ProcessingContext<Corpus> ctx) throws ResolverException {
 			super(ctx, module);
 			LibraryResolver rootResolver = module.getLibraryResolver(ctx);
 			this.entries = module.entries.resolveExpressions(rootResolver);

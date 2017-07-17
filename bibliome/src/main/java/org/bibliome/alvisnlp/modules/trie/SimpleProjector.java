@@ -45,7 +45,7 @@ import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
 
 @AlvisNLPModule
-public abstract class SimpleProjector2 extends TrieProjector<SectionResolvedObjects,List<String>> {
+public abstract class SimpleProjector extends TrieProjector<SectionResolvedObjects,List<String>> {
 	private Integer[] keyIndex = new Integer[] { 0 };
 	private SourceStream dictFile;
 	private String[] valueFeatures;
