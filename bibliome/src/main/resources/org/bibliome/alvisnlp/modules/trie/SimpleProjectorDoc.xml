@@ -16,12 +16,40 @@ limitations under the License.
 -->
 
 <alvisnlp-doc target="org.bibliome.alvisnlp.modules.trie.SimpleProjector2" author="" date="">
+<!--
+Copyright 2016 Institut National de la Recherche Agronomique
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
   <synopsis>
-    <p>Deprecated alias for <module name="SimpleProjector"/>.</p>
+    <p>Projects a simple dictionary on sections.</p>
   </synopsis>
 
   <module-doc>
-    <description/>
+    <description>
+      <p><this/> reads a list of entries from <param name="dictFile"/> and searches for these entries in sections. The format of the dictionary is one entry per line. Each line is split into columns separated by tab characters, or whichever character defined by <param name="separator"/>. The column specified by <param name="keyIndex"/> will be the entry to be searched and the other columns are data associated to the entry.</p>
+      <p>The parameters <param name="skipBlank"/>, <param name="skipEmpty"/>, <param name="strictColumnNumber"/>, <param name="trimColumns"/>, <param name="separator"/>, <param name="multipleEntryBehaviour"/> control the loading of the dictionary file.</p>
+      <p>The parameters <param name="allowJoined"/>, <param name="allUpperCaseInsensitive"/>, <param name="caseInsensitive"/>, <param name="ignoreDiacritics"/>, <param name="joinDash"/>, <param name="matchStartCaseInsensitive"/>, <param name="skipConsecutiveWhitespaces"/>, <param name="skipWhitespace"/> and <param name="wordStartCaseInsensitive"/> control the matching between the section and the entry keys.</p>
+      <p>The <param name="subject"/> parameter specifies which text of the section should be matched. There are two options:
+      <ul>
+	<li>the entries are matched on the contents of the section, <param name="subject"/> can also control if matches boundaries coincide with word delimiters;</li>
+	<li>the entries are matched on the feature value of annotations of a given layer separated by a whitespace, in this way entries can be searched against word lemmas for instance.</li>
+      </ul>
+      </p>
+      <p><this/> creates an annotation for each matched entry and adds these annotations to the layer named <param name="targetLayerName"/>. The created annotations will have features whose keys correspond to <param name="entryFeatureNames"/> and values to the data associated to the matched entry (columns in the dictionary file). For instance if <param name="entryFeatureNames"/> is <em>[a,b,c]</em>, then each annotation will have three features named <em>a</em>, <em>b</em> and <em>c</em> with the respective values of the entry's second, third and fourth columns. A feature name left blank in <param name="entryFeatureNames"/> will not create a feature. Thus, in order not to keep the entry in the <em>a</em> feature, <param name="entryFeatureNames"/> should be <em>[,b,c]</em>.<nl/>In addition, the created annotations will have the feature keys and values defined in <param name="constantAnnotationFeatures"/>.</p>
+      <p>If specified, then <this/> assumes that <param name="trieSource"/> contains a compiled version of the dictionary. <param name="dictFile"/> is not read. If specified, <this/> writes a compiled version of the dictionary in <param name="trieSink"/>. The use of compiled dictionaries may accelerate the processing for large dictionaries.</p>
+    </description>
   
     <param-doc name="skipWhitespace">
       <p>Either the match allows arbitrary insertion of whitespace characters in the subject. For instance, the contents <em>amino acid</em> matches the entry <em>aminoacid</em>.</p>
