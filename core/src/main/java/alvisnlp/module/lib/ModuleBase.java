@@ -307,7 +307,9 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
     	Class<?>[] better = annot.obsoleteUseInstead();
     	if (better.length == 0)
     		return;
-    	getLogger(ctx).warning("this module class is OBSOLETE, use instead: " + Strings.joinStrings(Arrays.asList(better), ", "));
+    	Logger logger = getLogger(ctx);
+    	logger.severe("this module class is DEPRECATED, use instead: " + Strings.joinStrings(Arrays.asList(better), ", "));
+    	logger.severe("support for this module class may be DSCONTINUED WITHOUT NOTICE");
     }
 
 	private static final XPathExpression alvisnlpDocExpression;
