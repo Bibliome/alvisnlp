@@ -24,6 +24,7 @@ import javax.xml.parsers.SAXParserFactory;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 import org.bibliome.alvisnlp.modules.projectors.YateaProjector.Term;
+import org.bibliome.alvisnlp.modules.yatea.YateaTermsProjector;
 import org.bibliome.util.Iterators;
 import org.bibliome.util.newprojector.CharFilter;
 import org.bibliome.util.newprojector.CharMapper;
@@ -42,8 +43,7 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 
-// REIMPLEMENT: TrieProjector
-@AlvisNLPModule
+@AlvisNLPModule(obsoleteUseInstead=YateaTermsProjector.class)
 public abstract class YateaProjector extends Projector<SectionResolvedObjects,Term,Dictionary<Term>> {
 	public static final class Term {
 		private String id;
@@ -281,6 +281,4 @@ public abstract class YateaProjector extends Projector<SectionResolvedObjects,Te
 	public void setModifier(String modifier) {
 		this.modifier = modifier;
 	}
-	
-	
 }
