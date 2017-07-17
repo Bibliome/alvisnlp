@@ -40,8 +40,12 @@ import alvisnlp.corpus.NameType;
 import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.ProcessingContext;
+import alvisnlp.module.TimerCategory;
+import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import alvisnlp.module.lib.TimeThis;
 
+@AlvisNLPModule
 public abstract class TyDIExportProjector extends TrieProjector<SectionResolvedObjects,String> {
 	private String canonicalFormFeature = DefaultNames.getCanonicalFormFeature();
     private SourceStream lemmaFile = null;
@@ -170,6 +174,12 @@ public abstract class TyDIExportProjector extends TrieProjector<SectionResolvedO
 
 	@Override
 	protected void finish() {
+	}
+
+	@Override
+	@TimeThis(task="create-trie", category=TimerCategory.LOAD_RESOURCE)
+	protected Trie<String> getTrie(ProcessingContext<Corpus> ctx, Logger logger, Corpus corpus) throws IOException, ModuleException {
+		return super.getTrie(ctx, logger, corpus);
 	}
 
 	@Override
