@@ -17,10 +17,16 @@ limitations under the License.
 
 package alvisnlp.documentation;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Locale;
+import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
+import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 /**
  * Documentation object represents the XML user documentation of a module or converter class.
@@ -39,15 +45,22 @@ public class ResourceDocumentation implements Documentation {
 		this.baseName = baseName;
 	}
 
-	private ResourceBundle getResourceBundle() {
+	private ResourceBundle getResourceBundle() throws SAXException, IOException {
 		//return ResourceBundle.getBundle(baseName, XMLDocumentationResourceBundleControl.INSTANCE);
 		Locale locale = Locale.getDefault();
 		return getResourceBundle(locale);
 	}
 
-	private ResourceBundle getResourceBundle(Locale locale) {
-		ClassLoader loader = getClass().getClassLoader();
-		return ResourceBundle.getBundle(baseName, locale, loader, XMLDocumentationResourceBundleControl.INSTANCE);
+	private ResourceBundle getResourceBundle(Locale locale) throws SAXException, IOException {
+		try {
+			ClassLoader loader = getClass().getClassLoader();
+			return ResourceBundle.getBundle(baseName, locale, loader, XMLDocumentationResourceBundleControl.INSTANCE);
+		}
+		catch (MissingResourceException e) {
+			InputStream empty = new ByteArrayInputStream("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<alvisnlp-doc/>".getBytes());
+			Document document = XMLUtils.docBuilder.parse(empty);
+			return new XMLDocumentationResourceBundle(document);
+		}
 //		return ResourceBundle.getBundle(baseName, locale, XMLDocumentationResourceBundleControl.INSTANCE);
 	}
 
@@ -63,7 +76,12 @@ public class ResourceDocumentation implements Documentation {
 	 */
 	@Override
 	public Document getDocument() {
-		return (Document) getResourceBundle().getObject(XMLDocumentationResourceBundle.DOCUMENTATION);
+		try {
+			return (Document) getResourceBundle().getObject(XMLDocumentationResourceBundle.DOCUMENTATION);
+		}
+		catch (SAXException|IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
 	
 
@@ -72,6 +90,11 @@ public class ResourceDocumentation implements Documentation {
 	 */
 	@Override
 	public Document getDocument(Locale locale) {
-		return (Document) getResourceBundle(locale).getObject(XMLDocumentationResourceBundle.DOCUMENTATION);
+		try {
+			return (Document) getResourceBundle(locale).getObject(XMLDocumentationResourceBundle.DOCUMENTATION);
+		}
+		catch (SAXException|IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
 }
