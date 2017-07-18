@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 
-package org.bibliome.alvisnlp.modules.cadixe;
+package org.bibliome.alvisnlp.modules.alvisae;
 
 import org.bibliome.alvisnlp.converters.expression.parser.ExpressionParser;
 import org.bibliome.alvisnlp.modules.DefaultExpressions;

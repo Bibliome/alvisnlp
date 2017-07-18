@@ -15,12 +15,12 @@ limitations under the License.
 */
 
 
-package org.bibliome.alvisnlp.modules.cadixe;
+package org.bibliome.alvisnlp.modules.alvisae;
 
 import java.util.Iterator;
 import java.util.Map;
 
-import org.bibliome.alvisnlp.modules.cadixe.ExportCadixeJSON.CadixeExportContext;
+import org.bibliome.alvisnlp.modules.alvisae.ExportCadixeJSON.CadixeExportContext;
 import org.bibliome.util.Iterators;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

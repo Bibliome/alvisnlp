@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 
-package org.bibliome.alvisnlp.modules.cadixe;
+package org.bibliome.alvisnlp.modules.alvisae;
 
 import alvisnlp.converters.lib.ArrayParamConverter;
 import alvisnlp.converters.lib.Converter;

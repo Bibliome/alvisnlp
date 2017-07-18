@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 
-package org.bibliome.alvisnlp.modules.cadixe;
+package org.bibliome.alvisnlp.modules.alvisae;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -32,7 +32,7 @@ import java.util.logging.Logger;
 import org.bibliome.alvisnlp.converters.expression.parser.ExpressionParser;
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.alvisnlp.modules.cadixe.ExportCadixeJSON.AlvisAEExportResolvedObjects;
+import org.bibliome.alvisnlp.modules.alvisae.ExportCadixeJSON.AlvisAEExportResolvedObjects;
 import org.bibliome.util.Iterators;
 import org.bibliome.util.files.InputFile;
 import org.bibliome.util.files.OutputDirectory;

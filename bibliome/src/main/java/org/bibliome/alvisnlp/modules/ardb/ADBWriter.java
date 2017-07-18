@@ -60,7 +60,7 @@ import alvisnlp.module.lib.Param;
  * &lt;module&gt;<br>
  * </code> </li> <br> <li>or alternatively, when the multi-fragments TextBound
  * Annotation representation is used, as introduced by
- * {@link org.bibliome.alvisnlp.modules.cadixe.AlvisAEReader} <br><br>
+ * {@link org.bibliome.alvisnlp.modules.alvisae.AlvisAEReader} <br><br>
  * <code> &lt;module id="..." class="<b>ADBWriter</b>"&gt;<br>
  * ...<br>
  * &lt;annotations&gt;<b>relations.tuples[args:frag0]</b>&lt;/annotations&gt;<br>

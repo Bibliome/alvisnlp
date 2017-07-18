@@ -1,4 +1,4 @@
-package org.bibliome.alvisnlp.modules.cadixe;
+package org.bibliome.alvisnlp.modules.alvisae;
 
 import alvisnlp.module.lib.AlvisNLPModule;
 
