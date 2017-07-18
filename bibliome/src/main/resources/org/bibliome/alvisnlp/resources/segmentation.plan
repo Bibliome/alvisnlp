@@ -18,7 +18,7 @@ limitations under the License.
 <alvisnlp-plan id="segmentation">
 
 	<sequence id="preprocessing">
-		<module id="latin" class="SimpleProjector2">
+		<module id="latin" class="TabularProjector">
 			<dictFile>res://org.bibliome.alvisnlp.resources/latin_multi-word-expressions.txt</dictFile>
 			<targetLayerName>seg__latin</targetLayerName>
 			<constantAnnotationFeatures>type=latin,eos=not-eos,pos=FW</constantAnnotationFeatures>
