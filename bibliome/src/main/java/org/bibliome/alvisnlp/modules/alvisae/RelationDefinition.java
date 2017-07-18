@@ -20,7 +20,7 @@ package org.bibliome.alvisnlp.modules.alvisae;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.bibliome.alvisnlp.modules.alvisae.ExportCadixeJSON.CadixeExportContext;
+import org.bibliome.alvisnlp.modules.alvisae.AlvisAEWriter.CadixeExportContext;
 import org.bibliome.alvisnlp.modules.alvisae.RelationDefinition.Resolved;
 import org.json.simple.JSONObject;
 

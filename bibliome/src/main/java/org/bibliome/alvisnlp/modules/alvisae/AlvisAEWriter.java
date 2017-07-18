@@ -32,7 +32,7 @@ import java.util.logging.Logger;
 import org.bibliome.alvisnlp.converters.expression.parser.ExpressionParser;
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.alvisnlp.modules.alvisae.ExportCadixeJSON.AlvisAEExportResolvedObjects;
+import org.bibliome.alvisnlp.modules.alvisae.AlvisAEWriter.AlvisAEExportResolvedObjects;
 import org.bibliome.util.Iterators;
 import org.bibliome.util.files.InputFile;
 import org.bibliome.util.files.OutputDirectory;
@@ -60,7 +60,7 @@ import alvisnlp.module.types.EvaluatorMapping;
 import alvisnlp.module.types.ExpressionMapping;
 
 @AlvisNLPModule
-public class ExportCadixeJSON extends SectionModule<AlvisAEExportResolvedObjects> {
+public class AlvisAEWriter extends SectionModule<AlvisAEExportResolvedObjects> {
 	private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
 
 	private Integer owner = 0;
@@ -80,11 +80,11 @@ public class ExportCadixeJSON extends SectionModule<AlvisAEExportResolvedObjects
 		private final EvaluatorMapping documentProperties;
 		
 		private AlvisAEExportResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
-			super(ctx, ExportCadixeJSON.this);
-			annotationSets = rootResolver.resolveArray(ExportCadixeJSON.this.annotationSets, AnnotationSet.Resolved.class);
-			fileName = ExportCadixeJSON.this.fileName.resolveExpressions(rootResolver);
-			documentDescription = rootResolver.resolveNullable(ExportCadixeJSON.this.documentDescription);
-			documentProperties = rootResolver.resolveNullable(ExportCadixeJSON.this.documentProperties);
+			super(ctx, AlvisAEWriter.this);
+			annotationSets = rootResolver.resolveArray(AlvisAEWriter.this.annotationSets, AnnotationSet.Resolved.class);
+			fileName = AlvisAEWriter.this.fileName.resolveExpressions(rootResolver);
+			documentDescription = rootResolver.resolveNullable(AlvisAEWriter.this.documentDescription);
+			documentProperties = rootResolver.resolveNullable(AlvisAEWriter.this.documentProperties);
 		}
 
 		@Override
