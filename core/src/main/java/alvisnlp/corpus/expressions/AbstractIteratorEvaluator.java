@@ -41,7 +41,7 @@ public abstract class AbstractIteratorEvaluator extends AbstractEvaluator {
 	@Override
 	public int evaluateInt(EvaluationContext ctx, Element elt) {
 		int result = 0;
-		for (@SuppressWarnings("unused") Element _ : Iterators.loop(evaluateElements(ctx, elt)))
+		for (@SuppressWarnings("unused") Element _elt : Iterators.loop(evaluateElements(ctx, elt)))
 			result++;
 		return result;
 	}
