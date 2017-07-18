@@ -45,7 +45,7 @@ import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
 
 @AlvisNLPModule
-public class TrainingElementClassifier extends PredictionElementClassifier {
+public class WekaTrain extends PredictionElementClassifier {
 	private String algorithm;
 	private String[] classifierOptions;
 	private Integer crossFolds;

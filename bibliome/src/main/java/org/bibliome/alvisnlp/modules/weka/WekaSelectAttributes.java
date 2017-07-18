@@ -37,7 +37,7 @@ import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
 
 @AlvisNLPModule
-public class SelectingElementClassifier extends ElementClassifier {
+public class WekaSelectAttributes extends ElementClassifier {
 	private String evaluator;
 	private String[] evaluatorOptions;
 	private String search;

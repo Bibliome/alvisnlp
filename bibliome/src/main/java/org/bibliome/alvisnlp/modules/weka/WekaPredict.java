@@ -40,7 +40,7 @@ import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
 
 @AlvisNLPModule
-public class TaggingElementClassifier extends PredictionElementClassifier {
+public class WekaPredict extends PredictionElementClassifier {
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ProcessingException {
 		try {
