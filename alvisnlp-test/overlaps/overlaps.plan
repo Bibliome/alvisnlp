@@ -2,7 +2,7 @@
 <alvisnlp-plan id="remove-overlaps-test">
   <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
 
-  <taxa class="SimpleProjector2">
+  <taxa class="TabularProjector">
     <dictFile>taxa+id_Bacteria.txt</dictFile>
     <targetLayerName>taxaO</targetLayerName>
     <valueFeatures>,taxid</valueFeatures>

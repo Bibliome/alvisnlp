@@ -2,7 +2,7 @@
 <alvisnlp-plan id="renbio-test">
   <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
 
-  <taxa class="SimpleProjector2">
+  <taxa class="TabularProjector">
     <dictFile>taxa+id_Bacteria.txt</dictFile>
     <targetLayerName>ProjectedBacteria</targetLayerName>
     <valueFeatures>,taxid</valueFeatures>
@@ -34,7 +34,7 @@
   </ngrams>
   
   <renbio>
-    <train class="TrainingElementClassifier">
+    <train class="WekaTrain">
       <algorithm>weka.classifiers.bayes.NaiveBayes</algorithm>
       <classifierFile>classifier.model</classifierFile>
       <relationDefinition load="attributes.xml"/>
@@ -42,7 +42,7 @@
       <arffFile>renbio.arff</arffFile>
     </train>
 
-    <tag class="TaggingElementClassifier">
+    <tag class="WekaPredict">
       <relationDefinition load="attributes.xml"/>
       <classifierFile inhibitCheck="yes">classifier.model</classifierFile>
       <predictedClassFeatureKey>predictedClass</predictedClassFeatureKey>
