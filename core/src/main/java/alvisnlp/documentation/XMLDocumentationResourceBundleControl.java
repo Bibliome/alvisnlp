@@ -17,7 +17,6 @@ limitations under the License.
 
 package alvisnlp.documentation;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -55,12 +54,7 @@ class XMLDocumentationResourceBundleControl extends ResourceBundle.Control {
 	}
 	
 	private static InputStream safeOpenInputStream(String resName, ClassLoader loader, boolean reload) throws IOException {
-		InputStream result = openInputStream(resName, loader, reload);
-		if (result != null) {
-			return result;
-		}
-		return new ByteArrayInputStream("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<alvisnlp-doc/>".getBytes());
-//		throw new IOException("could not open " + resName);
+		return openInputStream(resName, loader, reload);
 	}
 	
 	@Override
