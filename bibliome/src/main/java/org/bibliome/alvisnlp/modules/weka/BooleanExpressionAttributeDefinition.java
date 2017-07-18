@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 
-package org.bibliome.alvisnlp.modules.classifiers;
+package org.bibliome.alvisnlp.modules.weka;
 
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.EvaluationContext;

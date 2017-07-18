@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 
-package org.bibliome.alvisnlp.modules.classifiers;
+package org.bibliome.alvisnlp.modules.weka;
 
 import java.io.IOException;
 import java.util.Iterator;
@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
-import org.bibliome.alvisnlp.modules.classifiers.ElementClassifier.ElementClassifierResolvedObjects;
+import org.bibliome.alvisnlp.modules.weka.ElementClassifier.ElementClassifierResolvedObjects;
 import org.bibliome.util.Iterators;
 import org.bibliome.util.streams.TargetStream;
 

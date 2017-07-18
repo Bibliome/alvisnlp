@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 
-package org.bibliome.alvisnlp.modules.classifiers;
+package org.bibliome.alvisnlp.modules.weka;
 
 import java.io.BufferedReader;
 import java.io.IOException;
