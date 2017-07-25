@@ -14,10 +14,10 @@ import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.shared.PrefixMapping;
-import org.bibliome.alvisnlp.MiscUtils;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 import org.bibliome.alvisnlp.modules.trie.TrieProjector;
 import org.bibliome.util.Iterators;
+import org.bibliome.util.LoggingUtils;
 import org.bibliome.util.marshall.Decoder;
 import org.bibliome.util.marshall.Encoder;
 import org.bibliome.util.streams.SourceStream;
@@ -110,7 +110,7 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 	}
 
 	private Model createModel(Logger logger) throws IOException {
-		MiscUtils.configureSilentLog4J();
+		LoggingUtils.configureSilentLog4J();
 		Model model = ModelFactory.createDefaultModel();
 		model.setNsPrefixes(PrefixMapping.Standard);
 		model.setNsPrefix("xsd", "http://www.w3.org/2001/XMLSchema#");
