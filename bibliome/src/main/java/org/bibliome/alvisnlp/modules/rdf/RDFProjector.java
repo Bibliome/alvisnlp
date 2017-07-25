@@ -38,6 +38,7 @@ import alvisnlp.module.types.Mapping;
 @AlvisNLPModule(beta=true)
 public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,Resource> {
 	private SourceStream source;
+	private Mapping prefixes = new Mapping();
 	private String[] resourceTypeURIs = {
 			"owl:Class",
 			"skos:Concept"
@@ -115,7 +116,7 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 		model.setNsPrefix("xsd", "http://www.w3.org/2001/XMLSchema#");
 		model.setNsPrefix("skos", "http://www.w3.org/2004/02/skos/core#");
 		model.setNsPrefix("oboInOwl", "http://www.geneontology.org/formats/oboInOwl#");
-//		model.setNsPrefixes(module.prefixes);
+		model.setNsPrefixes(prefixes);
 		for (InputStream is : Iterators.loop(source.getInputStreams())) {
 			logger.info("loading model from: " + source.getStreamName(is));
 //			System.err.println("is = " + is);
@@ -185,6 +186,15 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 	@Param(nameType=NameType.FEATURE)
 	public Mapping getLabelFeatures() {
 		return labelFeatures;
+	}
+
+	@Param
+	public Mapping getPrefixes() {
+		return prefixes;
+	}
+
+	public void setPrefixes(Mapping prefixes) {
+		this.prefixes = prefixes;
 	}
 
 	public void setSource(SourceStream source) {
