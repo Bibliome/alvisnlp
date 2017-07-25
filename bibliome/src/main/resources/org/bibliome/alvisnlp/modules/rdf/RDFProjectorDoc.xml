@@ -144,5 +144,9 @@ limitations under the License.
     <param-doc name="uriFeatureName">
       <p>Feature where to store the entry URI.</p>
     </param-doc>
+    
+    <param-doc name="prefixes">
+      <p>Specify URI prefixes to be used in <param name="resourceTypeURIs"/>, <param name="labelURIs"/>, and <param name="labelFeatures"/></p>
+    </param-doc>
   </module-doc>
 </alvisnlp-doc>
