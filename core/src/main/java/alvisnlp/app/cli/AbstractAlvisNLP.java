@@ -362,6 +362,20 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
         for (String name : moduleNames)
 			System.out.println(name);		
 	}
+
+	@CLIOption(value="-supportedModulesXML", stop=true)
+	public final void supportedModulesXML() throws UnsupportedServiceException, AmbiguousAliasException, XPathExpressionException, TransformerException {
+		Document doc = XMLUtils.docBuilder.newDocument();
+		Element root = XMLUtils.createRootElement(doc, "alvisnlp-supported-modules");
+        for (Class<? extends Module<A>> mod : moduleFactory.supportedServices()) {
+        	Element item = XMLUtils.createElement(doc, root, 1, "module-item");
+        	item.setAttribute("target", mod.getCanonicalName());
+        	item.setAttribute("short-target", mod.getSimpleName());
+        }
+		Source source = new DOMSource(doc);
+		Result result = new StreamResult(System.out);
+		xmlDocTransformer.transform(source, result);
+	}
 	
 	/**
 	 * CLI option: print XML documentation for the specified module class.
@@ -477,6 +491,21 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 		}
 	}
 
+	@CLIOption(value="-supportedLibrariesXML", stop=true)
+	public final void supportedLibrariesXML() throws UnsupportedServiceException, AmbiguousAliasException, XPathExpressionException, TransformerException {
+		Document doc = XMLUtils.docBuilder.newDocument();
+		Element root = XMLUtils.createRootElement(doc, "alvisnlp-supported-libraries");
+		Class<FunctionLibrary> klass = FunctionLibrary.class;
+        for (FunctionLibrary lib : ServiceLoader.load(klass, klass.getClassLoader())) {
+        	Element item = XMLUtils.createElement(doc, root, 1, "library-item");
+        	item.setAttribute("target", lib.getName());
+        	item.setAttribute("short-target", lib.getName());
+        }
+		Source source = new DOMSource(doc);
+		Result result = new StreamResult(System.out);
+		xmlDocTransformer.transform(source, result);
+	}
+
 	@CLIOption(value="-libraryDocXML", stop=true)
 	public final void libraryDocXML(String name) throws TransformerFactoryConfigurationError, TransformerException { 
 		Source source = new DOMSource(getLibraryDocumentation(name));
@@ -511,16 +540,30 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	}
 	
 	/**
-	 * CLI oprion: print all supported conversions.
+	 * CLI oprion: print all supported converters.
 	 */
-	@CLIOption(value="-supportedConversions", stop=true)
-	public final void supportedConversions() { 
-        List<String> conversions = new ArrayList<String>();
+	@CLIOption(value="-supportedConverters", stop=true)
+	public final void supportedConverters() { 
+        List<String> converters = new ArrayList<String>();
         for (Class<?> type : converterFactory.supportedServices())
-			conversions.add(type.getCanonicalName());
-        Collections.sort(conversions);
-        for (String c : conversions)
+			converters.add(type.getCanonicalName());
+        Collections.sort(converters);
+        for (String c : converters)
 			System.out.println(c);
+	}
+
+	@CLIOption(value="-supportedConvertersXML", stop=true)
+	public final void supportedConvertersXML() throws UnsupportedServiceException, AmbiguousAliasException, XPathExpressionException, TransformerException {
+		Document doc = XMLUtils.docBuilder.newDocument();
+		Element root = XMLUtils.createRootElement(doc, "alvisnlp-supported-converters");
+        for (Class<?> type : converterFactory.supportedServices()) {
+        	Element item = XMLUtils.createElement(doc, root, 1, "converter-item");
+        	item.setAttribute("target", type.getCanonicalName());
+        	item.setAttribute("short-target", type.getSimpleName());
+        }
+		Source source = new DOMSource(doc);
+		Result result = new StreamResult(System.out);
+		xmlDocTransformer.transform(source, result);
 	}
 
 	/**
@@ -544,7 +587,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	}
 	
 	/**
-	 * CLI option: print the XML documentation for the specified type conversion.
+	 * CLI option: print the XML documentation for the specified type converter.
 	 * @param name
 	 * @throws UnsupportedServiceException
 	 * @throws ServiceInstanciationException
@@ -552,8 +595,8 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	 * @throws TransformerFactoryConfigurationError
 	 * @throws TransformerException
 	 */
-	@CLIOption(value="-conversionDocXML", stop=true)
-	public final void conversionDocXML(String name) throws UnsupportedServiceException, AmbiguousAliasException, TransformerFactoryConfigurationError, TransformerException { 
+	@CLIOption(value="-converterDocXML", stop=true)
+	public final void converterDocXML(String name) throws UnsupportedServiceException, AmbiguousAliasException, TransformerFactoryConfigurationError, TransformerException { 
 		ParamConverter converter = converterFactory.getServiceByAlias(name);
 		Document doc = converter.getDocumentation().getDocument();
 		Source source = new DOMSource(doc);
@@ -562,15 +605,15 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	}
 	
 	/**
-	 * print the documentation for the specified type conversion.
+	 * print the documentation for the specified type converter.
 	 * @param name
 	 * @throws UnsupportedServiceException
 	 * @throws ServiceInstanciationException
 	 * @throws AmbiguousAliasException
 	 * @throws TransformerException
 	 */
-	@CLIOption(value="-conversionDoc", stop=true)
-	public final void conversionDoc(String name) throws UnsupportedServiceException, AmbiguousAliasException, TransformerException { 
+	@CLIOption(value="-converterDoc", stop=true)
+	public final void converterDoc(String name) throws UnsupportedServiceException, AmbiguousAliasException, TransformerException { 
 		ParamConverter converter = converterFactory.getServiceByAlias(name);
 		Document doc = converter.getDocumentation().getDocument();
 		// same ClassLoader as this class
