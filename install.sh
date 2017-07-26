@@ -47,4 +47,4 @@ then
 else
     ./make-java-launcher.sh "$LIB_DIR" "$BIN_DIR"/alvisnlp alvisnlp.app.cli.AlvisNLP
 fi
-./make-java-launcher.sh "$LIB_DIR" "$BIN_DIR"/alvisnlp-doc alvisnlp.app.cli.AlvisNLPDocumentation
+
