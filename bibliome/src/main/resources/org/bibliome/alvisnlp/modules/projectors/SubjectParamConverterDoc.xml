@@ -33,11 +33,11 @@ limitations under the License.
     </string-conversion>
 
     <xml-conversion>
-      <p>For matching the section contents:<nl/>
-      <xverb><param value="plain|words|prefix|suffix"/></xverb><nl/>
-      or:<nl/>
-      <xverb><param contents="plain|words|prefix|suffix"/></xverb><nl/>
-      or:<nl/>
+      <p>For matching the section contents:<br/>
+      <xverb><param value="plain|words|prefix|suffix"/></xverb><br/>
+      or:<br/>
+      <xverb><param contents="plain|words|prefix|suffix"/></xverb><br/>
+      or:<br/>
       <xverb><param>plain|words|prefix|suffix</param></xverb>
       </p>
       <p>For matching annotation feature values:

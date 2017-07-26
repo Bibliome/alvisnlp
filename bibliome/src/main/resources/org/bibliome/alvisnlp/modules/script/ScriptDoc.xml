@@ -22,7 +22,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><thi/> reads, parses and runs <param name="script"/>, a script in the language indicated by <param name="language"/>. AlcisNLP supports all languages supported by the Java Scripting Engine in your system.</p>
+      <p><this/> reads, parses and runs <param name="script"/>, a script in the language indicated by <param name="language"/>. AlcisNLP supports all languages supported by the Java Scripting Engine in your system.</p>
       <p>The script context will have a binding named <em>alvisnlp</em> to an object of type <a href="">org.bibliome.alvisnlp.modules.script.HelperObject</a>, the way this object fields and methods are accessed depends on the scripting language.</p>
       <p><this/> gives access to the corpus elements methods, in particular creation methods. However, for creating elements we advise to use <a href="">HelperObject</a>'s <em>create*</em> methods. One of the reasons is that elements created with these methods will have the constant features defined by <param name="constantDocumentFeatures"/>, <param name="constantSectionFeatures"/>, <param name="constantAnnotationFeatures"/>, <param name="constantRelationFeatures"/> and <param name="constantTupleFeatures"/>.</p>
       <p>Parameters <param name="stdin"/> and <param name="stdout"/> may not work on all systems.</p>

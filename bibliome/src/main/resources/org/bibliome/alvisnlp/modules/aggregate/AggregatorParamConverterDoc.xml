@@ -26,9 +26,13 @@ limitations under the License.
     </string-conversion>
   
     <xml-conversion>
-      <pre><count/></pre>
+      <xverb>
+	<count/>
+      </xverb>
       <p>Count the number of occurrences of each key.</p>
-      <pre><sum>VALUE</sum></pre>
+      <xverb>
+	<sum>VALUE</sum>
+      </xverb>
       <p>Converts <em>VALUE</em> as an <converter name="Expression"/> evaluated as an integer from each entry. The aggregate value is the sum of the results.</p>
     </xml-conversion>
   </converter-doc>

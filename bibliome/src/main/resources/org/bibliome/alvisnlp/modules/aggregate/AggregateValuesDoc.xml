@@ -28,11 +28,11 @@ limitations under the License.
       	<this/> computes aggregates functions specified by <param name="aggregators"/> for each distinct value.
       	The list of entry keys and their aggregate values are written into <param name="outFile"/>
       </p>
-	  <h4>Example</h4>
+	  <h3>Example</h3>
       <p>
       	Counting words in the corpus:
       </p>
-      <pre>
+      <xverb>
       	<word-count class="AggregateValues">
       		<entries>documents.sections.layer:words</entries>
       		<key>@form</key>
@@ -41,7 +41,7 @@ limitations under the License.
       		</aggregators>
       		<outFile>word-count.txt</outFile>
       	</word-count>
-      </pre>
+      </xverb>
     </description>
   
     <param-doc name="key">

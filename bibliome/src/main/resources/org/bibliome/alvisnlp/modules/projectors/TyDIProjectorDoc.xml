@@ -31,7 +31,7 @@ limitations under the License.
 	<li>the entries are matched on the feature value of annotations of a given layer separated by a whitespace, in this way entries can be searched against word lemmas for instance.</li>
       </ul>
       </p>
-      <p><this/> creates an annotation for each matched entry and adds these annotations to the layer named <param name="targetLayerName"/>. The created annotations will have a feature named <param name="canonicalFormFeature"/> containing the canonical form of the matched term.<nl/>In addition, the created annotations will have the feature keys and values defined in <param name="constantAnnotationFeatures"/>.</p>
+      <p><this/> creates an annotation for each matched entry and adds these annotations to the layer named <param name="targetLayerName"/>. The created annotations will have a feature named <param name="canonicalFormFeature"/> containing the canonical form of the matched term. In addition, the created annotations will have the feature keys and values defined in <param name="constantAnnotationFeatures"/>.</p>
     </description>
   
     <param-doc name="acronymsFile">
