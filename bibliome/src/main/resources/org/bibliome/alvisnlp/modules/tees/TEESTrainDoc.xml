@@ -36,10 +36,12 @@ limitations under the License.
       
     <param-doc name="schema">
       <p> 
-      	Give the schema of the relations to train i.e.  
-      	<schema>
-			<Lives_In>Bacteria,Location</Lives_In>
-      	</schema>
+      	Give the schema of the relations to train i.e.
+	<xverb>
+      	  <schema>
+	    <Lives_In>Bacteria,Location</Lives_In>
+      	  </schema>
+	</xverb>
       </p>
     </param-doc>
     
