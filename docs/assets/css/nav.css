@@ -1,0 +1,57 @@
+nav {
+    position: fixed;
+    width: 25%;
+    right: 0px;
+    margin-top: 30px;
+    padding-top: 20px;
+    height: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.toc {
+    font-size: 100%;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.tag-h {
+    list-style-type: none;
+    margin: -4px;
+}
+
+.tag-h2 {
+}
+
+.tag-h2 a {
+    font-size: 80%
+}
+
+.tag-h3 {
+    margin-left: 5mm;
+}
+
+.tag-h3 a {
+    font-size: 80%
+}
+
+.tag-h4 {
+    margin-left: 10mm;
+}
+
+.tag-h4 a {
+    font-size: 80%;
+}
+
+.tag-h5 {
+    margin-left: 15mm;
+}
+
+.tag-h5 a {
+    font-size: 80%;
+}
+
+.active {
+    background-color: #DDDDDD;
+}
