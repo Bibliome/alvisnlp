@@ -20,14 +20,14 @@ package alvisnlp.corpus.expressions;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
 
 public class LibraryResolver {
 	private final LibraryResolver parent;
-	private final Map<String,FunctionLibrary> libraries = new HashMap<String,FunctionLibrary>();
+	private final Map<String,FunctionLibrary> libraries = new LinkedHashMap<String,FunctionLibrary>();
 	
 	public LibraryResolver(LibraryResolver parent) {
 		this.parent = parent;

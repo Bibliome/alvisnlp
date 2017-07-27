@@ -21,7 +21,7 @@ package alvisnlp.app.cli;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.logging.Formatter;
 import java.util.logging.Level;
@@ -36,7 +36,7 @@ public class CommandLineLogFormatter extends Formatter {
 	public static final CommandLineLogFormatter INSTANCE = new CommandLineLogFormatter(false);
 	public static final CommandLineLogFormatter COLORS = new CommandLineLogFormatter(true);
 	
-	private static final Map<Level,String> LEVEL_COLORS = new HashMap<Level,String>();
+	private static final Map<Level,String> LEVEL_COLORS = new LinkedHashMap<Level,String>();
 	static {
 		LEVEL_COLORS.put(ModuleBase.HIGHLIGHT, "\u001B[1m");
 		LEVEL_COLORS.put(Level.CONFIG, "\u001B[36;1m");

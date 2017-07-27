@@ -21,8 +21,8 @@ import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -220,7 +220,7 @@ class ModelContext {
      * @param moduleElement
      */
     Map<String,ExecutableElement> getMethodsByName(TypeElement moduleElement) {
-		Map<String,ExecutableElement> result = new HashMap<String,ExecutableElement>();
+		Map<String,ExecutableElement> result = new LinkedHashMap<String,ExecutableElement>();
 		for (ExecutableElement method : ElementFilter.methodsIn(elementUtils.getAllMembers(moduleElement)))
 			result.put(method.getSimpleName().toString(), method);
 		return result;

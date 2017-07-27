@@ -17,7 +17,7 @@ limitations under the License.
 
 package alvisnlp.converters.lib;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.bibliome.util.service.UnsupportedServiceException;
@@ -29,7 +29,7 @@ import alvisnlp.converters.ConverterException;
  * @author rbossy
  */
 public abstract class ClosedValueSetParamConverter<T> extends SimpleParamConverter<T> {
-    private final Map<String,T> values = new HashMap<String,T>();
+    private final Map<String,T> values = new LinkedHashMap<String,T>();
 
     /**
      * Create a parameter for a closed values type.

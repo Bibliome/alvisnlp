@@ -16,14 +16,14 @@ limitations under the License.
 
 package alvisnlp.documentation;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
 
 import org.w3c.dom.Document;
 
 public class ConstantDocumentation implements Documentation {
-	private final Map<Locale,Document> documents = new HashMap<Locale,Document>();
+	private final Map<Locale,Document> documents = new LinkedHashMap<Locale,Document>();
 
 	@Override
 	public Document getDocument() {
