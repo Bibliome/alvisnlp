@@ -19,7 +19,6 @@ import javax.xml.bind.Unmarshaller;
 import org.bibliome.util.Files;
 import org.bibliome.util.files.InputFile;
 import org.bibliome.util.files.OutputFile;
-import org.codehaus.plexus.util.DirectoryScanner;
 
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.DefaultNames;
@@ -255,17 +254,17 @@ public abstract class TEESClassify extends TEESMapper {
 		public File getPredictionFile() throws IOException {
 //			Logger logger = getLogger(ctx);
 
-			DirectoryScanner scanner = new DirectoryScanner();
-			String[] patterns = {this.getOutputStem() + "*pred*.xml.gz" };
-			scanner.setIncludes(patterns);
-			scanner.setBasedir(this.baseDir.getAbsolutePath());
-			scanner.setCaseSensitive(false);
-			scanner.scan();
-			String[] files = scanner.getIncludedFiles();
+//			DirectoryScanner scanner = new DirectoryScanner();
+//			String[] patterns = {this.getOutputStem() + "*pred*.xml.gz" };
+//			scanner.setIncludes(patterns);
+//			scanner.setBasedir(this.baseDir.getAbsolutePath());
+//			scanner.setCaseSensitive(false);
+//			scanner.scan();
+//			String[] files = scanner.getIncludedFiles();
 
 //			logger.info("localizing the prediction file : " + files[0]);
 
-			File file = new File(this.baseDir.getAbsolutePath(), files[0]);
+			File file = new File(this.baseDir.getAbsolutePath(), "tees-i-pred.xml.gz");
 			try (FileInputStream stream = new FileInputStream(file)) {
 				try (GZIPInputStream gzipstream = new GZIPInputStream(stream)) {
 					String outname = file.getAbsolutePath().substring(0, file.getAbsolutePath().length() - 3);
@@ -281,8 +280,8 @@ public abstract class TEESClassify extends TEESMapper {
 		}
 
 
-		public String getOutputStem() {
-			return outputStem;
-		}
+//		public String getOutputStem() {
+//			return outputStem;
+//		}
 	}
 }
