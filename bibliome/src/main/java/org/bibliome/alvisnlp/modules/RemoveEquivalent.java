@@ -116,7 +116,6 @@ public class RemoveEquivalent extends CorpusModule<RemoveEquivalentResolvedObjec
 		return new RemoveEquivalentResolvedObjects(ctx);
 	}
 
-	@SuppressWarnings("hiding")
 	class RemoveEquivalentResolvedObjects extends ResolvedObjects {
 		private final Evaluator target;
 		private final Variable other;

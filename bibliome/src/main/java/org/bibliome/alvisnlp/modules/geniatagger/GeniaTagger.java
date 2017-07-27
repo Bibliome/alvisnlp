@@ -178,8 +178,9 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 			
 			script = new File(tmpDir, "genia.sh");
 			// same ClassLoader as this class
-			InputStream is = GeniaTagger.class.getResourceAsStream("genia.sh");
-			Files.copy(is, script, 1024, true);
+			try (InputStream is = GeniaTagger.class.getResourceAsStream("genia.sh")) {
+				Files.copy(is, script, 1024, true);
+			}
 			script.setExecutable(true);
 
 			GeniaTaggerResolvedObjects resObj = getResolvedObjects();

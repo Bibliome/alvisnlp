@@ -67,7 +67,6 @@ public abstract class Action extends CorpusModule<ActionResolvedObjects> impleme
 		commit(ctx, actionCtx);
 	}
 	
-	@SuppressWarnings("hiding")
 	class ActionResolvedObjects extends ResolvedObjects {
 		private final Evaluator target;
 		private final Evaluator action;

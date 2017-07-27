@@ -189,8 +189,9 @@ public abstract class TEESTrain extends TEESMapper {
 			
 			script = new File(tmp, "train.sh");
 			// same ClassLoader as this class
-			InputStream is = TEESTrain.class.getResourceAsStream("train.sh");
-			Files.copy(is, script, 1024, true);
+			try (InputStream is = TEESTrain.class.getResourceAsStream("train.sh")) {
+				Files.copy(is, script, 1024, true);
+			}
 			script.setExecutable(true);
 		}
 

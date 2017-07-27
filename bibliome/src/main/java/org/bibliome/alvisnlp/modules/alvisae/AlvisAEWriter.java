@@ -72,7 +72,6 @@ public class AlvisAEWriter extends SectionModule<AlvisAEExportResolvedObjects> {
 	private ExpressionMapping documentProperties = new ExpressionMapping();
 	private Boolean publish = false;
 
-	@SuppressWarnings("hiding")
 	class AlvisAEExportResolvedObjects extends SectionResolvedObjects {
 		private final AnnotationSet.Resolved[] annotationSets;
 		private final Evaluator fileName;

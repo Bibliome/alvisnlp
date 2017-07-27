@@ -198,8 +198,9 @@ public abstract class TEESClassify extends TEESMapper {
 			//
 			script = new File(tmp, "classify.sh");
 			// same ClassLoader as this class
-			InputStream is = TEESTrain.class.getResourceAsStream("classify.sh");
-			Files.copy(is, script, 1024, true);
+			try (InputStream is = TEESTrain.class.getResourceAsStream("classify.sh")) {
+				Files.copy(is, script, 1024, true);
+			}
 			script.setExecutable(true);
 		}
 

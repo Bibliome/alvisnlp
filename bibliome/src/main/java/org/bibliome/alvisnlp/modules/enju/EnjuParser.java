@@ -72,7 +72,6 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	private String parseStatusFeatureName = "parse-status";
 	private String dependentTypeFeatureName = "arg-type";
 	
-	@SuppressWarnings("hiding")
 	class EnjuParserResolvedObjects extends SectionResolvedObjects {
 		private final Evaluator sentenceFilter;
 		

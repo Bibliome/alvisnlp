@@ -91,8 +91,9 @@ public class EnjuExternal implements External<Corpus> {
 	private static ExecutableFile createScriptFile(File tempDir) throws IOException {
 		ExecutableFile result = new ExecutableFile(tempDir, "enju.sh");
 		// same ClassLoader as this class
-		InputStream is = EnjuParser.class.getResourceAsStream("enju.sh");
-		Files.copy(is, result, 1024, true);
+		try (InputStream is = EnjuParser.class.getResourceAsStream("enju.sh")) {
+			Files.copy(is, result, 1024, true);
+		}
 		result.setExecutable(true);
 		return result;
 	}

@@ -45,6 +45,7 @@ import alvisnlp.module.ProcessingException;
  *
  * @author fpapazian
  */
+@SuppressWarnings("resource")
 public class ADBBinder {
 
     public static String DEFAULT_ANNOTATIONTYPE = "DefaultAnnotationType";
@@ -65,7 +66,7 @@ public class ADBBinder {
     private static final String DATE_FORMAT = "yyyy-MM-dd HH:mm:ss z";
 
     //-- -------------------------------------------------------------------- --
-    private static Connection getConnection(ADBBinder params) throws ProcessingException {
+	private static Connection getConnection(ADBBinder params) throws ProcessingException {
         try {
 //    		Class.forName("org.postgresql.Driver");
     		Class.forName("org.postgresql.Driver", true, ADBBinder.class.getClassLoader());

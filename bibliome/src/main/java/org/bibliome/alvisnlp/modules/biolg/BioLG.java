@@ -266,8 +266,9 @@ public abstract class BioLG extends SectionModule<SectionResolvedObjects> implem
 	private static File getParseScript(File tmpDir) throws IOException {
 		File result = new File(tmpDir, "parse.sh");
 		// same ClassLoader as this class
-		InputStream is = BioLG.class.getResourceAsStream("parse.sh");
-		Files.copy(is, result, 1024, true);
+		try (InputStream is = BioLG.class.getResourceAsStream("parse.sh")) {
+			Files.copy(is, result, 1024, true);
+		}
 		result.setExecutable(true);
 		return result;
 	}

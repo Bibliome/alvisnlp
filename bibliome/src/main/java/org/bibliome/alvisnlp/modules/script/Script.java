@@ -62,15 +62,15 @@ public abstract class Script extends CorpusModule<ResolvedObjects> implements Do
             if (se == null)
                 throw new ProcessingException("no script engine for " + language);
             ScriptContext sc = se.getContext();
-            sc.setErrorWriter(new LogWriter(logger, Level.FINE));
-            sc.getBindings(ScriptContext.ENGINE_SCOPE).put("alvisnlp", new HelperObject(ctx, this, corpus));
-            logger.info("running script");
-            se.eval(script);
-            logger.info("script end");
-            sc.getReader().close();
-            sc.getWriter().flush();
-            sc.getWriter().close();
-            sc.getErrorWriter().close();
+            try (LogWriter logWriter = new LogWriter(logger, Level.FINE)) {
+            	sc.setErrorWriter(logWriter);
+            	sc.getBindings(ScriptContext.ENGINE_SCOPE).put("alvisnlp", new HelperObject(ctx, this, corpus));
+            	logger.info("running script");
+            	se.eval(script);
+            	logger.info("script end");
+            	sc.getReader().close();
+            	sc.getWriter().flush();
+            }
         }
         catch (ScriptException se) {
            rethrow(se);

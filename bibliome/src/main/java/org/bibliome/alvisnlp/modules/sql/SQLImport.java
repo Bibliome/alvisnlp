@@ -92,14 +92,15 @@ public abstract class SQLImport extends CorpusModule<SQLImportResolvedObjects> i
 		EvaluationContext actionCtx = new EvaluationContext(logger, this);
 
 		try (Connection connection = openConnection(ctx)) {
-			PreparedStatement statement = connection.prepareStatement(query);
-			for (Element elt : Iterators.loop(resObj.target.evaluateElements(evalCtx, corpus))) {
-				for (int i = 0; i < resObj.parameters.length; ++i) {
-					resObj.parameters[i].updateStatement(statement, i, evalCtx, elt);
+			try (PreparedStatement statement = connection.prepareStatement(query)) {
+				for (Element elt : Iterators.loop(resObj.target.evaluateElements(evalCtx, corpus))) {
+					for (int i = 0; i < resObj.parameters.length; ++i) {
+						resObj.parameters[i].updateStatement(statement, i, evalCtx, elt);
+					}
+					fetchResult(ctx, statement, actionCtx, elt);
 				}
-				fetchResult(ctx, statement, actionCtx, elt);
+				commit(ctx, actionCtx);
 			}
-			commit(ctx, actionCtx);
 		}
 		catch (ClassNotFoundException|SQLException e) {
 			rethrow(e);
@@ -109,10 +110,11 @@ public abstract class SQLImport extends CorpusModule<SQLImportResolvedObjects> i
 	@TimeThis(task="fetch-results", category=TimerCategory.COLLECT_DATA)
 	protected void fetchResult(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, PreparedStatement statement, EvaluationContext actionCtx, Element elt) throws SQLException {
 		SQLImportResolvedObjects resObj = getResolvedObjects();
-		ResultSet resultSet = statement.executeQuery();
-		resObj.resultSetLibrary.setResultSet(resultSet);
-		while (resultSet.next()) {
-			Iterators.deplete(resObj.action.evaluateElements(actionCtx, elt));
+		try (ResultSet resultSet = statement.executeQuery()) {
+			resObj.resultSetLibrary.setResultSet(resultSet);
+			while (resultSet.next()) {
+				Iterators.deplete(resObj.action.evaluateElements(actionCtx, elt));
+			}
 		}
 	}
 

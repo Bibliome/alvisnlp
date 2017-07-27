@@ -139,12 +139,13 @@ public abstract class ComparisonLibrary extends FunctionLibrary {
 
 		private static final Collection<String> loadDict(SourceStream source) throws IOException {
 			Collection<String> result = new HashSet<String>();
-			BufferedReader r = source.getBufferedReader();
-			while (true) {
-				String entry = r.readLine();
-				if (entry == null)
-					break;
-				result.add(entry);
+			try (BufferedReader r = source.getBufferedReader()) {
+				while (true) {
+					String entry = r.readLine();
+					if (entry == null)
+						break;
+					result.add(entry);
+				}
 			}
 			return result;
 		}

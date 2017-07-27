@@ -49,7 +49,6 @@ public class Assert extends CorpusModule<AssertResolvedObjects> {
 	private Expression message;
 	private TargetStream outFile;
 	
-	@SuppressWarnings("hiding")
 	class AssertResolvedObjects extends ResolvedObjects {
 		private final Evaluator target;
 		private final Evaluator assertion;

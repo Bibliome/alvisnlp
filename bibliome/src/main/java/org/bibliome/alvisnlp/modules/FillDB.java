@@ -58,6 +58,7 @@ public class FillDB extends SectionModule<SectionResolvedObjects> {
 		return new SectionResolvedObjects(ctx, this);
 	}
 
+	@SuppressWarnings("resource")
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);

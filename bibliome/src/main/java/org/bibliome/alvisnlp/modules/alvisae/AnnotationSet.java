@@ -55,7 +55,6 @@ public class AnnotationSet implements Resolvable<Resolved> {
 	private final Expression unmatchedAnnotationSet = DefaultExpressions.feature("annotation-set");
 	private final Expression unmatchedId = DefaultExpressions.feature("id");
 
-	@SuppressWarnings("hiding")
 	public class Resolved implements NameUser {
 		private final Collection<TextAnnotationDefinition.Resolved> textAnnotationDefinitions = new ArrayList<TextAnnotationDefinition.Resolved>();
 		private final Collection<RelationDefinition.Resolved> relationDefinitions = new ArrayList<RelationDefinition.Resolved>();

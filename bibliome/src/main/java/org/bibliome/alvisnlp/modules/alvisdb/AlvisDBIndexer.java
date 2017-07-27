@@ -64,20 +64,22 @@ public class AlvisDBIndexer extends CorpusModule<AlvisDBIndexerResolvedObjects>{
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
-		IndexWriterConfig writerConfig = new IndexWriterConfig(Version.LUCENE_36, new KeywordAnalyzer());
-		writerConfig.setOpenMode(append ? OpenMode.CREATE_OR_APPEND : OpenMode.CREATE);
-		try (Directory dir = FSDirectory.open(indexDir)) {
-			try (IndexWriter writer = new IndexWriter(dir, writerConfig)) {
-				AlvisDBIndexerResolvedObjects resObj = getResolvedObjects();
-				Logger logger = getLogger(ctx);
-				EvaluationContext evalCtx = new EvaluationContext(logger);
-				for (ADBElements.Resolved ent : resObj.elements) {
-					ent.indexElements(logger, writer, evalCtx, corpus);
+		try (KeywordAnalyzer kwa = new KeywordAnalyzer()) {
+			IndexWriterConfig writerConfig = new IndexWriterConfig(Version.LUCENE_36, kwa);
+			writerConfig.setOpenMode(append ? OpenMode.CREATE_OR_APPEND : OpenMode.CREATE);
+			try (Directory dir = FSDirectory.open(indexDir)) {
+				try (IndexWriter writer = new IndexWriter(dir, writerConfig)) {
+					AlvisDBIndexerResolvedObjects resObj = getResolvedObjects();
+					Logger logger = getLogger(ctx);
+					EvaluationContext evalCtx = new EvaluationContext(logger);
+					for (ADBElements.Resolved ent : resObj.elements) {
+						ent.indexElements(logger, writer, evalCtx, corpus);
+					}
 				}
 			}
-		}
-		catch (IOException e) {
-			rethrow(e);
+			catch (IOException e) {
+				rethrow(e);
+			}
 		}
 	}
 

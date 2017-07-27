@@ -47,7 +47,6 @@ public class DisambiguateAlternatives extends DocumentModule<DisambiguateAlterna
 	private String ambiguousFeature;
 	private Boolean warnIfAmbiguous = false;
 	
-	@SuppressWarnings("hiding")
 	class DisambiguateAlternativesResolvedObjects extends DocumentResolvedObjects {
 		private final Evaluator target;
 		
