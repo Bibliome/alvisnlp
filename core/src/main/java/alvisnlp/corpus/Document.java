@@ -22,8 +22,8 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -109,7 +109,7 @@ public class Document extends AbstractElement {
     public void addSection(Section sec) {
         if (sections == null) {
             sections = new ArrayList<Section>();
-            sectionNames = new HashSet<String>();
+            sectionNames = new LinkedHashSet<String>();
         }
         sections.add(sec);
         sectionNames.add(sec.getName());

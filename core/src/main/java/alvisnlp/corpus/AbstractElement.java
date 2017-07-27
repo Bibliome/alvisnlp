@@ -23,8 +23,8 @@ import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -85,7 +85,7 @@ public abstract class AbstractElement implements Element, Serializable {
         }
         if (staticFeatureKey == null)
             return Collections.unmodifiableSet(features.keySet());
-        Set<String> result = new HashSet<String>(features.keySet());
+        Set<String> result = new LinkedHashSet<String>(features.keySet());
         result.add(staticFeatureKey);
         return result;
     }

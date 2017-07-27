@@ -22,8 +22,8 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -293,7 +293,7 @@ public final class Section extends AbstractElement {
      * Returns the total number of annotations.
      */
     int countAnnotations() {
-    	Set<Annotation> set = new HashSet<Annotation>();
+    	Set<Annotation> set = new LinkedHashSet<Annotation>();
     	for (Layer layer : layers.values())
     		set.addAll(layer);
     	return set.size();

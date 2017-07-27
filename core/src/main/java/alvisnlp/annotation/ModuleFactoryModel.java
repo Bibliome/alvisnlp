@@ -23,7 +23,7 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 import javax.lang.model.element.Element;
@@ -153,7 +153,7 @@ class ModuleFactoryModel extends AbstractFactoryModel {
 		}
 		InputStream is = fo.openInputStream();
 		Document doc = XMLUtils.docBuilder.parse(is);
-		Collection<String> paramNames = new HashSet<String>();
+		Collection<String> paramNames = new LinkedHashSet<String>();
 		for (ParamModel param : module.getParams()) {
 			String name = param.getName();
 			paramNames.add(name);

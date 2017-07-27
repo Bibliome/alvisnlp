@@ -18,11 +18,11 @@ limitations under the License.
 package alvisnlp.module;
 
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.logging.Logger;
 
 public class CheckUniquePaths<A extends Annotable> extends AbstractModuleVisitor<A, Logger> {
-	private final Collection<String> seenPaths = new HashSet<String>();
+	private final Collection<String> seenPaths = new LinkedHashSet<String>();
 	private boolean duplicatePath = false;
 	
 	@Override

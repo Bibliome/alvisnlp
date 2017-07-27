@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.logging.Logger;
 
 import org.bibliome.util.Timer;
@@ -69,7 +69,7 @@ public class CorpusCommandLineProcessingContext extends CommandLineProcessingCon
 	protected Collection<String> getIgnoreNameTypes(String nameType) {
 		switch (nameType) {
 			case NameType.FEATURE:
-				return new HashSet<String>(Arrays.asList(
+				return new LinkedHashSet<String>(Arrays.asList(
 						"",
 						ArgumentElement.ROLE_FEATURE_KEY,
 						FeatureElement.KEY_FEATURE_KEY,

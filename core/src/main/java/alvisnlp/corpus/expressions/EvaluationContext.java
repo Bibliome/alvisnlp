@@ -19,7 +19,6 @@ package alvisnlp.corpus.expressions;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.logging.Logger;
 
@@ -55,7 +54,7 @@ public class EvaluationContext {
 	private TupleCreator tupleCreator;
 	private final Collection<Element> createdElements = new LinkedHashSet<Element>();
 	private final Collection<Pair<Annotation,String>> addedAnnotations = new ArrayList<Pair<Annotation,String>>();
-	private final Collection<Element> deletedElements = new HashSet<Element>();
+	private final Collection<Element> deletedElements = new LinkedHashSet<Element>();
 	private final Collection<Pair<Annotation,String>> removedAnnotations = new ArrayList<Pair<Annotation,String>>();
 	private final Collection<ArgumentTriplet> argumentsSet = new ArrayList<ArgumentTriplet>();
 	private final Collection<FeatureTriplet> featuresSet = new ArrayList<FeatureTriplet>();
