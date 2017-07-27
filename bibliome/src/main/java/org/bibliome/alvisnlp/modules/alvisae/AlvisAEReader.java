@@ -22,7 +22,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
@@ -175,7 +175,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 		aDoc.addFeature(externalIdFeature, doc.getExternalId());
 		aDoc.addFeature(descriptionFeature, doc.getDescription());
 		Section sec = getSection(doc, aDoc);
-		Map<AlvisAEAnnotation,Tuple> mapping = new HashMap<AlvisAEAnnotation,Tuple>();
+		Map<AlvisAEAnnotation,Tuple> mapping = new LinkedHashMap<AlvisAEAnnotation,Tuple>();
 		for (AnnotationSet aset : doc.getAnnotationSets()) {
 			if (loadDependencies || (taskId != null && taskId.equals(aset.getTaskId())) || (taskName != null && taskName.equals(aset.getTask()))) {
 				convertAnnotationSet(mapping, aset, sec);

@@ -7,7 +7,7 @@ import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -89,7 +89,7 @@ public abstract class TyDIExportProjector extends TrieProjector<SectionResolvedO
 		variantsDict.addEntries(variants.getMap());
 		Matcher<Set<String>> variantMatcher = new Matcher<Set<String>>(variantsDict, Filters.START_WORD, Filters.END_WORD);
 		logger.info("saturating with typographic variants");
-		Map<String,String> map = new HashMap<String,String>();
+		Map<String,String> map = new LinkedHashMap<String,String>();
 		for (Map.Entry<String,String> e : lemmaLines.lemmaToTerm.entrySet()) {
 			String lemma = e.getKey();
 			List<Match<Set<String>>> matches = searchVariants(variantMatcher, lemma);
@@ -144,7 +144,7 @@ public abstract class TyDIExportProjector extends TrieProjector<SectionResolvedO
 		logger.info(String.format("%d entries", map.size()));
 		/*if (commaKludge) {
                 logger.info("kludging commas");
-                Map<String,String[]> toAdd = new HashMap<String,String[]>();
+                Map<String,String[]> toAdd = new LinkedHashMap<String,String[]>();
                 for (Map.Entry<String,String[]> e : map.entrySet()) {
                     String form = e.getKey();
                     if (form.indexOf(',') == -1)
@@ -209,7 +209,7 @@ public abstract class TyDIExportProjector extends TrieProjector<SectionResolvedO
 	
     private void saturateMerged(Logger logger, Map<String,String> map) throws FileNotFoundException, UnsupportedEncodingException, IOException, InvalidFileLineEntry {
         EquivalenceSets<String> merged = loadEquivalenceFile(logger, mergeFile, null);
-        Map<String,String> toAdd = new HashMap<String,String>();
+        Map<String,String> toAdd = new LinkedHashMap<String,String>();
         for (Map.Entry<String,String> e : map.entrySet()) {
             String lemma = e.getKey();
             if (merged.getMap().containsKey(lemma)) {
@@ -250,10 +250,10 @@ public abstract class TyDIExportProjector extends TrieProjector<SectionResolvedO
     private class LemmaLines extends FileLines<Integer> {
 
         /** The lemma to term. */
-        private final Map<String,String> lemmaToTerm = new HashMap<String,String>();
+        private final Map<String,String> lemmaToTerm = new LinkedHashMap<String,String>();
 
         /** The term to lemma. */
-        private final Map<String,String> termToLemma = new HashMap<String,String>();
+        private final Map<String,String> termToLemma = new LinkedHashMap<String,String>();
 
         /**
          * Instantiates a new lemma lines.

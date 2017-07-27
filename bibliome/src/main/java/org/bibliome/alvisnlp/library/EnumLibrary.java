@@ -20,8 +20,8 @@ package org.bibliome.alvisnlp.library;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -70,7 +70,7 @@ public abstract class EnumLibrary extends FunctionLibrary {
 
 		@Override
 		public Set<String> getFeatureKeys() {
-			Set<String> result = new HashSet<String>(element.getFeatureKeys());
+			Set<String> result = new LinkedHashSet<String>(element.getFeatureKeys());
 			result.add(NUM_FEATURE_KEY);
 			return result;
 		}
@@ -155,7 +155,7 @@ public abstract class EnumLibrary extends FunctionLibrary {
 
 		@Override
 		public Map<String,List<String>> getFeatures() {
-			Map<String,List<String>> result = new HashMap<String,List<String>>(element.getFeatures());
+			Map<String,List<String>> result = new LinkedHashMap<String,List<String>>(element.getFeatures());
 			result.put(NUM_FEATURE_KEY, Collections.singletonList(num));
 			return result;
 		}

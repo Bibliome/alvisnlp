@@ -23,7 +23,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -221,7 +221,7 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
     }
     
     private Map<String,List<String>> getMetadata(ProcessingContext<Corpus> ctx, String file) {
-    	Map<String,List<String>> result = new HashMap<String,List<String>>();
+    	Map<String,List<String>> result = new LinkedHashMap<String,List<String>>();
     	File xmlFile = new File(xmlDir, file.replace(".txt", ".xml"));
 		try {
 			Element root = XMLUtils.docBuilder.parse(xmlFile).getDocumentElement();

@@ -21,7 +21,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -138,7 +138,7 @@ public abstract class ComparisonLibrary extends FunctionLibrary {
 		}
 
 		private static final Collection<String> loadDict(SourceStream source) throws IOException {
-			Collection<String> result = new HashSet<String>();
+			Collection<String> result = new LinkedHashSet<String>();
 			try (BufferedReader r = source.getBufferedReader()) {
 				while (true) {
 					String entry = r.readLine();

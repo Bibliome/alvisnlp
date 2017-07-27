@@ -18,7 +18,7 @@ limitations under the License.
 package org.bibliome.alvisnlp.modules;
 
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
@@ -78,7 +78,7 @@ public class DisambiguateAlternatives extends DocumentModule<DisambiguateAlterna
 		int nStillAmbiguous = 0;
 		int nCannotDisambiguate = 0;
 		for (Document doc : Iterators.loop(documentIterator(evalCtx, corpus))) {
-			Set<String> seen = new HashSet<String>();
+			Set<String> seen = new LinkedHashSet<String>();
 			for (Element elt : Iterators.loop(resObj.target.evaluateElements(evalCtx, doc))) {
 				if (!elt.hasFeature(ambiguousFeature))
 					continue;

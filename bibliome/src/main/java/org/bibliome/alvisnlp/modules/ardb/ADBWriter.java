@@ -19,7 +19,7 @@ package org.bibliome.alvisnlp.modules.ardb;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -177,7 +177,7 @@ public class ADBWriter extends CorpusModule<ResolvedObjects> {
                         dbContext.addAspect(doc_id, asp_id, section);
 //                        nbSections++;
 
-                        Map<String, Integer> dbAnIdByAlvisAnnId = new HashMap<>();
+                        Map<String, Integer> dbAnIdByAlvisAnnId = new LinkedHashMap<>();
 
                         //process primary Annotation (=text-bound Annotations)
                         for (Element annOrTupleElement : Iterators.loop(annotationsEvaluator.evaluateElements(annotationsEvalCtx, section))) {

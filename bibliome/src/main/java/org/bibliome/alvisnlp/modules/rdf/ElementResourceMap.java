@@ -17,7 +17,7 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.rdf;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.apache.jena.rdf.model.Model;
@@ -30,7 +30,7 @@ import alvisnlp.module.NameUsage;
 
 public class ElementResourceMap implements ResourceBuilder {
 	private final Model model;
-	private final Map<Element,Resource> resources = new HashMap<Element,Resource>();
+	private final Map<Element,Resource> resources = new LinkedHashMap<Element,Resource>();
 
 	public ElementResourceMap(Model model) {
 		super();

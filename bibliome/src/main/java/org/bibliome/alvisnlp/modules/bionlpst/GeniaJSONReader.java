@@ -19,7 +19,7 @@ package org.bibliome.alvisnlp.modules.bionlpst;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
@@ -66,7 +66,7 @@ public abstract class GeniaJSONReader extends CorpusModule<ResolvedObjects> impl
 				try {
 					JSONObject json = (JSONObject) parser.parse(br);
 					Section sec = getSection(logger, corpus, json);
-					Map<String, Element> eltMap = new HashMap<String, Element>();
+					Map<String, Element> eltMap = new LinkedHashMap<String, Element>();
 					fillAnnotations(logger, sec, json, eltMap);
 					fillInstances(logger, sec, json, eltMap);
 					fillectionRelations(logger, sec, json, eltMap);

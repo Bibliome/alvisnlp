@@ -18,7 +18,7 @@ limitations under the License.
 package org.bibliome.alvisnlp.modules.clone;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -74,7 +74,7 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 			Map<Annotation,Integer> offsets = computeOffsets(keepLayers);
 			Section newSection = new Section(this, doc, targetSectionName, newContents);
 
-			Map<Element,Element> mapping = new HashMap<Element,Element>();
+			Map<Element,Element> mapping = new LinkedHashMap<Element,Element>();
 			for (int i = 0; i < sections.size(); ++i)
 				cloneSection(mapping, sections.get(i), keepLayers.get(i), newSection, offsets);
 			
@@ -88,7 +88,7 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 	}
 	
 	private Map<Annotation,Integer> computeOffsets(List<Layer> keepLayers) {
-		Map<Annotation,Integer> result = new HashMap<Annotation,Integer>();
+		Map<Annotation,Integer> result = new LinkedHashMap<Annotation,Integer>();
 		int offset = 0;
 		boolean notFirstSection = false;
 		for (Layer layer : keepLayers) {

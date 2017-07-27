@@ -17,7 +17,7 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.library;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -36,7 +36,7 @@ import alvisnlp.module.NameUsage;
 @Library("sets")
 public abstract class SetsLibrary extends FunctionLibrary {
 	private static final Set<Element> asSet(Iterator<Element> it)  {
-		Set<Element> result = new HashSet<Element>();
+		Set<Element> result = new LinkedHashSet<Element>();
 		Iterators.fill(it, result);
 		return result;
 	}

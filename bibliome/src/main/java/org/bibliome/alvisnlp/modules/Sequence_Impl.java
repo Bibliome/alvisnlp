@@ -22,8 +22,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,7 +46,7 @@ import alvisnlp.module.lib.Param;
 @AlvisNLPModule
 public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequence<Corpus> {
     private final List<Module<Corpus>> moduleSequence = new ArrayList<Module<Corpus>>();
-    private final Map<String,CompositeParamHandler<Corpus>> params = new HashMap<String,CompositeParamHandler<Corpus>>();
+    private final Map<String,CompositeParamHandler<Corpus>> params = new LinkedHashMap<String,CompositeParamHandler<Corpus>>();
     private final Map<String,String> properties = new LinkedHashMap<String,String>();
     private String[] select;
 
@@ -113,7 +113,7 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
     		}
     	}
     	else {
-    		Set<String> set = new HashSet<String>(Arrays.asList(select));
+    		Set<String> set = new LinkedHashSet<String>(Arrays.asList(select));
     		for (Module<Corpus> mod : moduleSequence) {
     			if (set.contains(mod.getId())) {
     				ctx.processCorpus(mod, corpus);

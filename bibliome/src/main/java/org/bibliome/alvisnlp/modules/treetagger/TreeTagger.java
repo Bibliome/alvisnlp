@@ -26,7 +26,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -244,7 +244,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
         if (lexiconFile == null) {
 			return Collections.emptyMap();
 		}
-        Map<String,String> result = new HashMap<String,String>();
+        Map<String,String> result = new LinkedHashMap<String,String>();
         Logger logger = getLogger(ctx);
         logger.fine("opening lexicon file: " + lexiconFile);
         lexiconFileLines.setLogger(logger);

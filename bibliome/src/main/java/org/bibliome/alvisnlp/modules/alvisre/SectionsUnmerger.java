@@ -19,7 +19,7 @@ package org.bibliome.alvisnlp.modules.alvisre;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
@@ -32,8 +32,8 @@ import alvisnlp.corpus.creators.AnnotationCreator;
 
 public class SectionsUnmerger {
 	private final NavigableMap<Integer,Section> offsets = new TreeMap<Integer,Section>();
-	private final Map<String,Element> elementIndex = new HashMap<String,Element>();
-	private final Map<Element,String> idIndex = new HashMap<Element,String>();
+	private final Map<String,Element> elementIndex = new LinkedHashMap<String,Element>();
+	private final Map<Element,String> idIndex = new LinkedHashMap<Element,String>();
 	private int nextTokenId = 0;
 	private int nextRelationId = 0;
 	

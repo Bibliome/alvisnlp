@@ -20,7 +20,7 @@ package org.bibliome.alvisnlp.modules.wok;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 import org.bibliome.alvisnlp.modules.wok.readers.FeatureSetter;
@@ -41,7 +41,7 @@ public class WoKReaderStatus {
 	private final Corpus corpus;
 	private int documentCount = 0;
 	private Document document;
-	private final Collection<String> unhandledFields = new HashSet<String>();
+	private final Collection<String> unhandledFields = new LinkedHashSet<String>();
 	private final List<String> headers = new ArrayList<String>(100);
 	
 	public WoKReaderStatus(WebOfKnowledgeReader webOfKnowledgeReader, Corpus corpus) {

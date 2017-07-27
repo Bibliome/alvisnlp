@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.logging.Logger;
@@ -156,7 +156,7 @@ public class RelpWriter extends SectionModule<RelpWriterResolvedObjects> {
 	
 	private final class RelationIndex extends DefaultMap<Annotation,LinkageIndex> {
 		private RelationIndex(Relation rel) {
-			super(true, new HashMap<Annotation,LinkageIndex>());
+			super(true, new LinkedHashMap<Annotation,LinkageIndex>());
 			for (Tuple t : rel.getTuples()) {
 				Annotation sentence = DownCastElement.toAnnotation(t.getArgument(sentenceRole));
 				DefaultMap<Integer,Collection<Tuple>> sentLinkages = safeGet(sentence);
@@ -183,7 +183,7 @@ public class RelpWriter extends SectionModule<RelpWriterResolvedObjects> {
 	}
 	
 	private static Map<Annotation,Integer> getWordIndex(Layer sentence) {
-		Map<Annotation,Integer> result = new HashMap<Annotation,Integer>();
+		Map<Annotation,Integer> result = new LinkedHashMap<Annotation,Integer>();
 		for (int i = 0; i < sentence.size(); ++i)
 			result.put(sentence.get(i), i);
 		return result;

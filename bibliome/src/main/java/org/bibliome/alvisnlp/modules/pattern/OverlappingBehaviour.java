@@ -20,7 +20,7 @@ package org.bibliome.alvisnlp.modules.pattern;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -119,7 +119,7 @@ public enum OverlappingBehaviour {
 	}
 	
 	private static Map<Element,Collection<Element>> getOrder(Layer layer) {
-		Map<Element,Collection<Element>> result = new HashMap<Element,Collection<Element>>();
+		Map<Element,Collection<Element>> result = new LinkedHashMap<Element,Collection<Element>>();
 		result.put(null, getSuccessors(layer));
 		for (Annotation a : layer)
 			result.put(a, getSuccessors(layer.after(a.getEnd())));

@@ -19,7 +19,7 @@ package org.bibliome.alvisnlp.modules.projectors;
 
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -268,7 +268,7 @@ public abstract class Projector<S extends SectionResolvedObjects,T,D extends Dic
 		@Override
 		protected void addValue(T value, CharSequence key) {
 			if (values == null) {
-				values = new HashSet<T>(2);
+				values = new LinkedHashSet<T>(2);
 				values.add(value);
 				return;
 			}

@@ -17,7 +17,7 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.clone;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
@@ -53,7 +53,7 @@ public abstract class RemoveContents extends SectionModule<SectionResolvedObject
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
-		Map<Element,Element> map = new HashMap<Element,Element>();
+		Map<Element,Element> map = new LinkedHashMap<Element,Element>();
 		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
 			cloneSection(logger, map, sec);
 		}

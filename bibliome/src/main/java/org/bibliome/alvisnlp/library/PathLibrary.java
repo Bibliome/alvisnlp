@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Deque;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
@@ -65,7 +65,7 @@ public abstract class PathLibrary extends FunctionLibrary {
 	
 	private static final class FromPathCache extends DefaultMap<Element,List<Element>> {
 		private FromPathCache() {
-			super(false, new HashMap<Element,List<Element>>());
+			super(false, new LinkedHashMap<Element,List<Element>>());
 		}
 
 		@Override
@@ -76,7 +76,7 @@ public abstract class PathLibrary extends FunctionLibrary {
 	
 	private static final class PathCache extends DefaultMap<Element,FromPathCache> {
 		private PathCache() {
-			super(true, new HashMap<Element,FromPathCache>());
+			super(true, new LinkedHashMap<Element,FromPathCache>());
 		}
 
 		@Override
@@ -94,7 +94,7 @@ public abstract class PathLibrary extends FunctionLibrary {
 	}
 	
 	private static Collection<PathNode> getPathTree(EvaluationContext ctx, Evaluator arcs, Element from) {
-		Map<Element,PathNode> result = new HashMap<Element,PathNode>();
+		Map<Element,PathNode> result = new LinkedHashMap<Element,PathNode>();
 		PathNode root = new PathNode(null, from);
 		Collection<PathNode> pathNodes = new ArrayList<PathNode>();
 		pathNodes.add(root);

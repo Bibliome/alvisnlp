@@ -22,7 +22,7 @@ import java.io.FileFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -139,7 +139,7 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 
 				Document alvisnlpDoc = Document.getDocument(this, corpus, doc.getId());
 				Section section = getSection(alvisnlpDoc, doc.getText());
-				Map<String,Element> map = new HashMap<String,Element>();
+				Map<String,Element> map = new LinkedHashMap<String,Element>();
 				for (BioNLPSTAnnotation a : doc.getAnnotations()) {
 					Element e = a.accept(pass1, section);
 					if (e != null) {

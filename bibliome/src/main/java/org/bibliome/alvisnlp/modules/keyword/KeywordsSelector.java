@@ -22,8 +22,8 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -207,7 +207,7 @@ public class KeywordsSelector extends CorpusModule<KeywordSelectorResolvedObject
 	}
 	
 	private Stats<String,Count> getFrequencies(EvaluationContext evalCtx, Element doc) {
-		Stats<String,Count> result = new CountStats<String>(new HashMap<String,Count>());
+		Stats<String,Count> result = new CountStats<String>(new LinkedHashMap<String,Count>());
 		KeywordSelectorResolvedObjects resObj = getResolvedObjects();
 		for (Element kw : Iterators.loop(resObj.keywords.evaluateElements(evalCtx, doc))) {
 			String kwForm = resObj.keywordForm.evaluateString(evalCtx, kw);
@@ -217,11 +217,11 @@ public class KeywordsSelector extends CorpusModule<KeywordSelectorResolvedObject
 	}
 	
 	private Stats<String,Count> getDocumentFrequencies(EvaluationContext evalCtx, Corpus corpus) {
-		Stats<String,Count> result = new CountStats<String>(new HashMap<String,Count>());
+		Stats<String,Count> result = new CountStats<String>(new LinkedHashMap<String,Count>());
 		KeywordSelectorResolvedObjects resObj = getResolvedObjects();
 		if (scoreFunction.requiresDocumentFrequency()) {
 			for (Element doc : Iterators.loop(resObj.documents.evaluateElements(evalCtx, corpus))) {
-				Collection<String> docKeywords = new HashSet<String>();
+				Collection<String> docKeywords = new LinkedHashSet<String>();
 				for (Element kw : Iterators.loop(resObj.keywords.evaluateElements(evalCtx, doc))) {
 					String kwForm = resObj.keywordForm.evaluateString(evalCtx, kw);
 					docKeywords.add(kwForm);

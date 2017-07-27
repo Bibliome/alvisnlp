@@ -17,7 +17,7 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.alvisae;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.UUID;
 
 import org.bibliome.util.defaultmap.DefaultMap;
@@ -46,7 +46,7 @@ class AnnotationReference {
 	
 	static class Record<T> extends DefaultMap<T,AnnotationReference> {
 		Record() {
-			super(true, new HashMap<T,AnnotationReference>());
+			super(true, new LinkedHashMap<T,AnnotationReference>());
 		}
 
 		@Override

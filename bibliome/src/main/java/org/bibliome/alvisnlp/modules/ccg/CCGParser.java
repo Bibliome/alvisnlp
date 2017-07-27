@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
@@ -962,7 +962,7 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
                         if (!currArg1.equals(",") && (prev == null || !prev.getDep().equals("conj") || prev.getArg1().equals(","))) {
                                 List<Dependency> result = new ArrayList<Dependency>();
                                 String conjunct= currArg1;
-                                Collection<Annotation> seen = new HashSet<Annotation>();
+                                Collection<Annotation> seen = new LinkedHashSet<Annotation>();
                                 seen.add(curr.a2);
                                 for (Dependency nextConj : dependencies.subList(i + 1, dependencies.size())) {
                                         if (!nextConj.getDep().equals("conj"))
@@ -1030,7 +1030,7 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 			/*if (!currArg1.equals(",") && (prev == null || !prev.getDep().equals("conj"))) {
 				List<Dependency> result = new ArrayList<Dependency>();
 				String conjunct= currArg1;
-				Collection<Annotation> seen = new HashSet<Annotation>();
+				Collection<Annotation> seen = new LinkedHashSet<Annotation>();
 				seen.add(curr.a2);
 				for (Dependency nextConj : dependencies.subList(i + 1, dependencies.size())) {
 					if (!nextConj.getDep().equals("conj"))

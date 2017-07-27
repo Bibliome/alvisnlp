@@ -20,7 +20,7 @@ package org.bibliome.alvisnlp.modules.TriPhase;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -105,8 +105,8 @@ public class ProminentConceptReporter extends CorpusModule<ResolvedObjects> impl
             nbDocuments++;
 
 
-            Map<String, Integer> conceptCount = new HashMap<String, Integer>();
-            Map<String, Map<String, List<String>>> conceptFeatures = new HashMap<String, Map<String, List<String>>>();
+            Map<String, Integer> conceptCount = new LinkedHashMap<String, Integer>();
+            Map<String, Map<String, List<String>>> conceptFeatures = new LinkedHashMap<String, Map<String, List<String>>>();
 
             for (Element conceptAnnotationElement : Iterators.loop(conceptAnnotationsEvaluator.evaluateElements(conceptAnnotationsEvalCtx, doc))) {
                 if (!ElementType.ANNOTATION.equals(conceptAnnotationElement.getType())) {

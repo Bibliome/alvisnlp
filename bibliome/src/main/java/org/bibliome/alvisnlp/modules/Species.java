@@ -21,7 +21,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -76,7 +76,7 @@ public abstract class Species extends SectionModule<SectionResolvedObjects> impl
 	
 	@TimeThis(task="write-species-input", category=TimerCategory.PREPARE_DATA)
 	protected Map<String,Section> writeSpeciesInput(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, Corpus corpus, File tmpDir) throws ModuleException {
-		Map<String,Section> result = new HashMap<String,Section>();
+		Map<String,Section> result = new LinkedHashMap<String,Section>();
 		try {
 			for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
 				int n = result.size();

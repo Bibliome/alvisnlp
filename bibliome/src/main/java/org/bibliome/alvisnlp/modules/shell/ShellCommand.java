@@ -18,7 +18,7 @@ limitations under the License.
 package org.bibliome.alvisnlp.modules.shell;
 
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
@@ -322,7 +322,7 @@ public enum ShellCommand {
 	abstract void execute(ShellEnvironment env, String operand) throws Exception;
 
 	public static Map<String,ShellCommand> getCommands() {
-		Map<String,ShellCommand> result = new HashMap<String,ShellCommand>();
+		Map<String,ShellCommand> result = new LinkedHashMap<String,ShellCommand>();
 		for (ShellCommand cmd : ShellCommand.values())
 			result.put(cmd.command, cmd);
 		return result;

@@ -1,6 +1,6 @@
 package org.bibliome.alvisnlp.modules.tees;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -52,10 +52,10 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	private String omitSteps = "SPLIT-SENTENCES,NER";
 	private InputDirectory teesHome;
 
-	private final Map<String,CorpusTEES> corpora = new HashMap<String,CorpusTEES>();
-	private final Map<String,Section> sentId2Sections =  new HashMap<String,Section>();
-	private final Map<String,Element> entId2Elements =  new HashMap<String,Element>();
-	private final Map<String,String> origId2teesId = new HashMap<String,String>();
+	private final Map<String,CorpusTEES> corpora = new LinkedHashMap<String,CorpusTEES>();
+	private final Map<String,Section> sentId2Sections =  new LinkedHashMap<String,Section>();
+	private final Map<String,Element> entId2Elements =  new LinkedHashMap<String,Element>();
+	private final Map<String,String> origId2teesId = new LinkedHashMap<String,String>();
 	
 	
 	/***

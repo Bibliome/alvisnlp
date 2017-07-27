@@ -27,7 +27,7 @@ import java.sql.Types;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -169,7 +169,7 @@ public class ADBBinder {
     private String password = null;
     private Connection connection = null;
     private Logger logger;
-    private Map<PreparedStatementId, PreparedStatement> preparedStatement = new HashMap<>();
+    private Map<PreparedStatementId, PreparedStatement> preparedStatement = new LinkedHashMap<>();
 
     public void setLogger(Logger logger) {
         this.logger = logger;

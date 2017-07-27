@@ -24,7 +24,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
@@ -74,8 +74,8 @@ public class EnjuExternal implements External<Corpus> {
 	private String currentSentenceId = null;
 	private int currentPosition = 0;
 	private final Map<Fragment,Annotation> wordPositionIndex = new TreeMap<Fragment,Annotation>(new FragmentComparator<Fragment>());
-	private final Map<String,Annotation> wordIdIndex = new HashMap<String,Annotation>();
-	private final Map<String,String> consHeads = new HashMap<String,String>();
+	private final Map<String,Annotation> wordIdIndex = new LinkedHashMap<String,Annotation>();
+	private final Map<String,String> consHeads = new LinkedHashMap<String,String>();
 	private final Collection<PendingDependencies> dependencies = new ArrayList<PendingDependencies>();
 	private int parseNumber = 0;
 
@@ -327,7 +327,7 @@ public class EnjuExternal implements External<Corpus> {
 	}
 
 	private static Map<String,String> parseAttributes(String line, String attrStr) throws ProcessingException {
-		Map<String,String> result = new HashMap<String,String>();
+		Map<String,String> result = new LinkedHashMap<String,String>();
 		Matcher attrMatcher = ENJU_ATTRIBUTE_PATTERN.matcher(attrStr);
 		while (attrMatcher.find()) {
 			String key = attrMatcher.group("key");

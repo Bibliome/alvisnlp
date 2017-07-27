@@ -19,7 +19,7 @@ package org.bibliome.alvisnlp.modules.clone;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -88,7 +88,7 @@ public abstract class InsertContents extends SectionModule<InsertContentsResolve
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
-		Map<Element,Element> map = new HashMap<Element,Element>();
+		Map<Element,Element> map = new LinkedHashMap<Element,Element>();
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
 			cloneSection(logger, sec, map);

@@ -19,7 +19,7 @@ package org.bibliome.alvisnlp.modules.xml;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import alvisnlp.corpus.Annotation;
@@ -131,7 +131,7 @@ class XMLReaderContext {
 	}
 	
 	void startRefScope() {
-		Map<String,Annotation> aMap = new HashMap<String,Annotation>();
+		Map<String,Annotation> aMap = new LinkedHashMap<String,Annotation>();
 		refScope.addLast(aMap);
 	}
 	

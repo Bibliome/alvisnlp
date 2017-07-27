@@ -19,7 +19,7 @@ package org.bibliome.alvisnlp.modules.alvisir2;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -124,7 +124,7 @@ public class AlvisIRIndexer extends CorpusModule<AlvisIRIndexerResolvedObjects> 
 	}
 
 	private static Map<String,Integer> getNamesIndex(String[] names) {
-		Map<String,Integer> result = new HashMap<String,Integer>();
+		Map<String,Integer> result = new LinkedHashMap<String,Integer>();
 		for (String s : names) {
 			if (!result.containsKey(s)) {
 				result.put(s, result.size());

@@ -24,7 +24,7 @@ import java.io.Reader;
 import java.io.StringReader;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -109,7 +109,7 @@ public class XMLWriter2ForINIST extends CorpusModule<ResolvedObjects> {
 
     public static class ByOrderAndPostionAnnotationComparator implements Comparator<Annotation> {
 
-        Map<Annotation, Integer> position = new HashMap<Annotation, Integer>();
+        Map<Annotation, Integer> position = new LinkedHashMap<Annotation, Integer>();
 
         @Override
         public int compare(Annotation a1, Annotation a2) {

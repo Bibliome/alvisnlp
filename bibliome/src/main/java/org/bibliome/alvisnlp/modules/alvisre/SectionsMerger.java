@@ -17,7 +17,7 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.alvisre;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -36,7 +36,7 @@ public class SectionsMerger {
 	private Section section;
 	private final StringBuilder contents = new StringBuilder();
 	private int offset;
-	private Map<Document,SectionsUnmerger> unmergers = new HashMap<Document,SectionsUnmerger>();
+	private Map<Document,SectionsUnmerger> unmergers = new LinkedHashMap<Document,SectionsUnmerger>();
 	private SectionsUnmerger unmerger;
 	
 	public SectionsMerger(SectionModule<?> module, String separator) {

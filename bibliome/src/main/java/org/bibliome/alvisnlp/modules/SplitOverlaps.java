@@ -17,7 +17,7 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules;
 
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.logging.Logger;
 
@@ -77,7 +77,7 @@ public class SplitOverlaps extends SectionModule<SectionResolvedObjects> impleme
             //anonymous layer containing all non-modifiable annotation
             Layer readOnlyAnnLayer = new Layer(sec);
 
-            Set<Layer> checkedLayers = new HashSet<Layer>();
+            Set<Layer> checkedLayers = new LinkedHashSet<Layer>();
             for (String checked : checkedlayerNames) {
                 Layer layer = sec.getLayer(checked);
                 if (layer != null) {

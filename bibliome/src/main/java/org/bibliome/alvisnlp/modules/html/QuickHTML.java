@@ -26,7 +26,7 @@ import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -246,12 +246,12 @@ public class QuickHTML extends SectionModule<SectionResolvedObjects> {
 	}
 
 	private void stratify(Document doc) throws XPathExpressionException {
-		Map<Element,Integer> cache = new HashMap<Element,Integer>();
+		Map<Element,Integer> cache = new LinkedHashMap<Element,Integer>();
 		List<Element> fragments = XMLUtils.evaluateElements(XPATH_FRAGMENTS, doc);
 		for (Element frag : fragments) {
 			stratify(cache, frag);
 		}
-		Map<String,Integer> strates = new HashMap<String,Integer>();
+		Map<String,Integer> strates = new LinkedHashMap<String,Integer>();
 		for (Element frag : fragments) {
 			String id = frag.getAttribute("alvisnlp-id");
 			int strate = cache.get(frag);

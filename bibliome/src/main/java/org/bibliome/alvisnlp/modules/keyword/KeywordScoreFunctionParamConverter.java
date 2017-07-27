@@ -17,7 +17,7 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.keyword;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.bibliome.util.Strings;
@@ -30,7 +30,7 @@ import alvisnlp.converters.lib.Converter;
 
 @Converter(targetType=KeywordScoreFunction.class)
 public class KeywordScoreFunctionParamConverter extends AbstractParamConverter<KeywordScoreFunction> {
-	private static final Map<String,KeywordScoreFunction> standardFunctions = new HashMap<String,KeywordScoreFunction>();
+	private static final Map<String,KeywordScoreFunction> standardFunctions = new LinkedHashMap<String,KeywordScoreFunction>();
 	
 	static {
 		standardFunctions.put("freq", Frequency.ABSOLUTE);

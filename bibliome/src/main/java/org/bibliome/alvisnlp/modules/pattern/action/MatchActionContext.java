@@ -19,7 +19,7 @@ package org.bibliome.alvisnlp.modules.pattern.action;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -42,7 +42,7 @@ import alvisnlp.corpus.expressions.VariableLibrary;
 import alvisnlp.corpus.expressions.VariableLibrary.Variable;
 
 public class MatchActionContext {
-	private final Map<String,Integer> groupNameMap = new HashMap<String,Integer>();
+	private final Map<String,Integer> groupNameMap = new LinkedHashMap<String,Integer>();
 	private final String matchedLayerName;
 	private final Collection<Element> toAdd = new ArrayList<Element>();
 	private final Collection<Element> toRemove = new ArrayList<Element>();
