@@ -26,6 +26,7 @@ import org.bibliome.util.pattern.SequenceMatcher;
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.NameType;
 import alvisnlp.corpus.Section;
+import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.corpus.expressions.Expression;
 import alvisnlp.module.ModuleException;
@@ -45,15 +46,16 @@ public abstract class AbstractSetFeatures<T extends Element> extends AbstractMat
 
 	@Override
 	protected void process(MatchActionContext ctx, Section section, SequenceMatcher<Element> matcher, Iterator<Element> elements) {
-		for (T elt : getElements(ctx, section, matcher, elements))
-			setFeatures(ctx, elt);
+		for (T elt : getElements(ctx, section, matcher, elements)) {
+			setFeatures(ctx.getEvaluationContext(), elt);
+		}
 	}
 
-	protected void setFeatures(MatchActionContext ctx, T elt) {
+	protected void setFeatures(EvaluationContext evalCtx, T elt) {
 		for (Map.Entry<String,Evaluator> e : resolvedFeatures.entrySet()) {
 			String key = e.getKey();
-			String value = e.getValue().evaluateString(ctx.getEvaluationContext(), elt);
-			elt.addFeature(key, value);
+			String value = e.getValue().evaluateString(evalCtx, elt);
+			evalCtx.registerSetFeature(elt, key, value);
 		}
 	}
 	

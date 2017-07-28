@@ -23,6 +23,7 @@ import org.bibliome.util.pattern.SequenceMatcher;
 
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.Section;
+import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.corpus.expressions.Expression;
 import alvisnlp.module.ModuleException;
@@ -41,7 +42,8 @@ abstract class AbstractMatchAction implements MatchAction {
 
 	@Override
 	public void process(MatchActionContext ctx, Section section, SequenceMatcher<Element> matcher) {
-		process(ctx, section, matcher, resolvedTarget.evaluateElements(ctx.getEvaluationContext(), section));
+		EvaluationContext evalCtx = ctx.getEvaluationContext();
+		process(ctx, section, matcher, resolvedTarget.evaluateElements(evalCtx, section));
 	}
 	
 	protected abstract void process(MatchActionContext ctx, Section section, SequenceMatcher<Element> matcher, Iterator<Element> elements);

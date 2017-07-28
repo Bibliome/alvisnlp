@@ -92,7 +92,7 @@ public abstract class PatternMatcher extends SectionModule<PatternMatcherResolve
 		PatternMatcherResolvedObjects resObj = getResolvedObjects();
 		Logger logger = getLogger(ctx);
 		resObj.matchCtx.setLogger(logger);
-		EvaluationContext evalCtx = new EvaluationContext(logger);
+		EvaluationContext evalCtx = resObj.matchCtx.getEvaluationContext();
 		int nMatches = 0;
 		Timer<TimerCategory> matchTimer = getTimer(ctx, "match", TimerCategory.MODULE, false);
 		Timer<TimerCategory> commitTimer = getTimer(ctx, "commit", TimerCategory.MODULE, false);
@@ -109,7 +109,7 @@ public abstract class PatternMatcher extends SectionModule<PatternMatcherResolve
 				}
 				matchTimer.stop();
 				commitTimer.start();
-				resObj.matchCtx.commit(sec);
+				evalCtx.commit();
 				commitTimer.stop();
 			}
 		}

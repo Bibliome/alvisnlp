@@ -17,8 +17,6 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.pattern.action;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,11 +28,7 @@ import org.bibliome.util.pattern.CapturingGroup;
 import org.bibliome.util.pattern.SequenceMatcher;
 import org.bibliome.util.pattern.SequencePattern;
 
-import alvisnlp.corpus.Annotation;
-import alvisnlp.corpus.DownCastElement;
 import alvisnlp.corpus.Element;
-import alvisnlp.corpus.Layer;
-import alvisnlp.corpus.Section;
 import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.corpus.expressions.LibraryResolver;
 import alvisnlp.corpus.expressions.ResolverException;
@@ -44,8 +38,6 @@ import alvisnlp.corpus.expressions.VariableLibrary.Variable;
 public class MatchActionContext {
 	private final Map<String,Integer> groupNameMap = new LinkedHashMap<String,Integer>();
 	private final String matchedLayerName;
-	private final Collection<Element> toAdd = new ArrayList<Element>();
-	private final Collection<Element> toRemove = new ArrayList<Element>();
 	private final PatternMatcher owner;
 	private final EvaluationContext evalCtx;
 	private final VariableLibrary groupLib;
@@ -80,26 +72,6 @@ public class MatchActionContext {
 
 	public String getMatchedLayerName() {
 		return matchedLayerName;
-	}
-	
-	public void addAnnotation(Element a) {
-		toAdd.add(a);
-	}
-		
-	public void removeAnnotation(Element a) {
-		toRemove.add(a);
-	}
-		
-	public void commit(Section section) {
-		Layer matchedLayer = section.getLayer(matchedLayerName);
-		matchedLayer.removeAll(toRemove);
-		for (Element elt : toAdd) {
-			Annotation a = DownCastElement.toAnnotation(elt);
-			if (a != null)
-				matchedLayer.add(a);
-		}
-		toRemove.clear();
-		toAdd.clear();
 	}
 	
 	public Integer getGroupIndex(String name) {

@@ -63,10 +63,7 @@ public class CreateAnnotation extends AbstractSetFeatures<Annotation> {
 			return Collections.emptyList();
 		Annotation a = new Annotation(ctx.getOwner(), section, start.getStart(), end.getEnd());
 		for (String ln : targetLayerNames) {
-			if (ln == ctx.getMatchedLayerName())
-				ctx.addAnnotation(a);
-			else
-				section.ensureLayer(ln).add(a);
+			ctx.getEvaluationContext().registerAddAnnotation(a, ln);
 		}
 		return Collections.singleton(a);
 	}

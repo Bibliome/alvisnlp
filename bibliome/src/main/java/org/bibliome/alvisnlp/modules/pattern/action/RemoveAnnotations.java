@@ -17,8 +17,6 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.pattern.action;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 
 import org.bibliome.util.Iterators;
@@ -29,6 +27,7 @@ import alvisnlp.corpus.DownCastElement;
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.NameType;
 import alvisnlp.corpus.Section;
+import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.corpus.expressions.Expression;
 import alvisnlp.corpus.expressions.LibraryResolver;
@@ -46,15 +45,19 @@ public class RemoveAnnotations extends AbstractMatchAction {
 
 	@Override
 	protected void process(MatchActionContext ctx, Section section, SequenceMatcher<Element> matcher, Iterator<Element> elements) {
-		Collection<Annotation> annotations = new ArrayList<Annotation>();
+		EvaluationContext evalCtx = ctx.getEvaluationContext();
 		for (Element elt : Iterators.loop(elements)) {
 			Annotation a = DownCastElement.toAnnotation(elt);
-			if (a != null)
-				annotations.add(a);
+			if (a == null) {
+				continue;
+			}
+			for (String ln : layerNames) {
+				evalCtx.registerRemoveAnnotation(a, ln);
+			}
 		}
 //		for (String ln : layerNames) {
-			for (Annotation a : annotations)
-				ctx.removeAnnotation(a);
+//			for (Annotation a : annotations)
+//				ctx.removeAnnotation(a);
 //			if (ln.equals(ctx.getMatchedLayerName()))
 //				for (Annotation a : annotations)
 //					ctx.removeAnnotation(a);
