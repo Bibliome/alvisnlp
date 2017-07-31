@@ -200,7 +200,7 @@ Sequences do not alter the order of processing, their purpose is the
 organization of modules in logical bundles. Note that sequences affect
 the logging and may help you to read the AlvisNLP/ML log.
 
-## Plan import
+## Plan import
 
 Plans can be reused inside other plans:
 
