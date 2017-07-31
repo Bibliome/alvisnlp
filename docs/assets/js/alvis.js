@@ -67,8 +67,7 @@ function toc_scroll(top) {
 	}
 	$('.toc-item').removeClass('toc-active');
 	var n = get_scroll_header(currentScroll, top);
-	console.log(n);
-	if (n) {
+	if (n.toc_node !== undefined) {
 	    n.toc_node.addClass('toc-active');
 	}
     });
