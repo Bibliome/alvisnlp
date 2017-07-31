@@ -60,7 +60,7 @@
       <outDir>.</outDir>
       <files>$</files>
       <fileName>"FP.txt"</fileName>
-      <lines>documents.sections.relations:Lives_In.tuples[@predicted == "true" and not args:reference]</lines>
+      <lines>sort:sval(documents, @id).sections.relations:Lives_In.tuples[@predicted == "true" and not args:reference]</lines>
       <columns separator=";">
 	args:Bacteria.@id;
 	args:Bacteria.@form;
@@ -73,7 +73,7 @@
       <outDir>.</outDir>
       <files>$</files>
       <fileName>"FN.txt"</fileName>
-      <lines>documents.sections.relations:Lives_In.tuples[@predicted != "true" and not args:prediction]</lines>
+      <lines>sort:sval(documents, @id).sections.relations:Lives_In.tuples[@predicted != "true" and not args:prediction]</lines>
       <columns separator=";">
 	args:Bacteria.@id;
 	args:Bacteria.@form;
