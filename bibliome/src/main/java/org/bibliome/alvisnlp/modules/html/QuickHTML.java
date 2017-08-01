@@ -309,6 +309,10 @@ public class QuickHTML extends SectionModule<SectionResolvedObjects> {
 	
 	private void writeXHTMLDocument(Document xmlDoc, String name) throws TransformerFactoryConfigurationError {
 		OutputFile file = new OutputFile(outDir, name + ".html");
+		File dir = file.getParentFile();
+		if (!dir.exists()) {
+			dir.mkdirs();
+		}
 		XMLUtils.writeDOMToFile(xmlDoc, null, file);
 	}
 
