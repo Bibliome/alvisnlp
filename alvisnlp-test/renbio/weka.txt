@@ -1,97 +1,58 @@
-Document BB-cat+ner-19552770, section text
+Document BB-cat+ner-10496597, section text
     False positives:
-        'Campylobacter' at 119
-        'Campylobacter' at 400
-        'Campylobacter' at 480
-        'Campylobacter' at 615
-        'Campylobacter' at 757
-        'Campylobacter' at 857
-        'Campylobacter' at 892
-        'Campylobacter' at 1117
-        'Campylobacter' at 1243
+        'Helicobacter' at 328
+        'Helicobacter' at 738
+        'Helicobacter' at 1831
     False negatives:
-        'Campylobacter spp.' at 119
-        'Campylobacter spp.' at 400
-        'Campylobacter spp.' at 480
-        'Campylobacter spp.' at 615
-        'Campylobacter spp.' at 1117
-    True positives: 6
+    True positives: 3
     Span mismatches:
-        'Campylobacter' at 119 should be 'Campylobacter spp.' at 119
-        'Campylobacter' at 400 should be 'Campylobacter spp.' at 400
-        'Campylobacter' at 480 should be 'Campylobacter spp.' at 480
-        'Campylobacter' at 615 should be 'Campylobacter spp.' at 615
-        'Campylobacter' at 757 should be 'Campylobacter coli' at 757
-        'Campylobacter' at 857 should be 'Campylobacter jejuni' at 857
-        'Campylobacter' at 892 should be 'Campylobacter lari' at 892
-        'Campylobacter' at 1117 should be 'Campylobacter spp.' at 1117
-        'Campylobacter' at 1243 should be 'Campylobacter coli' at 1243
-    Recall      54.545455%
-    Precision   40.000000%
-
-Document BB-cat+ner-5526468, section text
-    False positives:
-        'Vibrio' at 0
-    False negatives:
-    True positives: 1
-    Span mismatches:
-        'Vibrio' at 0 should be 'Vibrio fetus' at 0
+        'Helicobacter' at 328 should be 'Helicobacter pylori' at 328
+        'Helicobacter' at 738 should be 'Helicobacter pylori' at 738
+        'Helicobacter' at 1831 should be 'Helicobacter pylori' at 1831
     Recall      100.000000%
     Precision   50.000000%
 
-Document BB-cat+ner-18694716, section text
+Document BB-cat+ner-11989773, section text
     False positives:
-        'Methylobacterium extorquens' at 1035
-        'Methylobacterium' at 1035
+        'Listeria' at 58
+        'Listeria' at 75
+        'Listeria' at 210
+        'Listeria' at 277
+        'Listeria' at 294
     False negatives:
-    True positives: 1
-    Span mismatches:
-        'Methylobacterium extorquens' at 1035 should be 'Methylobacterium extorquens AM1' at 1035
-        'Methylobacterium' at 1035 should be 'Methylobacterium extorquens AM1' at 1035
-    Recall      100.000000%
-    Precision   33.333333%
-
-Document BB-cat+ner-16514151, section text
-    False positives:
-        'Escherichia' at 674
-        'Deinococcus' at 1387
-    False negatives:
-        'E. coli' at 1336
+        'Listeria sp.' at 58
+        'Listeria sp.' at 277
     True positives: 2
     Span mismatches:
-        'Escherichia' at 674 should be 'Escherichia coli' at 674
-        'Deinococcus' at 1387 should be 'Deinococcus radiodurans' at 1387
-    Recall      66.666667%
-    Precision   50.000000%
+        'Listeria' at 58 should be 'Listeria sp.' at 58
+        'Listeria' at 75 should be 'Listeria monocytogenes' at 75
+        'Listeria' at 277 should be 'Listeria sp.' at 277
+        'Listeria' at 294 should be 'Listeria monocytogenes' at 294
+    Recall      50.000000%
+    Precision   28.571429%
 
-Document BB-cat+ner-18789156, section text
+Document BB-cat+ner-12109661, section text
     False positives:
-        'Francisella' at 47
-        'Francisella' at 174
-        'Francisella tularensis' at 759
-        'Francisella' at 759
-        'Francisella' at 1950
-        'F. tularensis' at 2189
+        'Helicobacter' at 10
+        'Helicobacter' at 165
     False negatives:
-        'Francisella tularensis Live Vaccine Strain' at 759
-        'LVS' at 803
-        'LVS' at 821
-        'LVS' at 981
-        'LVS' at 1192
-        'LVS' at 1327
-        'LVS' at 1499
-        'LVS' at 2117
-        'F. tularensis ssp tularensis' at 2189
-    True positives: 5
+        'H. pylori' at 250
+        'H. pylori' at 416
+        'H. pylori' at 452
+        'H. pylori' at 555
+        'H. pylori' at 646
+        'H. pylori' at 770
+        'H. pylori' at 947
+        'H. pylori' at 1048
+        'H. pylori' at 1181
+        'H. pylori' at 1309
+        'H. pylori' at 1552
+    True positives: 2
     Span mismatches:
-        'Francisella' at 47 should be 'Francisella tularensis' at 47
-        'Francisella' at 174 should be 'Francisella tularensis' at 174
-        'Francisella tularensis' at 759 should be 'Francisella tularensis Live Vaccine Strain' at 759
-        'Francisella' at 759 should be 'Francisella tularensis Live Vaccine Strain' at 759
-        'Francisella' at 1950 should be 'Francisella tularensis' at 1950
-        'F. tularensis' at 2189 should be 'F. tularensis ssp tularensis' at 2189
-    Recall      35.714286%
-    Precision   45.454545%
+        'Helicobacter' at 10 should be 'Helicobacter pylori' at 10
+        'Helicobacter' at 165 should be 'Helicobacter pylori' at 165
+    Recall      15.384615%
+    Precision   50.000000%
 
 Document BB-cat+ner-1214327, section text
     False positives:
@@ -103,99 +64,6 @@ Document BB-cat+ner-1214327, section text
         'Vibrio' at 13 should be 'Vibrio parahaemolyticus' at 13
     Recall      50.000000%
     Precision   50.000000%
-
-Document BB-cat+ner-25114119, section text
-    False positives:
-        'Coxiella' at 181
-        'Coxiella' at 250
-    False negatives:
-        'C. burnetii' at 376
-        'C. burnetii' at 537
-        'C. burnetii' at 639
-        'C. burnetii' at 754
-        'C. burnetii' at 816
-        'C. burnetii' at 973
-        'C. burnetii' at 1213
-        'C. burnetii' at 1317
-        'C. burnetii' at 1381
-        'C. burnetii' at 1457
-        'C. burnetii' at 1516
-        'C. burnetii' at 1582
-        'C. burnetii' at 1634
-        'C. burnetii' at 1811
-        'C. burnetii' at 1945
-    True positives: 2
-    Span mismatches:
-        'Coxiella' at 181 should be 'Coxiella burnetii' at 181
-        'Coxiella' at 250 should be 'Coxiella burnetii' at 250
-    Recall      11.764706%
-    Precision   50.000000%
-
-Document BB-cat+ner-460951, section text
-    False positives:
-        'M. fortuitum' at 417
-    False negatives:
-        'mycobacteria' at 9
-        'mycobacteria' at 181
-        'M. fortuitum-chelonei complex' at 417
-        'M. ulcerans' at 530
-    True positives: 1
-    Span mismatches:
-        'M. fortuitum' at 417 should be 'M. fortuitum-chelonei complex' at 417
-    Recall      20.000000%
-    Precision   50.000000%
-
-Document BB-cat+ner-9521147, section text
-    False positives:
-        'Burkholderia pseudomallei' at 41
-        'Burkholderia' at 41
-    False negatives:
-        'Ara+ Burkholderia pseudomallei' at 36
-        'Ara-' at 151
-        'pseudomallei' at 285
-        'pseudomallei' at 285
-        'B. pseudomallei' at 696
-        'Ara-' at 1180
-        'Ara-' at 1198
-        'Ara+' at 1212
-        'Ara-' at 1489
-        'Ara+' at 1498
-        'B. pseudomallei' at 1565
-        'B. pseudomallei' at 1726
-    True positives: 2
-    Span mismatches:
-        'Burkholderia pseudomallei' at 41 should be 'Ara+ Burkholderia pseudomallei' at 36
-        'Burkholderia' at 41 should be 'Ara+ Burkholderia pseudomallei' at 36
-    Recall      14.285714%
-    Precision   50.000000%
-
-Document BB-cat+ner-23902156, section text
-    False positives:
-        'Escherichia' at 479
-    False negatives:
-    True positives: 1
-    Span mismatches:
-        'Escherichia' at 479 should be 'Escherichia coli' at 479
-    Recall      100.000000%
-    Precision   50.000000%
-
-Document BB-cat+ner-20174624, section text
-    False positives:
-        'Y. pestis' at 1190
-        'Y. pestis' at 1458
-        'Y. pestis' at 1657
-    False negatives:
-        'Y. enterocolitica' at 493
-        'Y. pestis strain KIM6' at 1190
-        'Y. pestis strain KIM6' at 1458
-        'Y. pestis KIM5' at 1657
-    True positives: 11
-    Span mismatches:
-        'Y. pestis' at 1190 should be 'Y. pestis strain KIM6' at 1190
-        'Y. pestis' at 1458 should be 'Y. pestis strain KIM6' at 1458
-        'Y. pestis' at 1657 should be 'Y. pestis KIM5' at 1657
-    Recall      73.333333%
-    Precision   78.571429%
 
 Document BB-cat+ner-1356998, section text
     False positives:
@@ -216,16 +84,71 @@ Document BB-cat+ner-1356998, section text
     Recall      18.181818%
     Precision   66.666667%
 
-Document BB-cat+ner-351567, section text
+Document BB-cat+ner-14633026, section text
     False positives:
-        'Escherichia' at 115
+        'Bacillus thuringiensis' at 36
+        'Bacillus' at 36
+        'Bacillus thuringiensis' at 185
+        'Bacillus' at 185
     False negatives:
-        'E. coli' at 884
-        'Eco' at 921
-    True positives: 1
+        'Bacillus thuringiensis serovar sotto' at 36
+        'Bacillus thuringiensis serovar sotto strain 96-OK-85-24' at 185
+        '96-OK-85-24' at 319
+        '96-OK-85-24' at 674
+    True positives: 2
     Span mismatches:
-        'Escherichia' at 115 should be 'Escherichia coli' at 115
+        'Bacillus thuringiensis' at 36 should be 'Bacillus thuringiensis serovar sotto' at 36
+        'Bacillus' at 36 should be 'Bacillus thuringiensis serovar sotto' at 36
+        'Bacillus thuringiensis' at 185 should be 'Bacillus thuringiensis serovar sotto strain 96-OK-85-24' at 185
+        'Bacillus' at 185 should be 'Bacillus thuringiensis serovar sotto strain 96-OK-85-24' at 185
     Recall      33.333333%
+    Precision   33.333333%
+
+Document BB-cat+ner-15293611, section text
+    False positives:
+        'Pseudomonas' at 18
+        'Pseudomonas' at 132
+    False negatives:
+        'P. aeruginosa' at 398
+        'P. aeruginosa' at 655
+    True positives: 2
+    Span mismatches:
+        'Pseudomonas' at 18 should be 'Pseudomonas aeruginosa' at 18
+        'Pseudomonas' at 132 should be 'Pseudomonas aeruginosa' at 132
+    Recall      50.000000%
+    Precision   50.000000%
+
+Document BB-cat+ner-15618837, section text
+    False positives:
+        'Helicobacter' at 14
+        'Helicobacter' at 163
+    False negatives:
+        'H. pylori' at 441
+        'H. pylori' at 518
+        'H. pylori' at 626
+        'H. pylori' at 722
+        'H. pylori' at 817
+        'H. pylori' at 1092
+        'H. pylori' at 1379
+    True positives: 2
+    Span mismatches:
+        'Helicobacter' at 14 should be 'Helicobacter pylori' at 14
+        'Helicobacter' at 163 should be 'Helicobacter pylori' at 163
+    Recall      22.222222%
+    Precision   50.000000%
+
+Document BB-cat+ner-16273411, section text
+    False positives:
+        'Klebsiella' at 57
+        'Klebsiella' at 321
+        'Klebsiella' at 608
+    False negatives:
+    True positives: 3
+    Span mismatches:
+        'Klebsiella' at 57 should be 'Klebsiella pneumonia' at 57
+        'Klebsiella' at 321 should be 'Klebsiella pneumonia' at 321
+        'Klebsiella' at 608 should be 'Klebsiella pneumonia' at 608
+    Recall      100.000000%
     Precision   50.000000%
 
 Document BB-cat+ner-16458564, section text
@@ -263,96 +186,18 @@ Document BB-cat+ner-16458564, section text
     Recall      46.153846%
     Precision   37.500000%
 
-Document BB-cat+ner-21543877, section text
+Document BB-cat+ner-16514151, section text
     False positives:
-        'Mycobacterium tuberculosis' at 102
-        'Mycobacterium' at 102
-        'Mycobacterium' at 517
+        'Escherichia' at 674
+        'Deinococcus' at 1387
     False negatives:
-        'Mycobacterium tuberculosis H37Rv' at 102
-    True positives: 1
-    Span mismatches:
-        'Mycobacterium tuberculosis' at 102 should be 'Mycobacterium tuberculosis H37Rv' at 102
-        'Mycobacterium' at 102 should be 'Mycobacterium tuberculosis H37Rv' at 102
-        'Mycobacterium' at 517 should be 'Mycobacterium tuberculosis' at 517
-    Recall      50.000000%
-    Precision   25.000000%
-
-Document BB-cat+ner-14633026, section text
-    False positives:
-        'Bacillus thuringiensis' at 36
-        'Bacillus' at 36
-        'Bacillus thuringiensis' at 185
-        'Bacillus' at 185
-    False negatives:
-        'Bacillus thuringiensis serovar sotto' at 36
-        'Bacillus thuringiensis serovar sotto strain 96-OK-85-24' at 185
-        '96-OK-85-24' at 319
-        '96-OK-85-24' at 674
+        'E. coli' at 1336
     True positives: 2
     Span mismatches:
-        'Bacillus thuringiensis' at 36 should be 'Bacillus thuringiensis serovar sotto' at 36
-        'Bacillus' at 36 should be 'Bacillus thuringiensis serovar sotto' at 36
-        'Bacillus thuringiensis' at 185 should be 'Bacillus thuringiensis serovar sotto strain 96-OK-85-24' at 185
-        'Bacillus' at 185 should be 'Bacillus thuringiensis serovar sotto strain 96-OK-85-24' at 185
-    Recall      33.333333%
-    Precision   33.333333%
-
-Document BB-cat+ner-12109661, section text
-    False positives:
-        'Helicobacter' at 10
-        'Helicobacter' at 165
-    False negatives:
-        'H. pylori' at 250
-        'H. pylori' at 416
-        'H. pylori' at 452
-        'H. pylori' at 555
-        'H. pylori' at 646
-        'H. pylori' at 770
-        'H. pylori' at 947
-        'H. pylori' at 1048
-        'H. pylori' at 1181
-        'H. pylori' at 1309
-        'H. pylori' at 1552
-    True positives: 2
-    Span mismatches:
-        'Helicobacter' at 10 should be 'Helicobacter pylori' at 10
-        'Helicobacter' at 165 should be 'Helicobacter pylori' at 165
-    Recall      15.384615%
+        'Escherichia' at 674 should be 'Escherichia coli' at 674
+        'Deinococcus' at 1387 should be 'Deinococcus radiodurans' at 1387
+    Recall      66.666667%
     Precision   50.000000%
-
-Document BB-cat+ner-15293611, section text
-    False positives:
-        'Pseudomonas' at 18
-        'Pseudomonas' at 132
-    False negatives:
-        'P. aeruginosa' at 398
-        'P. aeruginosa' at 655
-    True positives: 2
-    Span mismatches:
-        'Pseudomonas' at 18 should be 'Pseudomonas aeruginosa' at 18
-        'Pseudomonas' at 132 should be 'Pseudomonas aeruginosa' at 132
-    Recall      50.000000%
-    Precision   50.000000%
-
-Document BB-cat+ner-21270066, section text
-    False positives:
-        'Chlamydia' at 695
-    False negatives:
-        'chlamydia' at 968
-    True positives: 1
-    Span mismatches:
-        'Chlamydia' at 695 should be 'Chlamydia trachomatis' at 695
-    Recall      50.000000%
-    Precision   50.000000%
-
-Document BB-cat+ner-21894542, section text
-    False positives:
-    False negatives:
-    True positives: 3
-    Span mismatches:
-    Recall      100.000000%
-    Precision   100.000000%
 
 Document BB-cat+ner-18094887, section text
     False positives:
@@ -379,6 +224,298 @@ Document BB-cat+ner-18094887, section text
     Recall      23.529412%
     Precision   66.666667%
 
+Document BB-cat+ner-18694716, section text
+    False positives:
+        'Methylobacterium extorquens' at 1035
+        'Methylobacterium' at 1035
+    False negatives:
+    True positives: 1
+    Span mismatches:
+        'Methylobacterium extorquens' at 1035 should be 'Methylobacterium extorquens AM1' at 1035
+        'Methylobacterium' at 1035 should be 'Methylobacterium extorquens AM1' at 1035
+    Recall      100.000000%
+    Precision   33.333333%
+
+Document BB-cat+ner-18789156, section text
+    False positives:
+        'Francisella' at 47
+        'Francisella' at 174
+        'Francisella tularensis' at 759
+        'Francisella' at 759
+        'Francisella' at 1950
+        'F. tularensis' at 2189
+    False negatives:
+        'Francisella tularensis Live Vaccine Strain' at 759
+        'LVS' at 803
+        'LVS' at 821
+        'LVS' at 981
+        'LVS' at 1192
+        'LVS' at 1327
+        'LVS' at 1499
+        'LVS' at 2117
+        'F. tularensis ssp tularensis' at 2189
+    True positives: 5
+    Span mismatches:
+        'Francisella' at 47 should be 'Francisella tularensis' at 47
+        'Francisella' at 174 should be 'Francisella tularensis' at 174
+        'Francisella tularensis' at 759 should be 'Francisella tularensis Live Vaccine Strain' at 759
+        'Francisella' at 759 should be 'Francisella tularensis Live Vaccine Strain' at 759
+        'Francisella' at 1950 should be 'Francisella tularensis' at 1950
+        'F. tularensis' at 2189 should be 'F. tularensis ssp tularensis' at 2189
+    Recall      35.714286%
+    Precision   45.454545%
+
+Document BB-cat+ner-19004249, section text
+    False positives:
+        'Staphylococcus' at 221
+        'Escherichia' at 247
+    False negatives:
+    True positives: 3
+    Span mismatches:
+        'Staphylococcus' at 221 should be 'Staphylococcus aureus' at 221
+        'Escherichia' at 247 should be 'Escherichia coli' at 247
+    Recall      100.000000%
+    Precision   60.000000%
+
+Document BB-cat+ner-19339076, section text
+    False positives:
+        'Lactococcus' at 19
+        'L. lactis' at 1153
+        'L. lactis' at 1478
+    False negatives:
+        'lactococci' at 291
+        'lactococcci' at 394
+        'L. lactis subsp. cremoris' at 1153
+        'L. lactis subsp. lactis' at 1478
+        'lactococci' at 2026
+        'lactococci' at 2371
+    True positives: 1
+    Span mismatches:
+        'Lactococcus' at 19 should be 'Lactococcus lactis' at 19
+        'L. lactis' at 1153 should be 'L. lactis subsp. cremoris' at 1153
+        'L. lactis' at 1478 should be 'L. lactis subsp. lactis' at 1478
+    Recall      14.285714%
+    Precision   25.000000%
+
+Document BB-cat+ner-19552770, section text
+    False positives:
+        'Campylobacter' at 119
+        'Campylobacter' at 400
+        'Campylobacter' at 480
+        'Campylobacter' at 615
+        'Campylobacter' at 757
+        'Campylobacter' at 857
+        'Campylobacter' at 892
+        'Campylobacter' at 1117
+        'Campylobacter' at 1243
+    False negatives:
+        'Campylobacter spp.' at 119
+        'Campylobacter spp.' at 400
+        'Campylobacter spp.' at 480
+        'Campylobacter spp.' at 615
+        'Campylobacter spp.' at 1117
+    True positives: 6
+    Span mismatches:
+        'Campylobacter' at 119 should be 'Campylobacter spp.' at 119
+        'Campylobacter' at 400 should be 'Campylobacter spp.' at 400
+        'Campylobacter' at 480 should be 'Campylobacter spp.' at 480
+        'Campylobacter' at 615 should be 'Campylobacter spp.' at 615
+        'Campylobacter' at 757 should be 'Campylobacter coli' at 757
+        'Campylobacter' at 857 should be 'Campylobacter jejuni' at 857
+        'Campylobacter' at 892 should be 'Campylobacter lari' at 892
+        'Campylobacter' at 1117 should be 'Campylobacter spp.' at 1117
+        'Campylobacter' at 1243 should be 'Campylobacter coli' at 1243
+    Recall      54.545455%
+    Precision   40.000000%
+
+Document BB-cat+ner-19621381, section text
+    False positives:
+        'Escherichia' at 746
+    False negatives:
+    True positives: 1
+    Span mismatches:
+        'Escherichia' at 746 should be 'Escherichia coli' at 746
+    Recall      100.000000%
+    Precision   50.000000%
+
+Document BB-cat+ner-20174624, section text
+    False positives:
+        'Y. pestis' at 1190
+        'Y. pestis' at 1458
+        'Y. pestis' at 1657
+    False negatives:
+        'Y. enterocolitica' at 493
+        'Y. pestis strain KIM6' at 1190
+        'Y. pestis strain KIM6' at 1458
+        'Y. pestis KIM5' at 1657
+    True positives: 11
+    Span mismatches:
+        'Y. pestis' at 1190 should be 'Y. pestis strain KIM6' at 1190
+        'Y. pestis' at 1458 should be 'Y. pestis strain KIM6' at 1458
+        'Y. pestis' at 1657 should be 'Y. pestis KIM5' at 1657
+    Recall      73.333333%
+    Precision   78.571429%
+
+Document BB-cat+ner-20580604, section text
+    False positives:
+        'Lactobacillus casei' at 58
+        'Lactobacillus' at 58
+        'Lactobacillus casei' at 277
+        'Lactobacillus' at 277
+    False negatives:
+        'Lactobacillus casei strain Shirota' at 58
+        'Lactobacillus casei strain Shirota' at 277
+        'LcS' at 313
+        'LcS' at 1054
+        'bifidobacteria' at 1200
+        'bifidobacteria' at 1760
+    True positives: 0
+    Span mismatches:
+        'Lactobacillus casei' at 58 should be 'Lactobacillus casei strain Shirota' at 58
+        'Lactobacillus' at 58 should be 'Lactobacillus casei strain Shirota' at 58
+        'Lactobacillus casei' at 277 should be 'Lactobacillus casei strain Shirota' at 277
+        'Lactobacillus' at 277 should be 'Lactobacillus casei strain Shirota' at 277
+    Recall      0.000000%
+    Precision   0.000000%
+
+Document BB-cat+ner-21270066, section text
+    False positives:
+        'Chlamydia' at 695
+    False negatives:
+        'chlamydia' at 968
+    True positives: 1
+    Span mismatches:
+        'Chlamydia' at 695 should be 'Chlamydia trachomatis' at 695
+    Recall      50.000000%
+    Precision   50.000000%
+
+Document BB-cat+ner-21543877, section text
+    False positives:
+        'Mycobacterium tuberculosis' at 102
+        'Mycobacterium' at 102
+        'Mycobacterium' at 517
+    False negatives:
+        'Mycobacterium tuberculosis H37Rv' at 102
+    True positives: 1
+    Span mismatches:
+        'Mycobacterium tuberculosis' at 102 should be 'Mycobacterium tuberculosis H37Rv' at 102
+        'Mycobacterium' at 102 should be 'Mycobacterium tuberculosis H37Rv' at 102
+        'Mycobacterium' at 517 should be 'Mycobacterium tuberculosis' at 517
+    Recall      50.000000%
+    Precision   25.000000%
+
+Document BB-cat+ner-21695078, section text
+    False positives:
+        'Chlamydia' at 22
+        'Chlamydia' at 100
+    False negatives:
+        'chlamydia' at 255
+    True positives: 4
+    Span mismatches:
+        'Chlamydia' at 22 should be 'Chlamydia muridarum' at 22
+        'Chlamydia' at 100 should be 'Chlamydia trachomatis' at 100
+    Recall      80.000000%
+    Precision   66.666667%
+
+Document BB-cat+ner-21894542, section text
+    False positives:
+    False negatives:
+    True positives: 3
+    Span mismatches:
+    Recall      100.000000%
+    Precision   100.000000%
+
+Document BB-cat+ner-23902156, section text
+    False positives:
+        'Escherichia' at 479
+    False negatives:
+    True positives: 1
+    Span mismatches:
+        'Escherichia' at 479 should be 'Escherichia coli' at 479
+    Recall      100.000000%
+    Precision   50.000000%
+
+Document BB-cat+ner-25114119, section text
+    False positives:
+        'Coxiella' at 181
+        'Coxiella' at 250
+    False negatives:
+        'C. burnetii' at 376
+        'C. burnetii' at 537
+        'C. burnetii' at 639
+        'C. burnetii' at 754
+        'C. burnetii' at 816
+        'C. burnetii' at 973
+        'C. burnetii' at 1213
+        'C. burnetii' at 1317
+        'C. burnetii' at 1381
+        'C. burnetii' at 1457
+        'C. burnetii' at 1516
+        'C. burnetii' at 1582
+        'C. burnetii' at 1634
+        'C. burnetii' at 1811
+        'C. burnetii' at 1945
+    True positives: 2
+    Span mismatches:
+        'Coxiella' at 181 should be 'Coxiella burnetii' at 181
+        'Coxiella' at 250 should be 'Coxiella burnetii' at 250
+    Recall      11.764706%
+    Precision   50.000000%
+
+Document BB-cat+ner-25204345, section text
+    False positives:
+        'Enterococcus durans' at 1470
+        'Enterococcus' at 1470
+    False negatives:
+        'lactic acid bacteria' at 92
+        'lactic acid bacterial' at 145
+        'lactic acid bacteria' at 665
+        'Enterococcus durans HZ28' at 1470
+    True positives: 2
+    Span mismatches:
+        'Enterococcus durans' at 1470 should be 'Enterococcus durans HZ28' at 1470
+        'Enterococcus' at 1470 should be 'Enterococcus durans HZ28' at 1470
+    Recall      33.333333%
+    Precision   50.000000%
+
+Document BB-cat+ner-351567, section text
+    False positives:
+        'Escherichia' at 115
+    False negatives:
+        'E. coli' at 884
+        'Eco' at 921
+    True positives: 1
+    Span mismatches:
+        'Escherichia' at 115 should be 'Escherichia coli' at 115
+    Recall      33.333333%
+    Precision   50.000000%
+
+Document BB-cat+ner-3544198, section text
+    False positives:
+        'Mycobacterium' at 40
+        'Mycobacterium' at 163
+    False negatives:
+    True positives: 2
+    Span mismatches:
+        'Mycobacterium' at 40 should be 'Mycobacterium leprae' at 40
+        'Mycobacterium' at 163 should be 'Mycobacterium leprae' at 163
+    Recall      100.000000%
+    Precision   50.000000%
+
+Document BB-cat+ner-460951, section text
+    False positives:
+        'M. fortuitum' at 417
+    False negatives:
+        'mycobacteria' at 9
+        'mycobacteria' at 181
+        'M. fortuitum-chelonei complex' at 417
+        'M. ulcerans' at 530
+    True positives: 1
+    Span mismatches:
+        'M. fortuitum' at 417 should be 'M. fortuitum-chelonei complex' at 417
+    Recall      20.000000%
+    Precision   50.000000%
+
 Document BB-cat+ner-47483, section text
     False positives:
         'Haemophilus influenzae' at 21
@@ -403,25 +540,55 @@ Document BB-cat+ner-47483, section text
     Recall      14.285714%
     Precision   16.666667%
 
-Document BB-cat+ner-19339076, section text
+Document BB-cat+ner-5526468, section text
     False positives:
-        'Lactococcus' at 19
-        'L. lactis' at 1153
-        'L. lactis' at 1478
+        'Vibrio' at 0
     False negatives:
-        'lactococci' at 291
-        'lactococcci' at 394
-        'L. lactis subsp. cremoris' at 1153
-        'L. lactis subsp. lactis' at 1478
-        'lactococci' at 2026
-        'lactococci' at 2371
     True positives: 1
     Span mismatches:
-        'Lactococcus' at 19 should be 'Lactococcus lactis' at 19
-        'L. lactis' at 1153 should be 'L. lactis subsp. cremoris' at 1153
-        'L. lactis' at 1478 should be 'L. lactis subsp. lactis' at 1478
+        'Vibrio' at 0 should be 'Vibrio fetus' at 0
+    Recall      100.000000%
+    Precision   50.000000%
+
+Document BB-cat+ner-8559802, section text
+    False positives:
+        'Salmonella' at 71
+        'Salmonella typhimurium' at 166
+        'Salmonella' at 166
+    False negatives:
+        'Salmonella typhimurium (993)' at 166
+        '(993)' at 294
+    True positives: 3
+    Span mismatches:
+        'Salmonella' at 71 should be 'Salmonella typhimurium' at 71
+        'Salmonella typhimurium' at 166 should be 'Salmonella typhimurium (993)' at 166
+        'Salmonella' at 166 should be 'Salmonella typhimurium (993)' at 166
+    Recall      60.000000%
+    Precision   50.000000%
+
+Document BB-cat+ner-9521147, section text
+    False positives:
+        'Burkholderia pseudomallei' at 41
+        'Burkholderia' at 41
+    False negatives:
+        'Ara+ Burkholderia pseudomallei' at 36
+        'Ara-' at 151
+        'pseudomallei' at 285
+        'pseudomallei' at 285
+        'B. pseudomallei' at 696
+        'Ara-' at 1180
+        'Ara-' at 1198
+        'Ara+' at 1212
+        'Ara-' at 1489
+        'Ara+' at 1498
+        'B. pseudomallei' at 1565
+        'B. pseudomallei' at 1726
+    True positives: 2
+    Span mismatches:
+        'Burkholderia pseudomallei' at 41 should be 'Ara+ Burkholderia pseudomallei' at 36
+        'Burkholderia' at 41 should be 'Ara+ Burkholderia pseudomallei' at 36
     Recall      14.285714%
-    Precision   25.000000%
+    Precision   50.000000%
 
 Document BB-cat+ner-9553794, section text
     False positives:
@@ -454,60 +621,6 @@ Document BB-cat+ner-9553794, section text
     Recall      52.631579%
     Precision   58.823529%
 
-Document BB-cat+ner-19621381, section text
-    False positives:
-        'Escherichia' at 746
-    False negatives:
-    True positives: 1
-    Span mismatches:
-        'Escherichia' at 746 should be 'Escherichia coli' at 746
-    Recall      100.000000%
-    Precision   50.000000%
-
-Document BB-cat+ner-3544198, section text
-    False positives:
-        'Mycobacterium' at 40
-        'Mycobacterium' at 163
-    False negatives:
-    True positives: 2
-    Span mismatches:
-        'Mycobacterium' at 40 should be 'Mycobacterium leprae' at 40
-        'Mycobacterium' at 163 should be 'Mycobacterium leprae' at 163
-    Recall      100.000000%
-    Precision   50.000000%
-
-Document BB-cat+ner-25204345, section text
-    False positives:
-        'Enterococcus durans' at 1470
-        'Enterococcus' at 1470
-    False negatives:
-        'lactic acid bacteria' at 92
-        'lactic acid bacterial' at 145
-        'lactic acid bacteria' at 665
-        'Enterococcus durans HZ28' at 1470
-    True positives: 2
-    Span mismatches:
-        'Enterococcus durans' at 1470 should be 'Enterococcus durans HZ28' at 1470
-        'Enterococcus' at 1470 should be 'Enterococcus durans HZ28' at 1470
-    Recall      33.333333%
-    Precision   50.000000%
-
-Document BB-cat+ner-8559802, section text
-    False positives:
-        'Salmonella' at 71
-        'Salmonella typhimurium' at 166
-        'Salmonella' at 166
-    False negatives:
-        'Salmonella typhimurium (993)' at 166
-        '(993)' at 294
-    True positives: 3
-    Span mismatches:
-        'Salmonella' at 71 should be 'Salmonella typhimurium' at 71
-        'Salmonella typhimurium' at 166 should be 'Salmonella typhimurium (993)' at 166
-        'Salmonella' at 166 should be 'Salmonella typhimurium (993)' at 166
-    Recall      60.000000%
-    Precision   50.000000%
-
 Document BB-cat+ner-9745160, section text
     False positives:
         'Helicobacter' at 79
@@ -526,119 +639,6 @@ Document BB-cat+ner-9745160, section text
         'Helicobacter' at 196 should be 'Helicobacter pylori' at 196
     Recall      30.000000%
     Precision   60.000000%
-
-Document BB-cat+ner-10496597, section text
-    False positives:
-        'Helicobacter' at 328
-        'Helicobacter' at 738
-        'Helicobacter' at 1831
-    False negatives:
-    True positives: 3
-    Span mismatches:
-        'Helicobacter' at 328 should be 'Helicobacter pylori' at 328
-        'Helicobacter' at 738 should be 'Helicobacter pylori' at 738
-        'Helicobacter' at 1831 should be 'Helicobacter pylori' at 1831
-    Recall      100.000000%
-    Precision   50.000000%
-
-Document BB-cat+ner-15618837, section text
-    False positives:
-        'Helicobacter' at 14
-        'Helicobacter' at 163
-    False negatives:
-        'H. pylori' at 441
-        'H. pylori' at 518
-        'H. pylori' at 626
-        'H. pylori' at 722
-        'H. pylori' at 817
-        'H. pylori' at 1092
-        'H. pylori' at 1379
-    True positives: 2
-    Span mismatches:
-        'Helicobacter' at 14 should be 'Helicobacter pylori' at 14
-        'Helicobacter' at 163 should be 'Helicobacter pylori' at 163
-    Recall      22.222222%
-    Precision   50.000000%
-
-Document BB-cat+ner-16273411, section text
-    False positives:
-        'Klebsiella' at 57
-        'Klebsiella' at 321
-        'Klebsiella' at 608
-    False negatives:
-    True positives: 3
-    Span mismatches:
-        'Klebsiella' at 57 should be 'Klebsiella pneumonia' at 57
-        'Klebsiella' at 321 should be 'Klebsiella pneumonia' at 321
-        'Klebsiella' at 608 should be 'Klebsiella pneumonia' at 608
-    Recall      100.000000%
-    Precision   50.000000%
-
-Document BB-cat+ner-21695078, section text
-    False positives:
-        'Chlamydia' at 22
-        'Chlamydia' at 100
-    False negatives:
-        'chlamydia' at 255
-    True positives: 4
-    Span mismatches:
-        'Chlamydia' at 22 should be 'Chlamydia muridarum' at 22
-        'Chlamydia' at 100 should be 'Chlamydia trachomatis' at 100
-    Recall      80.000000%
-    Precision   66.666667%
-
-Document BB-cat+ner-19004249, section text
-    False positives:
-        'Staphylococcus' at 221
-        'Escherichia' at 247
-    False negatives:
-    True positives: 3
-    Span mismatches:
-        'Staphylococcus' at 221 should be 'Staphylococcus aureus' at 221
-        'Escherichia' at 247 should be 'Escherichia coli' at 247
-    Recall      100.000000%
-    Precision   60.000000%
-
-Document BB-cat+ner-20580604, section text
-    False positives:
-        'Lactobacillus casei' at 58
-        'Lactobacillus' at 58
-        'Lactobacillus casei' at 277
-        'Lactobacillus' at 277
-    False negatives:
-        'Lactobacillus casei strain Shirota' at 58
-        'Lactobacillus casei strain Shirota' at 277
-        'LcS' at 313
-        'LcS' at 1054
-        'bifidobacteria' at 1200
-        'bifidobacteria' at 1760
-    True positives: 0
-    Span mismatches:
-        'Lactobacillus casei' at 58 should be 'Lactobacillus casei strain Shirota' at 58
-        'Lactobacillus' at 58 should be 'Lactobacillus casei strain Shirota' at 58
-        'Lactobacillus casei' at 277 should be 'Lactobacillus casei strain Shirota' at 277
-        'Lactobacillus' at 277 should be 'Lactobacillus casei strain Shirota' at 277
-    Recall      0.000000%
-    Precision   0.000000%
-
-Document BB-cat+ner-11989773, section text
-    False positives:
-        'Listeria' at 58
-        'Listeria' at 75
-        'Listeria' at 210
-        'Listeria' at 277
-        'Listeria' at 294
-    False negatives:
-        'Listeria sp.' at 58
-        'Listeria sp.' at 277
-    True positives: 2
-    Span mismatches:
-        'Listeria' at 58 should be 'Listeria sp.' at 58
-        'Listeria' at 75 should be 'Listeria monocytogenes' at 75
-        'Listeria' at 277 should be 'Listeria sp.' at 277
-        'Listeria' at 294 should be 'Listeria monocytogenes' at 294
-    Recall      50.000000%
-    Precision   28.571429%
 
 Global scores:
     Recall      39.112903%

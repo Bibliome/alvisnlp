@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>{{ site.title }} {{ site.description }}</title>
+    <!--<link href='https://fonts.googleapis.com/css?family=Arvo:400,700,400italic' rel='stylesheet' type='text/css'>-->
+    <!-- <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}"> -->
+    <link rel="stylesheet" href="{{ '/assets/css/alvis.css' | relative_url }}">
+    <script src="{{ '/assets/js/jquery-3.1.1.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/alvis.js' | relative_url }}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+	<div id="header-title">
+          <h1 class="header">{{ site.title }}</h1>
+          <p class="header">{{ site.description }}</p>
+	</div>
+
+	<div id="main-menu">
+          <a class="menu-item menu-top" href="{{ '/' | relative_url }}">Home</a>
+          <a class="menu-item menu-top" href="Getting-started">Getting started</a>
+          <a class="menu-item menu-top" href="Download">Download</a>
+          <div class="dropdown">
+	    <span class="menu-item menu-top dropdown-trigger">Documentation</span>
+	    <div class="dropdown-content">
+	      <a class="menu-item" href="Write-a-plan">Write a plan</a>
+	      <a class="menu-item" href="Module-reference">Module reference</a>
+	    </div>
+	  </div>
+          <a class="menu-item menu-top" href="{{ site.github.repository_url }}">GitHub</a>
+	</div>
+      </header>
+
+      <div id="toc">
+	<ul></ul>
+      </div>
+
+      <div id="content">
+        {{ content }}
+      </div>
+
+      <footer>
+	{{ site.title }} is maintained by Bibliome at INRA
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    {% if site.google_analytics %}
+      <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+      </script>
+      <script type="text/javascript">
+        try {
+          var pageTracker = _gat._getTracker("{{ site.google_analytics }}");
+        pageTracker._trackPageview();
+        } catch(err) {}
+      </script>
+    {% endif %}
+  </body>
+</html>
