@@ -7,7 +7,7 @@ You will find instructions on the acquisition and installation of *AlvsNLP/ML* i
 *AlvsNLP/ML* consists on a single command-line executable: `alvisnlp`.
 In order to get a short help on the options:
 
-```shell
+```sh
 $ alvisnlp -help
 
 alvisnlp
@@ -145,4 +145,8 @@ In order to make modules in a plan work together, *AlvsNLP/ML* stores all the re
 During the execution of a plan, this data structure is passed from a module to the next.
 You have to have a solid grasp on this data structure in order to understand the effect of each module and to write meaningful and efficient plans.
 
-The data structure is a tree where nodes are of type `Element`
+### Further reading
+
+* [Data model](Data-model) details the shared data structure.
+* [Element expression examples](Element-expression-examples) and [reference](Element-expression-reference) describe a path-like language used to navigate through the data structure.
+
