@@ -53,6 +53,7 @@ header {
 
 .menu-item:hover {
     background-color: #8BAE28;
+    color: white;
 }
 
 .menu-top {
@@ -96,7 +97,7 @@ header {
     top: 150px;
     overflow: hidden;
     white-space:nowrap;
-    text-overflow: string("...");
+    text-overflow: ellipsis;
     margin-top: 20px;
     margin-left: 8px;
     padding: 3mm;
@@ -155,6 +156,20 @@ header {
     margin-top: 0px;
     padding-top: -20px;
     clear: both;
+    text-align: justify;
+}
+
+a {
+    color: #231063;
+}
+
+a:hover {
+    color: #493098;
+}
+
+code {
+    background-color: #EEEEEE;
+    border-radius: 3px;
 }
 
 
@@ -220,6 +235,7 @@ pre.highlight {
     border: solid #CCCCCC 1px;
     font-family: fixed;
     font-size: 120%;
+    overflow: scroll;
 }
 
 .nt {
