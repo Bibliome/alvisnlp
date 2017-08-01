@@ -161,6 +161,10 @@ public class Layer extends AbstractCollection<Annotation> implements Serializabl
     	}
     	return false;
     }
+    
+    public boolean remove(Collection<Annotation> annots) {
+    	return annotations.removeAll(annots);
+    }
 
     /**
      * Returns true iff there are at least two overlapping annotations in this layer.
