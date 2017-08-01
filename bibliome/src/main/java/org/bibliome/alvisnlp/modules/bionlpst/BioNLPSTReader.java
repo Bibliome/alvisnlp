@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -114,6 +115,7 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 		Timer<TimerCategory> collectTimer = getTimer(ctx, "import-data", TimerCategory.COLLECT_DATA, false);
 		try {
 			File[] txtFiles = textDir.listFiles(filter);
+			Arrays.sort(txtFiles);
 			for (File f : txtFiles) {
 				BioNLPSTDocument doc = new BioNLPSTDocument(charset, f);
 				if (a1Dir != null) {
