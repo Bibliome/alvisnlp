@@ -46,6 +46,7 @@ public class AddToLayer extends AbstractMatchAction {
 	@Override
 	protected void process(MatchActionContext ctx, Section section, SequenceMatcher<Element> matcher, Iterator<Element> elements) {
 		EvaluationContext evalCtx = ctx.getEvaluationContext();
+		evalCtx.setAllowAddAnnotation(true);
 		for (Element elt : Iterators.loop(elements)) {
 			Annotation a = DownCastElement.toAnnotation(elt);
 			if (a == null) {

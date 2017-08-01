@@ -31,6 +31,7 @@ import alvisnlp.corpus.NameType;
 import alvisnlp.corpus.Relation;
 import alvisnlp.corpus.Section;
 import alvisnlp.corpus.Tuple;
+import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.corpus.expressions.Expression;
 import alvisnlp.corpus.expressions.LibraryResolver;
@@ -55,7 +56,10 @@ public class CreateTuple extends AbstractSetFeatures<Tuple> {
 	@Override
 	protected Collection<Tuple> getElements(MatchActionContext ctx, Section section, SequenceMatcher<Element> matcher, Iterator<Element> elements) {
 		Relation relation = section.ensureRelation(ctx.getOwner(), relationName);
-		Tuple tuple = new Tuple(ctx.getOwner(), relation);
+		Tuple tuple = new Tuple(ctx.getOwner(), relation, false);
+		EvaluationContext evalCtx = ctx.getEvaluationContext();
+		evalCtx.registerCreateElement(tuple);
+		evalCtx.setAllowSetArgument(true);
 		for (Map.Entry<String,Evaluator> e : this.resolvedArguments.entrySet()) {
 			Iterator<Element> it = e.getValue().evaluateElements(ctx.getEvaluationContext(), tuple);
 			if (!it.hasNext())
@@ -63,7 +67,7 @@ public class CreateTuple extends AbstractSetFeatures<Tuple> {
 			Annotation arg = DownCastElement.toAnnotation(it.next());
 			if (arg == null)
 				continue;
-			tuple.setArgument(e.getKey(), arg);
+			evalCtx.registerSetArgument(tuple, e.getKey(), arg);
 		}
 		return Collections.singleton(tuple);
 	}

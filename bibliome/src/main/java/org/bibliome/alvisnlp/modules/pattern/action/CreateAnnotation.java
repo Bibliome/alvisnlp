@@ -31,6 +31,7 @@ import alvisnlp.corpus.DownCastElement;
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.NameType;
 import alvisnlp.corpus.Section;
+import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.corpus.expressions.Expression;
 import alvisnlp.corpus.expressions.LibraryResolver;
@@ -51,6 +52,8 @@ public class CreateAnnotation extends AbstractSetFeatures<Annotation> {
 
 	@Override
 	protected Collection<Annotation> getElements(MatchActionContext ctx, Section section, SequenceMatcher<Element> matcher, Iterator<Element> elements) {
+		EvaluationContext evalCtx = ctx.getEvaluationContext();
+		evalCtx.setAllowAddAnnotation(true);
 		List<Element> list = new ArrayList<Element>();
 		Iterators.fill(elements, list);
 		if (list.isEmpty())
@@ -62,8 +65,9 @@ public class CreateAnnotation extends AbstractSetFeatures<Annotation> {
 		if (end == null)
 			return Collections.emptyList();
 		Annotation a = new Annotation(ctx.getOwner(), section, start.getStart(), end.getEnd());
+		evalCtx.registerCreateElement(a);
 		for (String ln : targetLayerNames) {
-			ctx.getEvaluationContext().registerAddAnnotation(a, ln);
+			evalCtx.registerAddAnnotation(a, ln);
 		}
 		return Collections.singleton(a);
 	}

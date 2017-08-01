@@ -46,6 +46,7 @@ public abstract class AbstractSetFeatures<T extends Element> extends AbstractMat
 
 	@Override
 	protected void process(MatchActionContext ctx, Section section, SequenceMatcher<Element> matcher, Iterator<Element> elements) {
+		ctx.getEvaluationContext().setAllowSetFeature(true);
 		for (T elt : getElements(ctx, section, matcher, elements)) {
 			setFeatures(ctx.getEvaluationContext(), elt);
 		}
