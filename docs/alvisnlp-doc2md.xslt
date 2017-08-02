@@ -29,7 +29,7 @@ limitations under the License.
   </xsl:template>
 
   <xsl:template match="alvisnlp-doc">
-    <xsl:value-of select="concat('#', @short-target, $nl, $nl)"/>
+    <xsl:value-of select="concat('# ', @short-target, $nl, $nl)"/>
     <xsl:apply-templates select="synopsis"/>
     <xsl:apply-templates select="module-doc|converter-doc|library-doc|plan-doc"/>
   </xsl:template>
@@ -67,7 +67,7 @@ limitations under the License.
 	</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <xsl:value-of select="concat('## [[', @short-target, '|', $class, '__', @target, ']]', $nl, $nl)"/>
+    <xsl:value-of select='concat("## [", @short-target, "]({{ &apos;/reference/", $class, "/", @target, "&apos; | relative_url }})", $nl, $nl)'/>
   </xsl:template>
 
   <xsl:template match="synopsis">
@@ -114,7 +114,7 @@ limitations under the License.
 	<xsl:value-of select="concat('Optional', $nl, $nl)"/>
       </xsl:otherwise>
     </xsl:choose>
-    <xsl:value-of select="concat('Type: [[', @short-type, '|converter__', @type, ']]', $nl, $nl)"/>
+    <xsl:value-of select="concat('Type: [', @short-type, '](../converter/', @type, ')', $nl, $nl)"/>
     <xsl:apply-templates/>
   </xsl:template>
   
@@ -154,7 +154,7 @@ limitations under the License.
   <xsl:template match="param">
     <xsl:choose>
       <xsl:when test="@module">
-	<xsl:value-of select="concat('[', @module, '#', @name, ., '](module__', @module, '#', @name, ., ')')"/>
+	<xsl:value-of select="concat('[', @module, '#', @name, ., '](../module/', @module, '#', @name, ., ')')"/>
       </xsl:when>
       <xsl:otherwise>
 	<xsl:value-of select="concat('[', @name, ., '](#', @name, ., ')')"/>
@@ -165,7 +165,7 @@ limitations under the License.
   <xsl:template match="function">
     <xsl:choose>
       <xsl:when test="@library">
-	<xsl:value-of select="concat('[', @library, '#', @name, ., '](library__', @library, '#', @name, ., ')')"/>
+	<xsl:value-of select="concat('[', @library, '#', @name, ., '](../library/', @library, '#', @name, ., ')')"/>
       </xsl:when>
       <xsl:otherwise>
 	<xsl:value-of select="concat('[', @name, ., '](#', @name, ., ')')"/>
@@ -174,15 +174,15 @@ limitations under the License.
   </xsl:template>
 
   <xsl:template match="module">
-    <xsl:value-of select="concat('[', @name, ., '](module__', @name, ., ')')"/>
+    <xsl:value-of select="concat('[', @name, ., '](../module/', @name, ., ')')"/>
   </xsl:template>
 
   <xsl:template match="converter">
-    <xsl:value-of select="concat('[', @name, ., '](converter__', @name, ., ')')"/>
+    <xsl:value-of select="concat('[', @name, ., '](../converter/', @name, ., ')')"/>
   </xsl:template>
 
   <xsl:template match="library">
-    <xsl:value-of select="concat('[', @name, ., '](library__', @name, ., ')')"/>
+    <xsl:value-of select="concat('[', @name, ., '](../library/', @name, ., ')')"/>
   </xsl:template>
   
   <xsl:template match="a">
