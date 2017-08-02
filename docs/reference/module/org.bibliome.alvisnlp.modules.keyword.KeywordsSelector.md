@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.keyword.KeywordsSelector
+<h1 class="module">KeywordsSelector</h1>
 
 ## Synopsis
 
@@ -8,11 +8,11 @@ Selects most relevant keywords in documents.
 
 ## Description
 
-*org.bibliome.alvisnlp.modules.keyword.KeywordsSelector* selects the most relevant keywords in documents. The candidate keywords are specified with [keywords](#keywords) evaluated as a list of elements with the document as the context element. The keyword text is specified by [keywordForm](#keywordForm).
-      
+*KeywordsSelector* selects the most relevant keywords in documents. The candidate keywords are specified with <a href="#keywords" class="param">keywords</a> evaluated as a list of elements with the document as the context element. The keyword text is specified by <a href="#keywordForm" class="param">keywordForm</a>.
+  
 
-*org.bibliome.alvisnlp.modules.keyword.KeywordsSelector* ranks the keywords according to the [scoreFunction](#scoreFunction) function, then selects the [keywordCount](#keywordCount) keywords with the highest value. The selected keywords are stored in the document feature [keywordFeature](#keywordFeature), and the corresponding scores in [scoreFeature](#scoreFeature). 
-      
+*KeywordsSelector* ranks the keywords according to the <a href="#scoreFunction" class="param">scoreFunction</a> function, then selects the <a href="#keywordCount" class="param">keywordCount</a> keywords with the highest value. The selected keywords are stored in the document feature <a href="#keywordFeature" class="param">keywordFeature</a>, and the corresponding scores in <a href="#scoreFeature" class="param">scoreFeature</a>. 
+  
 
 ## Parameters
 
@@ -20,119 +20,119 @@ Selects most relevant keywords in documents.
 
 ### keywordFeature
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Document feature where to store the selected keywords.
 
 <a name="outFile">
 
 ### outFile
 
-Optional
-
-Type: [TargetStream](../converter/org.bibliome.util.streams.TargetStream)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
+</div>
 
 
 <a name="scoreFeature">
 
 ### scoreFeature
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
-Document feature where to store the score of selected keywords computed by [scoreFunction](#scoreFunction).
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Document feature where to store the score of selected keywords computed by <a href="#scoreFunction" class="param">scoreFunction</a>.
 
 <a name="charset">
 
 ### charset
 
-Default value: `UTF-8`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `UTF-8`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 
 <a name="documentId">
 
 ### documentId
 
-Default value: `properties:@:id()`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `properties:@:id()`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 
 
 <a name="documents">
 
 ### documents
 
-Default value: `nav:documents()`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `nav:documents()`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 
 
 <a name="keywordCount">
 
 ### keywordCount
 
-Default value: `2147483647`
-
-Type: [Integer](../converter/java.lang.Integer)
-
+<div class="param-level param-level-default-value">Default value: `2147483647`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Integer" class="converter">Integer</a>
+</div>
 Number of keywords to select.
 
 <a name="keywordForm">
 
 ### keywordForm
 
-Default value: `properties:@:form()`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `properties:@:form()`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Text of the keyword. This expression is evaluated as a string with the keyword element as the context.
 
 <a name="keywords">
 
 ### keywords
 
-Default value: `nav:.(nav:sections(), nav:layer:words())`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `nav:.(nav:sections(), nav:layer:words())`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Expression evaluated as a list of elements with the document as the context element. Each element represents a keyword of the document.
 
 <a name="scoreFunction">
 
 ### scoreFunction
 
-Default value: `ABSOLUTE`
-
-Type: [KeywordScoreFunction](../converter/org.bibliome.alvisnlp.modules.keyword.KeywordScoreFunction)
-
+<div class="param-level param-level-default-value">Default value: `ABSOLUTE`
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.keyword.KeywordScoreFunction" class="converter">KeywordScoreFunction</a>
+</div>
 Function to use for ranking keywords. Available functions include the keyword frequency, different variants of tf-idf and Okapi BM25.
 
 <a name="scoreThreshold">
 
 ### scoreThreshold
 
-Default value: `0.0`
-
-Type: [Double](../converter/java.lang.Double)
-
+<div class="param-level param-level-default-value">Default value: `0.0`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Double" class="converter">Double</a>
+</div>
 
 
 <a name="separator">
 
 ### separator
 
-Default value: `	`
-
-Type: [Character](../converter/java.lang.Character)
-
+<div class="param-level param-level-default-value">Default value: `	`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Character" class="converter">Character</a>
+</div>
 
 

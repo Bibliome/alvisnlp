@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.pubannotation.PubAnnotationExport
+<h1 class="module">PubAnnotationExport</h1>
 
 ## Synopsis
 
@@ -16,49 +16,49 @@ UNDOCUMENTED
 
 ### outFile
 
-Optional
-
-Type: [OutputFile](../converter/org.bibliome.util.files.OutputFile)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.OutputFile" class="converter">OutputFile</a>
+</div>
 UNDOCUMENTED
 
 <a name="denotations">
 
 ### denotations
 
-Default value: `org.bibliome.alvisnlp.modules.pubannotation.DenotationSpecification@708f5957`
-
-Type: [DenotationSpecification[]](../converter/org.bibliome.alvisnlp.modules.pubannotation.DenotationSpecification[])
-
+<div class="param-level param-level-default-value">Default value: `org.bibliome.alvisnlp.modules.pubannotation.DenotationSpecification@40005471`
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.pubannotation.DenotationSpecification[]" class="converter">DenotationSpecification[]</a>
+</div>
 UNDOCUMENTED
 
 <a name="documentFilter">
 
 ### documentFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 UNDOCUMENTED
 
 <a name="relations">
 
 ### relations
 
-Default value: `org.bibliome.alvisnlp.modules.pubannotation.RelationSpecification@2ef3eef9`
-
-Type: [RelationSpecification[]](../converter/org.bibliome.alvisnlp.modules.pubannotation.RelationSpecification[])
-
+<div class="param-level param-level-default-value">Default value: `org.bibliome.alvisnlp.modules.pubannotation.RelationSpecification@49438269`
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.pubannotation.RelationSpecification[]" class="converter">RelationSpecification[]</a>
+</div>
 UNDOCUMENTED
 
 <a name="sectionFilter">
 
 ### sectionFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 UNDOCUMENTED
 

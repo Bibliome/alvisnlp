@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.tees.TEESClassify
+<h1 class="module">TEESClassify</h1>
 
 ## Synopsis
 
@@ -6,7 +6,7 @@
 
 ## Description
 
-*org.bibliome.alvisnlp.modules.tees.TEESClassify* executes the TEES classify from [Corpus](#Corpus) and record the results in [Relation](#Relation). The param [relationName](#relationName) sets the name of the binary rlation to predict. [relationRole1](#relationRole1) and and [relationRole](#relationRole) set the two roles of the relation.*org.bibliome.alvisnlp.modules.tees.TEESClassify*
+*TEESClassify* executes the TEES classify from <a href="#Corpus" class="param">Corpus</a> and record the results in <a href="#Relation" class="param">Relation</a>. The param <a href="#relationName" class="param">relationName</a> sets the name of the binary rlation to predict. <a href="#relationRole1" class="param">relationRole1</a> and and <a href="#relationRole" class="param">relationRole</a> set the two roles of the relation.*TEESClassify*
 
 ## Parameters
 
@@ -14,28 +14,29 @@
 
 ### namedEntityLayerName
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
  Name of the layer containing the named entities 
 
 <a name="schema">
 
 ### schema
 
-Optional
-
-Type: [MultiMapping](../converter/alvisnlp.module.types.MultiMapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.MultiMapping" class="converter">MultiMapping</a>
+</div>
  
-      	Give the schema of the relations to train i.e.
+  	Give the schema of the relations to train i.e.
 	```xml
 
       	  <schema>
 	    <Lives_In>Bacteria,Location</Lives_In>
       	  </schema>
-	```
+	
+```
 
 
 
@@ -43,159 +44,159 @@ Type: [MultiMapping](../converter/alvisnlp.module.types.MultiMapping)
 
 ### teesHome
 
-Optional
-
-Type: [InputDirectory](../converter/org.bibliome.util.files.InputDirectory)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
+</div>
  Path to the tees Classify executable file.
 
 <a name="teesModel">
 
 ### teesModel
 
-Optional
-
-Type: [InputFile](../converter/org.bibliome.util.files.InputFile)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.InputFile" class="converter">InputFile</a>
+</div>
  Path to the trained model to use.
 
 <a name="constantRelationFeatures">
 
 ### constantRelationFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 UNDOCUMENTED
 
 <a name="constantTupleFeatures">
 
 ### constantTupleFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 UNDOCUMENTED
 
 <a name="dependencyLabelFeatureName">
 
 ### dependencyLabelFeatureName
 
-Default value: `label`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `label`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="dependencyRelationName">
 
 ### dependencyRelationName
 
-Default value: `dependencies`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `dependencies`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="dependentRole">
 
 ### dependentRole
 
-Default value: `dependent`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `dependent`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="documentFilter">
 
 ### documentFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 UNDOCUMENTED
 
 <a name="headRole">
 
 ### headRole
 
-Default value: `head`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `head`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="namedEntityTypeFeature">
 
 ### namedEntityTypeFeature
 
-Default value: `neType`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `neType`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
  Name of the feature to access the type of the named entities 
 
 <a name="omitSteps">
 
 ### omitSteps
 
-Default value: `SPLIT-SENTENCES,NER`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `SPLIT-SENTENCES,NER`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Set the preprocessing steps to omit in the form of PREPROCESS=[SPLIT-SENTENCES][,NER][,PARSE][,FIND-HEADS]
 
 <a name="posFeature">
 
 ### posFeature
 
-Default value: `pos`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `pos`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="sectionFilter">
 
 ### sectionFilter
 
-Default value: `boolean:and(true, boolean:and(nav:layer:words(), nav:layer:sentences()))`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `boolean:and(true, boolean:and(nav:layer:words(), nav:layer:sentences()))`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 UNDOCUMENTED
 
 <a name="sentenceLayerName">
 
 ### sentenceLayerName
 
-Default value: `sentences`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `sentences`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="sentenceRole">
 
 ### sentenceRole
 
-Default value: `sentence`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `sentence`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="tokenLayerName">
 
 ### tokenLayerName
 
-Default value: `words`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `words`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 

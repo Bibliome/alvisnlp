@@ -1,8 +1,8 @@
-# AnnotationSet
+<h1 class="converter">AnnotationSet</h1>
 
 ## Synopsis
 
-Annotation set specification for [ExportCadixeJSON](../module/ExportCadixeJSON).
+Annotation set specification for <a href="../module/ExportCadixeJSON" class="module">ExportCadixeJSON</a>.
 
 ## String conversion
 
@@ -41,7 +41,8 @@ String conversion is not available for this type.
 	      ...
 	    </args>
 	  </relation>
-	</annotationSet>```
+	</annotationSet>
+```
 
 
 

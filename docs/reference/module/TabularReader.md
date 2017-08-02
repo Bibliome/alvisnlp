@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.tabular.TabularReader
+<h1 class="module">TabularReader</h1>
 
 ## Synopsis
 
@@ -16,219 +16,219 @@ synopsis
 
 ### lineActions
 
-Optional
-
-Type: [Expression[]](../converter/alvisnlp.corpus.expressions.Expression[])
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression[]" class="converter">Expression[]</a>
+</div>
 
 
 <a name="source">
 
 ### source
 
-Optional
-
-Type: [SourceStream](../converter/org.bibliome.util.streams.SourceStream)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
+</div>
 
 
 <a name="sourceElement">
 
 ### sourceElement
 
-Optional
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 
 
 <a name="checkNumColumns">
 
 ### checkNumColumns
 
-Optional
-
-Type: [Integer](../converter/java.lang.Integer)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Integer" class="converter">Integer</a>
+</div>
 
 
 <a name="constantAnnotationFeatures">
 
 ### constantAnnotationFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each annotation created by this module
 
 <a name="constantDocumentFeatures">
 
 ### constantDocumentFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each document created by this module
 
 <a name="constantRelationFeatures">
 
 ### constantRelationFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each relation created by this module
 
 <a name="constantSectionFeatures">
 
 ### constantSectionFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each section created by this module
 
 <a name="constantTupleFeatures">
 
 ### constantTupleFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each tuple created by this module
 
 <a name="addToLayer">
 
 ### addToLayer
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 
 
 <a name="commitLines">
 
 ### commitLines
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 
 
 <a name="createAnnotations">
 
 ### createAnnotations
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 
 
 <a name="createDocuments">
 
 ### createDocuments
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 
 
 <a name="createRelations">
 
 ### createRelations
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 
 
 <a name="createSections">
 
 ### createSections
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 
 
 <a name="createTuples">
 
 ### createTuples
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 
 
 <a name="deleteElements">
 
 ### deleteElements
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 
 
 <a name="removeFromLayer">
 
 ### removeFromLayer
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 
 
 <a name="setArguments">
 
 ### setArguments
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 
 
 <a name="setFeatures">
 
 ### setFeatures
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 
 
 <a name="skipBlank">
 
 ### skipBlank
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 
 
 <a name="trimColumns">
 
 ### trimColumns
 
-Default value: `true`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 
 

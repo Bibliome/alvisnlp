@@ -1,4 +1,4 @@
-# Aggregator[]
+<h1 class="converter">Aggregator[]</h1>
 
 ## Synopsis
 

@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.WhatsWrongExport
+<h1 class="module">WhatsWrongExport</h1>
 
 ## Synopsis
 
@@ -14,129 +14,129 @@ synopsis
 
 ### outFile
 
-Optional
-
-Type: [TargetStream](../converter/org.bibliome.util.streams.TargetStream)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
+</div>
 Data sink where to write.
 
 <a name="relationName">
 
 ### relationName
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the relation that contains tuples that will be represented as relations.
 
 <a name="sentences">
 
 ### sentences
 
-Optional
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Expression evaluated as a list of elements with the section as the context element. The result specifies the sentences in the section.
 
 <a name="entities">
 
 ### entities
 
-Optional
-
-Type: [String[]](../converter/java.lang.String[])
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+</div>
 Names of layers containing named entities.
 
 <a name="entityType">
 
 ### entityType
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the feature of entity annotations containing the named entity type.
 
 <a name="dependent">
 
 ### dependent
 
-Default value: `dependent`
-
-Type: [String](../converter/java.lang.String)
-
-Name of the tuple role that references the dependent. The dependent must be in the [words](#words) layer.
+<div class="param-level param-level-default-value">Default value: `dependent`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Name of the tuple role that references the dependent. The dependent must be in the <a href="#words" class="param">words</a> layer.
 
 <a name="documentFilter">
 
 ### documentFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Only process document that satisfy this filter.
 
 <a name="head">
 
 ### head
 
-Default value: `head`
-
-Type: [String](../converter/java.lang.String)
-
-Name of the tuple role that references the head. The head must be in the [words](#words) layer.
+<div class="param-level param-level-default-value">Default value: `head`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Name of the tuple role that references the head. The head must be in the <a href="#words" class="param">words</a> layer.
 
 <a name="label">
 
 ### label
 
-Default value: `label`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `label`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the tuple feature that specifies the relation label.
 
 <a name="sectionFilter">
 
 ### sectionFilter
 
-Default value: `boolean:and(true, nav:layer:words())`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Process only sections that satisfy this filter.
 
 <a name="sentence">
 
 ### sentence
 
-Default value: `sentence`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `sentence`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the tuple role that references the sentence.
 
 <a name="wordForm">
 
 ### wordForm
 
-Default value: `form`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `form`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the feature that specifies the word form.
 
 <a name="words">
 
 ### words
 
-Default value: `words`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `words`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Nme of the layer that contains the tokens.
 

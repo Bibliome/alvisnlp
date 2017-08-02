@@ -1,4 +1,4 @@
-# boolean
+<h1 class="library">boolean</h1>
 
 ## Synopsis
 
@@ -10,17 +10,17 @@
 
 ### and
 
-boolean:and(left, right)
+`boolean:and(left, right)`
 
 <a name="not">
 
 ### not
 
-boolean:not(b)
+`boolean:not(b)`
 
 <a name="or">
 
 ### or
 
-boolean:or(left, right)
+`boolean:or(left, right)`
 

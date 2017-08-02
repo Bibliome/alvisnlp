@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.ab3p.Ab3P
+<h1 class="module">Ab3P</h1>
 
 ## Synopsis
 
@@ -16,119 +16,119 @@ synopsis
 
 ### installDir
 
-Optional
-
-Type: [InputDirectory](../converter/org.bibliome.util.files.InputDirectory)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
+</div>
 
 
 <a name="constantAnnotationFeatures">
 
 ### constantAnnotationFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each annotation created by this module
 
 <a name="constantRelationFeatures">
 
 ### constantRelationFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each relation created by this module
 
 <a name="constantTupleFeatures">
 
 ### constantTupleFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each tuple created by this module
 
 <a name="documentFilter">
 
 ### documentFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Only process document that satisfy this filter.
 
 <a name="longFormFeature">
 
 ### longFormFeature
 
-Default value: `long-form`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `long-form`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 
 <a name="longFormRole">
 
 ### longFormRole
 
-Default value: `long-form`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `long-form`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 
 <a name="longFormsLayerName">
 
 ### longFormsLayerName
 
-Default value: `long-forms`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `long-forms`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 
 <a name="relationName">
 
 ### relationName
 
-Default value: `abbreviations`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `abbreviations`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 
 <a name="sectionFilter">
 
 ### sectionFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Process only sections that satisfy this filter.
 
 <a name="shortFormRole">
 
 ### shortFormRole
 
-Default value: `short-form`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `short-form`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 
 <a name="shortFormsLayerName">
 
 ### shortFormsLayerName
 
-Default value: `short-forms`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `short-forms`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 

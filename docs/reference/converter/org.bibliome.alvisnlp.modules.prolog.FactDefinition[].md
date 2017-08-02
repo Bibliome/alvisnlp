@@ -1,4 +1,4 @@
-# FactDefinition[]
+<h1 class="converter">FactDefinition[]</h1>
 
 ## Synopsis
 

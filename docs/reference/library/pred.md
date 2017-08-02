@@ -1,4 +1,4 @@
-# pred
+<h1 class="library">pred</h1>
 
 ## Synopsis
 
@@ -10,7 +10,7 @@
 
 ### all
 
-pred:all(c, pred)
+`pred:all(c, pred)`
 
 Evaluates *c* as a list of elements, then for each element evaluates *pred* as a boolean. Returns true if all evaluate as *true*.
 
@@ -18,7 +18,7 @@ Evaluates *c* as a list of elements, then for each element evaluates *pred* as a
 
 ### any
 
-pred:any(c, pred)
+`pred:any(c, pred)`
 
 Evaluates *c* as a list of elements, then for each element evaluates *pred* as a boolean. Returns true if at least one evaluates as *true*.
 
@@ -26,7 +26,7 @@ Evaluates *c* as a list of elements, then for each element evaluates *pred* as a
 
 ### enum-while
 
-pred:enum-while:varName(start, end, expr, condition)
+`pred:enum-while:varName(start, end, expr, condition)`
 
 Evaluates *start* and *end* as integers, then assigns to *varName* each value between *start* (inclusive) and *end* (exclusive) and evaluates *expr* as a list of elements. Before evaluating *expr*, evaluates *condition* as a boolean. If *condition* is false, then stops iterating the list. Returns all elements in a single list.
 
@@ -34,7 +34,7 @@ Evaluates *start* and *end* as integers, then assigns to *varName* each value be
 
 ### enum-while
 
-pred:enum-while:varName(start, expr, condition)
+`pred:enum-while:varName(start, expr, condition)`
 
 
 
@@ -42,7 +42,7 @@ pred:enum-while:varName(start, expr, condition)
 
 ### enumerate
 
-pred:enumerate:varName(start, end, expr)
+`pred:enumerate:varName(start, end, expr)`
 
 Evaluates *start* and *end* as integers, then assigns to *varName* each value between *start* (inclusive) and *end* (exclusive) and evaluates *expr* as a list of elements. Returns all elements in a single list.
 

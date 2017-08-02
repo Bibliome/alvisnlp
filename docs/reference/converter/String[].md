@@ -1,4 +1,4 @@
-# String[]
+<h1 class="converter">String[]</h1>
 
 ## Synopsis
 
@@ -13,22 +13,26 @@ The item separator can be set with the *separator* attribute.
 ## XML conversion
 
 ```xml
-<param value="ARRAY"/>```
+<param value="ARRAY"/>
+```
 
 
 	or
 	```xml
-<param values="ARRAY"/>```
+<param values="ARRAY"/>
+```
 
 
 	or
 	```xml
-<param>ARRAY</param>```
+<param>ARRAY</param>
+```
 
 
 	or
 	```xml
-<param><element value="VALUE1"/><element>VALUE2</element>...</param>```
+<param><element value="VALUE1"/><element>VALUE2</element>...</param>
+```
 
 
 

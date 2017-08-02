@@ -1,20 +1,20 @@
-# org.bibliome.alvisnlp.modules.aggregate.AggregateValues
+<h1 class="module">AggregateValues</h1>
 
 ## Synopsis
 
-*org.bibliome.alvisnlp.modules.aggregate.AggregateValues* lists a set of values and computes aggregate values.
+*AggregateValues* lists a set of values and computes aggregate values.
 
 **This module is experimental.**
 
 ## Description
 
-*org.bibliome.alvisnlp.modules.aggregate.AggregateValues* lists a set of elements specified by [entries](#entries), and computes a string value for each specified by [key](#key).
-      	*org.bibliome.alvisnlp.modules.aggregate.AggregateValues* computes aggregates functions specified by [aggregators](#aggregators) for each distinct value.
-      	The list of entry keys and their aggregate values are written into [outFile](#outFile)
+*AggregateValues* lists a set of elements specified by <a href="#entries" class="param">entries</a>, and computes a string value for each specified by <a href="#key" class="param">key</a>.
+  	*AggregateValues* computes aggregates functions specified by <a href="#aggregators" class="param">aggregators</a> for each distinct value.
+  	The list of entry keys and their aggregate values are written into <a href="#outFile" class="param">outFile</a>
 
 ### Example
-      	Counting words in the corpus:
-      
+  	Counting words in the corpus:
+  
 
 ```xml
 
@@ -26,7 +26,8 @@
       		</aggregators>
       		<outFile>word-count.txt</outFile>
       	</word-count>
-      ```
+      
+```
 
 ## Parameters
 
@@ -34,49 +35,49 @@
 
 ### entries
 
-Optional
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Expression evaluated from the corpus as a list of elements.
 
 <a name="key">
 
 ### key
 
-Optional
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Value of each entry. This expression is evaluated as a string from the entry element.
 
 <a name="outFile">
 
 ### outFile
 
-Optional
-
-Type: [TargetStream](../converter/org.bibliome.util.streams.TargetStream)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
+</div>
 File where to write the result.
 
 <a name="aggregators">
 
 ### aggregators
 
-Default value: ``
-
-Type: [Aggregator[]](../converter/org.bibliome.alvisnlp.modules.aggregate.Aggregator[])
-
+<div class="param-level param-level-default-value">Default value: ``
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.aggregate.Aggregator[]" class="converter">Aggregator[]</a>
+</div>
 Aggregate functions to compute for each value.
 
 <a name="separator">
 
 ### separator
 
-Default value: `	`
-
-Type: [Character](../converter/java.lang.Character)
-
+<div class="param-level param-level-default-value">Default value: `	`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Character" class="converter">Character</a>
+</div>
 Character that separates columns in the result file.
 

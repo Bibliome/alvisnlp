@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.Sequence_Impl
+<h1 class="module">Sequence_Impl</h1>
 
 ## Synopsis
 
@@ -6,7 +6,7 @@ Sequence of documents.
 
 ## Description
 
-*org.bibliome.alvisnlp.modules.Sequence_Impl* is not intended to be used directly. AlvisNLP/ML instanciates *org.bibliome.alvisnlp.modules.Sequence_Impl* when the plan file specifies a `sequence`.
+*Sequence_Impl* is not intended to be used directly. AlvisNLP/ML instanciates *Sequence_Impl* when the plan file specifies a `sequence`.
 
 ## Parameters
 
@@ -14,9 +14,9 @@ Sequence of documents.
 
 ### select
 
-Optional
-
-Type: [String[]](../converter/java.lang.String[])
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+</div>
 UNDOCUMENTED
 

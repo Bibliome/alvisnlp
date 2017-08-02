@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.rdf.RDFExport
+<h1 class="module">RDFExport</h1>
 
 ## Synopsis
 
@@ -16,69 +16,69 @@ synopsis
 
 ### fileName
 
-Optional
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 
 
 <a name="files">
 
 ### files
 
-Optional
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 
 
 <a name="outDir">
 
 ### outDir
 
-Optional
-
-Type: [OutputDirectory](../converter/org.bibliome.util.files.OutputDirectory)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.OutputDirectory" class="converter">OutputDirectory</a>
+</div>
 
 
 <a name="statements">
 
 ### statements
 
-Optional
-
-Type: [Expression[]](../converter/alvisnlp.corpus.expressions.Expression[])
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression[]" class="converter">Expression[]</a>
+</div>
 
 
 <a name="charset">
 
 ### charset
 
-Default value: `UTF-8`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `UTF-8`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 
 <a name="format">
 
 ### format
 
-Default value: `RDF/XML/pretty`
-
-Type: [RDFFormat](../converter/org.apache.jena.riot.RDFFormat)
-
+<div class="param-level param-level-default-value">Default value: `RDF/XML/pretty`
+</div>
+<div class="param-type">Type: <a href="../converter/org.apache.jena.riot.RDFFormat" class="converter">RDFFormat</a>
+</div>
 
 
 <a name="prefixes">
 
 ### prefixes
 
-Default value: `{}`
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-default-value">Default value: `{}`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 
 

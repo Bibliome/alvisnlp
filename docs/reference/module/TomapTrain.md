@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.tomap.TomapTrain
+<h1 class="module">TomapTrain</h1>
 
 ## Synopsis
 
@@ -16,229 +16,229 @@ synopsis
 
 ### conceptIdentifier
 
-Optional
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 
 
 <a name="outFile">
 
 ### outFile
 
-Optional
-
-Type: [TargetStream](../converter/org.bibliome.util.streams.TargetStream)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
+</div>
 
 
 <a name="rcFile">
 
 ### rcFile
 
-Optional
-
-Type: [SourceStream](../converter/org.bibliome.util.streams.SourceStream)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
+</div>
 
 
 <a name="workingDir">
 
 ### workingDir
 
-Optional
-
-Type: [WorkingDirectory](../converter/org.bibliome.util.files.WorkingDirectory)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.WorkingDirectory" class="converter">WorkingDirectory</a>
+</div>
 
 
 <a name="yateaExecutable">
 
 ### yateaExecutable
 
-Optional
-
-Type: [ExecutableFile](../converter/org.bibliome.util.files.ExecutableFile)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.ExecutableFile" class="converter">ExecutableFile</a>
+</div>
 
 
 <a name="configDir">
 
 ### configDir
 
-Optional
-
-Type: [InputDirectory](../converter/org.bibliome.util.files.InputDirectory)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
+</div>
 
 
 <a name="language">
 
 ### language
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 
 <a name="localeDir">
 
 ### localeDir
 
-Optional
-
-Type: [InputDirectory](../converter/org.bibliome.util.files.InputDirectory)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
+</div>
 
 
 <a name="outputDir">
 
 ### outputDir
 
-Optional
-
-Type: [OutputDirectory](../converter/org.bibliome.util.files.OutputDirectory)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.OutputDirectory" class="converter">OutputDirectory</a>
+</div>
 
 
 <a name="perlLib">
 
 ### perlLib
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Contents of the PERLLIB in the environment of Yatea binary.
 
 <a name="postProcessingConfig">
 
 ### postProcessingConfig
 
-Optional
-
-Type: [InputFile](../converter/org.bibliome.util.files.InputFile)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.InputFile" class="converter">InputFile</a>
+</div>
 
 
 <a name="postProcessingOutput">
 
 ### postProcessingOutput
 
-Optional
-
-Type: [OutputFile](../converter/org.bibliome.util.files.OutputFile)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.OutputFile" class="converter">OutputFile</a>
+</div>
 
 
 <a name="suffix">
 
 ### suffix
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 
 <a name="bioYatea">
 
 ### bioYatea
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 
 
 <a name="documentFilter">
 
 ### documentFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Only process document that satisfy this filter.
 
 <a name="formFeature">
 
 ### formFeature
 
-Default value: `form`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `form`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Feature containing the word form.
 
 <a name="lemmaFeature">
 
 ### lemmaFeature
 
-Default value: `lemma`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `lemma`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Feature containing the word lemma.
 
 <a name="posFeature">
 
 ### posFeature
 
-Default value: `pos`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `pos`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Feature containing the word POS tag.
 
 <a name="sectionFilter">
 
 ### sectionFilter
 
-Default value: `boolean:and(true, nav:layer:words())`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Process only sections that satisfy this filter.
 
 <a name="sentenceLayerName">
 
 ### sentenceLayerName
 
-Default value: `sentences`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `sentences`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the layer containing sentence annotations, sentences are reinforced.
 
 <a name="wordLayerName">
 
 ### wordLayerName
 
-Default value: `words`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `words`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the layer containing the word annotations.
 
 <a name="yateaDefaultConfig">
 
 ### yateaDefaultConfig
 
-Default value: `{}`
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-default-value">Default value: `{}`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 
 
 <a name="yateaOptions">
 
 ### yateaOptions
 
-Default value: `{}`
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-default-value">Default value: `{}`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 
 

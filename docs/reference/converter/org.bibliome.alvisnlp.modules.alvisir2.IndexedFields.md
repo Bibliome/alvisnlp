@@ -1,4 +1,4 @@
-# IndexedFields
+<h1 class="converter">IndexedFields</h1>
 
 ## Synopsis
 

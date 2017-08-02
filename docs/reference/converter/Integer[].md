@@ -1,4 +1,4 @@
-# Integer[]
+<h1 class="converter">Integer[]</h1>
 
 ## Synopsis
 

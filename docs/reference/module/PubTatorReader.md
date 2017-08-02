@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.PubTatorReader
+<h1 class="module">PubTatorReader</h1>
 
 ## Synopsis
 
@@ -16,69 +16,69 @@ synopsis
 
 ### sourcePath
 
-Optional
-
-Type: [SourceStream](../converter/org.bibliome.util.streams.SourceStream)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
+</div>
 
 
 <a name="constantAnnotationFeatures">
 
 ### constantAnnotationFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each annotation created by this module
 
 <a name="constantDocumentFeatures">
 
 ### constantDocumentFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each document created by this module
 
 <a name="constantSectionFeatures">
 
 ### constantSectionFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each section created by this module
 
 <a name="classFeature">
 
 ### classFeature
 
-Default value: `class`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `class`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 
 <a name="offsetFeature">
 
 ### offsetFeature
 
-Default value: `offset`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `offset`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 
 <a name="typeFeature">
 
 ### typeFeature
 
-Default value: `type`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `type`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 

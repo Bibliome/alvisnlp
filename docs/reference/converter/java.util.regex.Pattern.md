@@ -1,4 +1,4 @@
-# Pattern
+<h1 class="converter">Pattern</h1>
 
 ## Synopsis
 
@@ -11,28 +11,33 @@ Parses the value as a regular expression in Java Regular Expression Format (see 
 ## XML conversion
 
 ```xml
-<param value="PATTERN"/>```
+<param value="PATTERN"/>
+```
 
 
 	or
 	```xml
-<param pattern="PATTERN"/>```
+<param pattern="PATTERN"/>
+```
 
 
 	or
 	```xml
-<param regexp="PATTERN"/>```
+<param regexp="PATTERN"/>
+```
 
 
 	or
 	```xml
-<param regex="PATTERN"/>```
+<param regex="PATTERN"/>
+```
 
 
 	or
 	```xml
-<param>PATTERN</param>```
+<param>PATTERN</param>
+```
 
 *PATTERN* is converted into a regular expression pattern as specified by the string conversion.
-      
+  
 

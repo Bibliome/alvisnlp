@@ -1,15 +1,15 @@
-# ElementPattern
+<h1 class="converter">ElementPattern</h1>
 
 ## Synopsis
 
-Converts into an annotation pattern to be used by [PatternMatcher](../module/PatternMatcher).
+Converts into an annotation pattern to be used by <a href="../module/PatternMatcher" class="module">PatternMatcher</a>.
 
 ## String conversion
 
 A pattern consists in a sequence of predicates. A predicate is a condition on an annotation, thus the pattern matches subsequences of annotations that yield true for each predicate.
 
 Available predicates:
-      
+  
 * *any*: yields true for any annotation;
 * *featureKey*: yields true iff the annotation has the feature *featureKey*;
 * *featureKey == "featureValue"*: yields true iff the annotation has the feature *featureKey* and its value is equal to *featureValue*;
@@ -22,18 +22,18 @@ Available predicates:
 * *not pred*: yields true iff the predicate *pred* yields false.
 
 
-      The operator precedence is the usual one (*or* > *and* > *not*). The precedence can be overriden using parentheses.
-     
+  The operator precedence is the usual one (*or* > *and* > *not*). The precedence can be overriden using parentheses.
+ 
 
 Additionally the following two pseudo-predicates are available:
-     
+ 
 * *start*: matches the start of the annotation sequence, meaning that the following predicate must match the first annotation in the sequence;
 * *end*: matches the end of the annotation sequence, meaning that the preceding predicate must match the last annotation in the sequence.
 
 
 
 Predicates can be quantified. The following quantifiers are available:
-     
+ 
 * *?*: matches the preceding predicate or group zero or once;
 * ***: matches the preceding predicate or group zero to several times (unlimited);
 * *+*: matches the preceding predicate or group at least once (unlimited);
@@ -42,33 +42,36 @@ Predicates can be quantified. The following quantifiers are available:
 * *{n,m}*: matches the preceding predicate or group at least *n* times but no more than *m* times.
 
 
-     These are *greedy* quantifiers. If there is a question mark (*?*) after the quantifier, then this quantifier is *reluctant*. See [Java Pattern documentation](http://download.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) for a complete description of greedy and reluctant quantifiers.
+ These are *greedy* quantifiers. If there is a question mark (*?*) after the quantifier, then this quantifier is *reluctant*. See [Java Pattern documentation](http://download.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) for a complete description of greedy and reluctant quantifiers.
 
 Predicate sequences may be grouped between square brackets. This allows the quantification of sub-patterns. Groups can be named by specifying the name after the opening bracket and 
 
 Examples:
-     
+ 
 * *posTag =~ /^N/ +*: matches a single annotation or an unlimited number of consecutive annotations whose feature *posTag* starts with a *N*;
 * *posTag =~ /^J/ * posTag =~ /^N/ +*: matches nothing or an unlimited number of consecutive annotations whose feature *posTag* starts with a *J*, then followed by a single annotation or an unlimited number of consecutive annotations whose feature *posTag* starts with a *N*;
-* *posTag =~ /^J/ * posTag =~ /^N/ * [head: posTag =~ /^N/ ]*: like the preceding one, but captures the last annotation of the match in a sub-pattern named *head*, this name can be referenced in [PatternMatcher#actions](../module/PatternMatcher#actions).
+* *posTag =~ /^J/ * posTag =~ /^N/ * [head: posTag =~ /^N/ ]*: like the preceding one, but captures the last annotation of the match in a sub-pattern named *head*, this name can be referenced in <a href="../module/PatternMatcher#actions" class="param">PatternMatcher#actions</a>.
 
 
 
 ## XML conversion
 
 ```xml
-<param value="PATTERN"/>```
+<param value="PATTERN"/>
+```
 
 
 	or
 	```xml
-<param pattern="PATTERN"/>```
+<param pattern="PATTERN"/>
+```
 
 
 	or
 	```xml
-<param>PATTERN</param>```
+<param>PATTERN</param>
+```
 
 *PATTERN* will be converted as a string.
-      
+  
 

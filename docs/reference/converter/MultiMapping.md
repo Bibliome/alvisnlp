@@ -1,4 +1,4 @@
-# MultiMapping
+<h1 class="converter">MultiMapping</h1>
 
 ## Synopsis
 
@@ -14,7 +14,8 @@ String conversion is not available for this type.
 <param>
 	<entry key="KEY1" value="VALUE1"/>
 	<entry key="KEY2">VALUE2</entry>
-	...</param>```
+	...</param>
+```
 
 
 	or
@@ -22,9 +23,10 @@ String conversion is not available for this type.
 <param>
 	<KEY1>VALUE1</KEY1>
 	<KEY2>VALUE2</KEY2>
-	...</param>```
+	...</param>
+```
 
 
 
-*VALUEn* are converted as [String[]array of strings](../converter/String[]array of strings). The value separator can be set with the *separator* attribute.
+*VALUEn* are converted as <a href="../converter/String[]array of strings" class="converter">String[]array of strings</a>. The value separator can be set with the *separator* attribute.
 

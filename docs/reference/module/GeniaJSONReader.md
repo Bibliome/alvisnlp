@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.bionlpst.GeniaJSONReader
+<h1 class="module">GeniaJSONReader</h1>
 
 ## Synopsis
 
@@ -16,79 +16,79 @@ synopsis
 
 ### source
 
-Optional
-
-Type: [SourceStream](../converter/org.bibliome.util.streams.SourceStream)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
+</div>
 
 
 <a name="constantAnnotationFeatures">
 
 ### constantAnnotationFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each annotation created by this module
 
 <a name="constantDocumentFeatures">
 
 ### constantDocumentFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each document created by this module
 
 <a name="constantRelationFeatures">
 
 ### constantRelationFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each relation created by this module
 
 <a name="constantSectionFeatures">
 
 ### constantSectionFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each section created by this module
 
 <a name="constantTupleFeatures">
 
 ### constantTupleFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each tuple created by this module
 
 <a name="annotationsLayerName">
 
 ### annotationsLayerName
 
-Default value: `annotations`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `annotations`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 
 <a name="instanceIdFeature">
 
 ### instanceIdFeature
 
-Default value: `instance-id`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `instance-id`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 

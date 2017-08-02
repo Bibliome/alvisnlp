@@ -1,4 +1,4 @@
-# KeywordScoreFunction
+<h1 class="converter">KeywordScoreFunction</h1>
 
 ## Synopsis
 

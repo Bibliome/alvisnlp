@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.treetagger.TreeTagger
+<h1 class="module">TreeTagger</h1>
 
 ## Synopsis
 
@@ -6,15 +6,15 @@ Runs *tree-tagger*.
 
 ## Description
 
-*org.bibliome.alvisnlp.modules.treetagger.TreeTagger* applies *tree-tagger* on annotations in [wordLayerName](#wordLayerName) by generating an appropriate input file. This file will contain one line for each annotation. The first column, the token surface form, is the value of the [formFeature](#formFeature) feature. The second column, the token predefined POS tag, is the value [posFeature](#posFeature) feature. The third column, the token predefined lemma, is the value of [lemmaFeature](#lemmaFeature) feature. If [posFeature](#posFeature) or [lemmaFeature](#lemmaFeature) are not defined, then the second and third column are left blank.
+*TreeTagger* applies *tree-tagger* on annotations in <a href="#wordLayerName" class="param">wordLayerName</a> by generating an appropriate input file. This file will contain one line for each annotation. The first column, the token surface form, is the value of the <a href="#formFeature" class="param">formFeature</a> feature. The second column, the token predefined POS tag, is the value <a href="#posFeature" class="param">posFeature</a> feature. The third column, the token predefined lemma, is the value of <a href="#lemmaFeature" class="param">lemmaFeature</a> feature. If <a href="#posFeature" class="param">posFeature</a> or <a href="#lemmaFeature" class="param">lemmaFeature</a> are not defined, then the second and third column are left blank.
 
-The *tree-tagger* binary is specified by [treeTaggerExecutable](#treeTaggerExecutable) and the language model to use is specified by [parFile](#parFile). Additionally a lexicon file can be given through [lexiconFile](#lexiconFile).
+The *tree-tagger* binary is specified by <a href="#treeTaggerExecutable" class="param">treeTaggerExecutable</a> and the language model to use is specified by <a href="#parFile" class="param">parFile</a>. Additionally a lexicon file can be given through <a href="#lexiconFile" class="param">lexiconFile</a>.
 
-If [sentenceLayerName](#sentenceLayerName) is defined, then *org.bibliome.alvisnlp.modules.treetagger.TreeTagger* considers annotations in this layer as sentences. Sentence boundaries are reinforced by providing *tree-tagger* an additional end-of-sentence marker.
+If <a href="#sentenceLayerName" class="param">sentenceLayerName</a> is defined, then *TreeTagger* considers annotations in this layer as sentences. Sentence boundaries are reinforced by providing *tree-tagger* an additional end-of-sentence marker.
 
-Once *tree-tagger* has processed the corpus, *org.bibliome.alvisnlp.modules.treetagger.TreeTagger* adds the predicted POS tag and lemma to the respective [posFeature](#posFeature) and [lemmaFeature](#lemmaFeature) features of the corresponding annotations.
+Once *tree-tagger* has processed the corpus, *TreeTagger* adds the predicted POS tag and lemma to the respective <a href="#posFeature" class="param">posFeature</a> and <a href="#lemmaFeature" class="param">lemmaFeature</a> features of the corresponding annotations.
 
-If [recordDir](#recordDir) and [recordFeatures](#recordFeatures) are both defined, then *tree-tagger* predictions are written into files in one file per section in the [recordDir](#recordDir) directory. [recordFeatures](#recordFeatures) is an array of feature names to record. An additional feature *n* is recognized as the annotation ordinal in the section.
+If <a href="#recordDir" class="param">recordDir</a> and <a href="#recordFeatures" class="param">recordFeatures</a> are both defined, then *tree-tagger* predictions are written into files in one file per section in the <a href="#recordDir" class="param">recordDir</a> directory. <a href="#recordFeatures" class="param">recordFeatures</a> is an array of feature names to record. An additional feature *n* is recognized as the annotation ordinal in the section.
 
 ## Parameters
 
@@ -22,169 +22,169 @@ If [recordDir](#recordDir) and [recordFeatures](#recordFeatures) are both define
 
 ### parFile
 
-Optional
-
-Type: [InputFile](../converter/org.bibliome.util.files.InputFile)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.InputFile" class="converter">InputFile</a>
+</div>
 Path to the language model file.
 
 <a name="treeTaggerExecutable">
 
 ### treeTaggerExecutable
 
-Optional
-
-Type: [ExecutableFile](../converter/org.bibliome.util.files.ExecutableFile)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.ExecutableFile" class="converter">ExecutableFile</a>
+</div>
 Path to the tree-tagger executable file.
 
 <a name="constantAnnotationFeatures">
 
 ### constantAnnotationFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each annotation created by this module
 
 <a name="lexiconFile">
 
 ### lexiconFile
 
-Optional
-
-Type: [SourceStream](../converter/org.bibliome.util.streams.SourceStream)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
+</div>
 Path to a tree-tagger lexicon file, if set the lexicon will be applied to the corpus before treetagger processes it.
 
 <a name="recordDir">
 
 ### recordDir
 
-Optional
-
-Type: [OutputDirectory](../converter/org.bibliome.util.files.OutputDirectory)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.OutputDirectory" class="converter">OutputDirectory</a>
+</div>
 Path to the directory where to write tree-tagger result files (one file per section).
 
 <a name="recordFeatures">
 
 ### recordFeatures
 
-Optional
-
-Type: [String[]](../converter/java.lang.String[])
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+</div>
 List of attributes to display in result files.
 
 <a name="documentFilter">
 
 ### documentFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Only process document that satisfy this filter.
 
 <a name="formFeature">
 
 ### formFeature
 
-Default value: `form`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `form`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the feature denoting the token surface form.
 
 <a name="inputCharset">
 
 ### inputCharset
 
-Default value: `ISO-8859-1`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `ISO-8859-1`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Tree-tagger input corpus character set.
 
 <a name="lemmaFeature">
 
 ### lemmaFeature
 
-Default value: `lemma`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `lemma`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the feature to set with the lemma.
 
 <a name="noUnknownLemma">
 
 ### noUnknownLemma
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 Either to replace unknown lemmas with the surface form.
 
 <a name="outputCharset">
 
 ### outputCharset
 
-Default value: `ISO-8859-1`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `ISO-8859-1`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Tree-tagger output character set.
 
 <a name="posFeature">
 
 ### posFeature
 
-Default value: `pos`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `pos`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the feature to set with the POS tag.
 
 <a name="recordCharset">
 
 ### recordCharset
 
-Default value: `UTF-8`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `UTF-8`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Character encoding of the result files.
 
 <a name="sectionFilter">
 
 ### sectionFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Process only sections that satisfy this filter.
 
 <a name="sentenceLayerName">
 
 ### sentenceLayerName
 
-Default value: `sentences`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `sentences`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the layer containing sentence annotations, sentences are reinforced.
 
 <a name="wordLayerName">
 
 ### wordLayerName
 
-Default value: `words`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `words`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the layer containing the word annotations.
 

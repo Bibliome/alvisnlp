@@ -1,8 +1,8 @@
-# Aggregator
+<h1 class="converter">Aggregator</h1>
 
 ## Synopsis
 
-Converts into aggregator functions (see [AggregateValues](../module/AggregateValues)).
+Converts into aggregator functions (see <a href="../module/AggregateValues" class="module">AggregateValues</a>).
 
 ## String conversion
 
@@ -13,14 +13,16 @@ Converts into aggregator functions (see [AggregateValues](../module/AggregateVal
 ```xml
 
 	<count/>
-      ```
+      
+```
 
 Count the number of occurrences of each key.
 
 ```xml
 
 	<sum>VALUE</sum>
-      ```
+      
+```
 
-Converts *VALUE* as an [Expression](../converter/Expression) evaluated as an integer from each entry. The aggregate value is the sum of the results.
+Converts *VALUE* as an <a href="../converter/Expression" class="converter">Expression</a> evaluated as an integer from each entry. The aggregate value is the sum of the results.
 

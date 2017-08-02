@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.TriPhase.ProminentConceptReporter
+<h1 class="module">ProminentConceptReporter</h1>
 
 ## Synopsis
 
@@ -16,39 +16,39 @@ synopsis
 
 ### conceptAnnotations
 
-Optional
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 
 
 <a name="conceptId">
 
 ### conceptId
 
-Optional
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 
 
 <a name="documents">
 
 ### documents
 
-Optional
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 
 
 <a name="sectionName">
 
 ### sectionName
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 

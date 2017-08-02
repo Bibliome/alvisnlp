@@ -1,4 +1,4 @@
-# OutputDirectory
+<h1 class="converter">OutputDirectory</h1>
 
 ## Synopsis
 
@@ -11,23 +11,27 @@ The string value is interpreted as a path to a directory. The value must be a va
 ## XML conversion
 
 ```xml
-<param value="PATH"/>```
+<param value="PATH"/>
+```
 
 
 	or
 	```xml
-<param path="PATH"/>```
+<param path="PATH"/>
+```
 
 
 	or
 	```xml
-<param file="PATH"/>```
+<param file="PATH"/>
+```
 
 
 	or
 	```xml
-<param>PATH</param>```
+<param>PATH</param>
+```
 
 *PATH* is converted into an *OutputDirectory* as specified by the string conversion.
-      
+  
 

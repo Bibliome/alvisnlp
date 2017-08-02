@@ -1,4 +1,4 @@
-# Mapping
+<h1 class="converter">Mapping</h1>
 
 ## Synopsis
 
@@ -13,22 +13,25 @@ The entry separator can be modified with the *separator* attribute. The separato
 ## XML conversion
 
 ```xml
-<param value="MAPPING"/>```
+<param value="MAPPING"/>
+```
 
 
 	or
 	```xml
-<param>MAPPING</param>```
+<param>MAPPING</param>
+```
 
 
 	where *MAPPING* will be converted according to the string conversion specifications.
-      
+  
 
 ```xml
 <param>
 	<entry key="KEY1" value="VALUE1"/>
 	<entry key="KEY2">VALUE2</entry>
-	...</param>```
+	...</param>
+```
 
 
 	or
@@ -36,7 +39,8 @@ The entry separator can be modified with the *separator* attribute. The separato
 <param>
 	<KEY1>VALUE1</KEY1>
 	<KEY2>VALUE2</KEY2>
-	...</param>```
+	...</param>
+```
 
 
 

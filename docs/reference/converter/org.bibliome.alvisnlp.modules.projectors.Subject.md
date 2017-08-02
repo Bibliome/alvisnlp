@@ -1,4 +1,4 @@
-# Subject
+<h1 class="converter">Subject</h1>
 
 ## Synopsis
 
@@ -7,7 +7,7 @@ Converts into a projection subject.
 ## String conversion
 
 In string conversion the subject is necessarily the section contents. The converter recognizes one of the following values:
-      
+  
 * *plain*: searches for entries in the section contents without bounday check;
 * *words*: searches for entries in the section contents and checks the match starts and ends at word boundaries;
 * *prefix*: searches for entries in the section contents and checks the match starts at a word boundary;
@@ -19,25 +19,29 @@ In string conversion the subject is necessarily the section contents. The conver
 
 For matching the section contents:
 ```xml
-<param value="plain|words|prefix|suffix"/>```
+<param value="plain|words|prefix|suffix"/>
+```
 
 
 
-      or:
+  or:
 ```xml
-<param contents="plain|words|prefix|suffix"/>```
+<param contents="plain|words|prefix|suffix"/>
+```
 
 
 
-      or:
+  or:
 ```xml
-<param>plain|words|prefix|suffix</param>```
+<param>plain|words|prefix|suffix</param>
+```
 
 
 
 For matching annotation feature values:
-      ```xml
-<param feature="FEATUREKEY" layer="LAYERNAME"/>```
+  ```xml
+<param feature="FEATUREKEY" layer="LAYERNAME"/>
+```
 
 
 

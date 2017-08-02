@@ -17,6 +17,8 @@ limitations under the License.
 
 <xsl:stylesheet version="1.0"
 		xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+		xmlns:str="http://exslt.org/strings"
+		extension-element-prefixes="str"
 		>
 
   <xsl:output method="text" />
@@ -29,7 +31,10 @@ limitations under the License.
   </xsl:template>
 
   <xsl:template match="alvisnlp-doc">
-    <xsl:value-of select="concat('# ', @short-target, $nl, $nl)"/>
+    <xsl:variable name="class">
+      <xsl:value-of select="substring-before(name(module-doc|converter-doc|library-doc), '-')"/>
+    </xsl:variable>
+    <xsl:value-of select="concat('&lt;h1 class=&quot;' , $class, '&quot;>', @short-target, '&lt;/h1>', $nl, $nl)"/>
     <xsl:apply-templates select="synopsis"/>
     <xsl:apply-templates select="module-doc|converter-doc|library-doc|plan-doc"/>
   </xsl:template>
@@ -67,7 +72,16 @@ limitations under the License.
 	</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <xsl:value-of select='concat("## [", @short-target, "]({{ &apos;/reference/", $class, "/", @target, "&apos; | relative_url }})", $nl, $nl)'/>
+    <xsl:text>&lt;h2>
+&lt;a href="{{ &apos;/reference/</xsl:text>
+    <xsl:value-of select="concat($class, '/', @target)"/>
+    <xsl:text>&apos; | relative_url }}" class="</xsl:text>
+    <xsl:value-of select="concat($class, '&quot;>', @short-target)"/>
+    <xsl:text>&lt;/a>
+&lt;/h2>
+
+</xsl:text>
+    <!--<xsl:value-of select='concat("&lt;h2>", $nl, "&lt;a href={{ &apos;/reference/", $class, "/", @target, "&apos; | relative_url }}>", @short-target, "&lt;/a>", $nl, "&lt;/h2>", $nl, $nl)'/>-->
   </xsl:template>
 
   <xsl:template match="synopsis">
@@ -105,16 +119,28 @@ limitations under the License.
     <xsl:value-of select="concat('### ', @name, $nl, $nl)"/>
     <xsl:choose>
       <xsl:when test="@default-value">
-	<xsl:value-of select="concat('Default value: `', @default-value, '`', $nl, $nl)"/>
+	<xsl:text>&lt;div class="param-level param-level-default-value"></xsl:text>
+	<xsl:value-of select="concat('Default value: `', @default-value, '`', $nl)"/>
+	<xsl:text>&lt;/div>
+</xsl:text>
       </xsl:when>
       <xsl:when test="@mandatory = 'true'">
-	<xsl:value-of select="concat('Mandatory', $nl, $nl)"/>
+	<xsl:text>&lt;div class="param-level param-level-mandatory"></xsl:text>
+	<xsl:value-of select="concat('Mandatory', $nl)"/>
+	<xsl:text>&lt;/div>
+</xsl:text>
       </xsl:when>
       <xsl:otherwise>
-	<xsl:value-of select="concat('Optional', $nl, $nl)"/>
+	<xsl:text>&lt;div class="param-level param-level-optional"></xsl:text>
+	<xsl:value-of select="concat('Optional', $nl)"/>
+	<xsl:text>&lt;/div>
+</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
-    <xsl:value-of select="concat('Type: [', @short-type, '](../converter/', @type, ')', $nl, $nl)"/>
+    <xsl:text>&lt;div class="param-type"></xsl:text>
+    <xsl:value-of select="concat('Type: &lt;a href=&quot;../converter/', @type, '&quot; class=&quot;converter&quot;>', @short-type, '&lt;/a>', $nl)"/>
+	<xsl:text>&lt;/div>
+</xsl:text>
     <xsl:apply-templates/>
   </xsl:template>
   
@@ -143,7 +169,7 @@ limitations under the License.
   <xsl:template match="function-doc">
     <xsl:value-of select="concat('&lt;a name=&quot;', @first-ftor, '&quot;&gt;', $nl, $nl)"/>
     <xsl:value-of select="concat('### ', @first-ftor, $nl, $nl)"/>
-    <xsl:value-of select="concat(@synopsis, $nl, $nl)"/>
+    <xsl:value-of select="concat('`', @synopsis, '`', $nl, $nl)"/>
     <xsl:apply-templates select="*"/>
   </xsl:template>
   
@@ -154,10 +180,10 @@ limitations under the License.
   <xsl:template match="param">
     <xsl:choose>
       <xsl:when test="@module">
-	<xsl:value-of select="concat('[', @module, '#', @name, ., '](../module/', @module, '#', @name, ., ')')"/>
+	<xsl:value-of select="concat('&lt;a href=&quot;../module/', @module, '#', @name, ., '&quot; class=&quot;param&quot;>', @module, '#', @name, ., '&lt;/a>')"/>
       </xsl:when>
       <xsl:otherwise>
-	<xsl:value-of select="concat('[', @name, ., '](#', @name, ., ')')"/>
+	<xsl:value-of select="concat('&lt;a href=&quot;#', @name, ., '&quot; class=&quot;param&quot;>', @name, ., '&lt;/a>')"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -165,24 +191,24 @@ limitations under the License.
   <xsl:template match="function">
     <xsl:choose>
       <xsl:when test="@library">
-	<xsl:value-of select="concat('[', @library, '#', @name, ., '](../library/', @library, '#', @name, ., ')')"/>
+	<xsl:value-of select="concat('&lt;a href=&quot;../library/', @library, '#', @name, ., '&quot; class=&quot;function&quot;>', @library, '#', @name, ., '&lt;/a>')"/>
       </xsl:when>
       <xsl:otherwise>
-	<xsl:value-of select="concat('[', @name, ., '](#', @name, ., ')')"/>
+	<xsl:value-of select="concat('&lt;a href=&quot;#', @name, ., '&quot; class=&quot;function&quot;>', @name, ., '&lt;/a>')"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
 
   <xsl:template match="module">
-    <xsl:value-of select="concat('[', @name, ., '](../module/', @name, ., ')')"/>
+    <xsl:value-of select="concat('&lt;a href=&quot;../module/', @name, ., '&quot; class=&quot;module&quot;>', @name, ., '&lt;/a>')"/>
   </xsl:template>
 
   <xsl:template match="converter">
-    <xsl:value-of select="concat('[', @name, ., '](../converter/', @name, ., ')')"/>
+    <xsl:value-of select="concat('&lt;a href=&quot;../converter/', @name, ., '&quot; class=&quot;converter&quot;>', @name, ., '&lt;/a>')"/>
   </xsl:template>
 
   <xsl:template match="library">
-    <xsl:value-of select="concat('[', @name, ., '](../library/', @name, ., ')')"/>
+    <xsl:value-of select="concat('&lt;a href=&quot;../library/', @name, ., '&quot; class=&quot;library&quot;>', @name, ., '&lt;/a>')"/>
   </xsl:template>
   
   <xsl:template match="a">
@@ -269,15 +295,18 @@ limitations under the License.
   </xsl:template>
 
   <xsl:template match="text()">
-    <xsl:if test="normalize-space(.) != ''">
-      <xsl:value-of select="."/>
+    <xsl:variable name="clean">
+      <xsl:value-of select="normalize-space(.)"/>
+    </xsl:variable>
+    <xsl:if test="$clean != ''">
+      <xsl:value-of select="str:replace(., '&#x0A;    ', $nl)"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="xverb">
     <xsl:value-of select="concat('```xml', $nl)"/>
     <xsl:apply-templates select="*|text()" mode="xverb" />
-    <xsl:value-of select="concat('```', $nl, $nl)"/>
+    <xsl:value-of select="concat($nl, '```', $nl, $nl)"/>
   </xsl:template>
 
   <xsl:template match="*" mode="xverb">

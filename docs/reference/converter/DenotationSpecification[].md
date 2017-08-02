@@ -1,4 +1,4 @@
-# DenotationSpecification[]
+<h1 class="converter">DenotationSpecification[]</h1>
 
 ## Synopsis
 

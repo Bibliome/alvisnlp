@@ -1,14 +1,14 @@
-# org.bibliome.alvisnlp.modules.I2B2Reader
+<h1 class="module">I2B2Reader</h1>
 
 ## Synopsis
 
-*org.bibliome.alvisnlp.modules.I2B2Reader* reads files in the format of the [I2B2]() challenge.
+*I2B2Reader* reads files in the format of the [I2B2]() challenge.
 
 **This module is experimental.**
 
 ## Description
 
-*org.bibliome.alvisnlp.modules.I2B2Reader* reads documents in [I2B2 challenge]() including the text of documents, tokenization as annotations, concepts as annotations, assertions as annotation features and relations as tuples.
+*I2B2Reader* reads documents in [I2B2 challenge]() including the text of documents, tokenization as annotations, concepts as annotations, assertions as annotation features and relations as tuples.
 
 ## Parameters
 
@@ -16,189 +16,189 @@
 
 ### textDir
 
-Optional
-
-Type: [InputDirectory](../converter/org.bibliome.util.files.InputDirectory)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
+</div>
 Path to the directory containing I2B2 text files.
 
 <a name="assertionsDir">
 
 ### assertionsDir
 
-Optional
-
-Type: [InputDirectory](../converter/org.bibliome.util.files.InputDirectory)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
+</div>
 Path to the directory where assertion files can be found.
 
 <a name="conceptsDir">
 
 ### conceptsDir
 
-Optional
-
-Type: [InputDirectory](../converter/org.bibliome.util.files.InputDirectory)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
+</div>
 Path to the directory that contains concept annotations.
 
 <a name="constantAnnotationFeatures">
 
 ### constantAnnotationFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each annotation created by this module
 
 <a name="constantDocumentFeatures">
 
 ### constantDocumentFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each document created by this module
 
 <a name="constantRelationFeatures">
 
 ### constantRelationFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each relation created by this module
 
 <a name="constantSectionFeatures">
 
 ### constantSectionFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each section created by this module
 
 <a name="constantTupleFeatures">
 
 ### constantTupleFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each tuple created by this module
 
 <a name="relationsDir">
 
 ### relationsDir
 
-Optional
-
-Type: [InputDirectory](../converter/org.bibliome.util.files.InputDirectory)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
+</div>
 Path to the directory where relation files can be found.
 
 <a name="assertionFeature">
 
 ### assertionFeature
 
-Default value: `assertion`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `assertion`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 
 <a name="conceptTypeFeature">
 
 ### conceptTypeFeature
 
-Default value: `type`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `type`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Feature where to store the concept type.
 
 <a name="conceptsLayerName">
 
 ### conceptsLayerName
 
-Default value: `concepts`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `concepts`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the layer where to store concepts annotations.
 
 <a name="leftRole">
 
 ### leftRole
 
-Default value: `left`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `left`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the left argument of relations.
 
 <a name="linenoFeature">
 
 ### linenoFeature
 
-Default value: `lineno`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `lineno`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the feature where to store the line number.
 
 <a name="linesLayerName">
 
 ### linesLayerName
 
-Default value: `lines`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `lines`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the layer where to store lines.
 
 <a name="rightRole">
 
 ### rightRole
 
-Default value: `right`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `right`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 
 <a name="sectionName">
 
 ### sectionName
 
-Default value: `text`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `text`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the unique section of each document.
 
 <a name="tokenNumberFeature">
 
 ### tokenNumberFeature
 
-Default value: `tokenno`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `tokenno`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Feature where to store the token index.
 
 <a name="tokensLayerName">
 
 ### tokensLayerName
 
-Default value: `tokens`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `tokens`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the layer where to store tokens.
 

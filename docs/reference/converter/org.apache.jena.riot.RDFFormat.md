@@ -1,4 +1,4 @@
-# RDFFormat
+<h1 class="converter">RDFFormat</h1>
 
 ## Synopsis
 

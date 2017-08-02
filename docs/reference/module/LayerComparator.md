@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.LayerComparator
+<h1 class="module">LayerComparator</h1>
 
 ## Synopsis
 
@@ -6,7 +6,7 @@ Compares annotations in two different layers.
 
 ## Description
 
-*org.bibliome.alvisnlp.modules.LayerComparator* traverses the annotations in the layers [predictedLayerName](#predictedLayerName) and [referenceLayerName](#referenceLayerName) in each section. This is useful when analyzing the result of named entity recognition systems. The result of the comparison is written for each section in terms of recall and precision into the file [outFile](#outFile). This file will also point boundary mismatches.
+*LayerComparator* traverses the annotations in the layers <a href="#predictedLayerName" class="param">predictedLayerName</a> and <a href="#referenceLayerName" class="param">referenceLayerName</a> in each section. This is useful when analyzing the result of named entity recognition systems. The result of the comparison is written for each section in terms of recall and precision into the file <a href="#outFile" class="param">outFile</a>. This file will also point boundary mismatches.
 
 ## Parameters
 
@@ -14,49 +14,49 @@ Compares annotations in two different layers.
 
 ### outFile
 
-Optional
-
-Type: [TargetStream](../converter/org.bibliome.util.streams.TargetStream)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
+</div>
 Path to the file where to store results.
 
 <a name="predictedLayerName">
 
 ### predictedLayerName
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the source layer.
 
 <a name="referenceLayerName">
 
 ### referenceLayerName
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the reference layer.
 
 <a name="documentFilter">
 
 ### documentFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Only process document that satisfy this filter.
 
 <a name="sectionFilter">
 
 ### sectionFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Process only sections that satisfy this filter.
 

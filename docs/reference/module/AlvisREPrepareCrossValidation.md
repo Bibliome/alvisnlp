@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.alvisre.AlvisREPrepareCrossValidation
+<h1 class="module">AlvisREPrepareCrossValidation</h1>
 
 ## Synopsis
 
@@ -16,130 +16,130 @@ synopsis
 
 ### cParameter
 
-Optional
-
-Type: [Double](../converter/java.lang.Double)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Double" class="converter">Double</a>
+</div>
 
 
 <a name="outDir">
 
 ### outDir
 
-Optional
-
-Type: [OutputDirectory](../converter/org.bibliome.util.files.OutputDirectory)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.OutputDirectory" class="converter">OutputDirectory</a>
+</div>
 
 
 <a name="relations">
 
 ### relations
 
-Optional
-
-Type: [AlvisRERelations[]](../converter/org.bibliome.alvisnlp.modules.alvisre.AlvisRERelations[])
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.alvisre.AlvisRERelations[]" class="converter">AlvisRERelations[]</a>
+</div>
 
 
 <a name="schema">
 
 ### schema
 
-Optional
-
-Type: [DocumentFragment](../converter/org.w3c.dom.DocumentFragment)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.w3c.dom.DocumentFragment" class="converter">DocumentFragment</a>
+</div>
 
 
 <a name="similarityFunction">
 
 ### similarityFunction
 
-Optional
-
-Type: [DocumentFragment](../converter/org.w3c.dom.DocumentFragment)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.w3c.dom.DocumentFragment" class="converter">DocumentFragment</a>
+</div>
 
 
 <a name="terms">
 
 ### terms
 
-Optional
-
-Type: [AlvisRETokens[]](../converter/org.bibliome.alvisnlp.modules.alvisre.AlvisRETokens[])
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.alvisre.AlvisRETokens[]" class="converter">AlvisRETokens[]</a>
+</div>
 
 
 <a name="dependencies">
 
 ### dependencies
 
-Default value: `org.bibliome.alvisnlp.modules.alvisre.AlvisRERelations@130161f7`
-
-Type: [AlvisRERelations](../converter/org.bibliome.alvisnlp.modules.alvisre.AlvisRERelations)
-
+<div class="param-level param-level-default-value">Default value: `org.bibliome.alvisnlp.modules.alvisre.AlvisRERelations@26794848`
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.alvisre.AlvisRERelations" class="converter">AlvisRERelations</a>
+</div>
 
 
 <a name="documentFilter">
 
 ### documentFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Only process document that satisfy this filter.
 
 <a name="folds">
 
 ### folds
 
-Default value: `10`
-
-Type: [Integer](../converter/java.lang.Integer)
-
+<div class="param-level param-level-default-value">Default value: `10`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Integer" class="converter">Integer</a>
+</div>
 
 
 <a name="sectionFilter">
 
 ### sectionFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Process only sections that satisfy this filter.
 
 <a name="sectionSeparator">
 
 ### sectionSeparator
 
-Default value: `
+<div class="param-level param-level-default-value">Default value: `
 `
-
-Type: [String](../converter/java.lang.String)
-
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 
 <a name="sentences">
 
 ### sentences
 
-Default value: `org.bibliome.alvisnlp.modules.alvisre.AlvisRETokens@2c767a52`
-
-Type: [AlvisRETokens](../converter/org.bibliome.alvisnlp.modules.alvisre.AlvisRETokens)
-
+<div class="param-level param-level-default-value">Default value: `org.bibliome.alvisnlp.modules.alvisre.AlvisRETokens@302552ec`
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.alvisre.AlvisRETokens" class="converter">AlvisRETokens</a>
+</div>
 
 
 <a name="words">
 
 ### words
 
-Default value: `org.bibliome.alvisnlp.modules.alvisre.AlvisRETokens@50eac852`
-
-Type: [AlvisRETokens](../converter/org.bibliome.alvisnlp.modules.alvisre.AlvisRETokens)
-
+<div class="param-level param-level-default-value">Default value: `org.bibliome.alvisnlp.modules.alvisre.AlvisRETokens@fbd1f6`
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.alvisre.AlvisRETokens" class="converter">AlvisRETokens</a>
+</div>
 
 

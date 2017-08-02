@@ -1,4 +1,4 @@
-# sort
+<h1 class="library">sort</h1>
 
 ## Synopsis
 
@@ -18,7 +18,7 @@ The functions in this library come in three versions:
 
 ### comp
 
-sort:comp(list, comparator)
+`sort:comp(list, comparator)`
 
 Evaluates *list* as a list of elements, then sorts the result according to the expression *comparator*. The *comparator* expression is evaluated as an integer and must return a number below zero (lower than), zero (equals) or above zero (greater than).
 
@@ -26,7 +26,7 @@ Evaluates *list* as a list of elements, then sorts the result according to the e
 
 ### dval
 
-sort:dval(list, value)
+`sort:dval(list, value)`
 
 Evaluates *list* as a list of elements, then evaluates *value* as a double for each element. Returns the list sorted by *value*.
 
@@ -34,7 +34,7 @@ Evaluates *list* as a list of elements, then evaluates *value* as a double for e
 
 ### ival
 
-sort:ival(list, value)
+`sort:ival(list, value)`
 
 Evaluates *list* as a list of elements, then evaluates *value* as an integer for each element. Returns the list sorted by *value*.
 
@@ -42,39 +42,39 @@ Evaluates *list* as a list of elements, then evaluates *value* as an integer for
 
 ### ncomp
 
-sort:ncomp(list, comparator)
+`sort:ncomp(list, comparator)`
 
-Same as [comp](#comp), remove equivalents.
+Same as <a href="#comp" class="function">comp</a>, remove equivalents.
 
 <a name="ndval">
 
 ### ndval
 
-sort:ndval(list, value)
+`sort:ndval(list, value)`
 
-Same as [dval](#dval), remove equivalents.
+Same as <a href="#dval" class="function">dval</a>, remove equivalents.
 
 <a name="nival">
 
 ### nival
 
-sort:nival(list, value)
+`sort:nival(list, value)`
 
-Same as [ival](#ival), remove equivalents.
+Same as <a href="#ival" class="function">ival</a>, remove equivalents.
 
 <a name="nsval">
 
 ### nsval
 
-sort:nsval(list, value)
+`sort:nsval(list, value)`
 
-Same as [sval](#sval), remove equivalents.
+Same as <a href="#sval" class="function">sval</a>, remove equivalents.
 
 <a name="reverse">
 
 ### reverse
 
-sort:reverse(list)
+`sort:reverse(list)`
 
 Evaluates *list* as a list of elements and returns this list reversed.
 
@@ -82,7 +82,7 @@ Evaluates *list* as a list of elements and returns this list reversed.
 
 ### sval
 
-sort:sval(list, value)
+`sort:sval(list, value)`
 
 Evaluates *list* as a list of elements, then evaluates *value* as a string for each element. Returns the list sorted by *value* (lexical sort).
 
@@ -90,31 +90,31 @@ Evaluates *list* as a list of elements, then evaluates *value* as a string for e
 
 ### ucomp
 
-sort:ucomp(list, comparator)
+`sort:ucomp(list, comparator)`
 
-Same as [comp](#comp), remove duplicates.
+Same as <a href="#comp" class="function">comp</a>, remove duplicates.
 
 <a name="udval">
 
 ### udval
 
-sort:udval(list, value)
+`sort:udval(list, value)`
 
-Same as [dval](#dval), remove duplicates.
+Same as <a href="#dval" class="function">dval</a>, remove duplicates.
 
 <a name="uival">
 
 ### uival
 
-sort:uival(list, value)
+`sort:uival(list, value)`
 
-Same as [ival](#ival), remove duplicates.
+Same as <a href="#ival" class="function">ival</a>, remove duplicates.
 
 <a name="usval">
 
 ### usval
 
-sort:usval(list, value)
+`sort:usval(list, value)`
 
-Same as [sval](#sval), remove duplicates.
+Same as <a href="#sval" class="function">sval</a>, remove duplicates.
 

@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.treetagger.TreeTaggerTermsProjector
+<h1 class="module">TreeTaggerTermsProjector</h1>
 
 ## Synopsis
 
@@ -14,219 +14,219 @@ UNDOCUMENTED
 
 ### targetLayerName
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="termsFile">
 
 ### termsFile
 
-Optional
-
-Type: [SourceStream](../converter/org.bibliome.util.streams.SourceStream)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
+</div>
 UNDOCUMENTED
 
 <a name="constantAnnotationFeatures">
 
 ### constantAnnotationFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 UNDOCUMENTED
 
 <a name="trieSink">
 
 ### trieSink
 
-Optional
-
-Type: [OutputFile](../converter/org.bibliome.util.files.OutputFile)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.OutputFile" class="converter">OutputFile</a>
+</div>
 UNDOCUMENTED
 
 <a name="trieSource">
 
 ### trieSource
 
-Optional
-
-Type: [InputFile](../converter/org.bibliome.util.files.InputFile)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.InputFile" class="converter">InputFile</a>
+</div>
 UNDOCUMENTED
 
 <a name="allUpperCaseInsensitive">
 
 ### allUpperCaseInsensitive
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 UNDOCUMENTED
 
 <a name="allowJoined">
 
 ### allowJoined
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 UNDOCUMENTED
 
 <a name="caseInsensitive">
 
 ### caseInsensitive
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 UNDOCUMENTED
 
 <a name="documentFilter">
 
 ### documentFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 UNDOCUMENTED
 
 <a name="ignoreDiacritics">
 
 ### ignoreDiacritics
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 UNDOCUMENTED
 
 <a name="joinDash">
 
 ### joinDash
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 UNDOCUMENTED
 
 <a name="lemmaFeatureName">
 
 ### lemmaFeatureName
 
-Default value: `lemma`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `lemma`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="lemmaKeys">
 
 ### lemmaKeys
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 UNDOCUMENTED
 
 <a name="matchStartCaseInsensitive">
 
 ### matchStartCaseInsensitive
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 UNDOCUMENTED
 
 <a name="multipleEntryBehaviour">
 
 ### multipleEntryBehaviour
 
-Default value: `all`
-
-Type: [MultipleEntryBehaviour](../converter/org.bibliome.alvisnlp.modules.trie.MultipleEntryBehaviour)
-
+<div class="param-level param-level-default-value">Default value: `all`
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.trie.MultipleEntryBehaviour" class="converter">MultipleEntryBehaviour</a>
+</div>
 UNDOCUMENTED
 
 <a name="posFeatureName">
 
 ### posFeatureName
 
-Default value: `pos`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `pos`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="sectionFilter">
 
 ### sectionFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 UNDOCUMENTED
 
 <a name="skipConsecutiveWhitespaces">
 
 ### skipConsecutiveWhitespaces
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 UNDOCUMENTED
 
 <a name="skipWhitespace">
 
 ### skipWhitespace
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 UNDOCUMENTED
 
 <a name="subject">
 
 ### subject
 
-Default value: `WORD`
-
-Type: [Subject](../converter/org.bibliome.alvisnlp.modules.trie.Subject)
-
+<div class="param-level param-level-default-value">Default value: `WORD`
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.trie.Subject" class="converter">Subject</a>
+</div>
 UNDOCUMENTED
 
 <a name="termFeatureName">
 
 ### termFeatureName
 
-Default value: `term`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `term`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="wordStartCaseInsensitive">
 
 ### wordStartCaseInsensitive
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 UNDOCUMENTED
 

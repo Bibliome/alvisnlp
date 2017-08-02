@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.clone.MergeSections
+<h1 class="module">MergeSections</h1>
 
 ## Synopsis
 
@@ -8,7 +8,7 @@ Merge several sections into a single one.
 
 ## Description
 
-*org.bibliome.alvisnlp.modules.clone.MergeSections* creates a section named [targetSectionName](#targetSectionName) that is a concatenation of all sections that satisfy [sectionFilter](#sectionFilter). Layers, annotations, relations and tuples of the source sections are copied to the new section. Additionally, *org.bibliome.alvisnlp.modules.clone.MergeSections* can select or strip contents from annotations from [fragmentLayerName](#fragmentLayerName).
+*MergeSections* creates a section named <a href="#targetSectionName" class="param">targetSectionName</a> that is a concatenation of all sections that satisfy <a href="#sectionFilter" class="param">sectionFilter</a>. Layers, annotations, relations and tuples of the source sections are copied to the new section. Additionally, *MergeSections* can select or strip contents from annotations from <a href="#fragmentLayerName" class="param">fragmentLayerName</a>.
 
 ## Parameters
 
@@ -16,129 +16,129 @@ Merge several sections into a single one.
 
 ### targetSectionName
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the section to create.
 
 <a name="constantAnnotationFeatures">
 
 ### constantAnnotationFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each annotation created by this module
 
 <a name="constantRelationFeatures">
 
 ### constantRelationFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each relation created by this module
 
 <a name="constantSectionFeatures">
 
 ### constantSectionFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each section created by this module
 
 <a name="constantTupleFeatures">
 
 ### constantTupleFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each tuple created by this module
 
 <a name="fragmentLayerName">
 
 ### fragmentLayerName
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
-Name of the layer that contains annotations to include/exclude in/from the new section contents. If this parameter is not set, then *org.bibliome.alvisnlp.modules.clone.MergeSections* concatenates the whole contents of the sections.
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Name of the layer that contains annotations to include/exclude in/from the new section contents. If this parameter is not set, then *MergeSections* concatenates the whole contents of the sections.
 
 <a name="sectionsLayerName">
 
 ### sectionsLayerName
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
-Name of the layer in the new section that contains annotations that have the span of the contents of the source sections. Each source section is represented by a distinct annotation. This annotations have the same features as the corresponding section (including `name`). If this parameter is not set, then *org.bibliome.alvisnlp.modules.clone.MergeSections* does not create thses annotations.
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Name of the layer in the new section that contains annotations that have the span of the contents of the source sections. Each source section is represented by a distinct annotation. This annotations have the same features as the corresponding section (including `name`). If this parameter is not set, then *MergeSections* does not create thses annotations.
 
 <a name="documentFilter">
 
 ### documentFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Only process document that satisfy this filter.
 
 <a name="fragmentSelection">
 
 ### fragmentSelection
 
-Default value: `exclude`
-
-Type: [FragmentSelection](../converter/org.bibliome.alvisnlp.modules.clone.FragmentSelection)
-
-If this parameter equals `include`, then *org.bibliome.alvisnlp.modules.clone.MergeSections* only concatenates contents that is included in annotations in the layer [fragmentLayerName](#fragmentLayerName). If this parameter equals `exclude`, then *org.bibliome.alvisnlp.modules.clone.MergeSections* only concatenates contents that is *not* included in annotations in the layer [fragmentLayerName](#fragmentLayerName). If [fragmentLayerName](#fragmentLayerName) is not set, then this parameter is ignored.
+<div class="param-level param-level-default-value">Default value: `exclude`
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.clone.FragmentSelection" class="converter">FragmentSelection</a>
+</div>
+If this parameter equals `include`, then *MergeSections* only concatenates contents that is included in annotations in the layer <a href="#fragmentLayerName" class="param">fragmentLayerName</a>. If this parameter equals `exclude`, then *MergeSections* only concatenates contents that is *not* included in annotations in the layer <a href="#fragmentLayerName" class="param">fragmentLayerName</a>. If <a href="#fragmentLayerName" class="param">fragmentLayerName</a> is not set, then this parameter is ignored.
 
 <a name="fragmentSeparator">
 
 ### fragmentSeparator
 
-Default value: ``
-
-Type: [String](../converter/java.lang.String)
-
-Text to insert between the contents of concatenated fragments. If [fragmentLayerName](#fragmentLayerName) is not set, then this parameter is ignored.
+<div class="param-level param-level-default-value">Default value: ``
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Text to insert between the contents of concatenated fragments. If <a href="#fragmentLayerName" class="param">fragmentLayerName</a> is not set, then this parameter is ignored.
 
 <a name="removeSections">
 
 ### removeSections
 
-Default value: `true`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 Either to remove the sections that have been concatenated after the new section has been created.
 
 <a name="sectionFilter">
 
 ### sectionFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Process only sections that satisfy this filter.
 
 <a name="sectionSeparator">
 
 ### sectionSeparator
 
-Default value: ``
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: ``
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Text to insert between the contents of the concatenated sections.
 

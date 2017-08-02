@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.weka.WekaSelectAttributes
+<h1 class="module">WekaSelectAttributes</h1>
 
 ## Synopsis
 
@@ -6,7 +6,7 @@ Searches for discrimminating attributes with Weka.
 
 ## Description
 
-*org.bibliome.alvisnlp.modules.weka.WekaSelectAttributes* applies Weka's attribute selection on a training set sepcified by [examples](#examples) and writes the result in [evaluationFile](#evaluationFile).
+*WekaSelectAttributes* applies Weka's attribute selection on a training set sepcified by <a href="#examples" class="param">examples</a> and writes the result in <a href="#evaluationFile" class="param">evaluationFile</a>.
 
 ## Parameters
 
@@ -14,69 +14,69 @@ Searches for discrimminating attributes with Weka.
 
 ### evaluationFile
 
-Optional
-
-Type: [TargetStream](../converter/org.bibliome.util.streams.TargetStream)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
+</div>
 File where to write evaluation results.
 
 <a name="evaluator">
 
 ### evaluator
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Evaluation metrics, this should be the canonical name of a class that extends Weka's [ASEvaluation](http://weka.sourceforge.net/doc/weka/attributeSelection/ASEvaluation.html).
 
 <a name="examples">
 
 ### examples
 
-Optional
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Training set examples. This expression is evaluated as a list of elements with the corpus as the context element.
 
 <a name="relationDefinition">
 
 ### relationDefinition
 
-Optional
-
-Type: [RelationDefinition](../converter/org.bibliome.alvisnlp.modules.weka.RelationDefinition)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.weka.RelationDefinition" class="converter">RelationDefinition</a>
+</div>
 Specification of example attributes and class.
 
 <a name="evaluatorOptions">
 
 ### evaluatorOptions
 
-Optional
-
-Type: [String[]](../converter/java.lang.String[])
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+</div>
 Options to the evaluator.
 
 <a name="search">
 
 ### search
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Search heuristic, this should be the canonical name of a class that extends Weka's [ASSearch](http://weka.sourceforge.net/doc/weka/attributeSelection/ASSearch.html).
 
 <a name="searchOptions">
 
 ### searchOptions
 
-Optional
-
-Type: [String[]](../converter/java.lang.String[])
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+</div>
 Options to the search heuristic.
 

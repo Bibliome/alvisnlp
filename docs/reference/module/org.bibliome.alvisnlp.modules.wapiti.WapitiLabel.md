@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.wapiti.WapitiLabel
+<h1 class="module">WapitiLabel</h1>
 
 ## Synopsis
 
@@ -16,89 +16,89 @@ synopsis
 
 ### features
 
-Optional
-
-Type: [Expression[]](../converter/alvisnlp.corpus.expressions.Expression[])
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression[]" class="converter">Expression[]</a>
+</div>
 
 
 <a name="labelFeature">
 
 ### labelFeature
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 
 <a name="modelFile">
 
 ### modelFile
 
-Optional
-
-Type: [InputFile](../converter/org.bibliome.util.files.InputFile)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.InputFile" class="converter">InputFile</a>
+</div>
 
 
 <a name="wapitiExecutable">
 
 ### wapitiExecutable
 
-Optional
-
-Type: [ExecutableFile](../converter/org.bibliome.util.files.ExecutableFile)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.ExecutableFile" class="converter">ExecutableFile</a>
+</div>
 
 
 <a name="commandLineOptions">
 
 ### commandLineOptions
 
-Optional
-
-Type: [String[]](../converter/java.lang.String[])
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+</div>
 
 
 <a name="documentFilter">
 
 ### documentFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Only process document that satisfy this filter.
 
 <a name="sectionFilter">
 
 ### sectionFilter
 
-Default value: `boolean:and(true, nav:layer:words())`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Process only sections that satisfy this filter.
 
 <a name="sentenceLayerName">
 
 ### sentenceLayerName
 
-Default value: `sentences`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `sentences`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 
 <a name="tokenLayerName">
 
 ### tokenLayerName
 
-Default value: `words`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `words`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 
 

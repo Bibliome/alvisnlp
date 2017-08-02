@@ -1,4 +1,4 @@
-# GoalDefinition
+<h1 class="converter">GoalDefinition</h1>
 
 ## Synopsis
 

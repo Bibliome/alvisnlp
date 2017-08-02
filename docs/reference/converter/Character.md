@@ -1,4 +1,4 @@
-# Character
+<h1 class="converter">Character</h1>
 
 ## Synopsis
 
@@ -11,18 +11,21 @@ The character value is the first character of the given string, the following ch
 ## XML conversion
 
 ```xml
-<param value="CHAR"/>```
+<param value="CHAR"/>
+```
 
 
 	or
 	```xml
-<param char="CHAR"/>```
+<param char="CHAR"/>
+```
 
 
 	or
 	```xml
-<param>CHAR</param>```
+<param>CHAR</param>
+```
 
 *CHAR* is converted into a character as specified by the string conversion.
-      
+  
 

@@ -1,8 +1,8 @@
-# org.bibliome.alvisnlp.modules.weka.SelectingElementClassifier
+<h1 class="module">SelectingElementClassifier</h1>
 
 ## Synopsis
 
-Deprecated alias for [WekaSelectAttributes](../module/WekaSelectAttributes).
+Deprecated alias for <a href="../module/WekaSelectAttributes" class="module">WekaSelectAttributes</a>.
 
 **This module is obsolete, superceded by org.bibliome.alvisnlp.modules.weka.WekaSelectAttributes**
 
@@ -14,69 +14,69 @@ Deprecated alias for [WekaSelectAttributes](../module/WekaSelectAttributes).
 
 ### evaluationFile
 
-Optional
-
-Type: [TargetStream](../converter/org.bibliome.util.streams.TargetStream)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
+</div>
 UNDOCUMENTED
 
 <a name="evaluator">
 
 ### evaluator
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="examples">
 
 ### examples
 
-Optional
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 UNDOCUMENTED
 
 <a name="relationDefinition">
 
 ### relationDefinition
 
-Optional
-
-Type: [RelationDefinition](../converter/org.bibliome.alvisnlp.modules.weka.RelationDefinition)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.weka.RelationDefinition" class="converter">RelationDefinition</a>
+</div>
 UNDOCUMENTED
 
 <a name="evaluatorOptions">
 
 ### evaluatorOptions
 
-Optional
-
-Type: [String[]](../converter/java.lang.String[])
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+</div>
 UNDOCUMENTED
 
 <a name="search">
 
 ### search
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="searchOptions">
 
 ### searchOptions
 
-Optional
-
-Type: [String[]](../converter/java.lang.String[])
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+</div>
 UNDOCUMENTED
 

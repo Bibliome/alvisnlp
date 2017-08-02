@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.geniatagger.GeniaTagger
+<h1 class="module">GeniaTagger</h1>
 
 ## Synopsis
 
@@ -6,7 +6,7 @@ Runs Genia Tagger on annotations.
 
 ## Description
 
-*org.bibliome.alvisnlp.modules.geniatagger.GeniaTagger* executes theGenia Tagger on annotations from the layer [words](#words) and record the results in the features specified by [pos](#pos), [lemma](#lemma), [chunk](#chunk) and [entity](#entity). *org.bibliome.alvisnlp.modules.geniatagger.GeniaTagger* reinforces sentences specified by annotations in the [sentences](#sentences) layer.
+*GeniaTagger* executes theGenia Tagger on annotations from the layer <a href="#words" class="param">words</a> and record the results in the features specified by <a href="#pos" class="param">pos</a>, <a href="#lemma" class="param">lemma</a>, <a href="#chunk" class="param">chunk</a> and <a href="#entity" class="param">entity</a>. *GeniaTagger* reinforces sentences specified by annotations in the <a href="#sentences" class="param">sentences</a> layer.
 
 ## Parameters
 
@@ -14,139 +14,139 @@ Runs Genia Tagger on annotations.
 
 ### geniaDir
 
-Optional
-
-Type: [File](../converter/java.io.File)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.io.File" class="converter">File</a>
+</div>
 Directory where geniatagger is installed.
 
 <a name="chunkFeature">
 
 ### chunkFeature
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="entityFeature">
 
 ### entityFeature
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="documentFilter">
 
 ### documentFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Only process document that satisfy this filter.
 
 <a name="geniaCharset">
 
 ### geniaCharset
 
-Default value: `UTF-8`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `UTF-8`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Character encoding of geniatagger input and output.
 
 <a name="geniaTaggerExecutable">
 
 ### geniaTaggerExecutable
 
-Default value: `geniatagger`
-
-Type: [File](../converter/java.io.File)
-
+<div class="param-level param-level-default-value">Default value: `geniatagger`
+</div>
+<div class="param-type">Type: <a href="../converter/java.io.File" class="converter">File</a>
+</div>
 Name of the geniatagger executable file.
 
 <a name="lemmaFeature">
 
 ### lemmaFeature
 
-Default value: `lemma`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `lemma`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="posFeature">
 
 ### posFeature
 
-Default value: `pos`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `pos`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="sectionFilter">
 
 ### sectionFilter
 
-Default value: `boolean:and(true, boolean:and(nav:layer:sentences(), nav:layer:words()))`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `boolean:and(true, boolean:and(nav:layer:sentences(), nav:layer:words()))`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Process only sections that satisfy this filter.
 
 <a name="sentenceFilter">
 
 ### sentenceFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
-Evaluated as a boolean with the sentence annotation as the context element. *org.bibliome.alvisnlp.modules.geniatagger.GeniaTagger* only process the sentence if the result is true. To filter sentences that are too long for Genia Tagger, use "length < 1024".
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
+Evaluated as a boolean with the sentence annotation as the context element. *GeniaTagger* only process the sentence if the result is true. To filter sentences that are too long for Genia Tagger, use "length < 1024".
 
 <a name="sentenceLayerName">
 
 ### sentenceLayerName
 
-Default value: `sentences`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `sentences`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="treeTaggerTagset">
 
 ### treeTaggerTagset
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 UNDOCUMENTED
 
 <a name="wordFormFeature">
 
 ### wordFormFeature
 
-Default value: `form`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `form`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="wordLayerName">
 
 ### wordLayerName
 
-Default value: `words`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `words`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 

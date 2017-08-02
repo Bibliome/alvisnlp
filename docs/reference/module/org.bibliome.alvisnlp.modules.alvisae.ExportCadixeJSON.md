@@ -1,8 +1,8 @@
-# org.bibliome.alvisnlp.modules.alvisae.ExportCadixeJSON
+<h1 class="module">ExportCadixeJSON</h1>
 
 ## Synopsis
 
-Deprecated alias for [AlvisAEWriter](../module/AlvisAEWriter).
+Deprecated alias for <a href="../module/AlvisAEWriter" class="module">AlvisAEWriter</a>.
 
 **This module is obsolete, superceded by org.bibliome.alvisnlp.modules.alvisae.AlvisAEWriter**
 
@@ -14,99 +14,99 @@ Deprecated alias for [AlvisAEWriter](../module/AlvisAEWriter).
 
 ### annotationSets
 
-Optional
-
-Type: [AnnotationSet[]](../converter/org.bibliome.alvisnlp.modules.alvisae.AnnotationSet[])
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.alvisae.AnnotationSet[]" class="converter">AnnotationSet[]</a>
+</div>
 UNDOCUMENTED
 
 <a name="documentDescription">
 
 ### documentDescription
 
-Optional
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 UNDOCUMENTED
 
 <a name="outDir">
 
 ### outDir
 
-Optional
-
-Type: [OutputDirectory](../converter/org.bibliome.util.files.OutputDirectory)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.OutputDirectory" class="converter">OutputDirectory</a>
+</div>
 UNDOCUMENTED
 
 <a name="schemaFile">
 
 ### schemaFile
 
-Optional
-
-Type: [InputFile](../converter/org.bibliome.util.files.InputFile)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.InputFile" class="converter">InputFile</a>
+</div>
 UNDOCUMENTED
 
 <a name="documentFilter">
 
 ### documentFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 UNDOCUMENTED
 
 <a name="documentProperties">
 
 ### documentProperties
 
-Default value: `{}`
-
-Type: [ExpressionMapping](../converter/alvisnlp.module.types.ExpressionMapping)
-
+<div class="param-level param-level-default-value">Default value: `{}`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.ExpressionMapping" class="converter">ExpressionMapping</a>
+</div>
 UNDOCUMENTED
 
 <a name="fileName">
 
 ### fileName
 
-Default value: `str:concat(properties:@:id(), constant:string:.json())`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `str:concat(properties:@:id(), constant:string:.json())`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 UNDOCUMENTED
 
 <a name="owner">
 
 ### owner
 
-Default value: `0`
-
-Type: [Integer](../converter/java.lang.Integer)
-
+<div class="param-level param-level-default-value">Default value: `0`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Integer" class="converter">Integer</a>
+</div>
 UNDOCUMENTED
 
 <a name="publish">
 
 ### publish
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 UNDOCUMENTED
 
 <a name="sectionFilter">
 
 ### sectionFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 UNDOCUMENTED
 

@@ -1,4 +1,4 @@
-# Integer
+<h1 class="converter">Integer</h1>
 
 ## Synopsis
 
@@ -11,13 +11,15 @@ This converter accepts integer values in Java syntax (see [Java int conversion](
 ## XML conversion
 
 ```xml
-<param value="INT"/>```
+<param value="INT"/>
+```
 
 
 	or
 	```xml
-<param>INT</param>```
+<param>INT</param>
+```
 
 *INT* is converted into an integer as specified by the string conversion.
-      
+  
 

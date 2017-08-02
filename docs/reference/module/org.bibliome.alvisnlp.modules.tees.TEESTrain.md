@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.tees.TEESTrain
+<h1 class="module">TEESTrain</h1>
 
 ## Synopsis
 
@@ -6,7 +6,7 @@ Train a model that predict an Alvis relation with TEES Trainer
 
 ## Description
 
-*org.bibliome.alvisnlp.modules.tees.TEESTrain* executes the TEES training on [Corpus](#Corpus) and record the results in [Relation](#Relation). Param [relationName](#relationName) sets the name of the binary relation to predict. [relationRole1](#relationRole1) and [relationRole](#relationRole) set the two roles of the relation. Params [trainSetFeature](#trainSetFeature), [devSetFeature](#devSetFeature) and [testSetFeature](#testSetFeature) give respectively the features key of the train, dev and test corpus. *org.bibliome.alvisnlp.modules.tees.TEESTrain*
+*TEESTrain* executes the TEES training on <a href="#Corpus" class="param">Corpus</a> and record the results in <a href="#Relation" class="param">Relation</a>. Param <a href="#relationName" class="param">relationName</a> sets the name of the binary relation to predict. <a href="#relationRole1" class="param">relationRole1</a> and <a href="#relationRole" class="param">relationRole</a> set the two roles of the relation. Params <a href="#trainSetFeature" class="param">trainSetFeature</a>, <a href="#devSetFeature" class="param">devSetFeature</a> and <a href="#testSetFeature" class="param">testSetFeature</a> give respectively the features key of the train, dev and test corpus. *TEESTrain*
 
 ## Parameters
 
@@ -14,38 +14,39 @@ Train a model that predict an Alvis relation with TEES Trainer
 
 ### modelTargetDir
 
-Optional
-
-Type: [OutputFile](../converter/org.bibliome.util.files.OutputFile)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.OutputFile" class="converter">OutputFile</a>
+</div>
  Path to the directory where put the trained model
 
 <a name="namedEntityLayerName">
 
 ### namedEntityLayerName
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
  Name of the layer containing the named entities 
 
 <a name="schema">
 
 ### schema
 
-Optional
-
-Type: [MultiMapping](../converter/alvisnlp.module.types.MultiMapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.MultiMapping" class="converter">MultiMapping</a>
+</div>
  
-      	Give the schema of the relations to train i.e.
+  	Give the schema of the relations to train i.e.
 	```xml
 
       	  <schema>
 	    <Lives_In>Bacteria,Location</Lives_In>
       	  </schema>
-	```
+	
+```
 
 
 
@@ -53,149 +54,149 @@ Type: [MultiMapping](../converter/alvisnlp.module.types.MultiMapping)
 
 ### teesHome
 
-Optional
-
-Type: [InputDirectory](../converter/org.bibliome.util.files.InputDirectory)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
+</div>
  Path to tees home directory. 
 
 <a name="constantRelationFeatures">
 
 ### constantRelationFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 UNDOCUMENTED
 
 <a name="constantTupleFeatures">
 
 ### constantTupleFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 UNDOCUMENTED
 
 <a name="corpusSetFeature">
 
 ### corpusSetFeature
 
-Default value: `set`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `set`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="devSetValue">
 
 ### devSetValue
 
-Default value: `dev`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `dev`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
  Feature key of the dev set corpus. 
 
 <a name="documentFilter">
 
 ### documentFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 UNDOCUMENTED
 
 <a name="modelName">
 
 ### modelName
 
-Default value: `test-model`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `test-model`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
  give a name to the trained model
 
 <a name="namedEntityTypeFeature">
 
 ### namedEntityTypeFeature
 
-Default value: `neType`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `neType`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
  Name of the feature to access the type of the named entities 
 
 <a name="omitSteps">
 
 ### omitSteps
 
-Default value: `SPLIT-SENTENCES,NER`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `SPLIT-SENTENCES,NER`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
  Set the preprocessing steps to omit in the form of [SPLIT-SENTENCES][,NER][,PARSE][,FIND-HEADS]
 
 <a name="posFeature">
 
 ### posFeature
 
-Default value: `pos`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `pos`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="sectionFilter">
 
 ### sectionFilter
 
-Default value: `boolean:and(true, boolean:and(nav:layer:words(), nav:layer:sentences()))`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `boolean:and(true, boolean:and(nav:layer:words(), nav:layer:sentences()))`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 UNDOCUMENTED
 
 <a name="sentenceLayerName">
 
 ### sentenceLayerName
 
-Default value: `sentences`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `sentences`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="testSetValue">
 
 ### testSetValue
 
-Default value: `test`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `test`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
  Feature key of the test set corpus. 
 
 <a name="tokenLayerName">
 
 ### tokenLayerName
 
-Default value: `words`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `words`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="trainSetValue">
 
 ### trainSetValue
 
-Default value: `train`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `train`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
  Feature key of the train set corpus.
 

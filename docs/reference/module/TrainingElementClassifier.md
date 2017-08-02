@@ -1,8 +1,8 @@
-# org.bibliome.alvisnlp.modules.weka.TrainingElementClassifier
+<h1 class="module">TrainingElementClassifier</h1>
 
 ## Synopsis
 
-Deprecated alias for [WekaTrain](../module/WekaTrain).
+Deprecated alias for <a href="../module/WekaTrain" class="module">WekaTrain</a>.
 
 **This module is obsolete, superceded by org.bibliome.alvisnlp.modules.weka.WekaTrain**
 
@@ -14,119 +14,119 @@ Deprecated alias for [WekaTrain](../module/WekaTrain).
 
 ### algorithm
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="classifierFile">
 
 ### classifierFile
 
-Optional
-
-Type: [File](../converter/java.io.File)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.io.File" class="converter">File</a>
+</div>
 UNDOCUMENTED
 
 <a name="examples">
 
 ### examples
 
-Optional
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 UNDOCUMENTED
 
 <a name="relationDefinition">
 
 ### relationDefinition
 
-Optional
-
-Type: [RelationDefinition](../converter/org.bibliome.alvisnlp.modules.weka.RelationDefinition)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.weka.RelationDefinition" class="converter">RelationDefinition</a>
+</div>
 UNDOCUMENTED
 
 <a name="arffFile">
 
 ### arffFile
 
-Optional
-
-Type: [TargetStream](../converter/org.bibliome.util.streams.TargetStream)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
+</div>
 UNDOCUMENTED
 
 <a name="classifierInfoFile">
 
 ### classifierInfoFile
 
-Optional
-
-Type: [TargetStream](../converter/org.bibliome.util.streams.TargetStream)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
+</div>
 UNDOCUMENTED
 
 <a name="classifierOptions">
 
 ### classifierOptions
 
-Optional
-
-Type: [String[]](../converter/java.lang.String[])
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+</div>
 UNDOCUMENTED
 
 <a name="crossFolds">
 
 ### crossFolds
 
-Optional
-
-Type: [Integer](../converter/java.lang.Integer)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Integer" class="converter">Integer</a>
+</div>
 UNDOCUMENTED
 
 <a name="evaluationFile">
 
 ### evaluationFile
 
-Optional
-
-Type: [TargetStream](../converter/org.bibliome.util.streams.TargetStream)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
+</div>
 UNDOCUMENTED
 
 <a name="foldFeatureKey">
 
 ### foldFeatureKey
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="predictedClassFeatureKey">
 
 ### predictedClassFeatureKey
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="randomSeed">
 
 ### randomSeed
 
-Default value: `1`
-
-Type: [Long](../converter/java.lang.Long)
-
+<div class="param-level param-level-default-value">Default value: `1`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Long" class="converter">Long</a>
+</div>
 UNDOCUMENTED
 

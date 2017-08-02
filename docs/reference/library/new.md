@@ -1,4 +1,4 @@
-# new
+<h1 class="library">new</h1>
 
 ## Synopsis
 
@@ -10,47 +10,47 @@
 
 ### annotation
 
-new:annotation:layerName(startEvaluator, endEvaluator)
+`new:annotation:layerName(startEvaluator, endEvaluator)`
 
 <a name="annotation">
 
 ### annotation
 
-new:annotation:layerName(included)
+`new:annotation:layerName(included)`
 
 <a name="document">
 
 ### document
 
-new:document(id)
+`new:document(id)`
 
 <a name="relation">
 
 ### relation
 
-new:relation:name()
+`new:relation:name()`
 
 <a name="relation">
 
 ### relation
 
-new:relation(name)
+`new:relation(name)`
 
 <a name="section">
 
 ### section
 
-new:section:name(contents)
+`new:section:name(contents)`
 
 <a name="section">
 
 ### section
 
-new:section(name, contents)
+`new:section(name, contents)`
 
 <a name="tuple">
 
 ### tuple
 
-new:tuple()
+`new:tuple()`
 

@@ -1,4 +1,4 @@
-# align
+<h1 class="library">align</h1>
 
 ## Synopsis
 
@@ -10,7 +10,7 @@
 
 ### proba
 
-align:proba(gap, match, a, b)
+`align:proba(gap, match, a, b)`
 
 Evaluates *a* and *b* as lists of elements and aligns them using the [Needleman-Wunsch]() algorithm, then returns the optimal alignment probability.
 
@@ -22,7 +22,7 @@ Evaluates *a* and *b* as lists of elements and aligns them using the [Needleman-
 
 ### score
 
-align:score(gap, match, a, b)
+`align:score(gap, match, a, b)`
 
 This function aligns two lists. The difference from *align:proba* is that this function returns the alignment score.
 

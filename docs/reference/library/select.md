@@ -1,4 +1,4 @@
-# select
+<h1 class="library">select</h1>
 
 ## Synopsis
 
@@ -10,17 +10,17 @@
 
 ### []
 
-select:[](e, filter)
+`select:[](e, filter)`
 
 <a name="{}">
 
 ### {}
 
-select:{}(e, start, end)
+`select:{}(e, start, end)`
 
 <a name="{}">
 
 ### {}
 
-select:{}(e, start)
+`select:{}(e, start)`
 

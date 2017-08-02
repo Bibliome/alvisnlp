@@ -1,4 +1,4 @@
-# bio
+<h1 class="library">bio</h1>
 
 ## Synopsis
 
@@ -10,5 +10,5 @@
 
 ### get
 
-bio:get:entityLayerName:tokenLayerName(suffix)
+`bio:get:entityLayerName:tokenLayerName(suffix)`
 

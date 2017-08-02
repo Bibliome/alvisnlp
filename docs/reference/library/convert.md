@@ -1,4 +1,4 @@
-# convert
+<h1 class="library">convert</h1>
 
 ## Synopsis
 
@@ -10,29 +10,29 @@
 
 ### bool
 
-convert:bool(e)
+`convert:bool(e)`
 
 <a name="double">
 
 ### double
 
-convert:double(e)
+`convert:double(e)`
 
 <a name="elements">
 
 ### elements
 
-convert:elements(e)
+`convert:elements(e)`
 
 <a name="int">
 
 ### int
 
-convert:int(e)
+`convert:int(e)`
 
 <a name="string">
 
 ### string
 
-convert:string(e)
+`convert:string(e)`
 

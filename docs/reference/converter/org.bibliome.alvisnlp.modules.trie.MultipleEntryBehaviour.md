@@ -1,4 +1,4 @@
-# MultipleEntryBehaviour
+<h1 class="converter">MultipleEntryBehaviour</h1>
 
 ## Synopsis
 

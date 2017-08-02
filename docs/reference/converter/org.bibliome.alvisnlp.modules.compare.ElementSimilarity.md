@@ -1,8 +1,8 @@
-# ElementSimilarity
+<h1 class="converter">ElementSimilarity</h1>
 
 ## Synopsis
 
-Converts into a similarity metrics for [CompareElements](../module/CompareElements).
+Converts into a similarity metrics for <a href="../module/CompareElements" class="module">CompareElements</a>.
 
 ## String conversion
 

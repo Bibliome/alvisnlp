@@ -1,4 +1,4 @@
-# File
+<h1 class="converter">File</h1>
 
 ## Synopsis
 
@@ -11,23 +11,27 @@ Interprets the input string as a file or directory path using the current system
 ## XML conversion
 
 ```xml
-<param value="PATH"/>```
+<param value="PATH"/>
+```
 
 
 	or
 	```xml
-<param file="PATH"/>```
+<param file="PATH"/>
+```
 
 
 	or
 	```xml
-<param path="PATH"/>```
+<param path="PATH"/>
+```
 
 
 	or
 	```xml
-<param>PATH</param>```
+<param>PATH</param>
+```
 
 *PATH* is the path to the file or directory.
-      
+  
 

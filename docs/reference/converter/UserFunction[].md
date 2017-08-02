@@ -1,4 +1,4 @@
-# UserFunction[]
+<h1 class="converter">UserFunction[]</h1>
 
 ## Synopsis
 

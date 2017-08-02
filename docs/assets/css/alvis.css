@@ -301,6 +301,70 @@ td {
 
 
 
+/* AlvisNLP/ML doc classes */
+
+.module {
+	color: maroon !important;
+}
+
+a.module {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.converter {
+	color: olive !important;
+}
+
+a.converter {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.library {
+	color: purple !important;
+}
+
+a.library {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.param {
+	color: orange !important;
+}
+
+a.param {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.param-level {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 80%;
+}
+
+.param-level-default-value {
+	
+}
+
+.param-level-mandatory {
+	
+}
+
+.param-level-optional {
+	
+}
+
+.param-type {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 80%;
+}
+
+
+
 /* Footer */
 
 footer {

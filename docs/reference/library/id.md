@@ -1,4 +1,4 @@
-# id
+<h1 class="library">id</h1>
 
 ## Synopsis
 
@@ -10,7 +10,7 @@
 
 ### enumerate
 
-id:enumerate:key:prefix(expr)
+`id:enumerate:key:prefix(expr)`
 
 Evaluates *expr* as a list of elements, then adds a feature *key* to each element. The value of the feature is the index of the element in the list prepended with *prefix*.
 
@@ -18,7 +18,7 @@ Evaluates *expr* as a list of elements, then adds a feature *key* to each elemen
 
 ### enumerate
 
-id:enumerate:key(expr)
+`id:enumerate:key(expr)`
 
 Evaluates *expr* as a list of elements, then adds a feature *key* to each element. The value of the feature is the index of the element in the list.
 
@@ -26,7 +26,7 @@ Evaluates *expr* as a list of elements, then adds a feature *key* to each elemen
 
 ### enumerate
 
-id:enumerate:key:prefix(expr, start)
+`id:enumerate:key:prefix(expr, start)`
 
 Evaluates *expr* as a list of elements, then adds a feature *key* to each element. The value of the feature is the index of the element in the list (starting at *start*) prepended with *prefix*.
 
@@ -34,7 +34,7 @@ Evaluates *expr* as a list of elements, then adds a feature *key* to each elemen
 
 ### enumerate
 
-id:enumerate:key(expr, start)
+`id:enumerate:key(expr, start)`
 
 Evaluates *expr* as a list of elements, then adds a feature *key* to each element. The value of the feature is the index of the element in the list (starting at *start*).
 
@@ -42,7 +42,7 @@ Evaluates *expr* as a list of elements, then adds a feature *key* to each elemen
 
 ### enumerate0
 
-id:enumerate0:key:prefix(expr)
+`id:enumerate0:key:prefix(expr)`
 
 Evaluates *expr* as a list of elements, then adds a feature *key* to each element. The value of the feature is the index of the element in the list (starting at 0) prepended with *prefix*.
 
@@ -50,7 +50,7 @@ Evaluates *expr* as a list of elements, then adds a feature *key* to each elemen
 
 ### enumerate0
 
-id:enumerate0:key(expr)
+`id:enumerate0:key(expr)`
 
 Evaluates *expr* as a list of elements, then adds a feature *key* to each element. The value of the feature is the index of the element in the list (starting at 0).
 
@@ -58,7 +58,7 @@ Evaluates *expr* as a list of elements, then adds a feature *key* to each elemen
 
 ### unique
 
-random:unique()
+`random:unique()`
 
 Returns an integer that is unique for the context element.
 
@@ -66,7 +66,7 @@ Returns an integer that is unique for the context element.
 
 ### uuid
 
-random:uuid()
+`random:uuid()`
 
 Returns a random UUID string.
 

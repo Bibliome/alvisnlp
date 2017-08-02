@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.alvisir2.AlvisIRIndexer
+<h1 class="module">AlvisIRIndexer</h1>
 
 ## Synopsis
 
@@ -14,79 +14,79 @@ synopsis
 
 ### documents
 
-Optional
-
-Type: [IndexedDocuments](../converter/org.bibliome.alvisnlp.modules.alvisir2.IndexedDocuments)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.alvisir2.IndexedDocuments" class="converter">IndexedDocuments</a>
+</div>
 
 
 <a name="fieldNames">
 
 ### fieldNames
 
-Optional
-
-Type: [String[]](../converter/java.lang.String[])
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+</div>
 
 
 <a name="indexDir">
 
 ### indexDir
 
-Optional
-
-Type: [OutputDirectory](../converter/org.bibliome.util.files.OutputDirectory)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.OutputDirectory" class="converter">OutputDirectory</a>
+</div>
 
 
 <a name="clearIndex">
 
 ### clearIndex
 
-Default value: `true`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 
 
 <a name="propertyKeys">
 
 ### propertyKeys
 
-Default value: ``
-
-Type: [String[]](../converter/java.lang.String[])
-
+<div class="param-level param-level-default-value">Default value: ``
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+</div>
 
 
 <a name="recordGlobalIndexAttributes">
 
 ### recordGlobalIndexAttributes
 
-Default value: `true`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 
 
 <a name="relations">
 
 ### relations
 
-Default value: `{}`
-
-Type: [MultiMapping](../converter/alvisnlp.module.types.MultiMapping)
-
+<div class="param-level param-level-default-value">Default value: `{}`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.MultiMapping" class="converter">MultiMapping</a>
+</div>
 
 
 <a name="tokenPositionGap">
 
 ### tokenPositionGap
 
-Default value: `256`
-
-Type: [Integer](../converter/java.lang.Integer)
-
+<div class="param-level param-level-default-value">Default value: `256`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Integer" class="converter">Integer</a>
+</div>
 
 

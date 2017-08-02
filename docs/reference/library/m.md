@@ -1,4 +1,4 @@
-# m
+<h1 class="library">m</h1>
 
 ## Synopsis
 
@@ -10,7 +10,7 @@ Mathematical functions.
 
 ### abs
 
-m:abs(N)
+`m:abs(N)`
 
 Returns the absolute value of *N* evaluated as an integer.
 
@@ -18,7 +18,7 @@ Returns the absolute value of *N* evaluated as an integer.
 
 ### absd
 
-m:absd(N)
+`m:absd(N)`
 
 Returns the absolute value of *N* evaluated as a double.
 
@@ -26,7 +26,7 @@ Returns the absolute value of *N* evaluated as a double.
 
 ### ceil
 
-m:ceil(value)
+`m:ceil(value)`
 
 [java.lang.Math.ceil](file:///home/rbossy/dist/jdk1.7.0_71/docs/api/java/lang/Math.html#ceil(double))
 
@@ -34,7 +34,7 @@ m:ceil(value)
 
 ### exp
 
-m:exp(N)
+`m:exp(N)`
 
 Returns Euler's number *e* raised to the power of *N* evaluated as a double.
 
@@ -42,7 +42,7 @@ Returns Euler's number *e* raised to the power of *N* evaluated as a double.
 
 ### floor
 
-m:floor(value)
+`m:floor(value)`
 
 [java.lang.Math.floor](file:///home/rbossy/dist/jdk1.7.0_71/docs/api/java/lang/Math.html#ceil(double))
 
@@ -50,7 +50,7 @@ m:floor(value)
 
 ### hypot
 
-m:hypot(N, M)
+`m:hypot(N, M)`
 
 Evaluates *N* and *M* as doubles and returns their hypothenuse.
 
@@ -58,7 +58,7 @@ Evaluates *N* and *M* as doubles and returns their hypothenuse.
 
 ### log
 
-m:log(N)
+`m:log(N)`
 
 Returns the base 10 logarithm of *N* evaluated as a double.
 
@@ -66,7 +66,7 @@ Returns the base 10 logarithm of *N* evaluated as a double.
 
 ### logn
 
-m:logn(N)
+`m:logn(N)`
 
 Returns the natural logarithm (base *e*) of *N* evaluated as a double.
 
@@ -74,7 +74,7 @@ Returns the natural logarithm (base *e*) of *N* evaluated as a double.
 
 ### max
 
-m:max(N, M)
+`m:max(N, M)`
 
 Returns the greater of *N* and *M* evaluated as integers.
 
@@ -82,7 +82,7 @@ Returns the greater of *N* and *M* evaluated as integers.
 
 ### maxd
 
-m:maxd(N, M)
+`m:maxd(N, M)`
 
 Returns the greater of *N* and *M* evaluated as doubles.
 
@@ -90,7 +90,7 @@ Returns the greater of *N* and *M* evaluated as doubles.
 
 ### min
 
-m:min(N, M)
+`m:min(N, M)`
 
 Returns the smaller of *N* and *M* evaluated as integers.
 
@@ -98,7 +98,7 @@ Returns the smaller of *N* and *M* evaluated as integers.
 
 ### mind
 
-m:mind(N, M)
+`m:mind(N, M)`
 
 Returns the smaller of *N* and *M* evaluated as doubles.
 
@@ -106,7 +106,7 @@ Returns the smaller of *N* and *M* evaluated as doubles.
 
 ### mmax
 
-m:mmax(elements, value)
+`m:mmax(elements, value)`
 
 Evaluates *elements* as a list of elements. For each element evaluates *value* as an integer. Returns the highest value.
 
@@ -114,7 +114,7 @@ Evaluates *elements* as a list of elements. For each element evaluates *value* a
 
 ### mmaxd
 
-m:mmaxd(elements, value)
+`m:mmaxd(elements, value)`
 
 Evaluates *elements* as a list of elements. For each element evaluates *value* as a double. Returns the highest value.
 
@@ -122,7 +122,7 @@ Evaluates *elements* as a list of elements. For each element evaluates *value* a
 
 ### mmin
 
-m:mmin(elements, value)
+`m:mmin(elements, value)`
 
 Evaluates *elements* as a list of elements. For each element evaluates *value* as an integer. Returns the lowest value.
 
@@ -130,7 +130,7 @@ Evaluates *elements* as a list of elements. For each element evaluates *value* a
 
 ### mmind
 
-m:mmind(elements, value)
+`m:mmind(elements, value)`
 
 Evaluates *elements* as a list of elements. For each element evaluates *value* as a double. Returns the lowest value.
 
@@ -138,7 +138,7 @@ Evaluates *elements* as a list of elements. For each element evaluates *value* a
 
 ### pow
 
-m:pow(N, M)
+`m:pow(N, M)`
 
 Returns *N* evaluated as a double raised to the power of *M* evaluated as a double.
 
@@ -146,7 +146,7 @@ Returns *N* evaluated as a double raised to the power of *M* evaluated as a doub
 
 ### prod
 
-m:prod(ELTS, VALUE)
+`m:prod(ELTS, VALUE)`
 
 Evaluates *ELTS* as a list of elements, and for each member, evaluates *VALUE* as a double. Returns the product.
 
@@ -154,7 +154,7 @@ Evaluates *ELTS* as a list of elements, and for each member, evaluates *VALUE* a
 
 ### prodi
 
-m:prodi(ELTS, VALUE)
+`m:prodi(ELTS, VALUE)`
 
 Evaluates *ELTS* as a list of elements, and for each member, evaluates *VALUE* as an integer. Returns the product.
 
@@ -162,7 +162,7 @@ Evaluates *ELTS* as a list of elements, and for each member, evaluates *VALUE* a
 
 ### round
 
-m:round(value)
+`m:round(value)`
 
 [java.lang.Math.round](file:///home/rbossy/dist/jdk1.7.0_71/docs/api/java/lang/Math.html#ceil(double))
 
@@ -170,7 +170,7 @@ m:round(value)
 
 ### sqrt
 
-m:sqrt(N)
+`m:sqrt(N)`
 
 Returns the positive square root of *N* evaluated as a double.
 
@@ -178,7 +178,7 @@ Returns the positive square root of *N* evaluated as a double.
 
 ### sum
 
-m:sum(ELTS, VALUE)
+`m:sum(ELTS, VALUE)`
 
 Evaluates *ELTS* as a list of elements, and for each member, evaluates *VALUE* as an integer. Returns the sum.
 
@@ -186,7 +186,7 @@ Evaluates *ELTS* as a list of elements, and for each member, evaluates *VALUE* a
 
 ### sumd
 
-m:sumd(ELTS, VALUE)
+`m:sumd(ELTS, VALUE)`
 
 Evaluates *ELTS* as a list of elements, and for each member, evaluates *VALUE* as a double. Returns the sum.
 

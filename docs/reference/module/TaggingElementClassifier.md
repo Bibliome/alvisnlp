@@ -1,8 +1,8 @@
-# org.bibliome.alvisnlp.modules.weka.TaggingElementClassifier
+<h1 class="module">TaggingElementClassifier</h1>
 
 ## Synopsis
 
-Deprecated alias for [WekaPredict](../module/WekaPredict).
+Deprecated alias for <a href="../module/WekaPredict" class="module">WekaPredict</a>.
 
 **This module is obsolete, superceded by org.bibliome.alvisnlp.modules.weka.WekaPredict**
 
@@ -14,49 +14,49 @@ Deprecated alias for [WekaPredict](../module/WekaPredict).
 
 ### classifierFile
 
-Optional
-
-Type: [File](../converter/java.io.File)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.io.File" class="converter">File</a>
+</div>
 UNDOCUMENTED
 
 <a name="examples">
 
 ### examples
 
-Optional
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 UNDOCUMENTED
 
 <a name="predictedClassFeatureKey">
 
 ### predictedClassFeatureKey
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 UNDOCUMENTED
 
 <a name="relationDefinition">
 
 ### relationDefinition
 
-Optional
-
-Type: [RelationDefinition](../converter/org.bibliome.alvisnlp.modules.weka.RelationDefinition)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.weka.RelationDefinition" class="converter">RelationDefinition</a>
+</div>
 UNDOCUMENTED
 
 <a name="evaluationFile">
 
 ### evaluationFile
 
-Optional
-
-Type: [TargetStream](../converter/org.bibliome.util.streams.TargetStream)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
+</div>
 UNDOCUMENTED
 

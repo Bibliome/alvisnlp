@@ -1,4 +1,4 @@
-# SQLParameter
+<h1 class="converter">SQLParameter</h1>
 
 ## Synopsis
 

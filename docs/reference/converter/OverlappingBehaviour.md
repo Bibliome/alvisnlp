@@ -1,8 +1,8 @@
-# OverlappingBehaviour
+<h1 class="converter">OverlappingBehaviour</h1>
 
 ## Synopsis
 
-Specifies the behaviour of [PatternMatcher](../module/PatternMatcher) when attempting to match sequence of overlapping annotations.
+Specifies the behaviour of <a href="../module/PatternMatcher" class="module">PatternMatcher</a> when attempting to match sequence of overlapping annotations.
 
 ## String conversion
 

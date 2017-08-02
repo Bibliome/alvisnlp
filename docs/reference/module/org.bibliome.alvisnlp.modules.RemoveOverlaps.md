@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.RemoveOverlaps
+<h1 class="module">RemoveOverlaps</h1>
 
 ## Synopsis
 
@@ -6,10 +6,10 @@ Removes overlapping annotations from a given layer.
 
 ## Description
 
-*org.bibliome.alvisnlp.modules.RemoveOverlaps* removes overlapping annotations in the layer [layerName](#layerName).
+*RemoveOverlaps* removes overlapping annotations in the layer <a href="#layerName" class="param">layerName</a>.
 
-*org.bibliome.alvisnlp.modules.RemoveOverlaps* scans each specified layer and finds clusters of overlapping annotations.
-	  	*org.bibliome.alvisnlp.modules.RemoveOverlaps* distinguishes three overlapping situations:
+*RemoveOverlaps* scans each specified layer and finds clusters of overlapping annotations.
+	  	*RemoveOverlaps* distinguishes three overlapping situations:
 	  	
 1. *equal*: two annotations have exactly the same span;
 2. *included*: one annotation includes the other completely;
@@ -17,15 +17,15 @@ Removes overlapping annotations from a given layer.
 
 
 
-[removeEqual](#removeEqual), [removeIncluded](#removeIncluded) and [removeOverlapping](#removeOverlapping) specify the behavior for each situation.
-	  If the parameter is `true`, then *org.bibliome.alvisnlp.modules.RemoveOverlaps* will remove one of the annotations. 
+<a href="#removeEqual" class="param">removeEqual</a>, <a href="#removeIncluded" class="param">removeIncluded</a> and <a href="#removeOverlapping" class="param">removeOverlapping</a> specify the behavior for each situation.
+	  If the parameter is `true`, then *RemoveOverlaps* will remove one of the annotations. 
 	  
 
-[annotationComparator](#annotationComparator) controls which annotation is removed.
+<a href="#annotationComparator" class="param">annotationComparator</a> controls which annotation is removed.
 	  
 
 
-	  By default *org.bibliome.alvisnlp.modules.RemoveOverlaps* removes all kinds of annotations, keeping the longest one.
+	  By default *RemoveOverlaps* removes all kinds of annotations, keeping the longest one.
 	  
 
 ## Parameters
@@ -34,69 +34,69 @@ Removes overlapping annotations from a given layer.
 
 ### layerName
 
-Optional
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the layer to clear.
 
 <a name="annotationComparator">
 
 ### annotationComparator
 
-Default value: `length`
-
-Type: [AnnotationComparator](../converter/alvisnlp.corpus.AnnotationComparator)
-
+<div class="param-level param-level-default-value">Default value: `length`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.AnnotationComparator" class="converter">AnnotationComparator</a>
+</div>
 Comparator to use in order to choose between overlapping annotations.
 
 <a name="documentFilter">
 
 ### documentFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Only process document that satisfy this filter.
 
 <a name="removeEqual">
 
 ### removeEqual
 
-Default value: `true`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 Either to remove annotations with equal spans.
 
 <a name="removeIncluded">
 
 ### removeIncluded
 
-Default value: `true`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 Either to remove annotations fully included in another annotation.
 
 <a name="removeOverlapping">
 
 ### removeOverlapping
 
-Default value: `true`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 Either to remove strictly overlapping annotations.
 
 <a name="sectionFilter">
 
 ### sectionFilter
 
-Default value: `true`
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-default-value">Default value: `true`
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Process only sections that satisfy this filter.
 

@@ -1,4 +1,4 @@
-# Double
+<h1 class="converter">Double</h1>
 
 ## Synopsis
 
@@ -11,13 +11,15 @@ This converter accepts double precision floating point values in Java syntax (se
 ## XML conversion
 
 ```xml
-<param value="DOUBLE"/>```
+<param value="DOUBLE"/>
+```
 
 
 	or
 	```xml
-<param>DOUBLE</param>```
+<param>DOUBLE</param>
+```
 
 *DOUBLE* is converted into a double precision floating point number as specified by the string conversion.
-      
+  
 

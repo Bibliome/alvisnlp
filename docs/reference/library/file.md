@@ -1,4 +1,4 @@
-# file
+<h1 class="library">file</h1>
 
 ## Synopsis
 
@@ -10,7 +10,7 @@
 
 ### dir
 
-file:dir(path)
+`file:dir(path)`
 
 Evaluates *path* as a string and returns true if it is a path to an existing directory.
 
@@ -18,7 +18,7 @@ Evaluates *path* as a string and returns true if it is a path to an existing dir
 
 ### exists
 
-file:exists(path)
+`file:exists(path)`
 
 Evaluates *path* as a string and returns true if it is a path to an existing file of any type.
 
@@ -26,7 +26,7 @@ Evaluates *path* as a string and returns true if it is a path to an existing fil
 
 ### regular
 
-file:regular(path)
+`file:regular(path)`
 
 Evaluates *path* as a string and returns true if it is a path to an existing regular file.
 

@@ -1,4 +1,4 @@
-# IndexedTokens
+<h1 class="converter">IndexedTokens</h1>
 
 ## Synopsis
 

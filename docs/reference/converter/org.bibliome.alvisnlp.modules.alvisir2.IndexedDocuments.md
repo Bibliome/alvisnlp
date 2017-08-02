@@ -1,4 +1,4 @@
-# IndexedDocuments
+<h1 class="converter">IndexedDocuments</h1>
 
 ## Synopsis
 

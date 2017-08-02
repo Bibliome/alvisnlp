@@ -1,4 +1,4 @@
-# module
+<h1 class="library">module</h1>
 
 ## Synopsis
 
@@ -10,59 +10,59 @@
 
 ### beta
 
-module:beta()
+`module:beta()`
 
 <a name="class">
 
 ### class
 
-module:class()
+`module:class()`
 
 <a name="dump">
 
 ### dump
 
-module:dump()
+`module:dump()`
 
 <a name="highlight">
 
 ### highlight
 
-module:highlight(msg)
+`module:highlight(msg)`
 
 <a name="id">
 
 ### id
 
-module:id()
+`module:id()`
 
 <a name="log">
 
 ### log
 
-module:log(msg)
+`module:log(msg)`
 
 <a name="obsolete">
 
 ### obsolete
 
-module:obsolete()
+`module:obsolete()`
 
 <a name="path">
 
 ### path
 
-module:path()
+`module:path()`
 
 <a name="sequence">
 
 ### sequence
 
-module:sequence()
+`module:sequence()`
 
 <a name="warn">
 
 ### warn
 
-module:warn(msg)
+`module:warn(msg)`
 

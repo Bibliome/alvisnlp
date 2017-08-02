@@ -1,4 +1,4 @@
-# Subject
+<h1 class="converter">Subject</h1>
 
 ## Synopsis
 

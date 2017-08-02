@@ -1,4 +1,4 @@
-# SourceStream
+<h1 class="converter">SourceStream</h1>
 
 ## Synopsis
 
@@ -7,7 +7,7 @@ Converts into a data source.
 ## String conversion
 
 The data source takes either the form of a file/directory path, or an URL. The following protocols are recognized:
-      
+  
 * *file*: the data is in the specified regular file path;
 * *dir*: the data is in several files in the specified directory path, if the specified path is a regular file the it behaves like *file*;
 * *stream*: the data comes from the AlvisNLP/ML standard input, the host part of the URI must be "stdin" (*stream://stdin*);
@@ -15,54 +15,63 @@ The data source takes either the form of a file/directory path, or an URL. The f
 * *http*, *https*, *ftp* ...: the data is at the specified URL, AlvisNLP/ML will fetch the data across the net.
 
 
-      If an absolute or relative path is specified, then *dir* is assumed.
-      Relative paths are relative to the current working directory.
-      
+  If an absolute or relative path is specified, then *dir* is assumed.
+  Relative paths are relative to the current working directory.
+  
 
 ## XML conversion
 
 ```xml
-<param value="URL"/>```
+<param value="URL"/>
+```
 
 
 	or
 	```xml
-<param file="URL"/>```
+<param file="URL"/>
+```
 
 
 	or
 	```xml
-<param path="URL"/>```
+<param path="URL"/>
+```
 
 
 	or
 	```xml
-<param url="URL"/>```
+<param url="URL"/>
+```
 
 
 	or
 	```xml
-<param href="URL"/>```
+<param href="URL"/>
+```
 
 
 	or
 	```xml
-<param dir="URL"/>```
+<param dir="URL"/>
+```
 
 
 	or
 	```xml
-<param resource="URL"/>```
+<param resource="URL"/>
+```
 
 
 	or
 	```xml
-<param>URL</param>```
+<param>URL</param>
+```
 
 *URL* is converted as described in the string conversion.
 	All different forms are equivalent; the name of the used attribute has no influence on the data source type.
 	It is thus perfectly legal to write ```xml
-<param resource="dir:///path/to/dir"/>```
+<param resource="dir:///path/to/dir"/>
+```
 
 .
 	Other attributes allow to specify the data source:
@@ -78,7 +87,8 @@ The data source takes either the form of a file/directory path, or an URL. The f
 
 
 If ```xml
-param```
+param
+```
 
  has children elements, then each element will be converted as a data source. The resulting is the concatenation of all data sources.
 

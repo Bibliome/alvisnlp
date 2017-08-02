@@ -1,4 +1,4 @@
-# Long
+<h1 class="converter">Long</h1>
 
 ## Synopsis
 
@@ -11,13 +11,15 @@ This converter accepts long integer values in Java syntax (see [Java long conver
 ## XML conversion
 
 ```xml
-<param value="LONG"/>```
+<param value="LONG"/>
+```
 
 
 	or
 	```xml
-<param>LONG</param>```
+<param>LONG</param>
+```
 
 *LONG* is converted into a long integer as specified by the string conversion.
-      
+  
 

@@ -1,4 +1,4 @@
-# set
+<h1 class="library">set</h1>
 
 ## Synopsis
 
@@ -10,7 +10,7 @@
 
 ### arg
 
-set:arg:role(arg)
+`set:arg:role(arg)`
 
 Evaluates *arg* as a list of elements, then sets the context element argument with role *role* to the first element of *arg*. This function will not do anything if the context element is not a tuple.
 
@@ -18,7 +18,7 @@ Evaluates *arg* as a list of elements, then sets the context element argument wi
 
 ### arg
 
-set:arg(role, arg)
+`set:arg(role, arg)`
 
 Evaluates *role* as a string, and *arg* as a list of elements, then sets the context element argument with role *role* to the first element of *arg*. This function will not do anything if the context element is not a tuple.
 
@@ -26,7 +26,7 @@ Evaluates *role* as a string, and *arg* as a list of elements, then sets the con
 
 ### feat
 
-set:feat:key(value)
+`set:feat:key(value)`
 
 Evaluates *value* as a string, then adds a feature to the context element with key *key* and value *value*.
 
@@ -34,7 +34,7 @@ Evaluates *value* as a string, then adds a feature to the context element with k
 
 ### feat
 
-set:feat(key, value)
+`set:feat(key, value)`
 
 Evaluates *key* and *value* as strings, then adds a feature to the context element with key *key* and value *value*.
 
@@ -42,7 +42,7 @@ Evaluates *key* and *value* as strings, then adds a feature to the context eleme
 
 ### remove-arg
 
-set:remove-arg:role()
+`set:remove-arg:role()`
 
 Removes the argument with role *role* from the context element. This function will not do anything if the context element is not a tuple.
 
@@ -50,7 +50,7 @@ Removes the argument with role *role* from the context element. This function wi
 
 ### remove-arg
 
-set:remove-arg(role)
+`set:remove-arg(role)`
 
 Evaluates *role* as a string, removes the argument with role *role* from the context element. This function will not do anything if the context element is not a tuple.
 
@@ -58,7 +58,7 @@ Evaluates *role* as a string, removes the argument with role *role* from the con
 
 ### remove-feature
 
-set:remove-feature:key()
+`set:remove-feature:key()`
 
 Removes all features with key *key* from the context element.
 

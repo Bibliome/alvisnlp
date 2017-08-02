@@ -1,4 +1,4 @@
-# random
+<h1 class="library">random</h1>
 
 ## Synopsis
 
@@ -10,7 +10,7 @@ Pseudo-random number generator.
 
 ### gaussian
 
-random:gaussian()
+`random:gaussian()`
 
 Generates a random double. The returned value behaves like a random variable with mean 0.0 and standard deviation 1.0.
 
@@ -18,7 +18,7 @@ Generates a random double. The returned value behaves like a random variable wit
 
 ### init
 
-random:init(seed)
+`random:init(seed)`
 
 Initializes the current RNG with the specified *seed* evaluated as a double.
 
@@ -26,7 +26,7 @@ Initializes the current RNG with the specified *seed* evaluated as a double.
 
 ### init
 
-random:init()
+`random:init()`
 
 Initializes the current RNG with a seed generated from the internal clock. The value of the seed is returned.
 
@@ -34,7 +34,7 @@ Initializes the current RNG with a seed generated from the internal clock. The v
 
 ### next
 
-random:next()
+`random:next()`
 
 Generates a random integer, double or boolean according to the context.
 
@@ -42,7 +42,7 @@ Generates a random integer, double or boolean according to the context.
 
 ### next
 
-random:next(max)
+`random:next(max)`
 
 Evaluates *max* as an integer and generates a random integer, double or boolean according to the context. If this function must return an integer, then the result is between 0 (inclusive) and *max* (exclusive).
 
@@ -50,7 +50,7 @@ Evaluates *max* as an integer and generates a random integer, double or boolean 
 
 ### seed
 
-random:seed()
+`random:seed()`
 
 Returns the seed of the current RNG.
 
@@ -58,7 +58,7 @@ Returns the seed of the current RNG.
 
 ### shuffle
 
-random:shuffle(it)
+`random:shuffle(it)`
 
 Evaluates *it* as a list of elements, and returns this list randomly shuffled.
 

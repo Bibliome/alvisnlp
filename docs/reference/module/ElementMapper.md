@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.mapper.ElementMapper
+<h1 class="module">ElementMapper</h1>
 
 ## Synopsis
 
@@ -8,7 +8,7 @@ Maps elements according to a collection of mapping elements.
 
 ## Description
 
-*org.bibliome.alvisnlp.modules.mapper.ElementMapper* evaluates [entries](#entries) as a list of elements with the corpus as the context element. These elements represent the entries from which target elements are matched. [key](#key) specifies the key of each entry, and [values](#values) specifies the values of the entries. [target](#target) specifies the mapped elements; the [form](#form) is matched against the key of entries. If the target element matches, *org.bibliome.alvisnlp.modules.mapper.ElementMapper* adds the features [targetFeatures](#targetFeatures) with the matched entry values.
+*ElementMapper* evaluates <a href="#entries" class="param">entries</a> as a list of elements with the corpus as the context element. These elements represent the entries from which target elements are matched. <a href="#key" class="param">key</a> specifies the key of each entry, and <a href="#values" class="param">values</a> specifies the values of the entries. <a href="#target" class="param">target</a> specifies the mapped elements; the <a href="#form" class="param">form</a> is matched against the key of entries. If the target element matches, *ElementMapper* adds the features <a href="#targetFeatures" class="param">targetFeatures</a> with the matched entry values.
 
 ## Parameters
 
@@ -16,79 +16,79 @@ Maps elements according to a collection of mapping elements.
 
 ### entries
 
-Optional
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Expression evaluated as a list of elements with the corpus as the context element. Each element represents an entry.
 
 <a name="form">
 
 ### form
 
-Optional
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Expression evaluated as a string with the target element as context that specifies the target key.
 
 <a name="key">
 
 ### key
 
-Optional
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Expression evaluated as a string with the entry element as the context. The result determines the entry key.
 
 <a name="target">
 
 ### target
 
-Optional
-
-Type: [Expression](../converter/alvisnlp.corpus.expressions.Expression)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
 Expression evaluated as a list of elements with the corpus as the context element. The result determines the elements to be mapped.
 
 <a name="targetFeatures">
 
 ### targetFeatures
 
-Optional
-
-Type: [String[]](../converter/java.lang.String[])
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+</div>
 Name of the features where to store the values of matched entries.
 
 <a name="values">
 
 ### values
 
-Optional
-
-Type: [Expression[]](../converter/alvisnlp.corpus.expressions.Expression[])
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.corpus.expressions.Expression[]" class="converter">Expression[]</a>
+</div>
 Expressions evaluated as strings with the entry element as the context. The results specify the feature values of targets that match the entry key.
 
 <a name="ignoreCase">
 
 ### ignoreCase
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 Either to match ignoring the case.
 
 <a name="operator">
 
 ### operator
 
-Default value: `exact`
-
-Type: [MappingOperator](../converter/org.bibliome.alvisnlp.modules.mapper.MappingOperator)
-
+<div class="param-level param-level-default-value">Default value: `exact`
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.mapper.MappingOperator" class="converter">MappingOperator</a>
+</div>
 Matching operator.
 

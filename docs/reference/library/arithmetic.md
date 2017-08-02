@@ -1,4 +1,4 @@
-# arithmetic
+<h1 class="library">arithmetic</h1>
 
 ## Synopsis
 
@@ -10,5 +10,5 @@
 
 ### -
 
-arithmetic:-(e)
+`arithmetic:-(e)`
 

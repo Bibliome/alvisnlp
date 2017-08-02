@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.alvisdb.AlvisDBIndexer
+<h1 class="module">AlvisDBIndexer</h1>
 
 ## Synopsis
 
@@ -16,29 +16,29 @@ synopsis
 
 ### elements
 
-Optional
-
-Type: [ADBElements[]](../converter/org.bibliome.alvisnlp.modules.alvisdb.ADBElements[])
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.alvisnlp.modules.alvisdb.ADBElements[]" class="converter">ADBElements[]</a>
+</div>
 
 
 <a name="indexDir">
 
 ### indexDir
 
-Optional
-
-Type: [OutputDirectory](../converter/org.bibliome.util.files.OutputDirectory)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.OutputDirectory" class="converter">OutputDirectory</a>
+</div>
 
 
 <a name="append">
 
 ### append
 
-Default value: `false`
-
-Type: [Boolean](../converter/java.lang.Boolean)
-
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
 
 

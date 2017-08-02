@@ -1,4 +1,4 @@
-# path
+<h1 class="library">path</h1>
 
 ## Synopsis
 
@@ -12,7 +12,7 @@ All functions of this library require an argument that represent the vertices of
 
 ### between
 
-path:between(from, to, vert)
+`path:between(from, to, vert)`
 
 Evaluates *from* and to
 
@@ -22,7 +22,7 @@ Evaluates *from* and to
 
 ### to
 
-path:to(to, vert)
+`path:to(to, vert)`
 
 Evaluates *to* as a list of elements, then computes the shortest path from the context element to the first element in the result.
 

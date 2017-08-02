@@ -1,4 +1,4 @@
-# org.bibliome.alvisnlp.modules.AnimalReader
+<h1 class="module">AnimalReader</h1>
 
 ## Synopsis
 
@@ -6,7 +6,7 @@ Project-specific file reader.
 
 ## Description
 
-*org.bibliome.alvisnlp.modules.AnimalReader* reads text files in the same way as [TextFileReader](../module/TextFileReader). Additionally, for each file read, it also reads metadata in a file with the same name with the *.xml* extension.
+*AnimalReader* reads text files in the same way as <a href="../module/TextFileReader" class="module">TextFileReader</a>. Additionally, for each file read, it also reads metadata in a file with the same name with the *.xml* extension.
 
 ## Parameters
 
@@ -14,89 +14,89 @@ Project-specific file reader.
 
 ### sourcePath
 
-Optional
-
-Type: [SourceStream](../converter/org.bibliome.util.streams.SourceStream)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
+</div>
 Path to the source directory or source file.
 
 <a name="xmlDir">
 
 ### xmlDir
 
-Optional
-
-Type: [InputDirectory](../converter/org.bibliome.util.files.InputDirectory)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/org.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
+</div>
 Directory where to find metadata files.
 
 <a name="constantDocumentFeatures">
 
 ### constantDocumentFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each document created by this module
 
 <a name="constantSectionFeatures">
 
 ### constantSectionFeatures
 
-Optional
-
-Type: [Mapping](../converter/alvisnlp.module.types.Mapping)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/alvisnlp.module.types.Mapping" class="converter">Mapping</a>
+</div>
 Constant features to add to each section created by this module
 
 <a name="linesLimit">
 
 ### linesLimit
 
-Optional
-
-Type: [Integer](../converter/java.lang.Integer)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Integer" class="converter">Integer</a>
+</div>
 Maximum number of lines per document.
 
 <a name="sizeLimit">
 
 ### sizeLimit
 
-Optional
-
-Type: [Integer](../converter/java.lang.Integer)
-
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Integer" class="converter">Integer</a>
+</div>
 Maximum number of characters per document. No limit if not set.
 
 <a name="bodySectionName">
 
 ### bodySectionName
 
-Default value: `body`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `body`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the section for the text body.
 
 <a name="charset">
 
 ### charset
 
-Default value: `UTF-8`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `UTF-8`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Character encoding of input files.
 
 <a name="titleSectionName">
 
 ### titleSectionName
 
-Default value: `title`
-
-Type: [String](../converter/java.lang.String)
-
+<div class="param-level param-level-default-value">Default value: `title`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
 Name of the section of the document title.
 

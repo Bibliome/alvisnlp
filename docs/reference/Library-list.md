@@ -1,62 +1,122 @@
 # Alvisnlp/ML Supported Libraries
 
-## [align]({{ '/reference/library/align' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/align' | relative_url }}" class="library">align</a>
+</h2>
 
-## [arithmetic]({{ '/reference/library/arithmetic' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/arithmetic' | relative_url }}" class="library">arithmetic</a>
+</h2>
 
-## [bio]({{ '/reference/library/bio' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/bio' | relative_url }}" class="library">bio</a>
+</h2>
 
-## [boolean]({{ '/reference/library/boolean' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/boolean' | relative_url }}" class="library">boolean</a>
+</h2>
 
-## [clone]({{ '/reference/library/clone' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/clone' | relative_url }}" class="library">clone</a>
+</h2>
 
-## [comparison]({{ '/reference/library/comparison' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/comparison' | relative_url }}" class="library">comparison</a>
+</h2>
 
-## [conditional]({{ '/reference/library/conditional' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/conditional' | relative_url }}" class="library">conditional</a>
+</h2>
 
-## [constant]({{ '/reference/library/constant' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/constant' | relative_url }}" class="library">constant</a>
+</h2>
 
-## [convert]({{ '/reference/library/convert' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/convert' | relative_url }}" class="library">convert</a>
+</h2>
 
-## [cpath]({{ '/reference/library/cpath' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/cpath' | relative_url }}" class="library">cpath</a>
+</h2>
 
-## [delete]({{ '/reference/library/delete' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/delete' | relative_url }}" class="library">delete</a>
+</h2>
 
-## [enum]({{ '/reference/library/enum' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/enum' | relative_url }}" class="library">enum</a>
+</h2>
 
-## [file]({{ '/reference/library/file' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/file' | relative_url }}" class="library">file</a>
+</h2>
 
-## [id]({{ '/reference/library/id' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/id' | relative_url }}" class="library">id</a>
+</h2>
 
-## [m]({{ '/reference/library/m' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/m' | relative_url }}" class="library">m</a>
+</h2>
 
-## [module]({{ '/reference/library/module' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/module' | relative_url }}" class="library">module</a>
+</h2>
 
-## [nav]({{ '/reference/library/nav' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/nav' | relative_url }}" class="library">nav</a>
+</h2>
 
-## [new]({{ '/reference/library/new' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/new' | relative_url }}" class="library">new</a>
+</h2>
 
-## [pred]({{ '/reference/library/pred' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/pred' | relative_url }}" class="library">pred</a>
+</h2>
 
-## [properties]({{ '/reference/library/properties' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/properties' | relative_url }}" class="library">properties</a>
+</h2>
 
-## [random]({{ '/reference/library/random' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/random' | relative_url }}" class="library">random</a>
+</h2>
 
-## [re]({{ '/reference/library/re' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/re' | relative_url }}" class="library">re</a>
+</h2>
 
-## [select]({{ '/reference/library/select' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/select' | relative_url }}" class="library">select</a>
+</h2>
 
-## [set]({{ '/reference/library/set' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/set' | relative_url }}" class="library">set</a>
+</h2>
 
-## [setlayer]({{ '/reference/library/setlayer' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/setlayer' | relative_url }}" class="library">setlayer</a>
+</h2>
 
-## [sets]({{ '/reference/library/sets' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/sets' | relative_url }}" class="library">sets</a>
+</h2>
 
-## [sort]({{ '/reference/library/sort' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/sort' | relative_url }}" class="library">sort</a>
+</h2>
 
-## [str]({{ '/reference/library/str' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/str' | relative_url }}" class="library">str</a>
+</h2>
 
-## [type]({{ '/reference/library/type' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/type' | relative_url }}" class="library">type</a>
+</h2>
 
-## [user]({{ '/reference/library/user' | relative_url }})
+<h2>
+<a href="{{ '/reference/library/user' | relative_url }}" class="library">user</a>
+</h2>
 
