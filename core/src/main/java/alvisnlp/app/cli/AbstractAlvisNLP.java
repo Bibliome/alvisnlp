@@ -398,7 +398,8 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     	Module<A> mod = moduleFactory.getServiceByAlias(name);
     	Documentation documentation = mod.getDocumentation();
     	Document result = documentation.getDocument(locale);
-    	supplementModuleDocumentation(mod, result, name, name);
+    	String moduleClass = mod.getModuleClass();
+    	supplementModuleDocumentation(mod, result, moduleClass, moduleClass.substring(moduleClass.lastIndexOf('.') + 1));
     	return result;
 	}
 	
