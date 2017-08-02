@@ -364,7 +364,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	}
 
 	@CLIOption(value="-supportedModulesXML", stop=true)
-	public final void supportedModulesXML() throws UnsupportedServiceException, AmbiguousAliasException, XPathExpressionException, TransformerException {
+	public final void supportedModulesXML() throws TransformerException {
 		Document doc = XMLUtils.docBuilder.newDocument();
 		Element root = XMLUtils.createRootElement(doc, "alvisnlp-supported-modules");
         for (Class<? extends Module<A>> mod : moduleFactory.supportedServices()) {
@@ -493,7 +493,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	}
 
 	@CLIOption(value="-supportedLibrariesXML", stop=true)
-	public final void supportedLibrariesXML() throws UnsupportedServiceException, AmbiguousAliasException, XPathExpressionException, TransformerException {
+	public final void supportedLibrariesXML() throws TransformerException {
 		Document doc = XMLUtils.docBuilder.newDocument();
 		Element root = XMLUtils.createRootElement(doc, "alvisnlp-supported-libraries");
 		Class<FunctionLibrary> klass = FunctionLibrary.class;
@@ -554,7 +554,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	}
 
 	@CLIOption(value="-supportedConvertersXML", stop=true)
-	public final void supportedConvertersXML() throws UnsupportedServiceException, AmbiguousAliasException, XPathExpressionException, TransformerException {
+	public final void supportedConvertersXML() throws TransformerException {
 		Document doc = XMLUtils.docBuilder.newDocument();
 		Element root = XMLUtils.createRootElement(doc, "alvisnlp-supported-converters");
         for (Class<?> type : converterFactory.supportedServices()) {
