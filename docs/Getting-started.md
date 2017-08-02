@@ -134,7 +134,7 @@ $ alvisnlp example.plan
 ### Further reading
 
 * [Write a plan](Write-a-plan) has a more detailed account on parameters and also plan reuse and import mechanisms. 
-* [Module Reference](Module-reference) contains the purpose and effect of each module, as well as the required and optional parameters and their types.
+* [Module Reference](reference/Module-list) contains the purpose and effect of each module, as well as the required and optional parameters and their types.
 
 ## Shared data structure
 
