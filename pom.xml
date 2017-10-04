@@ -12,7 +12,7 @@
 
   <modules>
     <module>alvisnlp-core</module>
-    <module>bibliome</module>
+    <module>alvisnlp-bibliome</module>
     <module>alvisnlp-rest</module>
   </modules>
   
