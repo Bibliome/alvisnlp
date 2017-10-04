@@ -11,7 +11,7 @@
   <name>AlvisNLP/ML</name>
 
   <modules>
-    <module>core</module>
+    <module>alvisnlp-core</module>
     <module>bibliome</module>
     <module>alvisnlp-rest</module>
   </modules>

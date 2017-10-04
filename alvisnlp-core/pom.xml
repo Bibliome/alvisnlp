@@ -10,7 +10,7 @@
     <version>0.5rc-SNAPSHOT</version>
   </parent>
   <artifactId>alvisnlp-core</artifactId>
-  <name>AlvisNLP core</name>
+  <name>AlvisNLP Core</name>
 
   <properties>
     <maven.build.timestamp.format>yyyy-MM-dd HH:mm</maven.build.timestamp.format>
