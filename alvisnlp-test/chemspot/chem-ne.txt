@@ -1,0 +1,615 @@
+BB-cat+ner-1016123	text	bi-selenite	SYSTEMATIC
+BB-cat+ner-1016123	text	strontium chloride	SYSTEMATIC
+BB-cat+ner-1016123	text	strontium chloride	SYSTEMATIC
+BB-cat+ner-1016123	text	strontium selenite	SYSTEMATIC
+BB-cat+ner-1016123	text	strontium selenite	SYSTEMATIC
+BB-cat+ner-1016123	text	bi-selenite	SYSTEMATIC
+BB-cat+ner-1016123	text	strontium chloride	SYSTEMATIC
+BB-cat+ner-10492485	text	O3	FORMULA
+BB-cat+ner-10492485	text	O2	FORMULA
+BB-cat+ner-10492485	text	ozone	TRIVIAL
+BB-cat+ner-10492485	text	ozone	TRIVIAL
+BB-cat+ner-10492485	text	sugars	FAMILY
+BB-cat+ner-10492485	text	ozone	TRIVIAL
+BB-cat+ner-10658649	text	asialofetuin	TRIVIAL
+BB-cat+ner-10738994	text	methicillin	TRIVIAL
+BB-cat+ner-10738994	text	methicillin	TRIVIAL
+BB-cat+ner-10738994	text	oxacillin	TRIVIAL
+BB-cat+ner-11162736	text	urea	TRIVIAL
+BB-cat+ner-11162736	text	urea	TRIVIAL
+BB-cat+ner-11162736	text	urea	TRIVIAL
+BB-cat+ner-11162736	text	urea	TRIVIAL
+BB-cat+ner-11410343	text	2,2',5,5'-tetrachlorobiphenyl	SYSTEMATIC
+BB-cat+ner-11410343	text	biphenyl	SYSTEMATIC
+BB-cat+ner-11410343	text	2,2',5,5'-tetrachlorobiphenyl	SYSTEMATIC
+BB-cat+ner-11410343	text	TeCB	ABBREVIATION
+BB-cat+ner-11410343	text	PCB	ABBREVIATION
+BB-cat+ner-11410343	text	biphenyl	SYSTEMATIC
+BB-cat+ner-11410343	text	1,6-diphenyl-1,3,5-hexatriene	SYSTEMATIC
+BB-cat+ner-11410343	text	DPH	ABBREVIATION
+BB-cat+ner-11410343	text	fatty acid	FAMILY
+BB-cat+ner-11410343	text	TeCB	ABBREVIATION
+BB-cat+ner-11410343	text	fructose	TRIVIAL
+BB-cat+ner-11410343	text	DPH	ABBREVIATION
+BB-cat+ner-11410343	text	biphenyl	SYSTEMATIC
+BB-cat+ner-11410343	text	TeCB	ABBREVIATION
+BB-cat+ner-11410343	text	fructose	TRIVIAL
+BB-cat+ner-11410343	text	unsaturated fatty acids	FAMILY
+BB-cat+ner-11410343	text	biphenyl	TRIVIAL
+BB-cat+ner-11410343	text	TeCB	ABBREVIATION
+BB-cat+ner-11410343	text	fructose	TRIVIAL
+BB-cat+ner-11410343	text	fatty acid	FAMILY
+BB-cat+ner-11410343	text	fructose	TRIVIAL
+BB-cat+ner-11410343	text	biphenyl	SYSTEMATIC
+BB-cat+ner-11437594	text	D-hexose:O(2)-oxidoreductase	FORMULA
+BB-cat+ner-11437594	text	HOX	ABBREVIATION
+BB-cat+ner-12728302	text	nitrogen	SYSTEMATIC
+BB-cat+ner-12728302	text	nitrogen	SYSTEMATIC
+BB-cat+ner-12781527	text	N	FORMULA
+BB-cat+ner-12781527	text	O	FORMULA
+BB-cat+ner-12781527	text	N	FORMULA
+BB-cat+ner-12781527	text	O	FORMULA
+BB-cat+ner-12970344	text	beta-d-galactose	TRIVIAL
+BB-cat+ner-12970344	text	alpha-l-3,6-anhydro-galactose	SYSTEMATIC
+BB-cat+ner-12970344	text	Glu-147	FORMULA
+BB-cat+ner-12970344	text	Glu-184	FORMULA
+BB-cat+ner-12970344	text	Glu-152	FORMULA
+BB-cat+ner-12970344	text	Glu-189	FORMULA
+BB-cat+ner-15358511	text	O157:H7	FORMULA
+BB-cat+ner-16263187	text	Lb	FORMULA
+BB-cat+ner-16432479	text	penicillin	TRIVIAL
+BB-cat+ner-16432479	text	penicillin	TRIVIAL
+BB-cat+ner-16432479	text	tetracycline	TRIVIAL
+BB-cat+ner-16432479	text	ciprofloxacin	TRIVIAL
+BB-cat+ner-16432479	text	ciprofloxacin	TRIVIAL
+BB-cat+ner-16432479	text	azithromycin	TRIVIAL
+BB-cat+ner-16432479	text	spectinomycin	TRIVIAL
+BB-cat+ner-16436701	text	N	FORMULA
+BB-cat+ner-16436701	text	C	FORMULA
+BB-cat+ner-16436701	text	aminododecanoic acid	SYSTEMATIC
+BB-cat+ner-16436701	text	P14	IDENTIFIER
+BB-cat+ner-17237163	text	N-acyl homoserine lactone	SYSTEMATIC
+BB-cat+ner-17237163	text	AHL	ABBREVIATION
+BB-cat+ner-17237163	text	AHL	ABBREVIATION
+BB-cat+ner-17237163	text	AHL	ABBREVIATION
+BB-cat+ner-17687514	text	pneumolysin	TRIVIAL
+BB-cat+ner-17687514	text	histidine-triad	TRIVIAL
+BB-cat+ner-18687046	text	Routine	TRIVIAL
+BB-cat+ner-19049879	text	amino acids	FAMILY
+BB-cat+ner-19049879	text	N	FORMULA
+BB-cat+ner-19049879	text	C	FORMULA
+BB-cat+ner-19049879	text	formalin	TRIVIAL
+BB-cat+ner-19099664	text	Vancomycin	TRIVIAL
+BB-cat+ner-19501788	text	iron	SYSTEMATIC
+BB-cat+ner-19622846	text	methicillin	TRIVIAL
+BB-cat+ner-19622846	text	mannitol	TRIVIAL
+BB-cat+ner-19622846	text	oxacillin	TRIVIAL
+BB-cat+ner-19622846	text	methicillin	TRIVIAL
+BB-cat+ner-19622846	text	oxacillin	TRIVIAL
+BB-cat+ner-20005916	text	tyrosine	TRIVIAL
+BB-cat+ner-21498521	text	phosphoglycerol	SYSTEMATIC
+BB-cat+ner-21498521	text	lipid A	TRIVIAL
+BB-cat+ner-21498521	text	mono- and diphosphorylated diglucosamine	MULTIPLE
+BB-cat+ner-21498521	text	N	FORMULA
+BB-cat+ner-21498521	text	C14:0(3-OH)	FORMULA
+BB-cat+ner-21498521	text	N	FORMULA
+BB-cat+ner-21498521	text	C14:1(3-OH)	SYSTEMATIC
+BB-cat+ner-21498521	text	O	FORMULA
+BB-cat+ner-21498521	text	C12:0(3-OH) fatty acids	FAMILY
+BB-cat+ner-21498521	text	fatty acids	FAMILY
+BB-cat+ner-21498521	text	C14:0(3-OH)	SYSTEMATIC
+BB-cat+ner-21498521	text	phosphoglycerol	SYSTEMATIC
+BB-cat+ner-21498521	text	lysophosphatidic acid	TRIVIAL
+BB-cat+ner-21498521	text	GroP	ABBREVIATION
+BB-cat+ner-21498521	text	C12:0	FORMULA
+BB-cat+ner-21498521	text	phosphatidic acid	TRIVIAL
+BB-cat+ner-21498521	text	lipid A	TRIVIAL
+BB-cat+ner-21917915	text	iron	SYSTEMATIC
+BB-cat+ner-21917915	text	iron	SYSTEMATIC
+BB-cat+ner-21917915	text	iron-scavenging	SYSTEMATIC
+BB-cat+ner-21917915	text	iron	SYSTEMATIC
+BB-cat+ner-21917915	text	iron	SYSTEMATIC
+BB-cat+ner-22834551	text	n-hexane	SYSTEMATIC
+BB-cat+ner-22834551	text	n-hexane	SYSTEMATIC
+BB-cat+ner-22834551	text	n-hexane	SYSTEMATIC
+BB-cat+ner-22834551	text	n-hexane	SYSTEMATIC
+BB-cat+ner-22834551	text	n-hexane	SYSTEMATIC
+BB-cat+ner-22834551	text	n-hexane	SYSTEMATIC
+BB-cat+ner-22834551	text	n-hexane	SYSTEMATIC
+BB-cat+ner-23702192	text	creatinine	TRIVIAL
+BB-cat+ner-23702192	text	creatinine	TRIVIAL
+BB-cat+ner-23702192	text	gastric acid	TRIVIAL
+BB-cat+ner-23704121	text	fidaxomicin	TRIVIAL
+BB-cat+ner-23704121	text	vancomycin	TRIVIAL
+BB-cat+ner-23704121	text	fidaxomicin	TRIVIAL
+BB-cat+ner-23704121	text	fidaxomicin	TRIVIAL
+BB-cat+ner-23704121	text	fidaxomicin	TRIVIAL
+BB-cat+ner-23704121	text	fidaxomicin	TRIVIAL
+BB-cat+ner-23704121	text	fidaxomicin	TRIVIAL
+BB-cat+ner-23855904	text	tetracycline	TRIVIAL
+BB-cat+ner-23855904	text	quinolones	TRIVIAL
+BB-cat+ner-23855904	text	ciprofloxacin	TRIVIAL
+BB-cat+ner-23855904	text	naladixic acid	TRIVIAL
+BB-cat+ner-23855904	text	erythromycin	TRIVIAL
+BB-cat+ner-23855904	text	chloramphenicol	TRIVIAL
+BB-cat+ner-23855904	text	aminoglycosides	FAMILY
+BB-cat+ner-23855904	text	Erythromycin	TRIVIAL
+BB-cat+ner-24198224	text	nalidixic acid	TRIVIAL
+BB-cat+ner-24198224	text	ceftriaxone	TRIVIAL
+BB-cat+ner-24198224	text	azithromycin	TRIVIAL
+BB-cat+ner-24198224	text	ceftriaxone	TRIVIAL
+BB-cat+ner-24198224	text	Ceftriaxone-Azithromycin	TRIVIAL
+BB-cat+ner-24251551	text	6-phosphate	SYSTEMATIC
+BB-cat+ner-24251551	text	N-acetylmuramic acid	SYSTEMATIC
+BB-cat+ner-24251551	text	MurNAc	ABBREVIATION
+BB-cat+ner-24251551	text	6-phosphate	SYSTEMATIC
+BB-cat+ner-24251551	text	Glu89	FORMULA
+BB-cat+ner-24251551	text	oxygen	SYSTEMATIC
+BB-cat+ner-24251551	text	site acid	FAMILY
+BB-cat+ner-24251551	text	Glu120	FORMULA
+BB-cat+ner-24251551	text	Lys239	FORMULA
+BB-cat+ner-24251551	text	hydrogen	SYSTEMATIC
+BB-cat+ner-24251551	text	hydroxyl	SYSTEMATIC
+BB-cat+ner-24251551	text	phosphate	SYSTEMATIC
+BB-cat+ner-24251551	text	Glu89	FORMULA
+BB-cat+ner-24251551	text	enolate	SYSTEMATIC
+BB-cat+ner-24678646	text	methicillin	TRIVIAL
+BB-cat+ner-24678646	text	vancomycin	TRIVIAL
+BB-cat+ner-24678646	text	methicillin	TRIVIAL
+BB-cat+ner-24678646	text	vancomycin	TRIVIAL
+BB-cat+ner-24874563	text	methane	SYSTEMATIC
+BB-cat+ner-24874563	text	alkanes	FAMILY
+BB-cat+ner-25634638	text	hydrogen cyanide	SYSTEMATIC
+BB-cat+ner-25634638	text	HCN	ABBREVIATION
+BB-cat+ner-25634638	text	ammonia	SYSTEMATIC
+BB-cat+ner-25634638	text	hydrogen cyanide	SYSTEMATIC
+BB-cat+ner-25634638	text	HCN	ABBREVIATION
+BB-cat+ner-25634638	text	ammonia	SYSTEMATIC
+BB-cat+ner-25634638	text	NH3	FORMULA
+BB-cat+ner-25634638	text	Hydrogen cyanide	SYSTEMATIC
+BB-cat+ner-25634638	text	HCN	ABBREVIATION
+BB-cat+ner-25634638	text	tobramycin	TRIVIAL
+BB-cat+ner-25634638	text	HCN	ABBREVIATION
+BB-cat+ner-25634638	text	HCN	ABBREVIATION
+BB-cat+ner-25634638	text	HCN	ABBREVIATION
+BB-cat+ner-4105033	text	sucrose	TRIVIAL
+BB-cat+ner-4105033	text	MgCl(2)	FORMULA
+BB-cat+ner-4105033	text	Mg(2+)	FORMULA
+BB-cat+ner-4105033	text	sucrose	TRIVIAL
+BB-cat+ner-4105033	text	sucrose	TRIVIAL
+BB-cat+ner-4105033	text	sucrose-lysozyme	TRIVIAL
+BB-cat+ner-4105033	text	sucrose	TRIVIAL
+BB-cat+ner-4105033	text	sucrose	TRIVIAL
+BB-cat+ner-4105033	text	sucrose-lysozyme	TRIVIAL
+BB-cat+ner-4105033	text	sucrose	TRIVIAL
+BB-cat+ner-4328756	text	Glucose-phosphate	SYSTEMATIC
+BB-cat+ner-4328756	text	fructose-1,6-diphosphatase	SYSTEMATIC
+BB-cat+ner-4328756	text	aldolase	TRIVIAL
+BB-cat+ner-4328756	text	glyceraldehyde-3-phosphate	SYSTEMATIC
+BB-cat+ner-4328756	text	pyruvate	TRIVIAL
+BB-cat+ner-4328756	text	ethylenediaminetetraacetic acid	SYSTEMATIC
+BB-cat+ner-6107735	text	none	SYSTEMATIC
+BB-cat+ner-6631408	text	amino acids	FAMILY
+BB-cat+ner-6631408	text	cycloheximide	SYSTEMATIC
+BB-cat+ner-6631408	text	histidine	TRIVIAL
+BB-cat+ner-6631408	text	tryptophan	TRIVIAL
+BB-cat+ner-6631408	text	tryptophan	TRIVIAL
+BB-cat+ner-6631408	text	methionine	TRIVIAL
+BB-cat+ner-6631408	text	methionine	TRIVIAL
+BB-cat+ner-6631408	text	amino acid	FAMILY
+BB-cat+ner-6631408	text	valine	TRIVIAL
+BB-cat+ner-6631408	text	leucine	TRIVIAL
+BB-cat+ner-6631408	text	phenylalanine	TRIVIAL
+BB-cat+ner-6631408	text	glutamine	TRIVIAL
+BB-cat+ner-8347510	text	NaCl	FORMULA
+BB-cat+ner-8347510	text	NaCl	FORMULA
+BB-cat+ner-8347510	text	NaCl	FORMULA
+BB-cat+ner-8347510	text	biotin	TRIVIAL
+BB-cat+ner-8347510	text	sulfur	SYSTEMATIC
+BB-cat+ner-8347510	text	fatty acids	FAMILY
+BB-cat+ner-8347510	text	C18:0 acids	FAMILY
+BB-cat+ner-8358765	text	omeprazole	TRIVIAL
+BB-cat+ner-8358765	text	Losec	TRIVIAL
+BB-cat+ner-8358765	text	omeprazole	TRIVIAL
+BB-cat+ner-8358765	text	HCl	FORMULA
+BB-cat+ner-8358765	text	omeprazole	TRIVIAL
+BB-cat+ner-8607503	text	gentamicin	FAMILY
+BB-cat+ner-8703935	text	riboflavin	TRIVIAL
+BB-cat+ner-8703935	text	trifluoromethyl	SYSTEMATIC
+BB-cat+ner-8703935	text	intermediates	SYSTEMATIC
+BB-cat+ner-8703935	text	riboflavin	TRIVIAL
+BB-cat+ner-8703935	text	riboflavin	TRIVIAL
+BB-cat+ner-8703935	text	lumazine	TRIVIAL
+BB-cat+ner-8997164	text	TCR-gamma	ABBREVIATION
+BB-cat+ner-9255900	text	fatty acid	FAMILY
+BB-cat+ner-9526514	text	N	FORMULA
+BB-cat+ner-9526514	text	amino acids	FAMILY
+BB-cat+ner-9526514	text	tyrosine	TRIVIAL
+BB-cat+ner-9535771	text	N-terminus	FORMULA
+BB-cat+ner-9535771	text	urea	TRIVIAL
+BB-cat+ner-9693738	text	carbon	SYSTEMATIC
+BB-cat+ner-9693738	text	carbon	SYSTEMATIC
+BB-cat+ner-9693738	text	carbon	SYSTEMATIC
+BB-cat+ner-9864452	text	streptomycin	TRIVIAL
+BB-cat+ner-14633026	text	SDS-PAGE	ABBREVIATION
+BB-cat+ner-14633026	text	N-terminal amino acid	SYSTEMATIC
+BB-cat+ner-15618837	text	clarithromycin	TRIVIAL
+BB-cat+ner-15618837	text	metronidazole	TRIVIAL
+BB-cat+ner-15618837	text	C-urea	TRIVIAL
+BB-cat+ner-16458564	text	ampicillin	TRIVIAL
+BB-cat+ner-16458564	text	chloramphenicol	TRIVIAL
+BB-cat+ner-16458564	text	trimethoprim	TRIVIAL
+BB-cat+ner-16458564	text	sulfamethoxazole	SYSTEMATIC
+BB-cat+ner-16514151	text	mercury	SYSTEMATIC
+BB-cat+ner-16514151	text	Hg(II)	FORMULA
+BB-cat+ner-16514151	text	Hg(II)	FORMULA
+BB-cat+ner-16514151	text	Hg(II)	FORMULA
+BB-cat+ner-16514151	text	mercury	SYSTEMATIC
+BB-cat+ner-16514151	text	Hg(II)	FORMULA
+BB-cat+ner-16514151	text	Hg(II)	FORMULA
+BB-cat+ner-16514151	text	Zn(II)	FORMULA
+BB-cat+ner-16514151	text	Cd(II)	FORMULA
+BB-cat+ner-16514151	text	cystosol	TRIVIAL
+BB-cat+ner-16514151	text	Hg(II)	FORMULA
+BB-cat+ner-18694716	text	13C	FORMULA
+BB-cat+ner-18694716	text	carbon	SYSTEMATIC
+BB-cat+ner-18694716	text	methanol	SYSTEMATIC
+BB-cat+ner-18694716	text	succinate	TRIVIAL
+BB-cat+ner-18694716	text	carbon	SYSTEMATIC
+BB-cat+ner-18789156	text	carboxy	SYSTEMATIC
+BB-cat+ner-18789156	text	GTP	ABBREVIATION
+BB-cat+ner-19004249	text	monoacylglycerols	FAMILY
+BB-cat+ner-19004249	text	monoacylglycerols	FAMILY
+BB-cat+ner-19004249	text	MAGs	ABBREVIATION
+BB-cat+ner-19004249	text	MAGs	ABBREVIATION
+BB-cat+ner-19004249	text	two-carbon	SYSTEMATIC
+BB-cat+ner-19339076	text	fatty acid	FAMILY
+BB-cat+ner-19339076	text	fatty acid	FAMILY
+BB-cat+ner-19339076	text	lactose	TRIVIAL
+BB-cat+ner-19339076	text	glucose	TRIVIAL
+BB-cat+ner-19339076	text	lactose	TRIVIAL
+BB-cat+ner-19339076	text	fatty acid	FAMILY
+BB-cat+ner-19339076	text	hexadecanoic acid	SYSTEMATIC
+BB-cat+ner-19339076	text	octadecenoic acid	SYSTEMATIC
+BB-cat+ner-19339076	text	hexadecenoic acid	SYSTEMATIC
+BB-cat+ner-19339076	text	C-19 cyclopropane fatty acid	FAMILY
+BB-cat+ner-19339076	text	fatty acids	FAMILY
+BB-cat+ner-19339076	text	octadecenoic acid	SYSTEMATIC
+BB-cat+ner-19339076	text	octadecenoic acid	SYSTEMATIC
+BB-cat+ner-19339076	text	C-19	TRIVIAL
+BB-cat+ner-19339076	text	fatty acid	FAMILY
+BB-cat+ner-19339076	text	hexadecanoic acid	SYSTEMATIC
+BB-cat+ner-19339076	text	octadecenoic acid	SYSTEMATIC
+BB-cat+ner-19339076	text	tetradecanoic acid	TRIVIAL
+BB-cat+ner-19339076	text	octadecadienoic acid	TRIVIAL
+BB-cat+ner-19339076	text	C-19	TRIVIAL
+BB-cat+ner-19339076	text	fatty acid	FAMILY
+BB-cat+ner-19339076	text	fatty acid	FAMILY
+BB-cat+ner-19339076	text	fatty acid	FAMILY
+BB-cat+ner-19339076	text	hexadecanoic acid	SYSTEMATIC
+BB-cat+ner-19339076	text	octadecenoic acid	SYSTEMATIC
+BB-cat+ner-19339076	text	hexadecenoic acid	SYSTEMATIC
+BB-cat+ner-19339076	text	C-19	TRIVIAL
+BB-cat+ner-19339076	text	fatty acid	FAMILY
+BB-cat+ner-19621381	text	cyanogen bromide	SYSTEMATIC
+BB-cat+ner-20174624	text	oxygen	SYSTEMATIC
+BB-cat+ner-20174624	text	diphenyleneiodonium chloride	SYSTEMATIC
+BB-cat+ner-20580604	text	organic acid	FAMILY
+BB-cat+ner-20580604	text	acetic acid	SYSTEMATIC
+BB-cat+ner-20580604	text	propionic acid	SYSTEMATIC
+BB-cat+ner-20580604	text	butyric acid	SYSTEMATIC
+BB-cat+ner-21543877	text	Aminoglycoside	FAMILY
+BB-cat+ner-21543877	text	aminoglycoside	FAMILY
+BB-cat+ner-21543877	text	calcium acetate	SYSTEMATIC
+BB-cat+ner-21543877	text	Tris-HCl	FORMULA
+BB-cat+ner-21543877	text	PEG 3000	TRIVIAL
+BB-cat+ner-21543877	text	selenomethionine	SYSTEMATIC
+BB-cat+ner-21894542	text	iron	SYSTEMATIC
+BB-cat+ner-21894542	text	iron	SYSTEMATIC
+BB-cat+ner-21894542	text	iron	SYSTEMATIC
+BB-cat+ner-21894542	text	ferrous iron	SYSTEMATIC
+BB-cat+ner-23902156	text	amino acids	FAMILY
+BB-cat+ner-23902156	text	nucleotides	FAMILY
+BB-cat+ner-23902156	text	amino acids	FAMILY
+BB-cat+ner-25204345	text	quinolone	FAMILY
+BB-cat+ner-25204345	text	lactic acid	TRIVIAL
+BB-cat+ner-25204345	text	quinolone	FAMILY
+BB-cat+ner-25204345	text	quinolone	TRIVIAL
+BB-cat+ner-25204345	text	lactic acid	TRIVIAL
+BB-cat+ner-25204345	text	quinolone	TRIVIAL
+BB-cat+ner-25204345	text	norfloxacin	TRIVIAL
+BB-cat+ner-25204345	text	ciprofloxacin	TRIVIAL
+BB-cat+ner-25204345	text	norfloxacin	TRIVIAL
+BB-cat+ner-25204345	text	ciprofloxacin	TRIVIAL
+BB-cat+ner-25204345	text	quinolone	TRIVIAL
+BB-cat+ner-25204345	text	amino-acid	SYSTEMATIC
+BB-cat+ner-25204345	text	quinolone	TRIVIAL
+BB-cat+ner-351567	text	bromodeoxyuridine triphosphate	SYSTEMATIC
+BB-cat+ner-351567	text	ATP	ABBREVIATION
+BB-cat+ner-351567	text	nalidixic acid	TRIVIAL
+BB-cat+ner-351567	text	novobiocin	TRIVIAL
+BB-cat+ner-351567	text	arabinosylnucleoside triphosphates	FAMILY
+BB-cat+ner-351567	text	Rifampicin	TRIVIAL
+BB-cat+ner-47483	text	ampicillin	TRIVIAL
+BB-cat+ner-47483	text	Ampicillin	TRIVIAL
+BB-cat+ner-8559802	text	ampicillin	TRIVIAL
+BB-cat+ner-8559802	text	calcium	SYSTEMATIC
+BB-cat+ner-9521147	text	sodium dodecyl sulfate-polyacrylamide	SYSTEMATIC
+BB-cat+ner-9521147	text	silver-staining	SYSTEMATIC
+BB-cat+ner-9553794	text	lactic acid	TRIVIAL
+BB-cat+ner-9553794	text	CO2	FORMULA
+BB-cat+ner-9553794	text	CO2-atmosphere	FORMULA
+BB-cat+ner-9553794	text	10(4)-10(6), 10(3)-10(6) and 10(2)-10(4)	FORMULA
+BB-cat+ner-9553794	text	CO2-atmosphere	FORMULA
+BB-cat+ner-9553794	text	CO2-atmosphere	FORMULA
+BB-cat+ner-9553794	text	SDS-PAGE	ABBREVIATION
+BB-cat+ner-9553794	text	CO2-atmosphere	FORMULA
+BB-cat+ner-9745160	text	bismuth	SYSTEMATIC
+BB-cat+ner-9745160	text	bismuth subcitrate	SYSTEMATIC
+BB-cat+ner-9745160	text	metronidazole	TRIVIAL
+BB-cat+ner-9745160	text	amoxicillin	TRIVIAL
+BB-cat+ner-9745160	text	bismuth	SYSTEMATIC
+BB-cat+ner-9745160	text	13C-urea	FORMULA
+BB-cat+ner-9745160	text	amoxicillin	TRIVIAL
+BB-cat+ner-9745160	text	metronidazole	TRIVIAL
+BB-cat+ner-9745160	text	omeprazole	TRIVIAL
+BB-cat+ner-9745160	text	clarithromycin	TRIVIAL
+BB-cat+ner-9745160	text	amoxicillin	TRIVIAL
+BB-cat+ner-9745160	text	omeprazole	TRIVIAL
+BB-cat+ner-9745160	text	clarithromycin	TRIVIAL
+BB-cat+ner-9745160	text	metronidazole	TRIVIAL
+BB-cat+ner-9745160	text	Nizatidine	TRIVIAL
+BB-cat+ner-9745160	text	13C-urea	FORMULA
+BB-cat+ner-9745160	text	bismuth	SYSTEMATIC
+BB-cat+ner-9745160	text	omeprazole	TRIVIAL
+BB-cat+ner-9745160	text	clarithromycin	TRIVIAL
+BB-cat+ner-9745160	text	metronidazole	TRIVIAL
+BB-cat+ner-10618167	text	4,5-bisphosphate	SYSTEMATIC
+BB-cat+ner-10618167	text	N	FORMULA
+BB-cat+ner-10618167	text	N	FORMULA
+BB-cat+ner-10618167	text	PIP(2)	FORMULA
+BB-cat+ner-10618167	text	tryptophan	TRIVIAL
+BB-cat+ner-10618167	text	N	FORMULA
+BB-cat+ner-10618167	text	PIP(2)	FORMULA
+BB-cat+ner-10618167	text	N	FORMULA
+BB-cat+ner-10645449	text	Seventy-nine	SYSTEMATIC
+BB-cat+ner-10645449	text	isoniazid	TRIVIAL
+BB-cat+ner-10645449	text	Ser315Thr amino acid	FAMILY
+BB-cat+ner-10645449	text	rifampin	TRIVIAL
+BB-cat+ner-10645449	text	amino acid	FAMILY
+BB-cat+ner-10645449	text	rifampin-resistance	TRIVIAL
+BB-cat+ner-10645449	text	ethambutol	TRIVIAL
+BB-cat+ner-10645449	text	pyrazinamide	SYSTEMATIC
+BB-cat+ner-10656819	text	serine	TRIVIAL
+BB-cat+ner-10656819	text	(biotin-N-epsilon-aminocaproyl-cystamine	SYSTEMATIC
+BB-cat+ner-10656819	text	(biotin-N-epsilon-aminocaproyl-cystamine-N'-glutaryl)-alpha	SYSTEMATIC
+BB-cat+ner-10656819	text	lysine	TRIVIAL
+BB-cat+ner-10665543	text	O-polysaccharide	SYSTEMATIC
+BB-cat+ner-10665543	text	Sensitivity	SYSTEMATIC
+BB-cat+ner-10665543	text	Se	ABBREVIATION
+BB-cat+ner-10665543	text	Se	ABBREVIATION
+BB-cat+ner-10665543	text	O-chain	SYSTEMATIC
+BB-cat+ner-10665543	text	Se	ABBREVIATION
+BB-cat+ner-10665543	text	O-chain	FORMULA
+BB-cat+ner-10665543	text	O-chain	FORMULA
+BB-cat+ner-10665543	text	NH antigens	FORMULA
+BB-cat+ner-10665543	text	O-chain	FORMULA
+BB-cat+ner-10665543	text	O-chain	FORMULA
+BB-cat+ner-10792385	text	FcgammaRIIa-H	FORMULA
+BB-cat+ner-10792385	text	H131	FORMULA
+BB-cat+ner-10796014	text	pyruvate	TRIVIAL
+BB-cat+ner-10796014	text	pyruvate	TRIVIAL
+BB-cat+ner-10796014	text	dihydrolipoamide	SYSTEMATIC
+BB-cat+ner-10796014	text	nitrogen	SYSTEMATIC
+BB-cat+ner-11551069	text	nucleotides	FAMILY
+BB-cat+ner-11551069	text	amino acid	FAMILY
+BB-cat+ner-11551069	text	histidine	TRIVIAL
+BB-cat+ner-11551069	text	nucleotides	FAMILY
+BB-cat+ner-11551069	text	amino acid	FAMILY
+BB-cat+ner-12417169	text	vancomycin	TRIVIAL
+BB-cat+ner-12417169	text	quinupristin-dalfopristin	SYSTEMATIC
+BB-cat+ner-12417169	text	Vancomycin	TRIVIAL
+BB-cat+ner-12417169	text	vancomycin	TRIVIAL
+BB-cat+ner-12417169	text	chloramphenicol	TRIVIAL
+BB-cat+ner-12417169	text	quinupristin-dalfopristin	TRIVIAL
+BB-cat+ner-12417169	text	chloramphenicol	TRIVIAL
+BB-cat+ner-12417169	text	quinupristin-dalfopristin	TRIVIAL
+BB-cat+ner-12417169	text	quinupristin-dalfopristin	TRIVIAL
+BB-cat+ner-12417169	text	Chloramphenicol	TRIVIAL
+BB-cat+ner-12417169	text	quinupristin-dalfopristin	TRIVIAL
+BB-cat+ner-12417169	text	chloramphenicol	TRIVIAL
+BB-cat+ner-12438382	text	HT29-MTX	ABBREVIATION
+BB-cat+ner-12438382	text	MTT	ABBREVIATION
+BB-cat+ner-12438382	text	thiazolyl blue tetrazolium bromide	SYSTEMATIC
+BB-cat+ner-12438382	text	HT29-MTX	ABBREVIATION
+BB-cat+ner-12438382	text	cotrimoxazole	TRIVIAL
+BB-cat+ner-12438382	text	augmentin	TRIVIAL
+BB-cat+ner-12438382	text	Ciprofloxacin	TRIVIAL
+BB-cat+ner-12438382	text	gentamicin	TRIVIAL
+BB-cat+ner-12934822	text	phosphate	SYSTEMATIC
+BB-cat+ner-14638480	text	vancomycin	TRIVIAL
+BB-cat+ner-14638480	text	arbekacin	TRIVIAL
+BB-cat+ner-14638480	text	gentamicin	FAMILY
+BB-cat+ner-14638480	text	methicillin	TRIVIAL
+BB-cat+ner-14638480	text	vancomycin	TRIVIAL
+BB-cat+ner-14638480	text	VAN	ABBREVIATION
+BB-cat+ner-14638480	text	arbekacin	TRIVIAL
+BB-cat+ner-14638480	text	ABK	ABBREVIATION
+BB-cat+ner-14638480	text	gentamicin	FAMILY
+BB-cat+ner-14638480	text	GEN	ABBREVIATION
+BB-cat+ner-14638480	text	methicillin	TRIVIAL
+BB-cat+ner-14638480	text	GEN	ABBREVIATION
+BB-cat+ner-14638480	text	GS171	IDENTIFIER
+BB-cat+ner-14638480	text	GEN	ABBREVIATION
+BB-cat+ner-14638480	text	VAN	ABBREVIATION
+BB-cat+ner-14638480	text	ABK	ABBREVIATION
+BB-cat+ner-14638480	text	GEN	ABBREVIATION
+BB-cat+ner-14638480	text	VAN	ABBREVIATION
+BB-cat+ner-14638480	text	ABK	ABBREVIATION
+BB-cat+ner-14638480	text	VAN	ABBREVIATION
+BB-cat+ner-14638480	text	GEN	ABBREVIATION
+BB-cat+ner-14638480	text	VAN	ABBREVIATION
+BB-cat+ner-14638480	text	ABK	ABBREVIATION
+BB-cat+ner-14638480	text	GS171	IDENTIFIER
+BB-cat+ner-14638480	text	GS171	IDENTIFIER
+BB-cat+ner-14638480	text	ABK	ABBREVIATION
+BB-cat+ner-14638480	text	ABK	ABBREVIATION
+BB-cat+ner-14638480	text	VAN	ABBREVIATION
+BB-cat+ner-14638480	text	GEN	ABBREVIATION
+BB-cat+ner-14638480	text	VAN	ABBREVIATION
+BB-cat+ner-14638480	text	ABK	ABBREVIATION
+BB-cat+ner-14638480	text	VAN	ABBREVIATION
+BB-cat+ner-14638480	text	GEN	ABBREVIATION
+BB-cat+ner-14638480	text	ABK	ABBREVIATION
+BB-cat+ner-14638480	text	VAN	ABBREVIATION
+BB-cat+ner-14638480	text	GEN	ABBREVIATION
+BB-cat+ner-14638480	text	VAN	ABBREVIATION
+BB-cat+ner-14638480	text	ABK	ABBREVIATION
+BB-cat+ner-14638480	text	GEN	ABBREVIATION
+BB-cat+ner-14657131	text	KMM 3909(T) (=KCTC 12089(T)=CCUG 47092(T))	FORMULA
+BB-cat+ner-15273106	text	teicoplanin	TRIVIAL
+BB-cat+ner-15273106	text	methicillin	TRIVIAL
+BB-cat+ner-15273106	text	teicoplanin	TRIVIAL
+BB-cat+ner-15273106	text	methicillin	TRIVIAL
+BB-cat+ner-15273106	text	teicoplanin	TRIVIAL
+BB-cat+ner-15273106	text	teicoplanin	TRIVIAL
+BB-cat+ner-15273106	text	teicoplanin	TRIVIAL
+BB-cat+ner-15273106	text	teicoplanin	TRIVIAL
+BB-cat+ner-1649682	text	rifampin	TRIVIAL
+BB-cat+ner-1649682	text	vancomycin	TRIVIAL
+BB-cat+ner-1649682	text	rifampin	TRIVIAL
+BB-cat+ner-1649682	text	rifampin	TRIVIAL
+BB-cat+ner-1649682	text	rifampin	TRIVIAL
+BB-cat+ner-1649682	text	rifampin	TRIVIAL
+BB-cat+ner-16510930	text	O	FORMULA
+BB-cat+ner-16510930	text	H	FORMULA
+BB-cat+ner-17261513	text	canthaxanthin	TRIVIAL
+BB-cat+ner-17261513	text	astaxanthin	TRIVIAL
+BB-cat+ner-17261513	text	chloramphenicol	TRIVIAL
+BB-cat+ner-17261513	text	sucrose	TRIVIAL
+BB-cat+ner-19494280	text	IFN-gamma	SYSTEMATIC
+BB-cat+ner-19494280	text	TNF-alpha	SYSTEMATIC
+BB-cat+ner-19656787	text	ampicillin	TRIVIAL
+BB-cat+ner-19656787	text	ampicillin	TRIVIAL
+BB-cat+ner-19656787	text	ampicillin	TRIVIAL
+BB-cat+ner-20672296	text	lysine	TRIVIAL
+BB-cat+ner-21148810	text	lipoteichoic acid	TRIVIAL
+BB-cat+ner-21148810	text	LTA	ABBREVIATION
+BB-cat+ner-21148810	text	LTA	ABBREVIATION
+BB-cat+ner-21148810	text	calcium	SYSTEMATIC
+BB-cat+ner-21148810	text	LTA	ABBREVIATION
+BB-cat+ner-21148810	text	Ser349	FORMULA
+BB-cat+ner-21148810	text	LTA	ABBREVIATION
+BB-cat+ner-21148810	text	phorbol ester	SYSTEMATIC
+BB-cat+ner-21476570	text	chlorosomes	FAMILY
+BB-cat+ner-22537874	text	N	FORMULA
+BB-cat+ner-22537874	text	urea	TRIVIAL
+BB-cat+ner-22537874	text	N-terminal 194 amino-acid	SYSTEMATIC
+BB-cat+ner-22537874	text	urea	TRIVIAL
+BB-cat+ner-22537874	text	N	FORMULA
+BB-cat+ner-22537874	text	C	FORMULA
+BB-cat+ner-22537874	text	N	FORMULA
+BB-cat+ner-22537874	text	N	FORMULA
+BB-cat+ner-22537874	text	amino acids	FAMILY
+BB-cat+ner-23645023	text	Flexirubin-type	TRIVIAL
+BB-cat+ner-23645023	text	fatty acids	FAMILY
+BB-cat+ner-23645023	text	3-OH	FORMULA
+BB-cat+ner-23645023	text	polyamine	FAMILY
+BB-cat+ner-23645023	text	phosphatidylethanolamine	SYSTEMATIC
+BB-cat+ner-23645023	text	quinone	FAMILY
+BB-cat+ner-24584903	text	sulfur	SYSTEMATIC
+BB-cat+ner-24794581	text	heme	FAMILY
+BB-cat+ner-24794581	text	iron	SYSTEMATIC
+BB-cat+ner-24794581	text	iron	SYSTEMATIC
+BB-cat+ner-24794581	text	iron-dextran	SYSTEMATIC
+BB-cat+ner-25179651	text	amikacin	TRIVIAL
+BB-cat+ner-25179651	text	imipenem	TRIVIAL
+BB-cat+ner-25179651	text	levofloxacin	TRIVIAL
+BB-cat+ner-25607366	text	amino acids	FAMILY
+BB-cat+ner-26155675	text	magnesium sulphate	SYSTEMATIC
+BB-cat+ner-3015879	text	n-alkane	FAMILY
+BB-cat+ner-3015879	text	YEp13 (LEU2+)	FORMULA
+BB-cat+ner-3015879	text	lithium acetate	SYSTEMATIC
+BB-cat+ner-3015879	text	ARS	ABBREVIATION
+BB-cat+ner-7867953	text	amino acids	FAMILY
+BB-cat+ner-7867953	text	aa	ABBREVIATION
+BB-cat+ner-817056	text	phosphate	SYSTEMATIC
+BB-cat+ner-8406892	text	sorbitol	TRIVIAL
+BB-cat+ner-8406892	text	nucleotide	FAMILY
+BB-cat+ner-8406892	text	O157	FORMULA
+BB-cat+ner-8698477	text	Formalin	TRIVIAL
+BB-cat+ner-8698477	text	Formalin	TRIVIAL
+BB-cat+ner-8698477	text	Formalin	TRIVIAL
+BB-cat+ner-8698477	text	burgdorferi	TRIVIAL
+BB-cat+ner-9231420	text	sialic acid	TRIVIAL
+BB-cat+ner-9231420	text	sialic acid	TRIVIAL
+BB-cat+ner-9231420	text	sialic acid	TRIVIAL
+BB-cat+ner-9562874	text	glucose	TRIVIAL
+BB-cat+ner-9562874	text	glucose	TRIVIAL
+BB-cat+ner-9575437	text	I	MULTIPLE
+BB-cat+ner-9575437	text	Imipenem	TRIVIAL
+BB-cat+ner-9575437	text	IPM	ABBREVIATION
+BB-cat+ner-9575437	text	vancomycin	TRIVIAL
+BB-cat+ner-9575437	text	VCM	ABBREVIATION
+BB-cat+ner-9575437	text	2	FORMULA
+BB-cat+ner-9575437	text	Arbekacin	TRIVIAL
+BB-cat+ner-9575437	text	ABK	ABBREVIATION
+BB-cat+ner-9575437	text	VCM	ABBREVIATION
+BB-cat+ner-9575437	text	minocycline	TRIVIAL
+BB-cat+ner-9575437	text	MINO	ABBREVIATION
+BB-cat+ner-9575437	text	ABK	ABBREVIATION
+BB-cat+ner-9575437	text	VCM	ABBREVIATION
+BB-cat+ner-9575437	text	Cefazolin	TRIVIAL
+BB-cat+ner-9575437	text	CEZ	ABBREVIATION
+BB-cat+ner-9575437	text	cefotiam	TRIVIAL
+BB-cat+ner-9575437	text	CTM	ABBREVIATION
+BB-cat+ner-9575437	text	cefozopran	TRIVIAL
+BB-cat+ner-9575437	text	CZOP	ABBREVIATION
+BB-cat+ner-9575437	text	MINO	ABBREVIATION
+BB-cat+ner-9575437	text	CZOP	ABBREVIATION
+BB-cat+ner-9575437	text	IPM	ABBREVIATION
+BB-cat+ner-9575437	text	clarithromycin	TRIVIAL
+BB-cat+ner-9575437	text	CAM	ABBREVIATION
+BB-cat+ner-9575437	text	Tosufloxacin	TRIVIAL
+BB-cat+ner-9575437	text	TFLX	ABBREVIATION
+BB-cat+ner-9575437	text	VCM	ABBREVIATION
+BB-cat+ner-9575437	text	5	TRIVIAL
+BB-cat+ner-9575437	text	Gentamicin	FAMILY
+BB-cat+ner-9575437	text	GM	ABBREVIATION
+BB-cat+ner-9575437	text	IPM	ABBREVIATION
+BB-cat+ner-9575437	text	amikacin	TRIVIAL
+BB-cat+ner-9575437	text	AMK	ABBREVIATION
+BB-cat+ner-9575437	text	CZOP	ABBREVIATION
+BB-cat+ner-9575437	text	6	TRIVIAL
+BB-cat+ner-9575437	text	IPM	ABBREVIATION
+BB-cat+ner-9575437	text	ciprofloxacin	TRIVIAL
+BB-cat+ner-9575437	text	CPFX	ABBREVIATION
+BB-cat+ner-9575437	text	TFLX	ABBREVIATION
+BB-cat+ner-9575437	text	AMK	ABBREVIATION
+BB-cat+ner-9575437	text	CZOP	ABBREVIATION
+BB-cat+ner-9575437	text	GM	ABBREVIATION
+BB-cat+ner-9575437	text	ofloxacin	TRIVIAL
+BB-cat+ner-9575437	text	OFLX	ABBREVIATION
+BB-cat+ner-9575437	text	CEZ	ABBREVIATION
+BB-cat+ner-9575437	text	cefmetazole	TRIVIAL
+BB-cat+ner-9575437	text	CMZ	ABBREVIATION
+BB-cat+ner-9575437	text	7	TRIVIAL
+BB-cat+ner-9575437	text	MINO	ABBREVIATION
+BB-cat+ner-9575437	text	CZOP	ABBREVIATION
+BB-cat+ner-9575437	text	IPM	ABBREVIATION
+BB-cat+ner-9575437	text	CEZ	ABBREVIATION
+BB-cat+ner-9575437	text	cefoperazone	TRIVIAL
+BB-cat+ner-9575437	text	CPZ	ABBREVIATION
+BB-cat+ner-9575437	text	8	TRIVIAL
+BB-cat+ner-9575437	text	CZOP	ABBREVIATION
+BB-cat+ner-9575437	text	9	TRIVIAL
+BB-cat+ner-9575437	text	quinolones	FAMILY
+BB-cat+ner-9575437	text	Quinolones	FAMILY
+BB-cat+ner-9575437	text	10	IDENTIFIER
+BB-cat+ner-9575437	text	GM	ABBREVIATION
+BB-cat+ner-9666962	text	thalidomide	TRIVIAL
+BB-cat+ner-9666962	text	thalidomide	TRIVIAL
+BB-cat+ner-9666962	text	thalidomide	TRIVIAL
+BB-cat+ner-9666962	text	Thalidomide	TRIVIAL
+BB-cat+ner-9666962	text	thalidomide	TRIVIAL
+BB-cat+ner-9666962	text	Thalidomide	TRIVIAL

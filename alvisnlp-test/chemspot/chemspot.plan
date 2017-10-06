@@ -4,4 +4,17 @@
   <chemspot class="Chemspot">
     <noDict/>
   </chemspot>
+
+  <write class="TabularExport">
+    <outDir>.</outDir>
+    <files>$</files>
+    <fileName>"chem-ne.txt"</fileName>
+    <lines>documents.sections.layer:chemspot</lines>
+    <columns>
+      section.document.@id,
+      section.@name,
+      @form,
+      @chem-type
+    </columns>
+  </write>
 </alvisnlp-plan>
