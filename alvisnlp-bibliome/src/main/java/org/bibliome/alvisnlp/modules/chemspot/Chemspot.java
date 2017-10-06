@@ -56,7 +56,7 @@ public abstract class Chemspot extends SectionModule<SectionResolvedObjects> imp
 				external.addInput(name, content);
 			}
 			callExternal(ctx, "run-chemspot", external);
-			ChemspotFileLines<Layer,Annotation> chemspotFileLines = new CorpusChemspotFileLines();
+			ChemspotFileLines<Layer,Annotation> chemspotFileLines = new CorpusChemspotFileLines(logger);
 			for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
 				String name = sec.getFileName();
 				Layer layer = sec.ensureLayer(targetLayerName);
@@ -69,6 +69,13 @@ public abstract class Chemspot extends SectionModule<SectionResolvedObjects> imp
 	}
 	
 	private class CorpusChemspotFileLines extends ChemspotFileLines<Layer,Annotation> {
+		private final Logger logger;
+		
+		private CorpusChemspotFileLines(Logger logger) {
+			super();
+			this.logger = logger;
+		}
+
 		@Override
 		protected void setFDA_DATE(Annotation annotation, String string) {
 			annotation.addFeature(fdaDateFeatureName, string);
@@ -140,12 +147,21 @@ public abstract class Chemspot extends SectionModule<SectionResolvedObjects> imp
 		}
 
 		@Override
-		protected void setText(Annotation annotation, String string) {
-		}
-
-		@Override
-		protected Annotation createAnnotation(Layer data, int start, int end) {
-			return new Annotation(Chemspot.this, data, start, end);
+		protected Annotation createAnnotation(Layer data, int start0, int end0, String form) {
+			int start = start0 + 1;
+			int end = end0 + 2;
+			Section sec = data.getSection();
+			String content = sec.getContents();
+			while (start >= 0) {
+				String s = content.substring(start, end);
+				if (s.equals(form)) {
+					return new Annotation(Chemspot.this, data, start, end);
+				}
+				start--;
+				end--;
+			}
+			logger.warning("weird chemspot positions: " + form + " / " + content.substring(start0, end0));
+			return null;
 		}
 	}
 
