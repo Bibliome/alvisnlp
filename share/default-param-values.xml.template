@@ -91,4 +91,8 @@ limitations under the License.
   <module class="org.bibliome.alvisnlp.modules.wapiti.WapitiTrain">
     <wapitiExecutable></wapitiExecutable>
   </module>  
+
+  <module class="org.bibliome.alvisnlp.modules.chemspot.Chemspot">
+    <chemspotDir></chemspotDir>
+  </module>
 </default-param-values>
