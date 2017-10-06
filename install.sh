@@ -24,7 +24,7 @@ if ! [ -d "$1" ]; then
     exit 1
 fi
 
-LIB_FILES="core/target/lib/*.jar core/target/*.jar bibliome/target/lib/*.jar bibliome/target/*.jar"
+LIB_FILES="alvisnlp-core/target/lib/*.jar alvisnlp-core/target/*.jar alvisnlp-bibliome/target/lib/*.jar alvisnlp-bibliome/target/*.jar"
 
 INSTALL_DIR="$(readlink -m $1)"
 BIN_DIR="$INSTALL_DIR/bin"
