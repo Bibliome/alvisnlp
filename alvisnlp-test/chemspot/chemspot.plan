@@ -1,0 +1,7 @@
+<alvisnlp-plan id="chemspot">
+  <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
+
+  <chemspot class="Chemspot">
+    <noDict/>
+  </chemspot>
+</alvisnlp-plan>
