@@ -1,3 +1,3 @@
 run-alvisnlp ccg.plan
 
-check-file dependencies.txt
+check-file-sorted dependencies.txt
