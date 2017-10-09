@@ -179,8 +179,20 @@ function check-file() {
     diff -q "$TEST_DIR"/"$ref" "$TEST_WD"/"$gen"
 }
 
+function check-file-sorted() {
+    ref="$1"
+    gen="$2"
+    if [ -z "$gen" ]
+    then
+	gen="$ref"
+    fi
+    echo Comparing sorted files "$TEST_DIR"/"$ref" "$TEST_WD"/"$gen"
+    diff -q <(sort "$TEST_DIR"/"$ref") <(sort "$TEST_WD"/"$gen")
+}
+
 export -f run-alvisnlp
 export -f check-file
+export -f check-file-sorted
 
 TESTS=
 FAILED=
