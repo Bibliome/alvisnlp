@@ -64,6 +64,7 @@
 	      <debugParser>false</debugParser>
 	      <sanityCheck>true</sanityCheck>
 	      <buildTokenManager>true</buildTokenManager>
+	      <suppressWarnings>true</suppressWarnings>
 	      <sourceDirectory>src/main/resources/org/bibliome/alvisnlp/converters/expression/parser</sourceDirectory>
 	      <outputDirectory>${project.build.directory}/generated-sources/javacc</outputDirectory>
 	    </configuration>
