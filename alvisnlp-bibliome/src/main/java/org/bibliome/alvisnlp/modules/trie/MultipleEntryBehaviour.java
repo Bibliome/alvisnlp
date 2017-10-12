@@ -20,10 +20,10 @@ package org.bibliome.alvisnlp.modules.trie;
 import java.util.List;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.util.trie.Match;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Layer;
+import fr.inra.maiage.bibliome.util.trie.Match;
 
 public enum MultipleEntryBehaviour {
 	ALL {

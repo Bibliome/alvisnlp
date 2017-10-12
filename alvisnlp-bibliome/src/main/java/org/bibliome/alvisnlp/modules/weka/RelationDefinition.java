@@ -22,9 +22,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-import org.bibliome.util.Checkable;
-import org.bibliome.util.Iterators;
-
 import weka.core.FastVector;
 import weka.core.Instance;
 import alvisnlp.corpus.Element;
@@ -35,6 +32,8 @@ import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.util.Checkable;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 public class RelationDefinition implements Resolvable<RelationDefinition>, Checkable, NameUser {
 	private final String name;

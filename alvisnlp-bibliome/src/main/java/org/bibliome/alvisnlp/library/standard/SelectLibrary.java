@@ -22,8 +22,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import org.bibliome.util.filters.Filters;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.AbstractListEvaluator;
 import alvisnlp.corpus.expressions.EvaluationContext;
@@ -34,6 +32,7 @@ import alvisnlp.corpus.expressions.FunctionLibrary;
 import alvisnlp.corpus.expressions.Library;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.filters.Filters;
 
 @Library("select")
 public abstract class SelectLibrary extends FunctionLibrary {

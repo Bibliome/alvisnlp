@@ -26,9 +26,6 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.logging.Logger;
 
-import org.bibliome.util.Checkable;
-import org.bibliome.util.streams.SourceStream;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.NameType;
 import alvisnlp.corpus.expressions.EvaluationContext;
@@ -40,6 +37,8 @@ import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.util.Checkable;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 class BagDefinition implements Resolvable<BagDefinition>, Checkable, NameUser {
 	private final String prefix;

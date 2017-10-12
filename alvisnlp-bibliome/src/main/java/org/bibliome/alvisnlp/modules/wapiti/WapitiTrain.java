@@ -20,15 +20,14 @@ package org.bibliome.alvisnlp.modules.wapiti;
 import java.io.IOException;
 import java.util.List;
 
-import org.bibliome.util.files.InputFile;
-import org.bibliome.util.files.OutputFile;
-
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.files.InputFile;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 @AlvisNLPModule(beta=true)
 public class WapitiTrain extends AbstractWapiti {

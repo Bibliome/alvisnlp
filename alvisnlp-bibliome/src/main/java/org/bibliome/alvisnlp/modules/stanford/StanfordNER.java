@@ -25,11 +25,6 @@ import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.LoggingUtils;
-import org.bibliome.util.files.InputFile;
-import org.bibliome.util.mappers.Mapper;
-import org.bibliome.util.mappers.Mappers;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -48,6 +43,11 @@ import edu.stanford.nlp.ie.AbstractSequenceClassifier;
 import edu.stanford.nlp.ie.crf.CRFClassifier;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreLabel;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.LoggingUtils;
+import fr.inra.maiage.bibliome.util.files.InputFile;
+import fr.inra.maiage.bibliome.util.mappers.Mapper;
+import fr.inra.maiage.bibliome.util.mappers.Mappers;
 
 @AlvisNLPModule(beta=true)
 public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> implements AnnotationCreator {

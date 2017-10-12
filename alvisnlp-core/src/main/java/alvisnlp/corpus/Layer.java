@@ -30,11 +30,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-import org.bibliome.util.Strings;
-import org.bibliome.util.defaultmap.DefaultArrayListHashMap;
-import org.bibliome.util.defaultmap.DefaultMap;
-import org.bibliome.util.mappers.Mapper;
-import org.bibliome.util.mappers.Mappers;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.defaultmap.DefaultArrayListHashMap;
+import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
+import fr.inra.maiage.bibliome.util.mappers.Mapper;
+import fr.inra.maiage.bibliome.util.mappers.Mappers;
 
 
 /**

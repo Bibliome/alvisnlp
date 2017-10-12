@@ -27,9 +27,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
+
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 class XMLDocumentationResourceBundleControl extends ResourceBundle.Control {
 	static final String FORMAT_DOCUMENTATION = "alvisnlp.documentation";

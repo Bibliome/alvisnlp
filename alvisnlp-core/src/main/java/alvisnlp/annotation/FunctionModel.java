@@ -24,8 +24,6 @@ import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.VariableElement;
 import javax.lang.model.type.TypeMirror;
 
-import org.bibliome.util.Strings;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -38,6 +36,8 @@ import alvisnlp.corpus.expressions.AbstractListEvaluator;
 import alvisnlp.corpus.expressions.AbstractStringEvaluator;
 import alvisnlp.corpus.expressions.Expression;
 import alvisnlp.corpus.expressions.Function;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 class FunctionModel {
 	private final int ord;

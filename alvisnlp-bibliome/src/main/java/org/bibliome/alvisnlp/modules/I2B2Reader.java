@@ -28,13 +28,6 @@ import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.bibliome.util.Strings;
-import org.bibliome.util.files.InputDirectory;
-import org.bibliome.util.files.InputFile;
-import org.bibliome.util.streams.FileSourceStream;
-import org.bibliome.util.streams.PatternFileFilter;
-import org.bibliome.util.streams.SourceStream;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Document;
@@ -53,6 +46,12 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.ProcessingException;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.files.InputDirectory;
+import fr.inra.maiage.bibliome.util.files.InputFile;
+import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
+import fr.inra.maiage.bibliome.util.streams.PatternFileFilter;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule(beta=true)
 public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, TupleCreator {

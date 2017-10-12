@@ -20,7 +20,6 @@ package org.bibliome.alvisnlp.modules;
 import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.util.Iterators;
 
 import alvisnlp.corpus.AnnotationComparator;
 import alvisnlp.corpus.Corpus;
@@ -33,6 +32,7 @@ import alvisnlp.module.ModuleException;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 @AlvisNLPModule
 public class RemoveOverlaps extends SectionModule<SectionResolvedObjects> {

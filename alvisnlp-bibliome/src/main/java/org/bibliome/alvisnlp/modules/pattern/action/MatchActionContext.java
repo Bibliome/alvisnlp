@@ -24,9 +24,6 @@ import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.pattern.EvaluatorFilterProxy;
 import org.bibliome.alvisnlp.modules.pattern.PatternMatcher;
-import org.bibliome.util.pattern.CapturingGroup;
-import org.bibliome.util.pattern.SequenceMatcher;
-import org.bibliome.util.pattern.SequencePattern;
 
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.EvaluationContext;
@@ -34,6 +31,9 @@ import alvisnlp.corpus.expressions.LibraryResolver;
 import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.corpus.expressions.VariableLibrary;
 import alvisnlp.corpus.expressions.VariableLibrary.Variable;
+import fr.inra.maiage.bibliome.util.pattern.CapturingGroup;
+import fr.inra.maiage.bibliome.util.pattern.SequenceMatcher;
+import fr.inra.maiage.bibliome.util.pattern.SequencePattern;
 
 public class MatchActionContext {
 	private final Map<String,Integer> groupNameMap = new LinkedHashMap<String,Integer>();

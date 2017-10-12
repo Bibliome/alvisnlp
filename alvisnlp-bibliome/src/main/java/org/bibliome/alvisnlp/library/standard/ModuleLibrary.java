@@ -21,8 +21,6 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.logging.Logger;
 
-import org.bibliome.util.Iterators;
-
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.Function;
@@ -32,6 +30,7 @@ import alvisnlp.module.Module;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.Sequence;
 import alvisnlp.module.lib.ModuleBase;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 @Library("module")
 public abstract class ModuleLibrary extends FunctionLibrary {

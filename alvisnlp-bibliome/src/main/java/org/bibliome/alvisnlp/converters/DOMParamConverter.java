@@ -17,7 +17,6 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.converters;
 
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.DocumentFragment;
 import org.w3c.dom.Element;
@@ -26,6 +25,7 @@ import org.w3c.dom.Node;
 import alvisnlp.converters.ConverterException;
 import alvisnlp.converters.lib.AbstractParamConverter;
 import alvisnlp.converters.lib.Converter;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 @Converter(targetType=DocumentFragment.class)
 public class DOMParamConverter extends AbstractParamConverter<DocumentFragment> {

@@ -40,7 +40,7 @@
 	      note that javac loads other classes in the same package, WTF man?
 	  -->
 	  <annotationProcessors>
-	    <value>org.bibliome.util.service.ServiceAnnotationProcessor</value>
+	    <value>fr.inra.maiage.bibliome.util.service.ServiceAnnotationProcessor</value>
 	  </annotationProcessors>
 	</configuration>
       </plugin>

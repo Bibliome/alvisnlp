@@ -21,8 +21,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-import org.bibliome.util.Iterators;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.AbstractIteratorEvaluator;
 import alvisnlp.corpus.expressions.ConstantsLibrary;
@@ -38,6 +36,7 @@ import alvisnlp.corpus.expressions.VariableLibrary;
 import alvisnlp.corpus.expressions.VariableLibrary.Variable;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 @Library("pred")
 public abstract class PredicateLibrary extends FunctionLibrary {

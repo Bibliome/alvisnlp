@@ -26,7 +26,7 @@ package <xsl:value-of select="@package-name"/>;
 
 @javax.annotation.Generated(value={"<xsl:value-of select="@generator"/>"}, date="<xsl:value-of select="@date"/>", comments="<xsl:value-of select="@generator-version"/>")
 <xsl:if test="@generate-service = 'true'">
-@org.bibliome.util.service.Service(<xsl:value-of select="@service-class"/>.class)
+@fr.inra.maiage.bibliome.util.service.Service(<xsl:value-of select="@service-class"/>.class)
 </xsl:if>
 public final class <xsl:value-of select="@simple-name"/> extends <xsl:value-of select="@base-class"/> {
     public <xsl:value-of select="@simple-name"/>() {
@@ -130,7 +130,7 @@ public final class <xsl:value-of select="@simple-name"/> extends <xsl:value-of s
 
       <xsl:if test="@evaluation-method = 'evaluateString'">
 	@Override
-	public void evaluateString(alvisnlp.corpus.expressions.EvaluationContext ctx, alvisnlp.corpus.Element elt, org.bibliome.util.StringCat strcat) {
+	public void evaluateString(alvisnlp.corpus.expressions.EvaluationContext ctx, alvisnlp.corpus.Element elt, fr.inra.maiage.bibliome.util.StringCat strcat) {
 	  strcat.append(evaluateString(ctx, elt));
 	}
       </xsl:if>

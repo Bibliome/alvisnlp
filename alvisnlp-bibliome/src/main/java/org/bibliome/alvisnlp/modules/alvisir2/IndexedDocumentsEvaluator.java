@@ -21,8 +21,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.bibliome.util.Iterators;
-
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.EvaluationContext;
@@ -30,6 +28,7 @@ import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.mig_bibliome.alvisir.core.index.AlvisIRIndexedDocuments;
 import fr.inra.mig_bibliome.alvisir.core.index.AlvisIRIndexedFields;
 

@@ -22,10 +22,9 @@ import java.io.File;
 import java.util.Collection;
 import java.util.logging.Logger;
 
-import org.bibliome.util.Timer;
-
 import alvisnlp.corpus.creators.ElementCreator;
 import alvisnlp.documentation.Documentable;
+import fr.inra.maiage.bibliome.util.Timer;
 
 /**
  * A module is processing unit.

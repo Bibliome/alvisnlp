@@ -17,9 +17,8 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.converters;
 
-import org.bibliome.util.files.OutputDirectory;
-
 import alvisnlp.converters.lib.Converter;
+import fr.inra.maiage.bibliome.util.files.OutputDirectory;
 
 @Converter(targetType=OutputDirectory.class)
 public class OutputDirectoryParamConverter extends AbstractOutputFileParamConverter<OutputDirectory> {

@@ -17,9 +17,8 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.converters;
 
-import org.bibliome.util.files.ExecutableFile;
-
 import alvisnlp.converters.lib.Converter;
+import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 
 @Converter(targetType=ExecutableFile.class)
 public class ExecutableFileParamConverter extends AbstractInputFileParamConverter<ExecutableFile> {

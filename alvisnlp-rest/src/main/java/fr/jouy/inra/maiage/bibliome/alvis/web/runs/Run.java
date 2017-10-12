@@ -36,9 +36,6 @@ import java.util.logging.Logger;
 
 import javax.servlet.ServletContext;
 
-import org.bibliome.util.FlushedStreamHandler;
-import org.bibliome.util.Timer;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
@@ -49,6 +46,9 @@ import alvisnlp.corpus.Corpus;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.Sequence;
 import alvisnlp.module.TimerCategory;
+import fr.inra.maiage.bibliome.util.FlushedStreamHandler;
+import fr.inra.maiage.bibliome.util.Timer;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 import fr.jouy.inra.maiage.bibliome.alvis.web.executor.AlvisNLPExecutor;
 
 public class Run {

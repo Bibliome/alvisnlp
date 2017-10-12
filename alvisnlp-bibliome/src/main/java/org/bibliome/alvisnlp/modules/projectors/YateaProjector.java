@@ -25,12 +25,6 @@ import javax.xml.parsers.SAXParserFactory;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 import org.bibliome.alvisnlp.modules.projectors.YateaProjector.Term;
 import org.bibliome.alvisnlp.modules.yatea.YateaTermsProjector;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.newprojector.CharFilter;
-import org.bibliome.util.newprojector.CharMapper;
-import org.bibliome.util.newprojector.Dictionary;
-import org.bibliome.util.newprojector.State;
-import org.bibliome.util.streams.SourceStream;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -42,6 +36,12 @@ import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.newprojector.CharFilter;
+import fr.inra.maiage.bibliome.util.newprojector.CharMapper;
+import fr.inra.maiage.bibliome.util.newprojector.Dictionary;
+import fr.inra.maiage.bibliome.util.newprojector.State;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule(obsoleteUseInstead=YateaTermsProjector.class)
 public abstract class YateaProjector extends Projector<SectionResolvedObjects,Term,Dictionary<Term>> {

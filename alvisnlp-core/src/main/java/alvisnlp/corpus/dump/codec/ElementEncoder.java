@@ -22,10 +22,9 @@ import java.nio.ByteBuffer;
 import java.util.List;
 import java.util.Set;
 
-import org.bibliome.util.marshall.Encoder;
-import org.bibliome.util.marshall.Marshaller;
-
 import alvisnlp.corpus.Element;
+import fr.inra.maiage.bibliome.util.marshall.Encoder;
+import fr.inra.maiage.bibliome.util.marshall.Marshaller;
 
 public abstract class ElementEncoder<E extends Element> implements Encoder<E> {
 	protected final Marshaller<String> stringMarshaller;

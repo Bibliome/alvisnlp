@@ -19,12 +19,11 @@ package alvisnlp.corpus.dump.codec;
 
 import java.nio.ByteBuffer;
 
-import org.bibliome.util.marshall.Unmarshaller;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Layer;
 import alvisnlp.corpus.creators.AnnotationCreator;
 import alvisnlp.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
 
 public class AnnotationDecoder extends ElementDecoder<Annotation> implements AnnotationCreator {
 	private Layer layer;

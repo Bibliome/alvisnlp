@@ -45,11 +45,6 @@ import org.bibliome.alvisnlp.converters.expression.parser.ParseException;
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
 import org.bibliome.alvisnlp.modules.xml.XMLWriter.XMLWriterResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.defaultmap.DefaultMap;
-import org.bibliome.util.files.OutputDirectory;
-import org.bibliome.util.streams.SourceStream;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.DocumentFragment;
@@ -76,6 +71,11 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
+import fr.inra.maiage.bibliome.util.files.OutputDirectory;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 @AlvisNLPModule
 public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {

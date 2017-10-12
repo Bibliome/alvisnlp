@@ -21,14 +21,13 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.marshall.MapWriteCache;
-import org.bibliome.util.marshall.Marshaller;
-import org.bibliome.util.marshall.StringCodec;
-import org.bibliome.util.marshall.WriteCache;
-
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Document;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.marshall.MapWriteCache;
+import fr.inra.maiage.bibliome.util.marshall.Marshaller;
+import fr.inra.maiage.bibliome.util.marshall.StringCodec;
+import fr.inra.maiage.bibliome.util.marshall.WriteCache;
 
 public class CorpusEncoder extends ElementEncoder<Corpus> {
 	private final DocumentEncoder docEncoder;

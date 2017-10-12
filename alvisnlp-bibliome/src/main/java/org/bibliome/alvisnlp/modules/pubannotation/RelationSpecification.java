@@ -5,7 +5,6 @@ import java.util.Iterator;
 import org.bibliome.alvisnlp.converters.expression.parser.ExpressionParser;
 import org.bibliome.alvisnlp.modules.DefaultExpressions;
 import org.bibliome.alvisnlp.modules.pubannotation.RelationSpecification.Resolved;
-import org.bibliome.util.Iterators;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -20,6 +19,7 @@ import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 public class RelationSpecification implements Resolvable<Resolved> {
 	private final Expression instances;

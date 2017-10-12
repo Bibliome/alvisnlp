@@ -27,11 +27,12 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.UriInfo;
 
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.ProcessingInstruction;
 import org.xml.sax.SAXException;
+
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 @Path("")
 public class APIDocumentationResource extends AbstractResource {

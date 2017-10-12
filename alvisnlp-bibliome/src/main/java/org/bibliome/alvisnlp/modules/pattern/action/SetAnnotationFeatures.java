@@ -21,9 +21,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.pattern.SequenceMatcher;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.Section;
 import alvisnlp.corpus.expressions.Evaluator;
@@ -32,6 +29,8 @@ import alvisnlp.corpus.expressions.LibraryResolver;
 import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.types.EvaluatorMapping;
 import alvisnlp.module.types.ExpressionMapping;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.pattern.SequenceMatcher;
 
 public class SetAnnotationFeatures extends AbstractSetFeatures<Element> {
 	public SetAnnotationFeatures(Expression target, Evaluator resolvedTarget, ExpressionMapping features, EvaluatorMapping resolvedFeatures) {

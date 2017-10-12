@@ -18,13 +18,13 @@ limitations under the License.
 package org.bibliome.alvisnlp.modules.alvisir2;
 
 import org.bibliome.alvisnlp.modules.DefaultExpressions;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Element;
 
 import alvisnlp.converters.ConverterException;
 import alvisnlp.converters.lib.AbstractParamConverter;
 import alvisnlp.converters.lib.Converter;
 import alvisnlp.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 @Converter(targetType=TokenFragments.class)
 public class TokenFragmentsParamConverter extends AbstractParamConverter<TokenFragments> {

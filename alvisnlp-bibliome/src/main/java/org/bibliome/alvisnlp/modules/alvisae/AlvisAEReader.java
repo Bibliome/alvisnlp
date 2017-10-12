@@ -28,16 +28,6 @@ import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.alvisae.AlvisAEAnnotation;
-import org.bibliome.util.alvisae.AlvisAEDocument;
-import org.bibliome.util.alvisae.AnnotationSet;
-import org.bibliome.util.alvisae.Campaign;
-import org.bibliome.util.alvisae.Group;
-import org.bibliome.util.alvisae.LoadOptions;
-import org.bibliome.util.alvisae.SourceAnnotation;
-import org.bibliome.util.alvisae.TextBound;
-import org.bibliome.util.fragments.Fragment;
 import org.json.simple.parser.ParseException;
 
 import alvisnlp.corpus.Annotation;
@@ -60,6 +50,16 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.alvisae.AlvisAEAnnotation;
+import fr.inra.maiage.bibliome.util.alvisae.AlvisAEDocument;
+import fr.inra.maiage.bibliome.util.alvisae.AnnotationSet;
+import fr.inra.maiage.bibliome.util.alvisae.Campaign;
+import fr.inra.maiage.bibliome.util.alvisae.Group;
+import fr.inra.maiage.bibliome.util.alvisae.LoadOptions;
+import fr.inra.maiage.bibliome.util.alvisae.SourceAnnotation;
+import fr.inra.maiage.bibliome.util.alvisae.TextBound;
+import fr.inra.maiage.bibliome.util.fragments.Fragment;
 
 @AlvisNLPModule
 public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, TupleCreator, AnnotationCreator {
@@ -237,7 +237,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 			convertTextBound(txt, mapping.get(txt), sec);
 		for (Group grp : aset.getGroups())
 			convertGroup(grp, mapping);
-		for (org.bibliome.util.alvisae.Relation rel : aset.getRelations())
+		for (fr.inra.maiage.bibliome.util.alvisae.Relation rel : aset.getRelations())
 			convertRelation(rel, mapping);
 	}
 	
@@ -248,7 +248,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 		}
 	}
 
-	private void convertRelation(org.bibliome.util.alvisae.Relation rel, Map<AlvisAEAnnotation,Tuple> mapping) {
+	private void convertRelation(fr.inra.maiage.bibliome.util.alvisae.Relation rel, Map<AlvisAEAnnotation,Tuple> mapping) {
 		Tuple t = mapping.get(rel);
 		for (String role : rel.getRoles())
 			t.setArgument(role, mapping.get(rel.getArgument(role)));

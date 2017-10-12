@@ -22,15 +22,15 @@ import java.util.Collection;
 
 import javax.xml.xpath.XPathExpressionException;
 
-import org.bibliome.util.Strings;
-import org.bibliome.util.streams.SourceStream;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Element;
 
 import alvisnlp.converters.ConverterException;
 import alvisnlp.converters.lib.AbstractParamConverter;
 import alvisnlp.converters.lib.Converter;
 import alvisnlp.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 @Converter(targetType=RelationDefinition.class)
 public class RelationDefinitionParamConverter extends AbstractParamConverter<RelationDefinition> {

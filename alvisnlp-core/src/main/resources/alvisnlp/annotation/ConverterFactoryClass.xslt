@@ -26,8 +26,8 @@ limitations under the License.
 package <xsl:value-of select="@package"/>;
 
 @javax.annotation.Generated(value={"<xsl:value-of select="@generator"/>"}, date="<xsl:value-of select="@date"/>", comments="<xsl:value-of select="@generator-version"/>")
-@org.bibliome.util.service.Service(alvisnlp.converters.ParamConverterFactory.class)
-public final class <xsl:value-of select="@name"/> extends org.bibliome.util.service.AbstractServiceFactory&lt;Class&lt;?>,alvisnlp.converters.ParamConverter> implements alvisnlp.converters.ParamConverterFactory {
+@fr.inra.maiage.bibliome.util.service.Service(alvisnlp.converters.ParamConverterFactory.class)
+public final class <xsl:value-of select="@name"/> extends fr.inra.maiage.bibliome.util.service.AbstractServiceFactory&lt;Class&lt;?>,alvisnlp.converters.ParamConverter> implements alvisnlp.converters.ParamConverterFactory {
     private final java.util.Collection&lt;Class&lt;?>> supportedConversions = new java.util.LinkedHashSet&lt;Class&lt;?>>();
 
     public <xsl:value-of select="@name"/>() {<xsl:for-each select="converter">
@@ -45,7 +45,7 @@ public final class <xsl:value-of select="@name"/> extends org.bibliome.util.serv
     }
     
     @Override
-    public alvisnlp.converters.ParamConverter getService(Class&lt;?> targetType) throws org.bibliome.util.service.UnsupportedServiceException {
+    public alvisnlp.converters.ParamConverter getService(Class&lt;?> targetType) throws fr.inra.maiage.bibliome.util.service.UnsupportedServiceException {
 	alvisnlp.converters.ParamConverter result = null;
         try {
 <xsl:for-each select="converter">
@@ -56,7 +56,7 @@ public final class <xsl:value-of select="@name"/> extends org.bibliome.util.serv
             throw new RuntimeException(e);
         }
 	if (result == null)
-            throw new org.bibliome.util.service.UnsupportedServiceException(targetType.getName());
+            throw new fr.inra.maiage.bibliome.util.service.UnsupportedServiceException(targetType.getName());
 	result.setComponentConverterFactory(this);
 	return result;
     }

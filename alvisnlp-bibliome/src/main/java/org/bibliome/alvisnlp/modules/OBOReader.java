@@ -19,8 +19,6 @@ package org.bibliome.alvisnlp.modules;
 
 import java.io.IOException;
 
-import org.bibliome.util.Timer;
-import org.bibliome.util.obo.OBOUtils;
 import org.obo.dataadapter.OBOParseException;
 import org.obo.datamodel.Link;
 import org.obo.datamodel.LinkedObject;
@@ -42,6 +40,8 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Timer;
+import fr.inra.maiage.bibliome.util.obo.OBOUtils;
 
 @AlvisNLPModule
 public abstract class OBOReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator {

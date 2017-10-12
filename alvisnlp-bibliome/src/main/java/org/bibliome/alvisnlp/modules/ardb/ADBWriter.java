@@ -28,7 +28,6 @@ import java.util.logging.Logger;
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
 import org.bibliome.alvisnlp.modules.ardb.ADBBinder.AnnotationKind;
-import org.bibliome.util.Iterators;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -47,6 +46,7 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.ProcessingException;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 /**
  * This module stores Annotations in a relational database. <br><br>Examples of

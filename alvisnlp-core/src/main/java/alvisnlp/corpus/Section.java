@@ -27,14 +27,13 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.bibliome.util.Strings;
-import org.bibliome.util.filters.Filters;
-import org.bibliome.util.mappers.Mappers;
-
 import alvisnlp.corpus.creators.RelationCreator;
 import alvisnlp.corpus.creators.SectionCreator;
 import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.filters.Filters;
+import fr.inra.maiage.bibliome.util.mappers.Mappers;
 
 /**
  * A Section object represents a distinct document part.

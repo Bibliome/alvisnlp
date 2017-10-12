@@ -28,10 +28,10 @@ import javax.tools.FileObject;
 import javax.tools.StandardLocation;
 import javax.xml.transform.TransformerFactoryConfigurationError;
 
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 
 import alvisnlp.converters.ParamConverterFactory;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 /**
  * Converter factory model.

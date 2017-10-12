@@ -23,7 +23,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.util.Iterators;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -37,6 +36,7 @@ import alvisnlp.module.ModuleException;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 // TODO: Auto-generated Javadoc
 /**

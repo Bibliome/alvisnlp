@@ -21,8 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import org.bibliome.util.Iterators;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.AbstractListEvaluator;
 import alvisnlp.corpus.expressions.EvaluationContext;
@@ -35,6 +33,7 @@ import alvisnlp.corpus.expressions.LibraryResolver;
 import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 @Library("re")
 public abstract class RegExpLibrary extends FunctionLibrary {

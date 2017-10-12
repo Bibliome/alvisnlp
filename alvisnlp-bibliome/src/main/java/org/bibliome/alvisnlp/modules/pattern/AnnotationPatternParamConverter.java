@@ -23,20 +23,20 @@ import java.io.StringReader;
 
 import org.bibliome.alvisnlp.converters.expression.parser.ExpressionParser;
 import org.bibliome.alvisnlp.converters.expression.parser.ParseException;
-import org.bibliome.util.pattern.Alternatives;
-import org.bibliome.util.pattern.Any;
-import org.bibliome.util.pattern.CapturingGroup;
-import org.bibliome.util.pattern.Clause;
-import org.bibliome.util.pattern.ClauseVisitor;
-import org.bibliome.util.pattern.Group;
-import org.bibliome.util.pattern.Predicate;
-import org.bibliome.util.pattern.SequenceEnd;
-import org.bibliome.util.pattern.SequenceStart;
 
 import alvisnlp.converters.ConverterException;
 import alvisnlp.converters.lib.Converter;
 import alvisnlp.converters.lib.SimpleParamConverter;
 import alvisnlp.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.util.pattern.Alternatives;
+import fr.inra.maiage.bibliome.util.pattern.Any;
+import fr.inra.maiage.bibliome.util.pattern.CapturingGroup;
+import fr.inra.maiage.bibliome.util.pattern.Clause;
+import fr.inra.maiage.bibliome.util.pattern.ClauseVisitor;
+import fr.inra.maiage.bibliome.util.pattern.Group;
+import fr.inra.maiage.bibliome.util.pattern.Predicate;
+import fr.inra.maiage.bibliome.util.pattern.SequenceEnd;
+import fr.inra.maiage.bibliome.util.pattern.SequenceStart;
 
 @Converter(targetType=ElementPattern.class)
 public class AnnotationPatternParamConverter extends SimpleParamConverter<ElementPattern> {

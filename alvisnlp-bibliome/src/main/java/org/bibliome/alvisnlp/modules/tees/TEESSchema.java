@@ -3,9 +3,8 @@ package org.bibliome.alvisnlp.modules.tees;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import org.bibliome.util.Checkable;
-
 import alvisnlp.module.types.MultiMapping;
+import fr.inra.maiage.bibliome.util.Checkable;
 
 @SuppressWarnings("serial")
 public class TEESSchema extends MultiMapping implements Checkable {

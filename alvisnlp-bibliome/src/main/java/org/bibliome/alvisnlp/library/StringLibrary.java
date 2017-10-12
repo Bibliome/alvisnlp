@@ -24,10 +24,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.StringCat;
-import org.bibliome.util.Strings;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.NameType;
 import alvisnlp.corpus.expressions.AbstractBooleanEvaluator;
@@ -42,12 +38,15 @@ import alvisnlp.corpus.expressions.LibraryResolver;
 import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.StringCat;
+import fr.inra.maiage.bibliome.util.Strings;
 
 @Library(
 		value="str",
 		externalStatic={
-				"org.bibliome.util.Strings.levenshtein(java.lang.CharSequence,java.lang.CharSequence)",
-				"org.bibliome.util.Strings.levenshteinSimilar(java.lang.CharSequence,java.lang.CharSequence,double)",
+				"fr.inra.maiage.bibliome.util.Strings.levenshtein(java.lang.CharSequence,java.lang.CharSequence)",
+				"fr.inra.maiage.bibliome.util.Strings.levenshteinSimilar(java.lang.CharSequence,java.lang.CharSequence,double)",
 				}
 		)
 public abstract class StringLibrary extends FunctionLibrary {

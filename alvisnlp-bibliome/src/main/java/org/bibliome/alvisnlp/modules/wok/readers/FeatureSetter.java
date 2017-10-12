@@ -19,9 +19,9 @@ package org.bibliome.alvisnlp.modules.wok.readers;
 
 import org.bibliome.alvisnlp.modules.wok.FieldReader;
 import org.bibliome.alvisnlp.modules.wok.WoKReaderStatus;
-import org.bibliome.util.Strings;
 
 import alvisnlp.corpus.Element;
+import fr.inra.maiage.bibliome.util.Strings;
 
 public class FeatureSetter implements FieldReader {
 	private final Target target;

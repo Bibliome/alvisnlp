@@ -22,8 +22,6 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.util.logging.Logger;
 
-import org.bibliome.util.streams.TargetStream;
-
 import weka.attributeSelection.ASEvaluation;
 import weka.attributeSelection.AttributeSelection;
 import alvisnlp.corpus.Corpus;
@@ -35,6 +33,7 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 @AlvisNLPModule
 public class WekaSelectAttributes extends ElementClassifier {

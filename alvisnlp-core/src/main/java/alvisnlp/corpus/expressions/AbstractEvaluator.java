@@ -21,9 +21,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.logging.Logger;
 
-import org.bibliome.util.filters.Filter;
-
 import alvisnlp.corpus.Element;
+import fr.inra.maiage.bibliome.util.filters.Filter;
 
 public abstract class AbstractEvaluator implements Evaluator {
 	protected AbstractEvaluator() {

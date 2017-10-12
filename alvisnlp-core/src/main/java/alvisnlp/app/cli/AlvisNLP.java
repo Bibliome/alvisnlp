@@ -24,13 +24,12 @@ import java.util.logging.Logger;
 
 import javax.xml.transform.TransformerConfigurationException;
 
-import org.bibliome.util.Pair;
-import org.bibliome.util.clio.CLIOption;
-
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.dump.Undumper;
 import alvisnlp.factory.CompoundCorpusModuleFactory;
 import alvisnlp.factory.CorpusModuleFactory;
+import fr.inra.maiage.bibliome.util.Pair;
+import fr.inra.maiage.bibliome.util.clio.CLIOption;
 
 /**
  * AlvisNLP CLI for legacy corpus annotable model.

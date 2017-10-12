@@ -25,13 +25,12 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.bibliome.util.StringCat;
-import org.bibliome.util.Strings;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.documentation.Documentation;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.StringCat;
+import fr.inra.maiage.bibliome.util.Strings;
 
 public class VariableLibrary extends FunctionLibrary {
 	private final String name;

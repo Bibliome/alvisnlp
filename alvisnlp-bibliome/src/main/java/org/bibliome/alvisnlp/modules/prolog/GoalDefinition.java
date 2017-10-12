@@ -17,8 +17,6 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.prolog;
 
-import org.bibliome.util.Iterators;
-
 import alice.tuprolog.Prolog;
 import alice.tuprolog.PrologException;
 import alice.tuprolog.SolveInfo;
@@ -33,6 +31,7 @@ import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 public class GoalDefinition implements Resolvable<GoalDefinition>, NameUser {
 	private final Term goal;

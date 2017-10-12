@@ -21,14 +21,13 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Map;
 
-import org.bibliome.util.marshall.MapReadCache;
-import org.bibliome.util.marshall.Unmarshaller;
-
 import alvisnlp.corpus.Relation;
 import alvisnlp.corpus.Section;
 import alvisnlp.corpus.Tuple;
 import alvisnlp.corpus.creators.RelationCreator;
 import alvisnlp.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.marshall.MapReadCache;
+import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
 
 public class RelationDecoder extends ElementDecoder<Relation> implements RelationCreator {
 	private final TupleDecoder tupleDecoder;

@@ -21,9 +21,8 @@ package alvisnlp.corpus;
 import java.io.IOException;
 import java.io.PrintStream;
 
-import org.bibliome.util.fragments.Fragment;
-
 import alvisnlp.corpus.creators.AnnotationCreator;
+import fr.inra.maiage.bibliome.util.fragments.Fragment;
 
 /**
  * An annotation is a fragment of text typically created by modules.

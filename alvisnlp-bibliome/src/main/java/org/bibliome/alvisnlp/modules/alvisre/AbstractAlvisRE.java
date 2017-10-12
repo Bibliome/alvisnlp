@@ -25,7 +25,6 @@ import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.alvisre.AbstractAlvisRE.AlvisREResolvedObjects;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
@@ -33,6 +32,7 @@ import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.ProcessingException;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 public abstract class AbstractAlvisRE<R extends AlvisREResolvedObjects> extends SectionModule<R> {
 	private Integer threads = 2;

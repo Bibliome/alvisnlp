@@ -20,8 +20,6 @@ package org.bibliome.alvisnlp.modules.prolog;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bibliome.util.Pair;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Element;
 
 import alvisnlp.converters.ConverterException;
@@ -29,6 +27,8 @@ import alvisnlp.converters.lib.AbstractParamConverter;
 import alvisnlp.converters.lib.Converter;
 import alvisnlp.corpus.expressions.EvaluationType;
 import alvisnlp.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.util.Pair;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 @Converter(targetType=FactDefinition.class)
 public class FactDefinitionParamConverter extends AbstractParamConverter<FactDefinition> {

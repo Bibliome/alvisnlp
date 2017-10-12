@@ -28,14 +28,13 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.filters.Filters;
-import org.bibliome.util.mappers.Mapper;
-import org.bibliome.util.mappers.Mappers;
-
 import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.module.Annotable;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.filters.Filters;
+import fr.inra.maiage.bibliome.util.mappers.Mapper;
+import fr.inra.maiage.bibliome.util.mappers.Mappers;
 
 /**
  * A Corpus object represents a set of documents to annotate.

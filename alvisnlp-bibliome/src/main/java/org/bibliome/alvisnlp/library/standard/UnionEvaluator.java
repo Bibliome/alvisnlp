@@ -23,8 +23,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import org.bibliome.util.Iterators;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.AbstractIteratorEvaluator;
 import alvisnlp.corpus.expressions.EvaluationContext;
@@ -32,6 +30,7 @@ import alvisnlp.corpus.expressions.EvaluationType;
 import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 final class UnionEvaluator extends AbstractIteratorEvaluator {
 	private final List<Evaluator> exprs;

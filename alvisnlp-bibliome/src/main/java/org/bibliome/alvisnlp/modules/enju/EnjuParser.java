@@ -26,8 +26,6 @@ import java.util.logging.Logger;
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 import org.bibliome.alvisnlp.modules.enju.EnjuParser.EnjuParserResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.files.ExecutableFile;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -49,6 +47,8 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 
 @AlvisNLPModule
 public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects> implements TupleCreator {

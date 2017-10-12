@@ -44,8 +44,6 @@ import javax.lang.model.util.Types;
 import javax.tools.Diagnostic;
 import javax.xml.transform.TransformerFactory;
 
-import org.bibliome.util.Versioned;
-
 import alvisnlp.converters.lib.Converter;
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.expressions.EvaluationContext;
@@ -58,6 +56,7 @@ import alvisnlp.module.Module;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.ModuleBase;
+import fr.inra.maiage.bibliome.util.Versioned;
 
 /**
  * A model context holds several constants used by AlvisNLPAnnotationProcessor.

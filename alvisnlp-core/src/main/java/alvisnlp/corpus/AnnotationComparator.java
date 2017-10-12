@@ -21,7 +21,7 @@ package alvisnlp.corpus;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import org.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.Strings;
 
 /**
  * Annotation comparators are used for ordering annotations in layers or

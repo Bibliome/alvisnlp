@@ -24,9 +24,10 @@ import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
+
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 /**
  * Documentation object represents the XML user documentation of a module or converter class.

@@ -23,8 +23,6 @@ import java.util.List;
 import org.bibliome.alvisnlp.converters.expression.parser.ExpressionParser;
 import org.bibliome.alvisnlp.library.StringLibrary;
 import org.bibliome.alvisnlp.modules.DefaultExpressions;
-import org.bibliome.util.Strings;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Element;
 
 import alvisnlp.converters.ConverterException;
@@ -32,6 +30,8 @@ import alvisnlp.converters.lib.AbstractParamConverter;
 import alvisnlp.converters.lib.Converter;
 import alvisnlp.corpus.expressions.Expression;
 import alvisnlp.module.types.ExpressionMapping;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 import fr.inra.mig_bibliome.alvisir.core.index.NormalizationOptions;
 
 @Converter(targetType=IndexedFields.class)

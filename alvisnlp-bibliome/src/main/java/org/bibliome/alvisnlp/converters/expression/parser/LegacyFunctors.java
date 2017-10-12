@@ -27,7 +27,8 @@ import org.bibliome.alvisnlp.library.standard.NavigationLibrary;
 import org.bibliome.alvisnlp.library.standard.PropertiesLibrary;
 import org.bibliome.alvisnlp.library.standard.SetLayerLibrary;
 import org.bibliome.alvisnlp.library.standard.SetLibrary;
-import org.bibliome.util.Pair;
+
+import fr.inra.maiage.bibliome.util.Pair;
 
 public class LegacyFunctors {
 	public static Pair<String,List<String>> getFunctors(String lib, List<String> ftors, int arity) {

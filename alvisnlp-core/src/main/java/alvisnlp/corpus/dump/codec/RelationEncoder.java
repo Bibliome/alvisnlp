@@ -22,11 +22,10 @@ import java.nio.ByteBuffer;
 import java.util.Collections;
 import java.util.Map;
 
-import org.bibliome.util.marshall.MapWriteCache;
-import org.bibliome.util.marshall.Marshaller;
-
 import alvisnlp.corpus.Relation;
 import alvisnlp.corpus.Tuple;
+import fr.inra.maiage.bibliome.util.marshall.MapWriteCache;
+import fr.inra.maiage.bibliome.util.marshall.Marshaller;
 
 public class RelationEncoder extends ElementEncoder<Relation> {
 	private final TupleEncoder tupleEncoder;

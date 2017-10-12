@@ -19,8 +19,6 @@ package org.bibliome.alvisnlp.library;
 
 import java.util.UUID;
 
-import org.bibliome.util.Iterators;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.NameType;
 import alvisnlp.corpus.expressions.EvaluationContext;
@@ -28,6 +26,7 @@ import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.corpus.expressions.Function;
 import alvisnlp.corpus.expressions.FunctionLibrary;
 import alvisnlp.corpus.expressions.Library;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 @Library("id")
 public abstract class IdLibrary extends FunctionLibrary {

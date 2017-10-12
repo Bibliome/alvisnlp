@@ -19,12 +19,11 @@ package org.bibliome.alvisnlp.modules.trie;
 
 import java.util.List;
 
-import org.bibliome.util.trie.Match;
-import org.bibliome.util.trie.Matcher;
-import org.bibliome.util.trie.StandardMatchControl;
-
 import alvisnlp.corpus.Section;
 import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.util.trie.Match;
+import fr.inra.maiage.bibliome.util.trie.Matcher;
+import fr.inra.maiage.bibliome.util.trie.StandardMatchControl;
 
 public interface Subject extends NameUser {
 	/**

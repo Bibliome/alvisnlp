@@ -17,12 +17,12 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.bionlpst;
 
-import org.bibliome.util.bionlpst.BioNLPSTException;
-import org.bibliome.util.bionlpst.schema.DocumentSchema;
 import org.w3c.dom.Element;
 
 import alvisnlp.converters.ConverterException;
 import alvisnlp.converters.lib.AbstractParamConverter;
+import fr.inra.maiage.bibliome.util.bionlpst.BioNLPSTException;
+import fr.inra.maiage.bibliome.util.bionlpst.schema.DocumentSchema;
 
 public class DocumentSchemaParamConverter extends AbstractParamConverter<DocumentSchema> {
 	@Override

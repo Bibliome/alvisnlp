@@ -24,8 +24,6 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-import org.bibliome.util.Iterators;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.AbstractListEvaluator;
 import alvisnlp.corpus.expressions.EvaluationContext;
@@ -33,6 +31,7 @@ import alvisnlp.corpus.expressions.EvaluationType;
 import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 abstract class AbstractSortEvaluator extends AbstractListEvaluator {
 	protected final String ftor;

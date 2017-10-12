@@ -24,12 +24,6 @@ import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.alvisre.AbstractAlvisRE.AlvisREResolvedObjects;
 import org.bibliome.alvisnlp.modules.alvisre.AlvisREPrepareCrossValidation.AlvisRETrainResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.files.OutputDirectory;
-import org.bibliome.util.files.OutputFile;
-import org.bibliome.util.streams.FileTargetStream;
-import org.bibliome.util.streams.TargetStream;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.DocumentFragment;
 import org.w3c.dom.Element;
@@ -44,6 +38,12 @@ import alvisnlp.module.NameUsage;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.files.OutputDirectory;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
+import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
+import fr.inra.maiage.bibliome.util.streams.TargetStream;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 @AlvisNLPModule(beta=true)
 public abstract class AlvisREPrepareCrossValidation extends AbstractAlvisRE<AlvisRETrainResolvedObjects> {

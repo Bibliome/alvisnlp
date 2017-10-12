@@ -22,8 +22,6 @@ import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.logging.Logger;
 
-import org.bibliome.util.Pair;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Document;
@@ -39,6 +37,7 @@ import alvisnlp.corpus.creators.RelationCreator;
 import alvisnlp.corpus.creators.SectionCreator;
 import alvisnlp.corpus.creators.TupleCreator;
 import alvisnlp.module.ActionInterface;
+import fr.inra.maiage.bibliome.util.Pair;
 
 public class EvaluationContext {
 	private final Logger logger;

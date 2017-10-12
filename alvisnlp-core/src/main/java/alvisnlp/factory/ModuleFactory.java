@@ -17,11 +17,10 @@ limitations under the License.
 
 package alvisnlp.factory;
 
-import org.bibliome.util.service.ServiceFactory;
-
 import alvisnlp.module.Annotable;
 import alvisnlp.module.Module;
 import alvisnlp.module.Sequence;
+import fr.inra.maiage.bibliome.util.service.ServiceFactory;
 
 /**
  * A factory for creating Module objects.

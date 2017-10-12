@@ -23,9 +23,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.pattern.SequenceMatcher;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.DownCastElement;
 import alvisnlp.corpus.Element;
@@ -40,6 +37,8 @@ import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.types.EvaluatorMapping;
 import alvisnlp.module.types.ExpressionMapping;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.pattern.SequenceMatcher;
 
 public class CreateAnnotation extends AbstractSetFeatures<Annotation> {
 	private final String[] targetLayerNames;

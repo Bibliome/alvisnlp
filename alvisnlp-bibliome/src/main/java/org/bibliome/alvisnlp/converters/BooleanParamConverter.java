@@ -17,11 +17,10 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.converters;
 
-import org.bibliome.util.Strings;
-
 import alvisnlp.converters.ConverterException;
 import alvisnlp.converters.lib.Converter;
 import alvisnlp.converters.lib.SimpleParamConverter;
+import fr.inra.maiage.bibliome.util.Strings;
 
 @Converter(targetType = Boolean.class)
 public class BooleanParamConverter extends SimpleParamConverter<Boolean> {

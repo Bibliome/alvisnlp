@@ -24,10 +24,6 @@ import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.CartesianProductTuples.CartesianProductTuplesResolvedObjects;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.util.CartesianProduct;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.mappers.Mapper;
-import org.bibliome.util.mappers.Mappers;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -49,6 +45,10 @@ import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.types.EvaluatorMapping;
 import alvisnlp.module.types.ExpressionMapping;
+import fr.inra.maiage.bibliome.util.CartesianProduct;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.mappers.Mapper;
+import fr.inra.maiage.bibliome.util.mappers.Mappers;
 
 @AlvisNLPModule
 public abstract class CartesianProductTuples extends SectionModule<CartesianProductTuplesResolvedObjects> implements TupleCreator {

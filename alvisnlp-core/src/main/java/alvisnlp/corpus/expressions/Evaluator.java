@@ -21,13 +21,12 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.bibliome.util.Checkable;
-import org.bibliome.util.StringCat;
-import org.bibliome.util.filters.Filter;
-import org.bibliome.util.filters.ParamFilter;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.util.Checkable;
+import fr.inra.maiage.bibliome.util.StringCat;
+import fr.inra.maiage.bibliome.util.filters.Filter;
+import fr.inra.maiage.bibliome.util.filters.ParamFilter;
 
 
 /**

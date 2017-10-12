@@ -25,12 +25,6 @@ import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 import org.bibliome.alvisnlp.modules.WhatsWrongExport.WhatsWrongExportResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.Strings;
-import org.bibliome.util.defaultmap.DefaultArrayListHashMap;
-import org.bibliome.util.defaultmap.DefaultMap;
-import org.bibliome.util.defaultmap.IndexHashMap;
-import org.bibliome.util.streams.TargetStream;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -51,6 +45,12 @@ import alvisnlp.module.NameUsage;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.defaultmap.DefaultArrayListHashMap;
+import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
+import fr.inra.maiage.bibliome.util.defaultmap.IndexHashMap;
+import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 @AlvisNLPModule
 public class WhatsWrongExport extends SectionModule<WhatsWrongExportResolvedObjects> {

@@ -27,15 +27,14 @@ import java.util.ResourceBundle;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.Strings;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.corpus.expressions.EvaluationType;
 import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.corpus.expressions.VariableLibrary;
 import alvisnlp.corpus.expressions.VariableLibrary.Variable;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.Strings;
 
 public enum ShellCommand {
 	QUERY("query") {

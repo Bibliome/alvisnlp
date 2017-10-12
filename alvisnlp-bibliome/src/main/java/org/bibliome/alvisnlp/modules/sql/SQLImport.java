@@ -27,7 +27,6 @@ import java.util.logging.Logger;
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
 import org.bibliome.alvisnlp.modules.sql.SQLImport.SQLImportResolvedObjects;
-import org.bibliome.util.Iterators;
 
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Element;
@@ -44,6 +43,7 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 @AlvisNLPModule(beta=true)
 public abstract class SQLImport extends CorpusModule<SQLImportResolvedObjects> implements ActionInterface {

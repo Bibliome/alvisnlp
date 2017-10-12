@@ -19,9 +19,8 @@ package org.bibliome.alvisnlp.modules.compare;
 
 import java.util.Iterator;
 
-import org.bibliome.util.Iterators;
-
 import alvisnlp.corpus.Element;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 class ElementMatch {
 	private final Element first;

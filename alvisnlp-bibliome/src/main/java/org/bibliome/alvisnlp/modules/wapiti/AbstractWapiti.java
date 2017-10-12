@@ -29,8 +29,6 @@ import java.util.logging.Logger;
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 import org.bibliome.alvisnlp.modules.wapiti.AbstractWapiti.WapitiResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.files.ExecutableFile;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -48,6 +46,8 @@ import alvisnlp.module.NameUsage;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.External;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 
 public abstract class AbstractWapiti extends SectionModule<WapitiResolvedObjects> {
 	private ExecutableFile wapitiExecutable;

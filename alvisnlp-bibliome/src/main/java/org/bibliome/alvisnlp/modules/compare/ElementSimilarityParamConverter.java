@@ -21,12 +21,11 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.bibliome.util.Strings;
-import org.bibliome.util.service.UnsupportedServiceException;
-
 import alvisnlp.converters.ConverterException;
 import alvisnlp.converters.lib.ClosedValueSetParamConverter;
 import alvisnlp.converters.lib.Converter;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
 
 @Converter(targetType=ElementSimilarity.class)
 public class ElementSimilarityParamConverter extends ClosedValueSetParamConverter<ElementSimilarity> {

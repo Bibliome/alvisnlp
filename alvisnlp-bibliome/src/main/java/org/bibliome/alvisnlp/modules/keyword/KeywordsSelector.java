@@ -32,11 +32,6 @@ import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.DefaultExpressions;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
 import org.bibliome.alvisnlp.modules.keyword.KeywordsSelector.KeywordSelectorResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.count.Count;
-import org.bibliome.util.count.CountStats;
-import org.bibliome.util.count.Stats;
-import org.bibliome.util.streams.TargetStream;
 
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Element;
@@ -52,6 +47,11 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.count.Count;
+import fr.inra.maiage.bibliome.util.count.CountStats;
+import fr.inra.maiage.bibliome.util.count.Stats;
+import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 @AlvisNLPModule(beta=true)
 public class KeywordsSelector extends CorpusModule<KeywordSelectorResolvedObjects> {

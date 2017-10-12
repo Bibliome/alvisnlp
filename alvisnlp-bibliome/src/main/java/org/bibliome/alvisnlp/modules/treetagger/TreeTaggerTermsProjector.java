@@ -7,13 +7,6 @@ import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 import org.bibliome.alvisnlp.modules.trie.TrieProjector;
-import org.bibliome.util.StringCat;
-import org.bibliome.util.filelines.FileLines;
-import org.bibliome.util.filelines.InvalidFileLineEntry;
-import org.bibliome.util.marshall.Decoder;
-import org.bibliome.util.marshall.Encoder;
-import org.bibliome.util.streams.SourceStream;
-import org.bibliome.util.trie.Trie;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -26,6 +19,13 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.StringCat;
+import fr.inra.maiage.bibliome.util.filelines.FileLines;
+import fr.inra.maiage.bibliome.util.filelines.InvalidFileLineEntry;
+import fr.inra.maiage.bibliome.util.marshall.Decoder;
+import fr.inra.maiage.bibliome.util.marshall.Encoder;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
+import fr.inra.maiage.bibliome.util.trie.Trie;
 
 @AlvisNLPModule
 public abstract class TreeTaggerTermsProjector extends TrieProjector<SectionResolvedObjects,String[]> {

@@ -20,12 +20,11 @@ package alvisnlp.corpus.dump.codec;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
-import org.bibliome.util.marshall.MapReadCache;
-import org.bibliome.util.marshall.ReadCache;
-import org.bibliome.util.marshall.Unmarshaller;
-
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Document;
+import fr.inra.maiage.bibliome.util.marshall.MapReadCache;
+import fr.inra.maiage.bibliome.util.marshall.ReadCache;
+import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
 
 public class CorpusDecoder extends ElementDecoder<Corpus> {
 	private final DocumentDecoder docDecoder;

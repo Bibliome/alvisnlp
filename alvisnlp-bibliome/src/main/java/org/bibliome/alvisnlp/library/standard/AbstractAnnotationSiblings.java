@@ -21,8 +21,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import org.bibliome.util.Pair;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Document;
@@ -39,6 +37,7 @@ import alvisnlp.corpus.expressions.EvaluationType;
 import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.Pair;
 
 abstract class AbstractAnnotationSiblings extends AbstractListEvaluator implements ElementVisitor<List<Element>,Pair<EvaluationContext,Element>> {
 	protected final Evaluator layerNameEvaluator;

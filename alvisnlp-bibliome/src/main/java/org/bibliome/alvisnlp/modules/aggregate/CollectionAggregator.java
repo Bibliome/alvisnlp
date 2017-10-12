@@ -19,13 +19,12 @@ package org.bibliome.alvisnlp.modules.aggregate;
 
 import java.util.Collection;
 
-import org.bibliome.util.Strings;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.corpus.expressions.Expression;
 import alvisnlp.corpus.expressions.LibraryResolver;
+import fr.inra.maiage.bibliome.util.Strings;
 
 class CollectionAggregator extends Aggregator {
 	private final CollectionFactory collectionFactory;

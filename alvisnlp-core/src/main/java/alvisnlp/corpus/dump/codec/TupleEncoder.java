@@ -20,9 +20,8 @@ package alvisnlp.corpus.dump.codec;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
-import org.bibliome.util.marshall.Marshaller;
-
 import alvisnlp.corpus.Tuple;
+import fr.inra.maiage.bibliome.util.marshall.Marshaller;
 
 public class TupleEncoder extends ElementEncoder<Tuple> {
 	TupleEncoder(Marshaller<String> stringMarshaller) {

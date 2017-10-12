@@ -19,8 +19,6 @@ package org.bibliome.alvisnlp.library.standard;
 
 import java.util.Iterator;
 
-import org.bibliome.util.Iterators;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.DownCastElement;
 import alvisnlp.corpus.Element;
@@ -30,6 +28,7 @@ import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.corpus.expressions.Function;
 import alvisnlp.corpus.expressions.FunctionLibrary;
 import alvisnlp.corpus.expressions.Library;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 @Library("setlayer")
 public abstract class SetLayerLibrary extends FunctionLibrary {

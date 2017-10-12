@@ -20,12 +20,11 @@ package alvisnlp.module.types;
 import java.util.LinkedHashMap;
 import java.util.logging.Logger;
 
-import org.bibliome.util.Checkable;
-
 import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.util.Checkable;
 
 public class EvaluatorMapping extends LinkedHashMap<String,Evaluator> implements Checkable, NameUser {
 	private static final long serialVersionUID = 1L;

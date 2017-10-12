@@ -33,13 +33,6 @@ import java.util.regex.Pattern;
 import org.bibliome.alvisnlp.modules.DefaultExpressions;
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.util.Files;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.Strings;
-import org.bibliome.util.Timer;
-import org.bibliome.util.files.ExecutableFile;
-import org.bibliome.util.files.InputFile;
-import org.bibliome.util.files.WorkingDirectory;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -62,6 +55,13 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.External;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Files;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.Timer;
+import fr.inra.maiage.bibliome.util.files.ExecutableFile;
+import fr.inra.maiage.bibliome.util.files.InputFile;
+import fr.inra.maiage.bibliome.util.files.WorkingDirectory;
 
 // TODO: Auto-generated Javadoc
 /**

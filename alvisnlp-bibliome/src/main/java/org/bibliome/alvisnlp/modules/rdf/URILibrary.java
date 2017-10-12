@@ -21,8 +21,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.apache.jena.rdf.model.Resource;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.StringCat;
 
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.AbstractIteratorEvaluator;
@@ -37,6 +35,8 @@ import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.documentation.Documentation;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.StringCat;
 
 class URILibrary extends FunctionLibrary {
 	private final ElementResourceMap resourceMap;

@@ -23,8 +23,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
-import org.bibliome.util.defaultmap.DefaultLinkedHashSetLinkedHashMap;
-import org.bibliome.util.defaultmap.DefaultMap;
+import fr.inra.maiage.bibliome.util.defaultmap.DefaultLinkedHashSetLinkedHashMap;
+import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
 
 public class GlobalNameUsage {
 	private final Map<String,DefaultMap<String,Set<String>>> map = new LinkedHashMap<String,DefaultMap<String,Set<String>>>();

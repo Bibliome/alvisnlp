@@ -19,8 +19,6 @@ package org.bibliome.alvisnlp.modules.aggregate;
 
 import java.text.DecimalFormat;
 
-import org.bibliome.util.ArithmeticOperator;
-import org.bibliome.util.SuperiorOperator;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Element;
 
@@ -29,6 +27,8 @@ import alvisnlp.converters.lib.AbstractParamConverter;
 import alvisnlp.converters.lib.Converter;
 import alvisnlp.corpus.expressions.ConstantsLibrary;
 import alvisnlp.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.util.ArithmeticOperator;
+import fr.inra.maiage.bibliome.util.SuperiorOperator;
 
 @Converter(targetType=Aggregator.class)
 public class AggregatorParamConverter extends AbstractParamConverter<Aggregator> {

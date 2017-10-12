@@ -17,16 +17,15 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.projectors;
 
-import org.bibliome.util.newprojector.CharFilter;
-import org.bibliome.util.newprojector.Dictionary;
-import org.bibliome.util.newprojector.Matcher;
-import org.bibliome.util.newprojector.chars.Filters;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.NameType;
 import alvisnlp.corpus.Section;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.newprojector.CharFilter;
+import fr.inra.maiage.bibliome.util.newprojector.Dictionary;
+import fr.inra.maiage.bibliome.util.newprojector.Matcher;
+import fr.inra.maiage.bibliome.util.newprojector.chars.Filters;
 
 public class LayerSubject implements Subject {
 	private final String layerName;

@@ -22,19 +22,19 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.bibliome.util.files.AbstractFile;
-import org.bibliome.util.files.FileFactory;
-import org.bibliome.util.files.OutputFile;
-import org.bibliome.util.streams.CollectionTargetStream;
-import org.bibliome.util.streams.FileTargetStream;
-import org.bibliome.util.streams.OutputStreamTargetStream;
-import org.bibliome.util.streams.TargetStream;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Element;
 
 import alvisnlp.converters.ConverterException;
 import alvisnlp.converters.lib.AbstractParamConverter;
 import alvisnlp.converters.lib.Converter;
+import fr.inra.maiage.bibliome.util.files.AbstractFile;
+import fr.inra.maiage.bibliome.util.files.FileFactory;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
+import fr.inra.maiage.bibliome.util.streams.CollectionTargetStream;
+import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
+import fr.inra.maiage.bibliome.util.streams.OutputStreamTargetStream;
+import fr.inra.maiage.bibliome.util.streams.TargetStream;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 @Converter(targetType=TargetStream.class)
 public class TargetStreamParamConverter extends AbstractParamConverter<TargetStream> {

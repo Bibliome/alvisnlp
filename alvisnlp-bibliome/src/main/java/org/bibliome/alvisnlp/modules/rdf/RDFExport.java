@@ -33,12 +33,6 @@ import org.apache.jena.shared.PrefixMapping;
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
 import org.bibliome.alvisnlp.modules.rdf.RDFExport.RDFExportResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.LoggingUtils;
-import org.bibliome.util.files.OutputDirectory;
-import org.bibliome.util.files.OutputFile;
-import org.bibliome.util.streams.FileTargetStream;
-import org.bibliome.util.streams.TargetStream;
 
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Element;
@@ -55,6 +49,12 @@ import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
 import alvisnlp.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.LoggingUtils;
+import fr.inra.maiage.bibliome.util.files.OutputDirectory;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
+import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
+import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 @AlvisNLPModule(beta=true)
 public class RDFExport extends CorpusModule<RDFExportResolvedObjects> {

@@ -23,17 +23,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import org.bibliome.util.streams.CollectionSourceStream;
-import org.bibliome.util.streams.CompressionFilter;
-import org.bibliome.util.streams.PatternFileFilter;
-import org.bibliome.util.streams.SourceStream;
-import org.bibliome.util.streams.StreamFactory;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Element;
 
 import alvisnlp.converters.ConverterException;
 import alvisnlp.converters.lib.AbstractParamConverter;
 import alvisnlp.converters.lib.Converter;
+import fr.inra.maiage.bibliome.util.streams.CollectionSourceStream;
+import fr.inra.maiage.bibliome.util.streams.CompressionFilter;
+import fr.inra.maiage.bibliome.util.streams.PatternFileFilter;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
+import fr.inra.maiage.bibliome.util.streams.StreamFactory;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 @Converter(targetType=SourceStream.class)
 public class SourceStreamParamConverter extends AbstractParamConverter<SourceStream> {

@@ -17,9 +17,8 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.converters;
 
-import org.bibliome.util.files.OutputFile;
-
 import alvisnlp.converters.lib.Converter;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 @Converter(targetType=OutputFile.class)
 public class OutputFileParamConverter extends AbstractOutputFileParamConverter<OutputFile> {

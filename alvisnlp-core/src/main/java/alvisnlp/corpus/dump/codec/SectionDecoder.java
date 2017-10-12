@@ -20,16 +20,15 @@ package alvisnlp.corpus.dump.codec;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
-import org.bibliome.util.marshall.MapReadCache;
-import org.bibliome.util.marshall.ReadCache;
-import org.bibliome.util.marshall.Unmarshaller;
-
 import alvisnlp.corpus.Document;
 import alvisnlp.corpus.Layer;
 import alvisnlp.corpus.Relation;
 import alvisnlp.corpus.Section;
 import alvisnlp.corpus.creators.SectionCreator;
 import alvisnlp.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.marshall.MapReadCache;
+import fr.inra.maiage.bibliome.util.marshall.ReadCache;
+import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
 
 public class SectionDecoder extends ElementDecoder<Section> implements SectionCreator {
 	private final LayerDecoder layerDecoder;

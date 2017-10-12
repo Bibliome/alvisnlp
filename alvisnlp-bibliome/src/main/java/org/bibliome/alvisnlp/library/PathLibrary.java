@@ -28,9 +28,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.defaultmap.DefaultMap;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.AbstractIteratorEvaluator;
 import alvisnlp.corpus.expressions.AbstractListEvaluator;
@@ -41,6 +38,8 @@ import alvisnlp.corpus.expressions.FunctionLibrary;
 import alvisnlp.corpus.expressions.Library;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
 
 @Library("cpath")
 public abstract class PathLibrary extends FunctionLibrary {

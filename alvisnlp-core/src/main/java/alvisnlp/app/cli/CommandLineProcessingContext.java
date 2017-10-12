@@ -33,10 +33,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import org.bibliome.util.Strings;
-import org.bibliome.util.Timer;
-import org.bibliome.util.defaultmap.DefaultMap;
-
 import alvisnlp.module.AbstractParamVisitor;
 import alvisnlp.module.Annotable;
 import alvisnlp.module.GlobalNameUsage;
@@ -50,6 +46,9 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.External;
 import alvisnlp.module.lib.ExternalFailureException;
 import alvisnlp.module.lib.ModuleBase;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.Timer;
+import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
 
 /**
  * Base class for processing contexts of alvisnlp CLI.

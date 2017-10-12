@@ -24,9 +24,6 @@ import java.util.logging.Logger;
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
 import org.bibliome.alvisnlp.modules.prolog.RunProlog.RunPrologResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.Timer;
-import org.bibliome.util.streams.SourceStream;
 
 import alice.tuprolog.Prolog;
 import alice.tuprolog.PrologException;
@@ -47,6 +44,9 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.Timer;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule(beta=true)
 public abstract class RunProlog extends CorpusModule<RunPrologResolvedObjects> implements ActionInterface {

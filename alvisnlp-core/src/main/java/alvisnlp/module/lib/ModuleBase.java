@@ -34,9 +34,6 @@ import java.util.logging.Logger;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 
-import org.bibliome.util.Strings;
-import org.bibliome.util.Timer;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -52,6 +49,9 @@ import alvisnlp.module.ProcessingException;
 import alvisnlp.module.Sequence;
 import alvisnlp.module.TimerCategory;
 import alvisnlp.module.UnexpectedParameterException;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.Timer;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 /**
  * Base class for module implementations.

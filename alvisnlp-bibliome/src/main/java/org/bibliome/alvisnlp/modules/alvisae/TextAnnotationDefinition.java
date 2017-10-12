@@ -19,7 +19,6 @@ package org.bibliome.alvisnlp.modules.alvisae;
 
 import org.bibliome.alvisnlp.modules.alvisae.AlvisAEWriter.CadixeExportContext;
 import org.bibliome.alvisnlp.modules.alvisae.TextAnnotationDefinition.Resolved;
-import org.bibliome.util.Iterators;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -34,6 +33,7 @@ import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.types.ExpressionMapping;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 public class TextAnnotationDefinition extends AnnotationDefinition implements Resolvable<Resolved> {
 	private final Expression fragments;

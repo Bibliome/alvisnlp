@@ -21,8 +21,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.bibliome.util.pattern.SequenceMatcher;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.NameType;
 import alvisnlp.corpus.Section;
@@ -33,6 +31,7 @@ import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.types.EvaluatorMapping;
 import alvisnlp.module.types.ExpressionMapping;
+import fr.inra.maiage.bibliome.util.pattern.SequenceMatcher;
 
 public abstract class AbstractSetFeatures<T extends Element> extends AbstractMatchAction {
 	protected final ExpressionMapping features;

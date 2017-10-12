@@ -25,8 +25,6 @@ import java.util.Collections;
 import java.util.LinkedHashSet;
 import java.util.logging.Logger;
 
-import org.bibliome.util.Timer;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.ArgumentElement;
 import alvisnlp.corpus.Corpus;
@@ -37,6 +35,7 @@ import alvisnlp.corpus.Relation;
 import alvisnlp.corpus.Section;
 import alvisnlp.corpus.dump.CorpusDumper;
 import alvisnlp.module.Annotable.Dumper;
+import fr.inra.maiage.bibliome.util.Timer;
 import alvisnlp.module.Module;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.TimerCategory;

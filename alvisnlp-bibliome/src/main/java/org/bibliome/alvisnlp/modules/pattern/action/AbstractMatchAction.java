@@ -19,8 +19,6 @@ package org.bibliome.alvisnlp.modules.pattern.action;
 
 import java.util.Iterator;
 
-import org.bibliome.util.pattern.SequenceMatcher;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.Section;
 import alvisnlp.corpus.expressions.EvaluationContext;
@@ -28,6 +26,7 @@ import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.corpus.expressions.Expression;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.pattern.SequenceMatcher;
 
 
 abstract class AbstractMatchAction implements MatchAction {

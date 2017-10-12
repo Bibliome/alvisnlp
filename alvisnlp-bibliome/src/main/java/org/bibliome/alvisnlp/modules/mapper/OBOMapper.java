@@ -21,8 +21,6 @@ import java.io.IOException;
 import java.util.List;
 
 import org.bibliome.alvisnlp.modules.mapper.Mapper.MapperResolvedObjects;
-import org.bibliome.util.defaultmap.DefaultMap;
-import org.bibliome.util.obo.OBOUtils;
 import org.obo.dataadapter.OBOParseException;
 import org.obo.datamodel.Dbxref;
 import org.obo.datamodel.Link;
@@ -41,6 +39,8 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.ProcessingException;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
+import fr.inra.maiage.bibliome.util.obo.OBOUtils;
 
 @AlvisNLPModule
 public class OBOMapper extends Mapper<MapperResolvedObjects,OBOClass> {

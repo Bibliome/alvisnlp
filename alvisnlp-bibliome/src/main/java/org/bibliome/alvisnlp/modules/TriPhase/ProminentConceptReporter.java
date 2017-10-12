@@ -28,7 +28,6 @@ import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
-import org.bibliome.util.Iterators;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -48,6 +47,7 @@ import alvisnlp.module.ProcessingException;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 /**
  * Module specific to TriPhase project. This module is used to reveal the

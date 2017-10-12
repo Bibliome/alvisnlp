@@ -26,9 +26,6 @@ import java.util.logging.Logger;
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
 import org.bibliome.alvisnlp.modules.aggregate.AggregateValues.AggregateValuesResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.defaultmap.DefaultMap;
-import org.bibliome.util.streams.TargetStream;
 
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Element;
@@ -44,6 +41,9 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
+import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 @AlvisNLPModule(beta=true)
 public class AggregateValues extends CorpusModule<AggregateValuesResolvedObjects> {

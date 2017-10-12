@@ -25,16 +25,6 @@ import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.Timer;
-import org.bibliome.util.newprojector.CharFilter;
-import org.bibliome.util.newprojector.CharMapper;
-import org.bibliome.util.newprojector.Dictionary;
-import org.bibliome.util.newprojector.Match;
-import org.bibliome.util.newprojector.Matcher;
-import org.bibliome.util.newprojector.State;
-import org.bibliome.util.newprojector.chars.Filters;
-import org.bibliome.util.newprojector.chars.Mappers;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -47,6 +37,16 @@ import alvisnlp.module.ModuleException;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.Timer;
+import fr.inra.maiage.bibliome.util.newprojector.CharFilter;
+import fr.inra.maiage.bibliome.util.newprojector.CharMapper;
+import fr.inra.maiage.bibliome.util.newprojector.Dictionary;
+import fr.inra.maiage.bibliome.util.newprojector.Match;
+import fr.inra.maiage.bibliome.util.newprojector.Matcher;
+import fr.inra.maiage.bibliome.util.newprojector.State;
+import fr.inra.maiage.bibliome.util.newprojector.chars.Filters;
+import fr.inra.maiage.bibliome.util.newprojector.chars.Mappers;
 
 public abstract class Projector<S extends SectionResolvedObjects,T,D extends Dictionary<T>> extends SectionModule<S> implements AnnotationCreator {
 	private String targetLayerName = null;

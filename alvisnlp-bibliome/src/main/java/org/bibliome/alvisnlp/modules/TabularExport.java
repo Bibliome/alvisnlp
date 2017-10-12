@@ -22,13 +22,6 @@ import java.io.PrintStream;
 import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.TabularExport.TabularExportResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.Strings;
-import org.bibliome.util.Timer;
-import org.bibliome.util.files.OutputDirectory;
-import org.bibliome.util.files.OutputFile;
-import org.bibliome.util.streams.FileTargetStream;
-import org.bibliome.util.streams.TargetStream;
 
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Element;
@@ -45,6 +38,13 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.Timer;
+import fr.inra.maiage.bibliome.util.files.OutputDirectory;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
+import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
+import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 @AlvisNLPModule
 public class TabularExport extends CorpusModule<TabularExportResolvedObjects> {

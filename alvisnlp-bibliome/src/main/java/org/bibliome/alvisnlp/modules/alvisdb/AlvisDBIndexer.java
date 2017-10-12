@@ -30,7 +30,6 @@ import org.apache.lucene.util.Version;
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
 import org.bibliome.alvisnlp.modules.alvisdb.AlvisDBIndexer.AlvisDBIndexerResolvedObjects;
-import org.bibliome.util.files.OutputDirectory;
 
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.expressions.EvaluationContext;
@@ -40,6 +39,7 @@ import alvisnlp.module.NameUsage;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.files.OutputDirectory;
 
 @AlvisNLPModule(beta=true)
 public class AlvisDBIndexer extends CorpusModule<AlvisDBIndexerResolvedObjects>{

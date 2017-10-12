@@ -26,8 +26,6 @@ import java.util.logging.Logger;
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
 import org.bibliome.alvisnlp.modules.compare.CompareElements.CompareElementsResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.streams.TargetStream;
 
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Element;
@@ -41,6 +39,8 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.ProcessingException;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 @AlvisNLPModule
 public class CompareElements extends CorpusModule<CompareElementsResolvedObjects> {

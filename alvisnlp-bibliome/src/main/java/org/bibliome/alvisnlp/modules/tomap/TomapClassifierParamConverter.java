@@ -17,11 +17,6 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.tomap;
 
-import org.bibliome.util.service.UnsupportedServiceException;
-import org.bibliome.util.streams.SourceStream;
-import org.bibliome.util.tomap.classifiers.CandidateDistanceFactory;
-import org.bibliome.util.tomap.classifiers.StandardCandidateDistanceFactory;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -29,6 +24,11 @@ import alvisnlp.converters.ConverterException;
 import alvisnlp.converters.ParamConverter;
 import alvisnlp.converters.lib.AbstractParamConverter;
 import alvisnlp.converters.lib.Converter;
+import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
+import fr.inra.maiage.bibliome.util.tomap.classifiers.CandidateDistanceFactory;
+import fr.inra.maiage.bibliome.util.tomap.classifiers.StandardCandidateDistanceFactory;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 @Converter(targetType=TomapClassifier.class)
 public class TomapClassifierParamConverter extends AbstractParamConverter<TomapClassifier> {

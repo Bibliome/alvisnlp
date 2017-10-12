@@ -16,12 +16,6 @@ import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.shared.PrefixMapping;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 import org.bibliome.alvisnlp.modules.trie.TrieProjector;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.LoggingUtils;
-import org.bibliome.util.marshall.Decoder;
-import org.bibliome.util.marshall.Encoder;
-import org.bibliome.util.streams.SourceStream;
-import org.bibliome.util.trie.Trie;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -34,6 +28,12 @@ import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
 import alvisnlp.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.LoggingUtils;
+import fr.inra.maiage.bibliome.util.marshall.Decoder;
+import fr.inra.maiage.bibliome.util.marshall.Encoder;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
+import fr.inra.maiage.bibliome.util.trie.Trie;
 
 @AlvisNLPModule(beta=true)
 public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,Resource> {

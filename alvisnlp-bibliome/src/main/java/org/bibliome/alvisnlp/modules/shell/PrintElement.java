@@ -17,8 +17,6 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.shell;
 
-import org.bibliome.util.Strings;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Document;
@@ -27,6 +25,7 @@ import alvisnlp.corpus.ElementVisitor;
 import alvisnlp.corpus.Relation;
 import alvisnlp.corpus.Section;
 import alvisnlp.corpus.Tuple;
+import fr.inra.maiage.bibliome.util.Strings;
 
 class PrintElement implements ElementVisitor<String,Void> {
 	final static PrintElement INSTANCE = new PrintElement();

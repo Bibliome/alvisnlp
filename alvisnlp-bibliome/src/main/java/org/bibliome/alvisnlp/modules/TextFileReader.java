@@ -22,9 +22,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.streams.SourceStream;
-
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Document;
 import alvisnlp.corpus.NameType;
@@ -36,6 +33,8 @@ import alvisnlp.module.ModuleException;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 /**
  * Reads the contents of text files and creates a document with a single section

@@ -31,12 +31,6 @@ import java.util.logging.Logger;
 
 import javax.xml.parsers.DocumentBuilder;
 
-import org.bibliome.util.Strings;
-import org.bibliome.util.service.ServiceException;
-import org.bibliome.util.service.UnsupportedServiceException;
-import org.bibliome.util.streams.SourceStream;
-import org.bibliome.util.streams.StreamFactory;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Comment;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -56,6 +50,12 @@ import alvisnlp.module.ModuleException;
 import alvisnlp.module.ParamHandler;
 import alvisnlp.module.ParameterException;
 import alvisnlp.module.Sequence;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.service.ServiceException;
+import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
+import fr.inra.maiage.bibliome.util.streams.StreamFactory;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 /**
  * A plan loader reads plans from XML files.

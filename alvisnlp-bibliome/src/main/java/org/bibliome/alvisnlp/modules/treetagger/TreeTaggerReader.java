@@ -24,11 +24,6 @@ import java.util.List;
 
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.StringCat;
-import org.bibliome.util.filelines.InvalidFileLineEntry;
-import org.bibliome.util.filelines.RecordFileLines;
-import org.bibliome.util.streams.SourceStream;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -46,6 +41,11 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.ProcessingException;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.StringCat;
+import fr.inra.maiage.bibliome.util.filelines.InvalidFileLineEntry;
+import fr.inra.maiage.bibliome.util.filelines.RecordFileLines;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule
 public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator {

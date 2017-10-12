@@ -22,8 +22,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.bibliome.util.pattern.SequenceMatcher;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.DownCastElement;
 import alvisnlp.corpus.Element;
@@ -40,6 +38,7 @@ import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.types.EvaluatorMapping;
 import alvisnlp.module.types.ExpressionMapping;
+import fr.inra.maiage.bibliome.util.pattern.SequenceMatcher;
 
 public class CreateTuple extends AbstractSetFeatures<Tuple> {
 	private final String relationName;

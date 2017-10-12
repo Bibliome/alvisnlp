@@ -27,15 +27,14 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.filters.Filters;
-import org.bibliome.util.mappers.Mapper;
-import org.bibliome.util.mappers.Mappers;
-
 import alvisnlp.corpus.Corpus.SectionToLayerMapper;
 import alvisnlp.corpus.creators.DocumentCreator;
 import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.filters.Filters;
+import fr.inra.maiage.bibliome.util.mappers.Mapper;
+import fr.inra.maiage.bibliome.util.mappers.Mappers;
 
 /**
  * A Document object represents a document to be annotated.

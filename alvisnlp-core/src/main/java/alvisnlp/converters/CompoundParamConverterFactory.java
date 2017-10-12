@@ -20,7 +20,7 @@ package alvisnlp.converters;
 import java.util.Arrays;
 import java.util.Collection;
 
-import org.bibliome.util.service.CompositeServiceFactory;
+import fr.inra.maiage.bibliome.util.service.CompositeServiceFactory;
 
 /**
  * Compound converter factory.

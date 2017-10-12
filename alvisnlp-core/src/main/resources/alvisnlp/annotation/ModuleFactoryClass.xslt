@@ -26,14 +26,14 @@ limitations under the License.
 package <xsl:value-of select="@package"/>;
 
 @javax.annotation.Generated(value={"<xsl:value-of select="@generator"/>"}, date="<xsl:value-of select="@date"/>", comments="<xsl:value-of select="@generator-version"/>")
-@org.bibliome.util.service.Service(<xsl:value-of select="@factoryInterface"/>.class)
-public final class <xsl:value-of select="@name"/> extends org.bibliome.util.service.AbstractServiceFactory&lt;Class&lt;? extends alvisnlp.module.Module&lt;<xsl:value-of select="@dataClass"/>&gt;>,alvisnlp.module.Module&lt;<xsl:value-of select="@dataClass"/>&gt;> implements <xsl:value-of select="@factoryInterface"/> {
+@fr.inra.maiage.bibliome.util.service.Service(<xsl:value-of select="@factoryInterface"/>.class)
+public final class <xsl:value-of select="@name"/> extends fr.inra.maiage.bibliome.util.service.AbstractServiceFactory&lt;Class&lt;? extends alvisnlp.module.Module&lt;<xsl:value-of select="@dataClass"/>&gt;>,alvisnlp.module.Module&lt;<xsl:value-of select="@dataClass"/>&gt;> implements <xsl:value-of select="@factoryInterface"/> {
     public <xsl:value-of select="@name"/>() {<xsl:for-each select="module">
         addSupportedService(<xsl:value-of select="@full-name"/>.class);</xsl:for-each>
     }
     
     @Override
-    public alvisnlp.module.Module&lt;<xsl:value-of select="@dataClass"/>&gt; getService(Class&lt;? extends alvisnlp.module.Module&lt;<xsl:value-of select="@dataClass"/>&gt;> moduleClass) throws org.bibliome.util.service.UnsupportedServiceException {
+    public alvisnlp.module.Module&lt;<xsl:value-of select="@dataClass"/>&gt; getService(Class&lt;? extends alvisnlp.module.Module&lt;<xsl:value-of select="@dataClass"/>&gt;> moduleClass) throws fr.inra.maiage.bibliome.util.service.UnsupportedServiceException {
         try {<xsl:for-each select="module">
             if (<xsl:value-of select="@full-name"/>.class.equals(moduleClass))<xsl:choose>
                 	<xsl:when test="count(accessor|funlib|timed-method) = 0">
@@ -45,7 +45,7 @@ public final class <xsl:value-of select="@name"/> extends org.bibliome.util.serv
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        throw new org.bibliome.util.service.UnsupportedServiceException(moduleClass.getName());
+        throw new fr.inra.maiage.bibliome.util.service.UnsupportedServiceException(moduleClass.getName());
     }
 
     @Override

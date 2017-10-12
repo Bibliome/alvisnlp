@@ -28,10 +28,6 @@ import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.RelpWriter.RelpWriterResolvedObjects;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.Timer;
-import org.bibliome.util.defaultmap.DefaultMap;
-import org.bibliome.util.streams.TargetStream;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -53,6 +49,10 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.Timer;
+import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
+import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 @AlvisNLPModule
 public class RelpWriter extends SectionModule<RelpWriterResolvedObjects> {

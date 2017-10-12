@@ -19,11 +19,6 @@ package org.bibliome.alvisnlp.library;
 
 import java.util.List;
 
-import org.bibliome.util.pairing.AlignmentProbability;
-import org.bibliome.util.pairing.AlignmentScore;
-import org.bibliome.util.pairing.ClassicAlignmentScore;
-import org.bibliome.util.pairing.NeedlemanWunsch;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.AbstractDoubleEvaluator;
 import alvisnlp.corpus.expressions.EvaluationContext;
@@ -33,6 +28,10 @@ import alvisnlp.corpus.expressions.FunctionLibrary;
 import alvisnlp.corpus.expressions.Library;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.pairing.AlignmentProbability;
+import fr.inra.maiage.bibliome.util.pairing.AlignmentScore;
+import fr.inra.maiage.bibliome.util.pairing.ClassicAlignmentScore;
+import fr.inra.maiage.bibliome.util.pairing.NeedlemanWunsch;
 
 @Library("align")
 public abstract class AlignmentLibrary extends FunctionLibrary {

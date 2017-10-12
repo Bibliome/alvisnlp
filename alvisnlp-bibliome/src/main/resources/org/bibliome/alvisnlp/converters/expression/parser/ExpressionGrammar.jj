@@ -39,16 +39,16 @@ import java.io.StringReader;
 import org.bibliome.alvisnlp.library.standard.NavigationLibrary;
 import org.bibliome.alvisnlp.modules.pattern.ElementPattern;
 import org.bibliome.alvisnlp.modules.pattern.ExpressionFilterProxy;
-import org.bibliome.util.Pair;
-import org.bibliome.util.pattern.Alternatives;
-import org.bibliome.util.pattern.CapturingGroup;
-import org.bibliome.util.pattern.Clause;
-import org.bibliome.util.pattern.Group;
-import org.bibliome.util.pattern.Predicate;
-import org.bibliome.util.pattern.Quantifier;
-import org.bibliome.util.pattern.QuantifierType;
-import org.bibliome.util.pattern.SequenceEnd;
-import org.bibliome.util.pattern.SequenceStart;
+import fr.inra.maiage.bibliome.util.Pair;
+import fr.inra.maiage.bibliome.util.pattern.Alternatives;
+import fr.inra.maiage.bibliome.util.pattern.CapturingGroup;
+import fr.inra.maiage.bibliome.util.pattern.Clause;
+import fr.inra.maiage.bibliome.util.pattern.Group;
+import fr.inra.maiage.bibliome.util.pattern.Predicate;
+import fr.inra.maiage.bibliome.util.pattern.Quantifier;
+import fr.inra.maiage.bibliome.util.pattern.QuantifierType;
+import fr.inra.maiage.bibliome.util.pattern.SequenceEnd;
+import fr.inra.maiage.bibliome.util.pattern.SequenceStart;
 
 import alvisnlp.corpus.expressions.Expression;
 

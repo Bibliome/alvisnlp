@@ -30,10 +30,6 @@ import java.util.logging.Logger;
 
 import javax.xml.xpath.XPathExpressionException;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.files.InputDirectory;
-import org.bibliome.util.streams.SourceStream;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
@@ -48,6 +44,10 @@ import alvisnlp.module.ModuleException;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.files.InputDirectory;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 /**
  * Reads the contents of text files and creates a document with a single section

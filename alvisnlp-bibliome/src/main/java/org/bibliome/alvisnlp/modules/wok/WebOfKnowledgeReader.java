@@ -24,8 +24,6 @@ import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
-import org.bibliome.util.Strings;
-import org.bibliome.util.streams.SourceStream;
 
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.NameType;
@@ -40,6 +38,8 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule
 public abstract class WebOfKnowledgeReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator {

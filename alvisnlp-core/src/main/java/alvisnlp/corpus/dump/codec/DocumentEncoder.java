@@ -20,13 +20,12 @@ package alvisnlp.corpus.dump.codec;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.marshall.MapWriteCache;
-import org.bibliome.util.marshall.Marshaller;
-import org.bibliome.util.marshall.WriteCache;
-
 import alvisnlp.corpus.Document;
 import alvisnlp.corpus.Section;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.marshall.MapWriteCache;
+import fr.inra.maiage.bibliome.util.marshall.Marshaller;
+import fr.inra.maiage.bibliome.util.marshall.WriteCache;
 
 public class DocumentEncoder extends ElementEncoder<Document> {
 	private final SectionEncoder sectionEncoder;

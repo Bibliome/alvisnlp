@@ -16,7 +16,7 @@
     <param-doc default-value="true" mandatory="default: true" name="documentFilter" short-type="Expression" type="alvisnlp.corpus.expressions.Expression">
       <p>UNDOCUMENTED</p>
     </param-doc>
-    <param-doc mandatory="required" name="outFile" short-type="OutputFile" type="org.bibliome.util.files.OutputFile">
+    <param-doc mandatory="required" name="outFile" short-type="OutputFile" type="fr.inra.maiage.bibliome.util.files.OutputFile">
       <p>UNDOCUMENTED</p>
     </param-doc>
     <param-doc default-value="org.bibliome.alvisnlp.modules.pubannotation.RelationSpecification@3daa422a" mandatory="default: org.bibliome.alvisnlp.modules.pubannotation.RelationSpecification@3daa422a" name="relations" short-type="RelationSpecification[]" type="org.bibliome.alvisnlp.modules.pubannotation.RelationSpecification[]">

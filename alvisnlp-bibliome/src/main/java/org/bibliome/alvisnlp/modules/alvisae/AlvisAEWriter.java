@@ -33,12 +33,6 @@ import org.bibliome.alvisnlp.converters.expression.parser.ExpressionParser;
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 import org.bibliome.alvisnlp.modules.alvisae.AlvisAEWriter.AlvisAEExportResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.files.InputFile;
-import org.bibliome.util.files.OutputDirectory;
-import org.bibliome.util.files.OutputFile;
-import org.bibliome.util.streams.FileTargetStream;
-import org.bibliome.util.streams.TargetStream;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
@@ -58,6 +52,12 @@ import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.types.EvaluatorMapping;
 import alvisnlp.module.types.ExpressionMapping;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.files.InputFile;
+import fr.inra.maiage.bibliome.util.files.OutputDirectory;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
+import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
+import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 @AlvisNLPModule
 public class AlvisAEWriter extends SectionModule<AlvisAEExportResolvedObjects> {

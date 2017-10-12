@@ -25,7 +25,6 @@ import jline.ConsoleReader;
 
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
-import org.bibliome.util.files.OutputFile;
 
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.creators.AnnotationCreator;
@@ -38,6 +37,7 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 @AlvisNLPModule
 public abstract class Shell extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, TupleCreator {

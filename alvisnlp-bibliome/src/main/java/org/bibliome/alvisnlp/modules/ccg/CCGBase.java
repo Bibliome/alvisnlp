@@ -26,8 +26,6 @@ import java.util.logging.Logger;
 import org.bibliome.alvisnlp.modules.DefaultExpressions;
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.ccg.CCGBase.CCGResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.Strings;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -45,6 +43,8 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.Strings;
 
 public abstract class CCGBase<T extends CCGResolvedObjects> extends SectionModule<T> {
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();

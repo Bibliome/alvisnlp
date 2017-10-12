@@ -23,10 +23,9 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.Strings;
-
 import alvisnlp.corpus.Element;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.Strings;
 
 public abstract class AbstractStringEvaluator extends AbstractEvaluator {
 	protected AbstractStringEvaluator() {

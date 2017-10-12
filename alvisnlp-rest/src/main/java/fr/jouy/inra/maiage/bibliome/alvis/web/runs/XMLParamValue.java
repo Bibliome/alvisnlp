@@ -19,7 +19,6 @@ package fr.jouy.inra.maiage.bibliome.alvis.web.runs;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import org.bibliome.util.service.UnsupportedServiceException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -31,6 +30,7 @@ import alvisnlp.module.ParameterException;
 import alvisnlp.module.Sequence;
 import alvisnlp.plan.PlanException;
 import alvisnlp.plan.PlanLoader;
+import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
 
 public class XMLParamValue extends ParamValue<Element> {
 	protected XMLParamValue(String name, Element value) {

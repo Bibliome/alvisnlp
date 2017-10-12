@@ -28,12 +28,6 @@ import java.util.logging.Logger;
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
 import org.bibliome.alvisnlp.modules.tabular.TabularReader.TabularReaderResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.StringCat;
-import org.bibliome.util.filelines.FileLines;
-import org.bibliome.util.filelines.InvalidFileLineEntry;
-import org.bibliome.util.filelines.TabularFormat;
-import org.bibliome.util.streams.SourceStream;
 
 import alvisnlp.corpus.AbstractElement;
 import alvisnlp.corpus.Corpus;
@@ -59,6 +53,12 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.StringCat;
+import fr.inra.maiage.bibliome.util.filelines.FileLines;
+import fr.inra.maiage.bibliome.util.filelines.InvalidFileLineEntry;
+import fr.inra.maiage.bibliome.util.filelines.TabularFormat;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule(beta=true)
 public abstract class TabularReader extends CorpusModule<TabularReaderResolvedObjects> implements ActionInterface {

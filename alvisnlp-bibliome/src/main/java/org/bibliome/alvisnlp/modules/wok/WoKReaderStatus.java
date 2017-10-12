@@ -29,11 +29,11 @@ import org.bibliome.alvisnlp.modules.wok.readers.FormatVersion;
 import org.bibliome.alvisnlp.modules.wok.readers.NoOpFieldReader;
 import org.bibliome.alvisnlp.modules.wok.readers.PublicationType;
 import org.bibliome.alvisnlp.modules.wok.readers.SectionBuilder;
-import org.bibliome.util.Strings;
 
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Document;
 import alvisnlp.module.ProcessingException;
+import fr.inra.maiage.bibliome.util.Strings;
 
 public class WoKReaderStatus {
 	private final WebOfKnowledgeReader owner;

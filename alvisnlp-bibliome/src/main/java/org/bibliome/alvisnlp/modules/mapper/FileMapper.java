@@ -24,10 +24,6 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.mapper.Mapper.MapperResolvedObjects;
-import org.bibliome.util.defaultmap.DefaultMap;
-import org.bibliome.util.filelines.FileLines;
-import org.bibliome.util.filelines.InvalidFileLineEntry;
-import org.bibliome.util.streams.SourceStream;
 
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Element;
@@ -37,6 +33,10 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.ProcessingException;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
+import fr.inra.maiage.bibliome.util.filelines.FileLines;
+import fr.inra.maiage.bibliome.util.filelines.InvalidFileLineEntry;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 /**
  * Maps features according to a mapping file.

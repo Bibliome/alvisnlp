@@ -19,11 +19,11 @@ package alvisnlp.converters;
 
 import java.util.List;
 
-import org.bibliome.util.service.UnsupportedServiceException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import alvisnlp.documentation.Documentable;
+import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
 
 /**
  * The ParamConverter interface is the parameter conversion service. The objects

@@ -24,8 +24,8 @@ import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.bibliome.util.streams.FileSourceStream;
-import org.bibliome.util.streams.SourceStream;
+import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 public class TestReadConfig {
 	public static void main(String[] args) throws IOException {

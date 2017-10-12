@@ -22,13 +22,12 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.Collection;
 
-import org.bibliome.util.marshall.MapWriteCache;
-import org.bibliome.util.marshall.Marshaller;
-import org.bibliome.util.marshall.WriteCache;
-
 import alvisnlp.corpus.Layer;
 import alvisnlp.corpus.Relation;
 import alvisnlp.corpus.Section;
+import fr.inra.maiage.bibliome.util.marshall.MapWriteCache;
+import fr.inra.maiage.bibliome.util.marshall.Marshaller;
+import fr.inra.maiage.bibliome.util.marshall.WriteCache;
 
 public class SectionEncoder extends ElementEncoder<Section> {
 	private final LayerEncoder layerEncoder;

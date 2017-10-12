@@ -16,7 +16,7 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.tika;
 
-import org.bibliome.util.fragments.Fragment;
+import fr.inra.maiage.bibliome.util.fragments.Fragment;
 
 class ElementFragment implements Fragment {
 	private final String name;

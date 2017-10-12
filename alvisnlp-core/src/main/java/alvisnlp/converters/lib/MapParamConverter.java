@@ -20,13 +20,13 @@ package alvisnlp.converters.lib;
 import java.util.List;
 import java.util.Map;
 
-import org.bibliome.util.Strings;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import alvisnlp.converters.ConverterException;
 import alvisnlp.converters.ParamConverter;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 /**
  * Base class for mapping converters.

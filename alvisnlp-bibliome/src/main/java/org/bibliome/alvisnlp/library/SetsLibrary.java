@@ -21,8 +21,6 @@ import java.util.LinkedHashSet;
 import java.util.Iterator;
 import java.util.Set;
 
-import org.bibliome.util.Iterators;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.AbstractIteratorEvaluator;
 import alvisnlp.corpus.expressions.EvaluationContext;
@@ -32,6 +30,7 @@ import alvisnlp.corpus.expressions.FunctionLibrary;
 import alvisnlp.corpus.expressions.Library;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 @Library("sets")
 public abstract class SetsLibrary extends FunctionLibrary {

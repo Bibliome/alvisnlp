@@ -22,10 +22,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.mappers.Mapper;
-import org.bibliome.util.mappers.Mappers;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.ArgumentElement;
 import alvisnlp.corpus.Corpus;
@@ -48,6 +44,9 @@ import alvisnlp.corpus.expressions.Library;
 import alvisnlp.corpus.expressions.LibraryResolver;
 import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.corpus.expressions.VariableLibrary;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.mappers.Mapper;
+import fr.inra.maiage.bibliome.util.mappers.Mappers;
 
 @Library("nav")
 public abstract class NavigationLibrary extends FunctionLibrary {

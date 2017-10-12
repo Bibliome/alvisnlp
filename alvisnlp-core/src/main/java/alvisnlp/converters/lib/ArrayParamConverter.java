@@ -23,15 +23,15 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
-import org.bibliome.util.Strings;
-import org.bibliome.util.service.UnsupportedServiceException;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import alvisnlp.converters.ConverterException;
 import alvisnlp.converters.ParamConverter;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 /**
  * Base class for converters into array objects. This implementation assumes

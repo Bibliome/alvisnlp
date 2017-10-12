@@ -23,15 +23,6 @@ import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.files.InputFile;
-import org.bibliome.util.files.OutputFile;
-import org.bibliome.util.marshall.Decoder;
-import org.bibliome.util.marshall.Encoder;
-import org.bibliome.util.trie.Match;
-import org.bibliome.util.trie.Matcher;
-import org.bibliome.util.trie.StandardMatchControl;
-import org.bibliome.util.trie.Trie;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -45,6 +36,15 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.files.InputFile;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
+import fr.inra.maiage.bibliome.util.marshall.Decoder;
+import fr.inra.maiage.bibliome.util.marshall.Encoder;
+import fr.inra.maiage.bibliome.util.trie.Match;
+import fr.inra.maiage.bibliome.util.trie.Matcher;
+import fr.inra.maiage.bibliome.util.trie.StandardMatchControl;
+import fr.inra.maiage.bibliome.util.trie.Trie;
 
 public abstract class TrieProjector<S extends SectionResolvedObjects,T> extends SectionModule<S> implements AnnotationCreator {
 	private String targetLayerName;

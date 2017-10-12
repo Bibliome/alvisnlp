@@ -24,14 +24,14 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.xml.transform.TransformerConfigurationException;
 
-import org.bibliome.util.service.AmbiguousAliasException;
-import org.bibliome.util.service.UnsupportedServiceException;
 import org.w3c.dom.Document;
 
 import alvisnlp.corpus.Corpus;
 import alvisnlp.factory.CompoundCorpusModuleFactory;
 import alvisnlp.factory.CorpusModuleFactory;
 import alvisnlp.module.Module;
+import fr.inra.maiage.bibliome.util.service.AmbiguousAliasException;
+import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
 
 @Path("/modules")
 public class ModuleResource extends DocumentableResource<Class<? extends Module<Corpus>>,Module<Corpus>> {

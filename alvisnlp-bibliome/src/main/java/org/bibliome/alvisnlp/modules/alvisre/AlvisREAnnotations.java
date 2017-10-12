@@ -20,7 +20,6 @@ package org.bibliome.alvisnlp.modules.alvisre;
 import java.io.PrintStream;
 
 import org.bibliome.alvisnlp.modules.alvisre.AlvisREAnnotations.ResolvedAlvisREAnnotation;
-import org.bibliome.util.Iterators;
 
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.EvaluationContext;
@@ -32,6 +31,7 @@ import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 abstract class AlvisREAnnotations<T extends ResolvedAlvisREAnnotation> implements Resolvable<T> {
 	private final Expression items;

@@ -27,11 +27,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
-import org.bibliome.util.marshall.MapReadCache;
-import org.bibliome.util.marshall.ReadCache;
-import org.bibliome.util.marshall.StringCodec;
-import org.bibliome.util.marshall.Unmarshaller;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Document;
@@ -44,6 +39,10 @@ import alvisnlp.corpus.dump.codec.DocumentDecoder;
 import alvisnlp.corpus.dump.codec.LayerDecoder;
 import alvisnlp.corpus.dump.codec.RelationDecoder;
 import alvisnlp.corpus.dump.codec.SectionDecoder;
+import fr.inra.maiage.bibliome.util.marshall.MapReadCache;
+import fr.inra.maiage.bibliome.util.marshall.ReadCache;
+import fr.inra.maiage.bibliome.util.marshall.StringCodec;
+import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
 
 public class Undumper implements AutoCloseable {
 	private final FileChannel channel;

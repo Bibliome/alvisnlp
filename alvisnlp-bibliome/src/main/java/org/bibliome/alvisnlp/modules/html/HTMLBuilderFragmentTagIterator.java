@@ -25,16 +25,16 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-import org.bibliome.util.Strings;
-import org.bibliome.util.fragments.FragmentTag;
-import org.bibliome.util.fragments.FragmentTagIterator;
-import org.bibliome.util.fragments.FragmentTagType;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.Text;
 
 import alvisnlp.corpus.Annotation;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.fragments.FragmentTag;
+import fr.inra.maiage.bibliome.util.fragments.FragmentTagIterator;
+import fr.inra.maiage.bibliome.util.fragments.FragmentTagType;
 
 class HTMLBuilderFragmentTagIterator implements FragmentTagIterator<String,Annotation> {
 	private final QuickHTML owner;

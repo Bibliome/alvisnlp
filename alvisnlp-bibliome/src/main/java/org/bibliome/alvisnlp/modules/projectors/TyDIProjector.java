@@ -32,24 +32,6 @@ import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 import org.bibliome.alvisnlp.modules.trie.TyDIExportProjector;
-import org.bibliome.util.CartesianProduct;
-import org.bibliome.util.EquivalenceHashSets;
-import org.bibliome.util.EquivalenceSets;
-import org.bibliome.util.filelines.EquivFileLines;
-import org.bibliome.util.filelines.FileLines;
-import org.bibliome.util.filelines.InvalidFileLineEntry;
-import org.bibliome.util.filelines.TabularFormat;
-import org.bibliome.util.newprojector.CharFilter;
-import org.bibliome.util.newprojector.CharMapper;
-import org.bibliome.util.newprojector.Dictionary;
-import org.bibliome.util.newprojector.Match;
-import org.bibliome.util.newprojector.Matcher;
-import org.bibliome.util.newprojector.State;
-import org.bibliome.util.newprojector.chars.Filters;
-import org.bibliome.util.newprojector.chars.Mappers;
-import org.bibliome.util.newprojector.states.AllValuesState;
-import org.bibliome.util.streams.SourceStream;
-import org.bibliome.util.streams.TargetStream;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -59,6 +41,24 @@ import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.CartesianProduct;
+import fr.inra.maiage.bibliome.util.EquivalenceHashSets;
+import fr.inra.maiage.bibliome.util.EquivalenceSets;
+import fr.inra.maiage.bibliome.util.filelines.EquivFileLines;
+import fr.inra.maiage.bibliome.util.filelines.FileLines;
+import fr.inra.maiage.bibliome.util.filelines.InvalidFileLineEntry;
+import fr.inra.maiage.bibliome.util.filelines.TabularFormat;
+import fr.inra.maiage.bibliome.util.newprojector.CharFilter;
+import fr.inra.maiage.bibliome.util.newprojector.CharMapper;
+import fr.inra.maiage.bibliome.util.newprojector.Dictionary;
+import fr.inra.maiage.bibliome.util.newprojector.Match;
+import fr.inra.maiage.bibliome.util.newprojector.Matcher;
+import fr.inra.maiage.bibliome.util.newprojector.State;
+import fr.inra.maiage.bibliome.util.newprojector.chars.Filters;
+import fr.inra.maiage.bibliome.util.newprojector.chars.Mappers;
+import fr.inra.maiage.bibliome.util.newprojector.states.AllValuesState;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
+import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 @AlvisNLPModule(obsoleteUseInstead=TyDIExportProjector.class)
 public abstract class TyDIProjector extends Projector<SectionResolvedObjects,String,Dictionary<String>> {

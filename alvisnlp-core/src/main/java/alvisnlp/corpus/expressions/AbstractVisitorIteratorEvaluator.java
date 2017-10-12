@@ -19,8 +19,6 @@ package alvisnlp.corpus.expressions;
 
 import java.util.Iterator;
 
-import org.bibliome.util.Iterators;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Document;
@@ -29,6 +27,7 @@ import alvisnlp.corpus.ElementVisitor;
 import alvisnlp.corpus.Relation;
 import alvisnlp.corpus.Section;
 import alvisnlp.corpus.Tuple;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 public abstract class AbstractVisitorIteratorEvaluator extends AbstractIteratorEvaluator implements ElementVisitor<Iterator<Element>,Void> {
 	protected AbstractVisitorIteratorEvaluator() {

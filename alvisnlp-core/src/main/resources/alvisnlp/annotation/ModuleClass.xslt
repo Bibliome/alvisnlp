@@ -134,7 +134,7 @@ public final class <xsl:value-of select="$class-name"/> extends <xsl:value-of se
       	</xsl:for-each>
       </xsl:if>
       {
-        org.bibliome.util.Timer&lt;alvisnlp.module.TimerCategory> timer = getTimer(_1,
+        fr.inra.maiage.bibliome.util.Timer&lt;alvisnlp.module.TimerCategory> timer = getTimer(_1,
         "<xsl:value-of select="@task"/>",
         <xsl:value-of select="concat('alvisnlp.module.TimerCategory.', @category)"/>,
         true

@@ -17,12 +17,11 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.pattern.action;
 
-import org.bibliome.util.pattern.SequenceMatcher;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.Section;
 import alvisnlp.corpus.expressions.Resolvable;
 import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.util.pattern.SequenceMatcher;
 
 public interface MatchAction extends Resolvable<MatchAction>, NameUser {
 	void process(MatchActionContext ctx, Section section, SequenceMatcher<Element> matcher);

@@ -20,8 +20,9 @@ package org.bibliome.alvisnlp.modules.alvisae;
 import java.util.LinkedHashMap;
 import java.util.UUID;
 
-import org.bibliome.util.defaultmap.DefaultMap;
 import org.json.simple.JSONObject;
+
+import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
 
 class AnnotationReference {
 	private Integer annotationSet;

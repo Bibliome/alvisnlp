@@ -26,10 +26,6 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.Map;
 
-import org.bibliome.util.marshall.MapWriteCache;
-import org.bibliome.util.marshall.Marshaller;
-import org.bibliome.util.marshall.WriteCache;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Document;
@@ -44,6 +40,9 @@ import alvisnlp.corpus.dump.codec.LayerEncoder;
 import alvisnlp.corpus.dump.codec.RelationEncoder;
 import alvisnlp.corpus.dump.codec.SectionEncoder;
 import alvisnlp.module.Annotable;
+import fr.inra.maiage.bibliome.util.marshall.MapWriteCache;
+import fr.inra.maiage.bibliome.util.marshall.Marshaller;
+import fr.inra.maiage.bibliome.util.marshall.WriteCache;
 
 public class CorpusDumper implements Annotable.Dumper<Corpus> {
 	private final FileChannel channel;

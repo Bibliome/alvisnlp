@@ -22,8 +22,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.bibliome.util.Iterators;
-
 import alvisnlp.corpus.DownCastElement;
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.NameType;
@@ -38,6 +36,7 @@ import alvisnlp.corpus.expressions.LibraryResolver;
 import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 @Library("clone")
 public abstract class CloneLibrary extends FunctionLibrary {

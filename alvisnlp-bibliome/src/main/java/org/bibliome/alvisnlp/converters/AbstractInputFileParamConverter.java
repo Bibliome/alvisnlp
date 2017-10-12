@@ -20,10 +20,9 @@ package org.bibliome.alvisnlp.converters;
 import java.io.File;
 import java.util.List;
 
-import org.bibliome.util.files.AbstractFile;
-import org.bibliome.util.files.FileFactory;
-
 import alvisnlp.converters.ConverterException;
+import fr.inra.maiage.bibliome.util.files.AbstractFile;
+import fr.inra.maiage.bibliome.util.files.FileFactory;
 
 public abstract class AbstractInputFileParamConverter<T extends File> extends AbstractFileParamConverter<T> implements FileFactory<T> {
 	@Override

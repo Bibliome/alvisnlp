@@ -17,8 +17,6 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.pattern;
 
-import org.bibliome.util.filters.ParamFilter;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.corpus.expressions.Evaluator;
@@ -26,6 +24,7 @@ import alvisnlp.corpus.expressions.VariableLibrary.Variable;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.util.filters.ParamFilter;
 
 public class EvaluatorFilterProxy implements ParamFilter<Element,EvaluationContext>, NameUser {
 	private final Variable elementVariable;

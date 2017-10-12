@@ -9,15 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-import org.bibliome.util.filelines.InvalidFileLineEntry;
-import org.bibliome.util.files.InputDirectory;
-import org.bibliome.util.files.InputFile;
-
 import alvisnlp.module.Annotable;
 import alvisnlp.module.Module;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.External;
+import fr.inra.maiage.bibliome.util.filelines.InvalidFileLineEntry;
+import fr.inra.maiage.bibliome.util.files.InputDirectory;
+import fr.inra.maiage.bibliome.util.files.InputFile;
 
 class ChemspotExternal<T extends Annotable> implements External<T> {
 	private final ProcessingContext<T> ctx;

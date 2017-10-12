@@ -25,14 +25,6 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.ccg.CCGBase.CCGResolvedObjects;
-import org.bibliome.util.files.ExecutableFile;
-import org.bibliome.util.files.InputDirectory;
-import org.bibliome.util.files.InputFile;
-import org.bibliome.util.files.OutputFile;
-import org.bibliome.util.streams.FileSourceStream;
-import org.bibliome.util.streams.FileTargetStream;
-import org.bibliome.util.streams.SourceStream;
-import org.bibliome.util.streams.TargetStream;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -48,6 +40,14 @@ import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.External;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.files.ExecutableFile;
+import fr.inra.maiage.bibliome.util.files.InputDirectory;
+import fr.inra.maiage.bibliome.util.files.InputFile;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
+import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
+import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
+import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 @AlvisNLPModule
 public class CCGPosTagger extends CCGBase<CCGResolvedObjects> {

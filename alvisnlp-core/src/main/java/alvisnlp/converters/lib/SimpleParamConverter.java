@@ -17,12 +17,12 @@ limitations under the License.
 
 package alvisnlp.converters.lib;
 
-import org.bibliome.util.service.UnsupportedServiceException;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
 import alvisnlp.converters.ConverterException;
+import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 
 /**

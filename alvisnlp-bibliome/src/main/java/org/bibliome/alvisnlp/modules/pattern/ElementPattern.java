@@ -17,15 +17,14 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.pattern;
 
-import org.bibliome.util.mappers.Mapper;
-import org.bibliome.util.pattern.Group;
-import org.bibliome.util.pattern.SequencePattern;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.corpus.expressions.LibraryResolver;
 import alvisnlp.corpus.expressions.Resolvable;
 import alvisnlp.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.util.mappers.Mapper;
+import fr.inra.maiage.bibliome.util.pattern.Group;
+import fr.inra.maiage.bibliome.util.pattern.SequencePattern;
 
 public class ElementPattern extends SequencePattern<Void,Void,ExpressionFilterProxy> implements Resolvable<SequencePattern<Element,EvaluationContext,EvaluatorFilterProxy>> {
 	public ElementPattern(Group<Void,Void,ExpressionFilterProxy> top) {

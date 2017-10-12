@@ -20,8 +20,6 @@ package alvisnlp.converters.lib;
 import java.util.List;
 import java.util.Locale;
 
-import org.bibliome.util.Strings;
-import org.bibliome.util.service.UnsupportedServiceException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -30,6 +28,8 @@ import alvisnlp.converters.ParamConverter;
 import alvisnlp.converters.ParamConverterFactory;
 import alvisnlp.documentation.Documentation;
 import alvisnlp.documentation.ResourceDocumentation;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
 
 /**
  * Base class for parameter converters. The targetType() method assumes that

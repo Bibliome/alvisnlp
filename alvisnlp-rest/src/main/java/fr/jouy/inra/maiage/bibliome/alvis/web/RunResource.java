@@ -40,8 +40,6 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 
-import org.bibliome.util.Strings;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -58,6 +56,8 @@ import alvisnlp.module.UnexpectedParameterException;
 import com.sun.jersey.api.core.HttpContext;
 import com.sun.jersey.multipart.FormDataMultiPart;
 
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 import fr.jouy.inra.maiage.bibliome.alvis.web.executor.AlvisNLPExecutor;
 import fr.jouy.inra.maiage.bibliome.alvis.web.runs.Run;
 

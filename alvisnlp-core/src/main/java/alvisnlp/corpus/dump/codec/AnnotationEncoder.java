@@ -20,9 +20,8 @@ package alvisnlp.corpus.dump.codec;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
-import org.bibliome.util.marshall.Marshaller;
-
 import alvisnlp.corpus.Annotation;
+import fr.inra.maiage.bibliome.util.marshall.Marshaller;
 
 public class AnnotationEncoder extends ElementEncoder<Annotation> {
 	public AnnotationEncoder(Marshaller<String> stringMarshaller) {

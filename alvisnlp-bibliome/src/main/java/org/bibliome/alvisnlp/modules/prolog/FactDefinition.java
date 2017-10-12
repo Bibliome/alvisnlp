@@ -21,10 +21,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.bibliome.util.Pair;
-import org.bibliome.util.mappers.Mapper;
-import org.bibliome.util.mappers.Mappers;
-
 import alice.tuprolog.Double;
 import alice.tuprolog.Int;
 import alice.tuprolog.InvalidTheoryException;
@@ -44,6 +40,9 @@ import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.util.Pair;
+import fr.inra.maiage.bibliome.util.mappers.Mapper;
+import fr.inra.maiage.bibliome.util.mappers.Mappers;
 
 public class FactDefinition implements Resolvable<FactDefinition>, NameUser {
 	private final Expression facts;

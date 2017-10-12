@@ -17,12 +17,11 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.compare;
 
-import org.bibliome.util.Strings;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.NameType;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.Strings;
 
 public class FeatureEdit implements ElementSimilarity {
 	private final String key;

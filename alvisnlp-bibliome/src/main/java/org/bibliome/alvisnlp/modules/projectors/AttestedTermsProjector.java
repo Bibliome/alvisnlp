@@ -23,15 +23,6 @@ import java.util.List;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 import org.bibliome.alvisnlp.modules.treetagger.TreeTaggerTermsProjector;
-import org.bibliome.util.StringCat;
-import org.bibliome.util.filelines.FileLines;
-import org.bibliome.util.filelines.InvalidFileLineEntry;
-import org.bibliome.util.newprojector.CharFilter;
-import org.bibliome.util.newprojector.CharMapper;
-import org.bibliome.util.newprojector.Dictionary;
-import org.bibliome.util.newprojector.State;
-import org.bibliome.util.newprojector.states.AllValuesState;
-import org.bibliome.util.streams.SourceStream;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -41,6 +32,15 @@ import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.StringCat;
+import fr.inra.maiage.bibliome.util.filelines.FileLines;
+import fr.inra.maiage.bibliome.util.filelines.InvalidFileLineEntry;
+import fr.inra.maiage.bibliome.util.newprojector.CharFilter;
+import fr.inra.maiage.bibliome.util.newprojector.CharMapper;
+import fr.inra.maiage.bibliome.util.newprojector.Dictionary;
+import fr.inra.maiage.bibliome.util.newprojector.State;
+import fr.inra.maiage.bibliome.util.newprojector.states.AllValuesState;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule(obsoleteUseInstead=TreeTaggerTermsProjector.class)
 public abstract class AttestedTermsProjector extends Projector<SectionResolvedObjects,String[],Dictionary<String[]>> {

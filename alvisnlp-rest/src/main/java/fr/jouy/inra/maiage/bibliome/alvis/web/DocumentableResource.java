@@ -30,7 +30,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
@@ -39,6 +38,7 @@ import org.w3c.dom.ProcessingInstruction;
 
 import alvisnlp.documentation.Documentable;
 import alvisnlp.documentation.Documentation;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 public abstract class DocumentableResource<K,D extends Documentable> extends AbstractResource {
 	private final String listTag;

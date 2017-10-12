@@ -16,10 +16,6 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-import org.bibliome.util.Files;
-import org.bibliome.util.files.InputFile;
-import org.bibliome.util.files.OutputFile;
-
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.DefaultNames;
 import alvisnlp.corpus.Document;
@@ -32,6 +28,9 @@ import alvisnlp.module.ProcessingException;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.External;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Files;
+import fr.inra.maiage.bibliome.util.files.InputFile;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 /**
  * 

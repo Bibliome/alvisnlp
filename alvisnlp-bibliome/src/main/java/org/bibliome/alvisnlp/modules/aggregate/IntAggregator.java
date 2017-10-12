@@ -19,13 +19,12 @@ package org.bibliome.alvisnlp.modules.aggregate;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.bibliome.util.BinaryNumericOperator;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.corpus.expressions.Expression;
 import alvisnlp.corpus.expressions.LibraryResolver;
+import fr.inra.maiage.bibliome.util.BinaryNumericOperator;
 
 class IntAggregator extends Aggregator {
 	private final BinaryNumericOperator operator;

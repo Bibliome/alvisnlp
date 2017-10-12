@@ -19,9 +19,6 @@ package org.bibliome.alvisnlp.modules.pattern.action;
 
 import java.util.Iterator;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.pattern.SequenceMatcher;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.DownCastElement;
 import alvisnlp.corpus.Element;
@@ -34,6 +31,8 @@ import alvisnlp.corpus.expressions.LibraryResolver;
 import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.pattern.SequenceMatcher;
 
 public class AddToLayer extends AbstractMatchAction {
 	private final String[] targetLayerNames;

@@ -19,11 +19,10 @@ package alvisnlp.corpus.dump.codec;
 
 import java.nio.ByteBuffer;
 
-import org.bibliome.util.marshall.Decoder;
-import org.bibliome.util.marshall.Unmarshaller;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.creators.ElementCreator;
+import fr.inra.maiage.bibliome.util.marshall.Decoder;
+import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
 
 public abstract class ElementDecoder<E extends Element> implements Decoder<E>, ElementCreator {
 	protected final Unmarshaller<String> stringUnmarshaller;

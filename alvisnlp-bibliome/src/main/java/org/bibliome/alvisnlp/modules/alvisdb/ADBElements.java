@@ -25,7 +25,6 @@ import org.apache.lucene.document.Field;
 import org.apache.lucene.index.IndexWriter;
 import org.bibliome.alvisdb.impl.lucene.LuceneUtils;
 import org.bibliome.alvisnlp.modules.alvisdb.ADBElements.Resolved;
-import org.bibliome.util.Iterators;
 
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Element;
@@ -38,6 +37,7 @@ import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 public abstract class ADBElements implements Resolvable<Resolved> {
 	private final Expression items;

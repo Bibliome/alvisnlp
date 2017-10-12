@@ -21,9 +21,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ServiceLoader;
 
-import org.bibliome.util.Strings;
-
 import alvisnlp.documentation.Documentable;
+import fr.inra.maiage.bibliome.util.Strings;
 
 public abstract class FunctionLibrary implements Documentable {
 	public abstract String getName();

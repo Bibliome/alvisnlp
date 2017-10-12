@@ -19,9 +19,6 @@ package org.bibliome.alvisnlp.library.standard;
 
 import java.util.Iterator;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.StringCat;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Document;
@@ -40,6 +37,8 @@ import alvisnlp.corpus.expressions.FunctionLibrary;
 import alvisnlp.corpus.expressions.Library;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.StringCat;
 
 @Library("properties")
 public abstract class PropertiesLibrary extends FunctionLibrary {

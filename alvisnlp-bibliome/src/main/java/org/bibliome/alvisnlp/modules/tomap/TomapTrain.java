@@ -34,21 +34,6 @@ import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 import org.bibliome.alvisnlp.modules.tomap.TomapTrain.TomapTrainResolvedObjects;
 import org.bibliome.alvisnlp.modules.yatea.AbstractYateaExtractor;
 import org.bibliome.alvisnlp.modules.yatea.TestifiedTerminology;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.Pair;
-import org.bibliome.util.Strings;
-import org.bibliome.util.defaultmap.DefaultArrayListHashMap;
-import org.bibliome.util.defaultmap.DefaultMap;
-import org.bibliome.util.files.InputFile;
-import org.bibliome.util.streams.FileSourceStream;
-import org.bibliome.util.streams.SourceStream;
-import org.bibliome.util.streams.TargetStream;
-import org.bibliome.util.tomap.Candidate;
-import org.bibliome.util.tomap.StringNormalization;
-import org.bibliome.util.tomap.TokenNormalization;
-import org.bibliome.util.tomap.readers.YateaCandidateReader;
-import org.bibliome.util.tomap.readers.YateaCandidateReader.YateaResult;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
@@ -67,6 +52,21 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.ProcessingException;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.Pair;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.defaultmap.DefaultArrayListHashMap;
+import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
+import fr.inra.maiage.bibliome.util.files.InputFile;
+import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
+import fr.inra.maiage.bibliome.util.streams.TargetStream;
+import fr.inra.maiage.bibliome.util.tomap.Candidate;
+import fr.inra.maiage.bibliome.util.tomap.StringNormalization;
+import fr.inra.maiage.bibliome.util.tomap.TokenNormalization;
+import fr.inra.maiage.bibliome.util.tomap.readers.YateaCandidateReader;
+import fr.inra.maiage.bibliome.util.tomap.readers.YateaCandidateReader.YateaResult;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 @AlvisNLPModule(beta=true)
 public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects> {

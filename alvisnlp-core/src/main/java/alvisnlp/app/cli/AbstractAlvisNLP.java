@@ -55,22 +55,6 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.xpath.XPathExpressionException;
 
-import org.bibliome.util.Files;
-import org.bibliome.util.FlushedStreamHandler;
-import org.bibliome.util.Pair;
-import org.bibliome.util.Timer;
-import org.bibliome.util.Versioned;
-import org.bibliome.util.clio.CLIOConversionException;
-import org.bibliome.util.clio.CLIOException;
-import org.bibliome.util.clio.CLIOParser;
-import org.bibliome.util.clio.CLIOption;
-import org.bibliome.util.count.Count;
-import org.bibliome.util.count.CountStats;
-import org.bibliome.util.count.Stats;
-import org.bibliome.util.service.AmbiguousAliasException;
-import org.bibliome.util.service.ServiceException;
-import org.bibliome.util.service.UnsupportedServiceException;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.InputSource;
@@ -98,6 +82,22 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.UnexpectedParameterException;
 import alvisnlp.plan.PlanException;
 import alvisnlp.plan.PlanLoader;
+import fr.inra.maiage.bibliome.util.Files;
+import fr.inra.maiage.bibliome.util.FlushedStreamHandler;
+import fr.inra.maiage.bibliome.util.Pair;
+import fr.inra.maiage.bibliome.util.Timer;
+import fr.inra.maiage.bibliome.util.Versioned;
+import fr.inra.maiage.bibliome.util.clio.CLIOConversionException;
+import fr.inra.maiage.bibliome.util.clio.CLIOException;
+import fr.inra.maiage.bibliome.util.clio.CLIOParser;
+import fr.inra.maiage.bibliome.util.clio.CLIOption;
+import fr.inra.maiage.bibliome.util.count.Count;
+import fr.inra.maiage.bibliome.util.count.CountStats;
+import fr.inra.maiage.bibliome.util.count.Stats;
+import fr.inra.maiage.bibliome.util.service.AmbiguousAliasException;
+import fr.inra.maiage.bibliome.util.service.ServiceException;
+import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 /**
  * Base class for the alvisnlp CLI.

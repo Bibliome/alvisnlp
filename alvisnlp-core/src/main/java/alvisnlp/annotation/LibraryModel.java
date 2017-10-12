@@ -40,11 +40,6 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.xpath.XPathExpressionException;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.Strings;
-import org.bibliome.util.defaultmap.DefaultArrayListHashMap;
-import org.bibliome.util.defaultmap.DefaultMap;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
@@ -52,6 +47,11 @@ import org.xml.sax.SAXException;
 import alvisnlp.corpus.expressions.Function;
 import alvisnlp.corpus.expressions.FunctionLibrary;
 import alvisnlp.corpus.expressions.Library;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.defaultmap.DefaultArrayListHashMap;
+import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 class LibraryModel {
 	private final String simpleName;

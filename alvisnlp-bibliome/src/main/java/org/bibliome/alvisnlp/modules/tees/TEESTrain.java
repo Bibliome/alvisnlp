@@ -13,9 +13,6 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import org.bibliome.util.Files;
-import org.bibliome.util.files.OutputFile;
-
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Document;
 import alvisnlp.corpus.expressions.ResolverException;
@@ -26,6 +23,8 @@ import alvisnlp.module.ProcessingException;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.External;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Files;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 
 /**

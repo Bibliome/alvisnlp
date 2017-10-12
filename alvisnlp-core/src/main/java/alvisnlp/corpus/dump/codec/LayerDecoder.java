@@ -20,14 +20,13 @@ package alvisnlp.corpus.dump.codec;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
-import org.bibliome.util.marshall.Decoder;
-import org.bibliome.util.marshall.MapReadCache;
-import org.bibliome.util.marshall.ReadCache;
-import org.bibliome.util.marshall.Unmarshaller;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Layer;
 import alvisnlp.corpus.Section;
+import fr.inra.maiage.bibliome.util.marshall.Decoder;
+import fr.inra.maiage.bibliome.util.marshall.MapReadCache;
+import fr.inra.maiage.bibliome.util.marshall.ReadCache;
+import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
 
 public class LayerDecoder implements Decoder<Layer> {
 	private final Unmarshaller<String> stringUnmarshaller;

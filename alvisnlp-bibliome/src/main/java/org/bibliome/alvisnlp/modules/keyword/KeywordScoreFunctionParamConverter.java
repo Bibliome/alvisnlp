@@ -20,13 +20,13 @@ package org.bibliome.alvisnlp.modules.keyword;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import org.bibliome.util.Strings;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Element;
 
 import alvisnlp.converters.ConverterException;
 import alvisnlp.converters.lib.AbstractParamConverter;
 import alvisnlp.converters.lib.Converter;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 @Converter(targetType=KeywordScoreFunction.class)
 public class KeywordScoreFunctionParamConverter extends AbstractParamConverter<KeywordScoreFunction> {

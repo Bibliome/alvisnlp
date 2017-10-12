@@ -22,10 +22,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.StringCat;
-import org.bibliome.util.mappers.Mapper;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.AbstractEvaluator;
 import alvisnlp.corpus.expressions.EvaluationContext;
@@ -33,6 +29,9 @@ import alvisnlp.corpus.expressions.EvaluationType;
 import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.StringCat;
+import fr.inra.maiage.bibliome.util.mappers.Mapper;
 
 final class PathEvaluator extends AbstractEvaluator {
 	private final Evaluator left;

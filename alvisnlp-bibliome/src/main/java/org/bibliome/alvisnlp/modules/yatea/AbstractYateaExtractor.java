@@ -37,17 +37,6 @@ import java.util.regex.Pattern;
 
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.Pair;
-import org.bibliome.util.Strings;
-import org.bibliome.util.Timer;
-import org.bibliome.util.files.ExecutableFile;
-import org.bibliome.util.files.InputDirectory;
-import org.bibliome.util.files.InputFile;
-import org.bibliome.util.files.OutputDirectory;
-import org.bibliome.util.files.OutputFile;
-import org.bibliome.util.files.WorkingDirectory;
-import org.bibliome.util.streams.SourceStream;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -63,6 +52,17 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.External;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.Pair;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.Timer;
+import fr.inra.maiage.bibliome.util.files.ExecutableFile;
+import fr.inra.maiage.bibliome.util.files.InputDirectory;
+import fr.inra.maiage.bibliome.util.files.InputFile;
+import fr.inra.maiage.bibliome.util.files.OutputDirectory;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
+import fr.inra.maiage.bibliome.util.files.WorkingDirectory;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 /**
  * Uses YaTeA to extract terms from the corpus.

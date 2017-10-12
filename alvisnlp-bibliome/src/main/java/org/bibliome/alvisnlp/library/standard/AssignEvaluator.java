@@ -21,8 +21,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.bibliome.util.StringCat;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.AbstractEvaluator;
 import alvisnlp.corpus.expressions.EvaluationContext;
@@ -31,6 +29,7 @@ import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.corpus.expressions.VariableLibrary;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.StringCat;
 
 final class AssignEvaluator extends AbstractEvaluator {
 	private final Evaluator expression;

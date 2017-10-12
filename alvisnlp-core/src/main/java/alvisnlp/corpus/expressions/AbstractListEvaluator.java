@@ -21,9 +21,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 
-import org.bibliome.util.StringCat;
-
 import alvisnlp.corpus.Element;
+import fr.inra.maiage.bibliome.util.StringCat;
 
 public abstract class AbstractListEvaluator extends AbstractEvaluator {
 	protected AbstractListEvaluator() {

@@ -23,7 +23,6 @@ import org.bibliome.alvisnlp.converters.expression.parser.ExpressionParser;
 import org.bibliome.alvisnlp.modules.DefaultExpressions;
 import org.bibliome.alvisnlp.modules.alvisre.AlvisREAnnotations.ResolvedAlvisREAnnotation;
 import org.bibliome.alvisnlp.modules.alvisre.AlvisRERelations.Resolved;
-import org.bibliome.util.Iterators;
 
 import alvisnlp.corpus.ArgumentElement;
 import alvisnlp.corpus.DefaultNames;
@@ -36,6 +35,7 @@ import alvisnlp.corpus.expressions.LibraryResolver;
 import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 public class AlvisRERelations extends AlvisREAnnotations<Resolved> {
 	private final Expression arguments;

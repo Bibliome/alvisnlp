@@ -21,7 +21,6 @@ import java.util.Iterator;
 import java.util.Map;
 
 import org.bibliome.alvisnlp.modules.alvisae.AlvisAEWriter.CadixeExportContext;
-import org.bibliome.util.Iterators;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -37,6 +36,7 @@ import alvisnlp.module.NameUsage;
 import alvisnlp.module.NameUser;
 import alvisnlp.module.types.EvaluatorMapping;
 import alvisnlp.module.types.ExpressionMapping;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 public abstract class AnnotationDefinition {
 	private final Expression elements;

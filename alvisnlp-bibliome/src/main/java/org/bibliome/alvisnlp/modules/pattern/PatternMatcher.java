@@ -27,10 +27,6 @@ import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 import org.bibliome.alvisnlp.modules.pattern.PatternMatcher.PatternMatcherResolvedObjects;
 import org.bibliome.alvisnlp.modules.pattern.action.MatchAction;
 import org.bibliome.alvisnlp.modules.pattern.action.MatchActionContext;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.Timer;
-import org.bibliome.util.pattern.SequenceMatcher;
-import org.bibliome.util.pattern.SequencePattern;
 
 import alvisnlp.corpus.AnnotationComparator;
 import alvisnlp.corpus.Corpus;
@@ -50,6 +46,10 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.Timer;
+import fr.inra.maiage.bibliome.util.pattern.SequenceMatcher;
+import fr.inra.maiage.bibliome.util.pattern.SequencePattern;
 
 @AlvisNLPModule
 public abstract class PatternMatcher extends SectionModule<PatternMatcherResolvedObjects> implements AnnotationCreator, TupleCreator {

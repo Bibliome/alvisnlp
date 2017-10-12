@@ -20,13 +20,13 @@ package org.bibliome.alvisnlp.modules.yatea;
 import java.io.IOException;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.util.Checkable;
-import org.bibliome.util.files.InputFile;
 
 import alvisnlp.corpus.Corpus;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUser;
 import alvisnlp.module.ProcessingContext;
+import fr.inra.maiage.bibliome.util.Checkable;
+import fr.inra.maiage.bibliome.util.files.InputFile;
 
 public interface TestifiedTerminology extends NameUser, Checkable {
 	<S extends SectionResolvedObjects> InputFile ensureFile(AbstractYateaExtractor<S> module, ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException, IOException;

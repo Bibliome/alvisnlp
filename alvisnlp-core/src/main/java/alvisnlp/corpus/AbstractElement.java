@@ -29,9 +29,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.bibliome.util.Strings;
-
 import alvisnlp.corpus.creators.ElementCreator;
+import fr.inra.maiage.bibliome.util.Strings;
 
 /**
  * Elements can have multi-valued features and one static single-valued feature.

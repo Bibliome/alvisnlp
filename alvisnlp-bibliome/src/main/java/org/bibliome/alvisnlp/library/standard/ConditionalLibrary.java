@@ -22,9 +22,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import org.bibliome.util.Pair;
-import org.bibliome.util.StringCat;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.AbstractEvaluator;
 import alvisnlp.corpus.expressions.EvaluationContext;
@@ -38,6 +35,8 @@ import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.documentation.Documentation;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.Pair;
+import fr.inra.maiage.bibliome.util.StringCat;
 
 @Library("conditional")
 public class ConditionalLibrary extends FunctionLibrary {

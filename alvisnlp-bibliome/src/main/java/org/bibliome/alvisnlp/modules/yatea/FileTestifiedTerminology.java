@@ -20,12 +20,12 @@ package org.bibliome.alvisnlp.modules.yatea;
 import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.util.files.InputFile;
 
 import alvisnlp.corpus.Corpus;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.ProcessingContext;
+import fr.inra.maiage.bibliome.util.files.InputFile;
 
 public class FileTestifiedTerminology implements TestifiedTerminology {
 	private final InputFile termsFile;

@@ -17,11 +17,10 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.clone;
 
-import org.bibliome.util.service.UnsupportedServiceException;
-
 import alvisnlp.converters.ConverterException;
 import alvisnlp.converters.lib.ClosedValueSetParamConverter;
 import alvisnlp.converters.lib.Converter;
+import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
 
 @Converter(targetType=FragmentSelection.class)
 public class FragmentSelectionParamConverter extends ClosedValueSetParamConverter<FragmentSelection> {

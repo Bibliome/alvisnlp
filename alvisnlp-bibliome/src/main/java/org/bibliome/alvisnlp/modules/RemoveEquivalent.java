@@ -26,7 +26,6 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.RemoveEquivalent.RemoveEquivalentResolvedObjects;
-import org.bibliome.util.Iterators;
 
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Element;
@@ -41,6 +40,7 @@ import alvisnlp.module.ModuleException;
 import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 @AlvisNLPModule(beta=true)
 public class RemoveEquivalent extends CorpusModule<RemoveEquivalentResolvedObjects> {

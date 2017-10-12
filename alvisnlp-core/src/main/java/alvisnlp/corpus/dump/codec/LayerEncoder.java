@@ -20,13 +20,12 @@ package alvisnlp.corpus.dump.codec;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 
-import org.bibliome.util.marshall.Encoder;
-import org.bibliome.util.marshall.MapWriteCache;
-import org.bibliome.util.marshall.Marshaller;
-import org.bibliome.util.marshall.WriteCache;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Layer;
+import fr.inra.maiage.bibliome.util.marshall.Encoder;
+import fr.inra.maiage.bibliome.util.marshall.MapWriteCache;
+import fr.inra.maiage.bibliome.util.marshall.Marshaller;
+import fr.inra.maiage.bibliome.util.marshall.WriteCache;
 
 public class LayerEncoder implements Encoder<Layer> {
 	private final Marshaller<String> stringMarshaller;

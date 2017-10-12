@@ -19,13 +19,12 @@ package org.bibliome.alvisnlp.converters;
 
 import java.util.List;
 
-import org.bibliome.util.Strings;
-import org.bibliome.util.service.UnsupportedServiceException;
-
 import alvisnlp.converters.ConverterException;
 import alvisnlp.converters.lib.ClosedValueSetParamConverter;
 import alvisnlp.converters.lib.Converter;
 import alvisnlp.corpus.AnnotationComparator;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
 
 @Converter(targetType = AnnotationComparator.class)
 public class AnnotationComparatorParamConverter extends ClosedValueSetParamConverter<AnnotationComparator> {

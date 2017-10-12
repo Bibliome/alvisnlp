@@ -2,7 +2,6 @@ package org.bibliome.alvisnlp.modules.pubannotation;
 
 import org.bibliome.alvisnlp.modules.DefaultExpressions;
 import org.bibliome.alvisnlp.modules.pubannotation.DenotationSpecification.Resolved;
-import org.bibliome.util.Iterators;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -17,6 +16,7 @@ import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 public class DenotationSpecification implements Resolvable<Resolved> {
 	private final Expression instances;

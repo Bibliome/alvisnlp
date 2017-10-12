@@ -20,7 +20,6 @@ package org.bibliome.alvisnlp.modules;
 import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.util.Iterators;
 import org.tartarus.snowball.SnowballProgram;
 import org.tartarus.snowball.ext.EnglishStemmer;
 import org.tartarus.snowball.ext.FrenchStemmer;
@@ -37,6 +36,7 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.ProcessingException;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
 
 @AlvisNLPModule(beta=true)
 public class PorterStemmer extends SectionModule<SectionResolvedObjects> {

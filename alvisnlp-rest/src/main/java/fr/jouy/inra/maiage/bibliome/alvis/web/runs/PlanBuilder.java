@@ -31,10 +31,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.bibliome.util.Checkable;
-import org.bibliome.util.FlushedStreamHandler;
-import org.bibliome.util.service.ServiceException;
-import org.bibliome.util.service.UnsupportedServiceException;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
@@ -53,6 +49,10 @@ import alvisnlp.module.ParameterValueConstraintException;
 import alvisnlp.module.Sequence;
 import alvisnlp.plan.PlanException;
 import alvisnlp.plan.PlanLoader;
+import fr.inra.maiage.bibliome.util.Checkable;
+import fr.inra.maiage.bibliome.util.FlushedStreamHandler;
+import fr.inra.maiage.bibliome.util.service.ServiceException;
+import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
 import fr.jouy.inra.maiage.bibliome.alvis.web.AlvisNLPContextParameter;
 
 public class PlanBuilder {

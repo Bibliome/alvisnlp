@@ -19,13 +19,13 @@ package org.bibliome.alvisnlp.modules.alvisdb;
 
 import org.bibliome.alvisnlp.converters.expression.parser.ExpressionParser;
 import org.bibliome.alvisnlp.modules.DefaultExpressions;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Element;
 
 import alvisnlp.converters.ConverterException;
 import alvisnlp.converters.lib.AbstractParamConverter;
 import alvisnlp.converters.lib.Converter;
 import alvisnlp.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 @Converter(targetType=ADBElements.class)
 public class ADBElementsParamConverter extends AbstractParamConverter<ADBElements> {

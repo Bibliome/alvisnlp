@@ -2,8 +2,8 @@ package org.bibliome.alvisnlp.modules.chemspot;
 
 import java.util.List;
 
-import org.bibliome.util.filelines.FileLines;
-import org.bibliome.util.filelines.InvalidFileLineEntry;
+import fr.inra.maiage.bibliome.util.filelines.FileLines;
+import fr.inra.maiage.bibliome.util.filelines.InvalidFileLineEntry;
 
 public abstract class ChemspotFileLines<D,A> extends FileLines<D> {
 

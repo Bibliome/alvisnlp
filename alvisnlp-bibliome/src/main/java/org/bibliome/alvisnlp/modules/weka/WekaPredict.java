@@ -22,9 +22,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.streams.TargetStream;
-
 import weka.classifiers.Classifier;
 import weka.core.Instance;
 import alvisnlp.corpus.Corpus;
@@ -38,6 +35,8 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 @AlvisNLPModule
 public class WekaPredict extends PredictionElementClassifier {

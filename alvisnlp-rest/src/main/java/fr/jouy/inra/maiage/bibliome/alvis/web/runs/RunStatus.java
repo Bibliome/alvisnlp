@@ -18,10 +18,11 @@ package fr.jouy.inra.maiage.bibliome.alvis.web.runs;
 
 import java.util.Comparator;
 
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
+
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 public class RunStatus {
 	public static final String FAILURE = "failure";

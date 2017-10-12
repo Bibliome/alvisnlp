@@ -21,8 +21,9 @@ import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.ResourceBundle;
 
-import org.bibliome.util.Iterators;
 import org.w3c.dom.Document;
+
+import fr.inra.maiage.bibliome.util.Iterators;
 
 class XMLDocumentationResourceBundle extends ResourceBundle {
 	public static final String DOCUMENTATION = "documentation";

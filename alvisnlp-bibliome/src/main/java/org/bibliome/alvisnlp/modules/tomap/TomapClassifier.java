@@ -25,24 +25,25 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import org.bibliome.util.Checkable;
-import org.bibliome.util.streams.SourceStream;
-import org.bibliome.util.tomap.Candidate;
-import org.bibliome.util.tomap.StringNormalization;
-import org.bibliome.util.tomap.Token;
-import org.bibliome.util.tomap.TokenNormalization;
-import org.bibliome.util.tomap.classifiers.CandidateClassifier;
-import org.bibliome.util.tomap.classifiers.CandidateDistanceFactory;
-import org.bibliome.util.tomap.classifiers.DefaultCandidateClassifier;
-import org.bibliome.util.tomap.classifiers.ExactTermProxyCandidateClassifier;
-import org.bibliome.util.tomap.classifiers.FallbackCandidateClassifier;
-import org.bibliome.util.tomap.classifiers.HeadBasedTermProxyCandidateClassifier;
-import org.bibliome.util.tomap.classifiers.NullCandidateClassifier;
-import org.bibliome.util.tomap.readers.TreeTaggerReader;
-import org.bibliome.util.tomap.readers.TreeTaggerReader.TreeTaggerResult;
-import org.bibliome.util.tomap.readers.XMLCandidateReader;
-import org.bibliome.util.tomap.readers.XMLCandidateReader.XMLResult;
 import org.xml.sax.SAXException;
+
+import fr.inra.maiage.bibliome.util.Checkable;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
+import fr.inra.maiage.bibliome.util.tomap.Candidate;
+import fr.inra.maiage.bibliome.util.tomap.StringNormalization;
+import fr.inra.maiage.bibliome.util.tomap.Token;
+import fr.inra.maiage.bibliome.util.tomap.TokenNormalization;
+import fr.inra.maiage.bibliome.util.tomap.classifiers.CandidateClassifier;
+import fr.inra.maiage.bibliome.util.tomap.classifiers.CandidateDistanceFactory;
+import fr.inra.maiage.bibliome.util.tomap.classifiers.DefaultCandidateClassifier;
+import fr.inra.maiage.bibliome.util.tomap.classifiers.ExactTermProxyCandidateClassifier;
+import fr.inra.maiage.bibliome.util.tomap.classifiers.FallbackCandidateClassifier;
+import fr.inra.maiage.bibliome.util.tomap.classifiers.HeadBasedTermProxyCandidateClassifier;
+import fr.inra.maiage.bibliome.util.tomap.classifiers.NullCandidateClassifier;
+import fr.inra.maiage.bibliome.util.tomap.readers.TreeTaggerReader;
+import fr.inra.maiage.bibliome.util.tomap.readers.XMLCandidateReader;
+import fr.inra.maiage.bibliome.util.tomap.readers.TreeTaggerReader.TreeTaggerResult;
+import fr.inra.maiage.bibliome.util.tomap.readers.XMLCandidateReader.XMLResult;
 
 public class TomapClassifier implements Checkable {
 	private final boolean noExactClassifier;

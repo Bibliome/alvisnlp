@@ -19,12 +19,11 @@ package alvisnlp.corpus.dump.codec;
 
 import java.nio.ByteBuffer;
 
-import org.bibliome.util.marshall.Unmarshaller;
-
 import alvisnlp.corpus.Relation;
 import alvisnlp.corpus.Tuple;
 import alvisnlp.corpus.creators.TupleCreator;
 import alvisnlp.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
 
 public class TupleDecoder extends ElementDecoder<Tuple> implements TupleCreator {
 	private Relation relation;

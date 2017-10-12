@@ -19,7 +19,7 @@ package alvisnlp.module;
 
 import java.util.logging.Logger;
 
-import org.bibliome.util.Checkable;
+import fr.inra.maiage.bibliome.util.Checkable;
 
 public class CheckParamValueConstraints<A extends Annotable> extends AbstractParamVisitor<A,Logger> {
 	private final ProcessingContext<A> processingContext;

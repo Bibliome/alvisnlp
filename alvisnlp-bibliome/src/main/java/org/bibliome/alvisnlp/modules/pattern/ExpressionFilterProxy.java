@@ -17,9 +17,6 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.pattern;
 
-import org.bibliome.util.filters.ParamFilter;
-import org.bibliome.util.mappers.Mapper;
-
 import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.corpus.expressions.Expression;
 import alvisnlp.corpus.expressions.LibraryResolver;
@@ -27,6 +24,8 @@ import alvisnlp.corpus.expressions.Resolvable;
 import alvisnlp.corpus.expressions.ResolverException;
 import alvisnlp.corpus.expressions.VariableLibrary;
 import alvisnlp.corpus.expressions.VariableLibrary.Variable;
+import fr.inra.maiage.bibliome.util.filters.ParamFilter;
+import fr.inra.maiage.bibliome.util.mappers.Mapper;
 
 public class ExpressionFilterProxy implements ParamFilter<Void,Void>, Resolvable<EvaluatorFilterProxy> {
 	private final Expression expression;

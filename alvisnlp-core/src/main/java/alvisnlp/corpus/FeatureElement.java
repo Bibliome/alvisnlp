@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.bibliome.util.mappers.ParamMapper;
+import fr.inra.maiage.bibliome.util.mappers.ParamMapper;
 
 public class FeatureElement implements Element {
 	public static final String KEY_FEATURE_KEY = "key";

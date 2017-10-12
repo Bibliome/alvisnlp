@@ -24,9 +24,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.logging.Logger;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.files.InputFile;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Layer;
@@ -39,6 +36,8 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.ProcessingException;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.files.InputFile;
 
 @AlvisNLPModule(beta=true)
 public class WapitiLabel extends AbstractWapiti {

@@ -25,7 +25,6 @@ import java.util.Map;
 import javax.lang.model.element.ExecutableElement;
 import javax.lang.model.element.TypeElement;
 
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -34,6 +33,7 @@ import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.ModuleBase;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 /**
  * Module class model.

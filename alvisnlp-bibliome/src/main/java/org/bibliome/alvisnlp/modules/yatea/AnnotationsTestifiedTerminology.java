@@ -23,11 +23,6 @@ import java.io.PrintStream;
 import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.Strings;
-import org.bibliome.util.files.InputFile;
-import org.bibliome.util.streams.FileTargetStream;
-import org.bibliome.util.streams.TargetStream;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -38,6 +33,11 @@ import alvisnlp.corpus.expressions.EvaluationContext;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.ProcessingContext;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.files.InputFile;
+import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
+import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 public class AnnotationsTestifiedTerminology implements TestifiedTerminology {
 	private final String termsLayerName;

@@ -21,10 +21,6 @@ import java.io.IOException;
 import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
-import org.bibliome.util.marshall.Decoder;
-import org.bibliome.util.marshall.Encoder;
-import org.bibliome.util.obo.OBOUtils;
-import org.bibliome.util.trie.Trie;
 import org.obo.dataadapter.OBOParseException;
 import org.obo.datamodel.Dbxref;
 import org.obo.datamodel.Link;
@@ -45,6 +41,10 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.marshall.Decoder;
+import fr.inra.maiage.bibliome.util.marshall.Encoder;
+import fr.inra.maiage.bibliome.util.obo.OBOUtils;
+import fr.inra.maiage.bibliome.util.trie.Trie;
 
 @AlvisNLPModule
 public abstract class OBOProjector extends TrieProjector<SectionResolvedObjects,OBOClass> {

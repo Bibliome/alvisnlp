@@ -17,12 +17,11 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.projectors;
 
-import org.bibliome.util.newprojector.CharFilter;
-import org.bibliome.util.newprojector.Dictionary;
-import org.bibliome.util.newprojector.Matcher;
-
 import alvisnlp.corpus.Section;
 import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.util.newprojector.CharFilter;
+import fr.inra.maiage.bibliome.util.newprojector.Dictionary;
+import fr.inra.maiage.bibliome.util.newprojector.Matcher;
 
 public interface Subject extends NameUser {
 	public <T> void match(Section sec, Dictionary<T> dict, Matcher<T> matcher);

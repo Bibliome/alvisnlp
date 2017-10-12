@@ -20,9 +20,8 @@ package alvisnlp.converters.lib;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import org.bibliome.util.service.UnsupportedServiceException;
-
 import alvisnlp.converters.ConverterException;
+import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
 
 /**
  * Base class for converters to a closed set of values.

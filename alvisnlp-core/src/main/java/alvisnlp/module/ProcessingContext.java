@@ -23,9 +23,8 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.logging.Logger;
 
-import org.bibliome.util.Timer;
-
 import alvisnlp.module.lib.External;
+import fr.inra.maiage.bibliome.util.Timer;
 
 /**
  * A ProcessingContext object stores global parameters for the processing engine, such as: current locale, root temporary directory, etc.

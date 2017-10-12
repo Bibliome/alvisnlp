@@ -17,7 +17,6 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.projectors;
 
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Element;
 
 import alvisnlp.converters.ConverterException;
@@ -25,6 +24,7 @@ import alvisnlp.converters.lib.AbstractParamConverter;
 import alvisnlp.converters.lib.Converter;
 import alvisnlp.converters.lib.SimpleParamConverter;
 import alvisnlp.corpus.Annotation;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 @Converter(targetType = Subject.class)
 public class SubjectParamConverter extends AbstractParamConverter<Subject> {

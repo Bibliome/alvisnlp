@@ -17,13 +17,12 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.clone;
 
-import org.bibliome.util.mappers.ParamMapper;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Layer;
 import alvisnlp.corpus.Section;
 import alvisnlp.corpus.creators.AnnotationCreator;
 import alvisnlp.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.mappers.ParamMapper;
 
 public enum FragmentSelection implements ParamMapper<Section,Layer,String>, AnnotationCreator {
 	INCLUDE {

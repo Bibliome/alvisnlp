@@ -17,7 +17,7 @@ limitations under the License.
 
 package alvisnlp.converters;
 
-import org.bibliome.util.service.ServiceFactory;
+import fr.inra.maiage.bibliome.util.service.ServiceFactory;
 
 
 /**

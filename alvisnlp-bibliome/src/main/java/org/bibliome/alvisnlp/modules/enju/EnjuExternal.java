@@ -32,18 +32,6 @@ import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.bibliome.util.Files;
-import org.bibliome.util.files.ExecutableFile;
-import org.bibliome.util.files.InputFile;
-import org.bibliome.util.files.OutputFile;
-import org.bibliome.util.fragments.Fragment;
-import org.bibliome.util.fragments.FragmentComparator;
-import org.bibliome.util.fragments.SimpleFragment;
-import org.bibliome.util.streams.FileSourceStream;
-import org.bibliome.util.streams.FileTargetStream;
-import org.bibliome.util.streams.SourceStream;
-import org.bibliome.util.streams.TargetStream;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
 import alvisnlp.corpus.Layer;
@@ -55,6 +43,17 @@ import alvisnlp.module.ModuleException;
 import alvisnlp.module.ProcessingException;
 import alvisnlp.module.lib.External;
 import alvisnlp.module.lib.ModuleBase;
+import fr.inra.maiage.bibliome.util.Files;
+import fr.inra.maiage.bibliome.util.files.ExecutableFile;
+import fr.inra.maiage.bibliome.util.files.InputFile;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
+import fr.inra.maiage.bibliome.util.fragments.Fragment;
+import fr.inra.maiage.bibliome.util.fragments.FragmentComparator;
+import fr.inra.maiage.bibliome.util.fragments.SimpleFragment;
+import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
+import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
+import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 public class EnjuExternal implements External<Corpus> {
 	private static final Pattern ENJU_LINE_PATTERN = Pattern.compile("(?<start>\\d+)\t(?<end>\\d+)\t(?<kind>[a-z0-9_]+) (?<attr>.*)");

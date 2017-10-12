@@ -27,18 +27,6 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 import org.bibliome.alvisnlp.modules.trie.TrieProjector;
-import org.bibliome.util.marshall.Decoder;
-import org.bibliome.util.marshall.Encoder;
-import org.bibliome.util.streams.SourceStream;
-import org.bibliome.util.tomap.Candidate;
-import org.bibliome.util.tomap.StringNormalization;
-import org.bibliome.util.tomap.Token;
-import org.bibliome.util.tomap.TokenNormalization;
-import org.bibliome.util.tomap.classifiers.Attribution;
-import org.bibliome.util.tomap.classifiers.CandidateClassifier;
-import org.bibliome.util.tomap.readers.YateaCandidateReader;
-import org.bibliome.util.tomap.readers.YateaCandidateReader.YateaResult;
-import org.bibliome.util.trie.Trie;
 import org.xml.sax.SAXException;
 
 import alvisnlp.corpus.Annotation;
@@ -51,6 +39,18 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.marshall.Decoder;
+import fr.inra.maiage.bibliome.util.marshall.Encoder;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
+import fr.inra.maiage.bibliome.util.tomap.Candidate;
+import fr.inra.maiage.bibliome.util.tomap.StringNormalization;
+import fr.inra.maiage.bibliome.util.tomap.Token;
+import fr.inra.maiage.bibliome.util.tomap.TokenNormalization;
+import fr.inra.maiage.bibliome.util.tomap.classifiers.Attribution;
+import fr.inra.maiage.bibliome.util.tomap.classifiers.CandidateClassifier;
+import fr.inra.maiage.bibliome.util.tomap.readers.YateaCandidateReader;
+import fr.inra.maiage.bibliome.util.tomap.readers.YateaCandidateReader.YateaResult;
+import fr.inra.maiage.bibliome.util.trie.Trie;
 
 @AlvisNLPModule(beta=true)
 public abstract class TomapProjector extends TrieProjector<SectionResolvedObjects,Attribution> {

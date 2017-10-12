@@ -49,10 +49,6 @@ import org.apache.xpath.XPathContext;
 import org.apache.xpath.objects.XObject;
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.StringCat;
-import org.bibliome.util.streams.SourceStream;
-import org.bibliome.util.xml.XMLUtils;
 import org.cyberneko.html.parsers.DOMParser;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
@@ -76,6 +72,10 @@ import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
 import alvisnlp.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.StringCat;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 @AlvisNLPModule
 public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, TupleCreator {

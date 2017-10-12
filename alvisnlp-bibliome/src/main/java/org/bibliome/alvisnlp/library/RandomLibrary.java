@@ -25,9 +25,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-import org.bibliome.util.Iterators;
-import org.bibliome.util.StringCat;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.corpus.expressions.AbstractEvaluator;
 import alvisnlp.corpus.expressions.EvaluationContext;
@@ -38,6 +35,8 @@ import alvisnlp.corpus.expressions.FunctionLibrary;
 import alvisnlp.corpus.expressions.Library;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.StringCat;
 
 @Library("random")
 public abstract class RandomLibrary extends FunctionLibrary {

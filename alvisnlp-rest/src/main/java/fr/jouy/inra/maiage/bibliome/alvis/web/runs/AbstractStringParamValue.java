@@ -19,8 +19,6 @@ package fr.jouy.inra.maiage.bibliome.alvis.web.runs;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import org.bibliome.util.service.UnsupportedServiceException;
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
@@ -31,6 +29,8 @@ import alvisnlp.module.ParameterException;
 import alvisnlp.module.Sequence;
 import alvisnlp.plan.PlanException;
 import alvisnlp.plan.PlanLoader;
+import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 public abstract class AbstractStringParamValue extends ParamValue<String> {
 	protected AbstractStringParamValue(String method, String name, String value) {

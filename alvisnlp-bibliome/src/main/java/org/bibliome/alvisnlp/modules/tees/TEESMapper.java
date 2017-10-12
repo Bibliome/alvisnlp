@@ -11,8 +11,6 @@ import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 import org.bibliome.alvisnlp.modules.tees.CorpusTEES.Document.Sentence;
 import org.bibliome.alvisnlp.modules.tees.CorpusTEES.Document.Sentence.Entity;
 import org.bibliome.alvisnlp.modules.tees.CorpusTEES.Document.Sentence.Interaction;
-import org.bibliome.util.Iterators;
-import org.bibliome.util.files.InputDirectory;
 
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.Corpus;
@@ -31,6 +29,8 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.ProcessingException;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.types.MultiMapping;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.files.InputDirectory;
 
 /**
  * 

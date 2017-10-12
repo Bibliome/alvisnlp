@@ -30,8 +30,9 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-import org.bibliome.util.xml.XMLUtils;
 import org.w3c.dom.Document;
+
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 /**
  * Base class for factory models.

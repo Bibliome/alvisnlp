@@ -21,15 +21,14 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import org.bibliome.util.trie.Match;
-import org.bibliome.util.trie.Matcher;
-import org.bibliome.util.trie.StandardMatchControl;
-
 import alvisnlp.corpus.Annotation;
 import alvisnlp.corpus.NameType;
 import alvisnlp.corpus.Section;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.trie.Match;
+import fr.inra.maiage.bibliome.util.trie.Matcher;
+import fr.inra.maiage.bibliome.util.trie.StandardMatchControl;
 
 class LayerSubject implements Subject {
 	private final String layerName;

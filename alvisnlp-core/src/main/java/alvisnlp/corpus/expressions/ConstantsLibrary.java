@@ -20,14 +20,13 @@ package alvisnlp.corpus.expressions;
 import java.io.IOException;
 import java.util.List;
 
-import org.bibliome.util.StringCat;
-import org.bibliome.util.service.Service;
-
 import alvisnlp.corpus.Element;
 import alvisnlp.documentation.Documentation;
 import alvisnlp.documentation.ResourceDocumentation;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.util.StringCat;
+import fr.inra.maiage.bibliome.util.service.Service;
 
 @Service(FunctionLibrary.class)
 public class ConstantsLibrary extends FunctionLibrary {

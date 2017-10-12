@@ -26,8 +26,6 @@ import java.io.Writer;
 import java.util.Random;
 import java.util.logging.Logger;
 
-import org.bibliome.util.streams.TargetStream;
-
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
 import weka.classifiers.meta.FilteredClassifier;
@@ -43,6 +41,7 @@ import alvisnlp.module.TimerCategory;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 @AlvisNLPModule
 public class WekaTrain extends PredictionElementClassifier {
