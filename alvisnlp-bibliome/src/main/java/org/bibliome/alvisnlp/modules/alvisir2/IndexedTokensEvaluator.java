@@ -27,8 +27,8 @@ import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.NameUser;
-import fr.inra.mig_bibliome.alvisir.core.index.AlvisIRIndexedTokens;
-import fr.inra.mig_bibliome.alvisir.core.index.AlvisIRTokenFragments;
+import fr.inra.maiage.bibliome.alvisir.core.index.AlvisIRIndexedTokens;
+import fr.inra.maiage.bibliome.alvisir.core.index.AlvisIRTokenFragments;
 
 public class IndexedTokensEvaluator implements AlvisIRIndexedTokens<Element,Element>, NameUser {
 	private final Evaluator instances;

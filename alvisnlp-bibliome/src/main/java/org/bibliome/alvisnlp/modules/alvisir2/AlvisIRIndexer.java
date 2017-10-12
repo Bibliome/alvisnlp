@@ -43,11 +43,11 @@ import alvisnlp.module.ProcessingContext;
 import alvisnlp.module.lib.AlvisNLPModule;
 import alvisnlp.module.lib.Param;
 import alvisnlp.module.types.MultiMapping;
+import fr.inra.maiage.bibliome.alvisir.core.AlvisIRConstants;
+import fr.inra.maiage.bibliome.alvisir.core.index.DocumentsIndexer;
+import fr.inra.maiage.bibliome.alvisir.core.index.IndexGlobalAttributes;
 import fr.inra.maiage.bibliome.util.Files;
 import fr.inra.maiage.bibliome.util.files.OutputDirectory;
-import fr.inra.mig_bibliome.alvisir.core.AlvisIRConstants;
-import fr.inra.mig_bibliome.alvisir.core.index.DocumentsIndexer;
-import fr.inra.mig_bibliome.alvisir.core.index.IndexGlobalAttributes;
 
 @AlvisNLPModule
 public class AlvisIRIndexer extends CorpusModule<AlvisIRIndexerResolvedObjects> {

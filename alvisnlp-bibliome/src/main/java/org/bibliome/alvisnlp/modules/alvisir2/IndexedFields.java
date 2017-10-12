@@ -24,7 +24,7 @@ import alvisnlp.corpus.expressions.Expression;
 import alvisnlp.corpus.expressions.LibraryResolver;
 import alvisnlp.corpus.expressions.Resolvable;
 import alvisnlp.corpus.expressions.ResolverException;
-import fr.inra.mig_bibliome.alvisir.core.index.NormalizationOptions;
+import fr.inra.maiage.bibliome.alvisir.core.index.NormalizationOptions;
 
 public class IndexedFields implements Resolvable<IndexedFieldsEvaluator> {
 	private final Expression instances;

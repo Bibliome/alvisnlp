@@ -25,7 +25,7 @@ import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.NameUser;
-import fr.inra.mig_bibliome.alvisir.core.index.AlvisIRTokenFragments;
+import fr.inra.maiage.bibliome.alvisir.core.index.AlvisIRTokenFragments;
 
 public class TokenFragmentsEvaluator implements AlvisIRTokenFragments<Element>, NameUser {
 	private final Evaluator instances;

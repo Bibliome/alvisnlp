@@ -28,9 +28,9 @@ import alvisnlp.corpus.expressions.Evaluator;
 import alvisnlp.module.ModuleException;
 import alvisnlp.module.NameUsage;
 import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.alvisir.core.index.AlvisIRIndexedDocuments;
+import fr.inra.maiage.bibliome.alvisir.core.index.AlvisIRIndexedFields;
 import fr.inra.maiage.bibliome.util.Iterators;
-import fr.inra.mig_bibliome.alvisir.core.index.AlvisIRIndexedDocuments;
-import fr.inra.mig_bibliome.alvisir.core.index.AlvisIRIndexedFields;
 
 class IndexedDocumentsEvaluator implements AlvisIRIndexedDocuments<Element,Element,Element,Element>, NameUser {
 	private final Evaluator instances;

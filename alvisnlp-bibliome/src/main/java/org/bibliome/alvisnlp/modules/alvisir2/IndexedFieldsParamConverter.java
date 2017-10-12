@@ -30,9 +30,9 @@ import alvisnlp.converters.lib.AbstractParamConverter;
 import alvisnlp.converters.lib.Converter;
 import alvisnlp.corpus.expressions.Expression;
 import alvisnlp.module.types.ExpressionMapping;
+import fr.inra.maiage.bibliome.alvisir.core.index.NormalizationOptions;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.xml.XMLUtils;
-import fr.inra.mig_bibliome.alvisir.core.index.NormalizationOptions;
 
 @Converter(targetType=IndexedFields.class)
 public class IndexedFieldsParamConverter extends AbstractParamConverter<IndexedFields> {
