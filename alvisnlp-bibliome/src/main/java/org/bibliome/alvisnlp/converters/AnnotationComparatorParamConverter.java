@@ -19,10 +19,10 @@ package org.bibliome.alvisnlp.converters;
 
 import java.util.List;
 
-import alvisnlp.converters.ConverterException;
-import alvisnlp.converters.lib.ClosedValueSetParamConverter;
-import alvisnlp.converters.lib.Converter;
-import alvisnlp.corpus.AnnotationComparator;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.ConverterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.ClosedValueSetParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.AnnotationComparator;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
 

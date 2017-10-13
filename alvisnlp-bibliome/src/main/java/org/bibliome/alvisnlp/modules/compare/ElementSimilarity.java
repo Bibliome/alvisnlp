@@ -17,8 +17,8 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.compare;
 
-import alvisnlp.corpus.Element;
-import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUser;
 
 public interface ElementSimilarity extends NameUser {
 	double similarity(Element a, Element b);

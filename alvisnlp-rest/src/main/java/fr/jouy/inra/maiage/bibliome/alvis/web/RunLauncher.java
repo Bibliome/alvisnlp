@@ -13,15 +13,14 @@ import javax.servlet.ServletContext;
 import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.UriInfo;
 
-import alvisnlp.corpus.Corpus;
-import alvisnlp.module.Sequence;
-
 import com.sun.jersey.api.core.HttpContext;
 import com.sun.jersey.api.core.HttpRequestContext;
 import com.sun.jersey.core.header.ContentDisposition;
 import com.sun.jersey.multipart.FormDataBodyPart;
 import com.sun.jersey.multipart.FormDataMultiPart;
 
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.Sequence;
 import fr.jouy.inra.maiage.bibliome.alvis.web.executor.AlvisNLPExecutor;
 import fr.jouy.inra.maiage.bibliome.alvis.web.runs.ParamValue;
 import fr.jouy.inra.maiage.bibliome.alvis.web.runs.PlanBuilder;

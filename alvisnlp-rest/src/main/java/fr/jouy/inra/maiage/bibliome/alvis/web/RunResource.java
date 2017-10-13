@@ -46,16 +46,15 @@ import org.w3c.dom.Node;
 import org.w3c.dom.ProcessingInstruction;
 import org.xml.sax.SAXException;
 
-import alvisnlp.converters.ConverterException;
-import alvisnlp.corpus.Corpus;
-import alvisnlp.module.MissingParameterException;
-import alvisnlp.module.ParameterValueConstraintException;
-import alvisnlp.module.Sequence;
-import alvisnlp.module.UnexpectedParameterException;
-
 import com.sun.jersey.api.core.HttpContext;
 import com.sun.jersey.multipart.FormDataMultiPart;
 
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.ConverterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.MissingParameterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ParameterValueConstraintException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.Sequence;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.UnexpectedParameterException;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 import fr.jouy.inra.maiage.bibliome.alvis.web.executor.AlvisNLPExecutor;

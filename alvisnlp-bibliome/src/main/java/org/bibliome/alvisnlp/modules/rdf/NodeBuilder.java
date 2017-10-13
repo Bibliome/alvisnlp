@@ -19,9 +19,9 @@ package org.bibliome.alvisnlp.modules.rdf;
 
 import org.apache.jena.rdf.model.RDFNode;
 
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUser;
 
 interface NodeBuilder extends NameUser {
 	RDFNode createNode(EvaluationContext ctx, Element elt);

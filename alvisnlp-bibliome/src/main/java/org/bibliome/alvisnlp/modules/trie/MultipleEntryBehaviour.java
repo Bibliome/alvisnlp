@@ -21,8 +21,8 @@ import java.util.List;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 
-import alvisnlp.corpus.Annotation;
-import alvisnlp.corpus.Layer;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.util.trie.Match;
 
 public enum MultipleEntryBehaviour {

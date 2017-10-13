@@ -24,11 +24,11 @@ import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
 
-import alvisnlp.corpus.Annotation;
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.Layer;
-import alvisnlp.corpus.Section;
-import alvisnlp.corpus.creators.AnnotationCreator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreator;
 
 public class SectionsUnmerger {
 	private final NavigableMap<Integer,Section> offsets = new TreeMap<Integer,Section>();

@@ -24,13 +24,13 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.expressions.AbstractListEvaluator;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.EvaluationType;
-import alvisnlp.corpus.expressions.Evaluator;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.AbstractListEvaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationType;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.util.Iterators;
 
 abstract class AbstractSortEvaluator extends AbstractListEvaluator {

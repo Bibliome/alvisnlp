@@ -20,12 +20,12 @@ package org.bibliome.alvisnlp.modules.wapiti;
 import java.io.IOException;
 import java.util.List;
 
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.expressions.ResolverException;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.ProcessingContext;
-import alvisnlp.module.lib.AlvisNLPModule;
-import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
 

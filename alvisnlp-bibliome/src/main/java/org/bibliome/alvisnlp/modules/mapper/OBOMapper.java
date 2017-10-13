@@ -31,14 +31,14 @@ import org.obo.datamodel.OBOSession;
 import org.obo.datamodel.Synonym;
 import org.obo.util.TermUtil;
 
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.NameType;
-import alvisnlp.corpus.expressions.ResolverException;
-import alvisnlp.module.ProcessingContext;
-import alvisnlp.module.ProcessingException;
-import alvisnlp.module.lib.AlvisNLPModule;
-import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
 import fr.inra.maiage.bibliome.util.obo.OBOUtils;
 

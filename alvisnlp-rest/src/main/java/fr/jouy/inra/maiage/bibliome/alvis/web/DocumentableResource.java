@@ -36,8 +36,8 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.ProcessingInstruction;
 
-import alvisnlp.documentation.Documentable;
-import alvisnlp.documentation.Documentation;
+import fr.inra.maiage.bibliome.alvisnlp.core.documentation.Documentable;
+import fr.inra.maiage.bibliome.alvisnlp.core.documentation.Documentation;
 import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 public abstract class DocumentableResource<K,D extends Documentable> extends AbstractResource {

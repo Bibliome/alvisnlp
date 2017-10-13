@@ -17,8 +17,8 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.projectors;
 
-import alvisnlp.corpus.Section;
-import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUser;
 import fr.inra.maiage.bibliome.util.newprojector.CharFilter;
 import fr.inra.maiage.bibliome.util.newprojector.Dictionary;
 import fr.inra.maiage.bibliome.util.newprojector.Matcher;

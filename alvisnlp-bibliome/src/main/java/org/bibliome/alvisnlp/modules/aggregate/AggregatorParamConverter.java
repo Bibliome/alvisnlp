@@ -22,11 +22,11 @@ import java.text.DecimalFormat;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.Element;
 
-import alvisnlp.converters.ConverterException;
-import alvisnlp.converters.lib.AbstractParamConverter;
-import alvisnlp.converters.lib.Converter;
-import alvisnlp.corpus.expressions.ConstantsLibrary;
-import alvisnlp.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.ConverterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.AbstractParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ConstantsLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
 import fr.inra.maiage.bibliome.util.ArithmeticOperator;
 import fr.inra.maiage.bibliome.util.SuperiorOperator;
 

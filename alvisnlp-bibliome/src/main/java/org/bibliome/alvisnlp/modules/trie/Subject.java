@@ -19,8 +19,8 @@ package org.bibliome.alvisnlp.modules.trie;
 
 import java.util.List;
 
-import alvisnlp.corpus.Section;
-import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUser;
 import fr.inra.maiage.bibliome.util.trie.Match;
 import fr.inra.maiage.bibliome.util.trie.Matcher;
 import fr.inra.maiage.bibliome.util.trie.StandardMatchControl;

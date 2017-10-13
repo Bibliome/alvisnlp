@@ -30,9 +30,9 @@ import javax.xml.xpath.XPathExpressionException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import alvisnlp.corpus.Corpus;
-import alvisnlp.module.Sequence;
-import alvisnlp.plan.PlanLoader;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.Sequence;
+import fr.inra.maiage.bibliome.alvisnlp.core.plan.PlanLoader;
 import fr.jouy.inra.maiage.bibliome.alvis.web.runs.PlanBuilder;
 
 @Path("/plans")

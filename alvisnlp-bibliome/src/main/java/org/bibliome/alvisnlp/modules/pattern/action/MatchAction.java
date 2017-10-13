@@ -17,10 +17,10 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.pattern.action;
 
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.Section;
-import alvisnlp.corpus.expressions.Resolvable;
-import alvisnlp.module.NameUser;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Resolvable;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUser;
 import fr.inra.maiage.bibliome.util.pattern.SequenceMatcher;
 
 public interface MatchAction extends Resolvable<MatchAction>, NameUser {

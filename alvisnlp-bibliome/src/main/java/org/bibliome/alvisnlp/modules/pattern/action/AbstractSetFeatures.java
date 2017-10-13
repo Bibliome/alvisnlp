@@ -21,16 +21,16 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.NameType;
-import alvisnlp.corpus.Section;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.Evaluator;
-import alvisnlp.corpus.expressions.Expression;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.NameUsage;
-import alvisnlp.module.types.EvaluatorMapping;
-import alvisnlp.module.types.ExpressionMapping;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.types.EvaluatorMapping;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.types.ExpressionMapping;
 import fr.inra.maiage.bibliome.util.pattern.SequenceMatcher;
 
 public abstract class AbstractSetFeatures<T extends Element> extends AbstractMatchAction {

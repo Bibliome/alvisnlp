@@ -17,9 +17,9 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.compare;
 
-import alvisnlp.corpus.Element;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 
 public class MultiplicativeSimilarity implements ElementSimilarity {
 	private final ElementSimilarity[] similarities;

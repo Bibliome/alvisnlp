@@ -14,15 +14,15 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package alvisnlp.hello;
+package org.example.alvisnlp.hello;
 
 import java.util.logging.Logger;
 
-import alvisnlp.document.Corpus;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.ProcessingContext;
-import alvisnlp.module.lib.AlvisNLPModule;
-import alvisnlp.module.lib.CorpusModule;
+import fr.inra.maiage.bibliome.alvisnlp.core.document.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.CorpusModule;
 
 @AlvisNLPModule
 public class HelloWorld extends CorpusModule {

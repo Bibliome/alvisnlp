@@ -23,9 +23,9 @@ import javax.ws.rs.core.UriInfo;
 
 import org.w3c.dom.Document;
 
-import alvisnlp.app.cli.AbstractAlvisNLP;
-import alvisnlp.converters.ParamConverter;
-import alvisnlp.converters.ParamConverterFactory;
+import fr.inra.maiage.bibliome.alvisnlp.core.app.cli.AbstractAlvisNLP;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.ParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.ParamConverterFactory;
 
 @Path("/converters")
 public class ConverterResource extends DocumentableResource<Class<?>,ParamConverter> {

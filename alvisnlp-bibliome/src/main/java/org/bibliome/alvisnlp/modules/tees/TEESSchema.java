@@ -3,7 +3,7 @@ package org.bibliome.alvisnlp.modules.tees;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import alvisnlp.module.types.MultiMapping;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.types.MultiMapping;
 import fr.inra.maiage.bibliome.util.Checkable;
 
 @SuppressWarnings("serial")

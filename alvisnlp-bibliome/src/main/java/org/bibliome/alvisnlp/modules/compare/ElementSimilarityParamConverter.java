@@ -21,9 +21,9 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import alvisnlp.converters.ConverterException;
-import alvisnlp.converters.lib.ClosedValueSetParamConverter;
-import alvisnlp.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.ConverterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.ClosedValueSetParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
 

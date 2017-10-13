@@ -16,9 +16,9 @@ limitations under the License.
 
 
 package org.bibliome.alvisnlp.modules.projectors;
-import alvisnlp.converters.ConverterException;
-import alvisnlp.converters.lib.ClosedValueSetParamConverter;
-import alvisnlp.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.ConverterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.ClosedValueSetParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
 import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
 
 @Converter(targetType = MultipleValueAction.class)

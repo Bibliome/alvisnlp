@@ -17,7 +17,7 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.converters;
 
-import alvisnlp.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 
 @Converter(targetType=InputFile.class)

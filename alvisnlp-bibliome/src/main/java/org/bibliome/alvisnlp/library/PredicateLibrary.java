@@ -21,21 +21,21 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.expressions.AbstractIteratorEvaluator;
-import alvisnlp.corpus.expressions.ConstantsLibrary;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.Evaluator;
-import alvisnlp.corpus.expressions.Expression;
-import alvisnlp.corpus.expressions.Function;
-import alvisnlp.corpus.expressions.FunctionLibrary;
-import alvisnlp.corpus.expressions.Library;
-import alvisnlp.corpus.expressions.LibraryResolver;
-import alvisnlp.corpus.expressions.ResolverException;
-import alvisnlp.corpus.expressions.VariableLibrary;
-import alvisnlp.corpus.expressions.VariableLibrary.Variable;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.AbstractIteratorEvaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ConstantsLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Function;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.FunctionLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Library;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.LibraryResolver;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.VariableLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.VariableLibrary.Variable;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.util.Iterators;
 
 @Library("pred")

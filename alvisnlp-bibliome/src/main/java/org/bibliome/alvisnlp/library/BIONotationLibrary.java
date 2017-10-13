@@ -17,16 +17,16 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.library;
 
-import alvisnlp.corpus.Annotation;
-import alvisnlp.corpus.DownCastElement;
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.Layer;
-import alvisnlp.corpus.Section;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.Evaluator;
-import alvisnlp.corpus.expressions.Function;
-import alvisnlp.corpus.expressions.FunctionLibrary;
-import alvisnlp.corpus.expressions.Library;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DownCastElement;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Function;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.FunctionLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Library;
 
 @Library("bio")
 public abstract class BIONotationLibrary extends FunctionLibrary {

@@ -23,15 +23,15 @@ import org.bibliome.alvisnlp.modules.DefaultExpressions;
 import org.bibliome.alvisnlp.modules.alvisre.AlvisREAnnotations.ResolvedAlvisREAnnotation;
 import org.bibliome.alvisnlp.modules.alvisre.AlvisRETokens.Resolved;
 
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.expressions.ConstantsLibrary;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.Evaluator;
-import alvisnlp.corpus.expressions.Expression;
-import alvisnlp.corpus.expressions.LibraryResolver;
-import alvisnlp.corpus.expressions.ResolverException;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ConstantsLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.LibraryResolver;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 
 public class AlvisRETokens extends AlvisREAnnotations<Resolved> {
 	private final Expression form;

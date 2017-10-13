@@ -17,18 +17,18 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.library;
 
-import alvisnlp.corpus.Annotation;
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.Document;
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.ElementVisitor;
-import alvisnlp.corpus.Relation;
-import alvisnlp.corpus.Section;
-import alvisnlp.corpus.Tuple;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.Function;
-import alvisnlp.corpus.expressions.FunctionLibrary;
-import alvisnlp.corpus.expressions.Library;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.ElementVisitor;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Function;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.FunctionLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Library;
 
 @Library("type")
 public abstract class TypeLibrary extends FunctionLibrary {

@@ -24,9 +24,9 @@ import java.util.List;
 
 import org.w3c.dom.Element;
 
-import alvisnlp.converters.ConverterException;
-import alvisnlp.converters.lib.AbstractParamConverter;
-import alvisnlp.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.ConverterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.AbstractParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
 import fr.inra.maiage.bibliome.util.files.AbstractFile;
 import fr.inra.maiage.bibliome.util.files.FileFactory;
 import fr.inra.maiage.bibliome.util.files.OutputFile;

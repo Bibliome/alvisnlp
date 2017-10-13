@@ -20,10 +20,10 @@ package org.bibliome.alvisnlp.modules.prolog;
 import org.w3c.dom.Element;
 
 import alice.tuprolog.Term;
-import alvisnlp.converters.ConverterException;
-import alvisnlp.converters.lib.AbstractParamConverter;
-import alvisnlp.converters.lib.Converter;
-import alvisnlp.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.ConverterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.AbstractParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
 
 @Converter(targetType=GoalDefinition.class)
 public class GoalDefinitionParamConverter extends AbstractParamConverter<GoalDefinition> {

@@ -22,14 +22,14 @@ import java.util.Deque;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import alvisnlp.corpus.Annotation;
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.Document;
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.Layer;
-import alvisnlp.corpus.Relation;
-import alvisnlp.corpus.Section;
-import alvisnlp.corpus.Tuple;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
 
 class XMLReaderContext {
 	private final XMLReader owner;

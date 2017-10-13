@@ -26,17 +26,17 @@ import jline.ConsoleReader;
 import org.bibliome.alvisnlp.modules.CorpusModule;
 import org.bibliome.alvisnlp.modules.ResolvedObjects;
 
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.creators.AnnotationCreator;
-import alvisnlp.corpus.creators.DocumentCreator;
-import alvisnlp.corpus.creators.SectionCreator;
-import alvisnlp.corpus.creators.TupleCreator;
-import alvisnlp.corpus.expressions.ResolverException;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.ProcessingContext;
-import alvisnlp.module.lib.AlvisNLPModule;
-import alvisnlp.module.lib.Param;
-import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.DocumentCreator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.SectionCreator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 @AlvisNLPModule

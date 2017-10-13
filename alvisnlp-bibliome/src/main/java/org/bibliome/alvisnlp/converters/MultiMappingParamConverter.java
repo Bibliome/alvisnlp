@@ -20,10 +20,10 @@ package org.bibliome.alvisnlp.converters;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import alvisnlp.converters.ConverterException;
-import alvisnlp.converters.lib.Converter;
-import alvisnlp.converters.lib.MapParamConverter;
-import alvisnlp.module.types.MultiMapping;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.ConverterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.MapParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.types.MultiMapping;
 
 @Converter(targetType=MultiMapping.class)
 public class MultiMappingParamConverter extends MapParamConverter<String,String[],MultiMapping> {

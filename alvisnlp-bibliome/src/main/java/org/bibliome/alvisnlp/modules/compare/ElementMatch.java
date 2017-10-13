@@ -19,7 +19,7 @@ package org.bibliome.alvisnlp.modules.compare;
 
 import java.util.Iterator;
 
-import alvisnlp.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.util.Iterators;
 
 class ElementMatch {

@@ -43,17 +43,17 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
-import alvisnlp.corpus.Annotation;
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.Layer;
-import alvisnlp.corpus.NameType;
-import alvisnlp.corpus.Section;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.ResolverException;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.ProcessingContext;
-import alvisnlp.module.lib.AlvisNLPModule;
-import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.files.OutputDirectory;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
@@ -120,11 +120,11 @@ public class QuickHTML extends SectionModule<SectionResolvedObjects> {
 		logger.info("generating HTML documents");
 		Element docListUL = XMLUtils.evaluateElement(XPATH_DOCUMENT_LIST, docList);
 		Document docSkel = createDocumentSkeleton();
-		Iterator<alvisnlp.corpus.Document> docIt = documentIterator(evalCtx, corpus);
-		alvisnlp.corpus.Document prev = null;
-		alvisnlp.corpus.Document next = docIt.hasNext() ? docIt.next() : null;
+		Iterator<fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document> docIt = documentIterator(evalCtx, corpus);
+		fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document prev = null;
+		fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document next = docIt.hasNext() ? docIt.next() : null;
 		while (next != null) {
-			alvisnlp.corpus.Document doc = next;
+			fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc = next;
 			addDocumentListItem(docList, docListUL, doc);
 			next = docIt.hasNext() ? docIt.next() : null;
 			Document xmlDoc = createDocument(docSkel, doc, prev, next);
@@ -137,13 +137,13 @@ public class QuickHTML extends SectionModule<SectionResolvedObjects> {
 		}
 	}
 	
-	private static void addDocumentListItem(Document docList, Element docListUL, alvisnlp.corpus.Document doc) {
+	private static void addDocumentListItem(Document docList, Element docListUL, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc) {
 		Element li = XMLUtils.createElement(docList, docListUL, -1, "li");
 		addClass(li, "documet-list-item");
 		addLinkToDocument(li, doc);
 	}
 	
-	private static void addLinkToDocument(Element parent, alvisnlp.corpus.Document doc) {
+	private static void addLinkToDocument(Element parent, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc) {
 		String id = doc.getId();
 		Element a = XMLUtils.createElement(parent.getOwnerDocument(), parent, -1, "a", id);
 		a.setAttribute("href", id + ".html");
@@ -181,7 +181,7 @@ public class QuickHTML extends SectionModule<SectionResolvedObjects> {
 		}
 	}
 
-	private static Document createDocument(Document docSkel, alvisnlp.corpus.Document doc, alvisnlp.corpus.Document prev, alvisnlp.corpus.Document next) throws XPathExpressionException {
+	private static Document createDocument(Document docSkel, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document prev, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document next) throws XPathExpressionException {
 		Document result = (Document) docSkel.cloneNode(true);
 		String title = "Document: " + doc.getId();
 		Element docTitle = XMLUtils.evaluateElement(XPATH_DOMUMENT_TITLE, result);

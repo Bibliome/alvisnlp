@@ -24,15 +24,15 @@ import java.util.logging.Logger;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 
-import alvisnlp.corpus.Annotation;
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.Layer;
-import alvisnlp.corpus.NameType;
-import alvisnlp.corpus.Section;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.NameUsage;
-import alvisnlp.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.files.InputFile;

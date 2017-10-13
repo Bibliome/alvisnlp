@@ -25,12 +25,12 @@ import java.util.logging.Logger;
 import org.bibliome.alvisnlp.modules.pattern.EvaluatorFilterProxy;
 import org.bibliome.alvisnlp.modules.pattern.PatternMatcher;
 
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.LibraryResolver;
-import alvisnlp.corpus.expressions.ResolverException;
-import alvisnlp.corpus.expressions.VariableLibrary;
-import alvisnlp.corpus.expressions.VariableLibrary.Variable;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.LibraryResolver;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.VariableLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.VariableLibrary.Variable;
 import fr.inra.maiage.bibliome.util.pattern.CapturingGroup;
 import fr.inra.maiage.bibliome.util.pattern.SequenceMatcher;
 import fr.inra.maiage.bibliome.util.pattern.SequencePattern;

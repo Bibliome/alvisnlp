@@ -25,9 +25,9 @@ import java.util.regex.Pattern;
 
 import org.w3c.dom.Element;
 
-import alvisnlp.converters.ConverterException;
-import alvisnlp.converters.lib.AbstractParamConverter;
-import alvisnlp.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.ConverterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.AbstractParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
 import fr.inra.maiage.bibliome.util.streams.CollectionSourceStream;
 import fr.inra.maiage.bibliome.util.streams.CompressionFilter;
 import fr.inra.maiage.bibliome.util.streams.PatternFileFilter;

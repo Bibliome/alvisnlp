@@ -24,22 +24,22 @@ import org.bibliome.alvisnlp.library.UserFunction;
 import org.bibliome.alvisnlp.library.UserLibrary;
 import org.bibliome.alvisnlp.library.standard.ModuleLibrary;
 
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.expressions.ConstantsLibrary;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.Evaluator;
-import alvisnlp.corpus.expressions.Expression;
-import alvisnlp.corpus.expressions.FunctionLibrary;
-import alvisnlp.corpus.expressions.LibraryResolver;
-import alvisnlp.corpus.expressions.ResolverException;
-import alvisnlp.module.Module;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.NameUsage;
-import alvisnlp.module.NameUser;
-import alvisnlp.module.ProcessingContext;
-import alvisnlp.module.lib.ModuleBase;
-import alvisnlp.module.lib.Param;
-import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ConstantsLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.FunctionLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.LibraryResolver;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUser;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
 
 public abstract class CorpusModule<T extends ResolvedObjects> extends ModuleBase<Corpus> implements NameUser {
 	private Expression active = ConstantsLibrary.TRUE;

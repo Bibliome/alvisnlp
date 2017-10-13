@@ -21,8 +21,8 @@ import org.bibliome.alvisnlp.modules.wok.FieldReader;
 import org.bibliome.alvisnlp.modules.wok.WebOfKnowledgeReader;
 import org.bibliome.alvisnlp.modules.wok.WoKReaderStatus;
 
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.Document;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 
 public enum PublicationType implements FieldReader {
 	INSTANCE;

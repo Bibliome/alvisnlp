@@ -21,14 +21,14 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.expressions.AbstractEvaluator;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.EvaluationType;
-import alvisnlp.corpus.expressions.Evaluator;
-import alvisnlp.corpus.expressions.VariableLibrary;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.AbstractEvaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationType;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.VariableLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.util.StringCat;
 
 final class AssignEvaluator extends AbstractEvaluator {

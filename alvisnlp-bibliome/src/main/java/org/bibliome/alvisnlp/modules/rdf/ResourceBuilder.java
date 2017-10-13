@@ -19,8 +19,8 @@ package org.bibliome.alvisnlp.modules.rdf;
 
 import org.apache.jena.rdf.model.Resource;
 
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 
 interface ResourceBuilder extends NodeBuilder {
 	@Override

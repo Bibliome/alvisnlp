@@ -20,9 +20,9 @@ package org.bibliome.alvisnlp.modules.wok.readers;
 import org.bibliome.alvisnlp.modules.wok.FieldReader;
 import org.bibliome.alvisnlp.modules.wok.WoKReaderStatus;
 
-import alvisnlp.corpus.Document;
-import alvisnlp.corpus.Section;
-import alvisnlp.corpus.creators.SectionCreator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.SectionCreator;
 
 public class SectionBuilder implements FieldReader {
 	private final String sectionName;

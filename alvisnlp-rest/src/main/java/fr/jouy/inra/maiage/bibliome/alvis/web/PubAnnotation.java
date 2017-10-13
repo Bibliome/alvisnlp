@@ -30,18 +30,17 @@ import javax.ws.rs.core.UriInfo;
 import org.bibliome.alvisnlp.modules.pubannotation.PubAnnotationExport;
 import org.xml.sax.SAXException;
 
-import alvisnlp.corpus.Corpus;
-import alvisnlp.factory.ModuleFactory;
-import alvisnlp.module.AbstractModuleVisitor;
-import alvisnlp.module.Module;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.ModuleVisitor;
-import alvisnlp.module.Sequence;
-
 import com.sun.jersey.api.core.HttpContext;
 import com.sun.jersey.multipart.FormDataMultiPart;
 import com.sun.jersey.multipart.FormDataParam;
 
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.factory.ModuleFactory;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.AbstractModuleVisitor;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleVisitor;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.Sequence;
 import fr.inra.maiage.bibliome.util.service.AmbiguousAliasException;
 import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
 import fr.jouy.inra.maiage.bibliome.alvis.web.executor.AlvisNLPExecutor;

@@ -21,15 +21,15 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.logging.Logger;
 
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.expressions.Function;
-import alvisnlp.corpus.expressions.FunctionLibrary;
-import alvisnlp.corpus.expressions.Library;
-import alvisnlp.module.Module;
-import alvisnlp.module.ProcessingContext;
-import alvisnlp.module.Sequence;
-import alvisnlp.module.lib.ModuleBase;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Function;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.FunctionLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Library;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.Sequence;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase;
 import fr.inra.maiage.bibliome.util.Iterators;
 
 @Library("module")

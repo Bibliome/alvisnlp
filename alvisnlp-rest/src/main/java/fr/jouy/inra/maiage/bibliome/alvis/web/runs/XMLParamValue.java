@@ -24,12 +24,12 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
-import alvisnlp.converters.ConverterException;
-import alvisnlp.corpus.Corpus;
-import alvisnlp.module.ParameterException;
-import alvisnlp.module.Sequence;
-import alvisnlp.plan.PlanException;
-import alvisnlp.plan.PlanLoader;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.ConverterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ParameterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.Sequence;
+import fr.inra.maiage.bibliome.alvisnlp.core.plan.PlanException;
+import fr.inra.maiage.bibliome.alvisnlp.core.plan.PlanLoader;
 import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
 
 public class XMLParamValue extends ParamValue<Element> {

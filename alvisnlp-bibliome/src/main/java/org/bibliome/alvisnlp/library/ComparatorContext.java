@@ -20,11 +20,11 @@ package org.bibliome.alvisnlp.library;
 import java.util.Iterator;
 import java.util.List;
 
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.Evaluator;
-import alvisnlp.corpus.expressions.VariableLibrary;
-import alvisnlp.corpus.expressions.VariableLibrary.Variable;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.VariableLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.VariableLibrary.Variable;
 
 public class ComparatorContext {
 	private final VariableLibrary library;

@@ -13,16 +13,16 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.Document;
-import alvisnlp.corpus.expressions.ResolverException;
-import alvisnlp.module.Module;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.ProcessingContext;
-import alvisnlp.module.ProcessingException;
-import alvisnlp.module.lib.AlvisNLPModule;
-import alvisnlp.module.lib.External;
-import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Files;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
 

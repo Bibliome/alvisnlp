@@ -19,11 +19,11 @@ package org.bibliome.alvisnlp.modules.weka;
 
 import java.util.Collection;
 
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import weka.core.Attribute;
-import alvisnlp.corpus.expressions.Evaluator;
-import alvisnlp.corpus.expressions.Expression;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.NameUsage;
 
 abstract class AbstractExpressionAttributeDefinition extends AttributeDefinition {
 	protected final Expression expression;

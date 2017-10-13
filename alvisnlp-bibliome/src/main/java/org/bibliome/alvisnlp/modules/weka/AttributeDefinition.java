@@ -20,12 +20,12 @@ package org.bibliome.alvisnlp.modules.weka;
 import java.util.Arrays;
 import java.util.Collection;
 
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Resolvable;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUser;
 import weka.core.Attribute;
 import weka.core.FastVector;
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.Resolvable;
-import alvisnlp.module.NameUser;
 
 abstract class AttributeDefinition implements Resolvable<AttributeDefinition>, NameUser {
 	private final boolean classAttribute;

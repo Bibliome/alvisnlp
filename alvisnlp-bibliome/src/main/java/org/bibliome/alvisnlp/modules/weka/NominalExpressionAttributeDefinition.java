@@ -19,12 +19,12 @@ package org.bibliome.alvisnlp.modules.weka;
 
 import java.util.Collection;
 
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.Evaluator;
-import alvisnlp.corpus.expressions.Expression;
-import alvisnlp.corpus.expressions.LibraryResolver;
-import alvisnlp.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.LibraryResolver;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 
 class NominalExpressionAttributeDefinition extends AbstractExpressionAttributeDefinition {
 	NominalExpressionAttributeDefinition(boolean classAttribute, String name, Collection<String> values, Expression expression, Evaluator resolvedExpression) {

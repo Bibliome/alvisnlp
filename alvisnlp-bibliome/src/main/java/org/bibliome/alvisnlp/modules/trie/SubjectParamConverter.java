@@ -23,10 +23,10 @@ import java.util.Collections;
 
 import org.w3c.dom.Element;
 
-import alvisnlp.converters.ConverterException;
-import alvisnlp.converters.lib.AbstractParamConverter;
-import alvisnlp.converters.lib.Converter;
-import alvisnlp.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.ConverterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.AbstractParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 
 @Converter(targetType=Subject.class)
 public class SubjectParamConverter extends AbstractParamConverter<Subject> {

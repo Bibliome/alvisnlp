@@ -22,17 +22,17 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.Document;
-import alvisnlp.corpus.NameType;
-import alvisnlp.corpus.Section;
-import alvisnlp.corpus.creators.DocumentCreator;
-import alvisnlp.corpus.creators.SectionCreator;
-import alvisnlp.corpus.expressions.ResolverException;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.ProcessingContext;
-import alvisnlp.module.lib.AlvisNLPModule;
-import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.DocumentCreator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.SectionCreator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 

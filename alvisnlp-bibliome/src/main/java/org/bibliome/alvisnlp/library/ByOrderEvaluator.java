@@ -19,12 +19,12 @@ package org.bibliome.alvisnlp.library;
 
 import java.util.Comparator;
 
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.ElementComparator;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.Evaluator;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.ElementComparator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 
 public class ByOrderEvaluator extends AbstractSortEvaluator {
 	private final AbstractSortEvaluator secondarySortEvaluator;

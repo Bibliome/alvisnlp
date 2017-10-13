@@ -30,7 +30,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.Text;
 
-import alvisnlp.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.fragments.FragmentTag;
 import fr.inra.maiage.bibliome.util.fragments.FragmentTagIterator;

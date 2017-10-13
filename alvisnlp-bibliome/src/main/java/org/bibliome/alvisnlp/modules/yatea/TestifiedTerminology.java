@@ -21,10 +21,10 @@ import java.io.IOException;
 
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 
-import alvisnlp.corpus.Corpus;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.NameUser;
-import alvisnlp.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUser;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.util.Checkable;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 

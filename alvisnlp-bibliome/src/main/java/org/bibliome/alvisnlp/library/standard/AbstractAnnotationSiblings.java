@@ -21,22 +21,22 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import alvisnlp.corpus.Annotation;
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.Document;
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.ElementVisitor;
-import alvisnlp.corpus.Layer;
-import alvisnlp.corpus.NameType;
-import alvisnlp.corpus.Relation;
-import alvisnlp.corpus.Section;
-import alvisnlp.corpus.Tuple;
-import alvisnlp.corpus.expressions.AbstractListEvaluator;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.EvaluationType;
-import alvisnlp.corpus.expressions.Evaluator;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.ElementVisitor;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.AbstractListEvaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationType;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.util.Pair;
 
 abstract class AbstractAnnotationSiblings extends AbstractListEvaluator implements ElementVisitor<List<Element>,Pair<EvaluationContext,Element>> {

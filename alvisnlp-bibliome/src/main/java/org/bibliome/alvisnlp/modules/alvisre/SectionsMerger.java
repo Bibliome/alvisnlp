@@ -23,10 +23,10 @@ import java.util.Map;
 
 import org.bibliome.alvisnlp.modules.SectionModule;
 
-import alvisnlp.corpus.Document;
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.Section;
-import alvisnlp.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 
 public class SectionsMerger {
 	private final SectionModule<?> module;

@@ -19,8 +19,8 @@ package org.bibliome.alvisnlp.modules.bionlpst;
 
 import org.w3c.dom.Element;
 
-import alvisnlp.converters.ConverterException;
-import alvisnlp.converters.lib.AbstractParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.ConverterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.AbstractParamConverter;
 import fr.inra.maiage.bibliome.util.bionlpst.BioNLPSTException;
 import fr.inra.maiage.bibliome.util.bionlpst.schema.DocumentSchema;
 

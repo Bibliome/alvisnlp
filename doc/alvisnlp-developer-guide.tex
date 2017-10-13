@@ -54,7 +54,7 @@ The requirements of the modules supported by the BibliomeModuleFactory are speci
 
 In order to write a proper AlvisNLP module, you must be familiar with the AlvisNLP document API.
 Indeed your modules will most probably create documents, read or create documents metadata and sections, read or create section layers and annotations.
-The reference documentation of the document API can be found as a Javadoc for the package \texttt{alvisnlp.document}.
+The reference documentation of the document API can be found as a Javadoc for the package \texttt{fr.inra.maiage.bibliome.alvisnlp.core.document}.
 
 Objects manipulated by modules are instances of the following classes:
 
@@ -293,8 +293,8 @@ When AlvisNLP runs, it creates an instance the class coresponding to each module
 
 All classes that implement a module type must:
 \begin{itemize}
-\item extend \texttt{alvisnlp.module.lib.CorpusModule};
-\item have the \texttt{alvisnlp.module.lib.AlvisNLPModule} annotation;
+\item extend \texttt{fr.inra.maiage.bibliome.alvisnlp.core.module.lib.CorpusModule};
+\item have the \texttt{fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule} annotation;
 \item be public;
 \item have a public null constructor.
 \end{itemize}
@@ -358,7 +358,7 @@ Note: checking for module classes to generate
 Note: checking for module documentation to generate
 Note:   generating gen-src/alvisnlp/hello/HelloWorldDoc.xml
 Note: scanning org.bibliome.util.service.Service
-Note:   class: alvisnlp.hello.HelloFactory
+Note:   class: org.example.alvisnlp.hello.HelloFactory
 Note: scanning org.bibliome.util.service.Services
 Note: writing file:build/META-INF/services/alvisnlp.factory.CorpusModuleFactory
 \end{verbatim}

@@ -19,13 +19,13 @@ package org.bibliome.alvisnlp.modules.alvisir2;
 
 import java.util.Collection;
 
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.Evaluator;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.NameUsage;
-import alvisnlp.module.NameUser;
 import fr.inra.maiage.bibliome.alvisir.core.index.AlvisIRTokenFragments;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUser;
 
 public class TokenFragmentsEvaluator implements AlvisIRTokenFragments<Element>, NameUser {
 	private final Evaluator instances;

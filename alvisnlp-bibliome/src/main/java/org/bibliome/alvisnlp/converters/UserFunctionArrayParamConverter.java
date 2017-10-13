@@ -19,8 +19,8 @@ package org.bibliome.alvisnlp.converters;
 
 import org.bibliome.alvisnlp.library.UserFunction;
 
-import alvisnlp.converters.lib.ArrayParamConverter;
-import alvisnlp.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.ArrayParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
 
 @Converter(targetType=UserFunction[].class)
 public class UserFunctionArrayParamConverter extends ArrayParamConverter<UserFunction> {

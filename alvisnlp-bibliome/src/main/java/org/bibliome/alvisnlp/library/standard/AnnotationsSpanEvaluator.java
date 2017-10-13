@@ -17,9 +17,9 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.library.standard;
 
-import alvisnlp.corpus.Annotation;
-import alvisnlp.corpus.Layer;
-import alvisnlp.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
 
 final class AnnotationsSpanEvaluator extends AbstractAnnotationSiblings {
 	AnnotationsSpanEvaluator(String layerName, boolean excludeSelf) {

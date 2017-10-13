@@ -19,10 +19,10 @@ package org.bibliome.alvisnlp.converters;
 
 import java.util.Map;
 
-import alvisnlp.converters.ConverterException;
-import alvisnlp.converters.lib.Converter;
-import alvisnlp.converters.lib.MapParamConverter;
-import alvisnlp.module.types.Mapping;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.ConverterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.MapParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
 
 @Converter(targetType = Mapping.class)
 public class MappingParamConverter extends MapParamConverter<String,String,Mapping> {

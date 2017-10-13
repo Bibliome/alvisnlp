@@ -24,18 +24,18 @@ import org.bibliome.alvisnlp.modules.alvisae.AlvisAEWriter.CadixeExportContext;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.Section;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.Evaluator;
-import alvisnlp.corpus.expressions.Expression;
-import alvisnlp.corpus.expressions.LibraryResolver;
-import alvisnlp.corpus.expressions.ResolverException;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.NameUsage;
-import alvisnlp.module.NameUser;
-import alvisnlp.module.types.EvaluatorMapping;
-import alvisnlp.module.types.ExpressionMapping;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.LibraryResolver;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUser;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.types.EvaluatorMapping;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.types.ExpressionMapping;
 import fr.inra.maiage.bibliome.util.Iterators;
 
 public abstract class AnnotationDefinition {

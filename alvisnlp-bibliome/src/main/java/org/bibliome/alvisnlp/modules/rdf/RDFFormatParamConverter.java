@@ -19,9 +19,9 @@ package org.bibliome.alvisnlp.modules.rdf;
 
 import org.apache.jena.riot.RDFFormat;
 
-import alvisnlp.converters.ConverterException;
-import alvisnlp.converters.lib.Converter;
-import alvisnlp.converters.lib.SimpleParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.ConverterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.SimpleParamConverter;
 
 @Converter(targetType=RDFFormat.class)
 public class RDFFormatParamConverter extends SimpleParamConverter<RDFFormat> {

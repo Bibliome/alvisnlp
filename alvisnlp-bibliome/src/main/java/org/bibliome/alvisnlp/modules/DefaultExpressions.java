@@ -19,12 +19,12 @@ package org.bibliome.alvisnlp.modules;
 
 import org.bibliome.alvisnlp.converters.expression.parser.ExpressionParser;
 
-import alvisnlp.corpus.Annotation;
-import alvisnlp.corpus.DefaultNames;
-import alvisnlp.corpus.Document;
-import alvisnlp.corpus.Section;
-import alvisnlp.corpus.expressions.ConstantsLibrary;
-import alvisnlp.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ConstantsLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
 
 public class DefaultExpressions {
 	public static final Expression ANNOTATION_FORM = feature(Annotation.FORM_FEATURE_NAME);

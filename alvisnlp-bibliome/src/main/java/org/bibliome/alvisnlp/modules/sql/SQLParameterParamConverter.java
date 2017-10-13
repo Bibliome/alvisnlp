@@ -19,11 +19,11 @@ package org.bibliome.alvisnlp.modules.sql;
 
 import org.w3c.dom.Element;
 
-import alvisnlp.converters.ConverterException;
-import alvisnlp.converters.lib.AbstractParamConverter;
-import alvisnlp.converters.lib.Converter;
-import alvisnlp.corpus.expressions.EvaluationType;
-import alvisnlp.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.ConverterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.AbstractParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationType;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
 import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 @Converter(targetType=SQLParameter.class)

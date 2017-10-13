@@ -22,15 +22,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.Evaluator;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.NameUsage;
-import alvisnlp.module.NameUser;
 import fr.inra.maiage.bibliome.alvisir.core.index.AlvisIRIndexedFields;
 import fr.inra.maiage.bibliome.alvisir.core.index.AlvisIRIndexedTokens;
 import fr.inra.maiage.bibliome.alvisir.core.index.NormalizationOptions;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUser;
 
 public class IndexedFieldsEvaluator implements AlvisIRIndexedFields<Element,Element,Element>, NameUser {
 	private final Evaluator instances;

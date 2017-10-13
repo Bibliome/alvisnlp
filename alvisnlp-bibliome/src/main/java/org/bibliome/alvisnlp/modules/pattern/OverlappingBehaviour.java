@@ -26,10 +26,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import alvisnlp.corpus.Annotation;
-import alvisnlp.corpus.AnnotationComparator;
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.Layer;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.AnnotationComparator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 
 public enum OverlappingBehaviour {
 	IGNORE {

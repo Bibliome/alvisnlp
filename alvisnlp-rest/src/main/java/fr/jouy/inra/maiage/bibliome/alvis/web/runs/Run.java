@@ -40,12 +40,12 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
-import alvisnlp.app.cli.CommandLineLogFormatter;
-import alvisnlp.app.cli.CorpusCommandLineProcessingContext;
-import alvisnlp.corpus.Corpus;
-import alvisnlp.module.ProcessingContext;
-import alvisnlp.module.Sequence;
-import alvisnlp.module.TimerCategory;
+import fr.inra.maiage.bibliome.alvisnlp.core.app.cli.CommandLineLogFormatter;
+import fr.inra.maiage.bibliome.alvisnlp.core.app.cli.CorpusCommandLineProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.Sequence;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.util.FlushedStreamHandler;
 import fr.inra.maiage.bibliome.util.Timer;
 import fr.inra.maiage.bibliome.util.xml.XMLUtils;

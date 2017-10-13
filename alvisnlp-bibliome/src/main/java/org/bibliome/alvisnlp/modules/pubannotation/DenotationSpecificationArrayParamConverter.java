@@ -1,7 +1,7 @@
 package org.bibliome.alvisnlp.modules.pubannotation;
 
-import alvisnlp.converters.lib.ArrayParamConverter;
-import alvisnlp.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.ArrayParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
 
 @Converter(targetType=DenotationSpecification[].class)
 public class DenotationSpecificationArrayParamConverter extends ArrayParamConverter<DenotationSpecification> {

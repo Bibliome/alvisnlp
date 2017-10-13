@@ -19,12 +19,12 @@ package org.bibliome.alvisnlp.modules.alvisir2;
 
 import java.util.Map;
 
-import alvisnlp.corpus.expressions.Evaluator;
-import alvisnlp.corpus.expressions.Expression;
-import alvisnlp.corpus.expressions.LibraryResolver;
-import alvisnlp.corpus.expressions.Resolvable;
-import alvisnlp.corpus.expressions.ResolverException;
-import alvisnlp.module.types.ExpressionMapping;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.LibraryResolver;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Resolvable;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.types.ExpressionMapping;
 
 public class IndexedTokens implements Resolvable<IndexedTokensEvaluator> {
 	private final Expression instances;

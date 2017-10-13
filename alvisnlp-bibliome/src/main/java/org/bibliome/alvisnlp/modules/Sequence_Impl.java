@@ -28,19 +28,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.expressions.ResolverException;
-import alvisnlp.documentation.Documentation;
-import alvisnlp.module.Module;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.ModuleVisitor;
-import alvisnlp.module.ParamHandler;
-import alvisnlp.module.ParameterException;
-import alvisnlp.module.ProcessingContext;
-import alvisnlp.module.Sequence;
-import alvisnlp.module.UnexpectedParameterException;
-import alvisnlp.module.lib.AlvisNLPModule;
-import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.documentation.Documentation;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleVisitor;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ParamHandler;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ParameterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.Sequence;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.UnexpectedParameterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 
 @AlvisNLPModule
 public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequence<Corpus> {

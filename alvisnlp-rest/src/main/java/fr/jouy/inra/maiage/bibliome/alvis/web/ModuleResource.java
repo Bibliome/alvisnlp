@@ -26,10 +26,10 @@ import javax.xml.transform.TransformerConfigurationException;
 
 import org.w3c.dom.Document;
 
-import alvisnlp.corpus.Corpus;
-import alvisnlp.factory.CompoundCorpusModuleFactory;
-import alvisnlp.factory.CorpusModuleFactory;
-import alvisnlp.module.Module;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.factory.CompoundCorpusModuleFactory;
+import fr.inra.maiage.bibliome.alvisnlp.core.factory.CorpusModuleFactory;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.util.service.AmbiguousAliasException;
 import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
 

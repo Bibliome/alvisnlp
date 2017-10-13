@@ -34,9 +34,9 @@
 	  <target>1.8</target>
 	  <compilerArgs>
 	    <arg>-AmoduleFactoryName=org.bibliome.alvisnlp.BibliomeModuleFactory</arg>
-	    <arg>-AdataClass=alvisnlp.corpus.Corpus</arg>
+	    <arg>-AdataClass=fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus</arg>
 	    <arg>-AsequenceImplementationClass=org.bibliome.alvisnlp.modules.Sequence_Impl</arg>
-	    <arg>-AfactoryInterface=alvisnlp.factory.CorpusModuleFactory</arg>
+	    <arg>-AfactoryInterface=fr.inra.maiage.bibliome.alvisnlp.core.factory.CorpusModuleFactory</arg>
 	    <arg>-AconverterFactoryName=org.bibliome.alvisnlp.BibliomeConverterFactory</arg>
 	    <arg>-AshellModule=org.bibliome.alvisnlp.modules.shell.Shell</arg>
 	    <arg>-Xlint:all</arg>
@@ -98,7 +98,7 @@
           <transformers>
             <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
             <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-              <mainClass>alvisnlp.app.cli.AlvisNLP</mainClass>
+              <mainClass>fr.inra.maiage.bibliome.alvisnlp.core.app.cli.AlvisNLP</mainClass>
             </transformer>
           </transformers>
           <shadedArtifactAttached>true</shadedArtifactAttached>

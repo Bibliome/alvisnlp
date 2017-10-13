@@ -36,22 +36,22 @@ import java.util.regex.Pattern;
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 
-import alvisnlp.corpus.Annotation;
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.DefaultNames;
-import alvisnlp.corpus.Layer;
-import alvisnlp.corpus.NameType;
-import alvisnlp.corpus.Section;
-import alvisnlp.corpus.creators.AnnotationCreator;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.ResolverException;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.ProcessingContext;
-import alvisnlp.module.ProcessingException;
-import alvisnlp.module.TimerCategory;
-import alvisnlp.module.lib.AlvisNLPModule;
-import alvisnlp.module.lib.Param;
-import alvisnlp.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.filelines.FileLines;
@@ -137,7 +137,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
     /*
      * (non-Javadoc)
      * 
-     * @see alvisnlp.module.lib.SectionModule#addFeaturesToSectionFilter()
+     * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.SectionModule#addFeaturesToSectionFilter()
      */
     @Override
     public String[] addFeaturesToSectionFilter() {
@@ -147,7 +147,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
     /*
      * (non-Javadoc)
      * 
-     * @see alvisnlp.module.lib.SectionModule#addLayersToSectionFilter()
+     * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.SectionModule#addLayersToSectionFilter()
      */
     @Override
     public String[] addLayersToSectionFilter() {
@@ -163,8 +163,8 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
      * (non-Javadoc)
      * 
      * @see
-     * alvisnlp.module.lib.ModuleBase#process(alvisnlp.module.ProcessingContext,
-     * alvisnlp.document.Corpus)
+     * fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase#process(alvisnlp.module.ProcessingContext,
+     * fr.inra.maiage.bibliome.alvisnlp.core.document.Corpus)
      */
     @Override
     public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {

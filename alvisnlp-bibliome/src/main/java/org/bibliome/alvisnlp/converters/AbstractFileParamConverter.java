@@ -19,7 +19,7 @@ package org.bibliome.alvisnlp.converters;
 
 import java.io.File;
 
-import alvisnlp.converters.lib.SimpleParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.SimpleParamConverter;
 
 public abstract class AbstractFileParamConverter<T extends File> extends SimpleParamConverter<T> {
 	@Override

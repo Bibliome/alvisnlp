@@ -30,9 +30,9 @@ import org.bibliome.alvisnlp.modules.wok.readers.NoOpFieldReader;
 import org.bibliome.alvisnlp.modules.wok.readers.PublicationType;
 import org.bibliome.alvisnlp.modules.wok.readers.SectionBuilder;
 
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.Document;
-import alvisnlp.module.ProcessingException;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.util.Strings;
 
 public class WoKReaderStatus {

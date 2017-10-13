@@ -17,8 +17,8 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.converters;
 
-import alvisnlp.converters.lib.ArrayParamConverter;
-import alvisnlp.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.ArrayParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
 
 @Converter(targetType = Integer[].class)
 public class IntegerArrayParamConverter extends ArrayParamConverter<Integer> {

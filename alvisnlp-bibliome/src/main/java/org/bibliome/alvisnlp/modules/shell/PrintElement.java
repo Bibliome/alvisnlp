@@ -17,14 +17,14 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.shell;
 
-import alvisnlp.corpus.Annotation;
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.Document;
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.ElementVisitor;
-import alvisnlp.corpus.Relation;
-import alvisnlp.corpus.Section;
-import alvisnlp.corpus.Tuple;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.ElementVisitor;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
 import fr.inra.maiage.bibliome.util.Strings;
 
 class PrintElement implements ElementVisitor<String,Void> {

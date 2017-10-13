@@ -17,11 +17,11 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.pattern;
 
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.LibraryResolver;
-import alvisnlp.corpus.expressions.Resolvable;
-import alvisnlp.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.LibraryResolver;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Resolvable;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.util.mappers.Mapper;
 import fr.inra.maiage.bibliome.util.pattern.Group;
 import fr.inra.maiage.bibliome.util.pattern.SequencePattern;

@@ -17,10 +17,10 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.converters.expression;
 
-import alvisnlp.converters.lib.Converter;
-import alvisnlp.converters.lib.MapParamConverter;
-import alvisnlp.corpus.expressions.Expression;
-import alvisnlp.module.types.ExpressionMapping;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.MapParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.types.ExpressionMapping;
 
 @Converter(targetType=ExpressionMapping.class)
 public class ExpressionMappingParamConverter extends MapParamConverter<String,Expression,ExpressionMapping> {

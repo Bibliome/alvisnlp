@@ -19,8 +19,8 @@ package org.bibliome.alvisnlp.converters;
 
 import java.io.File;
 
-import alvisnlp.converters.lib.Converter;
-import alvisnlp.converters.lib.SimpleParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.SimpleParamConverter;
 
 @Converter(targetType = File.class)
 public class FileParamConverter extends SimpleParamConverter<File> {

@@ -17,9 +17,9 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.converters.expression;
 
-import alvisnlp.converters.lib.ArrayParamConverter;
-import alvisnlp.converters.lib.Converter;
-import alvisnlp.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.ArrayParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
 
 @Converter(targetType=Expression[].class)
 public class ExpressionArrayParamConverter extends ArrayParamConverter<Expression> {

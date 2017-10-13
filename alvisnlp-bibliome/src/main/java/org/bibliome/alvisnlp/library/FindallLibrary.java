@@ -20,9 +20,9 @@ package org.bibliome.alvisnlp.library;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import alvisnlp.corpus.expressions.Function;
-import alvisnlp.corpus.expressions.FunctionLibrary;
-import alvisnlp.corpus.expressions.Library;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Function;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.FunctionLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Library;
 
 @Library(value="match", serviceClass="org.bibliome.alvisnlp.library.FindallLibrary")
 public abstract class FindallLibrary extends FunctionLibrary {

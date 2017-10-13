@@ -24,10 +24,10 @@ import java.io.StringReader;
 import org.bibliome.alvisnlp.converters.expression.parser.ExpressionParser;
 import org.bibliome.alvisnlp.converters.expression.parser.ParseException;
 
-import alvisnlp.converters.ConverterException;
-import alvisnlp.converters.lib.Converter;
-import alvisnlp.converters.lib.SimpleParamConverter;
-import alvisnlp.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.ConverterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.SimpleParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
 import fr.inra.maiage.bibliome.util.pattern.Alternatives;
 import fr.inra.maiage.bibliome.util.pattern.Any;
 import fr.inra.maiage.bibliome.util.pattern.CapturingGroup;

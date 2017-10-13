@@ -25,9 +25,9 @@ import javax.ws.rs.core.UriInfo;
 
 import org.w3c.dom.Document;
 
-import alvisnlp.corpus.expressions.FunctionLibrary;
-import alvisnlp.corpus.expressions.LibraryResolver;
-import alvisnlp.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.FunctionLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.LibraryResolver;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 
 @Path("/libraries")
 public class LibraryResource extends DocumentableResource<FunctionLibrary,FunctionLibrary> {

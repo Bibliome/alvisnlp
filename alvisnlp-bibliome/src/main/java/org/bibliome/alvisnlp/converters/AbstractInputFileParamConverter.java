@@ -20,7 +20,7 @@ package org.bibliome.alvisnlp.converters;
 import java.io.File;
 import java.util.List;
 
-import alvisnlp.converters.ConverterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.ConverterException;
 import fr.inra.maiage.bibliome.util.files.AbstractFile;
 import fr.inra.maiage.bibliome.util.files.FileFactory;
 

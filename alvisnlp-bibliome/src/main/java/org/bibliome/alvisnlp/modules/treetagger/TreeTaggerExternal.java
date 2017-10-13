@@ -28,11 +28,11 @@ import java.io.UnsupportedEncodingException;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import alvisnlp.module.Annotable;
-import alvisnlp.module.Module;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.ProcessingContext;
-import alvisnlp.module.lib.External;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
 import fr.inra.maiage.bibliome.util.Strings;
 
 // TODO: Auto-generated Javadoc
@@ -292,7 +292,7 @@ public class TreeTaggerExternal<T extends Annotable> implements External<T> {
     /*
      * (non-Javadoc)
      * 
-     * @see alvisnlp.module.lib.External#getEnvironment()
+     * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#getEnvironment()
      */
     @Override
     public String[] getEnvironment() throws ModuleException {
@@ -302,7 +302,7 @@ public class TreeTaggerExternal<T extends Annotable> implements External<T> {
     /*
      * (non-Javadoc)
      * 
-     * @see alvisnlp.module.lib.External#getOwner()
+     * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#getOwner()
      */
     @Override
     public Module<T> getOwner() {
@@ -312,7 +312,7 @@ public class TreeTaggerExternal<T extends Annotable> implements External<T> {
     /*
      * (non-Javadoc)
      * 
-     * @see alvisnlp.module.lib.External#getWorkingDirectory()
+     * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#getWorkingDirectory()
      */
     @Override
     public File getWorkingDirectory() throws ModuleException {
@@ -322,7 +322,7 @@ public class TreeTaggerExternal<T extends Annotable> implements External<T> {
     /*
      * (non-Javadoc)
      * 
-     * @see alvisnlp.module.lib.External#processOutput(java.io.BufferedReader,
+     * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#processOutput(java.io.BufferedReader,
      * java.io.BufferedReader)
      */
     @Override

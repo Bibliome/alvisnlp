@@ -22,17 +22,17 @@ import org.bibliome.alvisnlp.modules.alvisae.TextAnnotationDefinition.Resolved;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import alvisnlp.corpus.Annotation;
-import alvisnlp.corpus.DownCastElement;
-import alvisnlp.corpus.Element;
-import alvisnlp.corpus.expressions.Evaluator;
-import alvisnlp.corpus.expressions.Expression;
-import alvisnlp.corpus.expressions.LibraryResolver;
-import alvisnlp.corpus.expressions.Resolvable;
-import alvisnlp.corpus.expressions.ResolverException;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.NameUsage;
-import alvisnlp.module.types.ExpressionMapping;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DownCastElement;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.LibraryResolver;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Resolvable;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.types.ExpressionMapping;
 import fr.inra.maiage.bibliome.util.Iterators;
 
 public class TextAnnotationDefinition extends AnnotationDefinition implements Resolvable<Resolved> {

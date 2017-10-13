@@ -34,27 +34,27 @@ import org.bibliome.alvisnlp.modules.DefaultExpressions;
 import org.bibliome.alvisnlp.modules.SectionModule;
 import org.bibliome.alvisnlp.modules.SectionModule.SectionResolvedObjects;
 
-import alvisnlp.corpus.Annotation;
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.DefaultNames;
-import alvisnlp.corpus.Layer;
-import alvisnlp.corpus.NameType;
-import alvisnlp.corpus.Relation;
-import alvisnlp.corpus.Section;
-import alvisnlp.corpus.Tuple;
-import alvisnlp.corpus.creators.TupleCreator;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.Evaluator;
-import alvisnlp.corpus.expressions.Expression;
-import alvisnlp.corpus.expressions.ResolverException;
-import alvisnlp.module.Module;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.ProcessingContext;
-import alvisnlp.module.ProcessingException;
-import alvisnlp.module.TimerCategory;
-import alvisnlp.module.lib.AlvisNLPModule;
-import alvisnlp.module.lib.External;
-import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Files;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Strings;
@@ -635,7 +635,7 @@ public abstract class BioLG extends SectionModule<SectionResolvedObjects> implem
 		/*
 		 * (non-Javadoc)
 		 * 
-		 * @see alvisnlp.module.lib.External#getCommandLineArgs()
+		 * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#getCommandLineArgs()
 		 */
 		@Override
 		public String[] getCommandLineArgs() throws ModuleException {
@@ -645,7 +645,7 @@ public abstract class BioLG extends SectionModule<SectionResolvedObjects> implem
 		/*
 		 * (non-Javadoc)
 		 * 
-		 * @see alvisnlp.module.lib.External#getEnvironment()
+		 * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#getEnvironment()
 		 */
 		@Override
 		public String[] getEnvironment() throws ModuleException {
@@ -658,7 +658,7 @@ public abstract class BioLG extends SectionModule<SectionResolvedObjects> implem
 		/*
 		 * (non-Javadoc)
 		 * 
-		 * @see alvisnlp.module.lib.External#getOwner()
+		 * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#getOwner()
 		 */
 		@Override
 		public Module<Corpus> getOwner() {
@@ -668,7 +668,7 @@ public abstract class BioLG extends SectionModule<SectionResolvedObjects> implem
 		/*
 		 * (non-Javadoc)
 		 * 
-		 * @see alvisnlp.module.lib.External#getWorkingDirectory()
+		 * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#getWorkingDirectory()
 		 */
 		@Override
 		public File getWorkingDirectory() throws ModuleException {
@@ -678,7 +678,7 @@ public abstract class BioLG extends SectionModule<SectionResolvedObjects> implem
 		/*
 		 * (non-Javadoc)
 		 * 
-		 * @see alvisnlp.module.lib.External#processCall(java.io.PrintStream,
+		 * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#processCall(java.io.PrintStream,
 		 * java.io.BufferedReader, java.io.BufferedReader)
 		 */
 		@Override
@@ -738,7 +738,7 @@ public abstract class BioLG extends SectionModule<SectionResolvedObjects> implem
 		/*
 		 * (non-Javadoc)
 		 * 
-		 * @see alvisnlp.module.lib.External#getCommandLineArgs()
+		 * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#getCommandLineArgs()
 		 */
 		@Override
 		public String[] getCommandLineArgs() throws ModuleException {
@@ -752,7 +752,7 @@ public abstract class BioLG extends SectionModule<SectionResolvedObjects> implem
 		/*
 		 * (non-Javadoc)
 		 * 
-		 * @see alvisnlp.module.lib.External#getEnvironment()
+		 * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#getEnvironment()
 		 */
 		@Override
 		public String[] getEnvironment() throws ModuleException {
@@ -766,7 +766,7 @@ public abstract class BioLG extends SectionModule<SectionResolvedObjects> implem
 		/*
 		 * (non-Javadoc)
 		 * 
-		 * @see alvisnlp.module.lib.External#getOwner()
+		 * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#getOwner()
 		 */
 		@Override
 		public Module<Corpus> getOwner() {
@@ -776,7 +776,7 @@ public abstract class BioLG extends SectionModule<SectionResolvedObjects> implem
 		/*
 		 * (non-Javadoc)
 		 * 
-		 * @see alvisnlp.module.lib.External#getWorkingDirectory()
+		 * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#getWorkingDirectory()
 		 */
 		@Override
 		public File getWorkingDirectory() throws ModuleException {
@@ -786,7 +786,7 @@ public abstract class BioLG extends SectionModule<SectionResolvedObjects> implem
 		/*
 		 * (non-Javadoc)
 		 * 
-		 * @see alvisnlp.module.lib.External#processCall(java.io.PrintStream,
+		 * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#processCall(java.io.PrintStream,
 		 * java.io.BufferedReader, java.io.BufferedReader)
 		 */
 		@Override

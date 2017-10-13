@@ -50,7 +50,7 @@ import fr.inra.maiage.bibliome.util.pattern.QuantifierType;
 import fr.inra.maiage.bibliome.util.pattern.SequenceEnd;
 import fr.inra.maiage.bibliome.util.pattern.SequenceStart;
 
-import alvisnlp.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
 
 @SuppressWarnings("all")
 public class ExpressionParser {
@@ -68,7 +68,7 @@ public class ExpressionParser {
     return new Expression(org.bibliome.alvisnlp.library.standard.ComparisonLibrary.NAME, op, operand, arg);  }
   
   private static final Expression constant(String type, String value) {
-    return new Expression(alvisnlp.corpus.expressions.ConstantsLibrary.NAME, type, value);  }
+    return new Expression(fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ConstantsLibrary.NAME, type, value);  }
   
   public static Expression parseUnsafe(String expr) {
     Reader reader = new StringReader(expr);

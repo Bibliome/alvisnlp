@@ -17,8 +17,8 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules.prolog;
 
-import alvisnlp.converters.lib.ArrayParamConverter;
-import alvisnlp.converters.lib.Converter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.ArrayParamConverter;
+import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
 
 @Converter(targetType=GoalDefinition[].class)
 public class GoalDefinitionArrayParamConverter extends ArrayParamConverter<GoalDefinition> {

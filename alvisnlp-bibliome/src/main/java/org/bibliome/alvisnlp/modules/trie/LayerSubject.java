@@ -21,11 +21,11 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import alvisnlp.corpus.Annotation;
-import alvisnlp.corpus.NameType;
-import alvisnlp.corpus.Section;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.NameUsage;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.util.trie.Match;
 import fr.inra.maiage.bibliome.util.trie.Matcher;
 import fr.inra.maiage.bibliome.util.trie.StandardMatchControl;

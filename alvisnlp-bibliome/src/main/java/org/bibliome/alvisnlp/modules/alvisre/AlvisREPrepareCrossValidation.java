@@ -29,15 +29,15 @@ import org.w3c.dom.DocumentFragment;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.Section;
-import alvisnlp.corpus.expressions.EvaluationContext;
-import alvisnlp.corpus.expressions.ResolverException;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.NameUsage;
-import alvisnlp.module.ProcessingContext;
-import alvisnlp.module.lib.AlvisNLPModule;
-import alvisnlp.module.lib.Param;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.files.OutputDirectory;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
@@ -157,7 +157,7 @@ public abstract class AlvisREPrepareCrossValidation extends AbstractAlvisRE<Alvi
 		return result;
 	}
 	
-	private static void writeTxtFile(alvisnlp.corpus.Document doc, File outDir, SectionsMerger merger) throws IOException {
+	private static void writeTxtFile(fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc, File outDir, SectionsMerger merger) throws IOException {
 		OutputFile txtFile = new OutputFile(outDir, doc.getId() + ".txt");
 		TargetStream txtStream = new FileTargetStream("UTF-8", txtFile);
 		try (PrintStream out = txtStream.getPrintStream()) {
@@ -165,7 +165,7 @@ public abstract class AlvisREPrepareCrossValidation extends AbstractAlvisRE<Alvi
 		}
 	}
 
-	private void writeAFile(alvisnlp.corpus.Document doc, File outDir, SectionsMerger merger, EvaluationContext ctx) throws IOException {
+	private void writeAFile(fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc, File outDir, SectionsMerger merger, EvaluationContext ctx) throws IOException {
 		OutputFile aFile = new OutputFile(outDir, doc.getId() + ".a");
 		TargetStream aStream = new FileTargetStream("UTF-8", aFile);
 		try (PrintStream out = aStream.getPrintStream()) {
@@ -206,7 +206,7 @@ public abstract class AlvisREPrepareCrossValidation extends AbstractAlvisRE<Alvi
 	private SectionsMerger writeInputFiles(Logger logger, EvaluationContext ctx, Corpus corpus, File outDir) throws IOException {
 		logger.info("writing input files in " + outDir.getAbsolutePath());
 		SectionsMerger result = new SectionsMerger(this, sectionSeparator);
-		for (alvisnlp.corpus.Document doc : Iterators.loop(documentIterator(ctx, corpus))) {
+		for (fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc : Iterators.loop(documentIterator(ctx, corpus))) {
 			if (result.setDocument(ctx, doc)) {
 				writeAFile(doc, outDir, result, ctx);
 				writeTxtFile(doc, outDir, result);

@@ -17,14 +17,14 @@ limitations under the License.
 
 package org.bibliome.alvisnlp.modules;
 
-import alvisnlp.corpus.Corpus;
-import alvisnlp.corpus.expressions.Evaluator;
-import alvisnlp.corpus.expressions.LibraryResolver;
-import alvisnlp.corpus.expressions.ResolverException;
-import alvisnlp.module.ModuleException;
-import alvisnlp.module.NameUsage;
-import alvisnlp.module.NameUser;
-import alvisnlp.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.LibraryResolver;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUser;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 
 public class ResolvedObjects implements NameUser {
 	protected final LibraryResolver rootResolver;
