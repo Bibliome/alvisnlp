@@ -27,7 +27,7 @@ limitations under the License.
 		</init-param>
 		<init-param>
 			<param-name>com.sun.jersey.config.property.packages</param-name>
-			<param-value>fr.jouy.inra.maiage.bibliome.alvis.web</param-value>
+			<param-value>fr.inra.maiage.bibliome.alvisnlp.web</param-value>
 		</init-param>
 		<init-param>
 			<param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
@@ -61,6 +61,6 @@ limitations under the License.
 	</context-param>
 	<context-param>
 		<param-name>alvisnlp.executor-class</param-name>
-		<param-value>fr.jouy.inra.maiage.bibliome.alvis.web.executor.ThreadExecutor</param-value>
+		<param-value>fr.inra.maiage.bibliome.alvisnlp.web.executor.ThreadExecutor</param-value>
 	</context-param>
 </web-app>
