@@ -1,0 +1,149 @@
+package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
+import java.util.logging.Logger;
+
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.PubAnnotationExport.PubAnnotationExportResolvedObjects;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.LibraryResolver;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
+
+@AlvisNLPModule(beta=true)
+public class PubAnnotationExport extends SectionModule<PubAnnotationExportResolvedObjects> {
+	private OutputFile outFile;
+	private DenotationSpecification[] denotations = { new DenotationSpecification() };
+	private RelationSpecification[] relations = { new RelationSpecification() };
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+		Logger logger = getLogger(ctx);
+		EvaluationContext evalCtx = new EvaluationContext(logger);
+		PubAnnotationExportResolvedObjects resObj = getResolvedObjects();
+		JSONArray result = new JSONArray();
+		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
+			JSONObject j = resObj.convert(evalCtx, sec);
+			result.add(j);
+		}
+		if (result.isEmpty()) {
+			return;
+		}
+		try (Writer w = new OutputStreamWriter(new FileOutputStream(outFile), "UTF-8")) {
+			if (result.size() == 1) {
+				((JSONObject) result.get(0)).writeJSONString(w);
+			}
+			else {
+				result.writeJSONString(w);
+			}
+			w.flush();
+		}
+		catch (IOException e) {
+			rethrow(e);
+		}
+	}
+
+	@Override
+	protected String[] addLayersToSectionFilter() {
+		return null;
+	}
+
+	@Override
+	protected String[] addFeaturesToSectionFilter() {
+		return null;
+	}
+
+	@Override
+	protected PubAnnotationExportResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		return new PubAnnotationExportResolvedObjects(ctx, this);
+	}
+	
+	public static class PubAnnotationExportResolvedObjects extends SectionResolvedObjects {
+		private DenotationSpecification.Resolved[] denotations;
+		private RelationSpecification.Resolved[] relations;
+		
+		private PubAnnotationExportResolvedObjects(ProcessingContext<Corpus> ctx, PubAnnotationExport module) throws ResolverException {
+			super(ctx, module);
+			LibraryResolver resolver = module.getLibraryResolver(ctx);
+			this.denotations = resolver.resolveArray(module.denotations, DenotationSpecification.Resolved.class);
+			this.relations = resolver.resolveArray(module.relations, RelationSpecification.Resolved.class);
+		}
+
+		@Override
+		public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
+			super.collectUsedNames(nameUsage, defaultType);
+			nameUsage.collectUsedNamesArray(denotations, defaultType);
+			nameUsage.collectUsedNamesArray(relations, defaultType);
+		}
+		
+		@SuppressWarnings("unchecked")
+		JSONObject convert(EvaluationContext ctx, Section sec) {
+			JSONObject result = new JSONObject();
+			result.put("text", sec.getContents());
+			result.put("denotations", getDenotations(ctx, sec));
+			result.put("relations", getRelations(ctx, sec));
+			return result;
+		}
+		
+		private JSONArray getDenotations(EvaluationContext ctx, Section sec) {
+			JSONArray result = new JSONArray();
+			for (DenotationSpecification.Resolved ds : denotations) {
+				ds.addDenotations(ctx, sec, result);
+			}
+			return result;
+		}
+		
+		private JSONArray getRelations(EvaluationContext ctx, Section sec) {
+			JSONArray result = new JSONArray();
+			for (RelationSpecification.Resolved rs : relations) {
+				rs.addRelations(ctx, sec, result);
+			}
+			return result;
+		}
+	}
+
+	@Param
+	public OutputFile getOutFile() {
+		return outFile;
+	}
+
+	@Param
+	public DenotationSpecification[] getDenotations() {
+		return denotations;
+	}
+
+	@Param
+	public RelationSpecification[] getRelations() {
+		return relations;
+	}
+
+	public void setOutFile(OutputFile outFile) {
+		this.outFile = outFile;
+	}
+
+	public void setDenotations(DenotationSpecification[] denotations) {
+		this.denotations = denotations;
+	}
+
+	public void setRelations(RelationSpecification[] relations) {
+		this.relations = relations;
+	}
+	
+	
+}

@@ -33,12 +33,12 @@
 	  <source>1.8</source>
 	  <target>1.8</target>
 	  <compilerArgs>
-	    <arg>-AmoduleFactoryName=org.bibliome.alvisnlp.BibliomeModuleFactory</arg>
+	    <arg>-AmoduleFactoryName=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.BibliomeModuleFactory</arg>
 	    <arg>-AdataClass=fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus</arg>
-	    <arg>-AsequenceImplementationClass=org.bibliome.alvisnlp.modules.Sequence_Impl</arg>
+	    <arg>-AsequenceImplementationClass=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.Sequence_Impl</arg>
 	    <arg>-AfactoryInterface=fr.inra.maiage.bibliome.alvisnlp.core.factory.CorpusModuleFactory</arg>
-	    <arg>-AconverterFactoryName=org.bibliome.alvisnlp.BibliomeConverterFactory</arg>
-	    <arg>-AshellModule=org.bibliome.alvisnlp.modules.shell.Shell</arg>
+	    <arg>-AconverterFactoryName=fr.inra.maiage.biliome.alvisnlp.biliomefactory.BibliomeConverterFactory</arg>
+	    <arg>-AshellModule=fr.inra.maiage.bibliome.alvisnlp.biliomefactory.modules.shell.Shell</arg>
 	    <arg>-Xlint:all</arg>
 	  </compilerArgs>
 	  <!--<verbose>true</verbose>-->
@@ -65,7 +65,7 @@
 	      <sanityCheck>true</sanityCheck>
 	      <buildTokenManager>true</buildTokenManager>
 	      <suppressWarnings>true</suppressWarnings>
-	      <sourceDirectory>src/main/resources/org/bibliome/alvisnlp/converters/expression/parser</sourceDirectory>
+	      <sourceDirectory>src/main/resources/fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/converters/expression/parser</sourceDirectory>
 	      <outputDirectory>${project.build.directory}/generated-sources/javacc</outputDirectory>
 	    </configuration>
 	  </execution>

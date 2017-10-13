@@ -27,7 +27,7 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 
-import org.bibliome.alvisnlp.modules.pubannotation.PubAnnotationExport;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.PubAnnotationExport;
 import org.xml.sax.SAXException;
 
 import com.sun.jersey.api.core.HttpContext;

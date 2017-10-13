@@ -1,0 +1,113 @@
+/*
+Copyright 2016, 2017 Institut National de la Recherche Agronomique
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+
+package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pattern.action;
+
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Logger;
+
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pattern.EvaluatorFilterProxy;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pattern.PatternMatcher;
+
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.LibraryResolver;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.VariableLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.VariableLibrary.Variable;
+import fr.inra.maiage.bibliome.util.pattern.CapturingGroup;
+import fr.inra.maiage.bibliome.util.pattern.SequenceMatcher;
+import fr.inra.maiage.bibliome.util.pattern.SequencePattern;
+
+public class MatchActionContext {
+	private final Map<String,Integer> groupNameMap = new LinkedHashMap<String,Integer>();
+	private final String matchedLayerName;
+	private final PatternMatcher owner;
+	private final EvaluationContext evalCtx;
+	private final VariableLibrary groupLib;
+	private Logger logger;
+
+	public MatchActionContext(PatternMatcher owner, SequencePattern<Element,EvaluationContext,EvaluatorFilterProxy> pattern, String matchedLayerName) {
+		this.matchedLayerName = matchedLayerName;
+		this.owner = owner;
+		List<CapturingGroup<Element,EvaluationContext,EvaluatorFilterProxy>> capturingGroups = pattern.getCapturingGroups();
+		int n = 0;
+		groupLib = new VariableLibrary("group");
+		for (CapturingGroup<Element,EvaluationContext,EvaluatorFilterProxy> group : capturingGroups) {
+			String name = group.getName();
+			if (name == null)
+				continue;
+			groupLib.newVariable(name);
+			if (groupNameMap.containsKey(name)) {
+				logger.warning("duplicate group name: " + name);
+				continue;
+			}
+			groupNameMap.put(name, ++n);
+		}
+		groupLib.newVariable("match");
+		groupNameMap.put("match", 0);
+		groupNameMap.remove(null);
+		evalCtx = new EvaluationContext(logger);
+	}
+
+	public LibraryResolver getGroupLibraryResolver(LibraryResolver parent) throws ResolverException {
+		return groupLib.newLibraryResolver(parent);
+	}
+
+	public String getMatchedLayerName() {
+		return matchedLayerName;
+	}
+	
+	public Integer getGroupIndex(String name) {
+		return groupNameMap.get(name);
+	}
+
+	public Logger getLogger() {
+		return logger;
+	}
+	
+	public PatternMatcher getOwner() {
+		return owner;
+	}
+
+	public EvaluationContext getEvaluationContext() {
+		return evalCtx;
+	}
+
+	public void updateGroupContents(SequenceMatcher<Element> matcher) {
+		for (Map.Entry<String,Integer> e : groupNameMap.entrySet()) {
+			String groupName = e.getKey();
+			int groupIndex = e.getValue();
+			List<Element> value;
+			if ("match".equals(groupName)) {
+				value = matcher.getMatchedElements();
+			}
+			else {
+				value = matcher.getMatchedElements(groupIndex);
+			}
+			//evalCtx.setReference(groupName, value);
+			Variable var = groupLib.getVariable(groupName);
+			var.set(value);
+		}
+	}
+	
+	public void setLogger(Logger logger) {
+		this.logger = logger;
+	}
+}

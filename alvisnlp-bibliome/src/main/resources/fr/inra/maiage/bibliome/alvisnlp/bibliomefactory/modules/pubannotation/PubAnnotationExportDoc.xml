@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-doc author="" beta="true" date="" short-target="PubAnnotationExport" target="PubAnnotationExport">
+  <synopsis>
+    <p>UNDOCUMENTED</p>
+  </synopsis>
+  <module-doc>
+    <description>
+      <p>UNDOCUMENTED</p>
+    </description>
+    <param-doc default-value="true" mandatory="default: true" name="active" short-type="Expression" type="alvisnlp.corpus.expressions.Expression">
+      <p>UNDOCUMENTED</p>
+    </param-doc>
+    <param-doc default-value="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.DenotationSpecification@2145b572" mandatory="default: fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.DenotationSpecification@2145b572" name="denotations" short-type="DenotationSpecification[]" type="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.DenotationSpecification[]">
+      <p>UNDOCUMENTED</p>
+    </param-doc>
+    <param-doc default-value="true" mandatory="default: true" name="documentFilter" short-type="Expression" type="alvisnlp.corpus.expressions.Expression">
+      <p>UNDOCUMENTED</p>
+    </param-doc>
+    <param-doc mandatory="required" name="outFile" short-type="OutputFile" type="fr.inra.maiage.bibliome.util.files.OutputFile">
+      <p>UNDOCUMENTED</p>
+    </param-doc>
+    <param-doc default-value="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.RelationSpecification@3daa422a" mandatory="default: fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.RelationSpecification@3daa422a" name="relations" short-type="RelationSpecification[]" type="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.RelationSpecification[]">
+      <p>UNDOCUMENTED</p>
+    </param-doc>
+    <param-doc default-value="true" mandatory="default: true" name="sectionFilter" short-type="Expression" type="alvisnlp.corpus.expressions.Expression">
+      <p>UNDOCUMENTED</p>
+    </param-doc>
+    <param-doc default-value="" mandatory="default: " name="userFunctions" short-type="UserFunction[]" type="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.UserFunction[]">
+      <p>UNDOCUMENTED</p>
+    </param-doc>
+  </module-doc>
+</alvisnlp-doc>

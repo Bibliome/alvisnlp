@@ -29,7 +29,7 @@
     <constantDocumentFeatures>set=test</constantDocumentFeatures>
   </test>
 
-  <import>res://org.bibliome.alvisnlp.resources/segmentation.plan</import>
+  <import>res://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.resources/segmentation.plan</import>
 
   <module id="genia" class="GeniaTagger">
     <geniaDir>/home/mba/Documents/geniatagger-3.0.2/</geniaDir>

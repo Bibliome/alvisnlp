@@ -296,8 +296,8 @@ This tag must have an attribute \texttt{id}, the value of this attribute is arbi
 Inside the \texttt{alvisnlp-plan} tag there are three \texttt{module} tags corresponding to each processing step we described above.
 Each \texttt{module} tag has two mandatory features: \texttt{class} indicates the type of the  module and \texttt{id} gives an identifier to the module.
 In this example the module types are taken from the BMF.
-Modules of type \texttt{org.bibliome.alvisnlp.modules.TextFileReader} open all files in a directory, create a document in the corpus for each file containing a single section with all the file contents.
-Modules of type \texttt{org.bibliome.alvisnlp.modules.RegExp} look for regular expressions in the sections contents and create an annotation for each match.
+Modules of type \texttt{fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.TextFileReader} open all files in a directory, create a document in the corpus for each file containing a single section with all the file contents.
+Modules of type \texttt{fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.RegExp} look for regular expressions in the sections contents and create an annotation for each match.
 
 Each module is given an identifier: \texttt{reader} and \texttt{numbers} respectively.
 Parameters are passed to each module through a set of tags.

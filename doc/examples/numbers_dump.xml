@@ -17,12 +17,12 @@ limitations under the License.
 
 
 <alvisnlp-plan id="exampleWithDumps">
-  <module class="org.bibliome.alvisnlp.modules.TextFileReader" id="reader">
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.TextFileReader" id="reader">
     <sourcePath filter=".*\.(txt|xml)$">.</sourcePath>
     <sectionName>all</sectionName>
   </module>
   
-  <module class="org.bibliome.alvisnlp.modules.RegExp" id="numbers" dump="numbers.corpus">
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.RegExp" id="numbers" dump="numbers.corpus">
     <pattern>\d+</pattern>
     <targetLayerName>numbers</targetLayerName>
     <constantAnnotationFeatures>type=number</constantAnnotationFeatures>

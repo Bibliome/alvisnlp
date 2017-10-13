@@ -2,7 +2,7 @@
 <alvisnlp-plan id="ccg-test">
   <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
 
-  <import>res://org.bibliome.alvisnlp.resources/segmentation.plan</import>
+  <import>res://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.resources/segmentation.plan</import>
 
   <pos class="CCGPosTagger" />
 
