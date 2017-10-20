@@ -23,9 +23,9 @@ import java.util.logging.Logger;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.document.Field;
 import org.apache.lucene.index.IndexWriter;
-import org.bibliome.alvisdb.impl.lucene.LuceneUtils;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisdb.ADBElements.Resolved;
 
+import fr.inra.maiage.bibliome.alvisdb.impl.lucene.LuceneUtils;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisdb.ADBElements.Resolved;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;

@@ -20,8 +20,8 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisdb;
 import java.util.logging.Logger;
 
 import org.apache.lucene.document.Document;
-import org.bibliome.alvisdb.impl.lucene.LuceneUtils;
 
+import fr.inra.maiage.bibliome.alvisdb.impl.lucene.LuceneUtils;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;

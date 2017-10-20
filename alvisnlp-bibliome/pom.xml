@@ -289,8 +289,8 @@
 
     <dependency>
       <groupId>fr.jouy.inra.maiage.bibliome</groupId>
-      <artifactId>alvisdb</artifactId>
-      <version>0.0.1-SNAPSHOT</version>
+      <artifactId>alvisdb-core</artifactId>
+      <version>0.1-SNAPSHOT</version>
     </dependency>
   </dependencies>
 </project>
