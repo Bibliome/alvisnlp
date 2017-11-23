@@ -40,9 +40,7 @@ import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 public class TargetStreamParamConverter extends AbstractParamConverter<TargetStream> {
 	@Override
 	protected TargetStream convertTrimmed(String stringValue) throws ConverterException {
-//		return getTargetStream(stringValue, "UTF-8", false);
-		cannotConvertString(stringValue, "no string conversion");
-		return null;
+		return getTargetStream(stringValue, "UTF-8", false);
 	}
 
 	@Override
@@ -97,7 +95,8 @@ public class TargetStreamParamConverter extends AbstractParamConverter<TargetStr
 			URI uri = new URI(s);
 			String scheme = uri.getScheme();
 			if (scheme == null) {
-				return new FileTargetStream(charset, uri.getPath(), append);
+				OutputFile file = AbstractFile.getOutputFile(OUTPUT_FILE_FACTORY, getOutputDir(), uri.getPath());
+				return new FileTargetStream(charset, file, append);
 			}
 			switch (uri.getScheme()) {
 				case "file": {
