@@ -38,7 +38,7 @@
 	    <arg>-AsequenceImplementationClass=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.Sequence_Impl</arg>
 	    <arg>-AfactoryInterface=fr.inra.maiage.bibliome.alvisnlp.core.factory.CorpusModuleFactory</arg>
 	    <arg>-AconverterFactoryName=fr.inra.maiage.biliome.alvisnlp.biliomefactory.BibliomeConverterFactory</arg>
-	    <arg>-AshellModule=fr.inra.maiage.bibliome.alvisnlp.biliomefactory.modules.shell.Shell</arg>
+	    <arg>-AshellModule=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.shell.Shell</arg>
 	    <arg>-Xlint:all</arg>
 	  </compilerArgs>
 	  <!--<verbose>true</verbose>-->
