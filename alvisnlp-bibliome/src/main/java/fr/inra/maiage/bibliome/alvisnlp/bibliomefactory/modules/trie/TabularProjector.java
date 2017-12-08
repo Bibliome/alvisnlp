@@ -18,13 +18,10 @@ limitations under the License.
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
-
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
@@ -40,7 +37,6 @@ import fr.inra.maiage.bibliome.util.filelines.InvalidFileLineEntry;
 import fr.inra.maiage.bibliome.util.filelines.TabularFormat;
 import fr.inra.maiage.bibliome.util.marshall.Decoder;
 import fr.inra.maiage.bibliome.util.marshall.Encoder;
-import fr.inra.maiage.bibliome.util.marshall.StringCodec;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 import fr.inra.maiage.bibliome.util.trie.Trie;
 
@@ -129,45 +125,13 @@ public abstract class TabularProjector extends TrieProjector<SectionResolvedObje
 
 	@Override
 	protected Decoder<List<String>> getDecoder() {
-		return stringListDecoder;
+		return StringListCodex.INSANCE;
 	}
-	
-	private static final Decoder<List<String>> stringListDecoder = new Decoder<List<String>>() {
-		@Override
-		public List<String> decode1(ByteBuffer buffer) {
-			final int len = buffer.getInt();
-			String[] result = new String[len];
-			for (int i = 0; i < len; ++i)
-				result[i] = StringCodec.INSTANCE.decode1(buffer);
-			return Arrays.asList(result);
-		}
-
-		@Override
-		public void decode2(ByteBuffer buffer, List<String> object) {
-		}
-	};
 
 	@Override
 	protected Encoder<List<String>> getEncoder() {
-		return stringListEncoder;
+		return StringListCodex.INSANCE;
 	}
-	
-	private static final Encoder<List<String>> stringListEncoder = new Encoder<List<String>>() {
-		@Override
-		public int getSize(List<String> object) {
-			int result = 4;
-			for (String s : object)
-				result += StringCodec.INSTANCE.getSize(s);
-			return result;
-		}
-
-		@Override
-		public void encode(List<String> object, ByteBuffer buf) throws IOException {
-			buf.putInt(object.size());
-			for (String s : object)
-				StringCodec.INSTANCE.encode(s, buf);
-		}
-	};
 
 	@Param
 	public Integer[] getKeyIndex() {
