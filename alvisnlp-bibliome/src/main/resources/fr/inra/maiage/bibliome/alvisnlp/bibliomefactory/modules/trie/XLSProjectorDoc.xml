@@ -38,7 +38,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> reads <param name="oboFiles"/> in <a href="XXX">OBO format</a> and searches for term names and synonyms in sections.</p>
+      <p><this/> reads <param name="xlsFile"/> in Microsoft Excel XLS or XLSX formats and searches for row entries in sections.</p>
       <p>The parameters <param name="allowJoined"/>, <param name="allUpperCaseInsensitive"/>, <param name="caseInsensitive"/>, <param name="ignoreDiacritics"/>, <param name="joinDash"/>, <param name="matchStartCaseInsensitive"/>, <param name="skipConsecutiveWhitespaces"/>, <param name="skipWhitespace"/> and <param name="wordStartCaseInsensitive"/> control the matching between the section and the entry keys.</p>
       <p>The <param name="subject"/> parameter specifies which text of the section should be matched. There are two options:
       <ul>
@@ -46,7 +46,7 @@ limitations under the License.
 	<li>the entries are matched on the feature value of annotations of a given layer separated by a whitespace, in this way entries can be searched against word lemmas for instance.</li>
       </ul>
       </p>
-      <p><this/> creates an annotation for each matched entry and adds these annotations to the layer named <param name="targetLayerName"/>. The created annotations will have features <param name="nameFeature"/>, <param name="idFeature"/> and <param name="pathFeature"/> set to the matched term name, identifier and path.</p>
+      <p><this/> creates an annotation for each matched row and adds these annotations to the layer named <param name="targetLayerName"/>. The created annotations will have features whose keys correspond to <param name="valueFeatures"/> and values to the data associated to the matched entry (columns in the XLS file). For instance if <param name="valueFeatures"/> is <em>[a,b,c]</em>, then each annotation will have three features named <em>a</em>, <em>b</em> and <em>c</em> with the respective values of the entry's second, third and fourth columns. A feature name left blank in <param name="entryFeatureNames"/> will not create a feature. Thus, in order not to keep the entry in the <em>a</em> feature, <param name="entryFeatureNames"/> should be <em>[,b,c]</em>. In addition, the created annotations will have the feature keys and values defined in <param name="constantAnnotationFeatures"/>.</p>
       <p>If specified, then <this/> assumes that <param name="trieSource"/> contains a compiled version of the dictionary. <param name="dictFile"/> is not read. If specified, <this/> writes a compiled version of the dictionary in <param name="trieSink"/>. The use of compiled dictionaries may accelerate the processing for large dictionaries.</p>
     </description>
 
