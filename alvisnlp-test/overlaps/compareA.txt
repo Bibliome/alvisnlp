@@ -369,7 +369,7 @@ text of BB-cat+ner-16263187
         [1.0000] E. coli
                  E. coli
 
-    Predicted matches (22) :
+    Predicted matches (23) :
         [1.0000] Lactobacillus gasseri K 7
                  Lactobacillus gasseri K 7
         [1.0000] Escherichia coli
@@ -394,6 +394,8 @@ text of BB-cat+ner-16263187
                  E. coli
         [1.0000] E. coli
                  E. coli
+        [0.0000] strain by
+                 FAIL
         [1.0000] E. coli
                  E. coli
         [1.0000] lactobacilli
@@ -416,8 +418,8 @@ text of BB-cat+ner-16263187
                  E. coli
 
     Recall   : 0.7692307692307693
-    Precision: 0.9090909090909091
-    F-Score  : 0.8333333333333333
+    Precision: 0.8695652173913043
+    F-Score  : 0.8163265306122449
 
 
 text of BB-cat+ner-16432479
@@ -4610,5 +4612,5 @@ text of BB-cat+ner-9666962
 
 Global results
     Recall   : 0.72
-    Precision: 0.5142857142857142
-    F-Score  : 0.6
+    Precision: 0.5136986301369864
+    F-Score  : 0.5996002664890073

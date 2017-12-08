@@ -471,7 +471,7 @@ text of BB-cat+ner-16263187
         [1.0000] E. coli
                  E. coli
 
-    Predicted matches (40) :
+    Predicted matches (41) :
         [1.0000] Lactobacillus gasseri K 7
                  Lactobacillus gasseri K 7
         [0.0000] Lactobacillus gasseri
@@ -518,6 +518,8 @@ text of BB-cat+ner-16263187
                  E. coli
         [1.0000] E. coli
                  E. coli
+        [0.0000] strain by
+                 FAIL
         [1.0000] E. coli
                  E. coli
         [1.0000] E. coli
@@ -554,8 +556,8 @@ text of BB-cat+ner-16263187
                  E. coli
 
     Recall   : 0.7692307692307693
-    Precision: 0.825
-    F-Score  : 0.7961399276236428
+    Precision: 0.8048780487804879
+    F-Score  : 0.7866507747318235
 
 
 text of BB-cat+ner-16432479
@@ -1575,13 +1577,17 @@ text of BB-cat+ner-24198224
         [0.0000] S. Paratyphi A
                  FAIL
 
-    Predicted matches (10) :
+    Predicted matches (12) :
+        [1.0000] Salmonella Paratyphi A
+                 Salmonella Paratyphi A
         [1.0000] Salmonella Paratyphi A
                  Salmonella Paratyphi A
         [0.0000] Salmonella Paratyphi
                  FAIL
         [0.0000] Salmonella
                  FAIL
+        [1.0000] Salmonella Paratyphi A
+                 Salmonella Paratyphi A
         [1.0000] Salmonella Paratyphi A
                  Salmonella Paratyphi A
         [0.0000] Salmonella Paratyphi
@@ -1598,8 +1604,8 @@ text of BB-cat+ner-24198224
                  FAIL
 
     Recall   : 0.5
-    Precision: 0.2
-    F-Score  : 0.28571428571428575
+    Precision: 0.3333333333333333
+    F-Score  : 0.4
 
 
 text of BB-cat+ner-24251551
@@ -6228,5 +6234,5 @@ text of BB-cat+ner-9666962
 
 Global results
     Recall   : 0.7216
-    Precision: 0.3913301662707839
-    F-Score  : 0.5074601381813774
+    Precision: 0.3918197984588026
+    F-Score  : 0.5078716346866423
