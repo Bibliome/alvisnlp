@@ -123,6 +123,7 @@ public class PlanLoader<T extends Annotable> {
 	private final ParamConverterFactory converterFactory;
 	private final Map<String,List<Element>> defaultParamValues;
 	private final List<String> inputDirs;
+	private final List<String> resourceBases;
 	private final String outputDir;
 	private final DocumentBuilder docBuilder;
 	private final String creatorNameFeature;
@@ -136,13 +137,14 @@ public class PlanLoader<T extends Annotable> {
 	 * @param customEntities 
 	 * @throws PlanException 
 	 */
-	public PlanLoader(ModuleFactory<T> moduleFactory, ParamConverterFactory converterFactory, Document defaultParamValuesDoc, List<String> inputDirs, String outputDir, DocumentBuilder docBuilder, String creatorNameFeature, Map<String,String> customEntities) throws PlanException {
+	public PlanLoader(ModuleFactory<T> moduleFactory, ParamConverterFactory converterFactory, Document defaultParamValuesDoc, List<String> inputDirs, String outputDir, List<String> resourceBases, DocumentBuilder docBuilder, String creatorNameFeature, Map<String,String> customEntities) throws PlanException {
 		super();
 		this.moduleFactory = moduleFactory;
 		this.converterFactory = converterFactory;
 		this.defaultParamValues = buildDefaultParamValues(defaultParamValuesDoc);
 		this.inputDirs = inputDirs;
 		this.outputDir = outputDir;
+		this.resourceBases = resourceBases;
 		this.docBuilder = docBuilder;
 		this.creatorNameFeature = creatorNameFeature;
 		AlvisNLPEntityResolver entityResolver = new AlvisNLPEntityResolver(customEntities);
@@ -466,6 +468,7 @@ public class PlanLoader<T extends Annotable> {
 			ParamConverter result = converterFactory.getService(paramType);
 			result.setInputDirs(inputDirs);
 			result.setOutputDir(outputDir);
+			result.setResourceBases(resourceBases);
 			return result;
 		}
 		catch (UnsupportedServiceException use) {
@@ -476,6 +479,7 @@ public class PlanLoader<T extends Annotable> {
 	public StreamFactory getStreamFactory() {
 		StreamFactory result = new StreamFactory();
 		result.setInputDirs(inputDirs);
+		result.setResourceBases(resourceBases);
 		return result;
 	}
 	

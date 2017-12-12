@@ -168,4 +168,6 @@ public interface ParamConverter extends Documentable {
     void setInputDirs(List<String> inputDirs);
     String getOutputDir();
     void setOutputDir(String outputDir);
+    List<String> getResourceBases();
+    void setResourceBases(List<String> resourceBases);
 }

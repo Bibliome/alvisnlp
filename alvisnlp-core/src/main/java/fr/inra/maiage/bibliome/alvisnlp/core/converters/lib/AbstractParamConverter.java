@@ -44,6 +44,7 @@ public abstract class AbstractParamConverter<T> implements ParamConverter {
     private ParamConverterFactory componentConverterFactory = null;
     private List<String> inputDirs;
     private String outputDir;
+    private List<String> resourceBases;
     
     /**
      * XML attribute that specifies the separator character for array elements and map entries.
@@ -260,6 +261,16 @@ public abstract class AbstractParamConverter<T> implements ParamConverter {
 	}
 
 	@Override
+	public List<String> getResourceBases() {
+		return resourceBases;
+	}
+
+	@Override
+	public void setResourceBases(List<String> resourceBases) {
+		this.resourceBases = resourceBases;
+	}
+
+	@Override
 	public void setInputDirs(List<String> inputDirs) {
 		this.inputDirs = inputDirs;
 	}
@@ -273,6 +284,7 @@ public abstract class AbstractParamConverter<T> implements ParamConverter {
 		ParamConverter result = componentConverterFactory.getService(klass);
 		result.setInputDirs(inputDirs);
 		result.setOutputDir(outputDir);
+		result.setResourceBases(resourceBases);
 		return result;
 	}
 	

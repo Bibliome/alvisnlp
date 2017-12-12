@@ -103,7 +103,7 @@ public class PlanBuilder {
 	
 	public PlanLoader<Corpus> createPlanLoader() throws ParserConfigurationException, PlanException {
         DocumentBuilder docBuilder = createDocumentBuilder();
-		return new PlanLoader<Corpus>(moduleFactory, converterFactory, null, null, null, docBuilder, "creator", Collections.<String,String> emptyMap());
+		return new PlanLoader<Corpus>(moduleFactory, converterFactory, null, null, null, null, docBuilder, "creator", Collections.<String,String> emptyMap());
 	}
 	
 	public PlanLoader<Corpus> createPlanLoader(Run run) throws ParserConfigurationException, PlanException {
@@ -115,8 +115,9 @@ public class PlanBuilder {
         inputPaths.add(inputPath);
         inputPaths.add(resourcePath);
         File outputDir = run.getOutputDir();
+        List<String> resourceBases = new ArrayList<String>();
         String outputPath = outputDir.getAbsolutePath();
-		return new PlanLoader<Corpus>(moduleFactory, converterFactory, null, inputPaths, outputPath, docBuilder, "creator", Collections.<String,String> emptyMap());
+		return new PlanLoader<Corpus>(moduleFactory, converterFactory, null, inputPaths, outputPath, resourceBases, docBuilder, "creator", Collections.<String,String> emptyMap());
 	}
 	
 	public Sequence<Corpus> buildPlan(PlanLoader<Corpus> planLoader, String planName) throws PlanException, ModuleException, ServiceException, ConverterException, SAXException, IOException, URISyntaxException {

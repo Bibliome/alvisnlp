@@ -147,6 +147,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	private boolean cleanTmpDir = false;
 	private final Map<String,String> customEntities = new LinkedHashMap<String,String>();
 	private List<String> inputDirs;
+	private List<String> resourceBases;
 	private String outputDir;
 	private boolean noColors = false;
 	
@@ -818,11 +819,12 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 			ParamConverter conv = converterFactory.getService(h.getType());
 			conv.setInputDirs(inputDirs);
 			conv.setOutputDir(outputDir);
+			conv.setResourceBases(resourceBases);
 			logger.config("setting " + h.getName() + " to '" + value + "' in " + module.getPath());
 			h.setValue(conv.convert(value));
 		}
     }
-    
+
     private class ParamUnsetter implements ParamSetter<A> {
     	private final String name;
 
@@ -868,7 +870,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
         docBuilderFactory.setFeature("http://xml.org/sax/features/use-entity-resolver2", true);
         DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
         Document defaultParamValuesDoc = getDefaultParamValuesDoc(docBuilder);
-		PlanLoader<A> planLoader = new PlanLoader<A>(moduleFactory, converterFactory, defaultParamValuesDoc, inputDirs, outputDir, docBuilder, creatorNameFeature, customEntities);
+		PlanLoader<A> planLoader = new PlanLoader<A>(moduleFactory, converterFactory, defaultParamValuesDoc, inputDirs, outputDir, resourceBases, docBuilder, creatorNameFeature, customEntities);
 
 		Document doc = planLoader.parseDoc(planFile);
 		Sequence<A> result = planLoader.loadDocument(logger, planFile, doc);
