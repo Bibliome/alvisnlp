@@ -300,6 +300,14 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 		inputDirs.add(path);
 	}
 	
+	@CLIOption("-resourceBase")
+	public void addResourceBase(String base) {
+		if (resourceBases == null) {
+			resourceBases = new ArrayList<String>();
+		}
+		resourceBases.add(base);
+	}
+	
 	@CLIOption("-outputDir")
 	public void setOutputDir(String path) {
 		outputDir = path;
