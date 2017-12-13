@@ -11,7 +11,7 @@
     <constantAnnotationFeatures>ne-type=taxon</constantAnnotationFeatures>
   </taxa>
 
-  <import>res://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.resources/segmentation.plan</import>
+  <import>res://segmentation.plan</import>
 
   <!--
   <tt class="TreeTagger">

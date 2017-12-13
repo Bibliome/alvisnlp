@@ -23,6 +23,7 @@ import java.io.InputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.tools.FileObject;
 import javax.tools.StandardLocation;
@@ -40,13 +41,15 @@ import fr.inra.maiage.bibliome.util.xml.XMLUtils;
  */
 class ConverterFactoryModel extends AbstractFactoryModel {
 	private final Collection<ConverterModel> converters = new ArrayList<ConverterModel>();
-
+	private final List<String> resourceBases;
+	
 	/**
 	 * Creates a converter factory model.
 	 * @param fullName
 	 */
-	ConverterFactoryModel(String fullName) {
+	ConverterFactoryModel(String fullName, List<String> resourceBases) {
 		super(fullName);
+		this.resourceBases = resourceBases;
 	}
 	
 	/**
@@ -65,8 +68,14 @@ class ConverterFactoryModel extends AbstractFactoryModel {
 	@Override
 	protected void fillDOM(ModelContext ctx, Document doc) {
 		org.w3c.dom.Element root = doc.getDocumentElement();
-		for (ConverterModel converter : converters)
+		for (String base : resourceBases) {
+			org.w3c.dom.Element baseElt = doc.createElement("resource-base");
+			baseElt.setTextContent(base);
+			root.appendChild(baseElt);
+		}
+		for (ConverterModel converter : converters) {
 			root.appendChild(converter.getDOM(doc));
+		}
 	}
 
 	@Override

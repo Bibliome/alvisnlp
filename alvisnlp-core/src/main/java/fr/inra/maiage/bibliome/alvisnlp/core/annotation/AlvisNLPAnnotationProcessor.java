@@ -18,6 +18,8 @@ limitations under the License.
 package fr.inra.maiage.bibliome.alvisnlp.core.annotation;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Set;
 
 import javax.annotation.processing.AbstractProcessor;
@@ -102,7 +104,9 @@ public class AlvisNLPAnnotationProcessor extends AbstractProcessor {
 					ctx.error("missing option -AconverterFactoryName");
 					return true;
 				}
-				ConverterFactoryModel converterFactory = new ConverterFactoryModel(ctx.getOption("converterFactoryName"));
+				String converterFactoryName = ctx.getOption("converterFactoryName");
+				List<String> resourceBases = Arrays.asList(ctx.getOption("resourceBases").split(":"));
+				ConverterFactoryModel converterFactory = new ConverterFactoryModel(converterFactoryName, resourceBases);
 				ctx.note("processing converter sources");
 				for (TypeElement converterElement : ElementFilter.typesIn(roundEnv.getElementsAnnotatedWith(ctx.getConverterAnnotation()))) {
 					ConverterModel converter = new ConverterModel(ctx, converterElement);

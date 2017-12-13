@@ -60,6 +60,16 @@ public final class <xsl:value-of select="@name"/> extends fr.inra.maiage.bibliom
 	result.setComponentConverterFactory(this);
 	return result;
     }
+    
+    @Override
+    public java.util.List&lt;java.lang.String> getResourceBases() {
+    	return java.util.Arrays.asList(
+    	<xsl:for-each select="resource-base">
+    		<xsl:if test="position() > 1">,</xsl:if>
+    		"<xsl:value-of select="."/>"
+    	</xsl:for-each>
+    	);
+    }
 }
 	</xsl:template>
 </xsl:stylesheet>

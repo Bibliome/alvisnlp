@@ -17,8 +17,10 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.core.converters;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import fr.inra.maiage.bibliome.util.service.CompositeServiceFactory;
 
@@ -32,4 +34,13 @@ public class CompoundParamConverterFactory extends CompositeServiceFactory<Class
     public Collection<String> autoAlias(Class<?> key) {
         return Arrays.asList(key.getCanonicalName(), key.getSimpleName());
     }
+
+	@Override
+	public List<String> getResourceBases() {
+		List<String> result = new ArrayList<String>();
+		for (ParamConverterFactory f : getFactories()) {
+			result.addAll(f.getResourceBases());
+		}
+		return result;
+	}
 }

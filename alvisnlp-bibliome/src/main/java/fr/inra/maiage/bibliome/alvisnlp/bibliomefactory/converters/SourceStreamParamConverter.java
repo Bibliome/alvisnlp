@@ -53,6 +53,7 @@ public class SourceStreamParamConverter extends AbstractParamConverter<SourceStr
 		StreamFactory result = new StreamFactory();
 		result.setFilter(new PatternFileFilter());
 		result.setInputDirs(getInputDirs());
+		result.setResourceBases(getResourceBases());
 		return result;
 	}
 
@@ -130,6 +131,7 @@ public class SourceStreamParamConverter extends AbstractParamConverter<SourceStr
 		
 		List<String> inputDirs = sf.getInputDirs();
 		result.setInputDirs(inputDirs);
+		result.setResourceBases(getResourceBases());
 		
 		return result;
 	}

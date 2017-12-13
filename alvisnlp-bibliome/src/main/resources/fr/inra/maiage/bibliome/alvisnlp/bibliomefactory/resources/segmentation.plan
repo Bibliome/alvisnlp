@@ -19,14 +19,14 @@ limitations under the License.
 
 	<sequence id="preprocessing">
 		<module id="latin" class="TabularProjector">
-			<dictFile>res://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.resources/latin_multi-word-expressions.txt</dictFile>
+			<dictFile>res://latin_multi-word-expressions.txt</dictFile>
 			<targetLayerName>seg__latin</targetLayerName>
 			<constantAnnotationFeatures>type=latin,eos=not-eos,pos=FW</constantAnnotationFeatures>
 			<valueFeatures>seg__latin</valueFeatures>
       		<skipConsecutiveWhitespaces />
 		</module>
 
-		<import>res://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.resources/number-and-dates.plan</import>
+		<import>res://number-and-dates.plan</import>
 
 		<module id="hanging-hyphens" class="RegExp">
 			<pattern>(?&lt;=[A-Za-z])-(?= )</pattern>

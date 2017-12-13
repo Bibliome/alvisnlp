@@ -799,6 +799,15 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 		}
     }
     
+    private List<String> buildResourceBases() {
+    	List<String> result = new ArrayList<String>();
+    	if (resourceBases != null) {
+    		result.addAll(resourceBases);
+    	}
+    	result.addAll(converterFactory.getResourceBases());
+    	return result;
+    }
+    
     private interface ParamSetter<A extends Annotable> {
     	void setValue(Logger logger, PlanLoader<A> planLoader, Module<A> module) throws Exception;
     }
@@ -819,7 +828,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 			ParamConverter conv = converterFactory.getService(h.getType());
 			conv.setInputDirs(inputDirs);
 			conv.setOutputDir(outputDir);
-			conv.setResourceBases(resourceBases);
+			conv.setResourceBases(buildResourceBases());
 			logger.config("setting " + h.getName() + " to '" + value + "' in " + module.getPath());
 			h.setValue(conv.convert(value));
 		}
@@ -870,7 +879,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
         docBuilderFactory.setFeature("http://xml.org/sax/features/use-entity-resolver2", true);
         DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
         Document defaultParamValuesDoc = getDefaultParamValuesDoc(docBuilder);
-		PlanLoader<A> planLoader = new PlanLoader<A>(moduleFactory, converterFactory, defaultParamValuesDoc, inputDirs, outputDir, resourceBases, docBuilder, creatorNameFeature, customEntities);
+		PlanLoader<A> planLoader = new PlanLoader<A>(moduleFactory, converterFactory, defaultParamValuesDoc, inputDirs, outputDir, buildResourceBases(), docBuilder, creatorNameFeature, customEntities);
 
 		Document doc = planLoader.parseDoc(planFile);
 		Sequence<A> result = planLoader.loadDocument(logger, planFile, doc);

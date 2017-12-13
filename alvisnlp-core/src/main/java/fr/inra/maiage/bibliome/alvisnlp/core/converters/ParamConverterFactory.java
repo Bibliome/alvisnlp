@@ -17,6 +17,8 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.core.converters;
 
+import java.util.List;
+
 import fr.inra.maiage.bibliome.util.service.ServiceFactory;
 
 
@@ -24,5 +26,5 @@ import fr.inra.maiage.bibliome.util.service.ServiceFactory;
  * Interface that must be implemented by converter factory services.
  */
 public interface ParamConverterFactory extends ServiceFactory<Class<?>,ParamConverter> {
-
+	List<String> getResourceBases();
 }
