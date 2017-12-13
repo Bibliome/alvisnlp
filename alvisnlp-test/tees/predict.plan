@@ -8,7 +8,7 @@
     <deleteElements/>
   </keep-train>
 
-  <import>res://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.resources/segmentation.plan</import>
+  <import>res://segmentation.plan</import>
   
   <genia class="GeniaTagger" />
 
