@@ -537,11 +537,11 @@ BB-cat+ner-11162736	text	0	COMP_to:ADJ-N	sensitive	proteases
 BB-cat+ner-11162736	text	0	COMP_for:N-N	method	proteins
 BB-cat+ner-11162736	text	87	MOD:N-ADJ	problem	major
 BB-cat+ner-11162736	text	87	COMP_in:N-N	problem	purification
+BB-cat+ner-11162736	text	87	MOD:N-N	problem	Proteolysisis
 BB-cat+ner-11162736	text	87	MOD:N-ADJ	proteins	overproduced
 BB-cat+ner-11162736	text	87	MOD:N-ADJ	studies	structural
 BB-cat+ner-11162736	text	87	COMP_for:N-N	proteins	studies
 BB-cat+ner-11162736	text	87	COMP_of:N-N	problem	proteins
-BB-cat+ner-11162736	text	87	MOD:N-N	problem	Proteolysisis
 BB-cat+ner-11162736	text	182	MOD:N-ADJ	method	new
 BB-cat+ner-11162736	text	182	OBJ:V-N	developed	method
 BB-cat+ner-11162736	text	182	MOD:N-N	inhibitors	protease
@@ -900,8 +900,8 @@ BB-cat+ner-12728302	text	124	MOD:N-N	nitrogen	-
 BB-cat+ner-12728302	text	124	APPOS:N-FW	nitrogen	Escherichia
 BB-cat+ner-12728302	text	124	COMP_to:V-N	Compared	nitrogen
 BB-cat+ner-12728302	text	124	COMP_to:V-FW	Compared	Escherichia
-BB-cat+ner-12728302	text	124	MOD:N-N	L	-31
 BB-cat+ner-12728302	text	124	MOD:N-N	L	strain
+BB-cat+ner-12728302	text	124	MOD:N-N	L	-31
 BB-cat+ner-12728302	text	124	MOD:ADJ-ADV	superior	significantly
 BB-cat+ner-12728302	text	124	MOD:N-ADJ	abilities	superior
 BB-cat+ner-12728302	text	124	OBJ:V-N	exhibited	abilities
@@ -1497,9 +1497,9 @@ BB-cat+ner-15358511	text	577	SUBJ:V-N	supported	NB
 BB-cat+ner-15358511	text	577	SUBJ:V-N	supported	TSB
 BB-cat+ner-15358511	text	643	COMP_in:V-N	grown	TSB
 BB-cat+ner-15358511	text	643	SUBJ:V_PASS-N	grown	Cells
+BB-cat+ner-15358511	text	643	MOD:ADJ-ADV	hydrophilic	more
 BB-cat+ner-15358511	text	643	COMP_in:V-N	grown	NB
 BB-cat+ner-15358511	text	643	XMOD:DT-V_PASS	those	grown
-BB-cat+ner-15358511	text	643	MOD:ADJ-ADV	hydrophilic	more
 BB-cat+ner-15358511	text	643	XCOMP:V-ADJ	were	hydrophilic
 BB-cat+ner-15358511	text	643	SUBJ:V-N	were	Cells
 BB-cat+ner-15358511	text	708	MOD:N-ADJ	properties	electrokinetic
@@ -1822,13 +1822,13 @@ BB-cat+ner-16432479	text	930	COMP_of:N-N	percentage	penicillin
 BB-cat+ner-16432479	text	930	MOD:N-ADJ	N	resistant
 BB-cat+ner-16432479	text	930	COMP_-:N-N	percentage	N
 BB-cat+ner-16432479	text	930	MOD:N-N	percentage	-
+BB-cat+ner-16432479	text	930	MOD:V-ADV	isolated	gonorrhoeae
 BB-cat+ner-16432479	text	930	MOD:V-ADV	varied	considerably
 BB-cat+ner-16432479	text	930	MOD:N-N	%	1.0-11.9
 BB-cat+ner-16432479	text	930	APPOS:N-N	%	varied
 BB-cat+ner-16432479	text	930	SUBJ:V-N	varied	decade
 BB-cat+ner-16432479	text	930	COMP_over:N-N	region	decade
 BB-cat+ner-16432479	text	930	COMP_in:V-N	isolated	region
-BB-cat+ner-16432479	text	930	MOD:V-ADV	isolated	gonorrhoeae
 BB-cat+ner-16432479	text	930	SUBJ:V_PASS-N	isolated	percentage
 BB-cat+ner-16432479	text	930	MOD:N-ADJ	resistance	chromosomal
 BB-cat+ner-16432479	text	930	OBJ:V-N	carried	resistance
@@ -2109,6 +2109,7 @@ BB-cat+ner-16990433	text	923	SUBJ:V-N	contains	family
 BB-cat+ner-16990433	text	1007	MOD:N-ADJ	homologs	functional
 BB-cat+ner-16990433	text	1007	COMP_of:N-N	homologs	effectors
 BB-cat+ner-16990433	text	1007	OBJ:V-N	harbors	homologs
+BB-cat+ner-16990433	text	1007	MOD:V-ADV	harbors	also
 BB-cat+ner-16990433	text	1007	MOD:N-ADJ	pathogens	plant
 BB-cat+ner-16990433	text	1007	APPOS:N-N	AvrA	HopW
 BB-cat+ner-16990433	text	1007	APPOS:N-N	HopW	HopPtoH
@@ -2131,7 +2132,6 @@ BB-cat+ner-16990433	text	1007	COORD_and:N-N	members	Shigella
 BB-cat+ner-16990433	text	1007	COMP_from:V-N	harbors	members
 BB-cat+ner-16990433	text	1007	COMP_from:V-N	harbors	Shigella
 BB-cat+ner-16990433	text	1007	COORD_and:N-N	members	pathogens
-BB-cat+ner-16990433	text	1007	MOD:V-ADV	harbors	also
 BB-cat+ner-16990433	text	1007	SUBJ:V-N	harbors	EHEC
 BB-cat+ner-16990433	text	1190	COORD_or:V_PASS-ADJ	predicted	proven
 BB-cat+ner-16990433	text	1190	XMOD:V-V_PASS	encoding	predicted
@@ -2197,9 +2197,9 @@ BB-cat+ner-17237163	text	176	MOD:N-N	studies	MG1
 BB-cat+ner-17237163	text	176	COMP_in:V-N	showed	studies
 BB-cat+ner-17237163	text	176	MOD:N-N	maturation	biofilm
 BB-cat+ner-17237163	text	176	COORD_and:N-N	sloughing	maturation
-BB-cat+ner-17237163	text	176	APPOS:N-N	AHL	lactone
 BB-cat+ner-17237163	text	176	MOD:N-N	lactone	homoserine
 BB-cat+ner-17237163	text	176	MOD:N-N	lactone	N-acyl
+BB-cat+ner-17237163	text	176	APPOS:N-N	AHL	lactone
 BB-cat+ner-17237163	text	176	COMP_by:V-N	regulated	lactone
 BB-cat+ner-17237163	text	176	APPOS:N-N	QS	sensing
 BB-cat+ner-17237163	text	176	COMP_-:V_PASS-V	regulated	sensing
@@ -2562,8 +2562,8 @@ BB-cat+ner-18687046	text	1032	MOD:N-N	h	24
 BB-cat+ner-18687046	text	1032	COMP_in:N-N	transfusions	h
 BB-cat+ner-18687046	text	1032	MOD:N-N	days	ICU
 BB-cat+ner-18687046	text	1032	MOD:N-N	days	ventilator
-BB-cat+ner-18687046	text	1032	APPOS:N-N	AIS	Score
 BB-cat+ner-18687046	text	1032	MOD:N-N	Score	Injury
+BB-cat+ner-18687046	text	1032	APPOS:N-N	AIS	Score
 BB-cat+ner-18687046	text	1032	MOD:N-ADJ	Score	Abbreviated
 BB-cat+ner-18687046	text	1032	MOD:N-ADJ	Score	head
 BB-cat+ner-18687046	text	1032	MOD:N-N	AIS	chest
@@ -2904,8 +2904,8 @@ BB-cat+ner-19075662	text	53	OBJ:V-N	represents	occurrence
 BB-cat+ner-19075662	text	53	SUBJ:V-N	represents	growth
 BB-cat+ner-19075662	text	169	MOD:N-ADJ	infection	associated
 BB-cat+ner-19075662	text	169	MOD:N-ADJ	infection	Biomaterial
-BB-cat+ner-19075662	text	169	COORD_and:FW-FW	Staphylococcus	Staphylococcus
 BB-cat+ner-19075662	text	169	MOD:V-ADV	caused	mostly
+BB-cat+ner-19075662	text	169	COORD_and:FW-FW	Staphylococcus	Staphylococcus
 BB-cat+ner-19075662	text	169	SUBJ:V_PASS-N	caused	infection
 BB-cat+ner-19075662	text	169	MOD:N-N	development	organism'
 BB-cat+ner-19075662	text	169	MOD:N-ADJ	system	immune
@@ -3141,13 +3141,13 @@ BB-cat+ner-19175621	text	160	OBJ:V-N	had	phenotype
 BB-cat+ner-19175621	text	160	SUBJ:V-N	had	isolates
 BB-cat+ner-19175621	text	378	MOD:N-ADJ	characterization	genetic
 BB-cat+ner-19175621	text	378	COMP_of:N-N	ESBL	S
+BB-cat+ner-19175621	text	378	COMP_of:N-N	characterization	ESBL
 BB-cat+ner-19175621	text	378	MOD:N-N	Livingstone	enterica
 BB-cat+ner-19175621	text	378	MOD:N-N	gene	-2
 BB-cat+ner-19175621	text	378	MOD:N-N	gene	bla(SHV
 BB-cat+ner-19175621	text	378	OBJ:V-N	revealed	gene
 BB-cat+ner-19175621	text	378	SUBJ:V-N	revealed	Livingstone
-BB-cat+ner-19175621	text	378	CMOD:N-V	ESBL	revealed
-BB-cat+ner-19175621	text	378	COMP_of:N-N	characterization	ESBL
+BB-cat+ner-19175621	text	378	CMOD:N-V	characterization	revealed
 BB-cat+ner-19175621	text	474	MOD:N-N	gene	-10
 BB-cat+ner-19175621	text	474	MOD:N-N	gene	M
 BB-cat+ner-19175621	text	474	MOD:N-ADJ	environment	genetic
@@ -3309,6 +3309,7 @@ BB-cat+ner-19396518	text	1050	AUX:V-V	detected	were
 BB-cat+ner-19396518	text	1050	SUBJ:V_PASS-N	detected	pathogens
 BB-cat+ner-19396518	text	1419	MOD:N-N	rate	detection
 BB-cat+ner-19396518	text	1419	COMP_with:N-N	rate	PCR
+BB-cat+ner-19396518	text	1419	MOD:ADJ-ADV	better	significantly
 BB-cat+ner-19396518	text	1419	MOD:N-ADJ	administration	antibiotic
 BB-cat+ner-19396518	text	1419	COMP_with:N-N	patients	administration
 BB-cat+ner-19396518	text	1419	MOD:N-N	chi2=	18.3182
@@ -3316,7 +3317,6 @@ BB-cat+ner-19396518	text	1419	MOD:N-N	P=	0.0000
 BB-cat+ner-19396518	text	1419	COORD_;:N-N	P=	chi2=
 BB-cat+ner-19396518	text	1419	APPOS:N-N	P=	that
 BB-cat+ner-19396518	text	1419	APPOS:N-N	chi2=	that
-BB-cat+ner-19396518	text	1419	MOD:ADJ-ADV	better	significantly
 BB-cat+ner-19396518	text	1419	XCOMP:V-ADJ	was	better
 BB-cat+ner-19396518	text	1419	SUBJ:V-N	was	rate
 BB-cat+ner-19396518	text	1565	COMP_in:V-N	is	conclusion
@@ -3436,6 +3436,7 @@ BB-cat+ner-19501788	text	800	MOD:N-ADJ	activity	bactericidal
 BB-cat+ner-19501788	text	800	MOD:N-N	activity	serum
 BB-cat+ner-19501788	text	800	MOD:N-N	activity	host
 BB-cat+ner-19501788	text	800	COMP_against:N-N	resistance	activity
+BB-cat+ner-19501788	text	800	MOD:N-ADJ	ability	impaired
 BB-cat+ner-19501788	text	800	MOD:N-N	blood	host
 BB-cat+ner-19501788	text	800	MOD:N-ADJ	attenuation	drastic
 BB-cat+ner-19501788	text	800	MOD:N-ADJ	virulence	bacterial
@@ -3451,7 +3452,6 @@ BB-cat+ner-19501788	text	800	COMP_in:V-N	disseminate	tissues
 BB-cat+ner-19501788	text	800	COMP_in:V-N	disseminate	blood
 BB-cat+ner-19501788	text	800	OBJ:V-N	disseminate	model
 BB-cat+ner-19501788	text	800	SUBJ:V-N	disseminate	ability
-BB-cat+ner-19501788	text	800	MOD:N-ADJ	ability	impaired
 BB-cat+ner-19501788	text	800	APPOS:N-N	ability	resistance
 BB-cat+ner-19501788	text	800	OBJ:V-N	decreased	ability
 BB-cat+ner-19501788	text	800	OBJ:V-N	decreased	resistance
@@ -3707,10 +3707,10 @@ BB-cat+ner-20005916	text	643	SUBJ:V_PASS-N	identified	One
 BB-cat+ner-20005916	text	938	MOD:N-ADJ	studies	Recent
 BB-cat+ner-20005916	text	938	MOD:N-ADJ	leprosy	human
 BB-cat+ner-20005916	text	938	MOD:N-N	leprae	Mycobacterium
-BB-cat+ner-20005916	text	938	MOD:N-ADJ	capacity	unique
 BB-cat+ner-20005916	text	938	MOD:N-N	cells	Schwann
 BB-cat+ner-20005916	text	938	OBJ:V-N	invade	cells
 BB-cat+ner-20005916	text	938	SUBJ:V-N	invade	capacity
+BB-cat+ner-20005916	text	938	MOD:N-ADJ	capacity	unique
 BB-cat+ner-20005916	text	938	MOD:N-ADJ	PNS	adult
 BB-cat+ner-20005916	text	938	COMP_of:N-N	capacity	PNS
 BB-cat+ner-20005916	text	938	OBJ:V-N	has	capacity
@@ -3761,6 +3761,7 @@ BB-cat+ner-20005916	text	1205	MOD:N-N	signaling	Erk
 BB-cat+ner-20005916	text	1205	MOD:N-ADJ	signaling	canonical
 BB-cat+ner-20005916	text	1205	MOD:N-ADJ	signaling	downstream
 BB-cat+ner-20005916	text	1205	OBJ:V-N	induce	signaling
+BB-cat+ner-20005916	text	1205	MOD:V-ADV	induce	subsequently
 BB-cat+ner-20005916	text	1205	MOD:N-N	breakdown	myelin
 BB-cat+ner-20005916	text	1205	MOD:N-ADJ	damage	axonal
 BB-cat+ner-20005916	text	1205	MOD:N-ADJ	damage	subsequent
@@ -3768,7 +3769,6 @@ BB-cat+ner-20005916	text	1205	COORD_and:N-N	damage	breakdown
 BB-cat+ner-20005916	text	1205	COMP_to:V-N	leading	damage
 BB-cat+ner-20005916	text	1205	COMP_to:V-N	leading	breakdown
 BB-cat+ner-20005916	text	1205	XMOD:V-V	induce	leading
-BB-cat+ner-20005916	text	1205	MOD:V-ADV	induce	subsequently
 BB-cat+ner-20005916	text	1205	COORD_and:V-V	induce	activate
 BB-cat+ner-20005916	text	1205	COORD_and:V-V	induce	bind
 BB-cat+ner-20005916	text	1205	SUBJ:V-N	bind	M
@@ -3896,13 +3896,13 @@ BB-cat+ner-20073421	text	441	COORD_or:N-N	lipopolysaccharide	gamma
 BB-cat+ner-20073421	text	441	COMP_-:N-N	interferon	lipopolysaccharide
 BB-cat+ner-20073421	text	441	COMP_-:N-N	interferon	gamma
 BB-cat+ner-20073421	text	441	MOD:N-N	interferon	-
+BB-cat+ner-20073421	text	441	COMP_by:N-N	Stimulation	interferon
 BB-cat+ner-20073421	text	441	COMP_before:N-N	combination	infection
 BB-cat+ner-20073421	text	441	MOD:N-N	combination	F
 BB-cat+ner-20073421	text	441	MOD:N-N	combination	tularensis
-BB-cat+ner-20073421	text	441	COMP_in:N-N	interferon	combination
+BB-cat+ner-20073421	text	441	COMP_in:N-N	Stimulation	combination
 BB-cat+ner-20073421	text	441	COORD_or:N-ADV	combination	alone
-BB-cat+ner-20073421	text	441	MOD:N-ADJ	interferon	alone
-BB-cat+ner-20073421	text	441	COMP_by:N-N	Stimulation	interferon
+BB-cat+ner-20073421	text	441	MOD:N-ADJ	Stimulation	alone
 BB-cat+ner-20073421	text	441	MOD:N-ADJ	effects	protective
 BB-cat+ner-20073421	text	441	OBJ:V-N	revealed	effects
 BB-cat+ner-20073421	text	441	SUBJ:V-N	revealed	Stimulation
@@ -4015,9 +4015,9 @@ BB-cat+ner-20148898	text	675	NEG	reduced	not
 BB-cat+ner-20148898	text	675	SUBJ:V_PASS-N	reduced	cells
 BB-cat+ner-20148898	text	675	COMP_of:N-N	number	cells
 BB-cat+ner-20148898	text	675	OBJ:V-N	deliver	Yops
+BB-cat+ner-20148898	text	675	MOD:V-ADV	deliver	arbitrarily
 BB-cat+ner-20148898	text	675	MOD:N-ADJ	cells	available
 BB-cat+ner-20148898	text	675	COMP_to:V-N	deliver	cells
-BB-cat+ner-20148898	text	675	MOD:V-ADV	deliver	arbitrarily
 BB-cat+ner-20148898	text	675	SUBJ:V-N	deliver	number
 BB-cat+ner-20148898	text	675	MOD:V-ADV	deliver	Strikingly
 BB-cat+ner-20148898	text	925	OBJ:V-N	Using	splenocytes
@@ -4069,11 +4069,11 @@ BB-cat+ner-20148898	text	1384	OBJ:V-N	encounters	cells
 BB-cat+ner-20148898	text	1384	COMP_among:V-N	discriminates	cells
 BB-cat+ner-20148898	text	1384	OBJ:V-N	delivers	Yops
 BB-cat+ner-20148898	text	1384	COMP_to:V-N	delivers	phagocytes
+BB-cat+ner-20148898	text	1384	MOD:V-ADV	delivers	selectively
 BB-cat+ner-20148898	text	1384	COMP_from:V-N	refraining	translocation
 BB-cat+ner-20148898	text	1384	MOD:N-N	types	cell
 BB-cat+ner-20148898	text	1384	MOD:N-ADJ	types	other
 BB-cat+ner-20148898	text	1384	COMP_while:V-V	delivers	refraining
-BB-cat+ner-20148898	text	1384	MOD:V-ADV	delivers	selectively
 BB-cat+ner-20148898	text	1384	COORD_and:V-V	delivers	discriminates
 BB-cat+ner-20148898	text	1384	SUBJ:V-N	refraining	Y
 BB-cat+ner-20148898	text	1384	SUBJ:V-N	delivers	Y
@@ -4371,8 +4371,8 @@ BB-cat+ner-21924022	text	238	COMP_from:N-N	gastroscopy	children
 BB-cat+ner-21924022	text	238	COMP_by:V-N	obtained	gastroscopy
 BB-cat+ner-21924022	text	238	SUBJ:V_PASS-N	obtained	specimens
 BB-cat+ner-21924022	text	238	MOD:N-N	test	urease
-BB-cat+ner-21924022	text	238	APPOS:N-N	RUT	test
 BB-cat+ner-21924022	text	238	MOD:N-ADJ	test	rapid
+BB-cat+ner-21924022	text	238	APPOS:N-N	RUT	test
 BB-cat+ner-21924022	text	238	MOD:N-N	staining	Giemsa
 BB-cat+ner-21924022	text	238	COORD_and:N-N	staining	test
 BB-cat+ner-21924022	text	238	COMP_by:V-N	detected	staining
@@ -4397,8 +4397,8 @@ BB-cat+ner-21924022	text	490	MOD:N-ADJ	protein	associated
 BB-cat+ner-21924022	text	490	MOD:N-N	protein	cytotoxin
 BB-cat+ner-21924022	text	490	APPOS:N-N	CagA	protein
 BB-cat+ner-21924022	text	490	COMP_against:N-N	antibodies	protein
-BB-cat+ner-21924022	text	490	APPOS:N-N	VacA	A
 BB-cat+ner-21924022	text	490	MOD:N-N	A	toxin
+BB-cat+ner-21924022	text	490	APPOS:N-N	VacA	A
 BB-cat+ner-21924022	text	490	MOD:N-N	protein	shock
 BB-cat+ner-21924022	text	490	MOD:N-N	protein	heat
 BB-cat+ner-21924022	text	490	APPOS:N-N	protein	urease
@@ -4698,10 +4698,10 @@ BB-cat+ner-23702192	text	380	APPOS:TO-IN	to	from
 BB-cat+ner-23702192	text	380	COMP_at:N-N	data	Mayo
 BB-cat+ner-23702192	text	380	OBJ:V-N	analyzed	data
 BB-cat+ner-23702192	text	380	SUBJ:V-N	analyzed	We
-BB-cat+ner-23702192	text	550	MOD:N-N	n =	487
-BB-cat+ner-23702192	text	550	APPOS:N-N	n =	CDI
 BB-cat+ner-23702192	text	550	MOD:N-ADJ	CDI	complicated
 BB-cat+ner-23702192	text	550	MOD:N-ADJ	CDI	severe
+BB-cat+ner-23702192	text	550	MOD:N-N	n =	487
+BB-cat+ner-23702192	text	550	APPOS:N-N	n =	CDI
 BB-cat+ner-23702192	text	550	COMP_with:N-N	Patients	CDI
 BB-cat+ner-23702192	text	550	MOD:N-N	unit	care
 BB-cat+ner-23702192	text	550	MOD:N-ADJ	unit	intensive
@@ -4899,8 +4899,8 @@ BB-cat+ner-23704121	text	310	COMP_for:N-N	value	treatment
 BB-cat+ner-23704121	text	310	OBJ:V-N	determine	value
 BB-cat+ner-23704121	text	310	SUBJ:V-N	developed	We
 BB-cat+ner-23704121	text	465	MOD:N-N	treatment	CDI
-BB-cat+ner-23704121	text	465	MOD:N-N	cases	3
 BB-cat+ner-23704121	text	465	APPOS:N-N	1	cases
+BB-cat+ner-23704121	text	465	MOD:N-N	cases	3
 BB-cat+ner-23704121	text	465	COMP_in:N-N	treatment	cases
 BB-cat+ner-23704121	text	465	COMP_at:V-N	looked	treatment
 BB-cat+ner-23704121	text	465	SUBJ:V-N	looked	We
@@ -5021,6 +5021,7 @@ BB-cat+ner-23855904	text	160	MOD:N-ADJ	cases	clinical
 BB-cat+ner-23855904	text	160	COMP_among:V-N	increasing	cases
 BB-cat+ner-23855904	text	160	AUX:V-V	increasing	is
 BB-cat+ner-23855904	text	160	XCOMP:V-ADJ	is	common
+BB-cat+ner-23855904	text	160	COORD_and:V-V	is	increasing
 BB-cat+ner-23855904	text	160	MOD:N-ADJ	sources	other
 BB-cat+ner-23855904	text	160	MOD:N-ADJ	source	major
 BB-cat+ner-23855904	text	160	MOD:N-N	source	poultry - a
@@ -5032,7 +5033,6 @@ BB-cat+ner-23855904	text	160	APPOS:N-N	source	sources
 BB-cat+ner-23855904	text	160	COMP_from:N-N	isolates	source
 BB-cat+ner-23855904	text	160	COMP_from:N-N	isolates	sources
 BB-cat+ner-23855904	text	160	COMP_among:V-N	is	isolates
-BB-cat+ner-23855904	text	160	COORD_and:V-V	is	increasing
 BB-cat+ner-23855904	text	160	SUBJ:V-N	increasing	resistance
 BB-cat+ner-23855904	text	160	SUBJ:V-N	is	resistance
 BB-cat+ner-23855904	text	348	COMP_in:V-N	investigated	study
@@ -5065,9 +5065,9 @@ BB-cat+ner-23855904	text	501	COMP_of:N-N	occurrence	quinolones
 BB-cat+ner-23855904	text	501	COMP_of:N-N	occurrence	phenotypes
 BB-cat+ner-23855904	text	501	AUX:V-V	quantified	was
 BB-cat+ner-23855904	text	501	SUBJ:V_PASS-N	quantified	occurrence
-BB-cat+ner-23855904	text	670	APPOS:N-N	MLST	Typing
 BB-cat+ner-23855904	text	670	MOD:N-N	Typing	Sequence
 BB-cat+ner-23855904	text	670	MOD:N-N	Typing	Locus
+BB-cat+ner-23855904	text	670	APPOS:N-N	MLST	Typing
 BB-cat+ner-23855904	text	670	MOD:N-N	Typing	Multi
 BB-cat+ner-23855904	text	670	MOD:N-N	acquisition	resistance
 BB-cat+ner-23855904	text	670	MOD:N-ADJ	acquisition	antimicrobial
@@ -6497,13 +6497,13 @@ BB-cat+ner-25098305	text	1503	MOD:N-ADJ	health	overall
 BB-cat+ner-25098305	text	1503	MOD:N-N	populations	tortoise
 BB-cat+ner-25098305	text	1503	COMP_of:N-N	health	populations
 BB-cat+ner-25098305	text	1503	COMP_in:V-N	understand	health
+BB-cat+ner-25098305	text	1503	MOD:V-ADV	understand	better
 BB-cat+ner-25098305	text	1503	MOD:N-N	efforts	conservation
 BB-cat+ner-25098305	text	1503	MOD:N-ADJ	efforts	future
 BB-cat+ner-25098305	text	1503	COMP_of:N-N	translocation	tortoises
 BB-cat+ner-25098305	text	1503	OBJ:V-N	involve	translocation
 BB-cat+ner-25098305	text	1503	SUBJ:V-N	involve	efforts
 BB-cat+ner-25098305	text	1503	COMP_if:V-V	understand	involve
-BB-cat+ner-25098305	text	1503	MOD:V-ADV	understand	better
 BB-cat+ner-25098305	text	1503	XCOMP:V-V	needed	understand
 BB-cat+ner-25098305	text	1503	AUX:V-V	needed	is
 BB-cat+ner-25098305	text	1503	SUBJ:V_PASS-N	needed	research
@@ -6592,13 +6592,13 @@ BB-cat+ner-25562320	text	700	COORD_and:V-V	showed	were
 BB-cat+ner-25562320	text	700	SUBJ:V-N	were	Annexin1
 BB-cat+ner-25562320	text	700	SUBJ:V-N	showed	Annexin1
 BB-cat+ner-25562320	text	831	MOD:N-N	expression	annexin1
+BB-cat+ner-25562320	text	831	MOD:V-ADV	downregulated	greatly
 BB-cat+ner-25562320	text	831	MOD:N-N	monocyte	blood
 BB-cat+ner-25562320	text	831	MOD:N-ADJ	monocyte	human
 BB-cat+ner-25562320	text	831	MOD:N-ADJ	monocyte	Mtb-infected
 BB-cat+ner-25562320	text	831	COMP_-:N-N	monocyte	DCs
 BB-cat+ner-25562320	text	831	MOD:N-N	monocyte	-
 BB-cat+ner-25562320	text	831	COMP_in:V-N	downregulated	monocyte
-BB-cat+ner-25562320	text	831	MOD:V-ADV	downregulated	greatly
 BB-cat+ner-25562320	text	831	AUX:V-V	downregulated	was
 BB-cat+ner-25562320	text	831	COMP_of:N-N	reduction	annexin1
 BB-cat+ner-25562320	text	831	MOD:N-ADJ	mechanism	critical
@@ -6724,8 +6724,8 @@ BB-cat+ner-25634638	text	828	OBJ:V-N	produced	HCN
 BB-cat+ner-25634638	text	828	COMP_of:N-N	addition	tobramycin
 BB-cat+ner-25634638	text	828	MOD:N-N	production	HCN
 BB-cat+ner-25634638	text	828	OBJ:V-N	reduced	production
-BB-cat+ner-25634638	text	828	COMP_within:V-N	reduced	2 h
 BB-cat+ner-25634638	text	828	MOD:V-ADV	reduced	strongly
+BB-cat+ner-25634638	text	828	COMP_within:V-N	reduced	2 h
 BB-cat+ner-25634638	text	828	COMP_from:V-N	reduced	application
 BB-cat+ner-25634638	text	828	SUBJ:V-N	reduced	addition
 BB-cat+ner-25634638	text	828	COORD_and:V-V	reduced	produced
@@ -6733,8 +6733,9 @@ BB-cat+ner-25634638	text	828	CMOD:N-V	strains	reduced
 BB-cat+ner-25634638	text	828	CMOD:N-V	strains	produced
 BB-cat+ner-25634638	text	984	MOD:N-N	cepacia	Burkholderia
 BB-cat+ner-25634638	text	984	OBJ:V-N	produced	HCN
-BB-cat+ner-25634638	text	984	APPOS:N-N	-1	µl h
+BB-cat+ner-25634638	text	984	MOD:V-ADV	produced	also
 BB-cat+ner-25634638	text	984	MOD:N-N	µl h	0.35
+BB-cat+ner-25634638	text	984	APPOS:N-N	-1	µl h
 BB-cat+ner-25634638	text	984	COMP_to:ADV-N	up	µl h
 BB-cat+ner-25634638	text	984	XCOMP:LRB-ADV	(	up
 BB-cat+ner-25634638	text	984	OBJ:V-N	×	 10(9) CFU)
@@ -6754,7 +6755,6 @@ BB-cat+ner-25634638	text	984	AUX:V-V	produce	did
 BB-cat+ner-25634638	text	984	NEG	levels	not
 BB-cat+ner-25634638	text	984	SUBJ:V-N	produce	pathogens
 BB-cat+ner-25634638	text	984	COMP_while:V-V	produced	produce
-BB-cat+ner-25634638	text	984	MOD:V-ADV	produced	also
 BB-cat+ner-25634638	text	984	SUBJ:V-N	produced	cepacia
 BB-cat+ner-25634638	text	1201	MOD:N-ADJ	time	first
 BB-cat+ner-25634638	text	1201	COMP_for:V-N	reveals	time
@@ -7342,9 +7342,9 @@ BB-cat+ner-448557	text	598	MOD:N-ADJ	virus	respiratory
 BB-cat+ner-448557	text	598	COORD_;:N-N	virus	patients
 BB-cat+ner-448557	text	598	COMP_of:N-N	21%	virus
 BB-cat+ner-448557	text	598	COMP_of:N-N	21%	patients
-BB-cat+ner-448557	text	598	MOD:N-N	types	1
 BB-cat+ner-448557	text	598	MOD:N-N	types	virus
 BB-cat+ner-448557	text	598	MOD:N-N	types	parainfluenza
+BB-cat+ner-448557	text	598	MOD:N-N	types	1
 BB-cat+ner-448557	text	598	COORD_and:N-N	3	types
 BB-cat+ner-448557	text	598	COORD_and:N-N	3	adenoviruses
 BB-cat+ner-448557	text	598	COORD_and:N-N	3	21%
@@ -7728,10 +7728,10 @@ BB-cat+ner-8347510	text	1173	XCOMP:V-N	is	G+C
 BB-cat+ner-8347510	text	1173	SUBJ:V-N	is	composition
 BB-cat+ner-8347510	text	1233	MOD:N-ADJ	strain	only
 BB-cat+ner-8347510	text	1233	COORD_and:N-N	strain	type
-BB-cat+ner-8347510	text	1233	MOD:N-N	HA	-1
 BB-cat+ner-8347510	text	1233	MOD:N-N	HA	strain
-BB-cat+ner-8347510	text	1233	MOD:N-N	ATCC	49307
+BB-cat+ner-8347510	text	1233	MOD:N-N	HA	-1
 BB-cat+ner-8347510	text	1233	MOD:N-ADJ	ATCC	=
+BB-cat+ner-8347510	text	1233	MOD:N-N	ATCC	49307
 BB-cat+ner-8347510	text	1233	APPOS:N-N	ATCC	HA
 BB-cat+ner-8347510	text	1233	XCOMP:V-N	is	HA
 BB-cat+ner-8347510	text	1233	SUBJ:V-N	is	strain
@@ -8993,8 +8993,8 @@ BB-cat+ner-9798026	text	392	MOD:N-ADJ	3	=
 BB-cat+ner-9798026	text	392	MOD:N-ADJ	3	>
 BB-cat+ner-9798026	text	392	COMP_of:N-N	pH	3
 BB-cat+ner-9798026	text	392	APPOS:N-N	pH	hypoacidity
-BB-cat+ner-9798026	text	392	APPOS:N-N	17%	subjects
 BB-cat+ner-9798026	text	392	MOD:N-N	subjects	24
+BB-cat+ner-9798026	text	392	APPOS:N-N	17%	subjects
 BB-cat+ner-9798026	text	392	COMP_in:V-N	occurred	subjects
 BB-cat+ner-9798026	text	392	SUBJ:V-N	occurred	hypoacidity
 BB-cat+ner-9798026	text	476	MOD:N-ADJ	characteristics	Demographic
@@ -9652,9 +9652,9 @@ BB-cat+ner-12109661	text	887	MOD:N-ADJ	patients	gastric
 BB-cat+ner-12109661	text	887	MOD:N-ADJ	patients	Japanese
 BB-cat+ner-12109661	text	887	MOD:N-ADJ	patients	young
 BB-cat+ner-12109661	text	887	COMP_in:N-N	pylori	patients
-BB-cat+ner-12109661	text	887	MOD:ADJ-ADV	higher	significantly
 BB-cat+ner-12109661	text	887	MOD:N-N	group	control
 BB-cat+ner-12109661	text	887	COMP_in:IN-N	than	group
+BB-cat+ner-12109661	text	887	MOD:ADJ-ADV	higher	significantly
 BB-cat+ner-12109661	text	887	XCOMP:V-ADJ	was	higher
 BB-cat+ner-12109661	text	887	SUBJ:V-N	was	pylori
 BB-cat+ner-12109661	text	887	CMOD:V-V	was	was
@@ -10569,9 +10569,9 @@ BB-cat+ner-16458564	text	1416	MOD:N-N	%	66.4
 BB-cat+ner-16458564	text	1416	COMP_of:N-N	prevalence	%
 BB-cat+ner-16458564	text	1416	COMP_with:ADJ-N	predominant	prevalence
 BB-cat+ner-16458564	text	1416	XCOMP:V-ADJ	was	predominant
+BB-cat+ner-16458564	text	1416	MOD:N-ADJ	stool	mucous
 BB-cat+ner-16458564	text	1416	MOD:N-N	%	21.0
 BB-cat+ner-16458564	text	1416	APPOS:N-N	%	stool
-BB-cat+ner-16458564	text	1416	MOD:N-ADJ	stool	mucous
 BB-cat+ner-16458564	text	1416	COMP_by:V-N	followed	stool
 BB-cat+ner-16458564	text	1416	XMOD:V-V_PASS	was	followed
 BB-cat+ner-16458564	text	1416	SUBJ:V-N	was	stool
@@ -11163,10 +11163,10 @@ BB-cat+ner-18789156	text	690	MOD:V-ADV	show	here
 BB-cat+ner-18789156	text	690	OBJ:V-N	expressed	nucleolin
 BB-cat+ner-18789156	text	690	SUBJ:V-N	expressed	surface
 BB-cat+ner-18789156	text	690	CMOD:N-V	cell	expressed
-BB-cat+ner-18789156	text	690	APPOS:N-N	LVS	Strain
 BB-cat+ner-18789156	text	690	MOD:N-N	Strain	Vaccine
 BB-cat+ner-18789156	text	690	MOD:N-ADJ	Strain	Live
 BB-cat+ner-18789156	text	690	MOD:N-N	Strain	tularensis
+BB-cat+ner-18789156	text	690	APPOS:N-N	LVS	Strain
 BB-cat+ner-18789156	text	690	MOD:N-N	Strain	Francisella
 BB-cat+ner-18789156	text	690	COMP_for:N-N	receptor	Strain
 BB-cat+ner-18789156	text	690	XCOMP:V-N	is	receptor
@@ -11215,8 +11215,8 @@ BB-cat+ner-18789156	text	1037	MOD:N-N	protein	binding
 BB-cat+ner-18789156	text	1037	MOD:N-N	translation	protein
 BB-cat+ner-18789156	text	1037	COMP_in:V_PASS-N	involved	translation
 BB-cat+ner-18789156	text	1037	SUBJ:V_PASS-N	involved	protein
-BB-cat+ner-18789156	text	1037	COMP_in:V-N	found	cytoplasm
 BB-cat+ner-18789156	text	1037	MOD:V-ADV	found	usually
+BB-cat+ner-18789156	text	1037	COMP_in:V-N	found	cytoplasm
 BB-cat+ner-18789156	text	1037	SUBJ:V_PASS-N	found	protein
 BB-cat+ner-18789156	text	1037	COMP_-:N-N	GTP	protein
 BB-cat+ner-18789156	text	1037	MOD:N-ADJ	GTP	-
@@ -11334,9 +11334,9 @@ BB-cat+ner-18789156	text	2055	COMP_of:N-N	multiplication	LVS
 BB-cat+ner-18789156	text	2055	COMP_-:N-N	intra	multiplication
 BB-cat+ner-18789156	text	2055	MOD:N-N	intra	-
 BB-cat+ner-18789156	text	2055	COORD_and:N-N	intra	escape
-BB-cat+ner-18789156	text	2055	MOD:ADJ-ADV	similar	very
 BB-cat+ner-18789156	text	2055	MOD:N-ADJ	F	pathogenic
 BB-cat+ner-18789156	text	2055	MOD:N-ADJ	F	human
+BB-cat+ner-18789156	text	2055	MOD:ADJ-ADV	similar	very
 BB-cat+ner-18789156	text	2055	XCOMP:V-ADJ	are	similar
 BB-cat+ner-18789156	text	2055	SUBJ:V-N	are	intra
 BB-cat+ner-18789156	text	2055	SUBJ:V-N	are	escape
@@ -11456,6 +11456,7 @@ BB-cat+ner-19339076	text	208	XCOMP:V-V	was	investigate
 BB-cat+ner-19339076	text	208	SUBJ:V-N	was	aim
 BB-cat+ner-19339076	text	208	SUBJ:V-N	studying	aim
 BB-cat+ner-19339076	text	208	SUBJ:V-N	investigate	aim
+BB-cat+ner-19339076	text	432	MOD:N-ADJ	resistance	bile
 BB-cat+ner-19339076	text	432	MOD:N-N	strains	14
 BB-cat+ner-19339076	text	432	MOD:N-N	medium	M17
 BB-cat+ner-19339076	text	432	MOD:N-ADJ	medium	free
@@ -11470,7 +11471,6 @@ BB-cat+ner-19339076	text	432	COMP_with:V_PASS-N	supplemented	glucose
 BB-cat+ner-19339076	text	432	SUBJ:V_PASS-N	supplemented	medium
 BB-cat+ner-19339076	text	432	COMP_in:N-N	strains	medium
 BB-cat+ner-19339076	text	432	COMP_of:N-N	resistance	strains
-BB-cat+ner-19339076	text	432	MOD:N-ADJ	resistance	bile
 BB-cat+ner-19339076	text	432	SUBJ:V-N	determined	We
 BB-cat+ner-19339076	text	576	MOD:N-ADJ	analyses	chromatographic
 BB-cat+ner-19339076	text	576	MOD:N-N	analyses	Gas
@@ -11703,8 +11703,8 @@ BB-cat+ner-19552770	text	207	COORD_and:ADJ-ADJ	female	male
 BB-cat+ner-19552770	text	207	MOD:N-ADJ	birds	female
 BB-cat+ner-19552770	text	207	MOD:N-ADJ	birds	male
 BB-cat+ner-19552770	text	207	COMP_between:V-N	distributed	birds
-BB-cat+ner-19552770	text	207	COMP_from:V-N	distributed	game
 BB-cat+ner-19552770	text	207	MOD:V-ADV	distributed	equally
+BB-cat+ner-19552770	text	207	COMP_from:V-N	distributed	game
 BB-cat+ner-19552770	text	207	MOD:N-N	Italy	Southern
 BB-cat+ner-19552770	text	207	COMP_in:ADJ-N	located	Italy
 BB-cat+ner-19552770	text	207	XMOD:ADJ-ADJ	farm	located
@@ -12308,12 +12308,12 @@ BB-cat+ner-20580604	text	1049	AUX:V-V	recovered	was
 BB-cat+ner-20580604	text	1049	SUBJ:V_PASS-N	recovered	LcS
 BB-cat+ner-20580604	text	1186	COMP_of:N-N	number	bifidobacteria
 BB-cat+ner-20580604	text	1186	COMP_in:N-N	number	stools
+BB-cat+ner-20580604	text	1186	MOD:V-ADV	increased	also
 BB-cat+ner-20580604	text	1186	MOD:V-ADV	increased	significantly
 BB-cat+ner-20580604	text	1186	OBJ:V-N	starting	probiotics
 BB-cat+ner-20580604	text	1186	COMP_before:N-V	level	starting
 BB-cat+ner-20580604	text	1186	SUBJ:V-N	starting	level
 BB-cat+ner-20580604	text	1186	COMP_with:V-N	compared	level
-BB-cat+ner-20580604	text	1186	MOD:V-ADV	increased	also
 BB-cat+ner-20580604	text	1186	SUBJ:V-N	increased	number
 BB-cat+ner-20580604	text	1314	MOD:N-N	levels	acid
 BB-cat+ner-20580604	text	1314	MOD:N-ADJ	levels	organic
@@ -13195,10 +13195,10 @@ BB-cat+ner-25204345	text	1132	MOD:V-ADV	conducted	Furthermore
 BB-cat+ner-25204345	text	1239	MOD:N-ADJ	basis	genetic
 BB-cat+ner-25204345	text	1239	MOD:N-N	resistance	quinolone
 BB-cat+ner-25204345	text	1239	COMP_for:N-N	basis	resistance
-BB-cat+ner-25204345	text	1239	MOD:ADJ-ADV	related	closely
 BB-cat+ner-25204345	text	1239	MOD:N-N	genes	gyrA
 BB-cat+ner-25204345	text	1239	COMP_in:N-N	mutations	genes
 BB-cat+ner-25204345	text	1239	COMP_to:ADJ-N	related	mutations
+BB-cat+ner-25204345	text	1239	MOD:ADJ-ADV	related	closely
 BB-cat+ner-25204345	text	1239	XCOMP:V-ADJ	be	related
 BB-cat+ner-25204345	text	1239	MOD:N-N	sites	mutation
 BB-cat+ner-25204345	text	1239	MOD:N-N	sites	10
@@ -14339,9 +14339,9 @@ BB-cat+ner-9745160	text	1956	APPOS:N-N	4	C
 BB-cat+ner-9745160	text	1956	APPOS:N-N	days	C
 BB-cat+ner-9745160	text	1956	COMP_for:IN-N	than	patients
 BB-cat+ner-9745160	text	1956	COMP_with:N-N	C	bismuth
+BB-cat+ner-9745160	text	1956	MOD:N-ADJ	therapy	triple
 BB-cat+ner-9745160	text	1956	MOD:N-N	day	5
 BB-cat+ner-9745160	text	1956	APPOS:N-N	day	therapy
-BB-cat+ner-9745160	text	1956	MOD:N-ADJ	therapy	triple
 BB-cat+ner-9745160	text	1956	COMP_-:N-N	C	therapy
 BB-cat+ner-9745160	text	1956	MOD:N-N	C	-
 BB-cat+ner-9745160	text	1956	MOD:N-N	B	-
@@ -14673,8 +14673,8 @@ BB-cat+ner-10645449	text	1367	COMP_to:ADJ-N	applicable	organisms
 BB-cat+ner-10645449	text	1367	XCOMP:V-ADJ	be	applicable
 BB-cat+ner-10645449	text	1367	AUX:V-V	be	will
 BB-cat+ner-10645449	text	1367	SUBJ:V-N	be	sequence
-BB-cat+ner-10656819	text	0	MOD:N-N	subtilisin	309
 BB-cat+ner-10656819	text	0	MOD:N-ADJ	subtilisin	active
+BB-cat+ner-10656819	text	0	MOD:N-N	subtilisin	309
 BB-cat+ner-10656819	text	0	MOD:N-N	analysis	phage
 BB-cat+ner-10656819	text	0	MOD:N-N	variants	subtilisin
 BB-cat+ner-10656819	text	0	COMP_of:N-N	selection	variants
@@ -14718,6 +14718,7 @@ BB-cat+ner-10656819	text	424	MOD:N-ADJ	properties	desired
 BB-cat+ner-10656819	text	424	COMP_with:N-N	polypeptides	properties
 BB-cat+ner-10656819	text	424	COMP_of:N-N	selection	polypeptides
 BB-cat+ner-10656819	text	424	OBJ:V-N	facilitate	selection
+BB-cat+ner-10656819	text	424	MOD:V-ADV	facilitate	greatly
 BB-cat+ner-10656819	text	424	MOD:N-ADJ	link	close
 BB-cat+ner-10656819	text	424	OBJ:V-N	encodes	it
 BB-cat+ner-10656819	text	424	CMOD:N-V	gene	encodes
@@ -14726,7 +14727,6 @@ BB-cat+ner-10656819	text	424	COMP_between:N-N	link	gene
 BB-cat+ner-10656819	text	424	COMP_between:N-N	link	polypeptide
 BB-cat+ner-10656819	text	424	OBJ:V-N	establishing	link
 BB-cat+ner-10656819	text	424	COMP_by:V-V	facilitate	establishing
-BB-cat+ner-10656819	text	424	MOD:V-ADV	facilitate	greatly
 BB-cat+ner-10656819	text	424	XCOMP:V-V	shown	facilitate
 BB-cat+ner-10656819	text	424	AUX:V-V	shown	been
 BB-cat+ner-10656819	text	424	AUX:V-V	shown	has
@@ -14888,8 +14888,8 @@ BB-cat+ner-10665543	text	135	APPOS:N-N	O-chain	O-polysaccharide
 BB-cat+ner-10665543	text	135	MOD:N-ADJ	polysaccharide	extracted
 BB-cat+ner-10665543	text	135	MOD:N-ADJ	polysaccharide	hot-water
 BB-cat+ner-10665543	text	135	APPOS:N-N	PS	polysaccharide
-BB-cat+ner-10665543	text	135	MOD:N-N	abortus	1119-3
 BB-cat+ner-10665543	text	135	MOD:N-N	abortus	Brucella
+BB-cat+ner-10665543	text	135	MOD:N-N	abortus	1119-3
 BB-cat+ner-10665543	text	135	COORD_and:N-N	B	abortus
 BB-cat+ner-10665543	text	135	COMP_from:V_PASS-N	obtained	B
 BB-cat+ner-10665543	text	135	COMP_from:V_PASS-N	obtained	abortus
@@ -15333,9 +15333,9 @@ BB-cat+ner-10796014	text	0	MOD:N-N	meliloti	Sinorhizobium
 BB-cat+ner-10796014	text	0	COMP_from:N-N	genes	meliloti
 BB-cat+ner-10796014	text	0	COMP_of:N-N	induction	genes
 BB-cat+ner-10796014	text	81	APPOS:N-N	dehydrogenase	PDH
-BB-cat+ner-10796014	text	81	APPOS:N-N	PDHc	complex
 BB-cat+ner-10796014	text	81	MOD:N-ADJ	complex	multienzyme
 BB-cat+ner-10796014	text	81	MOD:N-N	complex	pyruvate
+BB-cat+ner-10796014	text	81	APPOS:N-N	PDHc	complex
 BB-cat+ner-10796014	text	81	MOD:N-N	meliloti	Sinorhizobium
 BB-cat+ner-10796014	text	81	COMP_from:N-N	complex	meliloti
 BB-cat+ner-10796014	text	81	COMP_of:N-N	components	complex
@@ -15683,8 +15683,8 @@ BB-cat+ner-12417169	text	896	MOD:N-N	culture	blood
 BB-cat+ner-12417169	text	896	MOD:N-ADJ	culture	faecium
 BB-cat+ner-12417169	text	896	MOD:N-N	resistance	sudden
 BB-cat+ner-12417169	text	896	MOD:N-N	size	zone
-BB-cat+ner-12417169	text	896	MOD:N-N	size	<14
 BB-cat+ner-12417169	text	896	MOD:N-N	size	Kirby
+BB-cat+ner-12417169	text	896	MOD:N-N	size	<14
 BB-cat+ner-12417169	text	896	COMP_-:N-N	Bauer	size
 BB-cat+ner-12417169	text	896	MOD:N-N	-	mm
 BB-cat+ner-12417169	text	896	MOD:N-N	Bauer	-
@@ -15807,8 +15807,8 @@ BB-cat+ner-12438382	text	381	COMP_with:N-N	urine	strains
 BB-cat+ner-12438382	text	381	COMP_in:V-N	incubated	urine
 BB-cat+ner-12438382	text	381	AUX:V-V	incubated	were
 BB-cat+ner-12438382	text	381	SUBJ:V_PASS-N	incubated	line
-BB-cat+ner-12438382	text	554	APPOS:N-N	FACS	sorting
 BB-cat+ner-12438382	text	554	MOD:N-N	sorting	cell
+BB-cat+ner-12438382	text	554	APPOS:N-N	FACS	sorting
 BB-cat+ner-12438382	text	554	MOD:N-N	microscopy	scanning
 BB-cat+ner-12438382	text	554	MOD:N-N	microscopy	laser
 BB-cat+ner-12438382	text	554	APPOS:N-N	microscopy	sorting
@@ -16184,9 +16184,9 @@ BB-cat+ner-14638480	text	341	SUBJ:V_PASS-N	prepared	clots
 BB-cat+ner-14638480	text	341	XMOD:V_PASS-V	suspended	Using
 BB-cat+ner-14638480	text	341	XMOD:V_PASS-V	prepared	Using
 BB-cat+ner-14638480	text	541	AUX:V-V	given	were
-BB-cat+ner-14638480	text	541	APPOS:N-N	q6h	h
 BB-cat+ner-14638480	text	541	MOD:N-N	h	6
 BB-cat+ner-14638480	text	541	MOD:N-N	h	boluses
+BB-cat+ner-14638480	text	541	APPOS:N-N	q6h	h
 BB-cat+ner-14638480	text	541	COORD_or:N-N	q24h	q12h
 BB-cat+ner-14638480	text	541	MOD:N-ADJ	infusion	continuous
 BB-cat+ner-14638480	text	541	COMP_by:V-N	were	infusion
@@ -16257,8 +16257,8 @@ BB-cat+ner-14638480	text	1032	SUBJ:V_PASS-N	administered	ABK
 BB-cat+ner-14638480	text	1032	SUBJ:V_PASS-N	administered	VAN
 BB-cat+ner-14638480	text	1032	CCOMP:ADV-V_PASS	When	administered
 BB-cat+ner-14638480	text	1032	COMP_of:N-N	number	colonies
-BB-cat+ner-14638480	text	1032	COMP_in:ADJ-N	lower	GS171
 BB-cat+ner-14638480	text	1032	MOD:ADJ-ADV	lower	significantly
+BB-cat+ner-14638480	text	1032	COMP_in:ADJ-N	lower	GS171
 BB-cat+ner-14638480	text	1032	MOD:N-N	h	8
 BB-cat+ner-14638480	text	1032	COMP_by:N-N	GR153	h
 BB-cat+ner-14638480	text	1032	COMP_in:IN-N	than	GR153
@@ -16494,10 +16494,10 @@ BB-cat+ner-15273106	text	552	MOD:N-N	strain	-
 BB-cat+ner-15273106	text	552	MOD:N-N	rev	14-4
 BB-cat+ner-15273106	text	552	MOD:N-N	rev	strain
 BB-cat+ner-15273106	text	552	APPOS:N-N	rev	strain
+BB-cat+ner-15273106	text	552	MOD:V-ADV	emerged	spontaneously
 BB-cat+ner-15273106	text	552	MOD:N-N	infection	cage
 BB-cat+ner-15273106	text	552	MOD:N-N	infection	tissue
 BB-cat+ner-15273106	text	552	COMP_during:V-N	emerged	infection
-BB-cat+ner-15273106	text	552	MOD:V-ADV	emerged	spontaneously
 BB-cat+ner-15273106	text	552	CMOD:N-V	strain	emerged
 BB-cat+ner-15273106	text	552	COMP_in:V-N	were	strain
 BB-cat+ner-15273106	text	552	SUBJ:V-N	were	levels
@@ -17442,9 +17442,9 @@ BB-cat+ner-16728960	text	139	SUBJ:V_PASS-N	coupled	differentiation
 BB-cat+ner-16728960	text	139	COORD_and:V_PASS-V	shown	proven
 BB-cat+ner-16728960	text	447	COMP_in:V-N	attempted	study
 BB-cat+ner-16728960	text	447	COMP_of:N-N	expression	vvhA
-BB-cat+ner-16728960	text	447	APPOS:N-N	VvhA	cytolysin
 BB-cat+ner-16728960	text	447	MOD:N-N	cytolysin	/
 BB-cat+ner-16728960	text	447	MOD:N-N	cytolysin	hemolysin
+BB-cat+ner-16728960	text	447	APPOS:N-N	VvhA	cytolysin
 BB-cat+ner-16728960	text	447	COMP_for:V-N	encodes	cytolysin
 BB-cat+ner-16728960	text	447	CMOD:N-V	expression	encodes
 BB-cat+ner-16728960	text	447	MOD:N-ADJ	differentiation	swarming
@@ -18243,9 +18243,9 @@ BB-cat+ner-20672296	text	655	MOD:N-N	days	off
 BB-cat+ner-20672296	text	655	COMP_on:N-N	days	days
 BB-cat+ner-20672296	text	655	APPOS:N-N	days	courses
 BB-cat+ner-20672296	text	655	MOD:N-N	two	AZLI
-BB-cat+ner-20672296	text	655	APPOS:N-N	BID	two
 BB-cat+ner-20672296	text	655	MOD:N-N	two	mg
 BB-cat+ner-20672296	text	655	MOD:N-N	two	75
+BB-cat+ner-20672296	text	655	APPOS:N-N	BID	two
 BB-cat+ner-20672296	text	655	COMP_of:N-N	courses	two
 BB-cat+ner-20672296	text	655	MOD:N-N	times	three
 BB-cat+ner-20672296	text	655	MOD:N-ADJ	times	daily
@@ -18402,8 +18402,8 @@ BB-cat+ner-21148810	text	124	COMP_of:N-N	recruitment	monocytes
 BB-cat+ner-21148810	text	124	OBJ:V-N	mediate	recruitment
 BB-cat+ner-21148810	text	124	MOD:N-N	migration	cell
 BB-cat+ner-21148810	text	124	OBJ:V-N	promoting	migration
-BB-cat+ner-21148810	text	124	MOD:N-N	CCL	2-5
 BB-cat+ner-21148810	text	124	MOD:N-N	CCL	chemokines
+BB-cat+ner-21148810	text	124	MOD:N-N	CCL	2-5
 BB-cat+ner-21148810	text	124	COMP_to:N-N	response	CCL
 BB-cat+ner-21148810	text	124	COMP_in:V-N	promoting	response
 BB-cat+ner-21148810	text	124	COMP_by:V-V	mediate	promoting
@@ -19060,8 +19060,8 @@ BB-cat+ner-22203552	text	200	AUX:V-V	studied	have
 BB-cat+ner-22203552	text	200	SUBJ:V-N	studied	we
 BB-cat+ner-22203552	text	321	MOD:N-N	CT6919	cultivars
 BB-cat+ner-22203552	text	321	MOD:N-N	CT6919	rice
-BB-cat+ner-22203552	text	321	MOD:N-N	Paso	144
 BB-cat+ner-22203552	text	321	MOD:N-N	Paso	El
+BB-cat+ner-22203552	text	321	MOD:N-N	Paso	144
 BB-cat+ner-22203552	text	321	APPOS:N-N	CAMBA	Paso
 BB-cat+ner-22203552	text	321	APPOS:N-N	Paso	CT6919
 BB-cat+ner-22203552	text	321	COMP_of:N-N	seeds	CAMBA
@@ -19162,14 +19162,14 @@ BB-cat+ner-22203552	text	1177	CCOMP:V-V	suggest	allow
 BB-cat+ner-22203552	text	1177	SUBJ:V-N	suggest	findings
 BB-cat+ner-22537874	text	0	MOD:N-ADJ	analysis	Mutational
 BB-cat+ner-22537874	text	0	MOD:N-ADJ	domain	N-terminal
+BB-cat+ner-22537874	text	0	COMP_of:N-N	domain	UreR
 BB-cat+ner-22537874	text	0	MOD:N-ADJ	regulator	transcriptional
 BB-cat+ner-22537874	text	0	MOD:N-ADJ	regulator	positive
 BB-cat+ner-22537874	text	0	MOD:N-N	expression	gene
 BB-cat+ner-22537874	text	0	MOD:N-N	expression	urease
 BB-cat+ner-22537874	text	0	COMP_of:N-N	regulator	expression
-BB-cat+ner-22537874	text	0	APPOS:N-N	regulator	UreR
-BB-cat+ner-22537874	text	0	COMP_of:N-N	domain	regulator
-BB-cat+ner-22537874	text	0	COMP_of:N-N	domain	UreR
+BB-cat+ner-22537874	text	0	APPOS:N-N	regulator	domain
+BB-cat+ner-22537874	text	0	COMP_of:N-N	analysis	regulator
 BB-cat+ner-22537874	text	0	COMP_of:N-N	analysis	domain
 BB-cat+ner-22537874	text	120	MOD:N-N	factor	virulence
 BB-cat+ner-22537874	text	120	COORD_and:ADJ-ADJ	animal	human
@@ -20450,11 +20450,11 @@ BB-cat+ner-25179651	text	1081	XMOD:V-V_PASS	decrease	decreased
 BB-cat+ner-25179651	text	1081	MOD:N-N	usage	device
 BB-cat+ner-25179651	text	1081	MOD:N-N	usage	tract
 BB-cat+ner-25179651	text	1081	MOD:N-ADJ	usage	urinary
+BB-cat+ner-25179651	text	1081	MOD:V-ADV	increased	significantly
 BB-cat+ner-25179651	text	1081	MOD:N-ADJ	period	same
 BB-cat+ner-25179651	text	1081	MOD:N-N	P<	0.001
 BB-cat+ner-25179651	text	1081	APPOS:N-N	P<	period
 BB-cat+ner-25179651	text	1081	COMP_over:V-N	increased	period
-BB-cat+ner-25179651	text	1081	MOD:V-ADV	increased	significantly
 BB-cat+ner-25179651	text	1081	SUBJ:V-N	increased	usage
 BB-cat+ner-25179651	text	1081	COMP_though:V-V	decrease	increased
 BB-cat+ner-25179651	text	1081	XCOMP:V-V	began	decrease
@@ -20540,6 +20540,7 @@ BB-cat+ner-25607366	text	296	COORD_or:IN-IN	because	because
 BB-cat+ner-25607366	text	296	SUBJ:V-N	are	methods
 BB-cat+ner-25607366	text	558	MOD:N-ADJ	enzymes	essential
 BB-cat+ner-25607366	text	558	OBJ:V-N	redesign	enzymes
+BB-cat+ner-25607366	text	558	MOD:V-ADV	redesign	computationally
 BB-cat+ner-25607366	text	558	MOD:N-ADJ	organism	first
 BB-cat+ner-25607366	text	558	MOD:N-N	C321	strain
 BB-cat+ner-25607366	text	558	APPOS:N-N	C321	code
@@ -20548,7 +20549,6 @@ BB-cat+ner-25607366	text	558	MOD:N-ADJ	code	altered
 BB-cat+ner-25607366	text	558	OBJ:V-N	possessing	code
 BB-cat+ner-25607366	text	558	SUBJ:V-N	possessing	organism
 BB-cat+ner-25607366	text	558	COMP_in:V-N	redesign	organism
-BB-cat+ner-25607366	text	558	MOD:V-ADV	redesign	computationally
 BB-cat+ner-25607366	text	558	SUBJ:V-N	redesign	we
 BB-cat+ner-25607366	text	558	MOD:V-ADV	redesign	Here
 BB-cat+ner-25607366	text	696	MOD:N-ADJ	dependence	metabolic
@@ -20892,6 +20892,7 @@ BB-cat+ner-2617654	text	0	MOD:N-N	influenzae	Haemophilus
 BB-cat+ner-2617654	text	0	MOD:N-ADJ	children	Gambian
 BB-cat+ner-2617654	text	0	MOD:N-ADJ	children	healthy
 BB-cat+ner-2617654	text	0	COMP_in:N-N	influenzae	children
+BB-cat+ner-2617654	text	0	COMP_of:N-N	Carriage	influenzae
 BB-cat+ner-2617654	text	0	MOD:N-N	samples	throat
 BB-cat+ner-2617654	text	0	MOD:N-N	samples	1240
 BB-cat+ner-2617654	text	0	MOD:N-ADJ	seasons	different
@@ -20904,8 +20905,7 @@ BB-cat+ner-2617654	text	0	COMP_in:N-N	seasons	communities
 BB-cat+ner-2617654	text	0	COMP_during:V-N	processed	seasons
 BB-cat+ner-2617654	text	0	AUX:V-V	processed	were
 BB-cat+ner-2617654	text	0	SUBJ:V_PASS-N	processed	samples
-BB-cat+ner-2617654	text	0	CMOD:N-V_PASS	influenzae	processed
-BB-cat+ner-2617654	text	0	COMP_of:N-N	Carriage	influenzae
+BB-cat+ner-2617654	text	0	CMOD:N-V_PASS	Carriage	processed
 BB-cat+ner-2617654	text	181	MOD:N-N	rate	carriage
 BB-cat+ner-2617654	text	181	MOD:N-N	b	type
 BB-cat+ner-2617654	text	181	MOD:N-ADJ	b	influenzae
@@ -21489,8 +21489,8 @@ BB-cat+ner-817056	text	446	COORD_and:V-V_PASS	proliferated	harvested
 BB-cat+ner-817056	text	446	SUBJ:V-N	proliferated	cultures
 BB-cat+ner-817056	text	446	SUBJ:V_PASS-N	harvested	cultures
 BB-cat+ner-817056	text	633	MOD:N-ADJ	culture	growing
-BB-cat+ner-817056	text	633	MOD:N-N	L	-929
 BB-cat+ner-817056	text	633	MOD:N-N	L	strain
+BB-cat+ner-817056	text	633	MOD:N-N	L	-929
 BB-cat+ner-817056	text	633	COMP_of:N-N	culture	L
 BB-cat+ner-817056	text	633	MOD:N-ADJ	suspension	monodisperse
 BB-cat+ner-817056	text	633	COMP_of:N-N	presence	protease
@@ -21544,6 +21544,7 @@ BB-cat+ner-8406892	text	308	OBJ:V-N	amplified	genes
 BB-cat+ner-8406892	text	308	OBJ:V-N	contrasting	them
 BB-cat+ner-8406892	text	308	COMP_-:ADJ-N	SLT	producing
 BB-cat+ner-8406892	text	308	MOD:ADJ-N	SLT	E
+BB-cat+ner-8406892	text	308	MOD:N-N	O157	coli
 BB-cat+ner-8406892	text	308	MOD:N-N	analysis	polymorphism
 BB-cat+ner-8406892	text	308	MOD:N-N	analysis	length
 BB-cat+ner-8406892	text	308	MOD:N-N	analysis	fragment
@@ -21553,7 +21554,6 @@ BB-cat+ner-8406892	text	308	MOD:N-N	analysis	nucleotide
 BB-cat+ner-8406892	text	308	COORD_and:N-N	analysis	analysis
 BB-cat+ner-8406892	text	308	COMP_by:N-N	O157	analysis
 BB-cat+ner-8406892	text	308	COMP_by:N-N	O157	analysis
-BB-cat+ner-8406892	text	308	MOD:N-N	O157	coli
 BB-cat+ner-8406892	text	308	MOD:N-ADJ	stretch	400-bp
 BB-cat+ner-8406892	text	308	MOD:N-ADJ	end	3'
 BB-cat+ner-8406892	text	308	COMP_of:N-N	end	eae
@@ -21970,8 +21970,8 @@ BB-cat+ner-9562874	text	852	SUBJ:V_PASS-N	found	isolates
 BB-cat+ner-9562874	text	939	MOD:N-N	reaction	chain
 BB-cat+ner-9562874	text	939	MOD:N-N	reaction	polymerase
 BB-cat+ner-9562874	text	939	MOD:N-N	technique	PCR
-BB-cat+ner-9562874	text	939	APPOS:N-N	lt	toxin
 BB-cat+ner-9562874	text	939	MOD:N-ADJ	toxin	labile
+BB-cat+ner-9562874	text	939	APPOS:N-N	lt	toxin
 BB-cat+ner-9562874	text	939	COMP_-:N-N	heat	toxin
 BB-cat+ner-9562874	text	939	MOD:N-N	heat	-
 BB-cat+ner-9562874	text	939	MOD:N-ADJ	isolate	fish
@@ -22107,9 +22107,9 @@ BB-cat+ner-9575437	text	628	COMP_of:N-N	Susceptabilities	bacteria
 BB-cat+ner-9575437	text	628	XMOD:V-V_PASS	were	followed
 BB-cat+ner-9575437	text	628	COMP_as:V-N	were	1
 BB-cat+ner-9575437	text	628	SUBJ:V-N	were	Susceptabilities
-BB-cat+ner-9575437	text	719	APPOS:N-N	ABPC	Ampicillin
 BB-cat+ner-9575437	text	719	MOD:N-N	Ampicillin	faecalis
 BB-cat+ner-9575437	text	719	MOD:N-N	Ampicillin	Enterococcus
+BB-cat+ner-9575437	text	719	APPOS:N-N	ABPC	Ampicillin
 BB-cat+ner-9575437	text	719	MOD:N-ADJ	activity	highest
 BB-cat+ner-9575437	text	719	COMP_against:N-N	activity	E
 BB-cat+ner-9575437	text	719	COMP_with:N-N	patients	UTIs
@@ -22250,9 +22250,9 @@ BB-cat+ner-9575437	text	2054	COMP_with:ADJ-N	active	MIC90S
 BB-cat+ner-9575437	text	2054	XCOMP:V-ADJ	were	active
 BB-cat+ner-9575437	text	2054	SUBJ:V-N	were	VCM
 BB-cat+ner-9575437	text	2054	SUBJ:V-N	were	Tosufloxacin
-BB-cat+ner-9575437	text	2142	APPOS:N-N	GM	Gentamicin
 BB-cat+ner-9575437	text	2142	MOD:N-N	Gentamicin	freundii
 BB-cat+ner-9575437	text	2142	MOD:N-N	Gentamicin	Citrobacter
+BB-cat+ner-9575437	text	2142	APPOS:N-N	GM	Gentamicin
 BB-cat+ner-9575437	text	2142	MOD:N-ADJ	activity	highest
 BB-cat+ner-9575437	text	2142	COMP_against:N-N	activity	C
 BB-cat+ner-9575437	text	2142	COMP_with:N-N	patients	UTIs
@@ -22408,12 +22408,11 @@ BB-cat+ner-9575437	text	3626	COORD_and:N-N	carumonam	CZOP
 BB-cat+ner-9575437	text	3626	COORD_and:N-N	carumonam	cefixime
 BB-cat+ner-9575437	text	3626	COORD_and:N-N	carumonam	Flomoxef
 BB-cat+ner-9575437	text	3626	MOD:V-ADV	were	also
-BB-cat+ner-9575437	text	3626	MOD:N-N	below	9
-BB-cat+ner-9575437	text	3626	COORD_or:IN-N	below	ml
 BB-cat+ner-9575437	text	3626	MOD:N-N	ml	/
 BB-cat+ner-9575437	text	3626	MOD:N-N	ml	microgram
-BB-cat+ner-9575437	text	3626	MOD:N-N	below	0.125
 BB-cat+ner-9575437	text	3626	MOD:N-N	ml	0.125
+BB-cat+ner-9575437	text	3626	MOD:N-N	below	9
+BB-cat+ner-9575437	text	3626	COORD_or:IN-N	below	ml
 BB-cat+ner-9575437	text	3626	COMP_of:N-N	MIC90S	ml
 BB-cat+ner-9575437	text	3626	COMP_with:ADJ-N	active	MIC90S
 BB-cat+ner-9575437	text	3626	XCOMP:V-ADJ	were	active
@@ -22434,8 +22433,8 @@ BB-cat+ner-9575437	text	3754	MOD:N-N	micrograms	32
 BB-cat+ner-9575437	text	3754	COORD_or:ADJ-N	above	ml
 BB-cat+ner-9575437	text	3754	COMP_/:N-N	micrograms	ml
 BB-cat+ner-9575437	text	3754	XCOMP:V-N	were	micrograms
-BB-cat+ner-9575437	text	3894	COMP_in:ADJ-N	active	1996
 BB-cat+ner-9575437	text	3894	MOD:ADJ-ADV	active	more
+BB-cat+ner-9575437	text	3894	COMP_in:ADJ-N	active	1996
 BB-cat+ner-9575437	text	3894	COMP_than:ADJ-N	active	1995
 BB-cat+ner-9575437	text	3894	XCOMP:V-ADJ	were	active
 BB-cat+ner-9575437	text	3894	SUBJ:V-N	were	Quinolones
