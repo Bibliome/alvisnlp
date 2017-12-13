@@ -37,7 +37,7 @@
 	    <arg>-AdataClass=fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus</arg>
 	    <arg>-AsequenceImplementationClass=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.Sequence_Impl</arg>
 	    <arg>-AfactoryInterface=fr.inra.maiage.bibliome.alvisnlp.core.factory.CorpusModuleFactory</arg>
-	    <arg>-AconverterFactoryName=fr.inra.maiage.biliome.alvisnlp.biliomefactory.BibliomeConverterFactory</arg>
+	    <arg>-AconverterFactoryName=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.BibliomeConverterFactory</arg>
 	    <arg>-AresourceBases=fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/resources/</arg>
 	    <arg>-AshellModule=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.shell.Shell</arg>
 	    <arg>-Xlint:all</arg>
