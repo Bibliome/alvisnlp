@@ -6,7 +6,7 @@
   <word2vec class="Word2Vec">
     <jsonFile>vectors.json</jsonFile>
     <txtFile>vectors.txt</txtFile>
-    <workers>1</workers>
+    <workers>1</workers> <!-- this is necessary for a deterministic result -->
     <vectorSize>5</vectorSize>
   </word2vec>
 </alvisnlp-plan>
