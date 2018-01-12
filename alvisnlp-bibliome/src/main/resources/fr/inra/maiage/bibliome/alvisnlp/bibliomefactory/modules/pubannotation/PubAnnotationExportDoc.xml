@@ -10,6 +10,15 @@
     <param-doc default-value="true" mandatory="default: true" name="active" short-type="Expression" type="alvisnlp.corpus.expressions.Expression">
       <p>UNDOCUMENTED</p>
     </param-doc>
+    <param-doc mandatory="optional" name="sourcedb" short-type="Expression" type="alvisnlp.corpus.expressions.Expression">
+      <p>UNDOCUMENTED</p>
+    </param-doc>
+    <param-doc mandatory="optional" name="sourceid" short-type="Expression" type="alvisnlp.corpus.expressions.Expression">
+      <p>UNDOCUMENTED</p>
+    </param-doc>
+    <param-doc mandatory="optional" name="divid" short-type="Expression" type="alvisnlp.corpus.expressions.Expression">
+      <p>UNDOCUMENTED</p>
+    </param-doc>
     <param-doc default-value="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.DenotationSpecification@2145b572" mandatory="default: fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.DenotationSpecification@2145b572" name="denotations" short-type="DenotationSpecification[]" type="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.DenotationSpecification[]">
       <p>UNDOCUMENTED</p>
     </param-doc>
