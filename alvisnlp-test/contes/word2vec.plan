@@ -1,0 +1,10 @@
+<alvisnlp-plan id="word2vec">
+  <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
+
+  <import>res://segmentation.plan</import>
+
+  <word2vec class="Word2Vec">
+    <jsonFile>vectors.json</jsonFile>
+    <txtFile>vectors.txt</txtFile>
+  </word2vec>
+</alvisnlp-plan>
