@@ -39,7 +39,7 @@ public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedO
 	private SourceStream yateaFile;
 	private String termId = "term-id";
 	private String monoHeadId = "mono-head";
-	private String termLemma;
+	private String termLemma = DefaultNames.getCanonicalFormFeature();
 	private String termPOS = DefaultNames.getPosTagFeature();
 	private String head = "head";
 	private String modifier = "modifier";
