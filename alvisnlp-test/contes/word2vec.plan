@@ -6,5 +6,7 @@
   <word2vec class="Word2Vec">
     <jsonFile>vectors.json</jsonFile>
     <txtFile>vectors.txt</txtFile>
+    <workers>1</workers>
+    <vectorSize>5</vectorSize>
   </word2vec>
 </alvisnlp-plan>
