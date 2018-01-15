@@ -3,10 +3,41 @@
 
   <import>res://segmentation.plan</import>
 
+  <normalize>
+    <tt class="TreeTagger">
+      <noUnknownLemma/>
+    </tt>
+
+    <layer class="MergeLayers">
+      <sourceLayerNames>words</sourceLayerNames>
+      <targetLayerName>norm</targetLayerName>
+    </layer>
+
+    <remove-useless class="Action">
+      <target>documents.sections.layer:norm[@pos == "DT" or @pos == "RB" or @pos == "IN" or @pos == "," or @pos == "CC" or @pos == ":" or @pos == "(" or @pos == ")" or @pos == "TO"]</target>
+      <action>remove:norm</action>
+      <removeFromLayer/>
+    </remove-useless>
+
+    <lower-case class="Action">
+      <target>documents.sections.layer:norm</target>
+      <action>set:feat:norm(str:lower(@lemma))</action>
+      <setFeatures/>
+    </lower-case>
+
+    <number-lemma class="Action">
+      <target>documents.sections.layer:norm[@pos == "CD"]</target>
+      <action>set:feat:norm("NUMBER")</action>
+      <setFeatures/>
+    </number-lemma>
+  </normalize>
+  
   <word2vec class="Word2Vec">
     <jsonFile>vectors.json</jsonFile>
     <txtFile>vectors.txt</txtFile>
     <workers>1</workers> <!-- this is necessary for a deterministic result -->
     <vectorSize>5</vectorSize>
+    <tokenLayer>norm</tokenLayer>
+    <formFeature>norm</formFeature>
   </word2vec>
 </alvisnlp-plan>
