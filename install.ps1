@@ -50,4 +50,4 @@ Write-Output @"
 
 `$JVMOPTS = `$args | Where { `$_ -like "-J*" } | ForEach { `$_.Substring(2) }
 java `$JVMOPTS -cp "$LIB_DIR/*" fr.inra.maiage.bibliome.alvisnlp.core.app.cli.AlvisNLP `$args
-"@ > $BIN_DIR/alvisnlp
+"@ > $BIN_DIR/alvisnlp.ps1
