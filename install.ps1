@@ -49,5 +49,6 @@ Write-Output @"
 #!/bin/env pwsh
 
 `$JVMOPTS = `$args | Where { `$_ -like "-J*" } | ForEach { `$_.Substring(2) }
+`$ANLPOPTS = `$args | Where { -NOT (`$_ -like "-J*") }
 java `$JVMOPTS -cp "$LIB_DIR/*" fr.inra.maiage.bibliome.alvisnlp.core.app.cli.AlvisNLP `$args
 "@ > $BIN_DIR/alvisnlp.ps1
