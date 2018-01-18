@@ -95,4 +95,9 @@ limitations under the License.
   <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.chemspot.Chemspot">
     <chemspotDir></chemspotDir>
   </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.Word2Vec">
+    <word2vec></word2vec>
+    <workers></workers>
+  </module>
 </default-param-values>
