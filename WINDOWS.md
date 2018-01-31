@@ -12,18 +12,36 @@ See
       
 Please contact [Robert Bossy](mailto:robert.bossy@inra.fr) if you have any questions.
 
-# Foreword
-
-This file contains instructions to download, compile AlvisNLP/ML, install the command-line interface, and deploy the web application.
-
-The instructions assume you are running on a Unix system with a shell.
-If you are running on Windows, then check the instructions in the `WINDOWS.md` file.
-
 # Prerequisites
 
 * git
 * Java >= 8
 * Maven >= 3.0.5
+
+## Java
+
+The full JDK is necessary to install AlvisNLP/ML.
+There are instructions to [download and install JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+
+Set the `JAVA_HOME` environment variable to the JDK directory, usually something like `C:\\Program Files\\jdk1.8.0_nnn`, where `nnn` is the update version of the JDK you downloaded.
+
+You can set environment variables through the control panel, the exact procedure depends on the version of Windows.
+
+## git
+
+Instructions to [download and install git for windows](https://git-scm.com/download/win).
+
+## Maven
+
+[Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/guides/getting-started/windows-prerequisites.html) Maven. Installing Maven means extracting the archive in a sensible place like your home or `Program Files`.
+
+Set the `Path` environment variable to `%Path%;C:\\sensibleplace\\apache-maven-3.5.2\\bin`.
+
+# Open a command-line console
+
+The rest of the installation procedure is done through the command-line interface.
+The `cmd.exe` tool is supported and tested.
+There is a support for PowerShell, though it has not been thoroughly tested.
 
 # Download
 
@@ -44,36 +62,39 @@ If you are running on Windows, then check the instructions in the `WINDOWS.md` f
 We recommend that you set default parameter values for your host.
 These parameter values avoid to set parameters in plans for external tools.
 
-`cp share/default-param-values.xml.template share/default-param-values.xml`
+`copy share\\default-param-values.xml.template share\\default-param-values.xml`
 
-This will create a standard default parameter file in `share/default-param-values.xml`.
+This will create a standard default parameter file in `share\\default-param-values.xml`.
 Edit this file and fill parameter values appropriate for your host.
 
 ### Copy files to installation directory
 
-`./install.sh DIR`
+`install.bat DIR`
 
 `DIR` is the base directory of your AlvisNLP/ML install.
 This directory must exist.
-Launch this script as `root` if necessary.
+
+If you are installing from PowerShell, run instead:
+
+`install.ps1 DIR`
+
+Note that the PowerShell `install.ps1` script has not been thoroughly tested.
 
 ## Running AlvisNLP/ML
 
-`DIR/bin/alvisnlp -help`
+`DIR\\bin\\alvisnlp -help`
 
-`DIR` is the base directory of your AlvisNLP/ML install. You migh also add the `DIR/bin` sub-directory to your `PATH` environment variable.
-
-`export PATH=DIR/bin:$PATH`
+`DIR` is the base directory of your AlvisNLP/ML install. You migh also add the `DIR/bin` sub-directory to your `Path` environment variable.
 
 # Web service
 
 ## Deploy
 
-Deploy the the `alvisnlp-rest/target/alvisnlp-rest.war` file in your favourite application container.
+Deploy the the `alvisnlp-rest\\target\\alvisnlp-rest.war` file in your favourite application container.
 
 For instance, on *glassfish*, run:
 
-`asadmin deploy --contextroot CONTEXT --name NAME alvisnlp-rest/target/alvisnlp-rest.war`
+`asadmin deploy --contextroot CONTEXT --name NAME alvisnlp-rest\\target\\alvisnlp-rest.war`
 
 ## Set context parameters
 
