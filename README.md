@@ -29,18 +29,31 @@ Please contact [Robert Bossy](mailto:robert.bossy@inra.fr) if you have any quest
 
 # Command-line interface
 
-## Install from the package homedir
+## Install
+
+### Host-specific parameter values
+
+We recommend that you set default parameter values for your host.
+These parameter values avoid to set parameters in plans for external tools.
+
+`cp share/default-param-values.xml.template share/default-param-values.xml`
+
+This will create a standard default parameter file in `share/default-param-values.xml`.
+Edit this file and fill parameter values appropriate for your host.
+
+### Copy files to installation directory
 
 `./install.sh DIR`
 
-*DIR* is the base directory of your AlvisNLP/ML install.
-
+`DIR` is the base directory of your AlvisNLP/ML install.
+This directory must exist.
+Launch this script as `root` if necessary.
 
 ## Running AlvisNLP/ML
 
 `DIR/bin/alvisnlp -help`
 
-*DIR* is the base directory of your AlvisNLP/ML install. You migh also add the *bin* sub-directory to the *PATH* environment variable.
+`DIR` is the base directory of your AlvisNLP/ML install. You migh also add the `DIR/bin` sub-directory to your `PATH` environment variable.
 
 `export PATH=DIR/bin:$PATH`
 
