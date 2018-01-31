@@ -28,7 +28,6 @@ pushd %1
 set INSTALL_DIR=%CD%
 popd
 
-mkdir %INSTALL_DIR%
 mkdir %INSTALL_DIR%\bin
 mkdir %INSTALL_DIR%\doc
 mkdir %INSTALL_DIR%\lib
