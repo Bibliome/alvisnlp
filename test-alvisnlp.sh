@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ALVISNLP_SRC=$(readlink -f .)
-NO_COMPILE=
+COMPILE="simple"
 WORKING_DIR=$(readlink -f .test)
 export TESTS_DIR=$(readlink -f alvisnlp-test)
 INCLUDE=
@@ -49,6 +49,7 @@ Options:
   -a, --alvisnlp-sources=DIR    AlvisNLP sources directory
                                 (default: $ALVISNLP_SRC)
   -n, --no-compile              do not compile AlvisNLP
+  -f, --full-compile            compile as if Maven local repo was empty
   -w, --working-directory=DIR   base working directory for test runs
                                 (default: $WORKING_DIR)
   -i, --include=NAME            include the specified test and exclude the
@@ -90,7 +91,10 @@ do
     shift
     case $key in
 	-n|--no-compile)
-	    NO_COMPILE="no-compile"
+	    COMPILE="no-compile"
+	    ;;
+	-f|--full-compile)
+	    COMPILE="full"
 	    ;;
 	-a|--alvisnlp-sources)
 	    ALVISNLP_SRC=$(readlink -f "$1")
@@ -128,22 +132,30 @@ fi
 mkdir -p "$WORKING_DIR"
 log
 
-if [ -z "$NO_COMPILE" ]
+if [ "$COMPILE" = "no-compile" ]
 then
+    warn Skipping compilation, it is already done, right?
+else
+    if [ "$COMPILE" = "full" ]
+    then
+	MVN_OPT="-s .maven-settings.xml"
+	REPO_DIR="$WORKING_DIR/maven-install"
+	rm -fr $REPO_DIR
+	mkdir -p $REPO_DIR
+	warn Doing full compile, that may take some extra minutes
+    else
+	MVN_OPT=""
+    fi
     log Compiling AlvisNLP from source: "$ALVISNLP_SRC"
     log Output redirected to: "$WORKING_DIR"/maven.out
-    if (cd "$ALVISNLP_SRC" ; mvn clean install) &>"$WORKING_DIR"/maven.out;
+    if (cd "$ALVISNLP_SRC" ; mvn $MVN_OPT clean install) &>"$WORKING_DIR"/maven.out;
     then
 	ok Done
     else
 	fail Compilation failed
 	exit 1
     fi
-else
-    warn Skipping compilation, it is already done, right?
 fi
-log
-
 
 
 
