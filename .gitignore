@@ -27,5 +27,5 @@ maven-repository/
 .test/
 share/default-param-values.xml
 _attic/
-docs/Gemfile.lock
-docs/_site/
+Gemfile.lock
+_site/
