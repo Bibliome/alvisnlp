@@ -25,6 +25,7 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.TabularExport.Ta
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ConstantsLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
@@ -59,6 +60,7 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> {
 	private String separator = "\t";
 	private Boolean append = false;
 	private Boolean trim = false;
+	private OutputFile corpusFile = null;
 	
 	static class TabularExportResolvedObjects extends ResolvedObjects {
 		private final Variable lineVar;
@@ -74,8 +76,14 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> {
 			VariableLibrary lineLib = new VariableLibrary("line");
 			lineVar = lineLib.newVariable(null);
 			LibraryResolver columnResolver = lineLib.newLibraryResolver(rootResolver);
-			files = rootResolver.resolveNullable(module.files);
-			fileName = rootResolver.resolveNullable(module.fileName);
+			if (module.corpusFile == null) {
+				files = rootResolver.resolveNullable(module.files);
+				fileName = rootResolver.resolveNullable(module.fileName);
+			}
+			else {
+				files = DefaultExpressions.SELF.resolveExpressions(rootResolver);
+				fileName = ConstantsLibrary.getInstance(module.corpusFile.getPath());
+			}
 			lines = rootResolver.resolveNullable(module.lines);
 			headers = module.headers != null ? rootResolver.resolveArray(module.headers, Evaluator.class) : null;
 			footers = module.footers != null ? rootResolver.resolveArray(module.footers, Evaluator.class) : null;
@@ -212,6 +220,15 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> {
 	@Param
 	public Boolean getTrim() {
 		return trim;
+	}
+
+	@Param(mandatory=false)
+	public OutputFile getCorpusFile() {
+		return corpusFile;
+	}
+
+	public void setCorpusFile(OutputFile corpusFile) {
+		this.corpusFile = corpusFile;
 	}
 
 	public void setTrim(Boolean trim) {

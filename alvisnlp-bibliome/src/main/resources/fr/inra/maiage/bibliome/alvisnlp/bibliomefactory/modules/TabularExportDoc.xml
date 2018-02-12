@@ -78,6 +78,10 @@ limitations under the License.
     <param-doc name="footers">
       <p>Last line of output files.</p>
     </param-doc>
+
+    <param-doc name="corpusFile">
+      <p>Path to a single file for the whole corpus. This parameter will override both <param>files</param> and <param>fileNames</param>.</p>
+    </param-doc>
   
     <param-doc name="trim">
       <p/>
