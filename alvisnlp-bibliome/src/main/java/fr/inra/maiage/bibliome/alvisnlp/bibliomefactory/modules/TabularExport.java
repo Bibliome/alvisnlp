@@ -39,6 +39,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Checkable;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.Timer;
@@ -48,7 +49,7 @@ import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 @AlvisNLPModule
-public class TabularExport extends CorpusModule<TabularExportResolvedObjects> {
+public class TabularExport extends CorpusModule<TabularExportResolvedObjects> implements Checkable {
 	private OutputDirectory outDir;
 	private Expression files;
 	private Expression fileName;
@@ -166,18 +167,40 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> {
 			}
 		}
 	}
+	
+	@Override
+	public boolean check(Logger logger) {
+		if (corpusFile == null) {
+			if (files == null) {
+				logger.severe("either corpusFile or files is mandatory");
+				return false;
+			}
+			if (fileName == null) {
+				logger.severe("either corpusFile or fileName is mandatory");
+				return false;
+			}
+			return true;
+		}
+		if (files != null) {
+			logger.warning("corpusFile will override files");
+		}
+		if (fileName != null) {
+			logger.warning("corpusFile will override fileName");
+		}
+		return true;
+	}
 
 	@Param
 	public OutputDirectory getOutDir() {
 		return outDir;
 	}
 
-	@Param
+	@Param(mandatory=false)
 	public Expression getFiles() {
 		return files;
 	}
 
-	@Param
+	@Param(mandatory=false)
 	public Expression getFileName() {
 		return fileName;
 	}

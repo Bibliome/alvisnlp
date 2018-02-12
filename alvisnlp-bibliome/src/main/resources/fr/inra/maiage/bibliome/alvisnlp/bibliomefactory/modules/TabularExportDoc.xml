@@ -27,6 +27,10 @@ limitations under the License.
       	The file is located in <param name="outDir"/> and named after the result of <param name="fileName"/> (evaluated as a string).
       </p>
       <p>
+	If <param>corpusFile</param> is set, then it overrides <param>files</param> and <param>fileName</param>.
+	The whole corpus goes into a single file.
+      </p>
+      <p>
       	The file is a table where each line is the result of the evaluation of <param name="lines"/> as a list of element with the file element as the context element.
       	Each line will have as many columns as the size of the <param name="columns"/> array.
       </p>
