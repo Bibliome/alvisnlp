@@ -49,6 +49,13 @@ These parameter values avoid to set parameters in plans for external tools.
 This will create a standard default parameter file in `share/default-param-values.xml`.
 Edit this file and fill parameter values appropriate for your host.
 
+### Default command-line options
+
+If you wish your installed AlvisNLP/ML to run with default command-line options, then you put them on the file named `default-options.txt` in the `share` directory.
+Once installed, the options will be automatically prepended to each invocation of `alvisnlp`.
+
+In the `share` directory, there is an example file named `default-options.txt.template`.
+
 ### Copy files to installation directory
 
 `./install.sh DIR`
