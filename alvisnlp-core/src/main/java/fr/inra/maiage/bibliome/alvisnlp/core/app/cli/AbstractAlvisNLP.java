@@ -39,6 +39,8 @@ import java.util.ServiceLoader;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -87,7 +89,6 @@ import fr.inra.maiage.bibliome.util.FlushedStreamHandler;
 import fr.inra.maiage.bibliome.util.Pair;
 import fr.inra.maiage.bibliome.util.Timer;
 import fr.inra.maiage.bibliome.util.Versioned;
-import fr.inra.maiage.bibliome.util.clio.CLIOConversionException;
 import fr.inra.maiage.bibliome.util.clio.CLIOException;
 import fr.inra.maiage.bibliome.util.clio.CLIOParser;
 import fr.inra.maiage.bibliome.util.clio.CLIOption;
@@ -311,6 +312,22 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	@CLIOption("-outputDir")
 	public void setOutputDir(String path) {
 		outputDir = path;
+	}
+	
+	@CLIOption("--input")
+	public void OMTD_setInput(String value) {
+		setAlias("input", value);
+	}
+
+	@CLIOption("--output")
+	public void OMTD_setOutput(String path) {
+		setOutputDir(path);
+	}
+	
+	@CLIOption("--param")
+	public static void OMTD_setParam() throws CLIOException {
+		// this option should not be used actualy, this annotated method forces it to appear in the usage message
+		throw new CLIOException("unknow option --param");
 	}
 	
 	@CLIOption("-environmentEntities")
@@ -666,14 +683,27 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	public void shell() {
 		appendModule("command-line-shell", moduleFactory.getShellModule());
 	}
+	
+	private static final Pattern OMTD_PARAM_PATTERN = Pattern.compile("--param:(?<alias>[^=]+)=(?<value>.+)");
 
 	@Override
-	public final boolean processArgument(String planFile) throws CLIOConversionException {
-		setPlanFile(planFile);
+	public final boolean processArgument(String arg) throws CLIOException {
+		Matcher m = OMTD_PARAM_PATTERN.matcher(arg);
+		if (m.matches()) {
+			setAlias(m.group("alias"), m.group("value"));
+			return false;
+		}
+		if (arg.charAt(0) == '-') {
+			throw new CLIOException("unknown option: " + arg);
+		}
+		setPlanFile(arg);
 		return false;
 	}
 	
-	public void setPlanFile(String planFile) {
+	public void setPlanFile(String planFile) throws CLIOException {
+		if (this.planFile != null) {
+			throw new CLIOException("specified a plan file twice: " + this.planFile + " / " + planFile);
+		}
 		this.planFile = planFile;
 	}
 
@@ -890,6 +920,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 		PlanLoader<A> planLoader = new PlanLoader<A>(moduleFactory, converterFactory, defaultParamValuesDoc, inputDirs, outputDir, buildResourceBases(), docBuilder, creatorNameFeature, customEntities);
 
 		Document doc = planLoader.parseDoc(planFile);
+		logger.config("loading plan from " + planFile);
 		Sequence<A> result = planLoader.loadDocument(logger, planFile, doc);
         
         for (Pair<String,String> p : moreModules) {
