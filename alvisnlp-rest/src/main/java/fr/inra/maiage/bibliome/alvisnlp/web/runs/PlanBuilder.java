@@ -127,6 +127,7 @@ public class PlanBuilder {
 			return null;
 		}
 		Document doc = planLoader.parseDoc(planPath);
+		logger.config("loading plan from " + planPath);
 		return planLoader.loadDocument(logger, planPath, doc);
 	}
 

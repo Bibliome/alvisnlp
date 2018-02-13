@@ -199,8 +199,9 @@ public class PlanLoader<T extends Annotable> {
 
 	public Sequence<T> loadSource(Logger logger, SourceStream source) throws SAXException, IOException, PlanException, ModuleException, ServiceException, ConverterException, URISyntaxException {
 		try (InputStream is = source.getInputStream()) {
-			Document doc = docBuilder.parse(is);
 			String name = source.getStreamName(is);
+			logger.config("loading plan from " + name);
+			Document doc = docBuilder.parse(is);
 			return loadDocument(logger, name, doc);
 		}
 	}
@@ -236,7 +237,6 @@ public class PlanLoader<T extends Annotable> {
 	 * @throws URISyntaxException 
 	 */
 	public Sequence<T> loadDocument(Logger logger, String source, Document doc) throws PlanException, ModuleException, ServiceException, ConverterException, SAXException, IOException, URISyntaxException {
-		logger.config("loading plan from " + source);
 		Element elt = doc.getDocumentElement();
 		if (!PLAN_ELEMENT_NAME.equals(elt.getTagName()))
 			throw new PlanException("expected element " + PLAN_ELEMENT_NAME + ", got " + elt.getTagName());
