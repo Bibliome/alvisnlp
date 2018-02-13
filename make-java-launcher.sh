@@ -25,7 +25,7 @@ read -r -d '' TEMPLATE <<'EOF'
 
 ulimit -c 0
 
-export CLASSPATH="__LIBSPATH__/*:$CLASSPATH"
+export CLASSPATH="__INSTALL_DIR__/lib/*:$CLASSPATH"
 
 JVMOPTS=
 OPTERR=0
@@ -37,25 +37,32 @@ while getopts J: o; do
 done
 shift $(($OPTIND-1))
 
-cmd="java $JVMOPTS __MAINCLASS__ ""__ARGS__ ""$@"
+OPTS=""
+if [ -f "__INSTALL_DIR__/share/default-param-values.xml" ]
+then
+    OPTS="$OPTS ""-defaultParamValuesFile __INSTALL_DIR__/share/default-param-values.xml"
+fi
+if [ -f "__INSTALL_DIR__/share/default-options.txt" ]
+then
+    OPTS="$OPTS "$(cat __INSTALL_DIR__/share/default-options.txt)
+fi
+
+cmd="java $JVMOPTS fr.inra.maiage.bibliome.alvisnlp.core.app.cli.AlvisNLP ""$OPTS ""$@"
 #echo $CLASSPATH
 #echo $cmd
 $cmd
 EOF
 
-if [ $# -lt 3 ]; then
-    echo "Usage: $0 LIBSPATH BINFILE MAINCLASS [ARGS]" >&2
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 INSTALL_DIR" >&2
     exit 1
 fi
 
-LIBSPATH=$1
+INSTALL_DIR=$1
 shift
-BINFILE=$1
-shift
-MAINCLASS=$1
-shift
-ARGS="$@"
 
-sed -e "s,__LIBSPATH__,$LIBSPATH," -e "s,__MAINCLASS__,$MAINCLASS," -e "s,__ARGS__,$ARGS," <<<"$TEMPLATE" >"$BINFILE"
+BINFILE="$INSTALL_DIR/bin/alvisnlp"
+
+sed -e "s,__INSTALL_DIR__,$INSTALL_DIR," <<<"$TEMPLATE" >"$BINFILE"
 chmod +x "$BINFILE"
 

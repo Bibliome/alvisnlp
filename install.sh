@@ -43,8 +43,12 @@ cp -f -u -r $LIB_FILES "$LIB_DIR"
 if [ -f "share/default-param-values.xml" ]
 then
     cp -f -u "share/default-param-values.xml" "$SHARE_DIR/default-param-values.xml"
-    ./make-java-launcher.sh "$LIB_DIR" "$BIN_DIR"/alvisnlp fr.inra.maiage.bibliome.alvisnlp.core.app.cli.AlvisNLP -defaultParamValuesFile "$SHARE_DIR/default-param-values.xml"
-else
-    ./make-java-launcher.sh "$LIB_DIR" "$BIN_DIR"/alvisnlp fr.inra.maiage.bibliome.alvisnlp.core.app.cli.AlvisNLP
 fi
+
+if [ -f "share/default-options.txt" ]
+then
+    cp -f -u "share/default-options.txt" "$SHARE_DIR/default-options.txt"
+fi
+
+./make-java-launcher.sh $INSTALL_DIR
 
