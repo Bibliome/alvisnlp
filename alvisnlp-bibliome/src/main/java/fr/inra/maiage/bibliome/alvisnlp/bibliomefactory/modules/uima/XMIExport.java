@@ -125,7 +125,7 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 	}
 
 	private static AlvisSection convertSection(Logger logger, JCas jcas, Section sec, int offset) {
-		AlvisSection result = new AlvisSection(jcas);
+		AlvisSection result = new AlvisSection(jcas, offset, offset + sec.getContents().length());
 		result.setName(sec.getName());
 		result.setFeatures(convertFeatures(jcas, sec));
 		Map<Element,TOP> argumentMap = new HashMap<Element,TOP>();
