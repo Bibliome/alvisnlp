@@ -8,14 +8,17 @@ import org.apache.uima.jcas.JCasRegistry;
 import org.apache.uima.jcas.cas.TOP_Type;
 
 import org.apache.uima.jcas.cas.FSArray;
+import org.apache.uima.jcas.tcas.Annotation;
+
+
 import org.apache.uima.jcas.cas.AnnotationBase;
 
 
 /** 
- * Updated by JCasGen Wed Feb 14 09:15:19 CET 2018
+ * Updated by JCasGen Wed Feb 14 10:02:16 CET 2018
  * XML source: /home/rbossy/code/alvisnlp/alvisnlp-bibliome/src/main/resources/fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/uima-document.xml
  * @generated */
-public class AlvisSection extends AnnotationBase {
+public class AlvisSection extends Annotation {
   /** @generated
    * @ordered 
    */
@@ -53,6 +56,18 @@ public class AlvisSection extends AnnotationBase {
     super(jcas);
     readObject();   
   } 
+
+  /** @generated
+   * @param jcas JCas to which this Feature Structure belongs
+   * @param begin offset to the begin spot in the SofA
+   * @param end offset to the end spot in the SofA 
+  */  
+  public AlvisSection(JCas jcas, int begin, int end) {
+    super(jcas);
+    setBegin(begin);
+    setEnd(end);
+    readObject();
+  }   
 
   /** 
    * <!-- begin-user-doc -->

@@ -12,7 +12,7 @@ import org.apache.uima.jcas.tcas.Annotation;
 
 
 /** 
- * Updated by JCasGen Wed Feb 14 09:15:19 CET 2018
+ * Updated by JCasGen Wed Feb 14 10:02:16 CET 2018
  * XML source: /home/rbossy/code/alvisnlp/alvisnlp-bibliome/src/main/resources/fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/uima-document.xml
  * @generated */
 public class AlvisAnnotation extends Annotation {

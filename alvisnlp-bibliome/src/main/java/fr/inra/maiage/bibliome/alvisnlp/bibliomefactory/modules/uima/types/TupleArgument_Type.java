@@ -11,7 +11,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.cas.TOP_Type;
 
 /** 
- * Updated by JCasGen Wed Feb 14 09:15:20 CET 2018
+ * Updated by JCasGen Wed Feb 14 10:02:16 CET 2018
  * @generated */
 public class TupleArgument_Type extends TOP_Type {
   /** @generated */

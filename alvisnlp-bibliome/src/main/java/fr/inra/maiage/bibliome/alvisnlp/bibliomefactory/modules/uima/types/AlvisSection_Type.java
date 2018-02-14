@@ -8,12 +8,14 @@ import org.apache.uima.cas.impl.TypeImpl;
 import org.apache.uima.cas.Type;
 import org.apache.uima.cas.impl.FeatureImpl;
 import org.apache.uima.cas.Feature;
+import org.apache.uima.jcas.tcas.Annotation_Type;
+
 import org.apache.uima.jcas.cas.AnnotationBase_Type;
 
 /** 
- * Updated by JCasGen Wed Feb 14 09:15:20 CET 2018
+ * Updated by JCasGen Wed Feb 14 10:02:16 CET 2018
  * @generated */
-public class AlvisSection_Type extends AnnotationBase_Type {
+public class AlvisSection_Type extends Annotation_Type {
   /** @generated */
   @SuppressWarnings ("hiding")
   public final static int typeIndexID = AlvisSection.typeIndexID;

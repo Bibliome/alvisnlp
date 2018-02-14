@@ -11,7 +11,7 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.cas.AnnotationBase_Type;
 
 /** 
- * Updated by JCasGen Wed Feb 14 09:15:19 CET 2018
+ * Updated by JCasGen Wed Feb 14 10:02:16 CET 2018
  * @generated */
 public class AlvisLayer_Type extends AnnotationBase_Type {
   /** @generated */

@@ -118,7 +118,7 @@
   <typeDescription>
       <name>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisSection</name>
       <description/>
-      <supertypeName>uima.cas.AnnotationBase</supertypeName>
+      <supertypeName>uima.tcas.Annotation</supertypeName>
       <features>
         <featureDescription>
           <name>name</name>
