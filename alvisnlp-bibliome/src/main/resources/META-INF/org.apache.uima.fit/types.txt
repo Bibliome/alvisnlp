@@ -1,0 +1,1 @@
+classpath*:fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/uima-document.xml

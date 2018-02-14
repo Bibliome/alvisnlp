@@ -1,301 +1,303 @@
-<project
-    xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>fr.jouy.inra.maiage.bibliome</groupId>
-    <artifactId>alvisnlp</artifactId>
-    <version>0.5rc-SNAPSHOT</version>
-  </parent>
-  <artifactId>alvisnlp-bibliome</artifactId>
-  <name>AlvisNLP Bibliome Module Factory</name>
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>fr.jouy.inra.maiage.bibliome</groupId>
+		<artifactId>alvisnlp</artifactId>
+		<version>0.5rc-SNAPSHOT</version>
+	</parent>
+	<artifactId>alvisnlp-bibliome</artifactId>
+	<name>AlvisNLP Bibliome Module Factory</name>
 
-  <repositories>
-    <repository>
-      <id>bibliome</id>
-      <url>http://bibliome.jouy.inra.fr/maven-repository</url>
-    </repository>
-  </repositories>
+	<repositories>
+		<repository>
+			<id>bibliome</id>
+			<url>http://bibliome.jouy.inra.fr/maven-repository</url>
+		</repository>
+	</repositories>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+	</properties>
 
-  <build>
-    <plugins>
-      <plugin>
-	<groupId>org.apache.maven.plugins</groupId>
-	<artifactId>maven-compiler-plugin</artifactId>
-	<version>3.1</version>
-	<configuration>
-	  <source>1.8</source>
-	  <target>1.8</target>
-	  <compilerArgs>
-	    <arg>-AmoduleFactoryName=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.BibliomeModuleFactory</arg>
-	    <arg>-AdataClass=fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus</arg>
-	    <arg>-AsequenceImplementationClass=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.Sequence_Impl</arg>
-	    <arg>-AfactoryInterface=fr.inra.maiage.bibliome.alvisnlp.core.factory.CorpusModuleFactory</arg>
-	    <arg>-AconverterFactoryName=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.BibliomeConverterFactory</arg>
-	    <arg>-AresourceBases=fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/resources</arg>
-	    <arg>-AshellModule=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.shell.Shell</arg>
-	    <arg>-Xlint:all</arg>
-	  </compilerArgs>
-	  <!--<verbose>true</verbose>-->
-	</configuration>
-      </plugin>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<compilerArgs>
+						<arg>-AmoduleFactoryName=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.BibliomeModuleFactory</arg>
+						<arg>-AdataClass=fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus</arg>
+						<arg>-AsequenceImplementationClass=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.Sequence_Impl</arg>
+						<arg>-AfactoryInterface=fr.inra.maiage.bibliome.alvisnlp.core.factory.CorpusModuleFactory</arg>
+						<arg>-AconverterFactoryName=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.BibliomeConverterFactory</arg>
+						<arg>-AresourceBases=fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/resources</arg>
+						<arg>-AshellModule=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.shell.Shell</arg>
+						<arg>-Xlint:all</arg>
+					</compilerArgs>
+					<!--<verbose>true</verbose> -->
+				</configuration>
+			</plugin>
 
-      <plugin>
-	<groupId>org.codehaus.mojo</groupId>
-	<artifactId>javacc-maven-plugin</artifactId>
-	<version>2.6</version>
-	<executions>
-	  <execution>
-	    <id>expression-parser</id>
-	    <phase>generate-sources</phase>
-	    <goals>
-	      <goal>javacc</goal>
-	    </goals>
-	    <configuration>
-	      <errorReporting>true</errorReporting>
-	      <buildParser>true</buildParser>
-	      <keepLineColumn>true</keepLineColumn>
-	      <unicodeInput>true</unicodeInput>
-	      <debugParser>false</debugParser>
-	      <sanityCheck>true</sanityCheck>
-	      <buildTokenManager>true</buildTokenManager>
-	      <suppressWarnings>true</suppressWarnings>
-	      <sourceDirectory>src/main/resources/fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/converters/expression/parser</sourceDirectory>
-	      <outputDirectory>${project.build.directory}/generated-sources/javacc</outputDirectory>
-	    </configuration>
-	  </execution>
-	</executions>
-      </plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>javacc-maven-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<id>expression-parser</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>javacc</goal>
+						</goals>
+						<configuration>
+							<errorReporting>true</errorReporting>
+							<buildParser>true</buildParser>
+							<keepLineColumn>true</keepLineColumn>
+							<unicodeInput>true</unicodeInput>
+							<debugParser>false</debugParser>
+							<sanityCheck>true</sanityCheck>
+							<buildTokenManager>true</buildTokenManager>
+							<suppressWarnings>true</suppressWarnings>
+							<sourceDirectory>src/main/resources/fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/converters/expression/parser</sourceDirectory>
+							<outputDirectory>${project.build.directory}/generated-sources/javacc</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.10</version>
-        <executions>
-          <execution>
-            <id>copy-dependencies</id>
-            <phase>package</phase>
-            <goals>
-              <goal>copy-dependencies</goal>
-            </goals>
-            <configuration>
-              <outputDirectory>${project.build.directory}/lib</outputDirectory>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.10</version>
+				<executions>
+					<execution>
+						<id>copy-dependencies</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${project.build.directory}/lib</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>2.4.3</version>
-        <configuration>
-          <transformers>
-            <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-            <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-              <mainClass>fr.inra.maiage.bibliome.alvisnlp.core.app.cli.AlvisNLP</mainClass>
-            </transformer>
-          </transformers>
-          <shadedArtifactAttached>true</shadedArtifactAttached>
-          <shadedClassifierName>standalone</shadedClassifierName>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>2.4.3</version>
+				<configuration>
+					<transformers>
+						<transformer
+							implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+						<transformer
+							implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+							<mainClass>fr.inra.maiage.bibliome.alvisnlp.core.app.cli.AlvisNLP</mainClass>
+						</transformer>
+					</transformers>
+					<shadedArtifactAttached>true</shadedArtifactAttached>
+					<shadedClassifierName>standalone</shadedClassifierName>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
-  <dependencies>
+	<dependencies>
 
-    <dependency>
-      <groupId>org.apache.tika</groupId>
-      <artifactId>tika-core</artifactId>
-      <version>1.16</version>
-    </dependency>
+		<dependency>
+			<groupId>org.apache.tika</groupId>
+			<artifactId>tika-core</artifactId>
+			<version>1.16</version>
+		</dependency>
 
-    <dependency>
-      <groupId>org.apache.tika</groupId>
-      <artifactId>tika-parsers</artifactId>
-      <version>1.13</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>org.apache.lucene</groupId>
-      <artifactId>lucene-core</artifactId>
-      <version>3.6.1</version>
-    </dependency>
+		<dependency>
+			<groupId>org.apache.tika</groupId>
+			<artifactId>tika-parsers</artifactId>
+			<version>1.13</version>
+		</dependency>
 
-    <dependency>
-      <groupId>org.apache.lucene</groupId>
-      <artifactId>lucene-analyzers</artifactId>
-      <version>3.6.1</version>
-    </dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-core</artifactId>
+			<version>3.6.1</version>
+		</dependency>
 
-    <dependency>
-      <groupId>xalan</groupId>
-      <artifactId>xalan</artifactId>
-      <version>2.7.1</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>org.apache.jena</groupId>
-      <artifactId>jena-core</artifactId>
-      <version>3.2.0</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>org.apache.jena</groupId>
-      <artifactId>jena-arq</artifactId>
-      <version>3.2.0</version>
-    </dependency>
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>lucene-analyzers</artifactId>
+			<version>3.6.1</version>
+		</dependency>
 
-    <dependency>
-      <groupId>org.apache.jena</groupId>
-      <artifactId>jena-iri</artifactId>
-      <version>3.2.0</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>org.apache.jena</groupId>
-      <artifactId>jena-fuseki-embedded</artifactId>
-      <version>2.5.0</version>
-    </dependency>
+		<dependency>
+			<groupId>xalan</groupId>
+			<artifactId>xalan</artifactId>
+			<version>2.7.1</version>
+		</dependency>
 
-    <dependency>
-      <groupId>jline</groupId>
-      <artifactId>jline</artifactId>
-      <version>1.0</version>
-    </dependency>
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-core</artifactId>
+			<version>3.2.0</version>
+		</dependency>
 
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <version>1.2.15</version>
-      <exclusions>
-        <exclusion>
-          <groupId>com.sun.jmx</groupId>
-          <artifactId>jmxri</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>com.sun.jdmk</groupId>
-          <artifactId>jmxtools</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>javax.jms</groupId>
-          <artifactId>jms</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-arq</artifactId>
+			<version>3.2.0</version>
+		</dependency>
 
-    <dependency>
-      <groupId>net.sourceforge.nekohtml</groupId>
-      <artifactId>nekohtml</artifactId>
-      <version>1.9.15</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>xerces</groupId>
-      <artifactId>xercesImpl</artifactId>
-      <version>2.9.0</version>
-    </dependency>
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-iri</artifactId>
+			<version>3.2.0</version>
+		</dependency>
 
-    <dependency>
-      <groupId>it.unibo.alice.tuprolog</groupId>
-      <artifactId>tuprolog</artifactId>
-      <version>2.1.1</version>
-    </dependency>
+		<dependency>
+			<groupId>org.apache.jena</groupId>
+			<artifactId>jena-fuseki-embedded</artifactId>
+			<version>2.5.0</version>
+		</dependency>
 
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-      <version>1.6.4</version>
-    </dependency>
-    
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-      <version>1.6.4</version>
-    </dependency>
+		<dependency>
+			<groupId>jline</groupId>
+			<artifactId>jline</artifactId>
+			<version>1.0</version>
+		</dependency>
 
-    <dependency>
-      <groupId>nz.ac.waikato.cms.weka</groupId>
-      <artifactId>weka-stable</artifactId>
-      <version>3.6.6</version>
-    </dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.15</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
 
-    <dependency>
-      <groupId>xml-apis</groupId>
-      <artifactId>xml-apis</artifactId>
-      <version>1.3.04</version>
-    </dependency>
-    
-    <!-- <dependency>  --><!-- Could it be the same as CoreNLP -->
-    <!--   <groupId>edu.stanford.nlp</groupId> -->
-    <!--   <artifactId>stanford-ner</artifactId> -->
-    <!--   <version>3.4</version> -->
-    <!-- </dependency> -->
+		<dependency>
+			<groupId>net.sourceforge.nekohtml</groupId>
+			<artifactId>nekohtml</artifactId>
+			<version>1.9.15</version>
+		</dependency>
 
-    <dependency>
-      <groupId>edu.stanford.nlp</groupId>
-      <artifactId>stanford-corenlp</artifactId>
-      <version>3.8.0</version>
-    </dependency>
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>2.9.0</version>
+		</dependency>
 
-    <!--
-    <dependency>
-      <groupId>edu.stanford.nlp</groupId>
-      <artifactId>stanford-parser</artifactId>
-      <version>3.7.0</version>
-    </dependency>
-    -->
-    <dependency>
-      <groupId>org.apache.poi</groupId>
-      <artifactId>poi</artifactId>
-      <version>3.17</version>
-    </dependency>
+		<dependency>
+			<groupId>it.unibo.alice.tuprolog</groupId>
+			<artifactId>tuprolog</artifactId>
+			<version>2.1.1</version>
+		</dependency>
 
-    <dependency>
-      <groupId>org.postgresql</groupId>
-      <artifactId>postgresql</artifactId>
-      <version>9.4.1211.jre7</version>
-    </dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.4</version>
+		</dependency>
 
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.6.4</version>
+		</dependency>
 
+		<dependency>
+			<groupId>nz.ac.waikato.cms.weka</groupId>
+			<artifactId>weka-stable</artifactId>
+			<version>3.6.6</version>
+		</dependency>
 
+		<dependency>
+			<groupId>xml-apis</groupId>
+			<artifactId>xml-apis</artifactId>
+			<version>1.3.04</version>
+		</dependency>
 
-    <dependency>
-      <groupId>org.nanohttpd</groupId>
-      <artifactId>nanohttpd</artifactId>
-      <version>2.3.0</version>
-    </dependency>
+		<!-- <dependency> --><!-- Could it be the same as CoreNLP -->
+		<!-- <groupId>edu.stanford.nlp</groupId> -->
+		<!-- <artifactId>stanford-ner</artifactId> -->
+		<!-- <version>3.4</version> -->
+		<!-- </dependency> -->
+
+		<dependency>
+			<groupId>edu.stanford.nlp</groupId>
+			<artifactId>stanford-corenlp</artifactId>
+			<version>3.8.0</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>edu.stanford.nlp</groupId> <artifactId>stanford-parser</artifactId> 
+			<version>3.7.0</version> </dependency> -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.17</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.4.1211.jre7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.uima</groupId>
+			<artifactId>uimafit-core</artifactId>
+			<version>2.4.0</version>
+		</dependency>
 
 
 
-
-    <dependency>
-      <groupId>fr.jouy.inra.maiage.bibliome</groupId>
-      <artifactId>alvisnlp-core</artifactId>
-      <version>0.5rc-SNAPSHOT</version>
-    </dependency>
+		<dependency>
+			<groupId>org.nanohttpd</groupId>
+			<artifactId>nanohttpd</artifactId>
+			<version>2.3.0</version>
+		</dependency>
 
 
 
 
+		<dependency>
+			<groupId>fr.jouy.inra.maiage.bibliome</groupId>
+			<artifactId>alvisnlp-core</artifactId>
+			<version>0.5rc-SNAPSHOT</version>
+		</dependency>
 
-    <dependency>
-      <groupId>fr.jouy.inra.maiage.bibliome</groupId>
-      <artifactId>alvisir-core</artifactId>
-      <version>0.5-SNAPSHOT</version>
-    </dependency>
 
-    <dependency>
-      <groupId>fr.jouy.inra.maiage.bibliome</groupId>
-      <artifactId>alvisdb-core</artifactId>
-      <version>0.1-SNAPSHOT</version>
-    </dependency>
-  </dependencies>
+
+
+
+		<dependency>
+			<groupId>fr.jouy.inra.maiage.bibliome</groupId>
+			<artifactId>alvisir-core</artifactId>
+			<version>0.5-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>fr.jouy.inra.maiage.bibliome</groupId>
+			<artifactId>alvisdb-core</artifactId>
+			<version>0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 </project>
