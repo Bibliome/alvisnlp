@@ -113,8 +113,6 @@ public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements
 	private static void convertArgument(Map<FeatureStructure,Element> argumentMap, Tuple t, TupleArgument fsa) {
 		String role = fsa.getRole();
 		Element arg = argumentMap.get(fsa.getArgument());
-		System.err.println("fsa = " + fsa);
-		System.err.println("arg = " + arg);
 		t.setArgument(role, arg);
 	}
 
