@@ -1,0 +1,20 @@
+<alvisnlp-plan id="write-features">
+  <param name="file">
+    <alias module="write" param="corpusFile"/>
+  </param>
+
+  <write class="TabularExport">
+    <outDir>.</outDir>
+    <lines>
+      (
+        $
+	| documents
+	| documents.sections
+	| documents.sections.layer
+	| documents.sections.relations
+	| documents.sections.relations.tuples
+      ).nav:features
+    </lines>
+    <columns>@key,@value</columns>
+  </write>
+</alvisnlp-plan>
