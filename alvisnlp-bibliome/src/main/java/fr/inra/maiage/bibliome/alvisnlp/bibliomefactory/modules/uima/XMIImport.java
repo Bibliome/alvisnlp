@@ -69,11 +69,11 @@ public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements
 		}
 	}
 	
-	private static void convertFeatures(Element elt, FSArray fsa) {
-		for (FeatureStructure f : fsa) {
-			FeatureProxy af = (FeatureProxy) f;
-			String key = af.getKey();
-			String value = af.getValue();
+	private static void convertFeatures(Element elt, FSArray fsFeatures) {
+		for (FeatureStructure f : fsFeatures) {
+			FeatureProxy featureProxy = (FeatureProxy) f;
+			String key = featureProxy.getKey();
+			String value = featureProxy.getValue();
 			elt.addFeature(key, value);
 		}
 	}
@@ -93,92 +93,92 @@ public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements
 		new Section(this, doc, defaultSectionName, jcas.getDocumentText());
 	}
 	
-	private void convertAnnotatedDocument(Corpus corpus, JCas jcas, DocumentProxy ad) {
-		Document doc = Document.getDocument(this, corpus, ad.getId());
-		convertFeatures(doc, ad.getFeatures());
+	private void convertAnnotatedDocument(Corpus corpus, JCas jcas, DocumentProxy docProxy) {
+		Document doc = Document.getDocument(this, corpus, docProxy.getId());
+		convertFeatures(doc, docProxy.getFeatures());
 		String docContents = jcas.getDocumentText();
 		int offset = 0;
-		for (FeatureStructure fss : ad.getSections()) {
-			SectionProxy as = (SectionProxy) fss;
-			Section sec = new Section(this, doc, as.getName(), docContents.substring(as.getBegin(), as.getEnd()));
-			convertFeatures(sec, as.getFeatures());
+		for (FeatureStructure fsSection : docProxy.getSections()) {
+			SectionProxy sectionProxy = (SectionProxy) fsSection;
+			Section sec = new Section(this, doc, sectionProxy.getName(), docContents.substring(sectionProxy.getBegin(), sectionProxy.getEnd()));
+			convertFeatures(sec, sectionProxy.getFeatures());
 			Map<AnnotationProxy,Annotation> annotationMap = new HashMap<AnnotationProxy,Annotation>();
-			convertLayers(annotationMap, offset, sec, as);
+			convertLayers(annotationMap, offset, sec, sectionProxy);
 			Map<FeatureStructure,Element> argumentMap = new HashMap<FeatureStructure,Element>(annotationMap);
-			convertRelations(argumentMap, sec, as);
-			convertArguments(argumentMap, as);
+			convertRelations(argumentMap, sec, sectionProxy);
+			convertArguments(argumentMap, sectionProxy);
 			offset += sec.getContents().length();
 		}
 	}
 	
-	private static void convertArguments(Map<FeatureStructure,Element> argumentMap, SectionProxy as) {
-		for (FeatureStructure fsr : as.getRelations()) {
-			convertArguments(argumentMap, (RelationProxy) fsr);
+	private static void convertArguments(Map<FeatureStructure,Element> argumentMap, SectionProxy sectionProxy) {
+		for (FeatureStructure fsRelation : sectionProxy.getRelations()) {
+			convertArguments(argumentMap, (RelationProxy) fsRelation);
 		}
 	}
 
-	private static void convertArguments(Map<FeatureStructure,Element> argumentMap, RelationProxy ar) {
-		for (FeatureStructure fst : ar.getTuples()) {
-			convertArguments(argumentMap, (TupleProxy) fst);
+	private static void convertArguments(Map<FeatureStructure,Element> argumentMap, RelationProxy relationProxy) {
+		for (FeatureStructure fsTuple : relationProxy.getTuples()) {
+			convertArguments(argumentMap, (TupleProxy) fsTuple);
 		}
 	}
 
-	private static void convertArguments(Map<FeatureStructure,Element> argumentMap, TupleProxy fst) {
-		Tuple t = (Tuple) argumentMap.get(fst);
-		for (FeatureStructure fsa : fst.getArguments()) {
-			convertArgument(argumentMap, t, (ArgumentProxy) fsa);
+	private static void convertArguments(Map<FeatureStructure,Element> argumentMap, TupleProxy tupleProxy) {
+		Tuple t = (Tuple) argumentMap.get(tupleProxy);
+		for (FeatureStructure fsArg : tupleProxy.getArguments()) {
+			convertArgument(argumentMap, t, (ArgumentProxy) fsArg);
 		}
 	}
 
-	private static void convertArgument(Map<FeatureStructure,Element> argumentMap, Tuple t, ArgumentProxy fsa) {
-		String role = fsa.getRole();
-		Element arg = argumentMap.get(fsa.getArgument());
+	private static void convertArgument(Map<FeatureStructure,Element> argumentMap, Tuple t, ArgumentProxy argProxy) {
+		String role = argProxy.getRole();
+		Element arg = argumentMap.get(argProxy.getArgument());
 		t.setArgument(role, arg);
 	}
 
-	private void convertRelations(Map<FeatureStructure,Element> argumentMap, Section sec, SectionProxy as) {
-		for (FeatureStructure fsr : as.getRelations()) {
-			convertRelation(argumentMap, sec, (RelationProxy) fsr);
+	private void convertRelations(Map<FeatureStructure,Element> argumentMap, Section sec, SectionProxy sectionProxy) {
+		for (FeatureStructure fsRelation : sectionProxy.getRelations()) {
+			convertRelation(argumentMap, sec, (RelationProxy) fsRelation);
 		}
 	}
 
-	private void convertRelation(Map<FeatureStructure,Element> argumentMap, Section sec, RelationProxy ar) {
-		Relation rel = new Relation(this, sec, ar.getName());
-		convertFeatures(rel, ar.getFeatures());
-		for (FeatureStructure fst : ar.getTuples()) {
-			convertTuple(argumentMap, rel, (TupleProxy) fst);
+	private void convertRelation(Map<FeatureStructure,Element> argumentMap, Section sec, RelationProxy relationProxy) {
+		Relation rel = new Relation(this, sec, relationProxy.getName());
+		convertFeatures(rel, relationProxy.getFeatures());
+		for (FeatureStructure fsTuple : relationProxy.getTuples()) {
+			convertTuple(argumentMap, rel, (TupleProxy) fsTuple);
 		}
 	}
 
-	private void convertTuple(Map<FeatureStructure,Element> argumentMap, Relation rel, TupleProxy fst) {
+	private void convertTuple(Map<FeatureStructure,Element> argumentMap, Relation rel, TupleProxy tupleProxy) {
 		Tuple t = new Tuple(this, rel);
-		convertFeatures(t, fst.getFeatures());
-		argumentMap.put(fst, t);
+		convertFeatures(t, tupleProxy.getFeatures());
+		argumentMap.put(tupleProxy, t);
 	}
 
-	private void convertLayers(Map<AnnotationProxy,Annotation> annotationMap, int offset, Section sec, SectionProxy as) {
-		for (FeatureStructure fsl : as.getLayers()) {
-			convertLayer(annotationMap, offset, sec, (LayerProxy) fsl);
+	private void convertLayers(Map<AnnotationProxy,Annotation> annotationMap, int offset, Section sec, SectionProxy sectionProxy) {
+		for (FeatureStructure fsLayer : sectionProxy.getLayers()) {
+			convertLayer(annotationMap, offset, sec, (LayerProxy) fsLayer);
 		}
 	}
 	
-	private void convertLayer(Map<AnnotationProxy,Annotation> annotationMap, int offset, Section sec, LayerProxy al) {
-		Layer layer = sec.ensureLayer(al.getName());
-		for (FeatureStructure fsa : al.getAnnotations()) {
-			convertAnnotation(annotationMap, offset, layer, (AnnotationProxy) fsa);
+	private void convertLayer(Map<AnnotationProxy,Annotation> annotationMap, int offset, Section sec, LayerProxy layerProxy) {
+		Layer layer = sec.ensureLayer(layerProxy.getName());
+		for (FeatureStructure fsAnnotation : layerProxy.getAnnotations()) {
+			convertAnnotation(annotationMap, offset, layer, (AnnotationProxy) fsAnnotation);
 		}
 	}
 	
-	private void convertAnnotation(Map<AnnotationProxy,Annotation> annotationMap, int offset, Layer layer, AnnotationProxy aa) {
+	private void convertAnnotation(Map<AnnotationProxy,Annotation> annotationMap, int offset, Layer layer, AnnotationProxy annotProxy) {
 		Annotation a;
-		if (annotationMap.containsKey(aa)) {
-			a = annotationMap.get(aa);
+		if (annotationMap.containsKey(annotProxy)) {
+			a = annotationMap.get(annotProxy);
 			layer.add(a);
 		}
 		else {
-			a = new Annotation(this, layer, aa.getBegin() - offset, aa.getEnd() - offset);
-			convertFeatures(a, aa.getFeatures());
-			annotationMap.put(aa, a);
+			a = new Annotation(this, layer, annotProxy.getBegin() - offset, annotProxy.getEnd() - offset);
+			convertFeatures(a, annotProxy.getFeatures());
+			annotationMap.put(annotProxy, a);
 		}
 	}
 

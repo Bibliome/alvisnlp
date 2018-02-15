@@ -62,8 +62,8 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 			JCas jcas = JCasFactory.createJCas();
 			for (Document doc : Iterators.loop(documentIterator(evalCtx, corpus))) {
 				jcas.setDocumentText(convertContents(evalCtx, doc));
-				DocumentProxy ad = convertDocument(logger, evalCtx, jcas, doc);
-				ad.addToIndexes();
+				DocumentProxy docProxy = convertDocument(logger, evalCtx, jcas, doc);
+				docProxy.addToIndexes();
 				try (OutputStream os = openDocumentFile(doc)) {
 					XmiCasSerializer.serialize(jcas.getCas(), null, os, true, null);
 				}
@@ -144,13 +144,13 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 	}
 
 	private static LayerProxy convertLayer(Map<Element,TOP> argumentMap, Map<Annotation,AnnotationProxy> annotationMap, JCas jcas, Layer layer, int offset) {
-		List<AnnotationProxy> aas = new ArrayList<AnnotationProxy>(layer.size());
+		List<AnnotationProxy> annotProxies = new ArrayList<AnnotationProxy>(layer.size());
 		for (Annotation a : layer) {
-			aas.add(convertAnnotation(argumentMap, annotationMap, jcas, a, offset));
+			annotProxies.add(convertAnnotation(argumentMap, annotationMap, jcas, a, offset));
 		}
 		LayerProxy result = new LayerProxy(jcas);
 		result.setName(layer.getName());
-		result.setAnnotations(FSCollectionFactory.createFSArray(jcas, aas));
+		result.setAnnotations(FSCollectionFactory.createFSArray(jcas, annotProxies));
 		return result;
 	}
 	
@@ -172,7 +172,7 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 		}
 		for (Relation rel : sec.getAllRelations()) {
 			for (Tuple t : rel.getTuples()) {
-				updateArgumentProxys(logger, argumentMap, jcas, t);
+				updateArgumentProxies(logger, argumentMap, jcas, t);
 			}
 		}
 		return FSCollectionFactory.createFSArray(jcas, result);
@@ -201,17 +201,17 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 		return result;
 	}
 
-	private static void updateArgumentProxys(Logger logger, Map<Element,TOP> argumentMap, JCas jcas, Tuple t) {
-		List<ArgumentProxy> tas = new ArrayList<ArgumentProxy>();
+	private static void updateArgumentProxies(Logger logger, Map<Element,TOP> argumentMap, JCas jcas, Tuple t) {
+		List<ArgumentProxy> argProxies = new ArrayList<ArgumentProxy>();
 		for (String role : t.getRoles()) {
 			Element arg = t.getArgument(role);
-			ArgumentProxy ta = convertArgumentProxy(logger, argumentMap, jcas, role, arg);
-			if (ta != null) {
-				tas.add(ta);
+			ArgumentProxy argProxy = convertArgumentProxy(logger, argumentMap, jcas, role, arg);
+			if (argProxy != null) {
+				argProxies.add(argProxy);
 			}
 		}
-		TupleProxy at = (TupleProxy) argumentMap.get(t);
-		at.setArguments(FSCollectionFactory.createFSArray(jcas, tas));
+		TupleProxy tupleProxy = (TupleProxy) argumentMap.get(t);
+		tupleProxy.setArguments(FSCollectionFactory.createFSArray(jcas, argProxies));
 	}
 	
 	private static ArgumentProxy convertArgumentProxy(Logger logger, Map<Element,TOP> argumentMap, JCas jcas, String role, Element arg) {
@@ -220,10 +220,10 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 			return null;
 		}
 		TOP aarg = argumentMap.get(arg);
-		ArgumentProxy ta = new ArgumentProxy(jcas);
-		ta.setRole(role);
-		ta.setArgument(aarg);
-		return ta;
+		ArgumentProxy result = new ArgumentProxy(jcas);
+		result.setRole(role);
+		result.setArgument(aarg);
+		return result;
 	}
 
 	@Override
