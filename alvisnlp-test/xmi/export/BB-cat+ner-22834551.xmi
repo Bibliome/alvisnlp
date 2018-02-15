@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="1773" language="x-unspecified"/>
+    <types:AlvisDocument xmi:id="13" sofa="1" id="BB-cat+ner-22834551" features="18" sections="24"/>
+    <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="The effect of Artemisia annua on broiler performance, on intestinal microbiota and on the course of a Clostridium perfringens infection applying a necrotic enteritis disease model.&#10;The aerial parts of the plant Artemisia annua contain essential oils having antimicrobial properties against Clostridium perfringens Type A, the causal agent for necrotic enteritis in broilers. In two experiments, the influence of increasing dietary concentrations of dried A. annua leaves (0, 5, 10 and 20 g/kg) and n-hexane extract from fresh A. annua leaves (0, 125, 250 and 500 mg/kg) on broiler performance was investigated. Dried plant material decreased feed intake and body weight in a dose-dependent manner, and 10 and 20 g/kg diet tended to improve the feed conversion ratio. The n-hexane extract also reduced feed intake, but broiler weight tended to decrease only at the highest dietary concentration. The feed conversion ratio tended to improve when birds received 250 and 500 mg/kg n-hexane extract. In a third experiment, a necrotic enteritis disease model was applied to investigate the effect of the dietary addition of dried A. annua leaves (10 g/kg on top) or n-hexane extract of A. annua (250 mg/kg) on the severity of the disease in broilers. The addition of n-hexane extract reduced the intestinal C. perfringens numbers and the severity of the disease-related small intestinal lesions. Over the infection period from day 17 to day 27, birds supplemented with the n-hexane extract gained more weight than both the challenged control birds and birds receiving dried plant material. The results indicate that n-hexane extracts derived from A. annua can modulate the course of necrotic enteritis and compensate to a certain extent for the disease-associated weight losses.&#10;"/>
+    <types:AlvisFeature xmi:id="18" key="set" value="train"/>
+    <types:AlvisSection xmi:id="24" sofa="1" begin="0" end="1773" name="text" features="" layers="41 55 349 417" relations="432 460 488 1328 1398"/>
+    <types:AlvisLayer xmi:id="41" sofa="1" name="Title" annotations="45"/>
+    <cas:FSArray xmi:id="45" elements="34"/>
+    <types:AlvisAnnotation xmi:id="34" sofa="1" begin="0" end="180" features=""/>
+    <types:AlvisLayer xmi:id="55" sofa="1" name="Paragraph" annotations="59"/>
+    <cas:FSArray xmi:id="59" elements="48"/>
+    <types:AlvisAnnotation xmi:id="48" sofa="1" begin="181" end="1772" features=""/>
+    <types:AlvisLayer xmi:id="349" sofa="1" name="Habitat" annotations="353"/>
+    <cas:FSArray xmi:id="353" elements="62 69 76 83 90 97 104 111 118 125 132 139 146 153 160 167 174 181 188 195 202 209 216 223 230 237 244 251 258 265 272 279 286 293 300 307 314 321 328 335 342"/>
+    <types:AlvisAnnotation xmi:id="62" sofa="1" begin="14" end="29" features=""/>
+    <types:AlvisAnnotation xmi:id="69" sofa="1" begin="33" end="40" features=""/>
+    <types:AlvisAnnotation xmi:id="76" sofa="1" begin="57" end="78" features=""/>
+    <types:AlvisAnnotation xmi:id="83" sofa="1" begin="57" end="67" features=""/>
+    <types:AlvisAnnotation xmi:id="90" sofa="1" begin="185" end="226" features=""/>
+    <types:AlvisAnnotation xmi:id="97" sofa="1" begin="205" end="226" features=""/>
+    <types:AlvisAnnotation xmi:id="104" sofa="1" begin="235" end="249" features=""/>
+    <types:AlvisAnnotation xmi:id="111" sofa="1" begin="365" end="373" features=""/>
+    <types:AlvisAnnotation xmi:id="118" sofa="1" begin="449" end="470" features=""/>
+    <types:AlvisAnnotation xmi:id="125" sofa="1" begin="455" end="463" features=""/>
+    <types:AlvisAnnotation xmi:id="132" sofa="1" begin="498" end="541" features=""/>
+    <types:AlvisAnnotation xmi:id="139" sofa="1" begin="520" end="541" features=""/>
+    <types:AlvisAnnotation xmi:id="146" sofa="1" begin="526" end="534" features=""/>
+    <types:AlvisAnnotation xmi:id="153" sofa="1" begin="573" end="580" features=""/>
+    <types:AlvisAnnotation xmi:id="160" sofa="1" begin="611" end="631" features=""/>
+    <types:AlvisAnnotation xmi:id="167" sofa="1" begin="617" end="622" features=""/>
+    <types:AlvisAnnotation xmi:id="174" sofa="1" begin="642" end="646" features=""/>
+    <types:AlvisAnnotation xmi:id="181" sofa="1" begin="658" end="662" features=""/>
+    <types:AlvisAnnotation xmi:id="188" sofa="1" begin="744" end="748" features=""/>
+    <types:AlvisAnnotation xmi:id="195" sofa="1" begin="801" end="805" features=""/>
+    <types:AlvisAnnotation xmi:id="202" sofa="1" begin="818" end="825" features=""/>
+    <types:AlvisAnnotation xmi:id="209" sofa="1" begin="899" end="903" features=""/>
+    <types:AlvisAnnotation xmi:id="216" sofa="1" begin="944" end="949" features=""/>
+    <types:AlvisAnnotation xmi:id="223" sofa="1" begin="977" end="993" features=""/>
+    <types:AlvisAnnotation xmi:id="230" sofa="1" begin="1118" end="1139" features=""/>
+    <types:AlvisAnnotation xmi:id="237" sofa="1" begin="1124" end="1132" features=""/>
+    <types:AlvisAnnotation xmi:id="244" sofa="1" begin="1160" end="1188" features=""/>
+    <types:AlvisAnnotation xmi:id="251" sofa="1" begin="1180" end="1188" features=""/>
+    <types:AlvisAnnotation xmi:id="258" sofa="1" begin="1235" end="1243" features=""/>
+    <types:AlvisAnnotation xmi:id="265" sofa="1" begin="1261" end="1277" features=""/>
+    <types:AlvisAnnotation xmi:id="272" sofa="1" begin="1290" end="1300" features=""/>
+    <types:AlvisAnnotation xmi:id="279" sofa="1" begin="1364" end="1388" features=""/>
+    <types:AlvisAnnotation xmi:id="286" sofa="1" begin="1364" end="1380" features=""/>
+    <types:AlvisAnnotation xmi:id="293" sofa="1" begin="1439" end="1483" features=""/>
+    <types:AlvisAnnotation xmi:id="300" sofa="1" begin="1467" end="1483" features=""/>
+    <types:AlvisAnnotation xmi:id="307" sofa="1" begin="1517" end="1541" features=""/>
+    <types:AlvisAnnotation xmi:id="314" sofa="1" begin="1546" end="1582" features=""/>
+    <types:AlvisAnnotation xmi:id="321" sofa="1" begin="1562" end="1582" features=""/>
+    <types:AlvisAnnotation xmi:id="328" sofa="1" begin="1568" end="1573" features=""/>
+    <types:AlvisAnnotation xmi:id="335" sofa="1" begin="1610" end="1649" features=""/>
+    <types:AlvisAnnotation xmi:id="342" sofa="1" begin="1641" end="1649" features=""/>
+    <types:AlvisLayer xmi:id="417" sofa="1" name="Bacteria" annotations="421"/>
+    <cas:FSArray xmi:id="421" elements="396 403 410"/>
+    <types:AlvisAnnotation xmi:id="396" sofa="1" begin="102" end="125" features=""/>
+    <types:AlvisAnnotation xmi:id="403" sofa="1" begin="290" end="320" features=""/>
+    <types:AlvisAnnotation xmi:id="410" sofa="1" begin="1301" end="1315" features=""/>
+    <types:AlvisRelation xmi:id="432" sofa="1" features="437" tuples="443" name="Title"/>
+    <types:AlvisFeature xmi:id="437" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="443" sofa="1" features="447 450" arguments="1410"/>
+    <types:AlvisFeature xmi:id="447" key="id" value="T1"/>
+    <types:AlvisFeature xmi:id="450" key="type" value="Title"/>
+    <cas:FSArray xmi:id="1410" elements="1407"/>
+    <types:TupleArgument xmi:id="1407" role="frag0" argument="34"/>
+    <types:AlvisRelation xmi:id="460" sofa="1" features="465" tuples="471" name="Paragraph"/>
+    <types:AlvisFeature xmi:id="465" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="471" sofa="1" features="475 478" arguments="1416"/>
+    <types:AlvisFeature xmi:id="475" key="id" value="T2"/>
+    <types:AlvisFeature xmi:id="478" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="1416" elements="1413"/>
+    <types:TupleArgument xmi:id="1413" role="frag0" argument="48"/>
+    <types:AlvisRelation xmi:id="488" sofa="1" features="493" tuples="499 517 535 553 571 589 607 625 643 661 683 701 719 737 755 781 799 817 835 853 871 889 907 925 951 973 991 1009 1031 1053 1071 1089 1107 1125 1143 1161 1183 1209 1227 1249 1267" name="Habitat"/>
+    <types:AlvisFeature xmi:id="493" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="499" sofa="1" features="503 506 509" arguments="1422"/>
+    <types:AlvisFeature xmi:id="503" key="id" value="T3"/>
+    <types:AlvisFeature xmi:id="506" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="509" key="OntoBiotope" value="OBT:000789"/>
+    <cas:FSArray xmi:id="1422" elements="1419"/>
+    <types:TupleArgument xmi:id="1419" role="frag0" argument="62"/>
+    <types:AlvisTuple xmi:id="517" sofa="1" features="521 524 527" arguments="1428"/>
+    <types:AlvisFeature xmi:id="521" key="id" value="T4"/>
+    <types:AlvisFeature xmi:id="524" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="527" key="OntoBiotope" value="OBT:002251"/>
+    <cas:FSArray xmi:id="1428" elements="1425"/>
+    <types:TupleArgument xmi:id="1425" role="frag0" argument="69"/>
+    <types:AlvisTuple xmi:id="535" sofa="1" features="539 542 545" arguments="1434"/>
+    <types:AlvisFeature xmi:id="539" key="id" value="T5"/>
+    <types:AlvisFeature xmi:id="542" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="545" key="OntoBiotope" value="OBT:001893"/>
+    <cas:FSArray xmi:id="1434" elements="1431"/>
+    <types:TupleArgument xmi:id="1431" role="frag0" argument="83"/>
+    <types:AlvisTuple xmi:id="553" sofa="1" features="557 560 563" arguments="1440"/>
+    <types:AlvisFeature xmi:id="557" key="id" value="T6"/>
+    <types:AlvisFeature xmi:id="560" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="563" key="OntoBiotope" value="OBT:000033"/>
+    <cas:FSArray xmi:id="1440" elements="1437"/>
+    <types:TupleArgument xmi:id="1437" role="frag0" argument="76"/>
+    <types:AlvisTuple xmi:id="571" sofa="1" features="575 578 581" arguments="1446"/>
+    <types:AlvisFeature xmi:id="575" key="id" value="T8"/>
+    <types:AlvisFeature xmi:id="578" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="581" key="OntoBiotope" value="OBT:000162"/>
+    <cas:FSArray xmi:id="1446" elements="1443"/>
+    <types:TupleArgument xmi:id="1443" role="frag0" argument="90"/>
+    <types:AlvisTuple xmi:id="589" sofa="1" features="593 596 599" arguments="1452"/>
+    <types:AlvisFeature xmi:id="593" key="id" value="T9"/>
+    <types:AlvisFeature xmi:id="596" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="599" key="OntoBiotope" value="OBT:000789"/>
+    <cas:FSArray xmi:id="1452" elements="1449"/>
+    <types:TupleArgument xmi:id="1449" role="frag0" argument="97"/>
+    <types:AlvisTuple xmi:id="607" sofa="1" features="611 614 617" arguments="1458"/>
+    <types:AlvisFeature xmi:id="611" key="id" value="T10"/>
+    <types:AlvisFeature xmi:id="614" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="617" key="OntoBiotope" value="OBT:000428"/>
+    <cas:FSArray xmi:id="1458" elements="1455"/>
+    <types:TupleArgument xmi:id="1455" role="frag0" argument="104"/>
+    <types:AlvisTuple xmi:id="625" sofa="1" features="629 632 635" arguments="1464"/>
+    <types:AlvisFeature xmi:id="629" key="id" value="T12"/>
+    <types:AlvisFeature xmi:id="632" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="635" key="OntoBiotope" value="OBT:002251"/>
+    <cas:FSArray xmi:id="1464" elements="1461"/>
+    <types:TupleArgument xmi:id="1461" role="frag0" argument="111"/>
+    <types:AlvisTuple xmi:id="643" sofa="1" features="647 650 653" arguments="1470"/>
+    <types:AlvisFeature xmi:id="647" key="id" value="T14"/>
+    <types:AlvisFeature xmi:id="650" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="653" key="OntoBiotope" value="OBT:000789"/>
+    <cas:FSArray xmi:id="1470" elements="1467"/>
+    <types:TupleArgument xmi:id="1467" role="frag0" argument="125"/>
+    <types:AlvisTuple xmi:id="661" sofa="1" features="665 668 671 674" arguments="1476"/>
+    <types:AlvisFeature xmi:id="665" key="id" value="T13"/>
+    <types:AlvisFeature xmi:id="668" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="671" key="OntoBiotope" value="OBT:000849"/>
+    <types:AlvisFeature xmi:id="674" key="OntoBiotope" value="OBT:000019"/>
+    <cas:FSArray xmi:id="1476" elements="1473"/>
+    <types:TupleArgument xmi:id="1473" role="frag0" argument="118"/>
+    <types:AlvisTuple xmi:id="683" sofa="1" features="687 690 693" arguments="1482"/>
+    <types:AlvisFeature xmi:id="687" key="id" value="T16"/>
+    <types:AlvisFeature xmi:id="690" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="693" key="OntoBiotope" value="OBT:000849"/>
+    <cas:FSArray xmi:id="1482" elements="1479"/>
+    <types:TupleArgument xmi:id="1479" role="frag0" argument="139"/>
+    <types:AlvisTuple xmi:id="701" sofa="1" features="705 708 711" arguments="1488"/>
+    <types:AlvisFeature xmi:id="705" key="id" value="T15"/>
+    <types:AlvisFeature xmi:id="708" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="711" key="OntoBiotope" value="OBT:000019"/>
+    <cas:FSArray xmi:id="1488" elements="1485"/>
+    <types:TupleArgument xmi:id="1485" role="frag0" argument="132"/>
+    <types:AlvisTuple xmi:id="719" sofa="1" features="723 726 729" arguments="1494"/>
+    <types:AlvisFeature xmi:id="723" key="id" value="T18"/>
+    <types:AlvisFeature xmi:id="726" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="729" key="OntoBiotope" value="OBT:002251"/>
+    <cas:FSArray xmi:id="1494" elements="1491"/>
+    <types:TupleArgument xmi:id="1491" role="frag0" argument="153"/>
+    <types:AlvisTuple xmi:id="737" sofa="1" features="741 744 747" arguments="1500"/>
+    <types:AlvisFeature xmi:id="741" key="id" value="T17"/>
+    <types:AlvisFeature xmi:id="744" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="747" key="OntoBiotope" value="OBT:000789"/>
+    <cas:FSArray xmi:id="1500" elements="1497"/>
+    <types:TupleArgument xmi:id="1497" role="frag0" argument="146"/>
+    <types:AlvisTuple xmi:id="755" sofa="1" features="759 762 765 768 771" arguments="1506"/>
+    <types:AlvisFeature xmi:id="759" key="id" value="T19"/>
+    <types:AlvisFeature xmi:id="762" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="765" key="OntoBiotope" value="OBT:000849"/>
+    <types:AlvisFeature xmi:id="768" key="OntoBiotope" value="OBT:000019"/>
+    <types:AlvisFeature xmi:id="771" key="OntoBiotope" value="OBT:000805"/>
+    <cas:FSArray xmi:id="1506" elements="1503"/>
+    <types:TupleArgument xmi:id="1503" role="frag0" argument="160"/>
+    <types:AlvisTuple xmi:id="781" sofa="1" features="785 788 791" arguments="1512"/>
+    <types:AlvisFeature xmi:id="785" key="id" value="T21"/>
+    <types:AlvisFeature xmi:id="788" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="791" key="OntoBiotope" value="OBT:000019"/>
+    <cas:FSArray xmi:id="1512" elements="1509"/>
+    <types:TupleArgument xmi:id="1509" role="frag0" argument="174"/>
+    <types:AlvisTuple xmi:id="799" sofa="1" features="803 806 809" arguments="1518"/>
+    <types:AlvisFeature xmi:id="803" key="id" value="T20"/>
+    <types:AlvisFeature xmi:id="806" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="809" key="OntoBiotope" value="OBT:000789"/>
+    <cas:FSArray xmi:id="1518" elements="1515"/>
+    <types:TupleArgument xmi:id="1515" role="frag0" argument="167"/>
+    <types:AlvisTuple xmi:id="817" sofa="1" features="821 824 827" arguments="1524"/>
+    <types:AlvisFeature xmi:id="821" key="id" value="T23"/>
+    <types:AlvisFeature xmi:id="824" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="827" key="OntoBiotope" value="OBT:000019"/>
+    <cas:FSArray xmi:id="1524" elements="1521"/>
+    <types:TupleArgument xmi:id="1521" role="frag0" argument="188"/>
+    <types:AlvisTuple xmi:id="835" sofa="1" features="839 842 845" arguments="1530"/>
+    <types:AlvisFeature xmi:id="839" key="id" value="T22"/>
+    <types:AlvisFeature xmi:id="842" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="845" key="OntoBiotope" value="OBT:000212"/>
+    <cas:FSArray xmi:id="1530" elements="1527"/>
+    <types:TupleArgument xmi:id="1527" role="frag0" argument="181"/>
+    <types:AlvisTuple xmi:id="853" sofa="1" features="857 860 863" arguments="1536"/>
+    <types:AlvisFeature xmi:id="857" key="id" value="T25"/>
+    <types:AlvisFeature xmi:id="860" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="863" key="OntoBiotope" value="OBT:002251"/>
+    <cas:FSArray xmi:id="1536" elements="1533"/>
+    <types:TupleArgument xmi:id="1533" role="frag0" argument="202"/>
+    <types:AlvisTuple xmi:id="871" sofa="1" features="875 878 881" arguments="1542"/>
+    <types:AlvisFeature xmi:id="875" key="id" value="T24"/>
+    <types:AlvisFeature xmi:id="878" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="881" key="OntoBiotope" value="OBT:000019"/>
+    <cas:FSArray xmi:id="1542" elements="1539"/>
+    <types:TupleArgument xmi:id="1539" role="frag0" argument="195"/>
+    <types:AlvisTuple xmi:id="889" sofa="1" features="893 896 899" arguments="1548"/>
+    <types:AlvisFeature xmi:id="893" key="id" value="T27"/>
+    <types:AlvisFeature xmi:id="896" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="899" key="OntoBiotope" value="OBT:002251"/>
+    <cas:FSArray xmi:id="1548" elements="1545"/>
+    <types:TupleArgument xmi:id="1545" role="frag0" argument="216"/>
+    <types:AlvisTuple xmi:id="907" sofa="1" features="911 914 917" arguments="1554"/>
+    <types:AlvisFeature xmi:id="911" key="id" value="T26"/>
+    <types:AlvisFeature xmi:id="914" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="917" key="OntoBiotope" value="OBT:000019"/>
+    <cas:FSArray xmi:id="1554" elements="1551"/>
+    <types:TupleArgument xmi:id="1551" role="frag0" argument="209"/>
+    <types:AlvisTuple xmi:id="925" sofa="1" features="929 932 935 938 941" arguments="1560"/>
+    <types:AlvisFeature xmi:id="929" key="id" value="T29"/>
+    <types:AlvisFeature xmi:id="932" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="935" key="OntoBiotope" value="OBT:000805"/>
+    <types:AlvisFeature xmi:id="938" key="OntoBiotope" value="OBT:000849"/>
+    <types:AlvisFeature xmi:id="941" key="OntoBiotope" value="OBT:000019"/>
+    <cas:FSArray xmi:id="1560" elements="1557"/>
+    <types:TupleArgument xmi:id="1557" role="frag0" argument="230"/>
+    <types:AlvisTuple xmi:id="951" sofa="1" features="955 958 961 964" arguments="1566"/>
+    <types:AlvisFeature xmi:id="955" key="id" value="T28"/>
+    <types:AlvisFeature xmi:id="958" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="961" key="OntoBiotope" value="OBT:000019"/>
+    <types:AlvisFeature xmi:id="964" key="OntoBiotope" value="OBT:000805"/>
+    <cas:FSArray xmi:id="1566" elements="1563"/>
+    <types:TupleArgument xmi:id="1563" role="frag0" argument="223"/>
+    <types:AlvisTuple xmi:id="973" sofa="1" features="977 980 983" arguments="1572"/>
+    <types:AlvisFeature xmi:id="977" key="id" value="T30"/>
+    <types:AlvisFeature xmi:id="980" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="983" key="OntoBiotope" value="OBT:000789"/>
+    <cas:FSArray xmi:id="1572" elements="1569"/>
+    <types:TupleArgument xmi:id="1569" role="frag0" argument="237"/>
+    <types:AlvisTuple xmi:id="991" sofa="1" features="995 998 1001" arguments="1578"/>
+    <types:AlvisFeature xmi:id="995" key="id" value="T32"/>
+    <types:AlvisFeature xmi:id="998" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="1001" key="OntoBiotope" value="OBT:000789"/>
+    <cas:FSArray xmi:id="1578" elements="1575"/>
+    <types:TupleArgument xmi:id="1575" role="frag0" argument="251"/>
+    <types:AlvisTuple xmi:id="1009" sofa="1" features="1013 1016 1019 1022" arguments="1584"/>
+    <types:AlvisFeature xmi:id="1013" key="id" value="T31"/>
+    <types:AlvisFeature xmi:id="1016" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="1019" key="OntoBiotope" value="OBT:000019"/>
+    <types:AlvisFeature xmi:id="1022" key="OntoBiotope" value="OBT:000805"/>
+    <cas:FSArray xmi:id="1584" elements="1581"/>
+    <types:TupleArgument xmi:id="1581" role="frag0" argument="244"/>
+    <types:AlvisTuple xmi:id="1031" sofa="1" features="1035 1038 1041 1044" arguments="1590"/>
+    <types:AlvisFeature xmi:id="1035" key="id" value="T34"/>
+    <types:AlvisFeature xmi:id="1038" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="1041" key="OntoBiotope" value="OBT:000019"/>
+    <types:AlvisFeature xmi:id="1044" key="OntoBiotope" value="OBT:000805"/>
+    <cas:FSArray xmi:id="1590" elements="1587"/>
+    <types:TupleArgument xmi:id="1587" role="frag0" argument="265"/>
+    <types:AlvisTuple xmi:id="1053" sofa="1" features="1057 1060 1063" arguments="1596"/>
+    <types:AlvisFeature xmi:id="1057" key="id" value="T33"/>
+    <types:AlvisFeature xmi:id="1060" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="1063" key="OntoBiotope" value="OBT:002251"/>
+    <cas:FSArray xmi:id="1596" elements="1593"/>
+    <types:TupleArgument xmi:id="1593" role="frag0" argument="258"/>
+    <types:AlvisTuple xmi:id="1071" sofa="1" features="1075 1078 1081" arguments="1602"/>
+    <types:AlvisFeature xmi:id="1075" key="id" value="T35"/>
+    <types:AlvisFeature xmi:id="1078" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="1081" key="OntoBiotope" value="OBT:001893"/>
+    <cas:FSArray xmi:id="1602" elements="1599"/>
+    <types:TupleArgument xmi:id="1599" role="frag0" argument="272"/>
+    <types:AlvisTuple xmi:id="1089" sofa="1" features="1093 1096 1099" arguments="1608"/>
+    <types:AlvisFeature xmi:id="1093" key="id" value="T38"/>
+    <types:AlvisFeature xmi:id="1096" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="1099" key="OntoBiotope" value="OBT:002194"/>
+    <cas:FSArray xmi:id="1608" elements="1605"/>
+    <types:TupleArgument xmi:id="1605" role="frag0" argument="286"/>
+    <types:AlvisTuple xmi:id="1107" sofa="1" features="1111 1114 1117" arguments="1614"/>
+    <types:AlvisFeature xmi:id="1111" key="id" value="T37"/>
+    <types:AlvisFeature xmi:id="1114" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="1117" key="OntoBiotope" value="OBT:000266"/>
+    <cas:FSArray xmi:id="1614" elements="1611"/>
+    <types:TupleArgument xmi:id="1611" role="frag0" argument="279"/>
+    <types:AlvisTuple xmi:id="1125" sofa="1" features="1129 1132 1135" arguments="1620"/>
+    <types:AlvisFeature xmi:id="1129" key="id" value="T39"/>
+    <types:AlvisFeature xmi:id="1132" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="1135" key="OntoBiotope" value="OBT:002251"/>
+    <cas:FSArray xmi:id="1620" elements="1617"/>
+    <types:TupleArgument xmi:id="1617" role="frag0" argument="293"/>
+    <types:AlvisTuple xmi:id="1143" sofa="1" features="1147 1150 1153" arguments="1626"/>
+    <types:AlvisFeature xmi:id="1147" key="id" value="T41"/>
+    <types:AlvisFeature xmi:id="1150" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="1153" key="OntoBiotope" value="OBT:002251"/>
+    <cas:FSArray xmi:id="1626" elements="1623"/>
+    <types:TupleArgument xmi:id="1623" role="frag0" argument="307"/>
+    <types:AlvisTuple xmi:id="1161" sofa="1" features="1165 1168 1171 1174" arguments="1632"/>
+    <types:AlvisFeature xmi:id="1165" key="id" value="T40"/>
+    <types:AlvisFeature xmi:id="1168" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="1171" key="OntoBiotope" value="OBT:000019"/>
+    <types:AlvisFeature xmi:id="1174" key="OntoBiotope" value="OBT:000805"/>
+    <cas:FSArray xmi:id="1632" elements="1629"/>
+    <types:TupleArgument xmi:id="1629" role="frag0" argument="300"/>
+    <types:AlvisTuple xmi:id="1183" sofa="1" features="1187 1190 1193 1196 1199" arguments="1638"/>
+    <types:AlvisFeature xmi:id="1187" key="id" value="T43"/>
+    <types:AlvisFeature xmi:id="1190" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="1193" key="OntoBiotope" value="OBT:000805"/>
+    <types:AlvisFeature xmi:id="1196" key="OntoBiotope" value="OBT:000019"/>
+    <types:AlvisFeature xmi:id="1199" key="OntoBiotope" value="OBT:000849"/>
+    <cas:FSArray xmi:id="1638" elements="1635"/>
+    <types:TupleArgument xmi:id="1635" role="frag0" argument="321"/>
+    <types:AlvisTuple xmi:id="1209" sofa="1" features="1213 1216 1219" arguments="1644"/>
+    <types:AlvisFeature xmi:id="1213" key="id" value="T42"/>
+    <types:AlvisFeature xmi:id="1216" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="1219" key="OntoBiotope" value="OBT:002251"/>
+    <cas:FSArray xmi:id="1644" elements="1641"/>
+    <types:TupleArgument xmi:id="1641" role="frag0" argument="314"/>
+    <types:AlvisTuple xmi:id="1227" sofa="1" features="1231 1234 1237 1240" arguments="1650"/>
+    <types:AlvisFeature xmi:id="1231" key="id" value="T45"/>
+    <types:AlvisFeature xmi:id="1234" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="1237" key="OntoBiotope" value="OBT:000805"/>
+    <types:AlvisFeature xmi:id="1240" key="OntoBiotope" value="OBT:000019"/>
+    <cas:FSArray xmi:id="1650" elements="1647"/>
+    <types:TupleArgument xmi:id="1647" role="frag0" argument="335"/>
+    <types:AlvisTuple xmi:id="1249" sofa="1" features="1253 1256 1259" arguments="1656"/>
+    <types:AlvisFeature xmi:id="1253" key="id" value="T44"/>
+    <types:AlvisFeature xmi:id="1256" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="1259" key="OntoBiotope" value="OBT:000789"/>
+    <cas:FSArray xmi:id="1656" elements="1653"/>
+    <types:TupleArgument xmi:id="1653" role="frag0" argument="328"/>
+    <types:AlvisTuple xmi:id="1267" sofa="1" features="1271 1274 1277" arguments="1662"/>
+    <types:AlvisFeature xmi:id="1271" key="id" value="T46"/>
+    <types:AlvisFeature xmi:id="1274" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="1277" key="OntoBiotope" value="OBT:000789"/>
+    <cas:FSArray xmi:id="1662" elements="1659"/>
+    <types:TupleArgument xmi:id="1659" role="frag0" argument="342"/>
+    <types:AlvisRelation xmi:id="1328" sofa="1" features="1333" tuples="1339 1357 1375" name="Bacteria"/>
+    <types:AlvisFeature xmi:id="1333" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="1339" sofa="1" features="1343 1346 1349" arguments="1668"/>
+    <types:AlvisFeature xmi:id="1343" key="id" value="T7"/>
+    <types:AlvisFeature xmi:id="1346" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="1349" key="NCBI_Taxonomy" value="1502"/>
+    <cas:FSArray xmi:id="1668" elements="1665"/>
+    <types:TupleArgument xmi:id="1665" role="frag0" argument="396"/>
+    <types:AlvisTuple xmi:id="1357" sofa="1" features="1361 1364 1367" arguments="1674"/>
+    <types:AlvisFeature xmi:id="1361" key="id" value="T11"/>
+    <types:AlvisFeature xmi:id="1364" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="1367" key="NCBI_Taxonomy" value="1502"/>
+    <cas:FSArray xmi:id="1674" elements="1671"/>
+    <types:TupleArgument xmi:id="1671" role="frag0" argument="403"/>
+    <types:AlvisTuple xmi:id="1375" sofa="1" features="1379 1382 1385" arguments="1680"/>
+    <types:AlvisFeature xmi:id="1379" key="id" value="T36"/>
+    <types:AlvisFeature xmi:id="1382" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="1385" key="NCBI_Taxonomy" value="1502"/>
+    <cas:FSArray xmi:id="1680" elements="1677"/>
+    <types:TupleArgument xmi:id="1677" role="frag0" argument="410"/>
+    <types:AlvisRelation xmi:id="1398" sofa="1" features="" tuples="" name="equiv"/>
+    <cas:View sofa="1" members="8 13"/>
+</xmi:XMI>

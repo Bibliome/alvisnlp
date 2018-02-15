@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="1269" language="x-unspecified"/>
+    <types:AlvisDocument xmi:id="13" sofa="1" id="BB-cat+ner-16510930" features="18" sections="24"/>
+    <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="[Results of serotyping of strains isolated from patients with ulcerative colitis (colitis gravis), adaptive colitis and chronic catarrhal colitis].&#10;Serotyping of 565 E.coli strains isolated from 273 patients with ulcerative colitis (70 patients); chronic catarrhal colitis (96 patients), adaptive colitis (107 patient) and of 72 E. coli strains isolated from 50 practically healthy persons (control group) was performed. Serotyping was performed in reaction of agglutination, on stage-glass, by use of commercial set consisting of O and H monovalent serum. As a result of performed investigation it was determined, that in patients with different intestinal inflammatory pathologies, there were found significant pathologic changes in intestinal microbiocenosis, in which main role are playing by strains of E. coli. Such violations of intestinal microbiocenosis often are leading to complications of basic disease. Serotyping of E. coli strains has shown, that in formation of pathologic microbiocenosis with more or less equal frequency are taking part enteropathogenic, enteroinvasive, enterotoxic strains of E. coli and also some definite serotypes of E. coli - representatives of normal intestinal microflora with ability of synthesis of thermolabile enterotoxin.&#10;"/>
+    <types:AlvisFeature xmi:id="18" key="set" value="test"/>
+    <types:AlvisSection xmi:id="24" sofa="1" begin="0" end="1269" name="text" features="" layers="41 55" relations="66 94 122"/>
+    <types:AlvisLayer xmi:id="41" sofa="1" name="Title" annotations="45"/>
+    <cas:FSArray xmi:id="45" elements="34"/>
+    <types:AlvisAnnotation xmi:id="34" sofa="1" begin="0" end="147" features=""/>
+    <types:AlvisLayer xmi:id="55" sofa="1" name="Paragraph" annotations="59"/>
+    <cas:FSArray xmi:id="59" elements="48"/>
+    <types:AlvisAnnotation xmi:id="48" sofa="1" begin="148" end="1268" features=""/>
+    <types:AlvisRelation xmi:id="66" sofa="1" features="71" tuples="77" name="Title"/>
+    <types:AlvisFeature xmi:id="71" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="77" sofa="1" features="81 84" arguments="134"/>
+    <types:AlvisFeature xmi:id="81" key="id" value="T1"/>
+    <types:AlvisFeature xmi:id="84" key="type" value="Title"/>
+    <cas:FSArray xmi:id="134" elements="131"/>
+    <types:TupleArgument xmi:id="131" role="frag0" argument="34"/>
+    <types:AlvisRelation xmi:id="94" sofa="1" features="99" tuples="105" name="Paragraph"/>
+    <types:AlvisFeature xmi:id="99" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="105" sofa="1" features="109 112" arguments="140"/>
+    <types:AlvisFeature xmi:id="109" key="id" value="T2"/>
+    <types:AlvisFeature xmi:id="112" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="140" elements="137"/>
+    <types:TupleArgument xmi:id="137" role="frag0" argument="48"/>
+    <types:AlvisRelation xmi:id="122" sofa="1" features="" tuples="" name="equiv"/>
+    <cas:View sofa="1" members="8 13"/>
+</xmi:XMI>

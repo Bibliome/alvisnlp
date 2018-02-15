@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="1309" language="x-unspecified"/>
+    <types:AlvisDocument xmi:id="13" sofa="1" id="BB-cat+ner-11410343" features="18" sections="24"/>
+    <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Effects of 2,2',5,5'-tetrachlorobiphenyl and biphenyl on cell membranes of Ralstonia eutropha H850.&#10;The effects of 2,2',5,5'-tetrachlorobiphenyl (TeCB), a PCB congener, and biphenyl on the cytoplasmic membranes of Ralstonia eutropha H850 were investigated by measuring fluorescence polarization using 1,6-diphenyl-1,3,5-hexatriene (DPH) as the probe, and determining the cellular fatty acid compositions. TeCB significantly affected the membrane of R. eutropha H850 cells grown on fructose by decreasing DPH fluorescence polarization. In contrast, the membrane of cells grown on biphenyl showed a considerably less significant effect of TeCB on membrane polarization than in fructose-grown cells. An increase in the ratio of total saturated to unsaturated fatty acids in cells grown on biphenyl suggested less of a fluidizing effect of TeCB on membranes in those cells. When biphenyl-grown cells were transferred back to a fructose medium, they required 25 generations for the membrane polarization and fatty acid compositions of these cells to revert back to those of the initial fructose-grown cells. The re-adaptation to a change in temperature required only five generations to return to normal. These results show that biphenyl affects cells in more ways than simply fluidizing the cytoplasmic membrane.&#10;"/>
+    <types:AlvisFeature xmi:id="18" key="set" value="train"/>
+    <types:AlvisSection xmi:id="24" sofa="1" begin="0" end="1309" name="text" features="" layers="55 71 85 99" relations="112 182 214 242 270"/>
+    <types:AlvisLayer xmi:id="55" sofa="1" name="Bacteria" annotations="59"/>
+    <cas:FSArray xmi:id="59" elements="34 41 48"/>
+    <types:AlvisAnnotation xmi:id="34" sofa="1" begin="75" end="98" features=""/>
+    <types:AlvisAnnotation xmi:id="41" sofa="1" begin="214" end="237" features=""/>
+    <types:AlvisAnnotation xmi:id="48" sofa="1" begin="449" end="465" features=""/>
+    <types:AlvisLayer xmi:id="71" sofa="1" name="Habitat" annotations="75"/>
+    <cas:FSArray xmi:id="75" elements="64"/>
+    <types:AlvisAnnotation xmi:id="64" sofa="1" begin="923" end="938" features=""/>
+    <types:AlvisLayer xmi:id="85" sofa="1" name="Title" annotations="89"/>
+    <cas:FSArray xmi:id="89" elements="78"/>
+    <types:AlvisAnnotation xmi:id="78" sofa="1" begin="0" end="99" features=""/>
+    <types:AlvisLayer xmi:id="99" sofa="1" name="Paragraph" annotations="103"/>
+    <cas:FSArray xmi:id="103" elements="92"/>
+    <types:AlvisAnnotation xmi:id="92" sofa="1" begin="100" end="1308" features=""/>
+    <types:AlvisRelation xmi:id="112" sofa="1" features="117" tuples="123 141 159" name="Bacteria"/>
+    <types:AlvisFeature xmi:id="117" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="123" sofa="1" features="127 130 133" arguments="282"/>
+    <types:AlvisFeature xmi:id="127" key="id" value="T4"/>
+    <types:AlvisFeature xmi:id="130" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="133" key="NCBI_Taxonomy" value="53482"/>
+    <cas:FSArray xmi:id="282" elements="279"/>
+    <types:TupleArgument xmi:id="279" role="frag0" argument="41"/>
+    <types:AlvisTuple xmi:id="141" sofa="1" features="145 148 151" arguments="288"/>
+    <types:AlvisFeature xmi:id="145" key="id" value="T5"/>
+    <types:AlvisFeature xmi:id="148" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="151" key="NCBI_Taxonomy" value="53482"/>
+    <cas:FSArray xmi:id="288" elements="285"/>
+    <types:TupleArgument xmi:id="285" role="frag0" argument="48"/>
+    <types:AlvisTuple xmi:id="159" sofa="1" features="163 166 169" arguments="294"/>
+    <types:AlvisFeature xmi:id="163" key="id" value="T3"/>
+    <types:AlvisFeature xmi:id="166" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="169" key="NCBI_Taxonomy" value="53482"/>
+    <cas:FSArray xmi:id="294" elements="291"/>
+    <types:TupleArgument xmi:id="291" role="frag0" argument="34"/>
+    <types:AlvisRelation xmi:id="182" sofa="1" features="187" tuples="193" name="Habitat"/>
+    <types:AlvisFeature xmi:id="187" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="193" sofa="1" features="197 200 203" arguments="300"/>
+    <types:AlvisFeature xmi:id="197" key="id" value="T6"/>
+    <types:AlvisFeature xmi:id="200" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="203" key="OntoBiotope" value="OBT:000001"/>
+    <cas:FSArray xmi:id="300" elements="297"/>
+    <types:TupleArgument xmi:id="297" role="frag0" argument="64"/>
+    <types:AlvisRelation xmi:id="214" sofa="1" features="219" tuples="225" name="Title"/>
+    <types:AlvisFeature xmi:id="219" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="225" sofa="1" features="229 232" arguments="306"/>
+    <types:AlvisFeature xmi:id="229" key="id" value="T1"/>
+    <types:AlvisFeature xmi:id="232" key="type" value="Title"/>
+    <cas:FSArray xmi:id="306" elements="303"/>
+    <types:TupleArgument xmi:id="303" role="frag0" argument="78"/>
+    <types:AlvisRelation xmi:id="242" sofa="1" features="247" tuples="253" name="Paragraph"/>
+    <types:AlvisFeature xmi:id="247" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="253" sofa="1" features="257 260" arguments="312"/>
+    <types:AlvisFeature xmi:id="257" key="id" value="T2"/>
+    <types:AlvisFeature xmi:id="260" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="312" elements="309"/>
+    <types:TupleArgument xmi:id="309" role="frag0" argument="92"/>
+    <types:AlvisRelation xmi:id="270" sofa="1" features="" tuples="" name="equiv"/>
+    <cas:View sofa="1" members="8 13"/>
+</xmi:XMI>

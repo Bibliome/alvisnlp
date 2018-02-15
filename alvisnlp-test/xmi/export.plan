@@ -5,4 +5,8 @@
   <export class="XMIExport">
     <outDir>export</outDir>
   </export>
+
+  <import file="write-features.plan">
+    <file>export-features.txt</file>
+  </import>
 </alvisnlp-plan>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="1164" language="x-unspecified"/>
+    <types:AlvisDocument xmi:id="13" sofa="1" id="BB-cat+ner-21543877" features="18" sections="24"/>
+    <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Cloning, expression, purification, crystallization and X-ray crystallographic analysis of Rv3168 from Mycobacterium tuberculosis H37Rv.&#10;Tuberculosis is a widespread and deadly infectious disease, with one third of the human population already being infected. Aminoglycoside antibiotics have become less effective in recent years owing to antibiotic resistance, which arises primarily through enzymatic modification of the antibiotics. The gene product Rv3168, a putative aminoglycoside phosphotransferase (APH), from Mycobacterium tuberculosis was crystallized using the sitting-drop vapour-diffusion method in the presence of 0.2 M calcium acetate, 0.1 M Tris-HCl pH 7.0 and 20% PEG 3000 at 295 K. X-ray diffraction data were collected to a maximum resolution of 1.67 Å on a synchrotron beamline. The crystal belonged to space group P2(1)2(1)2(1), with unit-cell parameters a = 56.74, b = 62.37, c = 103.61 Å. With one molecule per asymmetric unit, the crystal volume per unit protein weight (V(M)) is 2.91 Å(3) Da(-1). The structure was solved by the single-wavelength anomalous dispersion method and refinement of the selenomethionine structure is in progress.&#10;"/>
+    <types:AlvisFeature xmi:id="18" key="set" value="dev"/>
+    <types:AlvisSection xmi:id="24" sofa="1" begin="0" end="1164" name="text" features="" layers="41 62 77 91" relations="104 136 187 215 243"/>
+    <types:AlvisLayer xmi:id="41" sofa="1" name="Habitat" annotations="45"/>
+    <cas:FSArray xmi:id="45" elements="34"/>
+    <types:AlvisAnnotation xmi:id="34" sofa="1" begin="218" end="234" features=""/>
+    <types:AlvisLayer xmi:id="62" sofa="1" name="Bacteria" annotations="66"/>
+    <cas:FSArray xmi:id="66" elements="48 55"/>
+    <types:AlvisAnnotation xmi:id="48" sofa="1" begin="102" end="134" features=""/>
+    <types:AlvisAnnotation xmi:id="55" sofa="1" begin="517" end="543" features=""/>
+    <types:AlvisLayer xmi:id="77" sofa="1" name="Title" annotations="81"/>
+    <cas:FSArray xmi:id="81" elements="70"/>
+    <types:AlvisAnnotation xmi:id="70" sofa="1" begin="0" end="135" features=""/>
+    <types:AlvisLayer xmi:id="91" sofa="1" name="Paragraph" annotations="95"/>
+    <cas:FSArray xmi:id="95" elements="84"/>
+    <types:AlvisAnnotation xmi:id="84" sofa="1" begin="136" end="1163" features=""/>
+    <types:AlvisRelation xmi:id="104" sofa="1" features="109" tuples="115" name="Habitat"/>
+    <types:AlvisFeature xmi:id="109" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="115" sofa="1" features="119 122 125" arguments="255"/>
+    <types:AlvisFeature xmi:id="119" key="id" value="T4"/>
+    <types:AlvisFeature xmi:id="122" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="125" key="OntoBiotope" value="OBT:001804"/>
+    <cas:FSArray xmi:id="255" elements="252"/>
+    <types:TupleArgument xmi:id="252" role="frag0" argument="34"/>
+    <types:AlvisRelation xmi:id="136" sofa="1" features="141" tuples="147 165" name="Bacteria"/>
+    <types:AlvisFeature xmi:id="141" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="147" sofa="1" features="151 154 157" arguments="261"/>
+    <types:AlvisFeature xmi:id="151" key="id" value="T5"/>
+    <types:AlvisFeature xmi:id="154" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="157" key="NCBI_Taxonomy" value="83332"/>
+    <cas:FSArray xmi:id="261" elements="258"/>
+    <types:TupleArgument xmi:id="258" role="frag0" argument="55"/>
+    <types:AlvisTuple xmi:id="165" sofa="1" features="169 172 175" arguments="267"/>
+    <types:AlvisFeature xmi:id="169" key="id" value="T3"/>
+    <types:AlvisFeature xmi:id="172" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="175" key="NCBI_Taxonomy" value="83332"/>
+    <cas:FSArray xmi:id="267" elements="264"/>
+    <types:TupleArgument xmi:id="264" role="frag0" argument="48"/>
+    <types:AlvisRelation xmi:id="187" sofa="1" features="192" tuples="198" name="Title"/>
+    <types:AlvisFeature xmi:id="192" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="198" sofa="1" features="202 205" arguments="273"/>
+    <types:AlvisFeature xmi:id="202" key="id" value="T1"/>
+    <types:AlvisFeature xmi:id="205" key="type" value="Title"/>
+    <cas:FSArray xmi:id="273" elements="270"/>
+    <types:TupleArgument xmi:id="270" role="frag0" argument="70"/>
+    <types:AlvisRelation xmi:id="215" sofa="1" features="220" tuples="226" name="Paragraph"/>
+    <types:AlvisFeature xmi:id="220" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="226" sofa="1" features="230 233" arguments="279"/>
+    <types:AlvisFeature xmi:id="230" key="id" value="T2"/>
+    <types:AlvisFeature xmi:id="233" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="279" elements="276"/>
+    <types:TupleArgument xmi:id="276" role="frag0" argument="84"/>
+    <types:AlvisRelation xmi:id="243" sofa="1" features="" tuples="" name="equiv"/>
+    <cas:View sofa="1" members="8 13"/>
+</xmi:XMI>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="1552" language="x-unspecified"/>
+    <types:AlvisDocument xmi:id="13" sofa="1" id="BB-cat+ner-16432479" features="18" sections="24"/>
+    <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Challenges in the control of gonorrhea in South America and the Caribbean: monitoring the development of resistance to antibiotics.&#10;: The objective of this study was to ascertain the antimicrobial susceptibility of Neisseria gonorrhoeae isolates from 6 South American and 13 Caribbean countries participating in the Gonococcal Antimicrobial Surveillance Program (GASP) from 1990 to 1999.&#10;: A GASP network of laboratories was launched in the Americas and the Caribbean during the 1990s. Standardized methods and interpretative criteria were established for the isolation of N. gonorrhoeae, strain identification, and determination, and quality control of antimicrobial susceptibility.&#10;: Two countries (Argentina and Uruguay) maintained continuous surveillance during the study period. Some countries gathered data periodically and several others were unable to initiate antimicrobial surveillance as a result of lack of resources. The percentage of penicillin-resistant N. gonorrhoeae isolated in the region over the decade varied considerably (1.0-11.9% carried chromosomal resistance and 17.9-38.8% produced beta-lactamase) with an overall trend to declining numbers of penicillin-resistant isolates. For tetracycline, 7.4% to 36.3% carried chromosomal resistance, whereas 12.0% to 27.4% carried plasmid-mediated resistance. There were no reports of ciprofloxacin-resistant isolates, although N. gonorrhoeae with decreased susceptibility to ciprofloxacin and azithromycin as well as spectinomycin-resistant isolates were identified in some countries.&#10;"/>
+    <types:AlvisFeature xmi:id="18" key="set" value="train"/>
+    <types:AlvisSection xmi:id="24" sofa="1" begin="0" end="1552" name="text" features="" layers="55 92 109 123" relations="136 194 283 315 343"/>
+    <types:AlvisLayer xmi:id="55" sofa="1" name="Paragraph" annotations="59"/>
+    <cas:FSArray xmi:id="59" elements="34 41 48"/>
+    <types:AlvisAnnotation xmi:id="34" sofa="1" begin="132" end="387" features=""/>
+    <types:AlvisAnnotation xmi:id="41" sofa="1" begin="388" end="683" features=""/>
+    <types:AlvisAnnotation xmi:id="48" sofa="1" begin="684" end="1551" features=""/>
+    <types:AlvisLayer xmi:id="92" sofa="1" name="Bacteria" annotations="96"/>
+    <cas:FSArray xmi:id="96" elements="64 71 78 85"/>
+    <types:AlvisAnnotation xmi:id="64" sofa="1" begin="215" end="236" features=""/>
+    <types:AlvisAnnotation xmi:id="71" sofa="1" begin="573" end="587" features=""/>
+    <types:AlvisAnnotation xmi:id="78" sofa="1" begin="969" end="983" features=""/>
+    <types:AlvisAnnotation xmi:id="85" sofa="1" begin="1394" end="1408" features=""/>
+    <types:AlvisLayer xmi:id="109" sofa="1" name="Habitat" annotations="113"/>
+    <cas:FSArray xmi:id="113" elements="102"/>
+    <types:AlvisAnnotation xmi:id="102" sofa="1" begin="408" end="420" features=""/>
+    <types:AlvisLayer xmi:id="123" sofa="1" name="Title" annotations="127"/>
+    <cas:FSArray xmi:id="127" elements="116"/>
+    <types:AlvisAnnotation xmi:id="116" sofa="1" begin="0" end="131" features=""/>
+    <types:AlvisRelation xmi:id="136" sofa="1" features="141" tuples="147 161 175" name="Paragraph"/>
+    <types:AlvisFeature xmi:id="141" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="147" sofa="1" features="151 154" arguments="355"/>
+    <types:AlvisFeature xmi:id="151" key="id" value="T4"/>
+    <types:AlvisFeature xmi:id="154" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="355" elements="352"/>
+    <types:TupleArgument xmi:id="352" role="frag0" argument="48"/>
+    <types:AlvisTuple xmi:id="161" sofa="1" features="165 168" arguments="361"/>
+    <types:AlvisFeature xmi:id="165" key="id" value="T2"/>
+    <types:AlvisFeature xmi:id="168" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="361" elements="358"/>
+    <types:TupleArgument xmi:id="358" role="frag0" argument="34"/>
+    <types:AlvisTuple xmi:id="175" sofa="1" features="179 182" arguments="367"/>
+    <types:AlvisFeature xmi:id="179" key="id" value="T3"/>
+    <types:AlvisFeature xmi:id="182" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="367" elements="364"/>
+    <types:TupleArgument xmi:id="364" role="frag0" argument="41"/>
+    <types:AlvisRelation xmi:id="194" sofa="1" features="199" tuples="205 223 241 259" name="Bacteria"/>
+    <types:AlvisFeature xmi:id="199" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="205" sofa="1" features="209 212 215" arguments="373"/>
+    <types:AlvisFeature xmi:id="209" key="id" value="T5"/>
+    <types:AlvisFeature xmi:id="212" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="215" key="NCBI_Taxonomy" value="485"/>
+    <cas:FSArray xmi:id="373" elements="370"/>
+    <types:TupleArgument xmi:id="370" role="frag0" argument="64"/>
+    <types:AlvisTuple xmi:id="223" sofa="1" features="227 230 233" arguments="379"/>
+    <types:AlvisFeature xmi:id="227" key="id" value="T7"/>
+    <types:AlvisFeature xmi:id="230" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="233" key="NCBI_Taxonomy" value="485"/>
+    <cas:FSArray xmi:id="379" elements="376"/>
+    <types:TupleArgument xmi:id="376" role="frag0" argument="71"/>
+    <types:AlvisTuple xmi:id="241" sofa="1" features="245 248 251" arguments="385"/>
+    <types:AlvisFeature xmi:id="245" key="id" value="T8"/>
+    <types:AlvisFeature xmi:id="248" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="251" key="NCBI_Taxonomy" value="485"/>
+    <cas:FSArray xmi:id="385" elements="382"/>
+    <types:TupleArgument xmi:id="382" role="frag0" argument="78"/>
+    <types:AlvisTuple xmi:id="259" sofa="1" features="263 266 269" arguments="391"/>
+    <types:AlvisFeature xmi:id="263" key="id" value="T9"/>
+    <types:AlvisFeature xmi:id="266" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="269" key="NCBI_Taxonomy" value="485"/>
+    <cas:FSArray xmi:id="391" elements="388"/>
+    <types:TupleArgument xmi:id="388" role="frag0" argument="85"/>
+    <types:AlvisRelation xmi:id="283" sofa="1" features="288" tuples="294" name="Habitat"/>
+    <types:AlvisFeature xmi:id="288" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="294" sofa="1" features="298 301 304" arguments="397"/>
+    <types:AlvisFeature xmi:id="298" key="id" value="T6"/>
+    <types:AlvisFeature xmi:id="301" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="304" key="OntoBiotope" value="OBT:000609"/>
+    <cas:FSArray xmi:id="397" elements="394"/>
+    <types:TupleArgument xmi:id="394" role="frag0" argument="102"/>
+    <types:AlvisRelation xmi:id="315" sofa="1" features="320" tuples="326" name="Title"/>
+    <types:AlvisFeature xmi:id="320" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="326" sofa="1" features="330 333" arguments="403"/>
+    <types:AlvisFeature xmi:id="330" key="id" value="T1"/>
+    <types:AlvisFeature xmi:id="333" key="type" value="Title"/>
+    <cas:FSArray xmi:id="403" elements="400"/>
+    <types:TupleArgument xmi:id="400" role="frag0" argument="116"/>
+    <types:AlvisRelation xmi:id="343" sofa="1" features="" tuples="" name="equiv"/>
+    <cas:View sofa="1" members="8 13"/>
+</xmi:XMI>

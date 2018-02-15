@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="989" language="x-unspecified"/>
+    <types:AlvisDocument xmi:id="13" sofa="1" id="BB-cat+ner-21989983" features="18" sections="24"/>
+    <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Insights into Acinetobacter baumannii pathogenicity.&#10;Acinetobacter spp. have justifiably received significant attention from the public, scientific, and medical communities. Over recent years, Acinetobacter, particularly Acinetobacter baumannii, has become a &quot;red-alert&quot; human pathogen, primarily because of its exceptional ability to develop resistance to all currently available antibiotics. This characteristic is compounded by its unique abilities to survive in a diverse range of environments, including those within healthcare institutions, leading to problematic outbreaks. Historically, the virulence of the organism has been questioned, but recent clinical reports suggest that Acinetobacter can cause serious, life-threatening infections. Furthermore, its metabolic adaptability gives it a selective advantage in harsh hospital environments. This review focuses on current understanding of A. baumannii pathogenesis and the model systems used to study this interesting organism.&#10;"/>
+    <types:AlvisFeature xmi:id="18" key="set" value="test"/>
+    <types:AlvisSection xmi:id="24" sofa="1" begin="0" end="989" name="text" features="" layers="41 55" relations="66 94 122"/>
+    <types:AlvisLayer xmi:id="41" sofa="1" name="Title" annotations="45"/>
+    <cas:FSArray xmi:id="45" elements="34"/>
+    <types:AlvisAnnotation xmi:id="34" sofa="1" begin="0" end="52" features=""/>
+    <types:AlvisLayer xmi:id="55" sofa="1" name="Paragraph" annotations="59"/>
+    <cas:FSArray xmi:id="59" elements="48"/>
+    <types:AlvisAnnotation xmi:id="48" sofa="1" begin="53" end="988" features=""/>
+    <types:AlvisRelation xmi:id="66" sofa="1" features="71" tuples="77" name="Title"/>
+    <types:AlvisFeature xmi:id="71" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="77" sofa="1" features="81 84" arguments="134"/>
+    <types:AlvisFeature xmi:id="81" key="id" value="T1"/>
+    <types:AlvisFeature xmi:id="84" key="type" value="Title"/>
+    <cas:FSArray xmi:id="134" elements="131"/>
+    <types:TupleArgument xmi:id="131" role="frag0" argument="34"/>
+    <types:AlvisRelation xmi:id="94" sofa="1" features="99" tuples="105" name="Paragraph"/>
+    <types:AlvisFeature xmi:id="99" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="105" sofa="1" features="109 112" arguments="140"/>
+    <types:AlvisFeature xmi:id="109" key="id" value="T2"/>
+    <types:AlvisFeature xmi:id="112" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="140" elements="137"/>
+    <types:TupleArgument xmi:id="137" role="frag0" argument="48"/>
+    <types:AlvisRelation xmi:id="122" sofa="1" features="" tuples="" name="equiv"/>
+    <cas:View sofa="1" members="8 13"/>
+</xmi:XMI>

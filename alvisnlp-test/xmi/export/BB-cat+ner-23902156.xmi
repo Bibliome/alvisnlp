@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="1395" language="x-unspecified"/>
+    <types:AlvisDocument xmi:id="13" sofa="1" id="BB-cat+ner-23902156" features="18" sections="24"/>
+    <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Isolation, expression and characterization of a minor allergen from Penicillium crustosum.&#10;A ribosomal P1 protein, Pen b 26 from Penicillium brevicompactum, was previously identified as a major allergen. A homolog protein was isolated and characterized from Penicillium crustosum which is not known to be allergenic mold. A cDNA library of P. crustosum was constructed and screened using a probe based on the DNA sequence of Pen b 26. A positive clone was isolated, expressed in Escherichia coli, purified and characterized by comparing its immunological and physical properties to Pen b 26. It was designated as Pen cr 26 and had a 321 nt ORF corresponding to 107 amino acids with a MW of 11 kDa. Pen cr 26 had strong sequence homology to Pen b 26 (92% for nucleotides and 86% for amino acids) and its physical and predicted structural properties were similar to the latter. The level of expression of Pen cr 26 was much lower than that of Pen b 26 in the same expression vector. Both proteins were recognized equally well by the IgG class specific antibodies, but Pen cr 26 was poorly recognized by Penicillium-sensitive atopic sera (IgE), suggesting striking antigenic difference in IgE epitopes, i.e., 87% were positive for Pen b 26 while only 23% were positive for Pen cr 26. The allergenicity of Pen cr 26 seems to be minor in nature and it could be a hypoallergenic variant of Pen b 26. &#10;"/>
+    <types:AlvisFeature xmi:id="18" key="set" value="dev"/>
+    <types:AlvisSection xmi:id="24" sofa="1" begin="0" end="1395" name="text" features="" layers="69 87 101 115" relations="128 236 268 296 324"/>
+    <types:AlvisLayer xmi:id="69" sofa="1" name="Habitat" annotations="73"/>
+    <cas:FSArray xmi:id="73" elements="34 41 48 55 62"/>
+    <types:AlvisAnnotation xmi:id="34" sofa="1" begin="68" end="89" features=""/>
+    <types:AlvisAnnotation xmi:id="41" sofa="1" begin="129" end="155" features=""/>
+    <types:AlvisAnnotation xmi:id="48" sofa="1" begin="258" end="279" features=""/>
+    <types:AlvisAnnotation xmi:id="55" sofa="1" begin="340" end="352" features=""/>
+    <types:AlvisAnnotation xmi:id="62" sofa="1" begin="1101" end="1134" features=""/>
+    <types:AlvisLayer xmi:id="87" sofa="1" name="Bacteria" annotations="91"/>
+    <cas:FSArray xmi:id="91" elements="80"/>
+    <types:AlvisAnnotation xmi:id="80" sofa="1" begin="479" end="495" features=""/>
+    <types:AlvisLayer xmi:id="101" sofa="1" name="Title" annotations="105"/>
+    <cas:FSArray xmi:id="105" elements="94"/>
+    <types:AlvisAnnotation xmi:id="94" sofa="1" begin="0" end="90" features=""/>
+    <types:AlvisLayer xmi:id="115" sofa="1" name="Paragraph" annotations="119"/>
+    <cas:FSArray xmi:id="119" elements="108"/>
+    <types:AlvisAnnotation xmi:id="108" sofa="1" begin="91" end="1393" features=""/>
+    <types:AlvisRelation xmi:id="128" sofa="1" features="133" tuples="139 157 175 193 211" name="Habitat"/>
+    <types:AlvisFeature xmi:id="133" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="139" sofa="1" features="143 146 149" arguments="336"/>
+    <types:AlvisFeature xmi:id="143" key="id" value="T4"/>
+    <types:AlvisFeature xmi:id="146" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="149" key="OntoBiotope" value="OBT:000106"/>
+    <cas:FSArray xmi:id="336" elements="333"/>
+    <types:TupleArgument xmi:id="333" role="frag0" argument="41"/>
+    <types:AlvisTuple xmi:id="157" sofa="1" features="161 164 167" arguments="342"/>
+    <types:AlvisFeature xmi:id="161" key="id" value="T5"/>
+    <types:AlvisFeature xmi:id="164" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="167" key="OntoBiotope" value="OBT:000106"/>
+    <cas:FSArray xmi:id="342" elements="339"/>
+    <types:TupleArgument xmi:id="339" role="frag0" argument="48"/>
+    <types:AlvisTuple xmi:id="175" sofa="1" features="179 182 185" arguments="348"/>
+    <types:AlvisFeature xmi:id="179" key="id" value="T6"/>
+    <types:AlvisFeature xmi:id="182" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="185" key="OntoBiotope" value="OBT:000106"/>
+    <cas:FSArray xmi:id="348" elements="345"/>
+    <types:TupleArgument xmi:id="345" role="frag0" argument="55"/>
+    <types:AlvisTuple xmi:id="193" sofa="1" features="197 200 203" arguments="354"/>
+    <types:AlvisFeature xmi:id="197" key="id" value="T8"/>
+    <types:AlvisFeature xmi:id="200" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="203" key="OntoBiotope" value="OBT:000001"/>
+    <cas:FSArray xmi:id="354" elements="351"/>
+    <types:TupleArgument xmi:id="351" role="frag0" argument="62"/>
+    <types:AlvisTuple xmi:id="211" sofa="1" features="215 218 221" arguments="360"/>
+    <types:AlvisFeature xmi:id="215" key="id" value="T3"/>
+    <types:AlvisFeature xmi:id="218" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="221" key="OntoBiotope" value="OBT:000106"/>
+    <cas:FSArray xmi:id="360" elements="357"/>
+    <types:TupleArgument xmi:id="357" role="frag0" argument="34"/>
+    <types:AlvisRelation xmi:id="236" sofa="1" features="241" tuples="247" name="Bacteria"/>
+    <types:AlvisFeature xmi:id="241" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="247" sofa="1" features="251 254 257" arguments="366"/>
+    <types:AlvisFeature xmi:id="251" key="id" value="T7"/>
+    <types:AlvisFeature xmi:id="254" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="257" key="NCBI_Taxonomy" value="562"/>
+    <cas:FSArray xmi:id="366" elements="363"/>
+    <types:TupleArgument xmi:id="363" role="frag0" argument="80"/>
+    <types:AlvisRelation xmi:id="268" sofa="1" features="273" tuples="279" name="Title"/>
+    <types:AlvisFeature xmi:id="273" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="279" sofa="1" features="283 286" arguments="372"/>
+    <types:AlvisFeature xmi:id="283" key="id" value="T1"/>
+    <types:AlvisFeature xmi:id="286" key="type" value="Title"/>
+    <cas:FSArray xmi:id="372" elements="369"/>
+    <types:TupleArgument xmi:id="369" role="frag0" argument="94"/>
+    <types:AlvisRelation xmi:id="296" sofa="1" features="301" tuples="307" name="Paragraph"/>
+    <types:AlvisFeature xmi:id="301" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="307" sofa="1" features="311 314" arguments="378"/>
+    <types:AlvisFeature xmi:id="311" key="id" value="T2"/>
+    <types:AlvisFeature xmi:id="314" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="378" elements="375"/>
+    <types:TupleArgument xmi:id="375" role="frag0" argument="108"/>
+    <types:AlvisRelation xmi:id="324" sofa="1" features="" tuples="" name="equiv"/>
+    <cas:View sofa="1" members="8 13"/>
+</xmi:XMI>

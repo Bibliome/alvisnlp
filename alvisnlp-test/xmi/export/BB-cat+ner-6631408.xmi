@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="1310" language="x-unspecified"/>
+    <types:AlvisDocument xmi:id="13" sofa="1" id="BB-cat+ner-6631408" features="18" sections="24"/>
+    <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Amino acid requirements of strains of Chlamydia trachomatis and C. psittaci growing in McCoy cells: relationship with clinical syndrome and host origin.&#10;The effects of omission of individual amino acids from growth medium on the multiplication of a range of Chlamydia trachomatis and C. psittaci strains in cycloheximide-treated McCoy cells have been assessed. Differences in requirements were revealed which for C. trachomatis strains correlated with clinical syndrome and for C. psittaci with host origin. All 11 strains of C. trachomatis examined showed a requirement for addition of histidine to the medium; this was not shown by any of four C. psittaci strains. Among the strains of C. trachomatis, three from cases of trachoma, representing serotypes A, B and C, showed a distinctive requirement for the addition of tryptophan to the medium, whilst six strains of oculogenital origin, representing serotypes D-I, exhibited no requirement for tryptophan or methionine; a lymphogranuloma venereum and a 'fast variant' strain both showed a requirement for methionine. Of the four C. psittaci strains from different hosts, three showed distinct patterns of amino acid requirements. All chlamydiae required the addition of valine to medium and the majority required leucine, phenylalanine and also glutamine.&#10;"/>
+    <types:AlvisFeature xmi:id="18" key="set" value="train"/>
+    <types:AlvisSection xmi:id="24" sofa="1" begin="0" end="1310" name="text" features="" layers="153 218 237 251" relations="264 566 705 733 761"/>
+    <types:AlvisLayer xmi:id="153" sofa="1" name="Bacteria" annotations="157"/>
+    <cas:FSArray xmi:id="157" elements="34 41 48 55 62 69 76 83 90 97 104 111 118 125 132 139 146"/>
+    <types:AlvisAnnotation xmi:id="34" sofa="1" begin="38" end="59" features=""/>
+    <types:AlvisAnnotation xmi:id="41" sofa="1" begin="64" end="75" features=""/>
+    <types:AlvisAnnotation xmi:id="48" sofa="1" begin="258" end="279" features=""/>
+    <types:AlvisAnnotation xmi:id="55" sofa="1" begin="284" end="295" features=""/>
+    <types:AlvisAnnotation xmi:id="62" sofa="1" begin="413" end="427" features=""/>
+    <types:AlvisAnnotation xmi:id="69" sofa="1" begin="478" end="489" features=""/>
+    <types:AlvisAnnotation xmi:id="76" sofa="1" begin="526" end="540" features=""/>
+    <types:AlvisAnnotation xmi:id="83" sofa="1" begin="646" end="657" features=""/>
+    <types:AlvisAnnotation xmi:id="90" sofa="1" begin="688" end="702" features=""/>
+    <types:AlvisAnnotation xmi:id="97" sofa="1" begin="747" end="758" features=""/>
+    <types:AlvisAnnotation xmi:id="104" sofa="1" begin="747" end="756" features=""/>
+    <types:AlvisAnnotation xmi:id="111" sofa="1" begin="747" end="756" features=""/>
+    <types:AlvisAnnotation xmi:id="118" sofa="1" begin="760" end="761" features=""/>
+    <types:AlvisAnnotation xmi:id="125" sofa="1" begin="766" end="767" features=""/>
+    <types:AlvisAnnotation xmi:id="132" sofa="1" begin="904" end="917" features=""/>
+    <types:AlvisAnnotation xmi:id="139" sofa="1" begin="1083" end="1094" features=""/>
+    <types:AlvisAnnotation xmi:id="146" sofa="1" begin="1188" end="1198" features=""/>
+    <types:AlvisLayer xmi:id="218" sofa="1" name="Habitat" annotations="222"/>
+    <cas:FSArray xmi:id="222" elements="176 183 190 197 204 211"/>
+    <types:AlvisAnnotation xmi:id="176" sofa="1" begin="87" end="98" features=""/>
+    <types:AlvisAnnotation xmi:id="183" sofa="1" begin="118" end="126" features=""/>
+    <types:AlvisAnnotation xmi:id="190" sofa="1" begin="307" end="340" features=""/>
+    <types:AlvisAnnotation xmi:id="197" sofa="1" begin="452" end="460" features=""/>
+    <types:AlvisAnnotation xmi:id="204" sofa="1" begin="715" end="732" features=""/>
+    <types:AlvisAnnotation xmi:id="211" sofa="1" begin="870" end="889" features=""/>
+    <types:AlvisLayer xmi:id="237" sofa="1" name="Title" annotations="241"/>
+    <cas:FSArray xmi:id="241" elements="230"/>
+    <types:AlvisAnnotation xmi:id="230" sofa="1" begin="0" end="152" features=""/>
+    <types:AlvisLayer xmi:id="251" sofa="1" name="Paragraph" annotations="255"/>
+    <cas:FSArray xmi:id="255" elements="244"/>
+    <types:AlvisAnnotation xmi:id="244" sofa="1" begin="153" end="1309" features=""/>
+    <types:AlvisRelation xmi:id="264" sofa="1" features="269" tuples="275 293 315 333 351 369 387 405 423 441 459 477 495 513 531" name="Bacteria"/>
+    <types:AlvisFeature xmi:id="269" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="275" sofa="1" features="279 282 285" arguments="773"/>
+    <types:AlvisFeature xmi:id="279" key="id" value="T21"/>
+    <types:AlvisFeature xmi:id="282" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="285" key="NCBI_Taxonomy" value="813"/>
+    <cas:FSArray xmi:id="773" elements="770"/>
+    <types:TupleArgument xmi:id="770" role="frag0" argument="132"/>
+    <types:AlvisTuple xmi:id="293" sofa="1" features="297 300 303 306" arguments="779"/>
+    <types:AlvisFeature xmi:id="297" key="id" value="T23"/>
+    <types:AlvisFeature xmi:id="300" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="303" key="NCBI_Taxonomy" value="813"/>
+    <types:AlvisFeature xmi:id="306" key="NCBI_Taxonomy" value="83554"/>
+    <cas:FSArray xmi:id="779" elements="776"/>
+    <types:TupleArgument xmi:id="776" role="frag0" argument="146"/>
+    <types:AlvisTuple xmi:id="315" sofa="1" features="319 322 325" arguments="785"/>
+    <types:AlvisFeature xmi:id="319" key="id" value="T22"/>
+    <types:AlvisFeature xmi:id="322" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="325" key="NCBI_Taxonomy" value="83554"/>
+    <cas:FSArray xmi:id="785" elements="782"/>
+    <types:TupleArgument xmi:id="782" role="frag0" argument="139"/>
+    <types:AlvisTuple xmi:id="333" sofa="1" features="337 340 343" arguments="791"/>
+    <types:AlvisFeature xmi:id="337" key="id" value="T3"/>
+    <types:AlvisFeature xmi:id="340" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="343" key="NCBI_Taxonomy" value="813"/>
+    <cas:FSArray xmi:id="791" elements="788"/>
+    <types:TupleArgument xmi:id="788" role="frag0" argument="34"/>
+    <types:AlvisTuple xmi:id="351" sofa="1" features="355 358 361" arguments="797"/>
+    <types:AlvisFeature xmi:id="355" key="id" value="T4"/>
+    <types:AlvisFeature xmi:id="358" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="361" key="NCBI_Taxonomy" value="83554"/>
+    <cas:FSArray xmi:id="797" elements="794"/>
+    <types:TupleArgument xmi:id="794" role="frag0" argument="41"/>
+    <types:AlvisTuple xmi:id="369" sofa="1" features="373 376 379" arguments="803"/>
+    <types:AlvisFeature xmi:id="373" key="id" value="T7"/>
+    <types:AlvisFeature xmi:id="376" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="379" key="NCBI_Taxonomy" value="813"/>
+    <cas:FSArray xmi:id="803" elements="800"/>
+    <types:TupleArgument xmi:id="800" role="frag0" argument="48"/>
+    <types:AlvisTuple xmi:id="387" sofa="1" features="391 394 397" arguments="809"/>
+    <types:AlvisFeature xmi:id="391" key="id" value="T8"/>
+    <types:AlvisFeature xmi:id="394" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="397" key="NCBI_Taxonomy" value="83554"/>
+    <cas:FSArray xmi:id="809" elements="806"/>
+    <types:TupleArgument xmi:id="806" role="frag0" argument="55"/>
+    <types:AlvisTuple xmi:id="405" sofa="1" features="409 412 415" arguments="815"/>
+    <types:AlvisFeature xmi:id="409" key="id" value="T10"/>
+    <types:AlvisFeature xmi:id="412" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="415" key="NCBI_Taxonomy" value="813"/>
+    <cas:FSArray xmi:id="815" elements="812"/>
+    <types:TupleArgument xmi:id="812" role="frag0" argument="62"/>
+    <types:AlvisTuple xmi:id="423" sofa="1" features="427 430 433" arguments="821"/>
+    <types:AlvisFeature xmi:id="427" key="id" value="T12"/>
+    <types:AlvisFeature xmi:id="430" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="433" key="NCBI_Taxonomy" value="83554"/>
+    <cas:FSArray xmi:id="821" elements="818"/>
+    <types:TupleArgument xmi:id="818" role="frag0" argument="69"/>
+    <types:AlvisTuple xmi:id="441" sofa="1" features="445 448 451" arguments="827"/>
+    <types:AlvisFeature xmi:id="445" key="id" value="T14"/>
+    <types:AlvisFeature xmi:id="448" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="451" key="NCBI_Taxonomy" value="83554"/>
+    <cas:FSArray xmi:id="827" elements="824"/>
+    <types:TupleArgument xmi:id="824" role="frag0" argument="83"/>
+    <types:AlvisTuple xmi:id="459" sofa="1" features="463 466 469" arguments="833"/>
+    <types:AlvisFeature xmi:id="463" key="id" value="T13"/>
+    <types:AlvisFeature xmi:id="466" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="469" key="NCBI_Taxonomy" value="813"/>
+    <cas:FSArray xmi:id="833" elements="830"/>
+    <types:TupleArgument xmi:id="830" role="frag0" argument="76"/>
+    <types:AlvisTuple xmi:id="477" sofa="1" features="481 484 487" arguments="839"/>
+    <types:AlvisFeature xmi:id="481" key="id" value="T15"/>
+    <types:AlvisFeature xmi:id="484" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="487" key="NCBI_Taxonomy" value="813"/>
+    <cas:FSArray xmi:id="839" elements="836"/>
+    <types:TupleArgument xmi:id="836" role="frag0" argument="90"/>
+    <types:AlvisTuple xmi:id="495" sofa="1" features="499 502 505" arguments="845"/>
+    <types:AlvisFeature xmi:id="499" key="id" value="T18"/>
+    <types:AlvisFeature xmi:id="502" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="505" key="NCBI_Taxonomy" value="813"/>
+    <cas:FSArray xmi:id="845" elements="842"/>
+    <types:TupleArgument xmi:id="842" role="frag0" argument="97"/>
+    <types:AlvisTuple xmi:id="513" sofa="1" features="517 520 523" arguments="854"/>
+    <types:AlvisFeature xmi:id="517" key="id" value="T17"/>
+    <types:AlvisFeature xmi:id="520" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="523" key="NCBI_Taxonomy" value="813"/>
+    <cas:FSArray xmi:id="854" elements="848 851"/>
+    <types:TupleArgument xmi:id="848" role="frag0" argument="111"/>
+    <types:TupleArgument xmi:id="851" role="frag1" argument="118"/>
+    <types:AlvisTuple xmi:id="531" sofa="1" features="535 538 541" arguments="864"/>
+    <types:AlvisFeature xmi:id="535" key="id" value="T19"/>
+    <types:AlvisFeature xmi:id="538" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="541" key="NCBI_Taxonomy" value="813"/>
+    <cas:FSArray xmi:id="864" elements="858 861"/>
+    <types:TupleArgument xmi:id="858" role="frag0" argument="104"/>
+    <types:TupleArgument xmi:id="861" role="frag1" argument="125"/>
+    <types:AlvisRelation xmi:id="566" sofa="1" features="571" tuples="577 599 621 639 661 679" name="Habitat"/>
+    <types:AlvisFeature xmi:id="571" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="577" sofa="1" features="581 584 587 590" arguments="871"/>
+    <types:AlvisFeature xmi:id="581" key="id" value="T20"/>
+    <types:AlvisFeature xmi:id="584" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="587" key="OntoBiotope" value="OBT:000381"/>
+    <types:AlvisFeature xmi:id="590" key="OntoBiotope" value="OBT:000268"/>
+    <cas:FSArray xmi:id="871" elements="868"/>
+    <types:TupleArgument xmi:id="868" role="frag0" argument="211"/>
+    <types:AlvisTuple xmi:id="599" sofa="1" features="603 606 609 612" arguments="877"/>
+    <types:AlvisFeature xmi:id="603" key="id" value="T5"/>
+    <types:AlvisFeature xmi:id="606" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="609" key="OntoBiotope" value="OBT:000056"/>
+    <types:AlvisFeature xmi:id="612" key="OntoBiotope" value="OBT:000029"/>
+    <cas:FSArray xmi:id="877" elements="874"/>
+    <types:TupleArgument xmi:id="874" role="frag0" argument="176"/>
+    <types:AlvisTuple xmi:id="621" sofa="1" features="625 628 631" arguments="883"/>
+    <types:AlvisFeature xmi:id="625" key="id" value="T6"/>
+    <types:AlvisFeature xmi:id="628" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="631" key="OntoBiotope" value="OBT:002133"/>
+    <cas:FSArray xmi:id="883" elements="880"/>
+    <types:TupleArgument xmi:id="880" role="frag0" argument="183"/>
+    <types:AlvisTuple xmi:id="639" sofa="1" features="643 646 649 652" arguments="889"/>
+    <types:AlvisFeature xmi:id="643" key="id" value="T9"/>
+    <types:AlvisFeature xmi:id="646" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="649" key="OntoBiotope" value="OBT:000056"/>
+    <types:AlvisFeature xmi:id="652" key="OntoBiotope" value="OBT:000029"/>
+    <cas:FSArray xmi:id="889" elements="886"/>
+    <types:TupleArgument xmi:id="886" role="frag0" argument="190"/>
+    <types:AlvisTuple xmi:id="661" sofa="1" features="665 668 671" arguments="895"/>
+    <types:AlvisFeature xmi:id="665" key="id" value="T11"/>
+    <types:AlvisFeature xmi:id="668" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="671" key="OntoBiotope" value="OBT:002133"/>
+    <cas:FSArray xmi:id="895" elements="892"/>
+    <types:TupleArgument xmi:id="892" role="frag0" argument="197"/>
+    <types:AlvisTuple xmi:id="679" sofa="1" features="683 686 689" arguments="901"/>
+    <types:AlvisFeature xmi:id="683" key="id" value="T16"/>
+    <types:AlvisFeature xmi:id="686" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="689" key="OntoBiotope" value="OBT:002205"/>
+    <cas:FSArray xmi:id="901" elements="898"/>
+    <types:TupleArgument xmi:id="898" role="frag0" argument="204"/>
+    <types:AlvisRelation xmi:id="705" sofa="1" features="710" tuples="716" name="Title"/>
+    <types:AlvisFeature xmi:id="710" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="716" sofa="1" features="720 723" arguments="907"/>
+    <types:AlvisFeature xmi:id="720" key="id" value="T1"/>
+    <types:AlvisFeature xmi:id="723" key="type" value="Title"/>
+    <cas:FSArray xmi:id="907" elements="904"/>
+    <types:TupleArgument xmi:id="904" role="frag0" argument="230"/>
+    <types:AlvisRelation xmi:id="733" sofa="1" features="738" tuples="744" name="Paragraph"/>
+    <types:AlvisFeature xmi:id="738" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="744" sofa="1" features="748 751" arguments="913"/>
+    <types:AlvisFeature xmi:id="748" key="id" value="T2"/>
+    <types:AlvisFeature xmi:id="751" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="913" elements="910"/>
+    <types:TupleArgument xmi:id="910" role="frag0" argument="244"/>
+    <types:AlvisRelation xmi:id="761" sofa="1" features="" tuples="" name="equiv"/>
+    <cas:View sofa="1" members="8 13"/>
+</xmi:XMI>

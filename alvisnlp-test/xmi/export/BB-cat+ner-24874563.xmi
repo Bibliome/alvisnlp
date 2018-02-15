@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="348" language="x-unspecified"/>
+    <types:AlvisDocument xmi:id="13" sofa="1" id="BB-cat+ner-24874563" features="18" sections="24"/>
+    <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Methylocella: a gourmand among methanotrophs.&#10;A recent article in Nature describes the ability of Methylocella silvestris to grow simultaneously on methane and longer chain alkanes, something never before observed in the microbial world. It adds to a growing list of unique metabolic traits that distinguish Methylocella from any other bacterium. &#10;"/>
+    <types:AlvisFeature xmi:id="18" key="set" value="train"/>
+    <types:AlvisSection xmi:id="24" sofa="1" begin="0" end="348" name="text" features="" layers="55 71 85" relations="97 167 195 223"/>
+    <types:AlvisLayer xmi:id="55" sofa="1" name="Bacteria" annotations="59"/>
+    <cas:FSArray xmi:id="59" elements="34 41 48"/>
+    <types:AlvisAnnotation xmi:id="34" sofa="1" begin="0" end="12" features=""/>
+    <types:AlvisAnnotation xmi:id="41" sofa="1" begin="98" end="121" features=""/>
+    <types:AlvisAnnotation xmi:id="48" sofa="1" begin="308" end="320" features=""/>
+    <types:AlvisLayer xmi:id="71" sofa="1" name="Title" annotations="75"/>
+    <cas:FSArray xmi:id="75" elements="64"/>
+    <types:AlvisAnnotation xmi:id="64" sofa="1" begin="0" end="45" features=""/>
+    <types:AlvisLayer xmi:id="85" sofa="1" name="Paragraph" annotations="89"/>
+    <cas:FSArray xmi:id="89" elements="78"/>
+    <types:AlvisAnnotation xmi:id="78" sofa="1" begin="46" end="346" features=""/>
+    <types:AlvisRelation xmi:id="97" sofa="1" features="102" tuples="108 126 144" name="Bacteria"/>
+    <types:AlvisFeature xmi:id="102" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="108" sofa="1" features="112 115 118" arguments="235"/>
+    <types:AlvisFeature xmi:id="112" key="id" value="T4"/>
+    <types:AlvisFeature xmi:id="115" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="118" key="NCBI_Taxonomy" value="199596"/>
+    <cas:FSArray xmi:id="235" elements="232"/>
+    <types:TupleArgument xmi:id="232" role="frag0" argument="41"/>
+    <types:AlvisTuple xmi:id="126" sofa="1" features="130 133 136" arguments="241"/>
+    <types:AlvisFeature xmi:id="130" key="id" value="T5"/>
+    <types:AlvisFeature xmi:id="133" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="136" key="NCBI_Taxonomy" value="199596"/>
+    <cas:FSArray xmi:id="241" elements="238"/>
+    <types:TupleArgument xmi:id="238" role="frag0" argument="48"/>
+    <types:AlvisTuple xmi:id="144" sofa="1" features="148 151 154" arguments="247"/>
+    <types:AlvisFeature xmi:id="148" key="id" value="T3"/>
+    <types:AlvisFeature xmi:id="151" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="154" key="NCBI_Taxonomy" value="120652"/>
+    <cas:FSArray xmi:id="247" elements="244"/>
+    <types:TupleArgument xmi:id="244" role="frag0" argument="34"/>
+    <types:AlvisRelation xmi:id="167" sofa="1" features="172" tuples="178" name="Title"/>
+    <types:AlvisFeature xmi:id="172" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="178" sofa="1" features="182 185" arguments="253"/>
+    <types:AlvisFeature xmi:id="182" key="id" value="T1"/>
+    <types:AlvisFeature xmi:id="185" key="type" value="Title"/>
+    <cas:FSArray xmi:id="253" elements="250"/>
+    <types:TupleArgument xmi:id="250" role="frag0" argument="64"/>
+    <types:AlvisRelation xmi:id="195" sofa="1" features="200" tuples="206" name="Paragraph"/>
+    <types:AlvisFeature xmi:id="200" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="206" sofa="1" features="210 213" arguments="259"/>
+    <types:AlvisFeature xmi:id="210" key="id" value="T2"/>
+    <types:AlvisFeature xmi:id="213" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="259" elements="256"/>
+    <types:TupleArgument xmi:id="256" role="frag0" argument="78"/>
+    <types:AlvisRelation xmi:id="223" sofa="1" features="" tuples="" name="equiv"/>
+    <cas:View sofa="1" members="8 13"/>
+</xmi:XMI>

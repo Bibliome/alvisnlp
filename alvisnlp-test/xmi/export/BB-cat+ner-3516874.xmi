@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="951" language="x-unspecified"/>
+    <types:AlvisDocument xmi:id="13" sofa="1" id="BB-cat+ner-3516874" features="18" sections="24"/>
+    <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Identification of a nonfimbrial adhesive factor of an enterotoxigenic Escherichia coli strain.&#10;An enterotoxigenic Escherichia coli strain (strain 2230), isolated from a patient with acute infantile diarrhea, was found to adhere only to the brush border of human intestinal epithelial cells. This strain does not hemagglutinate human, bovine, chicken, or guinea pig erythrocytes. The adhesion of E. coli 2230 appears to be mediated by a nonfimbrial bacterial surface protein of 16,000 daltons which can be extracted by heating the bacteria at 60 degrees C for 20 min. This surface protein is implicated as an adhesive factor because pretreatment of enterocytes with this protein extract completely inhibits the adhesion of E. coli 2230. This adhesive factor is serologically distinct from other adhesive factors found in enterotoxigenic E. coli strains. A plasmid DNA of 66 megadaltons is involved in the synthesis of this nonfimbrial adhesive factor.&#10;"/>
+    <types:AlvisFeature xmi:id="18" key="set" value="test"/>
+    <types:AlvisSection xmi:id="24" sofa="1" begin="0" end="951" name="text" features="" layers="41 55" relations="66 94 122"/>
+    <types:AlvisLayer xmi:id="41" sofa="1" name="Title" annotations="45"/>
+    <cas:FSArray xmi:id="45" elements="34"/>
+    <types:AlvisAnnotation xmi:id="34" sofa="1" begin="0" end="94" features=""/>
+    <types:AlvisLayer xmi:id="55" sofa="1" name="Paragraph" annotations="59"/>
+    <cas:FSArray xmi:id="59" elements="48"/>
+    <types:AlvisAnnotation xmi:id="48" sofa="1" begin="95" end="950" features=""/>
+    <types:AlvisRelation xmi:id="66" sofa="1" features="71" tuples="77" name="Title"/>
+    <types:AlvisFeature xmi:id="71" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="77" sofa="1" features="81 84" arguments="134"/>
+    <types:AlvisFeature xmi:id="81" key="id" value="T1"/>
+    <types:AlvisFeature xmi:id="84" key="type" value="Title"/>
+    <cas:FSArray xmi:id="134" elements="131"/>
+    <types:TupleArgument xmi:id="131" role="frag0" argument="34"/>
+    <types:AlvisRelation xmi:id="94" sofa="1" features="99" tuples="105" name="Paragraph"/>
+    <types:AlvisFeature xmi:id="99" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="105" sofa="1" features="109 112" arguments="140"/>
+    <types:AlvisFeature xmi:id="109" key="id" value="T2"/>
+    <types:AlvisFeature xmi:id="112" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="140" elements="137"/>
+    <types:TupleArgument xmi:id="137" role="frag0" argument="48"/>
+    <types:AlvisRelation xmi:id="122" sofa="1" features="" tuples="" name="equiv"/>
+    <cas:View sofa="1" members="8 13"/>
+</xmi:XMI>

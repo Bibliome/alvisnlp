@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="1459" language="x-unspecified"/>
+    <types:AlvisDocument xmi:id="13" sofa="1" id="BB-cat+ner-23908036" features="18" sections="24"/>
+    <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Preliminary X-ray crystallographic analysis of β-carbonic anhydrase psCA3 from Pseudomonas aeruginosa.&#10;Pseudomonas aeruginosa is a Gram-negative bacterium that causes life-threatening infections in susceptible individuals and is resistant to most clinically available antimicrobials. Genomic and proteomic studies have identified three genes, pa0102, pa2053 and pa4676, in P. aeruginosa PAO1 encoding three functional β-carbonic anhydrases (β-CAs): psCA1, psCA2 and psCA3, respectively. These β-CAs could serve as novel antimicrobial drug targets for this pathogen. X-ray crystallographic structural studies have been initiated to characterize the structure and function of these proteins. This communication describes the production of two crystal forms (A and B) of β-CA psCA3. Form A diffracted to a resolution of 2.9 Å; it belonged to space group P212121, with unit-cell parameters a = 81.9, b = 84.9, c = 124.2 Å, and had a calculated Matthews coefficient of 2.23 Å³ Da⁻¹ assuming four molecules in the crystallographic asymmetric unit. Form B diffracted to a resolution of 3.0 Å; it belonged to space group P21212, with unit-cell parameters a = 69.9, b = 77.7, c = 88.5 Å, and had a calculated Matthews coefficient of 2.48 Å³ Da⁻¹ assuming two molecules in the crystallographic asymmetric unit. Preliminary molecular-replacement solutions have been determined with the PHENIX AutoMR wizard and refinement of both crystal forms is currently in progress.&#10;"/>
+    <types:AlvisFeature xmi:id="18" key="set" value="train"/>
+    <types:AlvisSection xmi:id="24" sofa="1" begin="0" end="1459" name="text" features="" layers="55 71 85 99" relations="112 182 214 242 270"/>
+    <types:AlvisLayer xmi:id="55" sofa="1" name="Bacteria" annotations="59"/>
+    <cas:FSArray xmi:id="59" elements="34 41 48"/>
+    <types:AlvisAnnotation xmi:id="34" sofa="1" begin="79" end="101" features=""/>
+    <types:AlvisAnnotation xmi:id="41" sofa="1" begin="103" end="125" features=""/>
+    <types:AlvisAnnotation xmi:id="48" sofa="1" begin="373" end="391" features=""/>
+    <types:AlvisLayer xmi:id="71" sofa="1" name="Habitat" annotations="75"/>
+    <cas:FSArray xmi:id="75" elements="64"/>
+    <types:AlvisAnnotation xmi:id="64" sofa="1" begin="198" end="221" features=""/>
+    <types:AlvisLayer xmi:id="85" sofa="1" name="Title" annotations="89"/>
+    <cas:FSArray xmi:id="89" elements="78"/>
+    <types:AlvisAnnotation xmi:id="78" sofa="1" begin="0" end="102" features=""/>
+    <types:AlvisLayer xmi:id="99" sofa="1" name="Paragraph" annotations="103"/>
+    <cas:FSArray xmi:id="103" elements="92"/>
+    <types:AlvisAnnotation xmi:id="92" sofa="1" begin="103" end="1458" features=""/>
+    <types:AlvisRelation xmi:id="112" sofa="1" features="117" tuples="123 141 159" name="Bacteria"/>
+    <types:AlvisFeature xmi:id="117" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="123" sofa="1" features="127 130 133" arguments="282"/>
+    <types:AlvisFeature xmi:id="127" key="id" value="T4"/>
+    <types:AlvisFeature xmi:id="130" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="133" key="NCBI_Taxonomy" value="287"/>
+    <cas:FSArray xmi:id="282" elements="279"/>
+    <types:TupleArgument xmi:id="279" role="frag0" argument="41"/>
+    <types:AlvisTuple xmi:id="141" sofa="1" features="145 148 151" arguments="288"/>
+    <types:AlvisFeature xmi:id="145" key="id" value="T6"/>
+    <types:AlvisFeature xmi:id="148" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="151" key="NCBI_Taxonomy" value="208964"/>
+    <cas:FSArray xmi:id="288" elements="285"/>
+    <types:TupleArgument xmi:id="285" role="frag0" argument="48"/>
+    <types:AlvisTuple xmi:id="159" sofa="1" features="163 166 169" arguments="294"/>
+    <types:AlvisFeature xmi:id="163" key="id" value="T3"/>
+    <types:AlvisFeature xmi:id="166" key="type" value="Bacteria"/>
+    <types:AlvisFeature xmi:id="169" key="NCBI_Taxonomy" value="287"/>
+    <cas:FSArray xmi:id="294" elements="291"/>
+    <types:TupleArgument xmi:id="291" role="frag0" argument="34"/>
+    <types:AlvisRelation xmi:id="182" sofa="1" features="187" tuples="193" name="Habitat"/>
+    <types:AlvisFeature xmi:id="187" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="193" sofa="1" features="197 200 203" arguments="300"/>
+    <types:AlvisFeature xmi:id="197" key="id" value="T5"/>
+    <types:AlvisFeature xmi:id="200" key="type" value="Habitat"/>
+    <types:AlvisFeature xmi:id="203" key="OntoBiotope" value="OBT:001804"/>
+    <cas:FSArray xmi:id="300" elements="297"/>
+    <types:TupleArgument xmi:id="297" role="frag0" argument="64"/>
+    <types:AlvisRelation xmi:id="214" sofa="1" features="219" tuples="225" name="Title"/>
+    <types:AlvisFeature xmi:id="219" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="225" sofa="1" features="229 232" arguments="306"/>
+    <types:AlvisFeature xmi:id="229" key="id" value="T1"/>
+    <types:AlvisFeature xmi:id="232" key="type" value="Title"/>
+    <cas:FSArray xmi:id="306" elements="303"/>
+    <types:TupleArgument xmi:id="303" role="frag0" argument="78"/>
+    <types:AlvisRelation xmi:id="242" sofa="1" features="247" tuples="253" name="Paragraph"/>
+    <types:AlvisFeature xmi:id="247" key="kind" value="text"/>
+    <types:AlvisTuple xmi:id="253" sofa="1" features="257 260" arguments="312"/>
+    <types:AlvisFeature xmi:id="257" key="id" value="T2"/>
+    <types:AlvisFeature xmi:id="260" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="312" elements="309"/>
+    <types:TupleArgument xmi:id="309" role="frag0" argument="92"/>
+    <types:AlvisRelation xmi:id="270" sofa="1" features="" tuples="" name="equiv"/>
+    <cas:View sofa="1" members="8 13"/>
+</xmi:XMI>
