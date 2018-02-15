@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import org.apache.uima.UIMAException;
+import org.apache.uima.cas.FSIterator;
 import org.apache.uima.cas.FeatureStructure;
 import org.apache.uima.cas.admin.CASAdminException;
 import org.apache.uima.cas.impl.XmiCasDeserializer;
@@ -47,14 +49,18 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 @AlvisNLPModule(beta=true)
 public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, TupleCreator {
 	private SourceStream source;
+	private String defaultSectionName = "text";
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+		Logger logger = getLogger(ctx);
 		try {
 			JCas jcas = JCasFactory.createJCas();
 			for (InputStream is : Iterators.loop(source.getInputStreams())) {
-				XmiCasDeserializer.deserialize(is, jcas.getCas());
-				convertDocument(corpus, jcas);
+				String sourceName = source.getStreamName(is);
+				logger.info("reading " + sourceName);
+				XmiCasDeserializer.deserialize(is, jcas.getCas(), true);
+				convertDocument(corpus, jcas, sourceName);
 				jcas.reset();
 			}
 		}
@@ -72,11 +78,25 @@ public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements
 		}
 	}
 
-	private void convertDocument(Corpus corpus, JCas jcas) {
-		String docContents = jcas.getDocumentText();
-		AlvisDocument ad = jcas.getAllIndexedFS(AlvisDocument.class).get();
+	private void convertDocument(Corpus corpus, JCas jcas, String sourceName) {
+		FSIterator<AlvisDocument> adit = jcas.getAllIndexedFS(AlvisDocument.class);
+		if (adit.hasNext()) {
+			convertAnnotatedDocument(corpus, jcas, adit.get());
+		}
+		else {
+			convertEmptyDocument(corpus, jcas, sourceName);
+		}
+	}
+	
+	private void convertEmptyDocument(Corpus corpus, JCas jcas, String sourceName) {
+		Document doc = Document.getDocument(this, corpus, sourceName);
+		new Section(this, doc, defaultSectionName, jcas.getDocumentText());
+	}
+	
+	private void convertAnnotatedDocument(Corpus corpus, JCas jcas, AlvisDocument ad) {
 		Document doc = Document.getDocument(this, corpus, ad.getId());
 		convertFeatures(doc, ad.getFeatures());
+		String docContents = jcas.getDocumentText();
 		int offset = 0;
 		for (FeatureStructure fss : ad.getSections()) {
 			AlvisSection as = (AlvisSection) fss;
