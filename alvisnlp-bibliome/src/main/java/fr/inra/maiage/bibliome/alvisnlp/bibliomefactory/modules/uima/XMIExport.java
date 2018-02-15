@@ -24,14 +24,14 @@ import org.xml.sax.SAXException;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisAnnotation;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisDocument;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisFeature;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisLayer;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisRelation;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisSection;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisTuple;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.TupleArgument;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AnnotationProxy;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.ArgumentProxy;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.DocumentProxy;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.FeatureProxy;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.LayerProxy;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.RelationProxy;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.SectionProxy;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.TupleProxy;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
@@ -62,7 +62,7 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 			JCas jcas = JCasFactory.createJCas();
 			for (Document doc : Iterators.loop(documentIterator(evalCtx, corpus))) {
 				jcas.setDocumentText(convertContents(evalCtx, doc));
-				AlvisDocument ad = convertDocument(logger, evalCtx, jcas, doc);
+				DocumentProxy ad = convertDocument(logger, evalCtx, jcas, doc);
 				ad.addToIndexes();
 				try (OutputStream os = openDocumentFile(doc)) {
 					XmiCasSerializer.serialize(jcas.getCas(), null, os, true, null);
@@ -91,13 +91,13 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 	}
 	
 	private static FSArray convertFeatures(JCas jcas, Element elt) {
-		List<AlvisFeature> result = new ArrayList<AlvisFeature>();
+		List<FeatureProxy> result = new ArrayList<FeatureProxy>();
 		for (String key : elt.getFeatureKeys()) {
 			if (elt.isStaticFeatureKey(key)) {
 				continue;
 			}
 			for (String value : elt.getFeature(key)) {
-				AlvisFeature f = new AlvisFeature(jcas);
+				FeatureProxy f = new FeatureProxy(jcas);
 				f.setKey(key);
 				f.setValue(value);
 				result.add(f);
@@ -106,8 +106,8 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 		return FSCollectionFactory.createFSArray(jcas, result);
 	}
 	
-	private AlvisDocument convertDocument(Logger logger, EvaluationContext evalCtx, JCas jcas, Document doc) {
-		AlvisDocument result = new AlvisDocument(jcas);
+	private DocumentProxy convertDocument(Logger logger, EvaluationContext evalCtx, JCas jcas, Document doc) {
+		DocumentProxy result = new DocumentProxy(jcas);
 		result.setId(doc.getId());
 		result.setFeatures(convertFeatures(jcas, doc));
 		result.setSections(convertSections(logger, evalCtx, jcas, doc));
@@ -115,7 +115,7 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 	}
 	
 	private FSArray convertSections(Logger logger, EvaluationContext evalCtx, JCas jcas, Document doc) {
-		List<AlvisSection> result = new ArrayList<AlvisSection>();
+		List<SectionProxy> result = new ArrayList<SectionProxy>();
 		int offset = 0;
 		for (Section sec : Iterators.loop(sectionIterator(evalCtx, doc))) {
 			result.add(convertSection(logger, jcas, sec, offset));
@@ -124,41 +124,41 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 		return FSCollectionFactory.createFSArray(jcas, result);
 	}
 
-	private static AlvisSection convertSection(Logger logger, JCas jcas, Section sec, int offset) {
-		AlvisSection result = new AlvisSection(jcas, offset, offset + sec.getContents().length());
+	private static SectionProxy convertSection(Logger logger, JCas jcas, Section sec, int offset) {
+		SectionProxy result = new SectionProxy(jcas, offset, offset + sec.getContents().length());
 		result.setName(sec.getName());
 		result.setFeatures(convertFeatures(jcas, sec));
 		Map<Element,TOP> argumentMap = new HashMap<Element,TOP>();
-		Map<Annotation,AlvisAnnotation> annotationMap = new HashMap<Annotation,AlvisAnnotation>();
+		Map<Annotation,AnnotationProxy> annotationMap = new HashMap<Annotation,AnnotationProxy>();
 		result.setLayers(convertLayers(argumentMap, annotationMap, jcas, sec, offset));
 		result.setRelations(convertRelations(logger, argumentMap, jcas, sec));
 		return result;
 	}
 	
-	private static FSArray convertLayers(Map<Element,TOP> argumentMap, Map<Annotation,AlvisAnnotation> annotationMap, JCas jcas, Section sec, int offset) {
-		List<AlvisLayer> result = new ArrayList<AlvisLayer>();
+	private static FSArray convertLayers(Map<Element,TOP> argumentMap, Map<Annotation,AnnotationProxy> annotationMap, JCas jcas, Section sec, int offset) {
+		List<LayerProxy> result = new ArrayList<LayerProxy>();
 		for (Layer layer : sec.getAllLayers()) {
 			result.add(convertLayer(argumentMap, annotationMap, jcas, layer, offset));
 		}
 		return FSCollectionFactory.createFSArray(jcas, result);
 	}
 
-	private static AlvisLayer convertLayer(Map<Element,TOP> argumentMap, Map<Annotation,AlvisAnnotation> annotationMap, JCas jcas, Layer layer, int offset) {
-		List<AlvisAnnotation> aas = new ArrayList<AlvisAnnotation>(layer.size());
+	private static LayerProxy convertLayer(Map<Element,TOP> argumentMap, Map<Annotation,AnnotationProxy> annotationMap, JCas jcas, Layer layer, int offset) {
+		List<AnnotationProxy> aas = new ArrayList<AnnotationProxy>(layer.size());
 		for (Annotation a : layer) {
 			aas.add(convertAnnotation(argumentMap, annotationMap, jcas, a, offset));
 		}
-		AlvisLayer result = new AlvisLayer(jcas);
+		LayerProxy result = new LayerProxy(jcas);
 		result.setName(layer.getName());
 		result.setAnnotations(FSCollectionFactory.createFSArray(jcas, aas));
 		return result;
 	}
 	
-	private static AlvisAnnotation convertAnnotation(Map<Element,TOP> argumentMap, Map<Annotation,AlvisAnnotation> annotationMap, JCas jcas, Annotation a, int offset) {
+	private static AnnotationProxy convertAnnotation(Map<Element,TOP> argumentMap, Map<Annotation,AnnotationProxy> annotationMap, JCas jcas, Annotation a, int offset) {
 		if (annotationMap.containsKey(a)) {
 			return annotationMap.get(a);
 		}
-		AlvisAnnotation result = new AlvisAnnotation(jcas, offset + a.getStart(), offset + a.getEnd());
+		AnnotationProxy result = new AnnotationProxy(jcas, offset + a.getStart(), offset + a.getEnd());
 		result.setFeatures(convertFeatures(jcas, a));
 		annotationMap.put(a, result);
 		argumentMap.put(a, result);
@@ -166,20 +166,20 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 	}
 	
 	private static FSArray convertRelations(Logger logger, Map<Element,TOP> argumentMap, JCas jcas, Section sec) {
-		List<AlvisRelation> result = new ArrayList<AlvisRelation>();
+		List<RelationProxy> result = new ArrayList<RelationProxy>();
 		for (Relation rel : sec.getAllRelations()) {
 			result.add(convertRelation(argumentMap, jcas, rel));
 		}
 		for (Relation rel : sec.getAllRelations()) {
 			for (Tuple t : rel.getTuples()) {
-				updateTupleArguments(logger, argumentMap, jcas, t);
+				updateArgumentProxys(logger, argumentMap, jcas, t);
 			}
 		}
 		return FSCollectionFactory.createFSArray(jcas, result);
 	}
 	
-	private static AlvisRelation convertRelation(Map<Element,TOP> argumentMap, JCas jcas, Relation rel) {
-		AlvisRelation result = new AlvisRelation(jcas);
+	private static RelationProxy convertRelation(Map<Element,TOP> argumentMap, JCas jcas, Relation rel) {
+		RelationProxy result = new RelationProxy(jcas);
 		result.setName(rel.getName());
 		result.setFeatures(convertFeatures(jcas, rel));
 		result.setTuples(convertTuples(argumentMap, jcas, rel));
@@ -187,40 +187,40 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 	}
 	
 	private static FSArray convertTuples(Map<Element,TOP> argumentMap, JCas jcas, Relation rel) {
-		List<AlvisTuple> result = new ArrayList<AlvisTuple>(rel.size());
+		List<TupleProxy> result = new ArrayList<TupleProxy>(rel.size());
 		for (Tuple t : rel.getTuples()) {
 			result.add(convertTuple(argumentMap, jcas, t));
 		}
 		return FSCollectionFactory.createFSArray(jcas, result);
 	}
 	
-	private static AlvisTuple convertTuple(Map<Element,TOP> argumentMap, JCas jcas, Tuple t) {
-		AlvisTuple result = new AlvisTuple(jcas);
+	private static TupleProxy convertTuple(Map<Element,TOP> argumentMap, JCas jcas, Tuple t) {
+		TupleProxy result = new TupleProxy(jcas);
 		result.setFeatures(convertFeatures(jcas, t));
 		argumentMap.put(t, result);
 		return result;
 	}
 
-	private static void updateTupleArguments(Logger logger, Map<Element,TOP> argumentMap, JCas jcas, Tuple t) {
-		List<TupleArgument> tas = new ArrayList<TupleArgument>();
+	private static void updateArgumentProxys(Logger logger, Map<Element,TOP> argumentMap, JCas jcas, Tuple t) {
+		List<ArgumentProxy> tas = new ArrayList<ArgumentProxy>();
 		for (String role : t.getRoles()) {
 			Element arg = t.getArgument(role);
-			TupleArgument ta = convertTupleArgument(logger, argumentMap, jcas, role, arg);
+			ArgumentProxy ta = convertArgumentProxy(logger, argumentMap, jcas, role, arg);
 			if (ta != null) {
 				tas.add(ta);
 			}
 		}
-		AlvisTuple at = (AlvisTuple) argumentMap.get(t);
+		TupleProxy at = (TupleProxy) argumentMap.get(t);
 		at.setArguments(FSCollectionFactory.createFSArray(jcas, tas));
 	}
 	
-	private static TupleArgument convertTupleArgument(Logger logger, Map<Element,TOP> argumentMap, JCas jcas, String role, Element arg) {
+	private static ArgumentProxy convertArgumentProxy(Logger logger, Map<Element,TOP> argumentMap, JCas jcas, String role, Element arg) {
 		if (!argumentMap.containsKey(arg)) {
 			logger.warning("tuple argument is neither annotation or tuple, skip");
 			return null;
 		}
 		TOP aarg = argumentMap.get(arg);
-		TupleArgument ta = new TupleArgument(jcas);
+		ArgumentProxy ta = new ArgumentProxy(jcas);
 		ta.setRole(role);
 		ta.setArgument(aarg);
 		return ta;

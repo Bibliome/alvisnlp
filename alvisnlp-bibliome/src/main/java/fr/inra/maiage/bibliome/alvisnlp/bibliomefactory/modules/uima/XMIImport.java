@@ -18,14 +18,14 @@ import org.xml.sax.SAXException;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisAnnotation;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisDocument;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisFeature;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisLayer;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisRelation;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisSection;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisTuple;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.TupleArgument;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AnnotationProxy;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.DocumentProxy;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.FeatureProxy;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.LayerProxy;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.RelationProxy;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.SectionProxy;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.TupleProxy;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.ArgumentProxy;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
@@ -71,7 +71,7 @@ public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements
 	
 	private static void convertFeatures(Element elt, FSArray fsa) {
 		for (FeatureStructure f : fsa) {
-			AlvisFeature af = (AlvisFeature) f;
+			FeatureProxy af = (FeatureProxy) f;
 			String key = af.getKey();
 			String value = af.getValue();
 			elt.addFeature(key, value);
@@ -79,7 +79,7 @@ public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements
 	}
 
 	private void convertDocument(Corpus corpus, JCas jcas, String sourceName) {
-		FSIterator<AlvisDocument> adit = jcas.getAllIndexedFS(AlvisDocument.class);
+		FSIterator<DocumentProxy> adit = jcas.getAllIndexedFS(DocumentProxy.class);
 		if (adit.hasNext()) {
 			convertAnnotatedDocument(corpus, jcas, adit.get());
 		}
@@ -93,16 +93,16 @@ public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements
 		new Section(this, doc, defaultSectionName, jcas.getDocumentText());
 	}
 	
-	private void convertAnnotatedDocument(Corpus corpus, JCas jcas, AlvisDocument ad) {
+	private void convertAnnotatedDocument(Corpus corpus, JCas jcas, DocumentProxy ad) {
 		Document doc = Document.getDocument(this, corpus, ad.getId());
 		convertFeatures(doc, ad.getFeatures());
 		String docContents = jcas.getDocumentText();
 		int offset = 0;
 		for (FeatureStructure fss : ad.getSections()) {
-			AlvisSection as = (AlvisSection) fss;
+			SectionProxy as = (SectionProxy) fss;
 			Section sec = new Section(this, doc, as.getName(), docContents.substring(as.getBegin(), as.getEnd()));
 			convertFeatures(sec, as.getFeatures());
-			Map<AlvisAnnotation,Annotation> annotationMap = new HashMap<AlvisAnnotation,Annotation>();
+			Map<AnnotationProxy,Annotation> annotationMap = new HashMap<AnnotationProxy,Annotation>();
 			convertLayers(annotationMap, offset, sec, as);
 			Map<FeatureStructure,Element> argumentMap = new HashMap<FeatureStructure,Element>(annotationMap);
 			convertRelations(argumentMap, sec, as);
@@ -111,65 +111,65 @@ public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements
 		}
 	}
 	
-	private static void convertArguments(Map<FeatureStructure,Element> argumentMap, AlvisSection as) {
+	private static void convertArguments(Map<FeatureStructure,Element> argumentMap, SectionProxy as) {
 		for (FeatureStructure fsr : as.getRelations()) {
-			convertArguments(argumentMap, (AlvisRelation) fsr);
+			convertArguments(argumentMap, (RelationProxy) fsr);
 		}
 	}
 
-	private static void convertArguments(Map<FeatureStructure,Element> argumentMap, AlvisRelation ar) {
+	private static void convertArguments(Map<FeatureStructure,Element> argumentMap, RelationProxy ar) {
 		for (FeatureStructure fst : ar.getTuples()) {
-			convertArguments(argumentMap, (AlvisTuple) fst);
+			convertArguments(argumentMap, (TupleProxy) fst);
 		}
 	}
 
-	private static void convertArguments(Map<FeatureStructure,Element> argumentMap, AlvisTuple fst) {
+	private static void convertArguments(Map<FeatureStructure,Element> argumentMap, TupleProxy fst) {
 		Tuple t = (Tuple) argumentMap.get(fst);
 		for (FeatureStructure fsa : fst.getArguments()) {
-			convertArgument(argumentMap, t, (TupleArgument) fsa);
+			convertArgument(argumentMap, t, (ArgumentProxy) fsa);
 		}
 	}
 
-	private static void convertArgument(Map<FeatureStructure,Element> argumentMap, Tuple t, TupleArgument fsa) {
+	private static void convertArgument(Map<FeatureStructure,Element> argumentMap, Tuple t, ArgumentProxy fsa) {
 		String role = fsa.getRole();
 		Element arg = argumentMap.get(fsa.getArgument());
 		t.setArgument(role, arg);
 	}
 
-	private void convertRelations(Map<FeatureStructure,Element> argumentMap, Section sec, AlvisSection as) {
+	private void convertRelations(Map<FeatureStructure,Element> argumentMap, Section sec, SectionProxy as) {
 		for (FeatureStructure fsr : as.getRelations()) {
-			convertRelation(argumentMap, sec, (AlvisRelation) fsr);
+			convertRelation(argumentMap, sec, (RelationProxy) fsr);
 		}
 	}
 
-	private void convertRelation(Map<FeatureStructure,Element> argumentMap, Section sec, AlvisRelation ar) {
+	private void convertRelation(Map<FeatureStructure,Element> argumentMap, Section sec, RelationProxy ar) {
 		Relation rel = new Relation(this, sec, ar.getName());
 		convertFeatures(rel, ar.getFeatures());
 		for (FeatureStructure fst : ar.getTuples()) {
-			convertTuple(argumentMap, rel, (AlvisTuple) fst);
+			convertTuple(argumentMap, rel, (TupleProxy) fst);
 		}
 	}
 
-	private void convertTuple(Map<FeatureStructure,Element> argumentMap, Relation rel, AlvisTuple fst) {
+	private void convertTuple(Map<FeatureStructure,Element> argumentMap, Relation rel, TupleProxy fst) {
 		Tuple t = new Tuple(this, rel);
 		convertFeatures(t, fst.getFeatures());
 		argumentMap.put(fst, t);
 	}
 
-	private void convertLayers(Map<AlvisAnnotation,Annotation> annotationMap, int offset, Section sec, AlvisSection as) {
+	private void convertLayers(Map<AnnotationProxy,Annotation> annotationMap, int offset, Section sec, SectionProxy as) {
 		for (FeatureStructure fsl : as.getLayers()) {
-			convertLayer(annotationMap, offset, sec, (AlvisLayer) fsl);
+			convertLayer(annotationMap, offset, sec, (LayerProxy) fsl);
 		}
 	}
 	
-	private void convertLayer(Map<AlvisAnnotation,Annotation> annotationMap, int offset, Section sec, AlvisLayer al) {
+	private void convertLayer(Map<AnnotationProxy,Annotation> annotationMap, int offset, Section sec, LayerProxy al) {
 		Layer layer = sec.ensureLayer(al.getName());
 		for (FeatureStructure fsa : al.getAnnotations()) {
-			convertAnnotation(annotationMap, offset, layer, (AlvisAnnotation) fsa);
+			convertAnnotation(annotationMap, offset, layer, (AnnotationProxy) fsa);
 		}
 	}
 	
-	private void convertAnnotation(Map<AlvisAnnotation,Annotation> annotationMap, int offset, Layer layer, AlvisAnnotation aa) {
+	private void convertAnnotation(Map<AnnotationProxy,Annotation> annotationMap, int offset, Layer layer, AnnotationProxy aa) {
 		Annotation a;
 		if (annotationMap.containsKey(aa)) {
 			a = annotationMap.get(aa);

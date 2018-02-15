@@ -1,6 +1,6 @@
 
 
-/* First created by JCasGen Tue Feb 13 16:59:04 CET 2018 */
+/* First created by JCasGen Thu Feb 15 18:58:28 CET 2018 */
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types;
 
 import org.apache.uima.jcas.JCas; 
@@ -11,15 +11,15 @@ import org.apache.uima.jcas.cas.TOP;
 
 
 /** Feature key-value pair of an Element
- * Updated by JCasGen Wed Feb 14 10:02:16 CET 2018
+ * Updated by JCasGen Thu Feb 15 18:58:28 CET 2018
  * XML source: /home/rbossy/code/alvisnlp/alvisnlp-bibliome/src/main/resources/fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/uima-document.xml
  * @generated */
-public class AlvisFeature extends TOP {
+public class FeatureProxy extends TOP {
   /** @generated
    * @ordered 
    */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = JCasRegistry.register(AlvisFeature.class);
+  public final static int typeIndexID = JCasRegistry.register(FeatureProxy.class);
   /** @generated
    * @ordered 
    */
@@ -33,14 +33,14 @@ public class AlvisFeature extends TOP {
  
   /** Never called.  Disable default constructor
    * @generated */
-  protected AlvisFeature() {/* intentionally empty block */}
+  protected FeatureProxy() {/* intentionally empty block */}
     
   /** Internal - constructor used by generator 
    * @generated
    * @param addr low level Feature Structure reference
    * @param type the type of this Feature Structure 
    */
-  public AlvisFeature(int addr, TOP_Type type) {
+  public FeatureProxy(int addr, TOP_Type type) {
     super(addr, type);
     readObject();
   }
@@ -48,7 +48,7 @@ public class AlvisFeature extends TOP {
   /** @generated
    * @param jcas JCas to which this Feature Structure belongs 
    */
-  public AlvisFeature(JCas jcas) {
+  public FeatureProxy(JCas jcas) {
     super(jcas);
     readObject();   
   } 
@@ -72,18 +72,18 @@ public class AlvisFeature extends TOP {
    * @return value of the feature 
    */
   public String getKey() {
-    if (AlvisFeature_Type.featOkTst && ((AlvisFeature_Type)jcasType).casFeat_key == null)
-      jcasType.jcas.throwFeatMissing("key", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisFeature");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((AlvisFeature_Type)jcasType).casFeatCode_key);}
+    if (FeatureProxy_Type.featOkTst && ((FeatureProxy_Type)jcasType).casFeat_key == null)
+      jcasType.jcas.throwFeatMissing("key", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.FeatureProxy");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((FeatureProxy_Type)jcasType).casFeatCode_key);}
     
   /** setter for key - sets  
    * @generated
    * @param v value to set into the feature 
    */
   public void setKey(String v) {
-    if (AlvisFeature_Type.featOkTst && ((AlvisFeature_Type)jcasType).casFeat_key == null)
-      jcasType.jcas.throwFeatMissing("key", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisFeature");
-    jcasType.ll_cas.ll_setStringValue(addr, ((AlvisFeature_Type)jcasType).casFeatCode_key, v);}    
+    if (FeatureProxy_Type.featOkTst && ((FeatureProxy_Type)jcasType).casFeat_key == null)
+      jcasType.jcas.throwFeatMissing("key", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.FeatureProxy");
+    jcasType.ll_cas.ll_setStringValue(addr, ((FeatureProxy_Type)jcasType).casFeatCode_key, v);}    
    
     
   //*--------------*
@@ -94,18 +94,18 @@ public class AlvisFeature extends TOP {
    * @return value of the feature 
    */
   public String getValue() {
-    if (AlvisFeature_Type.featOkTst && ((AlvisFeature_Type)jcasType).casFeat_value == null)
-      jcasType.jcas.throwFeatMissing("value", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisFeature");
-    return jcasType.ll_cas.ll_getStringValue(addr, ((AlvisFeature_Type)jcasType).casFeatCode_value);}
+    if (FeatureProxy_Type.featOkTst && ((FeatureProxy_Type)jcasType).casFeat_value == null)
+      jcasType.jcas.throwFeatMissing("value", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.FeatureProxy");
+    return jcasType.ll_cas.ll_getStringValue(addr, ((FeatureProxy_Type)jcasType).casFeatCode_value);}
     
   /** setter for value - sets  
    * @generated
    * @param v value to set into the feature 
    */
   public void setValue(String v) {
-    if (AlvisFeature_Type.featOkTst && ((AlvisFeature_Type)jcasType).casFeat_value == null)
-      jcasType.jcas.throwFeatMissing("value", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisFeature");
-    jcasType.ll_cas.ll_setStringValue(addr, ((AlvisFeature_Type)jcasType).casFeatCode_value, v);}    
+    if (FeatureProxy_Type.featOkTst && ((FeatureProxy_Type)jcasType).casFeat_value == null)
+      jcasType.jcas.throwFeatMissing("value", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.FeatureProxy");
+    jcasType.ll_cas.ll_setStringValue(addr, ((FeatureProxy_Type)jcasType).casFeatCode_value, v);}    
   }
 
     

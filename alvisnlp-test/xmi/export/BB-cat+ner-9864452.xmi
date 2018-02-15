@@ -1,62 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmi:version="2.0">
     <cas:NULL xmi:id="0"/>
     <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="957" language="x-unspecified"/>
-    <types:AlvisDocument xmi:id="13" sofa="1" id="BB-cat+ner-9864452" features="18" sections="24"/>
+    <types:DocumentProxy xmi:id="13" sofa="1" id="BB-cat+ner-9864452" features="18" sections="24"/>
     <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Isolation and properties of extracellular alkaline phosphatase from Bacillus intermedius.&#10;Alkaline phosphatase (APase) was isolated from the culture liquid of the streptomycin-resistant strain of Bacillus intermedius S3-19 and purified as a homogeneous preparation by ion-exchange chromatography and FPLC. Electrophoresis and gel-filtration revealed that the active enzyme is a monomer with molecular weight of 46-47 kD. The enzyme possessed phosphomonoesterase and phosphodiesterase activities with maximal levels at pH 9.5 and 55 degreesC and was stable until 60 degreesC at pH 8.0-10.0. The isolated APase exhibits a broad specificity towards a wide variety of substrates. The effect of divalent metal ions and other reagents on its catalytic activities was studied. It was concluded that alkaline phosphatase of B. intermedius is similar to the secreted alkaline phosphatases from other Bacillus species in its physicochemical and catalytic properties.&#10;"/>
-    <types:AlvisFeature xmi:id="18" key="set" value="train"/>
-    <types:AlvisSection xmi:id="24" sofa="1" begin="0" end="957" name="text" features="" layers="62 79 93" relations="105 194 222 250"/>
-    <types:AlvisLayer xmi:id="62" sofa="1" name="Bacteria" annotations="66"/>
+    <types:FeatureProxy xmi:id="18" key="set" value="train"/>
+    <types:SectionProxy xmi:id="24" sofa="1" begin="0" end="957" name="text" features="" layers="62 79 93" relations="105 194 222 250"/>
+    <types:LayerProxy xmi:id="62" sofa="1" name="Bacteria" annotations="66"/>
     <cas:FSArray xmi:id="66" elements="34 41 48 55"/>
-    <types:AlvisAnnotation xmi:id="34" sofa="1" begin="68" end="88" features=""/>
-    <types:AlvisAnnotation xmi:id="41" sofa="1" begin="196" end="222" features=""/>
-    <types:AlvisAnnotation xmi:id="48" sofa="1" begin="816" end="830" features=""/>
-    <types:AlvisAnnotation xmi:id="55" sofa="1" begin="891" end="899" features=""/>
-    <types:AlvisLayer xmi:id="79" sofa="1" name="Title" annotations="83"/>
+    <types:AnnotationProxy xmi:id="34" sofa="1" begin="68" end="88" features=""/>
+    <types:AnnotationProxy xmi:id="41" sofa="1" begin="196" end="222" features=""/>
+    <types:AnnotationProxy xmi:id="48" sofa="1" begin="816" end="830" features=""/>
+    <types:AnnotationProxy xmi:id="55" sofa="1" begin="891" end="899" features=""/>
+    <types:LayerProxy xmi:id="79" sofa="1" name="Title" annotations="83"/>
     <cas:FSArray xmi:id="83" elements="72"/>
-    <types:AlvisAnnotation xmi:id="72" sofa="1" begin="0" end="89" features=""/>
-    <types:AlvisLayer xmi:id="93" sofa="1" name="Paragraph" annotations="97"/>
+    <types:AnnotationProxy xmi:id="72" sofa="1" begin="0" end="89" features=""/>
+    <types:LayerProxy xmi:id="93" sofa="1" name="Paragraph" annotations="97"/>
     <cas:FSArray xmi:id="97" elements="86"/>
-    <types:AlvisAnnotation xmi:id="86" sofa="1" begin="90" end="956" features=""/>
-    <types:AlvisRelation xmi:id="105" sofa="1" features="110" tuples="116 134 152 170" name="Bacteria"/>
-    <types:AlvisFeature xmi:id="110" key="kind" value="text"/>
-    <types:AlvisTuple xmi:id="116" sofa="1" features="120 123 126" arguments="262"/>
-    <types:AlvisFeature xmi:id="120" key="id" value="T4"/>
-    <types:AlvisFeature xmi:id="123" key="type" value="Bacteria"/>
-    <types:AlvisFeature xmi:id="126" key="NCBI_Taxonomy" value="1400"/>
+    <types:AnnotationProxy xmi:id="86" sofa="1" begin="90" end="956" features=""/>
+    <types:RelationProxy xmi:id="105" sofa="1" features="110" tuples="116 134 152 170" name="Bacteria"/>
+    <types:FeatureProxy xmi:id="110" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="116" sofa="1" features="120 123 126" arguments="262"/>
+    <types:FeatureProxy xmi:id="120" key="id" value="T4"/>
+    <types:FeatureProxy xmi:id="123" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="126" key="NCBI_Taxonomy" value="1400"/>
     <cas:FSArray xmi:id="262" elements="259"/>
-    <types:TupleArgument xmi:id="259" role="frag0" argument="41"/>
-    <types:AlvisTuple xmi:id="134" sofa="1" features="138 141 144" arguments="268"/>
-    <types:AlvisFeature xmi:id="138" key="id" value="T5"/>
-    <types:AlvisFeature xmi:id="141" key="type" value="Bacteria"/>
-    <types:AlvisFeature xmi:id="144" key="NCBI_Taxonomy" value="1400"/>
+    <types:ArgumentProxy xmi:id="259" role="frag0" argument="41"/>
+    <types:TupleProxy xmi:id="134" sofa="1" features="138 141 144" arguments="268"/>
+    <types:FeatureProxy xmi:id="138" key="id" value="T5"/>
+    <types:FeatureProxy xmi:id="141" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="144" key="NCBI_Taxonomy" value="1400"/>
     <cas:FSArray xmi:id="268" elements="265"/>
-    <types:TupleArgument xmi:id="265" role="frag0" argument="48"/>
-    <types:AlvisTuple xmi:id="152" sofa="1" features="156 159 162" arguments="274"/>
-    <types:AlvisFeature xmi:id="156" key="id" value="T6"/>
-    <types:AlvisFeature xmi:id="159" key="type" value="Bacteria"/>
-    <types:AlvisFeature xmi:id="162" key="NCBI_Taxonomy" value="1386"/>
+    <types:ArgumentProxy xmi:id="265" role="frag0" argument="48"/>
+    <types:TupleProxy xmi:id="152" sofa="1" features="156 159 162" arguments="274"/>
+    <types:FeatureProxy xmi:id="156" key="id" value="T6"/>
+    <types:FeatureProxy xmi:id="159" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="162" key="NCBI_Taxonomy" value="1386"/>
     <cas:FSArray xmi:id="274" elements="271"/>
-    <types:TupleArgument xmi:id="271" role="frag0" argument="55"/>
-    <types:AlvisTuple xmi:id="170" sofa="1" features="174 177 180" arguments="280"/>
-    <types:AlvisFeature xmi:id="174" key="id" value="T3"/>
-    <types:AlvisFeature xmi:id="177" key="type" value="Bacteria"/>
-    <types:AlvisFeature xmi:id="180" key="NCBI_Taxonomy" value="1400"/>
+    <types:ArgumentProxy xmi:id="271" role="frag0" argument="55"/>
+    <types:TupleProxy xmi:id="170" sofa="1" features="174 177 180" arguments="280"/>
+    <types:FeatureProxy xmi:id="174" key="id" value="T3"/>
+    <types:FeatureProxy xmi:id="177" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="180" key="NCBI_Taxonomy" value="1400"/>
     <cas:FSArray xmi:id="280" elements="277"/>
-    <types:TupleArgument xmi:id="277" role="frag0" argument="34"/>
-    <types:AlvisRelation xmi:id="194" sofa="1" features="199" tuples="205" name="Title"/>
-    <types:AlvisFeature xmi:id="199" key="kind" value="text"/>
-    <types:AlvisTuple xmi:id="205" sofa="1" features="209 212" arguments="286"/>
-    <types:AlvisFeature xmi:id="209" key="id" value="T1"/>
-    <types:AlvisFeature xmi:id="212" key="type" value="Title"/>
+    <types:ArgumentProxy xmi:id="277" role="frag0" argument="34"/>
+    <types:RelationProxy xmi:id="194" sofa="1" features="199" tuples="205" name="Title"/>
+    <types:FeatureProxy xmi:id="199" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="205" sofa="1" features="209 212" arguments="286"/>
+    <types:FeatureProxy xmi:id="209" key="id" value="T1"/>
+    <types:FeatureProxy xmi:id="212" key="type" value="Title"/>
     <cas:FSArray xmi:id="286" elements="283"/>
-    <types:TupleArgument xmi:id="283" role="frag0" argument="72"/>
-    <types:AlvisRelation xmi:id="222" sofa="1" features="227" tuples="233" name="Paragraph"/>
-    <types:AlvisFeature xmi:id="227" key="kind" value="text"/>
-    <types:AlvisTuple xmi:id="233" sofa="1" features="237 240" arguments="292"/>
-    <types:AlvisFeature xmi:id="237" key="id" value="T2"/>
-    <types:AlvisFeature xmi:id="240" key="type" value="Paragraph"/>
+    <types:ArgumentProxy xmi:id="283" role="frag0" argument="72"/>
+    <types:RelationProxy xmi:id="222" sofa="1" features="227" tuples="233" name="Paragraph"/>
+    <types:FeatureProxy xmi:id="227" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="233" sofa="1" features="237 240" arguments="292"/>
+    <types:FeatureProxy xmi:id="237" key="id" value="T2"/>
+    <types:FeatureProxy xmi:id="240" key="type" value="Paragraph"/>
     <cas:FSArray xmi:id="292" elements="289"/>
-    <types:TupleArgument xmi:id="289" role="frag0" argument="86"/>
-    <types:AlvisRelation xmi:id="250" sofa="1" features="" tuples="" name="equiv"/>
+    <types:ArgumentProxy xmi:id="289" role="frag0" argument="86"/>
+    <types:RelationProxy xmi:id="250" sofa="1" features="" tuples="" name="equiv"/>
     <cas:View sofa="1" members="8 13"/>
 </xmi:XMI>

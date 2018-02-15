@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Tue Feb 13 16:59:04 CET 2018 */
+/* First created by JCasGen Thu Feb 15 18:58:28 CET 2018 */
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types;
 
 import org.apache.uima.jcas.JCas;
@@ -11,16 +11,16 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.cas.TOP_Type;
 
 /** Feature key-value pair of an Element
- * Updated by JCasGen Wed Feb 14 10:02:16 CET 2018
+ * Updated by JCasGen Thu Feb 15 18:58:28 CET 2018
  * @generated */
-public class AlvisFeature_Type extends TOP_Type {
+public class FeatureProxy_Type extends TOP_Type {
   /** @generated */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = AlvisFeature.typeIndexID;
+  public final static int typeIndexID = FeatureProxy.typeIndexID;
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisFeature");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.FeatureProxy");
  
   /** @generated */
   final Feature casFeat_key;
@@ -32,7 +32,7 @@ public class AlvisFeature_Type extends TOP_Type {
    */ 
   public String getKey(int addr) {
         if (featOkTst && casFeat_key == null)
-      jcas.throwFeatMissing("key", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisFeature");
+      jcas.throwFeatMissing("key", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.FeatureProxy");
     return ll_cas.ll_getStringValue(addr, casFeatCode_key);
   }
   /** @generated
@@ -41,7 +41,7 @@ public class AlvisFeature_Type extends TOP_Type {
    */    
   public void setKey(int addr, String v) {
         if (featOkTst && casFeat_key == null)
-      jcas.throwFeatMissing("key", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisFeature");
+      jcas.throwFeatMissing("key", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.FeatureProxy");
     ll_cas.ll_setStringValue(addr, casFeatCode_key, v);}
     
   
@@ -56,7 +56,7 @@ public class AlvisFeature_Type extends TOP_Type {
    */ 
   public String getValue(int addr) {
         if (featOkTst && casFeat_value == null)
-      jcas.throwFeatMissing("value", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisFeature");
+      jcas.throwFeatMissing("value", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.FeatureProxy");
     return ll_cas.ll_getStringValue(addr, casFeatCode_value);
   }
   /** @generated
@@ -65,7 +65,7 @@ public class AlvisFeature_Type extends TOP_Type {
    */    
   public void setValue(int addr, String v) {
         if (featOkTst && casFeat_value == null)
-      jcas.throwFeatMissing("value", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisFeature");
+      jcas.throwFeatMissing("value", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.FeatureProxy");
     ll_cas.ll_setStringValue(addr, casFeatCode_value, v);}
     
   
@@ -77,7 +77,7 @@ public class AlvisFeature_Type extends TOP_Type {
 	 * @param jcas JCas
 	 * @param casType Type 
 	 */
-  public AlvisFeature_Type(JCas jcas, Type casType) {
+  public FeatureProxy_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 

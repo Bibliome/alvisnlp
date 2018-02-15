@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Tue Feb 13 16:59:04 CET 2018 */
+/* First created by JCasGen Thu Feb 15 18:58:28 CET 2018 */
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types;
 
 import org.apache.uima.jcas.JCas;
@@ -11,16 +11,16 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.cas.AnnotationBase_Type;
 
 /** 
- * Updated by JCasGen Wed Feb 14 10:02:16 CET 2018
+ * Updated by JCasGen Thu Feb 15 18:58:28 CET 2018
  * @generated */
-public class AlvisTuple_Type extends AnnotationBase_Type {
+public class TupleProxy_Type extends AnnotationBase_Type {
   /** @generated */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = AlvisTuple.typeIndexID;
+  public final static int typeIndexID = TupleProxy.typeIndexID;
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisTuple");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.TupleProxy");
  
   /** @generated */
   final Feature casFeat_features;
@@ -32,7 +32,7 @@ public class AlvisTuple_Type extends AnnotationBase_Type {
    */ 
   public int getFeatures(int addr) {
         if (featOkTst && casFeat_features == null)
-      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisTuple");
+      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.TupleProxy");
     return ll_cas.ll_getRefValue(addr, casFeatCode_features);
   }
   /** @generated
@@ -41,7 +41,7 @@ public class AlvisTuple_Type extends AnnotationBase_Type {
    */    
   public void setFeatures(int addr, int v) {
         if (featOkTst && casFeat_features == null)
-      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisTuple");
+      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.TupleProxy");
     ll_cas.ll_setRefValue(addr, casFeatCode_features, v);}
     
    /** @generated
@@ -51,11 +51,11 @@ public class AlvisTuple_Type extends AnnotationBase_Type {
    */
   public int getFeatures(int addr, int i) {
         if (featOkTst && casFeat_features == null)
-      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisTuple");
+      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.TupleProxy");
     if (lowLevelTypeChecks)
       return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_features), i, true);
     jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_features), i);
-  return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_features), i);
+	return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_features), i);
   }
    
   /** @generated
@@ -65,7 +65,7 @@ public class AlvisTuple_Type extends AnnotationBase_Type {
    */ 
   public void setFeatures(int addr, int i, int v) {
         if (featOkTst && casFeat_features == null)
-      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisTuple");
+      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.TupleProxy");
     if (lowLevelTypeChecks)
       ll_cas.ll_setRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_features), i, v, true);
     jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_features), i);
@@ -83,7 +83,7 @@ public class AlvisTuple_Type extends AnnotationBase_Type {
    */ 
   public int getArguments(int addr) {
         if (featOkTst && casFeat_arguments == null)
-      jcas.throwFeatMissing("arguments", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisTuple");
+      jcas.throwFeatMissing("arguments", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.TupleProxy");
     return ll_cas.ll_getRefValue(addr, casFeatCode_arguments);
   }
   /** @generated
@@ -92,7 +92,7 @@ public class AlvisTuple_Type extends AnnotationBase_Type {
    */    
   public void setArguments(int addr, int v) {
         if (featOkTst && casFeat_arguments == null)
-      jcas.throwFeatMissing("arguments", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisTuple");
+      jcas.throwFeatMissing("arguments", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.TupleProxy");
     ll_cas.ll_setRefValue(addr, casFeatCode_arguments, v);}
     
    /** @generated
@@ -102,11 +102,11 @@ public class AlvisTuple_Type extends AnnotationBase_Type {
    */
   public int getArguments(int addr, int i) {
         if (featOkTst && casFeat_arguments == null)
-      jcas.throwFeatMissing("arguments", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisTuple");
+      jcas.throwFeatMissing("arguments", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.TupleProxy");
     if (lowLevelTypeChecks)
       return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_arguments), i, true);
     jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_arguments), i);
-  return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_arguments), i);
+	return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_arguments), i);
   }
    
   /** @generated
@@ -116,7 +116,7 @@ public class AlvisTuple_Type extends AnnotationBase_Type {
    */ 
   public void setArguments(int addr, int i, int v) {
         if (featOkTst && casFeat_arguments == null)
-      jcas.throwFeatMissing("arguments", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisTuple");
+      jcas.throwFeatMissing("arguments", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.TupleProxy");
     if (lowLevelTypeChecks)
       ll_cas.ll_setRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_arguments), i, v, true);
     jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_arguments), i);
@@ -131,7 +131,7 @@ public class AlvisTuple_Type extends AnnotationBase_Type {
 	 * @param jcas JCas
 	 * @param casType Type 
 	 */
-  public AlvisTuple_Type(JCas jcas, Type casType) {
+  public TupleProxy_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 

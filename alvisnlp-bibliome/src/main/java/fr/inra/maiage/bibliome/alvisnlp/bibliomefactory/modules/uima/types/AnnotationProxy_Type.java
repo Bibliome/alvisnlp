@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Tue Feb 13 16:59:04 CET 2018 */
+/* First created by JCasGen Thu Feb 15 18:58:28 CET 2018 */
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types;
 
 import org.apache.uima.jcas.JCas;
@@ -11,16 +11,16 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.tcas.Annotation_Type;
 
 /** 
- * Updated by JCasGen Wed Feb 14 10:02:16 CET 2018
+ * Updated by JCasGen Thu Feb 15 18:58:28 CET 2018
  * @generated */
-public class AlvisAnnotation_Type extends Annotation_Type {
+public class AnnotationProxy_Type extends Annotation_Type {
   /** @generated */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = AlvisAnnotation.typeIndexID;
+  public final static int typeIndexID = AnnotationProxy.typeIndexID;
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisAnnotation");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AnnotationProxy");
  
   /** @generated */
   final Feature casFeat_features;
@@ -32,7 +32,7 @@ public class AlvisAnnotation_Type extends Annotation_Type {
    */ 
   public int getFeatures(int addr) {
         if (featOkTst && casFeat_features == null)
-      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisAnnotation");
+      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AnnotationProxy");
     return ll_cas.ll_getRefValue(addr, casFeatCode_features);
   }
   /** @generated
@@ -41,7 +41,7 @@ public class AlvisAnnotation_Type extends Annotation_Type {
    */    
   public void setFeatures(int addr, int v) {
         if (featOkTst && casFeat_features == null)
-      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisAnnotation");
+      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AnnotationProxy");
     ll_cas.ll_setRefValue(addr, casFeatCode_features, v);}
     
    /** @generated
@@ -51,11 +51,11 @@ public class AlvisAnnotation_Type extends Annotation_Type {
    */
   public int getFeatures(int addr, int i) {
         if (featOkTst && casFeat_features == null)
-      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisAnnotation");
+      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AnnotationProxy");
     if (lowLevelTypeChecks)
       return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_features), i, true);
     jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_features), i);
-  return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_features), i);
+	return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_features), i);
   }
    
   /** @generated
@@ -65,7 +65,7 @@ public class AlvisAnnotation_Type extends Annotation_Type {
    */ 
   public void setFeatures(int addr, int i, int v) {
         if (featOkTst && casFeat_features == null)
-      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisAnnotation");
+      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AnnotationProxy");
     if (lowLevelTypeChecks)
       ll_cas.ll_setRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_features), i, v, true);
     jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_features), i);
@@ -80,7 +80,7 @@ public class AlvisAnnotation_Type extends Annotation_Type {
 	 * @param jcas JCas
 	 * @param casType Type 
 	 */
-  public AlvisAnnotation_Type(JCas jcas, Type casType) {
+  public AnnotationProxy_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 

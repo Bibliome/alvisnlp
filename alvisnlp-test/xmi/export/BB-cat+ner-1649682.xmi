@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmi:version="2.0">
     <cas:NULL xmi:id="0"/>
     <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="2087" language="x-unspecified"/>
-    <types:AlvisDocument xmi:id="13" sofa="1" id="BB-cat+ner-1649682" features="18" sections="24"/>
+    <types:DocumentProxy xmi:id="13" sofa="1" id="BB-cat+ner-1649682" features="18" sections="24"/>
     <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="[The use of rifampin in the treatment of infection due to Staphylococcus aureus].&#10;Infection due to Staphylococcus aureus continues to be a source of significant morbidity and mortality. However, its treatment is increasingly complicated by the rising prevalence of resistance to antibiotics. Apart from the two recognized modes of staphylococcal resistance, namely, penicillinase production and intrinsic resistance, Sabath and associates have described a third type in which resistance is manifested by susceptibility to growth inhibition but tolerance to the lethal action of bactericidal agents. The mechanism of tolerance is attributed to a deficiency of autolytic enzyme activity in the part of bacteria, possibly secondary to an inhibition of autolysins in the tolerant staphylococcal strains. These strains are found in patients with infections responding poorly to treatment with cell-wall active antibiotics including vancomycin. Because of its unique mechanism of action and pharmacokinetic properties, rifampin has been reported to be the most active among 65 antistaphylococcal agents tested and have the capacity to kill intraleukocytic staphylococci. We present 2 cases who were cured following the addition of rifampin to previously established regimens. Case 1 was a 40-year-old male who had fever, cough, dyspnea, a right elbow abscess and left leg swelling for 2 weeks prior to admission. Culture of purulent material from the elbow abscess grew staphylococcus aureus. Chest X-ray showed bilateral septic embolism and phleborheography showed partial deep vein occlusion of the left ileofemoral vein. Case 2 was 22-year-old female with fever, chills and cough for 3 weeks. Blood culture grew staphylococcus aureus, and Chest X-ray revealed bilateral septic embolism with pneumonia. Neither of them responded to standard antibiotics which were judged adequate by in vitro sensitivity tests. Clinical cure was later obtained after rifampin was added to the regimens. These results suggest that rifampin may be a useful adjunct in the therapy of staphylococcal infections.&#10;"/>
-    <types:AlvisFeature xmi:id="18" key="set" value="test"/>
-    <types:AlvisSection xmi:id="24" sofa="1" begin="0" end="2087" name="text" features="" layers="41 55" relations="66 94 122"/>
-    <types:AlvisLayer xmi:id="41" sofa="1" name="Title" annotations="45"/>
+    <types:FeatureProxy xmi:id="18" key="set" value="test"/>
+    <types:SectionProxy xmi:id="24" sofa="1" begin="0" end="2087" name="text" features="" layers="41 55" relations="66 94 122"/>
+    <types:LayerProxy xmi:id="41" sofa="1" name="Title" annotations="45"/>
     <cas:FSArray xmi:id="45" elements="34"/>
-    <types:AlvisAnnotation xmi:id="34" sofa="1" begin="0" end="81" features=""/>
-    <types:AlvisLayer xmi:id="55" sofa="1" name="Paragraph" annotations="59"/>
+    <types:AnnotationProxy xmi:id="34" sofa="1" begin="0" end="81" features=""/>
+    <types:LayerProxy xmi:id="55" sofa="1" name="Paragraph" annotations="59"/>
     <cas:FSArray xmi:id="59" elements="48"/>
-    <types:AlvisAnnotation xmi:id="48" sofa="1" begin="82" end="2086" features=""/>
-    <types:AlvisRelation xmi:id="66" sofa="1" features="71" tuples="77" name="Title"/>
-    <types:AlvisFeature xmi:id="71" key="kind" value="text"/>
-    <types:AlvisTuple xmi:id="77" sofa="1" features="81 84" arguments="134"/>
-    <types:AlvisFeature xmi:id="81" key="id" value="T1"/>
-    <types:AlvisFeature xmi:id="84" key="type" value="Title"/>
+    <types:AnnotationProxy xmi:id="48" sofa="1" begin="82" end="2086" features=""/>
+    <types:RelationProxy xmi:id="66" sofa="1" features="71" tuples="77" name="Title"/>
+    <types:FeatureProxy xmi:id="71" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="77" sofa="1" features="81 84" arguments="134"/>
+    <types:FeatureProxy xmi:id="81" key="id" value="T1"/>
+    <types:FeatureProxy xmi:id="84" key="type" value="Title"/>
     <cas:FSArray xmi:id="134" elements="131"/>
-    <types:TupleArgument xmi:id="131" role="frag0" argument="34"/>
-    <types:AlvisRelation xmi:id="94" sofa="1" features="99" tuples="105" name="Paragraph"/>
-    <types:AlvisFeature xmi:id="99" key="kind" value="text"/>
-    <types:AlvisTuple xmi:id="105" sofa="1" features="109 112" arguments="140"/>
-    <types:AlvisFeature xmi:id="109" key="id" value="T2"/>
-    <types:AlvisFeature xmi:id="112" key="type" value="Paragraph"/>
+    <types:ArgumentProxy xmi:id="131" role="frag0" argument="34"/>
+    <types:RelationProxy xmi:id="94" sofa="1" features="99" tuples="105" name="Paragraph"/>
+    <types:FeatureProxy xmi:id="99" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="105" sofa="1" features="109 112" arguments="140"/>
+    <types:FeatureProxy xmi:id="109" key="id" value="T2"/>
+    <types:FeatureProxy xmi:id="112" key="type" value="Paragraph"/>
     <cas:FSArray xmi:id="140" elements="137"/>
-    <types:TupleArgument xmi:id="137" role="frag0" argument="48"/>
-    <types:AlvisRelation xmi:id="122" sofa="1" features="" tuples="" name="equiv"/>
+    <types:ArgumentProxy xmi:id="137" role="frag0" argument="48"/>
+    <types:RelationProxy xmi:id="122" sofa="1" features="" tuples="" name="equiv"/>
     <cas:View sofa="1" members="8 13"/>
 </xmi:XMI>

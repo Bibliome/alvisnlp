@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Tue Feb 13 16:59:04 CET 2018 */
+/* First created by JCasGen Thu Feb 15 18:58:28 CET 2018 */
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types;
 
 import org.apache.uima.jcas.JCas;
@@ -11,16 +11,16 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.cas.AnnotationBase_Type;
 
 /** 
- * Updated by JCasGen Wed Feb 14 10:02:16 CET 2018
+ * Updated by JCasGen Thu Feb 15 18:58:28 CET 2018
  * @generated */
-public class AlvisRelation_Type extends AnnotationBase_Type {
+public class RelationProxy_Type extends AnnotationBase_Type {
   /** @generated */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = AlvisRelation.typeIndexID;
+  public final static int typeIndexID = RelationProxy.typeIndexID;
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisRelation");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.RelationProxy");
  
   /** @generated */
   final Feature casFeat_features;
@@ -32,7 +32,7 @@ public class AlvisRelation_Type extends AnnotationBase_Type {
    */ 
   public int getFeatures(int addr) {
         if (featOkTst && casFeat_features == null)
-      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisRelation");
+      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.RelationProxy");
     return ll_cas.ll_getRefValue(addr, casFeatCode_features);
   }
   /** @generated
@@ -41,7 +41,7 @@ public class AlvisRelation_Type extends AnnotationBase_Type {
    */    
   public void setFeatures(int addr, int v) {
         if (featOkTst && casFeat_features == null)
-      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisRelation");
+      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.RelationProxy");
     ll_cas.ll_setRefValue(addr, casFeatCode_features, v);}
     
    /** @generated
@@ -51,11 +51,11 @@ public class AlvisRelation_Type extends AnnotationBase_Type {
    */
   public int getFeatures(int addr, int i) {
         if (featOkTst && casFeat_features == null)
-      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisRelation");
+      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.RelationProxy");
     if (lowLevelTypeChecks)
       return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_features), i, true);
     jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_features), i);
-  return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_features), i);
+	return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_features), i);
   }
    
   /** @generated
@@ -65,7 +65,7 @@ public class AlvisRelation_Type extends AnnotationBase_Type {
    */ 
   public void setFeatures(int addr, int i, int v) {
         if (featOkTst && casFeat_features == null)
-      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisRelation");
+      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.RelationProxy");
     if (lowLevelTypeChecks)
       ll_cas.ll_setRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_features), i, v, true);
     jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_features), i);
@@ -83,7 +83,7 @@ public class AlvisRelation_Type extends AnnotationBase_Type {
    */ 
   public int getTuples(int addr) {
         if (featOkTst && casFeat_tuples == null)
-      jcas.throwFeatMissing("tuples", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisRelation");
+      jcas.throwFeatMissing("tuples", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.RelationProxy");
     return ll_cas.ll_getRefValue(addr, casFeatCode_tuples);
   }
   /** @generated
@@ -92,7 +92,7 @@ public class AlvisRelation_Type extends AnnotationBase_Type {
    */    
   public void setTuples(int addr, int v) {
         if (featOkTst && casFeat_tuples == null)
-      jcas.throwFeatMissing("tuples", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisRelation");
+      jcas.throwFeatMissing("tuples", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.RelationProxy");
     ll_cas.ll_setRefValue(addr, casFeatCode_tuples, v);}
     
    /** @generated
@@ -102,11 +102,11 @@ public class AlvisRelation_Type extends AnnotationBase_Type {
    */
   public int getTuples(int addr, int i) {
         if (featOkTst && casFeat_tuples == null)
-      jcas.throwFeatMissing("tuples", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisRelation");
+      jcas.throwFeatMissing("tuples", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.RelationProxy");
     if (lowLevelTypeChecks)
       return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_tuples), i, true);
     jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_tuples), i);
-  return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_tuples), i);
+	return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_tuples), i);
   }
    
   /** @generated
@@ -116,7 +116,7 @@ public class AlvisRelation_Type extends AnnotationBase_Type {
    */ 
   public void setTuples(int addr, int i, int v) {
         if (featOkTst && casFeat_tuples == null)
-      jcas.throwFeatMissing("tuples", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisRelation");
+      jcas.throwFeatMissing("tuples", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.RelationProxy");
     if (lowLevelTypeChecks)
       ll_cas.ll_setRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_tuples), i, v, true);
     jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_tuples), i);
@@ -134,7 +134,7 @@ public class AlvisRelation_Type extends AnnotationBase_Type {
    */ 
   public String getName(int addr) {
         if (featOkTst && casFeat_name == null)
-      jcas.throwFeatMissing("name", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisRelation");
+      jcas.throwFeatMissing("name", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.RelationProxy");
     return ll_cas.ll_getStringValue(addr, casFeatCode_name);
   }
   /** @generated
@@ -143,7 +143,7 @@ public class AlvisRelation_Type extends AnnotationBase_Type {
    */    
   public void setName(int addr, String v) {
         if (featOkTst && casFeat_name == null)
-      jcas.throwFeatMissing("name", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisRelation");
+      jcas.throwFeatMissing("name", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.RelationProxy");
     ll_cas.ll_setStringValue(addr, casFeatCode_name, v);}
     
   
@@ -155,7 +155,7 @@ public class AlvisRelation_Type extends AnnotationBase_Type {
 	 * @param jcas JCas
 	 * @param casType Type 
 	 */
-  public AlvisRelation_Type(JCas jcas, Type casType) {
+  public RelationProxy_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 

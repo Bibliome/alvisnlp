@@ -6,7 +6,7 @@
     <vendor/>
   <types>
     <typeDescription>
-      <name>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisFeature</name>
+      <name>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.FeatureProxy</name>
       <description>Feature key-value pair of an Element</description>
       <supertypeName>uima.cas.TOP</supertypeName>
       <features>
@@ -23,7 +23,7 @@
       </features>
     </typeDescription>
     <typeDescription>
-      <name>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisAnnotation</name>
+      <name>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AnnotationProxy</name>
       <description/>
       <supertypeName>uima.tcas.Annotation</supertypeName>
       <features>
@@ -31,12 +31,12 @@
           <name>features</name>
           <description/>
           <rangeTypeName>uima.cas.FSArray</rangeTypeName>
-          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisFeature</elementType>
+          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.FeatureProxy</elementType>
         </featureDescription>
       </features>
     </typeDescription>
     <typeDescription>
-      <name>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisLayer</name>
+      <name>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.LayerProxy</name>
       <description/>
       <supertypeName>uima.cas.AnnotationBase</supertypeName>
       <features>
@@ -49,13 +49,13 @@
           <name>annotations</name>
           <description/>
           <rangeTypeName>uima.cas.FSArray</rangeTypeName>
-          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisAnnotation</elementType>
+          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AnnotationProxy</elementType>
           <multipleReferencesAllowed>true</multipleReferencesAllowed>
         </featureDescription>
       </features>
     </typeDescription>
     <typeDescription>
-      <name>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.TupleArgument</name>
+      <name>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.ArgumentProxy</name>
       <description/>
       <supertypeName>uima.cas.TOP</supertypeName>
       <features>
@@ -72,7 +72,7 @@
       </features>
     </typeDescription>
     <typeDescription>
-      <name>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisTuple</name>
+      <name>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.TupleProxy</name>
       <description/>
       <supertypeName>uima.cas.AnnotationBase</supertypeName>
       <features>
@@ -80,19 +80,19 @@
           <name>features</name>
           <description/>
           <rangeTypeName>uima.cas.FSArray</rangeTypeName>
-          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisFeature</elementType>
+          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.FeatureProxy</elementType>
         </featureDescription>
         <featureDescription>
           <name>arguments</name>
           <description/>
           <rangeTypeName>uima.cas.FSArray</rangeTypeName>
-          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.TupleArgument</elementType>
+          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.ArgumentProxy</elementType>
           <multipleReferencesAllowed>true</multipleReferencesAllowed>
         </featureDescription>
       </features>
     </typeDescription>
     <typeDescription>
-      <name>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisRelation</name>
+      <name>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.RelationProxy</name>
       <description/>
       <supertypeName>uima.cas.AnnotationBase</supertypeName>
       <features>
@@ -100,13 +100,13 @@
           <name>features</name>
           <description/>
           <rangeTypeName>uima.cas.FSArray</rangeTypeName>
-          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisFeature</elementType>
+          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.FeatureProxy</elementType>
         </featureDescription>
         <featureDescription>
           <name>tuples</name>
           <description/>
           <rangeTypeName>uima.cas.FSArray</rangeTypeName>
-          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisTuple</elementType>
+          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.TupleProxy</elementType>
         </featureDescription>
       <featureDescription>
           <name>name</name>
@@ -116,7 +116,7 @@
       </features>
     </typeDescription>
   <typeDescription>
-      <name>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisSection</name>
+      <name>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.SectionProxy</name>
       <description/>
       <supertypeName>uima.tcas.Annotation</supertypeName>
       <features>
@@ -129,24 +129,24 @@
           <name>features</name>
           <description/>
           <rangeTypeName>uima.cas.FSArray</rangeTypeName>
-          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisFeature</elementType>
+          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.FeatureProxy</elementType>
         </featureDescription>
         <featureDescription>
           <name>layers</name>
           <description/>
           <rangeTypeName>uima.cas.FSArray</rangeTypeName>
-          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisLayer</elementType>
+          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.LayerProxy</elementType>
         </featureDescription>
         <featureDescription>
           <name>relations</name>
           <description/>
           <rangeTypeName>uima.cas.FSArray</rangeTypeName>
-          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisRelation</elementType>
+          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.RelationProxy</elementType>
         </featureDescription>
       </features>
     </typeDescription>
     <typeDescription>
-      <name>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisDocument</name>
+      <name>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.DocumentProxy</name>
       <description/>
       <supertypeName>uima.cas.AnnotationBase</supertypeName>
       <features>
@@ -159,13 +159,13 @@
           <name>features</name>
           <description/>
           <rangeTypeName>uima.cas.FSArray</rangeTypeName>
-          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisFeature</elementType>
+          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.FeatureProxy</elementType>
         </featureDescription>
         <featureDescription>
           <name>sections</name>
           <description/>
           <rangeTypeName>uima.cas.FSArray</rangeTypeName>
-          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisSection</elementType>
+          <elementType>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.SectionProxy</elementType>
         </featureDescription>
       </features>
     </typeDescription>

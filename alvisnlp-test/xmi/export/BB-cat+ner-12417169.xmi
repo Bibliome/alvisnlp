@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmi:version="2.0">
     <cas:NULL xmi:id="0"/>
     <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="1565" language="x-unspecified"/>
-    <types:AlvisDocument xmi:id="13" sofa="1" id="BB-cat+ner-12417169" features="18" sections="24"/>
+    <types:DocumentProxy xmi:id="13" sofa="1" id="BB-cat+ner-12417169" features="18" sections="24"/>
     <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Emergence of resistance of vancomycin-resistant Enterococcus faecium in a thermal injury patient treated with quinupristin-dalfopristin and cultured epithelial autografts for wound closure.&#10;Vancomycin-resistant Enterococcus faecium and faecalis (VRE) remains a major complication among critically ill patients. A 26-year-old patient with 65% total body surface area burns (TBSA) was infected with several E. faecium strains during his admission that were resistant to vancomycin. Because chloramphenicol was the standard treatment at this time, this drug was initiated until, the organism was identified as E. faecium and reported as susceptible to quinupristin-dalfopristin. Given these data, it was then decided to discontinue the chloramphenicol therapy. Quinupristin-dalfopristin therapy resulted in initial reduction of fever and white blood cell counts that continued over the next 5 days. However, on day 7 of quinupristin-dalfopristin therapy, a return of fever and elevation of the white blood cell count was noted and a repeated E. faecium blood culture demonstrated sudden resistance to quinupristin-dalfopristin (Bauer-Kirby zone size &lt;14 mm). Chloramphenicol was restarted and the patient improved slowly over a period of 16 days. Our indigenous VRE had limited exposure to quinupristin-dalfopristin in the recent past; however, resistance emerged with the first commercial use of this agent in our burn treatment center. High-dose chloramphenicol treatment did not appear to impair engraftment of cultured epithelial autografts (CEA) in this patient.&#10;"/>
-    <types:AlvisFeature xmi:id="18" key="set" value="test"/>
-    <types:AlvisSection xmi:id="24" sofa="1" begin="0" end="1565" name="text" features="" layers="41 55" relations="66 94 122"/>
-    <types:AlvisLayer xmi:id="41" sofa="1" name="Title" annotations="45"/>
+    <types:FeatureProxy xmi:id="18" key="set" value="test"/>
+    <types:SectionProxy xmi:id="24" sofa="1" begin="0" end="1565" name="text" features="" layers="41 55" relations="66 94 122"/>
+    <types:LayerProxy xmi:id="41" sofa="1" name="Title" annotations="45"/>
     <cas:FSArray xmi:id="45" elements="34"/>
-    <types:AlvisAnnotation xmi:id="34" sofa="1" begin="0" end="189" features=""/>
-    <types:AlvisLayer xmi:id="55" sofa="1" name="Paragraph" annotations="59"/>
+    <types:AnnotationProxy xmi:id="34" sofa="1" begin="0" end="189" features=""/>
+    <types:LayerProxy xmi:id="55" sofa="1" name="Paragraph" annotations="59"/>
     <cas:FSArray xmi:id="59" elements="48"/>
-    <types:AlvisAnnotation xmi:id="48" sofa="1" begin="190" end="1564" features=""/>
-    <types:AlvisRelation xmi:id="66" sofa="1" features="71" tuples="77" name="Title"/>
-    <types:AlvisFeature xmi:id="71" key="kind" value="text"/>
-    <types:AlvisTuple xmi:id="77" sofa="1" features="81 84" arguments="134"/>
-    <types:AlvisFeature xmi:id="81" key="id" value="T1"/>
-    <types:AlvisFeature xmi:id="84" key="type" value="Title"/>
+    <types:AnnotationProxy xmi:id="48" sofa="1" begin="190" end="1564" features=""/>
+    <types:RelationProxy xmi:id="66" sofa="1" features="71" tuples="77" name="Title"/>
+    <types:FeatureProxy xmi:id="71" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="77" sofa="1" features="81 84" arguments="134"/>
+    <types:FeatureProxy xmi:id="81" key="id" value="T1"/>
+    <types:FeatureProxy xmi:id="84" key="type" value="Title"/>
     <cas:FSArray xmi:id="134" elements="131"/>
-    <types:TupleArgument xmi:id="131" role="frag0" argument="34"/>
-    <types:AlvisRelation xmi:id="94" sofa="1" features="99" tuples="105" name="Paragraph"/>
-    <types:AlvisFeature xmi:id="99" key="kind" value="text"/>
-    <types:AlvisTuple xmi:id="105" sofa="1" features="109 112" arguments="140"/>
-    <types:AlvisFeature xmi:id="109" key="id" value="T2"/>
-    <types:AlvisFeature xmi:id="112" key="type" value="Paragraph"/>
+    <types:ArgumentProxy xmi:id="131" role="frag0" argument="34"/>
+    <types:RelationProxy xmi:id="94" sofa="1" features="99" tuples="105" name="Paragraph"/>
+    <types:FeatureProxy xmi:id="99" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="105" sofa="1" features="109 112" arguments="140"/>
+    <types:FeatureProxy xmi:id="109" key="id" value="T2"/>
+    <types:FeatureProxy xmi:id="112" key="type" value="Paragraph"/>
     <cas:FSArray xmi:id="140" elements="137"/>
-    <types:TupleArgument xmi:id="137" role="frag0" argument="48"/>
-    <types:AlvisRelation xmi:id="122" sofa="1" features="" tuples="" name="equiv"/>
+    <types:ArgumentProxy xmi:id="137" role="frag0" argument="48"/>
+    <types:RelationProxy xmi:id="122" sofa="1" features="" tuples="" name="equiv"/>
     <cas:View sofa="1" members="8 13"/>
 </xmi:XMI>

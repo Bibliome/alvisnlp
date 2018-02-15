@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Tue Feb 13 16:59:04 CET 2018 */
+/* First created by JCasGen Thu Feb 15 18:58:28 CET 2018 */
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types;
 
 import org.apache.uima.jcas.JCas;
@@ -11,16 +11,16 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.cas.AnnotationBase_Type;
 
 /** 
- * Updated by JCasGen Wed Feb 14 10:02:16 CET 2018
+ * Updated by JCasGen Thu Feb 15 18:58:28 CET 2018
  * @generated */
-public class AlvisLayer_Type extends AnnotationBase_Type {
+public class LayerProxy_Type extends AnnotationBase_Type {
   /** @generated */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = AlvisLayer.typeIndexID;
+  public final static int typeIndexID = LayerProxy.typeIndexID;
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisLayer");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.LayerProxy");
  
   /** @generated */
   final Feature casFeat_name;
@@ -32,7 +32,7 @@ public class AlvisLayer_Type extends AnnotationBase_Type {
    */ 
   public String getName(int addr) {
         if (featOkTst && casFeat_name == null)
-      jcas.throwFeatMissing("name", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisLayer");
+      jcas.throwFeatMissing("name", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.LayerProxy");
     return ll_cas.ll_getStringValue(addr, casFeatCode_name);
   }
   /** @generated
@@ -41,7 +41,7 @@ public class AlvisLayer_Type extends AnnotationBase_Type {
    */    
   public void setName(int addr, String v) {
         if (featOkTst && casFeat_name == null)
-      jcas.throwFeatMissing("name", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisLayer");
+      jcas.throwFeatMissing("name", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.LayerProxy");
     ll_cas.ll_setStringValue(addr, casFeatCode_name, v);}
     
   
@@ -56,7 +56,7 @@ public class AlvisLayer_Type extends AnnotationBase_Type {
    */ 
   public int getAnnotations(int addr) {
         if (featOkTst && casFeat_annotations == null)
-      jcas.throwFeatMissing("annotations", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisLayer");
+      jcas.throwFeatMissing("annotations", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.LayerProxy");
     return ll_cas.ll_getRefValue(addr, casFeatCode_annotations);
   }
   /** @generated
@@ -65,7 +65,7 @@ public class AlvisLayer_Type extends AnnotationBase_Type {
    */    
   public void setAnnotations(int addr, int v) {
         if (featOkTst && casFeat_annotations == null)
-      jcas.throwFeatMissing("annotations", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisLayer");
+      jcas.throwFeatMissing("annotations", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.LayerProxy");
     ll_cas.ll_setRefValue(addr, casFeatCode_annotations, v);}
     
    /** @generated
@@ -75,11 +75,11 @@ public class AlvisLayer_Type extends AnnotationBase_Type {
    */
   public int getAnnotations(int addr, int i) {
         if (featOkTst && casFeat_annotations == null)
-      jcas.throwFeatMissing("annotations", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisLayer");
+      jcas.throwFeatMissing("annotations", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.LayerProxy");
     if (lowLevelTypeChecks)
       return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_annotations), i, true);
     jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_annotations), i);
-  return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_annotations), i);
+	return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_annotations), i);
   }
    
   /** @generated
@@ -89,7 +89,7 @@ public class AlvisLayer_Type extends AnnotationBase_Type {
    */ 
   public void setAnnotations(int addr, int i, int v) {
         if (featOkTst && casFeat_annotations == null)
-      jcas.throwFeatMissing("annotations", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisLayer");
+      jcas.throwFeatMissing("annotations", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.LayerProxy");
     if (lowLevelTypeChecks)
       ll_cas.ll_setRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_annotations), i, v, true);
     jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_annotations), i);
@@ -104,7 +104,7 @@ public class AlvisLayer_Type extends AnnotationBase_Type {
 	 * @param jcas JCas
 	 * @param casType Type 
 	 */
-  public AlvisLayer_Type(JCas jcas, Type casType) {
+  public LayerProxy_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 

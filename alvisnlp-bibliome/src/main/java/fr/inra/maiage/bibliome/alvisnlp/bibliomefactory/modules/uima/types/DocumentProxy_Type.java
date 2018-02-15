@@ -1,5 +1,5 @@
 
-/* First created by JCasGen Tue Feb 13 22:43:10 CET 2018 */
+/* First created by JCasGen Thu Feb 15 18:58:28 CET 2018 */
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types;
 
 import org.apache.uima.jcas.JCas;
@@ -11,16 +11,16 @@ import org.apache.uima.cas.Feature;
 import org.apache.uima.jcas.cas.AnnotationBase_Type;
 
 /** 
- * Updated by JCasGen Wed Feb 14 10:02:16 CET 2018
+ * Updated by JCasGen Thu Feb 15 18:58:28 CET 2018
  * @generated */
-public class AlvisDocument_Type extends AnnotationBase_Type {
+public class DocumentProxy_Type extends AnnotationBase_Type {
   /** @generated */
   @SuppressWarnings ("hiding")
-  public final static int typeIndexID = AlvisDocument.typeIndexID;
+  public final static int typeIndexID = DocumentProxy.typeIndexID;
   /** @generated 
      @modifiable */
   @SuppressWarnings ("hiding")
-  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisDocument");
+  public final static boolean featOkTst = JCasRegistry.getFeatOkTst("fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.DocumentProxy");
  
   /** @generated */
   final Feature casFeat_id;
@@ -32,7 +32,7 @@ public class AlvisDocument_Type extends AnnotationBase_Type {
    */ 
   public String getId(int addr) {
         if (featOkTst && casFeat_id == null)
-      jcas.throwFeatMissing("id", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisDocument");
+      jcas.throwFeatMissing("id", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.DocumentProxy");
     return ll_cas.ll_getStringValue(addr, casFeatCode_id);
   }
   /** @generated
@@ -41,7 +41,7 @@ public class AlvisDocument_Type extends AnnotationBase_Type {
    */    
   public void setId(int addr, String v) {
         if (featOkTst && casFeat_id == null)
-      jcas.throwFeatMissing("id", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisDocument");
+      jcas.throwFeatMissing("id", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.DocumentProxy");
     ll_cas.ll_setStringValue(addr, casFeatCode_id, v);}
     
   
@@ -56,7 +56,7 @@ public class AlvisDocument_Type extends AnnotationBase_Type {
    */ 
   public int getFeatures(int addr) {
         if (featOkTst && casFeat_features == null)
-      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisDocument");
+      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.DocumentProxy");
     return ll_cas.ll_getRefValue(addr, casFeatCode_features);
   }
   /** @generated
@@ -65,7 +65,7 @@ public class AlvisDocument_Type extends AnnotationBase_Type {
    */    
   public void setFeatures(int addr, int v) {
         if (featOkTst && casFeat_features == null)
-      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisDocument");
+      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.DocumentProxy");
     ll_cas.ll_setRefValue(addr, casFeatCode_features, v);}
     
    /** @generated
@@ -75,11 +75,11 @@ public class AlvisDocument_Type extends AnnotationBase_Type {
    */
   public int getFeatures(int addr, int i) {
         if (featOkTst && casFeat_features == null)
-      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisDocument");
+      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.DocumentProxy");
     if (lowLevelTypeChecks)
       return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_features), i, true);
     jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_features), i);
-  return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_features), i);
+	return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_features), i);
   }
    
   /** @generated
@@ -89,7 +89,7 @@ public class AlvisDocument_Type extends AnnotationBase_Type {
    */ 
   public void setFeatures(int addr, int i, int v) {
         if (featOkTst && casFeat_features == null)
-      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisDocument");
+      jcas.throwFeatMissing("features", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.DocumentProxy");
     if (lowLevelTypeChecks)
       ll_cas.ll_setRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_features), i, v, true);
     jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_features), i);
@@ -107,7 +107,7 @@ public class AlvisDocument_Type extends AnnotationBase_Type {
    */ 
   public int getSections(int addr) {
         if (featOkTst && casFeat_sections == null)
-      jcas.throwFeatMissing("sections", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisDocument");
+      jcas.throwFeatMissing("sections", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.DocumentProxy");
     return ll_cas.ll_getRefValue(addr, casFeatCode_sections);
   }
   /** @generated
@@ -116,7 +116,7 @@ public class AlvisDocument_Type extends AnnotationBase_Type {
    */    
   public void setSections(int addr, int v) {
         if (featOkTst && casFeat_sections == null)
-      jcas.throwFeatMissing("sections", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisDocument");
+      jcas.throwFeatMissing("sections", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.DocumentProxy");
     ll_cas.ll_setRefValue(addr, casFeatCode_sections, v);}
     
    /** @generated
@@ -126,11 +126,11 @@ public class AlvisDocument_Type extends AnnotationBase_Type {
    */
   public int getSections(int addr, int i) {
         if (featOkTst && casFeat_sections == null)
-      jcas.throwFeatMissing("sections", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisDocument");
+      jcas.throwFeatMissing("sections", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.DocumentProxy");
     if (lowLevelTypeChecks)
       return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_sections), i, true);
     jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_sections), i);
-  return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_sections), i);
+	return ll_cas.ll_getRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_sections), i);
   }
    
   /** @generated
@@ -140,7 +140,7 @@ public class AlvisDocument_Type extends AnnotationBase_Type {
    */ 
   public void setSections(int addr, int i, int v) {
         if (featOkTst && casFeat_sections == null)
-      jcas.throwFeatMissing("sections", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AlvisDocument");
+      jcas.throwFeatMissing("sections", "fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.DocumentProxy");
     if (lowLevelTypeChecks)
       ll_cas.ll_setRefArrayValue(ll_cas.ll_getRefValue(addr, casFeatCode_sections), i, v, true);
     jcas.checkArrayBounds(ll_cas.ll_getRefValue(addr, casFeatCode_sections), i);
@@ -155,7 +155,7 @@ public class AlvisDocument_Type extends AnnotationBase_Type {
 	 * @param jcas JCas
 	 * @param casType Type 
 	 */
-  public AlvisDocument_Type(JCas jcas, Type casType) {
+  public DocumentProxy_Type(JCas jcas, Type casType) {
     super(jcas, casType);
     casImpl.getFSClassRegistry().addGeneratorForType((TypeImpl)this.casType, getFSGenerator());
 

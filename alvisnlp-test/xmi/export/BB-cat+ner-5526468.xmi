@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmi:version="2.0">
     <cas:NULL xmi:id="0"/>
     <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="85" language="x-unspecified"/>
-    <types:AlvisDocument xmi:id="13" sofa="1" id="BB-cat+ner-5526468" features="18" sections="24"/>
+    <types:DocumentProxy xmi:id="13" sofa="1" id="BB-cat+ner-5526468" features="18" sections="24"/>
     <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Vibrio fetus human infection--isolation from a subacute bacterial endocarditis case.&#10;"/>
-    <types:AlvisFeature xmi:id="18" key="set" value="dev"/>
-    <types:AlvisSection xmi:id="24" sofa="1" begin="0" end="85" name="text" features="" layers="41 55 69" relations="81 109 141 173"/>
-    <types:AlvisLayer xmi:id="41" sofa="1" name="Title" annotations="45"/>
+    <types:FeatureProxy xmi:id="18" key="set" value="dev"/>
+    <types:SectionProxy xmi:id="24" sofa="1" begin="0" end="85" name="text" features="" layers="41 55 69" relations="81 109 141 173"/>
+    <types:LayerProxy xmi:id="41" sofa="1" name="Title" annotations="45"/>
     <cas:FSArray xmi:id="45" elements="34"/>
-    <types:AlvisAnnotation xmi:id="34" sofa="1" begin="0" end="84" features=""/>
-    <types:AlvisLayer xmi:id="55" sofa="1" name="Bacteria" annotations="59"/>
+    <types:AnnotationProxy xmi:id="34" sofa="1" begin="0" end="84" features=""/>
+    <types:LayerProxy xmi:id="55" sofa="1" name="Bacteria" annotations="59"/>
     <cas:FSArray xmi:id="59" elements="48"/>
-    <types:AlvisAnnotation xmi:id="48" sofa="1" begin="0" end="12" features=""/>
-    <types:AlvisLayer xmi:id="69" sofa="1" name="Habitat" annotations="73"/>
+    <types:AnnotationProxy xmi:id="48" sofa="1" begin="0" end="12" features=""/>
+    <types:LayerProxy xmi:id="69" sofa="1" name="Habitat" annotations="73"/>
     <cas:FSArray xmi:id="73" elements="62"/>
-    <types:AlvisAnnotation xmi:id="62" sofa="1" begin="13" end="18" features=""/>
-    <types:AlvisRelation xmi:id="81" sofa="1" features="86" tuples="92" name="Title"/>
-    <types:AlvisFeature xmi:id="86" key="kind" value="text"/>
-    <types:AlvisTuple xmi:id="92" sofa="1" features="96 99" arguments="185"/>
-    <types:AlvisFeature xmi:id="96" key="id" value="T1"/>
-    <types:AlvisFeature xmi:id="99" key="type" value="Title"/>
+    <types:AnnotationProxy xmi:id="62" sofa="1" begin="13" end="18" features=""/>
+    <types:RelationProxy xmi:id="81" sofa="1" features="86" tuples="92" name="Title"/>
+    <types:FeatureProxy xmi:id="86" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="92" sofa="1" features="96 99" arguments="185"/>
+    <types:FeatureProxy xmi:id="96" key="id" value="T1"/>
+    <types:FeatureProxy xmi:id="99" key="type" value="Title"/>
     <cas:FSArray xmi:id="185" elements="182"/>
-    <types:TupleArgument xmi:id="182" role="frag0" argument="34"/>
-    <types:AlvisRelation xmi:id="109" sofa="1" features="114" tuples="120" name="Bacteria"/>
-    <types:AlvisFeature xmi:id="114" key="kind" value="text"/>
-    <types:AlvisTuple xmi:id="120" sofa="1" features="124 127 130" arguments="191"/>
-    <types:AlvisFeature xmi:id="124" key="id" value="T2"/>
-    <types:AlvisFeature xmi:id="127" key="type" value="Bacteria"/>
-    <types:AlvisFeature xmi:id="130" key="NCBI_Taxonomy" value="196"/>
+    <types:ArgumentProxy xmi:id="182" role="frag0" argument="34"/>
+    <types:RelationProxy xmi:id="109" sofa="1" features="114" tuples="120" name="Bacteria"/>
+    <types:FeatureProxy xmi:id="114" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="120" sofa="1" features="124 127 130" arguments="191"/>
+    <types:FeatureProxy xmi:id="124" key="id" value="T2"/>
+    <types:FeatureProxy xmi:id="127" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="130" key="NCBI_Taxonomy" value="196"/>
     <cas:FSArray xmi:id="191" elements="188"/>
-    <types:TupleArgument xmi:id="188" role="frag0" argument="48"/>
-    <types:AlvisRelation xmi:id="141" sofa="1" features="146" tuples="152" name="Habitat"/>
-    <types:AlvisFeature xmi:id="146" key="kind" value="text"/>
-    <types:AlvisTuple xmi:id="152" sofa="1" features="156 159 162" arguments="197"/>
-    <types:AlvisFeature xmi:id="156" key="id" value="T3"/>
-    <types:AlvisFeature xmi:id="159" key="type" value="Habitat"/>
-    <types:AlvisFeature xmi:id="162" key="OntoBiotope" value="OBT:001804"/>
+    <types:ArgumentProxy xmi:id="188" role="frag0" argument="48"/>
+    <types:RelationProxy xmi:id="141" sofa="1" features="146" tuples="152" name="Habitat"/>
+    <types:FeatureProxy xmi:id="146" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="152" sofa="1" features="156 159 162" arguments="197"/>
+    <types:FeatureProxy xmi:id="156" key="id" value="T3"/>
+    <types:FeatureProxy xmi:id="159" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="162" key="OntoBiotope" value="OBT:001804"/>
     <cas:FSArray xmi:id="197" elements="194"/>
-    <types:TupleArgument xmi:id="194" role="frag0" argument="62"/>
-    <types:AlvisRelation xmi:id="173" sofa="1" features="" tuples="" name="equiv"/>
+    <types:ArgumentProxy xmi:id="194" role="frag0" argument="62"/>
+    <types:RelationProxy xmi:id="173" sofa="1" features="" tuples="" name="equiv"/>
     <cas:View sofa="1" members="8 13"/>
 </xmi:XMI>

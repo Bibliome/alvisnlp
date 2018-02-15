@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmi:version="2.0">
     <cas:NULL xmi:id="0"/>
     <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="1321" language="x-unspecified"/>
-    <types:AlvisDocument xmi:id="13" sofa="1" id="BB-cat+ner-25046729" features="18" sections="24"/>
+    <types:DocumentProxy xmi:id="13" sofa="1" id="BB-cat+ner-25046729" features="18" sections="24"/>
     <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Wolbachia endosymbionts and human disease control.&#10;Most human filarial nematode parasites and arthropods are hosts for a bacterial endosymbiont, Wolbachia. In filaria, Wolbachia are required for normal development, fertility and survival, whereas in arthropods, they are largely parasitic and can influence development and reproduction, but are generally not required for host survival. Due to their obligate nature in filarial parasites, Wolbachia have been a target for drug discovery initiatives using several approaches including diversity and focused library screening and genomic sequence analysis. In vitro and in vivo anti-Wolbachia antibiotic treatments have been shown to have adulticidal activity, a long sought goal of filarial parasite drug discovery. In mosquitoes, it has been shown that the presence of Wolbachia can inhibit the transmission of certain viruses, such as Dengue, Chikungunya, Yellow Fever, West Nile, as well as the infectivity of the malaria-causing protozoan, Plasmodium and filarial nematodes. Furthermore, Wolbachia can cause a form of conditional sterility that can be used to suppress populations of mosquitoes and additional medically important insects. Thus Wolbachia, a pandemic endosymbiont offers great potential for elimination of a wide-variety of devastating human diseases. &#10;"/>
-    <types:AlvisFeature xmi:id="18" key="set" value="test"/>
-    <types:AlvisSection xmi:id="24" sofa="1" begin="0" end="1321" name="text" features="" layers="41 55" relations="66 94 122"/>
-    <types:AlvisLayer xmi:id="41" sofa="1" name="Title" annotations="45"/>
+    <types:FeatureProxy xmi:id="18" key="set" value="test"/>
+    <types:SectionProxy xmi:id="24" sofa="1" begin="0" end="1321" name="text" features="" layers="41 55" relations="66 94 122"/>
+    <types:LayerProxy xmi:id="41" sofa="1" name="Title" annotations="45"/>
     <cas:FSArray xmi:id="45" elements="34"/>
-    <types:AlvisAnnotation xmi:id="34" sofa="1" begin="0" end="50" features=""/>
-    <types:AlvisLayer xmi:id="55" sofa="1" name="Paragraph" annotations="59"/>
+    <types:AnnotationProxy xmi:id="34" sofa="1" begin="0" end="50" features=""/>
+    <types:LayerProxy xmi:id="55" sofa="1" name="Paragraph" annotations="59"/>
     <cas:FSArray xmi:id="59" elements="48"/>
-    <types:AlvisAnnotation xmi:id="48" sofa="1" begin="51" end="1319" features=""/>
-    <types:AlvisRelation xmi:id="66" sofa="1" features="71" tuples="77" name="Title"/>
-    <types:AlvisFeature xmi:id="71" key="kind" value="text"/>
-    <types:AlvisTuple xmi:id="77" sofa="1" features="81 84" arguments="134"/>
-    <types:AlvisFeature xmi:id="81" key="id" value="T1"/>
-    <types:AlvisFeature xmi:id="84" key="type" value="Title"/>
+    <types:AnnotationProxy xmi:id="48" sofa="1" begin="51" end="1319" features=""/>
+    <types:RelationProxy xmi:id="66" sofa="1" features="71" tuples="77" name="Title"/>
+    <types:FeatureProxy xmi:id="71" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="77" sofa="1" features="81 84" arguments="134"/>
+    <types:FeatureProxy xmi:id="81" key="id" value="T1"/>
+    <types:FeatureProxy xmi:id="84" key="type" value="Title"/>
     <cas:FSArray xmi:id="134" elements="131"/>
-    <types:TupleArgument xmi:id="131" role="frag0" argument="34"/>
-    <types:AlvisRelation xmi:id="94" sofa="1" features="99" tuples="105" name="Paragraph"/>
-    <types:AlvisFeature xmi:id="99" key="kind" value="text"/>
-    <types:AlvisTuple xmi:id="105" sofa="1" features="109 112" arguments="140"/>
-    <types:AlvisFeature xmi:id="109" key="id" value="T2"/>
-    <types:AlvisFeature xmi:id="112" key="type" value="Paragraph"/>
+    <types:ArgumentProxy xmi:id="131" role="frag0" argument="34"/>
+    <types:RelationProxy xmi:id="94" sofa="1" features="99" tuples="105" name="Paragraph"/>
+    <types:FeatureProxy xmi:id="99" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="105" sofa="1" features="109 112" arguments="140"/>
+    <types:FeatureProxy xmi:id="109" key="id" value="T2"/>
+    <types:FeatureProxy xmi:id="112" key="type" value="Paragraph"/>
     <cas:FSArray xmi:id="140" elements="137"/>
-    <types:TupleArgument xmi:id="137" role="frag0" argument="48"/>
-    <types:AlvisRelation xmi:id="122" sofa="1" features="" tuples="" name="equiv"/>
+    <types:ArgumentProxy xmi:id="137" role="frag0" argument="48"/>
+    <types:RelationProxy xmi:id="122" sofa="1" features="" tuples="" name="equiv"/>
     <cas:View sofa="1" members="8 13"/>
 </xmi:XMI>
