@@ -188,7 +188,7 @@ function check-file() {
 	gen="$ref"
     fi
     echo Comparing files "$TEST_DIR"/"$ref" "$TEST_WD"/"$gen"
-    diff -q "$TEST_DIR"/"$ref" "$TEST_WD"/"$gen"
+    diff -r -q "$TEST_DIR"/"$ref" "$TEST_WD"/"$gen"
 }
 
 function check-file-sorted() {
