@@ -128,25 +128,25 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 		SectionProxy result = new SectionProxy(jcas, offset, offset + sec.getContents().length());
 		result.setName(sec.getName());
 		result.setFeatures(convertFeatures(jcas, sec));
-		Map<Element,TOP> argumentMap = new HashMap<Element,TOP>();
 		Map<Annotation,AnnotationProxy> annotationMap = new HashMap<Annotation,AnnotationProxy>();
-		result.setLayers(convertLayers(argumentMap, annotationMap, jcas, sec, offset));
+		result.setLayers(convertLayers(annotationMap, jcas, sec, offset));
+		Map<Element,TOP> argumentMap = new HashMap<Element,TOP>(annotationMap);
 		result.setRelations(convertRelations(logger, argumentMap, jcas, sec));
 		return result;
 	}
 	
-	private static FSArray convertLayers(Map<Element,TOP> argumentMap, Map<Annotation,AnnotationProxy> annotationMap, JCas jcas, Section sec, int offset) {
+	private static FSArray convertLayers(Map<Annotation,AnnotationProxy> annotationMap, JCas jcas, Section sec, int offset) {
 		List<LayerProxy> result = new ArrayList<LayerProxy>();
 		for (Layer layer : sec.getAllLayers()) {
-			result.add(convertLayer(argumentMap, annotationMap, jcas, layer, offset));
+			result.add(convertLayer(annotationMap, jcas, layer, offset));
 		}
 		return FSCollectionFactory.createFSArray(jcas, result);
 	}
 
-	private static LayerProxy convertLayer(Map<Element,TOP> argumentMap, Map<Annotation,AnnotationProxy> annotationMap, JCas jcas, Layer layer, int offset) {
+	private static LayerProxy convertLayer(Map<Annotation,AnnotationProxy> annotationMap, JCas jcas, Layer layer, int offset) {
 		List<AnnotationProxy> annotProxies = new ArrayList<AnnotationProxy>(layer.size());
 		for (Annotation a : layer) {
-			annotProxies.add(convertAnnotation(argumentMap, annotationMap, jcas, a, offset));
+			annotProxies.add(convertAnnotation(annotationMap, jcas, a, offset));
 		}
 		LayerProxy result = new LayerProxy(jcas);
 		result.setName(layer.getName());
@@ -154,14 +154,13 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 		return result;
 	}
 	
-	private static AnnotationProxy convertAnnotation(Map<Element,TOP> argumentMap, Map<Annotation,AnnotationProxy> annotationMap, JCas jcas, Annotation a, int offset) {
+	private static AnnotationProxy convertAnnotation(Map<Annotation,AnnotationProxy> annotationMap, JCas jcas, Annotation a, int offset) {
 		if (annotationMap.containsKey(a)) {
 			return annotationMap.get(a);
 		}
 		AnnotationProxy result = new AnnotationProxy(jcas, offset + a.getStart(), offset + a.getEnd());
 		result.setFeatures(convertFeatures(jcas, a));
 		annotationMap.put(a, result);
-		argumentMap.put(a, result);
 		return result;
 	}
 	
