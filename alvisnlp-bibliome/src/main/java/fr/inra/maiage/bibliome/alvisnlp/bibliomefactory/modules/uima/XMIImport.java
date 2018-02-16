@@ -1,5 +1,6 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
@@ -31,6 +32,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
@@ -50,6 +52,7 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, TupleCreator {
 	private SourceStream source;
 	private String defaultSectionName = "text";
+    private Boolean baseNameId = false;
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -89,8 +92,19 @@ public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements
 	}
 	
 	private void convertEmptyDocument(Corpus corpus, JCas jcas, String sourceName) {
-		Document doc = Document.getDocument(this, corpus, sourceName);
+		Document doc = Document.getDocument(this, corpus, getDocumentId(sourceName));
 		new Section(this, doc, defaultSectionName, jcas.getDocumentText());
+	}
+	
+	private String getDocumentId(String sourceName) {
+		if (baseNameId) {
+			int slash = sourceName.lastIndexOf(File.separatorChar) + 1;
+			int dot = sourceName.lastIndexOf('.');
+			if (dot == -1 || dot < slash)
+				dot = sourceName.length();
+			return sourceName.substring(slash, dot);
+		}
+		return sourceName;
 	}
 	
 	private void convertAnnotatedDocument(Corpus corpus, JCas jcas, DocumentProxy docProxy) {
@@ -190,6 +204,24 @@ public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements
 	@Param
 	public SourceStream getSource() {
 		return source;
+	}
+
+	@Param(nameType=NameType.SECTION)
+	public String getDefaultSectionName() {
+		return defaultSectionName;
+	}
+
+	@Param
+	public Boolean getBaseNameId() {
+		return baseNameId;
+	}
+
+	public void setDefaultSectionName(String defaultSectionName) {
+		this.defaultSectionName = defaultSectionName;
+	}
+
+	public void setBaseNameId(Boolean baseNameId) {
+		this.baseNameId = baseNameId;
 	}
 
 	public void setSource(SourceStream source) {
