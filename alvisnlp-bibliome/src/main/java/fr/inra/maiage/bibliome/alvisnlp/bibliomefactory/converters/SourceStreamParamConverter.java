@@ -54,6 +54,7 @@ public class SourceStreamParamConverter extends AbstractParamConverter<SourceStr
 		result.setFilter(new PatternFileFilter());
 		result.setInputDirs(getInputDirs());
 		result.setResourceBases(getResourceBases());
+		result.setRecursive(true);
 		return result;
 	}
 
