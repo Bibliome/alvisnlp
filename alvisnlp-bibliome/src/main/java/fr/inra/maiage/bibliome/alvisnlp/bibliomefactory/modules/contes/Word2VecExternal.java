@@ -102,7 +102,7 @@ class Word2VecExternal implements External<Corpus> {
 	@Override
 	public String[] getCommandLineArgs() throws ModuleException {
 		return new String[] {
-				word2Vec.getWord2vec().getAbsolutePath(),
+				new File(word2Vec.getContesDir(), "module_word2vec/main_word2vec.py").getAbsolutePath(),
 				"--json",
 				word2Vec.getJsonFile().getAbsolutePath(),
 				"--txt",

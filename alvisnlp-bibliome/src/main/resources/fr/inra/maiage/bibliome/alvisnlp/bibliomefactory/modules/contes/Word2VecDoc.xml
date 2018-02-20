@@ -81,9 +81,9 @@
 			<p>The maximum distance between the current and predicted word within a sentence.</p>
 		</param-doc>
 
-		<param-doc mandatory="required" name="word2vec" short-type="ExecutableFile"
-			type="fr.inra.maiage.bibliome.util.files.ExecutableFile">
-			<p>Path to the CONTES <code>main_word2vec.py</code> script.</p>
+		<param-doc mandatory="required" name="contesDir" short-type="InputDirectory"
+			type="fr.inra.maiage.bibliome.util.files.InputDirectory">
+			<p>Root directory of CONTES.</p>
 		</param-doc>
 
 		<param-doc mandatory="required" name="workers" short-type="Integer"

@@ -16,7 +16,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
-import fr.inra.maiage.bibliome.util.files.ExecutableFile;
+import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 @AlvisNLPModule(beta=true)
@@ -30,7 +30,7 @@ public class Word2Vec extends SectionModule<SectionResolvedObjects> {
 	private Integer windowSize = 2;
 	private Integer minCount = 0;
 	
-	private ExecutableFile word2vec;
+	private InputDirectory contesDir;
 	private OutputFile jsonFile;
 	private OutputFile txtFile;
 	private Integer workers;
@@ -103,11 +103,6 @@ public class Word2Vec extends SectionModule<SectionResolvedObjects> {
 	}
 
 	@Param
-	public ExecutableFile getWord2vec() {
-		return word2vec;
-	}
-
-	@Param
 	public OutputFile getJsonFile() {
 		return jsonFile;
 	}
@@ -120,6 +115,15 @@ public class Word2Vec extends SectionModule<SectionResolvedObjects> {
 	@Param
 	public Integer getWorkers() {
 		return workers;
+	}
+
+	@Param
+	public InputDirectory getContesDir() {
+		return contesDir;
+	}
+
+	public void setContesDir(InputDirectory contesDir) {
+		this.contesDir = contesDir;
 	}
 
 	public void setSentenceLayer(String sentenceLayer) {
@@ -148,10 +152,6 @@ public class Word2Vec extends SectionModule<SectionResolvedObjects> {
 
 	public void setMinCount(Integer minCount) {
 		this.minCount = minCount;
-	}
-
-	public void setWord2vec(ExecutableFile word2vec) {
-		this.word2vec = word2vec;
 	}
 
 	public void setJsonFile(OutputFile jsonFile) {
