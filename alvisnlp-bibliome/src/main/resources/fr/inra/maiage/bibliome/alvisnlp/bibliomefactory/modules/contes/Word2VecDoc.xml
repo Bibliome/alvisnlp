@@ -19,7 +19,7 @@
 		<param-doc default-value="true" mandatory="default: true"
 			name="documentFilter" short-type="Expression"
 			type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
-			<p>Only process document that satisfy this filter.</p>
+			<p>Only process documents that satisfy this filter.</p>
 		</param-doc>
 
 		<param-doc default-value="form" mandatory="default: form"
