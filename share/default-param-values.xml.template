@@ -97,7 +97,11 @@ limitations under the License.
   </module>
 
   <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.Word2Vec">
-    <word2vec></word2vec>
+    <contesDir></contesDir>
     <workers></workers>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.ContesTrain">
+    <contesDir></contesDir>
   </module>
 </default-param-values>
