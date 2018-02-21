@@ -20,4 +20,16 @@
     <wordEmbeddings>vectors.json</wordEmbeddings>
     <regressionMatrix>regression.bin</regressionMatrix>
   </predict>
+
+  <export class="TabularExport">
+    <outDir>.</outDir>
+    <corpusFile>predictions.txt</corpusFile>
+    <lines>documents.sections.layer:Habitat[@OntoBiotope]</lines>
+    <columns>
+      section.document.@id,
+      @form,
+      @OntoBiotope,
+      @predictedOntoBiotope
+    </columns>
+  </export>
 </alvisnlp-plan>

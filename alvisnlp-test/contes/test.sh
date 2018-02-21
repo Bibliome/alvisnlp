@@ -4,3 +4,4 @@ check-file vectors.txt
 
 run-alvisnlp train.plan
 run-alvisnlp predict.plan
+check-file predictions.txt
