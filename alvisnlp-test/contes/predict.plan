@@ -1,0 +1,23 @@
+<alvisnlp-plan id="contes-predict">
+  <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
+
+  <import>res://segmentation.plan</import>
+
+  <import>normalization.plan</import>
+
+  <move-concept class="Action">
+    <target>documents.sections.relations:Habitat.tuples</target>
+    <action>args:frag0.set:feat:OntoBiotope(target.@OntoBiotope)</action>
+    <setFeatures/>
+  </move-concept>
+
+  <predict class="ContesPredict">
+    <tokenLayer>norm</tokenLayer>
+    <formFeature>norm</formFeature>
+    <termLayer>Habitat</termLayer>
+    <conceptFeature>predictedOntoBiotope</conceptFeature>
+    <ontology>OntoBiotope_BioNLP-ST-2016.obo</ontology>
+    <wordEmbeddings>vectors.json</wordEmbeddings>
+    <regressionMatrix>regression.bin</regressionMatrix>
+  </predict>
+</alvisnlp-plan>

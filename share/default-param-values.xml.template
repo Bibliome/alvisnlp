@@ -104,4 +104,8 @@ limitations under the License.
   <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.ContesTrain">
     <contesDir></contesDir>
   </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.ContesPredict">
+    <contesDir></contesDir>
+  </module>
 </default-param-values>

@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import org.json.simple.JSONObject;
@@ -13,65 +15,78 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContex
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
+import fr.inra.maiage.bibliome.util.files.InputFile;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
+import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-class ContesTrainExternal implements External<Corpus> {
-	private final ContesTrain train;
+public class ContesPredictExternal implements External<Corpus> {
+	private final ContesPredict predict;
 	private final Logger logger;
 	private final OutputFile termsFile;
-	private final OutputFile attributionsFile;
+	private final InputFile attributionsFile;
 
-	ContesTrainExternal(ContesTrain train, Logger logger, File tmpDir) {
-		this.train = train;
+	ContesPredictExternal(ContesPredict predict, Logger logger, File tmpDir) {
+		this.predict = predict;
 		this.logger = logger;
 		this.termsFile = new OutputFile(tmpDir, "terms.json");
-		this.attributionsFile = new OutputFile(tmpDir, "attributions.json");
+		this.attributionsFile = new InputFile(tmpDir, "attributions.json");
 	}
-	
+
 	void createTermsFile(EvaluationContext ctx, Corpus corpus) throws IOException {
 		TargetStream target = new FileTargetStream("UTF-8", termsFile);
 		try (PrintStream out = target.getPrintStream()) {
-			JSONObject terms = train.getTerms(ctx, corpus);
+			JSONObject terms = predict.getTerms(ctx, corpus);
 			out.println(terms);
 		}
 	}
-
-	void createAttributionsFile(EvaluationContext ctx, Corpus corpus) throws IOException {
-		TargetStream target = new FileTargetStream("UTF-8", attributionsFile);
-		try (PrintStream out = target.getPrintStream()) {
-			JSONObject attributions = train.getAttributions(ctx, corpus);
-			out.println(attributions);
+	
+	Map<String,String> readPredictions() throws IOException {
+		Map<String,String> result = new HashMap<String,String>();
+		SourceStream source = new FileSourceStream("UTF-8", attributionsFile);
+		try (BufferedReader r = source.getBufferedReader()) {
+			while (true) {
+				String line = r.readLine();
+				if (line == null) {
+					break;
+				}
+				int tab = line.indexOf('\t');
+				String termId = line.substring(0, tab);
+				String conceptId = line.substring(tab + 1);
+				result.put(termId, conceptId);
+			}
 		}
+		return result;
 	}
 
 	@Override
 	public Module<Corpus> getOwner() {
-		return train;
+		return predict;
 	}
 
 	@Override
 	public String[] getCommandLineArgs() throws ModuleException {
 		return new String[] {
-				new File(train.getContesDir(), "module_train/main_train.py").getAbsolutePath(),
+				new File(predict.getContesDir(), "module_predictor/main_predictor.py").getAbsolutePath(),
 				"--word-vectors",
-				train.getWordEmbeddings().getAbsolutePath(),
+				predict.getWordEmbeddings().getAbsolutePath(),
 				"--terms",
 				termsFile.getAbsolutePath(),
-				"--attributions",
-				attributionsFile.getAbsolutePath(),
 				"--ontology",
-				train.getOntology().getAbsolutePath(),
+				predict.getOntology().getAbsolutePath(),
 				"--regression-matrix",
-				train.getRegressionMatrix().getAbsolutePath()
+				predict.getRegressionMatrix().getAbsolutePath(),
+				"--output",
+				attributionsFile.getAbsolutePath()
 		};
 	}
 
 	@Override
 	public String[] getEnvironment() throws ModuleException {
 		return new String[] {
-				"PYTHONPATH=" + train.getContesDir().getAbsolutePath(),
+				"PYTHONPATH=" + predict.getContesDir().getAbsolutePath(),
 				"PATH=" + System.getenv("PATH")
 		};
 	}
@@ -84,14 +99,14 @@ class ContesTrainExternal implements External<Corpus> {
 	@Override
 	public void processOutput(BufferedReader out, BufferedReader err) throws ModuleException {
         try {
-            logger.fine("contes train standard error:");
+            logger.fine("contes predictor standard error:");
             for (String line = err.readLine(); line != null; line = err.readLine()) {
                 logger.fine("    " + line);
             }
-            logger.fine("end of contes train standard error");
+            logger.fine("end of contes predictor standard error");
         }
         catch (IOException ioe) {
-            logger.warning("could not read contes train standard error: " + ioe.getMessage());
+            logger.warning("could not read contes predictor standard error: " + ioe.getMessage());
         }
 	}
 }
