@@ -16,37 +16,32 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
-class Word2VecExternal implements External<Corpus> {
-	private final Word2Vec word2Vec;
-	private final Logger logger;
+class Word2VecExternal extends AbstractContesExternal<Word2Vec> {
 	private final File inputFile;
 	private final File effectiveTxtFile;
 	
-	Word2VecExternal(Word2Vec word2Vec, Logger logger, File tmpDir) {
-		this.word2Vec = word2Vec;
-		this.logger = logger;
+	Word2VecExternal(Word2Vec owner, Logger logger, File tmpDir) {
+		super(owner, logger);
 		this.inputFile = new File(tmpDir, "input.txt");
-		if (word2Vec.getTxtFile() == null) {
+		if (owner.getTxtFile() == null) {
 			this.effectiveTxtFile = new File(tmpDir, "output.txt");
 		}
 		else {
-			this.effectiveTxtFile = word2Vec.getTxtFile();
+			this.effectiveTxtFile = getOwner().getTxtFile();
 		}
 	}
 	
 	void createInputFile(EvaluationContext ctx, Corpus corpus) throws FileNotFoundException, UnsupportedEncodingException {
 		try (PrintStream ps = new PrintStream(inputFile, "UTF-8")) {
-			for (Section sec : Iterators.loop(word2Vec.sectionIterator(ctx, corpus))) {
-				for (Layer sent : sec.getSentences(word2Vec.getTokenLayer(), word2Vec.getSentenceLayer())) {
+			for (Section sec : Iterators.loop(getOwner().sectionIterator(ctx, corpus))) {
+				for (Layer sent : sec.getSentences(getOwner().getTokenLayer(), getOwner().getSentenceLayer())) {
 					for (Annotation tok : sent) {
-						String form = StringLibrary.normalizeSpace(tok.getLastFeature(word2Vec.getFormFeature()));
+						String form = StringLibrary.normalizeSpace(tok.getLastFeature(getOwner().getFormFeature()));
 						ps.println(form);
 					}
 					ps.println();
@@ -74,73 +69,54 @@ class Word2VecExternal implements External<Corpus> {
 	}
 	
 	void collectTokenVectors(EvaluationContext ctx, Corpus corpus) throws IOException {
-		if (word2Vec.getVectorFeature() == null) {
+		if (getOwner().getVectorFeature() == null) {
 			return;
 		}
 		Map<String,String> wordVectors = readWordVectors();
-		for (Section sec : Iterators.loop(word2Vec.sectionIterator(ctx, corpus))) {
-			for (Layer sent : sec.getSentences(word2Vec.getTokenLayer(), word2Vec.getSentenceLayer())) {
+		for (Section sec : Iterators.loop(getOwner().sectionIterator(ctx, corpus))) {
+			for (Layer sent : sec.getSentences(getOwner().getTokenLayer(), getOwner().getSentenceLayer())) {
 				for (Annotation tok : sent) {
-					String form = StringLibrary.normalizeSpace(tok.getLastFeature(word2Vec.getFormFeature()));
+					String form = StringLibrary.normalizeSpace(tok.getLastFeature(getOwner().getFormFeature()));
 					if (wordVectors.containsKey(form)) {
 						String vector = wordVectors.get(form);
-						tok.addFeature(word2Vec.getVectorFeature(), vector);
+						tok.addFeature(getOwner().getVectorFeature(), vector);
 					}
 					else {
-						logger.warning("could not find vector for " + form);
+						getLogger().warning("could not find vector for " + form);
 					}
 				}
 			}
 		}
 	}
-	
+
 	@Override
-	public Module<Corpus> getOwner() {
-		return word2Vec;
+	protected String getLoggingLabel() {
+		return "word2vec";
 	}
 
 	@Override
 	public String[] getCommandLineArgs() throws ModuleException {
 		return new String[] {
-				new File(word2Vec.getContesDir(), "module_word2vec/main_word2vec.py").getAbsolutePath(),
+				getContesCommand(),
 				"--json",
-				word2Vec.getJsonFile().getAbsolutePath(),
+				getOwner().getJsonFile().getAbsolutePath(),
 				"--txt",
 				effectiveTxtFile.getAbsolutePath(),
 				"--vector-size",
-				word2Vec.getVectorSize().toString(),
+				getOwner().getVectorSize().toString(),
 				"--window-size",
-				word2Vec.getWindowSize().toString(),
+				getOwner().getWindowSize().toString(),
 				"--skip-gram",
 				"--min-count",
-				word2Vec.getMinCount().toString(),
+				getOwner().getMinCount().toString(),
 				"--workers",
-				word2Vec.getWorkers().toString(),
+				getOwner().getWorkers().toString(),
 				inputFile.getAbsolutePath()
 		};
 	}
 
 	@Override
-	public String[] getEnvironment() throws ModuleException {
-		return null;
-	}
-
-	@Override
-	public File getWorkingDirectory() throws ModuleException {
-		return null;
-	}
-
-	@Override
-	public void processOutput(BufferedReader out, BufferedReader err) throws ModuleException {
-        try {
-            logger.fine("word2vec standard error:");
-            for (String line = err.readLine(); line != null; line = err.readLine()) {
-                logger.fine("    " + line);
-            }
-            logger.fine("end of word2vec standard error");
-        }
-        catch (IOException ioe) {
-            logger.warning("could not read word2vec standard error: " + ioe.getMessage());
-        }
+	protected String getContesModule() {
+		return "module_word2vec/main_word2vec.py";
 	}
 }

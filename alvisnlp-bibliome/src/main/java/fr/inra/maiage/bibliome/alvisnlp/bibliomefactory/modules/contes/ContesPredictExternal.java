@@ -3,44 +3,21 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import org.json.simple.JSONObject;
-
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
 import fr.inra.maiage.bibliome.util.files.InputFile;
-import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
-import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
-import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-public class ContesPredictExternal implements External<Corpus> {
-	private final ContesPredict predict;
-	private final Logger logger;
-	private final OutputFile termsFile;
+class ContesPredictExternal extends AbstractContesTermsExternal<ContesPredict> {
 	private final InputFile attributionsFile;
 
-	ContesPredictExternal(ContesPredict predict, Logger logger, File tmpDir) {
-		this.predict = predict;
-		this.logger = logger;
-		this.termsFile = new OutputFile(tmpDir, "terms.json");
+	ContesPredictExternal(ContesPredict owner, Logger logger, File tmpDir) {
+		super(owner, logger, tmpDir);
 		this.attributionsFile = new InputFile(tmpDir, "attributions.json");
-	}
-
-	void createTermsFile(EvaluationContext ctx, Corpus corpus) throws IOException {
-		TargetStream target = new FileTargetStream("UTF-8", termsFile);
-		try (PrintStream out = target.getPrintStream()) {
-			JSONObject terms = predict.getTerms(ctx, corpus);
-			out.println(terms);
-		}
 	}
 	
 	Map<String,String> readPredictions() throws IOException {
@@ -62,51 +39,29 @@ public class ContesPredictExternal implements External<Corpus> {
 	}
 
 	@Override
-	public Module<Corpus> getOwner() {
-		return predict;
-	}
-
-	@Override
 	public String[] getCommandLineArgs() throws ModuleException {
 		return new String[] {
-				new File(predict.getContesDir(), "module_predictor/main_predictor.py").getAbsolutePath(),
+				getContesCommand(),
 				"--word-vectors",
-				predict.getWordEmbeddings().getAbsolutePath(),
+				getOwner().getWordEmbeddings().getAbsolutePath(),
 				"--terms",
-				termsFile.getAbsolutePath(),
+				getTermsFile().getAbsolutePath(),
 				"--ontology",
-				predict.getOntology().getAbsolutePath(),
+				getOwner().getOntology().getAbsolutePath(),
 				"--regression-matrix",
-				predict.getRegressionMatrix().getAbsolutePath(),
+				getOwner().getRegressionMatrix().getAbsolutePath(),
 				"--output",
 				attributionsFile.getAbsolutePath()
 		};
 	}
 
 	@Override
-	public String[] getEnvironment() throws ModuleException {
-		return new String[] {
-				"PYTHONPATH=" + predict.getContesDir().getAbsolutePath(),
-				"PATH=" + System.getenv("PATH")
-		};
+	protected String getLoggingLabel() {
+		return "contes predictor";
 	}
 
 	@Override
-	public File getWorkingDirectory() throws ModuleException {
-		return null;
-	}
-
-	@Override
-	public void processOutput(BufferedReader out, BufferedReader err) throws ModuleException {
-        try {
-            logger.fine("contes predictor standard error:");
-            for (String line = err.readLine(); line != null; line = err.readLine()) {
-                logger.fine("    " + line);
-            }
-            logger.fine("end of contes predictor standard error");
-        }
-        catch (IOException ioe) {
-            logger.warning("could not read contes predictor standard error: " + ioe.getMessage());
-        }
+	protected String getContesModule() {
+		return "module_predictor/main_predictor.py";
 	}
 }
