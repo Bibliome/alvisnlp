@@ -156,7 +156,7 @@ else
 	exit 1
     fi
 fi
-
+log
 
 
 export INSTALL_DIR="$WORKING_DIR"/alvisnlp
