@@ -1,21 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<alvisnlp-doc author="" beta="true" date="" short-target="ContesTrain" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.ContesTrain">
+<alvisnlp-doc author="" beta="true" date="" short-target="ContesPredict"
+	target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.ContesPredict">
 	<synopsis>
-		<p>Train a term concept classifier using <a href="https://github.com/ArnaudFerre/CONTES">CONTES</a>.</p>
+		<p>Predict terms concepts using <a href="https://github.com/ArnaudFerre/CONTES">CONTES</a>.</p>
 	</synopsis>
 
 	<module-doc>
 		<description>
-			<p><this/> trains a classifier using <a href="https://github.com/ArnaudFerre/CONTES">CONTES</a> for classifying terms in a ontology hierarchy.</p>
+			<p><this/> predicts the concept in <param>ontology</param> associated to each term in <param>termLayer</param>.</p>
+			<p><this/> uses a classifier specified by <param>regressionMatrix</param> that must have been produced by <module>ContesTrain</module>.</p>
 		</description>
 
-		<param-doc default-value="true" mandatory="default: true" name="active" short-type="Expression" type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
+		<param-doc default-value="true" mandatory="default: true"
+			name="active" short-type="Expression"
+			type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
 			<p>Expression evaluated as a boolean with the corpus as context element. If the result is false, then the module does not process the module.</p>
 		</param-doc>
 
 		<param-doc mandatory="required" name="conceptFeature"
 			name-type="feature" short-type="String" type="java.lang.String">
-			<p>Feature of each term that contains the identifier of the associated concepts.</p>
+			<p>Feature of the term where to store the predicted concept.</p>
 		</param-doc>
 
 		<param-doc mandatory="required" name="contesDir" short-type="InputDirectory"
@@ -40,8 +44,8 @@
 		</param-doc>
 
 		<param-doc mandatory="required" name="regressionMatrix"
-			short-type="OutputFile" type="fr.inra.maiage.bibliome.util.files.OutputFile">
-			<p>Path to the file where to write the classifier.</p>
+			short-type="InputFile" type="fr.inra.maiage.bibliome.util.files.InputFile">
+			<p>Path to the classifier file produced by <module>ContesTrain</module>.</p>
 		</param-doc>
 
 		<param-doc default-value="boolean:and(true, nav:layer:words())"
