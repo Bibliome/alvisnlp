@@ -21,6 +21,14 @@
     <regressionMatrix>regression.bin</regressionMatrix>
   </predict>
 
+  <label class="OBOMapper">
+    <oboFiles>OntoBiotope_BioNLP-ST-2016.obo</oboFiles>
+    <idKeys/>
+    <target>documents.sections.layer:Habitat[@predictedOntoBiotope]</target>
+    <form>@predictedOntoBiotope</form>
+    <nameFeature>predictedLabel</nameFeature>
+  </label>
+
   <export class="TabularExport">
     <outDir>.</outDir>
     <corpusFile>predictions.txt</corpusFile>
@@ -29,7 +37,8 @@
       section.document.@id,
       @form,
       @OntoBiotope,
-      @predictedOntoBiotope
+      @predictedOntoBiotope,
+      @predictedLabel
     </columns>
   </export>
 </alvisnlp-plan>

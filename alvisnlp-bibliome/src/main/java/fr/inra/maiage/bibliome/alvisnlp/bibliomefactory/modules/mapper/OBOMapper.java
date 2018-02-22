@@ -20,7 +20,6 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper;
 import java.io.IOException;
 import java.util.List;
 
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper.Mapper.MapperResolvedObjects;
 import org.obo.dataadapter.OBOParseException;
 import org.obo.datamodel.Dbxref;
 import org.obo.datamodel.Link;
@@ -31,6 +30,7 @@ import org.obo.datamodel.OBOSession;
 import org.obo.datamodel.Synonym;
 import org.obo.util.TermUtil;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper.Mapper.MapperResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
@@ -40,11 +40,12 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
+import fr.inra.maiage.bibliome.util.files.InputFile;
 import fr.inra.maiage.bibliome.util.obo.OBOUtils;
 
 @AlvisNLPModule
 public class OBOMapper extends Mapper<MapperResolvedObjects,OBOClass> {
-	private String[] oboFiles;
+	private InputFile[] oboFiles;
 	private String nameFeature;
 	private String idFeature;
 	private String pathFeature;
@@ -135,7 +136,7 @@ public class OBOMapper extends Mapper<MapperResolvedObjects,OBOClass> {
 	}
 
 	@Param
-	public String[] getOboFiles() {
+	public InputFile[] getOboFiles() {
 		return oboFiles;
 	}
 
@@ -200,7 +201,7 @@ public class OBOMapper extends Mapper<MapperResolvedObjects,OBOClass> {
 		this.idKeys = idKeys;
 	}
 
-	public void setOboFiles(String[] oboFiles) {
+	public void setOboFiles(InputFile[] oboFiles) {
 		this.oboFiles = oboFiles;
 	}
 

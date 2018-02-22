@@ -20,7 +20,6 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
 import org.obo.dataadapter.OBOParseException;
 import org.obo.datamodel.Dbxref;
 import org.obo.datamodel.Link;
@@ -31,6 +30,7 @@ import org.obo.datamodel.OBOSession;
 import org.obo.datamodel.Synonym;
 import org.obo.util.TermUtil;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
@@ -41,6 +41,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.util.files.InputFile;
 import fr.inra.maiage.bibliome.util.marshall.Decoder;
 import fr.inra.maiage.bibliome.util.marshall.Encoder;
 import fr.inra.maiage.bibliome.util.obo.OBOUtils;
@@ -48,7 +49,7 @@ import fr.inra.maiage.bibliome.util.trie.Trie;
 
 @AlvisNLPModule
 public abstract class OBOProjector extends TrieProjector<SectionResolvedObjects,OBOClass> {
-	private String[] oboFiles;
+	private InputFile[] oboFiles;
 	private String nameFeature;
 	private String idFeature;
 	private String pathFeature;
@@ -151,7 +152,7 @@ public abstract class OBOProjector extends TrieProjector<SectionResolvedObjects,
 	}
 
 	@Param
-	public String[] getOboFiles() {
+	public InputFile[] getOboFiles() {
 		return oboFiles;
 	}
 
@@ -215,7 +216,7 @@ public abstract class OBOProjector extends TrieProjector<SectionResolvedObjects,
 		this.versionFeature = versionFeature;
 	}
 
-	public void setOboFiles(String[] oboFiles) {
+	public void setOboFiles(InputFile[] oboFiles) {
 		this.oboFiles = oboFiles;
 	}
 
