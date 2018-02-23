@@ -120,6 +120,7 @@ SKIP :
 | "\r"
 | "\t"
 | "\n"
+| "\u200B"
 }
 // unused symbols: & ~ # = ; ! 
 
