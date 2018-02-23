@@ -80,7 +80,7 @@ public abstract class AbstractParamConverter<T> implements ParamConverter {
 
     @Override
     public final T convert(String stringValue) throws ConverterException {
-        return convertTrimmed(trimValue ? stringValue.trim() : stringValue);
+        return convertTrimmed(trimValue ? Strings.removeZWSP(stringValue.trim()) : stringValue);
     }
 
     /**
