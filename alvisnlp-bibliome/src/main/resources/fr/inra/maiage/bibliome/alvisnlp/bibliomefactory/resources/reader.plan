@@ -21,6 +21,7 @@
 	  <li><code>prod-inra</code>: <a href="http://prodinra.inra.fr/">ProdINRA XML</a>.</li>
 	  <li><code>pubmed</code>: <a href="https://www.nlm.nih.gov/bsd/licensee/data_elements_doc.html">PubMed XML entries</a>.</li>
 	  <li><code>pmc</code>: <a href="https://europepmc.org/RestfulWebService">PMC Open Access full-text</a>.</li>
+	  <li><code>xmi</code>: UIMA XMI serialization using a custom typesystem.</li>
 	</ul>
       </description>
     </plan-doc>
@@ -40,6 +41,7 @@
     <alias module="prod-inra" param="sourcePath"/>
     <alias module="pubmed" param="sourcePath"/>
     <alias module="pmc" param="sourcePath"/>
+    <alias module="xmi" param="source"/>
   </param>
   
   <genia-json class="GeniaJSONReader"/>
@@ -82,4 +84,9 @@
   <pmc class="XMLReader2">
     <xslTransform>res://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.resources.XMLReader/pmc2alvisnlp.xslt</xslTransform>
   </pmc>
+  
+  <xmi class="XMIImport">
+    <baseNameId/>
+    <ignoreMalformedXMI/>
+  </xmi>
 </alvisnlp-plan>
