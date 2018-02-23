@@ -55,6 +55,7 @@ public class EvaluationContext {
 	private final Collection<Pair<Annotation,String>> addedAnnotations = new ArrayList<Pair<Annotation,String>>();
 	private final Collection<Element> deletedElements = new LinkedHashSet<Element>();
 	private final Collection<Pair<Annotation,String>> removedAnnotations = new ArrayList<Pair<Annotation,String>>();
+	private final Collection<Pair<Section,String>> clearedLayers = new ArrayList<Pair<Section,String>>();
 	private final Collection<ArgumentTriplet> argumentsSet = new ArrayList<ArgumentTriplet>();
 	private final Collection<FeatureTriplet> featuresSet = new ArrayList<FeatureTriplet>();
 	private final Collection<Pair<Element,String>> removedFeatures = new ArrayList<Pair<Element,String>>();
@@ -211,6 +212,13 @@ public class EvaluationContext {
 		}
 		removedAnnotations.add(new Pair<Annotation,String>(a, ln));
 	}
+
+	public void registerClearedLayer(Section sec, String layerName) {
+		if (!allowRemoveAnnotation) {
+			throw new RuntimeException("removing annotations from layers is not allowed");
+		}
+		clearedLayers.add(new Pair<Section,String>(sec, layerName));
+	}
 	
 	public void registerSetArgument(Tuple t, String role, Element arg) {
 		if (!allowSetArgument) {
@@ -269,7 +277,7 @@ public class EvaluationContext {
 	}
 
 	public void commit() {
-		boolean collect = (!removedAnnotations.isEmpty()) || (!deletedElements.isEmpty());
+		boolean collect = (!removedAnnotations.isEmpty()) || (!clearedLayers.isEmpty()) || (!deletedElements.isEmpty());
 		
 		int n = 0;
 		for (Element e : createdElements)
@@ -308,6 +316,18 @@ public class EvaluationContext {
 				n++;
 		}
 		removedAnnotations.clear();
+		for (Pair<Section,String> p : clearedLayers) {
+			Section sec = p.first;
+			if (deletedElements.contains(sec)) {
+				continue;
+			}
+			String layerName = p.second;
+			if (sec.hasLayer(layerName)) {
+				Layer layer = sec.getLayer(layerName);
+				n += layer.size();
+				sec.removeLayer(layerName);
+			}
+		}
 		if (n > 0) {
 			logInfo("annotations removed: " + n);
 		}

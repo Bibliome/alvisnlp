@@ -167,6 +167,14 @@ public final class Section extends AbstractElement {
             throw new IllegalArgumentException(name.toString());
         layers.put(name, layer);
     }
+    
+    public boolean removeLayer(String layerName) {
+    	if (layers.containsKey(layerName)) {
+    		layers.remove(layerName);
+    		return true;
+    	}
+    	return false;
+    }
 
     /**
      * Returns this section layer with the specified name, create an empty layer if it does not exist.
