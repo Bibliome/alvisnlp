@@ -210,6 +210,7 @@ public abstract class TEESTrain extends TEESMapper {
 		@Override
 		public String[] getEnvironment() throws ModuleException {
 			return new String[] {
+					"PATH=" + System.getenv("PATH"),
 					"TEES_DIR=" + getTeesHome().getAbsolutePath(),
 					"TEES_PRE_EXE=" + getTeesHome().getAbsolutePath() + "/Detectors/Preprocessor.py",
 					"TEES_TRAIN_EXE=" + getTeesHome().getAbsolutePath() + "/train.py",
