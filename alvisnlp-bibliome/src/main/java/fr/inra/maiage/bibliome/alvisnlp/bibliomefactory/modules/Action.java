@@ -41,6 +41,7 @@ import fr.inra.maiage.bibliome.util.Iterators;
 
 @AlvisNLPModule
 public abstract class Action extends CorpusModule<ActionResolvedObjects> implements ActionInterface {
+	private Expression commit = DefaultExpressions.SELF;
 	private Expression target;
 	private Expression action;
 	
@@ -51,11 +52,14 @@ public abstract class Action extends CorpusModule<ActionResolvedObjects> impleme
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		EvaluationContext actionCtx = new EvaluationContext(logger, this);
 		int n = 0;
-		for (Element e : Iterators.loop(res.target.evaluateElements(evalCtx, corpus))) {
-			res.targetVariable.set(e);
-			Iterator<Element> it = res.action.evaluateElements(actionCtx, e);
-			Iterators.deplete(it);
-			n++;
+		for (Element c : Iterators.loop(res.commit.evaluateElements(evalCtx, corpus))) {
+			for (Element t : Iterators.loop(res.target.evaluateElements(evalCtx, c))) {
+				res.targetVariable.set(t);
+				Iterator<Element> it = res.action.evaluateElements(actionCtx, t);
+				Iterators.deplete(it);
+				n++;
+			}
+			commit(ctx, actionCtx);
 		}
 		if (n == 0) {
 			logger.warning("no targets visited");
@@ -63,11 +67,10 @@ public abstract class Action extends CorpusModule<ActionResolvedObjects> impleme
 		else {
 			logger.info("targets visited: " + n);
 		}
-		logger.info("committing changes");
-		commit(ctx, actionCtx);
 	}
 	
 	class ActionResolvedObjects extends ResolvedObjects {
+		private final Evaluator commit;
 		private final Evaluator target;
 		private final Evaluator action;
 		private final Variable targetVariable;
@@ -77,6 +80,7 @@ public abstract class Action extends CorpusModule<ActionResolvedObjects> impleme
 			VariableLibrary targetLib = new VariableLibrary("target");
 			targetVariable = targetLib.newVariable(null);
 			LibraryResolver actionResolver = targetLib.newLibraryResolver(rootResolver);
+			commit = rootResolver.resolveNullable(Action.this.commit);
 			target = rootResolver.resolveNullable(Action.this.target);
 			action = actionResolver.resolveNullable(Action.this.action);
 		}
@@ -84,6 +88,7 @@ public abstract class Action extends CorpusModule<ActionResolvedObjects> impleme
 		@Override
 		public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
 			super.collectUsedNames(nameUsage, defaultType);
+			commit.collectUsedNames(nameUsage, defaultType);
 			target.collectUsedNames(nameUsage, defaultType);
 			action.collectUsedNames(nameUsage, defaultType);
 		}
@@ -102,6 +107,15 @@ public abstract class Action extends CorpusModule<ActionResolvedObjects> impleme
 	@Param
 	public Expression getAction() {
 		return action;
+	}
+
+	@Param
+	public Expression getCommit() {
+		return commit;
+	}
+
+	public void setCommit(Expression commit) {
+		this.commit = commit;
 	}
 
 	public void setTarget(Expression target) {
