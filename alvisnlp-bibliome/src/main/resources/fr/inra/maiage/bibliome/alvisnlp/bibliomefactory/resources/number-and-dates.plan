@@ -65,5 +65,9 @@ limitations under the License.
 			<sourceLayerNames>dates__iso, dates__american, dates__british</sourceLayerNames>
 			<targetLayerName>dates</targetLayerName>
 		</module>
+		
+		<clear class="ClearLayers">
+			<layerNames>numbers__signed-decimals,numbers__fractions,numbers__ranges,dates__iso,dates__american,dates__british</layerNames>
+		</clear>
 	</sequence>
 </alvisnlp-plan>

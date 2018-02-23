@@ -39,6 +39,10 @@ limitations under the License.
 				<sourceLayerNames>rigid-entities,seg__latin,numbers,dates,seg__hanging-hyphens</sourceLayerNames>
 				<targetLayerName>seg__pre-fixed</targetLayerName>
 			</module>
+			
+			<clear class="ClearLayers">
+				<layerNames>seg__hanging-hyphens</layerNames>
+			</clear>
 
 			<module id="remove-fixed-overlaps" class="RemoveOverlaps">
 				<layerName>seg__pre-fixed</layerName>
@@ -56,6 +60,10 @@ limitations under the License.
 				<fixedFormLayerName>seg__pre-fixed</fixedFormLayerName>
 				<targetLayerName>seg__pre-words</targetLayerName>
 			</module>
+			
+			<clear2 class="ClearLayers">
+				<layerNames>seg__pre-fixed</layerNames>
+			</clear2>
 		</sequence>
 
 		<sequence id="hyphen-correction">
@@ -82,6 +90,10 @@ limitations under the License.
 					<createAnnotation layer="seg__hyphenated" />
 				</actions>
 			</module>
+			
+			<clear class="ClearLayers">
+				<layerNames>seg__pre-words</layerNames>
+			</clear>
 		</sequence>
 
 		<sequence id="create-fixed">
@@ -93,6 +105,10 @@ limitations under the License.
 			<module id="remove-overlaps" class="RemoveOverlaps">
 				<layerName>seg__fixed</layerName>
 			</module>
+			
+			<clear class="ClearLayers">
+				<layerNames>seg__latin,numbers,dates,seg__hyphenated,rigid-entities</layerNames>
+			</clear>
 		</sequence>
 	</sequence>
 
@@ -101,6 +117,10 @@ limitations under the License.
 		<balancedPunctuations>()[]{}""</balancedPunctuations>
 		<punctuations>?.!;,:-/</punctuations>
 	</module>
+	
+	<clear class="ClearLayers">
+		<layerNames>seg__fixed</layerNames>
+	</clear>
 
 	<module id="sentences" class="SeSMig">
 		<strongPunctuations>?.!</strongPunctuations>
