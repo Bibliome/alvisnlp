@@ -14,60 +14,58 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
-
 <alvisnlp-plan id="number-tokenization">
-	<sequence id="regexp">
-		<module id="signed-decimals" class="RegExp">
+	<regexp>
+		<signed-decimals class="RegExp">
 			<pattern>(-?[0-9]+\.[0-9]+)|(-[0-9]+)</pattern>
 			<targetLayerName>numbers__signed-decimals</targetLayerName>
 			<constantAnnotationFeatures>type=num,value=fix</constantAnnotationFeatures>
-		</module>
+		</signed-decimals>
 
-		<module id="fractions" class="RegExp">
+		<fractions class="RegExp">
 			<pattern>-?[0-9]+/[0-9]+</pattern>
 			<targetLayerName>numbers__fractions</targetLayerName>
 			<constantAnnotationFeatures>type=num,value=fix</constantAnnotationFeatures>
-		</module>
+		</fractions>
 
-		<module id="ranges" class="RegExp">
+		<ranges class="RegExp">
 			<pattern>[0-9]+(\.[0-9]+)?-[0-9]+(\.[0-9]+)?|[0-9]+(\.[0-9]+)? -[0-9]+(\.[0-9]+)?</pattern>
 			<targetLayerName>numbers__ranges</targetLayerName>
 			<constantAnnotationFeatures>type=num,value=fix</constantAnnotationFeatures>
-		</module>
+		</ranges>
 
-		<module id="iso-dates" class="RegExp">
+		<iso-dates class="RegExp">
 			<pattern>[0-2]?[0-9]\.[0-2]?\.([0-9]{2}|[0-1][0-9]{3})</pattern>
 			<targetLayerName>dates__iso</targetLayerName>
 			<constantAnnotationFeatures>type=num,value=fix</constantAnnotationFeatures>
-		</module>
+		</iso-dates>
 
-		<module id="dates-1" class="RegExp">
+		<dates-1 class="RegExp">
 			<pattern>((J|j)an(\.|unary)?|(F|f)eb(\.|ruary)?|(M|m)ar(\.|ch)?|(A|a)pr(\.|il)?|(M|m)ay|(J|j)une|(J|j)uly|(A|a)ug(\.|ust)?|(S|s)ept(\.|ember)?|(O|o)ct(\.|ober)?|(N|n)ov(\.|ember)?|(D|d)ec(\.|ember)?)[0-2]?[0-9](st|nd|rd|th)?,? [1-2][0-9]{3}</pattern>
 			<targetLayerName>dates__american</targetLayerName>
 			<constantAnnotationFeatures>type=num,value=fix</constantAnnotationFeatures>
-		</module>
+		</dates-1>
 
-		<module id="dates-2" class="RegExp">
+		<dates-2 class="RegExp">
 			<pattern>[0-2][0-9](st|nd|rd|th)? of ((J|j)an(\.|unary)?|(F|f)eb(\.|ruary)?|(M|m)ar(\.|ch)?|(A|a)pr(\.|il)?|(M|m)ay|(J|j)une|(J|j)uly|(A|a)ug(\.|ust)?|(S|s)ept(\.|ember)?|(O|o)ct(\.|ober)?|(N|n)ov(\.|ember)?|(D|d)ec(\.|ember)?)</pattern>
 			<targetLayerName>dates__british</targetLayerName>
 			<constantAnnotationFeatures>type=num,value=fix</constantAnnotationFeatures>
-		</module>
-	</sequence>
+		</dates-2>
+	</regexp>
 
-	<sequence id="merge">
-		<module id="numbers" class="MergeLayers">
+	<merge>
+		<numbers class="MergeLayers">
 			<sourceLayerNames>numbers__signed-decimals, numbers__fractions,numbers__ranges</sourceLayerNames>
 			<targetLayerName>numbers</targetLayerName>
-		</module>
+		</numbers>
 
-		<module id="dates" class="MergeLayers">
+		<dates class="MergeLayers">
 			<sourceLayerNames>dates__iso, dates__american, dates__british</sourceLayerNames>
 			<targetLayerName>dates</targetLayerName>
-		</module>
+		</dates>
 		
 		<clear class="ClearLayers">
 			<layerNames>numbers__signed-decimals,numbers__fractions,numbers__ranges,dates__iso,dates__american,dates__british</layerNames>
 		</clear>
-	</sequence>
+	</merge>
 </alvisnlp-plan>
