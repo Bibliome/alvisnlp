@@ -38,13 +38,17 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> evaluates <param name="target"/> as a list of elements, then it evaluates <param name="action"/> on each element.</p>
-
+      <p><this/> evaluates <param>commit</param> as a list of elements, then <param name="target"/> as a list of elements on each commit element, then <param name="action"/> on each target element.</p>
       <p><this/> is useful when <param name="action"/> is a side-effect expression. The side-effect expressions allowed are controlled by: <param name="createDocuments"/>, <param name="createSections"/>, <param name="createRelations"/>, <param name="createTuples"/>, <param name="createAnnotations"/>, <param name="setArguments"/>, <param name="setFeatures"/> and <param name="deleteElements"/>. If these parameters are not set to true then <this/> will refuse to evaluate the corresponding side-effect expressions.</p>
+      <p><this/> commits the changes on the data structure when each <param>commit</param> element is done. When processing very large corpora, set <param>commit</param> to reach documents or sections.</p>
     </description>
   
+    <param-doc name="commit">
+      <p>Elements after which to commit changes. The expression is evaluated as a list of elements with the corpus as the context element.</p>
+    </param-doc>
+  
     <param-doc name="target">
-      <p>Elements on which to perform the action. The expression is evaluated as a list of elements with the corpus as the context element.</p>
+      <p>Elements on which to perform the action. The expression is evaluated as a list of elements with the commit element as the context element.</p>
     </param-doc>
   
     <param-doc name="active">
