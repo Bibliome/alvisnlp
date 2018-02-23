@@ -23,6 +23,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DownCastElement;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Function;
@@ -65,5 +66,15 @@ public abstract class SetLayerLibrary extends FunctionLibrary {
 			return Iterators.emptyIterator();
 		ctx.registerRemoveAnnotation(a, layerName);
 		return Iterators.singletonIterator(a);
+	}
+	
+	@Function(ftors=1, nameTypes={NameType.LAYER})
+	public static final Iterator<Element> clear(EvaluationContext ctx, Element elt, String layerName) {
+		Section sec = DownCastElement.toSection(elt);
+		if (sec == null) {
+			return Iterators.emptyIterator();
+		}
+		ctx.registerClearedLayer(sec, layerName);
+		return Iterators.singletonIterator(sec);
 	}
 }
