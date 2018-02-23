@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<alvisnlp-doc author="" beta="true" date="" short-target="XMIImport" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.XMIImport">
+<?xml version="1.0" encoding="UTF-8"?><alvisnlp-doc author="" beta="true" date="" short-target="XMIImport" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.XMIImport">
   <synopsis>
     <p>Reads files in XMI format using the AlvisNLP/ML proxy filesystem.</p>
   </synopsis>
@@ -14,23 +13,23 @@
       <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is true.</p>
     </param-doc>
     
-    <param-doc name="constantAnnotationFeatures">
+    <param-doc mandatory="optional" name="constantAnnotationFeatures" name-type="feature" short-type="Mapping" type="fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping">
       <p>Constant features to add to each annotation created by this module</p>
     </param-doc>
     
-    <param-doc name="constantDocumentFeatures">
+    <param-doc mandatory="optional" name="constantDocumentFeatures" name-type="feature" short-type="Mapping" type="fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping">
       <p>Constant features to add to each document created by this module</p>
     </param-doc>
     
-    <param-doc name="constantRelationFeatures">
+    <param-doc mandatory="optional" name="constantRelationFeatures" name-type="feature" short-type="Mapping" type="fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping">
       <p>Constant features to add to each relation created by this module</p>
     </param-doc>
 
-    <param-doc name="constantSectionFeatures">
+    <param-doc mandatory="optional" name="constantSectionFeatures" name-type="feature" short-type="Mapping" type="fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping">
       <p>Constant features to add to each section created by this module</p>
     </param-doc>
 
-    <param-doc name="constantTupleFeatures">
+    <param-doc mandatory="optional" name="constantTupleFeatures" name-type="feature" short-type="Mapping" type="fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping">
       <p>Constant features to add to each tuple created by this module</p>
     </param-doc>
     
@@ -46,8 +45,13 @@
 		<p>Use only the basename of source for documents created out of XMI files that do not use the AlvisNLP/ML Proxy typesystem (by default, use the absolute path).</p>
 	</param-doc>
 
-    <param-doc name="userFunctions">
+    <param-doc default-value="" mandatory="default: " name="userFunctions" short-type="UserFunction[]" type="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.UserFunction[]">
       <p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p>
     </param-doc>
-  </module-doc>
+
+	<param-doc default-value="false" mandatory="default: false"
+		name="ignoreMalformedXMI" short-type="Boolean" type="java.lang.Boolean">
+		<p>Ignore files that do not contain XMI serialization.</p>
+	</param-doc>
+</module-doc>
 </alvisnlp-doc>

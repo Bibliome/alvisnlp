@@ -15,18 +15,17 @@ import org.apache.uima.cas.impl.XmiCasDeserializer;
 import org.apache.uima.fit.factory.JCasFactory;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.cas.FSArray;
-import org.xml.sax.SAXException;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.AnnotationProxy;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.ArgumentProxy;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.DocumentProxy;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.FeatureProxy;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.LayerProxy;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.RelationProxy;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.SectionProxy;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.TupleProxy;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.ArgumentProxy;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
@@ -53,7 +52,8 @@ public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements
 	private SourceStream source;
 	private String defaultSectionName = "text";
     private Boolean baseNameId = false;
-
+    private Boolean ignoreMalformedXMI = false;
+    
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
@@ -62,12 +62,21 @@ public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements
 			for (InputStream is : Iterators.loop(source.getInputStreams())) {
 				String sourceName = source.getStreamName(is);
 				logger.info("reading " + sourceName);
-				XmiCasDeserializer.deserialize(is, jcas.getCas(), true);
+				try {
+					XmiCasDeserializer.deserialize(is, jcas.getCas(), true);
+				}
+				catch (Exception e) {
+					if (ignoreMalformedXMI) {
+						logger.warning("ignoring " + sourceName);
+						continue;
+					}
+					rethrow(e);
+				}
 				convertDocument(corpus, jcas, sourceName);
 				jcas.reset();
 			}
 		}
-		catch (UIMAException|CASAdminException|IOException|SAXException e) {
+		catch (UIMAException|CASAdminException|IOException e) {
 			rethrow(e);
 		}
 	}
@@ -214,6 +223,15 @@ public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements
 	@Param
 	public Boolean getBaseNameId() {
 		return baseNameId;
+	}
+
+	@Param
+	public Boolean getIgnoreMalformedXMI() {
+		return ignoreMalformedXMI;
+	}
+
+	public void setIgnoreMalformedXMI(Boolean ignoreMalformedXMI) {
+		this.ignoreMalformedXMI = ignoreMalformedXMI;
 	}
 
 	public void setDefaultSectionName(String defaultSectionName) {
