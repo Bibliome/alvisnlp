@@ -50,9 +50,12 @@ public class Assert extends CorpusModule<AssertResolvedObjects> {
 	private TargetStream outFile;
 	
 	class AssertResolvedObjects extends ResolvedObjects {
+		@SuppressWarnings("hiding")
 		private final Evaluator target;
+		@SuppressWarnings("hiding")
 		private final Evaluator assertion;
 		private final Variable targetVariable;
+		@SuppressWarnings("hiding")
 		private final Evaluator message;
 		
 		private AssertResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {

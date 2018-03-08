@@ -73,9 +73,13 @@ public class AlvisAEWriter extends SectionModule<AlvisAEExportResolvedObjects> {
 	private Boolean publish = false;
 
 	class AlvisAEExportResolvedObjects extends SectionResolvedObjects {
+		@SuppressWarnings("hiding")
 		private final AnnotationSet.Resolved[] annotationSets;
+		@SuppressWarnings("hiding")
 		private final Evaluator fileName;
+		@SuppressWarnings("hiding")
 		private final Evaluator documentDescription;
+		@SuppressWarnings("hiding")
 		private final EvaluatorMapping documentProperties;
 		
 		private AlvisAEExportResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {

@@ -73,6 +73,7 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	private String dependentTypeFeatureName = "arg-type";
 	
 	class EnjuParserResolvedObjects extends SectionResolvedObjects {
+		@SuppressWarnings("hiding")
 		private final Evaluator sentenceFilter;
 		
 		private EnjuParserResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {

@@ -56,11 +56,17 @@ public class AnnotationSet implements Resolvable<Resolved> {
 	private final Expression unmatchedId = DefaultExpressions.feature("id");
 
 	public class Resolved implements NameUser {
+		@SuppressWarnings("hiding")
 		private final Collection<TextAnnotationDefinition.Resolved> textAnnotationDefinitions = new ArrayList<TextAnnotationDefinition.Resolved>();
+		@SuppressWarnings("hiding")
 		private final Collection<RelationDefinition.Resolved> relationDefinitions = new ArrayList<RelationDefinition.Resolved>();
+		@SuppressWarnings("hiding")
 		private final Collection<GroupDefinition.Resolved> groupDefinitions = new ArrayList<GroupDefinition.Resolved>();
+		@SuppressWarnings("hiding")
 		private final Evaluator unmatched;
+		@SuppressWarnings("hiding")
 		private final Evaluator unmatchedId;
+		@SuppressWarnings("hiding")
 		private final Evaluator unmatchedAnnotationSet;
 		
 		private Resolved(Evaluator unmatched, Evaluator unmatchedId, Evaluator unmatchedAnnotationSet) {

@@ -48,6 +48,7 @@ public class DisambiguateAlternatives extends DocumentModule<DisambiguateAlterna
 	private Boolean warnIfAmbiguous = false;
 	
 	class DisambiguateAlternativesResolvedObjects extends DocumentResolvedObjects {
+		@SuppressWarnings("hiding")
 		private final Evaluator target;
 		
 		private DisambiguateAlternativesResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
