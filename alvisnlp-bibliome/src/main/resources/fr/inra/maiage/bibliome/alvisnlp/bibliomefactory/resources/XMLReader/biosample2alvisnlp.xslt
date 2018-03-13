@@ -17,12 +17,7 @@
       <xsl:apply-templates select="Description/Title" mode="section"/>
       <xsl:apply-templates select="Description/Comment/Paragraph" mode="section"/>
       <xsl:apply-templates select="Description/Organism"/>
-      <xsl:apply-templates select="Attributes/Attribute[@harmonized_name = 'isolation_source']" mode="attribute-section"/>
-      <xsl:apply-templates select="Attributes/Attribute[@harmonized_name = 'geo_loc_name']" mode="attribute-section"/>
-      <xsl:apply-templates select="Attributes/Attribute[@harmonized_name = 'sample_type']" mode="attribute-section"/>
-      <xsl:apply-templates select="Attributes/Attribute[@harmonized_name = 'altitude']" mode="attribute-section"/>
-      <xsl:apply-templates select="Attributes/Attribute[@harmonized_name = 'lat_lon']" mode="attribute-section"/>
-      <xsl:apply-templates select="Attributes/Attribute[@harmonized_name = 'host']" mode="attribute-section"/>
+      <xsl:apply-templates select="Attributes/Attribute" mode="attribute-section"/>
     </a:document>
   </xsl:template>
 
