@@ -3,8 +3,9 @@
                 xmlns:xlink="http://www.w3.org/1999/xlink"
 		xmlns:mml="http://www.w3.org/1998/Math/MathML"
                 xmlns:a="xalan://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml.XMLReader2"
+                xmlns:f="xalan://fr.inra.maiage.bibliome.util.xml.Functions"
                 xmlns:inline="http://bibliome.jouy.inra.fr/alvisnlp/bibliome-module-factory/inline"
-                extension-element-prefixes="a inline"
+                extension-element-prefixes="a inline f"
 		>
 
   <xsl:template match="/">
@@ -49,6 +50,11 @@
   </xsl:template>
 
   <xsl:template match="Attribute" mode="attribute-section">
-    <a:section xpath-name="@harmonized_name" xpath-contents="."/>
+    <xsl:variable name="lower">
+      <xsl:value-of select="f:lower(.)"/>
+    </xsl:variable>
+    <xsl:if test="$lower != 'missing' and $lower != 'not applicable' and $lower != 'unknown' and $lower != 'not_applicable' and $lower != 'none' and $lower != 'na' and $lower != 'not collected' and $lower != 'not determined'">
+      <a:section xpath-name="@harmonized_name" xpath-contents="."/>
+    </xsl:if>
   </xsl:template>
 </xsl:stylesheet>
