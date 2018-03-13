@@ -463,10 +463,22 @@ public class PlanLoader<T extends Annotable> {
 		return result;
 	}
 
-	private ParamConverter getParamConverterInstance(Class<?> paramType) throws UnsupportedServiceException {
+	private ParamConverter getParamConverterInstance(Class<?> paramType, boolean outputFeed) throws UnsupportedServiceException {
 		try {
 			ParamConverter result = converterFactory.getService(paramType);
-			result.setInputDirs(inputDirs);
+			if (outputFeed) {
+				List<String> realInputDirs = new ArrayList<String>();
+				if (outputDir != null) {
+					realInputDirs.add(outputDir);
+				}
+				if (inputDirs != null) {
+					realInputDirs.addAll(inputDirs);
+				}
+				result.setInputDirs(realInputDirs);
+			}
+			else {
+				result.setInputDirs(inputDirs);
+			}
 			result.setOutputDir(outputDir);
 			result.setResourceBases(resourceBases);
 			return result;
@@ -495,8 +507,9 @@ public class PlanLoader<T extends Annotable> {
 			boolean inhibitCheck = Strings.getBoolean(elt.getAttribute("inhibitCheck"));
 			paramHandler.setInhibitCheck(inhibitCheck);
 		}
+		boolean outputFeed = XMLUtils.getBooleanAttribute(elt, "output-feed", false);
 		Class<?> paramType = paramHandler.getType();
-		ParamConverter paramConverter = getParamConverterInstance(paramType);
+		ParamConverter paramConverter = getParamConverterInstance(paramType, outputFeed);
 		if (elt.hasAttribute(LOAD_FILE_ATTRIBUTE_NAME)) {
 			String sourceString = elt.getAttribute(LOAD_FILE_ATTRIBUTE_NAME);
 			StreamFactory sf = getStreamFactory();
