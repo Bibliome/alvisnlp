@@ -158,8 +158,8 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 	            return new InputSource(new ByteArrayInputStream(new byte[] {}));
 	        }
 	    });
-	    new SAXSource(xmlReader, new InputSource(file));
-	    return new StreamSource(file);
+	    return new SAXSource(xmlReader, new InputSource(file));
+	    //return new StreamSource(file);
 	}
 	
 	@Override
