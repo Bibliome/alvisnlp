@@ -23,6 +23,7 @@ import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
@@ -467,14 +468,12 @@ public class PlanLoader<T extends Annotable> {
 		try {
 			ParamConverter result = converterFactory.getService(paramType);
 			if (outputFeed) {
-				List<String> realInputDirs = new ArrayList<String>();
-				if (outputDir != null) {
-					realInputDirs.add(outputDir);
+				if (outputDir == null) {
+					result.setInputDirs(Collections.emptyList());
 				}
-				if (inputDirs != null) {
-					realInputDirs.addAll(inputDirs);
+				else {
+					result.setInputDirs(Collections.singletonList(outputDir));
 				}
-				result.setInputDirs(realInputDirs);
 			}
 			else {
 				result.setInputDirs(inputDirs);
@@ -508,6 +507,9 @@ public class PlanLoader<T extends Annotable> {
 			paramHandler.setInhibitCheck(inhibitCheck);
 		}
 		boolean outputFeed = XMLUtils.getBooleanAttribute(elt, "output-feed", false);
+		if (outputFeed) {
+			paramHandler.setInhibitCheck(true);
+		}
 		Class<?> paramType = paramHandler.getType();
 		ParamConverter paramConverter = getParamConverterInstance(paramType, outputFeed);
 		if (elt.hasAttribute(LOAD_FILE_ATTRIBUTE_NAME)) {
