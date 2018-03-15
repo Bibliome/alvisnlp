@@ -40,7 +40,7 @@ limitations under the License.
     <enjuExecutable></enjuExecutable>
   </module>
 
-  <module class="fr.inra.maiage.bibliome.alvisnlp.modules.bibliomefactory.geniatagger.GeniaTagger">
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.geniatagger.GeniaTagger">
     <geniaDir></geniaDir>
   </module>
 
