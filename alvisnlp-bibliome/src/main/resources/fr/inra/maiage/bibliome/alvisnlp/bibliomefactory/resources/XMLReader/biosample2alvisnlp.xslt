@@ -15,24 +15,34 @@
   <xsl:template match="BioSample">
     <a:document xpath-id="@accession">
       <xsl:apply-templates select="Description/Title" mode="section"/>
-      <xsl:apply-templates select="Description/Comment/Paragraph" mode="section"/>
+      <xsl:apply-templates select="Description/Comment/Paragraph" mode="comment-section"/>
       <xsl:apply-templates select="Description/Organism"/>
       <xsl:apply-templates select="Attributes/Attribute" mode="attribute-section"/>
     </a:document>
   </xsl:template>
 
-  <xsl:template match="*" mode="section">
-    <a:section xpath-name="name()" xpath-contents="."/>
+  <xsl:template match="*" mode="comment-section">
+    <a:section name="Comment" xpath-contents="."/>
   </xsl:template>
 
   <xsl:template match="Organism">
+    <xsl:variable name="base">
+      <xsl:choose>
+	<xsl:when test="OrganismName">
+	  <xsl:value-of select="OrganismName"/>
+	</xsl:when>
+	<xsl:when test="@taxonomy_name">
+	  <xsl:value-of select="@taxonomy_name"/>
+	</xsl:when>
+      </xsl:choose>
+    </xsl:variable>
     <xsl:variable name="name">
       <xsl:choose>
 	<xsl:when test="../../Attributes/Attribute[@harmonized_name = 'strain']">
-	  <xsl:value-of select="concat(OrganismName, ' ', ../../Attributes/Attribute[@harmonized_name = 'strain'])"/>
+	  <xsl:value-of select="concat($base, ' ', ../../Attributes/Attribute[@harmonized_name = 'strain'])"/>
 	</xsl:when>
 	<xsl:otherwise>
-	  <xsl:value-of select="OrganismName"/>
+	  <xsl:value-of select="$base"/>
 	</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
@@ -45,11 +55,14 @@
   </xsl:template>
 
   <xsl:template match="Attribute" mode="attribute-section">
-    <xsl:variable name="lower">
-      <xsl:value-of select="f:lower(.)"/>
+    <xsl:variable name="norm">
+      <xsl:value-of select="normalize-space(.)"/>
     </xsl:variable>
-    <xsl:if test="$lower != 'missing' and $lower != 'not applicable' and $lower != 'unknown' and $lower != 'not_applicable' and $lower != 'none' and $lower != 'na' and $lower != 'not collected' and $lower != 'not determined'">
-      <a:section xpath-name="@harmonized_name" xpath-contents="."/>
+    <xsl:variable name="lower">
+      <xsl:value-of select="f:lower($norm)"/>
+    </xsl:variable>
+    <xsl:if test="$lower != 'missing' and $lower != 'not applicable' and $lower != 'unknown' and $lower != 'not_applicable' and $lower != 'none' and $lower != 'na' and $lower != 'not collected' and $lower != 'not determined' and $lower != 'not given'">
+      <a:section xpath-name="@harmonized_name" xpath-contents="$norm"/>
     </xsl:if>
   </xsl:template>
 </xsl:stylesheet>
