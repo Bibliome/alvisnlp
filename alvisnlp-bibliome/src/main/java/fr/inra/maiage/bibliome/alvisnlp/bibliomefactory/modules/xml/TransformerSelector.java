@@ -30,17 +30,6 @@ public class TransformerSelector implements Filter<Document> {
 		if (transformer == null) {
 			try (InputStream is = transformerSource.getInputStream()) {
 	    		logger.info("loading stylesheet: " + transformerSource.getStreamName(is));
-	    		logger.info("loading stylesheet: " + transformerSource.getClass());
-	    		logger.info("loading stylesheet: " + is);
-//	    		Reader r = new InputStreamReader(is);
-//	    		BufferedReader br = new BufferedReader(r);
-//	    		while (true) {
-//	    			String line = br.readLine();
-//	    			if (line == null) {
-//	    				break;
-//	    			}
-//	    			logger.info(line);
-//	    		}
 	    		Source source = new StreamSource(is);
 				transformer = transformerFactory.newTransformer(source);
 			}
