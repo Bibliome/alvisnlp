@@ -47,8 +47,6 @@ import org.apache.xpath.NodeSet;
 import org.apache.xpath.XPath;
 import org.apache.xpath.XPathContext;
 import org.apache.xpath.objects.XObject;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
 import org.cyberneko.html.parsers.DOMParser;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
@@ -59,6 +57,8 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.DocumentCreator;
@@ -149,6 +149,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 	        return new DOMSource(doc);
 		}
 		SAXParserFactory spf = SAXParserFactory.newInstance();
+		spf.setNamespaceAware(true);
 		spf.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
 	    org.xml.sax.XMLReader xmlReader = spf.newSAXParser().getXMLReader();
 	    xmlReader.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
@@ -159,7 +160,6 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 	        }
 	    });
 	    return new SAXSource(xmlReader, new InputSource(file));
-	    //return new StreamSource(file);
 	}
 	
 	@Override
