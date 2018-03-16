@@ -902,7 +902,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     		InputSource is = new InputSource(new StringReader(xmlValue));
     		Document doc = XMLUtils.docBuilder.parse(is);
     		Element elt = doc.getDocumentElement();
-    		planLoader.setParam(elt, module);
+    		planLoader.setParam(logger, elt, module);
 		}
     }
     

@@ -310,15 +310,15 @@ public class PlanLoader<T extends Annotable> {
 					continue;
 				}
 				if (ACTIVE_PARAM_ELEMENT_NAME.equals(childName)) {
-					setParam(childElement, result);
+					setParam(logger, childElement, result);
 					continue;
 				}
 				if (SELECT_PARAM_ELEMENT_NAME.equals(childName)) {
-					setParam(childElement, result);
+					setParam(logger, childElement, result);
 					continue;
 				}
 				if (USER_FUNCTIONS_PARAM_ELEMENT_NAME.equals(childName)) {
-					setParam(childElement, result);
+					setParam(logger, childElement, result);
 					continue;
 				}
 				if (SHELL_ELEMENT_NAME.equals(childName)) {
@@ -419,12 +419,12 @@ public class PlanLoader<T extends Annotable> {
 		Module<T> result = getModuleInstance(moduleClass);
 		setModuleId(logger, result, elt);
 		result.setCreatorNameFeature(creatorNameFeature);
-		setDefaultParams(result);
-		setModuleParams(elt, result);
+		setDefaultParams(logger, result);
+		setModuleParams(logger, elt, result);
 		return result;
 	}
 	
-	private void setModuleParams(Element parent, Module<T> module) throws PlanException, ParameterException, UnsupportedServiceException, ConverterException, SAXException, IOException, URISyntaxException {
+	private void setModuleParams(Logger logger, Element parent, Module<T> module) throws PlanException, ParameterException, UnsupportedServiceException, ConverterException, SAXException, IOException, URISyntaxException {
 		for (Node child : XMLUtils.childrenNodes(parent)) {
 			if (child instanceof Comment)
 				continue;
@@ -432,20 +432,20 @@ public class PlanLoader<T extends Annotable> {
 				continue;
 			if (child instanceof Element) {
 				Element childElement = (Element) child;
-				setParam(childElement, module);
+				setParam(logger, childElement, module);
 				continue;
 			}
 			throw new PlanException("unexpected node: " + child);
 		}
 	}
 	
-	private void setDefaultParams(Module<T> module) throws ParameterException, UnsupportedServiceException, PlanException, ConverterException, SAXException, IOException, URISyntaxException {
+	private void setDefaultParams(Logger logger, Module<T> module) throws ParameterException, UnsupportedServiceException, PlanException, ConverterException, SAXException, IOException, URISyntaxException {
 		String moduleClass = module.getModuleClass();
 		if (!defaultParamValues.containsKey(moduleClass)) {
 			return;
 		}
 		for (Element elt : defaultParamValues.get(moduleClass)) {
-			setParam(elt, module);
+			setParam(logger, elt, module);
 		}
 	}
 
@@ -459,7 +459,7 @@ public class PlanLoader<T extends Annotable> {
 		String sourceString = XMLUtils.attributeOrValue(elt, SOURCE_ATTRIBUTE_NAME, ALTERNATE_SOURCE_ATTRIBUTE_NAMES);
 		Module<T> result = loadSource(logger, sourceString);
 		if (!XMLUtils.childrenElements(elt).isEmpty()) {
-			setModuleParams(elt, result);
+			setModuleParams(logger, elt, result);
 		}
 		return result;
 	}
@@ -494,7 +494,7 @@ public class PlanLoader<T extends Annotable> {
 		return result;
 	}
 	
-	public void setParam(Element elt, Module<T> module) throws PlanException, ParameterException, ConverterException, UnsupportedServiceException, SAXException, IOException, URISyntaxException {
+	public void setParam(Logger logger, Element elt, Module<T> module) throws PlanException, ParameterException, ConverterException, UnsupportedServiceException, SAXException, IOException, URISyntaxException {
 		String eltName = elt.getTagName();
 		String paramName;
 		if (eltName.equals(PARAM_ELEMENT_NAME))
@@ -504,6 +504,12 @@ public class PlanLoader<T extends Annotable> {
 		ParamHandler<T> paramHandler = module.getParamHandler(paramName);
 		if (elt.hasAttribute("inhibitCheck")) {
 			boolean inhibitCheck = Strings.getBoolean(elt.getAttribute("inhibitCheck"));
+			paramHandler.setInhibitCheck(inhibitCheck);
+			logger.severe("attribute 'inhibitCheck' is obsolete, please use 'inhibit-check', or better yet 'output-feed'");
+			logger.severe("future versions may not support attribute 'inhibitCheck'");
+		}
+		if (elt.hasAttribute("inhibit-check")) {
+			boolean inhibitCheck = Strings.getBoolean(elt.getAttribute("inhibit-check"));
 			paramHandler.setInhibitCheck(inhibitCheck);
 		}
 		boolean outputFeed = XMLUtils.getBooleanAttribute(elt, "output-feed", false);
