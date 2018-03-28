@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -49,10 +50,12 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.StringCat;
 import fr.inra.maiage.bibliome.util.files.OutputDirectory;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 @AlvisNLPModule(beta=true)
 public class XMIExport extends SectionModule<SectionResolvedObjects> {
 	private OutputDirectory outDir;
+	private OutputFile typeSystemFile;
 	
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -68,6 +71,11 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 					XmiCasSerializer.serialize(jcas.getCas(), null, os, true, null);
 				}
 				jcas.reset();
+			}
+			if (typeSystemFile != null) {
+				try (InputStream is = getClass().getResourceAsStream("/fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/uima-document.xml")) {
+					fr.inra.maiage.bibliome.util.Files.copy(is, typeSystemFile, 1024, false);
+				}
 			}
 		}
 		catch (CASRuntimeException|UIMAException|CASAdminException|SAXException|IOException e) {
@@ -243,6 +251,15 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 	@Param
 	public OutputDirectory getOutDir() {
 		return outDir;
+	}
+
+	@Param(mandatory=false)
+	public OutputFile getTypeSystemFile() {
+		return typeSystemFile;
+	}
+
+	public void setTypeSystemFile(OutputFile typeSystemFile) {
+		this.typeSystemFile = typeSystemFile;
 	}
 
 	public void setOutDir(OutputDirectory outDir) {
