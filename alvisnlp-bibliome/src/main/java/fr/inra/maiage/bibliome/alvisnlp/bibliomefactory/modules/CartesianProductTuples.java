@@ -57,7 +57,9 @@ public abstract class CartesianProductTuples extends SectionModule<CartesianProd
 	private ExpressionMapping arguments;
 		
 	class CartesianProductTuplesResolvedObjects extends SectionResolvedObjects {
+		@SuppressWarnings("hiding")
 		private final Evaluator anchor;
+		@SuppressWarnings("hiding")
 		private final EvaluatorMapping arguments;
 		
 		private CartesianProductTuplesResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {

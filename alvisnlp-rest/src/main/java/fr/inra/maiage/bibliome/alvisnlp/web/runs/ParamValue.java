@@ -18,6 +18,7 @@ package fr.inra.maiage.bibliome.alvisnlp.web.runs;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.logging.Logger;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -95,7 +96,7 @@ public abstract class ParamValue<T> {
 		return result;
 	}
 
-	public abstract void setParam(PlanLoader<Corpus> planLoader, Sequence<Corpus> plan) throws ParameterException, UnsupportedServiceException, PlanException, ConverterException, SAXException, IOException, URISyntaxException;
+	public abstract void setParam(Logger logger, PlanLoader<Corpus> planLoader, Sequence<Corpus> plan) throws ParameterException, UnsupportedServiceException, PlanException, ConverterException, SAXException, IOException, URISyntaxException;
 	
 	protected abstract void fillXMLValue(Element elt);
 }

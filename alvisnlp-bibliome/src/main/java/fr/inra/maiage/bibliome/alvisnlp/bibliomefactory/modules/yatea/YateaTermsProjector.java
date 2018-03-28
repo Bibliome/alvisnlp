@@ -1,5 +1,6 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.yatea;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.logging.Logger;
@@ -12,6 +13,7 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.Se
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.TrieProjector;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.yatea.YateaTermsProjector.Term;
 import org.xml.sax.Attributes;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
@@ -71,6 +73,11 @@ public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedO
 			super();
 			this.dict = dict;
 		}
+
+		@Override
+		public InputSource resolveEntity(String pid, String sid) throws SAXException {
+            return new InputSource(new ByteArrayInputStream(new byte[] {}));
+        }
 
 		@Override
 		public void startDocument() throws SAXException {
@@ -152,7 +159,8 @@ public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedO
 	@Override
 	protected void fillTrie(Logger logger, Trie<Term> trie, Corpus corpus) throws IOException, ModuleException {
 		try {
-			SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
+			SAXParserFactory spf = SAXParserFactory.newInstance();
+			SAXParser parser = spf.newSAXParser();
 			YateaHandler handler = new YateaHandler(trie);
 			for (InputStream is : Iterators.loop(yateaFile.getInputStreams())) {
 				parser.parse(is, handler);

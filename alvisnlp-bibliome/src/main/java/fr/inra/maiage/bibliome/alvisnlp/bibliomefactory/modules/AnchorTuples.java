@@ -57,7 +57,9 @@ public abstract class AnchorTuples extends SectionModule<AnchorTuplesResolvedObj
 	private ExpressionMapping arguments;
 	
 	class AnchorTuplesResolvedObjects extends SectionResolvedObjects {
+		@SuppressWarnings("hiding")
 		private final Evaluator anchor;
+		@SuppressWarnings("hiding")
 		private final EvaluatorMapping arguments;
 		private final Variable anchorVariable;
 		

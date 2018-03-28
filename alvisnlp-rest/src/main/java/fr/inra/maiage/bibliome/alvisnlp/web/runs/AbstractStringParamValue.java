@@ -18,6 +18,7 @@ package fr.inra.maiage.bibliome.alvisnlp.web.runs;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.logging.Logger;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -40,11 +41,11 @@ public abstract class AbstractStringParamValue extends ParamValue<String> {
 	protected abstract String getConcreteValue();
 
 	@Override
-	public void setParam(PlanLoader<Corpus> planLoader, Sequence<Corpus> plan) throws ParameterException, UnsupportedServiceException, PlanException, ConverterException, SAXException, IOException, URISyntaxException {
+	public void setParam(Logger logger, PlanLoader<Corpus> planLoader, Sequence<Corpus> plan) throws ParameterException, UnsupportedServiceException, PlanException, ConverterException, SAXException, IOException, URISyntaxException {
 		Document doc = XMLUtils.docBuilder.newDocument();
 		Element elt = XMLUtils.createRootElement(doc, getName());
 		elt.setTextContent(getConcreteValue());
-		planLoader.setParam(elt, plan);
+		planLoader.setParam(logger, elt, plan);
 	}
 
 	@Override

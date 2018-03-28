@@ -139,14 +139,14 @@ public class PlanBuilder {
 		return buildPlan(createPlanLoader(run), run.getPlanName());
 	}
 
-	public static void setParams(PlanLoader<Corpus> planLoader, Run run, Sequence<Corpus> plan) throws ParameterException, UnsupportedServiceException, PlanException, ConverterException, SAXException, IOException, URISyntaxException {
+	public static void setParams(Logger logger, PlanLoader<Corpus> planLoader, Run run, Sequence<Corpus> plan) throws ParameterException, UnsupportedServiceException, PlanException, ConverterException, SAXException, IOException, URISyntaxException {
 		for (ParamValue<?> pv : run.getParamValues()) {
-			pv.setParam(planLoader, plan);
+			pv.setParam(logger, planLoader, plan);
 		}
 	}
 	
 	public void setParams(Run run, Sequence<Corpus> plan) throws ParserConfigurationException, PlanException, ParameterException, UnsupportedServiceException, ConverterException, SAXException, IOException, URISyntaxException {
-		setParams(createPlanLoader(run), run, plan);
+		setParams(logger, createPlanLoader(run), run, plan);
 	}
 
 	public void check(Sequence<Corpus> plan) throws ModuleException {

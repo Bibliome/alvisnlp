@@ -17,12 +17,12 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.TabularExport.TabularExportResolvedObjects;
-
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ConstantsLibrary;
@@ -61,7 +61,7 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> im
 	private String separator = "\t";
 	private Boolean append = false;
 	private Boolean trim = false;
-	private OutputFile corpusFile = null;
+	private File corpusFile = null;
 	
 	static class TabularExportResolvedObjects extends ResolvedObjects {
 		private final Variable lineVar;
@@ -246,11 +246,11 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> im
 	}
 
 	@Param(mandatory=false)
-	public OutputFile getCorpusFile() {
+	public File getCorpusFile() {
 		return corpusFile;
 	}
 
-	public void setCorpusFile(OutputFile corpusFile) {
+	public void setCorpusFile(File corpusFile) {
 		this.corpusFile = corpusFile;
 	}
 

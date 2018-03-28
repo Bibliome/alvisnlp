@@ -117,9 +117,12 @@ public class RemoveEquivalent extends CorpusModule<RemoveEquivalentResolvedObjec
 	}
 
 	class RemoveEquivalentResolvedObjects extends ResolvedObjects {
+		@SuppressWarnings("hiding")
 		private final Evaluator target;
 		private final Variable other;
+		@SuppressWarnings("hiding")
 		private final Evaluator equivalency;
+		@SuppressWarnings("hiding")
 		private final Comparator<Element> priority;
 		
 		private RemoveEquivalentResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {

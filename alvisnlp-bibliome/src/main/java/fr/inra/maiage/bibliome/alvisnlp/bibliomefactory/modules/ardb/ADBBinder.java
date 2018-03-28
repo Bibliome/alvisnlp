@@ -45,7 +45,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
  *
  * @author fpapazian
  */
-@SuppressWarnings("resource")
 public class ADBBinder {
 
     public static String DEFAULT_ANNOTATIONTYPE = "DefaultAnnotationType";
