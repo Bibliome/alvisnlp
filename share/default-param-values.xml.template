@@ -15,6 +15,18 @@ limitations under the License.
 -->
 
 <default-param-values>
+
+    <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.XMIImport">
+        <source></source>
+        <baseNameId/> <!-- retire les repertoires et le double .xmi -->
+        <ignoreMalformedXMI/> <!-- ignore typesystem.xml et tout autre fichier qui ne serait pas XMI -->
+    </module>
+    
+   <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.XMIExport">
+    <outDir>.</outDir>
+    <typeSystemFile>typesystem.xml</typeSystemFile>
+   </module>
+
   <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.biolg.BioLG">
     <parserPath></parserPath>
     <lp2lpExecutable></lp2lpExecutable>
