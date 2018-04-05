@@ -16,7 +16,7 @@ limitations under the License.
 
 <default-param-values>
 
-    <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modulesuima.uima.XMIImport">
+    <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.XMIImport">
         <source></source>
         <baseNameId/> <!-- retire les repertoires et le double .xmi -->
         <ignoreMalformedXMI/> <!-- ignore typesystem.xml et tout autre fichier qui ne serait pas XMI -->
