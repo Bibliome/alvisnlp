@@ -1,0 +1,123 @@
+<!--
+Copyright 2016 Institut National de la Recherche Agronomique
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<default-param-values>
+
+    <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.XMIImport">
+        <source></source>
+        <baseNameId/> <!-- retire les repertoires et le double .xmi -->
+        <ignoreMalformedXMI/> <!-- ignore typesystem.xml et tout autre fichier qui ne serait pas XMI -->
+    </module>
+    
+   <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.XMIExport">
+    <outDir>.</outDir>
+    <typeSystemFile>typesystem.xml</typeSystemFile>
+   </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.biolg.BioLG">
+    <parserPath></parserPath>
+    <lp2lpExecutable></lp2lpExecutable>
+    <lp2lpConf></lp2lpConf>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ccg.CCGParser">
+    <executable></executable>
+    <parserModel></parserModel>
+    <superModel></superModel>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ccg.CCGPosTagger">
+    <executable></executable>
+    <model></model>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.enju.EnjuParser">
+    <enjuExecutable></enjuExecutable>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.enju.EnjuParser2">
+    <enjuExecutable></enjuExecutable>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.geniatagger.GeniaTagger">
+    <geniaDir></geniaDir>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.treetagger.TreeTagger">
+    <treeTaggerExecutable></treeTaggerExecutable>
+    <parFile></parFile>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.yatea.YateaExtractor">
+    <yateaExecutable></yateaExecutable>
+    <rcFile></rcFile>
+    <configDir></configDir>
+    <localeDir></localeDir>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tomap.TomapTrain">
+    <yateaExecutable></yateaExecutable>
+    <rcFile></rcFile>
+    <configDir></configDir>
+    <localeDir></localeDir>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.Species">
+    <speciesDir></speciesDir>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ab3p.Ab3P">
+    <installDir></installDir>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.chemspot.ChemSpotA">
+    <cRFModel></cRFModel>
+    <dictionary></dictionary>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tees.TEESClassify">
+    <teesHome></teesHome>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tees.TEESTrain">
+    <teesHome></teesHome>    
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.wapiti.WapitiLabel">
+    <wapitiExecutable></wapitiExecutable>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.wapiti.WapitiTrain">
+    <wapitiExecutable></wapitiExecutable>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.chemspot.Chemspot">
+    <chemspotDir></chemspotDir>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.Word2Vec">
+    <contesDir></contesDir>
+    <workers></workers>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.ContesTrain">
+    <contesDir></contesDir>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.ContesPredict">
+    <contesDir></contesDir>
+  </module>
+</default-param-values>
