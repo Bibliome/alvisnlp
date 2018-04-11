@@ -20,8 +20,8 @@ public enum DKProTokenImporter implements CompatibilityAnnotationImporter<Token>
 
 	@Override
 	public void setFeatures(Annotation alvisAnnotation, Token annotation) {
-		alvisAnnotation.addFeature(DefaultNames.getCanonicalFormFeature(), annotation.getLemma().getValue());
-		alvisAnnotation.addFeature(DefaultNames.getStemFeature(), annotation.getStem().getValue());
-		alvisAnnotation.addFeature(DefaultNames.getPosTagFeature(), annotation.getPos().getPosValue());
+		alvisAnnotation.addFeature(DefaultNames.getCanonicalFormFeature(), annotation.getLemmaValue());
+		alvisAnnotation.addFeature(DefaultNames.getStemFeature(), annotation.getStemValue());
+		alvisAnnotation.addFeature(DefaultNames.getPosTagFeature(), annotation.getPosValue());
 	}
 }
