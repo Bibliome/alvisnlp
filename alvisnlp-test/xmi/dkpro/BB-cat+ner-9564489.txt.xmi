@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:pos="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos.ecore" xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:tweet="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos/tweet.ecore" xmlns:morph="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/morph.ecore" xmlns:type3="http:///de/tudarmstadt/ukp/dkpro/core/api/frequency/tfidf/type.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmlns:dependency="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/dependency.ecore" xmlns:type7="http:///de/tudarmstadt/ukp/dkpro/core/api/semantics/type.ecore" xmlns:type9="http:///de/tudarmstadt/ukp/dkpro/core/api/transform/type.ecore" xmlns:type="http:///de/tudarmstadt/ukp/dkpro/core/api/anomaly/type.ecore" xmlns:type8="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type.ecore" xmlns:type4="http:///de/tudarmstadt/ukp/dkpro/core/api/metadata/type.ecore" xmlns:type5="http:///de/tudarmstadt/ukp/dkpro/core/api/ner/type.ecore" xmlns:type6="http:///de/tudarmstadt/ukp/dkpro/core/api/segmentation/type.ecore" xmlns:type2="http:///de/tudarmstadt/ukp/dkpro/core/api/coref/type.ecore" xmlns:constituent="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/constituent.ecore" xmlns:chunk="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/chunk.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <type4:DocumentMetaData xmi:id="1" sofa="12" begin="0" end="82" language="en" documentTitle="BB-cat+ner-9564489.txt" documentId="BB-cat+ner-9564489.txt" documentUri="file:/home/rbossy/code/alvisnlp/alvisnlp-bibliome/../alvisnlp-test/share/BioNLP-ST-2016_BB-cat+ner/train/BB-cat+ner-9564489.txt" collectionId="file:/home/rbossy/code/alvisnlp/alvisnlp-bibliome/../alvisnlp-test/share/BioNLP-ST-2016_BB-cat+ner/train/" documentBaseUri="file:/home/rbossy/code/alvisnlp/alvisnlp-bibliome/../alvisnlp-test/share/BioNLP-ST-2016_BB-cat+ner/train/" isLastSegment="false"/>
+    <type6:Sentence xmi:id="19" sofa="12" begin="0" end="81"/>
+    <type6:Token xmi:id="24" sofa="12" begin="0" end="17" lemma="390" pos="318"/>
+    <type6:Token xmi:id="36" sofa="12" begin="18" end="27" lemma="395" pos="324"/>
+    <type6:Token xmi:id="48" sofa="12" begin="28" end="31" lemma="400" pos="330"/>
+    <type6:Token xmi:id="60" sofa="12" begin="32" end="34" lemma="405" pos="336"/>
+    <type6:Token xmi:id="72" sofa="12" begin="35" end="48" lemma="410" pos="342"/>
+    <type6:Token xmi:id="84" sofa="12" begin="49" end="57" lemma="415" pos="348"/>
+    <type6:Token xmi:id="96" sofa="12" begin="58" end="60" lemma="420" pos="354"/>
+    <type6:Token xmi:id="108" sofa="12" begin="61" end="62" lemma="425" pos="360"/>
+    <type6:Token xmi:id="120" sofa="12" begin="63" end="70" lemma="430" pos="366"/>
+    <type6:Token xmi:id="132" sofa="12" begin="71" end="75" lemma="435" pos="372"/>
+    <type6:Token xmi:id="144" sofa="12" begin="76" end="80" lemma="440" pos="378"/>
+    <type6:Token xmi:id="156" sofa="12" begin="80" end="81" lemma="445" pos="384"/>
+    <type4:TagsetDescription xmi:id="168" sofa="12" begin="0" end="82" layer="de.tudarmstadt.ukp.dkpro.core.api.lexmorph.type.pos.POS" name="ptb" tags="181 183 185 187 189 191 193 195 197 199 201 203 205 207 209 211 213 215 217 219 221 223 225 227 229 231 233 235 237 239 241 243 245 247 249 251 253 255 257 259 261 263 265 267 269" componentName="de.tudarmstadt.ukp.dkpro.core.opennlp.OpenNlpPosTagger" modelLocation="classpath:/de/tudarmstadt/ukp/dkpro/core/opennlp/lib/tagger-en-maxent.properties" modelVariant="maxent" modelLanguage="en" modelVersion="20120616.1" input="false"/>
+    <pos:POS_PROPN xmi:id="318" sofa="12" begin="0" end="17" PosValue="NNP" coarseValue="PROPN"/>
+    <pos:POS_PROPN xmi:id="342" sofa="12" begin="35" end="48" PosValue="NNP" coarseValue="PROPN"/>
+    <pos:POS_PROPN xmi:id="378" sofa="12" begin="76" end="80" PosValue="NNP" coarseValue="PROPN"/>
+    <pos:POS_NOUN xmi:id="324" sofa="12" begin="18" end="27" PosValue="NN" coarseValue="NOUN"/>
+    <pos:POS_NOUN xmi:id="348" sofa="12" begin="49" end="57" PosValue="NNS" coarseValue="NOUN"/>
+    <pos:POS_NOUN xmi:id="366" sofa="12" begin="63" end="70" PosValue="NN" coarseValue="NOUN"/>
+    <pos:POS_ADJ xmi:id="330" sofa="12" begin="28" end="31" PosValue="JJ" coarseValue="ADJ"/>
+    <pos:POS_ADP xmi:id="336" sofa="12" begin="32" end="34" PosValue="TO" coarseValue="ADP"/>
+    <pos:POS_ADP xmi:id="354" sofa="12" begin="58" end="60" PosValue="IN" coarseValue="ADP"/>
+    <pos:POS_ADP xmi:id="372" sofa="12" begin="71" end="75" PosValue="IN" coarseValue="ADP"/>
+    <pos:POS_DET xmi:id="360" sofa="12" begin="61" end="62" PosValue="DT" coarseValue="DET"/>
+    <pos:POS_PUNCT xmi:id="384" sofa="12" begin="80" end="81" PosValue="." coarseValue="PUNCT"/>
+    <type6:Lemma xmi:id="390" sofa="12" begin="0" end="17" value="Gingivomandibular"/>
+    <type6:Lemma xmi:id="395" sofa="12" begin="18" end="27" value="infection"/>
+    <type6:Lemma xmi:id="400" sofa="12" begin="28" end="31" value="due"/>
+    <type6:Lemma xmi:id="405" sofa="12" begin="32" end="34" value="to"/>
+    <type6:Lemma xmi:id="410" sofa="12" begin="35" end="48" value="mycobacterium"/>
+    <type6:Lemma xmi:id="415" sofa="12" begin="49" end="57" value="kansasii"/>
+    <type6:Lemma xmi:id="420" sofa="12" begin="58" end="60" value="in"/>
+    <type6:Lemma xmi:id="425" sofa="12" begin="61" end="62" value="a"/>
+    <type6:Lemma xmi:id="430" sofa="12" begin="63" end="70" value="patient"/>
+    <type6:Lemma xmi:id="435" sofa="12" begin="71" end="75" value="with"/>
+    <type6:Lemma xmi:id="440" sofa="12" begin="76" end="80" value="AIDS"/>
+    <type6:Lemma xmi:id="445" sofa="12" begin="80" end="81" value="."/>
+    <cas:Sofa xmi:id="12" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Gingivomandibular infection due to Mycobacterium kansasii in a patient with AIDS.&#10;"/>
+    <type4:TagDescription xmi:id="181" name="#"/>
+    <type4:TagDescription xmi:id="183" name="$"/>
+    <type4:TagDescription xmi:id="185" name="''"/>
+    <type4:TagDescription xmi:id="187" name=","/>
+    <type4:TagDescription xmi:id="189" name="-LRB-"/>
+    <type4:TagDescription xmi:id="191" name="-RRB-"/>
+    <type4:TagDescription xmi:id="193" name="."/>
+    <type4:TagDescription xmi:id="195" name=":"/>
+    <type4:TagDescription xmi:id="197" name="CC"/>
+    <type4:TagDescription xmi:id="199" name="CD"/>
+    <type4:TagDescription xmi:id="201" name="DT"/>
+    <type4:TagDescription xmi:id="203" name="EX"/>
+    <type4:TagDescription xmi:id="205" name="FW"/>
+    <type4:TagDescription xmi:id="207" name="IN"/>
+    <type4:TagDescription xmi:id="209" name="JJ"/>
+    <type4:TagDescription xmi:id="211" name="JJR"/>
+    <type4:TagDescription xmi:id="213" name="JJS"/>
+    <type4:TagDescription xmi:id="215" name="LS"/>
+    <type4:TagDescription xmi:id="217" name="MD"/>
+    <type4:TagDescription xmi:id="219" name="NN"/>
+    <type4:TagDescription xmi:id="221" name="NNP"/>
+    <type4:TagDescription xmi:id="223" name="NNPS"/>
+    <type4:TagDescription xmi:id="225" name="NNS"/>
+    <type4:TagDescription xmi:id="227" name="PDT"/>
+    <type4:TagDescription xmi:id="229" name="POS"/>
+    <type4:TagDescription xmi:id="231" name="PRP"/>
+    <type4:TagDescription xmi:id="233" name="PRP$"/>
+    <type4:TagDescription xmi:id="235" name="RB"/>
+    <type4:TagDescription xmi:id="237" name="RBR"/>
+    <type4:TagDescription xmi:id="239" name="RBS"/>
+    <type4:TagDescription xmi:id="241" name="RP"/>
+    <type4:TagDescription xmi:id="243" name="SYM"/>
+    <type4:TagDescription xmi:id="245" name="TO"/>
+    <type4:TagDescription xmi:id="247" name="UH"/>
+    <type4:TagDescription xmi:id="249" name="VB"/>
+    <type4:TagDescription xmi:id="251" name="VBD"/>
+    <type4:TagDescription xmi:id="253" name="VBG"/>
+    <type4:TagDescription xmi:id="255" name="VBN"/>
+    <type4:TagDescription xmi:id="257" name="VBP"/>
+    <type4:TagDescription xmi:id="259" name="VBZ"/>
+    <type4:TagDescription xmi:id="261" name="WDT"/>
+    <type4:TagDescription xmi:id="263" name="WP"/>
+    <type4:TagDescription xmi:id="265" name="WP$"/>
+    <type4:TagDescription xmi:id="267" name="WRB"/>
+    <type4:TagDescription xmi:id="269" name="``"/>
+    <cas:View sofa="12" members="1 19 24 36 48 60 72 84 96 108 120 132 144 156 168 318 342 378 324 348 366 330 336 354 372 360 384 390 395 400 405 410 415 420 425 430 435 440 445"/>
+</xmi:XMI>
