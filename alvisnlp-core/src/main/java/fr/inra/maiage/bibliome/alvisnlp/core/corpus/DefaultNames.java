@@ -29,8 +29,9 @@ public final class DefaultNames {
     private static final String POS_TAG_FEATURE = "pos";
     private static final String STEM_FEATURE = "stem";
     private static final String WORD_TYPE_FEATURE = "wordType";
-    private static final String NAMED_ENTITY_TYPE_FEATURE = "neType";
+    private static final String NAMED_ENTITY_TYPE_FEATURE = "ne-type";
     private static final String WORD_LAYER = "words";
+    private static final String NAMED_ENTITY_LAYER = "named-entity";
     private static final String SENTENCE_LAYER = "sentences";
     private static final String PARAGRAPH_LAYER = "paragraph";
     private static final String LANGUAGE_FEATURE = "lang";
@@ -56,6 +57,10 @@ public final class DefaultNames {
 	
 	public static String getWordTypeFeature() {
 		return WORD_TYPE_FEATURE;
+	}
+	
+	public static String getNamedEntityLayer() {
+		return NAMED_ENTITY_LAYER;
 	}
 	
 	public static String getNamedEntityTypeFeature() {
