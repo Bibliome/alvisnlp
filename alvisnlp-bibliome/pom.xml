@@ -304,6 +304,38 @@
 
 
 		<dependency>
+		  <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+		  <artifactId>de.tudarmstadt.ukp.dkpro.core.opennlp-asl</artifactId>
+		  <version>1.6.2</version>
+		</dependency>
+
+		<dependency>
+		  <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+		  <artifactId>de.tudarmstadt.ukp.dkpro.core.languagetool-asl</artifactId>
+		  <version>1.6.2</version>
+		</dependency>
+
+		<dependency>
+		  <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+		  <artifactId>de.tudarmstadt.ukp.dkpro.core.maltparser-asl</artifactId>
+		  <version>1.6.2</version>
+		</dependency>
+
+		<dependency>
+		  <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+		  <artifactId>de.tudarmstadt.ukp.dkpro.core.io.text-asl</artifactId>
+		  <version>1.6.2</version>
+		</dependency>
+
+		<dependency>
+		  <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
+		  <artifactId>de.tudarmstadt.ukp.dkpro.core.io.conll-asl</artifactId>
+		  <version>1.6.2</version>
+		</dependency>
+
+
+
+		<dependency>
 			<groupId>fr.jouy.inra.maiage.bibliome</groupId>
 			<artifactId>alvisnlp-core</artifactId>
 			<version>0.5rc-SNAPSHOT</version>

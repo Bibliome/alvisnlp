@@ -32,6 +32,7 @@ public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements
 	private String defaultSectionName = "text";
     private Boolean baseNameId = false;
     private Boolean ignoreMalformedXMI = false;
+    private Boolean dkproCompatibility = false;
     
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -54,8 +55,6 @@ public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements
 				}
 				helper.convertDocument(sourceName);
 				helper.reset();
-//				convertDocument(corpus, jcas, sourceName);
-//				jcas.reset();
 			}
 		}
 		catch (UIMAException|CASAdminException|IOException e) {
@@ -63,130 +62,6 @@ public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements
 		}
 	}
 	
-//	private static void convertFeatures(Element elt, FSArray fsFeatures) {
-//		for (FeatureStructure f : fsFeatures) {
-//			FeatureProxy featureProxy = (FeatureProxy) f;
-//			String key = featureProxy.getKey();
-//			String value = featureProxy.getValue();
-//			elt.addFeature(key, value);
-//		}
-//	}
-//
-//	private void convertDocument(Corpus corpus, JCas jcas, String sourceName) {
-//		FSIterator<DocumentProxy> adit = jcas.getAllIndexedFS(DocumentProxy.class);
-//		if (adit.hasNext()) {
-//			convertAnnotatedDocument(corpus, jcas, adit.get());
-//		}
-//		else {
-//			convertEmptyDocument(corpus, jcas, sourceName);
-//		}
-//	}
-//	
-//	private void convertEmptyDocument(Corpus corpus, JCas jcas, String sourceName) {
-//		Document doc = Document.getDocument(this, corpus, getDocumentId(sourceName));
-//		new Section(this, doc, defaultSectionName, jcas.getDocumentText());
-//	}
-//	
-//	private String getDocumentId(String sourceName) {
-//		if (baseNameId) {
-//			int slash = sourceName.lastIndexOf(File.separatorChar) + 1;
-//			int dot = sourceName.lastIndexOf('.');
-//			if (dot == -1 || dot < slash)
-//				dot = sourceName.length();
-//			return sourceName.substring(slash, dot);
-//		}
-//		return sourceName;
-//	}
-//	
-//	private void convertAnnotatedDocument(Corpus corpus, JCas jcas, DocumentProxy docProxy) {
-//		Document doc = Document.getDocument(this, corpus, docProxy.getId());
-//		convertFeatures(doc, docProxy.getFeatures());
-//		String docContents = jcas.getDocumentText();
-//		int offset = 0;
-//		for (FeatureStructure fsSection : docProxy.getSections()) {
-//			SectionProxy sectionProxy = (SectionProxy) fsSection;
-//			Section sec = new Section(this, doc, sectionProxy.getName(), docContents.substring(sectionProxy.getBegin(), sectionProxy.getEnd()));
-//			convertFeatures(sec, sectionProxy.getFeatures());
-//			Map<AnnotationProxy,Annotation> annotationMap = new HashMap<AnnotationProxy,Annotation>();
-//			convertLayers(annotationMap, offset, sec, sectionProxy);
-//			Map<FeatureStructure,Element> argumentMap = new HashMap<FeatureStructure,Element>(annotationMap);
-//			convertRelations(argumentMap, sec, sectionProxy);
-//			convertArguments(argumentMap, sectionProxy);
-//			offset += sec.getContents().length();
-//		}
-//	}
-//	
-//	private static void convertArguments(Map<FeatureStructure,Element> argumentMap, SectionProxy sectionProxy) {
-//		for (FeatureStructure fsRelation : sectionProxy.getRelations()) {
-//			convertArguments(argumentMap, (RelationProxy) fsRelation);
-//		}
-//	}
-//
-//	private static void convertArguments(Map<FeatureStructure,Element> argumentMap, RelationProxy relationProxy) {
-//		for (FeatureStructure fsTuple : relationProxy.getTuples()) {
-//			convertArguments(argumentMap, (TupleProxy) fsTuple);
-//		}
-//	}
-//
-//	private static void convertArguments(Map<FeatureStructure,Element> argumentMap, TupleProxy tupleProxy) {
-//		Tuple t = (Tuple) argumentMap.get(tupleProxy);
-//		for (FeatureStructure fsArg : tupleProxy.getArguments()) {
-//			convertArgument(argumentMap, t, (ArgumentProxy) fsArg);
-//		}
-//	}
-//
-//	private static void convertArgument(Map<FeatureStructure,Element> argumentMap, Tuple t, ArgumentProxy argProxy) {
-//		String role = argProxy.getRole();
-//		Element arg = argumentMap.get(argProxy.getArgument());
-//		t.setArgument(role, arg);
-//	}
-//
-//	private void convertRelations(Map<FeatureStructure,Element> argumentMap, Section sec, SectionProxy sectionProxy) {
-//		for (FeatureStructure fsRelation : sectionProxy.getRelations()) {
-//			convertRelation(argumentMap, sec, (RelationProxy) fsRelation);
-//		}
-//	}
-//
-//	private void convertRelation(Map<FeatureStructure,Element> argumentMap, Section sec, RelationProxy relationProxy) {
-//		Relation rel = new Relation(this, sec, relationProxy.getName());
-//		convertFeatures(rel, relationProxy.getFeatures());
-//		for (FeatureStructure fsTuple : relationProxy.getTuples()) {
-//			convertTuple(argumentMap, rel, (TupleProxy) fsTuple);
-//		}
-//	}
-//
-//	private void convertTuple(Map<FeatureStructure,Element> argumentMap, Relation rel, TupleProxy tupleProxy) {
-//		Tuple t = new Tuple(this, rel);
-//		convertFeatures(t, tupleProxy.getFeatures());
-//		argumentMap.put(tupleProxy, t);
-//	}
-//
-//	private void convertLayers(Map<AnnotationProxy,Annotation> annotationMap, int offset, Section sec, SectionProxy sectionProxy) {
-//		for (FeatureStructure fsLayer : sectionProxy.getLayers()) {
-//			convertLayer(annotationMap, offset, sec, (LayerProxy) fsLayer);
-//		}
-//	}
-//	
-//	private void convertLayer(Map<AnnotationProxy,Annotation> annotationMap, int offset, Section sec, LayerProxy layerProxy) {
-//		Layer layer = sec.ensureLayer(layerProxy.getName());
-//		for (FeatureStructure fsAnnotation : layerProxy.getAnnotations()) {
-//			convertAnnotation(annotationMap, offset, layer, (AnnotationProxy) fsAnnotation);
-//		}
-//	}
-//	
-//	private void convertAnnotation(Map<AnnotationProxy,Annotation> annotationMap, int offset, Layer layer, AnnotationProxy annotProxy) {
-//		Annotation a;
-//		if (annotationMap.containsKey(annotProxy)) {
-//			a = annotationMap.get(annotProxy);
-//			layer.add(a);
-//		}
-//		else {
-//			a = new Annotation(this, layer, annotProxy.getBegin() - offset, annotProxy.getEnd() - offset);
-//			convertFeatures(a, annotProxy.getFeatures());
-//			annotationMap.put(annotProxy, a);
-//		}
-//	}
-
 	@Override
 	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
@@ -210,6 +85,15 @@ public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements
 	@Param
 	public Boolean getIgnoreMalformedXMI() {
 		return ignoreMalformedXMI;
+	}
+
+	@Param
+	public Boolean getDkproCompatibility() {
+		return dkproCompatibility;
+	}
+
+	public void setDkproCompatibility(Boolean dkproCompatibility) {
+		this.dkproCompatibility = dkproCompatibility;
 	}
 
 	public void setIgnoreMalformedXMI(Boolean ignoreMalformedXMI) {
