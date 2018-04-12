@@ -6,8 +6,11 @@ import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
 
+import org.apache.uima.UIMAException;
+import org.apache.uima.cas.CAS;
 import org.apache.uima.cas.FSIterator;
 import org.apache.uima.cas.FeatureStructure;
+import org.apache.uima.fit.factory.JCasFactory;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.cas.FSArray;
 
@@ -41,11 +44,15 @@ public class ImportHelper {
 	private final JCas jcas;
 	private Document currentDocument = null;
 
-	ImportHelper(XMIImport creator, Corpus corpus, JCas jcas) {
+	ImportHelper(XMIImport creator, Corpus corpus) throws UIMAException {
 		super();
 		this.creator = creator;
 		this.corpus = corpus;
-		this.jcas = jcas;
+		this.jcas = JCasFactory.createJCas();
+	}
+	
+	CAS getCas() {
+		return jcas.getCas();
 	}
 
 	void reset() {
@@ -71,6 +78,7 @@ public class ImportHelper {
 				convertDKProCompatibility();
 			}
 		}
+		reset();
 	}
 
 	private void convertEmptyDocument(String sourceName) {

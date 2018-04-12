@@ -7,8 +7,6 @@ import java.util.logging.Logger;
 import org.apache.uima.UIMAException;
 import org.apache.uima.cas.admin.CASAdminException;
 import org.apache.uima.cas.impl.XmiCasDeserializer;
-import org.apache.uima.fit.factory.JCasFactory;
-import org.apache.uima.jcas.JCas;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
@@ -38,13 +36,12 @@ public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		try {
-			JCas jcas = JCasFactory.createJCas();
-			ImportHelper helper = new ImportHelper(this, corpus, jcas);
+			ImportHelper helper = new ImportHelper(this, corpus);
 			for (InputStream is : Iterators.loop(source.getInputStreams())) {
 				String sourceName = source.getStreamName(is);
 				logger.info("reading " + sourceName);
 				try {
-					XmiCasDeserializer.deserialize(is, jcas.getCas(), true);
+					XmiCasDeserializer.deserialize(is, helper.getCas(), true);
 				}
 				catch (Exception e) {
 					if (ignoreMalformedXMI) {
@@ -54,7 +51,6 @@ public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements
 					rethrow(e);
 				}
 				helper.convertDocument(sourceName);
-				helper.reset();
 			}
 		}
 		catch (UIMAException|CASAdminException|IOException e) {

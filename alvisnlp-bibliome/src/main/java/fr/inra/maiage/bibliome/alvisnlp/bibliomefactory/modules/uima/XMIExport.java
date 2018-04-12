@@ -12,8 +12,6 @@ import org.apache.uima.UIMAException;
 import org.apache.uima.cas.CASRuntimeException;
 import org.apache.uima.cas.admin.CASAdminException;
 import org.apache.uima.cas.impl.XmiCasSerializer;
-import org.apache.uima.fit.factory.JCasFactory;
-import org.apache.uima.jcas.JCas;
 import org.xml.sax.SAXException;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
@@ -21,7 +19,6 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.Se
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.types.DocumentProxy;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
@@ -29,7 +26,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
-import fr.inra.maiage.bibliome.util.StringCat;
 import fr.inra.maiage.bibliome.util.files.OutputDirectory;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
 
@@ -43,16 +39,13 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		try {
-			JCas jcas = JCasFactory.createJCas();
-			ExportHelper helper = new ExportHelper(this, logger, evalCtx, jcas);
+			ExportHelper helper = new ExportHelper(this, logger, evalCtx);
 			for (Document doc : Iterators.loop(documentIterator(evalCtx, corpus))) {
-				jcas.setDocumentText(convertContents(evalCtx, doc));
 				DocumentProxy docProxy = helper.convertDocument(doc);
 				docProxy.addToIndexes();
 				try (OutputStream os = openDocumentFile(doc)) {
-					XmiCasSerializer.serialize(jcas.getCas(), null, os, true, null);
+					XmiCasSerializer.serialize(helper.getCas(), null, os, true, null);
 				}
-				jcas.reset();
 			}
 			if (typeSystemFile != null) {
 				try (InputStream is = getClass().getResourceAsStream("/fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/uima-document.xml")) {
@@ -70,14 +63,6 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 		File dir = file.getParentFile();
 		dir.mkdirs();
 		return new FileOutputStream(file);
-	}
-
-	private String convertContents(EvaluationContext evalCtx, Document doc) {
-		StringCat strcat = new StringCat();
-		for (Section sec : Iterators.loop(sectionIterator(evalCtx, doc))) {
-			strcat.append(sec.getContents());
-		}
-		return strcat.toString();
 	}
 
 	@Override

@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import org.apache.uima.UIMAException;
+import org.apache.uima.cas.CAS;
+import org.apache.uima.fit.factory.JCasFactory;
 import org.apache.uima.fit.util.FSCollectionFactory;
 import org.apache.uima.jcas.JCas;
 import org.apache.uima.jcas.cas.FSArray;
@@ -28,29 +31,50 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.StringCat;
 
 public class ExportHelper {
 	private final XMIExport module;
 	private final Logger logger;
 	private final EvaluationContext evalCtx;
 	private final JCas jcas;
+	private final Map<Element,TOP> argumentMap = new HashMap<Element,TOP>();
 	
-	ExportHelper(XMIExport module, Logger logger, EvaluationContext evalCtx, JCas jcas) {
+	ExportHelper(XMIExport module, Logger logger, EvaluationContext evalCtx) throws UIMAException {
 		super();
 		this.module = module;
 		this.logger = logger;
 		this.evalCtx = evalCtx;
-		this.jcas = jcas;
+		this.jcas = JCasFactory.createJCas();
+	}
+	
+	void reset() {
+		jcas.reset();
+		argumentMap.clear();
+	}
+	
+	CAS getCas() {
+		return jcas.getCas();
 	}
 
 	DocumentProxy convertDocument(Document doc) {
+		reset();
+		jcas.setDocumentText(convertContents(doc));
 		DocumentProxy result = new DocumentProxy(jcas);
 		result.setId(doc.getId());
 		result.setFeatures(convertFeatures(doc));
 		result.setSections(convertSections(doc));
 		return result;
 	}
-	
+
+	private String convertContents(Document doc) {
+		StringCat strcat = new StringCat();
+		for (Section sec : Iterators.loop(module.sectionIterator(evalCtx, doc))) {
+			strcat.append(sec.getContents());
+		}
+		return strcat.toString();
+	}
+
 	private FSArray convertFeatures(Element elt) {
 		List<FeatureProxy> result = new ArrayList<FeatureProxy>();
 		for (String key : elt.getFeatureKeys()) {
@@ -83,8 +107,8 @@ public class ExportHelper {
 		result.setFeatures(convertFeatures(sec));
 		Map<Annotation,AnnotationProxy> annotationMap = new HashMap<Annotation,AnnotationProxy>();
 		result.setLayers(convertLayers(annotationMap, sec, offset));
-		Map<Element,TOP> argumentMap = new HashMap<Element,TOP>(annotationMap);
-		result.setRelations(convertRelations(argumentMap, sec));
+		argumentMap.putAll(annotationMap);
+		result.setRelations(convertRelations(sec));
 		return result;
 	}
 	
@@ -117,47 +141,47 @@ public class ExportHelper {
 		return result;
 	}
 	
-	private FSArray convertRelations(Map<Element,TOP> argumentMap, Section sec) {
+	private FSArray convertRelations(Section sec) {
 		List<RelationProxy> result = new ArrayList<RelationProxy>();
 		for (Relation rel : sec.getAllRelations()) {
-			result.add(convertRelation(argumentMap, rel));
+			result.add(convertRelation(rel));
 		}
 		for (Relation rel : sec.getAllRelations()) {
 			for (Tuple t : rel.getTuples()) {
-				updateArgumentProxies(argumentMap, t);
+				updateArgumentProxies(t);
 			}
 		}
 		return FSCollectionFactory.createFSArray(jcas, result);
 	}
 	
-	private RelationProxy convertRelation(Map<Element,TOP> argumentMap, Relation rel) {
+	private RelationProxy convertRelation(Relation rel) {
 		RelationProxy result = new RelationProxy(jcas);
 		result.setName(rel.getName());
 		result.setFeatures(convertFeatures(rel));
-		result.setTuples(convertTuples(argumentMap, rel));
+		result.setTuples(convertTuples(rel));
 		return result;
 	}
 	
-	private FSArray convertTuples(Map<Element,TOP> argumentMap, Relation rel) {
+	private FSArray convertTuples(Relation rel) {
 		List<TupleProxy> result = new ArrayList<TupleProxy>(rel.size());
 		for (Tuple t : rel.getTuples()) {
-			result.add(convertTuple(argumentMap, t));
+			result.add(convertTuple(t));
 		}
 		return FSCollectionFactory.createFSArray(jcas, result);
 	}
 	
-	private TupleProxy convertTuple(Map<Element,TOP> argumentMap, Tuple t) {
+	private TupleProxy convertTuple(Tuple t) {
 		TupleProxy result = new TupleProxy(jcas);
 		result.setFeatures(convertFeatures(t));
 		argumentMap.put(t, result);
 		return result;
 	}
 
-	private void updateArgumentProxies(Map<Element,TOP> argumentMap, Tuple t) {
+	private void updateArgumentProxies(Tuple t) {
 		List<ArgumentProxy> argProxies = new ArrayList<ArgumentProxy>();
 		for (String role : t.getRoles()) {
 			Element arg = t.getArgument(role);
-			ArgumentProxy argProxy = convertArgumentProxy(argumentMap, role, arg);
+			ArgumentProxy argProxy = convertArgumentProxy(role, arg);
 			if (argProxy != null) {
 				argProxies.add(argProxy);
 			}
@@ -166,7 +190,7 @@ public class ExportHelper {
 		tupleProxy.setArguments(FSCollectionFactory.createFSArray(jcas, argProxies));
 	}
 	
-	private ArgumentProxy convertArgumentProxy(Map<Element,TOP> argumentMap, String role, Element arg) {
+	private ArgumentProxy convertArgumentProxy(String role, Element arg) {
 		if (!argumentMap.containsKey(arg)) {
 			logger.warning("tuple argument is neither annotation or tuple, skip");
 			return null;
