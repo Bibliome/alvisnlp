@@ -33,6 +33,7 @@ import fr.inra.maiage.bibliome.util.files.OutputFile;
 public class XMIExport extends SectionModule<SectionResolvedObjects> {
 	private OutputDirectory outDir;
 	private OutputFile typeSystemFile;
+	private Boolean dkproCompatibility = false;
 	
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -88,6 +89,15 @@ public class XMIExport extends SectionModule<SectionResolvedObjects> {
 	@Param(mandatory=false)
 	public OutputFile getTypeSystemFile() {
 		return typeSystemFile;
+	}
+
+	@Param
+	public Boolean getDkproCompatibility() {
+		return dkproCompatibility;
+	}
+
+	public void setDkproCompatibility(Boolean dkproCompatibility) {
+		this.dkproCompatibility = dkproCompatibility;
 	}
 
 	public void setTypeSystemFile(OutputFile typeSystemFile) {
