@@ -5,3 +5,7 @@ run-alvisnlp import.plan
 check-file-sorted import-features.txt
 run-alvisnlp import-dkpro.plan
 check-file-sorted import-dkpro-features.txt
+run-alvisnlp export-dkpro.plan
+check-file export-dkpro
+run-alvisnlp reimport-dkpro.plan
+check-file export-dkpro

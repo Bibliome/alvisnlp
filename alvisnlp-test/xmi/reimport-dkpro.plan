@@ -1,0 +1,11 @@
+<alvisnlp-plan id="reimport-dkpro">
+  <read class="XMIImport">
+    <source>export-dkpro</source>
+    <dkproCompatibility/>
+  </read>
+
+  <export class="XMIExport">
+    <outDir>export-dkpro</outDir>
+    <dkproCompatibility/>
+  </export>
+</alvisnlp-plan>
