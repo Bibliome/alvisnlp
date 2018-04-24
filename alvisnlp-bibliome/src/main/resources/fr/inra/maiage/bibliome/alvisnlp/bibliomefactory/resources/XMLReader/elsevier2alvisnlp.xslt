@@ -66,24 +66,26 @@
             <xsl:for-each
                 select="els:originalText/xocs:doc/xocs:serial-item/els2:*/els2:head/ce:author-group"
             >
-                <xsl:variable name="affiliation-text">
-                    <xsl:value-of select="ce:textfn" />
+                <xsl:variable name="affiliation">
+                    <xsl:value-of select="ce:affiliation/ce:textfn" />
                 </xsl:variable>
                 <xsl:for-each select="ce:author">
                     <a:section
                         name="author"
-                        xpath-contents="concat(ce:given-name, ' ', ce:surname)" />
+                        xpath-contents="concat(ce:given-name, ' ', ce:surname)"
+                    >
 
-                    <a:feature
-                        name="given-name"
-                        xpath-value="ce:given-name" />
-                    <a:feature
-                        name="surname"
-                        xpath-value="ce:surname" />
+                        <a:feature
+                            name="given-name"
+                            xpath-value="ce:given-name" />
+                        <a:feature
+                            name="surname"
+                            xpath-value="ce:surname" />
 
-                    <a:feature
-                        name="affiliation"
-                        xpath-value="$affiliation-text" />
+                        <a:feature
+                            name="affiliation"
+                            xpath-value="$affiliation" />
+                    </a:section>
                 </xsl:for-each>
             </xsl:for-each>
 
@@ -115,7 +117,9 @@
                     xpath-name="ce:section-title"
                     xpath-contents="ce:para"
                 >
-                    <a:feature name="label" xpath-value="ce:label"/>
+                    <a:feature
+                        name="label"
+                        xpath-value="ce:label" />
                     <xsl:for-each select="a:inline()">
                         <a:annotation
                             start="@inline:start"
