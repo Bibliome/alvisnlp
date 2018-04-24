@@ -109,6 +109,30 @@
                     </xsl:for-each>
                 </a:section>
             </xsl:for-each>
+
+            <xsl:for-each
+                select="records/Publisher/Journal/Volume/Issue/Article/Body/Section1/Section2"
+            >
+                <a:section
+                    xpath-name="Heading"
+                    xpath-contents="Para"
+                >
+                    <xsl:for-each select="a:inline()">
+                        <a:annotation
+                            start="@inline:start"
+                            end="@inline:end"
+                            layer="formatting"
+                        >
+                            <a:feature
+                                name="tag"
+                                xpath-value="name()" />
+                        </a:annotation>
+                    </xsl:for-each>
+                </a:section>
+            </xsl:for-each>
+
+
+
         </a:document>
     </xsl:template>
 </xsl:stylesheet>
