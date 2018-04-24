@@ -231,12 +231,8 @@ public class ImportHelper {
 	}
 
 	private <A extends org.apache.uima.jcas.tcas.Annotation> void importCompatibilityAnnotation(CompatibilityAnnotationImporter<A> annotationImporter, A annotation) {
-		System.err.println("sectionOffsets = " + sectionOffsets);
-		System.err.println("annotation = " + annotation);
 		int rawBegin = annotation.getBegin();
-		System.err.println("rawBegin = " + rawBegin);
 		Map.Entry<Integer,Section> e = sectionOffsets.floorEntry(rawBegin); 
-		System.err.println("e = " + e);
 		int offset = e.getKey();
 		Section section = e.getValue();
 		Annotation alvisAnnotation = new Annotation(creator, section, rawBegin - offset, annotation.getEnd() - offset);
