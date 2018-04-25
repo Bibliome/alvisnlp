@@ -7,15 +7,15 @@
     extension-element-prefixes="a inline"
 >
 
-    <xsl:template match="/">
-        <xsl:apply-templates select="response" />
+    <xsl:template match="/response">
+        <xsl:apply-templates select="records" />
     </xsl:template>
 
-    <xsl:template match="">
-        <a:document xpath-id="Article[@ID]">
+    <xsl:template match="records">
+        <a:document xpath-id="Publisher/Journal/Volume/Issue/Article/ArticleInfo/ArticleDOI"> 
             <a:feature
                 name="doi"
-                xpath-value="records/Publisher/Journal/Volume/Issue/Article/ArticleInfo/ArticleDOI" />
+                xpath-value="Publisher/Journal/Volume/Issue/Article/ArticleInfo/ArticleDOI" />
 <!--            <a:feature
                 name="pmid"
                 xpath-value="els:pubmed-id" />
@@ -26,27 +26,27 @@
 -->
             <a:feature
                 name="issn"
-                xpath-value="records/Publisher/Journal/JournalInfo/JournalElectronicISSN" />
+                xpath-value="Publisher/Journal/JournalInfo/JournalElectronicISSN" />
             <a:feature
                 name="journal"
-                xpath-value="records/Publisher/Journal/JournalInfo/JournalTitle" />
+                xpath-value="Publisher/Journal/JournalInfo/JournalTitle" />
             <a:feature
                 name="publisher"
-                xpath-value="records/Publisher/PublisherInfo/PublisherName" />
+                xpath-value="Publisher/PublisherInfo/PublisherName" />
             <a:feature
                 name="year"
-                xpath-value="records/Publisher/Journal/Volume/Issue/Article/ArticleInfo/ArticleHistory/OnlineDate/Year" />
+                xpath-value="Publisher/Journal/Volume/Issue/Article/ArticleInfo/ArticleHistory/OnlineDate/Year" />
 
             <a:feature
                 name="copyright-statement"
-                xpath-value="concat(records/Publisher/Journal/Volume/Issue/Article/ArticleInfo/ArticleCopyright/CopyrightHolderName, ' ', records/Publisher/Journal/Volume/Issue/Article/ArticleInfo/ArticleCopyright/CopyrightYear)" />
+                xpath-value="concat(Publisher/Journal/Volume/Issue/Article/ArticleInfo/ArticleCopyright/CopyrightHolderName, ' ', Publisher/Journal/Volume/Issue/Article/ArticleInfo/ArticleCopyright/CopyrightYear)" />
 
             <a:section
                 name="article-title"
-                xpath-contents="records/Publisher/Journal/Volume/Issue/Article/ArticleInfo/ArticleTitle" />
+                xpath-contents="Publisher/Journal/Volume/Issue/Article/ArticleInfo/ArticleTitle" />
 
             <xsl:for-each
-                select="records/Publisher/Journal/Volume/Issue/Article/ArticleHeader/AuthorGroup/Author"
+                select="Publisher/Journal/Volume/Issue/Article/ArticleHeader/AuthorGroup/Author"
             >
 <!--                <xsl:variable name="affiliation-text">
                     <xsl:value-of select="ce:textfn" />
@@ -69,7 +69,7 @@
 -->            </xsl:for-each>
 
             <xsl:for-each
-                select="records/Publisher/Journal/Volume/Issue/Article/ArticleHeader/Abstract/AbstractSection"
+                select="Publisher/Journal/Volume/Issue/Article/ArticleHeader/Abstract/AbstractSection"
             >
                 <a:section
                     name="abstract"
@@ -90,7 +90,7 @@
             </xsl:for-each>
 
             <xsl:for-each
-                select="records/Publisher/Journal/Volume/Issue/Article/Body/Section1"
+                select="Publisher/Journal/Volume/Issue/Article/Body/Section1"
             >
                 <a:section
                     xpath-name="Heading"
@@ -111,7 +111,7 @@
             </xsl:for-each>
 
             <xsl:for-each
-                select="records/Publisher/Journal/Volume/Issue/Article/Body/Section1/Section2"
+                select="Publisher/Journal/Volume/Issue/Article/Body/Section1/Section2"
             >
                 <a:section
                     xpath-name="Heading"
