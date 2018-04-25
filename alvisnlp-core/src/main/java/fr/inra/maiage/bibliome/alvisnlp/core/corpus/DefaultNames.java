@@ -18,7 +18,6 @@ limitations under the License.
 package fr.inra.maiage.bibliome.alvisnlp.core.corpus;
 
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class DefaultNames.
  * 
@@ -41,6 +40,7 @@ public final class DefaultNames {
     private static final String DEPENDENCY_HEAD_ROLE = "head";
     private static final String DEPENDENCY_DEPENDENT_ROLE = "dependent";
 	private static final String PARSE_NUMBER_FEATURE_NAME = "parse";
+	private static final String DEFAULT_SECTION_NAME = "text";
 
 	public static String getCanonicalFormFeature() {
 		return CANONICAL_FORM_FEATURE;
@@ -104,5 +104,9 @@ public final class DefaultNames {
 	
 	public static String getParseNumberFeatureName() {
 		return PARSE_NUMBER_FEATURE_NAME;
+	}
+	
+	public static String getDefaultSectionName() {
+		return DEFAULT_SECTION_NAME;
 	}
 }

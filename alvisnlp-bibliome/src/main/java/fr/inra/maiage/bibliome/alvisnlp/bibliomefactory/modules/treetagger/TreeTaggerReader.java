@@ -49,7 +49,7 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule
 public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator {
-	private String sectionName = null;
+	private String sectionName = DefaultNames.getDefaultSectionName();
 	private String wordLayerName = DefaultNames.getWordLayer();
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
 	private String posFeatureKey = null;

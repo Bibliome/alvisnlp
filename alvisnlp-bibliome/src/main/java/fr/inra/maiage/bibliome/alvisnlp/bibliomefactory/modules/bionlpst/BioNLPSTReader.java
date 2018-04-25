@@ -34,6 +34,7 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DownCastElement;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
@@ -98,7 +99,7 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 	private InputDirectory a1Dir;
 	private InputDirectory a2Dir;
 	private String charset = "UTF-8";
-	private String sectionName = "text";
+	private String sectionName = DefaultNames.getDefaultSectionName();
 	private DocumentSchema schema;
 	
 	@Override
