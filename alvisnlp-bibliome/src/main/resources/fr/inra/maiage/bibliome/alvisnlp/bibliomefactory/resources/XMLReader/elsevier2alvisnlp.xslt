@@ -96,11 +96,11 @@
                     name="abstract"
                     xpath-contents="."
                 >
-                    <xsl:for-each select="a:inline()">
+                  <xsl:for-each select="a:inline()">
                         <a:annotation
                             start="@inline:start"
                             end="@inline:end"
-                            layer="formatting"
+                            layers="formatting"
                         >
                             <a:feature
                                 name="tag"
@@ -130,7 +130,7 @@
                                 name="tag"
                                 xpath-value="name()" />
                         </a:annotation>
-                    </xsl:for-each>
+			</xsl:for-each>
                 </a:section>
             </xsl:for-each>
         </a:document>
