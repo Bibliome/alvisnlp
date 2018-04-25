@@ -124,7 +124,7 @@
                         <a:annotation
                             start="@inline:start"
                             end="@inline:end"
-                            layer="formatting"
+                            layers="formatting"
                         >
                             <a:feature
                                 name="tag"
