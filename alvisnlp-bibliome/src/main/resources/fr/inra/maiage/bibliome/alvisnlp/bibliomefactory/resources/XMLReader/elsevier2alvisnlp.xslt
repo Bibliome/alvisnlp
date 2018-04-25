@@ -115,7 +115,7 @@
             >
                 <a:section
                     xpath-name="ce:section-title"
-                    xpath-contents="ce:para"
+                    xpath-contents="."
                 >
                     <a:feature
                         name="label"
