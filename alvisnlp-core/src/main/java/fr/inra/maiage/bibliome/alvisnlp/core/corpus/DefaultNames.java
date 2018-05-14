@@ -31,7 +31,7 @@ public final class DefaultNames {
     private static final String WORD_TYPE_FEATURE = "wordType";
     private static final String NAMED_ENTITY_TYPE_FEATURE = "ne-type";
     private static final String WORD_LAYER = "words";
-    private static final String NAMED_ENTITY_LAYER = "named-entity";
+    private static final String NAMED_ENTITY_LAYER = "named-entities";
     private static final String SENTENCE_LAYER = "sentences";
     private static final String PARAGRAPH_LAYER = "paragraph";
     private static final String LANGUAGE_FEATURE = "lang";
@@ -42,6 +42,7 @@ public final class DefaultNames {
     private static final String DEPENDENCY_HEAD_ROLE = "head";
     private static final String DEPENDENCY_DEPENDENT_ROLE = "dependent";
 	private static final String PARSE_NUMBER_FEATURE_NAME = "parse";
+	private static final String EXTERNAL_REFERENCE_FEATURE_NAME = "xref";
 
 	public static String getCanonicalFormFeature() {
 		return CANONICAL_FORM_FEATURE;
@@ -109,5 +110,9 @@ public final class DefaultNames {
 	
 	public static String getParseNumberFeatureName() {
 		return PARSE_NUMBER_FEATURE_NAME;
+	}
+
+	public static String getExternalReferenceFeatureName() {
+		return EXTERNAL_REFERENCE_FEATURE_NAME;
 	}
 }
