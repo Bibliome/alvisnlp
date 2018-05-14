@@ -14,6 +14,7 @@ public enum NamedEntityExporter implements CompatibilityAnnotationExporter<Named
 	public NamedEntity create(JCas jcas, Annotation alvisAnnotation, int begin, int end) {
 		NamedEntity ne = new NamedEntity(jcas, begin, end);
 		ne.setValue(alvisAnnotation.getLastFeature(DefaultNames.getNamedEntityTypeFeature()));
+		ne.setIdentifier(alvisAnnotation.getLastFeature(DefaultNames.getExternalReferenceFeatureName()));
 		return ne;
 	}
 }

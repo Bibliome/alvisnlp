@@ -21,5 +21,6 @@ public enum DKProNamedEntityImporter implements CompatibilityAnnotationImporter<
 	@Override
 	public void setFeatures(Annotation alvisAnnotation, NamedEntity annotation) {
 		alvisAnnotation.addFeature(DefaultNames.getNamedEntityTypeFeature(), annotation.getValue());
+		alvisAnnotation.addFeature(DefaultNames.getExternalReferenceFeatureName(), annotation.getIdentifier());
 	}
 }
