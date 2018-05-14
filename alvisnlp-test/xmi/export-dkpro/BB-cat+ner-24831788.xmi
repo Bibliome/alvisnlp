@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:pos="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos.ecore" xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:tweet="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos/tweet.ecore" xmlns:morph="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/morph.ecore" xmlns:type3="http:///de/tudarmstadt/ukp/dkpro/core/api/frequency/tfidf/type.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmlns:dependency="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/dependency.ecore" xmlns:type7="http:///de/tudarmstadt/ukp/dkpro/core/api/semantics/type.ecore" xmlns:type9="http:///de/tudarmstadt/ukp/dkpro/core/api/transform/type.ecore" xmlns:type="http:///de/tudarmstadt/ukp/dkpro/core/api/anomaly/type.ecore" xmlns:type8="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type.ecore" xmlns:type4="http:///de/tudarmstadt/ukp/dkpro/core/api/metadata/type.ecore" xmlns:type5="http:///de/tudarmstadt/ukp/dkpro/core/api/ner/type.ecore" xmlns:type6="http:///de/tudarmstadt/ukp/dkpro/core/api/segmentation/type.ecore" xmlns:type2="http:///de/tudarmstadt/ukp/dkpro/core/api/coref/type.ecore" xmlns:constituent="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/constituent.ecore" xmlns:chunk="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/chunk.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="1458" language="x-unspecified"/>
+    <type5:NamedEntity xmi:id="74" sofa="1" begin="81" end="96" value="Habitat" identifier="OBT:000056"/>
+    <type5:NamedEntity xmi:id="80" sofa="1" begin="203" end="207" value="Habitat" identifier="OBT:000056"/>
+    <type5:NamedEntity xmi:id="86" sofa="1" begin="308" end="312" value="Habitat" identifier="OBT:000056"/>
+    <type5:NamedEntity xmi:id="92" sofa="1" begin="494" end="498" value="Habitat" identifier="OBT:000056"/>
+    <type5:NamedEntity xmi:id="98" sofa="1" begin="704" end="724" value="Habitat" identifier="OBT:000029"/>
+    <type5:NamedEntity xmi:id="104" sofa="1" begin="704" end="719" value="Habitat" identifier="OBT:002022"/>
+    <type5:NamedEntity xmi:id="110" sofa="1" begin="1020" end="1042" value="Bacteria" identifier="446"/>
+    <type5:NamedEntity xmi:id="116" sofa="1" begin="1062" end="1071" value="Habitat" identifier="OBT:002022"/>
+    <type5:NamedEntity xmi:id="122" sofa="1" begin="1373" end="1377" value="Habitat" identifier="OBT:002022"/>
+    <types:DocumentProxy xmi:id="13" sofa="1" id="BB-cat+ner-24831788" features="18" sections="24"/>
+    <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Evaluation of impermeant, DNA-binding dye fluorescence as a real-time readout of eukaryotic cell toxicity in a high throughput screening format.&#10;Interpretation of high throughput screening (HTS) data in cell-based assays may be confounded by cytotoxic properties of screening compounds. Therefore, assessing cell toxicity in real time during the HTS process itself would be highly advantageous. Here, we investigate the potential of putatively impermeant, fluorescent, DNA-binding dyes to give cell toxicity readout during HTS. Amongst 19 DNA-binding dyes examined, three classes were identified that were (1) permeant, (2) cytotoxic, or (3) neither permeant nor cytotoxic during 3-day incubation with a macrophage cell line. In the last class, four dyes (SYTOX Green, CellTox Green, GelGreen, and EvaGreen) gave highly robust cytotoxicity data in 384-well screening plates. As proof of principle, successful combination with a luminescence-based assay in HTS format was demonstrated. Here, both intracellular growth of Legionella pneumophila (luminescence) and host cell viability (SYTOX Green exclusion) were assayed in the same screening well. Incorporation of membrane-impermeant, DNA-binding, fluorescent dyes in HTS assays should prove useful by allowing evaluation of cytotoxicity in real time, eliminating reagent addition steps and effort associated with endpoint cell viability analysis, and reducing the need for follow-up cytotoxicity screening.&#10;"/>
+    <types:FeatureProxy xmi:id="18" key="set" value="train"/>
+    <types:SectionProxy xmi:id="24" sofa="1" begin="0" end="1458" name="text" features="" layers="34 40 53 67" relations="134 299 331 359 387"/>
+    <types:LayerProxy xmi:id="34" sofa="1" name="Habitat" annotations="38"/>
+    <cas:FSArray xmi:id="38" elements=""/>
+    <types:LayerProxy xmi:id="40" sofa="1" name="Bacteria" annotations="44"/>
+    <cas:FSArray xmi:id="44" elements=""/>
+    <types:LayerProxy xmi:id="53" sofa="1" name="Title" annotations="57"/>
+    <cas:FSArray xmi:id="57" elements="46"/>
+    <types:AnnotationProxy xmi:id="46" sofa="1" begin="0" end="144" features=""/>
+    <types:LayerProxy xmi:id="67" sofa="1" name="Paragraph" annotations="71"/>
+    <cas:FSArray xmi:id="71" elements="60"/>
+    <types:AnnotationProxy xmi:id="60" sofa="1" begin="145" end="1457" features=""/>
+    <types:RelationProxy xmi:id="134" sofa="1" features="139" tuples="145 163 181 199 217 235 253 271" name="Habitat"/>
+    <types:FeatureProxy xmi:id="139" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="145" sofa="1" features="149 152 155" arguments="399"/>
+    <types:FeatureProxy xmi:id="149" key="id" value="T4"/>
+    <types:FeatureProxy xmi:id="152" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="155" key="OntoBiotope" value="OBT:000056"/>
+    <cas:FSArray xmi:id="399" elements="396"/>
+    <types:ArgumentProxy xmi:id="396" role="frag0" argument="80"/>
+    <types:TupleProxy xmi:id="163" sofa="1" features="167 170 173" arguments="405"/>
+    <types:FeatureProxy xmi:id="167" key="id" value="T5"/>
+    <types:FeatureProxy xmi:id="170" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="173" key="OntoBiotope" value="OBT:000056"/>
+    <cas:FSArray xmi:id="405" elements="402"/>
+    <types:ArgumentProxy xmi:id="402" role="frag0" argument="86"/>
+    <types:TupleProxy xmi:id="181" sofa="1" features="185 188 191" arguments="411"/>
+    <types:FeatureProxy xmi:id="185" key="id" value="T6"/>
+    <types:FeatureProxy xmi:id="188" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="191" key="OntoBiotope" value="OBT:000056"/>
+    <cas:FSArray xmi:id="411" elements="408"/>
+    <types:ArgumentProxy xmi:id="408" role="frag0" argument="92"/>
+    <types:TupleProxy xmi:id="199" sofa="1" features="203 206 209" arguments="417"/>
+    <types:FeatureProxy xmi:id="203" key="id" value="T7"/>
+    <types:FeatureProxy xmi:id="206" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="209" key="OntoBiotope" value="OBT:000029"/>
+    <cas:FSArray xmi:id="417" elements="414"/>
+    <types:ArgumentProxy xmi:id="414" role="frag0" argument="98"/>
+    <types:TupleProxy xmi:id="217" sofa="1" features="221 224 227" arguments="423"/>
+    <types:FeatureProxy xmi:id="221" key="id" value="T8"/>
+    <types:FeatureProxy xmi:id="224" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="227" key="OntoBiotope" value="OBT:002022"/>
+    <cas:FSArray xmi:id="423" elements="420"/>
+    <types:ArgumentProxy xmi:id="420" role="frag0" argument="104"/>
+    <types:TupleProxy xmi:id="235" sofa="1" features="239 242 245" arguments="429"/>
+    <types:FeatureProxy xmi:id="239" key="id" value="T10"/>
+    <types:FeatureProxy xmi:id="242" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="245" key="OntoBiotope" value="OBT:002022"/>
+    <cas:FSArray xmi:id="429" elements="426"/>
+    <types:ArgumentProxy xmi:id="426" role="frag0" argument="116"/>
+    <types:TupleProxy xmi:id="253" sofa="1" features="257 260 263" arguments="435"/>
+    <types:FeatureProxy xmi:id="257" key="id" value="T11"/>
+    <types:FeatureProxy xmi:id="260" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="263" key="OntoBiotope" value="OBT:002022"/>
+    <cas:FSArray xmi:id="435" elements="432"/>
+    <types:ArgumentProxy xmi:id="432" role="frag0" argument="122"/>
+    <types:TupleProxy xmi:id="271" sofa="1" features="275 278 281" arguments="441"/>
+    <types:FeatureProxy xmi:id="275" key="id" value="T3"/>
+    <types:FeatureProxy xmi:id="278" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="281" key="OntoBiotope" value="OBT:000056"/>
+    <cas:FSArray xmi:id="441" elements="438"/>
+    <types:ArgumentProxy xmi:id="438" role="frag0" argument="74"/>
+    <types:RelationProxy xmi:id="299" sofa="1" features="304" tuples="310" name="Bacteria"/>
+    <types:FeatureProxy xmi:id="304" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="310" sofa="1" features="314 317 320" arguments="447"/>
+    <types:FeatureProxy xmi:id="314" key="id" value="T9"/>
+    <types:FeatureProxy xmi:id="317" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="320" key="NCBI_Taxonomy" value="446"/>
+    <cas:FSArray xmi:id="447" elements="444"/>
+    <types:ArgumentProxy xmi:id="444" role="frag0" argument="110"/>
+    <types:RelationProxy xmi:id="331" sofa="1" features="336" tuples="342" name="Title"/>
+    <types:FeatureProxy xmi:id="336" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="342" sofa="1" features="346 349" arguments="453"/>
+    <types:FeatureProxy xmi:id="346" key="id" value="T1"/>
+    <types:FeatureProxy xmi:id="349" key="type" value="Title"/>
+    <cas:FSArray xmi:id="453" elements="450"/>
+    <types:ArgumentProxy xmi:id="450" role="frag0" argument="46"/>
+    <types:RelationProxy xmi:id="359" sofa="1" features="364" tuples="370" name="Paragraph"/>
+    <types:FeatureProxy xmi:id="364" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="370" sofa="1" features="374 377" arguments="459"/>
+    <types:FeatureProxy xmi:id="374" key="id" value="T2"/>
+    <types:FeatureProxy xmi:id="377" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="459" elements="456"/>
+    <types:ArgumentProxy xmi:id="456" role="frag0" argument="60"/>
+    <types:RelationProxy xmi:id="387" sofa="1" features="" tuples="" name="equiv"/>
+    <cas:View sofa="1" members="8 74 80 86 92 98 104 110 116 122 13"/>
+</xmi:XMI>

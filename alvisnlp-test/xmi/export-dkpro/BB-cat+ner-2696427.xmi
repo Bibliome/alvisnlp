@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:pos="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos.ecore" xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:tweet="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos/tweet.ecore" xmlns:morph="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/morph.ecore" xmlns:type3="http:///de/tudarmstadt/ukp/dkpro/core/api/frequency/tfidf/type.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmlns:dependency="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/dependency.ecore" xmlns:type7="http:///de/tudarmstadt/ukp/dkpro/core/api/semantics/type.ecore" xmlns:type9="http:///de/tudarmstadt/ukp/dkpro/core/api/transform/type.ecore" xmlns:type="http:///de/tudarmstadt/ukp/dkpro/core/api/anomaly/type.ecore" xmlns:type8="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type.ecore" xmlns:type4="http:///de/tudarmstadt/ukp/dkpro/core/api/metadata/type.ecore" xmlns:type5="http:///de/tudarmstadt/ukp/dkpro/core/api/ner/type.ecore" xmlns:type6="http:///de/tudarmstadt/ukp/dkpro/core/api/segmentation/type.ecore" xmlns:type2="http:///de/tudarmstadt/ukp/dkpro/core/api/coref/type.ecore" xmlns:constituent="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/constituent.ecore" xmlns:chunk="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/chunk.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="921" language="x-unspecified"/>
+    <type5:NamedEntity xmi:id="74" sofa="1" begin="16" end="20" value="Habitat" identifier="OBT:001902"/>
+    <type5:NamedEntity xmi:id="80" sofa="1" begin="30" end="48" value="Bacteria" identifier="40269"/>
+    <type5:NamedEntity xmi:id="86" sofa="1" begin="52" end="71" value="Habitat" identifier="OBT:000974"/>
+    <type5:NamedEntity xmi:id="92" sofa="1" begin="52" end="61" value="Habitat" identifier="OBT:000295"/>
+    <type5:NamedEntity xmi:id="98" sofa="1" begin="52" end="56" value="Habitat" identifier="OBT:001934"/>
+    <type5:NamedEntity xmi:id="104" sofa="1" begin="96" end="100" value="Habitat" identifier="OBT:001902"/>
+    <type5:NamedEntity xmi:id="110" sofa="1" begin="110" end="128" value="Bacteria" identifier="40269"/>
+    <type5:NamedEntity xmi:id="116" sofa="1" begin="132" end="151" value="Habitat" identifier="OBT:000974"/>
+    <type5:NamedEntity xmi:id="122" sofa="1" begin="132" end="141" value="Habitat" identifier="OBT:000295"/>
+    <type5:NamedEntity xmi:id="128" sofa="1" begin="132" end="136" value="Habitat" identifier="OBT:001934"/>
+    <type5:NamedEntity xmi:id="134" sofa="1" begin="258" end="281" value="Habitat" identifier="OBT:000571"/>
+    <type5:NamedEntity xmi:id="140" sofa="1" begin="269" end="275" value="Habitat" identifier="OBT:001773"/>
+    <type5:NamedEntity xmi:id="146" sofa="1" begin="332" end="338" value="Bacteria" identifier="662"/>
+    <type5:NamedEntity xmi:id="152" sofa="1" begin="374" end="407" value="Habitat" identifier="OBT:000286"/>
+    <type5:NamedEntity xmi:id="158" sofa="1" begin="395" end="407" value="Habitat" identifier="OBT:001902"/>
+    <type5:NamedEntity xmi:id="164" sofa="1" begin="429" end="438" value="Habitat" identifier="OBT:000974"/>
+    <type5:NamedEntity xmi:id="170" sofa="1" begin="440" end="454" value="Bacteria" identifier="40269"/>
+    <type5:NamedEntity xmi:id="176" sofa="1" begin="471" end="507" value="Habitat" identifier="OBT:000974"/>
+    <type5:NamedEntity xmi:id="182" sofa="1" begin="493" end="507" value="Habitat" identifier="OBT:000295"/>
+    <type5:NamedEntity xmi:id="188" sofa="1" begin="594" end="639" value="Habitat" identifier="OBT:000974"/>
+    <type5:NamedEntity xmi:id="194" sofa="1" begin="617" end="639" value="Habitat" identifier="OBT:000295"/>
+    <type5:NamedEntity xmi:id="200" sofa="1" begin="630" end="634" value="Habitat" identifier="OBT:001934"/>
+    <type5:NamedEntity xmi:id="206" sofa="1" begin="644" end="658" value="Bacteria" identifier="40269"/>
+    <type5:NamedEntity xmi:id="212" sofa="1" begin="680" end="689" value="Habitat" identifier="OBT:000974"/>
+    <type5:NamedEntity xmi:id="218" sofa="1" begin="708" end="720" value="Habitat" identifier="OBT:000295"/>
+    <type5:NamedEntity xmi:id="224" sofa="1" begin="708" end="712" value="Habitat" identifier="OBT:001934"/>
+    <type5:NamedEntity xmi:id="230" sofa="1" begin="794" end="806" value="Habitat" identifier="OBT:000571"/>
+    <type5:NamedEntity xmi:id="236" sofa="1" begin="794" end="800" value="Habitat" identifier="OBT:001773"/>
+    <type5:NamedEntity xmi:id="242" sofa="1" begin="871" end="883" value="Habitat" identifier="OBT:000571"/>
+    <type5:NamedEntity xmi:id="248" sofa="1" begin="871" end="877" value="Habitat" identifier="OBT:001773"/>
+    <type5:NamedEntity xmi:id="254" sofa="1" begin="871" end="877" value="Habitat" identifier="OBT:001773"/>
+    <types:DocumentProxy xmi:id="13" sofa="1" id="BB-cat+ner-2696427" features="18" sections="24"/>
+    <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Presence of the fish pathogen Vibrio salmonicida in fish farm sediments.&#10;The persistence of the fish pathogen Vibrio salmonicida in fish farm sediments was studied by use of fluorescent-antibody techniques. The specificities of the monoclonal antibodies and polyclonal rabbit serum used in the study were tested against a number of Vibrio strains, including 4 isolates from intestinal tracts of healthy fish and 98 isolates from sediments. V. salmonicida was detected in sediment samples from diseased farms several months after an outbreak of the disease. The bacterium was also detected in a sediment sample from a disease-free fish farm. No V. salmonicida could be detected in sediments not influenced by fish farming. The number of positive samples was generally higher with application of rabbit serum as opposed to use of monoclonal antibodies, indicating that the rabbit serum may cross-react with other bacteria.&#10;"/>
+    <types:FeatureProxy xmi:id="18" key="set" value="train"/>
+    <types:SectionProxy xmi:id="24" sofa="1" begin="0" end="921" name="text" features="" layers="34 40 53 67" relations="266 777 885 913 941"/>
+    <types:LayerProxy xmi:id="34" sofa="1" name="Habitat" annotations="38"/>
+    <cas:FSArray xmi:id="38" elements=""/>
+    <types:LayerProxy xmi:id="40" sofa="1" name="Bacteria" annotations="44"/>
+    <cas:FSArray xmi:id="44" elements=""/>
+    <types:LayerProxy xmi:id="53" sofa="1" name="Title" annotations="57"/>
+    <cas:FSArray xmi:id="57" elements="46"/>
+    <types:AnnotationProxy xmi:id="46" sofa="1" begin="0" end="72" features=""/>
+    <types:LayerProxy xmi:id="67" sofa="1" name="Paragraph" annotations="71"/>
+    <cas:FSArray xmi:id="71" elements="60"/>
+    <types:AnnotationProxy xmi:id="60" sofa="1" begin="73" end="920" features=""/>
+    <types:RelationProxy xmi:id="266" sofa="1" features="271" tuples="277 295 313 331 349 367 385 403 421 439 461 479 497 515 533 551 569 587 605 623 641 659 677 695 713 731" name="Habitat"/>
+    <types:FeatureProxy xmi:id="271" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="277" sofa="1" features="281 284 287" arguments="953"/>
+    <types:FeatureProxy xmi:id="281" key="id" value="T21"/>
+    <types:FeatureProxy xmi:id="284" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="287" key="OntoBiotope" value="OBT:000295"/>
+    <cas:FSArray xmi:id="953" elements="950"/>
+    <types:ArgumentProxy xmi:id="950" role="frag0" argument="182"/>
+    <types:TupleProxy xmi:id="295" sofa="1" features="299 302 305" arguments="959"/>
+    <types:FeatureProxy xmi:id="299" key="id" value="T20"/>
+    <types:FeatureProxy xmi:id="302" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="305" key="OntoBiotope" value="OBT:000974"/>
+    <cas:FSArray xmi:id="959" elements="956"/>
+    <types:ArgumentProxy xmi:id="956" role="frag0" argument="176"/>
+    <types:TupleProxy xmi:id="313" sofa="1" features="317 320 323" arguments="965"/>
+    <types:FeatureProxy xmi:id="317" key="id" value="T23"/>
+    <types:FeatureProxy xmi:id="320" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="323" key="OntoBiotope" value="OBT:000295"/>
+    <cas:FSArray xmi:id="965" elements="962"/>
+    <types:ArgumentProxy xmi:id="962" role="frag0" argument="194"/>
+    <types:TupleProxy xmi:id="331" sofa="1" features="335 338 341" arguments="971"/>
+    <types:FeatureProxy xmi:id="335" key="id" value="T22"/>
+    <types:FeatureProxy xmi:id="338" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="341" key="OntoBiotope" value="OBT:000974"/>
+    <cas:FSArray xmi:id="971" elements="968"/>
+    <types:ArgumentProxy xmi:id="968" role="frag0" argument="188"/>
+    <types:TupleProxy xmi:id="349" sofa="1" features="353 356 359" arguments="977"/>
+    <types:FeatureProxy xmi:id="353" key="id" value="T24"/>
+    <types:FeatureProxy xmi:id="356" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="359" key="OntoBiotope" value="OBT:001934"/>
+    <cas:FSArray xmi:id="977" elements="974"/>
+    <types:ArgumentProxy xmi:id="974" role="frag0" argument="200"/>
+    <types:TupleProxy xmi:id="367" sofa="1" features="371 374 377" arguments="983"/>
+    <types:FeatureProxy xmi:id="371" key="id" value="T27"/>
+    <types:FeatureProxy xmi:id="374" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="377" key="OntoBiotope" value="OBT:000295"/>
+    <cas:FSArray xmi:id="983" elements="980"/>
+    <types:ArgumentProxy xmi:id="980" role="frag0" argument="218"/>
+    <types:TupleProxy xmi:id="385" sofa="1" features="389 392 395" arguments="989"/>
+    <types:FeatureProxy xmi:id="389" key="id" value="T26"/>
+    <types:FeatureProxy xmi:id="392" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="395" key="OntoBiotope" value="OBT:000974"/>
+    <cas:FSArray xmi:id="989" elements="986"/>
+    <types:ArgumentProxy xmi:id="986" role="frag0" argument="212"/>
+    <types:TupleProxy xmi:id="403" sofa="1" features="407 410 413" arguments="995"/>
+    <types:FeatureProxy xmi:id="407" key="id" value="T29"/>
+    <types:FeatureProxy xmi:id="410" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="413" key="OntoBiotope" value="OBT:001773"/>
+    <cas:FSArray xmi:id="995" elements="992"/>
+    <types:ArgumentProxy xmi:id="992" role="frag0" argument="236"/>
+    <types:TupleProxy xmi:id="421" sofa="1" features="425 428 431" arguments="1001"/>
+    <types:FeatureProxy xmi:id="425" key="id" value="T28"/>
+    <types:FeatureProxy xmi:id="428" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="431" key="OntoBiotope" value="OBT:001934"/>
+    <cas:FSArray xmi:id="1001" elements="998"/>
+    <types:ArgumentProxy xmi:id="998" role="frag0" argument="224"/>
+    <types:TupleProxy xmi:id="439" sofa="1" features="443 446 449 452" arguments="1007"/>
+    <types:FeatureProxy xmi:id="443" key="id" value="T30"/>
+    <types:FeatureProxy xmi:id="446" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="449" key="OntoBiotope" value="OBT:001773"/>
+    <types:FeatureProxy xmi:id="452" key="OntoBiotope" value="OBT:000571"/>
+    <cas:FSArray xmi:id="1007" elements="1004"/>
+    <types:ArgumentProxy xmi:id="1004" role="frag0" argument="230"/>
+    <types:TupleProxy xmi:id="461" sofa="1" features="465 468 471" arguments="1013"/>
+    <types:FeatureProxy xmi:id="465" key="id" value="T32"/>
+    <types:FeatureProxy xmi:id="468" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="471" key="OntoBiotope" value="OBT:001773"/>
+    <cas:FSArray xmi:id="1013" elements="1010"/>
+    <types:ArgumentProxy xmi:id="1010" role="frag0" argument="254"/>
+    <types:TupleProxy xmi:id="479" sofa="1" features="483 486 489" arguments="1019"/>
+    <types:FeatureProxy xmi:id="483" key="id" value="T31"/>
+    <types:FeatureProxy xmi:id="486" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="489" key="OntoBiotope" value="OBT:000571"/>
+    <cas:FSArray xmi:id="1019" elements="1016"/>
+    <types:ArgumentProxy xmi:id="1016" role="frag0" argument="242"/>
+    <types:TupleProxy xmi:id="497" sofa="1" features="501 504 507" arguments="1025"/>
+    <types:FeatureProxy xmi:id="501" key="id" value="T33"/>
+    <types:FeatureProxy xmi:id="504" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="507" key="OntoBiotope" value="OBT:001773"/>
+    <cas:FSArray xmi:id="1025" elements="1022"/>
+    <types:ArgumentProxy xmi:id="1022" role="frag0" argument="248"/>
+    <types:TupleProxy xmi:id="515" sofa="1" features="519 522 525" arguments="1031"/>
+    <types:FeatureProxy xmi:id="519" key="id" value="T3"/>
+    <types:FeatureProxy xmi:id="522" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="525" key="OntoBiotope" value="OBT:001902"/>
+    <cas:FSArray xmi:id="1031" elements="1028"/>
+    <types:ArgumentProxy xmi:id="1028" role="frag0" argument="74"/>
+    <types:TupleProxy xmi:id="533" sofa="1" features="537 540 543" arguments="1037"/>
+    <types:FeatureProxy xmi:id="537" key="id" value="T5"/>
+    <types:FeatureProxy xmi:id="540" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="543" key="OntoBiotope" value="OBT:000295"/>
+    <cas:FSArray xmi:id="1037" elements="1034"/>
+    <types:ArgumentProxy xmi:id="1034" role="frag0" argument="92"/>
+    <types:TupleProxy xmi:id="551" sofa="1" features="555 558 561" arguments="1043"/>
+    <types:FeatureProxy xmi:id="555" key="id" value="T6"/>
+    <types:FeatureProxy xmi:id="558" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="561" key="OntoBiotope" value="OBT:000974"/>
+    <cas:FSArray xmi:id="1043" elements="1040"/>
+    <types:ArgumentProxy xmi:id="1040" role="frag0" argument="86"/>
+    <types:TupleProxy xmi:id="569" sofa="1" features="573 576 579" arguments="1049"/>
+    <types:FeatureProxy xmi:id="573" key="id" value="T7"/>
+    <types:FeatureProxy xmi:id="576" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="579" key="OntoBiotope" value="OBT:001934"/>
+    <cas:FSArray xmi:id="1049" elements="1046"/>
+    <types:ArgumentProxy xmi:id="1046" role="frag0" argument="98"/>
+    <types:TupleProxy xmi:id="587" sofa="1" features="591 594 597" arguments="1055"/>
+    <types:FeatureProxy xmi:id="591" key="id" value="T8"/>
+    <types:FeatureProxy xmi:id="594" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="597" key="OntoBiotope" value="OBT:001902"/>
+    <cas:FSArray xmi:id="1055" elements="1052"/>
+    <types:ArgumentProxy xmi:id="1052" role="frag0" argument="104"/>
+    <types:TupleProxy xmi:id="605" sofa="1" features="609 612 615" arguments="1061"/>
+    <types:FeatureProxy xmi:id="609" key="id" value="T10"/>
+    <types:FeatureProxy xmi:id="612" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="615" key="OntoBiotope" value="OBT:000295"/>
+    <cas:FSArray xmi:id="1061" elements="1058"/>
+    <types:ArgumentProxy xmi:id="1058" role="frag0" argument="122"/>
+    <types:TupleProxy xmi:id="623" sofa="1" features="627 630 633" arguments="1067"/>
+    <types:FeatureProxy xmi:id="627" key="id" value="T12"/>
+    <types:FeatureProxy xmi:id="630" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="633" key="OntoBiotope" value="OBT:001934"/>
+    <cas:FSArray xmi:id="1067" elements="1064"/>
+    <types:ArgumentProxy xmi:id="1064" role="frag0" argument="128"/>
+    <types:TupleProxy xmi:id="641" sofa="1" features="645 648 651" arguments="1073"/>
+    <types:FeatureProxy xmi:id="645" key="id" value="T11"/>
+    <types:FeatureProxy xmi:id="648" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="651" key="OntoBiotope" value="OBT:000974"/>
+    <cas:FSArray xmi:id="1073" elements="1070"/>
+    <types:ArgumentProxy xmi:id="1070" role="frag0" argument="116"/>
+    <types:TupleProxy xmi:id="659" sofa="1" features="663 666 669" arguments="1079"/>
+    <types:FeatureProxy xmi:id="663" key="id" value="T14"/>
+    <types:FeatureProxy xmi:id="666" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="669" key="OntoBiotope" value="OBT:001773"/>
+    <cas:FSArray xmi:id="1079" elements="1076"/>
+    <types:ArgumentProxy xmi:id="1076" role="frag0" argument="140"/>
+    <types:TupleProxy xmi:id="677" sofa="1" features="681 684 687" arguments="1085"/>
+    <types:FeatureProxy xmi:id="681" key="id" value="T13"/>
+    <types:FeatureProxy xmi:id="684" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="687" key="OntoBiotope" value="OBT:000571"/>
+    <cas:FSArray xmi:id="1085" elements="1082"/>
+    <types:ArgumentProxy xmi:id="1082" role="frag0" argument="134"/>
+    <types:TupleProxy xmi:id="695" sofa="1" features="699 702 705" arguments="1091"/>
+    <types:FeatureProxy xmi:id="699" key="id" value="T16"/>
+    <types:FeatureProxy xmi:id="702" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="705" key="OntoBiotope" value="OBT:000286"/>
+    <cas:FSArray xmi:id="1091" elements="1088"/>
+    <types:ArgumentProxy xmi:id="1088" role="frag0" argument="152"/>
+    <types:TupleProxy xmi:id="713" sofa="1" features="717 720 723" arguments="1097"/>
+    <types:FeatureProxy xmi:id="717" key="id" value="T18"/>
+    <types:FeatureProxy xmi:id="720" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="723" key="OntoBiotope" value="OBT:000974"/>
+    <cas:FSArray xmi:id="1097" elements="1094"/>
+    <types:ArgumentProxy xmi:id="1094" role="frag0" argument="164"/>
+    <types:TupleProxy xmi:id="731" sofa="1" features="735 738 741" arguments="1103"/>
+    <types:FeatureProxy xmi:id="735" key="id" value="T17"/>
+    <types:FeatureProxy xmi:id="738" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="741" key="OntoBiotope" value="OBT:001902"/>
+    <cas:FSArray xmi:id="1103" elements="1100"/>
+    <types:ArgumentProxy xmi:id="1100" role="frag0" argument="158"/>
+    <types:RelationProxy xmi:id="777" sofa="1" features="782" tuples="788 806 824 842 860" name="Bacteria"/>
+    <types:FeatureProxy xmi:id="782" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="788" sofa="1" features="792 795 798" arguments="1109"/>
+    <types:FeatureProxy xmi:id="792" key="id" value="T25"/>
+    <types:FeatureProxy xmi:id="795" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="798" key="NCBI_Taxonomy" value="40269"/>
+    <cas:FSArray xmi:id="1109" elements="1106"/>
+    <types:ArgumentProxy xmi:id="1106" role="frag0" argument="206"/>
+    <types:TupleProxy xmi:id="806" sofa="1" features="810 813 816" arguments="1115"/>
+    <types:FeatureProxy xmi:id="810" key="id" value="T4"/>
+    <types:FeatureProxy xmi:id="813" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="816" key="NCBI_Taxonomy" value="40269"/>
+    <cas:FSArray xmi:id="1115" elements="1112"/>
+    <types:ArgumentProxy xmi:id="1112" role="frag0" argument="80"/>
+    <types:TupleProxy xmi:id="824" sofa="1" features="828 831 834" arguments="1121"/>
+    <types:FeatureProxy xmi:id="828" key="id" value="T9"/>
+    <types:FeatureProxy xmi:id="831" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="834" key="NCBI_Taxonomy" value="40269"/>
+    <cas:FSArray xmi:id="1121" elements="1118"/>
+    <types:ArgumentProxy xmi:id="1118" role="frag0" argument="110"/>
+    <types:TupleProxy xmi:id="842" sofa="1" features="846 849 852" arguments="1127"/>
+    <types:FeatureProxy xmi:id="846" key="id" value="T15"/>
+    <types:FeatureProxy xmi:id="849" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="852" key="NCBI_Taxonomy" value="662"/>
+    <cas:FSArray xmi:id="1127" elements="1124"/>
+    <types:ArgumentProxy xmi:id="1124" role="frag0" argument="146"/>
+    <types:TupleProxy xmi:id="860" sofa="1" features="864 867 870" arguments="1133"/>
+    <types:FeatureProxy xmi:id="864" key="id" value="T19"/>
+    <types:FeatureProxy xmi:id="867" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="870" key="NCBI_Taxonomy" value="40269"/>
+    <cas:FSArray xmi:id="1133" elements="1130"/>
+    <types:ArgumentProxy xmi:id="1130" role="frag0" argument="170"/>
+    <types:RelationProxy xmi:id="885" sofa="1" features="890" tuples="896" name="Title"/>
+    <types:FeatureProxy xmi:id="890" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="896" sofa="1" features="900 903" arguments="1139"/>
+    <types:FeatureProxy xmi:id="900" key="id" value="T1"/>
+    <types:FeatureProxy xmi:id="903" key="type" value="Title"/>
+    <cas:FSArray xmi:id="1139" elements="1136"/>
+    <types:ArgumentProxy xmi:id="1136" role="frag0" argument="46"/>
+    <types:RelationProxy xmi:id="913" sofa="1" features="918" tuples="924" name="Paragraph"/>
+    <types:FeatureProxy xmi:id="918" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="924" sofa="1" features="928 931" arguments="1145"/>
+    <types:FeatureProxy xmi:id="928" key="id" value="T2"/>
+    <types:FeatureProxy xmi:id="931" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="1145" elements="1142"/>
+    <types:ArgumentProxy xmi:id="1142" role="frag0" argument="60"/>
+    <types:RelationProxy xmi:id="941" sofa="1" features="" tuples="" name="equiv"/>
+    <cas:View sofa="1" members="8 74 80 86 92 98 104 110 116 122 128 134 140 146 152 158 164 170 176 182 188 194 200 206 212 218 224 230 236 242 248 254 13"/>
+</xmi:XMI>

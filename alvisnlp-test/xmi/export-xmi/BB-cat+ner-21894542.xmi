@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:pos="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos.ecore" xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:tweet="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos/tweet.ecore" xmlns:morph="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/morph.ecore" xmlns:type3="http:///de/tudarmstadt/ukp/dkpro/core/api/frequency/tfidf/type.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmlns:dependency="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/dependency.ecore" xmlns:type7="http:///de/tudarmstadt/ukp/dkpro/core/api/semantics/type.ecore" xmlns:type9="http:///de/tudarmstadt/ukp/dkpro/core/api/transform/type.ecore" xmlns:type="http:///de/tudarmstadt/ukp/dkpro/core/api/anomaly/type.ecore" xmlns:type8="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type.ecore" xmlns:type4="http:///de/tudarmstadt/ukp/dkpro/core/api/metadata/type.ecore" xmlns:type5="http:///de/tudarmstadt/ukp/dkpro/core/api/ner/type.ecore" xmlns:type6="http:///de/tudarmstadt/ukp/dkpro/core/api/segmentation/type.ecore" xmlns:type2="http:///de/tudarmstadt/ukp/dkpro/core/api/coref/type.ecore" xmlns:constituent="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/constituent.ecore" xmlns:chunk="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/chunk.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="1336" language="x-unspecified"/>
+    <types:DocumentProxy xmi:id="13" sofa="1" id="BB-cat+ner-21894542" features="18" sections="24"/>
+    <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Iron transport in the genus Marinobacter.&#10;Marinobacter belong to the class of Gammaproteobacteria and these motile, halophilic or halotolerent bacteria are widely distributed throughout the world's oceans having been isolated from a wide variety of marine environments. They have also been identified as members of the bacterial flora associated with other marine organisms. Here, using a combination of natural products chemistry and genomic analysis, we assess the nature of the siderophores produced by this genus and their potential relationship to phylogeny and lifestyle/ecological niche of this diverse group of organisms. Our analysis shows a wide level of diversity in siderophore based iron uptake systems among this genus with three general strategies: (1) production and utilization of native siderophores in addition to utilization of a variety of exogenous ones, (2) production and utilization of native siderophores only, (3) lack of siderophore production but utilization of exogenous ones. They all share the presence of at least one siderophore-independent iron uptake ABC transport systems of the FbpABC iron metal type and lack the ability for direct transport of ferrous iron. Siderophore production and utilization can be correlated with phylogeny and thus it forms a type of chemotaxonomic marker for this genus.&#10;"/>
+    <types:FeatureProxy xmi:id="18" key="set" value="dev"/>
+    <types:SectionProxy xmi:id="24" sofa="1" begin="0" end="1336" name="text" features="" layers="34 40 53 67 179" relations="199 269 362 390 418"/>
+    <types:LayerProxy xmi:id="34" sofa="1" name="Bacteria" annotations="38"/>
+    <cas:FSArray xmi:id="38" elements=""/>
+    <types:LayerProxy xmi:id="40" sofa="1" name="Habitat" annotations="44"/>
+    <cas:FSArray xmi:id="44" elements=""/>
+    <types:LayerProxy xmi:id="53" sofa="1" name="Title" annotations="57"/>
+    <cas:FSArray xmi:id="57" elements="46"/>
+    <types:AnnotationProxy xmi:id="46" sofa="1" begin="0" end="41" features=""/>
+    <types:LayerProxy xmi:id="67" sofa="1" name="Paragraph" annotations="71"/>
+    <cas:FSArray xmi:id="71" elements="60"/>
+    <types:AnnotationProxy xmi:id="60" sofa="1" begin="42" end="1335" features=""/>
+    <types:LayerProxy xmi:id="179" sofa="1" name="named-entities" annotations="183"/>
+    <cas:FSArray xmi:id="183" elements="74 89 104 119 134 149 164"/>
+    <types:AnnotationProxy xmi:id="74" sofa="1" begin="28" end="40" features="79 82"/>
+    <types:FeatureProxy xmi:id="79" key="ne-type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="82" key="xref" value="2742"/>
+    <types:AnnotationProxy xmi:id="89" sofa="1" begin="42" end="54" features="94 97"/>
+    <types:FeatureProxy xmi:id="94" key="ne-type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="97" key="xref" value="2742"/>
+    <types:AnnotationProxy xmi:id="104" sofa="1" begin="78" end="97" features="109 112"/>
+    <types:FeatureProxy xmi:id="109" key="ne-type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="112" key="xref" value="1236"/>
+    <types:AnnotationProxy xmi:id="119" sofa="1" begin="190" end="204" features="124 127"/>
+    <types:FeatureProxy xmi:id="124" key="ne-type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="127" key="xref" value="OBT:002038"/>
+    <types:AnnotationProxy xmi:id="134" sofa="1" begin="249" end="268" features="139 142"/>
+    <types:FeatureProxy xmi:id="139" key="ne-type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="142" key="xref" value="OBT:000078"/>
+    <types:AnnotationProxy xmi:id="149" sofa="1" begin="319" end="334" features="154 157"/>
+    <types:FeatureProxy xmi:id="154" key="ne-type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="157" key="xref" value="OBT:000033"/>
+    <types:AnnotationProxy xmi:id="164" sofa="1" begin="357" end="373" features="169 172"/>
+    <types:FeatureProxy xmi:id="169" key="ne-type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="172" key="xref" value="OBT:000002"/>
+    <types:RelationProxy xmi:id="199" sofa="1" features="204" tuples="210 228 246" name="Bacteria"/>
+    <types:FeatureProxy xmi:id="204" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="210" sofa="1" features="214 217 220" arguments="430"/>
+    <types:FeatureProxy xmi:id="214" key="id" value="T4"/>
+    <types:FeatureProxy xmi:id="217" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="220" key="NCBI_Taxonomy" value="2742"/>
+    <cas:FSArray xmi:id="430" elements="427"/>
+    <types:ArgumentProxy xmi:id="427" role="frag0" argument="89"/>
+    <types:TupleProxy xmi:id="228" sofa="1" features="232 235 238" arguments="436"/>
+    <types:FeatureProxy xmi:id="232" key="id" value="T5"/>
+    <types:FeatureProxy xmi:id="235" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="238" key="NCBI_Taxonomy" value="1236"/>
+    <cas:FSArray xmi:id="436" elements="433"/>
+    <types:ArgumentProxy xmi:id="433" role="frag0" argument="104"/>
+    <types:TupleProxy xmi:id="246" sofa="1" features="250 253 256" arguments="442"/>
+    <types:FeatureProxy xmi:id="250" key="id" value="T3"/>
+    <types:FeatureProxy xmi:id="253" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="256" key="NCBI_Taxonomy" value="2742"/>
+    <cas:FSArray xmi:id="442" elements="439"/>
+    <types:ArgumentProxy xmi:id="439" role="frag0" argument="74"/>
+    <types:RelationProxy xmi:id="269" sofa="1" features="274" tuples="280 298 316 334" name="Habitat"/>
+    <types:FeatureProxy xmi:id="274" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="280" sofa="1" features="284 287 290" arguments="448"/>
+    <types:FeatureProxy xmi:id="284" key="id" value="T6"/>
+    <types:FeatureProxy xmi:id="287" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="290" key="OntoBiotope" value="OBT:002038"/>
+    <cas:FSArray xmi:id="448" elements="445"/>
+    <types:ArgumentProxy xmi:id="445" role="frag0" argument="119"/>
+    <types:TupleProxy xmi:id="298" sofa="1" features="302 305 308" arguments="454"/>
+    <types:FeatureProxy xmi:id="302" key="id" value="T7"/>
+    <types:FeatureProxy xmi:id="305" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="308" key="OntoBiotope" value="OBT:000078"/>
+    <cas:FSArray xmi:id="454" elements="451"/>
+    <types:ArgumentProxy xmi:id="451" role="frag0" argument="134"/>
+    <types:TupleProxy xmi:id="316" sofa="1" features="320 323 326" arguments="460"/>
+    <types:FeatureProxy xmi:id="320" key="id" value="T8"/>
+    <types:FeatureProxy xmi:id="323" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="326" key="OntoBiotope" value="OBT:000033"/>
+    <cas:FSArray xmi:id="460" elements="457"/>
+    <types:ArgumentProxy xmi:id="457" role="frag0" argument="149"/>
+    <types:TupleProxy xmi:id="334" sofa="1" features="338 341 344 347" arguments="466"/>
+    <types:FeatureProxy xmi:id="338" key="id" value="T9"/>
+    <types:FeatureProxy xmi:id="341" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="344" key="OntoBiotope" value="OBT:000078"/>
+    <types:FeatureProxy xmi:id="347" key="OntoBiotope" value="OBT:000002"/>
+    <cas:FSArray xmi:id="466" elements="463"/>
+    <types:ArgumentProxy xmi:id="463" role="frag0" argument="164"/>
+    <types:RelationProxy xmi:id="362" sofa="1" features="367" tuples="373" name="Title"/>
+    <types:FeatureProxy xmi:id="367" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="373" sofa="1" features="377 380" arguments="472"/>
+    <types:FeatureProxy xmi:id="377" key="id" value="T1"/>
+    <types:FeatureProxy xmi:id="380" key="type" value="Title"/>
+    <cas:FSArray xmi:id="472" elements="469"/>
+    <types:ArgumentProxy xmi:id="469" role="frag0" argument="46"/>
+    <types:RelationProxy xmi:id="390" sofa="1" features="395" tuples="401" name="Paragraph"/>
+    <types:FeatureProxy xmi:id="395" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="401" sofa="1" features="405 408" arguments="478"/>
+    <types:FeatureProxy xmi:id="405" key="id" value="T2"/>
+    <types:FeatureProxy xmi:id="408" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="478" elements="475"/>
+    <types:ArgumentProxy xmi:id="475" role="frag0" argument="60"/>
+    <types:RelationProxy xmi:id="418" sofa="1" features="" tuples="" name="equiv"/>
+    <cas:View sofa="1" members="8 13"/>
+</xmi:XMI>
