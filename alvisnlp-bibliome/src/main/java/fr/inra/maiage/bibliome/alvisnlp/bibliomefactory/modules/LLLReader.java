@@ -60,7 +60,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 	private static final Pattern GENIC_INTERACTION_PATTERN = Pattern.compile("genic_interaction\\((\\d+),(\\d+)\\)");
 
 	private SourceStream source;
-	private String sectionName = "sentence";
+	private String sectionName = DefaultNames.getDefaultSectionName();
 	private String wordLayerName = DefaultNames.getWordLayer();
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
 	private String idFeatureName = "id";

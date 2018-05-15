@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:pos="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos.ecore" xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:tweet="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos/tweet.ecore" xmlns:morph="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/morph.ecore" xmlns:type3="http:///de/tudarmstadt/ukp/dkpro/core/api/frequency/tfidf/type.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmlns:dependency="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/dependency.ecore" xmlns:type7="http:///de/tudarmstadt/ukp/dkpro/core/api/semantics/type.ecore" xmlns:type9="http:///de/tudarmstadt/ukp/dkpro/core/api/transform/type.ecore" xmlns:type="http:///de/tudarmstadt/ukp/dkpro/core/api/anomaly/type.ecore" xmlns:type8="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type.ecore" xmlns:type4="http:///de/tudarmstadt/ukp/dkpro/core/api/metadata/type.ecore" xmlns:type5="http:///de/tudarmstadt/ukp/dkpro/core/api/ner/type.ecore" xmlns:type6="http:///de/tudarmstadt/ukp/dkpro/core/api/segmentation/type.ecore" xmlns:type2="http:///de/tudarmstadt/ukp/dkpro/core/api/coref/type.ecore" xmlns:constituent="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/constituent.ecore" xmlns:chunk="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/chunk.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="1738" language="x-unspecified"/>
+    <types:DocumentProxy xmi:id="13" sofa="1" id="BB-cat+ner-21511409" features="18" sections="24"/>
+    <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Molecular epidemiology of Pasteurella multocida in dairy and beef calves.&#10;The molecular epidemiology of Pasteurella multocida has rarely been studied at the farm level in cattle. The aim of this study was to determine whether single or multiple strains of P. multocida tend to exist within farms. Molecular characterisation was carried out on isolates obtained from nasal swabs from 105 calves from 32 randomly selected beef and dairy farms located throughout Scotland, and from 131 calves from 20 farms in the Mayenne region of France, where sampling occurred in response to respiratory disease outbreaks. P. multocida isolates were characterised by random-amplified polymorphic DNA (RAPD) typing and pulsed-field gel electrophoresis (PFGE) using restriction enzyme ApaI. In addition, isolates representative of each farm/RAPD profile combination were typed by multilocus sequence typing (MLST). Among 105 Scottish isolates, 15 RAPD profiles were distinguished. The majority of farms (27/32) had indistinguishable profiles in all positive animals. Five farms had two profiles. Among 140 French isolates, 23 RAPD profiles were distinguished. More within-farm heterogeneity was observed although 10/20 farms had just one profile (E4) in sampled calves. Profile E4 accounted for 60% (84/140) of French isolates. PFGE was more discriminatory than RAPD but confirmed results with respect to within farm homogeneity or heterogeneity of strains, whereas MLST was not discriminatory enough for farm level epidemiology. As in other host species, either several strains or one dominant strain of P. multocida may exist within farms, with evidence for a role of management factors such as movements onto the farm in the number of strains detected.&#10;"/>
+    <types:FeatureProxy xmi:id="18" key="set" value="test"/>
+    <types:SectionProxy xmi:id="24" sofa="1" begin="0" end="1738" name="text" features="" layers="41 55" relations="66 94 122"/>
+    <types:LayerProxy xmi:id="41" sofa="1" name="Title" annotations="45"/>
+    <cas:FSArray xmi:id="45" elements="34"/>
+    <types:AnnotationProxy xmi:id="34" sofa="1" begin="0" end="73" features=""/>
+    <types:LayerProxy xmi:id="55" sofa="1" name="Paragraph" annotations="59"/>
+    <cas:FSArray xmi:id="59" elements="48"/>
+    <types:AnnotationProxy xmi:id="48" sofa="1" begin="74" end="1737" features=""/>
+    <types:RelationProxy xmi:id="66" sofa="1" features="71" tuples="77" name="Title"/>
+    <types:FeatureProxy xmi:id="71" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="77" sofa="1" features="81 84" arguments="134"/>
+    <types:FeatureProxy xmi:id="81" key="id" value="T1"/>
+    <types:FeatureProxy xmi:id="84" key="type" value="Title"/>
+    <cas:FSArray xmi:id="134" elements="131"/>
+    <types:ArgumentProxy xmi:id="131" role="frag0" argument="34"/>
+    <types:RelationProxy xmi:id="94" sofa="1" features="99" tuples="105" name="Paragraph"/>
+    <types:FeatureProxy xmi:id="99" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="105" sofa="1" features="109 112" arguments="140"/>
+    <types:FeatureProxy xmi:id="109" key="id" value="T2"/>
+    <types:FeatureProxy xmi:id="112" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="140" elements="137"/>
+    <types:ArgumentProxy xmi:id="137" role="frag0" argument="48"/>
+    <types:RelationProxy xmi:id="122" sofa="1" features="" tuples="" name="equiv"/>
+    <cas:View sofa="1" members="8 13"/>
+</xmi:XMI>

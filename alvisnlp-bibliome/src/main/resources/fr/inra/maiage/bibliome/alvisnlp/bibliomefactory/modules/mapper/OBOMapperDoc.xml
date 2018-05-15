@@ -33,20 +33,20 @@ limitations under the License.
 -->
 
   <synopsis>
-    <p>synopsis</p>
+    <p>Maps names and synonyms of terms defined in OBO files.</p>
   </synopsis>
 
   <module-doc>
     <description>
-      <p>synopsis</p>
+      <p><this/> maps names and synonyms of terms described in <param>oboFiles</param> on <param>target</param>.</p>
     </description>
   
     <param-doc name="operator">
-      <p/>
+      <p>Operator of successful match between target and key.</p>
     </param-doc>
   
     <param-doc name="target">
-      <p/>
+      <p>Expression evaluated as a list of elements from the corpus. Specifies the target of the mapping.</p>
     </param-doc>
   
     <param-doc name="active">
@@ -54,51 +54,55 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="keepDBXref">
-      <p/>
+      <p>Either to store term dbxrefs. Dbxrefs are stored in features that match the database name.</p>
     </param-doc>
   
     <param-doc name="form">
-      <p/>
+      <p>Expression evaluated as a string from the target. Specifies to form on which the mapping is attempted.</p>
     </param-doc>
   
     <param-doc name="ignoreCase">
-      <p/>
+      <p>Case insensitive mapping.</p>
     </param-doc>
   
     <param-doc name="oboFiles">
-      <p/>
+      <p>Paths to the OBO files to map.</p>
     </param-doc>
   
     <param-doc name="idFeature">
-      <p/>
+      <p>Name of the feature where to store the term id.</p>
     </param-doc>
   
     <param-doc name="versionFeature">
-      <p/>
+      <p>Name of the feature where to store the ontology version.</p>
     </param-doc>
   
     <param-doc name="idKeys">
-      <p/>
+      <p>Map the term keys instead of name and synonyms</p>
     </param-doc>
   
     <param-doc name="nameFeature">
-      <p/>
+      <p>Name of the feature where to store the term name.</p>
     </param-doc>
   
     <param-doc name="pathFeature">
-      <p/>
+      <p>Name of the feature where to store the term id path from the root.</p>
     </param-doc>
   
     <param-doc name="ancestorsFeature">
-      <p>Name of the feature that contains the term ancestors ids.</p>
+      <p>Name of the feature where to store the term ancestors ids.</p>
     </param-doc>
   
     <param-doc name="childrenFeature">
-      <p>Name of the feature that contains the term children ids.</p>
+      <p>Name of the feature where to store the term children ids.</p>
+    </param-doc>
+  
+    <param-doc name="synonymsFeature">
+      <p>Name of the feature where to store the term synonyms.</p>
     </param-doc>
   
     <param-doc name="parentsFeature">
-      <p>Name of the feature that contains the term parents ids.</p>
+      <p>Name of the feature where to store the term parents ids.</p>
     </param-doc>
   <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
 </alvisnlp-doc>

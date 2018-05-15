@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:pos="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos.ecore" xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:tweet="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos/tweet.ecore" xmlns:morph="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/morph.ecore" xmlns:type3="http:///de/tudarmstadt/ukp/dkpro/core/api/frequency/tfidf/type.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmlns:dependency="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/dependency.ecore" xmlns:type7="http:///de/tudarmstadt/ukp/dkpro/core/api/semantics/type.ecore" xmlns:type9="http:///de/tudarmstadt/ukp/dkpro/core/api/transform/type.ecore" xmlns:type="http:///de/tudarmstadt/ukp/dkpro/core/api/anomaly/type.ecore" xmlns:type8="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type.ecore" xmlns:type4="http:///de/tudarmstadt/ukp/dkpro/core/api/metadata/type.ecore" xmlns:type5="http:///de/tudarmstadt/ukp/dkpro/core/api/ner/type.ecore" xmlns:type6="http:///de/tudarmstadt/ukp/dkpro/core/api/segmentation/type.ecore" xmlns:type2="http:///de/tudarmstadt/ukp/dkpro/core/api/coref/type.ecore" xmlns:constituent="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/constituent.ecore" xmlns:chunk="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/chunk.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="1871" language="x-unspecified"/>
+    <type5:NamedEntity xmi:id="68" sofa="1" begin="54" end="76" value="Bacteria" identifier="727"/>
+    <type5:NamedEntity xmi:id="74" sofa="1" begin="731" end="747" value="Bacteria" identifier="562"/>
+    <type5:NamedEntity xmi:id="80" sofa="1" begin="915" end="937" value="Bacteria" identifier="727"/>
+    <types:DocumentProxy xmi:id="13" sofa="1" id="BB-cat+ner-24251551" features="18" sections="24"/>
+    <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Structure of MurNAc 6-phosphate hydrolase (MurQ) from Haemophilus influenzae with a bound inhibitor.&#10;The breakdown and recycling of peptidoglycan, an essential polymeric cell structure, occur in a number of bacterial species. A key enzyme in the recycling pathway of one of the components of the peptidoglycan layer, N-acetylmuramic acid (MurNAc), is MurNAc 6-phosphate hydrolase (MurQ). This enzyme catalyzes the cofactor-independent cleavage of a relatively nonlabile ether bond and presents an interesting target for mechanistic studies. Open chain product and substrate analogues were synthesized and tested as competitive inhibitors (K(is) values of 1.1 ± 0.3 and 0.23 ± 0.02 mM, respectively) of the MurNAc 6P hydrolase from Escherichia coli (MurQ-EC). To identify the roles of active site residues that are important for catalysis, the substrate analogue was cocrystallized with the MurNAc 6P hydrolase from Haemophilus influenzae (MurQ-HI) that was amenable to crystallographic studies. The cocrystal structure of MurQ-HI with the substrate analogue showed that Glu89 was located in the proximity of both the C2 atom and the oxygen at the C3 position of the bound inhibitor and that no other potential acid/base residue that could act as an active site acid/base was located in the vicinity. The conserved residues Glu120 and Lys239 were found within hydrogen bonding distance of the C5 hydroxyl group and C6 phosphate group, suggesting that they play a role in substrate binding and ring opening. Combining these results with previous biochemical data, we propose a one-base mechanism of action in which Glu89 functions to both deprotonate at the C2 position and assist in the departure of the lactyl ether at the C3 position. This same residue would serve to deprotonate the incoming water and reprotonate the enolate in the second half of the catalytic cycle.&#10;"/>
+    <types:FeatureProxy xmi:id="18" key="set" value="train"/>
+    <types:SectionProxy xmi:id="24" sofa="1" begin="0" end="1871" name="text" features="" layers="34 47 61" relations="91 161 189 217"/>
+    <types:LayerProxy xmi:id="34" sofa="1" name="Bacteria" annotations="38"/>
+    <cas:FSArray xmi:id="38" elements=""/>
+    <types:LayerProxy xmi:id="47" sofa="1" name="Title" annotations="51"/>
+    <cas:FSArray xmi:id="51" elements="40"/>
+    <types:AnnotationProxy xmi:id="40" sofa="1" begin="0" end="100" features=""/>
+    <types:LayerProxy xmi:id="61" sofa="1" name="Paragraph" annotations="65"/>
+    <cas:FSArray xmi:id="65" elements="54"/>
+    <types:AnnotationProxy xmi:id="54" sofa="1" begin="101" end="1870" features=""/>
+    <types:RelationProxy xmi:id="91" sofa="1" features="96" tuples="102 120 138" name="Bacteria"/>
+    <types:FeatureProxy xmi:id="96" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="102" sofa="1" features="106 109 112" arguments="229"/>
+    <types:FeatureProxy xmi:id="106" key="id" value="T4"/>
+    <types:FeatureProxy xmi:id="109" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="112" key="NCBI_Taxonomy" value="562"/>
+    <cas:FSArray xmi:id="229" elements="226"/>
+    <types:ArgumentProxy xmi:id="226" role="frag0" argument="74"/>
+    <types:TupleProxy xmi:id="120" sofa="1" features="124 127 130" arguments="235"/>
+    <types:FeatureProxy xmi:id="124" key="id" value="T5"/>
+    <types:FeatureProxy xmi:id="127" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="130" key="NCBI_Taxonomy" value="727"/>
+    <cas:FSArray xmi:id="235" elements="232"/>
+    <types:ArgumentProxy xmi:id="232" role="frag0" argument="80"/>
+    <types:TupleProxy xmi:id="138" sofa="1" features="142 145 148" arguments="241"/>
+    <types:FeatureProxy xmi:id="142" key="id" value="T3"/>
+    <types:FeatureProxy xmi:id="145" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="148" key="NCBI_Taxonomy" value="727"/>
+    <cas:FSArray xmi:id="241" elements="238"/>
+    <types:ArgumentProxy xmi:id="238" role="frag0" argument="68"/>
+    <types:RelationProxy xmi:id="161" sofa="1" features="166" tuples="172" name="Title"/>
+    <types:FeatureProxy xmi:id="166" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="172" sofa="1" features="176 179" arguments="247"/>
+    <types:FeatureProxy xmi:id="176" key="id" value="T1"/>
+    <types:FeatureProxy xmi:id="179" key="type" value="Title"/>
+    <cas:FSArray xmi:id="247" elements="244"/>
+    <types:ArgumentProxy xmi:id="244" role="frag0" argument="40"/>
+    <types:RelationProxy xmi:id="189" sofa="1" features="194" tuples="200" name="Paragraph"/>
+    <types:FeatureProxy xmi:id="194" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="200" sofa="1" features="204 207" arguments="253"/>
+    <types:FeatureProxy xmi:id="204" key="id" value="T2"/>
+    <types:FeatureProxy xmi:id="207" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="253" elements="250"/>
+    <types:ArgumentProxy xmi:id="250" role="frag0" argument="54"/>
+    <types:RelationProxy xmi:id="217" sofa="1" features="" tuples="" name="equiv"/>
+    <cas:View sofa="1" members="8 68 74 80 13"/>
+</xmi:XMI>

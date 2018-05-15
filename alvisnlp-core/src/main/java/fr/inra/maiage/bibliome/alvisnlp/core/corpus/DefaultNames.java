@@ -18,7 +18,6 @@ limitations under the License.
 package fr.inra.maiage.bibliome.alvisnlp.core.corpus;
 
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class DefaultNames.
  * 
@@ -29,8 +28,9 @@ public final class DefaultNames {
     private static final String POS_TAG_FEATURE = "pos";
     private static final String STEM_FEATURE = "stem";
     private static final String WORD_TYPE_FEATURE = "wordType";
-    private static final String NAMED_ENTITY_TYPE_FEATURE = "neType";
+    private static final String NAMED_ENTITY_TYPE_FEATURE = "ne-type";
     private static final String WORD_LAYER = "words";
+    private static final String NAMED_ENTITY_LAYER = "named-entities";
     private static final String SENTENCE_LAYER = "sentences";
     private static final String PARAGRAPH_LAYER = "paragraph";
     private static final String LANGUAGE_FEATURE = "lang";
@@ -41,6 +41,8 @@ public final class DefaultNames {
     private static final String DEPENDENCY_HEAD_ROLE = "head";
     private static final String DEPENDENCY_DEPENDENT_ROLE = "dependent";
 	private static final String PARSE_NUMBER_FEATURE_NAME = "parse";
+	private static final String EXTERNAL_REFERENCE_FEATURE_NAME = "xref";
+	private static final String DEFAULT_SECTION_NAME = "text";
 
 	public static String getCanonicalFormFeature() {
 		return CANONICAL_FORM_FEATURE;
@@ -56,6 +58,10 @@ public final class DefaultNames {
 	
 	public static String getWordTypeFeature() {
 		return WORD_TYPE_FEATURE;
+	}
+	
+	public static String getNamedEntityLayer() {
+		return NAMED_ENTITY_LAYER;
 	}
 	
 	public static String getNamedEntityTypeFeature() {
@@ -104,5 +110,13 @@ public final class DefaultNames {
 	
 	public static String getParseNumberFeatureName() {
 		return PARSE_NUMBER_FEATURE_NAME;
+	}
+
+	public static String getExternalReferenceFeatureName() {
+		return EXTERNAL_REFERENCE_FEATURE_NAME;
+	}
+	
+	public static String getDefaultSectionName() {
+		return DEFAULT_SECTION_NAME;
 	}
 }
