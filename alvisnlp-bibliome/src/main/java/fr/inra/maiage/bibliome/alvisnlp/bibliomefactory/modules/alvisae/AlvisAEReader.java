@@ -32,6 +32,7 @@ import org.json.simple.parser.ParseException;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
@@ -79,7 +80,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	private Boolean loadTextBound = true;
 	private Boolean loadGroups = true;
 	private Boolean loadRelations = true;
-	private String sectionName = "alvisae";
+	private String sectionName = DefaultNames.getDefaultSectionName();
 	private String fragmentsLayerName = "alvisae";
 	private String fragmentRolePrefix = "frag";
 	private String itemRolePrefix = "item";

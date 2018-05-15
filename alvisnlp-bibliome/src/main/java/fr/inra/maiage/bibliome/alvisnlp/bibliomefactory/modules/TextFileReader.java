@@ -23,6 +23,7 @@ import java.io.File;
 import java.io.IOException;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
@@ -42,7 +43,7 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
  */
 @AlvisNLPModule
 public abstract class TextFileReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator {
-    private String  sectionName = "contents";
+    private String  sectionName = DefaultNames.getDefaultSectionName();
     private Integer sizeLimit = null;
     private Integer linesLimit = null;
     private String  charset   = "UTF-8";

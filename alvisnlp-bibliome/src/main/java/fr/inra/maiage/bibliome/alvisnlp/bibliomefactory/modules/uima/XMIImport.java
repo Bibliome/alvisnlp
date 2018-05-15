@@ -11,6 +11,7 @@ import org.apache.uima.cas.impl.XmiCasDeserializer;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.DocumentCreator;
@@ -27,7 +28,7 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 @AlvisNLPModule(beta=true)
 public abstract class XMIImport extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, TupleCreator {
 	private SourceStream source;
-	private String defaultSectionName = "text";
+	private String defaultSectionName = DefaultNames.getDefaultSectionName();
     private Boolean baseNameId = false;
     private Boolean ignoreMalformedXMI = false;
     private Boolean dkproCompatibility = false;
