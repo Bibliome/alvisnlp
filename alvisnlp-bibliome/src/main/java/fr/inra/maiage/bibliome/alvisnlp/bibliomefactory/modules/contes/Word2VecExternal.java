@@ -46,7 +46,7 @@ class Word2VecExternal extends AbstractContesExternal<Word2Vec> {
 						bw.write(form);
 						bw.newLine();
 					}
-					ps.println();
+					bw.newLine();
 				}
 			}
 		}
