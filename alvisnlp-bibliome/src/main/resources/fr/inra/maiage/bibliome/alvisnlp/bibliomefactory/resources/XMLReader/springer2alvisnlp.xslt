@@ -3,8 +3,10 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:a="xalan://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml.XMLReader2"
     xmlns:inline="http://bibliome.jouy.inra.fr/alvisnlp/bibliome-module-factory/inline"
+    xmlns:str="fr.inra.maiage.bibliome.util.xml.Functions"
 
     extension-element-prefixes="a inline"
+    extension-element-prefixes="a inline str"
 >
 
     <xsl:template match="/response">
@@ -12,7 +14,7 @@
     </xsl:template>
 
     <xsl:template match="records">
-        <a:document xpath-id="Publisher/Journal/Volume/Issue/Article/ArticleInfo/ArticleDOI"> 
+        <a:document xpath-id="str:replace(Publisher/Journal/Volume/Issue/Article/ArticleInfo/ArticleDOI, '/', '_')">
             <a:feature
                 name="doi"
                 xpath-value="Publisher/Journal/Volume/Issue/Article/ArticleInfo/ArticleDOI" />
