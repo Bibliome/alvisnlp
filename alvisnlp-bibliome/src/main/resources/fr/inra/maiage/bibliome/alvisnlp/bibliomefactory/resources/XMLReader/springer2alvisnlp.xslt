@@ -14,7 +14,10 @@
     </xsl:template>
 
     <xsl:template match="records">
-        <a:document xpath-id="str:replace(Publisher/Journal/Volume/Issue/Article/ArticleInfo/ArticleDOI, '/', '_')">
+        <xsl:variable name="docid">
+          <xsl:value-of select="str:replace(Publisher/Journal/Volume/Issue/Article/ArticleInfo/ArticleDOI, '/', '_')" />
+        </xsl:variable>
+        <a:document xpath-id="$docid">
             <a:feature
                 name="doi"
                 xpath-value="Publisher/Journal/Volume/Issue/Article/ArticleInfo/ArticleDOI" />
@@ -96,7 +99,7 @@
             >
                 <a:section
                     xpath-name="Heading"
-                    xpath-contents="Para"
+                    xpath-contents="."
                 >
                     <xsl:for-each select="a:inline()">
                         <a:annotation
@@ -117,7 +120,7 @@
             >
                 <a:section
                     xpath-name="Heading"
-                    xpath-contents="Para"
+                    xpath-contents="."
                 >
                     <xsl:for-each select="a:inline()">
                         <a:annotation
