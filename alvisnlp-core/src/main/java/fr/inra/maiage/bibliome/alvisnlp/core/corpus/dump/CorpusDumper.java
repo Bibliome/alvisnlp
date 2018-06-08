@@ -40,6 +40,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec.LayerEncoder;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec.RelationEncoder;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec.SectionEncoder;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable;
+import fr.inra.maiage.bibliome.util.marshall.Encoder;
 import fr.inra.maiage.bibliome.util.marshall.MapWriteCache;
 import fr.inra.maiage.bibliome.util.marshall.Marshaller;
 import fr.inra.maiage.bibliome.util.marshall.WriteCache;
@@ -94,14 +95,14 @@ public class CorpusDumper implements Annotable.Dumper<Corpus> {
 	
 	private static void processTupleArgument(FileChannel channel, ArgumentReferencer argReferencer, Tuple t, long tRef) throws IOException {
 		int arity = t.getArity();
-		int argSz = 4 + (4 + 4) * arity;
+		int argSz = 4 + (Encoder.REFERENCE_SIZE + Encoder.REFERENCE_SIZE) * arity;
 		MappedByteBuffer buf = channel.map(MapMode.READ_WRITE, tRef, argSz);
 		int checkArity = buf.getInt();
 		if (arity != checkArity) {
 			throw new RuntimeException();
 		}
 		for (Element arg : t.getAllArguments()) {
-			buf.getInt(); // skip role
+			buf.getLong(); // skip role
 			long argRef = argReferencer.getReference(arg);
 			buf.putLong(argRef);
 		}
