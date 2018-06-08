@@ -17,7 +17,6 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.core.plan;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
@@ -52,6 +51,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ParamHandler;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ParameterException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Sequence;
 import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.service.ServiceException;
 import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
@@ -246,7 +246,7 @@ public class PlanLoader<T extends Annotable> {
 		return result;
 	}
 	
-	private static <T extends Annotable> void setModuleId(Logger logger, Module<T> module, Element elt) throws PlanException {
+	private void setModuleId(Logger logger, Module<T> module, Element elt) throws PlanException, UnsupportedServiceException, ConverterException {
 		String id;
 		String tag = elt.getTagName();
 		if (tag.equals(MODULE_ELEMENT_NAME) || elt.hasAttribute(ID_ATTRIBUTE_NAME)) {
@@ -261,7 +261,9 @@ public class PlanLoader<T extends Annotable> {
 		if (elt.hasAttribute("dump")) {
 			String dumpPath = elt.getAttribute("dump");
 			logger.warning("setting dump file inside the plan is obsolete, use -dumpModule instead");
-			module.setDumpFile(new File(dumpPath));
+			ParamConverter converter = getParamConverterInstance(OutputFile.class, false);
+			OutputFile dumpFile = (OutputFile) converter.convert(dumpPath);
+			module.setDumpFile(dumpFile);
 		}
 	}
 	
