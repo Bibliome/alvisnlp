@@ -76,7 +76,7 @@ public class RelationDecoder extends ElementDecoder<Relation> implements Relatio
 		return tupleUnmarshaller;
 	}
 	
-	public Map<Integer,Tuple> getAllTuples() {
+	public Map<Long,Tuple> getAllTuples() {
 		return tupleCache.getMap();
 	}
 }

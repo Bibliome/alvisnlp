@@ -38,10 +38,11 @@ public abstract class ElementEncoder<E extends Element> implements Encoder<E> {
 	public int getSize(E object) {
 		int result = 4;
 		for (String k : object.getFeatureKeys()) {
-			result += 8;
+			result += REFERENCE_SIZE;
+			result += 4;
 			List<String> values = object.getFeature(k);
 			int nValues = values.size();
-			result += 4 * nValues;
+			result += REFERENCE_SIZE * nValues;
 		}
 		return result;
 	}
@@ -70,7 +71,7 @@ public abstract class ElementEncoder<E extends Element> implements Encoder<E> {
 	}
 	
 	protected void writeString(ByteBuffer buf, String s) throws IOException {
-		int ref = stringMarshaller.write(s);
-		buf.putInt(ref);
+		long ref = stringMarshaller.write(s);
+		buf.putLong(ref);
 	}
 }

@@ -77,25 +77,25 @@ public class Undumper implements AutoCloseable {
 	}
 	
 	private static void processTuplesArguments(CorpusDecoder corpusDecoder, Unmarshaller<Corpus> corpusUnmarshaller, Unmarshaller<String> stringUnmarshaller) {
-		ByteBuffer buf = corpusUnmarshaller.getBuffer();
 		ElementDereferencer argDeref = new ElementDereferencer(corpusDecoder, corpusUnmarshaller);
-		Map<Integer,Tuple> tuples = getAllTuples(corpusDecoder);
-		for (Map.Entry<Integer,Tuple> e : tuples.entrySet()) {
-			int tRef = e.getKey();
+		Map<Long,Tuple> tuples = getAllTuples(corpusDecoder);
+		for (Map.Entry<Long,Tuple> e : tuples.entrySet()) {
+			long tRef = e.getKey();
 			Tuple t = e.getValue();
+			ByteBuffer buf = corpusUnmarshaller.getBuffer(tRef);
 			processTupleArguments(buf, stringUnmarshaller, argDeref, t, tRef);
 		}
 	}
 	
-	private static Map<Integer,Tuple> getAllTuples(CorpusDecoder corpusDecoder) {
+	private static Map<Long,Tuple> getAllTuples(CorpusDecoder corpusDecoder) {
 		DocumentDecoder docDecoder = corpusDecoder.getDocDecoder();
 		SectionDecoder secDecoder = docDecoder.getSectionDecoder();
 		RelationDecoder relDecoder = secDecoder.getRelationDecoder();
 		return relDecoder.getAllTuples();
 	}
 	
-	private static void processTupleArguments(ByteBuffer buf, Unmarshaller<String> stringUnmarshaller, ElementDereferencer argDeref, Tuple t, int ref) {
-		buf.position(ref);
+	private static void processTupleArguments(ByteBuffer buf, Unmarshaller<String> stringUnmarshaller, ElementDereferencer argDeref, Tuple t, long ref) {
+		buf.position((int) ref); // XXX unsafe cast
 		int arity = buf.getInt();
 		for (int i = 0; i < arity; ++i) {
 			int roleRef = buf.getInt();
