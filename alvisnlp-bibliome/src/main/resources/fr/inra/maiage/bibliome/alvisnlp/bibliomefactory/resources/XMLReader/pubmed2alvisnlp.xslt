@@ -7,6 +7,7 @@
 
   <xsl:template match="/">
     <xsl:apply-templates select="MedlineCitationSet/MedlineCitation"/>
+    <xsl:apply-templates select="PubmedArticleSet/PubmedArticle/MedlineCitation"/>
   </xsl:template>
 
   <xsl:template match="MedlineCitation">
