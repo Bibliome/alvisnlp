@@ -43,7 +43,7 @@ public class LayerDecoder implements Decoder<Layer> {
 	
 	@Override
 	public Layer decode1(ByteBuffer buffer) {
-		int nameRef = buffer.getInt();
+		long nameRef = buffer.getLong();
 		String name = stringUnmarshaller.read(nameRef);
 		return new Layer(section, name);
 	}
@@ -53,7 +53,7 @@ public class LayerDecoder implements Decoder<Layer> {
 		annotationDecoder.setLayer(object);
 		int sz = buffer.getInt();
 		for (int i = 0; i < sz; ++i) {
-			int aRef = buffer.getInt();
+			long aRef = buffer.getLong();
 			annotationUnmarshaller.read(aRef);
 		}
 	}

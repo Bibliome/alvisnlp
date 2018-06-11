@@ -95,6 +95,7 @@ import fr.inra.maiage.bibliome.util.clio.CLIOption;
 import fr.inra.maiage.bibliome.util.count.Count;
 import fr.inra.maiage.bibliome.util.count.CountStats;
 import fr.inra.maiage.bibliome.util.count.Stats;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.service.AmbiguousAliasException;
 import fr.inra.maiage.bibliome.util.service.ServiceException;
 import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
@@ -127,7 +128,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	private boolean appendToLog = false;
 	private File tmpDir = new File("/tmp");
 	private boolean dumps = true;
-	private final Map<String,File> dumpModules = new LinkedHashMap<String,File>();
+	private final Map<String,String> dumpModules = new LinkedHashMap<String,String>();
 	private File defaultParamValuesFile = null;
 
 	private final List<ModuleParamSetter> params = new ArrayList<ModuleParamSetter>();
@@ -609,8 +610,8 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	}
 	
 	@CLIOption("-dumpModule")
-	public final void addDumpModule(String modulePath, File dumpFile) { 
-		dumpModules.put(modulePath, dumpFile);
+	public final void addDumpModule(String modulePath, String dumpPath) { 
+		dumpModules.put(modulePath, dumpPath);
 	}
 	
 	/**
@@ -945,14 +946,16 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 
         	result.init(ctx);
 
-        	for (Map.Entry<String,File> e : dumpModules.entrySet()) {
+        	for (Map.Entry<String,String> e : dumpModules.entrySet()) {
         		String modulePath = e.getKey();
         		Module<A> module = result.getModuleByPath(modulePath);
         		if (module == null) {
         			logger.warning("there is no module with path: '" + modulePath + "'");
         			continue;
         		}
-        		File dumpFile = e.getValue();
+        		String dumpPath = e.getValue();
+        		ParamConverter converter = converterFactory.getService(OutputFile.class);
+        		OutputFile dumpFile = (OutputFile) converter.convert(dumpPath);
         		logger.config("setting dump file after " + modulePath + " to " + dumpFile);
         		module.setDumpFile(dumpFile);
         	}

@@ -51,6 +51,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.UnexpectedParameterException;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.Timer;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 /**
@@ -67,7 +68,7 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
     private Documentation documentation;
     private boolean beta;
     private Class<?>[] useInstead;
-    private File dumpFile = null;
+    private OutputFile dumpFile = null;
     private String id = null;
     private Sequence<T> sequence = null;
 	private String creatorNameFeature;
@@ -154,7 +155,7 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
     };
 
     @Override
-    public File getDumpFile() {
+    public OutputFile getDumpFile() {
         return dumpFile;
     }
 
@@ -209,7 +210,7 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
 	}
 
 	@Override
-    public void setDumpFile(File file) {
+    public void setDumpFile(OutputFile file) {
         dumpFile = file;
     }
 

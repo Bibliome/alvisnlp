@@ -28,3 +28,4 @@ maven-repository/
 _attic/
 Gemfile.lock
 _site/
+.maven-settings.xml

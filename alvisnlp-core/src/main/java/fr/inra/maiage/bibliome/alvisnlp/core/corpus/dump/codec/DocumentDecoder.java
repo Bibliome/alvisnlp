@@ -48,7 +48,7 @@ public class DocumentDecoder extends ElementDecoder<Document> implements Documen
 		sectionDecoder.setDoc(result);
 		int nSec = buffer.getInt();
 		for (int i = 0; i < nSec; ++i) {
-			int secRef = buffer.getInt();
+			long secRef = buffer.getLong();
 			sectionUnmarshaller.read(secRef);
 		}
 		return result;

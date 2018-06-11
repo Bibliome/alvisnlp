@@ -1,11 +1,11 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.PrintStream;
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -36,15 +36,17 @@ class Word2VecExternal extends AbstractContesExternal<Word2Vec> {
 		}
 	}
 	
-	void createInputFile(EvaluationContext ctx, Corpus corpus) throws FileNotFoundException, UnsupportedEncodingException {
+	void createInputFile(EvaluationContext ctx, Corpus corpus) throws IOException {
 		try (PrintStream ps = new PrintStream(inputFile, "UTF-8")) {
+			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(ps, "UTF-8"));
 			for (Section sec : Iterators.loop(getOwner().sectionIterator(ctx, corpus))) {
 				for (Layer sent : sec.getSentences(getOwner().getTokenLayer(), getOwner().getSentenceLayer())) {
 					for (Annotation tok : sent) {
 						String form = StringLibrary.normalizeSpace(tok.getLastFeature(getOwner().getFormFeature()));
-						ps.println(form);
+						bw.write(form);
+						bw.newLine();
 					}
-					ps.println();
+					bw.newLine();
 				}
 			}
 		}

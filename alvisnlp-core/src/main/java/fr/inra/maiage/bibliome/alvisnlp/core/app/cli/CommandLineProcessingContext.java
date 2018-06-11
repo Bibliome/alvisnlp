@@ -144,7 +144,7 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
     	Timer<TimerCategory> dumpTimer = timer.newChild("dump", TimerCategory.DUMP);
     	timer.start();
     	dumpTimer.start();
-        try (Annotable.Dumper<T> dumper = getDumper(dumpFile)) {
+        try (Annotable.Dumper<T> dumper = getDumper(moduleLogger, dumpFile)) {
         	dumper.dump(corpus);
         }
         catch (Exception e) {

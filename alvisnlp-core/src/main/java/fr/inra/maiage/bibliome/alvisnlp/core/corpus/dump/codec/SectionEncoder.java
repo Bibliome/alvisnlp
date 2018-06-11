@@ -49,7 +49,7 @@ public class SectionEncoder extends ElementEncoder<Section> {
 	public int getSize(Section object) {
 		int nLayers = object.getAllLayers().size();
 		int nRelations = object.getAllRelations().size();
-		return 4 + 4 + 4 + 4 * nLayers + 4 + 4 * nRelations + super.getSize(object);
+		return REFERENCE_SIZE + REFERENCE_SIZE + 4 + REFERENCE_SIZE * nLayers + 4 + REFERENCE_SIZE * nRelations + super.getSize(object);
 	}
 
 	@Override
@@ -61,16 +61,16 @@ public class SectionEncoder extends ElementEncoder<Section> {
 		int nLayers = layers.size();
 		buf.putInt(nLayers);
 		for (Layer layer : layers) {
-			int layerRef = layerMarshaller.write(layer);
-			buf.putInt(layerRef);
+			long layerRef = layerMarshaller.write(layer);
+			buf.putLong(layerRef);
 		}
 		
 		Collection<Relation> relations = object.getAllRelations();
 		int nRelations = relations.size();
 		buf.putInt(nRelations);
 		for (Relation rel : relations) {
-			int relRef = relationMarshaller.write(rel);
-			buf.putInt(relRef);
+			long relRef = relationMarshaller.write(rel);
+			buf.putLong(relRef);
 		}
 
 		super.encode(object, buf);

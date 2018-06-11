@@ -1,0 +1,7 @@
+<alvisnlp-plan id="dump">
+  <import>BioNLP-ST-2016_BB-event/read.plan</import>
+
+  <import file="write-features.plan">
+    <file>dump-features.txt</file>
+  </import>
+</alvisnlp-plan>

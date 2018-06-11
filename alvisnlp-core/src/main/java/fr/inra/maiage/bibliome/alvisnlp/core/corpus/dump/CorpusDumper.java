@@ -25,6 +25,7 @@ import java.nio.channels.FileChannel.MapMode;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
@@ -40,24 +41,27 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec.LayerEncoder;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec.RelationEncoder;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec.SectionEncoder;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable;
+import fr.inra.maiage.bibliome.util.marshall.Encoder;
 import fr.inra.maiage.bibliome.util.marshall.MapWriteCache;
 import fr.inra.maiage.bibliome.util.marshall.Marshaller;
 import fr.inra.maiage.bibliome.util.marshall.WriteCache;
 
 public class CorpusDumper implements Annotable.Dumper<Corpus> {
+	private final Logger logger;
 	private final FileChannel channel;
 	
-	public CorpusDumper(FileChannel channel) {
+	public CorpusDumper(Logger logger, FileChannel channel) {
 		super();
+		this.logger = logger;
 		this.channel = channel;
 	}
 	
-	public CorpusDumper(Path path) throws IOException {
-		this(FileChannel.open(path, StandardOpenOption.READ, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.CREATE));
+	public CorpusDumper(Logger logger, Path path) throws IOException {
+		this(logger, FileChannel.open(path, StandardOpenOption.READ, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.CREATE));
 	}
 	
-	public CorpusDumper(File file) throws IOException {
-		this(file.toPath());
+	public CorpusDumper(Logger logger, File file) throws IOException {
+		this(logger, file.toPath());
 	}
 
 	@Override
@@ -67,6 +71,7 @@ public class CorpusDumper implements Annotable.Dumper<Corpus> {
 
 	@Override
 	public void dump(Corpus annotable) throws IOException {
+		logger.info("dumping...");
 		CorpusEncoder corpusEncoder = new CorpusEncoder(channel);
 		WriteCache<Corpus> corpusCache = MapWriteCache.hashMap();
 		Marshaller<Corpus> corpusMarshaller = new Marshaller<Corpus>(channel, corpusEncoder, corpusCache);
@@ -77,37 +82,37 @@ public class CorpusDumper implements Annotable.Dumper<Corpus> {
 	private static void processTuplesArguments(CorpusEncoder corpusEncoder, Marshaller<Corpus> corpusMarshaller) throws IOException {
 		FileChannel channel = corpusMarshaller.getChannel();
 		ArgumentReferencer argReferencer = new ArgumentReferencer(corpusEncoder, corpusMarshaller);
-		Map<Tuple,Integer> tuples = getAllTuples(corpusEncoder);
-		for (Map.Entry<Tuple,Integer> e : tuples.entrySet()) {
+		Map<Tuple,Long> tuples = getAllTuples(corpusEncoder);
+		for (Map.Entry<Tuple,Long> e : tuples.entrySet()) {
 			Tuple t = e.getKey();
-			int tRef = e.getValue();
+			long tRef = e.getValue();
 			processTupleArgument(channel, argReferencer, t, tRef);
 		}
 	}
 	
-	private static Map<Tuple,Integer> getAllTuples(CorpusEncoder corpusEncoder) {
+	private static Map<Tuple,Long> getAllTuples(CorpusEncoder corpusEncoder) {
 		DocumentEncoder docEncoder = corpusEncoder.getDocEncoder();
 		SectionEncoder secEncoder = docEncoder.getSectionEncoder();
 		RelationEncoder relEncoder = secEncoder.getRelationEncoder();
 		return relEncoder.getAllTuples();
 	}
 	
-	private static void processTupleArgument(FileChannel channel, ArgumentReferencer argReferencer, Tuple t, int tRef) throws IOException {
+	private static void processTupleArgument(FileChannel channel, ArgumentReferencer argReferencer, Tuple t, long tRef) throws IOException {
 		int arity = t.getArity();
-		int argSz = 4 + (4 + 4) * arity;
+		int argSz = 4 + (Encoder.REFERENCE_SIZE + Encoder.REFERENCE_SIZE) * arity;
 		MappedByteBuffer buf = channel.map(MapMode.READ_WRITE, tRef, argSz);
 		int checkArity = buf.getInt();
 		if (arity != checkArity) {
 			throw new RuntimeException();
 		}
 		for (Element arg : t.getAllArguments()) {
-			buf.getInt(); // skip role
-			int argRef = argReferencer.getReference(arg);
-			buf.putInt(argRef);
+			buf.getLong(); // skip role
+			long argRef = argReferencer.getReference(arg);
+			buf.putLong(argRef);
 		}
 	}
 	
-	private static class ArgumentReferencer implements ElementVisitor<Integer,Void> {
+	private static class ArgumentReferencer implements ElementVisitor<Long,Void> {
 		private final WriteCache<Corpus> corpusCache;
 		private final WriteCache<Document> documentCache;
 		private final WriteCache<Section> sectionCache;
@@ -134,42 +139,42 @@ public class CorpusDumper implements Annotable.Dumper<Corpus> {
 			this.tupleCache = tMarshaller.getCache();
 		}
 		
-		private int getReference(Element elt) {
+		private long getReference(Element elt) {
 			return elt.accept(this, null);
 		}
 
 		@Override
-		public Integer visit(Annotation a, Void param) {
+		public Long visit(Annotation a, Void param) {
 			return annotationCache.get(a);
 		}
 
 		@Override
-		public Integer visit(Corpus corpus, Void param) {
+		public Long visit(Corpus corpus, Void param) {
 			return corpusCache.get(corpus);
 		}
 
 		@Override
-		public Integer visit(Document doc, Void param) {
+		public Long visit(Document doc, Void param) {
 			return documentCache.get(doc);
 		}
 
 		@Override
-		public Integer visit(Relation rel, Void param) {
+		public Long visit(Relation rel, Void param) {
 			return relationCache.get(rel);
 		}
 
 		@Override
-		public Integer visit(Section sec, Void param) {
+		public Long visit(Section sec, Void param) {
 			return sectionCache.get(sec);
 		}
 
 		@Override
-		public Integer visit(Tuple t, Void param) {
+		public Long visit(Tuple t, Void param) {
 			return tupleCache.get(t);
 		}
 
 		@Override
-		public Integer visit(Element e, Void param) {
+		public Long visit(Element e, Void param) {
 			return e.getOriginal().accept(this, param);
 		}
 	}

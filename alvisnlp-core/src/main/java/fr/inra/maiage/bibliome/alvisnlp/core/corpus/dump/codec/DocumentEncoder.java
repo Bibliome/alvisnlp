@@ -41,7 +41,7 @@ public class DocumentEncoder extends ElementEncoder<Document> {
 	@Override
 	public int getSize(Document object) {
 		int nSec = object.size();
-		return 4 + 4 + 4 * nSec + super.getSize(object);
+		return REFERENCE_SIZE + 4 + REFERENCE_SIZE * nSec + super.getSize(object);
 	}
 
 	@Override
@@ -51,8 +51,8 @@ public class DocumentEncoder extends ElementEncoder<Document> {
 		int nSec = object.size();
 		buf.putInt(nSec);
 		for (Section sec : Iterators.loop(object.sectionIterator())) {
-			int secRef = sectionMarshaller.write(sec);
-			buf.putInt(secRef);
+			long secRef = sectionMarshaller.write(sec);
+			buf.putLong(secRef);
 		}
 		super.encode(object, buf);
 	}

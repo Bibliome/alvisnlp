@@ -30,7 +30,7 @@ public class TupleEncoder extends ElementEncoder<Tuple> {
 
 	@Override
 	public int getSize(Tuple object) {
-		return 4 + (4 + 4) * object.getArity() + super.getSize(object);
+		return 4 + (REFERENCE_SIZE + REFERENCE_SIZE) * object.getArity() + super.getSize(object);
 	}
 	
 	@Override
@@ -39,7 +39,7 @@ public class TupleEncoder extends ElementEncoder<Tuple> {
 		buf.putInt(nArgs);
 		for (String role : object.getRoles()) {
 			writeString(buf, role);
-			buf.putInt(0);
+			buf.putLong(0);
 		}
 		super.encode(object, buf);
 	}

@@ -18,13 +18,13 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.core.module;
 
-import java.io.File;
 import java.util.Collection;
 import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.ElementCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.documentation.Documentable;
 import fr.inra.maiage.bibliome.util.Timer;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 /**
  * A module is processing unit.
@@ -81,13 +81,13 @@ public interface Module<T extends Annotable> extends ElementCreator, Documentabl
      * Returns the file where to dump an XML serialization of the corpus, if any.
      * @return the file where to dump the corpus, if this module is not required to dump the corpus, then returns null.
      */
-    public File getDumpFile();
+    public OutputFile getDumpFile();
 
     /**
      * Sets the file where to dump the corpus.
      * @param file path to the dump file
      */
-    public void setDumpFile(File file);
+    public void setDumpFile(OutputFile file);
 
     
 

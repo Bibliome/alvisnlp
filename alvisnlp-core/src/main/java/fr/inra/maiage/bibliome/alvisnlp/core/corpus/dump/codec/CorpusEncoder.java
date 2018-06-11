@@ -52,7 +52,7 @@ public class CorpusEncoder extends ElementEncoder<Corpus> {
 	@Override
 	public int getSize(Corpus object) {
 		int nDocs = object.countDocuments();
-		return 4 + 4 * nDocs + super.getSize(object);
+		return 4 + REFERENCE_SIZE * nDocs + super.getSize(object);
 	}
 
 	@Override
@@ -60,8 +60,8 @@ public class CorpusEncoder extends ElementEncoder<Corpus> {
 		int nDocs = object.countDocuments();
 		buf.putInt(nDocs);
 		for (Document doc : Iterators.loop(object.documentIterator())) {
-			int docRef = docMarshaller.write(doc);
-			buf.putInt(docRef);
+			long docRef = docMarshaller.write(doc);
+			buf.putLong(docRef);
 		}
 		super.encode(object, buf);
 	}
