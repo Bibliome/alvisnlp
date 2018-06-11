@@ -26,6 +26,7 @@ import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
@@ -45,19 +46,21 @@ import fr.inra.maiage.bibliome.util.marshall.StringCodec;
 import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
 
 public class Undumper implements AutoCloseable {
+	private final Logger logger;
 	private final FileChannel channel;
 	
-	public Undumper(FileChannel channel) {
+	public Undumper(Logger logger, FileChannel channel) {
 		super();
+		this.logger = logger;
 		this.channel = channel;
 	}
 	
-	public Undumper(Path path) throws IOException {
-		this(FileChannel.open(path, StandardOpenOption.READ));
+	public Undumper(Logger logger, Path path) throws IOException {
+		this(logger, FileChannel.open(path, StandardOpenOption.READ));
 	}
 	
-	public Undumper(File file) throws IOException {
-		this(file.toPath());
+	public Undumper(Logger logger, File file) throws IOException {
+		this(logger, file.toPath());
 	}
 	
 	@Override
@@ -66,6 +69,7 @@ public class Undumper implements AutoCloseable {
 	}
 
 	public Corpus readCorpus() throws IOException {
+		logger.info("undumping...");
 		ReadCache<String> stringCache = MapReadCache.hashMap();
 		Unmarshaller<String> stringUnmarshaller = new Unmarshaller<String>(channel, StringCodec.INSTANCE, stringCache);
 		CorpusDecoder corpusDecoder = new CorpusDecoder(stringUnmarshaller);
@@ -83,7 +87,7 @@ public class Undumper implements AutoCloseable {
 			long tRef = e.getKey();
 			Tuple t = e.getValue();
 			ByteBuffer buf = corpusUnmarshaller.getBuffer(tRef);
-			processTupleArguments(buf, stringUnmarshaller, argDeref, t, tRef);
+			processTupleArguments(buf, stringUnmarshaller, argDeref, t);
 		}
 	}
 	
@@ -93,14 +97,13 @@ public class Undumper implements AutoCloseable {
 		RelationDecoder relDecoder = secDecoder.getRelationDecoder();
 		return relDecoder.getAllTuples();
 	}
-	
-	private static void processTupleArguments(ByteBuffer buf, Unmarshaller<String> stringUnmarshaller, ElementDereferencer argDeref, Tuple t, long ref) {
-		buf.position((int) ref); // XXX unsafe cast
+
+	private static void processTupleArguments(ByteBuffer buf, Unmarshaller<String> stringUnmarshaller, ElementDereferencer argDeref, Tuple t) {
 		int arity = buf.getInt();
 		for (int i = 0; i < arity; ++i) {
-			int roleRef = buf.getInt();
+			long roleRef = buf.getLong();
 			String role = stringUnmarshaller.read(roleRef);
-			int argRef = buf.getInt();
+			long argRef = buf.getLong();
 			Element arg = argDeref.getElement(argRef);
 			t.setArgument(role, arg);
 		}
@@ -133,7 +136,7 @@ public class Undumper implements AutoCloseable {
 			caches.add(tupleCache);
 		}
 
-		private Element getElement(int reference) {
+		private Element getElement(long reference) {
 			for (ReadCache<? extends Element> cache : caches) {
 				Element result = cache.get(reference);
 				if (result != null) {

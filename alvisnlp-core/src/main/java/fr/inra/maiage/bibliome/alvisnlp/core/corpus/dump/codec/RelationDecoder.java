@@ -49,7 +49,7 @@ public class RelationDecoder extends ElementDecoder<Relation> implements Relatio
 		tupleDecoder.setRelation(relation);
 		int nTuples = buffer.getInt();
 		for (int i = 0; i < nTuples; ++i) {
-			int tRef = buffer.getInt();
+			long tRef = buffer.getLong();
 			tupleUnmarshaller.read(tRef);
 		}
 		return relation;

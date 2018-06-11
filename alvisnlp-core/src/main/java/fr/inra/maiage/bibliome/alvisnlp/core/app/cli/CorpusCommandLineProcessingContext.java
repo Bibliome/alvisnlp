@@ -84,7 +84,7 @@ public class CorpusCommandLineProcessingContext extends CommandLineProcessingCon
 	}
 
 	@Override
-	public Dumper<Corpus> getDumper(File file) throws IOException {
-		return new CorpusDumper(file);
+	public Dumper<Corpus> getDumper(Logger logger, File file) throws IOException {
+		return new CorpusDumper(logger, file);
 	}
 }

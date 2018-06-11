@@ -25,6 +25,7 @@ import java.nio.channels.FileChannel.MapMode;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
@@ -46,19 +47,21 @@ import fr.inra.maiage.bibliome.util.marshall.Marshaller;
 import fr.inra.maiage.bibliome.util.marshall.WriteCache;
 
 public class CorpusDumper implements Annotable.Dumper<Corpus> {
+	private final Logger logger;
 	private final FileChannel channel;
 	
-	public CorpusDumper(FileChannel channel) {
+	public CorpusDumper(Logger logger, FileChannel channel) {
 		super();
+		this.logger = logger;
 		this.channel = channel;
 	}
 	
-	public CorpusDumper(Path path) throws IOException {
-		this(FileChannel.open(path, StandardOpenOption.READ, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.CREATE));
+	public CorpusDumper(Logger logger, Path path) throws IOException {
+		this(logger, FileChannel.open(path, StandardOpenOption.READ, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.CREATE));
 	}
 	
-	public CorpusDumper(File file) throws IOException {
-		this(file.toPath());
+	public CorpusDumper(Logger logger, File file) throws IOException {
+		this(logger, file.toPath());
 	}
 
 	@Override
@@ -68,6 +71,7 @@ public class CorpusDumper implements Annotable.Dumper<Corpus> {
 
 	@Override
 	public void dump(Corpus annotable) throws IOException {
+		logger.info("dumping...");
 		CorpusEncoder corpusEncoder = new CorpusEncoder(channel);
 		WriteCache<Corpus> corpusCache = MapWriteCache.hashMap();
 		Marshaller<Corpus> corpusMarshaller = new Marshaller<Corpus>(channel, corpusEncoder, corpusCache);
