@@ -964,8 +964,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
         			continue;
         		}
         		String dumpPath = e.getValue();
-        		ParamConverter converter = converterFactory.getService(OutputFile.class);
-        		OutputFile dumpFile = (OutputFile) converter.convert(dumpPath);
+        		OutputFile dumpFile = getOutputFile(dumpPath);
         		logger.config("setting dump file after " + modulePath + " to " + dumpFile);
         		module.setDumpFile(dumpFile);
         	}
