@@ -123,8 +123,8 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	protected final Timer<TimerCategory> timer = new Timer<TimerCategory>("alvisnlp", TimerCategory.MODULE);
 	
 	private Level logLevel = Level.FINE;
-	private File logFile = null;
-	private Map<String,File> logFiles = new LinkedHashMap<String,File>();
+	private String logPath = null;
+	private Map<String,String> logPaths = new LinkedHashMap<String,String>();
 	private boolean appendToLog = false;
 	private File tmpDir = new File("/tmp");
 	private boolean dumps = true;
@@ -196,17 +196,18 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 
 	/**
 	 * CLI option: set the log file.
-	 * @param logFile
+	 * @param logPath
 	 */
 	@CLIOption("-log")
-	public final void setLogFile(String logFile) {
-		int colon = logFile.indexOf(':');
-		if (colon < 0)
-			this.logFile = new File(logFile);
+	public final void setLogPath(String logPath) {
+		int colon = logPath.indexOf(':');
+		if (colon < 0) {
+			this.logPath = logPath;
+		}
 		else {
-			String log = logFile.substring(0, colon);
-			File file = new File(logFile.substring(colon + 1));
-			logFiles.put(log, file);
+			String log = logPath.substring(0, colon);
+			String path = logPath.substring(colon + 1);
+			logPaths.put(log, path);
 		}
 	}
 	
@@ -727,15 +728,16 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
         return result;
     }
     
-    private void setHandlers(Logger logger, File file) throws FileNotFoundException {
+    private void setHandlers(Logger logger, String path) throws FileNotFoundException, UnsupportedServiceException, ConverterException {
     	for (Handler h : logger.getHandlers()) {
     		logger.removeHandler(h);
     	}
         Handler stderrHandler = new FlushedStreamHandler(System.err, noColors ? CommandLineLogFormatter.INSTANCE : CommandLineLogFormatter.COLORS);
         logger.addHandler(stderrHandler);
-        if (file == null)
+        if (path == null)
 			stderrHandler.setLevel(logLevel);
 		else {
+			File file = getOutputFile(path);
 			File dir = file.getParentFile();
 			if (dir != null) {
 				dir.mkdirs();
@@ -753,12 +755,20 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
         }
     }
     
-    protected Logger getLogger(C ctx) throws FileNotFoundException, IOException {
+    private OutputFile getOutputFile(String path) throws ConverterException, UnsupportedServiceException {
+        ParamConverter converter = converterFactory.getService(OutputFile.class);
+        if (outputDir != null) {
+        	converter.setOutputDir(outputDir);
+        }
+    	return (OutputFile) converter.convert(path);
+    }
+    
+    protected Logger getLogger(C ctx) throws FileNotFoundException, IOException, UnsupportedServiceException, ConverterException {
     	Logger result = ctx.getLogger("alvisnlp");
     	result.setLevel(logLevel);
         result.setUseParentHandlers(false);
-    	setHandlers(result, logFile);
-    	for (Map.Entry<String,File> e : logFiles.entrySet()) {
+    	setHandlers(result, logPath);
+    	for (Map.Entry<String,String> e : logPaths.entrySet()) {
         	Logger logger = ctx.getLogger("alvisnlp." + e.getKey());
         	logger.setLevel(logLevel);
         	setHandlers(logger, e.getValue());
@@ -1014,10 +1024,12 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     /**
      * Process the plan specified in command line.
      * @throws IOException 
+     * @throws ConverterException 
+     * @throws UnsupportedServiceException 
      * @throws FileNotFoundException 
      * @throws Exception
      */
-    public void process() throws IOException {
+    public void process() throws IOException, UnsupportedServiceException, ConverterException {
     	C ctx = getProcessingContext();
     	Logger logger = getLogger(ctx);
 		try {
