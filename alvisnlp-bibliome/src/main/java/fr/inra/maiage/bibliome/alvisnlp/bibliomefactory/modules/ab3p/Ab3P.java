@@ -196,11 +196,11 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 					if (eof) {
 						processingException("output has too few lines");
 					}
-					String checkContents = reader.readLine().trim();
+					String checkContents = reader.readLine().replace('\n', ' ').trim();
 					String rawContents = sec.getContents();
 					String lineContents = rawContents.replace('\n', ' ').trim();
 					if (!checkContents.equals(lineContents)) {
-						processingException("failed check line : " + checkContents + " / " + lineContents);
+						processingException("failed check line : '" + checkContents + "' / '" + lineContents + "'");
 					}
 					while (true) {
 						String line = reader.readLine();
