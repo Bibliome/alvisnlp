@@ -26,13 +26,11 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
-
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
@@ -45,12 +43,11 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AbstractExternal;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Files;
 import fr.inra.maiage.bibliome.util.Iterators;
@@ -158,14 +155,13 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 		this.longFormRole = longFormRole;
 	}
 
-	private class Ab3PExternal implements External<Corpus> {
-		private final Logger logger;
+	private class Ab3PExternal extends AbstractExternal<Corpus,Ab3P> {
 		private final File scriptFile;
 		private final File inputFile;
 		private final File outputFile;
 
 		private Ab3PExternal(ProcessingContext<Corpus> ctx, Corpus corpus) throws IOException {
-			logger = getLogger(ctx);
+			super(Ab3P.this, ctx);
 			File tmpDir = getTempDir(ctx);
 			scriptFile = new File(tmpDir, "script.sh");
 			inputFile = new File(tmpDir, "input.txt");
@@ -175,7 +171,7 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 				Files.copy(is, scriptFile, 1024, true);
 				scriptFile.setExecutable(true);
 			}
-			EvaluationContext evalCtx = new EvaluationContext(logger);
+			EvaluationContext evalCtx = new EvaluationContext(getLogger());
 			try (PrintStream ps = new PrintStream(inputFile)) {
 				for (Document doc : Iterators.loop(documentIterator(evalCtx, corpus))) {
 					for (Section sec : Iterators.loop(sectionIterator(evalCtx, doc))) {
@@ -190,7 +186,7 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 		
 		private void readOutput(Corpus corpus) throws IOException, ProcessingException {
 			try (BufferedReader reader = new BufferedReader(new FileReader(outputFile))) {
-				EvaluationContext evalCtx = new EvaluationContext(logger);
+				EvaluationContext evalCtx = new EvaluationContext(getLogger());
 				boolean eof = false;
 				for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
 					if (eof) {
@@ -213,7 +209,7 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 							break;
 						}
 						if (line.startsWith("//")) {
-							logger.info("ignoring line " + line);
+							getLogger().info("ignoring line " + line);
 							continue;
 						}
 						List<String> cols = Strings.split(line, '|', 0);
@@ -255,11 +251,6 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 		}
 
 		@Override
-		public Module<Corpus> getOwner() {
-			return Ab3P.this;
-		}
-
-		@Override
 		public String[] getCommandLineArgs() throws ModuleException {
 			return new String[] {
 					scriptFile.getAbsolutePath()
@@ -278,20 +269,6 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 		@Override
 		public File getWorkingDirectory() throws ModuleException {
 			return installDir;
-		}
-
-		@Override
-		public void processOutput(BufferedReader out, BufferedReader err) throws ModuleException {
-			try {
-				logger.fine("Ab3P standard error:");
-				for (String line = err.readLine(); line != null; line = err.readLine()) {
-					logger.fine("    " + line);
-				}
-				logger.fine("end of Ab3P standard error");
-			}
-			catch (IOException ioe) {
-				logger.warning("could not read Ab3P standard error: " + ioe.getMessage());
-			}
 		}
 	}
 }

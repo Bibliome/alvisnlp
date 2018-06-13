@@ -1,36 +1,29 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.chemspot;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
 
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AbstractExternal;
 import fr.inra.maiage.bibliome.util.filelines.InvalidFileLineEntry;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 
-class ChemspotExternal<T extends Annotable> implements External<T> {
-	private final ProcessingContext<T> ctx;
-	private final Module<T> owner;
+class ChemspotExternal extends AbstractExternal<Corpus,Chemspot> {
 	private final InputDirectory javaHome;
 	private final InputDirectory chemspotDir;
 	private final boolean noDict;
 	private final File inputDir;
 	private final File outputDir;
 	
-	ChemspotExternal(ProcessingContext<T> ctx, Module<T> owner, InputDirectory javaHome, InputDirectory chemspotDir, boolean noDict, File tmpDir) {
-		super();
-		this.ctx = ctx;
-		this.owner = owner;
+	ChemspotExternal(Chemspot owner, ProcessingContext<Corpus> ctx, InputDirectory javaHome, InputDirectory chemspotDir, boolean noDict, File tmpDir) {
+		super(owner, ctx);
 		this.javaHome = javaHome;
 		this.chemspotDir = chemspotDir;
 		this.noDict = noDict;
@@ -38,11 +31,6 @@ class ChemspotExternal<T extends Annotable> implements External<T> {
 		this.outputDir = new File(tmpDir, "output");
 		inputDir.mkdirs();
 		outputDir.mkdirs();
-	}
-
-	@Override
-	public Module<T> getOwner() {
-		return owner;
 	}
 
 	@Override
@@ -73,21 +61,6 @@ class ChemspotExternal<T extends Annotable> implements External<T> {
 	@Override
 	public File getWorkingDirectory() throws ModuleException {
 		return chemspotDir;
-	}
-
-	@Override
-	public void processOutput(BufferedReader out, BufferedReader err) throws ModuleException {
-        Logger logger = owner.getLogger(ctx);
-        try {
-            logger.fine("chemspot standard error:");
-            for (String line = err.readLine(); line != null; line = err.readLine()) {
-                logger.fine("    " + line);
-            }
-            logger.fine("end of chemspot standard error");
-        }
-        catch (IOException ioe) {
-            logger.warning("could not read chemspot standard error: " + ioe.getMessage());
-        }
 	}
 	
 	void addInput(String name, String content) throws FileNotFoundException {

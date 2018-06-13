@@ -28,15 +28,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.LinkedHashSet;
 import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ccg.CCGBase.CCGResolvedObjects;
-
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
@@ -51,6 +50,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AbstractExternal;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalFailureException;
@@ -297,27 +297,20 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 		}
 	}
 
-	private final class CCGParserExternal implements External<Corpus> {
+	private final class CCGParserExternal extends AbstractExternal<Corpus,CCGParser> {
 		private final int maxLength;
 		private final OutputFile input;
 		private final InputFile output;
 		private final File log;
-		private final ProcessingContext<Corpus> ctx;
 
 		private CCGParserExternal(ProcessingContext<Corpus> ctx, int n, int maxLength) {
-			super();
-			this.ctx = ctx;
+			super(CCGParser.this, ctx);
 			this.maxLength = maxLength;
 			File tmp = getTempDir(ctx);
 			String h = String.format("corpus_%8H", n);
 			input = new OutputFile(tmp, h + ".txt");
 			output = new InputFile(tmp, h + ".dep");
 			log = new File(tmp, "ccg.log");
-		}
-
-		@Override
-		public Module<Corpus> getOwner() {
-			return CCGParser.this;
 		}
 
 		@Override
@@ -357,21 +350,6 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 		@Override
 		public File getWorkingDirectory() throws ModuleException {
 			return null;
-		}
-
-		@Override
-		public void processOutput(BufferedReader out, BufferedReader err) throws ModuleException {
-			Logger logger = getLogger(ctx);
-			try {
-				logger.fine("CCG standard error:");
-				for (String line = err.readLine(); line != null; line = err.readLine()) {
-					logger.fine("    " + line);
-				}
-				logger.fine("end of CCG standard error");
-			}
-			catch (IOException ioe) {
-				logger.warning("could not read CCG standard error: " + ioe.getMessage());
-			}
 		}
 	}
 

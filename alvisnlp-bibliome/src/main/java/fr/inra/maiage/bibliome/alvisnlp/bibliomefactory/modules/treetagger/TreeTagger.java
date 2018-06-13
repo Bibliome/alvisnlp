@@ -174,7 +174,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
             Map<String,String> lexicon = getLexicon(ctx);
             File tempDir = getTempDir(ctx);
-            TreeTaggerExternal<Corpus> tte = new TreeTaggerExternal<Corpus>(ctx, this, tempDir, treeTaggerExecutable, parFile, lexicon);
+            TreeTaggerExternal tte = new TreeTaggerExternal(ctx, this, tempDir, treeTaggerExecutable, parFile, lexicon);
 
             writeTTInput(ctx, evalCtx, corpus, tte);
 
@@ -255,7 +255,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
     }
 
     @TimeThis(task="treetagger-input", category=TimerCategory.PREPARE_DATA)
-    protected void writeTTInput(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, Corpus corpus, TreeTaggerExternal<Corpus> tte) throws IOException {
+    protected void writeTTInput(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, Corpus corpus, TreeTaggerExternal tte) throws IOException {
         tte.openInput("corpus", inputCharset);
         for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
 //        	logger.finer("preparing TT input for " + sec.getDocument().getId() + " / " + sec.getName());
@@ -270,7 +270,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
     }
 
     @TimeThis(task="treetagger-output", category=TimerCategory.COLLECT_DATA)
-    protected void readTTOutput(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, Corpus corpus, TreeTaggerExternal<Corpus> tte) throws ProcessingException, ModuleException, IOException {
+    protected void readTTOutput(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, Corpus corpus, TreeTaggerExternal tte) throws ProcessingException, ModuleException, IOException {
         tte.openOutput(outputCharset);
         for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
 //        	logger.finer("reading TT output for " + sec.getDocument().getId() + " / " + sec.getName());

@@ -19,18 +19,15 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.geniatagger;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Iterator;
 import java.util.List;
-import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.geniatagger.GeniaTagger.GeniaTaggerResolvedObjects;
-
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
@@ -42,14 +39,13 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContex
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AbstractExternal;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
 import fr.inra.maiage.bibliome.util.Files;
@@ -164,17 +160,15 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
         return Iterators.flatten(Mappers.apply(new AnnotationCollector(ctx, sentenceLayerName, resolvedSentenceFilter), corpus.sectionIterator(ctx, resolvedDocumentFilter, resolvedSectionFilter)));
 	}
 
-	protected class GeniaTaggerExternal implements External<Corpus> {
-		private final ProcessingContext<Corpus> ctx;
+	protected class GeniaTaggerExternal extends AbstractExternal<Corpus,GeniaTagger> {
 		private final EvaluationContext evalCtx;
 		private final File script;
 		private final OutputFile input;
 		private final InputFile output;
 		
 		public GeniaTaggerExternal(ProcessingContext<Corpus> ctx, Corpus corpus, File tmpDir) throws IOException {
-			super();
-			this.ctx = ctx;
-			this.evalCtx = new EvaluationContext(getLogger(ctx));
+			super(GeniaTagger.this, ctx);
+			this.evalCtx = new EvaluationContext(getLogger());
 			
 			script = new File(tmpDir, "genia.sh");
 			// same ClassLoader as this class
@@ -269,11 +263,6 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 		}
 
 		@Override
-		public Module<Corpus> getOwner() {
-			return GeniaTagger.this;
-		}
-
-		@Override
 		public String[] getCommandLineArgs() throws ModuleException {
 			return new String[] {
 					script.getAbsolutePath()
@@ -293,27 +282,6 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 		@Override
 		public File getWorkingDirectory() throws ModuleException {
 			return geniaDir;
-		}
-
-		@Override
-		public void processOutput(BufferedReader out, BufferedReader err) throws ModuleException {
-			try {
-				Logger logger = getLogger(ctx);
-				logger.fine("geniatagger standard error:");
-				while (true) {
-					String line = err.readLine();
-					if (line == null)
-						break;
-					logger.fine("    " + line);
-				}
-				logger.fine("end of geniatagger standard error");
-			}
-			catch (FileNotFoundException fnfe) {
-				rethrow(fnfe);
-			}
-			catch (IOException ioe) {
-				rethrow(ioe);
-			}
 		}
 	}
 

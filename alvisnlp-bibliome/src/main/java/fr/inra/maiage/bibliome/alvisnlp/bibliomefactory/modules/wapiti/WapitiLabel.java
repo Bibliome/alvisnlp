@@ -49,7 +49,7 @@ public class WapitiLabel extends AbstractWapiti {
 		try {
 			WapitiLabelExternal external = new WapitiLabelExternal(ctx, corpus);
 			callExternal(ctx, "wapiti", external, "UTF-8", "wapiti.sh");
-			external.readResult(ctx, corpus);
+			external.readResult(corpus);
 		}
 		catch (IOException e) {
 			rethrow(e);
@@ -79,9 +79,9 @@ public class WapitiLabel extends AbstractWapiti {
 		this.modelFile = modelFile;
 	}
 
-	private class WapitiLabelExternal extends WapitiExternal {
+	private class WapitiLabelExternal extends WapitiExternal<WapitiLabel> {
 		public WapitiLabelExternal(ProcessingContext<Corpus> ctx, Corpus corpus) throws IOException {
-			super(ctx, corpus, new File(getTempDir(ctx), "labels.txt"));
+			super(WapitiLabel.this, ctx, corpus, new File(getTempDir(ctx), "labels.txt"));
 		}
 
 		@Override
@@ -95,9 +95,9 @@ public class WapitiLabel extends AbstractWapiti {
 			addOption(args, "--model", modelFile);
 		}
 		
-		private void readResult(ProcessingContext<Corpus> ctx, Corpus corpus) throws IOException, ProcessingException {
+		private void readResult(Corpus corpus) throws IOException, ProcessingException {
 			try (BufferedReader reader = new BufferedReader(new FileReader(outputFile))) {
-				Logger logger = getLogger(ctx);
+				Logger logger = getLogger();
 				EvaluationContext evalCtx = new EvaluationContext(logger);
 				for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
 					for (Layer sentence : sec.getSentences(getTokenLayerName(), getSentenceLayerName())) {

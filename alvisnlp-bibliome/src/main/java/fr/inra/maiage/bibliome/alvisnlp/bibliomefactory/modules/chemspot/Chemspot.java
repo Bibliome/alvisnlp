@@ -49,7 +49,7 @@ public abstract class Chemspot extends SectionModule<SectionResolvedObjects> imp
 			File tmpDir = getTempDir(ctx);
 			Logger logger = getLogger(ctx);
 			EvaluationContext evalCtx = new EvaluationContext(logger);
-			ChemspotExternal<Corpus> external = new ChemspotExternal<>(ctx, this, javaHome, chemspotDir, noDict, tmpDir);
+			ChemspotExternal external = new ChemspotExternal(this, ctx, javaHome, chemspotDir, noDict, tmpDir);
 			for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
 				String name = sec.getFileName();
 				String content = sec.getContents();

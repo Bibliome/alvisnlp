@@ -1,6 +1,5 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tees;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,12 +15,11 @@ import javax.xml.bind.Marshaller;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AbstractExternal;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Files;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
@@ -169,17 +167,15 @@ public abstract class TEESTrain extends TEESMapper {
 		this.modelName = modelName;
 	}
 
-	private final class TEESTrainExternal implements External<Corpus> {
+	private final class TEESTrainExternal extends AbstractExternal<Corpus,TEESTrain> {
 		private final OutputFile trainInput;
 		private final OutputFile devInput;
 		private final OutputFile testInput;
-		private final ProcessingContext<Corpus> ctx;
 		public final File baseDir;
 		private final File script;
 
 		private TEESTrainExternal(ProcessingContext<Corpus> ctx) throws IOException {
-			super();
-			this.ctx = ctx;
+			super(TEESTrain.this, ctx);
 			File tmp = getTempDir(ctx);
 			baseDir = tmp;
 			this.trainInput = new OutputFile(tmp.getAbsolutePath(), "train-o" + ".xml");
@@ -192,11 +188,6 @@ public abstract class TEESTrain extends TEESMapper {
 				Files.copy(is, script, 1024, true);
 			}
 			script.setExecutable(true);
-		}
-
-		@Override
-		public Module<Corpus> getOwner() {
-			return TEESTrain.this;
 		}
 		
 		@Override
@@ -230,20 +221,6 @@ public abstract class TEESTrain extends TEESMapper {
 		@Override
 		public File getWorkingDirectory() throws ModuleException {
 			return this.baseDir;
-		}
-
-		@Override
-		public void processOutput(BufferedReader out, BufferedReader err) throws ModuleException {
-			Logger logger = getLogger(ctx);
-			try {
-				logger.fine("TEES standard error");
-				for (String line = err.readLine(); line != null; line = err.readLine()) {
-					logger.fine("    " + line);
-				}
-				logger.fine("end of TEES classifier error");
-			} catch (IOException ioe) {
-				logger.warning("could not read TEES standard error: " + ioe.getMessage());
-			}
 		}
 
 		public OutputFile getTrainInput() {

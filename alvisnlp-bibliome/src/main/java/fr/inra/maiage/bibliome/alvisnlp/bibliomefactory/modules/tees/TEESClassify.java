@@ -1,6 +1,5 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tees;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -21,12 +20,11 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AbstractExternal;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Files;
 import fr.inra.maiage.bibliome.util.files.InputFile;
@@ -178,16 +176,14 @@ public abstract class TEESClassify extends TEESMapper {
 	 * @author mba
 	 *
 	 */
-	private final class TEESClassifyExternal implements External<Corpus> {
+	private final class TEESClassifyExternal extends AbstractExternal<Corpus,TEESClassify> {
 		private final OutputFile input;
 		private final String outputStem;
-		private final ProcessingContext<Corpus> ctx;
 		public final File baseDir;
 		private final File script;
 
 		private TEESClassifyExternal(ProcessingContext<Corpus> ctx) throws IOException {
-			super();
-			this.ctx = ctx;
+			super(TEESClassify.this, ctx);
 			File tmp = getTempDir(ctx);
 			baseDir = tmp;
 			this.input = new OutputFile(tmp.getAbsolutePath(), "tees-o" + ".xml");
@@ -202,12 +198,6 @@ public abstract class TEESClassify extends TEESMapper {
 			script.setExecutable(true);
 		}
 
-		@Override
-		public Module<Corpus> getOwner() {
-			return TEESClassify.this;
-		}
-		
-		
 		@Override
 		public String[] getCommandLineArgs() throws ModuleException {
 			List<String> clArgs = new ArrayList<String>();
@@ -235,20 +225,6 @@ public abstract class TEESClassify extends TEESMapper {
 		@Override
 		public File getWorkingDirectory() throws ModuleException {
 			return this.baseDir;
-		}
-
-		@Override
-		public void processOutput(BufferedReader out, BufferedReader err) throws ModuleException {
-			Logger logger = getLogger(ctx);
-			try {
-				logger.fine("TEES standard error:");
-				for (String line = err.readLine(); line != null; line = err.readLine()) {
-					logger.fine("    " + line);
-				}
-				logger.fine("end of TEES classifier error");
-			} catch (IOException ioe) {
-				logger.warning("could not read TEES standard error: " + ioe.getMessage());
-			}
 		}
 
 		public File getPredictionFile() throws IOException {

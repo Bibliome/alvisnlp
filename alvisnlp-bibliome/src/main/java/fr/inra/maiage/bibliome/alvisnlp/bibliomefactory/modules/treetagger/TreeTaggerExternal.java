@@ -26,13 +26,11 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.util.Map;
-import java.util.logging.Logger;
 
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AbstractExternal;
 import fr.inra.maiage.bibliome.util.Strings;
 
 // TODO: Auto-generated Javadoc
@@ -41,10 +39,7 @@ import fr.inra.maiage.bibliome.util.Strings;
  * 
  * @author rbossy
  */
-public class TreeTaggerExternal<T extends Annotable> implements External<T> {
-
-    /** The owner. */
-    private final Module<T>             owner;
+public class TreeTaggerExternal extends AbstractExternal<Corpus,TreeTagger> {
 
     private final File tmpDir;
     
@@ -56,9 +51,6 @@ public class TreeTaggerExternal<T extends Annotable> implements External<T> {
 
     /** The lexicon. */
     private final Map<String,String> lexicon;
-
-    /** The silent. */
-    private boolean                  silent      = false;
 
     /** The input file. */
     private File                     inputFile   = null;
@@ -78,8 +70,6 @@ public class TreeTaggerExternal<T extends Annotable> implements External<T> {
 
     /** The lemma. */
     private String                   lemma       = null;
-
-    private final ProcessingContext<T> ctx;
     
     /**
      * Instantiates a new tree tagger external.
@@ -93,10 +83,8 @@ public class TreeTaggerExternal<T extends Annotable> implements External<T> {
      * @param lexicon
      *            the lexicon
      */
-    public TreeTaggerExternal(ProcessingContext<T> ctx, Module<T> owner, File tmpDir, File treeTaggerExecutable, File parFile, Map<String,String> lexicon) {
-        super();
-        this.ctx = ctx;
-        this.owner = owner;
+    public TreeTaggerExternal(ProcessingContext<Corpus> ctx, TreeTagger owner, File tmpDir, File treeTaggerExecutable, File parFile, Map<String,String> lexicon) {
+        super(owner, ctx);
         this.tmpDir = tmpDir;
         this.treeTaggerExecutable = treeTaggerExecutable;
         this.parFile = parFile;
@@ -268,13 +256,6 @@ public class TreeTaggerExternal<T extends Annotable> implements External<T> {
         reader = null;
     }
 
-    /**
-     * Sets the silent.
-     */
-    public void setSilent() {
-        silent = false;
-    }
-
     @Override
     public String[] getCommandLineArgs() throws ModuleException {
         return new String[] {
@@ -302,44 +283,10 @@ public class TreeTaggerExternal<T extends Annotable> implements External<T> {
     /*
      * (non-Javadoc)
      * 
-     * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#getOwner()
-     */
-    @Override
-    public Module<T> getOwner() {
-        return owner;
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
      * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#getWorkingDirectory()
      */
     @Override
     public File getWorkingDirectory() throws ModuleException {
         return null;
-    }
-
-    /*
-     * (non-Javadoc)
-     * 
-     * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#processOutput(java.io.BufferedReader,
-     * java.io.BufferedReader)
-     */
-    @Override
-    public void processOutput(BufferedReader out, BufferedReader err) throws ModuleException {
-        if (silent) {
-			return;
-		}
-        Logger logger = owner.getLogger(ctx);
-        try {
-            logger.fine("tree-tagger standard error:");
-            for (String line = err.readLine(); line != null; line = err.readLine()) {
-                logger.fine("    " + line);
-            }
-            logger.fine("end of tree-tagger standard error");
-        }
-        catch (IOException ioe) {
-            logger.warning("could not read tree-tagger standard error: " + ioe.getMessage());
-        }
     }
 }

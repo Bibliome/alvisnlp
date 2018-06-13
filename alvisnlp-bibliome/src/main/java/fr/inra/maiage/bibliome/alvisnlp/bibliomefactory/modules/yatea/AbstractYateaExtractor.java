@@ -37,7 +37,6 @@ import java.util.regex.Pattern;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
-
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
@@ -49,7 +48,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AbstractExternal;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
 import fr.inra.maiage.bibliome.util.Iterators;
@@ -120,7 +119,7 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
 			processingException("could not create " + outputDir.getAbsolutePath());
 		}
 		try {
-			YateaExtractorExternal yateaExt = new YateaExtractorExternal(ctx);
+			YateaExtractorExternal<S> yateaExt = new YateaExtractorExternal<S>(this, ctx);
 			InputFile testifiedTerminology = this.testifiedTerminology == null ? null : this.testifiedTerminology.ensureFile(this, ctx, corpus);
 			yateaExt.createRCFile(testifiedTerminology);
 			yateaExt.createInput(evalCtx, corpus);
@@ -509,30 +508,31 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
     	return new Pair<Properties,Properties>(defaultConfig, options);
     }
     
-    private final class YateaExtractorExternal implements External<Corpus> {
+    private static class YateaExtractorExternal<S extends SectionResolvedObjects> extends AbstractExternal<Corpus,AbstractYateaExtractor<S>> {
     	private final ProcessingContext<Corpus> ctx;
         private File   ttgCorpus         = null;
         private File rcTempFile;
 
-        private YateaExtractorExternal(ProcessingContext<Corpus> ctx) {
-			super();
+        private YateaExtractorExternal(AbstractYateaExtractor<S> owner, ProcessingContext<Corpus> ctx) {
+			super(owner, ctx);
 			this.ctx = ctx;
 		}
         
         private void createRCFile(InputFile testifiedTerminology) throws IOException {
-        	Pair<Properties,Properties> p = createConfig(testifiedTerminology);
+        	Pair<Properties,Properties> p = getOwner().createConfig(testifiedTerminology);
         	Properties defaultConfig = p.first;
         	Properties options = p.second;
-        	File tmpDir = getTempDir(ctx);
+        	File tmpDir = getOwner().getTempDir(ctx);
         	rcTempFile = new File(tmpDir, "config.rc");
         	writeYateaConfig(rcTempFile, defaultConfig, options);
         }
 
         private void createInput(EvaluationContext evalCtx, Corpus corpus) throws ModuleException {
-            Timer<TimerCategory> inputTimer = getTimer(ctx, "yatea-input", TimerCategory.PREPARE_DATA, true);
+        	AbstractYateaExtractor<S> owner = getOwner();
+            Timer<TimerCategory> inputTimer = owner.getTimer(ctx, "yatea-input", TimerCategory.PREPARE_DATA, true);
             PrintStream ttgOut = null;
             try {
-            	File tmpDir = getTempDir(ctx);
+            	File tmpDir = owner.getTempDir(ctx);
             	ttgCorpus = new File(tmpDir, "corpus.ttg");
                 ttgCorpus.getParentFile().mkdirs();
                 ttgOut = new PrintStream(new BufferedOutputStream(new FileOutputStream(ttgCorpus)), false, "UTF-8");
@@ -543,18 +543,18 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
             catch (UnsupportedEncodingException uee) {
                 rethrow(uee);
             }
-            for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-                if (documentTokens) {
+            for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, corpus))) {
+                if (owner.getDocumentTokens()) {
                     String s = Strings.normalizeSpace(sec.getDocument().getId() + "/" + sec.getName());
                 	ttgOut.printf("%s\tDOCUMENT\t%s\n", s, s);
                 }
-                for (Layer sent : sec.getSentences(wordLayerName, sentenceLayerName)) {
+                for (Layer sent : sec.getSentences(owner.getWordLayerName(), owner.getSentenceLayerName())) {
                     for (Annotation word : sent) {
-                    	String token = Strings.normalizeSpace(word.getLastFeature(formFeature));
+                    	String token = Strings.normalizeSpace(word.getLastFeature(owner.getFormFeature()));
                     	if (token.isEmpty())
                     		ttgOut.println(".\tSENT\t.");
                     	else
-                    		ttgOut.printf("%s\t%s\t%s\n", token, Strings.normalizeSpace(word.getLastFeature(posFeature)), Strings.normalizeSpace(word.getLastFeature(lemmaFeature)));
+                    		ttgOut.printf("%s\t%s\t%s\n", token, Strings.normalizeSpace(word.getLastFeature(owner.getPosFeature())), Strings.normalizeSpace(word.getLastFeature(owner.getLemmaFeature())));
     				}
                     ttgOut.printf(".\tSENT\t.\n");
                 }
@@ -565,20 +565,21 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
 
 		@Override
         public String[] getCommandLineArgs() throws ModuleException {
+			AbstractYateaExtractor<S> owner = getOwner();
 			List<String> result = new ArrayList<String>();
-			result.add(yateaExecutable.getAbsolutePath());
-			if (bioYatea || (postProcessingOutput != null && postProcessingConfig != null)) {
+			result.add(owner.getYateaExecutable().getAbsolutePath());
+			if (owner.getBioYatea() || (owner.getPostProcessingOutput() != null && owner.getPostProcessingConfig() != null)) {
 				result.add("--extract");
 			}
 			result.add("--rcfile");
 			result.add(rcTempFile.getAbsolutePath());
-			if (postProcessingOutput != null) {
+			if (owner.getPostProcessingOutput() != null) {
 				result.add("--post-processing");
-				result.add(postProcessingOutput.getAbsolutePath());
+				result.add(owner.getPostProcessingOutput().getAbsolutePath());
 			}
-			if (postProcessingConfig != null) {
+			if (owner.getPostProcessingConfig() != null) {
 				result.add("--post-processing-config");
-				result.add(postProcessingConfig.getAbsolutePath());
+				result.add(owner.getPostProcessingConfig().getAbsolutePath());
 			}
 			result.add(ttgCorpus.getAbsolutePath());
 			return result.toArray(new String[result.size()]);
@@ -586,6 +587,7 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
 
         @Override
         public String[] getEnvironment() {
+        	String perlLib = getOwner().getPerlLib();
             if (perlLib == null) {
     			return null;
     		}
@@ -597,33 +599,7 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
 
         @Override
         public File getWorkingDirectory() {
-            return workingDir;
+            return getOwner().getWorkingDir();
         }
-
-        @Override
-        public void processOutput(BufferedReader out, BufferedReader err) {
-            try {
-                Logger logger = getLogger(ctx);
-                logger.fine("yatea standard error:");
-                for (String line = err.readLine(); line != null; line = err.readLine()) {
-                	if (line.startsWith("CHERCHE")) {
-                		continue;
-                	}
-                	if (line.startsWith("Unparsed phrases...")) {
-                		continue;
-                	}
-                    logger.fine("    " + line);
-                }
-                logger.fine("end of yatea standard error");
-            }
-            catch (IOException ioe) {
-                getLogger(ctx).warning("could not read yatea standard error: " + ioe.getMessage());
-            }
-        }
-
-		@Override
-		public Module<Corpus> getOwner() {
-			return AbstractYateaExtractor.this;
-		}
     }
 }

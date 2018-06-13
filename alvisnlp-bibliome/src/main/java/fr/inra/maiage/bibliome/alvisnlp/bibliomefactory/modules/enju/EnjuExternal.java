@@ -24,8 +24,8 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.LinkedHashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.logging.Logger;
@@ -38,10 +38,9 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AbstractExternal;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase;
 import fr.inra.maiage.bibliome.util.Files;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
@@ -55,13 +54,11 @@ import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-public class EnjuExternal implements External<Corpus> {
+public class EnjuExternal extends AbstractExternal<Corpus,EnjuParser> {
 	private static final Pattern ENJU_LINE_PATTERN = Pattern.compile("(?<start>\\d+)\t(?<end>\\d+)\t(?<kind>[a-z0-9_]+) (?<attr>.*)");
 	private static final Pattern ENJU_ATTRIBUTE_PATTERN = Pattern.compile("\\s*(?<key>[a-z0-9_]+)=\"(?<value>.*?)\"\\s*");
 	private static final Pattern ENJU_PRED_PATTERN = Pattern.compile("(?<label>[a-z]+)(?<mod>_mod)?_arg\\d*(?<argn>\\d)");
 
-	private final EnjuParser enjuParser;
-	private final Logger logger;
 	private final ExecutableFile scriptFile;
 	private final OutputFile enjuIn;
 	private final InputFile enjuOut;
@@ -79,8 +76,7 @@ public class EnjuExternal implements External<Corpus> {
 	private int parseNumber = 0;
 
 	EnjuExternal(EnjuParser enjuParser2, File tempDir, Logger logger, Collection<Layer> sentences) throws IOException {
-		enjuParser = enjuParser2;
-		this.logger = logger;
+		super(enjuParser2, logger);
 		this.scriptFile = createScriptFile(tempDir);
 		this.enjuIn = new OutputFile(tempDir, "corpus.txt");
 		this.enjuOut = new InputFile(tempDir, "corpus.enju");
@@ -98,7 +94,7 @@ public class EnjuExternal implements External<Corpus> {
 	}
 
 	private int writeEnjuInput(Collection<Layer> sentences) throws IOException {
-		TargetStream enjuTS = new FileTargetStream(enjuParser.getEnjuEncoding(), enjuIn);
+		TargetStream enjuTS = new FileTargetStream(getOwner().getEnjuEncoding(), enjuIn);
 		try (PrintStream ps = enjuTS.getPrintStream()) {
 			int result = 0;
 			for (Layer sent : sentences) {
@@ -111,6 +107,7 @@ public class EnjuExternal implements External<Corpus> {
 	}
 
 	private void writeSentence(PrintStream ps, Layer sent) {
+		EnjuParser enjuParser = getOwner();
 		boolean notFirst = false;
 		for (Annotation word : sent) {
 			if (notFirst) {
@@ -130,7 +127,7 @@ public class EnjuExternal implements External<Corpus> {
 
 	void readEnjuOut(Collection<Layer> sentences) throws IOException, ProcessingException {
 		sentenceIt = sentences.iterator();
-		SourceStream enjuSS = new FileSourceStream(enjuParser.getEnjuEncoding(), enjuOut);
+		SourceStream enjuSS = new FileSourceStream(getOwner().getEnjuEncoding(), enjuOut);
 		try (BufferedReader r = enjuSS.getBufferedReader()) {
 			while (true) {
 				String line = r.readLine();
@@ -184,6 +181,7 @@ public class EnjuExternal implements External<Corpus> {
 		if (currentSentence == null) {
 			return;
 		}
+		EnjuParser enjuParser = getOwner();
 		Section sec = currentSentence.getSection();
 		Relation rel = sec.ensureRelation(enjuParser, enjuParser.getDependenciesRelationName());
 		for (PendingDependencies dep : dependencies) {
@@ -205,6 +203,7 @@ public class EnjuExternal implements External<Corpus> {
 		if (dependentId.equals("unk")) {
 			return;
 		}
+		EnjuParser enjuParser = getOwner();
 		Tuple t = new Tuple(enjuParser, rel);
 		t.setArgument(enjuParser.getSentenceRole(), currentSentence.getSentenceAnnotation());
 		t.setArgument(enjuParser.getDependencyHeadRole(), dep.head);
@@ -237,6 +236,7 @@ public class EnjuExternal implements External<Corpus> {
 		currentSentenceId = id;
 		wordPositionIndex.clear();
 		parseNumber = 0;
+		EnjuParser enjuParser = getOwner();
 		boolean notFirst = false;
 		for (Annotation word : currentSentence) {
 			if (notFirst) {
@@ -263,7 +263,7 @@ public class EnjuExternal implements External<Corpus> {
 		checkAttributes(line, attr, "parse_status");
 		String parseStatus = attr.get("parse_status");
 		Annotation sent = currentSentence.getSentenceAnnotation();
-		sent.addFeature(enjuParser.getParseStatusFeatureName(), parseStatus);
+		sent.addFeature(getOwner().getParseStatusFeatureName(), parseStatus);
 		wordIdIndex.clear();
 		consHeads.clear();
 		dependencies.clear();
@@ -321,7 +321,7 @@ public class EnjuExternal implements External<Corpus> {
 		if (best == null) {
 			enjuOutError(line, message);
 		}
-		logger.warning(message + " fallback: " + best);
+		getLogger().warning(message + " fallback: " + best);
 		return best;
 	}
 
@@ -382,17 +382,13 @@ public class EnjuExternal implements External<Corpus> {
 	}
 
 	@Override
-	public Module<Corpus> getOwner() {
-		return enjuParser;
-	}
-
-	@Override
 	public String[] getCommandLineArgs() throws ModuleException {
 		return new String[] { scriptFile.getAbsolutePath() };
 	}
 
 	@Override
 	public String[] getEnvironment() throws ModuleException {
+		EnjuParser enjuParser = getOwner();
 		return new String[] {
 				"ENJU_BIN=" + enjuParser.getEnjuExecutable().getAbsolutePath(),
 				"ENJU_IN=" + enjuIn.getAbsolutePath(),
@@ -406,22 +402,5 @@ public class EnjuExternal implements External<Corpus> {
 	@Override
 	public File getWorkingDirectory() throws ModuleException {
 		return null;
-	}
-
-	@Override
-	public void processOutput(BufferedReader out, BufferedReader err) throws ModuleException {
-		try {
-			logger.fine("enju standard error:");
-			while (true) {
-				String line = err.readLine();
-				if (line == null)
-					break;
-				logger.fine("    " + line);
-			}
-			logger.fine("end of enju standard error");
-		}
-		catch (IOException e) {
-			ModuleBase.rethrow(e);
-		}
 	}
 }

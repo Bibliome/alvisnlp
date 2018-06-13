@@ -25,19 +25,17 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ccg.CCGBase.CCGResolvedObjects;
-
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AbstractExternal;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
@@ -116,25 +114,18 @@ public class CCGPosTagger extends CCGBase<CCGResolvedObjects> {
 			readSentence(r, sent);
 	}
 	
-	private final class CCGPosTaggerExternal implements External<Corpus> {
+	private final class CCGPosTaggerExternal extends AbstractExternal<Corpus,CCGPosTagger> {
 		private final int maxLength;
 		private final OutputFile input;
 		private final InputFile output;
-		private final ProcessingContext<Corpus> ctx;
 		
 		private CCGPosTaggerExternal(ProcessingContext<Corpus> ctx, int n, int maxLength) {
-			super();
-			this.ctx = ctx;
+			super(CCGPosTagger.this, ctx);
 			this.maxLength = maxLength;
 			File tmp = getTempDir(ctx);
 			String h = String.format("corpus_%8H", n);
 			input = new OutputFile(tmp, h + ".txt");
 			output = new InputFile(tmp, h + ".pos");
-		}
-
-		@Override
-		public Module<Corpus> getOwner() {
-			return CCGPosTagger.this;
 		}
 
 		@Override
@@ -162,24 +153,6 @@ public class CCGPosTagger extends CCGBase<CCGResolvedObjects> {
 		@Override
 		public File getWorkingDirectory() throws ModuleException {
 			return null;
-		}
-
-		@Override
-		public void processOutput(BufferedReader out, BufferedReader err) throws ModuleException {
-	        if (silent) {
-				return;
-			}
-	        Logger logger = getLogger(ctx);
-	        try {
-	            logger.fine("CCG standard error:");
-	            for (String line = err.readLine(); line != null; line = err.readLine()) {
-	                logger.fine("    " + line);
-	            }
-	            logger.fine("end of CCG standard error");
-	        }
-	        catch (IOException ioe) {
-	            logger.warning("could not read CCG standard error: " + ioe.getMessage());
-	        }
 		}
 	}
 
