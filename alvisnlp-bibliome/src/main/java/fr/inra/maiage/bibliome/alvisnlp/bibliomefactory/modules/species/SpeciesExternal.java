@@ -1,4 +1,4 @@
-package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules;
+package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.species;
 
 import java.io.BufferedReader;
 import java.io.File;

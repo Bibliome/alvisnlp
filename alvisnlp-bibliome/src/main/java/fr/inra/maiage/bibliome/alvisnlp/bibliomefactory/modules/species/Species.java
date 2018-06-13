@@ -15,7 +15,7 @@ limitations under the License.
 */
 
 
-package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules;
+package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.species;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +24,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
