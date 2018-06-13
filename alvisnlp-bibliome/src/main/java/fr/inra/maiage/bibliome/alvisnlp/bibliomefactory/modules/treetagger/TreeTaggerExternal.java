@@ -39,7 +39,7 @@ import fr.inra.maiage.bibliome.util.Strings;
  * 
  * @author rbossy
  */
-class TreeTaggerExternal extends AbstractExternal<Corpus,TreeTagger> {
+public class TreeTaggerExternal extends AbstractExternal<Corpus,TreeTagger> {
 
     private final File tmpDir;
     

@@ -95,7 +95,7 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 	}
 	
 	@TimeThis(task="prepare-data", category=TimerCategory.PREPARE_DATA)
-	protected GeniaTaggerExternal prepare(ProcessingContext<Corpus> ctx, Corpus corpus) throws IOException {
+	public GeniaTaggerExternal prepare(ProcessingContext<Corpus> ctx, Corpus corpus) throws IOException {
 		return new GeniaTaggerExternal(this, ctx, corpus, getTempDir(ctx));
 	}
 

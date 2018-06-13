@@ -27,7 +27,7 @@ import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-class GeniaTaggerExternal extends AbstractExternal<Corpus,GeniaTagger> {
+public class GeniaTaggerExternal extends AbstractExternal<Corpus,GeniaTagger> {
 	private final EvaluationContext evalCtx;
 	private final File script;
 	private final OutputFile input;
