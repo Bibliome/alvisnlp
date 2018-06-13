@@ -493,7 +493,7 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
 	 * @param category
 	 * @param start either to start the timer
 	 */
-	protected Timer<TimerCategory> getTimer(ProcessingContext<T> ctx, String task, TimerCategory category, boolean start) {
+	public Timer<TimerCategory> getTimer(ProcessingContext<T> ctx, String task, TimerCategory category, boolean start) {
 		Timer<TimerCategory> moduleTimer = getTimer(ctx);
 		Timer<TimerCategory> result = moduleTimer.getChild(task);
 		if (result == null)

@@ -70,7 +70,7 @@ public abstract class CorpusModule<T extends ResolvedObjects> extends ModuleBase
 		getResolvedObjects().collectUsedNames(nameUsage, defaultType);
 	}
 	
-	protected T getResolvedObjects() {
+	public T getResolvedObjects() {
 		return resolvedObjects;
 	}
 	
