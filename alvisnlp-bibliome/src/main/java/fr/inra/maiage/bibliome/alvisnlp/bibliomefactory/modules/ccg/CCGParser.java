@@ -18,14 +18,12 @@ limitations under the License.
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ccg;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
@@ -46,13 +44,10 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AbstractExternal;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalFailureException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
@@ -60,7 +55,6 @@ import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.InputFile;
-import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
@@ -94,8 +88,8 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 			for (int run = 0; run < sentenceRuns.size(); ++run) {
 				logger.info(String.format("run %d/%d", run+1, sentenceRuns.size())); 
 				List<Layer> sentences = sentenceRuns.get(run);
-				CCGParserExternal parserExt = new CCGParserExternal(ctx, run, getMaxLength(sentences));
-				TargetStream target = new FileTargetStream(internalEncoding, parserExt.input);
+				CCGParserExternal parserExt = new CCGParserExternal(this, ctx, run, getMaxLength(sentences));
+				TargetStream target = new FileTargetStream(internalEncoding, parserExt.getInput());
 				try (PrintStream out = target.getPrintStream()) {
 					printSentences(ctx, out, sentences, true);
 				}
@@ -106,7 +100,7 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 					logger.severe(e.getMessage());
 					logger.severe("we know sometimes CCG accidentally the sentences");
 					logger.severe("let's try to proceed anyway. No guarantee...");
-					logger.severe("btw, input that caused the crash: " + parserExt.input.getAbsolutePath());
+					logger.severe("btw, input that caused the crash: " + parserExt.getInput().getAbsolutePath());
 				}
 				try (BufferedReader r = getBufferedReader(ctx, parserExt)) {
 					readSentences(ctx, r, sentences);
@@ -129,14 +123,14 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 		return new CCGResolvedObjects(ctx, this);
 	}
 
-	private BufferedReader getBufferedReader(ProcessingContext<Corpus> ctx, CCGParser.CCGParserExternal parserExt) throws IOException, ModuleException {
+	private BufferedReader getBufferedReader(ProcessingContext<Corpus> ctx, CCGParserExternal parserExt) throws IOException, ModuleException {
 		if (stanfordScript == null) {
-			SourceStream source = new FileSourceStream(internalEncoding, parserExt.output);
+			SourceStream source = new FileSourceStream(internalEncoding, parserExt.getOutput());
 			return source.getBufferedReader();
 		}
-		StanfordScriptExternal sdExt = new StanfordScriptExternal(ctx);
+		StanfordScriptExternal sdExt = new StanfordScriptExternal(this, ctx);
 		callExternal(ctx, "call-stanford", sdExt, internalEncoding, "stanford.sh");
-		SourceStream source = new FileSourceStream(internalEncoding, sdExt.output);
+		SourceStream source = new FileSourceStream(internalEncoding, sdExt.getOutput());
 		return source.getBufferedReader();
 	}
 	
@@ -236,132 +230,6 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 			sentence.get(i).addFeature(supertagFeatureName, tags[i].get(2));
 		return true;
 	}
-
-	private final class StanfordScriptExternal implements External<Corpus> {
-		private final OutputFile input;
-		private final String output;
-		private final ProcessingContext<Corpus> ctx;
-
-		private StanfordScriptExternal(ProcessingContext<Corpus> ctx) {
-			super();
-			this.ctx = ctx;
-			File tmp = getTempDir(ctx);
-			input = new OutputFile(tmp, "corpus.dep");
-			output = tmp + "/corpus.sd";
-		}
-
-		@Override
-		public Module<Corpus> getOwner() {
-			return CCGParser.this;
-		}
-
-		@Override
-		public String[] getCommandLineArgs() throws ModuleException {
-			return new String[] {
-					stanfordScript.getAbsolutePath(),
-					"--ccgbank",
-					input.getAbsolutePath()
-			};
-		}
-
-		@Override
-		public String[] getEnvironment() throws ModuleException {
-			return null;
-		}
-
-		@Override
-		public File getWorkingDirectory() throws ModuleException {
-			return null;
-		}
-
-		@Override
-		public void processOutput(BufferedReader out, BufferedReader err) throws ModuleException {
-			try {
-				getLogger(ctx).info("reading Stanford Script output");
-				TargetStream target = new FileTargetStream(internalEncoding, this.output);
-				PrintStream output = target.getPrintStream();
-				while (true) {
-					String line = out.readLine();
-					if (line == null)
-						break;
-					output.println(line);
-				}
-				output.close();
-			}
-			catch (FileNotFoundException fnfe) {
-				rethrow(fnfe);
-			}
-			catch (IOException ioe) {
-				rethrow(ioe);
-			}
-		}
-	}
-
-	private final class CCGParserExternal extends AbstractExternal<Corpus,CCGParser> {
-		private final int maxLength;
-		private final OutputFile input;
-		private final InputFile output;
-		private final File log;
-
-		private CCGParserExternal(ProcessingContext<Corpus> ctx, int n, int maxLength) {
-			super(CCGParser.this, ctx);
-			this.maxLength = maxLength;
-			File tmp = getTempDir(ctx);
-			String h = String.format("corpus_%8H", n);
-			input = new OutputFile(tmp, h + ".txt");
-			output = new InputFile(tmp, h + ".dep");
-			log = new File(tmp, "ccg.log");
-		}
-
-		@Override
-		public String[] getCommandLineArgs() throws ModuleException {
-			List<String> clArgs = new ArrayList<String>();
-			clArgs.addAll(Arrays.asList(
-					executable.getAbsolutePath(),
-					"--model",
-					parserModel.getAbsolutePath(),
-					"--super",
-					superModel.getAbsolutePath(),
-					"--parser-maxsupercats",
-					maxSuperCats.toString(),
-					"--input",
-					input.getAbsolutePath(),
-					"--output",
-					output.getAbsolutePath(),
-					"--parser-maxwords",
-					Integer.toString(maxLength * 2),
-					"--super-maxwords",
-					Integer.toString(maxLength * 2),
-					"--log",
-					log.getAbsolutePath()
-			));
-			if (stanfordMarkedUpScript != null) {
-				clArgs.add("--parser-markedup");
-				clArgs.add(stanfordMarkedUpScript.getAbsolutePath());
-			}
-			return clArgs.toArray(new String[clArgs.size()]);
-		}
-
-		@Override
-		public String[] getEnvironment() throws ModuleException {
-			return null;
-		}
-
-		@Override
-		public File getWorkingDirectory() throws ModuleException {
-			return null;
-		}
-	}
-
-
-
-
-
-
-
-
-
-
 
 	@Param
 	public ExecutableFile getExecutable() {

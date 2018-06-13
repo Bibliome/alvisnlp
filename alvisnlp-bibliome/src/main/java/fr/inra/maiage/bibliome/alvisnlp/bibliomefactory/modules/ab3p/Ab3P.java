@@ -17,41 +17,19 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ab3p;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreator;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AbstractExternal;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
-import fr.inra.maiage.bibliome.util.Files;
-import fr.inra.maiage.bibliome.util.Iterators;
-import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 
 @AlvisNLPModule(beta=true)
@@ -67,7 +45,7 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
-			Ab3PExternal external = new Ab3PExternal(ctx, corpus);
+			Ab3PExternal external = new Ab3PExternal(this, ctx, corpus);
 			callExternal(ctx, "run Ab3P", external);
 			external.readOutput(corpus);
 		}
@@ -153,122 +131,5 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 
 	public void setLongFormRole(String longFormRole) {
 		this.longFormRole = longFormRole;
-	}
-
-	private class Ab3PExternal extends AbstractExternal<Corpus,Ab3P> {
-		private final File scriptFile;
-		private final File inputFile;
-		private final File outputFile;
-
-		private Ab3PExternal(ProcessingContext<Corpus> ctx, Corpus corpus) throws IOException {
-			super(Ab3P.this, ctx);
-			File tmpDir = getTempDir(ctx);
-			scriptFile = new File(tmpDir, "script.sh");
-			inputFile = new File(tmpDir, "input.txt");
-			outputFile = new File(tmpDir, "output.txt");
-			// same ClassLoader as this class
-			try (InputStream is = Ab3P.class.getResourceAsStream("script.sh")) {
-				Files.copy(is, scriptFile, 1024, true);
-				scriptFile.setExecutable(true);
-			}
-			EvaluationContext evalCtx = new EvaluationContext(getLogger());
-			try (PrintStream ps = new PrintStream(inputFile)) {
-				for (Document doc : Iterators.loop(documentIterator(evalCtx, corpus))) {
-					for (Section sec : Iterators.loop(sectionIterator(evalCtx, doc))) {
-						String rawContents = sec.getContents();
-						String lineContents = rawContents.replace('\n', ' ').trim();
-						ps.println(lineContents);
-						ps.println();
-					}
-				}
-			}
-		}
-		
-		private void readOutput(Corpus corpus) throws IOException, ProcessingException {
-			try (BufferedReader reader = new BufferedReader(new FileReader(outputFile))) {
-				EvaluationContext evalCtx = new EvaluationContext(getLogger());
-				boolean eof = false;
-				for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-					if (eof) {
-						processingException("output has too few lines");
-					}
-					String checkContents = reader.readLine().replace('\n', ' ').trim();
-					String rawContents = sec.getContents();
-					String lineContents = rawContents.replace('\n', ' ').trim();
-					if (!checkContents.equals(lineContents)) {
-						processingException("failed check line : '" + checkContents + "' / '" + lineContents + "'");
-					}
-					while (true) {
-						String line = reader.readLine();
-						if (line == null) {
-							eof = true;
-							break;
-						}
-						line = line.trim();
-						if (line.isEmpty()) {
-							break;
-						}
-						if (line.startsWith("//")) {
-							getLogger().info("ignoring line " + line);
-							continue;
-						}
-						List<String> cols = Strings.split(line, '|', 0);
-						String shortForm = cols.get(0);
-						String longForm = cols.get(1);
-						createAbbreviations(sec, shortForm, longForm);
-					}
-				}
-			}
-		}
-
-		private void createAbbreviations(Section sec, String shortForm, String longForm) {
-			Collection<Annotation> shortForms = lookup(sec, shortFormsLayerName, shortForm);
-			Collection<Annotation> longForms = lookup(sec, longFormsLayerName, longForm);
-			Relation rel = sec.ensureRelation(Ab3P.this, relationName);
-			for (Annotation shortA : shortForms) {
-				shortA.addFeature(longFormFeature, longForm);
-				for (Annotation longA : longForms) {
-					Tuple t = new Tuple(Ab3P.this, rel);
-					t.setArgument(shortFormRole, shortA);
-					t.setArgument(longFormRole, longA);
-				}
-			}
-		}
-
-		private Collection<Annotation> lookup(Section sec, String layerName, String form) {
-			Collection<Annotation> annotations = new ArrayList<Annotation>();
-			String contents = sec.getContents();
-			Layer layer = sec.ensureLayer(layerName);
-			Pattern formPattern = Pattern.compile(Pattern.quote(form));
-			Matcher m = formPattern.matcher(contents);
-			while (m.find()) {
-				int start = m.start();
-				int end = m.end();
-				Annotation a = new Annotation(Ab3P.this, layer, start, end);
-				annotations.add(a);
-			}
-			return annotations;
-		}
-
-		@Override
-		public String[] getCommandLineArgs() throws ModuleException {
-			return new String[] {
-					scriptFile.getAbsolutePath()
-			};
-		}
-
-		@Override
-		public String[] getEnvironment() throws ModuleException {
-			return new String[] {
-					"INSTALL_DIR=" + installDir.getAbsolutePath(),
-					"INPUT_FILE=" + inputFile.getAbsolutePath(),
-					"OUTPUT_FILE=" + outputFile.getAbsolutePath()
-			};
-		}
-
-		@Override
-		public File getWorkingDirectory() throws ModuleException {
-			return installDir;
-		}
 	}
 }

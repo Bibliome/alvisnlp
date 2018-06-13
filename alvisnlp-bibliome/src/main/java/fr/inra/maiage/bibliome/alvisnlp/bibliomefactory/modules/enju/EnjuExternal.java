@@ -54,7 +54,7 @@ import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-public class EnjuExternal extends AbstractExternal<Corpus,EnjuParser> {
+class EnjuExternal extends AbstractExternal<Corpus,EnjuParser> {
 	private static final Pattern ENJU_LINE_PATTERN = Pattern.compile("(?<start>\\d+)\t(?<end>\\d+)\t(?<kind>[a-z0-9_]+) (?<attr>.*)");
 	private static final Pattern ENJU_ATTRIBUTE_PATTERN = Pattern.compile("\\s*(?<key>[a-z0-9_]+)=\"(?<value>.*?)\"\\s*");
 	private static final Pattern ENJU_PRED_PATTERN = Pattern.compile("(?<label>[a-z]+)(?<mod>_mod)?_arg\\d*(?<argn>\\d)");

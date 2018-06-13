@@ -17,13 +17,9 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.geniatagger;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintStream;
 import java.util.Iterator;
-import java.util.List;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
@@ -31,7 +27,6 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.geniatagger.Geni
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ConstantsLibrary;
@@ -44,22 +39,13 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AbstractExternal;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
-import fr.inra.maiage.bibliome.util.Files;
 import fr.inra.maiage.bibliome.util.Iterators;
-import fr.inra.maiage.bibliome.util.Strings;
-import fr.inra.maiage.bibliome.util.files.InputFile;
-import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.filters.Filters;
 import fr.inra.maiage.bibliome.util.mappers.Mapper;
 import fr.inra.maiage.bibliome.util.mappers.Mappers;
-import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
-import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
-import fr.inra.maiage.bibliome.util.streams.SourceStream;
-import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 @AlvisNLPModule
 public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
@@ -77,7 +63,7 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 	private Boolean treeTaggerTagset = false;
 	
 	static class GeniaTaggerResolvedObjects extends SectionResolvedObjects {
-		private final Evaluator sentenceFilter;
+		final Evaluator sentenceFilter;
 		
 		private GeniaTaggerResolvedObjects(ProcessingContext<Corpus> ctx, GeniaTagger module) throws ResolverException {
 			super(ctx, module);
@@ -110,7 +96,7 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 	
 	@TimeThis(task="prepare-data", category=TimerCategory.PREPARE_DATA)
 	protected GeniaTaggerExternal prepare(ProcessingContext<Corpus> ctx, Corpus corpus) throws IOException {
-		return new GeniaTaggerExternal(ctx, corpus, getTempDir(ctx));
+		return new GeniaTaggerExternal(this, ctx, corpus, getTempDir(ctx));
 	}
 
 	@SuppressWarnings("static-method")
@@ -156,133 +142,8 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
         return Iterators.emptyIterator();
     }
 
-	private Iterator<Annotation> getSentenceIterator(EvaluationContext ctx, Corpus corpus, Evaluator resolvedDocumentFilter, Evaluator resolvedSectionFilter, Evaluator resolvedSentenceFilter) {
+	Iterator<Annotation> getSentenceIterator(EvaluationContext ctx, Corpus corpus, Evaluator resolvedDocumentFilter, Evaluator resolvedSectionFilter, Evaluator resolvedSentenceFilter) {
         return Iterators.flatten(Mappers.apply(new AnnotationCollector(ctx, sentenceLayerName, resolvedSentenceFilter), corpus.sectionIterator(ctx, resolvedDocumentFilter, resolvedSectionFilter)));
-	}
-
-	protected class GeniaTaggerExternal extends AbstractExternal<Corpus,GeniaTagger> {
-		private final EvaluationContext evalCtx;
-		private final File script;
-		private final OutputFile input;
-		private final InputFile output;
-		
-		public GeniaTaggerExternal(ProcessingContext<Corpus> ctx, Corpus corpus, File tmpDir) throws IOException {
-			super(GeniaTagger.this, ctx);
-			this.evalCtx = new EvaluationContext(getLogger());
-			
-			script = new File(tmpDir, "genia.sh");
-			// same ClassLoader as this class
-			try (InputStream is = GeniaTagger.class.getResourceAsStream("genia.sh")) {
-				Files.copy(is, script, 1024, true);
-			}
-			script.setExecutable(true);
-
-			GeniaTaggerResolvedObjects resObj = getResolvedObjects();
-			input = new OutputFile(tmpDir, "corpus.txt");
-			TargetStream target = new FileTargetStream(geniaCharset, input);
-			PrintStream ps = target.getPrintStream();
-			for (Annotation sent : Iterators.loop(getSentenceIterator(evalCtx, corpus, resObj.getDocumentFilter(), resObj.getSectionFilter(), resObj.sentenceFilter)))
-				writeSentence(sent, ps);
-			ps.close();
-			
-			output = new InputFile(tmpDir, "corpus.genia");
-		}
-		
-		private void writeSentence(Annotation sent, PrintStream ps) {
-			Layer wordLayer = sent.getSection().getLayer(wordLayerName);
-			StringBuilder sb = new StringBuilder();
-			boolean notFirst = false;
-			for (Annotation w : wordLayer.between(sent)) {
-				if (notFirst)
-					sb.append(' ');
-				else
-					notFirst = true;
-				Strings.escapeWhitespaces(sb, w.getLastFeature(wordFormFeature));
-			}
-			sb.append(" .");
-			ps.println(sb);
-		}
-
-		private void readOutput(Corpus corpus) throws ProcessingException, IOException {
-			GeniaTaggerResolvedObjects resObj = getResolvedObjects();
-			SourceStream source = new FileSourceStream(geniaCharset, output);
-			BufferedReader r = source.getBufferedReader();
-			for (Annotation sent : Iterators.loop(getSentenceIterator(evalCtx, corpus, resObj.getDocumentFilter(), resObj.getSectionFilter(), resObj.sentenceFilter)))
-				readSentence(sent, r);
-			if (r.readLine() != null)
-				processingException("genia tagger output is too long");
-			r.close();
-		}
-
-		private void readSentence(Annotation sent, BufferedReader r) throws ProcessingException, IOException {
-			Layer wordLayer = sent.getSection().getLayer(wordLayerName);
-			for (Annotation w : wordLayer.between(sent)) {
-				String line = r.readLine();
-				if (line == null)
-					processingException("geniatagger output is short on lines");
-				List<String> cols = Strings.split(line, '\t', -1);
-				if (cols.size() != 5) {
-					processingException("malformed genia tagger output: " + line);
-				}
-				String form = cols.get(0);
-				String lemma = cols.get(1);
-				String pos = cols.get(2);
-				String chunk = cols.get(3);
-				String entity = cols.get(4);
-				w.addFeature(lemmaFeature, lemma);
-				w.addFeature(posFeature, getPOS(form, pos, lemma).intern());
-				w.addFeature(chunkFeature, chunk);
-				w.addFeature(entityFeature, entity);
-			}
-			if (r.readLine() == null) // final dot
-				processingException("geniatagger output is short on lines");
-			if (r.readLine() == null) // geniatagger adds a blank line after each sentence
-				processingException("geniatagger output is short on lines");
-		}
-		
-		private String getPOS(@SuppressWarnings("unused") String form, String pos, String lemma) {
-			if (!treeTaggerTagset) {
-				return pos;
-			}
-			if (lemma.equals("have") && pos.startsWith("VB")) {
-				return "VH" + pos.substring(2);
-			}
-			if (lemma.equals("be") && pos.startsWith("VB")) {
-				return "VV" + pos.substring(2);
-			}
-			if (pos.startsWith("NNP")) {
-				return "NP" + pos.substring(3);
-			}
-			if (pos.startsWith("PRP")) {
-				return "PP" + pos.substring(3);
-			}
-			if (pos.equals(".")) {
-				return "SENT";
-			}
-			return pos;
-		}
-
-		@Override
-		public String[] getCommandLineArgs() throws ModuleException {
-			return new String[] {
-					script.getAbsolutePath()
-			};
-		}
-
-		@Override
-		public String[] getEnvironment() throws ModuleException {
-			return new String[] {
-				"GENIA_DIR=" + geniaDir.getAbsolutePath(),
-				"GENIA_BIN=" + geniaTaggerExecutable.getPath(),
-				"GENIA_IN="  + input.getAbsolutePath(),
-				"GENIA_OUT=" + output.getAbsolutePath()
-			};
-		}
-
-		@Override
-		public File getWorkingDirectory() throws ModuleException {
-			return geniaDir;
-		}
 	}
 
 	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing sentence annotations.")

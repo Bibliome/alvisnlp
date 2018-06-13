@@ -1,11 +1,6 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tees;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.logging.Logger;
 
 import javax.xml.bind.JAXBContext;
@@ -18,10 +13,8 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverExceptio
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AbstractExternal;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
-import fr.inra.maiage.bibliome.util.Files;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 
@@ -52,7 +45,7 @@ public abstract class TEESTrain extends TEESMapper {
 			jaxbm.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 			// marshaling
 			this.prepareTEESCorpora(ctx, corpus);
-			TEESTrainExternal teesTrainExt = new TEESTrainExternal(ctx);
+			TEESTrainExternal teesTrainExt = new TEESTrainExternal(this, ctx);
 			jaxbm.marshal(getCorpus(getTrainSetValue()), teesTrainExt.getTrainInput());
 			jaxbm.marshal(getCorpus(getDevSetValue()), teesTrainExt.getDevInput());
 			jaxbm.marshal(getCorpus(getTestSetValue()), teesTrainExt.getTestInput());
@@ -165,74 +158,5 @@ public abstract class TEESTrain extends TEESMapper {
 
 	public void setModelName(String modelName) {
 		this.modelName = modelName;
-	}
-
-	private final class TEESTrainExternal extends AbstractExternal<Corpus,TEESTrain> {
-		private final OutputFile trainInput;
-		private final OutputFile devInput;
-		private final OutputFile testInput;
-		public final File baseDir;
-		private final File script;
-
-		private TEESTrainExternal(ProcessingContext<Corpus> ctx) throws IOException {
-			super(TEESTrain.this, ctx);
-			File tmp = getTempDir(ctx);
-			baseDir = tmp;
-			this.trainInput = new OutputFile(tmp.getAbsolutePath(), "train-o" + ".xml");
-			this.devInput = new OutputFile(tmp.getAbsolutePath(), "devel-o" + ".xml");
-			this.testInput = new OutputFile(tmp.getAbsolutePath(), "test-o" + ".xml");
-			
-			script = new File(tmp, "train.sh");
-			// same ClassLoader as this class
-			try (InputStream is = TEESTrain.class.getResourceAsStream("train.sh")) {
-				Files.copy(is, script, 1024, true);
-			}
-			script.setExecutable(true);
-		}
-		
-		@Override
-		public String[] getCommandLineArgs() throws ModuleException {
-			List<String> clArgs = new ArrayList<String>();
-			clArgs.addAll(Arrays.asList(
-					script.getAbsolutePath()));
-			return clArgs.toArray(new String[clArgs.size()]);
-		}
-
-		@Override
-		public String[] getEnvironment() throws ModuleException {
-			return new String[] {
-					"PATH=" + System.getenv("PATH"),
-					"TEES_DIR=" + getTeesHome().getAbsolutePath(),
-					"TEES_PRE_EXE=" + getTeesHome().getAbsolutePath() + "/Detectors/Preprocessor.py",
-					"TEES_TRAIN_EXE=" + getTeesHome().getAbsolutePath() + "/train.py",
-					"TEES_TRAIN_IN="  + this.trainInput.getAbsolutePath(),
-					"TEES_TRAIN_OUT=" + this.baseDir.getAbsolutePath() + "/train_pre.xml",
-					"TEES_DEV_IN="  + this.devInput.getAbsolutePath(),
-					"TEES_DEV_OUT=" + this.baseDir.getAbsolutePath() + "/dev_pre.xml",
-					"OMITSTEPS=" + getOmitSteps().toString(),
-					"TEES_TEST_IN="  + this.testInput.getAbsolutePath(),
-					"TEES_TEST_OUT=" + this.baseDir.getAbsolutePath() + "/test_pre.xml",
-					"WORKDIR=" + this.baseDir.getAbsolutePath(),
-					"MODELTD=" + getModelTargetDir().getAbsolutePath(),
-					"MODEL_NAME=" + getModelName() 
-				};
-		}
-
-		@Override
-		public File getWorkingDirectory() throws ModuleException {
-			return this.baseDir;
-		}
-
-		public OutputFile getTrainInput() {
-			return trainInput;
-		}
-
-		public OutputFile getDevInput() {
-			return devInput;
-		}
-
-		public OutputFile getTestInput() {
-			return testInput;
-		}
 	}
 }

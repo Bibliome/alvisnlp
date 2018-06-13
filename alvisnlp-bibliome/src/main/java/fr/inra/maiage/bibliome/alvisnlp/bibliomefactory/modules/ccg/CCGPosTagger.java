@@ -18,7 +18,6 @@ limitations under the License.
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ccg;
 
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.List;
@@ -34,14 +33,11 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AbstractExternal;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
-import fr.inra.maiage.bibliome.util.files.InputFile;
-import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
@@ -64,13 +60,13 @@ public class CCGPosTagger extends CCGBase<CCGResolvedObjects> {
 			for (int run = 0; run < sentenceRuns.size(); ++run) {
 				logger.info(String.format("run %d/%d", run+1, sentenceRuns.size())); 
 				List<Layer> sentences = sentenceRuns.get(run);
-				CCGPosTaggerExternal ext = new CCGPosTaggerExternal(ctx, run, getMaxLength(sentences));
-				TargetStream target = new FileTargetStream(internalEncoding, ext.input);
+				CCGPosTaggerExternal ext = new CCGPosTaggerExternal(this, ctx, run, getMaxLength(sentences));
+				TargetStream target = new FileTargetStream(internalEncoding, ext.getInput());
 				try (PrintStream out = target.getPrintStream()) {
 					printSentences(ctx, out, sentences, false);
 				}
 				callExternal(ctx, "run-ccg", ext, internalEncoding, "ccg-pos.sh");
-				SourceStream source = new FileSourceStream(internalEncoding, ext.output);
+				SourceStream source = new FileSourceStream(internalEncoding, ext.getOutput());
 				try (BufferedReader r = source.getBufferedReader()) {
 					readSentences(ctx, r, sentences);
 				}
@@ -114,48 +110,6 @@ public class CCGPosTagger extends CCGBase<CCGResolvedObjects> {
 			readSentence(r, sent);
 	}
 	
-	private final class CCGPosTaggerExternal extends AbstractExternal<Corpus,CCGPosTagger> {
-		private final int maxLength;
-		private final OutputFile input;
-		private final InputFile output;
-		
-		private CCGPosTaggerExternal(ProcessingContext<Corpus> ctx, int n, int maxLength) {
-			super(CCGPosTagger.this, ctx);
-			this.maxLength = maxLength;
-			File tmp = getTempDir(ctx);
-			String h = String.format("corpus_%8H", n);
-			input = new OutputFile(tmp, h + ".txt");
-			output = new InputFile(tmp, h + ".pos");
-		}
-
-		@Override
-		public String[] getCommandLineArgs() throws ModuleException {
-			return new String[] {
-					executable.getAbsolutePath(),
-					"--model",
-					model.getAbsolutePath(),
-					"--input",
-					input.getAbsolutePath(),
-					"--output",
-					output.getAbsolutePath(),
-					"--ofmt",
-					"%p\\n\\tEOS\\n",
-					"--maxwords",
-					Integer.toString(maxLength)
-			};
-		}
-
-		@Override
-		public String[] getEnvironment() throws ModuleException {
-			return null;
-		}
-
-		@Override
-		public File getWorkingDirectory() throws ModuleException {
-			return null;
-		}
-	}
-
 	@Param
 	public ExecutableFile getExecutable() {
 		return executable;

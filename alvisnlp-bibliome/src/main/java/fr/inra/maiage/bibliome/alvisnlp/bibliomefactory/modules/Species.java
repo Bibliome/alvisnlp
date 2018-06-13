@@ -17,37 +17,27 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
-
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
 import fr.inra.maiage.bibliome.util.Iterators;
-import fr.inra.maiage.bibliome.util.filelines.FileLines;
-import fr.inra.maiage.bibliome.util.filelines.InvalidFileLineEntry;
-import fr.inra.maiage.bibliome.util.filelines.TabularFormat;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
@@ -70,7 +60,7 @@ public abstract class Species extends SectionModule<SectionResolvedObjects> impl
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		File tmpDir = getTempDir(ctx);
 		Map<String,Section> sectionMap = writeSpeciesInput(ctx, evalCtx, corpus, tmpDir);
-		SpeciesExternal external = new SpeciesExternal(logger, new InputDirectory(tmpDir.getAbsolutePath()), sectionMap);
+		SpeciesExternal external = new SpeciesExternal(this, logger, new InputDirectory(tmpDir.getAbsolutePath()), sectionMap);
 		callExternal(ctx, "run-species", external, "ISO-8859-1", "species.sh");
 	}
 	
@@ -105,79 +95,6 @@ public abstract class Species extends SectionModule<SectionResolvedObjects> impl
 		return null;
 	}
 		
-	private final class SpeciesExternal extends FileLines<Map<String,Section>> implements External<Corpus> {
-		private final InputDirectory corpusDir;
-		private final Map<String,Section> sectionMap;
-		
-		private SpeciesExternal(Logger logger, InputDirectory corpusDir, Map<String,Section> sectionMap) {
-			super(logger);
-			TabularFormat format = getFormat();
-			format.setMinColumns(4);
-			format.setMaxColumns(5);
-			format.setStrictColumnNumber(true);
-			this.corpusDir = corpusDir;
-			this.sectionMap = sectionMap;
-		}
-
-		@Override
-		public void processEntry(Map<String, Section> data, int lineno, List<String> entry) throws InvalidFileLineEntry {
-			String sourceFile = entry.get(0);
-			Section sec = data.get(sourceFile);
-			if (sec == null) {
-				getLogger().warning("could not make sense of: " + sourceFile);
-				return;
-			}
-			Layer layer = sec.ensureLayer(targetLayerName);
-			int start = Integer.parseInt(entry.get(1));
-			int end = Integer.parseInt(entry.get(2)) + 1;
-			Annotation a = new Annotation(Species.this, layer, start, end);
-			if (taxidFeature != null && entry.size() == 5) {
-				String taxid = entry.get(4);
-				a.addFeature(taxidFeature, taxid);
-			}
-		}
-
-		@Override
-		public Module<Corpus> getOwner() {
-			return Species.this;
-		}
-
-		@Override
-		public String[] getCommandLineArgs() throws ModuleException {
-			return new String[] {
-					"./species",
-					corpusDir.getAbsolutePath()
-			};
-		}
-
-		@Override
-		public String[] getEnvironment() throws ModuleException {
-			return null;
-		}
-
-		@Override
-		public File getWorkingDirectory() throws ModuleException {
-			return speciesDir;
-		}
-
-		@Override
-		public void processOutput(BufferedReader out, BufferedReader err) throws ModuleException {
-			try {
-				process(out, sectionMap);
-				Logger logger = getLogger();
-				while (true) {
-					String line = err.readLine();
-					if (line == null)
-						break;
-					logger.info("    " + line);
-				}
-			}
-			catch (IOException|InvalidFileLineEntry e) {
-				rethrow(e);
-			}
-		}
-	}
-
 	@Param
 	public InputDirectory getSpeciesDir() {
 		return speciesDir;
@@ -204,6 +121,4 @@ public abstract class Species extends SectionModule<SectionResolvedObjects> impl
 	public void setTaxidFeature(String taxidFeature) {
 		this.taxidFeature = taxidFeature;
 	}
-	
-	
 }

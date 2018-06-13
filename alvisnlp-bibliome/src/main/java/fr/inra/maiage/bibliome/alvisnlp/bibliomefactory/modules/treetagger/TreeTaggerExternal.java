@@ -39,7 +39,7 @@ import fr.inra.maiage.bibliome.util.Strings;
  * 
  * @author rbossy
  */
-public class TreeTaggerExternal extends AbstractExternal<Corpus,TreeTagger> {
+class TreeTaggerExternal extends AbstractExternal<Corpus,TreeTagger> {
 
     private final File tmpDir;
     
@@ -83,7 +83,7 @@ public class TreeTaggerExternal extends AbstractExternal<Corpus,TreeTagger> {
      * @param lexicon
      *            the lexicon
      */
-    public TreeTaggerExternal(ProcessingContext<Corpus> ctx, TreeTagger owner, File tmpDir, File treeTaggerExecutable, File parFile, Map<String,String> lexicon) {
+    TreeTaggerExternal(ProcessingContext<Corpus> ctx, TreeTagger owner, File tmpDir, File treeTaggerExecutable, File parFile, Map<String,String> lexicon) {
         super(owner, ctx);
         this.tmpDir = tmpDir;
         this.treeTaggerExecutable = treeTaggerExecutable;

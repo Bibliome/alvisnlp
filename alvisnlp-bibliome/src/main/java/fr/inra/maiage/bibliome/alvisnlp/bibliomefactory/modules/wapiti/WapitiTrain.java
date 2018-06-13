@@ -88,7 +88,7 @@ public class WapitiTrain extends AbstractWapiti {
 		this.patternFile = patternFile;
 	}
 
-	private class WapitiTrainExternal extends WapitiExternal<WapitiTrain> {
+	private class WapitiTrainExternal extends AbstractWapitiExternal<WapitiTrain> {
 		public WapitiTrainExternal(ProcessingContext<Corpus> ctx, Corpus corpus) throws IOException {
 			super(WapitiTrain.this, ctx, corpus, modelFile);
 		}
