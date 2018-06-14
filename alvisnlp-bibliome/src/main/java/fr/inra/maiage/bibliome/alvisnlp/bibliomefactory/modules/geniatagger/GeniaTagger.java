@@ -76,26 +76,12 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
 			new GeniaTaggerExternalHandler(ctx, this, corpus).start();
-//			GeniaTaggerExternal ext = prepare(ctx, corpus);
-//			callExternal(ctx, "genia", ext, geniaCharset, "genia-command.sh");
-//			collect(ctx, corpus, ext);
 		}
 		catch (IOException|InterruptedException ioe) {
 			rethrow(ioe);
 		}
 	}
 	
-//	@TimeThis(task="prepare-data", category=TimerCategory.PREPARE_DATA)
-//	public GeniaTaggerExternal prepare(ProcessingContext<Corpus> ctx, Corpus corpus) throws IOException {
-//		return new GeniaTaggerExternal(this, ctx, corpus, getTempDir(ctx));
-//	}
-//
-//	@SuppressWarnings("static-method")
-//	@TimeThis(task="read-genia", category=TimerCategory.COLLECT_DATA)
-//	protected void collect(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, Corpus corpus, GeniaTaggerExternal ext) throws ProcessingException, IOException {
-//		ext.readOutput(corpus);
-//	}
-
 	@Override
 	protected String[] addLayersToSectionFilter() {
 		return new String[] { sentenceLayerName, wordLayerName };
@@ -106,37 +92,6 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 		return null;
 	}
     
-//    private static final class AnnotationCollector implements Mapper<Section,Iterator<Annotation>> {
-//		private final EvaluationContext ctx;
-//        private final String layerName;
-//        private final Evaluator filter;
-//        
-//        private AnnotationCollector(EvaluationContext ctx, String layerName, Evaluator filter) {
-//            super();
-//            this.ctx = ctx;
-//            this.layerName = layerName;
-//            this.filter = filter;
-//        }
-//
-//        @Override
-//        public Iterator<Annotation> map(Section sec) {
-//            return annotationIterator(ctx, sec, layerName, filter);
-//        }
-//    }
-//    
-//    private static Iterator<Annotation> annotationIterator(EvaluationContext ctx, Section sec, String name, Evaluator filter) {
-//        if (sec.hasLayer(name)) {
-//            if (filter == null)
-//                return sec.getLayer(name).iterator();
-//            return Filters.apply(filter.getFilter(ctx), sec.getLayer(name).iterator());
-//        }
-//        return Iterators.emptyIterator();
-//    }
-//
-//	Iterator<Annotation> getSentenceIterator(EvaluationContext ctx, Corpus corpus, Evaluator resolvedDocumentFilter, Evaluator resolvedSectionFilter, Evaluator resolvedSentenceFilter) {
-//        return Iterators.flatten(Mappers.apply(new AnnotationCollector(ctx, sentenceLayerName, resolvedSentenceFilter), corpus.sectionIterator(ctx, resolvedDocumentFilter, resolvedSectionFilter)));
-//	}
-
 	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing sentence annotations.")
 	public String getSentenceLayerName() {
 		return sentenceLayerName;

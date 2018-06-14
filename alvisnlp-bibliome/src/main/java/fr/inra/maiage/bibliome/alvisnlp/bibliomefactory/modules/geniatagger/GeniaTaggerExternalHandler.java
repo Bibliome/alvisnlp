@@ -96,7 +96,7 @@ public class GeniaTaggerExternalHandler extends ExternalHandler<Corpus,GeniaTagg
 		ProcessBuilder result = new ProcessBuilder(getScriptFile().getAbsolutePath());
 		Map<String,String> env = result.environment();
 		env.put("GENIA_DIR", owner.getGeniaDir().getAbsolutePath());
-		env.put("GENIA_BIN", owner.getGeniaTaggerExecutable().getAbsolutePath());
+		env.put("GENIA_BIN", owner.getGeniaTaggerExecutable().getPath());
 		env.put("GENIA_IN", getGeniaInputFile().getAbsolutePath());
 		env.put("GENIA_OUT", getGeniaOutputFile().getAbsolutePath());
 		result.directory(owner.getGeniaDir());
