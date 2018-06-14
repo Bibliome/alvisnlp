@@ -73,13 +73,18 @@ public abstract class ExternalHandler<T extends Annotable,M extends Module<T>> {
 		prepareTimer.stop();
 	}
 	
-	private void doExec() throws IOException, InterruptedException {
+	private void doExec() throws IOException, InterruptedException, ProcessingException {
 		Timer<TimerCategory> execTimer = module.getTimer(processingContext, getExecTask(), TimerCategory.EXTERNAL, true);
 		ProcessBuilder processBuilder = getProcessBuilder();
 		Process p = processBuilder.start();
 		startOutputHandler(getOutputHandler(), p.getInputStream());
 		startOutputHandler(getErrorHandler(), p.getErrorStream());
-		p.wait();
+		synchronized (p) {
+			int retval = p.waitFor();
+			if (retval != 0) {
+				throw new ProcessingException("geniatagger returned " + retval);
+			}
+		}
 		execTimer.stop();
 	}
 	
