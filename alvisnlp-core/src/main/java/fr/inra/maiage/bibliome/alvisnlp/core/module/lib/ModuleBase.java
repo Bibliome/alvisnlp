@@ -486,13 +486,7 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
 		return parentTimer.newChild(id, TimerCategory.MODULE);
 	}
 
-	/**
-	 * Returns a timer for the specified task and category.
-	 * @param ctx
-	 * @param task
-	 * @param category
-	 * @param start either to start the timer
-	 */
+	@Override
 	public Timer<TimerCategory> getTimer(ProcessingContext<T> ctx, String task, TimerCategory category, boolean start) {
 		Timer<TimerCategory> moduleTimer = getTimer(ctx);
 		Timer<TimerCategory> result = moduleTimer.getChild(task);
