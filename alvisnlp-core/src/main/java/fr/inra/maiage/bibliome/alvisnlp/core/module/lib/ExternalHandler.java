@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.util.Timer;
 
@@ -46,17 +47,21 @@ public abstract class ExternalHandler<T extends Annotable,M extends Module<T>> {
 	public File getTempDir() {
 		return tempDir;
 	}
+	
+	public File getTempFile(String name) {
+		return new File(tempDir, name);
+	}
 
 	protected abstract void prepare() throws IOException;
 	protected abstract ProcessBuilder getProcessBuilder();
 	protected abstract OutputHandler getOutputHandler();
 	protected abstract OutputHandler getErrorHandler();
-	protected abstract void collect() throws IOException;
+	protected abstract void collect() throws IOException, ProcessingException;
 	protected abstract String getPrepareTask();
 	protected abstract String getExecTask();
 	protected abstract String getCollectTask();
 	
-	public void start() throws InterruptedException, IOException {
+	public void start() throws InterruptedException, IOException, ProcessingException {
 		doPrepare();
 		doExec();
 		doCollect();
@@ -78,7 +83,7 @@ public abstract class ExternalHandler<T extends Annotable,M extends Module<T>> {
 		execTimer.stop();
 	}
 	
-	private void doCollect() throws IOException {
+	private void doCollect() throws IOException, ProcessingException {
 		Timer<TimerCategory> collectTimer = module.getTimer(processingContext, getCollectTask(), TimerCategory.COLLECT_DATA, true);
 		collect();
 		collectTimer.stop();
