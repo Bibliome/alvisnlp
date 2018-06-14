@@ -36,22 +36,22 @@ public class GeniaTaggerExternal extends AbstractExternal<Corpus,GeniaTagger> {
 	GeniaTaggerExternal(GeniaTagger owner, ProcessingContext<Corpus> ctx, Corpus corpus, File tmpDir) throws IOException {
 		super(owner, ctx);
 		this.evalCtx = new EvaluationContext(getLogger());
-		
+//		
 		script = new File(tmpDir, "genia.sh");
-		// same ClassLoader as this class
-		try (InputStream is = GeniaTagger.class.getResourceAsStream("genia.sh")) {
-			Files.copy(is, script, 1024, true);
-		}
-		script.setExecutable(true);
-
-		GeniaTaggerResolvedObjects resObj = owner.getResolvedObjects();
+//		// same ClassLoader as this class
+//		try (InputStream is = GeniaTagger.class.getResourceAsStream("genia.sh")) {
+//			Files.copy(is, script, 1024, true);
+//		}
+//		script.setExecutable(true);
+//
+//		GeniaTaggerResolvedObjects resObj = owner.getResolvedObjects();
 		input = new OutputFile(tmpDir, "corpus.txt");
-		TargetStream target = new FileTargetStream(owner.getGeniaCharset(), input);
-		PrintStream ps = target.getPrintStream();
-		for (Annotation sent : Iterators.loop(owner.getSentenceIterator(evalCtx, corpus, resObj.getDocumentFilter(), resObj.getSectionFilter(), resObj.sentenceFilter)))
-			writeSentence(sent, ps);
-		ps.close();
-		
+//		TargetStream target = new FileTargetStream(owner.getGeniaCharset(), input);
+//		PrintStream ps = target.getPrintStream();
+//		for (Annotation sent : Iterators.loop(owner.getSentenceIterator(evalCtx, corpus, resObj.getDocumentFilter(), resObj.getSectionFilter(), resObj.sentenceFilter)))
+//			writeSentence(sent, ps);
+//		ps.close();
+//		
 		output = new InputFile(tmpDir, "corpus.genia");
 	}
 	
@@ -71,14 +71,14 @@ public class GeniaTaggerExternal extends AbstractExternal<Corpus,GeniaTagger> {
 	}
 
 	void readOutput(Corpus corpus) throws ProcessingException, IOException {
-		GeniaTaggerResolvedObjects resObj = getOwner().getResolvedObjects();
-		SourceStream source = new FileSourceStream(getOwner().getGeniaCharset(), output);
-		BufferedReader r = source.getBufferedReader();
-		for (Annotation sent : Iterators.loop(getOwner().getSentenceIterator(evalCtx, corpus, resObj.getDocumentFilter(), resObj.getSectionFilter(), resObj.sentenceFilter)))
-			readSentence(sent, r);
-		if (r.readLine() != null)
-			ModuleBase.processingException("genia tagger output is too long");
-		r.close();
+//		GeniaTaggerResolvedObjects resObj = getOwner().getResolvedObjects();
+//		SourceStream source = new FileSourceStream(getOwner().getGeniaCharset(), output);
+//		BufferedReader r = source.getBufferedReader();
+//		for (Annotation sent : Iterators.loop(getOwner().getSentenceIterator(evalCtx, corpus, resObj.getDocumentFilter(), resObj.getSectionFilter(), resObj.sentenceFilter)))
+//			readSentence(sent, r);
+//		if (r.readLine() != null)
+//			ModuleBase.processingException("genia tagger output is too long");
+//		r.close();
 	}
 
 	private void readSentence(Annotation sent, BufferedReader r) throws ProcessingException, IOException {
