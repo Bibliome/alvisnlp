@@ -3,8 +3,8 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.geniatagger;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -20,8 +20,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.OutputHandler;
-import fr.inra.maiage.bibliome.util.Files;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.filters.Filters;
@@ -42,27 +40,9 @@ public class GeniaTaggerExternalHandler extends ExternalHandler<Corpus,GeniaTagg
 
 	@Override
 	protected void prepare() throws IOException {
-		createScriptFile();
-		createGeniaInput();
-	}
-	
-	private void createScriptFile() throws IOException {
-		File script = getScriptFile();
-		// same ClassLoader as this class
-		try (InputStream is = GeniaTagger.class.getResourceAsStream("genia.sh")) {
-			Files.copy(is, script, 1024, true);
-		}
-		script.setExecutable(true);
-	}
-	
-	private File getScriptFile() {
-		return getTempFile("genia.sh");
-	}
-	
-	private void createGeniaInput() throws IOException {
 		GeniaTagger owner = getModule();
 		GeniaTaggerResolvedObjects resObj = owner.getResolvedObjects();
-		File input = getGeniaInputFile();
+		File input = getInputFile();
 		TargetStream target = new FileTargetStream(owner.getGeniaCharset(), input.getAbsolutePath());
 		try (PrintStream ps = target.getPrintStream()) {
 			for (Annotation sent : Iterators.loop(getSentenceIterator(resObj.getDocumentFilter(), resObj.getSectionFilter(), resObj.sentenceFilter)))
@@ -86,42 +66,38 @@ public class GeniaTaggerExternalHandler extends ExternalHandler<Corpus,GeniaTagg
 		ps.println(sb);
 	}
 
-	private File getGeniaInputFile() {
-		return getTempFile("corpus.txt");
+	@Override
+	protected List<String> getCommandLine() {
+		return Arrays.asList(
+				getModule().getGeniaTaggerExecutable().getPath(),
+				"-nt"
+				);
 	}
 
 	@Override
-	protected ProcessBuilder getProcessBuilder() {
-		GeniaTagger owner = getModule();
-		ProcessBuilder result = new ProcessBuilder(getScriptFile().getAbsolutePath());
-		Map<String,String> env = result.environment();
-		env.put("GENIA_DIR", owner.getGeniaDir().getAbsolutePath());
-		env.put("GENIA_BIN", owner.getGeniaTaggerExecutable().getPath());
-		env.put("GENIA_IN", getGeniaInputFile().getAbsolutePath());
-		env.put("GENIA_OUT", getGeniaOutputFile().getAbsolutePath());
-		result.directory(owner.getGeniaDir());
-		return result;
-	}
-	
-	private File getGeniaOutputFile() {
-		return getTempFile("corpus.genia");
+	protected void updateEnvironment(Map<String,String> env) {
 	}
 
 	@Override
-	protected OutputHandler getOutputHandler() {
-		return new OutputHandler.ToLogger(getLogger(), "(genia stdout) "); 
+	protected File getWorkingDirectory() {
+		return getModule().getGeniaDir();
 	}
 
 	@Override
-	protected OutputHandler getErrorHandler() {
-		return new OutputHandler.ToLogger(getLogger(), "(genia stderr) "); 
+	protected String getInputFileame() {
+		return "corpus.txt";
+	}
+
+	@Override
+	protected String getOutputFilename() {
+		return "corpus.genia";
 	}
 
 	@Override
 	protected void collect() throws IOException, ProcessingException {
 		GeniaTagger owner = getModule();
 		GeniaTaggerResolvedObjects resObj = owner.getResolvedObjects();
-		SourceStream source = new FileSourceStream(owner.getGeniaCharset(), getGeniaOutputFile().getAbsolutePath());
+		SourceStream source = new FileSourceStream(owner.getGeniaCharset(), getOutputFile().getAbsolutePath());
 		try (BufferedReader r = source.getBufferedReader()) {
 			for (Annotation sent : Iterators.loop(getSentenceIterator(resObj.getDocumentFilter(), resObj.getSectionFilter(), resObj.sentenceFilter))) {
 				readSentence(sent, r);

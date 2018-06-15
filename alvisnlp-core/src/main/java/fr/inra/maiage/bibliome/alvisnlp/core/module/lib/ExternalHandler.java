@@ -1,8 +1,12 @@
 package fr.inra.maiage.bibliome.alvisnlp.core.module.lib;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable;
@@ -53,13 +57,40 @@ public abstract class ExternalHandler<T extends Annotable,M extends Module<T>> {
 	}
 
 	protected abstract void prepare() throws IOException;
-	protected abstract ProcessBuilder getProcessBuilder();
-	protected abstract OutputHandler getOutputHandler();
-	protected abstract OutputHandler getErrorHandler();
 	protected abstract void collect() throws IOException, ProcessingException;
 	protected abstract String getPrepareTask();
 	protected abstract String getExecTask();
 	protected abstract String getCollectTask();
+	
+	protected abstract List<String> getCommandLine();
+	protected abstract void updateEnvironment(Map<String,String> env);
+	protected abstract File getWorkingDirectory();
+	protected abstract String getInputFileame();
+	protected abstract String getOutputFilename();
+	
+	public File getInputFile() {
+		return getTempFile(getInputFileame());
+	}
+	
+	public File getOutputFile() {
+		return getTempFile(getOutputFilename());
+	}
+	
+	protected ProcessBuilder createProcessBuilder() {
+		ProcessBuilder result = new ProcessBuilder(getCommandLine());
+		updateEnvironment(result.environment());
+		result.directory(getWorkingDirectory());
+		if (getInputFileame() != null) {
+			result.redirectInput(getInputFile());
+		}
+		if (getOutputFilename() == null) {
+			result.redirectErrorStream(true);
+		}
+		else {
+			result.redirectOutput(getOutputFile());
+		}
+		return result;
+	}
 	
 	public void start() throws InterruptedException, IOException, ProcessingException {
 		doPrepare();
@@ -75,10 +106,9 @@ public abstract class ExternalHandler<T extends Annotable,M extends Module<T>> {
 	
 	private void doExec() throws IOException, InterruptedException, ProcessingException {
 		Timer<TimerCategory> execTimer = module.getTimer(processingContext, getExecTask(), TimerCategory.EXTERNAL, true);
-		ProcessBuilder processBuilder = getProcessBuilder();
+		ProcessBuilder processBuilder = createProcessBuilder();
 		Process p = processBuilder.start();
-		startOutputHandler(getOutputHandler(), p.getInputStream());
-		startOutputHandler(getErrorHandler(), p.getErrorStream());
+		new Thread(new OutputLogger(logger, processBuilder.redirectErrorStream() ? p.getInputStream() : p .getErrorStream())).start();
 		synchronized (p) {
 			int retval = p.waitFor();
 			if (retval != 0) {
@@ -93,31 +123,29 @@ public abstract class ExternalHandler<T extends Annotable,M extends Module<T>> {
 		collect();
 		collectTimer.stop();
 	}
-
-	private static void startOutputHandler(OutputHandler handler, InputStream is) {
-		if (handler == null) {
-			return;
-		}
-		if (is == null) {
-			return;
-		}
-		new Thread(new OutputHandlerRunnable(handler, is)).start();
-	}
-
-	private static class OutputHandlerRunnable implements Runnable {
-		private final OutputHandler handler;
+	
+	private static class OutputLogger implements Runnable {
+		private final Logger logger;
 		private final InputStream is;
 		
-		private OutputHandlerRunnable(OutputHandler handler, InputStream is) {
+		private OutputLogger(Logger logger, InputStream is) {
 			super();
-			this.handler = handler;
+			this.logger = logger;
 			this.is = is;
 		}
 
 		@Override
 		public void run() {
 			try {
-				handler.handle(is);
+				BufferedReader r = new BufferedReader(new InputStreamReader(is));
+				while (true) {
+					String line = r.readLine();
+					if (line == null) {
+						break;
+					}
+					line = line.trim();
+					logger.fine(line);
+				}
 			}
 			catch (IOException e) {
 				throw new RuntimeException(e);

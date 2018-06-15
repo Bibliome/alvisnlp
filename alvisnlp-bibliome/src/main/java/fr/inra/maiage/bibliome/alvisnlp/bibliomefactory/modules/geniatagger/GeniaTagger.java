@@ -47,7 +47,7 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 	private String chunkFeature;
 	private String entityFeature;
 	private File geniaDir;
-	private File geniaTaggerExecutable = new File("geniatagger");
+	private File geniaTaggerExecutable = new File("./geniatagger");
 	private String geniaCharset = "UTF-8";
 	private Expression sentenceFilter = ConstantsLibrary.TRUE;
 	private Boolean treeTaggerTagset = false;
