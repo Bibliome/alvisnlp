@@ -11,6 +11,7 @@ import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
@@ -56,8 +57,8 @@ public abstract class ExternalHandler<T extends Annotable,M extends Module<T>> {
 		return new File(tempDir, name);
 	}
 
-	protected abstract void prepare() throws IOException;
-	protected abstract void collect() throws IOException, ProcessingException;
+	protected abstract void prepare() throws IOException, ModuleException;
+	protected abstract void collect() throws IOException, ModuleException;
 	protected abstract String getPrepareTask();
 	protected abstract String getExecTask();
 	protected abstract String getCollectTask();
@@ -92,13 +93,13 @@ public abstract class ExternalHandler<T extends Annotable,M extends Module<T>> {
 		return result;
 	}
 	
-	public void start() throws InterruptedException, IOException, ProcessingException {
+	public void start() throws InterruptedException, IOException, ModuleException {
 		doPrepare();
 		doExec();
 		doCollect();
 	}
 	
-	private void doPrepare() throws IOException {
+	private void doPrepare() throws IOException, ModuleException {
 		Timer<TimerCategory> prepareTimer = module.getTimer(processingContext, getPrepareTask(), TimerCategory.PREPARE_DATA, true);
 		prepare();
 		prepareTimer.stop();
@@ -118,7 +119,7 @@ public abstract class ExternalHandler<T extends Annotable,M extends Module<T>> {
 		execTimer.stop();
 	}
 	
-	private void doCollect() throws IOException, ProcessingException {
+	private void doCollect() throws IOException, ModuleException {
 		Timer<TimerCategory> collectTimer = module.getTimer(processingContext, getCollectTask(), TimerCategory.COLLECT_DATA, true);
 		collect();
 		collectTimer.stop();
