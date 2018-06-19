@@ -45,9 +45,6 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
-//			Ab3PExternal external = new Ab3PExternal(this, ctx, corpus);
-//			callExternal(ctx, "run Ab3P", external);
-//			external.readOutput(corpus);
 			new Ab3PExternalHandler(ctx, this, corpus).start();
 		}
 		catch (IOException | InterruptedException e) {
