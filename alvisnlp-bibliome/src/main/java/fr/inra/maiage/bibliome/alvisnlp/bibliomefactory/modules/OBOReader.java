@@ -41,11 +41,12 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Timer;
+import fr.inra.maiage.bibliome.util.files.InputFile;
 import fr.inra.maiage.bibliome.util.obo.OBOUtils;
 
 @AlvisNLPModule
 public abstract class OBOReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator {
-	private String[] oboFiles;
+	private InputFile[] oboFiles;
 	private String nameSectionName = "name";
 	private String synonymSectionName = "synonym";
 	private String pathFeature = "path";
@@ -101,7 +102,7 @@ public abstract class OBOReader extends CorpusModule<ResolvedObjects> implements
 	}
 
 	@Param
-	public String[] getOboFiles() {
+	public InputFile[] getOboFiles() {
 		return oboFiles;
 	}
 
@@ -165,7 +166,7 @@ public abstract class OBOReader extends CorpusModule<ResolvedObjects> implements
 		this.parentFeature = parentFeature;
 	}
 
-	public void setOboFiles(String[] oboFiles) {
+	public void setOboFiles(InputFile[] oboFiles) {
 		this.oboFiles = oboFiles;
 	}
 
