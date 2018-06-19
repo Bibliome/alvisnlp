@@ -9,6 +9,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 
+@Deprecated
 public abstract class AbstractExternal<T extends Annotable,M extends Module<T>> implements External<T> {
 	private final M owner;
 	private final Logger logger;
