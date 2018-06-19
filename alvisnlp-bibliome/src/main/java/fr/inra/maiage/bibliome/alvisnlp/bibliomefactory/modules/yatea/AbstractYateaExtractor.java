@@ -18,17 +18,10 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.yatea;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.PrintStream;
-import java.io.StringReader;
-import java.util.Map;
 import java.util.Properties;
-import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
@@ -36,13 +29,9 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
-import fr.inra.maiage.bibliome.util.Pair;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.InputFile;
@@ -93,29 +82,6 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
         return new String[] {
             wordLayerName
         };
-    }
-
-    @Override
-    public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
-		Logger logger = getLogger(ctx);
-		EvaluationContext evalCtx = new EvaluationContext(logger);
-
-		if (outputDir != null && !outputDir.exists() && !outputDir.mkdirs()) {
-			processingException("could not create " + outputDir.getAbsolutePath());
-		}
-		if (!workingDir.exists() && !workingDir.mkdirs()) {
-			processingException("could not create " + outputDir.getAbsolutePath());
-		}
-		try {
-			YateaExtractorExternal<S> yateaExt = new YateaExtractorExternal<S>(this, ctx);
-			InputFile testifiedTerminology = this.testifiedTerminology == null ? null : this.testifiedTerminology.ensureFile(this, ctx, corpus);
-			yateaExt.createRCFile(testifiedTerminology);
-			yateaExt.createInput(evalCtx, corpus);
-			callExternal(ctx, "yatea", yateaExt, "UTF-8", "call-yatea.sh");
-		}
-		catch (IOException e) {
-			rethrow(e);
-		}
     }
 
     public Module<Corpus> getOwner() {
@@ -409,49 +375,6 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
     public void setPerlLib(String perlLib) {
         this.perlLib = perlLib;
     }
-	
-	private static final Pattern COMMENT = Pattern.compile("#.*$");
-	
-	private static String removeComments(String s) {
-		Matcher m = COMMENT.matcher(s);
-		if (m.find()) {
-			int hash = m.start();
-			return s.substring(0, hash);
-		}
-		return s;
-	}
-
-    private static void readYateaConfig(SourceStream source, Properties defaultConfig, Properties options) throws IOException {
-		BufferedReader r = source.getBufferedReader();
-		Properties current = null;
-		LOOP: while (true) {
-			String line = r.readLine();
-			if (line == null) {
-				break;
-			}
-			line = removeComments(line).trim();
-			if (line.isEmpty()) {
-				continue;
-			}
-			switch (line) {
-				case "<DefaultConfig>":
-					current = defaultConfig;
-					continue LOOP;
-				case "</DefaultConfig>":
-					current = null;
-					continue LOOP;
-				case "<OPTIONS>":
-					current = options;
-					continue LOOP;
-				case "</OPTIONS>":
-					current = null;
-					continue LOOP;
-			}
-			StringReader sr = new StringReader(line);
-			current.load(sr);
-		}
-		r.close();
-	}
     
     private static void writeConfigProperties(PrintStream out, Properties properties, String tag) {
 		out.println("<" + tag + ">");
@@ -467,32 +390,5 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
     		writeConfigProperties(out, defaultConfig, "DefaultConfig");
     		writeConfigProperties(out, options, "OPTIONS");
     	}
-    }
-    
-    private static void updateProperties(Properties target, Map<String,String> source) {
-    	for (Map.Entry<String,String> e : source.entrySet()) {
-    		target.setProperty(e.getKey(), e.getValue());
-    	}
-    }
-    
-    private static void updateProperty(Properties props, String key, Object value) {
-    	if (value != null) {
-    		props.setProperty(key, value.toString());
-    	}
-    }
-    
-    protected Pair<Properties,Properties> createConfig(InputFile testifiedTerminology) throws IOException {
-    	Properties defaultConfig = new Properties();
-    	Properties options = new Properties();
-    	readYateaConfig(rcFile, defaultConfig, options);
-    	updateProperties(defaultConfig, yateaDefaultConfig);
-    	updateProperties(options, yateaOptions);
-    	updateProperty(defaultConfig, "CONFIG_DIR", configDir);
-    	updateProperty(defaultConfig, "LOCALE_DIR", localeDir);
-    	updateProperty(options, "output-path", outputDir);
-    	updateProperty(options, "language", language);
-    	updateProperty(options, "termino", testifiedTerminology);
-    	updateProperty(options, "suffix", suffix);
-    	return new Pair<Properties,Properties>(defaultConfig, options);
     }
 }
