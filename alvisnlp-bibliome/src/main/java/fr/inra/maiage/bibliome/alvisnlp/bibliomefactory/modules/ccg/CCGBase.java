@@ -17,7 +17,6 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ccg;
 
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -26,7 +25,6 @@ import java.util.logging.Logger;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.DefaultExpressions;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ccg.CCGBase.CCGResolvedObjects;
-
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
@@ -40,13 +38,11 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverExceptio
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
 import fr.inra.maiage.bibliome.util.Iterators;
-import fr.inra.maiage.bibliome.util.Strings;
 
 public abstract class CCGBase<T extends CCGResolvedObjects> extends SectionModule<T> {
+	private String internalEncoding = "UTF-8";
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
 	private String wordLayerName = DefaultNames.getWordLayer();
 	private String formFeatureName = Annotation.FORM_FEATURE_NAME;
@@ -67,14 +63,6 @@ public abstract class CCGBase<T extends CCGResolvedObjects> extends SectionModul
 			super.collectUsedNames(nameUsage, defaultType);
 			sentenceFilter.collectUsedNames(nameUsage, defaultType);
 		}
-	}
-
-	protected static int getMaxLength(List<Layer> sentences) {
-		int result = 0;
-		for (Layer sent : sentences)
-			if (sent.size() > result)
-				result = sent.size();
-		return result;
 	}
 
 	protected List<List<Layer>> getSentences(Logger logger, EvaluationContext evalCtx, Corpus corpus) {
@@ -105,34 +93,6 @@ public abstract class CCGBase<T extends CCGResolvedObjects> extends SectionModul
 		}
 		logger.info("sentences: " + sentences.size() + ", per run: " + spr + ", runs: " +result.size());
 		return result;
-	}
-	
-	protected void printSentence(PrintStream out, StringBuilder sb, Layer sentence, boolean withPos) {
-		boolean notFirst = false;
-		for (Annotation word : sentence) {
-			String form = word.getLastFeature(formFeatureName);
-			if (form.isEmpty())
-				continue;
-			sb.setLength(0);
-			if (notFirst)
-				sb.append(' ');
-			else
-				notFirst = true;
-			Strings.escapeWhitespaces(sb, form, '|', '.');
-			if (withPos) {
-				sb.append('|');
-				sb.append(word.getLastFeature(posFeatureName));
-			}
-			out.print(sb);
-		}
-		out.println();
-	}
-
-	@TimeThis(task="prepare-sentences", category=TimerCategory.PREPARE_DATA)
-	protected void printSentences(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, PrintStream out, List<Layer> sentences, boolean withPos) {
-		StringBuilder sb = new StringBuilder();
-		for (Layer sent : sentences)
-			printSentence(out, sb, sent, withPos);
 	}
 	
 	@Override
@@ -173,6 +133,15 @@ public abstract class CCGBase<T extends CCGResolvedObjects> extends SectionModul
 	@Param
 	public Integer getMaxRuns() {
 		return maxRuns;
+	}
+
+	@Param
+	public String getInternalEncoding() {
+		return internalEncoding;
+	}
+
+	public void setInternalEncoding(String internalEncoding) {
+		this.internalEncoding = internalEncoding;
 	}
 
 	public void setMaxRuns(Integer maxRuns) {

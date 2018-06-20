@@ -17,38 +17,27 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ccg;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.util.List;
 import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ccg.CCGBase.CCGResolvedObjects;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
-import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
-import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
-import fr.inra.maiage.bibliome.util.streams.SourceStream;
-import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 @AlvisNLPModule
 public class CCGPosTagger extends CCGBase<CCGResolvedObjects> {
 	private ExecutableFile executable;
 	private InputDirectory model;
 	private Boolean silent = false;
-	private String internalEncoding = "UTF-8";
 	private Boolean keepPreviousPos = false;
 	
 	@Override
@@ -60,19 +49,10 @@ public class CCGPosTagger extends CCGBase<CCGResolvedObjects> {
 			for (int run = 0; run < sentenceRuns.size(); ++run) {
 				logger.info(String.format("run %d/%d", run+1, sentenceRuns.size())); 
 				List<Layer> sentences = sentenceRuns.get(run);
-				CCGPosTaggerExternal ext = new CCGPosTaggerExternal(this, ctx, run, getMaxLength(sentences));
-				TargetStream target = new FileTargetStream(internalEncoding, ext.getInput());
-				try (PrintStream out = target.getPrintStream()) {
-					printSentences(ctx, out, sentences, false);
-				}
-				callExternal(ctx, "run-ccg", ext, internalEncoding, "ccg-pos.sh");
-				SourceStream source = new FileSourceStream(internalEncoding, ext.getOutput());
-				try (BufferedReader r = source.getBufferedReader()) {
-					readSentences(ctx, r, sentences);
-				}
+				new CCGPosTaggerExternalHandler(ctx, this, corpus, run, sentences).start();
 			}
 		}
-		catch (IOException e) {
+		catch (IOException | InterruptedException e) {
 			rethrow(e);
 		}
 	}
@@ -82,34 +62,6 @@ public class CCGPosTagger extends CCGBase<CCGResolvedObjects> {
 		return new CCGResolvedObjects(ctx, this);
 	}
 
-	private void readSentence(BufferedReader r, Layer sentence) throws IOException, ProcessingException {
-		boolean reachedEOS = false;
-		for (Annotation word : sentence) {
-			if (word.getLastFeature(getFormFeatureName()).isEmpty())
-				continue;
-			if (reachedEOS)
-				throw new ProcessingException("CCG sentence was too short");
-			String pos = r.readLine();
-			if (pos == null)
-				throw new ProcessingException("CCG was short");
-			if (pos.endsWith("\tEOS")) {
-				reachedEOS = true;
-				pos = pos.substring(0, pos.length() - 4);
-			}
-			if (keepPreviousPos && word.hasFeature(getPosFeatureName()))
-				continue;
-			word.addFeature(getPosFeatureName(), pos.intern());
-		}
-		if (!reachedEOS)
-			throw new ProcessingException("CCG sentence was too long: " + sentence.getSentenceAnnotation());
-	}
-	
-	@TimeThis(task="read-ccg-out", category=TimerCategory.COLLECT_DATA)
-	protected void readSentences(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, BufferedReader r, List<Layer> sentences) throws ProcessingException, IOException {
-		for (Layer sent : sentences)
-			readSentence(r, sent);
-	}
-	
 	@Param
 	public ExecutableFile getExecutable() {
 		return executable;
@@ -123,11 +75,6 @@ public class CCGPosTagger extends CCGBase<CCGResolvedObjects> {
 	@Param
 	public Boolean getSilent() {
 		return silent;
-	}
-
-	@Param
-	public String getInternalEncoding() {
-		return internalEncoding;
 	}
 
 	@Param
@@ -149,9 +96,5 @@ public class CCGPosTagger extends CCGBase<CCGResolvedObjects> {
 
 	public void setSilent(Boolean silent) {
 		this.silent = silent;
-	}
-
-	public void setInternalEncoding(String internalEncoding) {
-		this.internalEncoding = internalEncoding;
 	}
 }
