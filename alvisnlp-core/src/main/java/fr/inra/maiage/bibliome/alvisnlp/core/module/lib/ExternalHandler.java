@@ -93,10 +93,16 @@ public abstract class ExternalHandler<T extends Annotable,M extends Module<T>> {
 		return result;
 	}
 	
-	public void start() throws InterruptedException, IOException, ModuleException {
+	public void start(boolean collect) throws InterruptedException, IOException, ModuleException {
 		doPrepare();
 		doExec();
-		doCollect();
+		if (collect) {
+			doCollect();
+		}
+	}
+	
+	public void start() throws InterruptedException, IOException, ModuleException {
+		start(true);
 	}
 	
 	private void doPrepare() throws IOException, ModuleException {
@@ -119,7 +125,7 @@ public abstract class ExternalHandler<T extends Annotable,M extends Module<T>> {
 		execTimer.stop();
 	}
 	
-	private void doCollect() throws IOException, ModuleException {
+	public void doCollect() throws IOException, ModuleException {
 		Timer<TimerCategory> collectTimer = module.getTimer(processingContext, getCollectTask(), TimerCategory.COLLECT_DATA, true);
 		collect();
 		collectTimer.stop();
