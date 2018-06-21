@@ -1,13 +1,10 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
@@ -29,16 +26,10 @@ public class Word2Vec extends AbstractContes {
 	
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
-		Logger logger = getLogger(ctx);
-		File tmpDir = getTempDir(ctx);
-		Word2VecExternal external = new Word2VecExternal(this, logger, tmpDir);
-		EvaluationContext evalCtx = new EvaluationContext(logger);
 		try {
-			external.createInputFile(evalCtx, corpus);
-			callExternal(ctx, "word2vec", external);
-			external.collectTokenVectors(evalCtx, corpus);
+			new Word2VecExternalHandler(ctx, this, corpus).start();
 		}
-		catch (IOException e) {
+		catch (IOException | InterruptedException e) {
 			rethrow(e);
 		}
 	}
