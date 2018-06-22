@@ -119,7 +119,7 @@ public abstract class ExternalHandler<T extends Annotable,M extends Module<T>> {
 		synchronized (p) {
 			int retval = p.waitFor();
 			if (retval != 0) {
-				throw new ProcessingException("geniatagger returned " + retval);
+				throw new ProcessingException("external program returned " + retval);
 			}
 		}
 		execTimer.stop();
