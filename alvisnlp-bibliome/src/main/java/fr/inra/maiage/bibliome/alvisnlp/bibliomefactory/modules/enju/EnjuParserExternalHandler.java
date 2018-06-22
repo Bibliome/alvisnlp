@@ -1,51 +1,35 @@
-/*
-Copyright 2016, 2017 Institut National de la Recherche Agronomique
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-        http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
-
-
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.enju;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.enju.EnjuParser.EnjuParserResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AbstractExternal;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase;
-import fr.inra.maiage.bibliome.util.Files;
-import fr.inra.maiage.bibliome.util.files.ExecutableFile;
-import fr.inra.maiage.bibliome.util.files.InputFile;
-import fr.inra.maiage.bibliome.util.files.OutputFile;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.fragments.Fragment;
 import fr.inra.maiage.bibliome.util.fragments.FragmentComparator;
 import fr.inra.maiage.bibliome.util.fragments.SimpleFragment;
@@ -54,18 +38,10 @@ import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-public class EnjuExternal extends AbstractExternal<Corpus,EnjuParser> {
-	private static final Pattern ENJU_LINE_PATTERN = Pattern.compile("(?<start>\\d+)\t(?<end>\\d+)\t(?<kind>[a-z0-9_]+) (?<attr>.*)");
-	private static final Pattern ENJU_ATTRIBUTE_PATTERN = Pattern.compile("\\s*(?<key>[a-z0-9_]+)=\"(?<value>.*?)\"\\s*");
-	private static final Pattern ENJU_PRED_PATTERN = Pattern.compile("(?<label>[a-z]+)(?<mod>_mod)?_arg\\d*(?<argn>\\d)");
-
-	private final ExecutableFile scriptFile;
-	private final OutputFile enjuIn;
-	private final InputFile enjuOut;
-	private final int maxSentenceLength;
-
-	// Read state
-	private Iterator<Layer> sentenceIt;
+class EnjuParserExternalHandler extends ExternalHandler<Corpus,EnjuParser> {
+	private final Collection<Layer> sentences = new ArrayList<Layer>();
+	private int maxSentenceLength = -1;
+	private Iterator<Layer> sentenceIt = null;
 	private Layer currentSentence = null;
 	private String currentSentenceId = null;
 	private int currentPosition = 0;
@@ -75,39 +51,42 @@ public class EnjuExternal extends AbstractExternal<Corpus,EnjuParser> {
 	private final Collection<PendingDependencies> dependencies = new ArrayList<PendingDependencies>();
 	private int parseNumber = 0;
 
-	EnjuExternal(EnjuParser enjuParser2, File tempDir, Logger logger, Collection<Layer> sentences) throws IOException {
-		super(enjuParser2, logger);
-		this.scriptFile = createScriptFile(tempDir);
-		this.enjuIn = new OutputFile(tempDir, "corpus.txt");
-		this.enjuOut = new InputFile(tempDir, "corpus.enju");
-		this.maxSentenceLength = writeEnjuInput(sentences);
+	EnjuParserExternalHandler(ProcessingContext<Corpus> processingContext, EnjuParser module, Corpus annotable) {
+		super(processingContext, module, annotable);
 	}
 
-	private static ExecutableFile createScriptFile(File tempDir) throws IOException {
-		ExecutableFile result = new ExecutableFile(tempDir, "enju.sh");
-		// same ClassLoader as this class
-		try (InputStream is = EnjuParser.class.getResourceAsStream("enju.sh")) {
-			Files.copy(is, result, 1024, true);
-		}
-		result.setExecutable(true);
-		return result;
+	@Override
+	protected void prepare() throws IOException, ModuleException {
+		fillSentences();
+		writeEnjuInput();
+	}
+	
+	private void fillSentences() {
+		sentences.clear();
+		EnjuParser owner = getModule();
+		EnjuParserResolvedObjects resObj = owner.getResolvedObjects();
+		Evaluator sentenceFilter = resObj.getSentenceFilter();
+		EvaluationContext evalCtx = new EvaluationContext(getLogger());
+		for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getAnnotable())))
+			for (Layer sent : sec.getSentences(owner.getWordLayerName(), owner.getSentenceLayerName()))
+				if (sentenceFilter.evaluateBoolean(evalCtx, sent.getSentenceAnnotation()))
+					sentences.add(sent);
 	}
 
-	private int writeEnjuInput(Collection<Layer> sentences) throws IOException {
-		TargetStream enjuTS = new FileTargetStream(getOwner().getEnjuEncoding(), enjuIn);
+	private void writeEnjuInput() throws IOException {
+		TargetStream enjuTS = new FileTargetStream(getModule().getEnjuEncoding(), getInputFile().getAbsolutePath());
 		try (PrintStream ps = enjuTS.getPrintStream()) {
-			int result = 0;
+			maxSentenceLength = 0;
 			for (Layer sent : sentences) {
 				int sentLength = sent.size();
-				result = Math.max(result, sentLength);
+				maxSentenceLength = Math.max(maxSentenceLength, sentLength);
 				writeSentence(ps, sent);
 			}
-			return result;
 		}
 	}
 
 	private void writeSentence(PrintStream ps, Layer sent) {
-		EnjuParser enjuParser = getOwner();
+		EnjuParser enjuParser = getModule();
 		boolean notFirst = false;
 		for (Annotation word : sent) {
 			if (notFirst) {
@@ -125,9 +104,25 @@ public class EnjuExternal extends AbstractExternal<Corpus,EnjuParser> {
 		ps.println();
 	}
 
-	void readEnjuOut(Collection<Layer> sentences) throws IOException, ProcessingException {
+	private static void writeToken(PrintStream out, String s) {
+		for (int i = 0; i < s.length(); ++i) {
+			final char c = s.charAt(i);
+			out.print(isSpecial(c) ? '_' : c);
+		}
+	}
+
+	private static boolean isSpecial(char c) {
+		return c == '/' || Character.isWhitespace(c);
+	}
+
+	@Override
+	protected void collect() throws IOException, ModuleException {
+		readEnjuOut();
+	}
+
+	private void readEnjuOut() throws IOException, ProcessingException {
 		sentenceIt = sentences.iterator();
-		SourceStream enjuSS = new FileSourceStream(getOwner().getEnjuEncoding(), enjuOut);
+		SourceStream enjuSS = new FileSourceStream(getModule().getEnjuEncoding(), getOutputFile().getAbsolutePath());
 		try (BufferedReader r = enjuSS.getBufferedReader()) {
 			while (true) {
 				String line = r.readLine();
@@ -143,6 +138,7 @@ public class EnjuExternal extends AbstractExternal<Corpus,EnjuParser> {
 		}
 	}
 
+	private static final Pattern ENJU_LINE_PATTERN = Pattern.compile("(?<start>\\d+)\t(?<end>\\d+)\t(?<kind>[a-z0-9_]+) (?<attr>.*)");
 	private void parseLine(String line) throws ProcessingException {
 		Matcher lineMatcher = ENJU_LINE_PATTERN.matcher(line);
 		if (!lineMatcher.matches()) {
@@ -158,12 +154,31 @@ public class EnjuExternal extends AbstractExternal<Corpus,EnjuParser> {
 			case "cons":
 				parseCons(line, attr);
 				break;
-			case "tok":
-				parseTok(line, attr, getTokHead(line, lineMatcher, attr));
+			case "tok": {
+				Annotation head = getTokHead(lineMatcher, attr);
+				if (head != null) {
+					parseTok(line, attr, head);
+				}
 				break;
+			}
 			default:
 				enjuOutError(line, "unknown kind " + kind);
 		}
+	}
+
+	private static final Pattern ENJU_ATTRIBUTE_PATTERN = Pattern.compile("\\s*(?<key>[a-z0-9_]+)=\"(?<value>.*?)\"\\s*");
+	private static Map<String,String> parseAttributes(String line, String attrStr) throws ProcessingException {
+		Map<String,String> result = new LinkedHashMap<String,String>();
+		Matcher attrMatcher = ENJU_ATTRIBUTE_PATTERN.matcher(attrStr);
+		while (attrMatcher.find()) {
+			String key = attrMatcher.group("key");
+			String value = attrMatcher.group("value");
+			result.put(key, value);
+		}
+		if (attrMatcher.requireEnd()) {
+			enjuOutError(line, "malformed attributes");
+		}
+		return result;
 	}
 
 	private void parseSentence(String line, Map<String,String> attr) throws ProcessingException {
@@ -177,11 +192,19 @@ public class EnjuExternal extends AbstractExternal<Corpus,EnjuParser> {
 		startParse(line, attr);
 	}
 
+	private static void checkAttributes(String line, Map<String,String> attr, String... keys) throws ProcessingException {
+		for (String key : keys) {
+			if (!attr.containsKey(key)) {
+				enjuOutError(line, "missing attribute " + key);
+			}
+		}
+	}
+
 	private void finishParse() throws ProcessingException {
 		if (currentSentence == null) {
 			return;
 		}
-		EnjuParser enjuParser = getOwner();
+		EnjuParser enjuParser = getModule();
 		Section sec = currentSentence.getSection();
 		Relation rel = sec.ensureRelation(enjuParser, enjuParser.getDependenciesRelationName());
 		for (PendingDependencies dep : dependencies) {
@@ -197,13 +220,32 @@ public class EnjuExternal extends AbstractExternal<Corpus,EnjuParser> {
 		}
 	}
 
+	private static class PendingDependencies {
+		private final String line;
+		private final Annotation head;
+		private final Map<String,String> attr;
+		private final String args;
+		private final String label;
+		private final boolean mod;
+
+		private PendingDependencies(String line, Annotation head, Map<String,String> attr, String args, String label, boolean mod) {
+			super();
+			this.line = line;
+			this.head = head;
+			this.attr = attr;
+			this.args = args;
+			this.label = label;
+			this.mod = mod;
+		}
+	}
+
 	private void createDependencyTuple(PendingDependencies dep, Relation rel, String role) throws ProcessingException {
 		checkAttributes(dep.line, dep.attr, role);
 		String dependentId = dep.attr.get(role);
 		if (dependentId.equals("unk")) {
 			return;
 		}
-		EnjuParser enjuParser = getOwner();
+		EnjuParser enjuParser = getModule();
 		Tuple t = new Tuple(enjuParser, rel);
 		t.setArgument(enjuParser.getSentenceRole(), currentSentence.getSentenceAnnotation());
 		t.setArgument(enjuParser.getDependencyHeadRole(), dep.head);
@@ -236,7 +278,7 @@ public class EnjuExternal extends AbstractExternal<Corpus,EnjuParser> {
 		currentSentenceId = id;
 		wordPositionIndex.clear();
 		parseNumber = 0;
-		EnjuParser enjuParser = getOwner();
+		EnjuParser enjuParser = getModule();
 		boolean notFirst = false;
 		for (Annotation word : currentSentence) {
 			if (notFirst) {
@@ -263,7 +305,7 @@ public class EnjuExternal extends AbstractExternal<Corpus,EnjuParser> {
 		checkAttributes(line, attr, "parse_status");
 		String parseStatus = attr.get("parse_status");
 		Annotation sent = currentSentence.getSentenceAnnotation();
-		sent.addFeature(getOwner().getParseStatusFeatureName(), parseStatus);
+		sent.addFeature(getModule().getParseStatusFeatureName(), parseStatus);
 		wordIdIndex.clear();
 		consHeads.clear();
 		dependencies.clear();
@@ -277,6 +319,7 @@ public class EnjuExternal extends AbstractExternal<Corpus,EnjuParser> {
 		consHeads.put(id, head);
 	}
 
+	private static final Pattern ENJU_PRED_PATTERN = Pattern.compile("(?<label>[a-z]+)(?<mod>_mod)?_arg\\d*(?<argn>\\d)");
 	private void parseTok(String line, Map<String,String> attr, Annotation head) throws ProcessingException {
 		checkAttributes(line, attr, "pred");
 		String pred = attr.get("pred");
@@ -296,7 +339,7 @@ public class EnjuExternal extends AbstractExternal<Corpus,EnjuParser> {
 		}
 	}
 
-	private Annotation getTokHead(String line, Matcher lineMatcher, Map<String, String> attr) throws ProcessingException {
+	private Annotation getTokHead(Matcher lineMatcher, Map<String, String> attr) {
 		int start = Integer.parseInt(lineMatcher.group("start"));
 		int end = Integer.parseInt(lineMatcher.group("end"));
 		Fragment frag = new SimpleFragment(start, end);
@@ -308,99 +351,96 @@ public class EnjuExternal extends AbstractExternal<Corpus,EnjuParser> {
 		Annotation best = null;
 		int minDistance = Integer.MAX_VALUE;
 		for (Annotation a : wordPositionIndex.values()) {
-			if (!a.getForm().equalsIgnoreCase(form)) {
-				continue;
-			}
-			int d = Math.abs(a.getStart() - start);
-			if (d < minDistance) {
-				minDistance = d;
-				best = a;
+			if (acceptableForm(form, a.getLastFeature(getModule().getLemmaFeatureName()))) {
+				int d = Math.abs(a.getStart() - start);
+				if (d < minDistance) {
+					minDistance = d;
+					best = a;
+				}
 			}
 		}
-		String message = "token alignment (" + frag.getStart() + '-' + frag.getEnd() + ')';
+		String message = "token alignment (" + frag.getStart() + '-' + frag.getEnd() + ", " + form + ")";
 		if (best == null) {
-			enjuOutError(line, message);
+			getLogger().severe(message + " fallback: " + best);
+			return null;
 		}
 		getLogger().warning(message + " fallback: " + best);
 		return best;
 	}
-
-	private static Map<String,String> parseAttributes(String line, String attrStr) throws ProcessingException {
-		Map<String,String> result = new LinkedHashMap<String,String>();
-		Matcher attrMatcher = ENJU_ATTRIBUTE_PATTERN.matcher(attrStr);
-		while (attrMatcher.find()) {
-			String key = attrMatcher.group("key");
-			String value = attrMatcher.group("value");
-			result.put(key, value);
+	
+	private static final Pattern NUMBER_PERIOD_NUMBER = Pattern.compile("\\d+\\.\\d+");
+	private static final Pattern NUMBER_PERIOD_NUMBER_TWICE = Pattern.compile("\\d+\\.\\d+-\\d+\\.\\d+");
+	private static boolean acceptableForm(String base, String form) {
+		if (base.equalsIgnoreCase(form)) {
+			return true;
 		}
-		if (attrMatcher.requireEnd()) {
-			enjuOutError(line, "malformed attributes");
+		switch (base) {
+			case "-LRB-": return form.equals("(");
+			case "-RRB-": return form.equals(")");
+			case "-NUMBER-": return Strings.allDigits(form);
+			case "-YEAR-": return Strings.allDigits(form) && form.length() == 4;
+			case "-COMMA-": return form.equals(",");
+			case "-SEMICOLON-": return form.equals(";");
+			case "-NUMBER--PERIOD--NUMBER-": return NUMBER_PERIOD_NUMBER.matcher(form).matches();
+			case "-NUMBER--PERIOD--NUMBER---NUMBER--PERIOD--NUMBER-": return NUMBER_PERIOD_NUMBER_TWICE.matcher(form).matches();
+			case "dy": return form.equals("die");
 		}
-		return result;
+		return false;
 	}
 
 	private static void enjuOutError(String line, String msg) throws ProcessingException {
 		ModuleBase.processingException("could not parse line (" + msg + "): " + line);
 	}
 
-	private static void checkAttributes(String line, Map<String,String> attr, String... keys) throws ProcessingException {
-		for (String key : keys) {
-			if (!attr.containsKey(key)) {
-				enjuOutError(line, "missing attribute " + key);
-			}
-		}
-	}
-
-	private static void writeToken(PrintStream out, String s) {
-		for (int i = 0; i < s.length(); ++i) {
-			final char c = s.charAt(i);
-			out.print(isSpecial(c) ? '_' : c);
-		}
-	}
-
-	private static boolean isSpecial(char c) {
-		return c == '/' || Character.isWhitespace(c);
-	}
-
-	private static class PendingDependencies {
-		private final String line;
-		private final Annotation head;
-		private final Map<String,String> attr;
-		private final String args;
-		private final String label;
-		private final boolean mod;
-
-		private PendingDependencies(String line, Annotation head, Map<String,String> attr, String args, String label, boolean mod) {
-			super();
-			this.line = line;
-			this.head = head;
-			this.attr = attr;
-			this.args = args;
-			this.label = label;
-			this.mod = mod;
-		}
+	@Override
+	protected String getPrepareTask() {
+		return "alvisnlp-to-enju";
 	}
 
 	@Override
-	public String[] getCommandLineArgs() throws ModuleException {
-		return new String[] { scriptFile.getAbsolutePath() };
+	protected String getExecTask() {
+		return "enju";
 	}
 
 	@Override
-	public String[] getEnvironment() throws ModuleException {
-		EnjuParser enjuParser = getOwner();
-		return new String[] {
-				"ENJU_BIN=" + enjuParser.getEnjuExecutable().getAbsolutePath(),
-				"ENJU_IN=" + enjuIn.getAbsolutePath(),
-				"ENJU_OUT=" + enjuOut.getAbsolutePath(),
-				"ENJU_MODEL=" + (enjuParser.getBiology() ? "-genia" : "-brown"),
-				"ENJU_LENGTH=" + maxSentenceLength,
-				"ENJU_N=" + (enjuParser.getnBest() > 1 ? "-N " + enjuParser.getnBest() : "")
-		};
+	protected String getCollectTask() {
+		return "enju-to-alvisnlp";
 	}
 
 	@Override
-	public File getWorkingDirectory() throws ModuleException {
+	protected List<String> getCommandLine() {
+		List<String> result = new ArrayList<String>();
+		EnjuParser owner = getModule();
+		result.add(owner.getEnjuExecutable().getAbsolutePath());
+		result.add("-nt");
+		result.add("-so");
+		result.add(owner.getBiology() ? "-genia" : "-brown");
+		result.add("-W");
+		result.add(Integer.toString(maxSentenceLength));
+		int nBest = owner.getnBest();
+		if (nBest > 1) {
+			result.add("-N");
+			result.add(Integer.toString(nBest));
+		}
+		return result;
+	}
+
+	@Override
+	protected void updateEnvironment(Map<String,String> env) {
+	}
+
+	@Override
+	protected File getWorkingDirectory() {
 		return null;
+	}
+
+	@Override
+	protected String getInputFileame() {
+		return "corpus.txt";
+	}
+
+	@Override
+	protected String getOutputFilename() {
+		return "corpus.enju";
 	}
 }
