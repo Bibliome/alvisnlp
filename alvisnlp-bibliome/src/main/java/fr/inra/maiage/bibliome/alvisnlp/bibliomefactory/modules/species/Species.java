@@ -17,32 +17,19 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.species;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.PrintStream;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreator;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
-import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
-import fr.inra.maiage.bibliome.util.files.OutputFile;
-import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
-import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 @AlvisNLPModule(beta=true)
 public abstract class Species extends SectionModule<SectionResolvedObjects> implements AnnotationCreator {
@@ -57,35 +44,14 @@ public abstract class Species extends SectionModule<SectionResolvedObjects> impl
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
-		Logger logger = getLogger(ctx);
-		EvaluationContext evalCtx = new EvaluationContext(logger);
-		File tmpDir = getTempDir(ctx);
-		Map<String,Section> sectionMap = writeSpeciesInput(ctx, evalCtx, corpus, tmpDir);
-		SpeciesExternal external = new SpeciesExternal(this, logger, new InputDirectory(tmpDir.getAbsolutePath()), sectionMap);
-		callExternal(ctx, "run-species", external, "ISO-8859-1", "species.sh");
-	}
-	
-	@TimeThis(task="write-species-input", category=TimerCategory.PREPARE_DATA)
-	protected Map<String,Section> writeSpeciesInput(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, Corpus corpus, File tmpDir) throws ModuleException {
-		Map<String,Section> result = new LinkedHashMap<String,Section>();
 		try {
-			for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-				int n = result.size();
-				String fileName = Integer.toHexString(n) + ".txt";
-				result.put(fileName, sec);
-				TargetStream target = new FileTargetStream("ISO-8859-1", new OutputFile(tmpDir, fileName));
-				PrintStream ps = target.getPrintStream();
-				String contents = sec.getContents().replace('\n', ' ');
-				ps.print(contents);
-				ps.close();
-			}
+			new SpeciesExternalHandler(ctx, this, corpus).start();
 		}
-		catch (IOException e) {
+		catch (InterruptedException | IOException e) {
 			rethrow(e);
 		}
-		return result;
 	}
-
+	
 	@Override
 	protected String[] addLayersToSectionFilter() {
 		return null;
