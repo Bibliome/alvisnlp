@@ -17,25 +17,14 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.treetagger;
 
-import java.io.BufferedReader;
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
-
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
@@ -47,15 +36,10 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContex
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Strings;
-import fr.inra.maiage.bibliome.util.filelines.FileLines;
-import fr.inra.maiage.bibliome.util.filelines.InvalidFileLineEntry;
 import fr.inra.maiage.bibliome.util.filelines.TabularFormat;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 import fr.inra.maiage.bibliome.util.files.InputFile;
@@ -159,30 +143,13 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 		return new SectionResolvedObjects(ctx, this);
 	}
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase#process(alvisnlp.module.ProcessingContext,
-     * fr.inra.maiage.bibliome.alvisnlp.core.document.Corpus)
-     */
     @Override
     public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
         try {
-        	Logger logger = getLogger(ctx);
-            EvaluationContext evalCtx = new EvaluationContext(logger);
+            new TreeTaggerExternalHandler(ctx, this, corpus).start();
 
-            Map<String,String> lexicon = getLexicon(ctx);
-            File tempDir = getTempDir(ctx);
-            TreeTaggerExternal tte = new TreeTaggerExternal(ctx, this, tempDir, treeTaggerExecutable, parFile, lexicon);
-
-            writeTTInput(ctx, evalCtx, corpus, tte);
-
-            logger.info("running tree-tagger");
-            callExternal(ctx, "tree-tagger", tte, outputCharset, "script.sh");
-
-            readTTOutput(ctx, evalCtx, corpus, tte);
             if ((recordDir != null) && (recordFeatures != null)) {
+            	EvaluationContext evalCtx = new EvaluationContext(getLogger(ctx));
                 for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
                 	OutputFile recordFile = recordDir.getOutputFile(sec.getFileName() + ".ttg");
                 	TargetStream target = new FileTargetStream(recordCharset, recordFile);
@@ -212,100 +179,6 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
         }
     }
 
-    private static final Pattern LEXICON_INFO = Pattern.compile("\\S+ [01](?:\\.\\d+)? \\S+");
-    
-    private FileLines<Map<String,String>> lexiconFileLines = new FileLines<Map<String,String>>(lexiconTabularFormat) {
-        @Override
-        public void processEntry(Map<String,String> data, int lineno, List<String> entry) throws InvalidFileLineEntry {
-            String word = entry.get(0);
-            if (data.containsKey(word)) {
-				getLogger().warning("duplicate lexicon entry " + word + ", ignoring previous settings");
-			}
-            List<String> info = new ArrayList<String>(entry.size() - 1);
-            for (int i = 1; i < entry.size(); ++i) {
-            	String alt = entry.get(i);
-            	if (alt.isEmpty()) {
-            		getLogger().warning("malformed lexicon entry at line " + lineno + ": tab-tab");
-            		continue;
-            	}
-            	Matcher m = LEXICON_INFO.matcher(alt);
-            	if (!m.matches()) {
-            		getLogger().warning("malformed lexicon entry at line " + lineno + ": '" + alt + "'");
-            		continue;
-            	}
-            	info.add(alt);
-            }
-            data.put(word, Strings.join(info, '\t'));
-        }
-    };
-    
-    @TimeThis(task="load-lexicon", category=TimerCategory.LOAD_RESOURCE)
-    public Map<String,String> getLexicon(ProcessingContext<Corpus> ctx) throws FileNotFoundException, IOException, InvalidFileLineEntry {
-        if (lexiconFile == null) {
-			return Collections.emptyMap();
-		}
-        Map<String,String> result = new LinkedHashMap<String,String>();
-        Logger logger = getLogger(ctx);
-        logger.fine("opening lexicon file: " + lexiconFile);
-        lexiconFileLines.setLogger(logger);
-        BufferedReader r = lexiconFile.getBufferedReader();
-        lexiconFileLines.process(r, result);
-        r.close();
-        return result;
-    }
-
-    @TimeThis(task="treetagger-input", category=TimerCategory.PREPARE_DATA)
-    protected void writeTTInput(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, Corpus corpus, TreeTaggerExternal tte) throws IOException {
-        tte.openInput("corpus", inputCharset);
-        for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-//        	logger.finer("preparing TT input for " + sec.getDocument().getId() + " / " + sec.getName());
-            for (Layer sent : sec.getSentences(wordLayerName, sentenceLayerName)) {
-                for (Annotation word : sent) {
-                    tte.addInputToken(word.getLastFeature(formFeature), word.getLastFeature(posFeature), word.getLastFeature(lemmaFeature));
-                }
-                tte.addInputToken(".", "SENT", ".");
-            }
-        }
-        tte.closeInput();
-    }
-
-    @TimeThis(task="treetagger-output", category=TimerCategory.COLLECT_DATA)
-    protected void readTTOutput(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, Corpus corpus, TreeTaggerExternal tte) throws ProcessingException, ModuleException, IOException {
-        tte.openOutput(outputCharset);
-        for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-//        	logger.finer("reading TT output for " + sec.getDocument().getId() + " / " + sec.getName());
-            for (Layer sent : sec.getSentences(wordLayerName, sentenceLayerName)) {
-                for (Annotation word : sent) {
-                    if (!tte.hasNext()) {
-                        processingException("tree tagger output is short on lines");
-                    }
-                    word.addFeature(posFeature, tte.getPosTag());
-                    String lemma = tte.getLemma();
-                    if (noUnknownLemma && "<unknown>".equals(lemma)) {
-						word.addFeature(lemmaFeature, word.getLastFeature(formFeature));
-					} else {
-						word.addFeature(lemmaFeature, lemma);
-					}
-                }
-                if (!tte.hasNext()) { // eat sentence reinforcement
-                    processingException("tree tagger output is short on lines");
-                }
-            }
-        }
-        tte.closeOutput();
-    }
-    
-    /**
-     * Write tt output.
-     * 
-     * @param ps
-     *            the ps
-     * @param word
-     *            the word
-     * @param n
-     *            the n
-     * @throws IOException 
-     */
     private void writeTTOutput(PrintStream ps, final Annotation word, final int n) throws IOException {
         Mapper<String,String> mapper = new Mapper<String,String>() {
             @Override
