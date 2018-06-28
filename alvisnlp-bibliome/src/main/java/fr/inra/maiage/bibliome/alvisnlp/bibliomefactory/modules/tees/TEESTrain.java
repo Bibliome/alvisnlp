@@ -1,18 +1,13 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tees;
 
 import java.io.IOException;
-import java.util.logging.Logger;
 
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
@@ -36,53 +31,14 @@ public abstract class TEESTrain extends TEESMapper {
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
-		Logger logger = getLogger(ctx);
-
 		try {
-			JAXBContext jaxbContext = JAXBContext.newInstance(CorpusTEES.class);
-//			logger.info("Accessing the corpora");
-			Marshaller jaxbm = jaxbContext.createMarshaller();
-			jaxbm.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-			// marshaling
-			this.prepareTEESCorpora(ctx, corpus);
-			TEESTrainExternal teesTrainExt = new TEESTrainExternal(this, ctx);
-			jaxbm.marshal(getCorpus(getTrainSetValue()), teesTrainExt.getTrainInput());
-			jaxbm.marshal(getCorpus(getDevSetValue()), teesTrainExt.getDevInput());
-			jaxbm.marshal(getCorpus(getTestSetValue()), teesTrainExt.getTestInput());
-
-			logger.info("Training classifier");
-			callExternal(ctx, "run-tees-train", teesTrainExt, INTERNAL_ENCODING, "tees-train.sh");
+			new TEESTrainExternalHandler(ctx, this, corpus).start();
 		}
-		catch (JAXBException|IOException e) {
+		catch (JAXBException | IOException | InterruptedException e) {
 			rethrow(e);
 		}
 	}
-	
-	@Override
-	protected String getSet(Document doc) {
-		return doc.getLastFeature(getCorpusSetFeature());
-	}
 
-	/**
-	 * Build TEES corpus from Alvis corpus
-	 * @param ctx
-	 * @param corpusAlvis
-	 * @throws ProcessingException 
-	 */
-	public void prepareTEESCorpora(ProcessingContext<Corpus> ctx, Corpus corpusAlvis) throws ProcessingException{
-//		Logger logger = getLogger(ctx);
-		
-//		logger.info("creating the train, dev, test corpus");
-		createTheTeesCorpus(ctx, corpusAlvis);
-
-		for (String set : new String[] { getTrainSetValue(), getDevSetValue(), getTestSetValue() }) {
-			CorpusTEES corpus = getCorpus(set);
-			if (corpus.getDocument().isEmpty()) {
-				processingException("could not do training : "+set+" is empty");
-			}
-		}
-	}
-	
 	/**
 	 * object resolver and feature handler
 	 */
