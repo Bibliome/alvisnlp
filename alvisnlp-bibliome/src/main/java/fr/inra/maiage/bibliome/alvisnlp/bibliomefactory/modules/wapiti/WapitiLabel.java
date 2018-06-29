@@ -36,11 +36,9 @@ public class WapitiLabel extends AbstractWapiti {
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
-			WapitiLabelExternal external = new WapitiLabelExternal(this, ctx, corpus);
-			callExternal(ctx, "wapiti", external, "UTF-8", "wapiti.sh");
-			external.readResult(corpus);
+			new WapitiLabelExternalHandler(ctx, this, corpus).start();
 		}
-		catch (IOException e) {
+		catch (IOException | InterruptedException e) {
 			rethrow(e);
 		}
 	}

@@ -6,6 +6,7 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.wapiti.AbstractWapiti.WapitiResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
@@ -16,27 +17,21 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContex
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AbstractExternal;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
 import fr.inra.maiage.bibliome.util.Iterators;
 
-abstract class AbstractWapitiExternal<T extends AbstractWapiti> extends AbstractExternal<Corpus,T> {
-	private final File inputFile;
-	protected final File outputFile;
-
-	protected AbstractWapitiExternal(T owner, ProcessingContext<Corpus> ctx, Corpus corpus, File outputFile) throws IOException {
-		super(owner, ctx);
-		File tmpDir = owner.getTempDir(ctx);
-		this.inputFile = new File(tmpDir, "input.txt");
-		writeInput(corpus);
-		this.outputFile = outputFile;
+abstract class AbstractWapitiExternalHandler<T extends AbstractWapiti> extends ExternalHandler<Corpus,T> {
+	protected AbstractWapitiExternalHandler(ProcessingContext<Corpus> processingContext, T module, Corpus annotable) {
+		super(processingContext, module, annotable);
 	}
-	
-	private void writeInput(Corpus corpus) throws IOException {
+
+	@Override
+	protected void prepare() throws IOException, ModuleException {
 		EvaluationContext evalCtx = new EvaluationContext(getLogger());
-		AbstractWapiti owner = getOwner();
+		AbstractWapiti owner = getModule();
 		WapitiResolvedObjects resObj = owner.getResolvedObjects();
-		try (PrintStream ps = new PrintStream(inputFile)) {
-			for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, corpus))) {
+		try (PrintStream ps = new PrintStream(getWapitiInputFile())) {
+			for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getAnnotable()))) {
 				for (Layer sentence : sec.getSentences(owner.getTokenLayerName(), owner.getSentenceLayerName())) {
 					for (Annotation a : sentence) {
 						boolean notFirst = false;
@@ -48,7 +43,7 @@ abstract class AbstractWapitiExternal<T extends AbstractWapiti> extends Abstract
 								notFirst = true;
 							}
 							String value = feat.evaluateString(evalCtx, a);
-							ps.print(value);
+							ps.print(value.replace(' ', '_'));
 						}
 						ps.println();
 					}
@@ -58,33 +53,28 @@ abstract class AbstractWapitiExternal<T extends AbstractWapiti> extends Abstract
 		}
 	}
 	
-	protected abstract String getMode();
-	
-	protected abstract void fillAdditionalCommandLineArgs(List<String> args);
-	
-	protected static void addOption(List<String> args, String option, Object value) {
-		if (value != null) {
-			args.add(option);
-			args.add(value.toString());
-		}
-	}
-	
-	protected static void addOption(List<String> args, String option, File value) {
-		if (value != null) {
-			args.add(option);
-			args.add(value.getAbsolutePath());
-		}
-	}
-
-	protected static void addOption(List<String> args, Boolean value, String option) {
-		if (value != null && value) {
-			args.add(option);
-		}
+	private File getWapitiInputFile() {
+		return getTempFile("input.txt");
 	}
 
 	@Override
-	public String[] getCommandLineArgs() throws ModuleException {
-		AbstractWapiti owner = getOwner();
+	protected String getPrepareTask() {
+		return "alvisnlp-to-wapiti";
+	}
+
+	@Override
+	protected String getExecTask() {
+		return "wapiti";
+	}
+
+	@Override
+	protected String getCollectTask() {
+		return "wapiti-to-alvisnlp";
+	}
+
+	@Override
+	protected List<String> getCommandLine() {
+		AbstractWapiti owner = getModule();
 		List<String> result = new ArrayList<String>();
 		result.add(owner.getWapitiExecutable().getAbsolutePath());
 		result.add(getMode());
@@ -93,18 +83,40 @@ abstract class AbstractWapitiExternal<T extends AbstractWapiti> extends Abstract
 		if (commandLineOptions != null) {
 			result.addAll(Arrays.asList(commandLineOptions));
 		}
-		result.add(inputFile.getAbsolutePath());
-		result.add(outputFile.getAbsolutePath());
-		return result.toArray(new String[result.size()]);
+		result.add(getWapitiInputFile().getAbsolutePath());
+		result.add(getWapitiOutputFile().getAbsolutePath());
+		return result;
+	}
+	
+	protected abstract void fillAdditionalCommandLineArgs(List<String> args);
+	
+	protected static void addOption(List<String> args, String option, String value) {
+		if (value != null) {
+			args.add(option);
+			args.add(value.toString());
+		}
+	}
+
+	protected abstract String getMode();
+	
+	protected abstract File getWapitiOutputFile();
+
+	@Override
+	protected void updateEnvironment(Map<String,String> env) {
 	}
 
 	@Override
-	public String[] getEnvironment() throws ModuleException {
+	protected File getWorkingDirectory() {
 		return null;
 	}
 
 	@Override
-	public File getWorkingDirectory() throws ModuleException {
+	protected String getInputFileame() {
+		return null;
+	}
+
+	@Override
+	protected String getOutputFilename() {
 		return null;
 	}
 }

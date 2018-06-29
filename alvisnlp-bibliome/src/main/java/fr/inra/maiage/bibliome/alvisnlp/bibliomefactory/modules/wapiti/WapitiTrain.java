@@ -18,7 +18,6 @@ limitations under the License.
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.wapiti;
 
 import java.io.IOException;
-import java.util.List;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
@@ -39,10 +38,9 @@ public class WapitiTrain extends AbstractWapiti {
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
-			WapitiTrainExternal external = new WapitiTrainExternal(ctx, corpus);
-			callExternal(ctx, "wapiti", external, "UTF-8", "wapiti.sh");
+			new WapitiTrainExternalHandler(ctx, this, corpus).start();
 		}
-		catch (IOException e) {
+		catch (IOException | InterruptedException e) {
 			rethrow(e);
 		}
 	}
@@ -86,23 +84,5 @@ public class WapitiTrain extends AbstractWapiti {
 
 	public void setPatternFile(InputFile patternFile) {
 		this.patternFile = patternFile;
-	}
-
-	private class WapitiTrainExternal extends AbstractWapitiExternal<WapitiTrain> {
-		public WapitiTrainExternal(ProcessingContext<Corpus> ctx, Corpus corpus) throws IOException {
-			super(WapitiTrain.this, ctx, corpus, modelFile);
-		}
-
-		@Override
-		protected String getMode() {
-			return "train";
-		}
-
-		@Override
-		protected void fillAdditionalCommandLineArgs(List<String> args) {
-			addOption(args, "--type", modelType);
-			addOption(args, "--algo", trainAlgorithm);
-			addOption(args, "--pattern", patternFile);
-		}
 	}
 }
