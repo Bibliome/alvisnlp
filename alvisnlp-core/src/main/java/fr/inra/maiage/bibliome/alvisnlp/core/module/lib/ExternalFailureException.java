@@ -24,6 +24,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 /**
  * Exception thrown when an external program was called and returned a non-zero status.
  */
+@Deprecated
 public class ExternalFailureException extends ProcessingException {
     private static final long serialVersionUID = 1;
 

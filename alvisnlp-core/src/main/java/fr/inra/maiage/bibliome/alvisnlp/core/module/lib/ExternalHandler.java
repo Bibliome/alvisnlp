@@ -114,10 +114,10 @@ public abstract class ExternalHandler<T extends Annotable,M extends Module<T>> {
 	
 	private void doExec() throws IOException, InterruptedException, ProcessingException {
 		if (getOutputFilename() == null) {
-			getLogger().fine(getExecTask() + " (stderr)");
+			getLogger().fine(getExecTask() + " (stderr and stdout)");
 		}
 		else {
-			getLogger().fine(getExecTask() + " (stderr and stdout)");
+			getLogger().fine(getExecTask() + " (stderr)");
 		}
 		Timer<TimerCategory> execTimer = module.getTimer(processingContext, getExecTask(), TimerCategory.EXTERNAL, true);
 		ProcessBuilder processBuilder = createProcessBuilder();
