@@ -106,12 +106,19 @@ public abstract class ExternalHandler<T extends Annotable,M extends Module<T>> {
 	}
 	
 	private void doPrepare() throws IOException, ModuleException {
+		getLogger().fine(getPrepareTask());
 		Timer<TimerCategory> prepareTimer = module.getTimer(processingContext, getPrepareTask(), TimerCategory.PREPARE_DATA, true);
 		prepare();
 		prepareTimer.stop();
 	}
 	
 	private void doExec() throws IOException, InterruptedException, ProcessingException {
+		if (getOutputFilename() == null) {
+			getLogger().fine(getExecTask() + " (stderr)");
+		}
+		else {
+			getLogger().fine(getExecTask() + " (stderr and stdout)");
+		}
 		Timer<TimerCategory> execTimer = module.getTimer(processingContext, getExecTask(), TimerCategory.EXTERNAL, true);
 		ProcessBuilder processBuilder = createProcessBuilder();
 		Process p = processBuilder.start();
@@ -126,6 +133,7 @@ public abstract class ExternalHandler<T extends Annotable,M extends Module<T>> {
 	}
 	
 	public void doCollect() throws IOException, ModuleException {
+		getLogger().fine(getCollectTask());
 		Timer<TimerCategory> collectTimer = module.getTimer(processingContext, getCollectTask(), TimerCategory.COLLECT_DATA, true);
 		collect();
 		collectTimer.stop();
