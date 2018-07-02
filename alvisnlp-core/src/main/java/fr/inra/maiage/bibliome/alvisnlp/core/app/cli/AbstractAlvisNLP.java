@@ -1074,16 +1074,13 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     }
     
     private void error(Logger logger, Exception e, String msg) {
-    	logger.severe(msg);
     	if (logger.isLoggable(Level.FINEST)) {
-    		for (Throwable t = e; t != null; t = t.getCause()) {
-    			logger.finest(t.getClass().getCanonicalName());
-    			for (StackTraceElement ste : t.getStackTrace())
-    				logger.finest("    " + ste);
-    		}
+    		logger.log(Level.SEVERE, msg, e);
     	}
-		else
+		else {
+	    	logger.severe(msg);
 			logger.info("use -verbose option to get debug info");
+		}
     	exitCode = 1;
     }
 

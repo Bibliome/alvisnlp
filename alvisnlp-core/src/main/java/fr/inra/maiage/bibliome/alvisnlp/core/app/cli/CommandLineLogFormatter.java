@@ -80,20 +80,29 @@ public class CommandLineLogFormatter extends Formatter {
             sb.append(lvl);
             sb.append(' ');
         }
-        sb.append(rec.getMessage());
-        for (Throwable cause = rec.getThrown(); cause != null; cause = cause.getCause()) {
-            sb.append("\n\n### error type:\n###     ");
-            sb.append(cause.getClass().getCanonicalName());
-            sb.append("\n###\n### error message:\n###     ");
-            sb.append(cause.getMessage());
-            sb.append("\n###\n### stack trace:\n");
-            for (StackTraceElement elt : cause.getStackTrace()) {
-                sb.append("###     ");
-                sb.append(elt.toString());
-                sb.append('\n');
+        if (rec.getThrown() == null) {
+        	String msg = rec.getMessage();
+            sb.append(msg);
+            if ((msg.length() == 0) || (msg.charAt(msg.length() - 1) != '\r')) { 
+            	sb.append('\n');
             }
         }
-        sb.append('\n');
+        else {
+        	sb.append("unrecoverable error");
+        	for (Throwable cause = rec.getThrown(); cause != null; cause = cause.getCause()) {
+        		sb.append("\n\n### error type:\n###     ");
+        		sb.append(cause.getClass().getCanonicalName());
+        		sb.append("\n###\n### error message:\n###     ");
+        		sb.append(cause.getMessage());
+        		sb.append("\n###\n### stack trace:\n");
+        		for (StackTraceElement elt : cause.getStackTrace()) {
+        			sb.append("###     ");
+        			sb.append(elt.toString());
+        			sb.append('\n');
+        		}
+        	}
+        	sb.append('\n');
+        }
         if (colors && LEVEL_COLORS.containsKey(lvl)) {
         	sb.append("\u001B[0m");
         }
