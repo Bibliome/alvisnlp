@@ -87,173 +87,169 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
-		Iterator<BufferedReader> rit = null;
-		try {
-			rit = source.getBufferedReaders();
-		}
-		catch (IOException e) {
-			rethrow(e);
-		}
 		Timer<TimerCategory> timer = getTimer(ctx, "read", TimerCategory.LOAD_RESOURCE, true);
-		while (rit.hasNext()) {
-			try (BufferedReader r = rit.next()) {
-				Document doc = null;
-				Section sec = null;
-				Map<String,Annotation> words = new LinkedHashMap<String,Annotation>();
-				int lineno = 0;
-				while (true) {
-					String line = r.readLine();
-					if (line == null)
-						break;
-					lineno++;
-					line = line.trim();
-					if (line.isEmpty())
-						continue;
-					if (line.charAt(0) == '%')
-						continue;
-					List<String> cols = Strings.split(line, '\t', -1);
-					switch (cols.get(0)) {
-					case "ID":
-						if (cols.size() != 2)
-							error(r, lineno, "expected 2 columns");
-						doc = Document.getDocument(this, corpus, cols.get(1));
-						sec = null;
-						break;
-					case "sentence":
-						if (cols.size() != 2)
-							error(r, lineno, "expected 2 columns");
-						if (doc == null)
-							error(r, lineno, "missed line with document ID");
-						if (sec != null)
-							error(r, lineno, "duplicate sentence");
-						String contents = cols.get(1);
-						sec = new Section(this, doc, sectionName, contents);
-						Layer sentenceLayer = sec.ensureLayer(sentenceLayerName);
-						new Annotation(this, sentenceLayer, 0, contents.length());
-						doc = null;
-						break;
-					case "words":
-						if (cols.size() <= 2)
-							error(r, lineno, "expected at least two columns");
-						if (sec == null)
-							error(r, lineno, "missed sentence text");
-						words.clear();
-						Layer wordLayer = sec.ensureLayer(wordLayerName);
-						for (int i = 1; i < cols.size(); ++i) {
-							Matcher m = WORD_PATTERN.matcher(cols.get(i));
-							if (!m.matches())
-								error(r, lineno, "ill-formed word: " + cols.get(i));
-							String id = m.group(1);
-							int start = Integer.parseInt(m.group(2));
-							int end = Integer.parseInt(m.group(3)) + 1;
-							Annotation w = new Annotation(this, wordLayer, start, end);
-							w.addFeature(idFeatureName, id);
-							words.put(id, w);
+		try {
+			Iterator<BufferedReader> rit = source.getBufferedReaders();
+			while (rit.hasNext()) {
+				try (BufferedReader r = rit.next()) {
+					Document doc = null;
+					Section sec = null;
+					Map<String,Annotation> words = new LinkedHashMap<String,Annotation>();
+					int lineno = 0;
+					while (true) {
+						String line = r.readLine();
+						if (line == null)
+							break;
+						lineno++;
+						line = line.trim();
+						if (line.isEmpty())
+							continue;
+						if (line.charAt(0) == '%')
+							continue;
+						List<String> cols = Strings.split(line, '\t', -1);
+						switch (cols.get(0)) {
+							case "ID":
+								if (cols.size() != 2)
+									error(r, lineno, "expected 2 columns");
+								doc = Document.getDocument(this, corpus, cols.get(1));
+								sec = null;
+								break;
+							case "sentence":
+								if (cols.size() != 2)
+									error(r, lineno, "expected 2 columns");
+								if (doc == null)
+									error(r, lineno, "missed line with document ID");
+								if (sec != null)
+									error(r, lineno, "duplicate sentence");
+								String contents = cols.get(1);
+								sec = new Section(this, doc, sectionName, contents);
+								Layer sentenceLayer = sec.ensureLayer(sentenceLayerName);
+								new Annotation(this, sentenceLayer, 0, contents.length());
+								doc = null;
+								break;
+							case "words":
+								if (cols.size() <= 2)
+									error(r, lineno, "expected at least two columns");
+								if (sec == null)
+									error(r, lineno, "missed sentence text");
+								words.clear();
+								Layer wordLayer = sec.ensureLayer(wordLayerName);
+								for (int i = 1; i < cols.size(); ++i) {
+									Matcher m = WORD_PATTERN.matcher(cols.get(i));
+									if (!m.matches())
+										error(r, lineno, "ill-formed word: " + cols.get(i));
+									String id = m.group(1);
+									int start = Integer.parseInt(m.group(2));
+									int end = Integer.parseInt(m.group(3)) + 1;
+									Annotation w = new Annotation(this, wordLayer, start, end);
+									w.addFeature(idFeatureName, id);
+									words.put(id, w);
+								}
+								break;
+							case "lemmas":
+								if (cols.size() != words.size() + 1)
+									error(r, lineno, "expected " + (words.size() + 1) + " columns");
+								if (sec == null)
+									error(r, lineno, "missed sentence text");
+								for (int i = 1; i < cols.size(); ++i) {
+									Matcher m = LEMMA_PATTERN.matcher(cols.get(i));
+									if (!m.matches())
+										error(r, lineno, "ill-formed lemma: " + cols.get(i));
+									String id = m.group(1);
+									if (!words.containsKey(id))
+										error(r, lineno, "no word with id: " + id);
+									Annotation w = words.get(id);
+									String lemma = m.group(2);
+									w.addFeature(lemmaFeatureName, lemma);
+								}
+								break;
+							case "syntactic_relations":
+								if (cols.size() <= 2)
+									error(r, lineno, "expected at least two columns");
+								if (sec == null)
+									error(r, lineno, "missed sentence text");
+								if (words.isEmpty())
+									error(r, lineno, "missed word segmentation");
+								Relation rel = sec.ensureRelation(this, dependenciesRelationName);
+								for (int i = 1; i < cols.size(); ++i) {
+									Matcher m = SYNTACTIC_RELATION_PATTERN.matcher(cols.get(i));
+									if (!m.matches())
+										error(r, lineno, "ill-formed syntactic relation: " + cols.get(i));
+									String headId = m.group(2);
+									if (!words.containsKey(headId))
+										error(r, lineno, "no word with id: " + headId);
+									String dependentId = m.group(3);
+									if (!words.containsKey(dependentId))
+										error(r, lineno, "no word with id: " + dependentId);
+									String label = m.group(1);
+									Tuple t = new Tuple(this, rel);
+									t.addFeature(dependencyLabelFeatureName, label);
+									t.setArgument(headRole, words.get(headId));
+									t.setArgument(dependentRole, words.get(dependentId));
+								}
+								break;
+							case "agents":
+								if (sec == null)
+									error(r, lineno, "missed sentence text");
+								if (words.isEmpty())
+									error(r, lineno, "missed word segmentation");
+								for (int i = 1; i < cols.size(); ++i) {
+									Matcher m = AGENT_PATTERN.matcher(cols.get(i));
+									if (!m.matches())
+										error(r, lineno, "ill-formed agent: " + cols.get(i));
+									String id = m.group(1);
+									if (!words.containsKey(id))
+										error(r, lineno, "no word with id: " + id);
+									Annotation w = words.get(id);
+									w.addFeature(agentFeatureName, "yes");
+								}
+								break;
+							case "targets":
+								if (sec == null)
+									error(r, lineno, "missed sentence text");
+								if (words.isEmpty())
+									error(r, lineno, "missed word segmentation");
+								for (int i = 1; i < cols.size(); ++i) {
+									Matcher m = TARGET_PATTERN.matcher(cols.get(i));
+									if (!m.matches())
+										error(r, lineno, "ill-formed target: " + cols.get(i));
+									String id = m.group(1);
+									if (!words.containsKey(id))
+										error(r, lineno, "no word with id: " + id);
+									Annotation w = words.get(id);
+									w.addFeature(targetFeatureName, "yes");
+								}
+								break;
+							case "genic_interactions":
+								if (sec == null)
+									error(r, lineno, "missed sentence text");
+								if (words.isEmpty())
+									error(r, lineno, "missed word segmentation");
+								rel = sec.ensureRelation(this, genicInteractionRelationName);
+								for (int i = 1; i < cols.size(); ++i) {
+									Matcher m = GENIC_INTERACTION_PATTERN.matcher(cols.get(i));
+									if (!m.matches())
+										error(r, lineno, "ill-formed genic interaction: " + cols.get(i));
+									String agentId = m.group(1);
+									if (!words.containsKey(agentId))
+										error(r, lineno, "no word with id: " + agentId);
+									String targetId = m.group(2);
+									if (!words.containsKey(targetId))
+										error(r, lineno, "no word with id: " + targetId);
+									Tuple t = new Tuple(this, rel);
+									t.setArgument(genicAgentRole, words.get(agentId));
+									t.setArgument(genicTargetRole, words.get(targetId));
+								}
+								break;
+							default:
+								error(r, lineno, "unhandled line");
 						}
-						break;
-					case "lemmas":
-						if (cols.size() != words.size() + 1)
-							error(r, lineno, "expected " + (words.size() + 1) + " columns");
-						if (sec == null)
-							error(r, lineno, "missed sentence text");
-						for (int i = 1; i < cols.size(); ++i) {
-							Matcher m = LEMMA_PATTERN.matcher(cols.get(i));
-							if (!m.matches())
-								error(r, lineno, "ill-formed lemma: " + cols.get(i));
-							String id = m.group(1);
-							if (!words.containsKey(id))
-								error(r, lineno, "no word with id: " + id);
-							Annotation w = words.get(id);
-							String lemma = m.group(2);
-							w.addFeature(lemmaFeatureName, lemma);
-						}
-						break;
-					case "syntactic_relations":
-						if (cols.size() <= 2)
-							error(r, lineno, "expected at least two columns");
-						if (sec == null)
-							error(r, lineno, "missed sentence text");
-						if (words.isEmpty())
-							error(r, lineno, "missed word segmentation");
-						Relation rel = sec.ensureRelation(this, dependenciesRelationName);
-						for (int i = 1; i < cols.size(); ++i) {
-							Matcher m = SYNTACTIC_RELATION_PATTERN.matcher(cols.get(i));
-							if (!m.matches())
-								error(r, lineno, "ill-formed syntactic relation: " + cols.get(i));
-							String headId = m.group(2);
-							if (!words.containsKey(headId))
-								error(r, lineno, "no word with id: " + headId);
-							String dependentId = m.group(3);
-							if (!words.containsKey(dependentId))
-								error(r, lineno, "no word with id: " + dependentId);
-							String label = m.group(1);
-							Tuple t = new Tuple(this, rel);
-							t.addFeature(dependencyLabelFeatureName, label);
-							t.setArgument(headRole, words.get(headId));
-							t.setArgument(dependentRole, words.get(dependentId));
-						}
-						break;
-					case "agents":
-						if (sec == null)
-							error(r, lineno, "missed sentence text");
-						if (words.isEmpty())
-							error(r, lineno, "missed word segmentation");
-						for (int i = 1; i < cols.size(); ++i) {
-							Matcher m = AGENT_PATTERN.matcher(cols.get(i));
-							if (!m.matches())
-								error(r, lineno, "ill-formed agent: " + cols.get(i));
-							String id = m.group(1);
-							if (!words.containsKey(id))
-								error(r, lineno, "no word with id: " + id);
-							Annotation w = words.get(id);
-							w.addFeature(agentFeatureName, "yes");
-						}
-						break;
-					case "targets":
-						if (sec == null)
-							error(r, lineno, "missed sentence text");
-						if (words.isEmpty())
-							error(r, lineno, "missed word segmentation");
-						for (int i = 1; i < cols.size(); ++i) {
-							Matcher m = TARGET_PATTERN.matcher(cols.get(i));
-							if (!m.matches())
-								error(r, lineno, "ill-formed target: " + cols.get(i));
-							String id = m.group(1);
-							if (!words.containsKey(id))
-								error(r, lineno, "no word with id: " + id);
-							Annotation w = words.get(id);
-							w.addFeature(targetFeatureName, "yes");
-						}
-						break;
-					case "genic_interactions":
-						if (sec == null)
-							error(r, lineno, "missed sentence text");
-						if (words.isEmpty())
-							error(r, lineno, "missed word segmentation");
-						rel = sec.ensureRelation(this, genicInteractionRelationName);
-						for (int i = 1; i < cols.size(); ++i) {
-							Matcher m = GENIC_INTERACTION_PATTERN.matcher(cols.get(i));
-							if (!m.matches())
-								error(r, lineno, "ill-formed genic interaction: " + cols.get(i));
-							String agentId = m.group(1);
-							if (!words.containsKey(agentId))
-								error(r, lineno, "no word with id: " + agentId);
-							String targetId = m.group(2);
-							if (!words.containsKey(targetId))
-								error(r, lineno, "no word with id: " + targetId);
-							Tuple t = new Tuple(this, rel);
-							t.setArgument(genicAgentRole, words.get(agentId));
-							t.setArgument(genicTargetRole, words.get(targetId));
-						}
-						break;
-					default:
-						error(r, lineno, "unhandled line");
 					}
 				}
 			}
-			catch (IOException e) {
-				rethrow(e);
-			}
+		}
+		catch (IOException e) {
+			throw new ProcessingException(e);
 		}
 		timer.stop();
 	}

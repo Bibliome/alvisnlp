@@ -39,6 +39,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ActionInterface;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
@@ -103,7 +104,7 @@ public abstract class SQLImport extends CorpusModule<SQLImportResolvedObjects> i
 			}
 		}
 		catch (ClassNotFoundException|SQLException e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 

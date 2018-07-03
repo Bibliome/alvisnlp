@@ -82,7 +82,7 @@ public class OBOMapper extends Mapper<MapperResolvedObjects,OBOClass> {
 			}
 		}
 		catch (OBOParseException|IOException e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 	

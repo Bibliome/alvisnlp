@@ -228,15 +228,6 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
     }
 
     /**
-     * Rethrow an exception as a ProcessingException.
-     * @param cause
-     * @throws ProcessingException
-     */
-    public final static void rethrow(Throwable cause) throws ProcessingException {
-        throw new ProcessingException(cause);
-    }
-
-    /**
      * Throws a processing exception with the specified message.
      * @param msg
      * @throws ProcessingException

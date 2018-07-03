@@ -28,7 +28,6 @@ import java.util.Properties;
 import java.util.logging.Logger;
 
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerFactoryConfigurationError;
 
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
@@ -108,8 +107,8 @@ public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects
 			Map<String,List<String>> conceptMap = getConceptMap(ctx, corpus);
 			writeOutput(logger, conceptMap, ext);
 		}
-		catch (IOException|InterruptedException e) {
-			rethrow(e);
+		catch (IOException|InterruptedException | SAXException | ParserConfigurationException e) {
+			throw new ProcessingException(e);
 		}
 	}
 
@@ -130,13 +129,10 @@ public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects
 		}
 	};
 	
-	private void writeOutput(Logger logger, Map<String,List<String>> conceptMap, YateaExtractorExternalHandler<TomapTrainResolvedObjects> ext) throws ProcessingException {
+	private void writeOutput(Logger logger, Map<String,List<String>> conceptMap, YateaExtractorExternalHandler<TomapTrainResolvedObjects> ext) throws IOException, SAXException, ParserConfigurationException {
 		try (Writer writer = outFile.getBufferedWriter()) {
 			Document doc = buildOutputDocument(logger, conceptMap, ext);
 			XMLUtils.writeDOMToFile(doc, null, writer);
-		}
-		catch (TransformerFactoryConfigurationError|IOException|SAXException|ParserConfigurationException e) {
-			rethrow(e);
 		}
 	}
 	

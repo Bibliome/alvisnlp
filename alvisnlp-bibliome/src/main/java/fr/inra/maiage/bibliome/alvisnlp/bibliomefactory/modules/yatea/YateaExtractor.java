@@ -25,6 +25,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 
 /**
@@ -44,7 +45,7 @@ public class YateaExtractor extends AbstractYateaExtractor<SectionResolvedObject
 			ext.start();
 		}
 		catch (IOException|InterruptedException e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
     }
 }

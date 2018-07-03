@@ -17,13 +17,10 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.weka;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.logging.Logger;
 
-import weka.attributeSelection.ASEvaluation;
-import weka.attributeSelection.AttributeSelection;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
@@ -34,6 +31,8 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
+import weka.attributeSelection.ASEvaluation;
+import weka.attributeSelection.AttributeSelection;
 
 @AlvisNLPModule
 public class WekaSelectAttributes extends ElementClassifier {
@@ -51,11 +50,8 @@ public class WekaSelectAttributes extends ElementClassifier {
 			String selection = selectAttributes(ctx, trainingSet);
 			printResult(ctx, selection);
 		}
-		catch (FileNotFoundException fnfe) {
-			rethrow(fnfe);
-		}
 		catch (Exception e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 

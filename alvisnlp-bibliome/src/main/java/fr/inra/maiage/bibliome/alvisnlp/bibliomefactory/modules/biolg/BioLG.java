@@ -48,6 +48,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AbstractExternal;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
@@ -244,8 +245,8 @@ public abstract class BioLG extends SectionModule<SectionResolvedObjects> implem
 				lp2lpTimer.stop();
 			}
 		}
-		catch (IOException ioe) {
-			rethrow(ioe);
+		catch (IOException e) {
+			throw new ProcessingException(e);
 		}
 	}
 

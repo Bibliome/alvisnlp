@@ -45,6 +45,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverExceptio
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
@@ -149,8 +150,8 @@ public class RelpWriter extends SectionModule<RelpWriterResolvedObjects> {
 			}
 			out.close();
 		}
-		catch (IOException ioe) {
-			rethrow(ioe);
+		catch (IOException e) {
+			throw new ProcessingException(e);
 		}
 	}
 	

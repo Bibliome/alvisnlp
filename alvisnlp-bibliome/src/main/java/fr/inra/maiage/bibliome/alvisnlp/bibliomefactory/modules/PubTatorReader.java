@@ -62,7 +62,7 @@ public abstract class PubTatorReader extends CorpusModule<ResolvedObjects> imple
 			}
 		}
 		catch (IOException e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 	

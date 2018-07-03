@@ -125,8 +125,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 			return campaign;
 		}
 		catch (ClassNotFoundException|SQLException|ParseException e) {
-			rethrow(e);
-			return null;
+			throw new ProcessingException(e);
 		}
 	}
 

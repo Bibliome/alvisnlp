@@ -34,6 +34,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverExceptio
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 
@@ -77,8 +78,8 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 		try {
 			new GeniaTaggerExternalHandler(ctx, this, corpus).start();
 		}
-		catch (IOException|InterruptedException ioe) {
-			rethrow(ioe);
+		catch (IOException|InterruptedException e) {
+			throw new ProcessingException(e);
 		}
 	}
 	

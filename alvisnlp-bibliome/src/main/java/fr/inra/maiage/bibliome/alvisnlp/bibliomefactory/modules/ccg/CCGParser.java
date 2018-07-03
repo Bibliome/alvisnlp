@@ -17,9 +17,7 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ccg;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -33,8 +31,8 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContex
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalFailureException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
@@ -69,7 +67,7 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 				try {
 					ext.start(false);
 				}
-				catch (ExternalFailureException e) {
+				catch (ModuleException e) {
 					logger.severe(e.getMessage());
 					logger.severe("we know sometimes CCG accidentally sentences");
 					logger.severe("let's try to proceed anyway. No guarantee...");
@@ -78,17 +76,8 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 				ext.doCollect();
 			}
 		}
-		catch (InterruptedException uee) {
-			rethrow(uee);
-		}
-		catch (UnsupportedEncodingException uee) {
-			rethrow(uee);
-		}
-		catch (FileNotFoundException fnfe) {
-			rethrow(fnfe);
-		}
-		catch (IOException ioe) {
-			rethrow(ioe);
+		catch (InterruptedException | IOException e) {
+			throw new ProcessingException(e);
 		}
 	}
 

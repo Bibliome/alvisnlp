@@ -15,8 +15,8 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.filelines.FileLines;
 import fr.inra.maiage.bibliome.util.filelines.InvalidFileLineEntry;
@@ -51,7 +51,7 @@ class SpeciesExternalHandler extends ExternalHandler<Corpus,Species> {
 			}
 		}
 		catch (IOException e) {
-			ModuleBase.rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 	

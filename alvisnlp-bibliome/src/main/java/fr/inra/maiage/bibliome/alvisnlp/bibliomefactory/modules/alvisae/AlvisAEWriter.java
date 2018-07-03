@@ -17,11 +17,9 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisae;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -29,14 +27,14 @@ import java.util.Date;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.converters.expression.parser.ExpressionParser;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisae.AlvisAEWriter.AlvisAEExportResolvedObjects;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.converters.expression.parser.ExpressionParser;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisae.AlvisAEWriter.AlvisAEExportResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
@@ -48,6 +46,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverExceptio
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.EvaluatorMapping;
@@ -126,14 +125,8 @@ public class AlvisAEWriter extends SectionModule<AlvisAEExportResolvedObjects> {
 				w.close();
 			}
 		}
-		catch (UnsupportedEncodingException uee) {
-			rethrow(uee);
-		}
-		catch (FileNotFoundException fnfe) {
-			rethrow(fnfe);
-		}
-		catch (IOException ioe) {
-			rethrow(ioe);
+		catch (IOException e) {
+			throw new ProcessingException(e);
 		}
 	}
 	

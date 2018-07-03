@@ -7,6 +7,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
@@ -30,7 +31,7 @@ public class Word2Vec extends AbstractContes {
 			new Word2VecExternalHandler(ctx, this, corpus).start();
 		}
 		catch (IOException | InterruptedException e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 

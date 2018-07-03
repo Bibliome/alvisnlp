@@ -18,7 +18,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.util.Files;
 
 public class TEESClassifyExternalHandler extends TEESMapperExternalHandler<TEESClassify> {
@@ -40,7 +40,7 @@ public class TEESClassifyExternalHandler extends TEESMapperExternalHandler<TEESC
 			jaxbm.marshal(getCorpus(DEFAULT_SET), getTEESClassifierInputFile());
 		}
 		catch (JAXBException e) {
-			ModuleBase.rethrow(e);
+			throw new ProcessingException(e);
 		}
 		createTEESClassifierScript();
 	}
@@ -62,7 +62,7 @@ public class TEESClassifyExternalHandler extends TEESMapperExternalHandler<TEESC
 			setRelations2CorpusAlvis(corpusTEES);
 		}
 		catch (JAXBException e) {
-			ModuleBase.rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 

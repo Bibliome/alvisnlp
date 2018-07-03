@@ -17,10 +17,8 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.treetagger;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
@@ -36,6 +34,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContex
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
@@ -51,7 +50,6 @@ import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class NewTreeTagger.
  * 
@@ -165,17 +163,8 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
                 }
             }
         }
-        catch (UnsupportedEncodingException uee) {
-            rethrow(uee);
-        }
-        catch (FileNotFoundException fnfe) {
-            rethrow(fnfe);
-        }
-        catch (IOException ioe) {
-            rethrow(ioe);
-        }
-        catch (Exception e) {
-            rethrow(e);
+        catch (IOException | InterruptedException e) {
+			throw new ProcessingException(e);
         }
     }
 

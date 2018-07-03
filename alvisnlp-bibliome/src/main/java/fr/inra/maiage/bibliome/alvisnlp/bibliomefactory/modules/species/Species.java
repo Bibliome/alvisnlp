@@ -27,6 +27,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
@@ -48,7 +49,7 @@ public abstract class Species extends SectionModule<SectionResolvedObjects> impl
 			new SpeciesExternalHandler(ctx, this, corpus).start();
 		}
 		catch (InterruptedException | IOException e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 	

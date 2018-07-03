@@ -117,7 +117,7 @@ public class AggregateValues extends CorpusModule<AggregateValuesResolvedObjects
 			}
 		}
 		catch (IOException e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 	

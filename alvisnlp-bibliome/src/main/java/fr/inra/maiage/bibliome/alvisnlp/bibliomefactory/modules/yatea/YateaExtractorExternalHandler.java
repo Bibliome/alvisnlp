@@ -158,11 +158,8 @@ public class YateaExtractorExternalHandler<S extends SectionResolvedObjects> ext
             ttgCorpus.getParentFile().mkdirs();
             ttgOut = new PrintStream(new BufferedOutputStream(new FileOutputStream(ttgCorpus)), false, "UTF-8");
         }
-        catch (FileNotFoundException fnfe) {
-            ModuleBase.rethrow(fnfe);
-        }
-        catch (UnsupportedEncodingException uee) {
-            ModuleBase.rethrow(uee);
+        catch (FileNotFoundException | UnsupportedEncodingException e) {
+			throw new ProcessingException(e);
         }
         for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getAnnotable()))) {
             if (owner.getDocumentTokens()) {

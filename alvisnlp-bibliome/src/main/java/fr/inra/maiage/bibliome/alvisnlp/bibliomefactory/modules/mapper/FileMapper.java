@@ -73,11 +73,8 @@ public class FileMapper extends Mapper<MapperResolvedObjects,List<String>> {
             mapEntryLines.process(r, mapping);
             r.close();
         }
-        catch (IOException ioe) {
-            rethrow(ioe);
-        }
-        catch (InvalidFileLineEntry ifle) {
-            rethrow(ifle);
+        catch (IOException|InvalidFileLineEntry e) {
+			throw new ProcessingException(e);
         }
 	}
 
