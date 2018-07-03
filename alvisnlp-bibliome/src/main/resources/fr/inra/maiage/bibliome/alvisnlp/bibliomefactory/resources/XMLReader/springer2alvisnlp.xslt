@@ -5,7 +5,6 @@
     xmlns:inline="http://bibliome.jouy.inra.fr/alvisnlp/bibliome-module-factory/inline"
     xmlns:str="xalan://fr.inra.maiage.bibliome.util.xml.Functions"
 
-    extension-element-prefixes="a inline"
     extension-element-prefixes="a inline str"
 >
 
