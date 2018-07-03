@@ -26,7 +26,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.files.InputFile;
@@ -55,11 +54,11 @@ public class YateaExtractorExternalHandler<S extends SectionResolvedObjects> ext
 		AbstractYateaExtractor<S> owner = getModule();
 		File outputDir = owner.getOutputDir();
 		if (outputDir != null && !outputDir.exists() && !outputDir.mkdirs()) {
-			ModuleBase.processingException("could not create " + outputDir.getAbsolutePath());
+			throw new ProcessingException("could not create " + outputDir.getAbsolutePath());
 		}
 		File workingDir = owner.getWorkingDir();
 		if (!workingDir.exists() && !workingDir.mkdirs()) {
-			ModuleBase.processingException("could not create " + outputDir.getAbsolutePath());
+			throw new ProcessingException("could not create " + outputDir.getAbsolutePath());
 		}
 	}
 

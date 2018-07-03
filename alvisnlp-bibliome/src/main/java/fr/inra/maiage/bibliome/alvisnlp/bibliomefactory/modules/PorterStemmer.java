@@ -73,8 +73,7 @@ public class PorterStemmer extends SectionModule<SectionResolvedObjects> {
 			case "french":
 				return new FrenchStemmer();
 		}
-		processingException("unknown language " + language);
-		return null;
+		throw new ProcessingException("unknown language " + language);
 	}
 	
 	@Override

@@ -106,7 +106,7 @@ public abstract class PubTatorReader extends CorpusModule<ResolvedObjects> imple
 					int len = contents.length();
 					if (start < len) {
 						if (end > len) {
-							processingException("bad coordinates: " + cols.get(1) + "-" + cols.get(0));
+							throw new ProcessingException("bad coordinates: " + cols.get(1) + "-" + cols.get(0));
 						}
 						sec = secCand;
 						break;
@@ -115,14 +115,14 @@ public abstract class PubTatorReader extends CorpusModule<ResolvedObjects> imple
 					end -= len;
 				}
 				if (sec == null) {
-					processingException("bad coordinates: " + cols.get(1) + "-" + cols.get(0));
+					throw new ProcessingException("bad coordinates: " + cols.get(1) + "-" + cols.get(0));
 				}
 				String layerName = cols.get(4);
 				Layer layer = sec.ensureLayer(layerName);
 				Annotation a = new Annotation(this, layer, start, end);
 				String formCheck = cols.get(3);
 				if (!formCheck.equals(a.getForm())) {
-					processingException("failed form check " + formCheck + " / " + a.getForm());
+					throw new ProcessingException("failed form check " + formCheck + " / " + a.getForm());
 				}
 				a.addFeature(typeFeature, layerName);
 				a.addFeature(classFeature, cols.get(5));

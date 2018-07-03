@@ -77,7 +77,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 
 	private void error(BufferedReader r, int lineno, String msg) throws ProcessingException {
 		String src = source.getStreamName(r);
-		processingException("in '" + src + "', line " + lineno + ": " + msg);
+		throw new ProcessingException("in '" + src + "', line " + lineno + ": " + msg);
 	} 
 
 	@Override

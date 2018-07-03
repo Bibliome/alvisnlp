@@ -113,7 +113,7 @@ public class AlvisAEWriter extends SectionModule<AlvisAEExportResolvedObjects> {
 				Reader r = new FileReader(schemaFile);
 				exportContext.schema = JSONValue.parse(r);
 				if (exportContext.schema == null)
-					processingException("could not parse " + schemaFile + " as JSON");
+					throw new ProcessingException("could not parse " + schemaFile + " as JSON");
 				r.close();
 			}
 			for (Document doc : Iterators.loop(documentIterator(exportContext.evalCtx, corpus))) {

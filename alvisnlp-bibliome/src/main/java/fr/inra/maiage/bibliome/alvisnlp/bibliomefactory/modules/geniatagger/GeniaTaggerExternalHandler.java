@@ -19,7 +19,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.filters.Filters;
@@ -103,7 +102,7 @@ public class GeniaTaggerExternalHandler extends ExternalHandler<Corpus,GeniaTagg
 				readSentence(sent, r);
 			}
 			if (r.readLine() != null) {
-				ModuleBase.processingException("genia tagger output is too long");
+				throw new ProcessingException("genia tagger output is too long");
 			}
 		}
 	}
@@ -145,10 +144,10 @@ public class GeniaTaggerExternalHandler extends ExternalHandler<Corpus,GeniaTagg
 		for (Annotation w : wordLayer.between(sent)) {
 			String line = r.readLine();
 			if (line == null)
-				ModuleBase.processingException("geniatagger output is short on lines");
+				throw new ProcessingException("geniatagger output is short on lines");
 			List<String> cols = Strings.split(line, '\t', -1);
 			if (cols.size() != 5) {
-				ModuleBase.processingException("malformed genia tagger output: " + line);
+				throw new ProcessingException("malformed genia tagger output: " + line);
 			}
 			String form = cols.get(0);
 			String lemma = cols.get(1);
@@ -161,9 +160,9 @@ public class GeniaTaggerExternalHandler extends ExternalHandler<Corpus,GeniaTagg
 			w.addFeature(owner.getEntityFeature(), entity);
 		}
 		if (r.readLine() == null) // final dot
-			ModuleBase.processingException("geniatagger output is short on lines");
+			throw new ProcessingException("geniatagger output is short on lines");
 		if (r.readLine() == null) // geniatagger adds a blank line after each sentence
-			ModuleBase.processingException("geniatagger output is short on lines");
+			throw new ProcessingException("geniatagger output is short on lines");
 	}
 	
 	private String getPOS(@SuppressWarnings("unused") String form, String pos, String lemma) {

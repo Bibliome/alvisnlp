@@ -45,7 +45,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleVisitor;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ParamHandler;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Sequence;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.UnexpectedParameterException;
@@ -225,15 +224,6 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
 			sequence.removeModule(this);
 		}
         this.sequence = sequence;
-    }
-
-    /**
-     * Throws a processing exception with the specified message.
-     * @param msg
-     * @throws ProcessingException
-     */
-    public final static void processingException(String msg) throws ProcessingException {
-        throw new ProcessingException(msg);
     }
 
     /**

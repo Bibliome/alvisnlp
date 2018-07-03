@@ -96,7 +96,7 @@ public class QuickHTML extends SectionModule<SectionResolvedObjects> {
 			classes.add(DEFAULT_ANNOTATION_CLASS);
 			Document docList = createDocumentList();
 			if (!outDir.exists() && !outDir.mkdirs()) {
-				processingException("could not create directory " + outDir.getAbsolutePath());
+				throw new ProcessingException("could not create directory " + outDir.getAbsolutePath());
 			}
 			generateDocuments(logger, evalCtx, corpus, classes, docList);
 			writeXHTMLDocument(docList, "index");

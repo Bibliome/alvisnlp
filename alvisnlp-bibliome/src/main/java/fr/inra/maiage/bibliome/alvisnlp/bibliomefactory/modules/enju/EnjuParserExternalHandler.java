@@ -27,7 +27,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.fragments.Fragment;
@@ -389,7 +388,7 @@ class EnjuParserExternalHandler extends ExternalHandler<Corpus,EnjuParser> {
 	}
 
 	private static void enjuOutError(String line, String msg) throws ProcessingException {
-		ModuleBase.processingException("could not parse line (" + msg + "): " + line);
+		throw new ProcessingException("could not parse line (" + msg + "): " + line);
 	}
 
 	@Override

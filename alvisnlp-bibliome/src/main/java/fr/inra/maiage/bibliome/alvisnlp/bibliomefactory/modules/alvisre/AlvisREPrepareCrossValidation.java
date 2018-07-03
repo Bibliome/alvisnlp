@@ -65,7 +65,7 @@ public abstract class AlvisREPrepareCrossValidation extends AbstractAlvisRE<Alvi
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
 			if (!outDir.exists() && !outDir.mkdirs()) {
-				processingException("could not create " + outDir);
+				throw new ProcessingException("could not create " + outDir);
 			}
 			Logger logger = getLogger(ctx);
 			EvaluationContext evalCtx = new EvaluationContext(logger);

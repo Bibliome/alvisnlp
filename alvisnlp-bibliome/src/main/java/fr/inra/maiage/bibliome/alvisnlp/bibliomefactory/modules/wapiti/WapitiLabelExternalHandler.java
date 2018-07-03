@@ -13,7 +13,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.util.Iterators;
 
 class WapitiLabelExternalHandler extends AbstractWapitiExternalHandler<WapitiLabel> {
@@ -47,18 +47,18 @@ class WapitiLabelExternalHandler extends AbstractWapitiExternalHandler<WapitiLab
 					for (Annotation a : sentence) {
 						String line = reader.readLine();
 						if (line == null) {
-							ModuleBase.processingException("wapiti output has too few lines");
+							throw new ProcessingException("wapiti output has too few lines");
 						}
 						a.addFeature(owner.getLabelFeature(), line.trim());
 					}
 					String line = reader.readLine();
 					if (line == null) {
-						ModuleBase.processingException("wapiti output has too few lines");
+						throw new ProcessingException("wapiti output has too few lines");
 					}
 				}
 			}
 			if (reader.readLine() != null) {
-				ModuleBase.processingException("wapiti output has too many lines");
+				throw new ProcessingException("wapiti output has too many lines");
 			}
 		}
 	}

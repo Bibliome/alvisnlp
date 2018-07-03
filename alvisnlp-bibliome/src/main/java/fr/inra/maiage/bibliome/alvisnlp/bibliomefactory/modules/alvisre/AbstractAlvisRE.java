@@ -83,7 +83,7 @@ public abstract class AbstractAlvisRE<R extends AlvisREResolvedObjects> extends 
 		Level level = null;
 		do {
 			if (logger == null) {
-				processingException("logger is null");
+				throw new ProcessingException("logger is null");
 			}
 			level = logger.getLevel();
 			logger = logger.getParent();

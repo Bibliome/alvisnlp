@@ -23,7 +23,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContex
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.MultiMapping;
 import fr.inra.maiage.bibliome.util.Iterators;
 
@@ -190,7 +189,7 @@ abstract class TEESMapperExternalHandler<T extends TEESMapper> extends ExternalH
 				for (Interaction interaction : sentenceTEES.getInteraction()) {
 					String type = interaction.getType();
 					if (!schema.containsKey(type)) {
-						ModuleBase.processingException("TEES predicted something not in the schema: " + type);
+						throw new ProcessingException("TEES predicted something not in the schema: " + type);
 					}
 					String[] roles = schema.get(type);
 					Relation rel = sectionAlvis.ensureRelation(getModule(), type);

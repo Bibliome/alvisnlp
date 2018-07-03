@@ -23,8 +23,8 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Strings;
 
@@ -60,13 +60,13 @@ class Ab3PExternalHandler extends ExternalHandler<Corpus,Ab3P> {
 			boolean eof = false;
 			for (Section sec : Iterators.loop(getModule().sectionIterator(evalCtx, getAnnotable()))) {
 				if (eof) {
-					ModuleBase.processingException("output has too few lines");
+					throw new ProcessingException("output has too few lines");
 				}
 				String checkContents = reader.readLine().replace('\n', ' ').trim();
 				String rawContents = sec.getContents();
 				String lineContents = rawContents.replace('\n', ' ').trim();
 				if (!checkContents.equals(lineContents)) {
-					ModuleBase.processingException("failed check line : '" + checkContents + "' / '" + lineContents + "'");
+					throw new ProcessingException("failed check line : '" + checkContents + "' / '" + lineContents + "'");
 				}
 				while (true) {
 					String line = reader.readLine();

@@ -16,7 +16,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase;
 import fr.inra.maiage.bibliome.util.Files;
 
 class TEESTrainExternalHandler extends TEESMapperExternalHandler<TEESTrain> {
@@ -43,7 +42,7 @@ class TEESTrainExternalHandler extends TEESMapperExternalHandler<TEESTrain> {
 			for (String set : new String[] { owner.getTrainSetValue(), owner.getDevSetValue(), owner.getTestSetValue() }) {
 				CorpusTEES corpus = getCorpus(set);
 				if (corpus.getDocument().isEmpty()) {
-					ModuleBase.processingException("could not do training : "+set+" is empty");
+					throw new ProcessingException("could not do training : "+set+" is empty");
 				}
 			}
 			jaxbm.marshal(getCorpus(owner.getTrainSetValue()), getTEESTrainTrainInputFile());

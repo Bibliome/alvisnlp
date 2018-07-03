@@ -124,7 +124,7 @@ public class Assert extends CorpusModule<AssertResolvedObjects> {
 				if (out != null) {
 					out.println(msg);
 				}
-				processingException(msg);
+				throw new ProcessingException(msg);
 			}
 			else {
 				logger.info("elements checked: " + checked);

@@ -23,8 +23,8 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Pair;
 import fr.inra.maiage.bibliome.util.Strings;
@@ -141,7 +141,7 @@ class TreeTaggerExternalHandler extends ExternalHandler<Corpus,TreeTagger> {
 					for (Annotation word : sent) {
 						Pair<String,String> tok = scanNextLine(r);
 						if (tok == null) {
-							ModuleBase.processingException("tree tagger output is short on lines");
+							throw new ProcessingException("tree tagger output is short on lines");
 						}
 						word.addFeature(owner.getPosFeature(), tok.first);
 						String lemma = tok.second;
@@ -154,7 +154,7 @@ class TreeTaggerExternalHandler extends ExternalHandler<Corpus,TreeTagger> {
 					// eat sentence reinforcement
 					Pair<String,String> stok = scanNextLine(r);
 					if (stok == null) { 
-						ModuleBase.processingException("tree tagger output is short on lines");
+						throw new ProcessingException("tree tagger output is short on lines");
 					}
 				}
 			}
