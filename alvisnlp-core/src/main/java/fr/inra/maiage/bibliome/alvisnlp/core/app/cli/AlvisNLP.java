@@ -42,8 +42,9 @@ public class AlvisNLP extends AbstractAlvisNLP<Corpus,CorpusModuleFactory,Corpus
 	/**
 	 * Creates a AlvisNLP CLI instance.
 	 * @throws TransformerConfigurationException
+	 * @throws IOException 
 	 */
-	public AlvisNLP() throws TransformerConfigurationException {
+	public AlvisNLP() throws TransformerConfigurationException, IOException {
 		super();
 	}
 	

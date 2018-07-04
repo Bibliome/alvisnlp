@@ -131,7 +131,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 			}
 		}
 		catch (IOException|InvalidFileLineEntry e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 	

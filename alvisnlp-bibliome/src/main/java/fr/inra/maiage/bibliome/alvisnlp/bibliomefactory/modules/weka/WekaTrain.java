@@ -67,11 +67,8 @@ public class WekaTrain extends PredictionElementClassifier {
 			writeClassifierInfo(ctx, classifier);
 			crossValidate(ctx, classifier, trainingSet);
 		}
-		catch (IOException ioe) {
-			rethrow(ioe);
-		}
 		catch (Exception e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 	

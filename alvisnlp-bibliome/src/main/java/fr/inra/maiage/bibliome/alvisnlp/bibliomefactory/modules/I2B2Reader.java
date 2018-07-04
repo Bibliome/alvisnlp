@@ -97,7 +97,7 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 			}
 		}
 		catch (IOException e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 	

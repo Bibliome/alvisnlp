@@ -28,6 +28,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 /**
  * Helper interface to run external programs in modules.
  */
+@Deprecated
 public interface External<T extends Annotable> {
     /**
      * Returns the owner module.

@@ -122,6 +122,15 @@ public interface Module<T extends Annotable> extends ElementCreator, Documentabl
 	 * @param ctx
 	 */
 	Timer<TimerCategory> getTimer(ProcessingContext<T> ctx);
+
+	/**
+	 * Returns a timer for the specified task and category.
+	 * @param ctx
+	 * @param task
+	 * @param category
+	 * @param start either to start the timer
+	 */
+	Timer<TimerCategory> getTimer(ProcessingContext<T> ctx, String task, TimerCategory category, boolean start);
 	
 	Module<T> getModuleByPath(String modulePath);
 	

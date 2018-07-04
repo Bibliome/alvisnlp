@@ -17,7 +17,6 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.script;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,7 +28,6 @@ import javax.script.ScriptException;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
-
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.DocumentCreator;
@@ -72,14 +70,8 @@ public abstract class Script extends CorpusModule<ResolvedObjects> implements Do
             	sc.getWriter().flush();
             }
         }
-        catch (ScriptException se) {
-           rethrow(se);
-        }
-        catch (FileNotFoundException fnfe) {
-            rethrow(fnfe);
-        }
-        catch (IOException ioe) {
-            rethrow(ioe);
+        catch (ScriptException|IOException e) {
+			throw new ProcessingException(e);
         }
     }
 

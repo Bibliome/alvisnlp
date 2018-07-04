@@ -52,6 +52,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContex
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
@@ -95,7 +96,7 @@ public class QuickHTML extends SectionModule<SectionResolvedObjects> {
 			classes.add(DEFAULT_ANNOTATION_CLASS);
 			Document docList = createDocumentList();
 			if (!outDir.exists() && !outDir.mkdirs()) {
-				processingException("could not create directory " + outDir.getAbsolutePath());
+				throw new ProcessingException("could not create directory " + outDir.getAbsolutePath());
 			}
 			generateDocuments(logger, evalCtx, corpus, classes, docList);
 			writeXHTMLDocument(docList, "index");
@@ -105,7 +106,7 @@ public class QuickHTML extends SectionModule<SectionResolvedObjects> {
 			generateSpecificCSS(logger, classes);
 		}
 		catch (Exception e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 	

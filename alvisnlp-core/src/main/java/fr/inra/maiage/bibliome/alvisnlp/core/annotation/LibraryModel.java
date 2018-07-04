@@ -152,7 +152,7 @@ class LibraryModel {
 		root.setAttribute("package-name", packageName);
 		root.setAttribute("generator", ctx.getGeneratorId());
 		root.setAttribute("date", ctx.getDate());
-		root.setAttribute("generator-version", ctx.getVersion().toString());
+		root.setAttribute("generator-version", ctx.getGitInfoString());
 		root.setAttribute("resource-bundle-name", getDocResourceBundleName());
 		root.setAttribute("full-name", fullName);
 		root.setAttribute("service-class", annotation.serviceClass());

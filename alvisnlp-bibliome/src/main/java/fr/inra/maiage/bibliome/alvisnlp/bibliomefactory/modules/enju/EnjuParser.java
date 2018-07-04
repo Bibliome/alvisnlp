@@ -17,25 +17,17 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.enju;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.enju.EnjuParser.EnjuParserResolvedObjects;
-
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ConstantsLibrary;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
@@ -43,11 +35,8 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
-import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 
 @AlvisNLPModule
@@ -57,6 +46,7 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	private String wordLayerName = DefaultNames.getWordLayer();
 	private String wordFormFeatureName = Annotation.FORM_FEATURE_NAME;
 	private String posFeatureName = DefaultNames.getPosTagFeature();
+	private String lemmaFeatureName = DefaultNames.getCanonicalFormFeature();
 	
 	private ExecutableFile enjuExecutable;
 	private String enjuEncoding = "UTF-8";
@@ -84,7 +74,11 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 		@Override
 		public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
 			super.collectUsedNames(nameUsage, defaultType);
-			sentenceFilter.collectUsedNames(nameUsage, defaultType);
+			getSentenceFilter().collectUsedNames(nameUsage, defaultType);
+		}
+
+		Evaluator getSentenceFilter() {
+			return sentenceFilter;
 		}
 	}
 	
@@ -96,46 +90,11 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
-			Logger logger = getLogger(ctx);
-			Collection<Layer> sentences = getSentences(logger, corpus);
-			EnjuExternal ext = prepareCorpus(ctx, sentences);
-			logger.info("running enju");
-			callExternal(ctx, "enju", ext, enjuEncoding, "enju.sh");
-			readParse(ctx, ext, sentences);
+			new EnjuParserExternalHandler(ctx, this, corpus).start();;
 		}
-		catch (IOException e) {
-			rethrow(e);
+		catch (IOException | InterruptedException e) {
+			throw new ProcessingException(e);
 		}
-	}
-
-	@TimeThis(task="read-enju", category=TimerCategory.COLLECT_DATA)
-	protected void readParse(ProcessingContext<Corpus> ctx, EnjuExternal ext, Collection<Layer> sentences) throws ProcessingException, IOException {
-		Logger logger = getLogger(ctx);
-		logger.info("reading enju output");
-		ext.readEnjuOut(sentences);
-	}
-	
-	private Collection<Layer> getSentences(Logger logger, Corpus corpus) {
-		EnjuParserResolvedObjects resObj = getResolvedObjects();
-		EvaluationContext evalCtx = new EvaluationContext(logger);
-		return getSentences(evalCtx, corpus, resObj.sentenceFilter);
-	}
-	
-	@TimeThis(task="prepare-corpus", category=TimerCategory.PREPARE_DATA)
-	protected EnjuExternal prepareCorpus(ProcessingContext<Corpus> ctx, Collection<Layer> sentences) throws IOException {
-		Logger logger = getLogger(ctx);
-		File tempDir = getTempDir(ctx);
-		logger.info("preparing corpus for enju");
-		return new EnjuExternal(this, tempDir, logger, sentences);
-	}
-
-	private Collection<Layer> getSentences(EvaluationContext ctx, Corpus corpus, Evaluator sentenceFilter) {
-		Collection<Layer> result = new ArrayList<Layer>();
-		for (Section sec : Iterators.loop(sectionIterator(ctx, corpus)))
-			for (Layer sent : sec.getSentences(wordLayerName, sentenceLayerName))
-				if (sentenceFilter.evaluateBoolean(ctx, sent.getSentenceAnnotation()))
-					result.add(sent);
-		return result;
 	}
 
 	@Override
@@ -231,6 +190,15 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	@Param(nameType=NameType.FEATURE)
 	public String getDependentTypeFeatureName() {
 		return dependentTypeFeatureName;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getLemmaFeatureName() {
+		return lemmaFeatureName;
+	}
+
+	public void setLemmaFeatureName(String lemmaFeatureName) {
+		this.lemmaFeatureName = lemmaFeatureName;
 	}
 
 	public void setDependentTypeFeatureName(String dependentTypeFeatureName) {

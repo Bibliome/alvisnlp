@@ -1,0 +1,15 @@
+<alvisnlp-plan id="tomap-train">
+  <read class="OBOReader">
+    <oboFiles>OntoBiotope_BioNLP-ST-2016.obo</oboFiles>
+  </read>
+  
+  <import>res://segmentation.plan</import>
+  
+  <genia class="GeniaTagger" />
+  
+  <train class="TomapTrain">
+    <workingDir>yatea</workingDir>
+    <outFile>tomap.xml</outFile>
+    <conceptIdentifier>document.@id</conceptIdentifier>
+  </train>
+</alvisnlp-plan>

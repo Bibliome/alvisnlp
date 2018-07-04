@@ -1,25 +1,18 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.chemspot;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
-
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreator;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
-import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 
 @AlvisNLPModule(beta=true)
@@ -46,125 +39,13 @@ public abstract class Chemspot extends SectionModule<SectionResolvedObjects> imp
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
-			File tmpDir = getTempDir(ctx);
-			Logger logger = getLogger(ctx);
-			EvaluationContext evalCtx = new EvaluationContext(logger);
-			ChemspotExternal<Corpus> external = new ChemspotExternal<>(ctx, this, javaHome, chemspotDir, noDict, tmpDir);
-			for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-				String name = sec.getFileName();
-				String content = sec.getContents();
-				external.addInput(name, content);
-			}
-			callExternal(ctx, "run-chemspot", external);
-			ChemspotFileLines<Layer,Annotation> chemspotFileLines = new CorpusChemspotFileLines(logger);
-			for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-				String name = sec.getFileName();
-				Layer layer = sec.ensureLayer(targetLayerName);
-				external.readOutput(chemspotFileLines, layer, name);
-			}
+			new ChemspotExternalHandler(ctx, this, corpus).start();
 		}
-		catch (IOException e) {
-			rethrow(e);
+		catch (IOException | InterruptedException e) {
+			throw new ProcessingException(e);
 		}
 	}
 	
-	private class CorpusChemspotFileLines extends ChemspotFileLines<Layer,Annotation> {
-		private final Logger logger;
-		
-		private CorpusChemspotFileLines(Logger logger) {
-			super();
-			this.logger = logger;
-		}
-
-		@Override
-		protected void setFDA_DATE(Annotation annotation, String string) {
-			annotation.addFeature(fdaDateFeatureName, string);
-		}
-
-		@Override
-		protected void setFDA(Annotation annotation, String string) {
-			annotation.addFeature(fdaFeatureName, string);
-		}
-
-		@Override
-		protected void setMESH(Annotation annotation, String string) {
-			annotation.addFeature(meshFeatureName, string);
-		}
-
-		@Override
-		protected void setKEGD(Annotation annotation, String string) {
-			annotation.addFeature(kegdFeatureName, string);
-		}
-
-		@Override
-		protected void setKEGG(Annotation annotation, String string) {
-			annotation.addFeature(keggFeatureName, string);
-		}
-
-		@Override
-		protected void setHMBD(Annotation annotation, String string) {
-			annotation.addFeature(hmdbFeatureName, string);
-		}
-
-		@Override
-		protected void setDRUG(Annotation annotation, String string) {
-			annotation.addFeature(drugFeatureName, string);
-		}
-
-		@Override
-		protected void setINCH(Annotation annotation, String string) {
-			annotation.addFeature(inchFeatureName, string);
-		}
-
-		@Override
-		protected void setPUBS(Annotation annotation, String string) {
-			annotation.addFeature(pubsFeatureName, string);
-		}
-
-		@Override
-		protected void setPUBC(Annotation annotation, String string) {
-			annotation.addFeature(pubcFeatureName, string);
-		}
-
-		@Override
-		protected void setCAS(Annotation annotation, String string) {
-			annotation.addFeature(casFeatureName, string);
-		}
-
-		@Override
-		protected void setCHEB(Annotation annotation, String string) {
-			annotation.addFeature(chebFeatureName, string);
-		}
-
-		@Override
-		protected void setCHID(Annotation annotation, String string) {
-			annotation.addFeature(chidFeatureName, string);
-		}
-
-		@Override
-		protected void setType(Annotation annotation, String string) {
-			annotation.addFeature(chemTypeFeatureName, string);
-		}
-
-		@Override
-		protected Annotation createAnnotation(Layer data, int start0, int end0, String form) {
-			int start = start0 + 1;
-			int end = end0 + 2;
-			Section sec = data.getSection();
-			String content = sec.getContents();
-			while (start >= 0) {
-				String s = content.substring(start, end);
-				if (s.equals(form)) {
-					return new Annotation(Chemspot.this, data, start, end);
-				}
-				start--;
-				end--;
-			}
-			logger.warning("weird chemspot positions: " + form + " / " + content.substring(start0, end0));
-			return null;
-		}
-	}
-
 	@Override
 	protected String[] addLayersToSectionFilter() {
 		return null;

@@ -1,0 +1,1074 @@
+BB-cat+ner-10492485	GRAS	generally recognized as safe
+BB-cat+ner-10738994	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-10738994	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-10738994	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-10738994	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-10738994	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-10738994	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-10738994	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-10738994	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-10738994	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-10738994	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-10738994	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-10738994	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-10738994	SNF	skilled nursing facility
+BB-cat+ner-10738994	SNF	skilled nursing facility
+BB-cat+ner-10738994	SNF	skilled nursing facility
+BB-cat+ner-10738994	SNF	skilled nursing facility
+BB-cat+ner-10738994	SNF	skilled nursing facility
+BB-cat+ner-10738994	FIGE	field-inversion gel electrophoresis
+BB-cat+ner-10738994	FIGE	field-inversion gel electrophoresis
+BB-cat+ner-10738994	FIGE	field-inversion gel electrophoresis
+BB-cat+ner-10738994	FIGE	field-inversion gel electrophoresis
+BB-cat+ner-10738994	FIGE	field-inversion gel electrophoresis
+BB-cat+ner-10738994	REA	restriction endonuclease digestion analysis
+BB-cat+ner-10738994	REA	restriction endonuclease digestion analysis
+BB-cat+ner-10738994	REA	restriction endonuclease digestion analysis
+BB-cat+ner-10738994	REA	restriction endonuclease digestion analysis
+BB-cat+ner-10738994	REA	restriction endonuclease digestion analysis
+BB-cat+ner-10738994	REA	restriction endonuclease digestion analysis
+BB-cat+ner-10738994	REA	restriction endonuclease digestion analysis
+BB-cat+ner-11410343	TeCB	2,2',5,5'-tetrachlorobiphenyl
+BB-cat+ner-11410343	TeCB	2,2',5,5'-tetrachlorobiphenyl
+BB-cat+ner-11410343	TeCB	2,2',5,5'-tetrachlorobiphenyl
+BB-cat+ner-11410343	TeCB	2,2',5,5'-tetrachlorobiphenyl
+BB-cat+ner-11410343	TeCB	2,2',5,5'-tetrachlorobiphenyl
+BB-cat+ner-11410343	TeCB	2,2',5,5'-tetrachlorobiphenyl
+BB-cat+ner-11410343	TeCB	2,2',5,5'-tetrachlorobiphenyl
+BB-cat+ner-11410343	TeCB	2,2',5,5'-tetrachlorobiphenyl
+BB-cat+ner-11410343	DPH	1,6-diphenyl-1,3,5-hexatriene
+BB-cat+ner-11410343	DPH	1,6-diphenyl-1,3,5-hexatriene
+BB-cat+ner-14645268	Xops	Xanthomonas outer proteins
+BB-cat+ner-15358511	TSB	tryptic soy broth
+BB-cat+ner-15358511	TSB	tryptic soy broth
+BB-cat+ner-15358511	TSB	tryptic soy broth
+BB-cat+ner-15358511	TSB	tryptic soy broth
+BB-cat+ner-15358511	TSB	tryptic soy broth
+BB-cat+ner-15358511	TSB	tryptic soy broth
+BB-cat+ner-15358511	TSB	tryptic soy broth
+BB-cat+ner-15358511	TSB	tryptic soy broth
+BB-cat+ner-15358511	NB	nutrient broth
+BB-cat+ner-15358511	NB	nutrient broth
+BB-cat+ner-15358511	NB	nutrient broth
+BB-cat+ner-15358511	NB	nutrient broth
+BB-cat+ner-15358511	NB	nutrient broth
+BB-cat+ner-15358511	NB	nutrient broth
+BB-cat+ner-15358511	NB	nutrient broth
+BB-cat+ner-15358511	NB	nutrient broth
+BB-cat+ner-16263187	Lb.	Lactobacillus
+BB-cat+ner-16263187	Lb.	Lactobacillus
+BB-cat+ner-16263187	Lb.	Lactobacillus
+BB-cat+ner-16263187	Lb.	Lactobacillus
+BB-cat+ner-16263187	Lb.	Lactobacillus
+BB-cat+ner-16263187	Lb.	Lactobacillus
+BB-cat+ner-16263187	Lb.	Lactobacillus
+BB-cat+ner-16263187	Lb.	Lactobacillus
+BB-cat+ner-16263187	Lb.	Lactobacillus
+BB-cat+ner-16263187	Lb.	Lactobacillus
+BB-cat+ner-16432479	GASP	Gonococcal Antimicrobial Surveillance Program
+BB-cat+ner-16432479	GASP	Gonococcal Antimicrobial Surveillance Program
+BB-cat+ner-16990433	EHEC	enterohemorrhagic E. coli
+BB-cat+ner-16990433	EHEC	enterohemorrhagic E. coli
+BB-cat+ner-16990433	EHEC	enterohemorrhagic E. coli
+BB-cat+ner-17237163	AHL	N-acyl homoserine lactone
+BB-cat+ner-17237163	AHL	N-acyl homoserine lactone
+BB-cat+ner-17237163	AHL	N-acyl homoserine lactone
+BB-cat+ner-17237163	QS	quorum sensing
+BB-cat+ner-17237163	QS	quorum sensing
+BB-cat+ner-17237163	QS	quorum sensing
+BB-cat+ner-17237163	QS	quorum sensing
+BB-cat+ner-17237163	QS	quorum sensing
+BB-cat+ner-17237163	QS	quorum sensing
+BB-cat+ner-17237163	QS	quorum sensing
+BB-cat+ner-17237163	QS	quorum sensing
+BB-cat+ner-17237163	HCE	human corneal epithelial
+BB-cat+ner-17237163	HCE	human corneal epithelial
+BB-cat+ner-17237163	HCE	human corneal epithelial
+BB-cat+ner-17237163	HCE	human corneal epithelial
+BB-cat+ner-18687046	ICP	intracranial pressure monitor
+BB-cat+ner-18687046	ICP	intracranial pressure monitor
+BB-cat+ner-18687046	ICP	intracranial pressure monitor
+BB-cat+ner-18687046	ICP	intracranial pressure monitor
+BB-cat+ner-18687046	ICP	intracranial pressure monitor
+BB-cat+ner-18687046	ICP	intracranial pressure monitor
+BB-cat+ner-18687046	ICP	intracranial pressure monitor
+BB-cat+ner-18687046	ICP	intracranial pressure monitor
+BB-cat+ner-18687046	ICP	intracranial pressure monitor
+BB-cat+ner-18687046	ICP	intracranial pressure monitor
+BB-cat+ner-18687046	ICP	intracranial pressure monitor
+BB-cat+ner-18687046	ICP	intracranial pressure monitor
+BB-cat+ner-18687046	ICP	intracranial pressure monitor
+BB-cat+ner-18687046	ICP	intracranial pressure monitor
+BB-cat+ner-18687046	CNS	central nervous system
+BB-cat+ner-18687046	CNS	central nervous system
+BB-cat+ner-18687046	CNS	central nervous system
+BB-cat+ner-18687046	CNS	central nervous system
+BB-cat+ner-18687046	CNS	central nervous system
+BB-cat+ner-18687046	CNS	central nervous system
+BB-cat+ner-18687046	CNS	central nervous system
+BB-cat+ner-18687046	CNS	central nervous system
+BB-cat+ner-18687046	MDR	multi-drug resistant
+BB-cat+ner-18687046	MDR	multi-drug resistant
+BB-cat+ner-18687046	MDR	multi-drug resistant
+BB-cat+ner-18687046	MDR	multi-drug resistant
+BB-cat+ner-18687046	MDR	multi-drug resistant
+BB-cat+ner-18687046	TICU	trauma intensive care unit
+BB-cat+ner-18687046	ISS	Injury Severity Score
+BB-cat+ner-18687046	ISS	Injury Severity Score
+BB-cat+ner-18687046	GCS	Glasgow Coma Scale
+BB-cat+ner-18687046	GCS	Glasgow Coma Scale
+BB-cat+ner-18687046	BE	base excess
+BB-cat+ner-18687046	BE	base excess
+BB-cat+ner-18687046	AIS	Abbreviated Injury Score
+BB-cat+ner-18687046	AIS	Abbreviated Injury Score
+BB-cat+ner-18687046	AIS	Abbreviated Injury Score
+BB-cat+ner-18845825	NTHi	nontypeable Haemophilus influenzae
+BB-cat+ner-18845825	NTHi	nontypeable Haemophilus influenzae
+BB-cat+ner-18845825	NTHi	nontypeable Haemophilus influenzae
+BB-cat+ner-18845825	NTHi	nontypeable Haemophilus influenzae
+BB-cat+ner-18845825	NTHi	nontypeable Haemophilus influenzae
+BB-cat+ner-18845825	NTHi	nontypeable Haemophilus influenzae
+BB-cat+ner-18845825	STs	sequence types
+BB-cat+ner-18845825	STs	sequence types
+BB-cat+ner-18845825	STs	sequence types
+BB-cat+ner-19049879	MyD88	Myeloid differentiation factor 88
+BB-cat+ner-19049879	MyD88	Myeloid differentiation factor 88
+BB-cat+ner-19049879	MyD88	Myeloid differentiation factor 88
+BB-cat+ner-19049879	MyD88	Myeloid differentiation factor 88
+BB-cat+ner-19049879	MyD88	Myeloid differentiation factor 88
+BB-cat+ner-19049879	MyD88	Myeloid differentiation factor 88
+BB-cat+ner-19049879	MyD88	Myeloid differentiation factor 88
+BB-cat+ner-19049879	NF-kappaB	nuclear factor-kappaB
+BB-cat+ner-19049879	UTR	untranslated region
+BB-cat+ner-19049879	UTR	untranslated region
+BB-cat+ner-19049879	ORF	open reading frame
+BB-cat+ner-19049879	TIR	Toll/IL-1R
+BB-cat+ner-19175621	ESBL	extended-spectrum beta-lactamase
+BB-cat+ner-19175621	ESBL	extended-spectrum beta-lactamase
+BB-cat+ner-19175621	ESBL	extended-spectrum beta-lactamase
+BB-cat+ner-19175621	ESBL	extended-spectrum beta-lactamase
+BB-cat+ner-19175621	ESBL	extended-spectrum beta-lactamase
+BB-cat+ner-19175621	ESBL	extended-spectrum beta-lactamase
+BB-cat+ner-19396518	CSF	cerebrospinal fluid
+BB-cat+ner-19396518	CSF	cerebrospinal fluid
+BB-cat+ner-19396518	CSF	cerebrospinal fluid
+BB-cat+ner-19396518	CSF	cerebrospinal fluid
+BB-cat+ner-19396518	PCR	polymerase chain reaction
+BB-cat+ner-19396518	PCR	polymerase chain reaction
+BB-cat+ner-19396518	PCR	polymerase chain reaction
+BB-cat+ner-19396518	PCR	polymerase chain reaction
+BB-cat+ner-19396518	PCR	polymerase chain reaction
+BB-cat+ner-19396518	PCR	polymerase chain reaction
+BB-cat+ner-19396518	PCR	polymerase chain reaction
+BB-cat+ner-19396518	PCR	polymerase chain reaction
+BB-cat+ner-19501788	Fur	Ferric uptake regulator
+BB-cat+ner-19501788	Fur	Ferric uptake regulator
+BB-cat+ner-19501788	Fur	Ferric uptake regulator
+BB-cat+ner-19501788	Fur	Ferric uptake regulator
+BB-cat+ner-19622846	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-19622846	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-19622846	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-19622846	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-19622846	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-20005916	PNS	peripheral nervous system
+BB-cat+ner-20005916	PNS	peripheral nervous system
+BB-cat+ner-20005916	PNS	peripheral nervous system
+BB-cat+ner-20005916	PNS	peripheral nervous system
+BB-cat+ner-20005916	RTK	receptor tyrosine kinase
+BB-cat+ner-20005916	RTK	receptor tyrosine kinase
+BB-cat+ner-20005916	RTK	receptor tyrosine kinase
+BB-cat+ner-20005916	ERK1/2	extracellular signal-regulated kinase-1/2
+BB-cat+ner-21498521	LPS	lipopolysaccharide
+BB-cat+ner-21498521	LPS	lipopolysaccharide
+BB-cat+ner-21498521	LPS	lipopolysaccharide
+BB-cat+ner-21498521	LPS	lipopolysaccharide
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Hb	hemoglobin
+BB-cat+ner-21917915	Isd	iron-regulated surface determinant
+BB-cat+ner-21917915	Isd	iron-regulated surface determinant
+BB-cat+ner-21917915	Isd	iron-regulated surface determinant
+BB-cat+ner-21924022	H.pylori	Helicobacter pylori
+BB-cat+ner-21924022	H.pylori	Helicobacter pylori
+BB-cat+ner-21924022	H.pylori	Helicobacter pylori
+BB-cat+ner-21924022	H.pylori	Helicobacter pylori
+BB-cat+ner-21924022	H.pylori	Helicobacter pylori
+BB-cat+ner-21924022	H.pylori	Helicobacter pylori
+BB-cat+ner-21924022	H.pylori	Helicobacter pylori
+BB-cat+ner-21924022	RUT	rapid urease test
+BB-cat+ner-21924022	RUT	rapid urease test
+BB-cat+ner-21924022	CagA	cytotoxin associated gene A protein
+BB-cat+ner-21924022	CagA	cytotoxin associated gene A protein
+BB-cat+ner-21924022	CagA	cytotoxin associated gene A protein
+BB-cat+ner-21924022	CagA	cytotoxin associated gene A protein
+BB-cat+ner-21924022	CagA	cytotoxin associated gene A protein
+BB-cat+ner-21924022	VacA	vacuolating toxin A
+BB-cat+ner-21924022	VacA	vacuolating toxin A
+BB-cat+ner-21924022	VacA	vacuolating toxin A
+BB-cat+ner-21924022	Hsp60	heat shock protein 60
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23702192	CDI	Clostridium difficile infection
+BB-cat+ner-23704121	CDI	Clostridium difficile infection
+BB-cat+ner-23704121	CDI	Clostridium difficile infection
+BB-cat+ner-23704121	CDI	Clostridium difficile infection
+BB-cat+ner-23704121	CDI	Clostridium difficile infection
+BB-cat+ner-23704121	CDI	Clostridium difficile infection
+BB-cat+ner-23704121	CDI	Clostridium difficile infection
+BB-cat+ner-23704121	CDI	Clostridium difficile infection
+BB-cat+ner-23855904	MLST	Multi Locus Sequence Typing
+BB-cat+ner-24198224	PFGE	pulsed-field gel electrophoresis
+BB-cat+ner-24198224	PFGE	pulsed-field gel electrophoresis
+BB-cat+ner-24361838	MOI	multiplicity of infection
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	MRSA	methicillin-resistant Staphylococcus aureus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24678646	VRE	vancomycin-resistant Enterococcus
+BB-cat+ner-24831788	HTS	high throughput screening
+BB-cat+ner-24831788	HTS	high throughput screening
+BB-cat+ner-24831788	HTS	high throughput screening
+BB-cat+ner-24831788	HTS	high throughput screening
+BB-cat+ner-24831788	HTS	high throughput screening
+BB-cat+ner-24831788	HTS	high throughput screening
+BB-cat+ner-24831788	HTS	high throughput screening
+BB-cat+ner-24831788	HTS	high throughput screening
+BB-cat+ner-24831788	HTS	high throughput screening
+BB-cat+ner-24831788	HTS	high throughput screening
+BB-cat+ner-25098305	URTD	Upper respiratory tract disease
+BB-cat+ner-25098305	URTD	Upper respiratory tract disease
+BB-cat+ner-25098305	URTD	Upper respiratory tract disease
+BB-cat+ner-25098305	URTD	Upper respiratory tract disease
+BB-cat+ner-25098305	URTD	Upper respiratory tract disease
+BB-cat+ner-25562320	Mtb	Mycobacterium tuberculosis
+BB-cat+ner-25562320	Mtb	Mycobacterium tuberculosis
+BB-cat+ner-25562320	Mtb	Mycobacterium tuberculosis
+BB-cat+ner-25562320	Mtb	Mycobacterium tuberculosis
+BB-cat+ner-25562320	Mtb	Mycobacterium tuberculosis
+BB-cat+ner-25562320	Mtb	Mycobacterium tuberculosis
+BB-cat+ner-25562320	Mtb	Mycobacterium tuberculosis
+BB-cat+ner-25562320	Mtb	Mycobacterium tuberculosis
+BB-cat+ner-25562320	Mtb	Mycobacterium tuberculosis
+BB-cat+ner-25562320	Mtb	Mycobacterium tuberculosis
+BB-cat+ner-25562320	Mtb	Mycobacterium tuberculosis
+BB-cat+ner-25562320	Mtb	Mycobacterium tuberculosis
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-25634638	HCN	hydrogen cyanide
+BB-cat+ner-3074181	FMOX	Flomoxef
+BB-cat+ner-9535771	MBP	maltose-binding protein
+BB-cat+ner-9535771	MBP	maltose-binding protein
+BB-cat+ner-9535771	MBP	maltose-binding protein
+BB-cat+ner-9535771	MBP	maltose-binding protein
+BB-cat+ner-9643457	NAP	neutrophil alkaline phosphatase
+BB-cat+ner-9643457	NAP	neutrophil alkaline phosphatase
+BB-cat+ner-9643457	NAP	neutrophil alkaline phosphatase
+BB-cat+ner-9643457	NAP	neutrophil alkaline phosphatase
+BB-cat+ner-9643457	NAP	neutrophil alkaline phosphatase
+BB-cat+ner-9643457	NAP	neutrophil alkaline phosphatase
+BB-cat+ner-9643457	NAP	neutrophil alkaline phosphatase
+BB-cat+ner-9643457	NAP	neutrophil alkaline phosphatase
+BB-cat+ner-9643457	NAP	neutrophil alkaline phosphatase
+BB-cat+ner-9643457	NAP	neutrophil alkaline phosphatase
+BB-cat+ner-9643457	NAP	neutrophil alkaline phosphatase
+BB-cat+ner-9643457	NAP	neutrophil alkaline phosphatase
+BB-cat+ner-9643457	NAP	neutrophil alkaline phosphatase
+BB-cat+ner-9643457	NAP	neutrophil alkaline phosphatase
+BB-cat+ner-9643457	NAP	neutrophil alkaline phosphatase
+BB-cat+ner-9643457	NAP	neutrophil alkaline phosphatase
+BB-cat+ner-9798026	HIV	human immunodeficiency virus
+BB-cat+ner-9798026	HIV	human immunodeficiency virus
+BB-cat+ner-9798026	HIV	human immunodeficiency virus
+BB-cat+ner-9798026	HIV	human immunodeficiency virus
+BB-cat+ner-9798026	HIV	human immunodeficiency virus
+BB-cat+ner-9798026	HIV	human immunodeficiency virus
+BB-cat+ner-9864452	APase	Alkaline phosphatase
+BB-cat+ner-9864452	APase	Alkaline phosphatase
+BB-cat+ner-10496597	MALT	mucosal-associated lymphoid tissue
+BB-cat+ner-10496597	MALT	mucosal-associated lymphoid tissue
+BB-cat+ner-10496597	MALT	mucosal-associated lymphoid tissue
+BB-cat+ner-10496597	MALT	mucosal-associated lymphoid tissue
+BB-cat+ner-10496597	MALT	mucosal-associated lymphoid tissue
+BB-cat+ner-10496597	PCR	polymerase chain reaction
+BB-cat+ner-10496597	PCR	polymerase chain reaction
+BB-cat+ner-10496597	PCR	polymerase chain reaction
+BB-cat+ner-10496597	PCR	polymerase chain reaction
+BB-cat+ner-10496597	PCR	polymerase chain reaction
+BB-cat+ner-10496597	PCR	polymerase chain reaction
+BB-cat+ner-10496597	PCR	polymerase chain reaction
+BB-cat+ner-10496597	PCR	polymerase chain reaction
+BB-cat+ner-1356998	PCR	polymerase chain reaction
+BB-cat+ner-1356998	PCR	polymerase chain reaction
+BB-cat+ner-1356998	PCR	polymerase chain reaction
+BB-cat+ner-1356998	PCR	polymerase chain reaction
+BB-cat+ner-1356998	RFLP	restriction endonuclease fragment length polymorphism
+BB-cat+ner-1356998	RFLP	restriction endonuclease fragment length polymorphism
+BB-cat+ner-1356998	RFLP	restriction endonuclease fragment length polymorphism
+BB-cat+ner-15293611	CF	cystic fibrosis
+BB-cat+ner-15293611	CF	cystic fibrosis
+BB-cat+ner-15293611	CF	cystic fibrosis
+BB-cat+ner-15293611	CF	cystic fibrosis
+BB-cat+ner-15618837	C-UBT	C-urea breath test
+BB-cat+ner-15618837	C-UBT	C-urea breath test
+BB-cat+ner-15618837	C-UBT	C-urea breath test
+BB-cat+ner-15618837	CI	confidence interval
+BB-cat+ner-15618837	CI	confidence interval
+BB-cat+ner-15618837	CI	confidence interval
+BB-cat+ner-15618837	CI	confidence interval
+BB-cat+ner-15618837	CI	confidence interval
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	mer	mercury resistance
+BB-cat+ner-16514151	mer	mercury resistance
+BB-cat+ner-16514151	mer	mercury resistance
+BB-cat+ner-16514151	mer	mercury resistance
+BB-cat+ner-16514151	mer	mercury resistance
+BB-cat+ner-16514151	mer	mercury resistance
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-16514151	MBD	metal-binding domain
+BB-cat+ner-18789156	LVS	Live Vaccine Strain
+BB-cat+ner-18789156	LVS	Live Vaccine Strain
+BB-cat+ner-18789156	LVS	Live Vaccine Strain
+BB-cat+ner-18789156	LVS	Live Vaccine Strain
+BB-cat+ner-18789156	LVS	Live Vaccine Strain
+BB-cat+ner-18789156	LVS	Live Vaccine Strain
+BB-cat+ner-18789156	LVS	Live Vaccine Strain
+BB-cat+ner-18789156	EF-Tu	elongation factor Tu
+BB-cat+ner-18789156	EF-Tu	elongation factor Tu
+BB-cat+ner-18789156	EF-Tu	elongation factor Tu
+BB-cat+ner-18789156	EF-Tu	elongation factor Tu
+BB-cat+ner-18789156	EF-Tu	elongation factor Tu
+BB-cat+ner-18789156	EF-Tu	elongation factor Tu
+BB-cat+ner-18789156	EF-Tu	elongation factor Tu
+BB-cat+ner-18789156	EF-Tu	elongation factor Tu
+BB-cat+ner-18789156	EF-Tu	elongation factor Tu
+BB-cat+ner-18789156	EF-Tu	elongation factor Tu
+BB-cat+ner-18789156	EF-Tu	elongation factor Tu
+BB-cat+ner-18789156	EF-Tu	elongation factor Tu
+BB-cat+ner-18789156	EF-Tu	elongation factor Tu
+BB-cat+ner-18789156	EF-Tu	elongation factor Tu
+BB-cat+ner-18789156	EF-Tu	elongation factor Tu
+BB-cat+ner-18789156	EF-Tu	elongation factor Tu
+BB-cat+ner-18789156	EF-Tu	elongation factor Tu
+BB-cat+ner-18789156	EF-Tu	elongation factor Tu
+BB-cat+ner-19004249	MAGs	monoacylglycerols
+BB-cat+ner-19004249	MAGs	monoacylglycerols
+BB-cat+ner-19004249	MAGs	monoacylglycerols
+BB-cat+ner-19004249	MAGs	monoacylglycerols
+BB-cat+ner-20174624	HMDM	human monocyte-derived macrophages
+BB-cat+ner-20174624	HMDM	human monocyte-derived macrophages
+BB-cat+ner-20174624	PS	phosphatidylserine
+BB-cat+ner-20174624	ROS	reactive oxygen species
+BB-cat+ner-20174624	ROS	reactive oxygen species
+BB-cat+ner-20174624	ROS	reactive oxygen species
+BB-cat+ner-20174624	ROS	reactive oxygen species
+BB-cat+ner-20174624	ROS	reactive oxygen species
+BB-cat+ner-20580604	LcS	Lactobacillus casei strain Shirota
+BB-cat+ner-20580604	LcS	Lactobacillus casei strain Shirota
+BB-cat+ner-20580604	LcS	Lactobacillus casei strain Shirota
+BB-cat+ner-20580604	LcS	Lactobacillus casei strain Shirota
+BB-cat+ner-21270066	LGV	lymphogranuloma venereum
+BB-cat+ner-21270066	LGV	lymphogranuloma venereum
+BB-cat+ner-21270066	LGV	lymphogranuloma venereum
+BB-cat+ner-21270066	LGV	lymphogranuloma venereum
+BB-cat+ner-21270066	MSM	men who have sex with men
+BB-cat+ner-21270066	MSM	men who have sex with men
+BB-cat+ner-21270066	MSM	men who have sex with men
+BB-cat+ner-21270066	MSM	men who have sex with men
+BB-cat+ner-21543877	APH	aminoglycoside phosphotransferase
+BB-cat+ner-25114119	PI-LPS	phase I lipopolysaccharide
+BB-cat+ner-25114119	MAb	monoclonal antibody
+BB-cat+ner-25114119	MAb	monoclonal antibody
+BB-cat+ner-25114119	MAb	monoclonal antibody
+BB-cat+ner-25114119	MAb	monoclonal antibody
+BB-cat+ner-25114119	MAb	monoclonal antibody
+BB-cat+ner-25114119	MAb	monoclonal antibody
+BB-cat+ner-25114119	MAb	monoclonal antibody
+BB-cat+ner-25114119	MAb	monoclonal antibody
+BB-cat+ner-25114119	Abs	antibodies
+BB-cat+ner-9521147	LPSs	lipopolysaccharides
+BB-cat+ner-9521147	LPSs	lipopolysaccharides
+BB-cat+ner-9521147	LPSs	lipopolysaccharides
+BB-cat+ner-9521147	LPSs	lipopolysaccharides
+BB-cat+ner-9521147	LPSs	lipopolysaccharides
+BB-cat+ner-9553794	LAB	lactic acid bacteria
+BB-cat+ner-9553794	LAB	lactic acid bacteria
+BB-cat+ner-9553794	LAB	lactic acid bacteria
+BB-cat+ner-9553794	LAB	lactic acid bacteria
+BB-cat+ner-9553794	LAB	lactic acid bacteria
+BB-cat+ner-9553794	LAB	lactic acid bacteria
+BB-cat+ner-9745160	PPI	proton pump inhibitor
+BB-cat+ner-9745160	PPI	proton pump inhibitor
+BB-cat+ner-9745160	PPI	proton pump inhibitor
+BB-cat+ner-10645449	MDR-TB	multidrug-resistant Mycobacterium tuberculosis
+BB-cat+ner-10645449	MDR-TB	multidrug-resistant Mycobacterium tuberculosis
+BB-cat+ner-10665543	PS	polysaccharide
+BB-cat+ner-10665543	PS	polysaccharide
+BB-cat+ner-10665543	PS	polysaccharide
+BB-cat+ner-10665543	PS	polysaccharide
+BB-cat+ner-10665543	PS	polysaccharide
+BB-cat+ner-10665543	PS	polysaccharide
+BB-cat+ner-10665543	PS	polysaccharide
+BB-cat+ner-10665543	PS	polysaccharide
+BB-cat+ner-10665543	PS	polysaccharide
+BB-cat+ner-10665543	PS	polysaccharide
+BB-cat+ner-10665543	NH	native hapten
+BB-cat+ner-10665543	NH	native hapten
+BB-cat+ner-10665543	NH	native hapten
+BB-cat+ner-10665543	NH	native hapten
+BB-cat+ner-10665543	NH	native hapten
+BB-cat+ner-10665543	ELISA	enzyme linked immunosorbent assay
+BB-cat+ner-10665543	S19	Strain 19
+BB-cat+ner-10665543	S19	Strain 19
+BB-cat+ner-10665543	Se	Sensitivity
+BB-cat+ner-10665543	Se	Sensitivity
+BB-cat+ner-10665543	Se	Sensitivity
+BB-cat+ner-10665543	Se	Sensitivity
+BB-cat+ner-10665543	Sp	specificity
+BB-cat+ner-10665543	Sp	specificity
+BB-cat+ner-10665543	Sp	specificity
+BB-cat+ner-10665543	Sp	specificity
+BB-cat+ner-10792385	PMN	polymorphonuclear cells
+BB-cat+ner-10792385	PMN	polymorphonuclear cells
+BB-cat+ner-10792385	PMN	polymorphonuclear cells
+BB-cat+ner-10792385	PMN	polymorphonuclear cells
+BB-cat+ner-10796014	PDH	pyruvate dehydrogenase
+BB-cat+ner-10796014	PDH	pyruvate dehydrogenase
+BB-cat+ner-10796014	PDH	pyruvate dehydrogenase
+BB-cat+ner-10796014	PDH	pyruvate dehydrogenase
+BB-cat+ner-10796014	PDH	pyruvate dehydrogenase
+BB-cat+ner-10796014	PDH	pyruvate dehydrogenase
+BB-cat+ner-10796014	PDH	pyruvate dehydrogenase
+BB-cat+ner-10796014	PDH	pyruvate dehydrogenase
+BB-cat+ner-12417169	TBSA	total body surface area burns
+BB-cat+ner-12417169	CEA	cultured epithelial autografts
+BB-cat+ner-12417169	CEA	cultured epithelial autografts
+BB-cat+ner-12438382	FACS	Fluorescence-activated cell sorting
+BB-cat+ner-12438382	FACS	Fluorescence-activated cell sorting
+BB-cat+ner-12934822	PCR	Polymerase chain reaction
+BB-cat+ner-12934822	PCR	Polymerase chain reaction
+BB-cat+ner-12934822	PCR	Polymerase chain reaction
+BB-cat+ner-12934822	PCR	Polymerase chain reaction
+BB-cat+ner-12934822	PCR	Polymerase chain reaction
+BB-cat+ner-12934822	MPN	most probable number
+BB-cat+ner-12934822	MPN	most probable number
+BB-cat+ner-12934822	MPN	most probable number
+BB-cat+ner-12934822	MPN	most probable number
+BB-cat+ner-12934822	MPN	most probable number
+BB-cat+ner-12934822	MPN	most probable number
+BB-cat+ner-14638480	IVIEM	in vitro infective endocarditis model
+BB-cat+ner-14638480	IVIEM	in vitro infective endocarditis model
+BB-cat+ner-14638480	IVIEM	in vitro infective endocarditis model
+BB-cat+ner-14638480	IVIEM	in vitro infective endocarditis model
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	VAN	vancomycin
+BB-cat+ner-14638480	ABK	arbekacin
+BB-cat+ner-14638480	ABK	arbekacin
+BB-cat+ner-14638480	ABK	arbekacin
+BB-cat+ner-14638480	ABK	arbekacin
+BB-cat+ner-14638480	ABK	arbekacin
+BB-cat+ner-14638480	ABK	arbekacin
+BB-cat+ner-14638480	ABK	arbekacin
+BB-cat+ner-14638480	ABK	arbekacin
+BB-cat+ner-14638480	ABK	arbekacin
+BB-cat+ner-14638480	ABK	arbekacin
+BB-cat+ner-14638480	ABK	arbekacin
+BB-cat+ner-14638480	ABK	arbekacin
+BB-cat+ner-14638480	ABK	arbekacin
+BB-cat+ner-14638480	ABK	arbekacin
+BB-cat+ner-14638480	ABK	arbekacin
+BB-cat+ner-14638480	ABK	arbekacin
+BB-cat+ner-14638480	ABK	arbekacin
+BB-cat+ner-14638480	ABK	arbekacin
+BB-cat+ner-14638480	GEN	gentamicin
+BB-cat+ner-14638480	GEN	gentamicin
+BB-cat+ner-14638480	GEN	gentamicin
+BB-cat+ner-14638480	GEN	gentamicin
+BB-cat+ner-14638480	GEN	gentamicin
+BB-cat+ner-14638480	GEN	gentamicin
+BB-cat+ner-14638480	GEN	gentamicin
+BB-cat+ner-14638480	GEN	gentamicin
+BB-cat+ner-14638480	GEN	gentamicin
+BB-cat+ner-14638480	GEN	gentamicin
+BB-cat+ner-14638480	GEN	gentamicin
+BB-cat+ner-14638480	GEN	gentamicin
+BB-cat+ner-14638480	GEN	gentamicin
+BB-cat+ner-14638480	GEN	gentamicin
+BB-cat+ner-14638480	GEN	gentamicin
+BB-cat+ner-14638480	GEN	gentamicin
+BB-cat+ner-14638480	GEN	gentamicin
+BB-cat+ner-14638480	GEN	gentamicin
+BB-cat+ner-15273106	MRSA	methicillin-resistant S. aureus
+BB-cat+ner-15273106	MRSA	methicillin-resistant S. aureus
+BB-cat+ner-15273106	MRSA	methicillin-resistant S. aureus
+BB-cat+ner-15273106	qRT-PCR	Quantitative reverse transcription-PCR
+BB-cat+ner-15273106	qRT-PCR	Quantitative reverse transcription-PCR
+BB-cat+ner-15273106	qRT-PCR	Quantitative reverse transcription-PCR
+BB-cat+ner-15612668	ABG	Atrophic body gastritis
+BB-cat+ner-15612668	ABG	Atrophic body gastritis
+BB-cat+ner-15612668	ABG	Atrophic body gastritis
+BB-cat+ner-15612668	ABG	Atrophic body gastritis
+BB-cat+ner-15612668	ABG	Atrophic body gastritis
+BB-cat+ner-15612668	ABG	Atrophic body gastritis
+BB-cat+ner-15612668	ABG	Atrophic body gastritis
+BB-cat+ner-15612668	ABG	Atrophic body gastritis
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PG	pepsinogen
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGI	pepsinogen I
+BB-cat+ner-15612668	PGII	pepsinogen II
+BB-cat+ner-15612668	PGII	pepsinogen II
+BB-cat+ner-15612668	PGII	pepsinogen II
+BB-cat+ner-15612668	PGII	pepsinogen II
+BB-cat+ner-15612668	PGII	pepsinogen II
+BB-cat+ner-15612668	PGII	pepsinogen II
+BB-cat+ner-15612668	PGII	pepsinogen II
+BB-cat+ner-15612668	ROC	receiver operating curves
+BB-cat+ner-15612668	ROC	receiver operating curves
+BB-cat+ner-15612668	NM	normal mucosa
+BB-cat+ner-15612668	NM	normal mucosa
+BB-cat+ner-15612668	YI	Youden's index
+BB-cat+ner-15626953	AOM	acute otitis media
+BB-cat+ner-15626953	AOM	acute otitis media
+BB-cat+ner-15626953	AOM	acute otitis media
+BB-cat+ner-15626953	AOM	acute otitis media
+BB-cat+ner-15626953	AOM	acute otitis media
+BB-cat+ner-15626953	AOM	acute otitis media
+BB-cat+ner-19494280	DCs	dendritic cells
+BB-cat+ner-19494280	DCs	dendritic cells
+BB-cat+ner-20400104	IBD	inflammatory bowel disease
+BB-cat+ner-20400104	IBD	inflammatory bowel disease
+BB-cat+ner-20400104	IBD	inflammatory bowel disease
+BB-cat+ner-20400104	IBD	inflammatory bowel disease
+BB-cat+ner-20400104	IBD	inflammatory bowel disease
+BB-cat+ner-20400104	IBD	inflammatory bowel disease
+BB-cat+ner-20400104	CD	Crohn's disease
+BB-cat+ner-20400104	CD	Crohn's disease
+BB-cat+ner-20400104	CD	Crohn's disease
+BB-cat+ner-20672296	PA	Pseudomonas aeruginosa
+BB-cat+ner-20672296	PA	Pseudomonas aeruginosa
+BB-cat+ner-20672296	PA	Pseudomonas aeruginosa
+BB-cat+ner-20672296	PA	Pseudomonas aeruginosa
+BB-cat+ner-20672296	PA	Pseudomonas aeruginosa
+BB-cat+ner-20672296	CF	cystic fibrosis
+BB-cat+ner-20672296	CF	cystic fibrosis
+BB-cat+ner-20672296	CF	cystic fibrosis
+BB-cat+ner-20672296	CF	cystic fibrosis
+BB-cat+ner-20672296	CF	cystic fibrosis
+BB-cat+ner-20672296	CF	cystic fibrosis
+BB-cat+ner-20672296	CF	cystic fibrosis
+BB-cat+ner-20672296	CF	cystic fibrosis
+BB-cat+ner-20672296	CF	cystic fibrosis
+BB-cat+ner-20672296	CF	cystic fibrosis
+BB-cat+ner-20672296	CF	cystic fibrosis
+BB-cat+ner-20672296	CF	cystic fibrosis
+BB-cat+ner-20672296	CF	cystic fibrosis
+BB-cat+ner-20672296	CF	cystic fibrosis
+BB-cat+ner-20672296	AZLI	aztreonam for inhalation solution
+BB-cat+ner-20672296	AZLI	aztreonam for inhalation solution
+BB-cat+ner-20672296	AZLI	aztreonam for inhalation solution
+BB-cat+ner-20672296	AZLI	aztreonam for inhalation solution
+BB-cat+ner-20672296	AZLI	aztreonam for inhalation solution
+BB-cat+ner-20672296	AZLI	aztreonam for inhalation solution
+BB-cat+ner-20672296	TID	times daily
+BB-cat+ner-20672296	TID	times daily
+BB-cat+ner-20672296	TID	times daily
+BB-cat+ner-21148810	TLR2	Toll-like receptor 2
+BB-cat+ner-21148810	TLR2	Toll-like receptor 2
+BB-cat+ner-21148810	TLR2	Toll-like receptor 2
+BB-cat+ner-21148810	TLR2	Toll-like receptor 2
+BB-cat+ner-21148810	LTA	lipoteichoic acid
+BB-cat+ner-21148810	LTA	lipoteichoic acid
+BB-cat+ner-21148810	LTA	lipoteichoic acid
+BB-cat+ner-21148810	LTA	lipoteichoic acid
+BB-cat+ner-21476570	BChl	bacteriochlorophyll
+BB-cat+ner-21476570	BChl	bacteriochlorophyll
+BB-cat+ner-21476570	BChl	bacteriochlorophyll
+BB-cat+ner-21476570	BChl	bacteriochlorophyll
+BB-cat+ner-21476570	LD	linear dichroism
+BB-cat+ner-21476570	LD	linear dichroism
+BB-cat+ner-21476570	LD	linear dichroism
+BB-cat+ner-21476570	LD	linear dichroism
+BB-cat+ner-21476570	LD	linear dichroism
+BB-cat+ner-21476570	LD	linear dichroism
+BB-cat+ner-21476570	LD	linear dichroism
+BB-cat+ner-21476570	LD	linear dichroism
+BB-cat+ner-21476570	LD	linear dichroism
+BB-cat+ner-21476570	LD	linear dichroism
+BB-cat+ner-21476570	LD	linear dichroism
+BB-cat+ner-21476570	LD	linear dichroism
+BB-cat+ner-21511409	RAPD	random-amplified polymorphic DNA
+BB-cat+ner-21511409	RAPD	random-amplified polymorphic DNA
+BB-cat+ner-21511409	RAPD	random-amplified polymorphic DNA
+BB-cat+ner-21511409	RAPD	random-amplified polymorphic DNA
+BB-cat+ner-21511409	RAPD	random-amplified polymorphic DNA
+BB-cat+ner-21511409	PFGE	pulsed-field gel electrophoresis
+BB-cat+ner-21511409	PFGE	pulsed-field gel electrophoresis
+BB-cat+ner-21511409	MLST	multilocus sequence typing
+BB-cat+ner-21511409	MLST	multilocus sequence typing
+BB-cat+ner-24584903	FMO	Fenna-Matthews-Olson
+BB-cat+ner-24584903	FMO	Fenna-Matthews-Olson
+BB-cat+ner-24584903	FMO	Fenna-Matthews-Olson
+BB-cat+ner-24584903	FMO	Fenna-Matthews-Olson
+BB-cat+ner-24584903	FMO	Fenna-Matthews-Olson
+BB-cat+ner-24584903	FMO	Fenna-Matthews-Olson
+BB-cat+ner-24584903	E λ	energy
+BB-cat+ner-24584903	E λ	energy
+BB-cat+ner-24584903	E λ	energy
+BB-cat+ner-24584903	E λ	energy
+BB-cat+ner-24739626	TSS	transcriptional start sites
+BB-cat+ner-24739626	TSS	transcriptional start sites
+BB-cat+ner-24739626	TSS	transcriptional start sites
+BB-cat+ner-24865686	MIRU-VNTR	mycobacterial interspersed repetitive units-variable number of tandem repeats
+BB-cat+ner-24865686	MIRU-VNTR	mycobacterial interspersed repetitive units-variable number of tandem repeats
+BB-cat+ner-24865686	MIRU-VNTR	mycobacterial interspersed repetitive units-variable number of tandem repeats
+BB-cat+ner-24865686	MIRU-VNTR	mycobacterial interspersed repetitive units-variable number of tandem repeats
+BB-cat+ner-25179651	MDRP	multidrug resistant Pseudomonas aeruginosa
+BB-cat+ner-25179651	MDRP	multidrug resistant Pseudomonas aeruginosa
+BB-cat+ner-25179651	MDRP	multidrug resistant Pseudomonas aeruginosa
+BB-cat+ner-25179651	MDRP	multidrug resistant Pseudomonas aeruginosa
+BB-cat+ner-25179651	MDRP	multidrug resistant Pseudomonas aeruginosa
+BB-cat+ner-25179651	MDRP	multidrug resistant Pseudomonas aeruginosa
+BB-cat+ner-25179651	MDRP	multidrug resistant Pseudomonas aeruginosa
+BB-cat+ner-25179651	MDRP	multidrug resistant Pseudomonas aeruginosa
+BB-cat+ner-25179651	MDRP	multidrug resistant Pseudomonas aeruginosa
+BB-cat+ner-25179651	MDRP	multidrug resistant Pseudomonas aeruginosa
+BB-cat+ner-25179651	MDRP	multidrug resistant Pseudomonas aeruginosa
+BB-cat+ner-25179651	MDRP	multidrug resistant Pseudomonas aeruginosa
+BB-cat+ner-25179651	MDRP	multidrug resistant Pseudomonas aeruginosa
+BB-cat+ner-25179651	MDRP	multidrug resistant Pseudomonas aeruginosa
+BB-cat+ner-25179651	MDRP	multidrug resistant Pseudomonas aeruginosa
+BB-cat+ner-25179651	MDRP	multidrug resistant Pseudomonas aeruginosa
+BB-cat+ner-25179651	MDRP	multidrug resistant Pseudomonas aeruginosa
+BB-cat+ner-25179651	MDRP	multidrug resistant Pseudomonas aeruginosa
+BB-cat+ner-25179651	CAUTI	catheter-associated urinary tract infection
+BB-cat+ner-25179651	CAUTI	catheter-associated urinary tract infection
+BB-cat+ner-25179651	CAUTI	catheter-associated urinary tract infection
+BB-cat+ner-25179651	CAUTI	catheter-associated urinary tract infection
+BB-cat+ner-25179651	CAUTI	catheter-associated urinary tract infection
+BB-cat+ner-25179651	CAUTI	catheter-associated urinary tract infection
+BB-cat+ner-25179651	CAUTI	catheter-associated urinary tract infection
+BB-cat+ner-25179651	CAUTI	catheter-associated urinary tract infection
+BB-cat+ner-25179651	CAUTI	catheter-associated urinary tract infection
+BB-cat+ner-25179651	CAUTI	catheter-associated urinary tract infection
+BB-cat+ner-25179651	PFGE	Pulse-field gel electrophoresis
+BB-cat+ner-25179651	PFGE	Pulse-field gel electrophoresis
+BB-cat+ner-25607366	GMOs	Genetically modified organisms
+BB-cat+ner-25607366	GMOs	Genetically modified organisms
+BB-cat+ner-25607366	GMOs	Genetically modified organisms
+BB-cat+ner-25607366	GMOs	Genetically modified organisms
+BB-cat+ner-25644009	CGS	comparative genome sequencing
+BB-cat+ner-25644009	rOmpA	rickettsial outer membrane protein A
+BB-cat+ner-26155675	PBD	Plackett-Burman design
+BB-cat+ner-26155675	RSM	Response surface methodology
+BB-cat+ner-26155675	SEM	Scanning electron microscopy
+BB-cat+ner-3015879	kb	6.3-kilobase
+BB-cat+ner-3015879	kb	6.3-kilobase
+BB-cat+ner-3015879	kb	6.3-kilobase
+BB-cat+ner-3015879	TRA	transformation ability
+BB-cat+ner-3015879	TRA	transformation ability
+BB-cat+ner-3015879	TRA	transformation ability
+BB-cat+ner-3015879	TRA	transformation ability
+BB-cat+ner-3015879	TRA	transformation ability
+BB-cat+ner-7867953	Ah	Aeromonas hydrophila
+BB-cat+ner-7867953	Ah	Aeromonas hydrophila
+BB-cat+ner-7867953	Ah	Aeromonas hydrophila
+BB-cat+ner-7867953	Ah	Aeromonas hydrophila
+BB-cat+ner-7867953	Ah	Aeromonas hydrophila
+BB-cat+ner-7867953	Ah	Aeromonas hydrophila
+BB-cat+ner-7867953	Ah	Aeromonas hydrophila
+BB-cat+ner-7867953	Ah	Aeromonas hydrophila
+BB-cat+ner-7867953	Ah	Aeromonas hydrophila
+BB-cat+ner-7867953	Ah	Aeromonas hydrophila
+BB-cat+ner-7867953	Ah	Aeromonas hydrophila
+BB-cat+ner-7867953	Ah	Aeromonas hydrophila
+BB-cat+ner-7867953	Ah	Aeromonas hydrophila
+BB-cat+ner-7867953	Ah	Aeromonas hydrophila
+BB-cat+ner-7867953	Ah	Aeromonas hydrophila
+BB-cat+ner-7867953	Ah	Aeromonas hydrophila
+BB-cat+ner-7867953	Ah	Aeromonas hydrophila
+BB-cat+ner-7867953	Ah	Aeromonas hydrophila
+BB-cat+ner-7867953	Ec	Escherichia coli
+BB-cat+ner-7867953	Ec	Escherichia coli
+BB-cat+ner-7867953	Ec	Escherichia coli
+BB-cat+ner-7867953	Ec	Escherichia coli
+BB-cat+ner-7867953	Ec	Escherichia coli
+BB-cat+ner-7867953	Ec	Escherichia coli
+BB-cat+ner-7867953	Ec	Escherichia coli
+BB-cat+ner-7867953	aa	amino acids
+BB-cat+ner-8406892	SLT	Shiga-like toxin
+BB-cat+ner-8406892	SLT	Shiga-like toxin
+BB-cat+ner-8406892	SLT	Shiga-like toxin
+BB-cat+ner-8406892	EPEC	enteropathogenic E. coli
+BB-cat+ner-8406892	EPEC	enteropathogenic E. coli
+BB-cat+ner-8406892	EPEC	enteropathogenic E. coli
+BB-cat+ner-8406892	EPEC	enteropathogenic E. coli
+BB-cat+ner-9562874	TGE	Tryptone glucose extract
+BB-cat+ner-9562874	VRBG	Violet red bile glucose
+BB-cat+ner-9562874	PCR	polymerase chain reaction
+BB-cat+ner-9562874	PCR	polymerase chain reaction
+BB-cat+ner-9562874	lt	heat-labile toxin
+BB-cat+ner-9562874	s.t.	heat-stable toxin genes
+BB-cat+ner-9575437	UTIs	urinary tract infections
+BB-cat+ner-9575437	UTIs	urinary tract infections
+BB-cat+ner-9575437	UTIs	urinary tract infections
+BB-cat+ner-9575437	UTIs	urinary tract infections
+BB-cat+ner-9575437	UTIs	urinary tract infections
+BB-cat+ner-9575437	UTIs	urinary tract infections
+BB-cat+ner-9575437	UTIs	urinary tract infections
+BB-cat+ner-9575437	UTIs	urinary tract infections
+BB-cat+ner-9575437	UTIs	urinary tract infections
+BB-cat+ner-9575437	UTIs	urinary tract infections
+BB-cat+ner-9575437	IPM	Imipenem
+BB-cat+ner-9575437	IPM	Imipenem
+BB-cat+ner-9575437	IPM	Imipenem
+BB-cat+ner-9575437	IPM	Imipenem
+BB-cat+ner-9575437	IPM	Imipenem
+BB-cat+ner-9575437	VCM	vancomycin
+BB-cat+ner-9575437	VCM	vancomycin
+BB-cat+ner-9575437	VCM	vancomycin
+BB-cat+ner-9575437	VCM	vancomycin
+BB-cat+ner-9575437	ABK	Arbekacin
+BB-cat+ner-9575437	ABK	Arbekacin
+BB-cat+ner-9575437	MINO	minocycline
+BB-cat+ner-9575437	MINO	minocycline
+BB-cat+ner-9575437	MINO	minocycline
+BB-cat+ner-9575437	CEZ	Cefazolin
+BB-cat+ner-9575437	CEZ	Cefazolin
+BB-cat+ner-9575437	CEZ	Cefazolin
+BB-cat+ner-9575437	CTM	cefotiam
+BB-cat+ner-9575437	CZOP	cefozopran
+BB-cat+ner-9575437	CZOP	cefozopran
+BB-cat+ner-9575437	CZOP	cefozopran
+BB-cat+ner-9575437	CZOP	cefozopran
+BB-cat+ner-9575437	CZOP	cefozopran
+BB-cat+ner-9575437	CZOP	cefozopran
+BB-cat+ner-9575437	CAM	clarithromycin
+BB-cat+ner-9575437	TFLX	Tosufloxacin
+BB-cat+ner-9575437	TFLX	Tosufloxacin
+BB-cat+ner-9575437	GM	Gentamicin
+BB-cat+ner-9575437	GM	Gentamicin
+BB-cat+ner-9575437	GM	Gentamicin
+BB-cat+ner-9575437	AMK	amikacin
+BB-cat+ner-9575437	AMK	amikacin
+BB-cat+ner-9575437	CPR	Cefpirome
+BB-cat+ner-9575437	CPR	Cefpirome
+BB-cat+ner-9575437	CPR	Cefpirome
+BB-cat+ner-9575437	CPFX	ciprofloxacin
+BB-cat+ner-9575437	OFLX	ofloxacin
+BB-cat+ner-9575437	OFLX	ofloxacin
+BB-cat+ner-9575437	CMZ	cefmetazole
+BB-cat+ner-9575437	CCL	cefaclor
+BB-cat+ner-9575437	CCL	cefaclor
+BB-cat+ner-9575437	CPZ	cefoperazone
+BB-cat+ner-9575437	LMOX	latamoxef
+BB-cat+ner-9575437	FMOX	Flomoxef
+BB-cat+ner-9575437	CFIX	cefixime
+BB-cat+ner-9575437	CRMN	carumonam
+BB-cat+ner-9666962	IL-6	interleukin 6
