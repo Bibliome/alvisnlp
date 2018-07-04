@@ -1017,7 +1017,25 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     	}
     }
     
+    private void logVersion(Logger logger) {
+    	logger.config("build version: " + gitInfo.getBuildVersion());
+        if (!gitInfo.isCanonicalRemoteOrigin()) {
+        	logger.config("remote URL: " + gitInfo.getRemoteOriginURL());
+        }
+        logger.config("commit id: " + gitInfo.getCommitId());
+        logger.config("commit time: " + gitInfo.getCommitTime());
+        if (!gitInfo.isDefaultBranch()) {
+        	logger.config("branch: " + gitInfo.getBranch());
+        }
+        if (gitInfo.isDirty()) {
+        	logger.warning("dirty build");
+        	logger.config("build host: " + gitInfo.getBuildHost());
+        	logger.config("build time: " + gitInfo.getBuildTime());
+        }
+    }
+    
     protected void initProcessingContext(Logger logger, C ctx, Module<A> mainModule) throws IOException, ModuleException{
+    	logVersion(logger);
     	logEnvironment(logger);
     	ctx.setRootTempDir(buildRootTempDir(logger));
     	if (!writePlan) {
