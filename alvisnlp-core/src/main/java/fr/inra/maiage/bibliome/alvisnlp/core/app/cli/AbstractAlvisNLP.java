@@ -86,9 +86,9 @@ import fr.inra.maiage.bibliome.alvisnlp.core.plan.PlanException;
 import fr.inra.maiage.bibliome.alvisnlp.core.plan.PlanLoader;
 import fr.inra.maiage.bibliome.util.Files;
 import fr.inra.maiage.bibliome.util.FlushedStreamHandler;
+import fr.inra.maiage.bibliome.util.GitInfo;
 import fr.inra.maiage.bibliome.util.Pair;
 import fr.inra.maiage.bibliome.util.Timer;
-import fr.inra.maiage.bibliome.util.Versioned;
 import fr.inra.maiage.bibliome.util.clio.CLIOException;
 import fr.inra.maiage.bibliome.util.clio.CLIOParser;
 import fr.inra.maiage.bibliome.util.clio.CLIOption;
@@ -113,7 +113,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	private static final String TYPE_ATTRIBUTE_NAME = "type";
 	private static final String SHORT_TYPE_ATTRIBUTE_NAME = "short-type";
 	
-	private final Versioned version = new Versioned("fr.inra.maiage.bibliome.alvisnlp.core.app.AlvisNLPVersion");
+	private final GitInfo gitInfo;
 	private final M moduleFactory = getModuleFactory();
 	private final ParamConverterFactory converterFactory = getParamConverterFactory();
 
@@ -156,18 +156,30 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	/**
 	 * Creates anew CLI instance.
 	 * @throws TransformerConfigurationException
+	 * @throws IOException 
 	 */
-	public AbstractAlvisNLP() throws TransformerConfigurationException {
+	public AbstractAlvisNLP() throws TransformerConfigurationException, IOException {
 		super();
 		xmlDocTransformer = XMLUtils.transformerFactory.newTransformer();
+		gitInfo = new GitInfo("/fr/inra/maiage/bibliome/alvisnlp/core/app/AlvisNLPGit.properties", "https://github.com/Bibliome/alvisnlp.git");
 	}
 
 	/**
 	 * CLI option: print version.
 	 */
 	@CLIOption(value="-version", stop=true)
-	public final void version() { 
-        System.out.println(version);
+	public final void version() {
+        System.out.println(gitInfo.getBuildVersion());
+        if (!gitInfo.isCanonicalRemoteOrigin()) {
+        	System.out.format("Remote URL: %s\n", gitInfo.getRemoteOriginURL());
+        }
+        System.out.format("Commit: %s (%s)\n", gitInfo.getCommitId(), gitInfo.getCommitTime());
+        if (!gitInfo.isDefaultBranch()) {
+        	System.out.format("Branch: %s\n", gitInfo.getBranch());
+        }
+        if (gitInfo.isDirty()) {
+        	System.out.format("Built: %s (%s)\n", gitInfo.getBuildHost(), gitInfo.getBuildTime());
+        }
 	}
 	
 	/**

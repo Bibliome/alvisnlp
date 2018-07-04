@@ -109,7 +109,7 @@ abstract class AbstractFactoryModel {
 		root.setAttribute("fullName", getFullName());
 		root.setAttribute("generator", ctx.getGeneratorId());
 		root.setAttribute("date", ctx.getDate());
-		root.setAttribute("generator-version", ctx.getVersion().toString());
+		root.setAttribute("generator-version", ctx.getGitInfoString());
 		fillDOM(ctx, result);
 		return result;
 	}
