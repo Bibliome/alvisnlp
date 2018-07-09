@@ -3,11 +3,13 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.AbstractContesTerms.ContesTermsResolvedObject;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
@@ -30,31 +32,36 @@ class ContesTrainExternalHandler extends AbstractContesTermsExternalHandler<Cont
 
 	@Override
 	protected void prepare() throws IOException, ModuleException {
-		createTermsFile();
+		createTermsFiles();
 		createAttributionsFile();
 	}
 
 	private void createAttributionsFile() throws IOException {
-		TargetStream target = new FileTargetStream("UTF-8", getAttributionsFile().getAbsolutePath());
-		try (PrintStream out = target.getPrintStream()) {
-			JSONObject attributions = getAttributions();
-			out.println(attributions);
+		ContesTermsResolvedObject resObj = getModule().getResolvedObjects();
+		ContesTermClassifier.Resolved[] termClassifiers = resObj.getTermClassifiers();
+		for (int i = 0; i < termClassifiers.length; ++i) {
+			TargetStream target = new FileTargetStream("UTF-8", getAttributionsFile(i).getAbsolutePath());
+			try (PrintStream out = target.getPrintStream()) {
+				JSONObject attributions = getAttributions(termClassifiers[i]);
+				out.println(attributions);
+			}
 		}
 	}
 
 	@SuppressWarnings("unchecked")
-	private JSONObject getAttributions() {
-		ContesTrain owner = getModule();
+	private JSONObject getAttributions(ContesTermClassifier.Resolved termClassifier) {
 		EvaluationContext ctx = new EvaluationContext(getLogger());
+		Corpus corpus = getAnnotable();
+		Iterator<Section> sectionIt = corpus.sectionIterator(ctx, termClassifier.getDocumentFilter(), termClassifier.getSectionFilter());
 		JSONObject result = new JSONObject();
-		for (Section sec : Iterators.loop(owner.sectionIterator(ctx, getAnnotable()))) {
-			for (Annotation term : sec.getLayer(owner.getTermLayer())) {
-				if (!term.hasFeature(owner.getConceptFeature())) {
+		for (Section sec : Iterators.loop(sectionIt)) {
+			for (Annotation term : sec.getLayer(termClassifier.getTermLayerName())) {
+				if (!term.hasFeature(termClassifier.getConceptFeatureName())) {
 					continue;
 				}
 				String id = term.getStringId();
 				JSONArray concepts = new JSONArray();
-				concepts.addAll(term.getFeature(owner.getConceptFeature()));
+				concepts.addAll(term.getFeature(termClassifier.getConceptFeatureName()));
 				result.put(id, concepts);
 			}
 		}
@@ -77,14 +84,18 @@ class ContesTrainExternalHandler extends AbstractContesTermsExternalHandler<Cont
 		result.add(getContesCommand());
 		result.add("--word-vectors");
 		result.add(owner.getWordEmbeddings().getAbsolutePath());
-		result.add("--terms");
-		result.add(getTermsFile().getAbsolutePath());
-		result.add("--attributions");
-		result.add(getAttributionsFile().getAbsolutePath());
 		result.add("--ontology");
 		result.add(owner.getOntology().getAbsolutePath());
-		result.add("--regression-matrix");
-		result.add(owner.getRegressionMatrix().getAbsolutePath());
+		ContesTermsResolvedObject resObj = getModule().getResolvedObjects();
+		ContesTermClassifier.Resolved[] termClassifiers = resObj.getTermClassifiers();
+		for (int i = 0; i < termClassifiers.length; ++i) {
+			result.add("--terms");
+			result.add(getTermsFile(i).getAbsolutePath());
+			result.add("--attributions");
+			result.add(getAttributionsFile(i).getAbsolutePath());
+			result.add("--regression-matrix");
+			result.add(termClassifiers[i].getRegressionMatrixFile().getAbsolutePath());
+		}
 		return result;
 	}
 }

@@ -4,9 +4,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.AbstractContesTerms.ContesTermsResolvedObject;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
@@ -29,18 +31,22 @@ class ContesPredictExternalHandler extends AbstractContesTermsExternalHandler<Co
 
 	@Override
 	protected void prepare() throws IOException, ModuleException {
-		createTermsFile();
+		createTermsFiles();
 	}
 
 	@Override
 	protected void collect() throws IOException, ModuleException {
-		Map<String,String> predictions = readPredictions();
-		setPredictionFeature(predictions);
+		ContesTermsResolvedObject resObj = getModule().getResolvedObjects();
+		ContesTermClassifier.Resolved[] termClassifiers = resObj.getTermClassifiers();
+		for (int i = 0; i < termClassifiers.length; ++i) {
+			Map<String,String> predictions = readPredictions(i);
+			setPredictionFeature(predictions, termClassifiers[i]);
+		}
 	}
 	
-	private Map<String,String> readPredictions() throws IOException {
+	private Map<String,String> readPredictions(int i) throws IOException {
 		Map<String,String> result = new HashMap<String,String>();
-		SourceStream source = new FileSourceStream("UTF-8", getAttributionsFile().getAbsolutePath());
+		SourceStream source = new FileSourceStream("UTF-8", getAttributionsFile(i).getAbsolutePath());
 		try (BufferedReader r = source.getBufferedReader()) {
 			while (true) {
 				String line = r.readLine();
@@ -56,15 +62,16 @@ class ContesPredictExternalHandler extends AbstractContesTermsExternalHandler<Co
 		return result;
 	}
 	
-	private void setPredictionFeature(Map<String,String> predictions) {
-		ContesPredict owner = getModule();
+	private void setPredictionFeature(Map<String,String> predictions, ContesTermClassifier.Resolved termClassifier) {
 		EvaluationContext ctx = new EvaluationContext(getLogger());
-		for (Section sec : Iterators.loop(owner.sectionIterator(ctx, getAnnotable()))) {
-			for (Annotation term : sec.getLayer(owner.getTermLayer())) {
+		Corpus corpus = getAnnotable();
+		Iterator<Section> sectionIt = corpus.sectionIterator(ctx, termClassifier.getDocumentFilter(), termClassifier.getSectionFilter());
+		for (Section sec : Iterators.loop(sectionIt)) {
+			for (Annotation term : sec.getLayer(termClassifier.getTermLayerName())) {
 				String id = term.getStringId();
 				if (predictions.containsKey(id)) {
 					String conceptId = predictions.get(id);
-					term.addFeature(owner.getConceptFeature(), conceptId);
+					term.addFeature(termClassifier.getConceptFeatureName(), conceptId);
 				}
 			}
 		}
@@ -82,14 +89,18 @@ class ContesPredictExternalHandler extends AbstractContesTermsExternalHandler<Co
 		result.add(getContesCommand());
 		result.add("--word-vectors");
 		result.add(owner.getWordEmbeddings().getAbsolutePath());
-		result.add("--terms");
-		result.add(getTermsFile().getAbsolutePath());
 		result.add("--ontology");
 		result.add(owner.getOntology().getAbsolutePath());
-		result.add("--regression-matrix");
-		result.add(owner.getRegressionMatrix().getAbsolutePath());
-		result.add("--output");
-		result.add(getAttributionsFile().getAbsolutePath());
+		ContesTermsResolvedObject resObj = getModule().getResolvedObjects();
+		ContesTermClassifier.Resolved[] termClassifiers = resObj.getTermClassifiers();
+		for (int i = 0; i < termClassifiers.length; ++i) {
+			result.add("--terms");
+			result.add(getTermsFile(i).getAbsolutePath());
+			result.add("--regression-matrix");
+			result.add(termClassifiers[i].getRegressionMatrixFile().getAbsolutePath());
+			result.add("--output");
+			result.add(getAttributionsFile(i).getAbsolutePath());
+		}
 		return result;
 	}
 }

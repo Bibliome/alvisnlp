@@ -3,11 +3,13 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes;
 import java.io.File;
 import java.util.Map;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
 
-abstract class AbstractContesExternalHandler<T extends AbstractContes> extends ExternalHandler<Corpus,T> {
+abstract class AbstractContesExternalHandler<R extends ResolvedObjects,T extends CorpusModule<R> & AbstractContes> extends ExternalHandler<Corpus,T> {
 	protected AbstractContesExternalHandler(ProcessingContext<Corpus> processingContext, T module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}

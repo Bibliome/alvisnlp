@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.StringLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
@@ -24,7 +25,7 @@ import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
-class Word2VecExternalHandler extends AbstractContesExternalHandler<Word2Vec> {
+class Word2VecExternalHandler extends AbstractContesExternalHandler<SectionResolvedObjects,Word2Vec> {
 	Word2VecExternalHandler(ProcessingContext<Corpus> processingContext, Word2Vec module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
@@ -45,9 +46,9 @@ class Word2VecExternalHandler extends AbstractContesExternalHandler<Word2Vec> {
 		try (PrintStream ps = new PrintStream(getWord2VecInputFile(), "UTF-8")) {
 			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(ps, "UTF-8"));
 			for (Section sec : Iterators.loop(owner.sectionIterator(ctx, getAnnotable()))) {
-				for (Layer sent : sec.getSentences(owner.getTokenLayer(), owner.getSentenceLayer())) {
+				for (Layer sent : sec.getSentences(owner.getTokenLayerName(), owner.getSentenceLayerName())) {
 					for (Annotation tok : sent) {
-						String form = StringLibrary.normalizeSpace(tok.getLastFeature(owner.getFormFeature()));
+						String form = StringLibrary.normalizeSpace(tok.getLastFeature(owner.getFormFeatureName()));
 						bw.write(form);
 						bw.newLine();
 					}
@@ -68,18 +69,18 @@ class Word2VecExternalHandler extends AbstractContesExternalHandler<Word2Vec> {
 	
 	private void collectTokenVectors() throws IOException {
 		Word2Vec owner = getModule();
-		if (owner.getVectorFeature() == null) {
+		if (owner.getVectorFeatureName() == null) {
 			return;
 		}
 		EvaluationContext ctx = new EvaluationContext(getLogger());
 		Map<String,String> wordVectors = readWordVectors();
 		for (Section sec : Iterators.loop(owner.sectionIterator(ctx, getAnnotable()))) {
-			for (Layer sent : sec.getSentences(owner.getTokenLayer(), owner.getSentenceLayer())) {
+			for (Layer sent : sec.getSentences(owner.getTokenLayerName(), owner.getSentenceLayerName())) {
 				for (Annotation tok : sent) {
-					String form = StringLibrary.normalizeSpace(tok.getLastFeature(owner.getFormFeature()));
+					String form = StringLibrary.normalizeSpace(tok.getLastFeature(owner.getFormFeatureName()));
 					if (wordVectors.containsKey(form)) {
 						String vector = wordVectors.get(form);
-						tok.addFeature(owner.getVectorFeature(), vector);
+						tok.addFeature(owner.getVectorFeatureName(), vector);
 					}
 					else {
 						getLogger().warning("could not find vector for " + form);

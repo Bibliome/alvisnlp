@@ -3,10 +3,12 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.Iterator;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.AbstractContesTerms.ContesTermsResolvedObject;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
@@ -17,31 +19,37 @@ import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-abstract class AbstractContesTermsExternalHandler<T extends AbstractContesTerms> extends AbstractContesExternalHandler<T> {
+abstract class AbstractContesTermsExternalHandler<T extends AbstractContesTerms> extends AbstractContesExternalHandler<ContesTermsResolvedObject,T> {
 	protected AbstractContesTermsExternalHandler(ProcessingContext<Corpus> processingContext, T module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
 
-	protected void createTermsFile() throws IOException {
-		TargetStream target = new FileTargetStream("UTF-8", getTermsFile().getAbsolutePath());
-		try (PrintStream out = target.getPrintStream()) {
-			JSONObject terms = getTermTokens();
-			out.println(terms);
+	protected void createTermsFiles() throws IOException {
+		ContesTermsResolvedObject resObj = getModule().getResolvedObjects();
+		ContesTermClassifier.Resolved[] termClassifiers = resObj.getTermClassifiers();
+		for (int i = 0; i < termClassifiers.length; ++i) {
+			TargetStream target = new FileTargetStream("UTF-8", getTermsFile(i).getAbsolutePath());
+			try (PrintStream out = target.getPrintStream()) {
+				JSONObject terms = getTermTokens(termClassifiers[i]);
+				out.println(terms);
+			}
 		}
 	}
 
 	@SuppressWarnings("unchecked")
-	private JSONObject getTermTokens() {
+	private JSONObject getTermTokens(ContesTermClassifier.Resolved termClassifier) {
 		JSONObject result = new JSONObject();
 		EvaluationContext ctx = new EvaluationContext(getLogger());
 		AbstractContesTerms owner = getModule();
-		for (Section sec : Iterators.loop(owner.sectionIterator(ctx, getAnnotable()))) {
-			Layer tokens = sec.getLayer(owner.getTokenLayer());
-			for (Annotation term : sec.getLayer(owner.getTermLayer())) {
+		Corpus corpus = getAnnotable();
+		Iterator<Section> sectionIt = corpus.sectionIterator(ctx, termClassifier.getDocumentFilter(), termClassifier.getSectionFilter());
+		for (Section sec : Iterators.loop(sectionIt)) {
+			Layer tokens = sec.getLayer(owner.getTokenLayerName());
+			for (Annotation term : sec.getLayer(termClassifier.getTermLayerName())) {
 				String id = term.getStringId();
 				JSONArray termTokens = new JSONArray();
 				for (Annotation t : tokens.between(term)) {
-					String form = t.getLastFeature(owner.getFormFeature());
+					String form = t.getLastFeature(owner.getFormFeatureName());
 					termTokens.add(form);
 				}
 				result.put(id, termTokens);
@@ -50,11 +58,11 @@ abstract class AbstractContesTermsExternalHandler<T extends AbstractContesTerms>
 		return result;
 	}
 
-	protected File getTermsFile() {
-		return getTempFile("terms.json");
+	protected File getTermsFile(int i) {
+		return getTempFile("terms_" + i + ".json");
 	}
 
-	protected File getAttributionsFile() {
-		return getTempFile("attributions.json");
+	protected File getAttributionsFile(int i) {
+		return getTempFile("attributions_" + i + ".json");
 	}
 }
