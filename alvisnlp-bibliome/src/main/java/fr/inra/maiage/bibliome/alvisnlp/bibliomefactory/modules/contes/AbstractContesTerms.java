@@ -40,6 +40,7 @@ public abstract class AbstractContesTerms extends CorpusModule<ContesTermsResolv
 		return wordEmbeddings;
 	}
 
+	@Override
 	@Param
 	public InputDirectory getContesDir() {
 		return contesDir;
@@ -51,11 +52,11 @@ public abstract class AbstractContesTerms extends CorpusModule<ContesTermsResolv
 	}
 
 	@Param
-	public ContesTermClassifier[] getTermClassifier() {
+	public ContesTermClassifier[] getTermClassifiers() {
 		return termClassifiers;
 	}
 
-	public void setTermClassifier(ContesTermClassifier[] termClassifier) {
+	public void setTermClassifiers(ContesTermClassifier[] termClassifier) {
 		this.termClassifiers = termClassifier;
 	}
 
@@ -63,6 +64,7 @@ public abstract class AbstractContesTerms extends CorpusModule<ContesTermsResolv
 		this.ontology = ontology;
 	}
 
+	@Override
 	public void setContesDir(InputDirectory contesDir) {
 		this.contesDir = contesDir;
 	}

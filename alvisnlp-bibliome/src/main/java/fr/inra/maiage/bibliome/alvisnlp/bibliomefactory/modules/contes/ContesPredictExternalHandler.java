@@ -67,11 +67,13 @@ class ContesPredictExternalHandler extends AbstractContesTermsExternalHandler<Co
 		Corpus corpus = getAnnotable();
 		Iterator<Section> sectionIt = corpus.sectionIterator(ctx, termClassifier.getDocumentFilter(), termClassifier.getSectionFilter());
 		for (Section sec : Iterators.loop(sectionIt)) {
-			for (Annotation term : sec.getLayer(termClassifier.getTermLayerName())) {
-				String id = term.getStringId();
-				if (predictions.containsKey(id)) {
-					String conceptId = predictions.get(id);
-					term.addFeature(termClassifier.getConceptFeatureName(), conceptId);
+			if (sec.hasLayer(termClassifier.getTermLayerName())) {
+				for (Annotation term : sec.getLayer(termClassifier.getTermLayerName())) {
+					String id = term.getStringId();
+					if (predictions.containsKey(id)) {
+						String conceptId = predictions.get(id);
+						term.addFeature(termClassifier.getConceptFeatureName(), conceptId);
+					}
 				}
 			}
 		}

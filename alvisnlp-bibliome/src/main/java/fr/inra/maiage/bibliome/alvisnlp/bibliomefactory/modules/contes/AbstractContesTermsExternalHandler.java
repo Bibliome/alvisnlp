@@ -45,14 +45,19 @@ abstract class AbstractContesTermsExternalHandler<T extends AbstractContesTerms>
 		Iterator<Section> sectionIt = corpus.sectionIterator(ctx, termClassifier.getDocumentFilter(), termClassifier.getSectionFilter());
 		for (Section sec : Iterators.loop(sectionIt)) {
 			Layer tokens = sec.getLayer(owner.getTokenLayerName());
-			for (Annotation term : sec.getLayer(termClassifier.getTermLayerName())) {
-				String id = term.getStringId();
-				JSONArray termTokens = new JSONArray();
-				for (Annotation t : tokens.between(term)) {
-					String form = t.getLastFeature(owner.getFormFeatureName());
-					termTokens.add(form);
+			if (sec.hasLayer(termClassifier.getTermLayerName())) {
+				for (Annotation term : sec.getLayer(termClassifier.getTermLayerName())) {
+					String id = term.getStringId();
+					JSONArray termTokens = new JSONArray();
+					for (Annotation t : tokens.between(term)) {
+						String form = t.getLastFeature(owner.getFormFeatureName());
+						termTokens.add(form);
+					}
+					result.put(id, termTokens);
 				}
-				result.put(id, termTokens);
+			}
+			else {
+				getLogger().warning("no layer " + termClassifier.getTermLayerName());
 			}
 		}
 		return result;

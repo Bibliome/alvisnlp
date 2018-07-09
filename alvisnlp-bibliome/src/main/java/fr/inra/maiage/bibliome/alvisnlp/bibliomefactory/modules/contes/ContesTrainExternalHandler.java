@@ -55,14 +55,16 @@ class ContesTrainExternalHandler extends AbstractContesTermsExternalHandler<Cont
 		Iterator<Section> sectionIt = corpus.sectionIterator(ctx, termClassifier.getDocumentFilter(), termClassifier.getSectionFilter());
 		JSONObject result = new JSONObject();
 		for (Section sec : Iterators.loop(sectionIt)) {
-			for (Annotation term : sec.getLayer(termClassifier.getTermLayerName())) {
-				if (!term.hasFeature(termClassifier.getConceptFeatureName())) {
-					continue;
+			if (sec.hasLayer(termClassifier.getTermLayerName())) {
+				for (Annotation term : sec.getLayer(termClassifier.getTermLayerName())) {
+					if (!term.hasFeature(termClassifier.getConceptFeatureName())) {
+						continue;
+					}
+					String id = term.getStringId();
+					JSONArray concepts = new JSONArray();
+					concepts.addAll(term.getFeature(termClassifier.getConceptFeatureName()));
+					result.put(id, concepts);
 				}
-				String id = term.getStringId();
-				JSONArray concepts = new JSONArray();
-				concepts.addAll(term.getFeature(termClassifier.getConceptFeatureName()));
-				result.put(id, concepts);
 			}
 		}
 		return result;

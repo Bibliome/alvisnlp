@@ -43,21 +43,30 @@ public class ContesTermClassifierParamConverter extends AbstractParamConverter<C
 		}
 		for (Element child : XMLUtils.childrenElements(xmlValue)) {
 			String tag = child.getTagName();
+			String contents = child.getTextContent();
 			switch (tag) {
 				case "documentFilter": {
-					documentFilter = convertComponent(Expression.class, xmlValue.getAttribute("documentFilter"));
+					documentFilter = convertComponent(Expression.class, contents);
+					break;
 				}
 				case "sectionFilter": {
-					sectionFilter = convertComponent(Expression.class, xmlValue.getAttribute("sectionFilter"));
+					sectionFilter = convertComponent(Expression.class, contents);
+					break;
 				}
 				case "termLayerName": {
-					termLayerName = convertComponent(String.class, xmlValue.getAttribute("termLayerName"));
+					termLayerName = convertComponent(String.class, contents);
+					break;
 				}
 				case "conceptFeatureName": {
-					conceptFeatureName = convertComponent(String.class, xmlValue.getAttribute("conceptFeatureName"));
+					conceptFeatureName = convertComponent(String.class, contents);
+					break;
 				}
 				case "regressionMatrixFile": {
-					regressionMatrixFile = convertComponent(File.class, xmlValue.getAttribute("regressionMatrixFile"));
+					regressionMatrixFile = convertComponent(File.class, contents);
+					break;
+				}
+				default: {
+					cannotConvertXML(xmlValue, "incorrect tag " + tag);
 				}
 			}
 		}
