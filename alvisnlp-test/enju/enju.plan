@@ -1,0 +1,24 @@
+<alvisnlp-plan id="enju">
+  <import>BioNLP-ST-2016_BB-event/read.plan</import>
+
+  <import>res://segmentation.plan</import>
+
+  <!--<pos class="GeniaTagger"/>-->
+
+  <enju class="EnjuParser"/>
+
+  <export class="TabularExport">
+    <outDir>.</outDir>
+    <corpusFile>dependencies.txt</corpusFile>
+    <lines>documents.sections.relations:dependencies.tuples</lines>
+    <columns separator=";">
+      section.document.@id;
+      @label;
+      args:head.@form;
+      args:head.start ^ "-" ^ args:head.end;
+      @arg-type;
+      args:dependent.@form;
+      args:dependent.start ^ "-" ^ args:dependent.end
+    </columns>
+  </export>
+</alvisnlp-plan>
