@@ -193,11 +193,6 @@ public class PlanLoader<T extends Annotable> {
 	 * @throws URISyntaxException 
 	 * @throws ParameterException 
 	 */
-//	public Sequence<T> loadFile(Logger logger, File source) throws PlanException, SAXException, IOException, ModuleException, ServiceException, ConverterException, URISyntaxException {
-//		Document doc = docBuilder.parse(source);
-//		return loadDocument(logger, source.getCanonicalPath(), doc);
-//	}
-
 	public Sequence<T> loadSource(Logger logger, SourceStream source) throws SAXException, IOException, PlanException, ModuleException, ServiceException, ConverterException, URISyntaxException {
 		try (InputStream is = source.getInputStream()) {
 			String name = source.getStreamName(is);
@@ -260,7 +255,8 @@ public class PlanLoader<T extends Annotable> {
 		module.setId(id);
 		if (elt.hasAttribute("dump")) {
 			String dumpPath = elt.getAttribute("dump");
-			logger.warning("setting dump file inside the plan is obsolete, use -dumpModule instead");
+			logger.severe("setting dump file inside the plan is deprecated, use -dumpModule instead");
+			logger.severe("future versions might not support in-plan dump");
 			ParamConverter converter = getParamConverterInstance(OutputFile.class, false);
 			OutputFile dumpFile = (OutputFile) converter.convert(dumpPath);
 			module.setDumpFile(dumpFile);
@@ -297,11 +293,15 @@ public class PlanLoader<T extends Annotable> {
 				Element childElement = (Element) child;
 				String childName = childElement.getTagName();
 				if (MODULE_ELEMENT_NAME.equals(childName)) {
+					logger.severe("the tag " + MODULE_ELEMENT_NAME + " is deprecated, use tags names as module identifiers");
+					logger.severe("future versions might not support " + MODULE_ELEMENT_NAME);
 					Module<T> module = loadModule(logger, childElement);
 					result.appendModule(module);
 					continue;
 				}
 				if (SEQUENCE_ELEMENT_NAME.equals(childName)) {
+					logger.severe("the tag " + SEQUENCE_ELEMENT_NAME + " is deprecated, use tags names as sequence identifiers");
+					logger.severe("future versions might not support " + SEQUENCE_ELEMENT_NAME);
 					Sequence<T> sequence = loadSequence(logger, childElement, false);
 					result.appendModule(sequence);
 					continue;
@@ -499,20 +499,26 @@ public class PlanLoader<T extends Annotable> {
 	public void setParam(Logger logger, Element elt, Module<T> module) throws PlanException, ParameterException, ConverterException, UnsupportedServiceException, SAXException, IOException, URISyntaxException {
 		String eltName = elt.getTagName();
 		String paramName;
-		if (eltName.equals(PARAM_ELEMENT_NAME))
+		if (eltName.equals(PARAM_ELEMENT_NAME)) {
 			paramName = getAttribute(elt, NAME_ATTRIBUTE_NAME);
-		else
+			logger.severe("the tag " + PARAM_ELEMENT_NAME + " is deprecated, use tag names to specify parameters");
+			logger.severe("future vresions might not support " + PARAM_ELEMENT_NAME);
+		}
+		else {
 			paramName = eltName;
+		}
 		ParamHandler<T> paramHandler = module.getParamHandler(paramName);
 		if (elt.hasAttribute("inhibitCheck")) {
 			boolean inhibitCheck = Strings.getBoolean(elt.getAttribute("inhibitCheck"));
 			paramHandler.setInhibitCheck(inhibitCheck);
-			logger.severe("attribute 'inhibitCheck' is obsolete, please use 'inhibit-check', or better yet 'output-feed'");
+			logger.severe("attribute 'inhibitCheck' is deprecated, please use 'output-feed'");
 			logger.severe("future versions may not support attribute 'inhibitCheck'");
 		}
 		if (elt.hasAttribute("inhibit-check")) {
 			boolean inhibitCheck = Strings.getBoolean(elt.getAttribute("inhibit-check"));
 			paramHandler.setInhibitCheck(inhibitCheck);
+			logger.severe("attribute 'inhibit-check' is deprecated, please use 'output-feed'");
+			logger.severe("future versions may not support attribute 'inhibit-check'");
 		}
 		boolean outputFeed = XMLUtils.getBooleanAttribute(elt, "output-feed", false);
 		if (outputFeed) {
