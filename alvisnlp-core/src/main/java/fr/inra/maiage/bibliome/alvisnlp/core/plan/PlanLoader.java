@@ -248,10 +248,21 @@ public class PlanLoader<T extends Annotable> {
 			id = getAttribute(elt, ID_ATTRIBUTE_NAME);
 		}
 		else {
-			id = tag;
+			if (tag.equals(IMPORT_ELEMENT_NAME)) {
+				if (elt.hasAttribute(ID_ATTRIBUTE_NAME)) {
+					id = getAttribute(elt, ID_ATTRIBUTE_NAME);
+				}
+				else {
+					id = module.getId();
+				}
+			}
+			else {
+				id = tag;
+			}
 		}
-		if (id.isEmpty())
+		if (id.isEmpty()) {
 			throw new PlanException("missing id");
+		}
 		module.setId(id);
 		if (elt.hasAttribute("dump")) {
 			String dumpPath = elt.getAttribute("dump");
@@ -413,6 +424,14 @@ public class PlanLoader<T extends Annotable> {
 		if (elt.hasAttribute(CLASS_ATTRIBUTE_NAME)) {
 			return loadModule(logger, elt);
 		}
+		if (elt.hasAttribute(SOURCE_ATTRIBUTE_NAME)) {
+			return importPlan(logger, elt);
+		}
+		for (String key : ALTERNATE_SOURCE_ATTRIBUTE_NAMES) {
+			if (elt.hasAttribute(key)) {
+				return importPlan(logger, elt);
+			}
+		}
 		return loadSequence(logger, elt, false);
 	}
 
@@ -456,10 +475,11 @@ public class PlanLoader<T extends Annotable> {
 			return elt.getAttribute(name);
 		throw new PlanException("missing attribute: " + name);
 	}
-	
+
 	private Module<T> importPlan(Logger logger, Element elt) throws PlanException, ModuleException, SAXException, IOException, ServiceException, ConverterException, URISyntaxException {
 		String sourceString = XMLUtils.attributeOrValue(elt, SOURCE_ATTRIBUTE_NAME, ALTERNATE_SOURCE_ATTRIBUTE_NAMES);
 		Module<T> result = loadSource(logger, sourceString);
+		setModuleId(logger, result, elt);
 		if (!XMLUtils.childrenElements(elt).isEmpty()) {
 			setModuleParams(logger, elt, result);
 		}
