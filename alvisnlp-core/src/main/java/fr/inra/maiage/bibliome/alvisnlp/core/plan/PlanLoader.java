@@ -318,6 +318,8 @@ public class PlanLoader<T extends Annotable> {
 					continue;
 				}
 				if (IMPORT_ELEMENT_NAME.equals(childName)) {
+					logger.severe("the tag " +  IMPORT_ELEMENT_NAME + " is deprecated, use tag names to set the imported plan identifier, and specify location with attribute file or href");
+					logger.severe("future versions might not support the tag " + IMPORT_ELEMENT_NAME);
 					Module<T> module = importPlan(logger, childElement);
 					result.appendModule(module);
 					continue;
