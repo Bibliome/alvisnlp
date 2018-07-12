@@ -1,5 +1,5 @@
 <alvisnlp-plan id="ab3p">
-  <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
+  <read href="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
 
   <abbr class="Ab3P" />
 

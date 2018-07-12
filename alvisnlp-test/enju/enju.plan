@@ -1,9 +1,9 @@
 <alvisnlp-plan id="enju">
-  <import>BioNLP-ST-2016_BB-event/read.plan</import>
+  <read file="BioNLP-ST-2016_BB-event/read.plan"/>
 
-  <import>res://segmentation.plan</import>
+  <seg herf="res://segmentation.plan"/>
 
-  <!--<pos class="GeniaTagger"/>-->
+  <pos class="GeniaTagger"/>
 
   <enju class="EnjuParser"/>
 

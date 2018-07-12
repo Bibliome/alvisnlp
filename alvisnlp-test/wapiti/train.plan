@@ -1,7 +1,7 @@
 <alvisnlp-plan id="wapiti-train">
-  <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
+  <read file="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
 
-  <import>res://segmentation.plan</import>
+  <seg href="res://segmentation.plan"/>
 
   <pos class="GeniaTagger">
     <chunkFeature>chunk</chunkFeature>
