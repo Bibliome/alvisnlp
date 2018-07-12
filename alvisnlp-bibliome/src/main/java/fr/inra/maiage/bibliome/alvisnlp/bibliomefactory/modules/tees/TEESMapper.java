@@ -7,6 +7,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.MultiMapping;
+import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 
 /**
@@ -27,6 +28,7 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	private MultiMapping schema;
 	
 	private String omitSteps = "SPLIT-SENTENCES,NER";
+	private ExecutableFile python2Executable;
 	private InputDirectory teesHome;
 
 	@Param(nameType = NameType.LAYER)
@@ -99,5 +101,14 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 
 	public void setTeesHome(InputDirectory tEESHome) {
 		teesHome = tEESHome;
+	}
+
+	@Param
+	public ExecutableFile getPython2Executable() {
+		return python2Executable;
+	}
+
+	public void setPython2Executable(ExecutableFile python2Executable) {
+		this.python2Executable = python2Executable;
 	}
 }

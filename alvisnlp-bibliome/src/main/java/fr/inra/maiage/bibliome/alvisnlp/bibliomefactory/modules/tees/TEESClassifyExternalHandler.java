@@ -119,7 +119,8 @@ public class TEESClassifyExternalHandler extends TEESMapperExternalHandler<TEESC
 	@Override
 	protected void updateEnvironment(Map<String,String> env) {
 		TEESClassify owner = getModule();
-		env.put("PATH", System.getenv("PATH"));
+//		env.put("PATH", System.getenv("PATH"));
+		env.put("PYTHON2", owner.getPython2Executable().getAbsolutePath());
 		env.put("TEES_DIR", owner.getTeesHome().getAbsolutePath());
 		env.put("TEES_PRE_EXE",  getTEESPreprocessingScript().getAbsolutePath());
 		env.put("TEES_CLASSIFY_EXE",  getTEESClassifyScript().getAbsolutePath());

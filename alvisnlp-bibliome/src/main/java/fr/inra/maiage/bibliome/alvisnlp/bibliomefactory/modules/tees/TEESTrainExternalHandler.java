@@ -33,7 +33,7 @@ class TEESTrainExternalHandler extends TEESMapperExternalHandler<TEESTrain> {
 
 	@Override
 	protected void prepare() throws IOException, ModuleException {
-		createTEESClassifierScript();
+		createTEESTrainerScript();
 		try {
 			Marshaller jaxbm = jaxbContext.createMarshaller();
 			jaxbm.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
@@ -58,7 +58,7 @@ class TEESTrainExternalHandler extends TEESMapperExternalHandler<TEESTrain> {
 		return getTempFile("train.sh");
 	}
 	
-	private void createTEESClassifierScript() throws IOException {
+	private void createTEESTrainerScript() throws IOException {
 		File script = getTEESTrainerScript();
 		// same ClassLoader as this class
 		try (InputStream is = TEESTrain.class.getResourceAsStream("train.sh")) {
@@ -106,7 +106,8 @@ class TEESTrainExternalHandler extends TEESMapperExternalHandler<TEESTrain> {
 	@Override
 	protected void updateEnvironment(Map<String,String> env) {
 		TEESTrain owner = getModule();
-		env.put("PATH", System.getenv("PATH"));
+//		env.put("PATH", System.getenv("PATH"));
+		env.put("PYTHON2", owner.getPython2Executable().getAbsolutePath());
 		env.put("TEES_DIR", owner.getTeesHome().getAbsolutePath());
 		env.put("TEES_PRE_EXE", getTEESPreprocessingScript().getAbsolutePath());
 		env.put("TEES_TRAIN_EXE", getTEESTrainScript().getAbsolutePath());
