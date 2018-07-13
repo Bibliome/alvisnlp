@@ -18,7 +18,7 @@ import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 @AlvisNLPModule(beta=true)
-public class Word2Vec extends SectionModule<SectionResolvedObjects> implements AbstractContes {
+public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> implements AbstractContes {
 	private InputDirectory contesDir;
 	
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
@@ -156,7 +156,6 @@ public class Word2Vec extends SectionModule<SectionResolvedObjects> implements A
 
 	@Override
 	protected String[] addFeaturesToSectionFilter() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

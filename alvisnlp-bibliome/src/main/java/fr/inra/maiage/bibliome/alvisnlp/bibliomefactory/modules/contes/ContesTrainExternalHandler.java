@@ -83,6 +83,7 @@ class ContesTrainExternalHandler extends AbstractContesTermsExternalHandler<Cont
 	protected List<String> getCommandLine() {
 		ContesTrain owner = getModule();
 		List<String> result = new ArrayList<String>(20);
+		result.add(owner.getPython3Executable().getAbsolutePath());
 		result.add(getContesCommand());
 		result.add("--word-vectors");
 		result.add(owner.getWordEmbeddings().getAbsolutePath());

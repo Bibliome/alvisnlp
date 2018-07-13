@@ -33,7 +33,6 @@ abstract class AbstractContesExternalHandler<R extends ResolvedObjects,T extends
 	@Override
 	protected void updateEnvironment(Map<String,String> env) {
 		env.put("PYTHONPATH", getModule().getContesDir().getAbsolutePath());
-		env.put("PATH", System.getenv("PATH"));
 	}
 
 	@Override

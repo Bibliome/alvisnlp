@@ -88,6 +88,7 @@ class ContesPredictExternalHandler extends AbstractContesTermsExternalHandler<Co
 	protected List<String> getCommandLine() {
 		List<String> result = new ArrayList<String>(20);
 		ContesPredict owner = getModule();
+		result.add(owner.getPython3Executable().getAbsolutePath());
 		result.add(getContesCommand());
 		result.add("--word-vectors");
 		result.add(owner.getWordEmbeddings().getAbsolutePath());

@@ -117,6 +117,7 @@ class Word2VecExternalHandler extends AbstractContesExternalHandler<SectionResol
 	protected List<String> getCommandLine() {
 		List<String> result = new ArrayList<String>(20);
 		Word2Vec owner = getModule();
+		result.add(owner.getPython3Executable().getAbsolutePath());
 		result.add(getContesCommand());
 		result.add("--json");
 		result.add(owner.getJsonFile().getAbsolutePath());

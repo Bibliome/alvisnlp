@@ -18,6 +18,7 @@
     <ontology>OntoBiotope_BioNLP-ST-2016.obo</ontology>
     <termClassifiers>
       <classifier>
+	<documentFilter>@set == "train" or @set == "dev"</documentFilter>
 	<termLayerName>Habitat</termLayerName>
 	<conceptFeatureName>OntoBiotope</conceptFeatureName>
 	<regressionMatrixFile>regression.bin</regressionMatrixFile>

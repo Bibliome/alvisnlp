@@ -9,7 +9,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 
 @AlvisNLPModule(beta=true)
-public class ContesTrain extends AbstractContesTerms {
+public abstract class ContesTrain extends AbstractContesTerms {
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
