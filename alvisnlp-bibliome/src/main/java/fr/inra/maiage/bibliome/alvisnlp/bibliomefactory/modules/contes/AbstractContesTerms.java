@@ -12,16 +12,17 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
+import fr.inra.maiage.bibliome.util.files.AbstractFile;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 
-public abstract class AbstractContesTerms extends CorpusModule<ContesTermsResolvedObject> implements AbstractContes {
+public abstract class AbstractContesTerms<F extends AbstractFile,T extends ContesTermClassifier<F>> extends CorpusModule<ContesTermsResolvedObject> implements AbstractContes {
 	private InputDirectory contesDir;
 	private String tokenLayerName = DefaultNames.getWordLayer();
 	private String formFeatureName = Annotation.FORM_FEATURE_NAME;
 	private InputFile ontology;
 	private InputFile wordEmbeddings;
-	private ContesTermClassifier[] termClassifiers;
+	private T[] termClassifiers;
 
 	@Override
 	@Param(nameType=NameType.LAYER)
@@ -51,12 +52,11 @@ public abstract class AbstractContesTerms extends CorpusModule<ContesTermsResolv
 		return ontology;
 	}
 
-	@Param
-	public ContesTermClassifier[] getTermClassifiers() {
+	protected T[] getTermClassifiers() {
 		return termClassifiers;
 	}
 
-	public void setTermClassifiers(ContesTermClassifier[] termClassifier) {
+	protected void setTermClassifiers(T[] termClassifier) {
 		this.termClassifiers = termClassifier;
 	}
 
@@ -91,7 +91,7 @@ public abstract class AbstractContesTerms extends CorpusModule<ContesTermsResolv
 	public static class ContesTermsResolvedObject extends ResolvedObjects {
 		private final ContesTermClassifier.Resolved[] termClassifiers;
 		
-		public ContesTermsResolvedObject(ProcessingContext<Corpus> ctx, AbstractContesTerms module) throws ResolverException {
+		public ContesTermsResolvedObject(ProcessingContext<Corpus> ctx, AbstractContesTerms<?,?> module) throws ResolverException {
 			super(ctx, module);
 			this.termClassifiers = rootResolver.resolveArray(module.termClassifiers, ContesTermClassifier.Resolved.class);
 		}

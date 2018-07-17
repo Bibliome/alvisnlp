@@ -1,31 +1,32 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes;
 
-import java.io.File;
-
 import org.w3c.dom.Element;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.DefaultExpressions;
 import fr.inra.maiage.bibliome.alvisnlp.core.converters.ConverterException;
 import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.AbstractParamConverter;
-import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.util.files.AbstractFile;
 import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
-@Converter(targetType=ContesTermClassifier.class)
-public class ContesTermClassifierParamConverter extends AbstractParamConverter<ContesTermClassifier> {
+abstract class AbstractContesTermClassifierParamConverter<F extends AbstractFile,T extends ContesTermClassifier<F>> extends AbstractParamConverter<T> {
 	@Override
-	protected ContesTermClassifier convertTrimmed(String stringValue) throws ConverterException {
+	protected T convertTrimmed(String stringValue) throws ConverterException {
 		cannotConvertString(stringValue, "no string conversion for " + ContesTermClassifier.class.getCanonicalName());
 		return null;
 	}
+	
+	protected abstract Class<F> getMatrixFileClass();
+	
+	protected abstract T createContesTermClassifier(Expression documentFilter, Expression sectionFilter, String termLayerName, String conceptFeatureName, F regressionMatrixFile);
 
 	@Override
-	protected ContesTermClassifier convertXML(Element xmlValue) throws ConverterException {
+	protected T convertXML(Element xmlValue) throws ConverterException {
 		Expression documentFilter = DefaultExpressions.TRUE;
 		Expression sectionFilter = DefaultExpressions.TRUE;
 		String termLayerName = null;
 		String conceptFeatureName = null;
-		File regressionMatrixFile = null;
+		F regressionMatrixFile = null;
 		if (xmlValue.hasAttribute("documentFilter")) {
 			documentFilter = convertComponent(Expression.class, xmlValue.getAttribute("documentFilter"));
 		}
@@ -39,7 +40,7 @@ public class ContesTermClassifierParamConverter extends AbstractParamConverter<C
 			conceptFeatureName = convertComponent(String.class, xmlValue.getAttribute("conceptFeatureName"));
 		}
 		if (xmlValue.hasAttribute("regressionMatrixFile")) {
-			regressionMatrixFile = convertComponent(File.class, xmlValue.getAttribute("regressionMatrixFile"));
+			regressionMatrixFile = convertComponent(getMatrixFileClass(), xmlValue.getAttribute("regressionMatrixFile"));
 		}
 		for (Element child : XMLUtils.childrenElements(xmlValue)) {
 			String tag = child.getTagName();
@@ -62,7 +63,7 @@ public class ContesTermClassifierParamConverter extends AbstractParamConverter<C
 					break;
 				}
 				case "regressionMatrixFile": {
-					regressionMatrixFile = convertComponent(File.class, contents);
+					regressionMatrixFile = convertComponent(getMatrixFileClass(), contents);
 					break;
 				}
 				default: {
@@ -79,6 +80,6 @@ public class ContesTermClassifierParamConverter extends AbstractParamConverter<C
 		if (regressionMatrixFile == null) {
 			cannotConvertXML(xmlValue, "missing regressionMatrixFile");
 		}
-		return new ContesTermClassifier(documentFilter, sectionFilter, termLayerName, conceptFeatureName, regressionMatrixFile);
+		return createContesTermClassifier(documentFilter, sectionFilter, termLayerName, conceptFeatureName, regressionMatrixFile);
 	}
 }

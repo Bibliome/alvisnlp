@@ -16,11 +16,12 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.files.AbstractFile;
 import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-abstract class AbstractContesTermsExternalHandler<T extends AbstractContesTerms> extends AbstractContesExternalHandler<ContesTermsResolvedObject,T> {
-	protected AbstractContesTermsExternalHandler(ProcessingContext<Corpus> processingContext, T module, Corpus annotable) {
+abstract class AbstractContesTermsExternalHandler<F extends AbstractFile,T extends ContesTermClassifier<F>,M extends AbstractContesTerms<F,T>> extends AbstractContesExternalHandler<ContesTermsResolvedObject,M> {
+	protected AbstractContesTermsExternalHandler(ProcessingContext<Corpus> processingContext, M module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
 
@@ -40,7 +41,7 @@ abstract class AbstractContesTermsExternalHandler<T extends AbstractContesTerms>
 	private JSONObject getTermTokens(ContesTermClassifier.Resolved termClassifier) {
 		JSONObject result = new JSONObject();
 		EvaluationContext ctx = new EvaluationContext(getLogger());
-		AbstractContesTerms owner = getModule();
+		AbstractContesTerms<F,T> owner = getModule();
 		Corpus corpus = getAnnotable();
 		Iterator<Section> sectionIt = corpus.sectionIterator(ctx, termClassifier.getDocumentFilter(), termClassifier.getSectionFilter());
 		for (Section sec : Iterators.loop(sectionIt)) {

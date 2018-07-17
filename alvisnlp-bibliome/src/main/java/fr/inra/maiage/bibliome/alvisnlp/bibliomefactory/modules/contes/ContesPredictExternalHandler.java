@@ -16,10 +16,11 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContex
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.files.InputFile;
 import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
-class ContesPredictExternalHandler extends AbstractContesTermsExternalHandler<ContesPredict> {
+class ContesPredictExternalHandler extends AbstractContesTermsExternalHandler<InputFile,ContesPredictTermClassifier,ContesPredict> {
 	ContesPredictExternalHandler(ProcessingContext<Corpus> processingContext, ContesPredict module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
