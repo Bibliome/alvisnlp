@@ -1015,6 +1015,8 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     		String label = res.getString(var);
     		logger.config(label + ": " + value);
     	}
+    	String javaVersion = System.getProperty("java.version");
+    	logger.config("java version: " + javaVersion);
     }
     
     private void logVersion(Logger logger) {
