@@ -1037,8 +1037,6 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     }
     
     protected void initProcessingContext(Logger logger, C ctx, Module<A> mainModule) throws IOException, ModuleException{
-    	logVersion(logger);
-    	logEnvironment(logger);
     	ctx.setRootTempDir(buildRootTempDir(logger));
     	if (!writePlan) {
     		ctx.checkPlan(logger, mainModule);
@@ -1063,6 +1061,8 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     public void process() throws IOException, UnsupportedServiceException, ConverterException {
     	C ctx = getProcessingContext();
     	Logger logger = getLogger(ctx);
+    	logVersion(logger);
+    	logEnvironment(logger);
 		try {
 	    	timer.start();
 			Module<A> mainModule = buildMainModule(ctx);
