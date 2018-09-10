@@ -30,7 +30,7 @@ public class BooleanParamConverter extends SimpleParamConverter<Boolean> {
             return stringValue.isEmpty() || Strings.getBoolean(stringValue);
         }
         catch (IllegalArgumentException iae) {
-            cannotConvertString(stringValue, "");
+            cannotConvertString(stringValue, "", iae);
             return null;
         }
     }
