@@ -16,6 +16,8 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContex
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.Pair;
+import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
@@ -40,13 +42,13 @@ class ContesPredictExternalHandler extends AbstractContesTermsExternalHandler<In
 		ContesTermsResolvedObject resObj = getModule().getResolvedObjects();
 		ContesTermClassifier.Resolved[] termClassifiers = resObj.getTermClassifiers();
 		for (int i = 0; i < termClassifiers.length; ++i) {
-			Map<String,String> predictions = readPredictions(i);
+			Map<String,Pair<String,String>> predictions = readPredictions(i);
 			setPredictionFeature(predictions, termClassifiers[i]);
 		}
 	}
-	
-	private Map<String,String> readPredictions(int i) throws IOException {
-		Map<String,String> result = new HashMap<String,String>();
+
+	private Map<String,Pair<String,String>> readPredictions(int i) throws IOException {
+		Map<String,Pair<String,String>> result = new HashMap<String,Pair<String,String>>();
 		SourceStream source = new FileSourceStream("UTF-8", getAttributionsFile(i).getAbsolutePath());
 		try (BufferedReader r = source.getBufferedReader()) {
 			while (true) {
@@ -54,26 +56,30 @@ class ContesPredictExternalHandler extends AbstractContesTermsExternalHandler<In
 				if (line == null) {
 					break;
 				}
-				int tab = line.indexOf('\t');
-				String termId = line.substring(0, tab);
-				String conceptId = line.substring(tab + 1);
-				result.put(termId, conceptId);
+				List<String> cols = Strings.split(line, '\t', 0);
+				String termId = cols.get(0);
+				String conceptId = cols.get(1);
+				String sim = cols.get(2);
+				result.put(termId, new Pair<String,String>(conceptId, sim));
 			}
 		}
 		return result;
 	}
-	
-	private void setPredictionFeature(Map<String,String> predictions, ContesTermClassifier.Resolved termClassifier) {
+
+	private void setPredictionFeature(Map<String,Pair<String,String>> predictions, ContesTermClassifier.Resolved termClassifier) {
 		EvaluationContext ctx = new EvaluationContext(getLogger());
 		Corpus corpus = getAnnotable();
+		String conceptFeatureName = termClassifier.getConceptFeatureName();
+		String similarityFeatureName = getModule().getSimilarityFeatureName();
 		Iterator<Section> sectionIt = corpus.sectionIterator(ctx, termClassifier.getDocumentFilter(), termClassifier.getSectionFilter());
 		for (Section sec : Iterators.loop(sectionIt)) {
 			if (sec.hasLayer(termClassifier.getTermLayerName())) {
 				for (Annotation term : sec.getLayer(termClassifier.getTermLayerName())) {
 					String id = term.getStringId();
 					if (predictions.containsKey(id)) {
-						String conceptId = predictions.get(id);
-						term.addFeature(termClassifier.getConceptFeatureName(), conceptId);
+						Pair<String,String> p = predictions.get(id);
+						term.addFeature(conceptFeatureName, p.first);
+						term.addFeature(similarityFeatureName, p.second);
 					}
 				}
 			}
