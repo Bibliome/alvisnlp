@@ -1,12 +1,48 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<alvisnlp-plan id="remove-overlaps-test">
-  <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
+<alvisnlp-plan id="export">
+  <read file="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
 
-  <export class="XMIExport">
-    <outDir>export</outDir>
-  </export>
+  <standard-dkpro>
+    <Bacteria class="Action">
+      <target>documents.sections.relations:Bacteria.tuples</target>
+      <action>
+	args.(
+          add:named-entities
+	| remove:Bacteria
+	| set:feat:ne-type("Bacteria")
+	| set:feat:xref(target.@NCBI_Taxonomy)
+	)
+      </action>
+      <addToLayer/>
+      <removeFromLayer/>
+      <setFeatures/>
+    </Bacteria>
 
-  <import file="write-features.plan">
+    <Habitat class="Action">
+      <target>documents.sections.relations:Habitat.tuples</target>
+      <action>
+	args.(
+          add:named-entities
+	| remove:Habitat
+	| set:feat:ne-type("Habitat")
+	| set:feat:xref(target.@OntoBiotope)
+	)
+      </action>
+      <addToLayer/>
+      <removeFromLayer/>
+      <setFeatures/>
+    </Habitat>
+  </standard-dkpro>
+  
+  <export-xmi class="XMIExport">
+    <outDir>export-xmi</outDir>
+  </export-xmi>
+  
+  <export-dkpro class="XMIExport">
+    <outDir>export-dkpro</outDir>
+    <dkproCompatibility/>
+  </export-dkpro>
+
+  <export file="write-features.plan">
     <file>export-features.txt</file>
-  </import>
+  </export>
 </alvisnlp-plan>

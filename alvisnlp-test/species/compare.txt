@@ -1,0 +1,6790 @@
+text of BB-cat+ner-1016123
+    Reference matches (2) :
+        [0.0000] Salmonella sp
+                 FAIL
+        [1.0000] S. pullorum
+                 S. pullorum
+
+    Predicted matches (4) :
+        [0.0000] Salmonella sp.
+                 FAIL
+        [0.0000] Salmonella
+                 FAIL
+        [1.0000] S. pullorum
+                 S. pullorum
+        [1.0000] S. pullorum
+                 S. pullorum
+
+    Recall   : 0.5
+    Precision: 0.5
+    F-Score  : 0.5
+
+
+text of BB-cat+ner-10492485
+    Reference matches (0) :
+
+    Predicted matches (2) :
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+
+    Recall   : NaN
+    Precision: 0.0
+    F-Score  : NaN
+
+
+text of BB-cat+ner-10658649
+    Reference matches (4) :
+        [1.0000] Streptococcus pyogenes
+                 Streptococcus pyogenes
+        [1.0000] Streptococcus pyogenes
+                 Streptococcus pyogenes
+        [1.0000] S. pyogenes
+                 S. pyogenes
+        [1.0000] S. pyogenes
+                 S. pyogenes
+
+    Predicted matches (12) :
+        [1.0000] Streptococcus pyogenes
+                 Streptococcus pyogenes
+        [0.0000] Streptococcus
+                 FAIL
+        [1.0000] Streptococcus pyogenes
+                 Streptococcus pyogenes
+        [0.0000] Streptococcus
+                 FAIL
+        [1.0000] S. pyogenes
+                 S. pyogenes
+        [1.0000] S. pyogenes
+                 S. pyogenes
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] S. pyogenes
+                 S. pyogenes
+        [1.0000] S. pyogenes
+                 S. pyogenes
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-10738994
+    Reference matches (2) :
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+
+    Predicted matches (4) :
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-11162736
+    Reference matches (2) :
+        [1.0000] Salmonella typhimurium
+                 Salmonella typhimurium
+        [1.0000] Escherichia coli
+                 Escherichia coli
+
+    Predicted matches (4) :
+        [1.0000] Salmonella typhimurium
+                 Salmonella typhimurium
+        [0.0000] Salmonella
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-11410343
+    Reference matches (3) :
+        [1.0000] Ralstonia eutropha H850
+                 Ralstonia eutropha H850
+        [1.0000] Ralstonia eutropha H850
+                 Ralstonia eutropha H850
+        [0.0000] R. eutropha H850
+                 FAIL
+
+    Predicted matches (8) :
+        [1.0000] Ralstonia eutropha H850
+                 Ralstonia eutropha H850
+        [0.0000] Ralstonia eutropha
+                 FAIL
+        [0.0000] Ralstonia
+                 FAIL
+        [1.0000] Ralstonia eutropha H850
+                 Ralstonia eutropha H850
+        [0.0000] Ralstonia eutropha
+                 FAIL
+        [0.0000] Ralstonia
+                 FAIL
+        [0.0000] R. eutropha
+                 FAIL
+        [0.0000] R. eutropha
+                 FAIL
+
+    Recall   : 0.6666666666666666
+    Precision: 0.25
+    F-Score  : 0.36363636363636365
+
+
+text of BB-cat+ner-11437594
+    Reference matches (9) :
+        [0.0000] Chondrus crispus
+                 FAIL
+        [0.0000] Pichia pastoris
+                 FAIL
+        [0.0000] Chondrus crispus
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] yeast
+                 FAIL
+        [0.0000] Pichia pastoris
+                 FAIL
+        [0.0000] P. pastoris
+                 FAIL
+        [0.0000] Saccharomyces cerevisiae
+                 FAIL
+        [0.0000] P. pastoris
+                 FAIL
+
+    Predicted matches (2) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+
+    Recall   : 0.1111111111111111
+    Precision: 0.5
+    F-Score  : 0.1818181818181818
+
+
+text of BB-cat+ner-12728302
+    Reference matches (6) :
+        [0.0000] Anabaena sp. strain L-31
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Anabaena sp. strain L-31
+                 FAIL
+        [0.0000] Anabaena sp. strain L-31
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+
+    Predicted matches (17) :
+        [0.0000] cyanobacterium
+                 FAIL
+        [0.0000] Anabaena sp.
+                 FAIL
+        [0.0000] Anabaena
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [0.0000] cyanobacterium
+                 FAIL
+        [0.0000] Anabaena sp.
+                 FAIL
+        [0.0000] Anabaena
+                 FAIL
+        [0.0000] Anabaena sp.
+                 FAIL
+        [0.0000] Anabaena
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [0.0000] Anabaena
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+
+    Recall   : 0.5
+    Precision: 0.29411764705882354
+    F-Score  : 0.37037037037037035
+
+
+text of BB-cat+ner-12781527
+    Reference matches (4) :
+        [0.0000] human
+                 FAIL
+        [1.0000] Campylobacter jejuni
+                 Campylobacter jejuni
+        [1.0000] C. jejuni
+                 C. jejuni
+        [1.0000] Campylobacter coli
+                 Campylobacter coli
+
+    Predicted matches (12) :
+        [0.0000] Campylobacter
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] Campylobacter jejuni
+                 Campylobacter jejuni
+        [0.0000] Campylobacter
+                 FAIL
+        [1.0000] C. jejuni
+                 C. jejuni
+        [1.0000] C. jejuni
+                 C. jejuni
+        [1.0000] Campylobacter coli
+                 Campylobacter coli
+        [0.0000] Campylobacter
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] Campylobacter
+                 FAIL
+
+    Recall   : 0.75
+    Precision: 0.3333333333333333
+    F-Score  : 0.46153846153846156
+
+
+text of BB-cat+ner-12970344
+    Reference matches (3) :
+        [1.0000] Zobellia galactanivorans
+                 Zobellia galactanivorans
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [1.0000] Z. galactanivorans
+                 Z. galactanivorans
+
+    Predicted matches (8) :
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] Zobellia galactanivorans
+                 Zobellia galactanivorans
+        [0.0000] Zobellia
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] Z. galactanivorans
+                 Z. galactanivorans
+        [1.0000] Z. galactanivorans
+                 Z. galactanivorans
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-14645268
+    Reference matches (7) :
+        [1.0000] Xanthomonas campestris pv. vesicatoria
+                 Xanthomonas campestris pv. vesicatoria
+        [1.0000] Xanthomonas campestris pv. vesicatoria
+                 Xanthomonas campestris pv. vesicatoria
+        [1.0000] Xanthomonas campestris pv. vesicatoria
+                 Xanthomonas campestris pv. vesicatoria
+        [1.0000] Xanthomonas campestris pv. vesicatoria
+                 Xanthomonas campestris pv. vesicatoria
+        [1.0000] Pseudomonas syringae pv. maculicola
+                 Pseudomonas syringae pv. maculicola
+        [0.0000] X. campestris pv. vesicatoria
+                 FAIL
+        [0.0000] X. campestris pv. vesicatoria
+                 FAIL
+
+    Predicted matches (15) :
+        [1.0000] Xanthomonas campestris pv. vesicatoria
+                 Xanthomonas campestris pv. vesicatoria
+        [0.0000] Xanthomonas campestris
+                 FAIL
+        [0.0000] Xanthomonas
+                 FAIL
+        [1.0000] Xanthomonas campestris pv. vesicatoria
+                 Xanthomonas campestris pv. vesicatoria
+        [0.0000] Xanthomonas campestris
+                 FAIL
+        [0.0000] Xanthomonas
+                 FAIL
+        [0.0000] Xanthomonas
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] Xanthomonas
+                 FAIL
+        [1.0000] Pseudomonas syringae pv. maculicola
+                 Pseudomonas syringae pv. maculicola
+        [0.0000] Pseudomonas syringae
+                 FAIL
+        [0.0000] Pseudomonas
+                 FAIL
+        [0.0000] X. campestris
+                 FAIL
+        [0.0000] X. campestris
+                 FAIL
+
+    Recall   : 0.7142857142857143
+    Precision: 0.2
+    F-Score  : 0.3125
+
+
+text of BB-cat+ner-15358511
+    Reference matches (7) :
+        [1.0000] Escherichia coli O157:H7
+                 Escherichia coli O157:H7
+        [0.0000] apple
+                 FAIL
+        [1.0000] Escherichia coli O157:H7
+                 Escherichia coli O157:H7
+        [0.0000] apple
+                 FAIL
+        [0.0000] apple
+                 FAIL
+        [0.0000] E. coli O157:H7
+                 FAIL
+        [0.0000] E. coli O157:H7
+                 FAIL
+
+    Predicted matches (12) :
+        [1.0000] Escherichia coli O157:H7
+                 Escherichia coli O157:H7
+        [0.0000] Escherichia coli O157
+                 FAIL
+        [0.0000] Escherichia coli
+                 FAIL
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] Escherichia coli O157:H7
+                 Escherichia coli O157:H7
+        [0.0000] Escherichia coli O157
+                 FAIL
+        [0.0000] Escherichia coli
+                 FAIL
+        [0.0000] Escherichia
+                 FAIL
+        [0.0000] E. coli
+                 FAIL
+        [0.0000] E. coli
+                 FAIL
+        [0.0000] E. coli
+                 FAIL
+        [0.0000] E. coli
+                 FAIL
+
+    Recall   : 0.2857142857142857
+    Precision: 0.16666666666666666
+    F-Score  : 0.2105263157894737
+
+
+text of BB-cat+ner-16263187
+    Reference matches (17) :
+        [1.0000] Lactobacillus gasseri
+                 Lactobacillus gasseri
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [1.0000] Escherichia coli O8
+                 Escherichia coli O8
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [0.0000] pig
+                 FAIL
+
+    Predicted matches (41) :
+        [0.0000] Lactobacillus gasseri K 7
+                 FAIL
+        [1.0000] Lactobacillus gasseri
+                 Lactobacillus gasseri
+        [0.0000] Lactobacillus
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [0.0000] Lactobacillus
+                 FAIL
+        [1.0000] Escherichia coli O8
+                 Escherichia coli O8
+        [0.0000] Escherichia coli
+                 FAIL
+        [0.0000] Escherichia
+                 FAIL
+        [0.0000] Lactobacilli
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [0.0000] lactobacilli
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [0.0000] strain by
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [0.0000] lactobacilli
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [0.0000] lactobacilli
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [0.0000] lactobacilli
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+
+    Recall   : 0.9411764705882353
+    Precision: 0.7073170731707317
+    F-Score  : 0.8076588337684943
+
+
+text of BB-cat+ner-16432479
+    Reference matches (4) :
+        [1.0000] Neisseria gonorrhoeae
+                 Neisseria gonorrhoeae
+        [1.0000] N. gonorrhoeae
+                 N. gonorrhoeae
+        [1.0000] N. gonorrhoeae
+                 N. gonorrhoeae
+        [1.0000] N. gonorrhoeae
+                 N. gonorrhoeae
+
+    Predicted matches (8) :
+        [1.0000] Neisseria gonorrhoeae
+                 Neisseria gonorrhoeae
+        [0.0000] Neisseria
+                 FAIL
+        [1.0000] N. gonorrhoeae
+                 N. gonorrhoeae
+        [1.0000] N. gonorrhoeae
+                 N. gonorrhoeae
+        [1.0000] N. gonorrhoeae
+                 N. gonorrhoeae
+        [1.0000] N. gonorrhoeae
+                 N. gonorrhoeae
+        [1.0000] N. gonorrhoeae
+                 N. gonorrhoeae
+        [1.0000] N. gonorrhoeae
+                 N. gonorrhoeae
+
+    Recall   : 1.0
+    Precision: 0.875
+    F-Score  : 0.9333333333333333
+
+
+text of BB-cat+ner-16436701
+    Reference matches (2) :
+        [1.0000] Escherichia coli O157:H7
+                 Escherichia coli O157:H7
+        [0.0000] apple
+                 FAIL
+
+    Predicted matches (4) :
+        [1.0000] Escherichia coli O157:H7
+                 Escherichia coli O157:H7
+        [0.0000] Escherichia coli O157
+                 FAIL
+        [0.0000] Escherichia coli
+                 FAIL
+        [0.0000] Escherichia
+                 FAIL
+
+    Recall   : 0.5
+    Precision: 0.25
+    F-Score  : 0.3333333333333333
+
+
+text of BB-cat+ner-16990433
+    Reference matches (5) :
+        [1.0000] Escherichia coli O157
+                 Escherichia coli O157
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] human
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+
+    Predicted matches (10) :
+        [1.0000] Escherichia coli O157
+                 Escherichia coli O157
+        [0.0000] Escherichia coli
+                 FAIL
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [0.0000] Shigella
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+
+    Recall   : 0.8
+    Precision: 0.6
+    F-Score  : 0.6857142857142857
+
+
+text of BB-cat+ner-17237163
+    Reference matches (6) :
+        [1.0000] Serratia marcescens
+                 Serratia marcescens
+        [1.0000] Serratia marcescens
+                 Serratia marcescens
+        [1.0000] S. marcescens
+                 S. marcescens
+        [0.0000] human
+                 FAIL
+        [1.0000] S. marcescens
+                 S. marcescens
+        [1.0000] S. marcescens
+                 S. marcescens
+
+    Predicted matches (10) :
+        [1.0000] Serratia marcescens
+                 Serratia marcescens
+        [0.0000] Serratia
+                 FAIL
+        [1.0000] Serratia marcescens
+                 Serratia marcescens
+        [0.0000] Serratia
+                 FAIL
+        [1.0000] S. marcescens
+                 S. marcescens
+        [1.0000] S. marcescens
+                 S. marcescens
+        [1.0000] S. marcescens
+                 S. marcescens
+        [1.0000] S. marcescens
+                 S. marcescens
+        [1.0000] S. marcescens
+                 S. marcescens
+        [1.0000] S. marcescens
+                 S. marcescens
+
+    Recall   : 0.8333333333333334
+    Precision: 0.8
+    F-Score  : 0.816326530612245
+
+
+text of BB-cat+ner-17687514
+    Reference matches (2) :
+        [1.0000] Streptococcus pneumoniae
+                 Streptococcus pneumoniae
+        [1.0000] Streptococcus pneumoniae
+                 Streptococcus pneumoniae
+
+    Predicted matches (8) :
+        [1.0000] Streptococcus pneumoniae
+                 Streptococcus pneumoniae
+        [0.0000] Streptococcus
+                 FAIL
+        [0.0000] Bacteria
+                 FAIL
+        [0.0000] Bacteria
+                 FAIL
+        [1.0000] Streptococcus pneumoniae
+                 Streptococcus pneumoniae
+        [0.0000] Streptococcus
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.25
+    F-Score  : 0.4
+
+
+text of BB-cat+ner-18687046
+    Reference matches (0) :
+
+    Predicted matches (0) :
+
+    Recall   : NaN
+    Precision: NaN
+    F-Score  : NaN
+
+
+text of BB-cat+ner-18845825
+    Reference matches (2) :
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+
+    Predicted matches (4) :
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [0.0000] Haemophilus
+                 FAIL
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [0.0000] Haemophilus
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-19049879
+    Reference matches (6) :
+        [0.0000] large yellow croaker
+                 FAIL
+        [0.0000] Pseudosciaena crocea
+                 FAIL
+        [0.0000] large yellow croaker
+                 FAIL
+        [0.0000] Pseudosciaena crocea
+                 FAIL
+        [1.0000] Vibrio parahaemolyticus
+                 Vibrio parahaemolyticus
+        [0.0000] large yellow croaker
+                 FAIL
+
+    Predicted matches (2) :
+        [1.0000] Vibrio parahaemolyticus
+                 Vibrio parahaemolyticus
+        [0.0000] Vibrio
+                 FAIL
+
+    Recall   : 0.16666666666666666
+    Precision: 0.5
+    F-Score  : 0.25
+
+
+text of BB-cat+ner-19075662
+    Reference matches (4) :
+        [1.0000] Staphylococcus epidermidis
+                 Staphylococcus epidermidis
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. epidermidis
+                 S. epidermidis
+
+    Predicted matches (12) :
+        [0.0000] Staphylococcus
+                 FAIL
+        [0.0000] Staphylococcus
+                 FAIL
+        [1.0000] Staphylococcus epidermidis
+                 Staphylococcus epidermidis
+        [0.0000] Staphylococcus
+                 FAIL
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. epidermidis
+                 S. epidermidis
+        [1.0000] S. epidermidis
+                 S. epidermidis
+
+    Recall   : 1.0
+    Precision: 0.6666666666666666
+    F-Score  : 0.8
+
+
+text of BB-cat+ner-19099664
+    Reference matches (5) :
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [1.0000] Enterobacter cloacae
+                 Enterobacter cloacae
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] Acinetobacter baumannii
+                 Acinetobacter baumannii
+
+    Predicted matches (22) :
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [0.0000] Pseudomonas
+                 FAIL
+        [1.0000] Enterobacter cloacae
+                 Enterobacter cloacae
+        [0.0000] Enterobacter
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] Acinetobacter baumannii
+                 Acinetobacter baumannii
+        [0.0000] Acinetobacter
+                 FAIL
+        [0.0000] gram positive bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] Enterococcus
+                 FAIL
+        [0.0000] Enterococcus
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] Gram positive bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.22727272727272727
+    F-Score  : 0.37037037037037035
+
+
+text of BB-cat+ner-19175621
+    Reference matches (6) :
+        [1.0000] Salmonella enterica
+                 Salmonella enterica
+        [0.0000] humans
+                 FAIL
+        [1.0000] Salmonella enterica
+                 Salmonella enterica
+        [1.0000] S. enterica
+                 S. enterica
+        [1.0000] S. enterica
+                 S. enterica
+        [1.0000] S. enterica
+                 S. enterica
+
+    Predicted matches (10) :
+        [1.0000] Salmonella enterica
+                 Salmonella enterica
+        [0.0000] Salmonella
+                 FAIL
+        [1.0000] Salmonella enterica
+                 Salmonella enterica
+        [0.0000] Salmonella
+                 FAIL
+        [1.0000] S. enterica
+                 S. enterica
+        [1.0000] S. enterica
+                 S. enterica
+        [1.0000] S. enterica
+                 S. enterica
+        [1.0000] S. enterica
+                 S. enterica
+        [1.0000] S. enterica
+                 S. enterica
+        [1.0000] S. enterica
+                 S. enterica
+
+    Recall   : 0.8333333333333334
+    Precision: 0.8
+    F-Score  : 0.816326530612245
+
+
+text of BB-cat+ner-19396518
+    Reference matches (16) :
+        [1.0000] Streptococcus pneumoniae
+                 Streptococcus pneumoniae
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [1.0000] Mycoplasma pneumoniae
+                 Mycoplasma pneumoniae
+        [1.0000] Neisseria meningitidis
+                 Neisseria meningitidis
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [1.0000] Streptococcus agalactiae
+                 Streptococcus agalactiae
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [1.0000] Listeria monocytogenes
+                 Listeria monocytogenes
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] S. pneumoniae
+                 S. pneumoniae
+        [1.0000] S. pneumoniae
+                 S. pneumoniae
+        [1.0000] S. agalactiae
+                 S. agalactiae
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] L. monocytogenes
+                 L. monocytogenes
+        [1.0000] M. pneumoniae
+                 M. pneumoniae
+        [1.0000] M. pneumoniae
+                 M. pneumoniae
+
+    Predicted matches (32) :
+        [1.0000] Streptococcus pneumoniae
+                 Streptococcus pneumoniae
+        [0.0000] Streptococcus
+                 FAIL
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [0.0000] Haemophilus
+                 FAIL
+        [1.0000] Mycoplasma pneumoniae
+                 Mycoplasma pneumoniae
+        [0.0000] Mycoplasma
+                 FAIL
+        [1.0000] Neisseria meningitidis
+                 Neisseria meningitidis
+        [0.0000] Neisseria
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] Streptococcus agalactiae
+                 Streptococcus agalactiae
+        [0.0000] Streptococcus
+                 FAIL
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+        [1.0000] Listeria monocytogenes
+                 Listeria monocytogenes
+        [0.0000] Listeria
+                 FAIL
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] S. pneumoniae
+                 S. pneumoniae
+        [1.0000] S. pneumoniae
+                 S. pneumoniae
+        [1.0000] S. pneumoniae
+                 S. pneumoniae
+        [1.0000] S. pneumoniae
+                 S. pneumoniae
+        [1.0000] S. agalactiae
+                 S. agalactiae
+        [1.0000] S. agalactiae
+                 S. agalactiae
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] L. monocytogenes
+                 L. monocytogenes
+        [1.0000] L. monocytogenes
+                 L. monocytogenes
+        [1.0000] M. pneumoniae
+                 M. pneumoniae
+        [1.0000] M. pneumoniae
+                 M. pneumoniae
+        [1.0000] M. pneumoniae
+                 M. pneumoniae
+        [1.0000] M. pneumoniae
+                 M. pneumoniae
+
+    Recall   : 1.0
+    Precision: 0.75
+    F-Score  : 0.8571428571428571
+
+
+text of BB-cat+ner-19501788
+    Reference matches (12) :
+        [1.0000] Pseudomonas fluorescens
+                 Pseudomonas fluorescens
+        [1.0000] Pseudomonas fluorescens
+                 Pseudomonas fluorescens
+        [0.0000] Japanese flounder
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Japanese flounder
+                 FAIL
+        [0.0000] Japanese flounder
+                 FAIL
+        [1.0000] P. fluorescens
+                 P. fluorescens
+        [1.0000] Aeromonas hydrophila
+                 Aeromonas hydrophila
+        [1.0000] Vibrio harveyi
+                 Vibrio harveyi
+        [0.0000] Japanese flounder
+                 FAIL
+        [1.0000] V. harveyi
+                 V. harveyi
+        [1.0000] A. hydrophila
+                 A. hydrophila
+
+    Predicted matches (20) :
+        [1.0000] Pseudomonas fluorescens
+                 Pseudomonas fluorescens
+        [0.0000] Pseudomonas
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] Pseudomonas fluorescens
+                 Pseudomonas fluorescens
+        [0.0000] Pseudomonas
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] P. fluorescens
+                 P. fluorescens
+        [1.0000] P. fluorescens
+                 P. fluorescens
+        [1.0000] Aeromonas hydrophila
+                 Aeromonas hydrophila
+        [0.0000] Aeromonas
+                 FAIL
+        [1.0000] Vibrio harveyi
+                 Vibrio harveyi
+        [0.0000] Vibrio
+                 FAIL
+        [1.0000] V. harveyi
+                 V. harveyi
+        [1.0000] V. harveyi
+                 V. harveyi
+        [1.0000] A. hydrophila
+                 A. hydrophila
+        [1.0000] A. hydrophila
+                 A. hydrophila
+
+    Recall   : 0.6666666666666666
+    Precision: 0.55
+    F-Score  : 0.6027397260273972
+
+
+text of BB-cat+ner-19622846
+    Reference matches (4) :
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+
+    Predicted matches (12) :
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+
+    Recall   : 1.0
+    Precision: 0.8333333333333334
+    F-Score  : 0.9090909090909091
+
+
+text of BB-cat+ner-20005916
+    Reference matches (7) :
+        [0.0000] human
+                 FAIL
+        [1.0000] Mycobacterium leprae
+                 Mycobacterium leprae
+        [1.0000] M. leprae
+                 M. leprae
+        [1.0000] M. leprae
+                 M. leprae
+        [1.0000] M. leprae
+                 M. leprae
+        [1.0000] M. leprae
+                 M. leprae
+        [1.0000] M. leprae
+                 M. leprae
+
+    Predicted matches (14) :
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] Mycobacterium leprae
+                 Mycobacterium leprae
+        [0.0000] Mycobacterium
+                 FAIL
+        [1.0000] M. leprae
+                 M. leprae
+        [1.0000] M. leprae
+                 M. leprae
+        [1.0000] M. leprae
+                 M. leprae
+        [1.0000] M. leprae
+                 M. leprae
+        [1.0000] M. leprae
+                 M. leprae
+        [1.0000] M. leprae
+                 M. leprae
+        [1.0000] M. leprae
+                 M. leprae
+        [1.0000] M. leprae
+                 M. leprae
+        [1.0000] M. leprae
+                 M. leprae
+        [1.0000] M. leprae
+                 M. leprae
+
+    Recall   : 0.8571428571428571
+    Precision: 0.7857142857142857
+    F-Score  : 0.8198757763975155
+
+
+text of BB-cat+ner-20073421
+    Reference matches (11) :
+        [0.0000] Francisella tularensis LVS
+                 FAIL
+        [0.0000] murine
+                 FAIL
+        [1.0000] Francisella tularensis
+                 Francisella tularensis
+        [0.0000] human
+                 FAIL
+        [0.0000] human
+                 FAIL
+        [1.0000] F. tularensis
+                 F. tularensis
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] F. tularensis
+                 F. tularensis
+        [1.0000] F. tularensis
+                 F. tularensis
+        [1.0000] F. tularensis
+                 F. tularensis
+
+    Predicted matches (14) :
+        [0.0000] Francisella tularensis
+                 FAIL
+        [0.0000] Francisella
+                 FAIL
+        [1.0000] Francisella tularensis
+                 Francisella tularensis
+        [0.0000] Francisella
+                 FAIL
+        [1.0000] F. tularensis
+                 F. tularensis
+        [1.0000] F. tularensis
+                 F. tularensis
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] F. tularensis
+                 F. tularensis
+        [1.0000] F. tularensis
+                 F. tularensis
+        [1.0000] F. tularensis
+                 F. tularensis
+        [1.0000] F. tularensis
+                 F. tularensis
+        [1.0000] F. tularensis
+                 F. tularensis
+        [1.0000] F. tularensis
+                 F. tularensis
+
+    Recall   : 0.6363636363636364
+    Precision: 0.7857142857142857
+    F-Score  : 0.7031963470319634
+
+
+text of BB-cat+ner-20148898
+    Reference matches (4) :
+        [1.0000] Yersinia pseudotuberculosis
+                 Yersinia pseudotuberculosis
+        [1.0000] Y. pseudotuberculosis
+                 Y. pseudotuberculosis
+        [1.0000] Y. pseudotuberculosis
+                 Y. pseudotuberculosis
+        [1.0000] Y. pseudotuberculosis
+                 Y. pseudotuberculosis
+
+    Predicted matches (10) :
+        [1.0000] Yersinia pseudotuberculosis
+                 Yersinia pseudotuberculosis
+        [0.0000] Yersinia
+                 FAIL
+        [1.0000] Y. pseudotuberculosis
+                 Y. pseudotuberculosis
+        [1.0000] Y. pseudotuberculosis
+                 Y. pseudotuberculosis
+        [1.0000] Y. pseudotuberculosis
+                 Y. pseudotuberculosis
+        [1.0000] Y. pseudotuberculosis
+                 Y. pseudotuberculosis
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] Y. pseudotuberculosis
+                 Y. pseudotuberculosis
+        [1.0000] Y. pseudotuberculosis
+                 Y. pseudotuberculosis
+
+    Recall   : 1.0
+    Precision: 0.7
+    F-Score  : 0.8235294117647058
+
+
+text of BB-cat+ner-21498521
+    Reference matches (8) :
+        [1.0000] Vibrio fischeri
+                 Vibrio fischeri
+        [1.0000] Vibrio fischeri
+                 Vibrio fischeri
+        [0.0000] marine bacterium
+                 FAIL
+        [0.0000] Euprymna scolopes
+                 FAIL
+        [1.0000] V. fischeri
+                 V. fischeri
+        [0.0000] V. fischeri ES114
+                 FAIL
+        [1.0000] V. fischeri
+                 V. fischeri
+        [0.0000] E. scolopes
+                 FAIL
+
+    Predicted matches (10) :
+        [1.0000] Vibrio fischeri
+                 Vibrio fischeri
+        [0.0000] Vibrio
+                 FAIL
+        [1.0000] Vibrio fischeri
+                 Vibrio fischeri
+        [0.0000] Vibrio
+                 FAIL
+        [1.0000] V. fischeri
+                 V. fischeri
+        [1.0000] V. fischeri
+                 V. fischeri
+        [0.0000] V. fischeri
+                 FAIL
+        [0.0000] V. fischeri
+                 FAIL
+        [1.0000] V. fischeri
+                 V. fischeri
+        [1.0000] V. fischeri
+                 V. fischeri
+
+    Recall   : 0.5
+    Precision: 0.6
+    F-Score  : 0.5454545454545454
+
+
+text of BB-cat+ner-21917915
+    Reference matches (4) :
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] human
+                 FAIL
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [1.0000] S. aureus
+                 S. aureus
+
+    Predicted matches (8) :
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+
+    Recall   : 0.75
+    Precision: 0.75
+    F-Score  : 0.75
+
+
+text of BB-cat+ner-21924022
+    Reference matches (8) :
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [1.0000] H.pylori
+                 H.pylori
+        [1.0000] H.pylori
+                 H.pylori
+        [1.0000] H.pylori
+                 H.pylori
+        [1.0000] H.pylori
+                 H.pylori
+        [1.0000] H.pylori
+                 H.pylori
+        [1.0000] H.pylori
+                 H.pylori
+        [1.0000] H.pylori
+                 H.pylori
+
+    Predicted matches (9) :
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [0.0000] Helicobacter
+                 FAIL
+        [1.0000] H.pylori
+                 H.pylori
+        [1.0000] H.pylori
+                 H.pylori
+        [1.0000] H.pylori
+                 H.pylori
+        [1.0000] H.pylori
+                 H.pylori
+        [1.0000] H.pylori
+                 H.pylori
+        [1.0000] H.pylori
+                 H.pylori
+        [1.0000] H.pylori
+                 H.pylori
+
+    Recall   : 1.0
+    Precision: 0.8888888888888888
+    F-Score  : 0.9411764705882353
+
+
+text of BB-cat+ner-22834551
+    Reference matches (10) :
+        [0.0000] Artemisia annua
+                 FAIL
+        [1.0000] Clostridium perfringens
+                 Clostridium perfringens
+        [0.0000] Artemisia annua
+                 FAIL
+        [0.0000] Clostridium perfringens Type A
+                 FAIL
+        [0.0000] A. annua
+                 FAIL
+        [0.0000] A. annua
+                 FAIL
+        [0.0000] A. annua
+                 FAIL
+        [0.0000] A. annua
+                 FAIL
+        [1.0000] C. perfringens
+                 C. perfringens
+        [0.0000] A. annua
+                 FAIL
+
+    Predicted matches (6) :
+        [1.0000] Clostridium perfringens
+                 Clostridium perfringens
+        [0.0000] Clostridium
+                 FAIL
+        [0.0000] Clostridium perfringens
+                 FAIL
+        [0.0000] Clostridium
+                 FAIL
+        [1.0000] C. perfringens
+                 C. perfringens
+        [1.0000] C. perfringens
+                 C. perfringens
+
+    Recall   : 0.2
+    Precision: 0.5
+    F-Score  : 0.28571428571428575
+
+
+text of BB-cat+ner-23702192
+    Reference matches (2) :
+        [1.0000] Clostridium difficile
+                 Clostridium difficile
+        [1.0000] Clostridium difficile
+                 Clostridium difficile
+
+    Predicted matches (4) :
+        [1.0000] Clostridium difficile
+                 Clostridium difficile
+        [0.0000] Clostridium
+                 FAIL
+        [1.0000] Clostridium difficile
+                 Clostridium difficile
+        [0.0000] Clostridium
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-23704121
+    Reference matches (1) :
+        [1.0000] Clostridium difficile
+                 Clostridium difficile
+
+    Predicted matches (2) :
+        [1.0000] Clostridium difficile
+                 Clostridium difficile
+        [0.0000] Clostridium
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-23855904
+    Reference matches (5) :
+        [0.0000] human
+                 FAIL
+        [1.0000] Campylobacter coli
+                 Campylobacter coli
+        [0.0000] chicken
+                 FAIL
+        [0.0000] humans
+                 FAIL
+        [0.0000] chickens
+                 FAIL
+
+    Predicted matches (7) :
+        [0.0000] Campylobacter
+                 FAIL
+        [0.0000] Campylobacter
+                 FAIL
+        [0.0000] Campylobacter
+                 FAIL
+        [1.0000] Campylobacter coli
+                 Campylobacter coli
+        [0.0000] Campylobacter
+                 FAIL
+        [0.0000] Campylobacter
+                 FAIL
+        [0.0000] Campylobacter
+                 FAIL
+
+    Recall   : 0.2
+    Precision: 0.14285714285714285
+    F-Score  : 0.16666666666666666
+
+
+text of BB-cat+ner-23908036
+    Reference matches (3) :
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [0.0000] P. aeruginosa PAO1
+                 FAIL
+
+    Predicted matches (6) :
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [0.0000] Pseudomonas
+                 FAIL
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [0.0000] Pseudomonas
+                 FAIL
+        [0.0000] P. aeruginosa
+                 FAIL
+        [0.0000] P. aeruginosa
+                 FAIL
+
+    Recall   : 0.6666666666666666
+    Precision: 0.3333333333333333
+    F-Score  : 0.4444444444444444
+
+
+text of BB-cat+ner-24198224
+    Reference matches (4) :
+        [1.0000] Salmonella Paratyphi A
+                 Salmonella Paratyphi A
+        [1.0000] Salmonella Paratyphi A
+                 Salmonella Paratyphi A
+        [0.0000] S. Paratyphi A
+                 FAIL
+        [0.0000] S. Paratyphi A
+                 FAIL
+
+    Predicted matches (12) :
+        [1.0000] Salmonella Paratyphi A
+                 Salmonella Paratyphi A
+        [1.0000] Salmonella Paratyphi A
+                 Salmonella Paratyphi A
+        [0.0000] Salmonella Paratyphi
+                 FAIL
+        [0.0000] Salmonella
+                 FAIL
+        [1.0000] Salmonella Paratyphi A
+                 Salmonella Paratyphi A
+        [1.0000] Salmonella Paratyphi A
+                 Salmonella Paratyphi A
+        [0.0000] Salmonella Paratyphi
+                 FAIL
+        [0.0000] Salmonella
+                 FAIL
+        [0.0000] S. Paratyphi
+                 FAIL
+        [0.0000] S. Paratyphi
+                 FAIL
+        [0.0000] S. Paratyphi
+                 FAIL
+        [0.0000] S. Paratyphi
+                 FAIL
+
+    Recall   : 0.5
+    Precision: 0.3333333333333333
+    F-Score  : 0.4
+
+
+text of BB-cat+ner-24251551
+    Reference matches (3) :
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+
+    Predicted matches (6) :
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [0.0000] Haemophilus
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [0.0000] Haemophilus
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-24361838
+    Reference matches (17) :
+        [0.0000] bacteriophage
+                 FAIL
+        [1.0000] Salmonella enterica serovar Typhimurium
+                 Salmonella enterica serovar Typhimurium
+        [0.0000] chickens
+                 FAIL
+        [1.0000] Salmonella Typhimurium
+                 Salmonella Typhimurium
+        [0.0000] bacteriophage
+                 FAIL
+        [0.0000] chicken
+                 FAIL
+        [0.0000] chickens
+                 FAIL
+        [1.0000] S. Typhimurium
+                 S. Typhimurium
+        [1.0000] S. Hadar
+                 S. Hadar
+        [1.0000] S. Typhimurium
+                 S. Typhimurium
+        [1.0000] S. Typhimurium
+                 S. Typhimurium
+        [0.0000] chickens
+                 FAIL
+        [1.0000] S. Typhimurium
+                 S. Typhimurium
+        [1.0000] S. Typhimurium
+                 S. Typhimurium
+        [1.0000] S. Typhimurium
+                 S. Typhimurium
+        [0.0000] chicks
+                 FAIL
+        [0.0000] chickens
+                 FAIL
+
+    Predicted matches (25) :
+        [1.0000] Salmonella enterica serovar Typhimurium
+                 Salmonella enterica serovar Typhimurium
+        [0.0000] Salmonella enterica
+                 FAIL
+        [0.0000] Salmonella
+                 FAIL
+        [1.0000] Salmonella Typhimurium
+                 Salmonella Typhimurium
+        [0.0000] Salmonella
+                 FAIL
+        [0.0000] Salmonella
+                 FAIL
+        [1.0000] S. Typhimurium
+                 S. Typhimurium
+        [1.0000] S. Typhimurium
+                 S. Typhimurium
+        [1.0000] S. Hadar
+                 S. Hadar
+        [1.0000] S. Hadar
+                 S. Hadar
+        [1.0000] S. Typhimurium
+                 S. Typhimurium
+        [1.0000] S. Typhimurium
+                 S. Typhimurium
+        [1.0000] S. Typhimurium
+                 S. Typhimurium
+        [1.0000] S. Typhimurium
+                 S. Typhimurium
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] S. Typhimurium
+                 S. Typhimurium
+        [1.0000] S. Typhimurium
+                 S. Typhimurium
+        [1.0000] S. Typhimurium
+                 S. Typhimurium
+        [1.0000] S. Typhimurium
+                 S. Typhimurium
+        [0.0000] Salmonella
+                 FAIL
+        [1.0000] S. Typhimurium
+                 S. Typhimurium
+        [1.0000] S. Typhimurium
+                 S. Typhimurium
+        [0.0000] Salmonella
+                 FAIL
+        [0.0000] Salmonella
+                 FAIL
+
+    Recall   : 0.5294117647058824
+    Precision: 0.64
+    F-Score  : 0.5794768611670019
+
+
+text of BB-cat+ner-24678646
+    Reference matches (2) :
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+
+    Predicted matches (6) :
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+        [0.0000] Enterococcus
+                 FAIL
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+        [0.0000] Enterococcus
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.3333333333333333
+    F-Score  : 0.5
+
+
+text of BB-cat+ner-24831788
+    Reference matches (1) :
+        [1.0000] Legionella pneumophila
+                 Legionella pneumophila
+
+    Predicted matches (2) :
+        [1.0000] Legionella pneumophila
+                 Legionella pneumophila
+        [0.0000] Legionella
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-24874563
+    Reference matches (1) :
+        [1.0000] Methylocella silvestris
+                 Methylocella silvestris
+
+    Predicted matches (4) :
+        [0.0000] Methylocella
+                 FAIL
+        [1.0000] Methylocella silvestris
+                 Methylocella silvestris
+        [0.0000] Methylocella
+                 FAIL
+        [0.0000] Methylocella
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.25
+    F-Score  : 0.4
+
+
+text of BB-cat+ner-25098305
+    Reference matches (10) :
+        [0.0000] Gopherus polyphemus
+                 FAIL
+        [0.0000] gopher tortoise
+                 FAIL
+        [0.0000] Gopherus polyphemus
+                 FAIL
+        [1.0000] Mycoplasma agassizii
+                 Mycoplasma agassizii
+        [1.0000] Mycoplasma testudineum
+                 Mycoplasma testudineum
+        [1.0000] M. agassizii
+                 M. agassizii
+        [1.0000] M. testudineum
+                 M. testudineum
+        [1.0000] M. testudineum
+                 M. testudineum
+        [1.0000] M. agassizii
+                 M. agassizii
+        [1.0000] M. testudineum
+                 M. testudineum
+
+    Predicted matches (15) :
+        [0.0000] Mycoplasma
+                 FAIL
+        [1.0000] Mycoplasma agassizii
+                 Mycoplasma agassizii
+        [0.0000] Mycoplasma
+                 FAIL
+        [1.0000] Mycoplasma testudineum
+                 Mycoplasma testudineum
+        [0.0000] Mycoplasma
+                 FAIL
+        [1.0000] M. agassizii
+                 M. agassizii
+        [1.0000] M. agassizii
+                 M. agassizii
+        [1.0000] M. testudineum
+                 M. testudineum
+        [1.0000] M. testudineum
+                 M. testudineum
+        [1.0000] M. testudineum
+                 M. testudineum
+        [1.0000] M. testudineum
+                 M. testudineum
+        [1.0000] M. agassizii
+                 M. agassizii
+        [1.0000] M. agassizii
+                 M. agassizii
+        [1.0000] M. testudineum
+                 M. testudineum
+        [1.0000] M. testudineum
+                 M. testudineum
+
+    Recall   : 0.7
+    Precision: 0.8
+    F-Score  : 0.7466666666666666
+
+
+text of BB-cat+ner-25562320
+    Reference matches (4) :
+        [1.0000] Mycobacterium tuberculosis
+                 Mycobacterium tuberculosis
+        [1.0000] Mycobacterium tuberculosis
+                 Mycobacterium tuberculosis
+        [0.0000] mice
+                 FAIL
+        [0.0000] human
+                 FAIL
+
+    Predicted matches (4) :
+        [1.0000] Mycobacterium tuberculosis
+                 Mycobacterium tuberculosis
+        [0.0000] Mycobacterium
+                 FAIL
+        [1.0000] Mycobacterium tuberculosis
+                 Mycobacterium tuberculosis
+        [0.0000] Mycobacterium
+                 FAIL
+
+    Recall   : 0.5
+    Precision: 0.5
+    F-Score  : 0.5
+
+
+text of BB-cat+ner-25634638
+    Reference matches (9) :
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+        [1.0000] Burkholderia cepacia
+                 Burkholderia cepacia
+        [0.0000] Aspergillus fumigatus
+                 FAIL
+        [1.0000] Stenotrophomonas maltophilia
+                 Stenotrophomonas maltophilia
+        [1.0000] Mycobacterium abscessus
+                 Mycobacterium abscessus
+
+    Predicted matches (18) :
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [0.0000] Pseudomonas
+                 FAIL
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [0.0000] Pseudomonas
+                 FAIL
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+        [1.0000] Burkholderia cepacia
+                 Burkholderia cepacia
+        [0.0000] Burkholderia
+                 FAIL
+        [1.0000] Stenotrophomonas maltophilia
+                 Stenotrophomonas maltophilia
+        [0.0000] Stenotrophomonas
+                 FAIL
+        [1.0000] Mycobacterium abscessus
+                 Mycobacterium abscessus
+        [0.0000] Mycobacterium
+                 FAIL
+
+    Recall   : 0.8888888888888888
+    Precision: 0.6111111111111112
+    F-Score  : 0.7242798353909464
+
+
+text of BB-cat+ner-2696427
+    Reference matches (7) :
+        [1.0000] Vibrio salmonicida
+                 Vibrio salmonicida
+        [1.0000] Vibrio salmonicida
+                 Vibrio salmonicida
+        [0.0000] rabbit
+                 FAIL
+        [1.0000] V. salmonicida
+                 V. salmonicida
+        [1.0000] V. salmonicida
+                 V. salmonicida
+        [0.0000] rabbit
+                 FAIL
+        [0.0000] rabbit
+                 FAIL
+
+    Predicted matches (15) :
+        [1.0000] Vibrio salmonicida
+                 Vibrio salmonicida
+        [0.0000] Vibrio
+                 FAIL
+        [1.0000] Vibrio salmonicida
+                 Vibrio salmonicida
+        [0.0000] Vibrio
+                 FAIL
+        [0.0000] Vibrio
+                 FAIL
+        [1.0000] V. salmonicida
+                 V. salmonicida
+        [1.0000] V. salmonicida
+                 V. salmonicida
+        [1.0000] V. salmonicida
+                 V. salmonicida
+        [1.0000] V. salmonicida
+                 V. salmonicida
+        [1.0000] V. salmonicida
+                 V. salmonicida
+        [1.0000] V. salmonicida
+                 V. salmonicida
+        [1.0000] V. salmonicida
+                 V. salmonicida
+        [1.0000] V. salmonicida
+                 V. salmonicida
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+
+    Recall   : 0.5714285714285714
+    Precision: 0.6666666666666666
+    F-Score  : 0.6153846153846153
+
+
+text of BB-cat+ner-3074181
+    Reference matches (1) :
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+
+    Predicted matches (6) :
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.16666666666666666
+    F-Score  : 0.2857142857142857
+
+
+text of BB-cat+ner-4105033
+    Reference matches (3) :
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+
+    Predicted matches (6) :
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [0.0000] Pseudomonas
+                 FAIL
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [0.0000] Pseudomonas
+                 FAIL
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+
+    Recall   : 1.0
+    Precision: 0.6666666666666666
+    F-Score  : 0.8
+
+
+text of BB-cat+ner-4328756
+    Reference matches (5) :
+        [1.0000] Coxiella burnetii
+                 Coxiella burnetii
+        [1.0000] Coxiella burnetii
+                 Coxiella burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+
+    Predicted matches (10) :
+        [1.0000] Coxiella burnetii
+                 Coxiella burnetii
+        [0.0000] Coxiella
+                 FAIL
+        [1.0000] Coxiella burnetii
+                 Coxiella burnetii
+        [0.0000] Coxiella
+                 FAIL
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+
+    Recall   : 1.0
+    Precision: 0.8
+    F-Score  : 0.888888888888889
+
+
+text of BB-cat+ner-4329237
+    Reference matches (2) :
+        [0.0000] Macaca mulatta
+                 FAIL
+        [1.0000] Mycobacterium tuberculosis
+                 Mycobacterium tuberculosis
+
+    Predicted matches (2) :
+        [1.0000] Mycobacterium tuberculosis
+                 Mycobacterium tuberculosis
+        [0.0000] Mycobacterium
+                 FAIL
+
+    Recall   : 0.5
+    Precision: 0.5
+    F-Score  : 0.5
+
+
+text of BB-cat+ner-448557
+    Reference matches (4) :
+        [0.0000] respiratory syncytial virus
+                 FAIL
+        [1.0000] Mycoplasma pneumoniae
+                 Mycoplasma pneumoniae
+        [0.0000] RSV
+                 FAIL
+        [1.0000] Mycoplasma pneumoniae
+                 Mycoplasma pneumoniae
+
+    Predicted matches (4) :
+        [1.0000] Mycoplasma pneumoniae
+                 Mycoplasma pneumoniae
+        [0.0000] Mycoplasma
+                 FAIL
+        [1.0000] Mycoplasma pneumoniae
+                 Mycoplasma pneumoniae
+        [0.0000] Mycoplasma
+                 FAIL
+
+    Recall   : 0.5
+    Precision: 0.5
+    F-Score  : 0.5
+
+
+text of BB-cat+ner-607884
+    Reference matches (0) :
+
+    Predicted matches (1) :
+        [0.0000] Serratia
+                 FAIL
+
+    Recall   : NaN
+    Precision: 0.0
+    F-Score  : NaN
+
+
+text of BB-cat+ner-6107735
+    Reference matches (3) :
+        [1.0000] Vibrio cholerae
+                 Vibrio cholerae
+        [1.0000] V. cholerae
+                 V. cholerae
+        [1.0000] V. cholerae
+                 V. cholerae
+
+    Predicted matches (6) :
+        [1.0000] Vibrio cholerae
+                 Vibrio cholerae
+        [0.0000] Vibrio
+                 FAIL
+        [1.0000] V. cholerae
+                 V. cholerae
+        [1.0000] V. cholerae
+                 V. cholerae
+        [1.0000] V. cholerae
+                 V. cholerae
+        [1.0000] V. cholerae
+                 V. cholerae
+
+    Recall   : 1.0
+    Precision: 0.8333333333333334
+    F-Score  : 0.9090909090909091
+
+
+text of BB-cat+ner-6143890
+    Reference matches (1) :
+        [1.0000] Chlamydia trachomatis
+                 Chlamydia trachomatis
+
+    Predicted matches (2) :
+        [1.0000] Chlamydia trachomatis
+                 Chlamydia trachomatis
+        [0.0000] Chlamydia
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-6631408
+    Reference matches (10) :
+        [1.0000] Chlamydia trachomatis
+                 Chlamydia trachomatis
+        [1.0000] C. psittaci
+                 C. psittaci
+        [1.0000] Chlamydia trachomatis
+                 Chlamydia trachomatis
+        [1.0000] C. psittaci
+                 C. psittaci
+        [1.0000] C. trachomatis
+                 C. trachomatis
+        [1.0000] C. psittaci
+                 C. psittaci
+        [1.0000] C. trachomatis
+                 C. trachomatis
+        [1.0000] C. psittaci
+                 C. psittaci
+        [1.0000] C. trachomatis
+                 C. trachomatis
+        [1.0000] C. psittaci
+                 C. psittaci
+
+    Predicted matches (22) :
+        [1.0000] Chlamydia trachomatis
+                 Chlamydia trachomatis
+        [0.0000] Chlamydia
+                 FAIL
+        [1.0000] C. psittaci
+                 C. psittaci
+        [1.0000] C. psittaci
+                 C. psittaci
+        [1.0000] Chlamydia trachomatis
+                 Chlamydia trachomatis
+        [0.0000] Chlamydia
+                 FAIL
+        [1.0000] C. psittaci
+                 C. psittaci
+        [1.0000] C. psittaci
+                 C. psittaci
+        [1.0000] C. trachomatis
+                 C. trachomatis
+        [1.0000] C. trachomatis
+                 C. trachomatis
+        [1.0000] C. psittaci
+                 C. psittaci
+        [1.0000] C. psittaci
+                 C. psittaci
+        [1.0000] C. trachomatis
+                 C. trachomatis
+        [1.0000] C. trachomatis
+                 C. trachomatis
+        [1.0000] C. psittaci
+                 C. psittaci
+        [1.0000] C. psittaci
+                 C. psittaci
+        [1.0000] C. trachomatis
+                 C. trachomatis
+        [1.0000] C. trachomatis
+                 C. trachomatis
+        [1.0000] C. psittaci
+                 C. psittaci
+        [1.0000] C. psittaci
+                 C. psittaci
+        [0.0000] chlamydiae
+                 FAIL
+        [0.0000] chlamydiae
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.8181818181818182
+    F-Score  : 0.9
+
+
+text of BB-cat+ner-8347510
+    Reference matches (3) :
+        [1.0000] Arhodomonas aquaeolei
+                 Arhodomonas aquaeolei
+        [1.0000] Arhodomonas aquaeolei
+                 Arhodomonas aquaeolei
+        [1.0000] A. aquaeolei
+                 A. aquaeolei
+
+    Predicted matches (17) :
+        [1.0000] Arhodomonas aquaeolei
+                 Arhodomonas aquaeolei
+        [0.0000] Arhodomonas
+                 FAIL
+        [1.0000] Arhodomonas aquaeolei
+                 Arhodomonas aquaeolei
+        [0.0000] Arhodomonas
+                 FAIL
+        [0.0000] Arhodomonas
+                 FAIL
+        [0.0000] Proteobacteria
+                 FAIL
+        [0.0000] Proteobacteria
+                 FAIL
+        [1.0000] A. aquaeolei
+                 A. aquaeolei
+        [1.0000] A. aquaeolei
+                 A. aquaeolei
+        [0.0000] purple sulfur bacteria
+                 FAIL
+        [0.0000] purple sulfur bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] Ectothiorhodospira
+                 FAIL
+        [0.0000] Chromatium
+                 FAIL
+        [0.0000] strain HA-1
+                 FAIL
+        [0.0000] ATCC 49307
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.23529411764705882
+    F-Score  : 0.38095238095238093
+
+
+text of BB-cat+ner-8358765
+    Reference matches (4) :
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+
+    Predicted matches (18) :
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [0.0000] Helicobacter
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [0.0000] Helicobacter
+                 FAIL
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+
+    Recall   : 1.0
+    Precision: 0.3333333333333333
+    F-Score  : 0.5
+
+
+text of BB-cat+ner-8532424
+    Reference matches (6) :
+        [1.0000] Kingella kingae
+                 Kingella kingae
+        [1.0000] Kingella kingae
+                 Kingella kingae
+        [1.0000] K. kingae
+                 K. kingae
+        [1.0000] K. kingae
+                 K. kingae
+        [1.0000] K. kingae
+                 K. kingae
+        [1.0000] K. kingae
+                 K. kingae
+
+    Predicted matches (12) :
+        [1.0000] Kingella kingae
+                 Kingella kingae
+        [0.0000] Kingella
+                 FAIL
+        [1.0000] Kingella kingae
+                 Kingella kingae
+        [0.0000] Kingella
+                 FAIL
+        [1.0000] K. kingae
+                 K. kingae
+        [1.0000] K. kingae
+                 K. kingae
+        [1.0000] K. kingae
+                 K. kingae
+        [1.0000] K. kingae
+                 K. kingae
+        [1.0000] K. kingae
+                 K. kingae
+        [1.0000] K. kingae
+                 K. kingae
+        [1.0000] K. kingae
+                 K. kingae
+        [1.0000] K. kingae
+                 K. kingae
+
+    Recall   : 1.0
+    Precision: 0.8333333333333334
+    F-Score  : 0.9090909090909091
+
+
+text of BB-cat+ner-8607503
+    Reference matches (4) :
+        [1.0000] Vibrio cholerae
+                 Vibrio cholerae
+        [1.0000] Vibrio cholerae
+                 Vibrio cholerae
+        [1.0000] V. cholerae
+                 V. cholerae
+        [1.0000] V. cholerae
+                 V. cholerae
+
+    Predicted matches (8) :
+        [1.0000] Vibrio cholerae
+                 Vibrio cholerae
+        [0.0000] Vibrio
+                 FAIL
+        [1.0000] Vibrio cholerae
+                 Vibrio cholerae
+        [0.0000] Vibrio
+                 FAIL
+        [1.0000] V. cholerae
+                 V. cholerae
+        [1.0000] V. cholerae
+                 V. cholerae
+        [1.0000] V. cholerae
+                 V. cholerae
+        [1.0000] V. cholerae
+                 V. cholerae
+
+    Recall   : 1.0
+    Precision: 0.75
+    F-Score  : 0.8571428571428571
+
+
+text of BB-cat+ner-8703935
+    Reference matches (0) :
+
+    Predicted matches (0) :
+
+    Recall   : NaN
+    Precision: NaN
+    F-Score  : NaN
+
+
+text of BB-cat+ner-8997164
+    Reference matches (0) :
+
+    Predicted matches (6) :
+        [0.0000] BCG
+                 FAIL
+        [0.0000] mycobacteria
+                 FAIL
+        [0.0000] BCG
+                 FAIL
+        [0.0000] BCG
+                 FAIL
+        [0.0000] BCG
+                 FAIL
+        [0.0000] BCG
+                 FAIL
+
+    Recall   : NaN
+    Precision: 0.0
+    F-Score  : NaN
+
+
+text of BB-cat+ner-9255900
+    Reference matches (5) :
+        [1.0000] Helicobacter pullorum
+                 Helicobacter pullorum
+        [1.0000] Helicobacter pullorum
+                 Helicobacter pullorum
+        [0.0000] human
+                 FAIL
+        [1.0000] H. pullorum
+                 H. pullorum
+        [1.0000] Helicobacter pullorum
+                 Helicobacter pullorum
+
+    Predicted matches (8) :
+        [1.0000] Helicobacter pullorum
+                 Helicobacter pullorum
+        [0.0000] Helicobacter
+                 FAIL
+        [1.0000] Helicobacter pullorum
+                 Helicobacter pullorum
+        [0.0000] Helicobacter
+                 FAIL
+        [1.0000] H. pullorum
+                 H. pullorum
+        [1.0000] H. pullorum
+                 H. pullorum
+        [1.0000] Helicobacter pullorum
+                 Helicobacter pullorum
+        [0.0000] Helicobacter
+                 FAIL
+
+    Recall   : 0.8
+    Precision: 0.625
+    F-Score  : 0.7017543859649122
+
+
+text of BB-cat+ner-9526514
+    Reference matches (2) :
+        [1.0000] Agrobacterium rhizogenes
+                 Agrobacterium rhizogenes
+        [1.0000] Agrobacterium rhizogenes
+                 Agrobacterium rhizogenes
+
+    Predicted matches (4) :
+        [1.0000] Agrobacterium rhizogenes
+                 Agrobacterium rhizogenes
+        [0.0000] Agrobacterium
+                 FAIL
+        [1.0000] Agrobacterium rhizogenes
+                 Agrobacterium rhizogenes
+        [0.0000] Agrobacterium
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-9535771
+    Reference matches (5) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+
+    Predicted matches (10) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+
+    Recall   : 1.0
+    Precision: 0.8
+    F-Score  : 0.888888888888889
+
+
+text of BB-cat+ner-9564489
+    Reference matches (1) :
+        [1.0000] Mycobacterium kansasii
+                 Mycobacterium kansasii
+
+    Predicted matches (2) :
+        [1.0000] Mycobacterium kansasii
+                 Mycobacterium kansasii
+        [0.0000] Mycobacterium
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-9643457
+    Reference matches (6) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] cattle
+                 FAIL
+        [0.0000] cows
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] cows
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+
+    Predicted matches (6) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+
+    Recall   : 0.5
+    Precision: 0.6666666666666666
+    F-Score  : 0.5714285714285715
+
+
+text of BB-cat+ner-9693738
+    Reference matches (2) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [1.0000] Escherichia coli
+                 Escherichia coli
+
+    Predicted matches (4) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-9798026
+    Reference matches (10) :
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [0.0000] human immunodeficiency virus
+                 FAIL
+        [0.0000] human immunodeficiency virus
+                 FAIL
+        [0.0000] HIV
+                 FAIL
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [0.0000] HIV
+                 FAIL
+        [1.0000] H. pylori
+                 H. pylori
+        [0.0000] HIV
+                 FAIL
+
+    Predicted matches (10) :
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [0.0000] Helicobacter
+                 FAIL
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [0.0000] Helicobacter
+                 FAIL
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+
+    Recall   : 0.5
+    Precision: 0.8
+    F-Score  : 0.6153846153846154
+
+
+text of BB-cat+ner-9864452
+    Reference matches (3) :
+        [1.0000] Bacillus intermedius
+                 Bacillus intermedius
+        [1.0000] Bacillus intermedius
+                 Bacillus intermedius
+        [1.0000] B. intermedius
+                 B. intermedius
+
+    Predicted matches (9) :
+        [1.0000] Bacillus intermedius
+                 Bacillus intermedius
+        [0.0000] Bacillus
+                 FAIL
+        [1.0000] Bacillus intermedius
+                 Bacillus intermedius
+        [0.0000] Bacillus
+                 FAIL
+        [1.0000] B. intermedius
+                 B. intermedius
+        [1.0000] B. intermedius
+                 B. intermedius
+        [1.0000] B. intermedius
+                 B. intermedius
+        [1.0000] B. intermedius
+                 B. intermedius
+        [0.0000] Bacillus
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.6666666666666666
+    F-Score  : 0.8
+
+
+text of BB-cat+ner-10496597
+    Reference matches (3) :
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+
+    Predicted matches (6) :
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [0.0000] Helicobacter
+                 FAIL
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [0.0000] Helicobacter
+                 FAIL
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [0.0000] Helicobacter
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-11989773
+    Reference matches (4) :
+        [1.0000] Listeria monocytogenes
+                 Listeria monocytogenes
+        [0.0000] chicken
+                 FAIL
+        [1.0000] Listeria monocytogenes
+                 Listeria monocytogenes
+        [0.0000] chicken
+                 FAIL
+
+    Predicted matches (7) :
+        [0.0000] Listeria
+                 FAIL
+        [1.0000] Listeria monocytogenes
+                 Listeria monocytogenes
+        [0.0000] Listeria
+                 FAIL
+        [0.0000] Listeria
+                 FAIL
+        [0.0000] Listeria
+                 FAIL
+        [1.0000] Listeria monocytogenes
+                 Listeria monocytogenes
+        [0.0000] Listeria
+                 FAIL
+
+    Recall   : 0.5
+    Precision: 0.2857142857142857
+    F-Score  : 0.36363636363636365
+
+
+text of BB-cat+ner-12109661
+    Reference matches (13) :
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+
+    Predicted matches (26) :
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [0.0000] Helicobacter
+                 FAIL
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [0.0000] Helicobacter
+                 FAIL
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+
+    Recall   : 1.0
+    Precision: 0.9230769230769231
+    F-Score  : 0.9600000000000001
+
+
+text of BB-cat+ner-1214327
+    Reference matches (1) :
+        [1.0000] Vibrio parahaemolyticus
+                 Vibrio parahaemolyticus
+
+    Predicted matches (2) :
+        [1.0000] Vibrio parahaemolyticus
+                 Vibrio parahaemolyticus
+        [0.0000] Vibrio
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-1356998
+    Reference matches (7) :
+        [0.0000] Human
+                 FAIL
+        [0.0000] humans
+                 FAIL
+        [0.0000] human isolates
+                 FAIL
+        [1.0000] Rickettsia conorii
+                 Rickettsia conorii
+        [1.0000] R. conorii
+                 R. conorii
+        [0.0000] humans
+                 FAIL
+        [1.0000] R. conorii
+                 R. conorii
+
+    Predicted matches (20) :
+        [0.0000] spotted fever group
+                 FAIL
+        [0.0000] Rickettsia
+                 FAIL
+        [0.0000] spotted fever group
+                 FAIL
+        [1.0000] Rickettsia conorii
+                 Rickettsia conorii
+        [0.0000] Rickettsia
+                 FAIL
+        [1.0000] R. conorii
+                 R. conorii
+        [1.0000] R. conorii
+                 R. conorii
+        [0.0000] spotted fever group
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [0.0000] a group
+                 FAIL
+        [1.0000] R. conorii
+                 R. conorii
+        [1.0000] R. conorii
+                 R. conorii
+
+    Recall   : 0.42857142857142855
+    Precision: 0.25
+    F-Score  : 0.3157894736842105
+
+
+text of BB-cat+ner-14633026
+    Reference matches (5) :
+        [1.0000] Bacillus thuringiensis serovar sotto
+                 Bacillus thuringiensis serovar sotto
+        [1.0000] Bacillus thuringiensis serovar sotto
+                 Bacillus thuringiensis serovar sotto
+        [1.0000] B. thuringiensis
+                 B. thuringiensis
+        [0.0000] Culex pipiens molestus
+                 FAIL
+        [1.0000] B. thuringiensis
+                 B. thuringiensis
+
+    Predicted matches (10) :
+        [1.0000] Bacillus thuringiensis serovar sotto
+                 Bacillus thuringiensis serovar sotto
+        [0.0000] Bacillus thuringiensis
+                 FAIL
+        [0.0000] Bacillus
+                 FAIL
+        [1.0000] Bacillus thuringiensis serovar sotto
+                 Bacillus thuringiensis serovar sotto
+        [0.0000] Bacillus thuringiensis
+                 FAIL
+        [0.0000] Bacillus
+                 FAIL
+        [1.0000] B. thuringiensis
+                 B. thuringiensis
+        [1.0000] B. thuringiensis
+                 B. thuringiensis
+        [1.0000] B. thuringiensis
+                 B. thuringiensis
+        [1.0000] B. thuringiensis
+                 B. thuringiensis
+
+    Recall   : 0.8
+    Precision: 0.6
+    F-Score  : 0.6857142857142857
+
+
+text of BB-cat+ner-15293611
+    Reference matches (4) :
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+
+    Predicted matches (8) :
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [0.0000] Pseudomonas
+                 FAIL
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [0.0000] Pseudomonas
+                 FAIL
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+
+    Recall   : 1.0
+    Precision: 0.75
+    F-Score  : 0.8571428571428571
+
+
+text of BB-cat+ner-15618837
+    Reference matches (9) :
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+
+    Predicted matches (18) :
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [0.0000] Helicobacter
+                 FAIL
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [0.0000] Helicobacter
+                 FAIL
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+
+    Recall   : 1.0
+    Precision: 0.8888888888888888
+    F-Score  : 0.9411764705882353
+
+
+text of BB-cat+ner-16273411
+    Reference matches (2) :
+        [0.0000] humans
+                 FAIL
+        [0.0000] humans
+                 FAIL
+
+    Predicted matches (6) :
+        [0.0000] Klebsiella pneumonia
+                 FAIL
+        [0.0000] Klebsiella
+                 FAIL
+        [0.0000] Klebsiella pneumonia
+                 FAIL
+        [0.0000] Klebsiella
+                 FAIL
+        [0.0000] Klebsiella pneumonia
+                 FAIL
+        [0.0000] Klebsiella
+                 FAIL
+
+    Recall   : 0.0
+    Precision: 0.0
+    F-Score  : NaN
+
+
+text of BB-cat+ner-16458564
+    Reference matches (11) :
+        [0.0000] ELISA
+                 FAIL
+        [0.0000] group A rotavirus
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [1.0000] Bacteroides fragilis
+                 Bacteroides fragilis
+        [1.0000] Vibrio cholerae
+                 Vibrio cholerae
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] B. fragilis
+                 B. fragilis
+        [1.0000] E. coli
+                 E. coli
+        [0.0000] Group A rotavirus
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [1.0000] Bacteroides fragilis
+                 Bacteroides fragilis
+
+    Predicted matches (21) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [0.0000] Shigella
+                 FAIL
+        [1.0000] Bacteroides fragilis
+                 Bacteroides fragilis
+        [0.0000] Bacteroides
+                 FAIL
+        [0.0000] Salmonella
+                 FAIL
+        [1.0000] Vibrio cholerae
+                 Vibrio cholerae
+        [0.0000] Vibrio
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [0.0000] Shigella
+                 FAIL
+        [1.0000] B. fragilis
+                 B. fragilis
+        [1.0000] B. fragilis
+                 B. fragilis
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [0.0000] Shigella
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [0.0000] Shigella
+                 FAIL
+        [1.0000] Bacteroides fragilis
+                 Bacteroides fragilis
+        [0.0000] Bacteroides
+                 FAIL
+
+    Recall   : 0.7272727272727273
+    Precision: 0.5238095238095238
+    F-Score  : 0.6089965397923875
+
+
+text of BB-cat+ner-16514151
+    Reference matches (3) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] Deinococcus radiodurans
+                 Deinococcus radiodurans
+
+    Predicted matches (6) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] Deinococcus radiodurans
+                 Deinococcus radiodurans
+        [0.0000] Deinococcus
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.6666666666666666
+    F-Score  : 0.8
+
+
+text of BB-cat+ner-18094887
+    Reference matches (35) :
+        [0.0000] humans
+                 FAIL
+        [0.0000] Ctenocephalides felis felis
+                 FAIL
+        [0.0000] Polygenis rimatus
+                 FAIL
+        [0.0000] Amblyomma aureolatum
+                 FAIL
+        [0.0000] Amblyomma cajennense
+                 FAIL
+        [0.0000] Amblyomma dubitatum
+                 FAIL
+        [0.0000] Ixodes loricatus
+                 FAIL
+        [0.0000] Rhipicephalus sanguineus
+                 FAIL
+        [0.0000] dogs
+                 FAIL
+        [0.0000] cats
+                 FAIL
+        [1.0000] Rickettsia felis
+                 Rickettsia felis
+        [1.0000] Rickettsia bellii
+                 Rickettsia bellii
+        [0.0000] human
+                 FAIL
+        [0.0000] human
+                 FAIL
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [1.0000] R. parkeri
+                 R. parkeri
+        [1.0000] R. parkeri
+                 R. parkeri
+        [1.0000] R. parkeri
+                 R. parkeri
+        [1.0000] R. felis
+                 R. felis
+        [1.0000] R. bellii
+                 R. bellii
+        [0.0000] dog
+                 FAIL
+        [0.0000] horse
+                 FAIL
+        [0.0000] human
+                 FAIL
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [0.0000] dog
+                 FAIL
+        [0.0000] horse
+                 FAIL
+        [1.0000] R. parkeri
+                 R. parkeri
+        [1.0000] R. parkeri
+                 R. parkeri
+        [1.0000] R. parkeri
+                 R. parkeri
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [1.0000] R. parkeri
+                 R. parkeri
+        [1.0000] R. parkeri
+                 R. parkeri
+        [1.0000] R. parkeri
+                 R. parkeri
+        [0.0000] humans
+                 FAIL
+
+    Predicted matches (25) :
+        [0.0000] Rickettsia
+                 FAIL
+        [1.0000] Rickettsia felis
+                 Rickettsia felis
+        [0.0000] Rickettsia
+                 FAIL
+        [0.0000] rickettsia
+                 FAIL
+        [1.0000] Rickettsia bellii
+                 Rickettsia bellii
+        [0.0000] Rickettsia
+                 FAIL
+        [0.0000] rickettsia
+                 FAIL
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [1.0000] R. parkeri
+                 R. parkeri
+        [1.0000] R. parkeri
+                 R. parkeri
+        [1.0000] R. felis
+                 R. felis
+        [1.0000] R. felis
+                 R. felis
+        [1.0000] R. bellii
+                 R. bellii
+        [1.0000] R. bellii
+                 R. bellii
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [1.0000] R. parkeri
+                 R. parkeri
+        [1.0000] R. parkeri
+                 R. parkeri
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [1.0000] R. parkeri
+                 R. parkeri
+        [1.0000] R. parkeri
+                 R. parkeri
+
+    Recall   : 0.4857142857142857
+    Precision: 0.8
+    F-Score  : 0.6044444444444443
+
+
+text of BB-cat+ner-18694716
+    Reference matches (1) :
+        [1.0000] Methylobacterium extorquens AM1
+                 Methylobacterium extorquens AM1
+
+    Predicted matches (3) :
+        [1.0000] Methylobacterium extorquens AM1
+                 Methylobacterium extorquens AM1
+        [0.0000] Methylobacterium extorquens
+                 FAIL
+        [0.0000] Methylobacterium
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.3333333333333333
+    F-Score  : 0.5
+
+
+text of BB-cat+ner-18789156
+    Reference matches (11) :
+        [1.0000] Francisella tularensis
+                 Francisella tularensis
+        [1.0000] Francisella tularensis
+                 Francisella tularensis
+        [0.0000] human
+                 FAIL
+        [1.0000] F. tularensis
+                 F. tularensis
+        [1.0000] Francisella tularensis
+                 Francisella tularensis
+        [0.0000] human
+                 FAIL
+        [0.0000] murine
+                 FAIL
+        [1.0000] Francisella tularensis
+                 Francisella tularensis
+        [0.0000] human
+                 FAIL
+        [1.0000] F. tularensis
+                 F. tularensis
+        [1.0000] F. tularensis
+                 F. tularensis
+
+    Predicted matches (14) :
+        [1.0000] Francisella tularensis
+                 Francisella tularensis
+        [0.0000] Francisella
+                 FAIL
+        [1.0000] Francisella tularensis
+                 Francisella tularensis
+        [0.0000] Francisella
+                 FAIL
+        [1.0000] F. tularensis
+                 F. tularensis
+        [1.0000] F. tularensis
+                 F. tularensis
+        [1.0000] Francisella tularensis
+                 Francisella tularensis
+        [0.0000] Francisella
+                 FAIL
+        [1.0000] Francisella tularensis
+                 Francisella tularensis
+        [0.0000] Francisella
+                 FAIL
+        [1.0000] F. tularensis
+                 F. tularensis
+        [1.0000] F. tularensis
+                 F. tularensis
+        [1.0000] F. tularensis
+                 F. tularensis
+        [1.0000] F. tularensis
+                 F. tularensis
+
+    Recall   : 0.6363636363636364
+    Precision: 0.7142857142857143
+    F-Score  : 0.673076923076923
+
+
+text of BB-cat+ner-19004249
+    Reference matches (4) :
+        [0.0000] human
+                 FAIL
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [1.0000] S. aureus
+                 S. aureus
+
+    Predicted matches (8) :
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+
+    Recall   : 0.75
+    Precision: 0.75
+    F-Score  : 0.75
+
+
+text of BB-cat+ner-19339076
+    Reference matches (3) :
+        [1.0000] Lactococcus lactis
+                 Lactococcus lactis
+        [0.0000] L. lactis subsp. cremoris
+                 FAIL
+        [0.0000] L. lactis subsp. lactis
+                 FAIL
+
+    Predicted matches (19) :
+        [1.0000] Lactococcus lactis
+                 Lactococcus lactis
+        [0.0000] Lactococcus
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] lactococci
+                 FAIL
+        [0.0000] L. lactis
+                 FAIL
+        [0.0000] L. lactis
+                 FAIL
+        [0.0000] L. lactis
+                 FAIL
+        [0.0000] L. lactis
+                 FAIL
+        [0.0000] L. lactis
+                 FAIL
+        [0.0000] L. lactis
+                 FAIL
+        [0.0000] L. lactis
+                 FAIL
+        [0.0000] L. lactis
+                 FAIL
+        [0.0000] L. lactis
+                 FAIL
+        [0.0000] L. lactis
+                 FAIL
+        [0.0000] L. lactis
+                 FAIL
+        [0.0000] L. lactis
+                 FAIL
+        [0.0000] lactococci
+                 FAIL
+        [0.0000] lactococci
+                 FAIL
+
+    Recall   : 0.3333333333333333
+    Precision: 0.05263157894736842
+    F-Score  : 0.09090909090909091
+
+
+text of BB-cat+ner-19552770
+    Reference matches (7) :
+        [0.0000] Perdix perdix
+                 FAIL
+        [0.0000] Perdix perdix
+                 FAIL
+        [1.0000] Campylobacter coli
+                 Campylobacter coli
+        [1.0000] Campylobacter jejuni
+                 Campylobacter jejuni
+        [1.0000] Campylobacter lari
+                 Campylobacter lari
+        [0.0000] human
+                 FAIL
+        [1.0000] Campylobacter coli
+                 Campylobacter coli
+
+    Predicted matches (15) :
+        [0.0000] Campylobacter
+                 FAIL
+        [0.0000] Campylobacter
+                 FAIL
+        [0.0000] Campylobacter
+                 FAIL
+        [0.0000] Campylobacter
+                 FAIL
+        [0.0000] Campylobacter
+                 FAIL
+        [1.0000] Campylobacter coli
+                 Campylobacter coli
+        [0.0000] Campylobacter
+                 FAIL
+        [1.0000] Campylobacter jejuni
+                 Campylobacter jejuni
+        [0.0000] Campylobacter
+                 FAIL
+        [1.0000] Campylobacter lari
+                 Campylobacter lari
+        [0.0000] Campylobacter
+                 FAIL
+        [0.0000] Campylobacter
+                 FAIL
+        [1.0000] Campylobacter coli
+                 Campylobacter coli
+        [0.0000] Campylobacter
+                 FAIL
+        [0.0000] Campylobacter
+                 FAIL
+
+    Recall   : 0.5714285714285714
+    Precision: 0.26666666666666666
+    F-Score  : 0.36363636363636365
+
+
+text of BB-cat+ner-19621381
+    Reference matches (1) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+
+    Predicted matches (2) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-20174624
+    Reference matches (14) :
+        [0.0000] human
+                 FAIL
+        [0.0000] humans
+                 FAIL
+        [1.0000] Y. pestis
+                 Y. pestis
+        [1.0000] Y. pseudotuberculosis
+                 Y. pseudotuberculosis
+        [1.0000] Y. enterocolitica
+                 Y. enterocolitica
+        [0.0000] murine
+                 FAIL
+        [0.0000] human
+                 FAIL
+        [0.0000] human
+                 FAIL
+        [0.0000] human
+                 FAIL
+        [1.0000] Y. pestis
+                 Y. pestis
+        [1.0000] Y. pestis
+                 Y. pestis
+        [1.0000] Y. pestis
+                 Y. pestis
+        [0.0000] human
+                 FAIL
+        [0.0000] human
+                 FAIL
+
+    Predicted matches (21) :
+        [0.0000] Yersinia
+                 FAIL
+        [0.0000] Yersinia
+                 FAIL
+        [0.0000] Yersinia
+                 FAIL
+        [1.0000] Y. pestis
+                 Y. pestis
+        [1.0000] Y. pestis
+                 Y. pestis
+        [1.0000] Y. pseudotuberculosis
+                 Y. pseudotuberculosis
+        [1.0000] Y. pseudotuberculosis
+                 Y. pseudotuberculosis
+        [1.0000] Y. enterocolitica
+                 Y. enterocolitica
+        [1.0000] Y. enterocolitica
+                 Y. enterocolitica
+        [0.0000] Yersinia
+                 FAIL
+        [0.0000] Yersinia
+                 FAIL
+        [0.0000] Yersinia
+                 FAIL
+        [1.0000] Y. pestis
+                 Y. pestis
+        [1.0000] Y. pestis
+                 Y. pestis
+        [1.0000] Y. pestis
+                 Y. pestis
+        [1.0000] Y. pestis
+                 Y. pestis
+        [1.0000] Y. pestis
+                 Y. pestis
+        [1.0000] Y. pestis
+                 Y. pestis
+        [0.0000] Yersinia
+                 FAIL
+        [0.0000] Yersinia
+                 FAIL
+        [0.0000] Yersinia
+                 FAIL
+
+    Recall   : 0.42857142857142855
+    Precision: 0.5714285714285714
+    F-Score  : 0.48979591836734687
+
+
+text of BB-cat+ner-20580604
+    Reference matches (2) :
+        [1.0000] Lactobacillus casei
+                 Lactobacillus casei
+        [1.0000] Lactobacillus casei
+                 Lactobacillus casei
+
+    Predicted matches (4) :
+        [1.0000] Lactobacillus casei
+                 Lactobacillus casei
+        [0.0000] Lactobacillus
+                 FAIL
+        [1.0000] Lactobacillus casei
+                 Lactobacillus casei
+        [0.0000] Lactobacillus
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-21270066
+    Reference matches (9) :
+        [0.0000] HIV
+                 FAIL
+        [0.0000] HIV
+                 FAIL
+        [0.0000] HIV
+                 FAIL
+        [0.0000] HIV
+                 FAIL
+        [0.0000] HIV
+                 FAIL
+        [0.0000] HIV
+                 FAIL
+        [0.0000] HIV
+                 FAIL
+        [0.0000] HIV
+                 FAIL
+        [1.0000] Chlamydia trachomatis
+                 Chlamydia trachomatis
+
+    Predicted matches (3) :
+        [1.0000] Chlamydia trachomatis
+                 Chlamydia trachomatis
+        [0.0000] Chlamydia
+                 FAIL
+        [0.0000] chlamydia
+                 FAIL
+
+    Recall   : 0.1111111111111111
+    Precision: 0.3333333333333333
+    F-Score  : 0.16666666666666666
+
+
+text of BB-cat+ner-21543877
+    Reference matches (3) :
+        [1.0000] Mycobacterium tuberculosis H37Rv
+                 Mycobacterium tuberculosis H37Rv
+        [0.0000] human
+                 FAIL
+        [1.0000] Mycobacterium tuberculosis
+                 Mycobacterium tuberculosis
+
+    Predicted matches (5) :
+        [1.0000] Mycobacterium tuberculosis H37Rv
+                 Mycobacterium tuberculosis H37Rv
+        [0.0000] Mycobacterium tuberculosis
+                 FAIL
+        [0.0000] Mycobacterium
+                 FAIL
+        [1.0000] Mycobacterium tuberculosis
+                 Mycobacterium tuberculosis
+        [0.0000] Mycobacterium
+                 FAIL
+
+    Recall   : 0.6666666666666666
+    Precision: 0.4
+    F-Score  : 0.5
+
+
+text of BB-cat+ner-21695078
+    Reference matches (7) :
+        [1.0000] Chlamydia muridarum
+                 Chlamydia muridarum
+        [1.0000] Chlamydia trachomatis
+                 Chlamydia trachomatis
+        [0.0000] mouse
+                 FAIL
+        [0.0000] mice
+                 FAIL
+        [1.0000] C. muridarum
+                 C. muridarum
+        [0.0000] mice
+                 FAIL
+        [0.0000] mice
+                 FAIL
+
+    Predicted matches (8) :
+        [1.0000] Chlamydia muridarum
+                 Chlamydia muridarum
+        [0.0000] Chlamydia
+                 FAIL
+        [1.0000] Chlamydia trachomatis
+                 Chlamydia trachomatis
+        [0.0000] Chlamydia
+                 FAIL
+        [0.0000] chlamydia
+                 FAIL
+        [1.0000] C. muridarum
+                 C. muridarum
+        [1.0000] C. muridarum
+                 C. muridarum
+        [0.0000] Chlamydia
+                 FAIL
+
+    Recall   : 0.42857142857142855
+    Precision: 0.5
+    F-Score  : 0.4615384615384615
+
+
+text of BB-cat+ner-21894542
+    Reference matches (0) :
+
+    Predicted matches (5) :
+        [0.0000] Marinobacter
+                 FAIL
+        [0.0000] Marinobacter
+                 FAIL
+        [0.0000] Gammaproteobacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+
+    Recall   : NaN
+    Precision: 0.0
+    F-Score  : NaN
+
+
+text of BB-cat+ner-23902156
+    Reference matches (4) :
+        [0.0000] Penicillium crustosum
+                 FAIL
+        [0.0000] Penicillium brevicompactum
+                 FAIL
+        [0.0000] Penicillium crustosum
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+
+    Predicted matches (3) :
+        [0.0000] a minor
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+
+    Recall   : 0.25
+    Precision: 0.3333333333333333
+    F-Score  : 0.28571428571428575
+
+
+text of BB-cat+ner-25114119
+    Reference matches (22) :
+        [1.0000] Coxiella burnetii
+                 Coxiella burnetii
+        [1.0000] Coxiella burnetii
+                 Coxiella burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [0.0000] mice
+                 FAIL
+        [1.0000] C. burnetii
+                 C. burnetii
+        [0.0000] mice
+                 FAIL
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [0.0000] murine
+                 FAIL
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [0.0000] mice
+                 FAIL
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [0.0000] human
+                 FAIL
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+
+    Predicted matches (34) :
+        [1.0000] Coxiella burnetii
+                 Coxiella burnetii
+        [0.0000] Coxiella
+                 FAIL
+        [1.0000] Coxiella burnetii
+                 Coxiella burnetii
+        [0.0000] Coxiella
+                 FAIL
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+        [1.0000] C. burnetii
+                 C. burnetii
+
+    Recall   : 0.7727272727272727
+    Precision: 0.9411764705882353
+    F-Score  : 0.8486739469578783
+
+
+text of BB-cat+ner-25204345
+    Reference matches (1) :
+        [1.0000] Enterococcus durans
+                 Enterococcus durans
+
+    Predicted matches (8) :
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] Enterococcus
+                 FAIL
+        [0.0000] Lactobacillus
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] Enterococcus durans
+                 Enterococcus durans
+        [0.0000] Enterococcus
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.125
+    F-Score  : 0.2222222222222222
+
+
+text of BB-cat+ner-351567
+    Reference matches (3) :
+        [0.0000] bacteriophage M-13
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [1.0000] E. coli
+                 E. coli
+
+    Predicted matches (5) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [0.0000] A minor
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+
+    Recall   : 0.6666666666666666
+    Precision: 0.6
+    F-Score  : 0.631578947368421
+
+
+text of BB-cat+ner-3544198
+    Reference matches (3) :
+        [1.0000] Mycobacterium leprae
+                 Mycobacterium leprae
+        [1.0000] Mycobacterium leprae
+                 Mycobacterium leprae
+        [0.0000] ELISA
+                 FAIL
+
+    Predicted matches (4) :
+        [1.0000] Mycobacterium leprae
+                 Mycobacterium leprae
+        [0.0000] Mycobacterium
+                 FAIL
+        [1.0000] Mycobacterium leprae
+                 Mycobacterium leprae
+        [0.0000] Mycobacterium
+                 FAIL
+
+    Recall   : 0.6666666666666666
+    Precision: 0.5
+    F-Score  : 0.5714285714285715
+
+
+text of BB-cat+ner-460951
+    Reference matches (5) :
+        [1.0000] M. fortuitum
+                 M. fortuitum
+        [1.0000] M. marinum
+                 M. marinum
+        [1.0000] M. marinum
+                 M. marinum
+        [1.0000] M. marinum
+                 M. marinum
+        [1.0000] M. ulcerans
+                 M. ulcerans
+
+    Predicted matches (16) :
+        [0.0000] mycobacteria
+                 FAIL
+        [0.0000] mycobacteria
+                 FAIL
+        [1.0000] M. fortuitum
+                 M. fortuitum
+        [1.0000] M. fortuitum
+                 M. fortuitum
+        [1.0000] M. marinum
+                 M. marinum
+        [1.0000] M. marinum
+                 M. marinum
+        [1.0000] M. marinum
+                 M. marinum
+        [1.0000] M. marinum
+                 M. marinum
+        [1.0000] M. marinum
+                 M. marinum
+        [1.0000] M. marinum
+                 M. marinum
+        [1.0000] M. marinum
+                 M. marinum
+        [1.0000] M. marinum
+                 M. marinum
+        [1.0000] M. marinum
+                 M. marinum
+        [1.0000] M. marinum
+                 M. marinum
+        [1.0000] M. ulcerans
+                 M. ulcerans
+        [1.0000] M. ulcerans
+                 M. ulcerans
+
+    Recall   : 1.0
+    Precision: 0.875
+    F-Score  : 0.9333333333333333
+
+
+text of BB-cat+ner-47483
+    Reference matches (7) :
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [1.0000] H. influenzae
+                 H. influenzae
+
+    Predicted matches (18) :
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [0.0000] Haemophilus
+                 FAIL
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [0.0000] Haemophilus
+                 FAIL
+        [0.0000] bacilli
+                 FAIL
+        [0.0000] bacilli
+                 FAIL
+        [0.0000] bacilli
+                 FAIL
+        [0.0000] bacilli
+                 FAIL
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+
+    Recall   : 1.0
+    Precision: 0.6111111111111112
+    F-Score  : 0.7586206896551725
+
+
+text of BB-cat+ner-5526468
+    Reference matches (2) :
+        [1.0000] Vibrio fetus
+                 Vibrio fetus
+        [0.0000] human
+                 FAIL
+
+    Predicted matches (2) :
+        [1.0000] Vibrio fetus
+                 Vibrio fetus
+        [0.0000] Vibrio
+                 FAIL
+
+    Recall   : 0.5
+    Precision: 0.5
+    F-Score  : 0.5
+
+
+text of BB-cat+ner-8559802
+    Reference matches (4) :
+        [0.0000] cloning vector
+                 FAIL
+        [1.0000] Salmonella typhimurium
+                 Salmonella typhimurium
+        [1.0000] Salmonella typhimurium
+                 Salmonella typhimurium
+        [1.0000] S. typhimurium
+                 S. typhimurium
+
+    Predicted matches (7) :
+        [1.0000] Salmonella typhimurium
+                 Salmonella typhimurium
+        [0.0000] Salmonella
+                 FAIL
+        [1.0000] Salmonella typhimurium
+                 Salmonella typhimurium
+        [0.0000] Salmonella
+                 FAIL
+        [0.0000] Salmonella
+                 FAIL
+        [1.0000] S. typhimurium
+                 S. typhimurium
+        [1.0000] S. typhimurium
+                 S. typhimurium
+
+    Recall   : 0.75
+    Precision: 0.5714285714285714
+    F-Score  : 0.6486486486486486
+
+
+text of BB-cat+ner-9521147
+    Reference matches (5) :
+        [1.0000] Burkholderia pseudomallei
+                 Burkholderia pseudomallei
+        [1.0000] B. pseudomallei
+                 B. pseudomallei
+        [0.0000] mouse
+                 FAIL
+        [1.0000] B. pseudomallei
+                 B. pseudomallei
+        [1.0000] B. pseudomallei
+                 B. pseudomallei
+
+    Predicted matches (12) :
+        [1.0000] Burkholderia pseudomallei
+                 Burkholderia pseudomallei
+        [0.0000] Burkholderia
+                 FAIL
+        [0.0000] Burkholderia
+                 FAIL
+        [0.0000] Pseudomonas
+                 FAIL
+        [1.0000] B. pseudomallei
+                 B. pseudomallei
+        [1.0000] B. pseudomallei
+                 B. pseudomallei
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] B. pseudomallei
+                 B. pseudomallei
+        [1.0000] B. pseudomallei
+                 B. pseudomallei
+        [1.0000] B. pseudomallei
+                 B. pseudomallei
+        [1.0000] B. pseudomallei
+                 B. pseudomallei
+
+    Recall   : 0.8
+    Precision: 0.5833333333333334
+    F-Score  : 0.674698795180723
+
+
+text of BB-cat+ner-9553794
+    Reference matches (16) :
+        [1.0000] Carnobacterium piscicola
+                 Carnobacterium piscicola
+        [0.0000] salmon
+                 FAIL
+        [0.0000] salmon
+                 FAIL
+        [0.0000] salmon
+                 FAIL
+        [0.0000] salmon
+                 FAIL
+        [0.0000] Vibrio sp
+                 FAIL
+        [1.0000] V. marinus
+                 V. marinus
+        [1.0000] Enterobacter agglomerans
+                 Enterobacter agglomerans
+        [1.0000] Serratia liquefaciens
+                 Serratia liquefaciens
+        [1.0000] Rahnella aquatilis
+                 Rahnella aquatilis
+        [1.0000] Aeromonas hydrophila
+                 Aeromonas hydrophila
+        [1.0000] Carnobacterium piscicola
+                 Carnobacterium piscicola
+        [1.0000] C. piscicola
+                 C. piscicola
+        [0.0000] salmon
+                 FAIL
+        [0.0000] salmon
+                 FAIL
+        [1.0000] C. piscicola
+                 C. piscicola
+
+    Predicted matches (34) :
+        [1.0000] Carnobacterium piscicola
+                 Carnobacterium piscicola
+        [0.0000] Carnobacterium
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] Vibrio sp.
+                 FAIL
+        [0.0000] Vibrio
+                 FAIL
+        [1.0000] V. marinus
+                 V. marinus
+        [1.0000] V. marinus
+                 V. marinus
+        [0.0000] Enterobacteriaceae
+                 FAIL
+        [1.0000] Enterobacter agglomerans
+                 Enterobacter agglomerans
+        [0.0000] Enterobacter
+                 FAIL
+        [1.0000] Serratia liquefaciens
+                 Serratia liquefaciens
+        [0.0000] Serratia
+                 FAIL
+        [1.0000] Rahnella aquatilis
+                 Rahnella aquatilis
+        [0.0000] Rahnella
+                 FAIL
+        [1.0000] Aeromonas hydrophila
+                 Aeromonas hydrophila
+        [0.0000] Aeromonas
+                 FAIL
+        [1.0000] Carnobacterium piscicola
+                 Carnobacterium piscicola
+        [0.0000] Carnobacterium
+                 FAIL
+        [0.0000] Carnobacterium
+                 FAIL
+        [1.0000] C. piscicola
+                 C. piscicola
+        [1.0000] C. piscicola
+                 C. piscicola
+        [1.0000] C. piscicola
+                 C. piscicola
+        [1.0000] C. piscicola
+                 C. piscicola
+        [1.0000] C. piscicola
+                 C. piscicola
+        [1.0000] C. piscicola
+                 C. piscicola
+        [1.0000] C. piscicola
+                 C. piscicola
+        [1.0000] C. piscicola
+                 C. piscicola
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+
+    Recall   : 0.5625
+    Precision: 0.47058823529411764
+    F-Score  : 0.5124555160142348
+
+
+text of BB-cat+ner-9745160
+    Reference matches (9) :
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [1.0000] H pylori
+                 H pylori
+        [1.0000] H pylori
+                 H pylori
+        [1.0000] H pylori
+                 H pylori
+        [1.0000] H pylori
+                 H pylori
+        [1.0000] H pylori
+                 H pylori
+        [1.0000] H pylori
+                 H pylori
+        [1.0000] H pylori
+                 H pylori
+
+    Predicted matches (12) :
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [0.0000] Helicobacter
+                 FAIL
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [0.0000] Helicobacter
+                 FAIL
+        [1.0000] H pylori
+                 H pylori
+        [0.0000] Campylobacter
+                 FAIL
+        [1.0000] H pylori
+                 H pylori
+        [1.0000] H pylori
+                 H pylori
+        [1.0000] H pylori
+                 H pylori
+        [1.0000] H pylori
+                 H pylori
+        [1.0000] H pylori
+                 H pylori
+        [1.0000] H pylori
+                 H pylori
+
+    Recall   : 1.0
+    Precision: 0.75
+    F-Score  : 0.8571428571428571
+
+
+text of BB-cat+ner-10618167
+    Reference matches (2) :
+        [1.0000] Listeria monocytogenes
+                 Listeria monocytogenes
+        [1.0000] Listeria monocytogenes
+                 Listeria monocytogenes
+
+    Predicted matches (4) :
+        [1.0000] Listeria monocytogenes
+                 Listeria monocytogenes
+        [0.0000] Listeria
+                 FAIL
+        [1.0000] Listeria monocytogenes
+                 Listeria monocytogenes
+        [0.0000] Listeria
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-10645449
+    Reference matches (2) :
+        [1.0000] Mycobacterium tuberculosis
+                 Mycobacterium tuberculosis
+        [1.0000] Mycobacterium tuberculosis
+                 Mycobacterium tuberculosis
+
+    Predicted matches (4) :
+        [1.0000] Mycobacterium tuberculosis
+                 Mycobacterium tuberculosis
+        [0.0000] Mycobacterium
+                 FAIL
+        [1.0000] Mycobacterium tuberculosis
+                 Mycobacterium tuberculosis
+        [0.0000] Mycobacterium
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-10656819
+    Reference matches (1) :
+        [1.0000] Bacillus lentus
+                 Bacillus lentus
+
+    Predicted matches (2) :
+        [1.0000] Bacillus lentus
+                 Bacillus lentus
+        [0.0000] Bacillus
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-10665543
+    Reference matches (10) :
+        [0.0000] cattle
+                 FAIL
+        [1.0000] Brucella abortus
+                 Brucella abortus
+        [0.0000] B. melitensis 16M
+                 FAIL
+        [0.0000] ELISA
+                 FAIL
+        [0.0000] cattle
+                 FAIL
+        [0.0000] cows
+                 FAIL
+        [1.0000] B. abortus
+                 B. abortus
+        [0.0000] cattle
+                 FAIL
+        [1.0000] B. abortus
+                 B. abortus
+        [0.0000] cattle
+                 FAIL
+
+    Predicted matches (9) :
+        [0.0000] Brucella
+                 FAIL
+        [1.0000] Brucella abortus
+                 Brucella abortus
+        [0.0000] Brucella
+                 FAIL
+        [0.0000] B. melitensis
+                 FAIL
+        [0.0000] B. melitensis
+                 FAIL
+        [1.0000] B. abortus
+                 B. abortus
+        [1.0000] B. abortus
+                 B. abortus
+        [1.0000] B. abortus
+                 B. abortus
+        [1.0000] B. abortus
+                 B. abortus
+
+    Recall   : 0.3
+    Precision: 0.5555555555555556
+    F-Score  : 0.3896103896103896
+
+
+text of BB-cat+ner-10770276
+    Reference matches (9) :
+        [1.0000] Salmonella typhimurium
+                 Salmonella typhimurium
+        [0.0000] mice
+                 FAIL
+        [0.0000] mice
+                 FAIL
+        [1.0000] Salmonella typhimurium
+                 Salmonella typhimurium
+        [0.0000] humans
+                 FAIL
+        [1.0000] S. typhi
+                 S. typhi
+        [1.0000] S. typhimurium
+                 S. typhimurium
+        [1.0000] S. typhimurium
+                 S. typhimurium
+        [1.0000] S. typhimurium
+                 S. typhimurium
+
+    Predicted matches (18) :
+        [1.0000] Salmonella typhimurium
+                 Salmonella typhimurium
+        [0.0000] Salmonella
+                 FAIL
+        [1.0000] Salmonella typhimurium
+                 Salmonella typhimurium
+        [0.0000] Salmonella
+                 FAIL
+        [1.0000] S. typhi
+                 S. typhi
+        [1.0000] S. typhi
+                 S. typhi
+        [1.0000] S. typhimurium
+                 S. typhimurium
+        [1.0000] S. typhimurium
+                 S. typhimurium
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] Salmonella
+                 FAIL
+        [1.0000] S. typhimurium
+                 S. typhimurium
+        [1.0000] S. typhimurium
+                 S. typhimurium
+        [0.0000] Salmonella
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] S. typhimurium
+                 S. typhimurium
+        [1.0000] S. typhimurium
+                 S. typhimurium
+
+    Recall   : 0.6666666666666666
+    Precision: 0.5555555555555556
+    F-Score  : 0.606060606060606
+
+
+text of BB-cat+ner-10792385
+    Reference matches (1) :
+        [1.0000] Neisseria meningitidis
+                 Neisseria meningitidis
+
+    Predicted matches (2) :
+        [1.0000] Neisseria meningitidis
+                 Neisseria meningitidis
+        [0.0000] Neisseria
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-10796014
+    Reference matches (6) :
+        [1.0000] Sinorhizobium meliloti
+                 Sinorhizobium meliloti
+        [1.0000] Sinorhizobium meliloti
+                 Sinorhizobium meliloti
+        [0.0000] alfalfa
+                 FAIL
+        [1.0000] Rickettsia prowazekii
+                 Rickettsia prowazekii
+        [1.0000] Zymomonas mobilis
+                 Zymomonas mobilis
+        [1.0000] S. meliloti
+                 S. meliloti
+
+    Predicted matches (17) :
+        [1.0000] Sinorhizobium meliloti
+                 Sinorhizobium meliloti
+        [0.0000] Sinorhizobium
+                 FAIL
+        [1.0000] Sinorhizobium meliloti
+                 Sinorhizobium meliloti
+        [0.0000] Sinorhizobium
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] proteobacteria
+                 FAIL
+        [0.0000] proteobacteria
+                 FAIL
+        [1.0000] Rickettsia prowazekii
+                 Rickettsia prowazekii
+        [0.0000] Rickettsia
+                 FAIL
+        [1.0000] Zymomonas mobilis
+                 Zymomonas mobilis
+        [0.0000] Zymomonas
+                 FAIL
+        [0.0000] gram-positive bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] S. meliloti
+                 S. meliloti
+        [1.0000] S. meliloti
+                 S. meliloti
+
+    Recall   : 0.8333333333333334
+    Precision: 0.35294117647058826
+    F-Score  : 0.49586776859504134
+
+
+text of BB-cat+ner-11551069
+    Reference matches (5) :
+        [1.0000] onion yellows phytoplasma
+                 onion yellows phytoplasma
+        [1.0000] Bacillus subtilis
+                 Bacillus subtilis
+        [0.0000] rabbit
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [1.0000] B. subtilis
+                 B. subtilis
+
+    Predicted matches (16) :
+        [0.0000] Phytoplasma
+                 FAIL
+        [1.0000] onion yellows phytoplasma
+                 onion yellows phytoplasma
+        [0.0000] phytoplasma
+                 FAIL
+        [1.0000] Bacillus subtilis
+                 Bacillus subtilis
+        [0.0000] Bacillus
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [0.0000] phytoplasma
+                 FAIL
+        [0.0000] phytoplasma
+                 FAIL
+        [1.0000] B. subtilis
+                 B. subtilis
+        [1.0000] B. subtilis
+                 B. subtilis
+        [0.0000] phytoplasmas
+                 FAIL
+        [0.0000] phytoplasmas
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] phytoplasma
+                 FAIL
+
+    Recall   : 0.8
+    Precision: 0.3125
+    F-Score  : 0.449438202247191
+
+
+text of BB-cat+ner-12417169
+    Reference matches (5) :
+        [1.0000] Enterococcus faecium
+                 Enterococcus faecium
+        [1.0000] Enterococcus faecium
+                 Enterococcus faecium
+        [1.0000] E. faecium
+                 E. faecium
+        [1.0000] E. faecium
+                 E. faecium
+        [1.0000] E. faecium
+                 E. faecium
+
+    Predicted matches (10) :
+        [1.0000] Enterococcus faecium
+                 Enterococcus faecium
+        [0.0000] Enterococcus
+                 FAIL
+        [1.0000] Enterococcus faecium
+                 Enterococcus faecium
+        [0.0000] Enterococcus
+                 FAIL
+        [1.0000] E. faecium
+                 E. faecium
+        [1.0000] E. faecium
+                 E. faecium
+        [1.0000] E. faecium
+                 E. faecium
+        [1.0000] E. faecium
+                 E. faecium
+        [1.0000] E. faecium
+                 E. faecium
+        [1.0000] E. faecium
+                 E. faecium
+
+    Recall   : 1.0
+    Precision: 0.8
+    F-Score  : 0.888888888888889
+
+
+text of BB-cat+ner-12438382
+    Reference matches (9) :
+        [1.0000] Proteus mirabilis
+                 Proteus mirabilis
+        [1.0000] Proteus mirabilis
+                 Proteus mirabilis
+        [1.0000] Proteus mirabilis
+                 Proteus mirabilis
+        [1.0000] P. mirabilis
+                 P. mirabilis
+        [1.0000] P. mirabilis
+                 P. mirabilis
+        [0.0000] human
+                 FAIL
+        [0.0000] human
+                 FAIL
+        [1.0000] P. mirabilis
+                 P. mirabilis
+        [1.0000] P. mirabilis
+                 P. mirabilis
+
+    Predicted matches (16) :
+        [1.0000] Proteus mirabilis
+                 Proteus mirabilis
+        [0.0000] Proteus
+                 FAIL
+        [1.0000] Proteus mirabilis
+                 Proteus mirabilis
+        [0.0000] Proteus
+                 FAIL
+        [1.0000] Proteus mirabilis
+                 Proteus mirabilis
+        [0.0000] Proteus
+                 FAIL
+        [1.0000] P. mirabilis
+                 P. mirabilis
+        [1.0000] P. mirabilis
+                 P. mirabilis
+        [1.0000] P. mirabilis
+                 P. mirabilis
+        [1.0000] P. mirabilis
+                 P. mirabilis
+        [1.0000] P. mirabilis
+                 P. mirabilis
+        [1.0000] P. mirabilis
+                 P. mirabilis
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] P. mirabilis
+                 P. mirabilis
+        [1.0000] P. mirabilis
+                 P. mirabilis
+
+    Recall   : 0.7777777777777778
+    Precision: 0.6875
+    F-Score  : 0.7298578199052133
+
+
+text of BB-cat+ner-12934822
+    Reference matches (5) :
+        [0.0000] Cryptosporidium parvum
+                 FAIL
+        [0.0000] Cryptosporidium parvum
+                 FAIL
+        [0.0000] activated-sludge
+                 FAIL
+        [1.0000] C. parvum
+                 C. parvum
+        [1.0000] C. parvum
+                 C. parvum
+
+    Predicted matches (8) :
+        [1.0000] C. parvum
+                 C. parvum
+        [1.0000] C. parvum
+                 C. parvum
+        [1.0000] C. parvum
+                 C. parvum
+        [1.0000] C. parvum
+                 C. parvum
+        [1.0000] C. parvum
+                 C. parvum
+        [1.0000] C. parvum
+                 C. parvum
+        [1.0000] C. parvum
+                 C. parvum
+        [1.0000] C. parvum
+                 C. parvum
+
+    Recall   : 0.4
+    Precision: 1.0
+    F-Score  : 0.5714285714285715
+
+
+text of BB-cat+ner-14638480
+    Reference matches (2) :
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+
+    Predicted matches (4) :
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-14657131
+    Reference matches (5) :
+        [1.0000] Mesonia algae
+                 Mesonia algae
+        [0.0000] marine bacterium
+                 FAIL
+        [0.0000] Acrosiphonia sonderi
+                 FAIL
+        [0.0000] Acrosiphonia sonderi
+                 FAIL
+        [1.0000] Mesonia algae
+                 Mesonia algae
+
+    Predicted matches (13) :
+        [1.0000] Mesonia algae
+                 Mesonia algae
+        [0.0000] Mesonia
+                 FAIL
+        [0.0000] Flavobacteriaceae
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] Flavobacteriaceae
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] Mesonia algae
+                 Mesonia algae
+        [0.0000] Mesonia
+                 FAIL
+        [0.0000] KMM 3909
+                 FAIL
+        [0.0000] KCTC 12089
+                 FAIL
+        [0.0000] CCUG 47092
+                 FAIL
+
+    Recall   : 0.4
+    Precision: 0.15384615384615385
+    F-Score  : 0.2222222222222222
+
+
+text of BB-cat+ner-15273106
+    Reference matches (4) :
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [0.0000] rat
+                 FAIL
+
+    Predicted matches (13) :
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [0.0000] strain 14
+                 FAIL
+        [0.0000] strain 14
+                 FAIL
+        [0.0000] strain 14
+                 FAIL
+        [0.0000] strain 14
+                 FAIL
+        [0.0000] strain 14
+                 FAIL
+
+    Recall   : 0.75
+    Precision: 0.46153846153846156
+    F-Score  : 0.5714285714285714
+
+
+text of BB-cat+ner-15460321
+    Reference matches (8) :
+        [0.0000] cattle
+                 FAIL
+        [1.0000] M. bovis
+                 M. bovis
+        [1.0000] M. bovis
+                 M. bovis
+        [1.0000] M. bovis
+                 M. bovis
+        [1.0000] M. bovis
+                 M. bovis
+        [1.0000] M. bovis
+                 M. bovis
+        [1.0000] M. bovirhinis
+                 M. bovirhinis
+        [1.0000] M. alkalescens
+                 M. alkalescens
+
+    Predicted matches (22) :
+        [0.0000] Mycoplasma
+                 FAIL
+        [0.0000] Mycoplasma
+                 FAIL
+        [0.0000] Mycoplasma
+                 FAIL
+        [0.0000] Mycoplasma
+                 FAIL
+        [0.0000] Mycoplasma
+                 FAIL
+        [0.0000] Mycoplasma
+                 FAIL
+        [1.0000] M. bovis
+                 M. bovis
+        [1.0000] M. bovis
+                 M. bovis
+        [1.0000] M. bovis
+                 M. bovis
+        [1.0000] M. bovis
+                 M. bovis
+        [1.0000] M. bovis
+                 M. bovis
+        [1.0000] M. bovis
+                 M. bovis
+        [1.0000] M. bovis
+                 M. bovis
+        [1.0000] M. bovis
+                 M. bovis
+        [1.0000] M. bovis
+                 M. bovis
+        [1.0000] M. bovis
+                 M. bovis
+        [1.0000] M. bovirhinis
+                 M. bovirhinis
+        [1.0000] M. bovirhinis
+                 M. bovirhinis
+        [1.0000] M. alkalescens
+                 M. alkalescens
+        [1.0000] M. alkalescens
+                 M. alkalescens
+        [0.0000] Mycoplasma
+                 FAIL
+        [0.0000] Mycoplasma
+                 FAIL
+
+    Recall   : 0.875
+    Precision: 0.6363636363636364
+    F-Score  : 0.7368421052631579
+
+
+text of BB-cat+ner-15612668
+    Reference matches (3) :
+        [0.0000] ELISA
+                 FAIL
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [1.0000] H. pylori
+                 H. pylori
+
+    Predicted matches (4) :
+        [1.0000] Helicobacter pylori
+                 Helicobacter pylori
+        [0.0000] Helicobacter
+                 FAIL
+        [1.0000] H. pylori
+                 H. pylori
+        [1.0000] H. pylori
+                 H. pylori
+
+    Recall   : 0.6666666666666666
+    Precision: 0.75
+    F-Score  : 0.7058823529411765
+
+
+text of BB-cat+ner-15626953
+    Reference matches (6) :
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [1.0000] Streptococcus pneumoniae
+                 Streptococcus pneumoniae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+
+    Predicted matches (12) :
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [0.0000] Haemophilus
+                 FAIL
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [0.0000] Haemophilus
+                 FAIL
+        [1.0000] Streptococcus pneumoniae
+                 Streptococcus pneumoniae
+        [0.0000] Streptococcus
+                 FAIL
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+
+    Recall   : 1.0
+    Precision: 0.75
+    F-Score  : 0.8571428571428571
+
+
+text of BB-cat+ner-1649682
+    Reference matches (4) :
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [1.0000] staphylococcus aureus
+                 staphylococcus aureus
+        [1.0000] staphylococcus aureus
+                 staphylococcus aureus
+
+    Predicted matches (11) :
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] staphylococci
+                 FAIL
+        [1.0000] staphylococcus aureus
+                 staphylococcus aureus
+        [0.0000] staphylococcus
+                 FAIL
+        [1.0000] staphylococcus aureus
+                 staphylococcus aureus
+        [0.0000] staphylococcus
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.36363636363636365
+    F-Score  : 0.5333333333333333
+
+
+text of BB-cat+ner-16510930
+    Reference matches (12) :
+        [1.0000] E.coli
+                 E.coli
+        [1.0000] E.coli
+                 E.coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+
+    Predicted matches (11) :
+        [1.0000] E.coli
+                 E.coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+
+    Recall   : 1.0
+    Precision: 1.0
+    F-Score  : 1.0
+
+
+text of BB-cat+ner-16728960
+    Reference matches (10) :
+        [1.0000] vibrio vulnificus
+                 vibrio vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+
+    Predicted matches (20) :
+        [1.0000] vibrio vulnificus
+                 vibrio vulnificus
+        [0.0000] vibrio
+                 FAIL
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+        [1.0000] V. vulnificus
+                 V. vulnificus
+
+    Recall   : 1.0
+    Precision: 0.95
+    F-Score  : 0.9743589743589743
+
+
+text of BB-cat+ner-17261513
+    Reference matches (2) :
+        [0.0000] Methylomonas sp
+                 FAIL
+        [0.0000] Methylomonas sp
+                 FAIL
+
+    Predicted matches (5) :
+        [0.0000] Methylomonas sp.
+                 FAIL
+        [0.0000] Methylomonas
+                 FAIL
+        [0.0000] Methylomonas sp.
+                 FAIL
+        [0.0000] Methylomonas
+                 FAIL
+        [0.0000] Methylomonas
+                 FAIL
+
+    Recall   : 0.0
+    Precision: 0.0
+    F-Score  : NaN
+
+
+text of BB-cat+ner-19494280
+    Reference matches (10) :
+        [0.0000] human
+                 FAIL
+        [0.0000] human
+                 FAIL
+        [0.0000] human
+                 FAIL
+        [0.0000] HSV-1
+                 FAIL
+        [0.0000] vaccinia virus
+                 FAIL
+        [1.0000] Listeria innocua
+                 Listeria innocua
+        [1.0000] Listeria monocytogenes
+                 Listeria monocytogenes
+        [1.0000] Mycobacterium tuberculosis
+                 Mycobacterium tuberculosis
+        [1.0000] Chlamydophila pneumoniae
+                 Chlamydophila pneumoniae
+        [0.0000] HSV-1
+                 FAIL
+
+    Predicted matches (14) :
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] Listeria innocua
+                 Listeria innocua
+        [0.0000] Listeria
+                 FAIL
+        [1.0000] Listeria monocytogenes
+                 Listeria monocytogenes
+        [0.0000] Listeria
+                 FAIL
+        [1.0000] Mycobacterium tuberculosis
+                 Mycobacterium tuberculosis
+        [0.0000] Mycobacterium
+                 FAIL
+        [1.0000] Chlamydophila pneumoniae
+                 Chlamydophila pneumoniae
+        [0.0000] Chlamydophila
+                 FAIL
+        [0.0000] Listeria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] Listeria
+                 FAIL
+
+    Recall   : 0.4
+    Precision: 0.2857142857142857
+    F-Score  : 0.3333333333333333
+
+
+text of BB-cat+ner-19656787
+    Reference matches (13) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] human
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] human
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] Salmonella enterica serovar Typhimurium
+                 Salmonella enterica serovar Typhimurium
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] S. enterica
+                 S. enterica
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+
+    Predicted matches (27) :
+        [0.0000] Salmonella
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] Salmonella enterica serovar Typhimurium
+                 Salmonella enterica serovar Typhimurium
+        [0.0000] Salmonella enterica
+                 FAIL
+        [0.0000] Salmonella
+                 FAIL
+        [0.0000] Salmonella
+                 FAIL
+        [0.0000] Salmonella
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] S. enterica
+                 S. enterica
+        [1.0000] S. enterica
+                 S. enterica
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [0.0000] Salmonella
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+
+    Recall   : 0.8461538461538461
+    Precision: 0.7037037037037037
+    F-Score  : 0.7683823529411764
+
+
+text of BB-cat+ner-20400104
+    Reference matches (3) :
+        [1.0000] Faecalibacterium prausnitzii
+                 Faecalibacterium prausnitzii
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [1.0000] E coli
+                 E coli
+
+    Predicted matches (5) :
+        [1.0000] Faecalibacterium prausnitzii
+                 Faecalibacterium prausnitzii
+        [0.0000] Faecalibacterium
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] E coli
+                 E coli
+
+    Recall   : 1.0
+    Precision: 0.6
+    F-Score  : 0.7499999999999999
+
+
+text of BB-cat+ner-20672296
+    Reference matches (1) :
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+
+    Predicted matches (2) :
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [0.0000] Pseudomonas
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-21148810
+    Reference matches (4) :
+        [0.0000] human
+                 FAIL
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] human
+                 FAIL
+        [0.0000] human
+                 FAIL
+
+    Predicted matches (2) :
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+
+    Recall   : 0.25
+    Precision: 0.5
+    F-Score  : 0.3333333333333333
+
+
+text of BB-cat+ner-21476570
+    Reference matches (2) :
+        [1.0000] Chlorobaculum tepidum
+                 Chlorobaculum tepidum
+        [1.0000] Chlorobaculum tepidum
+                 Chlorobaculum tepidum
+
+    Predicted matches (8) :
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] Chlorobaculum tepidum
+                 Chlorobaculum tepidum
+        [0.0000] Chlorobaculum
+                 FAIL
+        [1.0000] Chlorobaculum tepidum
+                 Chlorobaculum tepidum
+        [0.0000] Chlorobaculum
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.25
+    F-Score  : 0.4
+
+
+text of BB-cat+ner-21511409
+    Reference matches (6) :
+        [1.0000] Pasteurella multocida
+                 Pasteurella multocida
+        [1.0000] Pasteurella multocida
+                 Pasteurella multocida
+        [0.0000] cattle
+                 FAIL
+        [1.0000] P. multocida
+                 P. multocida
+        [1.0000] P. multocida
+                 P. multocida
+        [1.0000] P. multocida
+                 P. multocida
+
+    Predicted matches (10) :
+        [1.0000] Pasteurella multocida
+                 Pasteurella multocida
+        [0.0000] Pasteurella
+                 FAIL
+        [1.0000] Pasteurella multocida
+                 Pasteurella multocida
+        [0.0000] Pasteurella
+                 FAIL
+        [1.0000] P. multocida
+                 P. multocida
+        [1.0000] P. multocida
+                 P. multocida
+        [1.0000] P. multocida
+                 P. multocida
+        [1.0000] P. multocida
+                 P. multocida
+        [1.0000] P. multocida
+                 P. multocida
+        [1.0000] P. multocida
+                 P. multocida
+
+    Recall   : 0.8333333333333334
+    Precision: 0.8
+    F-Score  : 0.816326530612245
+
+
+text of BB-cat+ner-21989983
+    Reference matches (4) :
+        [1.0000] Acinetobacter baumannii
+                 Acinetobacter baumannii
+        [1.0000] Acinetobacter baumannii
+                 Acinetobacter baumannii
+        [0.0000] human
+                 FAIL
+        [1.0000] A. baumannii
+                 A. baumannii
+
+    Predicted matches (9) :
+        [1.0000] Acinetobacter baumannii
+                 Acinetobacter baumannii
+        [0.0000] Acinetobacter
+                 FAIL
+        [0.0000] Acinetobacter
+                 FAIL
+        [0.0000] Acinetobacter
+                 FAIL
+        [1.0000] Acinetobacter baumannii
+                 Acinetobacter baumannii
+        [0.0000] Acinetobacter
+                 FAIL
+        [0.0000] Acinetobacter
+                 FAIL
+        [1.0000] A. baumannii
+                 A. baumannii
+        [1.0000] A. baumannii
+                 A. baumannii
+
+    Recall   : 0.75
+    Precision: 0.4444444444444444
+    F-Score  : 0.5581395348837209
+
+
+text of BB-cat+ner-22203552
+    Reference matches (6) :
+        [0.0000] rice
+                 FAIL
+        [0.0000] rice
+                 FAIL
+        [0.0000] rice
+                 FAIL
+        [0.0000] rice
+                 FAIL
+        [0.0000] rice
+                 FAIL
+        [0.0000] rice
+                 FAIL
+
+    Predicted matches (5) :
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] Pantoea
+                 FAIL
+
+    Recall   : 0.0
+    Precision: 0.0
+    F-Score  : NaN
+
+
+text of BB-cat+ner-22537874
+    Reference matches (3) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] human
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+
+    Predicted matches (4) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+
+    Recall   : 0.6666666666666666
+    Precision: 0.75
+    F-Score  : 0.7058823529411765
+
+
+text of BB-cat+ner-23645023
+    Reference matches (5) :
+        [0.0000] Smilacina japonica
+                 FAIL
+        [1.0000] Flavihumibacter petaseus
+                 Flavihumibacter petaseus
+        [0.0000] Smilacina japonica A. Gray
+                 FAIL
+        [1.0000] Lacibacter cauensis
+                 Lacibacter cauensis
+        [1.0000] Flavihumibacter petaseus
+                 Flavihumibacter petaseus
+
+    Predicted matches (16) :
+        [0.0000] Taibaiella smilacinae
+                 FAIL
+        [0.0000] Taibaiella
+                 FAIL
+        [0.0000] Chitinophagaceae
+                 FAIL
+        [1.0000] Flavihumibacter petaseus
+                 Flavihumibacter petaseus
+        [0.0000] Flavihumibacter
+                 FAIL
+        [0.0000] Bacteroidetes
+                 FAIL
+        [0.0000] Bacteroidetes
+                 FAIL
+        [1.0000] Lacibacter cauensis
+                 Lacibacter cauensis
+        [0.0000] Lacibacter
+                 FAIL
+        [0.0000] Chitinophagaceae
+                 FAIL
+        [0.0000] Taibaiella smilacinae
+                 FAIL
+        [0.0000] Taibaiella
+                 FAIL
+        [0.0000] Taibaiella smilacinae
+                 FAIL
+        [0.0000] Taibaiella
+                 FAIL
+        [1.0000] Flavihumibacter petaseus
+                 Flavihumibacter petaseus
+        [0.0000] Flavihumibacter
+                 FAIL
+
+    Recall   : 0.6
+    Precision: 0.1875
+    F-Score  : 0.2857142857142857
+
+
+text of BB-cat+ner-24389148
+    Reference matches (6) :
+        [1.0000] Bacillus anthracis
+                 Bacillus anthracis
+        [1.0000] anthrax bacterium
+                 anthrax bacterium
+        [0.0000] mice
+                 FAIL
+        [0.0000] mice
+                 FAIL
+        [0.0000] human
+                 FAIL
+        [1.0000] B. anthracis
+                 B. anthracis
+
+    Predicted matches (16) :
+        [0.0000] anthrax
+                 FAIL
+        [1.0000] Bacillus anthracis
+                 Bacillus anthracis
+        [0.0000] Bacillus
+                 FAIL
+        [0.0000] anthrax
+                 FAIL
+        [0.0000] anthrax
+                 FAIL
+        [1.0000] anthrax bacterium
+                 anthrax bacterium
+        [0.0000] anthrax
+                 FAIL
+        [0.0000] anthrax
+                 FAIL
+        [0.0000] anthrax
+                 FAIL
+        [0.0000] anthrax
+                 FAIL
+        [0.0000] anthrax
+                 FAIL
+        [1.0000] B. anthracis
+                 B. anthracis
+        [1.0000] B. anthracis
+                 B. anthracis
+        [0.0000] anthrax
+                 FAIL
+        [0.0000] anthrax
+                 FAIL
+        [0.0000] anthrax
+                 FAIL
+
+    Recall   : 0.5
+    Precision: 0.25
+    F-Score  : 0.3333333333333333
+
+
+text of BB-cat+ner-24584903
+    Reference matches (2) :
+        [1.0000] Chlorobaculum tepidum
+                 Chlorobaculum tepidum
+        [1.0000] Chlorobaculum tepidum
+                 Chlorobaculum tepidum
+
+    Predicted matches (4) :
+        [1.0000] Chlorobaculum tepidum
+                 Chlorobaculum tepidum
+        [0.0000] Chlorobaculum
+                 FAIL
+        [1.0000] Chlorobaculum tepidum
+                 Chlorobaculum tepidum
+        [0.0000] Chlorobaculum
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-24739626
+    Reference matches (0) :
+
+    Predicted matches (9) :
+        [0.0000] cyanobacteria
+                 FAIL
+        [0.0000] cyanobacteria
+                 FAIL
+        [0.0000] Prochlorococcus
+                 FAIL
+        [0.0000] cyanobacteria
+                 FAIL
+        [0.0000] cyanobacteria
+                 FAIL
+        [0.0000] Prochlorococcus
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] Prochlorococcus
+                 FAIL
+
+    Recall   : NaN
+    Precision: 0.0
+    F-Score  : NaN
+
+
+text of BB-cat+ner-24794581
+    Reference matches (6) :
+        [0.0000] turbot
+                 FAIL
+        [0.0000] Scophthalmus maximus
+                 FAIL
+        [0.0000] turbot
+                 FAIL
+        [0.0000] Scophthalmus maximus
+                 FAIL
+        [0.0000] VHSV
+                 FAIL
+        [0.0000] turbot
+                 FAIL
+
+    Predicted matches (0) :
+
+    Recall   : 0.0
+    Precision: NaN
+    F-Score  : NaN
+
+
+text of BB-cat+ner-24865686
+    Reference matches (6) :
+        [1.0000] Mycobacterium tuberculosis
+                 Mycobacterium tuberculosis
+        [1.0000] Mycobacterium tuberculosis
+                 Mycobacterium tuberculosis
+        [1.0000] M. tuberculosis
+                 M. tuberculosis
+        [1.0000] M. tuberculosis
+                 M. tuberculosis
+        [1.0000] M. tuberculosis
+                 M. tuberculosis
+        [1.0000] M. tuberculosis
+                 M. tuberculosis
+
+    Predicted matches (12) :
+        [1.0000] Mycobacterium tuberculosis
+                 Mycobacterium tuberculosis
+        [0.0000] Mycobacterium
+                 FAIL
+        [1.0000] Mycobacterium tuberculosis
+                 Mycobacterium tuberculosis
+        [0.0000] Mycobacterium
+                 FAIL
+        [1.0000] M. tuberculosis
+                 M. tuberculosis
+        [1.0000] M. tuberculosis
+                 M. tuberculosis
+        [1.0000] M. tuberculosis
+                 M. tuberculosis
+        [1.0000] M. tuberculosis
+                 M. tuberculosis
+        [1.0000] M. tuberculosis
+                 M. tuberculosis
+        [1.0000] M. tuberculosis
+                 M. tuberculosis
+        [1.0000] M. tuberculosis
+                 M. tuberculosis
+        [1.0000] M. tuberculosis
+                 M. tuberculosis
+
+    Recall   : 1.0
+    Precision: 0.8333333333333334
+    F-Score  : 0.9090909090909091
+
+
+text of BB-cat+ner-25046729
+    Reference matches (5) :
+        [0.0000] human
+                 FAIL
+        [0.0000] human
+                 FAIL
+        [0.0000] nematode
+                 FAIL
+        [0.0000] nematodes
+                 FAIL
+        [0.0000] human
+                 FAIL
+
+    Predicted matches (8) :
+        [0.0000] Wolbachia
+                 FAIL
+        [0.0000] Wolbachia
+                 FAIL
+        [0.0000] Wolbachia
+                 FAIL
+        [0.0000] Wolbachia
+                 FAIL
+        [0.0000] Wolbachia
+                 FAIL
+        [0.0000] Wolbachia
+                 FAIL
+        [0.0000] Wolbachia
+                 FAIL
+        [0.0000] Wolbachia
+                 FAIL
+
+    Recall   : 0.0
+    Precision: 0.0
+    F-Score  : NaN
+
+
+text of BB-cat+ner-25179651
+    Reference matches (2) :
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+
+    Predicted matches (4) :
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [0.0000] Pseudomonas
+                 FAIL
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [0.0000] Pseudomonas
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-25607366
+    Reference matches (1) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+
+    Predicted matches (2) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-25644009
+    Reference matches (8) :
+        [1.0000] Rickettsia rickettsii
+                 Rickettsia rickettsii
+        [1.0000] Rickettsia rickettsii
+                 Rickettsia rickettsii
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [0.0000] guinea pig
+                 FAIL
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [0.0000] R. rickettsii Iowa
+                 FAIL
+        [0.0000] R. rickettsii Sheila Smith
+                 FAIL
+
+    Predicted matches (14) :
+        [1.0000] Rickettsia rickettsii
+                 Rickettsia rickettsii
+        [0.0000] Rickettsia
+                 FAIL
+        [1.0000] Rickettsia rickettsii
+                 Rickettsia rickettsii
+        [0.0000] Rickettsia
+                 FAIL
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [1.0000] R. rickettsii
+                 R. rickettsii
+        [0.0000] R. rickettsii
+                 FAIL
+        [0.0000] R. rickettsii
+                 FAIL
+        [0.0000] R. rickettsii
+                 FAIL
+        [0.0000] R. rickettsii
+                 FAIL
+
+    Recall   : 0.625
+    Precision: 0.5714285714285714
+    F-Score  : 0.5970149253731343
+
+
+text of BB-cat+ner-26155675
+    Reference matches (5) :
+        [1.0000] Bacillus pumilus
+                 Bacillus pumilus
+        [1.0000] Bacillus pumilus
+                 Bacillus pumilus
+        [1.0000] B. pumilus
+                 B. pumilus
+        [0.0000] yeast
+                 FAIL
+        [1.0000] B. pumilus
+                 B. pumilus
+
+    Predicted matches (8) :
+        [1.0000] Bacillus pumilus
+                 Bacillus pumilus
+        [0.0000] Bacillus
+                 FAIL
+        [1.0000] Bacillus pumilus
+                 Bacillus pumilus
+        [0.0000] Bacillus
+                 FAIL
+        [1.0000] B. pumilus
+                 B. pumilus
+        [1.0000] B. pumilus
+                 B. pumilus
+        [1.0000] B. pumilus
+                 B. pumilus
+        [1.0000] B. pumilus
+                 B. pumilus
+
+    Recall   : 0.8
+    Precision: 0.75
+    F-Score  : 0.7741935483870969
+
+
+text of BB-cat+ner-2617654
+    Reference matches (9) :
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+
+    Predicted matches (18) :
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [0.0000] Haemophilus
+                 FAIL
+        [1.0000] Haemophilus influenzae
+                 Haemophilus influenzae
+        [0.0000] Haemophilus
+                 FAIL
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+
+    Recall   : 1.0
+    Precision: 0.8888888888888888
+    F-Score  : 0.9411764705882353
+
+
+text of BB-cat+ner-3015879
+    Reference matches (13) :
+        [0.0000] Candida maltosa
+                 FAIL
+        [0.0000] yeast
+                 FAIL
+        [0.0000] Candida maltosa
+                 FAIL
+        [0.0000] C. maltosa
+                 FAIL
+        [0.0000] C. maltosa
+                 FAIL
+        [0.0000] C. maltosa
+                 FAIL
+        [0.0000] C. maltosa
+                 FAIL
+        [0.0000] Saccharomyces cerevisiae
+                 FAIL
+        [0.0000] C. maltosa
+                 FAIL
+        [0.0000] C. maltosa
+                 FAIL
+        [0.0000] S. cerevisiae
+                 FAIL
+        [0.0000] C. maltosa
+                 FAIL
+        [0.0000] S. cerevisiae
+                 FAIL
+
+    Predicted matches (0) :
+
+    Recall   : 0.0
+    Precision: NaN
+    F-Score  : NaN
+
+
+text of BB-cat+ner-3516874
+    Reference matches (10) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] human
+                 FAIL
+        [0.0000] human
+                 FAIL
+        [0.0000] bovine
+                 FAIL
+        [0.0000] chicken
+                 FAIL
+        [0.0000] guinea pig
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+
+    Predicted matches (12) :
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+
+    Recall   : 0.5
+    Precision: 0.6666666666666666
+    F-Score  : 0.5714285714285715
+
+
+text of BB-cat+ner-7867953
+    Reference matches (3) :
+        [1.0000] Aeromonas hydrophila
+                 Aeromonas hydrophila
+        [1.0000] Aeromonas hydrophila
+                 Aeromonas hydrophila
+        [1.0000] Escherichia coli
+                 Escherichia coli
+
+    Predicted matches (6) :
+        [1.0000] Aeromonas hydrophila
+                 Aeromonas hydrophila
+        [0.0000] Aeromonas
+                 FAIL
+        [1.0000] Aeromonas hydrophila
+                 Aeromonas hydrophila
+        [0.0000] Aeromonas
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-7876637
+    Reference matches (1) :
+        [1.0000] Vibrio cholerae O139
+                 Vibrio cholerae O139
+
+    Predicted matches (3) :
+        [1.0000] Vibrio cholerae O139
+                 Vibrio cholerae O139
+        [0.0000] Vibrio cholerae
+                 FAIL
+        [0.0000] Vibrio
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.3333333333333333
+    F-Score  : 0.5
+
+
+text of BB-cat+ner-817056
+    Reference matches (1) :
+        [1.0000] Bacillus polymyxa
+                 Bacillus polymyxa
+
+    Predicted matches (2) :
+        [1.0000] Bacillus polymyxa
+                 Bacillus polymyxa
+        [0.0000] Bacillus
+                 FAIL
+
+    Recall   : 1.0
+    Precision: 0.5
+    F-Score  : 0.6666666666666666
+
+
+text of BB-cat+ner-8406892
+    Reference matches (7) :
+        [1.0000] Escherichia coli O157
+                 Escherichia coli O157
+        [1.0000] Escherichia coli O157
+                 Escherichia coli O157
+        [0.0000] E. coli O157
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [0.0000] E. coli O157
+                 FAIL
+        [0.0000] E. coli O157
+                 FAIL
+        [0.0000] E. coli O157
+                 FAIL
+
+    Predicted matches (16) :
+        [1.0000] Escherichia coli O157
+                 Escherichia coli O157
+        [0.0000] Escherichia coli
+                 FAIL
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] Escherichia coli O157
+                 Escherichia coli O157
+        [0.0000] Escherichia coli
+                 FAIL
+        [0.0000] Escherichia
+                 FAIL
+        [0.0000] E. coli
+                 FAIL
+        [0.0000] E. coli
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [0.0000] E. coli
+                 FAIL
+        [0.0000] E. coli
+                 FAIL
+        [0.0000] E. coli
+                 FAIL
+        [0.0000] E. coli
+                 FAIL
+        [0.0000] E. coli
+                 FAIL
+        [0.0000] E. coli
+                 FAIL
+
+    Recall   : 0.42857142857142855
+    Precision: 0.25
+    F-Score  : 0.3157894736842105
+
+
+text of BB-cat+ner-8698477
+    Reference matches (8) :
+        [1.0000] Borrelia burgdorferi
+                 Borrelia burgdorferi
+        [1.0000] Borrelia burgdorferi
+                 Borrelia burgdorferi
+        [1.0000] B. burgdorferi
+                 B. burgdorferi
+        [0.0000] Lyme spirochete
+                 FAIL
+        [1.0000] B. burgdorferi
+                 B. burgdorferi
+        [1.0000] B. burgdorferi
+                 B. burgdorferi
+        [1.0000] B. burgdorferi
+                 B. burgdorferi
+        [1.0000] B. burgdorferi
+                 B. burgdorferi
+
+    Predicted matches (16) :
+        [1.0000] Borrelia burgdorferi
+                 Borrelia burgdorferi
+        [0.0000] Borrelia
+                 FAIL
+        [1.0000] Borrelia burgdorferi
+                 Borrelia burgdorferi
+        [0.0000] Borrelia
+                 FAIL
+        [1.0000] B. burgdorferi
+                 B. burgdorferi
+        [1.0000] B. burgdorferi
+                 B. burgdorferi
+        [0.0000] spirochetes
+                 FAIL
+        [1.0000] B. burgdorferi
+                 B. burgdorferi
+        [1.0000] B. burgdorferi
+                 B. burgdorferi
+        [1.0000] B. burgdorferi
+                 B. burgdorferi
+        [1.0000] B. burgdorferi
+                 B. burgdorferi
+        [1.0000] B. burgdorferi
+                 B. burgdorferi
+        [1.0000] B. burgdorferi
+                 B. burgdorferi
+        [0.0000] spirochetes
+                 FAIL
+        [1.0000] B. burgdorferi
+                 B. burgdorferi
+        [1.0000] B. burgdorferi
+                 B. burgdorferi
+
+    Recall   : 0.875
+    Precision: 0.75
+    F-Score  : 0.8076923076923077
+
+
+text of BB-cat+ner-9231420
+    Reference matches (12) :
+        [1.0000] Haemophilus parasuis
+                 Haemophilus parasuis
+        [1.0000] Haemophilus parasuis
+                 Haemophilus parasuis
+        [0.0000] swine
+                 FAIL
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. somnus
+                 H. somnus
+        [1.0000] H. paragallinarum
+                 H. paragallinarum
+        [1.0000] Actinobacillus pleuropneumoniae
+                 Actinobacillus pleuropneumoniae
+        [1.0000] H. parasuis
+                 H. parasuis
+        [1.0000] Pasteurella multocida
+                 Pasteurella multocida
+        [1.0000] H. parasuis
+                 H. parasuis
+        [1.0000] H. parasuis
+                 H. parasuis
+        [1.0000] H. parasuis
+                 H. parasuis
+
+    Predicted matches (25) :
+        [1.0000] Haemophilus parasuis
+                 Haemophilus parasuis
+        [0.0000] Haemophilus
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] Haemophilus parasuis
+                 Haemophilus parasuis
+        [0.0000] Haemophilus
+                 FAIL
+        [0.0000] Pasteurellaceae
+                 FAIL
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. influenzae
+                 H. influenzae
+        [1.0000] H. somnus
+                 H. somnus
+        [1.0000] H. somnus
+                 H. somnus
+        [1.0000] H. paragallinarum
+                 H. paragallinarum
+        [1.0000] H. paragallinarum
+                 H. paragallinarum
+        [1.0000] Actinobacillus pleuropneumoniae
+                 Actinobacillus pleuropneumoniae
+        [0.0000] Actinobacillus
+                 FAIL
+        [1.0000] H. parasuis
+                 H. parasuis
+        [1.0000] H. parasuis
+                 H. parasuis
+        [1.0000] Pasteurella multocida
+                 Pasteurella multocida
+        [0.0000] Pasteurella
+                 FAIL
+        [1.0000] H. parasuis
+                 H. parasuis
+        [1.0000] H. parasuis
+                 H. parasuis
+        [1.0000] H. parasuis
+                 H. parasuis
+        [1.0000] H. parasuis
+                 H. parasuis
+        [1.0000] H. parasuis
+                 H. parasuis
+        [1.0000] H. parasuis
+                 H. parasuis
+
+    Recall   : 0.9166666666666666
+    Precision: 0.72
+    F-Score  : 0.8065173116089612
+
+
+text of BB-cat+ner-9562874
+    Reference matches (16) :
+        [1.0000] Serratia liquefaciens
+                 Serratia liquefaciens
+        [1.0000] Hafnia alvei
+                 Hafnia alvei
+        [1.0000] Rahnella aquatilis
+                 Rahnella aquatilis
+        [1.0000] R. aquatilis
+                 R. aquatilis
+        [1.0000] S. liquefaciens
+                 S. liquefaciens
+        [1.0000] H. alvei
+                 H. alvei
+        [1.0000] R. aquatilis
+                 R. aquatilis
+        [1.0000] Citrobacter freundii
+                 Citrobacter freundii
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [1.0000] R. aquatilis
+                 R. aquatilis
+        [1.0000] H. alvei
+                 H. alvei
+        [1.0000] H. alvei
+                 H. alvei
+        [1.0000] S. liquefaciens
+                 S. liquefaciens
+        [1.0000] C. freundii
+                 C. freundii
+        [1.0000] H. alvei
+                 H. alvei
+        [1.0000] E. coli
+                 E. coli
+
+    Predicted matches (44) :
+        [0.0000] Enterobacteriaceae
+                 FAIL
+        [0.0000] Enterobacteriaceae
+                 FAIL
+        [1.0000] Serratia liquefaciens
+                 Serratia liquefaciens
+        [0.0000] Serratia
+                 FAIL
+        [1.0000] Hafnia alvei
+                 Hafnia alvei
+        [0.0000] Hafnia
+                 FAIL
+        [1.0000] Rahnella aquatilis
+                 Rahnella aquatilis
+        [0.0000] Rahnella
+                 FAIL
+        [1.0000] R. aquatilis
+                 R. aquatilis
+        [1.0000] R. aquatilis
+                 R. aquatilis
+        [1.0000] R. aquatilis
+                 R. aquatilis
+        [1.0000] R. aquatilis
+                 R. aquatilis
+        [1.0000] S. liquefaciens
+                 S. liquefaciens
+        [1.0000] S. liquefaciens
+                 S. liquefaciens
+        [1.0000] S. liquefaciens
+                 S. liquefaciens
+        [1.0000] S. liquefaciens
+                 S. liquefaciens
+        [1.0000] H. alvei
+                 H. alvei
+        [1.0000] H. alvei
+                 H. alvei
+        [1.0000] R. aquatilis
+                 R. aquatilis
+        [1.0000] R. aquatilis
+                 R. aquatilis
+        [1.0000] R. aquatilis
+                 R. aquatilis
+        [1.0000] R. aquatilis
+                 R. aquatilis
+        [1.0000] Citrobacter freundii
+                 Citrobacter freundii
+        [0.0000] Citrobacter
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] R. aquatilis
+                 R. aquatilis
+        [1.0000] R. aquatilis
+                 R. aquatilis
+        [1.0000] R. aquatilis
+                 R. aquatilis
+        [1.0000] R. aquatilis
+                 R. aquatilis
+        [1.0000] H. alvei
+                 H. alvei
+        [1.0000] H. alvei
+                 H. alvei
+        [1.0000] H. alvei
+                 H. alvei
+        [1.0000] H. alvei
+                 H. alvei
+        [1.0000] S. liquefaciens
+                 S. liquefaciens
+        [1.0000] S. liquefaciens
+                 S. liquefaciens
+        [1.0000] S. liquefaciens
+                 S. liquefaciens
+        [1.0000] S. liquefaciens
+                 S. liquefaciens
+        [1.0000] C. freundii
+                 C. freundii
+        [1.0000] C. freundii
+                 C. freundii
+        [1.0000] H. alvei
+                 H. alvei
+        [1.0000] H. alvei
+                 H. alvei
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+
+    Recall   : 1.0
+    Precision: 0.8409090909090909
+    F-Score  : 0.9135802469135803
+
+
+text of BB-cat+ner-9575437
+    Reference matches (23) :
+        [1.0000] Enterococcus faecalis
+                 Enterococcus faecalis
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [1.0000] Enterococcus faecalis
+                 Enterococcus faecalis
+        [1.0000] E. faecalis
+                 E. faecalis
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] Staphylococcus epidermidis
+                 Staphylococcus epidermidis
+        [1.0000] Streptococcus agalactiae
+                 Streptococcus agalactiae
+        [1.0000] S. agalactiae
+                 S. agalactiae
+        [1.0000] Citrobacter freundii
+                 Citrobacter freundii
+        [1.0000] C. freundii
+                 C. freundii
+        [1.0000] Enterobacter cloacae
+                 Enterobacter cloacae
+        [1.0000] E. cloacae
+                 E. cloacae
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] Klebsiella pneumoniae
+                 Klebsiella pneumoniae
+        [1.0000] K. pneumoniae
+                 K. pneumoniae
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+        [1.0000] Serratia marcescens
+                 Serratia marcescens
+        [1.0000] S. marcescens
+                 S. marcescens
+
+    Predicted matches (57) :
+        [0.0000] Gram-positive bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] Enterococcus faecalis
+                 Enterococcus faecalis
+        [0.0000] Enterococcus
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [0.0000] bacteria
+                 FAIL
+        [1.0000] Enterococcus faecalis
+                 Enterococcus faecalis
+        [0.0000] Enterococcus
+                 FAIL
+        [1.0000] E. faecalis
+                 E. faecalis
+        [1.0000] E. faecalis
+                 E. faecalis
+        [1.0000] E. faecalis
+                 E. faecalis
+        [1.0000] E. faecalis
+                 E. faecalis
+        [1.0000] Staphylococcus aureus
+                 Staphylococcus aureus
+        [0.0000] Staphylococcus
+                 FAIL
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] S. aureus
+                 S. aureus
+        [1.0000] Staphylococcus epidermidis
+                 Staphylococcus epidermidis
+        [0.0000] Staphylococcus
+                 FAIL
+        [1.0000] Streptococcus agalactiae
+                 Streptococcus agalactiae
+        [0.0000] Streptococcus
+                 FAIL
+        [1.0000] S. agalactiae
+                 S. agalactiae
+        [1.0000] S. agalactiae
+                 S. agalactiae
+        [1.0000] Citrobacter freundii
+                 Citrobacter freundii
+        [0.0000] Citrobacter
+                 FAIL
+        [1.0000] C. freundii
+                 C. freundii
+        [1.0000] C. freundii
+                 C. freundii
+        [1.0000] Enterobacter cloacae
+                 Enterobacter cloacae
+        [0.0000] Enterobacter
+                 FAIL
+        [1.0000] E. cloacae
+                 E. cloacae
+        [1.0000] E. cloacae
+                 E. cloacae
+        [1.0000] Escherichia coli
+                 Escherichia coli
+        [0.0000] Escherichia
+                 FAIL
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] E. coli
+                 E. coli
+        [1.0000] Klebsiella pneumoniae
+                 Klebsiella pneumoniae
+        [0.0000] Klebsiella
+                 FAIL
+        [1.0000] K. pneumoniae
+                 K. pneumoniae
+        [1.0000] K. pneumoniae
+                 K. pneumoniae
+        [1.0000] Pseudomonas aeruginosa
+                 Pseudomonas aeruginosa
+        [0.0000] Pseudomonas
+                 FAIL
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+        [1.0000] P. aeruginosa
+                 P. aeruginosa
+        [1.0000] Serratia marcescens
+                 Serratia marcescens
+        [0.0000] Serratia
+                 FAIL
+        [1.0000] S. marcescens
+                 S. marcescens
+        [1.0000] S. marcescens
+                 S. marcescens
+
+    Recall   : 1.0
+    Precision: 0.6666666666666666
+    F-Score  : 0.8
+
+
+text of BB-cat+ner-9666962
+    Reference matches (8) :
+        [0.0000] murine
+                 FAIL
+        [0.0000] murine
+                 FAIL
+        [0.0000] mice
+                 FAIL
+        [0.0000] Mice
+                 FAIL
+        [0.0000] Mycobacterium tuberculosis Erdman
+                 FAIL
+        [1.0000] M. tuberculosis
+                 M. tuberculosis
+        [0.0000] mice
+                 FAIL
+        [1.0000] M. tuberculosis
+                 M. tuberculosis
+
+    Predicted matches (6) :
+        [0.0000] Mycobacterium tuberculosis
+                 FAIL
+        [0.0000] Mycobacterium
+                 FAIL
+        [1.0000] M. tuberculosis
+                 M. tuberculosis
+        [1.0000] M. tuberculosis
+                 M. tuberculosis
+        [1.0000] M. tuberculosis
+                 M. tuberculosis
+        [1.0000] M. tuberculosis
+                 M. tuberculosis
+
+    Recall   : 0.25
+    Precision: 0.6666666666666666
+    F-Score  : 0.36363636363636365
+
+
+Global results
+    Recall   : 0.7058823529411765
+    Precision: 0.5761707172495554
+    F-Score  : 0.6344647519582246

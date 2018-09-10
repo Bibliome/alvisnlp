@@ -30,6 +30,7 @@ import java.util.regex.Pattern;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
@@ -66,7 +67,7 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 	private InputDirectory conceptsDir;
 	private InputDirectory assertionsDir;
 	private InputDirectory relationsDir;
-	private String sectionName = "text";
+	private String sectionName = DefaultNames.getDefaultSectionName();
 	private String linesLayerName = "lines";
 	private String linenoFeature = "lineno";
 	private String tokensLayerName = "tokens";
@@ -96,7 +97,7 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 			}
 		}
 		catch (IOException e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 	

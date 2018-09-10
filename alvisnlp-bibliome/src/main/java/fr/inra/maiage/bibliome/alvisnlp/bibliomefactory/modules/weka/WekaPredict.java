@@ -48,14 +48,8 @@ public class WekaPredict extends PredictionElementClassifier {
 			IdentifiedInstances<Element> devSet = resObj.getRelationDefinition().createInstances();
 			predictExamples(ctx, classifier, devSet, corpus);
 		}
-		catch (IOException ioe) {
-			rethrow(ioe);
-		}
-		catch (ClassNotFoundException cnfe) {
-			rethrow(cnfe);
-		}
 		catch (Exception e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 

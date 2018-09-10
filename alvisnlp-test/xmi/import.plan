@@ -1,9 +1,0 @@
-<alvisnlp-plan id="xmi-import">
-  <read class="XMIImport">
-    <source>export</source>
-  </read>
-
-  <import file="write-features.plan">
-    <file>import-features.txt</file>
-  </import>
-</alvisnlp-plan>

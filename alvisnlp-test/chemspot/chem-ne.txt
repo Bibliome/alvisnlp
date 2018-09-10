@@ -162,6 +162,7 @@ BB-cat+ner-24874563	text	alkanes	FAMILY
 BB-cat+ner-25634638	text	hydrogen cyanide	SYSTEMATIC
 BB-cat+ner-25634638	text	HCN	ABBREVIATION
 BB-cat+ner-25634638	text	ammonia	SYSTEMATIC
+BB-cat+ner-25634638	text	NH₃	FORMULA
 BB-cat+ner-25634638	text	hydrogen cyanide	SYSTEMATIC
 BB-cat+ner-25634638	text	HCN	ABBREVIATION
 BB-cat+ner-25634638	text	ammonia	SYSTEMATIC

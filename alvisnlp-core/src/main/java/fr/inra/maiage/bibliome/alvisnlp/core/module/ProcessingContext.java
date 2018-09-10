@@ -81,12 +81,16 @@ public interface ProcessingContext<T extends Annotable> {
      * @param ext
      * @throws ModuleException
      */
+    @Deprecated
     void callExternal(External<T> ext, String outCharset) throws ModuleException;
 
+    @Deprecated
     void callExternal(External<T> ext, String outCharset, File saveCL) throws ModuleException;
 
+    @Deprecated
     void callExternal(External<T> ext) throws ModuleException;
 
+    @Deprecated
     void callExternal(External<T> ext, File saveCL) throws ModuleException;
 
     /**
@@ -117,6 +121,6 @@ public interface ProcessingContext<T extends Annotable> {
 
 	boolean isCleanTmpDir();
 	
-	Annotable.Dumper<T> getDumper(File file) throws IOException;
+	Annotable.Dumper<T> getDumper(Logger logger, File file) throws IOException;
 }
 

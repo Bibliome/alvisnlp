@@ -41,6 +41,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContex
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
@@ -92,7 +93,7 @@ public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> 
 			logger.info("created " + n.intValue() + " annotations");
 		}
 		catch (ClassCastException|ClassNotFoundException|IOException e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 

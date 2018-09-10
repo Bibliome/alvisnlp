@@ -23,6 +23,7 @@ import java.io.File;
 import java.io.IOException;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
@@ -31,6 +32,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.SectionCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
@@ -42,7 +44,7 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
  */
 @AlvisNLPModule
 public abstract class TextFileReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator {
-    private String  sectionName = "contents";
+    private String  sectionName = DefaultNames.getDefaultSectionName();
     private Integer sizeLimit = null;
     private Integer linesLimit = null;
     private String  charset   = "UTF-8";
@@ -156,7 +158,7 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
 			}
 		}
 		catch (IOException e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 

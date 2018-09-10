@@ -28,15 +28,15 @@ import java.util.Properties;
 import java.util.logging.Logger;
 
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.TransformerFactoryConfigurationError;
+
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tomap.TomapTrain.TomapTrainResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.yatea.AbstractYateaExtractor;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.yatea.TestifiedTerminology;
-import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
-
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.yatea.YateaExtractorExternalHandler;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
@@ -53,7 +53,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
-import fr.inra.maiage.bibliome.util.Pair;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.defaultmap.DefaultArrayListHashMap;
 import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
@@ -79,7 +78,7 @@ public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects
 		setTestifiedTerminology(TOMAP_TESTIFIED_TERMS);
 	}
 
-	static class TomapTrainResolvedObjects extends SectionResolvedObjects {
+	public static class TomapTrainResolvedObjects extends SectionResolvedObjects {
 		private final Evaluator conceptIdentifier;
 		
 		private TomapTrainResolvedObjects(ProcessingContext<Corpus> ctx, TomapTrain module) throws ResolverException {
@@ -101,10 +100,16 @@ public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
-		super.process(ctx, corpus);
-		Logger logger = getLogger(ctx);
-		Map<String,List<String>> conceptMap = getConceptMap(ctx, corpus);
-		writeOutput(logger, conceptMap);
+		try {
+			YateaExtractorExternalHandler<TomapTrainResolvedObjects> ext = new YateaExtractorExternalHandler<TomapTrainResolvedObjects>(ctx, this, corpus);
+			ext.start();
+			Logger logger = getLogger(ctx);
+			Map<String,List<String>> conceptMap = getConceptMap(ctx, corpus);
+			writeOutput(logger, conceptMap, ext);
+		}
+		catch (IOException|InterruptedException | SAXException | ParserConfigurationException e) {
+			throw new ProcessingException(e);
+		}
 	}
 
 	private static final TestifiedTerminology TOMAP_TESTIFIED_TERMS = new TestifiedTerminology() {
@@ -124,20 +129,17 @@ public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects
 		}
 	};
 	
-	private void writeOutput(Logger logger, Map<String,List<String>> conceptMap) throws ProcessingException {
+	private void writeOutput(Logger logger, Map<String,List<String>> conceptMap, YateaExtractorExternalHandler<TomapTrainResolvedObjects> ext) throws IOException, SAXException, ParserConfigurationException {
 		try (Writer writer = outFile.getBufferedWriter()) {
-			Document doc = buildOutputDocument(logger, conceptMap);
+			Document doc = buildOutputDocument(logger, conceptMap, ext);
 			XMLUtils.writeDOMToFile(doc, null, writer);
-		}
-		catch (TransformerFactoryConfigurationError|IOException|SAXException|ParserConfigurationException e) {
-			rethrow(e);
 		}
 	}
 	
-	private Document buildOutputDocument(Logger logger, Map<String,List<String>> conceptMap) throws IOException, SAXException, ParserConfigurationException {
+	private Document buildOutputDocument(Logger logger, Map<String,List<String>> conceptMap, YateaExtractorExternalHandler<TomapTrainResolvedObjects> ext) throws IOException, SAXException, ParserConfigurationException {
 		Document result = XMLUtils.docBuilder.newDocument();
 		YateaCandidateReader yateaReader = new YateaCandidateReader(logger, TokenNormalization.FORM, StringNormalization.NONE);
-		try (InputStream is = getYateaOutput()) {
+		try (InputStream is = getYateaOutput(ext)) {
 			YateaResult yateaResult = yateaReader.parseStream(is);
 			org.w3c.dom.Element top = result.createElement("candidates");
 			result.appendChild(top);
@@ -152,12 +154,19 @@ public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects
 		}
 		return result;
 	}
-	
-	private InputStream getYateaOutput() throws IOException {
-		Pair<Properties,Properties> p = createConfig(null);
-		String outputPath = removeQuotes(p.second.getProperty("output-path"));
-		String suffix = removeQuotes(p.second.getProperty("suffix"));
-		String candPath = getWorkingDir() + "/" + outputPath + "/corpus/" + suffix + "/xml/candidates.xml";
+
+	private InputStream getYateaOutput(YateaExtractorExternalHandler<TomapTrainResolvedObjects> ext) throws IOException {
+		Properties options = ext.getOptions();
+		String suffix = removeQuotes(options.getProperty("suffix"));
+		String outputPath = options.getProperty("output-path");
+		String candPath;
+		if (outputPath == null) {
+			candPath = getWorkingDir() + "/corpus/" + suffix + "/xml/candidates.xml";
+		}
+		else {
+			outputPath = removeQuotes(outputPath);
+			candPath = getWorkingDir() + "/" + outputPath + "/corpus/" + suffix + "/xml/candidates.xml";
+		}
 		SourceStream stream = new FileSourceStream("UTF-8", candPath);
 		return stream.getInputStream();
 	}

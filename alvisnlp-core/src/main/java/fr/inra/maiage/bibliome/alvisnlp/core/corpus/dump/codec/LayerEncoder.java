@@ -42,18 +42,18 @@ public class LayerEncoder implements Encoder<Layer> {
 
 	@Override
 	public int getSize(Layer object) {
-		return 4 + 4 + 4 * object.size();
+		return REFERENCE_SIZE + 4 + REFERENCE_SIZE * object.size();
 	}
 
 	@Override
 	public void encode(Layer object, ByteBuffer buf) throws IOException {
-		int nameRef = stringMarshaller.write(object.getName());
-		buf.putInt(nameRef);
+		long nameRef = stringMarshaller.write(object.getName());
+		buf.putLong(nameRef);
 		int sz = object.size();
 		buf.putInt(sz);
 		for (Annotation a : object) {
-			int aRef = annotationMarshaller.write(a);
-			buf.putInt(aRef);
+			long aRef = annotationMarshaller.write(a);
+			buf.putLong(aRef);
 		}
 	}
 

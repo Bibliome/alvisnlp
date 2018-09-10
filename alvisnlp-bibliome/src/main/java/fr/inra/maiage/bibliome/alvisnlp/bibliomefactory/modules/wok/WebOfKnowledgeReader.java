@@ -71,7 +71,7 @@ public abstract class WebOfKnowledgeReader extends CorpusModule<ResolvedObjects>
 			}
 		}
 		catch (IOException e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 	

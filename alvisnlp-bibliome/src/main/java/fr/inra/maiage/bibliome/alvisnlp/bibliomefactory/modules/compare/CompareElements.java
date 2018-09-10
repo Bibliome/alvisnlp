@@ -92,59 +92,52 @@ public class CompareElements extends CorpusModule<CompareElementsResolvedObjects
 		int nReference = 0;
 		double globalPredictedScore = 0;
 		int nPredicted = 0;
-		PrintStream out = getOutStream();
-		for (Element elt : Iterators.loop(resObj.sections.evaluateElements(evalCtx, corpus))) {
-			List<ElementMatch> referenceMatch = match(evalCtx, elt, resObj.reference, resObj.predicted);
-			List<ElementMatch> predictedMatch = match(evalCtx, elt, resObj.predicted, resObj.reference);
-			nReference += referenceMatch.size();
-			nPredicted += predictedMatch.size();
-			double referenceScore = sum(referenceMatch);
-			double predictedScore = sum(predictedMatch);
-			globalReferenceScore += referenceScore;
-			globalPredictedScore += predictedScore;
-			double recall = referenceScore / referenceMatch.size();
-			double precision = predictedScore / predictedMatch.size();
-			double fScore = fScore(precision, recall);
-			
-			out.println(elt.toString());
-			if (showRecall) {
-				out.println("    Reference matches (" + referenceMatch.size() + ") :");
-				printMatches(out, evalCtx, referenceMatch);
+		try (PrintStream out = outFile.getPrintStream()) {
+			for (Element elt : Iterators.loop(resObj.sections.evaluateElements(evalCtx, corpus))) {
+				List<ElementMatch> referenceMatch = match(evalCtx, elt, resObj.reference, resObj.predicted);
+				List<ElementMatch> predictedMatch = match(evalCtx, elt, resObj.predicted, resObj.reference);
+				nReference += referenceMatch.size();
+				nPredicted += predictedMatch.size();
+				double referenceScore = sum(referenceMatch);
+				double predictedScore = sum(predictedMatch);
+				globalReferenceScore += referenceScore;
+				globalPredictedScore += predictedScore;
+				double recall = referenceScore / referenceMatch.size();
+				double precision = predictedScore / predictedMatch.size();
+				double fScore = fScore(precision, recall);
+
+				out.println(elt.toString());
+				if (showRecall) {
+					out.println("    Reference matches (" + referenceMatch.size() + ") :");
+					printMatches(out, evalCtx, referenceMatch);
+				}
+				if (showPrecision) {
+					out.println("    Predicted matches (" + predictedMatch.size() + ") :");
+					printMatches(out, evalCtx, predictedMatch);
+				}
+				if (showRecall)
+					out.println("    Recall   : " + recall);
+				if (showPrecision)
+					out.println("    Precision: " + precision);
+				if (showRecall && showPrecision)
+					out.println("    F-Score  : " + fScore);
+				out.println();
+				out.println();
 			}
-			if (showPrecision) {
-				out.println("    Predicted matches (" + predictedMatch.size() + ") :");
-				printMatches(out, evalCtx, predictedMatch);
-			}
+			double globalRecall = globalReferenceScore / nReference;
+			double globalPrecision = globalPredictedScore / nPredicted;
+			double globalFScore = fScore(globalRecall, globalPrecision);
+			out.println("Global results");
 			if (showRecall)
-				out.println("    Recall   : " + recall);
+				out.println("    Recall   : " + globalRecall);
 			if (showPrecision)
-				out.println("    Precision: " + precision);
+				out.println("    Precision: " + globalPrecision);
 			if (showRecall && showPrecision)
-				out.println("    F-Score  : " + fScore);
-			out.println();
-			out.println();
+				out.println("    F-Score  : " + globalFScore);
 		}
-		double globalRecall = globalReferenceScore / nReference;
-		double globalPrecision = globalPredictedScore / nPredicted;
-		double globalFScore = fScore(globalRecall, globalPrecision);
-		out.println("Global results");
-		if (showRecall)
-			out.println("    Recall   : " + globalRecall);
-		if (showPrecision)
-			out.println("    Precision: " + globalPrecision);
-		if (showRecall && showPrecision)
-			out.println("    F-Score  : " + globalFScore);
-		out.close();
-	}
-	
-	private PrintStream getOutStream() throws ProcessingException {
-		try {
-			return outFile.getPrintStream();
+		catch (IOException e) {
+			throw new ProcessingException(e);
 		}
-		catch (IOException ioe) {
-			rethrow(ioe);
-		}
-		return null;
 	}
 
 	private void printMatches(PrintStream out, EvaluationContext evalCtx, List<ElementMatch> l) {

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:pos="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos.ecore" xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:tweet="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos/tweet.ecore" xmlns:morph="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/morph.ecore" xmlns:type3="http:///de/tudarmstadt/ukp/dkpro/core/api/frequency/tfidf/type.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmlns:dependency="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/dependency.ecore" xmlns:type7="http:///de/tudarmstadt/ukp/dkpro/core/api/semantics/type.ecore" xmlns:type9="http:///de/tudarmstadt/ukp/dkpro/core/api/transform/type.ecore" xmlns:type="http:///de/tudarmstadt/ukp/dkpro/core/api/anomaly/type.ecore" xmlns:type8="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type.ecore" xmlns:type4="http:///de/tudarmstadt/ukp/dkpro/core/api/metadata/type.ecore" xmlns:type5="http:///de/tudarmstadt/ukp/dkpro/core/api/ner/type.ecore" xmlns:type6="http:///de/tudarmstadt/ukp/dkpro/core/api/segmentation/type.ecore" xmlns:type2="http:///de/tudarmstadt/ukp/dkpro/core/api/coref/type.ecore" xmlns:constituent="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/constituent.ecore" xmlns:chunk="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/chunk.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="1205" language="x-unspecified"/>
+    <types:DocumentProxy xmi:id="13" sofa="1" id="BB-cat+ner-17687514" features="18" sections="24"/>
+    <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Unveiling molecular mechanisms of bacterial surface proteins: Streptococcus pneumoniae as a model organism for structural studies.&#10;Bacteria present a variety of molecules either on their surface or in a cell-free form. These molecules take part in numerous processes in the interactions with their host, with its tissues and other molecules. These molecules are essential to bacterial pathogenesis either during colonization or the spread/invasion stages, and most are virulence factors. This review is focused on such molecules using Streptococcus pneumoniae, a Gram-positive bacterium, as an example. Selected surface proteins are introduced, their structure described, and, whenever available, their mechanisms of function on an atomic level are explained. Such mechanisms for hyaluronate lyase, pneumococcal surface protein A, pneumolysin, histidine-triad and fibronectin-binding proteins are discussed. Elucidation of molecular mechanisms of virulence factors is essential for the understanding of bacteria and their functional properties. Structural biology appears pivotal for these studies, as structural and mechanistic insights facilitate rational approach to the development of new treatments.&#10;"/>
+    <types:FeatureProxy xmi:id="18" key="set" value="train"/>
+    <types:SectionProxy xmi:id="24" sofa="1" begin="0" end="1205" name="text" features="" layers="34 47 61 98" relations="112 163 191 219"/>
+    <types:LayerProxy xmi:id="34" sofa="1" name="Bacteria" annotations="38"/>
+    <cas:FSArray xmi:id="38" elements=""/>
+    <types:LayerProxy xmi:id="47" sofa="1" name="Title" annotations="51"/>
+    <cas:FSArray xmi:id="51" elements="40"/>
+    <types:AnnotationProxy xmi:id="40" sofa="1" begin="0" end="130" features=""/>
+    <types:LayerProxy xmi:id="61" sofa="1" name="Paragraph" annotations="65"/>
+    <cas:FSArray xmi:id="65" elements="54"/>
+    <types:AnnotationProxy xmi:id="54" sofa="1" begin="131" end="1204" features=""/>
+    <types:LayerProxy xmi:id="98" sofa="1" name="named-entities" annotations="102"/>
+    <cas:FSArray xmi:id="102" elements="68 83"/>
+    <types:AnnotationProxy xmi:id="68" sofa="1" begin="62" end="86" features="73 76"/>
+    <types:FeatureProxy xmi:id="73" key="ne-type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="76" key="xref" value="1313"/>
+    <types:AnnotationProxy xmi:id="83" sofa="1" begin="535" end="559" features="88 91"/>
+    <types:FeatureProxy xmi:id="88" key="ne-type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="91" key="xref" value="1313"/>
+    <types:RelationProxy xmi:id="112" sofa="1" features="117" tuples="123 141" name="Bacteria"/>
+    <types:FeatureProxy xmi:id="117" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="123" sofa="1" features="127 130 133" arguments="231"/>
+    <types:FeatureProxy xmi:id="127" key="id" value="T4"/>
+    <types:FeatureProxy xmi:id="130" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="133" key="NCBI_Taxonomy" value="1313"/>
+    <cas:FSArray xmi:id="231" elements="228"/>
+    <types:ArgumentProxy xmi:id="228" role="frag0" argument="83"/>
+    <types:TupleProxy xmi:id="141" sofa="1" features="145 148 151" arguments="237"/>
+    <types:FeatureProxy xmi:id="145" key="id" value="T3"/>
+    <types:FeatureProxy xmi:id="148" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="151" key="NCBI_Taxonomy" value="1313"/>
+    <cas:FSArray xmi:id="237" elements="234"/>
+    <types:ArgumentProxy xmi:id="234" role="frag0" argument="68"/>
+    <types:RelationProxy xmi:id="163" sofa="1" features="168" tuples="174" name="Title"/>
+    <types:FeatureProxy xmi:id="168" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="174" sofa="1" features="178 181" arguments="243"/>
+    <types:FeatureProxy xmi:id="178" key="id" value="T1"/>
+    <types:FeatureProxy xmi:id="181" key="type" value="Title"/>
+    <cas:FSArray xmi:id="243" elements="240"/>
+    <types:ArgumentProxy xmi:id="240" role="frag0" argument="40"/>
+    <types:RelationProxy xmi:id="191" sofa="1" features="196" tuples="202" name="Paragraph"/>
+    <types:FeatureProxy xmi:id="196" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="202" sofa="1" features="206 209" arguments="249"/>
+    <types:FeatureProxy xmi:id="206" key="id" value="T2"/>
+    <types:FeatureProxy xmi:id="209" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="249" elements="246"/>
+    <types:ArgumentProxy xmi:id="246" role="frag0" argument="54"/>
+    <types:RelationProxy xmi:id="219" sofa="1" features="" tuples="" name="equiv"/>
+    <cas:View sofa="1" members="8 13"/>
+</xmi:XMI>

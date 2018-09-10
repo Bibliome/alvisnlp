@@ -46,7 +46,7 @@ public abstract class ElementDecoder<E extends Element> implements Decoder<E>, E
 	}
 	
 	protected String readString(ByteBuffer buf) {
-		int ref = buf.getInt();
+		long ref = buf.getLong();
 		return stringUnmarshaller.read(ref);
 	}
 

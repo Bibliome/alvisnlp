@@ -66,7 +66,12 @@ public class AlvisNLPAnnotationProcessor extends AbstractProcessor {
 	@Override
 	public void init(ProcessingEnvironment processingEnv) {
 		super.init(processingEnv);
-		ctx = new ModelContext(processingEnv, getClass().getCanonicalName());
+		try {
+			ctx = new ModelContext(processingEnv, getClass().getCanonicalName());
+		}
+		catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	@Override

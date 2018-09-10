@@ -55,14 +55,14 @@ public class SectionDecoder extends ElementDecoder<Section> implements SectionCr
 		layerDecoder.setSection(result);
 		int nLayers = buffer.getInt();
 		for (int i = 0; i < nLayers; ++i) {
-			int layerRef = buffer.getInt();
+			long layerRef = buffer.getLong();
 			layerUnmarshaller.read(layerRef);
 		}
 		
 		relationDecoder.setSection(result);
 		int nRelations = buffer.getInt();
 		for (int i = 0; i < nRelations; ++i) {
-			int relRef = buffer.getInt();
+			long relRef = buffer.getLong();
 			relationUnmarshaller.read(relRef);
 		}
 		

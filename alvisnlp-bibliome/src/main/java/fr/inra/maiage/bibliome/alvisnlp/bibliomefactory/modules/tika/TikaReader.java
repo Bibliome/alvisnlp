@@ -31,6 +31,7 @@ import org.xml.sax.SAXException;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
@@ -41,6 +42,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.SectionCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
@@ -49,7 +51,7 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 @AlvisNLPModule(beta=true)
 public abstract class TikaReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator {
 	private SourceStream source;
-	private String sectionName = "text";
+	private String sectionName = DefaultNames.getDefaultSectionName();
 	private String htmlLayerName = "html";
 	private String tagFeatureName = "tag";
 	
@@ -66,7 +68,7 @@ public abstract class TikaReader extends CorpusModule<ResolvedObjects> implement
 			}
 		}
 		catch (IOException|SAXException|TikaException e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 	

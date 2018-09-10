@@ -35,6 +35,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
@@ -93,7 +94,7 @@ public abstract class Projector<S extends SectionResolvedObjects,T,D extends Dic
 			logger.finer("match weight: " + matcher.getVisitedStatesCount() + " visited states");
 		}
 		catch (Exception e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alvisnlp-plan id="tees-predict-test">
-  <import>BioNLP-ST-2016_BB-event/read.plan</import>
+  <read file="BioNLP-ST-2016_BB-event/read.plan"/>
   
   <keep-train class="Action">
     <target>documents[@set != "train"]</target>
@@ -8,7 +8,7 @@
     <deleteElements/>
   </keep-train>
 
-  <import>res://segmentation.plan</import>
+  <seg href="res://segmentation.plan"/>
   
   <genia class="GeniaTagger" />
 

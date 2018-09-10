@@ -86,15 +86,16 @@ import fr.inra.maiage.bibliome.alvisnlp.core.plan.PlanException;
 import fr.inra.maiage.bibliome.alvisnlp.core.plan.PlanLoader;
 import fr.inra.maiage.bibliome.util.Files;
 import fr.inra.maiage.bibliome.util.FlushedStreamHandler;
+import fr.inra.maiage.bibliome.util.GitInfo;
 import fr.inra.maiage.bibliome.util.Pair;
 import fr.inra.maiage.bibliome.util.Timer;
-import fr.inra.maiage.bibliome.util.Versioned;
 import fr.inra.maiage.bibliome.util.clio.CLIOException;
 import fr.inra.maiage.bibliome.util.clio.CLIOParser;
 import fr.inra.maiage.bibliome.util.clio.CLIOption;
 import fr.inra.maiage.bibliome.util.count.Count;
 import fr.inra.maiage.bibliome.util.count.CountStats;
 import fr.inra.maiage.bibliome.util.count.Stats;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.service.AmbiguousAliasException;
 import fr.inra.maiage.bibliome.util.service.ServiceException;
 import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
@@ -112,7 +113,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	private static final String TYPE_ATTRIBUTE_NAME = "type";
 	private static final String SHORT_TYPE_ATTRIBUTE_NAME = "short-type";
 	
-	private final Versioned version = new Versioned("fr.inra.maiage.bibliome.alvisnlp.core.app.AlvisNLPVersion");
+	private final GitInfo gitInfo;
 	private final M moduleFactory = getModuleFactory();
 	private final ParamConverterFactory converterFactory = getParamConverterFactory();
 
@@ -122,12 +123,12 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	protected final Timer<TimerCategory> timer = new Timer<TimerCategory>("alvisnlp", TimerCategory.MODULE);
 	
 	private Level logLevel = Level.FINE;
-	private File logFile = null;
-	private Map<String,File> logFiles = new LinkedHashMap<String,File>();
+	private String logPath = null;
+	private Map<String,String> logPaths = new LinkedHashMap<String,String>();
 	private boolean appendToLog = false;
 	private File tmpDir = new File("/tmp");
 	private boolean dumps = true;
-	private final Map<String,File> dumpModules = new LinkedHashMap<String,File>();
+	private final Map<String,String> dumpModules = new LinkedHashMap<String,String>();
 	private File defaultParamValuesFile = null;
 
 	private final List<ModuleParamSetter> params = new ArrayList<ModuleParamSetter>();
@@ -155,18 +156,30 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	/**
 	 * Creates anew CLI instance.
 	 * @throws TransformerConfigurationException
+	 * @throws IOException 
 	 */
-	public AbstractAlvisNLP() throws TransformerConfigurationException {
+	public AbstractAlvisNLP() throws TransformerConfigurationException, IOException {
 		super();
 		xmlDocTransformer = XMLUtils.transformerFactory.newTransformer();
+		gitInfo = new GitInfo("/fr/inra/maiage/bibliome/alvisnlp/core/app/AlvisNLPGit.properties", "https://github.com/Bibliome/alvisnlp.git");
 	}
 
 	/**
 	 * CLI option: print version.
 	 */
 	@CLIOption(value="-version", stop=true)
-	public final void version() { 
-        System.out.println(version);
+	public final void version() {
+        System.out.println(gitInfo.getBuildVersion());
+        if (!gitInfo.isCanonicalRemoteOrigin()) {
+        	System.out.format("Remote URL: %s\n", gitInfo.getRemoteOriginURL());
+        }
+        System.out.format("Commit: %s (%s)\n", gitInfo.getCommitId(), gitInfo.getCommitTime());
+        if (!gitInfo.isDefaultBranch()) {
+        	System.out.format("Branch: %s\n", gitInfo.getBranch());
+        }
+        if (gitInfo.isDirty()) {
+        	System.out.format("Built: %s (%s)\n", gitInfo.getBuildHost(), gitInfo.getBuildTime());
+        }
 	}
 	
 	/**
@@ -195,17 +208,18 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 
 	/**
 	 * CLI option: set the log file.
-	 * @param logFile
+	 * @param logPath
 	 */
 	@CLIOption("-log")
-	public final void setLogFile(String logFile) {
-		int colon = logFile.indexOf(':');
-		if (colon < 0)
-			this.logFile = new File(logFile);
+	public final void setLogPath(String logPath) {
+		int colon = logPath.indexOf(':');
+		if (colon < 0) {
+			this.logPath = logPath;
+		}
 		else {
-			String log = logFile.substring(0, colon);
-			File file = new File(logFile.substring(colon + 1));
-			logFiles.put(log, file);
+			String log = logPath.substring(0, colon);
+			String path = logPath.substring(colon + 1);
+			logPaths.put(log, path);
 		}
 	}
 	
@@ -609,8 +623,8 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	}
 	
 	@CLIOption("-dumpModule")
-	public final void addDumpModule(String modulePath, File dumpFile) { 
-		dumpModules.put(modulePath, dumpFile);
+	public final void addDumpModule(String modulePath, String dumpPath) { 
+		dumpModules.put(modulePath, dumpPath);
 	}
 	
 	/**
@@ -726,15 +740,16 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
         return result;
     }
     
-    private void setHandlers(Logger logger, File file) throws FileNotFoundException {
+    private void setHandlers(Logger logger, String path) throws FileNotFoundException, UnsupportedServiceException, ConverterException {
     	for (Handler h : logger.getHandlers()) {
     		logger.removeHandler(h);
     	}
         Handler stderrHandler = new FlushedStreamHandler(System.err, noColors ? CommandLineLogFormatter.INSTANCE : CommandLineLogFormatter.COLORS);
         logger.addHandler(stderrHandler);
-        if (file == null)
+        if (path == null)
 			stderrHandler.setLevel(logLevel);
 		else {
+			File file = getOutputFile(path);
 			File dir = file.getParentFile();
 			if (dir != null) {
 				dir.mkdirs();
@@ -752,12 +767,20 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
         }
     }
     
-    protected Logger getLogger(C ctx) throws FileNotFoundException, IOException {
+    private OutputFile getOutputFile(String path) throws ConverterException, UnsupportedServiceException {
+        ParamConverter converter = converterFactory.getService(OutputFile.class);
+        if (outputDir != null) {
+        	converter.setOutputDir(outputDir);
+        }
+    	return (OutputFile) converter.convert(path);
+    }
+    
+    protected Logger getLogger(C ctx) throws FileNotFoundException, IOException, UnsupportedServiceException, ConverterException {
     	Logger result = ctx.getLogger("alvisnlp");
     	result.setLevel(logLevel);
         result.setUseParentHandlers(false);
-    	setHandlers(result, logFile);
-    	for (Map.Entry<String,File> e : logFiles.entrySet()) {
+    	setHandlers(result, logPath);
+    	for (Map.Entry<String,String> e : logPaths.entrySet()) {
         	Logger logger = ctx.getLogger("alvisnlp." + e.getKey());
         	logger.setLevel(logLevel);
         	setHandlers(logger, e.getValue());
@@ -945,14 +968,15 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 
         	result.init(ctx);
 
-        	for (Map.Entry<String,File> e : dumpModules.entrySet()) {
+        	for (Map.Entry<String,String> e : dumpModules.entrySet()) {
         		String modulePath = e.getKey();
         		Module<A> module = result.getModuleByPath(modulePath);
         		if (module == null) {
         			logger.warning("there is no module with path: '" + modulePath + "'");
         			continue;
         		}
-        		File dumpFile = e.getValue();
+        		String dumpPath = e.getValue();
+        		OutputFile dumpFile = getOutputFile(dumpPath);
         		logger.config("setting dump file after " + modulePath + " to " + dumpFile);
         		module.setDumpFile(dumpFile);
         	}
@@ -993,7 +1017,25 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     	}
     }
     
+    private void logVersion(Logger logger) {
+    	logger.config("build version: " + gitInfo.getBuildVersion());
+        if (!gitInfo.isCanonicalRemoteOrigin()) {
+        	logger.config("remote URL: " + gitInfo.getRemoteOriginURL());
+        }
+        logger.config("commit id: " + gitInfo.getCommitId());
+        logger.config("commit time: " + gitInfo.getCommitTime());
+        if (!gitInfo.isDefaultBranch()) {
+        	logger.config("branch: " + gitInfo.getBranch());
+        }
+        if (gitInfo.isDirty()) {
+        	logger.warning("dirty build");
+        	logger.config("build host: " + gitInfo.getBuildHost());
+        	logger.config("build time: " + gitInfo.getBuildTime());
+        }
+    }
+    
     protected void initProcessingContext(Logger logger, C ctx, Module<A> mainModule) throws IOException, ModuleException{
+    	logVersion(logger);
     	logEnvironment(logger);
     	ctx.setRootTempDir(buildRootTempDir(logger));
     	if (!writePlan) {
@@ -1011,10 +1053,12 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     /**
      * Process the plan specified in command line.
      * @throws IOException 
+     * @throws ConverterException 
+     * @throws UnsupportedServiceException 
      * @throws FileNotFoundException 
      * @throws Exception
      */
-    public void process() throws IOException {
+    public void process() throws IOException, UnsupportedServiceException, ConverterException {
     	C ctx = getProcessingContext();
     	Logger logger = getLogger(ctx);
 		try {
@@ -1060,16 +1104,13 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     }
     
     private void error(Logger logger, Exception e, String msg) {
-    	logger.severe(msg);
     	if (logger.isLoggable(Level.FINEST)) {
-    		for (Throwable t = e; t != null; t = t.getCause()) {
-    			logger.finest(t.getClass().getCanonicalName());
-    			for (StackTraceElement ste : t.getStackTrace())
-    				logger.finest("    " + ste);
-    		}
+    		logger.log(Level.SEVERE, msg, e);
     	}
-		else
+		else {
+	    	logger.severe(msg);
 			logger.info("use -verbose option to get debug info");
+		}
     	exitCode = 1;
     }
 

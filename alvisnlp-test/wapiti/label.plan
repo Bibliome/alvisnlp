@@ -1,0 +1,42 @@
+<alvisnlp-plan id="wapiti-label">
+  <read file="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
+
+  <seg href="res://segmentation.plan"/>
+
+  <pos class="GeniaTagger">
+    <chunkFeature>chunk</chunkFeature>
+  </pos>
+
+  <wapiti class="WapitiLabel">
+    <documentFilter>@set == "dev"</documentFilter>
+    <modelFile>habitats.model</modelFile>
+    <features separator=";">
+      str:normalizeSpace(@form);
+      @pos;
+      str:normalizeSpace(@lemma);
+      @chunk;
+      bio:get:Habitat:words("Habitat")
+    </features>
+    <labelFeature>predicted-bio-habitat</labelFeature>
+  </wapiti>
+
+  <decodeBIO class="PatternMatcher">
+    <documentFilter>@set == "dev"</documentFilter>
+    <pattern>
+      [ @predicted-bio-habitat == "B-Habitat" ]
+      (
+        [ @predicted-bio-habitat == "I-Habitat" ]*
+      )
+    </pattern>
+    <actions>
+      <createAnnotation layer="PredictedHabitat"/>
+    </actions>
+  </decodeBIO>
+
+  <projection class="LayerComparator">
+    <referenceLayerName>Habitat</referenceLayerName>
+    <predictedLayerName>PredictedHabitat</predictedLayerName>
+    <outFile>comparison.txt</outFile>
+    <documentFilter>@set == "dev"</documentFilter>
+  </projection>
+</alvisnlp-plan>

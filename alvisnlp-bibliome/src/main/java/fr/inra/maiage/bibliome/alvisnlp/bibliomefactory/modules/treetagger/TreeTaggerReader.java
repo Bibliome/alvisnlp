@@ -21,6 +21,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
@@ -49,7 +50,7 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule
 public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator {
-	private String sectionName = null;
+	private String sectionName = DefaultNames.getDefaultSectionName();
 	private String wordLayerName = DefaultNames.getWordLayer();
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
 	private String posFeatureKey = null;
@@ -100,31 +101,29 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+		Logger logger = getLogger(ctx);
 		try {
 			for (BufferedReader r : Iterators.loop(sourcePath.getBufferedReaders())) {
-				processFile(corpus, r);
+				processFile(logger, corpus, r);
 				r.close();
 			}
 		}
-		catch (IOException e) {
-			rethrow(e);
+		catch (IOException|InvalidFileLineEntry e) {
+			throw new ProcessingException(e);
 		}
 	}
 
-	private void processFile(Corpus corpus, BufferedReader reader) throws ModuleException, IOException {
-		try {
-			String name = sourcePath.getStreamName(reader);
-			
-			List<List<String>> tokens = new ArrayList<List<String>>();
-			recordFileLines.process(reader, tokens);
-			reader.close();
+	private void processFile(Logger logger, Corpus corpus, BufferedReader reader) throws ModuleException, IOException, InvalidFileLineEntry {
+		String name = sourcePath.getStreamName(reader);
+		logger.fine("reading: " + name);
 
-			Document doc = Document.getDocument(this, corpus, name);
-			Section sec = new Section(this, doc, sectionName, getSectionContents(tokens));
-			fillLayers(sec.ensureLayer(wordLayerName), sec.ensureLayer(sentenceLayerName), tokens);
-		} catch (InvalidFileLineEntry ifle) {
-			rethrow(ifle);
-		}
+		List<List<String>> tokens = new ArrayList<List<String>>();
+		recordFileLines.process(reader, tokens);
+		reader.close();
+
+		Document doc = Document.getDocument(this, corpus, name);
+		Section sec = new Section(this, doc, sectionName, getSectionContents(tokens));
+		fillLayers(sec.ensureLayer(wordLayerName), sec.ensureLayer(sentenceLayerName), tokens);
 	}
 
 	@Param(defaultDoc = "Name of the section of each document.")

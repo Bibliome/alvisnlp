@@ -56,7 +56,7 @@
                         <a:annotation start="@inline:start" end="@inline:end" layer="formatting">
                             <a:feature name="tag" xpath-value="name()" />
                         </a:annotation>
-                    </xsl:for-each>
+			</xsl:for-each>
                 </a:section>
             </xsl:for-each>
         </a:document>

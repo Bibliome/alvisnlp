@@ -33,7 +33,6 @@ import java.util.regex.Pattern;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.DefaultExpressions;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
-
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
@@ -47,13 +46,12 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContex
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AbstractExternal;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Files;
 import fr.inra.maiage.bibliome.util.Iterators;
@@ -247,8 +245,8 @@ public abstract class BioLG extends SectionModule<SectionResolvedObjects> implem
 				lp2lpTimer.stop();
 			}
 		}
-		catch (IOException ioe) {
-			rethrow(ioe);
+		catch (IOException e) {
+			throw new ProcessingException(e);
 		}
 	}
 
@@ -583,18 +581,17 @@ public abstract class BioLG extends SectionModule<SectionResolvedObjects> implem
 	/**
 	 * The Class BioLGExternal.
 	 */
-	private class BioLGExternal implements External<Corpus> {
+	private class BioLGExternal extends AbstractExternal<Corpus,BioLG> {
 		private final File in;
 		private final File out;
-		private final ProcessingContext<Corpus> ctx;
 
 		private BioLGExternal(ProcessingContext<Corpus> ctx, File tmpDir, List<Layer> sentences, int n) throws IOException {
-			this.ctx = ctx;
+			super(BioLG.this, ctx);
 			in = new File(tmpDir, "block_" + n + ".biolg");
 			out = new File(tmpDir, "block_" + n + ".lp");
 			in.getParentFile().mkdirs();
 			out.getParentFile().mkdirs();
-			getLogger(ctx).fine("creating biolg input file " + in.getCanonicalPath());
+			getLogger().fine("creating biolg input file " + in.getCanonicalPath());
 			PrintStream ps = new PrintStream(in, "UTF-8");
 			int maxLength = 0;
 			ps.print("<sentences>\n");
@@ -658,42 +655,11 @@ public abstract class BioLG extends SectionModule<SectionResolvedObjects> implem
 		/*
 		 * (non-Javadoc)
 		 * 
-		 * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#getOwner()
-		 */
-		@Override
-		public Module<Corpus> getOwner() {
-			return BioLG.this;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 * 
 		 * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#getWorkingDirectory()
 		 */
 		@Override
 		public File getWorkingDirectory() throws ModuleException {
 			return null;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 * 
-		 * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#processCall(java.io.PrintStream,
-		 * java.io.BufferedReader, java.io.BufferedReader)
-		 */
-		@Override
-		public void processOutput(BufferedReader out, BufferedReader err)
-				throws ModuleException {
-			try {
-				Logger logger = getLogger(ctx);
-				logger.fine("bioLG standard error:");
-				for (String line = err.readLine(); line != null; line = err.readLine()) {
-					logger.fine("    " + line);
-				}
-				logger.fine("end of bioLG standard error");
-			} catch (IOException ioe) {
-				getLogger(ctx).warning("could not read bioLG standard error: " + ioe.getMessage());
-			}
 		}
 
 		/**
@@ -709,28 +675,12 @@ public abstract class BioLG extends SectionModule<SectionResolvedObjects> implem
 	/**
 	 * The Class LP2LPExternal.
 	 */
-	private class LP2LPExternal implements External<Corpus> {
+	private class LP2LPExternal extends AbstractExternal<Corpus,BioLG> {
 		private final File in;
 		private final File out;
-		private final ProcessingContext<Corpus> ctx;
-		
-		/**
-		 * Instantiates a new l p2 lp external.
-		 * 
-		 * @param sec
-		 *            the sec
-		 * @param in
-		 *            the in
-		 */
-		/*
-		private LP2LPExternal(File tmpDir, Section sec, File in) {
-			this.in = in;
-			this.out = new File(tmpDir, sec.getFileName() + ".lp2lp");
-		}
-		*/
 		
 		private LP2LPExternal(ProcessingContext<Corpus> ctx, File tmpDir, int n, File in) {
-			this.ctx = ctx;
+			super(BioLG.this, ctx);
 			this.in = in;
 			this.out = new File(tmpDir, "block_" + n + ".lp2lp");
 		}
@@ -766,53 +716,11 @@ public abstract class BioLG extends SectionModule<SectionResolvedObjects> implem
 		/*
 		 * (non-Javadoc)
 		 * 
-		 * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#getOwner()
-		 */
-		@Override
-		public Module<Corpus> getOwner() {
-			return BioLG.this;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 * 
 		 * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#getWorkingDirectory()
 		 */
 		@Override
 		public File getWorkingDirectory() throws ModuleException {
 			return null;
-		}
-
-		/*
-		 * (non-Javadoc)
-		 * 
-		 * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External#processCall(java.io.PrintStream,
-		 * java.io.BufferedReader, java.io.BufferedReader)
-		 */
-		@Override
-		public void processOutput(BufferedReader out, BufferedReader err)
-				throws ModuleException {
-			try {
-				PrintStream ps = new PrintStream(this.out);
-				for (String line = out.readLine(); line != null; line = out.readLine()) {
-					ps.println(line);
-				}
-				ps.close();
-			} catch (FileNotFoundException fnfe) {
-				throw new ProcessingException(fnfe);
-			} catch (IOException ioe) {
-				throw new ProcessingException(ioe);
-			}
-			try {
-				Logger logger = getLogger(ctx);
-				logger.fine("lp2lp standard error:");
-				for (String line = err.readLine(); line != null; line = err.readLine()) {
-					logger.fine("    " + line);
-				}
-				logger.fine("end of lp2lp standard error");
-			} catch (IOException ioe) {
-				getLogger(ctx).warning("could not read lp2lp standard error: " + ioe.getMessage());
-			}
 		}
 
 		/**

@@ -17,6 +17,7 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.core.annotation;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -56,7 +57,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase;
-import fr.inra.maiage.bibliome.util.Versioned;
+import fr.inra.maiage.bibliome.util.GitInfo;
 
 /**
  * A model context holds several constants used by AlvisNLPAnnotationProcessor.
@@ -90,15 +91,16 @@ class ModelContext {
 	private final TransformerFactory transformerFactory;
 	private final Map<String,String> options;
 	private final String generatorId;
-	private final Versioned version;
+	private final GitInfo gitInfo;
 	private final Date date = new Date();
 
 	/**
 	 * Creates a new model context with the specified processing environment for the specified generator.
 	 * @param procEnv
 	 * @param generatorId
+	 * @throws IOException 
 	 */
-	ModelContext(ProcessingEnvironment procEnv, String generatorId) {
+	ModelContext(ProcessingEnvironment procEnv, String generatorId) throws IOException {
 		super();
 		typeUtils = procEnv.getTypeUtils();
 		elementUtils = procEnv.getElementUtils();
@@ -130,7 +132,7 @@ class ModelContext {
 		transformerFactory = TransformerFactory.newInstance();
         options = procEnv.getOptions();
         this.generatorId = generatorId;
-        version = new Versioned("fr.inra.maiage.bibliome.alvisnlp.core.app.AlvisNLPVersion");
+        this.gitInfo = new GitInfo("/fr/inra/maiage/bibliome/alvisnlp/core/app/AlvisNLPGit.properties", "https://github.com/Bibliome/alvisnlp.git");
 	}
 	
 	private static final TypeMirror getCorpusModule(Types typeUtils, Elements elementUtils) {
@@ -350,13 +352,26 @@ class ModelContext {
 		return generatorId;
 	}
 
-	/**
-	 * Returns the current AlvisNLP version.
-	 */
-	public Versioned getVersion() {
-		return version;
+	public GitInfo getGitInfo() {
+		return gitInfo;
 	}
 	
+	public String getGitInfoString() {
+		StringBuilder sb = new StringBuilder();
+        sb.append(String.format("version=%s", gitInfo.getBuildVersion()));
+        if (!gitInfo.isCanonicalRemoteOrigin()) {
+        	sb.append(String.format(", remote-url=%s", gitInfo.getRemoteOriginURL()));
+        }
+        sb.append(String.format(", commit=%s, commit-date=%s", gitInfo.getCommitId(), gitInfo.getCommitTime()));
+        if (!gitInfo.isDefaultBranch()) {
+        	sb.append(String.format(", branch=%s", gitInfo.getBranch()));
+        }
+        if (gitInfo.isDirty()) {
+        	sb.append(String.format(", built-host=%s, build-date=%s", gitInfo.getBuildHost(), gitInfo.getBuildTime()));
+        }
+        return sb.toString();
+	}
+
 	/**
 	 * Returns the date at which this context was created.
 	 */

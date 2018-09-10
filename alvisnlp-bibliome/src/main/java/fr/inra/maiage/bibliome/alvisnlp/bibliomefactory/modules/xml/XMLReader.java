@@ -67,6 +67,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
@@ -110,23 +111,18 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 	}
     
     @TimeThis(task="read-xslt", category=TimerCategory.LOAD_RESOURCE)
-	protected Transformer getTransformer(ProcessingContext<Corpus> ctx) throws ModuleException {
+	protected Transformer getTransformer(ProcessingContext<Corpus> ctx) throws IOException, TransformerConfigurationException {
     	Transformer result = null;
-    	try {
-    		TransformerFactory transformerFactory = TransformerFactory.newInstance();
-    		InputStream is = xslTransform.getInputStream();
-    		Logger logger = getLogger(ctx);
-    		logger.info("using transform: " + xslTransform.getStreamName(is));
-    		Source source = new StreamSource(is);
-			result = transformerFactory.newTransformer(source);
-			is.close();
-		}
-    	catch (TransformerConfigurationException|IOException e) {
-    		rethrow(e);
-		}
-        if (stringParams != null)
-            for (Map.Entry<String,String> e : stringParams.entrySet())
-                result.setParameter(e.getKey(), e.getValue());
+    	TransformerFactory transformerFactory = TransformerFactory.newInstance();
+    	InputStream is = xslTransform.getInputStream();
+    	Logger logger = getLogger(ctx);
+    	logger.info("using transform: " + xslTransform.getStreamName(is));
+    	Source source = new StreamSource(is);
+    	result = transformerFactory.newTransformer(source);
+    	is.close();
+    	if (stringParams != null)
+    		for (Map.Entry<String,String> e : stringParams.entrySet())
+    			result.setParameter(e.getKey(), e.getValue());
         return result;
 	}
 
@@ -164,33 +160,28 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 	
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
-		Transformer transformer = getTransformer(ctx);
-		Logger logger = getLogger(ctx);
 		try {
+			Transformer transformer = getTransformer(ctx);
+			Logger logger = getLogger(ctx);
 			for (InputStream is : Iterators.loop(sourcePath.getInputStreams())) {
 				processFile(ctx, logger, corpus, is, transformer);
 				is.close();
 			}
 		}
-		catch (IOException e) {
-			rethrow(e);
+		catch (IOException | SAXException | ParserConfigurationException | TransformerException e) {
+			throw new ProcessingException(e);
 		}
 	}
 
-	private void processFile(ProcessingContext<Corpus> ctx, Logger logger, Corpus corpus, InputStream file, Transformer transformer) throws ModuleException, IOException {
-    	try {
-    		String name = sourcePath.getStreamName(file);
-    		logger.finer("reading: " + name);
-    		transformer.reset();
-    		transformer.setParameter(SOURCE_PATH_PARAMETER, name);
-    		transformer.setParameter(SOURCE_BASENAME_PARAMETER, new File(name).getName());
-    		transformer.setParameter(XML_READER_CONTEXT_PARAMETER, new XMLReaderContext(this, corpus));
-    		Source source = getSource(ctx, file);
-    		doTransform(ctx, transformer, source);
-    	}
-    	catch (TransformerException|SAXException|ParserConfigurationException e) {
-    		rethrow(e);
-		}
+	private void processFile(ProcessingContext<Corpus> ctx, Logger logger, Corpus corpus, InputStream file, Transformer transformer) throws IOException, SAXException, ParserConfigurationException, TransformerException {
+		String name = sourcePath.getStreamName(file);
+		logger.finer("reading: " + name);
+		transformer.reset();
+		transformer.setParameter(SOURCE_PATH_PARAMETER, name);
+		transformer.setParameter(SOURCE_BASENAME_PARAMETER, new File(name).getName());
+		transformer.setParameter(XML_READER_CONTEXT_PARAMETER, new XMLReaderContext(this, corpus));
+		Source source = getSource(ctx, file);
+		doTransform(ctx, transformer, source);
 	}
 	
 	@SuppressWarnings("static-method")

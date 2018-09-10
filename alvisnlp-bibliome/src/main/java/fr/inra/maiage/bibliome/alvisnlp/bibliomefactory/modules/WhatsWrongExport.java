@@ -43,6 +43,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverExceptio
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
@@ -101,8 +102,8 @@ public class WhatsWrongExport extends SectionModule<WhatsWrongExportResolvedObje
 				}
 			}
 		}
-		catch (IOException ioe) {
-			rethrow(ioe);
+		catch (IOException e) {
+			throw new ProcessingException(e);
 		}
 	}
 	

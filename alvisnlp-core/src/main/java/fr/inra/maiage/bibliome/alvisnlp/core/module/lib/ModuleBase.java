@@ -45,12 +45,12 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleVisitor;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ParamHandler;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Sequence;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.UnexpectedParameterException;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.Timer;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 /**
@@ -67,7 +67,7 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
     private Documentation documentation;
     private boolean beta;
     private Class<?>[] useInstead;
-    private File dumpFile = null;
+    private OutputFile dumpFile = null;
     private String id = null;
     private Sequence<T> sequence = null;
 	private String creatorNameFeature;
@@ -154,7 +154,7 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
     };
 
     @Override
-    public File getDumpFile() {
+    public OutputFile getDumpFile() {
         return dumpFile;
     }
 
@@ -209,7 +209,7 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
 	}
 
 	@Override
-    public void setDumpFile(File file) {
+    public void setDumpFile(OutputFile file) {
         dumpFile = file;
     }
 
@@ -224,24 +224,6 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
 			sequence.removeModule(this);
 		}
         this.sequence = sequence;
-    }
-
-    /**
-     * Rethrow an exception as a ProcessingException.
-     * @param cause
-     * @throws ProcessingException
-     */
-    public final static void rethrow(Throwable cause) throws ProcessingException {
-        throw new ProcessingException(cause);
-    }
-
-    /**
-     * Throws a processing exception with the specified message.
-     * @param msg
-     * @throws ProcessingException
-     */
-    public final static void processingException(String msg) throws ProcessingException {
-        throw new ProcessingException(msg);
     }
 
     /**
@@ -262,24 +244,28 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
      * @param external
      * @throws ModuleException
      */
+    @Deprecated
     public void callExternal(ProcessingContext<T> ctx, String subTask, External<T> external) throws ModuleException {
     	Timer<TimerCategory> timer = getTimer(ctx, subTask, TimerCategory.EXTERNAL, true);
     	ctx.callExternal(external);
     	timer.stop();
     }
     
+    @Deprecated
     public void callExternal(ProcessingContext<T> ctx, String subTask, External<T> external, File saveCL) throws ModuleException {
     	Timer<TimerCategory> timer = getTimer(ctx, subTask, TimerCategory.EXTERNAL, true);
     	ctx.callExternal(external, saveCL);
     	timer.stop();
     }
     
+    @Deprecated
     public void callExternal(ProcessingContext<T> ctx, String subTask, External<T> external, String outCharset) throws ModuleException {
     	Timer<TimerCategory> timer = getTimer(ctx, subTask, TimerCategory.EXTERNAL, true);
     	ctx.callExternal(external, outCharset);
     	timer.stop();
     }
     
+    @Deprecated
     public void callExternal(ProcessingContext<T> ctx, String subTask, External<T> external, String outCharset, String saveCL) throws ModuleException {
     	File saveCLFile = new File(getTempDir(ctx), saveCL);
     	Timer<TimerCategory> timer = getTimer(ctx, subTask, TimerCategory.EXTERNAL, true);
@@ -485,14 +471,8 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
 		return parentTimer.newChild(id, TimerCategory.MODULE);
 	}
 
-	/**
-	 * Returns a timer for the specified task and category.
-	 * @param ctx
-	 * @param task
-	 * @param category
-	 * @param start either to start the timer
-	 */
-	protected Timer<TimerCategory> getTimer(ProcessingContext<T> ctx, String task, TimerCategory category, boolean start) {
+	@Override
+	public Timer<TimerCategory> getTimer(ProcessingContext<T> ctx, String task, TimerCategory category, boolean start) {
 		Timer<TimerCategory> moduleTimer = getTimer(ctx);
 		Timer<TimerCategory> result = moduleTimer.getChild(task);
 		if (result == null)

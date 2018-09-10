@@ -1,0 +1,38 @@
+<alvisnlp-plan id="tomap-predict">
+  <reaad file="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
+  
+  <seg href="res://segmentation.plan"/>
+  
+  <genia class="GeniaTagger" />
+
+  <yatea class="YateaExtractor">
+    <workingDir>tomap-yatea</workingDir>
+  </yatea>
+
+  <classify class="TomapProjector">
+    <tomapClassifier>tomap.xml</tomapClassifier>
+    <targetLayerName>PredictedHabitat</targetLayerName>
+    <yateaFile output-feed="true">tomap-yatea/corpus/default/xml/candidates.xml</yateaFile>
+    <conceptFeature>OBT</conceptFeature>
+  </classify>
+
+  <labels class="OBOMapper">
+    <oboFiles>OntoBiotope_BioNLP-ST-2016.obo</oboFiles>
+    <idKeys/>
+    <target>documents.sections.layer:PredictedHabitat</target>
+    <form>@OBT</form>
+    <nameFeature>label</nameFeature>
+  </labels>
+
+  <export class="TabularExport">
+    <outDir>.</outDir>
+    <corpusFile>predictions.txt</corpusFile>
+    <lines>documents.sections.layer:PredictedHabitat</lines>
+    <columns separator=";">
+      section.document.@id;
+      str:normalizeSpace(@form);
+      @OBT;
+      @label
+    </columns>
+  </export>
+</alvisnlp-plan>

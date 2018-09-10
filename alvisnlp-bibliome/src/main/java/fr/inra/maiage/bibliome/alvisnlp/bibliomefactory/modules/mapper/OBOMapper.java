@@ -52,6 +52,7 @@ public class OBOMapper extends Mapper<MapperResolvedObjects,OBOClass> {
 	private String parentsFeature;
 	private String childrenFeature;
 	private String ancestorsFeature;
+	private String synonymsFeature;
 	private String versionFeature;
 	private Boolean keepDBXref = false;
 	private Boolean idKeys = false;
@@ -81,7 +82,7 @@ public class OBOMapper extends Mapper<MapperResolvedObjects,OBOClass> {
 			}
 		}
 		catch (OBOParseException|IOException e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 	
@@ -125,6 +126,11 @@ public class OBOMapper extends Mapper<MapperResolvedObjects,OBOClass> {
 		}
 		if (versionFeature != null) {
 			target.addFeature(versionFeature, ontologyVersion);
+		}
+		if (synonymsFeature != null) {
+			for (Synonym synonym : value.getSynonyms()) {
+				target.addFeature(synonymsFeature, synonym.getText());
+			}
 		}
 		if (keepDBXref) {
 			for (Dbxref dbxref : value.getDbxrefs()) {
@@ -183,6 +189,15 @@ public class OBOMapper extends Mapper<MapperResolvedObjects,OBOClass> {
 	@Param(nameType=NameType.FEATURE, mandatory=false)
 	public String getAncestorsFeature() {
 		return ancestorsFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE, mandatory=false)
+	public String getSynonymsFeature() {
+		return synonymsFeature;
+	}
+
+	public void setSynonymsFeature(String synonymsFeature) {
+		this.synonymsFeature = synonymsFeature;
 	}
 
 	public void setParentsFeature(String parentFeature) {

@@ -1,0 +1,24 @@
+<alvisnlp-plan id="wapiti-train">
+  <read file="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
+
+  <seg href="res://segmentation.plan"/>
+
+  <pos class="GeniaTagger">
+    <chunkFeature>chunk</chunkFeature>
+  </pos>
+
+  <wapiti class="WapitiTrain">
+    <documentFilter>@set == "train"</documentFilter>
+    <modelFile>habitats.model</modelFile>
+    <features separator=";">
+      str:normalizeSpace(@form);
+      @pos;
+      str:normalizeSpace(@lemma);
+      @chunk;
+      bio:get:Habitat:words("Habitat")
+    </features>
+    <trainAlgorithm>rprop</trainAlgorithm>
+    <patternFile>patterns.crf</patternFile>
+    <commandLineOptions separator=" ">-t 1 --rho1 0.5 --maxiter 0</commandLineOptions>
+  </wapiti>
+</alvisnlp-plan>

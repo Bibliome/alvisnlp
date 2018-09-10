@@ -35,6 +35,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.VariableLibrary.
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
@@ -123,7 +124,7 @@ public class Assert extends CorpusModule<AssertResolvedObjects> {
 				if (out != null) {
 					out.println(msg);
 				}
-				processingException(msg);
+				throw new ProcessingException(msg);
 			}
 			else {
 				logger.info("elements checked: " + checked);
@@ -131,7 +132,7 @@ public class Assert extends CorpusModule<AssertResolvedObjects> {
 			}
 		}
 		catch (IOException e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 

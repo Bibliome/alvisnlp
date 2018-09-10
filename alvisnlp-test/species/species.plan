@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-plan id="renbio-test">
+  <read href="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
+
+  <species class="Species">
+    <targetLayerName>species</targetLayerName>
+    <taxidFeature>taxid</taxidFeature>
+  </species>
+  
+  <taxa class="TabularProjector">
+    <dictFile>taxa+id_Bacteria.txt</dictFile>
+    <targetLayerName>projected</targetLayerName>
+    <valueFeatures>,taxid</valueFeatures>
+    <caseInsensitive/>
+    <skipWhitespace/>
+    <constantAnnotationFeatures>ne-type=taxon</constantAnnotationFeatures>
+  </taxa>
+
+  <compare class="CompareElements">
+    <sections>documents.sections</sections>
+    <reference>layer:species</reference>
+    <predicted>layer:projected</predicted>
+    <face>@form</face>
+    <outFile>compare.txt</outFile>
+    <similarity>strict</similarity>
+  </compare>
+</alvisnlp-plan>

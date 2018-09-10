@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alvisnlp-plan id="ccg-test">
-  <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
+  <read file="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
 
-  <import>res://segmentation.plan</import>
+  <seg href="res://segmentation.plan"/>
 
   <pos class="CCGPosTagger" />
 

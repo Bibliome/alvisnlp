@@ -48,8 +48,12 @@ public abstract class AbstractElement implements Element, Serializable {
     protected AbstractElement(String staticFeatureKey, ElementCreator ec) {
 		super();
 		this.staticFeatureKey = staticFeatureKey;
-		if (ec != null)
-			addFeature(ec.getCreatorNameFeature(), ec.getCreatorName());
+		if (ec != null) {
+			String creatorFeatureKey = ec.getCreatorNameFeature();
+			if (creatorFeatureKey != null) {
+				addFeature(creatorFeatureKey, ec.getCreatorName());
+			}
+		}
 	}
 
 

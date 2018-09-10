@@ -1,0 +1,7 @@
+<alvisnlp-plan id="dump">
+  <read href="BioNLP-ST-2016_BB-event/read.plan"/>
+
+  <export file="write-features.plan">
+    <file>dump-features.txt</file>
+  </export>
+</alvisnlp-plan>

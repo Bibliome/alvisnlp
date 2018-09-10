@@ -36,8 +36,8 @@ public class TupleDecoder extends ElementDecoder<Tuple> implements TupleCreator 
 	public Tuple decode1(ByteBuffer buffer) {
 		int nArgs = buffer.getInt();
 		for (int i = 0; i < nArgs; ++i) {
-			buffer.getInt();
-			buffer.getInt(); // skip arguments
+			buffer.getLong();
+			buffer.getLong(); // skip arguments
 		}
 		return new Tuple(this, relation);
 	}

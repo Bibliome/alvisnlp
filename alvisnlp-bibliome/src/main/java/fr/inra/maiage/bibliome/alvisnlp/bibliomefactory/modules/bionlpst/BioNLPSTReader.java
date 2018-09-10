@@ -34,6 +34,7 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DownCastElement;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
@@ -50,6 +51,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverExceptio
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
@@ -98,7 +100,7 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 	private InputDirectory a1Dir;
 	private InputDirectory a2Dir;
 	private String charset = "UTF-8";
-	private String sectionName = "text";
+	private String sectionName = DefaultNames.getDefaultSectionName();
 	private DocumentSchema schema;
 	
 	@Override
@@ -169,7 +171,7 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 			logger.info("created " + txtFiles.length + " documents");
 		}
 		catch (IOException|BioNLPSTException e) {
-			rethrow(e);
+			throw new ProcessingException(e);
 		}
 	}
 	

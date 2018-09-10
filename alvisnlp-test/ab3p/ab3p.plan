@@ -1,0 +1,16 @@
+<alvisnlp-plan id="ab3p">
+  <read href="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
+
+  <abbr class="Ab3P" />
+
+  <export class="TabularExport">
+    <outDir>.</outDir>
+    <corpusFile>abbreviations.txt</corpusFile>
+    <lines>documents.sections.relations:abbreviations.tuples</lines>
+    <columns separator=";">
+      section.document.@id;
+      args:short-form;
+      args:long-form
+    </columns>
+  </export>
+</alvisnlp-plan>

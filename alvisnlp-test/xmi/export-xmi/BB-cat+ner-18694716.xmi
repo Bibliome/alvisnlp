@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><xmi:XMI xmlns:pos="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos.ecore" xmlns:tcas="http:///uima/tcas.ecore" xmlns:xmi="http://www.omg.org/XMI" xmlns:cas="http:///uima/cas.ecore" xmlns:tweet="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/pos/tweet.ecore" xmlns:morph="http:///de/tudarmstadt/ukp/dkpro/core/api/lexmorph/type/morph.ecore" xmlns:type3="http:///de/tudarmstadt/ukp/dkpro/core/api/frequency/tfidf/type.ecore" xmlns:types="http:///fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/types.ecore" xmlns:dependency="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/dependency.ecore" xmlns:type7="http:///de/tudarmstadt/ukp/dkpro/core/api/semantics/type.ecore" xmlns:type9="http:///de/tudarmstadt/ukp/dkpro/core/api/transform/type.ecore" xmlns:type="http:///de/tudarmstadt/ukp/dkpro/core/api/anomaly/type.ecore" xmlns:type8="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type.ecore" xmlns:type4="http:///de/tudarmstadt/ukp/dkpro/core/api/metadata/type.ecore" xmlns:type5="http:///de/tudarmstadt/ukp/dkpro/core/api/ner/type.ecore" xmlns:type6="http:///de/tudarmstadt/ukp/dkpro/core/api/segmentation/type.ecore" xmlns:type2="http:///de/tudarmstadt/ukp/dkpro/core/api/coref/type.ecore" xmlns:constituent="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/constituent.ecore" xmlns:chunk="http:///de/tudarmstadt/ukp/dkpro/core/api/syntax/type/chunk.ecore" xmi:version="2.0">
+    <cas:NULL xmi:id="0"/>
+    <tcas:DocumentAnnotation xmi:id="8" sofa="1" begin="0" end="1410" language="x-unspecified"/>
+    <types:DocumentProxy xmi:id="13" sofa="1" id="BB-cat+ner-18694716" features="18" sections="24"/>
+    <cas:Sofa xmi:id="1" sofaNum="1" sofaID="_InitialView" mimeType="text" sofaString="Quantitative metabolome analysis using liquid chromatography-high-resolution mass spectrometry.&#10;In this report, we introduce a liquid chromatography single-mass spectrometry method for metabolome quantification, using the LTQ Orbitrap high-resolution mass spectrometer. Analytes were separated with hydrophilic interaction liquid chromatography. At a working resolution of 30,000 (at m/z 400), the limit of detection varied from 50 fmol to 5 pmol for 25 metabolites tested. In terms of metabolite concentration, the linearity was about 2 to 3 orders of magnitude for most compounds (R(2)&gt;0.99). To determine the accuracy of the system in complex sample matrices, the isotope dilution method was evaluated from mixtures of pure compounds and uniformly 13C-labeled cell extracts. With the application of this method, quantification was possible within single runs even when the pool sizes of individual metabolites varied from 0.13 to 55.6 microM. As a case study, intracellular concentrations of central metabolites were determined for Methylobacterium extorquens AM1 during growth on two different carbon sources, methanol and succinate. Reproducible results from technical and biological repetitions were obtained that revealed significant variations of intracellular metabolite pool sizes, depending on the carbon source. The LTQ Obitrap offers new perspectives and strategies for metabolome quantification.&#10;"/>
+    <types:FeatureProxy xmi:id="18" key="set" value="dev"/>
+    <types:SectionProxy xmi:id="24" sofa="1" begin="0" end="1410" name="text" features="" layers="34 40 53 67 149" relations="167 256 288 316 344"/>
+    <types:LayerProxy xmi:id="34" sofa="1" name="Habitat" annotations="38"/>
+    <cas:FSArray xmi:id="38" elements=""/>
+    <types:LayerProxy xmi:id="40" sofa="1" name="Bacteria" annotations="44"/>
+    <cas:FSArray xmi:id="44" elements=""/>
+    <types:LayerProxy xmi:id="53" sofa="1" name="Title" annotations="57"/>
+    <cas:FSArray xmi:id="57" elements="46"/>
+    <types:AnnotationProxy xmi:id="46" sofa="1" begin="0" end="95" features=""/>
+    <types:LayerProxy xmi:id="67" sofa="1" name="Paragraph" annotations="71"/>
+    <cas:FSArray xmi:id="71" elements="60"/>
+    <types:AnnotationProxy xmi:id="60" sofa="1" begin="96" end="1409" features=""/>
+    <types:LayerProxy xmi:id="149" sofa="1" name="named-entities" annotations="153"/>
+    <cas:FSArray xmi:id="153" elements="74 89 104 119 134"/>
+    <types:AnnotationProxy xmi:id="74" sofa="1" begin="222" end="268" features="79 82"/>
+    <types:FeatureProxy xmi:id="79" key="ne-type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="82" key="xref" value="OBT:000072"/>
+    <types:AnnotationProxy xmi:id="89" sofa="1" begin="710" end="776" features="94 97"/>
+    <types:FeatureProxy xmi:id="94" key="ne-type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="97" key="xref" value="OBT:000001"/>
+    <types:AnnotationProxy xmi:id="104" sofa="1" begin="751" end="767" features="109 112"/>
+    <types:FeatureProxy xmi:id="109" key="ne-type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="112" key="xref" value="OBT:000056"/>
+    <types:AnnotationProxy xmi:id="119" sofa="1" begin="1035" end="1066" features="124 127"/>
+    <types:FeatureProxy xmi:id="124" key="ne-type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="127" key="xref" value="272630"/>
+    <types:AnnotationProxy xmi:id="134" sofa="1" begin="1328" end="1339" features="139 142"/>
+    <types:FeatureProxy xmi:id="139" key="ne-type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="142" key="xref" value="OBT:000072"/>
+    <types:RelationProxy xmi:id="167" sofa="1" features="172" tuples="178 196 214 232" name="Habitat"/>
+    <types:FeatureProxy xmi:id="172" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="178" sofa="1" features="182 185 188" arguments="356"/>
+    <types:FeatureProxy xmi:id="182" key="id" value="T4"/>
+    <types:FeatureProxy xmi:id="185" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="188" key="OntoBiotope" value="OBT:000001"/>
+    <cas:FSArray xmi:id="356" elements="353"/>
+    <types:ArgumentProxy xmi:id="353" role="frag0" argument="89"/>
+    <types:TupleProxy xmi:id="196" sofa="1" features="200 203 206" arguments="362"/>
+    <types:FeatureProxy xmi:id="200" key="id" value="T5"/>
+    <types:FeatureProxy xmi:id="203" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="206" key="OntoBiotope" value="OBT:000056"/>
+    <cas:FSArray xmi:id="362" elements="359"/>
+    <types:ArgumentProxy xmi:id="359" role="frag0" argument="104"/>
+    <types:TupleProxy xmi:id="214" sofa="1" features="218 221 224" arguments="368"/>
+    <types:FeatureProxy xmi:id="218" key="id" value="T7"/>
+    <types:FeatureProxy xmi:id="221" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="224" key="OntoBiotope" value="OBT:000072"/>
+    <cas:FSArray xmi:id="368" elements="365"/>
+    <types:ArgumentProxy xmi:id="365" role="frag0" argument="134"/>
+    <types:TupleProxy xmi:id="232" sofa="1" features="236 239 242" arguments="374"/>
+    <types:FeatureProxy xmi:id="236" key="id" value="T3"/>
+    <types:FeatureProxy xmi:id="239" key="type" value="Habitat"/>
+    <types:FeatureProxy xmi:id="242" key="OntoBiotope" value="OBT:000072"/>
+    <cas:FSArray xmi:id="374" elements="371"/>
+    <types:ArgumentProxy xmi:id="371" role="frag0" argument="74"/>
+    <types:RelationProxy xmi:id="256" sofa="1" features="261" tuples="267" name="Bacteria"/>
+    <types:FeatureProxy xmi:id="261" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="267" sofa="1" features="271 274 277" arguments="380"/>
+    <types:FeatureProxy xmi:id="271" key="id" value="T6"/>
+    <types:FeatureProxy xmi:id="274" key="type" value="Bacteria"/>
+    <types:FeatureProxy xmi:id="277" key="NCBI_Taxonomy" value="272630"/>
+    <cas:FSArray xmi:id="380" elements="377"/>
+    <types:ArgumentProxy xmi:id="377" role="frag0" argument="119"/>
+    <types:RelationProxy xmi:id="288" sofa="1" features="293" tuples="299" name="Title"/>
+    <types:FeatureProxy xmi:id="293" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="299" sofa="1" features="303 306" arguments="386"/>
+    <types:FeatureProxy xmi:id="303" key="id" value="T1"/>
+    <types:FeatureProxy xmi:id="306" key="type" value="Title"/>
+    <cas:FSArray xmi:id="386" elements="383"/>
+    <types:ArgumentProxy xmi:id="383" role="frag0" argument="46"/>
+    <types:RelationProxy xmi:id="316" sofa="1" features="321" tuples="327" name="Paragraph"/>
+    <types:FeatureProxy xmi:id="321" key="kind" value="text"/>
+    <types:TupleProxy xmi:id="327" sofa="1" features="331 334" arguments="392"/>
+    <types:FeatureProxy xmi:id="331" key="id" value="T2"/>
+    <types:FeatureProxy xmi:id="334" key="type" value="Paragraph"/>
+    <cas:FSArray xmi:id="392" elements="389"/>
+    <types:ArgumentProxy xmi:id="389" role="frag0" argument="60"/>
+    <types:RelationProxy xmi:id="344" sofa="1" features="" tuples="" name="equiv"/>
+    <cas:View sofa="1" members="8 13"/>
+</xmi:XMI>

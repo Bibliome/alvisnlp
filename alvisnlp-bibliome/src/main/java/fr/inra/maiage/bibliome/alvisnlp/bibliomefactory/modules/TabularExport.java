@@ -36,6 +36,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.VariableLibrary.
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
@@ -143,27 +144,17 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> im
 			try (PrintStream ps = target.getPrintStream()) {
 				if (headers != null) {
 					printLine(writeTimer, ps, resObj.headers, evalCtx, fileElement);
-//					String[] values = evaluateArray(resObj.headers, evalCtx, fileElement);
-//					writeTimer.start();
-//					Strings.join(ps, values, separator);
-//					ps.println();
-//					writeTimer.stop();
 				}
 				for (Element lineElement : Iterators.loop(resObj.lines.evaluateElements(evalCtx, fileElement))) {
 					resObj.lineVar.set(lineElement);
 					printLine(writeTimer, ps, resObj.columns, evalCtx, lineElement);
-//					String[] values = evaluateArray(resObj.columns, evalCtx, lineElement);
-//					writeTimer.start();
-//					Strings.join(ps, values, separator);
-//					ps.println();
-//					writeTimer.stop();
 				}
 				if (footers != null) {
 					printLine(writeTimer, ps, resObj.footers, evalCtx, fileElement);
 				}
 			}
 			catch (IOException e) {
-				rethrow(e);
+				throw new ProcessingException(e);
 			}
 		}
 	}

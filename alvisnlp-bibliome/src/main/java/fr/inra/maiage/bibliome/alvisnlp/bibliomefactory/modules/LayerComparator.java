@@ -33,6 +33,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContex
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
@@ -96,60 +97,56 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
      */
     @Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
-		Logger logger = getLogger(ctx);
-		EvaluationContext evalCtx = new EvaluationContext(logger);
-        PrintStream ps = null;
-        try {
-//            ps = new PrintStream(new BufferedOutputStream(new FileOutputStream(outFile)), false, charset);
-            ps = outFile.getPrintStream();
-        }
-        catch (IOException ioe) {
-            rethrow(ioe);
-        }
-        int corpusTP = 0;
-        int corpusRef = 0;
-        int corpusPred = 0;
-        Timer<TimerCategory> writeTimer = getTimer(ctx, "write-txt", TimerCategory.PREPARE_DATA, false);
-        for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-            Layer referenceLayer = sec.ensureLayer(referenceLayerName);
-            Layer predictedLayer = sec.ensureLayer(predictedLayerName);
-            int tp = 0;
-            writeTimer.start();
-            ps.printf("Document %s, section %s\n    False positives:\n", sec.getDocument().getId(), sec.getName());
-            writeTimer.stop();
-            for (Annotation pred : predictedLayer) {
-            	if (referenceLayer.span(pred).size() > 0)
-            		tp++;
-            	else
-            		printAnnotation(writeTimer, ps, pred);
-            }
-            writeTimer.start();
-            ps.print("    False negatives:\n");
-            writeTimer.stop();
-            for (Annotation ref : referenceLayer) {
-            	if (predictedLayer.span(ref).size() == 0)
-            		printAnnotation(writeTimer, ps, ref);
-            }
-            writeTimer.start();
-            ps.printf("    True positives: %d\n", tp);
-            ps.print("    Span mismatches:\n");
-            writeTimer.stop();
-            for (Annotation ref : referenceLayer) {
-            	for (Annotation pred : predictedLayer.overlapping(ref))
-            		printSpanMismatch(writeTimer, ps, ref, pred);
-            }
-            int nPred = predictedLayer.size();
-            int nRef = referenceLayer.size();
-            printResults(writeTimer, ps, tp, nRef, nPred);
-            corpusTP += tp;
-            corpusRef += nRef;
-            corpusPred += nPred;
-        }
-        writeTimer.start();
-        ps.print("Global scores:\n");
-        writeTimer.stop();
-        printResults(writeTimer, ps, corpusTP, corpusRef, corpusPred);
-        ps.close();
+    	Logger logger = getLogger(ctx);
+    	EvaluationContext evalCtx = new EvaluationContext(logger);
+    	try (PrintStream ps = outFile.getPrintStream()) {
+    		int corpusTP = 0;
+    		int corpusRef = 0;
+    		int corpusPred = 0;
+    		Timer<TimerCategory> writeTimer = getTimer(ctx, "write-txt", TimerCategory.PREPARE_DATA, false);
+    		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
+    			Layer referenceLayer = sec.ensureLayer(referenceLayerName);
+    			Layer predictedLayer = sec.ensureLayer(predictedLayerName);
+    			int tp = 0;
+    			writeTimer.start();
+    			ps.printf("Document %s, section %s\n    False positives:\n", sec.getDocument().getId(), sec.getName());
+    			writeTimer.stop();
+    			for (Annotation pred : predictedLayer) {
+    				if (referenceLayer.span(pred).size() > 0)
+    					tp++;
+    				else
+    					printAnnotation(writeTimer, ps, pred);
+    			}
+    			writeTimer.start();
+    			ps.print("    False negatives:\n");
+    			writeTimer.stop();
+    			for (Annotation ref : referenceLayer) {
+    				if (predictedLayer.span(ref).size() == 0)
+    					printAnnotation(writeTimer, ps, ref);
+    			}
+    			writeTimer.start();
+    			ps.printf("    True positives: %d\n", tp);
+    			ps.print("    Span mismatches:\n");
+    			writeTimer.stop();
+    			for (Annotation ref : referenceLayer) {
+    				for (Annotation pred : predictedLayer.overlapping(ref))
+    					printSpanMismatch(writeTimer, ps, ref, pred);
+    			}
+    			int nPred = predictedLayer.size();
+    			int nRef = referenceLayer.size();
+    			printResults(writeTimer, ps, tp, nRef, nPred);
+    			corpusTP += tp;
+    			corpusRef += nRef;
+    			corpusPred += nPred;
+    		}
+    		writeTimer.start();
+    		ps.print("Global scores:\n");
+    		writeTimer.stop();
+    		printResults(writeTimer, ps, corpusTP, corpusRef, corpusPred);
+    	}
+		catch (IOException e) {
+			throw new ProcessingException(e);
+		}
     }
 
     /**

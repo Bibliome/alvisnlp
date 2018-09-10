@@ -42,8 +42,9 @@ public class AlvisNLP extends AbstractAlvisNLP<Corpus,CorpusModuleFactory,Corpus
 	/**
 	 * Creates a AlvisNLP CLI instance.
 	 * @throws TransformerConfigurationException
+	 * @throws IOException 
 	 */
-	public AlvisNLP() throws TransformerConfigurationException {
+	public AlvisNLP() throws TransformerConfigurationException, IOException {
 		super();
 	}
 	
@@ -69,7 +70,7 @@ public class AlvisNLP extends AbstractAlvisNLP<Corpus,CorpusModuleFactory,Corpus
 			return new Corpus();
         }
         logger.info("reading corpus dump " + resumeFile.getCanonicalPath());
-        try (Undumper undumper = new Undumper(resumeFile)) {
+        try (Undumper undumper = new Undumper(logger, resumeFile)) {
         	return undumper.readCorpus();
         }
 	}

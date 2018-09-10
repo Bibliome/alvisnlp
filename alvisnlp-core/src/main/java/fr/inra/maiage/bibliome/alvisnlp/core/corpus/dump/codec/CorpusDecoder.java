@@ -43,7 +43,7 @@ public class CorpusDecoder extends ElementDecoder<Corpus> {
 		docDecoder.setCorpus(result);
 		int nDocs = buffer.getInt();
 		for (int i = 0; i < nDocs; ++i) {
-			int docRef = buffer.getInt();
+			long docRef = buffer.getLong();
 			docUnmarshaller.read(docRef);
 		}
 		return result;

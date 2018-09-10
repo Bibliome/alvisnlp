@@ -144,7 +144,7 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
     	Timer<TimerCategory> dumpTimer = timer.newChild("dump", TimerCategory.DUMP);
     	timer.start();
     	dumpTimer.start();
-        try (Annotable.Dumper<T> dumper = getDumper(dumpFile)) {
+        try (Annotable.Dumper<T> dumper = getDumper(moduleLogger, dumpFile)) {
         	dumper.dump(corpus);
         }
         catch (Exception e) {
@@ -184,21 +184,25 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
     }
     
     @Override
+    @Deprecated
 	public void callExternal(External<T> ext) throws ModuleException {
     	callExternal(ext, Charset.defaultCharset().name());
 	}
 
 	@Override
+    @Deprecated
 	public void callExternal(External<T> ext, File saveCL) throws ModuleException {
 		callExternal(ext, Charset.defaultCharset().name(), saveCL);
 	}
 
 	@Override
+    @Deprecated
     public void callExternal(External<T> ext, String outCharset) throws ModuleException {
     	callExternal(ext, outCharset, null);
     }
     
     @Override
+    @Deprecated
     public void callExternal(External<T> ext, String outCharset, File saveCL) throws ModuleException {
         try {
             String[] clArgs = ext.getCommandLineArgs();

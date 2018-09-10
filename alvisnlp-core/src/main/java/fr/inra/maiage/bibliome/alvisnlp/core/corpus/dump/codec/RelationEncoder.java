@@ -40,7 +40,7 @@ public class RelationEncoder extends ElementEncoder<Relation> {
 
 	@Override
 	public int getSize(Relation object) {
-		return 4 + 4 + 4 * object.size() + super.getSize(object);
+		return REFERENCE_SIZE + 4 + REFERENCE_SIZE * object.size() + super.getSize(object);
 	}
 
 	@Override
@@ -49,8 +49,8 @@ public class RelationEncoder extends ElementEncoder<Relation> {
 		int nTuples = object.size();
 		buf.putInt(nTuples);
 		for (Tuple t : object.getTuples()) {
-			int tRef = tupleMarshaller.write(t);
-			buf.putInt(tRef);
+			long tRef = tupleMarshaller.write(t);
+			buf.putLong(tRef);
 		}
 		super.encode(object, buf);
 	}
@@ -63,7 +63,7 @@ public class RelationEncoder extends ElementEncoder<Relation> {
 		return tupleMarshaller;
 	}
 	
-	public Map<Tuple,Integer> getAllTuples() {
+	public Map<Tuple,Long> getAllTuples() {
 		return Collections.unmodifiableMap(tupleCache.getMap());
 	}
 }
