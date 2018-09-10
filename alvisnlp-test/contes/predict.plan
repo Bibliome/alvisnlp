@@ -20,7 +20,7 @@
       <classifier>
 	<documentFilter>@set == "train" or @set == "dev"</documentFilter>
 	<termLayerName>Habitat</termLayerName>
-	<conceptFeatureName>OntoBiotope</conceptFeatureName>
+	<conceptFeatureName>predictedOntoBiotope</conceptFeatureName>
 	<regressionMatrixFile>regression.bin</regressionMatrixFile>
       </classifier>
     </termClassifiers>
