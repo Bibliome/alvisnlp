@@ -12,12 +12,17 @@
   </move-concept>
   
   <train class="ContesTrain">
-    <tokenLayer>norm</tokenLayer>
-    <formFeature>norm</formFeature>
-    <termLayer>Habitat</termLayer>
-    <conceptFeature>OntoBiotope</conceptFeature>
-    <ontology>OntoBiotope_BioNLP-ST-2016.obo</ontology>
+    <tokenLayerName>norm</tokenLayerName>
+    <formFeatureName>norm</formFeatureName>
     <wordEmbeddings>vectors.json</wordEmbeddings>
-    <regressionMatrix>regression.bin</regressionMatrix>
+    <ontology>OntoBiotope_BioNLP-ST-2016.obo</ontology>
+    <termClassifiers>
+      <classifier>
+	<documentFilter>@set == "train" or @set == "dev"</documentFilter>
+	<termLayerName>Habitat</termLayerName>
+	<conceptFeatureName>OntoBiotope</conceptFeatureName>
+	<regressionMatrixFile>regression.bin</regressionMatrixFile>
+      </classifier>
+    </termClassifiers>
     </train>
 </alvisnlp-plan>

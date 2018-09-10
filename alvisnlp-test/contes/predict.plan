@@ -12,13 +12,18 @@
   </move-concept>
 
   <predict class="ContesPredict">
-    <tokenLayer>norm</tokenLayer>
-    <formFeature>norm</formFeature>
-    <termLayer>Habitat</termLayer>
-    <conceptFeature>predictedOntoBiotope</conceptFeature>
-    <ontology>OntoBiotope_BioNLP-ST-2016.obo</ontology>
+    <tokenLayerName>norm</tokenLayerName>
+    <formFeatureName>norm</formFeatureName>
     <wordEmbeddings>vectors.json</wordEmbeddings>
-    <regressionMatrix>regression.bin</regressionMatrix>
+    <ontology>OntoBiotope_BioNLP-ST-2016.obo</ontology>
+    <termClassifiers>
+      <classifier>
+	<documentFilter>@set == "train" or @set == "dev"</documentFilter>
+	<termLayerName>Habitat</termLayerName>
+	<conceptFeatureName>predictedOntoBiotope</conceptFeatureName>
+	<regressionMatrixFile>regression.bin</regressionMatrixFile>
+      </classifier>
+    </termClassifiers>
   </predict>
 
   <label class="OBOMapper">

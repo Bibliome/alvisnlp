@@ -268,7 +268,7 @@ public class PlanLoader<T extends Annotable> {
 			String dumpPath = elt.getAttribute("dump");
 			logger.severe("setting dump file inside the plan is deprecated, use -dumpModule instead");
 			logger.severe("future versions might not support in-plan dump");
-			ParamConverter converter = getParamConverterInstance(OutputFile.class, false);
+			ParamConverter converter = getParamConverterInstance("<dump file>", OutputFile.class, false);
 			OutputFile dumpFile = (OutputFile) converter.convert(dumpPath);
 			module.setDumpFile(dumpFile);
 		}
@@ -488,7 +488,7 @@ public class PlanLoader<T extends Annotable> {
 		return result;
 	}
 
-	private ParamConverter getParamConverterInstance(Class<?> paramType, boolean outputFeed) throws UnsupportedServiceException {
+	private ParamConverter getParamConverterInstance(String name, Class<?> paramType, boolean outputFeed) throws UnsupportedServiceException {
 		try {
 			ParamConverter result = converterFactory.getService(paramType);
 			if (outputFeed) {
@@ -507,7 +507,7 @@ public class PlanLoader<T extends Annotable> {
 			return result;
 		}
 		catch (UnsupportedServiceException use) {
-			throw new UnsupportedServiceException("could not find converter for type: " + paramType.getCanonicalName());
+		    throw new UnsupportedServiceException("could not find converter for param '" + name + "' of type: " + paramType.getCanonicalName(), use);
 		}
 	}
 	
@@ -547,7 +547,7 @@ public class PlanLoader<T extends Annotable> {
 			paramHandler.setInhibitCheck(true);
 		}
 		Class<?> paramType = paramHandler.getType();
-		ParamConverter paramConverter = getParamConverterInstance(paramType, outputFeed);
+		ParamConverter paramConverter = getParamConverterInstance(paramName, paramType, outputFeed);
 		if (elt.hasAttribute(LOAD_FILE_ATTRIBUTE_NAME)) {
 			String sourceString = elt.getAttribute(LOAD_FILE_ATTRIBUTE_NAME);
 			StreamFactory sf = getStreamFactory();

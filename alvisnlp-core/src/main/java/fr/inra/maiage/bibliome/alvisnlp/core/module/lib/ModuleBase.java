@@ -119,7 +119,10 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
             Param annot = method.getAnnotation(Param.class);
             if (annot != null) {
                 ParamHandler<T> ph = createParamHandler(method, annot);
-                paramHandlers.put(ph.getName(), ph);
+		String name = ph.getName();
+		if (!(paramHandlers.containsKey(name) && method.isBridge())) {
+		    paramHandlers.put(ph.getName(), ph);
+		}
             }
         }
     }

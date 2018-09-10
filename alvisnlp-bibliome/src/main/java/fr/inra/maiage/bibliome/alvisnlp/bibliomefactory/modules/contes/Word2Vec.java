@@ -2,20 +2,29 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes;
 
 import java.io.IOException;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
+import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 @AlvisNLPModule(beta=true)
-public class Word2Vec extends AbstractContes {
-	private String sentenceLayer = DefaultNames.getSentenceLayer();
-	private String vectorFeature = null;
+public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> implements AbstractContes {
+	private InputDirectory contesDir;
+	
+	private String sentenceLayerName = DefaultNames.getSentenceLayer();
+	private String tokenLayerName = DefaultNames.getWordLayer();
+	private String formFeatureName = Annotation.FORM_FEATURE_NAME;
+	private String vectorFeatureName = null;
 	
 	private Integer vectorSize = 200;
 	private Integer windowSize = 2;
@@ -35,19 +44,14 @@ public class Word2Vec extends AbstractContes {
 		}
 	}
 
-	@Override
-	protected String[] addLayersToSectionFilter() {
-		return new String[] { sentenceLayer, getTokenLayer() };
-	}
-
 	@Param(nameType=NameType.LAYER)
-	public String getSentenceLayer() {
-		return sentenceLayer;
+	public String getSentenceLayerName() {
+		return sentenceLayerName;
 	}
 
 	@Param(nameType=NameType.LAYER, mandatory=false)
-	public String getVectorFeature() {
-		return vectorFeature;
+	public String getVectorFeatureName() {
+		return vectorFeatureName;
 	}
 
 	@Param
@@ -80,12 +84,45 @@ public class Word2Vec extends AbstractContes {
 		return workers;
 	}
 
-	public void setSentenceLayer(String sentenceLayer) {
-		this.sentenceLayer = sentenceLayer;
+	@Override
+	@Param(nameType=NameType.LAYER)
+	public String getTokenLayerName() {
+		return tokenLayerName;
 	}
 
-	public void setVectorFeature(String vectorFeature) {
-		this.vectorFeature = vectorFeature;
+	@Override
+	@Param(nameType=NameType.FEATURE)
+	public String getFormFeatureName() {
+		return formFeatureName;
+	}
+
+	@Override
+	@Param
+	public InputDirectory getContesDir() {
+		return contesDir;
+	}
+
+	@Override
+	public void setContesDir(InputDirectory contesDir) {
+		this.contesDir = contesDir;
+	}
+
+	@Override
+	public void setTokenLayerName(String tokenLayer) {
+		this.tokenLayerName = tokenLayer;
+	}
+
+	@Override
+	public void setFormFeatureName(String formFeature) {
+		this.formFeatureName = formFeature;
+	}
+
+	public void setSentenceLayerName(String sentenceLayer) {
+		this.sentenceLayerName = sentenceLayer;
+	}
+
+	public void setVectorFeatureName(String vectorFeature) {
+		this.vectorFeatureName = vectorFeature;
 	}
 
 	public void setVectorSize(Integer vectorSize) {
@@ -110,5 +147,20 @@ public class Word2Vec extends AbstractContes {
 
 	public void setWorkers(Integer workers) {
 		this.workers = workers;
+	}
+
+	@Override
+	protected String[] addLayersToSectionFilter() {
+		return new String[] { sentenceLayerName , tokenLayerName };
+	}
+
+	@Override
+	protected String[] addFeaturesToSectionFilter() {
+		return null;
+	}
+
+	@Override
+	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		return new SectionResolvedObjects(ctx, this);
 	}
 }
