@@ -22,6 +22,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
@@ -30,8 +31,10 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.Checkable;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.InputFile;
@@ -43,7 +46,7 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 /**
  * Uses YaTeA to extract terms from the corpus.
  */
-public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> extends SectionModule<S> {
+public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> extends SectionModule<S> implements Checkable {
     private String wordLayerName = DefaultNames.getWordLayer();
     private String formFeature = Annotation.FORM_FEATURE_NAME;
     private String posFeature = DefaultNames.getPosTagFeature();
@@ -52,6 +55,8 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
     private ExecutableFile yateaExecutable;
     private SourceStream rcFile;
     private WorkingDirectory workingDir;
+    private OutputFile xmlTermsFile;
+    private OutputFile termListFile;
     private String perlLib;
     private Boolean bioYatea = false;
     private InputFile postProcessingConfig;
@@ -163,7 +168,8 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
      * 
      * @return the workingDir
      */
-    @Param
+    @Param(mandatory=false)
+    @Deprecated
     public WorkingDirectory getWorkingDir() {
         return workingDir;
     }
@@ -236,6 +242,24 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
     @Param(mandatory=false)
 	public String getSuffix() {
 		return suffix;
+	}
+
+    @Param(mandatory=false)
+	public OutputFile getXmlTermsFile() {
+		return xmlTermsFile;
+	}
+
+    @Param(mandatory=false)
+	public OutputFile getTermListFile() {
+		return termListFile;
+	}
+
+	public void setTermListFile(OutputFile termListFile) {
+		this.termListFile = termListFile;
+	}
+
+	public void setXmlTermsFile(OutputFile xmlTermsFile) {
+		this.xmlTermsFile = xmlTermsFile;
 	}
 
 	public void setConfigDir(InputDirectory configDir) {
@@ -374,6 +398,29 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
      */
     public void setPerlLib(String perlLib) {
         this.perlLib = perlLib;
+    }
+    
+    @Override
+    public boolean check(Logger logger) {
+    	if (workingDir != null) {
+    		logger.severe("workingDir is deprecated, use xmlTermsFile and termListFile to specify yatea output file");
+    		logger.severe("future versions may not support workingDir");
+    		return true;
+    	}
+    	if ((xmlTermsFile == null) && (termListFile == null)) {
+    		logger.severe("neither workingDir, xmlTermsFile or termListFile is set, set xmlTermsFile and termListFile to specify yatea output file");
+    		logger.severe("workingDir is deprecated, future versions may not support workingDir");
+    		return false;
+    	}
+    	return true;
+    }
+
+    protected WorkingDirectory getWorkingDirectory(ProcessingContext<Corpus> ctx) {
+    	if (workingDir != null) {
+    		return workingDir;
+    	}
+    	File tempDir = getTempDir(ctx);
+    	return new WorkingDirectory(tempDir, "yatea");
     }
     
     private static void writeConfigProperties(PrintStream out, Properties properties, String tag) {
