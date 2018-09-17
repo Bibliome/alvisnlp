@@ -59,7 +59,15 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="workingDir">
-      <p>Path to the directory where YaTeA is launched.</p>
+      <p>Path to the directory where YaTeA is launched. This parameter is <strong>deprecated</strong>, use <param>xmlTermsFile</param> and <param>termListFile</param> instead.</p>
+    </param-doc>
+    
+    <param-doc name="xmlTermsFile">
+      <p>Path where to write the candidates XML file produced by YaTeA.</p>
+    </param-doc>
+      
+    <param-doc name="termListFile">
+      <p>Path where to write the candidates list produced by YaTeA.</p>
     </param-doc>
   
     <param-doc name="posFeature">
