@@ -1,5 +1,5 @@
 run-alvisnlp extract.plan
-check-file-sorted yatea/corpus/default/raw/termList.txt
+check-file-sorted terms.txt
 run-alvisnlp tomap-train.plan
 run-alvisnlp tomap-predict.plan
 check-file-sorted predictions.txt
