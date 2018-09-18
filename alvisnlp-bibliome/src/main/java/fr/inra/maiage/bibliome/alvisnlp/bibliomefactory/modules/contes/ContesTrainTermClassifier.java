@@ -5,6 +5,6 @@ import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 public class ContesTrainTermClassifier extends ContesTermClassifier<OutputFile> {
 	public ContesTrainTermClassifier(Expression documentFilter, Expression sectionFilter, String termLayerName, String conceptFeatureName, OutputFile regressionMatrixFile) {
-		super(documentFilter, sectionFilter, termLayerName, conceptFeatureName, regressionMatrixFile);
+		super(documentFilter, sectionFilter, termLayerName, conceptFeatureName, null, regressionMatrixFile);
 	}
 }

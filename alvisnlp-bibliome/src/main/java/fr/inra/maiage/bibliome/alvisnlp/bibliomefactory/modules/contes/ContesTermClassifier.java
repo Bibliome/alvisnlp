@@ -18,17 +18,19 @@ public abstract class ContesTermClassifier<F extends AbstractFile> implements Re
 	private final Expression sectionFilter;
 	private final String termLayerName;
 	private final String conceptFeatureName;
+	private final String similarityFeatureName;
 	private final F regressionMatrixFile;
 	
-	protected ContesTermClassifier(Expression documentFilter, Expression sectionFilter, String termLayerName, String conceptFeatureName, F regressionMatrixFile) {
+	protected ContesTermClassifier(Expression documentFilter, Expression sectionFilter, String termLayerName, String conceptFeatureName, String similarityFeatureName, F regressionMatrixFile) {
 		super();
 		this.documentFilter = documentFilter;
 		this.sectionFilter = sectionFilter;
 		this.termLayerName = termLayerName;
 		this.conceptFeatureName = conceptFeatureName;
+		this.similarityFeatureName = similarityFeatureName;
 		this.regressionMatrixFile = regressionMatrixFile;
 	}
-	
+
 	@Override
 	public Resolved resolveExpressions(LibraryResolver resolver) throws ResolverException {
 		return new Resolved(this, resolver);
@@ -67,6 +69,10 @@ public abstract class ContesTermClassifier<F extends AbstractFile> implements Re
 
 		public String getConceptFeatureName() {
 			return contesTermClassifier.conceptFeatureName;
+		}
+		
+		public String getSimilarityFeatureName() {
+			return contesTermClassifier.similarityFeatureName;
 		}
 
 		public File getRegressionMatrixFile() {

@@ -21,6 +21,7 @@
 	<documentFilter>@set == "train" or @set == "dev"</documentFilter>
 	<termLayerName>Habitat</termLayerName>
 	<conceptFeatureName>predictedOntoBiotope</conceptFeatureName>
+	<similarityFeatureName>similarity</similarityFeatureName>
 	<regressionMatrixFile>regression.bin</regressionMatrixFile>
       </classifier>
     </termClassifiers>

@@ -18,7 +18,7 @@ abstract class AbstractContesTermClassifierParamConverter<F extends AbstractFile
 	
 	protected abstract Class<F> getMatrixFileClass();
 	
-	protected abstract T createContesTermClassifier(Expression documentFilter, Expression sectionFilter, String termLayerName, String conceptFeatureName, F regressionMatrixFile);
+	protected abstract T createContesTermClassifier(Expression documentFilter, Expression sectionFilter, String termLayerName, String conceptFeatureName, String similarityFeatureName, F regressionMatrixFile);
 
 	@Override
 	protected T convertXML(Element xmlValue) throws ConverterException {
@@ -26,6 +26,7 @@ abstract class AbstractContesTermClassifierParamConverter<F extends AbstractFile
 		Expression sectionFilter = DefaultExpressions.TRUE;
 		String termLayerName = null;
 		String conceptFeatureName = null;
+		String similarityFeatureName = null;
 		F regressionMatrixFile = null;
 		if (xmlValue.hasAttribute("documentFilter")) {
 			documentFilter = convertComponent(Expression.class, xmlValue.getAttribute("documentFilter"));
@@ -38,6 +39,9 @@ abstract class AbstractContesTermClassifierParamConverter<F extends AbstractFile
 		}
 		if (xmlValue.hasAttribute("conceptFeatureName")) {
 			conceptFeatureName = convertComponent(String.class, xmlValue.getAttribute("conceptFeatureName"));
+		}
+		if (xmlValue.hasAttribute("similarityFeatureName")) {
+			similarityFeatureName = convertComponent(String.class, xmlValue.getAttribute("similarityFeatureName"));
 		}
 		if (xmlValue.hasAttribute("regressionMatrixFile")) {
 			regressionMatrixFile = convertComponent(getMatrixFileClass(), xmlValue.getAttribute("regressionMatrixFile"));
@@ -62,6 +66,10 @@ abstract class AbstractContesTermClassifierParamConverter<F extends AbstractFile
 					conceptFeatureName = convertComponent(String.class, contents);
 					break;
 				}
+				case "similarityFeatureName": {
+					similarityFeatureName = convertComponent(String.class, contents);
+					break;
+				}
 				case "regressionMatrixFile": {
 					regressionMatrixFile = convertComponent(getMatrixFileClass(), contents);
 					break;
@@ -80,6 +88,6 @@ abstract class AbstractContesTermClassifierParamConverter<F extends AbstractFile
 		if (regressionMatrixFile == null) {
 			cannotConvertXML(xmlValue, "missing regressionMatrixFile");
 		}
-		return createContesTermClassifier(documentFilter, sectionFilter, termLayerName, conceptFeatureName, regressionMatrixFile);
+		return createContesTermClassifier(documentFilter, sectionFilter, termLayerName, conceptFeatureName, similarityFeatureName, regressionMatrixFile);
 	}
 }

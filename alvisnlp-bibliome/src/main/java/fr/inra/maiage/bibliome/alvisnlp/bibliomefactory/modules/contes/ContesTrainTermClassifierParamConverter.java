@@ -12,7 +12,7 @@ public class ContesTrainTermClassifierParamConverter extends AbstractContesTermC
 	}
 
 	@Override
-	protected ContesTrainTermClassifier createContesTermClassifier(Expression documentFilter, Expression sectionFilter, String termLayerName, String conceptFeatureName, OutputFile regressionMatrixFile) {
+	protected ContesTrainTermClassifier createContesTermClassifier(Expression documentFilter, Expression sectionFilter, String termLayerName, String conceptFeatureName, String similarityFeatureName, OutputFile regressionMatrixFile) {
 		return new ContesTrainTermClassifier(documentFilter, sectionFilter, termLayerName, conceptFeatureName, regressionMatrixFile);
 	}
 }

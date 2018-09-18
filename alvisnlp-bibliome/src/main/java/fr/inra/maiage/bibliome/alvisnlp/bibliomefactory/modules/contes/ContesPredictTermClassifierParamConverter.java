@@ -12,7 +12,7 @@ public class ContesPredictTermClassifierParamConverter extends AbstractContesTer
 	}
 
 	@Override
-	protected ContesPredictTermClassifier createContesTermClassifier(Expression documentFilter, Expression sectionFilter, String termLayerName, String conceptFeatureName, InputFile regressionMatrixFile) {
-		return new ContesPredictTermClassifier(documentFilter, sectionFilter, termLayerName, conceptFeatureName, regressionMatrixFile);
+	protected ContesPredictTermClassifier createContesTermClassifier(Expression documentFilter, Expression sectionFilter, String termLayerName, String conceptFeatureName, String similarityFeatureName, InputFile regressionMatrixFile) {
+		return new ContesPredictTermClassifier(documentFilter, sectionFilter, termLayerName, conceptFeatureName, similarityFeatureName, regressionMatrixFile);
 	}
 }

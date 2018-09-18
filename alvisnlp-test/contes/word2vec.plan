@@ -3,7 +3,7 @@
 
   <seg href="res://segmentation.plan"/>
 
-  <rorm file="normalization.plan"/>
+  <norm file="normalization.plan"/>
   
   <word2vec class="Word2Vec">
     <jsonFile>vectors.json</jsonFile>

@@ -70,7 +70,7 @@ class ContesPredictExternalHandler extends AbstractContesTermsExternalHandler<In
 		EvaluationContext ctx = new EvaluationContext(getLogger());
 		Corpus corpus = getAnnotable();
 		String conceptFeatureName = termClassifier.getConceptFeatureName();
-		String similarityFeatureName = getModule().getSimilarityFeatureName();
+		String similarityFeatureName = termClassifier.getSimilarityFeatureName();
 		Iterator<Section> sectionIt = corpus.sectionIterator(ctx, termClassifier.getDocumentFilter(), termClassifier.getSectionFilter());
 		for (Section sec : Iterators.loop(sectionIt)) {
 			if (sec.hasLayer(termClassifier.getTermLayerName())) {
