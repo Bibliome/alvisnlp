@@ -37,25 +37,13 @@ limitations under the License.
     <param-doc name="relationName">
       <p>Name of the relation that contains tuples that will be represented as relations.</p>
     </param-doc>
-  
-    <param-doc name="active">
-      <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is true.</p>
-    </param-doc>
       
     <param-doc name="outFile">
       <p>Data sink where to write.</p>
     </param-doc>
   
-    <param-doc name="documentFilter">
-      <p>Only process document that satisfy this filter.</p>
-    </param-doc>
-  
     <param-doc name="words">
       <p>Nme of the layer that contains the tokens.</p>
-    </param-doc>
-  
-    <param-doc name="sectionFilter">
-      <p>Process only sections that satisfy this filter.</p>
     </param-doc>
   
     <param-doc name="wordForm">
@@ -81,5 +69,6 @@ limitations under the License.
     <param-doc name="entityType">
       <p>Name of the feature of entity annotations containing the named entity type.</p>
     </param-doc>
-  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
+</module-doc>
 </alvisnlp-doc>

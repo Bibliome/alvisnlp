@@ -8,22 +8,6 @@
     <p>Reads a tokenized corpus: one token per line, empty line separates sentence.</p>
   </description>
 
-  <param-doc default-value="true" mandatory="default: true" name="active" short-type="Expression" type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
-    <p><this/> only runs if this expression evaluates to true.</p>
-  </param-doc>
-  
-  <param-doc name="constantAnnotationFeatures">
-    <p>Constant features to add to each annotation created by this module</p>
-  </param-doc>
-  
-  <param-doc name="constantDocumentFeatures">
-    <p>Constant features to add to each document created by this module</p>
-  </param-doc>
-  
-  <param-doc name="constantSectionFeatures">
-    <p>Constant features to add to each section created by this module</p>
-  </param-doc>
-
   <param-doc default-value="text" mandatory="default: text" name="sectionName" name-type="section" short-type="String" type="java.lang.String">
     <p>Name of the section containing the tokenized text.</p>
   </param-doc>
@@ -40,8 +24,9 @@
     <p>Name of the token layer.</p>
   </param-doc>
 
-  <param-doc name="userFunctions">
-    <p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p>
-  </param-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.DocumentCreatorParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.SectionCreatorParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreatorParamsDoc</include-doc>
 </module-doc>
 </alvisnlp-doc>
