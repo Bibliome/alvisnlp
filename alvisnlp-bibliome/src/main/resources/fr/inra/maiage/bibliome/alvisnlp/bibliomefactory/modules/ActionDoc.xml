@@ -80,9 +80,6 @@ limitations under the License.
     </param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
-    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.DocumentCreatorParamsDoc</include-doc>
-    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.SectionCreatorParamsDoc</include-doc>
-    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreatorParamsDoc</include-doc>
-    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreatorParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.module.ActionInterfaceParamsDoc</include-doc>
   </module-doc>
 </alvisnlp-doc>
