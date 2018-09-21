@@ -52,10 +52,6 @@ limitations under the License.
       <p>Aggregate functions to compute for each value.</p>
     </param-doc>
   
-    <param-doc name="active">
-      <p>Expression evaluated as a boolean with the corpus as context element. If the result is false, then the module does not process the module.</p>
-    </param-doc>
-  
     <param-doc name="entries">
       <p>Expression evaluated from the corpus as a list of elements.</p>
     </param-doc>
@@ -67,5 +63,6 @@ limitations under the License.
     <param-doc name="outFile">
       <p>File where to write the result.</p>
     </param-doc>
-  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
+</module-doc>
 </alvisnlp-doc>
