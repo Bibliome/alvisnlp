@@ -35,21 +35,9 @@ limitations under the License.
     <param-doc name="sentenceLayerName">
       <p>Name of the layer where to store sentence annotations.</p>
     </param-doc>
-  
-    <param-doc name="active">
-      <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is true.</p>
-    </param-doc>
       
     <param-doc name="posFeatureKey">
       <p>Name of the feature where to store word POS tags.</p>
-    </param-doc>
-  
-    <param-doc name="constantAnnotationFeatures">
-      <p>Constant features to add to each annotation created by this module</p>
-    </param-doc>
-  
-    <param-doc name="constantDocumentFeatures">
-      <p>Constant features to add to each document created by this module</p>
     </param-doc>
   
     <param-doc name="wordLayerName">
@@ -60,10 +48,6 @@ limitations under the License.
       <p>Character set of input files.</p>
     </param-doc>
   
-    <param-doc name="constantSectionFeatures">
-      <p>Constant features to add to each section created by this module</p>
-    </param-doc>
-  
     <param-doc name="sourcePath">
       <p>Path to the source directory or source file.</p>
     </param-doc>
@@ -71,5 +55,10 @@ limitations under the License.
     <param-doc name="sectionName">
       <p>Name of the section of each document.</p>
     </param-doc>
-  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.DocumentCreatorParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.SectionCreatorParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreatorParamsDoc</include-doc>
+</module-doc>
 </alvisnlp-doc>

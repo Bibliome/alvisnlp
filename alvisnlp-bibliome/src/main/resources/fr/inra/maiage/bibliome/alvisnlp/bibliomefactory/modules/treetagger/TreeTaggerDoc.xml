@@ -36,10 +36,6 @@ limitations under the License.
     <param-doc name="sentenceLayerName">
       <p>Name of the layer containing sentence annotations, sentences are reinforced.</p>
     </param-doc>
-  
-    <param-doc name="active">
-      <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is true.</p>
-    </param-doc>
       
     <param-doc name="inputCharset">
       <p>Tree-tagger input corpus character set.</p>
@@ -51,10 +47,6 @@ limitations under the License.
     
     <param-doc name="recordCharset">
       <p>Character encoding of the result files.</p>
-    </param-doc>
-
-    <param-doc name="constantAnnotationFeatures">
-      <p>Constant features to add to each annotation created by this module</p>
     </param-doc>
   
     <param-doc name="outputCharset">
@@ -77,14 +69,6 @@ limitations under the License.
       <p>Name of the feature to set with the lemma.</p>
     </param-doc>
   
-    <param-doc name="documentFilter">
-      <p>Only process document that satisfy this filter.</p>
-    </param-doc>
-  
-    <param-doc name="sectionFilter">
-      <p>Process only sections that satisfy this filter.</p>
-    </param-doc>
-  
     <param-doc name="treeTaggerExecutable">
       <p>Path to the tree-tagger executable file.</p>
     </param-doc>
@@ -100,5 +84,8 @@ limitations under the License.
     <param-doc name="posFeature">
       <p>Name of the feature to set with the POS tag.</p>
     </param-doc>
-  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreatorParamsDoc</include-doc>
+</module-doc>
 </alvisnlp-doc>
