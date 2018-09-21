@@ -29,32 +29,8 @@ limitations under the License.
       <p>Pattern to match see <converter name="ElementPattern"/> for pattern syntax.</p>
     </param-doc>
 
-    <param-doc name="constantAnnotationFeatures">
-      <p>Features to add to all annotations created by this module, these features are added for all actions that create an annotation.</p>
-    </param-doc>
-
-    <param-doc name="constantRelationFeatures">
-      <p>Features to add to all relations created by this module, these features are added for all realtions that have been created by an action that creates a tuple.</p>
-    </param-doc>
-  
-    <param-doc name="active">
-      <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is true.</p>
-    </param-doc>
-    
-    <param-doc name="constantTupleFeatures">
-      <p>Features to add to all tuples created by this module, these features are added for all actions that create a tuple.</p>
-    </param-doc>
-
     <param-doc name="actions">
       <p>Actions to perform each time the pattern is matched on the annotation sequence. See <converter name="MatchActionArray"/> for all available actions.</p>
-    </param-doc>
-
-    <param-doc name="documentFilter">
-      <p>Only process documents that satisfy this filter.</p>
-    </param-doc>
-
-    <param-doc name="sectionFilter">
-      <p>Only process sections that satisfy this filter.</p>
     </param-doc>
 
     <param-doc name="layerName">
@@ -68,5 +44,9 @@ limitations under the License.
     <param-doc name="annotationComparator">
       <p>Comparator to use when removing overlaps.</p>
     </param-doc>
-  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreatorParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreatorParamsDoc</include-doc>
+</module-doc>
 </alvisnlp-doc>
