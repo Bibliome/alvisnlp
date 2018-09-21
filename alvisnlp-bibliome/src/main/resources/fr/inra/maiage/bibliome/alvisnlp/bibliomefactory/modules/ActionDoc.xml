@@ -34,49 +34,9 @@ limitations under the License.
     <param-doc name="target">
       <p>Elements on which to perform the action. The expression is evaluated as a list of elements with the commit element as the context element.</p>
     </param-doc>
-  
-    <param-doc name="createAnnotations">
-      <p>Allow the creation of annotations.</p>
-    </param-doc>
-  
-    <param-doc name="createDocuments">
-      <p>Allow the creation of documents.</p>
-    </param-doc>
-  
-    <param-doc name="createRelations">
-      <p>Allow the creation of relations.</p>
-    </param-doc>
-    
+
     <param-doc name="action">
       <p>Action to perform on each result of <param name="target"/>.</p>
-    </param-doc>
-  
-    <param-doc name="createSections">
-      <p>Allow the creation of sections.</p>
-    </param-doc>
-  
-    <param-doc name="setArguments">
-      <p>Allow to set tuple arguments.</p>
-    </param-doc>
-  
-    <param-doc name="setFeatures">
-      <p>Allow to set element features.</p>
-    </param-doc>
-  
-    <param-doc name="deleteElements">
-      <p>Allow to delete elements.</p>
-    </param-doc>
-  
-    <param-doc name="createTuples">
-      <p>Allow to create tuples.</p>
-    </param-doc>
-  
-    <param-doc name="addToLayer">
-      <p>Allow to add annotations to layers.</p>
-    </param-doc>
-  
-    <param-doc name="removeFromLayer">
-      <p>Allow to remove annotations from layers.</p>
     </param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
