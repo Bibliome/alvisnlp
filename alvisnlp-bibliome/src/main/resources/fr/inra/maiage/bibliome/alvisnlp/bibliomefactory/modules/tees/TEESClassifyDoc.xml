@@ -24,37 +24,11 @@ limitations under the License.
     <description>
       <p><this/> executes the TEES classify from <param name="Corpus"/> and record the results in <param name="Relation"/>. The param <param name="relationName"/> sets the name of the binary rlation to predict. <param name="relationRole1"/> and and <param name="relationRole"/> set the two roles of the relation.<this/></p>
     </description>
-
-  
-    <param-doc name="namedEntityLayerName">
-      <p> Name of the layer containing the named entities </p>
-    </param-doc>
-  
-    <param-doc name="namedEntityTypeFeature">
-      <p> Name of the feature to access the type of the named entities </p>
-    </param-doc>
-      
-    <param-doc name="schema">
-      <p> 
-      	Give the schema of the relations to train i.e.
-	<xverb>
-      	  <schema>
-	    <Lives_In>Bacteria,Location</Lives_In>
-      	  </schema>
-	</xverb>
-      </p>
-    </param-doc>
   
     <param-doc name="teesModel">
       <p> Path to the trained model to use.</p>
     </param-doc>
- 
-    <param-doc name="teesHome">
-      <p> Path to the tees Classify executable file.</p>
-    </param-doc>
-    
-  <param-doc name="omitSteps">
-  <p>Set the preprocessing steps to omit in the form of PREPROCESS=[SPLIT-SENTENCES][,NER][,PARSE][,FIND-HEADS]</p></param-doc>
-  
+
+	<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tees.TEESMapperParamsDoc</include-doc>  
   </module-doc>
 </alvisnlp-doc>

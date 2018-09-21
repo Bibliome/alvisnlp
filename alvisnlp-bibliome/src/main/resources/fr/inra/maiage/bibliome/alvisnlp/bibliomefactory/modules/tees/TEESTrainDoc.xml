@@ -25,25 +25,6 @@ limitations under the License.
       <p><this/> executes the TEES training on <param name="Corpus"/> and record the results in <param name="Relation"/>. Param <param name="relationName"/> sets the name of the binary relation to predict. <param name="relationRole1"/> and <param name="relationRole"/> set the two roles of the relation. Params <param name="trainSetFeature"/>, <param name="devSetFeature"/> and <param name="testSetFeature"/> give respectively the features key of the train, dev and test corpus. <this/></p>
     </description>
 
-  
-    <param-doc name="namedEntityLayerName">
-      <p> Name of the layer containing the named entities </p>
-    </param-doc>
-  
-    <param-doc name="namedEntityTypeFeature">
-      <p> Name of the feature to access the type of the named entities </p>
-    </param-doc>
-      
-    <param-doc name="schema">
-      <p> 
-      	Give the schema of the relations to train i.e.
-	<xverb>
-      	  <schema>
-	    <Lives_In>Bacteria,Location</Lives_In>
-      	  </schema>
-	</xverb>
-      </p>
-    </param-doc>
     
     <param-doc name="trainSetValue">
       <p> Feature key of the train set corpus.</p>
@@ -64,13 +45,8 @@ limitations under the License.
     <param-doc name="modelTargetDir">
       <p> Path to the directory where put the trained model</p>
     </param-doc>
- 
-    <param-doc name="teesHome">
-      <p> Path to tees home directory. </p>
-    </param-doc>
-    
-  <param-doc name="omitSteps">
-  <p> Set the preprocessing steps to omit in the form of [SPLIT-SENTENCES][,NER][,PARSE][,FIND-HEADS]</p></param-doc>
+  
+	<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tees.TEESMapperParamsDoc</include-doc>  
   
   </module-doc>
 </alvisnlp-doc>
