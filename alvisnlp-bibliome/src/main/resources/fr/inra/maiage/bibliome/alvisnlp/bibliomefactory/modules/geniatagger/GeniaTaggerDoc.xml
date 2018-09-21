@@ -37,14 +37,6 @@ limitations under the License.
       <p>Name of the layer containing sentence annotations.</p>
     </param-doc>
   
-    <param-doc name="active">
-      <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is true.</p>
-    </param-doc>
-      
-    <param-doc name="documentFilter">
-      <p>Only process document that satisfy this filter.</p>
-    </param-doc>
-  
     <param-doc name="entity">
       <p>Feature where to put the entity status.</p>
     </param-doc>
@@ -59,10 +51,6 @@ limitations under the License.
   
     <param-doc name="geniaDir">
       <p>Directory where geniatagger is installed.</p>
-    </param-doc>
-  
-    <param-doc name="sectionFilter">
-      <p>Process only sections that satisfy this filter.</p>
     </param-doc>
   
     <param-doc name="wordForm">
@@ -80,5 +68,6 @@ limitations under the License.
     <param-doc name="geniaTaggerExecutable">
       <p>Name of the geniatagger executable file.</p>
     </param-doc>
-  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
+</module-doc>
 </alvisnlp-doc>
