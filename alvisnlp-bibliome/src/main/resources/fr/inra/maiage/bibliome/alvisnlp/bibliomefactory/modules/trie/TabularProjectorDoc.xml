@@ -36,10 +36,6 @@ limitations under the License.
       <p>If <param name="trieSink"/> is specified, <this/> writes a compiled version of the dictionary in the file. The use of compiled dictionaries may accelerate the processing for large dictionaries.</p>
     </description>
   
-    <param-doc name="skipWhitespace">
-      <p>If set to <em>true</em>, then allow arbitrary insertion of whitespace characters in the subject. For instance, the contents <em>amino acid</em> matches the key <em>aminoacid</em>.</p>
-    </param-doc>
-  
     <param-doc name="strictColumnNumber">
       <p>If set to true, then check that every line in <param name="dictFile"/> has the same number of columns as the number of features specified in <param name="entryFeatureNames"/>.</p>
     </param-doc>
@@ -48,100 +44,30 @@ limitations under the License.
       <p>In <param name="dictFile"/>, skip lines that contain only whitespace characters.</p>
     </param-doc>
   
-    <param-doc name="constantAnnotationFeatures">
-      <p>Constant features to add to each annotation created by <this/>.</p>
-    </param-doc>
-  
-    <param-doc name="subject">
-      <p>Specifies the contents to match.</p>
-    </param-doc>
-  
-    <param-doc name="trieSink">
-      <p>If set, then <this/> writes the compiled dictionary to the specified file.</p>
-    </param-doc>
-  
-    <param-doc name="wordStartCaseInsensitive">
-      <p>If set to <em>true</em>, then allow case folding on the first character of each word.</p>
-    </param-doc>
-  
-    <param-doc name="caseInsensitive">
-      <p>If set to <em>true</em>, then allows case folding on all characters.</p>
-    </param-doc>
-  
-    <param-doc name="allowJoined">
-      <p>If set to <em>true</em>, then allow arbitrary suppression of whitespace characters in the subject. For instance, the contents <em>aminoacid</em> matches the key <em>amino acid</em>.</p>
-    </param-doc>
-  
     <param-doc name="trimColumns">
       <p>If set to <em>true</em>, then trim leading and trailing whitespace character from column values in <param name="dictFile"/>.</p>
-    </param-doc>
-  
-    <param-doc name="targetLayerName">
-      <p>Name of the layer that contains the match annotations.</p>
     </param-doc>
   
     <param-doc name="dictFile">
       <p>The dictionary.</p>
     </param-doc>
   
-    <param-doc name="active">
-      <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is <em>true</em>.</p>
-    </param-doc>
-  
     <param-doc name="skipEmpty">
       <p>In <param name="dictFile"/>, skip empty lines.</p>
-    </param-doc>
-  
-    <param-doc name="trieSource">
-      <p>If set, read the compiled dictionary from the specified file. Compiled dictionaries are usually faster for large dictionaries.</p>
-    </param-doc>
-  
-    <param-doc name="skipConsecutiveWhitespaces">
-      <p>If set to <em>true</em>, then allow the insertion of consecutive whitespace characters in the subject. For instance, the contents <em>amino  acid</em> matches the entry <em>amino acid</em>.</p>
     </param-doc>
   
     <param-doc name="separator">
       <p>Specifies the character that separates columns in <param name="dictFile"/>.</p>
     </param-doc>
   
-    <param-doc name="documentFilter">
-      <p>Only process document that satisfy this expression.</p>
-    </param-doc>
-  
     <param-doc name="valueFeatures">
       <p>Target features in match annotations. The values are the columns in the entry.</p>
-    </param-doc>
-  
-    <param-doc name="joinDash">
-      <p>If set to <em>true</em>, then treat dash characters (-) as whitespace characters with regard to <param name="allowJoined"/>. For instance, the contents <em>aminoacid</em> matches the entry <em>amino-acid</em>.</p>
-    </param-doc>
-  
-    <param-doc name="multipleEntryBehaviour">
-      <p>Specifies the behavior if <param name="dictFile"/> contains several entries with the same key.</p>
-    </param-doc>
-  
-    <param-doc name="allUpperCaseInsensitive">
-      <p>If set to <em>true</em>, then allow case folding on all characters in words that are all upper case.</p>
-    </param-doc>
-  
-    <param-doc name="sectionFilter">
-      <p>Process only sections that satisfy this expression.</p>
-    </param-doc>
-  
-    <param-doc name="ignoreDiacritics">
-      <p>If set to <em>true</em>, then allow dicacritic removal on all characters. For instance the contents <em>acide amine</em> matches the key <em>acide aminé</em>.</p>
-    </param-doc>
-  
-    <param-doc name="matchStartCaseInsensitive">
-      <p>If set to <em>true</em>, then allow case folding on the first character of the entry key.</p>
     </param-doc>
   
     <param-doc name="keyIndex">
       <p>Specifies the index of the column that contains the entry key (<em>0</em> is the first).</p>
     </param-doc>
 	
-	<param-doc name="userFunctions">
-	  <p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p>
-	</param-doc>
+	<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.TrieProjectorParamsDoc</include-doc>
   </module-doc>
 </alvisnlp-doc>
