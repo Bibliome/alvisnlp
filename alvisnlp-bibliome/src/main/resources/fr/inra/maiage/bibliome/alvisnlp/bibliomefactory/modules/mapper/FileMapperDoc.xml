@@ -41,6 +41,6 @@ limitations under the License.
       <p>Separator character between columns in <param name="mappingFile"/>.</p>
     </param-doc>
 
-    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.MapperParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper.MapperParamsDoc</include-doc>
 </module-doc>
 </alvisnlp-doc>

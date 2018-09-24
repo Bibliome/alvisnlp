@@ -22,7 +22,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> applies Weka's attribute selection on a training set sepcified by <param name="examples"/> and writes the result in <param name="evaluationFile"/>.</p>
+      <p><this/> applies Weka's attribute selection on a training set specified by <param name="examples"/> and writes the result in <param name="evaluationFile"/>.</p>
     </description>
   
     <param-doc name="evaluator">
@@ -41,6 +41,6 @@ limitations under the License.
       <p>Options to the search heuristic.</p>
     </param-doc>
 
-	<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.newclassifiers.SelectingElementClassifier</include-doc>
+	<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.weka.ElementClassifierParamsDoc</include-doc>
 </module-doc>
 </alvisnlp-doc>

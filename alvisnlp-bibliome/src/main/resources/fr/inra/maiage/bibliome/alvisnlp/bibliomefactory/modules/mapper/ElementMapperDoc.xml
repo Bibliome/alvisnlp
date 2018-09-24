@@ -42,6 +42,6 @@ limitations under the License.
       <p>Expressions evaluated as strings with the entry element as the context. The results specify the feature values of targets that match the entry key.</p>
     </param-doc>
 
-    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.MapperParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper.MapperParamsDoc</include-doc>
 </module-doc>
 </alvisnlp-doc>

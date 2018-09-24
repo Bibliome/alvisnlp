@@ -79,7 +79,7 @@ limitations under the License.
     <param-doc name="superModel">
       <p>Path to the CCG supertagger model file.</p>
     </param-doc>
-    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CCGBaseParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ccg.CCGBaseParamsDoc</include-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreatorParamsDoc</include-doc>
 </module-doc>
 </alvisnlp-doc>

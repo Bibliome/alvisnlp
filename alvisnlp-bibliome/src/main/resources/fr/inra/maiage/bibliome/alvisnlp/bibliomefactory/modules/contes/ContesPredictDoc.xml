@@ -15,6 +15,6 @@
 			short-type="String" type="java.lang.String">
 			<p>Name of the layer that contain terms.</p>
 		</param-doc>
-    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.AbstractContesParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.AbstractContesTermsParamsDoc</include-doc>
 	</module-doc>
 </alvisnlp-doc>

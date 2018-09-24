@@ -70,6 +70,6 @@ limitations under the License.
       <p>Name of the feature where to store the term parents ids.</p>
     </param-doc>
 
-    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.MapperParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper.MapperParamsDoc</include-doc>
 </module-doc>
 </alvisnlp-doc>
