@@ -30,6 +30,7 @@ import fr.inra.maiage.bibliome.util.Files;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.files.InputFile;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 public class YateaExtractorExternalHandler<S extends SectionResolvedObjects> extends ExternalHandler<Corpus,AbstractYateaExtractor<S>> {
@@ -247,11 +248,15 @@ public class YateaExtractorExternalHandler<S extends SectionResolvedObjects> ext
 		copyYateaOutput(owner.getTermListFile(), "raw/termList.txt");
 	}
 	
-	private void copyYateaOutput(File xmlTermsFile, String source) throws IOException {
-		if (xmlTermsFile != null) {
+	private void copyYateaOutput(OutputFile file, String source) throws IOException {
+		if (file != null) {
+			File dir = file.getParentFile();
+			if (!dir.exists()) {
+				dir.mkdirs();
+			}
 			File d = getYateaOutputDir();
 			File f = new File(d, source);
-			Files.copy(f, xmlTermsFile);
+			Files.copy(f, file);
 		}
 	}
     
