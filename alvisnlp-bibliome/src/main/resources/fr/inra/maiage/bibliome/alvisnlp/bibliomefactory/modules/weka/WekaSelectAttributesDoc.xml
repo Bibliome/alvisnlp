@@ -37,24 +37,10 @@ limitations under the License.
       <p>Options to the evaluator.</p>
     </param-doc>
   
-    <param-doc name="active">
-      <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is true.</p>
-    </param-doc>
-      
-    <param-doc name="examples">
-      <p>Training set examples. This expression is evaluated as a list of elements with the corpus as the context element.</p>
-    </param-doc>
-  
-    <param-doc name="evaluationFile">
-      <p>File where to write evaluation results.</p>
-    </param-doc>
-  
     <param-doc name="searchOptions">
       <p>Options to the search heuristic.</p>
     </param-doc>
-  
-    <param-doc name="relationDefinition">
-      <p>Specification of example attributes and class.</p>
-    </param-doc>
-  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+
+	<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.newclassifiers.SelectingElementClassifier</include-doc>
+</module-doc>
 </alvisnlp-doc>
