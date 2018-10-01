@@ -251,7 +251,7 @@ public class YateaExtractorExternalHandler<S extends SectionResolvedObjects> ext
 	private void copyYateaOutput(OutputFile file, String source) throws IOException {
 		if (file != null) {
 			File dir = file.getParentFile();
-			if (!dir.exists()) {
+			if ((dir != null) && (!dir.exists())) {
 				dir.mkdirs();
 			}
 			File d = getYateaOutputDir();
