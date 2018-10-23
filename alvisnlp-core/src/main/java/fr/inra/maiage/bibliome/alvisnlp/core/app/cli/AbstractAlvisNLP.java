@@ -445,6 +445,9 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	
 	private void supplementModuleDocumentation(Module<A> mod, Document doc, String target, String shortTarget) throws XPathExpressionException {
     	Element alvisnlpDocElt = XMLUtils.evaluateElement("//alvisnlp-doc", doc);
+    	if (alvisnlpDocElt == null) {
+    		return;
+    	}
     	alvisnlpDocElt.setAttribute("target", target);
     	alvisnlpDocElt.setAttribute("short-target", shortTarget);
     	Element moduleElt = XMLUtils.evaluateElement("module-doc|plan-doc", alvisnlpDocElt);
