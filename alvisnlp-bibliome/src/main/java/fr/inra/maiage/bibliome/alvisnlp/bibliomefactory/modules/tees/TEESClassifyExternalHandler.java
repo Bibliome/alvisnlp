@@ -127,7 +127,7 @@ public class TEESClassifyExternalHandler extends TEESMapperExternalHandler<TEESC
 		env.put("TEES_CORPUS_IN", getTEESClassifierInputFile().getAbsolutePath());
 		env.put("TEES_CORPUS_OUT", getTempFile("preprocessed.xml").getAbsolutePath());
 		env.put("OUTSTREAM", OUTPUT_PREFIX);
-		env.put("OMITSTEPS",  owner.getOmitSteps());
+		env.put("STEPS",  owner.getSteps().replace(owner.getOmitSteps() + ",", ""));
 		env.put("WORKDIR",  getTempDir().getAbsolutePath());
 		env.put("MODEL",  owner.getTeesModel().getAbsolutePath());
 	}
