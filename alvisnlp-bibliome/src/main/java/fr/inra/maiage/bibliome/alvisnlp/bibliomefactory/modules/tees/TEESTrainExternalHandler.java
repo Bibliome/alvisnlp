@@ -117,7 +117,7 @@ class TEESTrainExternalHandler extends TEESMapperExternalHandler<TEESTrain> {
 		env.put("TEES_TRAIN_OUT", getTempFile("preprocessed-train.xml").getAbsolutePath());
 		env.put("TEES_DEV_IN", getTEESTrainDevInputFile().getAbsolutePath());
 		env.put("TEES_DEV_OUT", getTempFile("preprocessed-dev.xml").getAbsolutePath());
-		env.put("STEPS", StringUtils.difference(owner.getOmitSteps(), owner.getSteps()));
+		env.put("STEPS", owner.getSteps().replace(owner.getOmitSteps()+ ",", ""));
 		env.put("TEES_TEST_IN", getTEESTrainTestInputFile().getAbsolutePath());
 		env.put("TEES_TEST_OUT", getTempFile("preprocessed-test.xml").getAbsolutePath());
 		env.put("WORKDIR", getTempDir().getAbsolutePath());
