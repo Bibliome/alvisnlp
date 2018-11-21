@@ -15,4 +15,10 @@
 # limitations under the License.
 
 $PYTHON2 $TEES_PRE_EXE --input  $TEES_CORPUS_IN --output $TEES_CORPUS_OUT --steps $STEPS --debug true && \
-$PYTHON2 $TEES_CLASSIFY_EXE --input $TEES_CORPUS_OUT --output $OUTSTREAM  --workdir $WORKDIR --model $MODEL --steps PREPROCESS --debug --clearAll
+$PYTHON2 $TEES_CLASSIFY_EXE \
+--input $TEES_CORPUS_OUT \
+--output $OUTSTREAM  \
+--workdir $WORKDIR \
+--model $MODEL \
+--detectors $DETECTOR \
+--debug --clearAll
