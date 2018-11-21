@@ -27,7 +27,9 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	
 	private MultiMapping schema;
 	
-	private String omitSteps = "SPLIT-SENTENCES,NER";
+	private String omitSteps = "GENIA_SPLITTER,BANNER";
+	private String steps ="LOAD,GENIA_SPLITTER,BANNER,BLLIP_BIO,STANFORD_CONVERT,SPLIT_NAMES,FIND_HEADS,SAVE";
+
 	private ExecutableFile python2Executable;
 	private InputDirectory teesHome;
 
@@ -93,6 +95,15 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	public void setOmitSteps(String omitSteps) {
 		this.omitSteps = omitSteps;
 	}
+	
+	public String getSteps() {
+		return steps;
+	}
+
+	public void setSteps(String steps) {
+		this.steps = steps;
+	}
+
 	
 	@Param
 	public InputDirectory getTeesHome() {
