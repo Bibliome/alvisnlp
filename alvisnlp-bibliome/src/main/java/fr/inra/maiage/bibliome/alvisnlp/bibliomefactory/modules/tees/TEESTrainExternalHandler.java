@@ -11,6 +11,8 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
+import org.apache.commons.lang3.StringUtils;
+
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
@@ -115,7 +117,7 @@ class TEESTrainExternalHandler extends TEESMapperExternalHandler<TEESTrain> {
 		env.put("TEES_TRAIN_OUT", getTempFile("preprocessed-train.xml").getAbsolutePath());
 		env.put("TEES_DEV_IN", getTEESTrainDevInputFile().getAbsolutePath());
 		env.put("TEES_DEV_OUT", getTempFile("preprocessed-dev.xml").getAbsolutePath());
-		env.put("OMITSTEPS", owner.getOmitSteps());
+		env.put("STEPS", StringUtils.difference(owner.getOmitSteps(), owner.getSteps()));
 		env.put("TEES_TEST_IN", getTEESTrainTestInputFile().getAbsolutePath());
 		env.put("TEES_TEST_OUT", getTempFile("preprocessed-test.xml").getAbsolutePath());
 		env.put("WORKDIR", getTempDir().getAbsolutePath());
