@@ -123,6 +123,8 @@ class TEESTrainExternalHandler extends TEESMapperExternalHandler<TEESTrain> {
 		env.put("WORKDIR", getTempDir().getAbsolutePath());
 		env.put("MODELTD", owner.getModelTargetDir().getAbsolutePath());
 		env.put("MODEL_NAME", owner.getModelName());
+		env.put("TASK", owner.getTask());
+		env.put("DETECTOR", owner.getDetector());
 	}
 	
 	private File getTEESTrainScript() {
