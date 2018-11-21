@@ -32,6 +32,8 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 
 	private ExecutableFile python2Executable;
 	private InputDirectory teesHome;
+	
+	private String detector = "Detectors.EdgeDetector";
 
 	@Param(nameType = NameType.LAYER)
 	public String getTokenLayerName() {
@@ -121,5 +123,13 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 
 	public void setPython2Executable(ExecutableFile python2Executable) {
 		this.python2Executable = python2Executable;
+	}
+	
+	public String getDetector() {
+		return detector;
+	}
+
+	public void setDetector(String detector) {
+		this.detector = detector;
 	}
 }
