@@ -30,6 +30,7 @@ public abstract class TEESClassify extends TEESMapper {
 	private String dependentRole = DefaultNames.getDependencyDependentRole();
 	
 	private InputFile teesModel;
+	
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
