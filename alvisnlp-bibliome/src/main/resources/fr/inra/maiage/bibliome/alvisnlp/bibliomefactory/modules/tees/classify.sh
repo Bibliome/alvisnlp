@@ -20,5 +20,6 @@ $PYTHON2 $TEES_CLASSIFY_EXE \
 --output $OUTSTREAM  \
 --workdir $WORKDIR \
 --model $MODEL \
---detectors $DETECTOR \
---debug --clearAll
+--detector $DETECTOR \
+--omitSteps PREPROCESS \
+--debug
