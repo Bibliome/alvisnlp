@@ -25,7 +25,7 @@ $PYTHON2 $TEES_TRAIN_EXE \
 --testFile $TEES_TEST_OUT \
 -o $WORKDIR \
 -task $TASK \
---detectors $DETECTOR \
+--detector $DETECTOR \
 --debug true && \
 zip -j -r $MODEL_NAME $WORKDIR/model-test && \
 cp -r $WORKDIR/$MODEL_NAME.zip $MODELTD
