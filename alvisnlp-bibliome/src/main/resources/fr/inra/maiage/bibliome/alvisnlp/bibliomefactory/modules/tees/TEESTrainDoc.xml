@@ -17,7 +17,7 @@ limitations under the License.
 
 <alvisnlp-doc author="Mouhamadou Ba" date="2012-03-21" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tees.TEESTrain">
   <synopsis>
-    <p>Train a model that can be used to predict Alvis binary relations using TEES </p>
+    <p>Train a model that can be used to predict binary relations using TEES </p>
   </synopsis>
 
   <module-doc>

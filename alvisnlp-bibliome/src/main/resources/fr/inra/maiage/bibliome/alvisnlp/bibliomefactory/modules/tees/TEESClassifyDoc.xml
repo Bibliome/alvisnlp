@@ -17,7 +17,7 @@ limitations under the License.
 
 <alvisnlp-doc author="Mouhamadou Ba" date="2012-03-21" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tees.TEESClassify">
   <synopsis>
-    <p> Classify Alvis binary relations with the TEES Classifier based on trained model</p>
+    <p> Classify binary relations with the TEES Classifier based on trained model</p>
   </synopsis>
 
   <module-doc>
