@@ -5,7 +5,6 @@ T26	MRSA	T20	Nares
 T5	R. eutropha H850	T6	fructose medium
 T6	Anabaena sp. strain L-31	T5	soil
 T7	Campylobacter jejuni	T5	human
-T7	Campylobacter jejuni	T6	human gastrointestinal
 T5	Zobellia galactanivorans Dsij	T4	marine
 T5	Xanthomonas campestris pv. vesicatoria	T4	plant
 T31	E. coli O157:H7	T33	NB
@@ -15,10 +14,8 @@ T17	Escherichia coli O157:H7	T28	TSB
 T17	Escherichia coli O157:H7	T27	apple surfaces
 T17	Escherichia coli O157:H7	T23	NB
 T17	Escherichia coli O157:H7	T24	lettuce
-T17	Escherichia coli O157:H7	T15	nutrient broth
 T17	Escherichia coli O157:H7	T26	apple
 T17	Escherichia coli O157:H7	T25	lettuce and apple surfaces
-T17	Escherichia coli O157:H7	T12	tryptic soy broth
 T31	E. coli O157:H7	T30	NB
 T13	N. gonorrhoeae	T10	laboratories
 T13	N. gonorrhoeae	T12	Caribbean
@@ -52,9 +49,7 @@ T13	E. coli	T9	patients who accepted chemotherapy
 T14	Acinetobacter baumannii	T6	blood, urine and sputum of patients who accepted chemotherapy
 T14	Acinetobacter baumannii	T9	patients who accepted chemotherapy
 T14	Acinetobacter baumannii	T10	nosocomial
-T10	Virchow	T9	Spanish hospitals
 T10	Virchow	T8	Spanish
-T11	Livingstone	T9	Spanish hospitals
 T11	Livingstone	T8	Spanish
 T28	M. pneumoniae	T23	CSF
 T22	H. influenzae	T29	patients with antibiotic administration
@@ -67,7 +62,6 @@ T26	E. coli	T29	patients with antibiotic administration
 T27	L. monocytogenes	T23	CSF
 T27	L. monocytogenes	T29	patients with antibiotic administration
 T28	M. pneumoniae	T29	patients with antibiotic administration
-T20	TFM	T18	live vaccine
 T27	TFM	T26	Japanese flounder
 T14	S. aureus	T11	primary and secondary mannitol salts
 T14	S. aureus	T7	jail
@@ -79,9 +73,7 @@ T15	MRSA	T11	primary and secondary mannitol salts
 T15	MRSA	T7	jail
 T15	MRSA	T17	inmates
 T15	MRSA	T8	jail environmental surfaces
-T20	MRSA	T19	correctional facilities
 T16	Mycobacterium leprae	T15	human
-T25	M. leprae	T24	myelin-free cells
 T19	F. tularensis	T18	J774 cells
 T22	F. tularensis	T21	J774 cell line
 T6	Staphylococcus aureus	T5	human
@@ -111,7 +103,6 @@ T22	Salmonella	T26	chicks
 T22	Salmonella	T25	caecal wall of the chicks
 T11	MRSA	T14	patient
 T13	VRE	T14	patient
-T18	Mtb	T17	Mtb-infected human blood
 T4	Pseudomonas aeruginosa	T7	patients with CF
 T4	Pseudomonas aeruginosa	T6	clinical
 T4	Vibrio salmonicida	T3	fish
@@ -133,15 +124,12 @@ T19	serotypes A, B and C	T16	cases of trachoma
 T21	serotypes D-I	T20	oculogenital origin
 T29	H. pylori	T28	patients
 T4	Kingella kingae	T3	Respiratory
-T31	K. kingae	T30	day-care center attendees
 T31	K. kingae	T26	throat
-T31	K. kingae	T25	throat cultures
 T32	K. kingae	T34	children
 T32	K. kingae	T33	children
 T36	K. kingae	T38	surgical patients
 T36	K. kingae	T35	colonized children
 T36	K. kingae	T37	pharyngeal
-T13	non-O1 V. cholerae	T11	blood culture
 T13	non-O1 V. cholerae	T12	blood
 T13	non-O1 V. cholerae	T15	Patients with underlying cirrhosis and the aforementioned bacteremia
 T28	non-O1 V. cholerae	T27	Patients with decompensated cirrhosis
@@ -152,6 +140,5 @@ T12	mycobacterial	T7	man and animal models
 T8	H. pullorum	T7	human
 T5	Agrobacterium rhizogenes	T7	plant
 T3	Mycobacterium kansasii	T2	Gingivomandibular
-T8	Escherichia coli	T6	healthy cows
 T15	H. pylori	T14	Subjects with hypoacidity
 T23	H. pylori	T24	HIV-positive black and Hispanic populations
