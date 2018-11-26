@@ -55,8 +55,16 @@ limitations under the License.
       <p>Path to the TEES home directory.</p>
     </param-doc>
     
-  <param-doc name="Steps">
-  	<p>Set the preprocessing steps in the form of PREPROCESS=[LOAD][,GENIA_SPLITTER][,BANNER][,BLLIP_BIO][,STANFORD_CONVERT][,SPLIT_NAMES][,FIND_HEADS][,SAVE]</p>
+  <param-doc name="steps">
+  	<p>Set the preprocessing steps in the form of [LOAD][,GENIA_SPLITTER][,BANNER][,BLLIP_BIO][,STANFORD_CONVERT][,SPLIT_NAMES][,FIND_HEADS][,SAVE]</p>
+  </param-doc>
+  
+  <param-doc name="omitSteps">
+  	<p>Set the preprocessing steps to ignore in the form of [GENIA_SPLITTER][,BANNER][,BLLIP_BIO][,STANFORD_CONVERT][,SPLIT_NAMES][,FIND_HEADS] </p>
+  </param-doc>
+  
+  <param-doc name="detector">
+  	<p>Set the detector to use (ie., Detectors.EdgeDetector or Detectors.Eventdetector). By default, Detectors.Edgedetector is used</p>
   </param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
