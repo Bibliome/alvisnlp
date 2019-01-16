@@ -18,40 +18,40 @@ limitations under the License.
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.stanford.StanfordNER">
 
   <synopsis>
-    <p>synopsis</p>
+    <p>Applies the <a href="https://nlp.stanford.edu/software/CRF-NER.shtml">Stanford NLP named-entity recognition</a>.</p>
   </synopsis>
 
   <module-doc>
     <description>
-      <p>synopsis</p>
+      <p>Applies the <a href="https://nlp.stanford.edu/software/CRF-NER.shtml">Stanford NLP named-entity recognition</a>.</p>
     </description>
   
     <param-doc name="sentenceLayerName">
-      <p/>
+      <p>Name of the layer containing sentence annotations (ignored if <param>searchInContents</param> is set).</p>
     </param-doc>
   
     <param-doc name="searchInContents">
-      <p/>
+      <p>If true, then search named entities in the section contents.</p>
     </param-doc>
   
     <param-doc name="wordLayerName">
-      <p/>
+      <p>Name of the layer containing token annotations (ignored if <param>searchInContents</param> is set).</p>
     </param-doc>
   
     <param-doc name="formFeatureName">
-      <p/>
+      <p>Name of the feature containing the token surface form (ignored if <param>searchInContents</param> is set).</p>
     </param-doc>
   
     <param-doc name="classifierFile">
-      <p/>
+      <p>Path to the CRF classifier.</p>
     </param-doc>
   
     <param-doc name="labelFeatureName">
-      <p/>
+      <p>Name of the feature where to store the named entity label.</p>
     </param-doc>
   
     <param-doc name="targetLayerName">
-      <p/>
+      <p>Name of the layer where to store named-entity annotation.</p>
     </param-doc>
     
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
