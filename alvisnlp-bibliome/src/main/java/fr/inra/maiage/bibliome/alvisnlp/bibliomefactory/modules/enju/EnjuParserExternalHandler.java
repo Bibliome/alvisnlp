@@ -196,7 +196,7 @@ class EnjuParserExternalHandler extends ExternalHandler<Corpus,EnjuParser> {
 		}
 	}
 	
-	private static final Pattern ENJU_PRED_PATTERN = Pattern.compile("(?<label>[a-z]+)(?<mod>_mod)?_arg\\d*(?<argn>\\d)");
+	private static final Pattern ENJU_PRED_PATTERN = Pattern.compile("(?:\033\\[\\?1034h)?(?<label>[a-z]+)(?<mod>_mod)?_arg\\d*(?<argn>\\d)");
 	private void createDependencies(Relation rel, Annotation sentence, String parseNumber, Map<String,EnjuClause> clauseMap, EnjuClause tok) throws ProcessingException {
 		String predString = tok.checkAttribute("pred");
 		Matcher m = ENJU_PRED_PATTERN.matcher(predString);
