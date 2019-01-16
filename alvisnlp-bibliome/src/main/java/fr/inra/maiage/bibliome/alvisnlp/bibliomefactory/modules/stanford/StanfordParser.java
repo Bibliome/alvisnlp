@@ -15,6 +15,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
@@ -27,6 +28,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverExceptio
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.LoggingUtils;
 
@@ -127,6 +129,96 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 			super(ctx, module);
 			this.sentenceFilter = module.sentenceFilter.resolveExpressions(rootResolver);
 		}
+	}
+
+	@Param(nameType=NameType.LAYER)
+	public String getSentenceLayerName() {
+		return sentenceLayerName;
+	}
+
+	@Param(nameType=NameType.LAYER)
+	public String getTokenLayerName() {
+		return tokenLayerName;
+	}
+
+	@Param
+	public Expression getSentenceFilter() {
+		return sentenceFilter;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getFormFeatureName() {
+		return formFeatureName;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getPosTagFeatureName() {
+		return posTagFeatureName;
+	}
+
+	@Param(nameType=NameType.RELATION)
+	public String getDependencyRelationName() {
+		return dependencyRelationName;
+	}
+
+	@Param(nameType=NameType.ARGUMENT)
+	public String getHeadRole() {
+		return headRole;
+	}
+
+	@Param(nameType=NameType.ARGUMENT)
+	public String getDependentRole() {
+		return dependentRole;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getDependencyLabelFeatureName() {
+		return dependencyLabelFeatureName;
+	}
+
+	@Param(nameType=NameType.ARGUMENT)
+	public String getDependencySentenceRole() {
+		return dependencySentenceRole;
+	}
+
+	public void setSentenceLayerName(String sentenceLayerName) {
+		this.sentenceLayerName = sentenceLayerName;
+	}
+
+	public void setTokenLayerName(String tokenLayerName) {
+		this.tokenLayerName = tokenLayerName;
+	}
+
+	public void setSentenceFilter(Expression sentenceFilter) {
+		this.sentenceFilter = sentenceFilter;
+	}
+
+	public void setFormFeatureName(String formFeatureName) {
+		this.formFeatureName = formFeatureName;
+	}
+
+	public void setPosTagFeatureName(String posTagFeatureName) {
+		this.posTagFeatureName = posTagFeatureName;
+	}
+
+	public void setDependencyRelationName(String dependencyRelationName) {
+		this.dependencyRelationName = dependencyRelationName;
+	}
+
+	public void setHeadRole(String headRole) {
+		this.headRole = headRole;
+	}
+
+	public void setDependentRole(String dependentRole) {
+		this.dependentRole = dependentRole;
+	}
+
+	public void setDependencyLabelFeatureName(String dependencyLabelFeatureName) {
+		this.dependencyLabelFeatureName = dependencyLabelFeatureName;
+	}
+
+	public void setDependencySentenceRole(String dependencySentenceRole) {
+		this.dependencySentenceRole = dependencySentenceRole;
 	}
 
 }
