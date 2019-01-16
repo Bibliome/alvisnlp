@@ -1,7 +1,6 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.stanford;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -130,44 +129,4 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		}
 	}
 
-
-
-
-
-
-
-
-	public static void main(String[] args) {
-        LoggingUtils.configureSilentLog4J();
-
-		List<TaggedWord> taggedSentence = Arrays.asList(
-				new TaggedWord("The", "DT"),
-				new TaggedWord("fat", "JJ"),
-				new TaggedWord("cat", "NN"),
-				new TaggedWord("eats", "VVZ"),
-				new TaggedWord("the", "DT"),
-				new TaggedWord("mouse", "NN"),
-				new TaggedWord("in", "IN"),
-				new TaggedWord("my", "PP$"),
-				new TaggedWord("kitchen", "NN"),
-				new TaggedWord(".", ".")
-				);
-
-		System.err.println("load model");
-		String modelPath = DependencyParser.DEFAULT_MODEL;
-		DependencyParser parser = DependencyParser.loadFromModelFile(modelPath);
-
-		System.err.println("parse");
-		GrammaticalStructure gs = parser.predict(taggedSentence);
-		for (TypedDependency dep : gs.typedDependencies()) {
-			int head = dep.gov().index() - 1;
-			int mod = dep.dep().index() - 1;
-			String label = dep.reln().getShortName();
-			if ((head == -1) || (mod == -1)) {
-				System.out.format("* %s - %d - %d\n", label, head, mod);
-				continue;
-			}
-			System.out.format("%s - %s - %s\n", label, taggedSentence.get(head).word(), taggedSentence.get(mod).word());
-		}
-	}
 }
