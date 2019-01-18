@@ -44,6 +44,7 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	private String dependentRole = DefaultNames.getDependencyDependentRole();
 	private String dependencyLabelFeatureName = DefaultNames.getDependencyLabelFeatureName();
 	private String dependencySentenceRole = DefaultNames.getDependencySentenceRole();
+	private Boolean omitRoot = false;
 	
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -94,11 +95,16 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		int headIndex = dep.gov().index() - 1;
 		int modIndex = dep.dep().index() - 1;
 		String label = dep.reln().getShortName();
-		if ((headIndex == -1) || (modIndex == -1)) {
-			// skip root
-			return;
+		Annotation head;
+		if (headIndex == -1) {
+			if (omitRoot) {
+				return;
+			}
+			head = null;
 		}
-		Annotation head = sentenceTokens.get(headIndex);
+		else {
+			head = sentenceTokens.get(headIndex);
+		}
 		Annotation mod = sentenceTokens.get(modIndex);
 		Tuple t = new Tuple(this, dependencies);
 		t.setArgument(dependencySentenceRole, sentence);
@@ -179,6 +185,15 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	@Param(nameType=NameType.ARGUMENT)
 	public String getDependencySentenceRole() {
 		return dependencySentenceRole;
+	}
+
+	@Param
+	public Boolean getOmitRoot() {
+		return omitRoot;
+	}
+
+	public void setOmitRoot(Boolean omitRoot) {
+		this.omitRoot = omitRoot;
 	}
 
 	public void setSentenceLayerName(String sentenceLayerName) {

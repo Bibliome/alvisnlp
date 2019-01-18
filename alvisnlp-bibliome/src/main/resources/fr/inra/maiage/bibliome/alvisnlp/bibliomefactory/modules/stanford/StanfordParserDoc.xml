@@ -10,6 +10,7 @@
 		<description>
 			<p>Applies the <a href="https://nlp.stanford.edu/software/lex-parser.shtml">Stanford dependency parser</a>.</p>
 			<p>The corpus must be sentence-split, tokenized and tokens must be POS-tagged.</p>
+			<p>The root is represented as a tuple like dependencies but without a head argument, and labelled <em>root</em>.</p>
 		</description>
 
 		<param-doc default-value="label" mandatory="default: label"
@@ -70,6 +71,12 @@
 			name="tokenLayerName" name-type="layer" short-type="String"
 			type="java.lang.String">
 			<p>Name of the layer containing token annotations.</p>
+		</param-doc>
+
+		<param-doc default-value="false" mandatory="default: false"
+			name="omitRoot" short-type="Boolean"
+			type="java.lang.Boolean">
+			<p>If set, do not create the root tuple.</p>
 		</param-doc>
 
 	    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
