@@ -151,6 +151,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	private List<String> inputDirs;
 	private List<String> resourceBases;
 	private String outputDir;
+	private final Map<String,String> baseDirs = new LinkedHashMap<String,String>();
 	private boolean noColors = false;
 	
 	/**
@@ -326,6 +327,14 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	@CLIOption("-outputDir")
 	public void setOutputDir(String path) {
 		outputDir = path;
+	}
+	
+	@CLIOption("-baseDir")
+	public void addBaseDir(String name, String path) throws CLIOException {
+		if (baseDirs.containsKey(name)) {
+			throw new CLIOException("duplicate base directory named " + name);
+		}
+		baseDirs.put(name, path);
 	}
 	
 	@CLIOption("--input")
@@ -943,7 +952,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
         docBuilderFactory.setFeature("http://xml.org/sax/features/use-entity-resolver2", true);
         DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
         Document defaultParamValuesDoc = getDefaultParamValuesDoc(docBuilder);
-		PlanLoader<A> planLoader = new PlanLoader<A>(moduleFactory, converterFactory, defaultParamValuesDoc, inputDirs, outputDir, buildResourceBases(), docBuilder, creatorNameFeature, customEntities);
+		PlanLoader<A> planLoader = new PlanLoader<A>(moduleFactory, converterFactory, defaultParamValuesDoc, inputDirs, outputDir, baseDirs, buildResourceBases(), docBuilder, creatorNameFeature, customEntities);
 
 		Document doc = planLoader.parseDoc(planFile);
 		logger.config("loading plan from " + planFile);

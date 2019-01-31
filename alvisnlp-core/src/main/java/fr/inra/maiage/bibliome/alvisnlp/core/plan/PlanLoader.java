@@ -126,6 +126,7 @@ public class PlanLoader<T extends Annotable> {
 	private final List<String> inputDirs;
 	private final List<String> resourceBases;
 	private final String outputDir;
+	private final Map<String,String> baseDirs;
 	private final DocumentBuilder docBuilder;
 	private final String creatorNameFeature;
 	private int nShells = 0;
@@ -138,13 +139,14 @@ public class PlanLoader<T extends Annotable> {
 	 * @param customEntities 
 	 * @throws PlanException 
 	 */
-	public PlanLoader(ModuleFactory<T> moduleFactory, ParamConverterFactory converterFactory, Document defaultParamValuesDoc, List<String> inputDirs, String outputDir, List<String> resourceBases, DocumentBuilder docBuilder, String creatorNameFeature, Map<String,String> customEntities) throws PlanException {
+	public PlanLoader(ModuleFactory<T> moduleFactory, ParamConverterFactory converterFactory, Document defaultParamValuesDoc, List<String> inputDirs, String outputDir, Map<String,String> baseDirs, List<String> resourceBases, DocumentBuilder docBuilder, String creatorNameFeature, Map<String,String> customEntities) throws PlanException {
 		super();
 		this.moduleFactory = moduleFactory;
 		this.converterFactory = converterFactory;
 		this.defaultParamValues = buildDefaultParamValues(defaultParamValuesDoc);
 		this.inputDirs = inputDirs;
 		this.outputDir = outputDir;
+		this.baseDirs = baseDirs;
 		this.resourceBases = resourceBases;
 		this.docBuilder = docBuilder;
 		this.creatorNameFeature = creatorNameFeature;
@@ -268,7 +270,7 @@ public class PlanLoader<T extends Annotable> {
 			String dumpPath = elt.getAttribute("dump");
 			logger.severe("setting dump file inside the plan is deprecated, use -dumpModule instead");
 			logger.severe("future versions might not support in-plan dump");
-			ParamConverter converter = getParamConverterInstance("<dump file>", OutputFile.class, false);
+			ParamConverter converter = getParamConverterInstance("<dump file>", OutputFile.class, false, null);
 			OutputFile dumpFile = (OutputFile) converter.convert(dumpPath);
 			module.setDumpFile(dumpFile);
 		}
@@ -488,21 +490,31 @@ public class PlanLoader<T extends Annotable> {
 		return result;
 	}
 
-	private ParamConverter getParamConverterInstance(String name, Class<?> paramType, boolean outputFeed) throws UnsupportedServiceException {
+	private ParamConverter getParamConverterInstance(String name, Class<?> paramType, boolean outputFeed, String baseDir) throws UnsupportedServiceException, PlanException {
 		try {
 			ParamConverter result = converterFactory.getService(paramType);
 			if (outputFeed) {
+				if (baseDir != null) {
+					throw new PlanException("incompatible options");
+				}
 				if (outputDir == null) {
 					result.setInputDirs(Collections.emptyList());
 				}
 				else {
 					result.setInputDirs(Collections.singletonList(outputDir));
 				}
+				result.setOutputDir(outputDir);
 			}
 			else {
-				result.setInputDirs(inputDirs);
+				if (baseDir != null) {
+					result.setInputDirs(Collections.singletonList(baseDir));
+					result.setOutputDir(baseDir);
+				}
+				else {
+					result.setInputDirs(inputDirs);
+					result.setOutputDir(outputDir);
+				}
 			}
-			result.setOutputDir(outputDir);
 			result.setResourceBases(resourceBases);
 			return result;
 		}
@@ -546,8 +558,16 @@ public class PlanLoader<T extends Annotable> {
 		if (outputFeed) {
 			paramHandler.setInhibitCheck(true);
 		}
+		String baseDir = null;
+		String baseDirName = XMLUtils.getAttribute(elt, "base-dir", null);
+		if (baseDirName != null) {
+			if (!baseDirs.containsKey(baseDirName)) {
+				throw new PlanException("undefined base directory named " + baseDirName);
+			}
+			baseDir = baseDirs.get(baseDirName);
+		}
 		Class<?> paramType = paramHandler.getType();
-		ParamConverter paramConverter = getParamConverterInstance(paramName, paramType, outputFeed);
+		ParamConverter paramConverter = getParamConverterInstance(paramName, paramType, outputFeed, baseDir);
 		if (elt.hasAttribute(LOAD_FILE_ATTRIBUTE_NAME)) {
 			String sourceString = elt.getAttribute(LOAD_FILE_ATTRIBUTE_NAME);
 			StreamFactory sf = getStreamFactory();
