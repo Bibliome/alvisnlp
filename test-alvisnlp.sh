@@ -176,8 +176,8 @@ log
 function run-alvisnlp() {
     planfile=${@:$#}
     logfile=${planfile/.plan/.log}
-    echo "$INSTALL_DIR"/bin/alvisnlp -verbose -log "$TEST_WD"/"$logfile" -inputDir "$TEST_DIR" -inputDir "$TESTS_DIR"/share -inputDir "$TEST_WD" -tmp "$TEST_WD"/tmp "$@"
-    "$INSTALL_DIR"/bin/alvisnlp -verbose -log "$TEST_WD"/"$logfile" -inputDir "$TEST_DIR" -inputDir "$TESTS_DIR"/share -inputDir "$TEST_WD" -tmp "$TEST_WD"/tmp "$@"
+    echo "$INSTALL_DIR"/bin/alvisnlp -verbose -log "$TEST_WD"/"$logfile" -inputDir "$TEST_DIR" -baseDir test "$TEST_DIR" -inputDir "$TESTS_DIR"/share -baseDir share "$TESTS_DIR"/share -inputDir "$TEST_WD" -baseDir wd "$TEST_WD" -tmp "$TEST_WD"/tmp "$@"
+    "$INSTALL_DIR"/bin/alvisnlp -verbose -log "$TEST_WD"/"$logfile" -inputDir "$TEST_DIR" -baseDir test "$TEST_DIR" -inputDir "$TESTS_DIR"/share -baseDir share "$TESTS_DIR"/share -inputDir "$TEST_WD" -baseDir wd "$TEST_WD" -tmp "$TEST_WD"/tmp "$@"
 }
 
 function check-file() {

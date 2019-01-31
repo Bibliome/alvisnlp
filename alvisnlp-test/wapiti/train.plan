@@ -1,5 +1,5 @@
 <alvisnlp-plan id="wapiti-train">
-  <read file="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
+  <read base-dir="share" file="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
 
   <seg href="res://segmentation.plan"/>
 

@@ -587,6 +587,8 @@ public class PlanLoader<T extends Annotable> {
 		}
 		try {
 			Object value = paramConverter.convert(elt);
+//			System.err.println("paramName = " + paramName);
+//			System.err.println("value = " + value);
 			paramHandler.setValue(value);
 		}
 		catch (ConverterException e) {

@@ -9,7 +9,7 @@
 
   <wapiti class="WapitiLabel">
     <documentFilter>@set == "dev"</documentFilter>
-    <modelFile>habitats.model</modelFile>
+    <modelFile base-dir="test">habitats.model</modelFile>
     <features separator=";">
       str:normalizeSpace(@form);
       @pos;
