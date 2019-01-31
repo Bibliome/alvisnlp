@@ -121,6 +121,8 @@ public class PlanLoader<T extends Annotable> {
 	private static final String LOCALE_ATTRIBUTE_NAME = "locale";
 
 	public static final String BASE_DIR_ATTRIBUTE_NAME = "base-dir";
+	
+	public static final String OUTPUT_FEED_ATTRIBUTE_NAME = "output-feed";
 
 	private final ModuleFactory<T> moduleFactory;
 	private final ParamConverterFactory converterFactory;
@@ -342,10 +344,10 @@ public class PlanLoader<T extends Annotable> {
 				}
 				if (SHELL_ELEMENT_NAME.equals(childName)) {
 					String id = "shell_" + (++nShells);
-					childElement.setAttribute("id", id);
+					childElement.setAttribute(ID_ATTRIBUTE_NAME, id);
 					String shellModule;
 					shellModule = moduleFactory.getShellModule();
-					childElement.setAttribute("class", shellModule);
+					childElement.setAttribute(CLASS_ATTRIBUTE_NAME, shellModule);
 					Module<T> module = loadModule(logger, childElement);
 					result.appendModule(module);
 					continue;
@@ -559,16 +561,16 @@ public class PlanLoader<T extends Annotable> {
 		if (elt.hasAttribute("inhibitCheck")) {
 			boolean inhibitCheck = Strings.getBoolean(elt.getAttribute("inhibitCheck"));
 			paramHandler.setInhibitCheck(inhibitCheck);
-			logger.severe("attribute 'inhibitCheck' is deprecated, please use 'output-feed'");
+			logger.severe("attribute 'inhibitCheck' is deprecated, please use '" + OUTPUT_FEED_ATTRIBUTE_NAME + "'");
 			logger.severe("future versions may not support attribute 'inhibitCheck'");
 		}
 		if (elt.hasAttribute("inhibit-check")) {
 			boolean inhibitCheck = Strings.getBoolean(elt.getAttribute("inhibit-check"));
 			paramHandler.setInhibitCheck(inhibitCheck);
-			logger.severe("attribute 'inhibit-check' is deprecated, please use 'output-feed'");
+			logger.severe("attribute 'inhibit-check' is deprecated, please use '" + OUTPUT_FEED_ATTRIBUTE_NAME + "'");
 			logger.severe("future versions may not support attribute 'inhibit-check'");
 		}
-		boolean outputFeed = XMLUtils.getBooleanAttribute(elt, "output-feed", false);
+		boolean outputFeed = XMLUtils.getBooleanAttribute(elt, OUTPUT_FEED_ATTRIBUTE_NAME, false);
 		if (outputFeed) {
 			paramHandler.setInhibitCheck(true);
 		}
