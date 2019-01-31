@@ -120,6 +120,8 @@ public class PlanLoader<T extends Annotable> {
 
 	private static final String LOCALE_ATTRIBUTE_NAME = "locale";
 
+	public static final String BASE_DIR_ATTRIBUTE_NAME = "base-dir";
+
 	private final ModuleFactory<T> moduleFactory;
 	private final ParamConverterFactory converterFactory;
 	private final Map<String,List<Element>> defaultParamValues;
@@ -482,14 +484,7 @@ public class PlanLoader<T extends Annotable> {
 
 	private Module<T> importPlan(Logger logger, Element elt) throws PlanException, ModuleException, SAXException, IOException, ServiceException, ConverterException, URISyntaxException {
 		String sourceString = XMLUtils.attributeOrValue(elt, SOURCE_ATTRIBUTE_NAME, ALTERNATE_SOURCE_ATTRIBUTE_NAMES);
-		String baseDir = null;
-		String baseDirName = XMLUtils.getAttribute(elt, "base-dir", null);
-		if (baseDirName != null) {
-			if (!baseDirs.containsKey(baseDirName)) {
-				throw new PlanException("undefined base dir named " + baseDirName);
-			}
-			baseDir = baseDirs.get(baseDirName);
-		}
+		String baseDir = getBaseDir(elt);
 		Module<T> result = loadSource(logger, sourceString, baseDir);
 		setModuleId(logger, result, elt);
 		if (!XMLUtils.childrenElements(elt).isEmpty()) {
@@ -538,6 +533,17 @@ public class PlanLoader<T extends Annotable> {
 		return result;
 	}
 	
+	private String getBaseDir(Element elt) throws PlanException {
+		if (elt.hasAttribute(BASE_DIR_ATTRIBUTE_NAME)) {
+			String baseDirName = elt.getAttribute(BASE_DIR_ATTRIBUTE_NAME);
+			if (!baseDirs.containsKey(baseDirName)) {
+				throw new PlanException("undefined base directory named " + baseDirName);
+			}
+			return baseDirs.get(baseDirName);
+		}
+		return null;
+	}
+	
 	public void setParam(Logger logger, Element elt, Module<T> module) throws PlanException, ParameterException, ConverterException, UnsupportedServiceException, SAXException, IOException, URISyntaxException {
 		String eltName = elt.getTagName();
 		String paramName;
@@ -566,14 +572,7 @@ public class PlanLoader<T extends Annotable> {
 		if (outputFeed) {
 			paramHandler.setInhibitCheck(true);
 		}
-		String baseDir = null;
-		String baseDirName = XMLUtils.getAttribute(elt, "base-dir", null);
-		if (baseDirName != null) {
-			if (!baseDirs.containsKey(baseDirName)) {
-				throw new PlanException("undefined base directory named " + baseDirName);
-			}
-			baseDir = baseDirs.get(baseDirName);
-		}
+		String baseDir = getBaseDir(elt);
 		Class<?> paramType = paramHandler.getType();
 		ParamConverter paramConverter = getParamConverterInstance(paramName, paramType, outputFeed, baseDir);
 		if (elt.hasAttribute(LOAD_FILE_ATTRIBUTE_NAME)) {
