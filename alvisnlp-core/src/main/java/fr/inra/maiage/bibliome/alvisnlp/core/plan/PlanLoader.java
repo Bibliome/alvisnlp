@@ -211,13 +211,13 @@ public class PlanLoader<T extends Annotable> {
 	}
 
 	public Document parseDoc(String source) throws SAXException, IOException, URISyntaxException {
-		StreamFactory sf = getStreamFactory();
+		StreamFactory sf = getStreamFactory(null);
 		SourceStream sourceStream = sf.getSourceStream(source);
 		return parseDoc(sourceStream);
 	}
 	
-	public Sequence<T> loadSource(Logger logger, String sourceString) throws SAXException, IOException, PlanException, ModuleException, ServiceException, ConverterException, URISyntaxException {
-		StreamFactory sf = getStreamFactory();
+	public Sequence<T> loadSource(Logger logger, String sourceString, String baseDir) throws SAXException, IOException, PlanException, ModuleException, ServiceException, ConverterException, URISyntaxException {
+		StreamFactory sf = getStreamFactory(baseDir);
 		SourceStream source = sf.getSourceStream(sourceString);
 		return loadSource(logger, source);
 	}
@@ -482,7 +482,15 @@ public class PlanLoader<T extends Annotable> {
 
 	private Module<T> importPlan(Logger logger, Element elt) throws PlanException, ModuleException, SAXException, IOException, ServiceException, ConverterException, URISyntaxException {
 		String sourceString = XMLUtils.attributeOrValue(elt, SOURCE_ATTRIBUTE_NAME, ALTERNATE_SOURCE_ATTRIBUTE_NAMES);
-		Module<T> result = loadSource(logger, sourceString);
+		String baseDir = null;
+		String baseDirName = XMLUtils.getAttribute(elt, "base-dir", null);
+		if (baseDirName != null) {
+			if (!baseDirs.containsKey(baseDirName)) {
+				throw new PlanException("undefined base dir named " + baseDirName);
+			}
+			baseDir = baseDirs.get(baseDirName);
+		}
+		Module<T> result = loadSource(logger, sourceString, baseDir);
 		setModuleId(logger, result, elt);
 		if (!XMLUtils.childrenElements(elt).isEmpty()) {
 			setModuleParams(logger, elt, result);
@@ -523,9 +531,9 @@ public class PlanLoader<T extends Annotable> {
 		}
 	}
 	
-	public StreamFactory getStreamFactory() {
+	public StreamFactory getStreamFactory(String baseDir) {
 		StreamFactory result = new StreamFactory();
-		result.setInputDirs(inputDirs);
+		result.setInputDirs(baseDir == null ? inputDirs : Collections.singletonList(baseDir));
 		result.setResourceBases(resourceBases);
 		return result;
 	}
@@ -569,8 +577,8 @@ public class PlanLoader<T extends Annotable> {
 		Class<?> paramType = paramHandler.getType();
 		ParamConverter paramConverter = getParamConverterInstance(paramName, paramType, outputFeed, baseDir);
 		if (elt.hasAttribute(LOAD_FILE_ATTRIBUTE_NAME)) {
+			StreamFactory sf = getStreamFactory(baseDir);
 			String sourceString = elt.getAttribute(LOAD_FILE_ATTRIBUTE_NAME);
-			StreamFactory sf = getStreamFactory();
 			SourceStream source = sf.getSourceStream(sourceString);
 			try (InputStream is = source.getInputStream()) {
 				Document doc = docBuilder.parse(is);
