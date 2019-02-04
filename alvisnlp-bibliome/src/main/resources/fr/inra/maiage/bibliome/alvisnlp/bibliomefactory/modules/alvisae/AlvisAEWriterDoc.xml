@@ -36,25 +36,13 @@ limitations under the License.
     <param-doc name="documentDescription">
       <p>Document description.</p>
     </param-doc>
-  
-    <param-doc name="active">
-      <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is true.</p>
-    </param-doc>
       
     <param-doc name="documentProperties">
       <p>Document properties specification.</p>
     </param-doc>
   
-    <param-doc name="documentFilter">
-      <p>Only process document that satisfy this filter.</p>
-    </param-doc>
-  
     <param-doc name="schemaFile">
       <p>AlvisAE schema file to include in all document files.</p>
-    </param-doc>
-  
-    <param-doc name="sectionFilter">
-      <p>Process only sections that satisfy this filter.</p>
     </param-doc>
   
     <param-doc name="fileName">
@@ -68,5 +56,6 @@ limitations under the License.
     <param-doc name="outDir">
       <p>Directory where to write files.</p>
     </param-doc>
-  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
+</module-doc>
 </alvisnlp-doc>

@@ -39,10 +39,6 @@ limitations under the License.
       <p>If <param name="noBreakLayerName"/> is defined, then <this/> will prevent sentence boundaries inside annotations in this layer.</p>
     </description>
   
-    <param-doc name="constantAnnotationFeatures">
-      <p>Constant features to add to each annotation created by this module</p>
-    </param-doc>
-  
     <param-doc name="strongPunctuations">
       <p>List of strong punctuations.</p>
     </param-doc>
@@ -50,25 +46,13 @@ limitations under the License.
     <param-doc name="typeFeature">
       <p>Name of the feature where to read word annotation type.</p>
     </param-doc>
-  
-    <param-doc name="active">
-      <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is true.</p>
-    </param-doc>
       
     <param-doc name="wordLayerName">
       <p>Name of the layer containing word annotations.</p>
     </param-doc>
   
-    <param-doc name="documentFilter">
-      <p>Only process document that satisfy this filter.</p>
-    </param-doc>
-  
     <param-doc name="eosStatusFeature">
       <p>Name of the feature (in words) containing the end-of-sentence status (not-eos, maybe-eos).</p>
-    </param-doc>
-  
-    <param-doc name="sectionFilter">
-      <p>Process only sections that satisfy this filter.</p>
     </param-doc>
   
     <param-doc name="formFeature">
@@ -82,5 +66,7 @@ limitations under the License.
     <param-doc name="targetLayerName">
       <p>Name of the layer where to store sentence annotations.</p>
     </param-doc>
-  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreatorParamsDoc</include-doc>
+</module-doc>
 </alvisnlp-doc>

@@ -16,21 +16,6 @@ limitations under the License.
 -->
 
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper.OBOMapper">
-<!--
-Copyright 2016 Institut National de la Recherche Agronomique
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-        http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
--->
 
   <synopsis>
     <p>Maps names and synonyms of terms defined in OBO files.</p>
@@ -41,28 +26,8 @@ limitations under the License.
       <p><this/> maps names and synonyms of terms described in <param>oboFiles</param> on <param>target</param>.</p>
     </description>
   
-    <param-doc name="operator">
-      <p>Operator of successful match between target and key.</p>
-    </param-doc>
-  
-    <param-doc name="target">
-      <p>Expression evaluated as a list of elements from the corpus. Specifies the target of the mapping.</p>
-    </param-doc>
-  
-    <param-doc name="active">
-      <p>Expression evaluated as a boolean with the corpus as context element. If the result is false, then the module does not process the module.</p>
-    </param-doc>
-  
     <param-doc name="keepDBXref">
       <p>Either to store term dbxrefs. Dbxrefs are stored in features that match the database name.</p>
-    </param-doc>
-  
-    <param-doc name="form">
-      <p>Expression evaluated as a string from the target. Specifies to form on which the mapping is attempted.</p>
-    </param-doc>
-  
-    <param-doc name="ignoreCase">
-      <p>Case insensitive mapping.</p>
     </param-doc>
   
     <param-doc name="oboFiles">
@@ -104,5 +69,7 @@ limitations under the License.
     <param-doc name="parentsFeature">
       <p>Name of the feature where to store the term parents ids.</p>
     </param-doc>
-  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper.MapperParamsDoc</include-doc>
+</module-doc>
 </alvisnlp-doc>

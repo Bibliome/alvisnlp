@@ -1,9 +1,9 @@
 <alvisnlp-plan id="contes-predict">
-  <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
+  <read file="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
 
-  <import>res://segmentation.plan</import>
+  <seg href="res://segmentation.plan"/>
 
-  <import>normalization.plan</import>
+  <norm file="normalization.plan"/>
 
   <move-concept class="Action">
     <target>documents.sections.relations:Habitat.tuples</target>
@@ -12,13 +12,19 @@
   </move-concept>
 
   <predict class="ContesPredict">
-    <tokenLayer>norm</tokenLayer>
-    <formFeature>norm</formFeature>
-    <termLayer>Habitat</termLayer>
-    <conceptFeature>predictedOntoBiotope</conceptFeature>
-    <ontology>OntoBiotope_BioNLP-ST-2016.obo</ontology>
+    <tokenLayerName>norm</tokenLayerName>
+    <formFeatureName>norm</formFeatureName>
     <wordEmbeddings>vectors.json</wordEmbeddings>
-    <regressionMatrix>regression.bin</regressionMatrix>
+    <ontology>OntoBiotope_BioNLP-ST-2016.obo</ontology>
+    <termClassifiers>
+      <classifier>
+	<documentFilter>@set == "train" or @set == "dev"</documentFilter>
+	<termLayerName>Habitat</termLayerName>
+	<conceptFeatureName>predictedOntoBiotope</conceptFeatureName>
+	<similarityFeatureName>similarity</similarityFeatureName>
+	<regressionMatrixFile>regression.bin</regressionMatrixFile>
+      </classifier>
+    </termClassifiers>
   </predict>
 
   <label class="OBOMapper">

@@ -37,10 +37,6 @@ limitations under the License.
       </p>
     </description>
   
-    <param-doc name="active">
-      <p>This expression is evaluated as a boolean with the corpus as the context element. If the value is false, then the module is not executed.</p>
-    </param-doc>
-  
     <param-doc name="xslTransform">
       <p>XSLT stylesheet that specifies the output.</p>
     </param-doc>
@@ -60,5 +56,7 @@ limitations under the License.
     <param-doc name="indent">
       <p>Either to indent the resulting XML.</p>
     </param-doc>
-  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
+</module-doc>
 </alvisnlp-doc>

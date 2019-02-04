@@ -34,10 +34,6 @@ limitations under the License.
       <p>Feature where to store the token index.</p>
     </param-doc>
   
-    <param-doc name="active">
-      <p>Expression evaluated as a boolean with the corpus as context element. If the result is false, then the module does not process the module.</p>
-    </param-doc>
-  
     <param-doc name="linesLayerName">
       <p>Name of the layer where to store lines.</p>
     </param-doc>
@@ -46,20 +42,12 @@ limitations under the License.
       <p>Path to the directory containing I2B2 text files.</p>
     </param-doc>
   
-    <param-doc name="constantAnnotationFeatures">
-      <p>Constant features to add to each annotation created by this module</p>
-    </param-doc>
-  
     <param-doc name="leftRole">
       <p>Name of the left argument of relations.</p>
     </param-doc>
   
     <param-doc name="tokensLayerName">
       <p>Name of the layer where to store tokens.</p>
-    </param-doc>
-  
-    <param-doc name="constantDocumentFeatures">
-      <p>Constant features to add to each document created by this module</p>
     </param-doc>
   
     <param-doc name="conceptsDir">
@@ -78,10 +66,6 @@ limitations under the License.
       <p/>
     </param-doc>
   
-    <param-doc name="constantRelationFeatures">
-      <p>Constant features to add to each relation created by this module</p>
-    </param-doc>
-  
     <param-doc name="assertionsDir">
       <p>Path to the directory where assertion files can be found.</p>
     </param-doc>
@@ -94,16 +78,14 @@ limitations under the License.
       <p>Feature where to store the concept type.</p>
     </param-doc>
   
-    <param-doc name="constantSectionFeatures">
-      <p>Constant features to add to each section created by this module</p>
-    </param-doc>
-  
     <param-doc name="sectionName">
       <p>Name of the unique section of each document.</p>
     </param-doc>
   
-    <param-doc name="constantTupleFeatures">
-      <p>Constant features to add to each tuple created by this module</p>
-    </param-doc>
-  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.DocumentCreatorParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.SectionCreatorParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreatorParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreatorParamsDoc</include-doc>
+</module-doc>
 </alvisnlp-doc>

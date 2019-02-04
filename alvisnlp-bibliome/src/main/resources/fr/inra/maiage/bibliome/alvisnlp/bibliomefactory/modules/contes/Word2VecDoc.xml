@@ -10,39 +10,9 @@
 			<p>Computes word embeddings using the <a href="https://github.com/ArnaudFerre/CONTES">CONTES/Gensis</a> implementation.</p>
 		</description>
 
-		<param-doc default-value="true" mandatory="default: true"
-			name="active" short-type="Expression"
-			type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
-			<p>Expression evaluated as a boolean with the corpus as context element. If the result is false, then the module does not process the module.</p>
-		</param-doc>
-
-		<param-doc default-value="true" mandatory="default: true"
-			name="documentFilter" short-type="Expression"
-			type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
-			<p>Only process documents that satisfy this filter.</p>
-		</param-doc>
-
-		<param-doc default-value="form" mandatory="default: form"
-			name="formFeature" name-type="feature" short-type="String" type="java.lang.String">
-			<p>Feature to use as word form.</p>
-		</param-doc>
-
 		<param-doc mandatory="required" name="jsonFile" short-type="OutputFile"
 			type="fr.inra.maiage.bibliome.util.files.OutputFile">
 			<p>File where to write embeddings as a JSON object.</p>
-		</param-doc>
-
-		<param-doc default-value="0" mandatory="default: 0" name="minCount"
-			short-type="Integer" type="java.lang.Integer">
-			<p>Ignore all words with total frequency lower than this parameter.</p>
-		</param-doc>
-
-		<param-doc
-			default-value="boolean:and(true, boolean:and(nav:layer:sentences(), nav:layer:words()))"
-			mandatory="default: boolean:and(true, boolean:and(nav:layer:sentences(), nav:layer:words()))"
-			name="sectionFilter" short-type="Expression"
-			type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
-			<p>Process only sections that satisfy this filter.</p>
 		</param-doc>
 
 		<param-doc default-value="sentences" mandatory="default: sentences"
@@ -50,20 +20,9 @@
 			<p>Name of the layer containing sentence annotations.</p>
 		</param-doc>
 
-		<param-doc default-value="words" mandatory="default: words"
-			name="tokenLayer" name-type="layer" short-type="String" type="java.lang.String">
-			<p>Name of the layer containing token annotations.</p>
-		</param-doc>
-
 		<param-doc mandatory="optional" name="txtFile" short-type="OutputFile"
 			type="fr.inra.maiage.bibliome.util.files.OutputFile">
 			<p>File where to write embeddings as a table.</p>
-		</param-doc>
-
-		<param-doc default-value="" mandatory="default: " name="userFunctions"
-			short-type="UserFunction[]"
-			type="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.UserFunction[]">
-			<p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p>
 		</param-doc>
 
 		<param-doc mandatory="optional" name="vectorFeature"
@@ -81,14 +40,12 @@
 			<p>The maximum distance between the current and predicted word within a sentence.</p>
 		</param-doc>
 
-		<param-doc mandatory="required" name="contesDir" short-type="InputDirectory"
-			type="fr.inra.maiage.bibliome.util.files.InputDirectory">
-			<p>Root directory of CONTES.</p>
-		</param-doc>
-
 		<param-doc mandatory="required" name="workers" short-type="Integer"
 			type="java.lang.Integer">
 			<p>Use this many worker threads to train the model (=faster training with multicore machines).</p>
 		</param-doc>
+
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.AbstractContesParamsDoc</include-doc>
 	</module-doc>
 </alvisnlp-doc>

@@ -25,7 +25,7 @@ limitations under the License.
       		<skipConsecutiveWhitespaces/>
 		</latin>
 
-		<import>res://number-and-dates.plan</import>
+		<number-and-dates href="res://number-and-dates.plan"/>
 
 		<hanging-hyphens class="RegExp">
 			<pattern>(?&lt;=[A-Za-z])-(?= )</pattern>

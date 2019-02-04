@@ -1,11 +1,12 @@
 <alvisnlp-plan id="yatea-extract">
-    <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
+    <read href="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
 
-    <import>res://segmentation.plan</import>
+    <seg href="res://segmentation.plan"/>
 
     <genia class="GeniaTagger" />
   
     <yatea class="YateaExtractor">
       <workingDir>yatea</workingDir>
+      <termListFile>terms.txt</termListFile>
     </yatea>
 </alvisnlp-plan>

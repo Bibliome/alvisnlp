@@ -10,33 +10,10 @@
 			<p><this /> removes the layers named after <param>layerNames</param> from sections.</p>
 		</description>
 
-		<param-doc default-value="true" mandatory="default: true"
-			name="active" short-type="Expression"
-			type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
-			<p><this /> only runs if this expression evaluates to true.</p>
-		</param-doc>
-
-		<param-doc default-value="true" mandatory="default: true"
-			name="documentFilter" short-type="Expression"
-			type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
-			<p>Only process document that satisfy this filter.</p>
-		</param-doc>
-
 		<param-doc mandatory="required" name="layerNames" name-type="layer"
 			short-type="String[]" type="java.lang.String[]">
 			<p>Names of layers to remove.</p>
 		</param-doc>
-
-		<param-doc default-value="true" mandatory="default: true"
-			name="sectionFilter" short-type="Expression"
-			type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
-			<p>Process only sections that satisfy this filter.</p>
-		</param-doc>
-
-		<param-doc default-value="" mandatory="default: " name="userFunctions"
-			short-type="UserFunction[]"
-			type="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.UserFunction[]">
-			<p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p>
-		</param-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
 	</module-doc>
 </alvisnlp-doc>

@@ -11,6 +11,8 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 
+import org.apache.commons.lang3.StringUtils;
+
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
@@ -33,7 +35,7 @@ class TEESTrainExternalHandler extends TEESMapperExternalHandler<TEESTrain> {
 
 	@Override
 	protected void prepare() throws IOException, ModuleException {
-		createTEESClassifierScript();
+		createTEESTrainerScript();
 		try {
 			Marshaller jaxbm = jaxbContext.createMarshaller();
 			jaxbm.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
@@ -58,7 +60,7 @@ class TEESTrainExternalHandler extends TEESMapperExternalHandler<TEESTrain> {
 		return getTempFile("train.sh");
 	}
 	
-	private void createTEESClassifierScript() throws IOException {
+	private void createTEESTrainerScript() throws IOException {
 		File script = getTEESTrainerScript();
 		// same ClassLoader as this class
 		try (InputStream is = TEESTrain.class.getResourceAsStream("train.sh")) {
@@ -106,7 +108,8 @@ class TEESTrainExternalHandler extends TEESMapperExternalHandler<TEESTrain> {
 	@Override
 	protected void updateEnvironment(Map<String,String> env) {
 		TEESTrain owner = getModule();
-		env.put("PATH", System.getenv("PATH"));
+//		env.put("PATH", System.getenv("PATH"));
+		env.put("PYTHON2", owner.getPython2Executable().getAbsolutePath());
 		env.put("TEES_DIR", owner.getTeesHome().getAbsolutePath());
 		env.put("TEES_PRE_EXE", getTEESPreprocessingScript().getAbsolutePath());
 		env.put("TEES_TRAIN_EXE", getTEESTrainScript().getAbsolutePath());
@@ -114,12 +117,14 @@ class TEESTrainExternalHandler extends TEESMapperExternalHandler<TEESTrain> {
 		env.put("TEES_TRAIN_OUT", getTempFile("preprocessed-train.xml").getAbsolutePath());
 		env.put("TEES_DEV_IN", getTEESTrainDevInputFile().getAbsolutePath());
 		env.put("TEES_DEV_OUT", getTempFile("preprocessed-dev.xml").getAbsolutePath());
-		env.put("OMITSTEPS", owner.getOmitSteps());
+		env.put("STEPS", owner.getSteps().replace(owner.getOmitSteps()+ ",", ""));
 		env.put("TEES_TEST_IN", getTEESTrainTestInputFile().getAbsolutePath());
 		env.put("TEES_TEST_OUT", getTempFile("preprocessed-test.xml").getAbsolutePath());
 		env.put("WORKDIR", getTempDir().getAbsolutePath());
 		env.put("MODELTD", owner.getModelTargetDir().getAbsolutePath());
 		env.put("MODEL_NAME", owner.getModelName());
+		env.put("TASK", owner.getTask());
+		env.put("DETECTOR", owner.getDetector());
 	}
 	
 	private File getTEESTrainScript() {

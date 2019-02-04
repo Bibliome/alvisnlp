@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alvisnlp-plan id="remove-overlaps-test">
-  <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
+  <read base-dir="share" file="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
 
   <taxa class="TabularProjector">
-    <dictFile>taxa+id_Bacteria.txt</dictFile>
+    <dictFile base-dir="share">taxa+id_Bacteria.txt</dictFile>
     <targetLayerName>taxaO</targetLayerName>
     <valueFeatures>,taxid</valueFeatures>
     <caseInsensitive/>

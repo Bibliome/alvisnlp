@@ -16,21 +16,6 @@ limitations under the License.
 -->
 
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.Assertion">
-<!--
-Copyright 2016 Institut National de la Recherche Agronomique
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-        http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
--->
 
   <synopsis>
     <p>Tests an assertion on specified elements.</p>
@@ -45,10 +30,6 @@ limitations under the License.
       <p>Expression evaluated as a list of elements with the corpus as the context element. This parameter specifies the elements on which the assertion is checked.</p>
     </param-doc>
   
-    <param-doc name="active">
-      <p>An expression evaluated as a boolean with the corpus as the context element. This module processes the corpus if the result is <code>true</code></p>
-    </param-doc>
-  
     <param-doc name="assertion">
       <p>Expression evaluated as a boolean with the target element as the context element. This parameter specifies the assertion to be checked on each target.</p>
     </param-doc>
@@ -61,10 +42,6 @@ limitations under the License.
       <p>If <code>true</code> and there is at least one assertion failure, then <this/> will abort the processing of the corpus.</p>
     </param-doc>
     
-    <param-doc name="userFunctions">
-      <p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p>
-    </param-doc>
-    
     <param-doc name="message">
       <p>Customize the assertion failure message. This expression is evaluated as a string from the failed target.</p>
     </param-doc>
@@ -72,5 +49,7 @@ limitations under the License.
     <param-doc name="outFile">
       <p>Path to the file where to record assertion failures. If not set then assertion failures are not recorded, and only displayed on the log.</p>
     </param-doc>
+
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
   </module-doc>
 </alvisnlp-doc>

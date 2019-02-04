@@ -1,15 +1,15 @@
 <alvisnlp-plan id="trie">
-  <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
+  <read file="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
 
   <taxa1 class="TabularProjector">
-    <dictFile>taxa+id_Bacteria.txt</dictFile>
+    <dictFile base-dir="share">taxa+id_Bacteria.txt</dictFile>
     <targetLayerName>taxa1</targetLayerName>
     <valueFeatures>,taxid</valueFeatures>
     <trieSink>taxa+id_Bacteria.trie</trieSink>
   </taxa1>
 
   <taxa2 class="TabularProjector">
-    <dictFile>taxa+id_Bacteria.txt</dictFile>
+    <dictFile base-dir="share">taxa+id_Bacteria.txt</dictFile>
     <targetLayerName>taxa2</targetLayerName>
     <valueFeatures>,taxid</valueFeatures>
     <trieSource output-feed="true">taxa+id_Bacteria.trie</trieSource>

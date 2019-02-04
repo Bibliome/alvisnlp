@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-plan id="stanford-parser-test">
+  <read file="BioNLP-ST-2016_BB-event/read.plan"/>
+
+  <seg href="res://segmentation.plan"/>
+
+  <pos class="GeniaTagger">
+    <treeTaggerTagset/>
+  </pos>
+
+  <parse class="StanfordParser"/>
+
+  <results class="TabularExport">
+    <outDir>.</outDir>
+    <files>$</files>
+    <fileName>"dependencies.txt"</fileName>
+    <lines>documents.sections.relations:dependencies.tuples</lines>
+    <columns>document.@id,section.@name,args:sentence.start,@label,args:head.@form,args:dependent.@form</columns>
+    <headers>"DOC","SEC","SENT START","LABEL","HEAD","DEPENDENT"</headers>
+  </results>
+</alvisnlp-plan>

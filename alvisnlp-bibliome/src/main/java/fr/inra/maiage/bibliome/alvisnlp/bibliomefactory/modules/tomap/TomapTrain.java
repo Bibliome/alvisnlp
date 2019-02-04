@@ -24,7 +24,6 @@ import java.io.Writer;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 import java.util.logging.Logger;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -136,7 +135,7 @@ public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects
 		}
 	}
 	
-	private Document buildOutputDocument(Logger logger, Map<String,List<String>> conceptMap, YateaExtractorExternalHandler<TomapTrainResolvedObjects> ext) throws IOException, SAXException, ParserConfigurationException {
+	private static Document buildOutputDocument(Logger logger, Map<String,List<String>> conceptMap, YateaExtractorExternalHandler<TomapTrainResolvedObjects> ext) throws IOException, SAXException, ParserConfigurationException {
 		Document result = XMLUtils.docBuilder.newDocument();
 		YateaCandidateReader yateaReader = new YateaCandidateReader(logger, TokenNormalization.FORM, StringNormalization.NONE);
 		try (InputStream is = getYateaOutput(ext)) {
@@ -155,35 +154,10 @@ public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects
 		return result;
 	}
 
-	private InputStream getYateaOutput(YateaExtractorExternalHandler<TomapTrainResolvedObjects> ext) throws IOException {
-		Properties options = ext.getOptions();
-		String suffix = removeQuotes(options.getProperty("suffix"));
-		String outputPath = options.getProperty("output-path");
-		String candPath;
-		if (outputPath == null) {
-			candPath = getWorkingDir() + "/corpus/" + suffix + "/xml/candidates.xml";
-		}
-		else {
-			outputPath = removeQuotes(outputPath);
-			candPath = getWorkingDir() + "/" + outputPath + "/corpus/" + suffix + "/xml/candidates.xml";
-		}
-		SourceStream stream = new FileSourceStream("UTF-8", candPath);
+	private static InputStream getYateaOutput(YateaExtractorExternalHandler<TomapTrainResolvedObjects> ext) throws IOException {
+		InputFile candFile = new InputFile(ext.getYateaOutputDir(), "xml/candidates.xml");
+		SourceStream stream = new FileSourceStream("UTF-8", candFile);
 		return stream.getInputStream();
-	}
-	
-	private static String removeQuotes(String s) {
-		int len = s.length();
-		if (len < 2) {
-			return s;
-		}
-		int last = len - 1;
-		if (s.charAt(0) == '"' && s.charAt(last) == '"') {
-			return s.substring(1, last);
-		}
-		if (s.charAt(0) == '\'' && s.charAt(last) == '\'') {
-			return s.substring(1, last);
-		}
-		return s;
 	}
 	
 	private Map<String,List<String>> getConceptMap(ProcessingContext<Corpus> ctx, Corpus corpus) {

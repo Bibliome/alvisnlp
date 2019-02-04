@@ -7,86 +7,39 @@
     <description>
       <p>UNDOCUMENTED</p>
     </description>
+
     <param-doc mandatory="optional" name="acronymsFile" short-type="SourceStream" type="fr.inra.maiage.bibliome.util.streams.SourceStream">
       <p>UNDOCUMENTED</p>
     </param-doc>
-    <param-doc default-value="true" mandatory="default: true" name="active" short-type="Expression" type="alvisnlp.corpus.expressions.Expression">
-      <p>UNDOCUMENTED</p>
-    </param-doc>
-    <param-doc default-value="false" mandatory="default: false" name="allUpperCaseInsensitive" short-type="Boolean" type="java.lang.Boolean">
-      <p>UNDOCUMENTED</p>
-    </param-doc>
-    <param-doc default-value="false" mandatory="default: false" name="allowJoined" short-type="Boolean" type="java.lang.Boolean">
-      <p>UNDOCUMENTED</p>
-    </param-doc>
+
     <param-doc default-value="lemma" mandatory="default: lemma" name="canonicalFormFeature" name-type="feature" short-type="String" type="java.lang.String">
       <p>UNDOCUMENTED</p>
     </param-doc>
-    <param-doc default-value="false" mandatory="default: false" name="caseInsensitive" short-type="Boolean" type="java.lang.Boolean">
-      <p>UNDOCUMENTED</p>
-    </param-doc>
-    <param-doc mandatory="optional" name="constantAnnotationFeatures" name-type="feature" short-type="Mapping" type="alvisnlp.module.types.Mapping">
-      <p>UNDOCUMENTED</p>
-    </param-doc>
-    <param-doc default-value="true" mandatory="default: true" name="documentFilter" short-type="Expression" type="alvisnlp.corpus.expressions.Expression">
-      <p>UNDOCUMENTED</p>
-    </param-doc>
-    <param-doc default-value="false" mandatory="default: false" name="ignoreDiacritics" short-type="Boolean" type="java.lang.Boolean">
-      <p>UNDOCUMENTED</p>
-    </param-doc>
-    <param-doc default-value="false" mandatory="default: false" name="joinDash" short-type="Boolean" type="java.lang.Boolean">
-      <p>UNDOCUMENTED</p>
-    </param-doc>
+
     <param-doc mandatory="required" name="lemmaFile" short-type="SourceStream" type="fr.inra.maiage.bibliome.util.streams.SourceStream">
       <p>UNDOCUMENTED</p>
     </param-doc>
-    <param-doc default-value="false" mandatory="default: false" name="matchStartCaseInsensitive" short-type="Boolean" type="java.lang.Boolean">
-      <p>UNDOCUMENTED</p>
-    </param-doc>
+
     <param-doc mandatory="required" name="mergeFile" short-type="SourceStream" type="fr.inra.maiage.bibliome.util.streams.SourceStream">
       <p>UNDOCUMENTED</p>
     </param-doc>
-    <param-doc default-value="all" mandatory="default: all" name="multipleEntryBehaviour" short-type="MultipleEntryBehaviour" type="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.MultipleEntryBehaviour">
-      <p>UNDOCUMENTED</p>
-    </param-doc>
+
     <param-doc mandatory="required" name="quasiSynonymsFile" short-type="SourceStream" type="fr.inra.maiage.bibliome.util.streams.SourceStream">
       <p>UNDOCUMENTED</p>
     </param-doc>
+
     <param-doc mandatory="optional" name="saveDictFile" short-type="TargetStream" type="fr.inra.maiage.bibliome.util.streams.TargetStream">
       <p>UNDOCUMENTED</p>
     </param-doc>
-    <param-doc default-value="true" mandatory="default: true" name="sectionFilter" short-type="Expression" type="alvisnlp.corpus.expressions.Expression">
-      <p>UNDOCUMENTED</p>
-    </param-doc>
-    <param-doc default-value="false" mandatory="default: false" name="skipConsecutiveWhitespaces" short-type="Boolean" type="java.lang.Boolean">
-      <p>UNDOCUMENTED</p>
-    </param-doc>
-    <param-doc default-value="false" mandatory="default: false" name="skipWhitespace" short-type="Boolean" type="java.lang.Boolean">
-      <p>UNDOCUMENTED</p>
-    </param-doc>
-    <param-doc default-value="WORD" mandatory="default: WORD" name="subject" short-type="Subject" type="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.Subject">
-      <p>UNDOCUMENTED</p>
-    </param-doc>
+
     <param-doc mandatory="required" name="synonymsFile" short-type="SourceStream" type="fr.inra.maiage.bibliome.util.streams.SourceStream">
       <p>UNDOCUMENTED</p>
     </param-doc>
-    <param-doc mandatory="required" name="targetLayerName" name-type="layer" short-type="String" type="java.lang.String">
-      <p>UNDOCUMENTED</p>
-    </param-doc>
-    <param-doc mandatory="optional" name="trieSink" short-type="OutputFile" type="fr.inra.maiage.bibliome.util.files.OutputFile">
-      <p>UNDOCUMENTED</p>
-    </param-doc>
-    <param-doc mandatory="optional" name="trieSource" short-type="InputFile" type="fr.inra.maiage.bibliome.util.files.InputFile">
-      <p>UNDOCUMENTED</p>
-    </param-doc>
+
     <param-doc mandatory="optional" name="typographicVariationsFile" short-type="SourceStream" type="fr.inra.maiage.bibliome.util.streams.SourceStream">
       <p>UNDOCUMENTED</p>
     </param-doc>
-    <param-doc default-value="" mandatory="default: " name="userFunctions" short-type="UserFunction[]" type="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.UserFunction[]">
-      <p>UNDOCUMENTED</p>
-    </param-doc>
-    <param-doc default-value="false" mandatory="default: false" name="wordStartCaseInsensitive" short-type="Boolean" type="java.lang.Boolean">
-      <p>UNDOCUMENTED</p>
-    </param-doc>
+
+	<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.TrieProjectorParamsDoc</include-doc>
   </module-doc>
 </alvisnlp-doc>

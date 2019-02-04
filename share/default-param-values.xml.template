@@ -89,10 +89,12 @@ limitations under the License.
   </module>
 
   <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tees.TEESClassify">
+    <python2Executable></python2Executable>
     <teesHome></teesHome>
   </module>
 
   <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tees.TEESTrain">
+    <python2Executable></python2Executable>
     <teesHome></teesHome>    
   </module>
 

@@ -1,7 +1,7 @@
 <alvisnlp-plan id="tomap-predict">
-  <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
+  <reaad file="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
   
-  <import>res://segmentation.plan</import>
+  <seg href="res://segmentation.plan"/>
   
   <genia class="GeniaTagger" />
 

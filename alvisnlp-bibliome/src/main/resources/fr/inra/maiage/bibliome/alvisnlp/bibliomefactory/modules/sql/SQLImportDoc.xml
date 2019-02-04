@@ -45,27 +45,7 @@ limitations under the License.
       <p/>
     </param-doc>
   
-    <param-doc name="active">
-      <p>Expression evaluated as a boolean with the corpus as context element. If the result is false, then the module does not process the module.</p>
-    </param-doc>
-  
-    <param-doc name="createAnnotations">
-      <p/>
-    </param-doc>
-  
-    <param-doc name="constantAnnotationFeatures">
-      <p>Constant features to add to each annotation created by this module</p>
-    </param-doc>
-  
     <param-doc name="password">
-      <p/>
-    </param-doc>
-  
-    <param-doc name="constantDocumentFeatures">
-      <p>Constant features to add to each document created by this module</p>
-    </param-doc>
-  
-    <param-doc name="createDocuments">
       <p/>
     </param-doc>
   
@@ -73,16 +53,8 @@ limitations under the License.
       <p/>
     </param-doc>
   
-    <param-doc name="createRelations">
-      <p/>
-    </param-doc>
-  
     <param-doc name="username">
       <p/>
-    </param-doc>
-  
-    <param-doc name="constantRelationFeatures">
-      <p>Constant features to add to each relation created by this module</p>
     </param-doc>
   
     <param-doc name="action">
@@ -93,44 +65,12 @@ limitations under the License.
       <p/>
     </param-doc>
   
-    <param-doc name="createSections">
-      <p/>
-    </param-doc>
-  
-    <param-doc name="setArguments">
-      <p/>
-    </param-doc>
-  
-    <param-doc name="constantSectionFeatures">
-      <p>Constant features to add to each section created by this module</p>
-    </param-doc>
-  
-    <param-doc name="setFeatures">
-      <p/>
-    </param-doc>
-  
-    <param-doc name="deleteElements">
-      <p/>
-    </param-doc>
-  
-    <param-doc name="createTuples">
-      <p/>
-    </param-doc>
-  
-    <param-doc name="addToLayer">
-      <p/>
-    </param-doc>
-  
     <param-doc name="url">
       <p/>
     </param-doc>
-  
-    <param-doc name="removeFromLayer">
-      <p/>
-    </param-doc>
-  
-    <param-doc name="constantTupleFeatures">
-      <p>Constant features to add to each tuple created by this module</p>
-    </param-doc>
-  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+
+
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.module.ActionInterfaceParamsDoc</include-doc>
+</module-doc>
 </alvisnlp-doc>

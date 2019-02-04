@@ -10,28 +10,14 @@
       <p>Files written by this module can be read by <module>XMIImport</module></p>
     </description>
 
-    <param-doc default-value="true" mandatory="default: true" name="active" short-type="Expression" type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
-      <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is true.</p>
-    </param-doc>
-
 	<param-doc mandatory="optional" name="typeSystemFile" short-type="OutputFile" type="fr.inra.maiage.bibliome.util.files.OutputFile">
 		<p>If set write the AlvisNLP/ML proxy typesystem into the specified file.</p>
 	</param-doc>
-
-    <param-doc name="documentFilter">
-      <p>Only process document that satisfy this filter.</p>
-    </param-doc>
-  
-    <param-doc name="sectionFilter">
-      <p>Process only sections that satisfy this filter.</p>
-    </param-doc>
 
     <param-doc mandatory="required" name="outDir" short-type="OutputDirectory" type="fr.inra.maiage.bibliome.util.files.OutputDirectory">
       <p>Directory where to write XMI files.</p>
     </param-doc>
     
-    <param-doc name="userFunctions">
-      <p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p>
-    </param-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
   </module-doc>
 </alvisnlp-doc>

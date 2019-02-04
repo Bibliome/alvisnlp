@@ -151,6 +151,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	private List<String> inputDirs;
 	private List<String> resourceBases;
 	private String outputDir;
+	private final Map<String,String> baseDirs = new LinkedHashMap<String,String>();
 	private boolean noColors = false;
 	
 	/**
@@ -328,6 +329,14 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 		outputDir = path;
 	}
 	
+	@CLIOption("-baseDir")
+	public void addBaseDir(String name, String path) throws CLIOException {
+		if (baseDirs.containsKey(name)) {
+			throw new CLIOException("duplicate base directory named " + name);
+		}
+		baseDirs.put(name, path);
+	}
+	
 	@CLIOption("--input")
 	public void OMTD_setInput(String value) {
 		setAlias("input", value);
@@ -445,6 +454,9 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	
 	private void supplementModuleDocumentation(Module<A> mod, Document doc, String target, String shortTarget) throws XPathExpressionException {
     	Element alvisnlpDocElt = XMLUtils.evaluateElement("//alvisnlp-doc", doc);
+    	if (alvisnlpDocElt == null) {
+    		return;
+    	}
     	alvisnlpDocElt.setAttribute("target", target);
     	alvisnlpDocElt.setAttribute("short-target", shortTarget);
     	Element moduleElt = XMLUtils.evaluateElement("module-doc|plan-doc", alvisnlpDocElt);
@@ -940,7 +952,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
         docBuilderFactory.setFeature("http://xml.org/sax/features/use-entity-resolver2", true);
         DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
         Document defaultParamValuesDoc = getDefaultParamValuesDoc(docBuilder);
-		PlanLoader<A> planLoader = new PlanLoader<A>(moduleFactory, converterFactory, defaultParamValuesDoc, inputDirs, outputDir, buildResourceBases(), docBuilder, creatorNameFeature, customEntities);
+		PlanLoader<A> planLoader = new PlanLoader<A>(moduleFactory, converterFactory, defaultParamValuesDoc, inputDirs, outputDir, baseDirs, buildResourceBases(), docBuilder, creatorNameFeature, customEntities);
 
 		Document doc = planLoader.parseDoc(planFile);
 		logger.config("loading plan from " + planFile);
@@ -1015,6 +1027,8 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     		String label = res.getString(var);
     		logger.config(label + ": " + value);
     	}
+    	String javaVersion = System.getProperty("java.version");
+    	logger.config("java version: " + javaVersion);
     }
     
     private void logVersion(Logger logger) {
@@ -1035,8 +1049,6 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     }
     
     protected void initProcessingContext(Logger logger, C ctx, Module<A> mainModule) throws IOException, ModuleException{
-    	logVersion(logger);
-    	logEnvironment(logger);
     	ctx.setRootTempDir(buildRootTempDir(logger));
     	if (!writePlan) {
     		ctx.checkPlan(logger, mainModule);
@@ -1061,6 +1073,8 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     public void process() throws IOException, UnsupportedServiceException, ConverterException {
     	C ctx = getProcessingContext();
     	Logger logger = getLogger(ctx);
+    	logVersion(logger);
+    	logEnvironment(logger);
 		try {
 	    	timer.start();
 			Module<A> mainModule = buildMainModule(ctx);

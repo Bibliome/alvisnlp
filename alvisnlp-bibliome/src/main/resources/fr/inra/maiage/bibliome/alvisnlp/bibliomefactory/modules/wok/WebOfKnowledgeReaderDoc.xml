@@ -53,20 +53,12 @@ limitations under the License.
       <p>Location of the WoK file(s).</p>
     </param-doc>
   
-    <param-doc name="active">
-      <p>Expression evaluated as a boolean with the corpus as context element. If the result is false, then the module does not process the module.</p>
-    </param-doc>
-  
-    <param-doc name="constantSectionFeatures">
-      <p>Constant features to add to each section created by this module.</p>
-    </param-doc>
-  
-    <param-doc name="constantDocumentFeatures">
-      <p>Constant features to add to each document created by this module.</p>
-    </param-doc>
-  
     <param-doc name="tabularFormat">
       <p>Read files in tabular export format.</p>
     </param-doc>
-  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.DocumentCreatorParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.SectionCreatorParamsDoc</include-doc>
+</module-doc>
 </alvisnlp-doc>

@@ -1,5 +1,5 @@
 <alvisnlp-plan id="export">
-  <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
+  <read file="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
 
   <standard-dkpro>
     <Bacteria class="Action">
@@ -42,7 +42,7 @@
     <dkproCompatibility/>
   </export-dkpro>
 
-  <import file="write-features.plan">
+  <export file="write-features.plan">
     <file>export-features.txt</file>
-  </import>
+  </export>
 </alvisnlp-plan>

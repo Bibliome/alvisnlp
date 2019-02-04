@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alvisnlp-plan id="read-BB-cat+ner">
+  <param name="textBoundAsAnnotations">
+    <alias module="train" param="textBoundAsAnnotations"/>
+    <alias module="dev" param="textBoundAsAnnotations"/>
+    <alias module="test" param="textBoundAsAnnotations"/>
+  </param>
+  
   <train class="BioNLPSTReader">
     <textDir>BioNLP-ST-2016_BB-cat+ner/train</textDir>
     <a1Dir>BioNLP-ST-2016_BB-cat+ner/train</a1Dir>

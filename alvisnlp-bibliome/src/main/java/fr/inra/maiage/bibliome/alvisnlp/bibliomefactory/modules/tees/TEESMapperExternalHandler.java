@@ -203,6 +203,6 @@ abstract class TEESMapperExternalHandler<T extends TEESMapper> extends ExternalH
 	}
 	
 	protected File getTEESPreprocessingScript() {
-		return new File(getModule().getTeesHome(), "Detectors/Preprocessor.py");
+		return new File(getModule().getTeesHome(), "preprocess.py");
 	}
 }

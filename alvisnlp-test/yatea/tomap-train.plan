@@ -3,7 +3,7 @@
     <oboFiles>OntoBiotope_BioNLP-ST-2016.obo</oboFiles>
   </read>
   
-  <import>res://segmentation.plan</import>
+  <seg href="res://segmentation.plan"/>
   
   <genia class="GeniaTagger" />
   

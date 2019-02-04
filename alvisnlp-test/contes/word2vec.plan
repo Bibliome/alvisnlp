@@ -1,16 +1,16 @@
 <alvisnlp-plan id="word2vec">
-  <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
+  <read file="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
 
-  <import>res://segmentation.plan</import>
+  <seg href="res://segmentation.plan"/>
 
-  <import>normalization.plan</import>
+  <norm file="normalization.plan"/>
   
   <word2vec class="Word2Vec">
     <jsonFile>vectors.json</jsonFile>
     <txtFile>vectors.txt</txtFile>
     <workers>1</workers> <!-- this is necessary for a deterministic result -->
     <vectorSize>5</vectorSize>
-    <tokenLayer>norm</tokenLayer>
-    <formFeature>norm</formFeature>
+    <tokenLayerName>norm</tokenLayerName>
+    <formFeatureName>norm</formFeatureName>
   </word2vec>
 </alvisnlp-plan>

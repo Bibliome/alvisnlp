@@ -11,9 +11,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 @AlvisNLPModule(beta=true)
-public class ContesTrain extends AbstractContesTerms {
-	private OutputFile regressionMatrix;
-	
+public abstract class ContesTrain extends AbstractContesTerms<OutputFile,ContesTrainTermClassifier> {
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
@@ -24,12 +22,14 @@ public class ContesTrain extends AbstractContesTerms {
 		}
 	}
 
+	@Override
 	@Param
-	public OutputFile getRegressionMatrix() {
-		return regressionMatrix;
+	public ContesTrainTermClassifier[] getTermClassifiers() {
+		return super.getTermClassifiers();
 	}
 
-	public void setRegressionMatrix(OutputFile regressionMatrix) {
-		this.regressionMatrix = regressionMatrix;
+	@Override
+	public void setTermClassifiers(ContesTrainTermClassifier[] termClassifier) {
+		super.setTermClassifiers(termClassifier);
 	}
 }

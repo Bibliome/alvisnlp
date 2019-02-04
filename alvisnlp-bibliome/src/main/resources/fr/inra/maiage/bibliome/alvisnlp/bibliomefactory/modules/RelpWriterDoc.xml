@@ -36,10 +36,6 @@ limitations under the License.
     <param-doc name="linkageNumberFeature">
       <p>Feature containing the linkage number to which a dependency belongs.</p>
     </param-doc>
-  
-    <param-doc name="active">
-      <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is true.</p>
-    </param-doc>
       
     <param-doc name="dependencyRelation">
       <p>Name of the dependecy relation.</p>
@@ -51,14 +47,6 @@ limitations under the License.
   
     <param-doc name="outFile">
       <p>File where to write the dependencies.</p>
-    </param-doc>
-  
-    <param-doc name="documentFilter">
-      <p>Only process document that satisfy this filter.</p>
-    </param-doc>
-  
-    <param-doc name="sectionFilter">
-      <p>Process only sections that satisfy this filter.</p>
     </param-doc>
   
     <param-doc name="headRole">
@@ -92,5 +80,6 @@ limitations under the License.
     <param-doc name="dependentForm">
       <p>Expression evaluated as a string with the dependency dependent element as context. The result is the surface form of the dependent.</p>
     </param-doc>
-  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
+</module-doc>
 </alvisnlp-doc>

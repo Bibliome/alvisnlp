@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alvisnlp-plan id="renbio-test">
-  <import>BioNLP-ST-2016_BB-cat+ner/read.plan</import>
+  <read href="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
 
   <species class="Species">
     <targetLayerName>species</targetLayerName>

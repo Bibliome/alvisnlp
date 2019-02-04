@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alvisnlp-plan id="tees-train-test">
-  <import>BioNLP-ST-2016_BB-event/read.plan</import>
+  <read href="BioNLP-ST-2016_BB-event/read.plan"/>
   
-  <import>res://segmentation.plan</import>
+  <seg file="res://segmentation.plan"/>
   
   <genia class="GeniaTagger" />
 

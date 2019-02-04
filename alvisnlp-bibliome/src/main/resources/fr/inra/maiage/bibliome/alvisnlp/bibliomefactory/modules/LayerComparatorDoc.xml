@@ -29,24 +29,14 @@ limitations under the License.
       <p>Path to the file where to store results.</p>
     </param-doc>
   
-    <param-doc name="documentFilter">
-      <p>Only process document that satisfy this filter.</p>
-    </param-doc>
-  
-    <param-doc name="sectionFilter">
-      <p>Process only sections that satisfy this filter.</p>
-    </param-doc>
-  
     <param-doc name="predictedLayerName">
       <p>Name of the source layer.</p>
-    </param-doc>
-  
-    <param-doc name="active">
-      <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is true.</p>
     </param-doc>
       
     <param-doc name="referenceLayerName">
       <p>Name of the reference layer.</p>
     </param-doc>
-  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
+</module-doc>
 </alvisnlp-doc>

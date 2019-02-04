@@ -29,6 +29,9 @@ public abstract class TEESTrain extends TEESMapper {
 
 	private OutputFile modelTargetDir;
 	private String modelName = "test-model";
+	private String task = "None";
+
+
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -115,5 +118,14 @@ public abstract class TEESTrain extends TEESMapper {
 
 	public void setModelName(String modelName) {
 		this.modelName = modelName;
+	}
+	
+	
+	public String getTask() {
+		return task;
+	}
+
+	public void setTask(String task) {
+		this.task = task;
 	}
 }

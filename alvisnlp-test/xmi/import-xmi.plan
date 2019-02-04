@@ -3,7 +3,7 @@
     <source>export-xmi</source>
   </read>
 
-  <import file="write-features.plan">
+  <export file="write-features.plan">
     <file>import-xmi-features.txt</file>
-  </import>
+  </export>
 </alvisnlp-plan>

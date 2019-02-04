@@ -30,10 +30,6 @@ limitations under the License.
       <p/>
     </param-doc>
   
-    <param-doc name="active">
-      <p/>
-    </param-doc>
-  
     <param-doc name="tokenPositionGap">
       <p/>
     </param-doc>
@@ -61,5 +57,6 @@ limitations under the License.
     <param-doc name="propertyKeys">
       <p/>
     </param-doc>
-  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
+</module-doc>
 </alvisnlp-doc>

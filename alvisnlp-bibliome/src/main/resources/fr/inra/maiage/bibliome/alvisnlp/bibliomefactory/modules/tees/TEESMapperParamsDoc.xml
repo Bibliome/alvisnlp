@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!--
+Copyright 2016, 2017 Institut National de la Recherche Agronomique
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<alvisnlp-doc author="Mouhamadou Ba" date="2012-03-21" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tees.TEESClassify">
+	<param-doc name="tokenLayerName">
+		<p>Name of the layer that contains tokens.</p>
+	</param-doc>
+    
+	<param-doc name="sentenceLayerName">
+		<p>Name of the layer that contains sentence annotations.</p>
+	</param-doc>
+    
+	<param-doc name="posFeature">
+		<p>Name of the feature containing the POS-tag.</p>
+	</param-doc>
+    
+    <param-doc name="namedEntityLayerName">
+      <p>Name of the layer containing the named entities.</p>
+    </param-doc>
+  
+    <param-doc name="namedEntityTypeFeature">
+      <p>Name of the feature to access the type of the named entities.</p>
+    </param-doc>
+      
+    <param-doc name="schema">
+      <p> 
+      	Give the schema of the relations to train i.e.
+	<xverb>
+      	  <schema>
+	    <Lives_In>Bacteria,Location</Lives_In>
+      	  </schema>
+	</xverb>
+      </p>
+    </param-doc>
+    
+    <param-doc name="python2Executable">
+       <p>Path to the Python 2 executable, TEES will fail if run through Python 3.</p>
+    </param-doc>
+ 
+    <param-doc name="teesHome">
+      <p>Path to the TEES home directory.</p>
+    </param-doc>
+    
+  <param-doc name="steps">
+  	<p>Set the preprocessing steps in the form of [LOAD][,GENIA_SPLITTER][,BANNER][,BLLIP_BIO][,STANFORD_CONVERT][,SPLIT_NAMES][,FIND_HEADS][,SAVE]</p>
+  </param-doc>
+  
+  <param-doc name="omitSteps">
+  	<p>Set the preprocessing steps to ignore in the form of [GENIA_SPLITTER][,BANNER][,BLLIP_BIO][,STANFORD_CONVERT][,SPLIT_NAMES][,FIND_HEADS] </p>
+  </param-doc>
+  
+  <param-doc name="detector">
+  	<p>Set the detector to use (ie., Detectors.EdgeDetector or Detectors.Eventdetector). By default, Detectors.Edgedetector is used</p>
+  </param-doc>
+
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreatorParamsDoc</include-doc>
+
+</alvisnlp-doc>

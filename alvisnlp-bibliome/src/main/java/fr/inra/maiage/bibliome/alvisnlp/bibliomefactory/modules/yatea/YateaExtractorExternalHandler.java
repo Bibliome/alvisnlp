@@ -26,9 +26,11 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
+import fr.inra.maiage.bibliome.util.Files;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.files.InputFile;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 public class YateaExtractorExternalHandler<S extends SectionResolvedObjects> extends ExternalHandler<Corpus,AbstractYateaExtractor<S>> {
@@ -56,7 +58,7 @@ public class YateaExtractorExternalHandler<S extends SectionResolvedObjects> ext
 		if (outputDir != null && !outputDir.exists() && !outputDir.mkdirs()) {
 			throw new ProcessingException("could not create " + outputDir.getAbsolutePath());
 		}
-		File workingDir = owner.getWorkingDir();
+		File workingDir = getWorkingDirectory();
 		if (!workingDir.exists() && !workingDir.mkdirs()) {
 			throw new ProcessingException("could not create " + outputDir.getAbsolutePath());
 		}
@@ -226,7 +228,7 @@ public class YateaExtractorExternalHandler<S extends SectionResolvedObjects> ext
 
 	@Override
 	protected File getWorkingDirectory() {
-        return getModule().getWorkingDir();
+		return getModule().getWorkingDirectory(getProcessingContext());
 	}
 
 	@Override
@@ -241,6 +243,47 @@ public class YateaExtractorExternalHandler<S extends SectionResolvedObjects> ext
 
 	@Override
 	protected void collect() throws IOException, ModuleException {
+		AbstractYateaExtractor<S> owner = getModule();
+		copyYateaOutput(owner.getXmlTermsFile(), "xml/candidates.xml");
+		copyYateaOutput(owner.getTermListFile(), "raw/termList.txt");
+	}
+	
+	private void copyYateaOutput(OutputFile file, String source) throws IOException {
+		if (file != null) {
+			File dir = file.getParentFile();
+			if ((dir != null) && (!dir.exists())) {
+				dir.mkdirs();
+			}
+			File d = getYateaOutputDir();
+			File f = new File(d, source);
+			Files.copy(f, file);
+		}
+	}
+    
+    public File getYateaOutputDir() {
+    	File wd = getWorkingDirectory();
+		Properties options = getOptions();
+		String suffix = removeQuotes(options.getProperty("suffix"));
+		String outputPath = options.getProperty("output-path");
+		if (outputPath == null) {
+			return new File(wd, "corpus/" + suffix);
+		}
+		return new File(wd, outputPath + "/corpus/" + suffix);
+    }
+	
+	private static String removeQuotes(String s) {
+		int len = s.length();
+		if (len < 2) {
+			return s;
+		}
+		int last = len - 1;
+		if (s.charAt(0) == '"' && s.charAt(last) == '"') {
+			return s.substring(1, last);
+		}
+		if (s.charAt(0) == '\'' && s.charAt(last) == '\'') {
+			return s.substring(1, last);
+		}
+		return s;
 	}
 
 	@Override

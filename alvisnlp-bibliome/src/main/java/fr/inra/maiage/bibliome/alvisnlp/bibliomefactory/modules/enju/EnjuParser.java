@@ -52,7 +52,7 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	private String enjuEncoding = "UTF-8";
 	private Boolean biology = false;
 	private Integer nBest = 1;
-	
+
 	private String dependenciesRelationName = DefaultNames.getDependencyRelationName();
 	private String parseNumberFeatureName = DefaultNames.getParseNumberFeatureName();
 	private String dependencyLabelFeatureName = DefaultNames.getDependencyLabelFeatureName();

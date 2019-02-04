@@ -1,0 +1,8 @@
+ENTITY Bacteria
+ENTITY Geographical
+ENTITY Habitat
+ENTITY Paragraph
+ENTITY Title
+RELATION Lives_In directed	Bacteria Bacteria	Location Geographical,Habitat
+TARGET INTERACTION	Lives_In
+GIVEN ENTITY	Bacteria,Geographical,Habitat,Paragraph,Title

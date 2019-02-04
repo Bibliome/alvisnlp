@@ -36,10 +36,6 @@ limitations under the License.
     <param-doc name="outFile">
       <p>File where to write results.</p>
     </param-doc>
-  
-    <param-doc name="active">
-      <p>This expression is evaluated as a boolean with the corpus as the context element, the module will process the document only if the result is true.</p>
-    </param-doc>
       
     <param-doc name="reference">
       <p>Set of reference elements.</p>
@@ -64,5 +60,7 @@ limitations under the License.
     <param-doc name="face">
       <p>Expression evaluated from a reference or predicted element as a string that will be written in <param name="outFile"/>.</p>
     </param-doc>
-  <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
+
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
+</module-doc>
 </alvisnlp-doc>

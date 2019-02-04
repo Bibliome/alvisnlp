@@ -176,8 +176,31 @@ log
 function run-alvisnlp() {
     planfile=${@:$#}
     logfile=${planfile/.plan/.log}
-    echo "$INSTALL_DIR"/bin/alvisnlp -verbose -log "$TEST_WD"/"$logfile" -inputDir "$TEST_DIR" -inputDir "$TESTS_DIR"/share -inputDir "$TEST_WD" -tmp "$TEST_WD"/tmp "$@"
-    "$INSTALL_DIR"/bin/alvisnlp -verbose -log "$TEST_WD"/"$logfile" -inputDir "$TEST_DIR" -inputDir "$TESTS_DIR"/share -inputDir "$TEST_WD" -tmp "$TEST_WD"/tmp "$@"
+    echo "$INSTALL_DIR"/bin/alvisnlp -verbose -log "$TEST_WD"/"$logfile" -inputDir "$TEST_DIR" -baseDir test "$TEST_DIR" -inputDir "$TESTS_DIR"/share -baseDir share "$TESTS_DIR"/share -inputDir "$TEST_WD" -baseDir wd "$TEST_WD" -tmp "$TEST_WD"/tmp "$@"
+    "$INSTALL_DIR"/bin/alvisnlp -verbose -log "$TEST_WD"/"$logfile" -inputDir "$TEST_DIR" -baseDir test "$TEST_DIR" -inputDir "$TESTS_DIR"/share -baseDir share "$TESTS_DIR"/share -inputDir "$TEST_WD" -baseDir wd "$TEST_WD" -tmp "$TEST_WD"/tmp "$@"
+}
+
+function count-lines() {
+    gen="$1"
+    min="$2"
+    echo Counting file lines for "$TEST_WD"/"$gen" '>=' "$min"
+    n=$(wc -l <"$TEST_WD"/"$gen")
+    test "$n" -ge "$min"
+}
+
+function count-bytes() {
+    gen="$1"
+    min="$2"
+    echo Counting file bytes for "$TEST_WD"/"$gen" '>=' "$min"
+    n=$(wc -c <"$TEST_WD"/"$gen")
+    test "$n" -ge "$min"
+}
+
+function search-pattern() {
+    gen="$1"
+    pat="$2"
+    echo Searching "in" "$TEST_WD"/"$gen" : "$pat"
+    grep -Pq "$pat" "$TEST_WD"/"$gen"
 }
 
 function check-file() {
@@ -203,6 +226,9 @@ function check-file-sorted() {
 }
 
 export -f run-alvisnlp
+export -f count-lines
+export -f count-bytes
+export -f search-pattern
 export -f check-file
 export -f check-file-sorted
 

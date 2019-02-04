@@ -9,67 +9,6 @@
 			<p><this/> trains a classifier using <a href="https://github.com/ArnaudFerre/CONTES">CONTES</a> for classifying terms in a ontology hierarchy.</p>
 		</description>
 
-		<param-doc default-value="true" mandatory="default: true" name="active" short-type="Expression" type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
-			<p>Expression evaluated as a boolean with the corpus as context element. If the result is false, then the module does not process the module.</p>
-		</param-doc>
-
-		<param-doc mandatory="required" name="conceptFeature"
-			name-type="feature" short-type="String" type="java.lang.String">
-			<p>Feature of each term that contains the identifier of the associated concepts.</p>
-		</param-doc>
-
-		<param-doc mandatory="required" name="contesDir" short-type="InputDirectory"
-			type="fr.inra.maiage.bibliome.util.files.InputDirectory">
-			<p>Root directory of CONTES.</p>
-		</param-doc>
-
-		<param-doc default-value="true" mandatory="default: true"
-			name="documentFilter" short-type="Expression"
-			type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
-			<p>Only process documents that satisfy this filter.</p>
-		</param-doc>
-
-		<param-doc default-value="form" mandatory="default: form"
-			name="formFeature" name-type="feature" short-type="String" type="java.lang.String">
-			<p>Feature to use as word form.</p>
-		</param-doc>
-
-		<param-doc mandatory="required" name="ontology" short-type="InputFile"
-			type="fr.inra.maiage.bibliome.util.files.InputFile">
-			<p>Path to the ontology file in OBO or OWL format.</p>
-		</param-doc>
-
-		<param-doc mandatory="required" name="regressionMatrix"
-			short-type="OutputFile" type="fr.inra.maiage.bibliome.util.files.OutputFile">
-			<p>Path to the file where to write the classifier.</p>
-		</param-doc>
-
-		<param-doc default-value="boolean:and(true, nav:layer:words())"
-			mandatory="default: boolean:and(true, nav:layer:words())" name="sectionFilter"
-			short-type="Expression"
-			type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
-			<p>Process only sections that satisfy this filter.</p>
-		</param-doc>
-
-		<param-doc mandatory="required" name="termLayer" name-type="layer"
-			short-type="String" type="java.lang.String">
-			<p>Name of the layer that contain terms.</p>
-		</param-doc>
-
-		<param-doc default-value="words" mandatory="default: words"
-			name="tokenLayer" name-type="layer" short-type="String" type="java.lang.String">
-			<p>Name of the layer containing token annotations.</p>
-		</param-doc>
-
-		<param-doc default-value="" mandatory="default: " name="userFunctions"
-			short-type="UserFunction[]"
-			type="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.UserFunction[]">
-			<p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p>
-		</param-doc>
-
-		<param-doc mandatory="required" name="wordEmbeddings"
-			short-type="InputFile" type="fr.inra.maiage.bibliome.util.files.InputFile">
-			<p>Path to the file containing word embeddings, as produced by <module>Word2Vec</module>.</p>
-		</param-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.AbstractContesTermsParamsDoc</include-doc>
 	</module-doc>
 </alvisnlp-doc>
