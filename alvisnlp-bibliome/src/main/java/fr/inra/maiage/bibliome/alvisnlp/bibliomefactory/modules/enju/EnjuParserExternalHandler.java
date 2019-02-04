@@ -254,7 +254,7 @@ class EnjuParserExternalHandler extends ExternalHandler<Corpus,EnjuParser> {
 			this.id = checkAttribute("id");
 		}
 		
-		private static final Pattern ENJU_LINE_PATTERN = Pattern.compile("(?<start>\\d+)\t(?<end>\\d+)\t(?<kind>[a-z0-9_]+) (?<attr>.*)");
+		private static final Pattern ENJU_LINE_PATTERN = Pattern.compile("(?:\033\\[\\?1034h)?(?<start>\\d+)\t(?<end>\\d+)\t(?<kind>[a-z0-9_]+) (?<attr>.*)");
 		private static EnjuClause readLine(String line) throws ProcessingException {
 			Matcher m = ENJU_LINE_PATTERN.matcher(line);
 			if (!m.matches()) {

@@ -120,12 +120,17 @@ public class PlanLoader<T extends Annotable> {
 
 	private static final String LOCALE_ATTRIBUTE_NAME = "locale";
 
+	public static final String BASE_DIR_ATTRIBUTE_NAME = "base-dir";
+	
+	public static final String OUTPUT_FEED_ATTRIBUTE_NAME = "output-feed";
+
 	private final ModuleFactory<T> moduleFactory;
 	private final ParamConverterFactory converterFactory;
 	private final Map<String,List<Element>> defaultParamValues;
 	private final List<String> inputDirs;
 	private final List<String> resourceBases;
 	private final String outputDir;
+	private final Map<String,String> baseDirs;
 	private final DocumentBuilder docBuilder;
 	private final String creatorNameFeature;
 	private int nShells = 0;
@@ -138,13 +143,14 @@ public class PlanLoader<T extends Annotable> {
 	 * @param customEntities 
 	 * @throws PlanException 
 	 */
-	public PlanLoader(ModuleFactory<T> moduleFactory, ParamConverterFactory converterFactory, Document defaultParamValuesDoc, List<String> inputDirs, String outputDir, List<String> resourceBases, DocumentBuilder docBuilder, String creatorNameFeature, Map<String,String> customEntities) throws PlanException {
+	public PlanLoader(ModuleFactory<T> moduleFactory, ParamConverterFactory converterFactory, Document defaultParamValuesDoc, List<String> inputDirs, String outputDir, Map<String,String> baseDirs, List<String> resourceBases, DocumentBuilder docBuilder, String creatorNameFeature, Map<String,String> customEntities) throws PlanException {
 		super();
 		this.moduleFactory = moduleFactory;
 		this.converterFactory = converterFactory;
 		this.defaultParamValues = buildDefaultParamValues(defaultParamValuesDoc);
 		this.inputDirs = inputDirs;
 		this.outputDir = outputDir;
+		this.baseDirs = baseDirs;
 		this.resourceBases = resourceBases;
 		this.docBuilder = docBuilder;
 		this.creatorNameFeature = creatorNameFeature;
@@ -209,13 +215,13 @@ public class PlanLoader<T extends Annotable> {
 	}
 
 	public Document parseDoc(String source) throws SAXException, IOException, URISyntaxException {
-		StreamFactory sf = getStreamFactory();
+		StreamFactory sf = getStreamFactory(null);
 		SourceStream sourceStream = sf.getSourceStream(source);
 		return parseDoc(sourceStream);
 	}
 	
-	public Sequence<T> loadSource(Logger logger, String sourceString) throws SAXException, IOException, PlanException, ModuleException, ServiceException, ConverterException, URISyntaxException {
-		StreamFactory sf = getStreamFactory();
+	public Sequence<T> loadSource(Logger logger, String sourceString, String baseDir) throws SAXException, IOException, PlanException, ModuleException, ServiceException, ConverterException, URISyntaxException {
+		StreamFactory sf = getStreamFactory(baseDir);
 		SourceStream source = sf.getSourceStream(sourceString);
 		return loadSource(logger, source);
 	}
@@ -268,7 +274,7 @@ public class PlanLoader<T extends Annotable> {
 			String dumpPath = elt.getAttribute("dump");
 			logger.severe("setting dump file inside the plan is deprecated, use -dumpModule instead");
 			logger.severe("future versions might not support in-plan dump");
-			ParamConverter converter = getParamConverterInstance("<dump file>", OutputFile.class, false);
+			ParamConverter converter = getParamConverterInstance("<dump file>", OutputFile.class, false, null);
 			OutputFile dumpFile = (OutputFile) converter.convert(dumpPath);
 			module.setDumpFile(dumpFile);
 		}
@@ -338,10 +344,10 @@ public class PlanLoader<T extends Annotable> {
 				}
 				if (SHELL_ELEMENT_NAME.equals(childName)) {
 					String id = "shell_" + (++nShells);
-					childElement.setAttribute("id", id);
+					childElement.setAttribute(ID_ATTRIBUTE_NAME, id);
 					String shellModule;
 					shellModule = moduleFactory.getShellModule();
-					childElement.setAttribute("class", shellModule);
+					childElement.setAttribute(CLASS_ATTRIBUTE_NAME, shellModule);
 					Module<T> module = loadModule(logger, childElement);
 					result.appendModule(module);
 					continue;
@@ -480,7 +486,8 @@ public class PlanLoader<T extends Annotable> {
 
 	private Module<T> importPlan(Logger logger, Element elt) throws PlanException, ModuleException, SAXException, IOException, ServiceException, ConverterException, URISyntaxException {
 		String sourceString = XMLUtils.attributeOrValue(elt, SOURCE_ATTRIBUTE_NAME, ALTERNATE_SOURCE_ATTRIBUTE_NAMES);
-		Module<T> result = loadSource(logger, sourceString);
+		String baseDir = getBaseDir(elt);
+		Module<T> result = loadSource(logger, sourceString, baseDir);
 		setModuleId(logger, result, elt);
 		if (!XMLUtils.childrenElements(elt).isEmpty()) {
 			setModuleParams(logger, elt, result);
@@ -488,21 +495,31 @@ public class PlanLoader<T extends Annotable> {
 		return result;
 	}
 
-	private ParamConverter getParamConverterInstance(String name, Class<?> paramType, boolean outputFeed) throws UnsupportedServiceException {
+	private ParamConverter getParamConverterInstance(String name, Class<?> paramType, boolean outputFeed, String baseDir) throws UnsupportedServiceException, PlanException {
 		try {
 			ParamConverter result = converterFactory.getService(paramType);
 			if (outputFeed) {
+				if (baseDir != null) {
+					throw new PlanException("incompatible options");
+				}
 				if (outputDir == null) {
 					result.setInputDirs(Collections.emptyList());
 				}
 				else {
 					result.setInputDirs(Collections.singletonList(outputDir));
 				}
+				result.setOutputDir(outputDir);
 			}
 			else {
-				result.setInputDirs(inputDirs);
+				if (baseDir != null) {
+					result.setInputDirs(Collections.singletonList(baseDir));
+					result.setOutputDir(baseDir);
+				}
+				else {
+					result.setInputDirs(inputDirs);
+					result.setOutputDir(outputDir);
+				}
 			}
-			result.setOutputDir(outputDir);
 			result.setResourceBases(resourceBases);
 			return result;
 		}
@@ -511,11 +528,22 @@ public class PlanLoader<T extends Annotable> {
 		}
 	}
 	
-	public StreamFactory getStreamFactory() {
+	public StreamFactory getStreamFactory(String baseDir) {
 		StreamFactory result = new StreamFactory();
-		result.setInputDirs(inputDirs);
+		result.setInputDirs(baseDir == null ? inputDirs : Collections.singletonList(baseDir));
 		result.setResourceBases(resourceBases);
 		return result;
+	}
+	
+	private String getBaseDir(Element elt) throws PlanException {
+		if (elt.hasAttribute(BASE_DIR_ATTRIBUTE_NAME)) {
+			String baseDirName = elt.getAttribute(BASE_DIR_ATTRIBUTE_NAME);
+			if (!baseDirs.containsKey(baseDirName)) {
+				throw new PlanException("undefined base directory named " + baseDirName);
+			}
+			return baseDirs.get(baseDirName);
+		}
+		return null;
 	}
 	
 	public void setParam(Logger logger, Element elt, Module<T> module) throws PlanException, ParameterException, ConverterException, UnsupportedServiceException, SAXException, IOException, URISyntaxException {
@@ -533,24 +561,25 @@ public class PlanLoader<T extends Annotable> {
 		if (elt.hasAttribute("inhibitCheck")) {
 			boolean inhibitCheck = Strings.getBoolean(elt.getAttribute("inhibitCheck"));
 			paramHandler.setInhibitCheck(inhibitCheck);
-			logger.severe("attribute 'inhibitCheck' is deprecated, please use 'output-feed'");
+			logger.severe("attribute 'inhibitCheck' is deprecated, please use '" + OUTPUT_FEED_ATTRIBUTE_NAME + "'");
 			logger.severe("future versions may not support attribute 'inhibitCheck'");
 		}
 		if (elt.hasAttribute("inhibit-check")) {
 			boolean inhibitCheck = Strings.getBoolean(elt.getAttribute("inhibit-check"));
 			paramHandler.setInhibitCheck(inhibitCheck);
-			logger.severe("attribute 'inhibit-check' is deprecated, please use 'output-feed'");
+			logger.severe("attribute 'inhibit-check' is deprecated, please use '" + OUTPUT_FEED_ATTRIBUTE_NAME + "'");
 			logger.severe("future versions may not support attribute 'inhibit-check'");
 		}
-		boolean outputFeed = XMLUtils.getBooleanAttribute(elt, "output-feed", false);
+		boolean outputFeed = XMLUtils.getBooleanAttribute(elt, OUTPUT_FEED_ATTRIBUTE_NAME, false);
 		if (outputFeed) {
 			paramHandler.setInhibitCheck(true);
 		}
+		String baseDir = getBaseDir(elt);
 		Class<?> paramType = paramHandler.getType();
-		ParamConverter paramConverter = getParamConverterInstance(paramName, paramType, outputFeed);
+		ParamConverter paramConverter = getParamConverterInstance(paramName, paramType, outputFeed, baseDir);
 		if (elt.hasAttribute(LOAD_FILE_ATTRIBUTE_NAME)) {
+			StreamFactory sf = getStreamFactory(baseDir);
 			String sourceString = elt.getAttribute(LOAD_FILE_ATTRIBUTE_NAME);
-			StreamFactory sf = getStreamFactory();
 			SourceStream source = sf.getSourceStream(sourceString);
 			try (InputStream is = source.getInputStream()) {
 				Document doc = docBuilder.parse(is);
@@ -559,6 +588,8 @@ public class PlanLoader<T extends Annotable> {
 		}
 		try {
 			Object value = paramConverter.convert(elt);
+//			System.err.println("paramName = " + paramName);
+//			System.err.println("value = " + value);
 			paramHandler.setValue(value);
 		}
 		catch (ConverterException e) {
