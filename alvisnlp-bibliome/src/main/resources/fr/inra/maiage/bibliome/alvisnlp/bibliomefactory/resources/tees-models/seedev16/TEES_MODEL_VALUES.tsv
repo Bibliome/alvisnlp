@@ -1,0 +1,17 @@
+BioNLPSTParams	convert:evalSubTasks=123:evaluate:scores
+detector	Detectors.EventDetector
+edge-classifier-parameter	c=29000
+edge-classifier-parameters-train	c=29000
+edge-example-style	
+edge-parse	McCC
+edge-task	None
+modifier-parse	McCC
+modifier-task	None
+recallAdjustParameter	0.5
+trigger-classifier-parameter	c=1000
+trigger-classifier-parameters-train	c=1000
+trigger-example-style	
+trigger-parse	McCC
+trigger-task	None
+unmerging-parse	McCC
+unmerging-task	None

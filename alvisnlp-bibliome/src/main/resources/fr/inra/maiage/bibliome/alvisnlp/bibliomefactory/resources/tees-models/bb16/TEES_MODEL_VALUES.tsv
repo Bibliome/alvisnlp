@@ -1,0 +1,7 @@
+BioNLPSTParams	convert:evalSubTasks=123:evaluate:scores
+detector	Detectors.EdgeDetector
+edge-classifier-parameter	c=1000
+edge-classifier-parameters-train	c=1000
+edge-example-style	
+edge-parse	McCC
+edge-task	None

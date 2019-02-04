@@ -27,9 +27,13 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	
 	private MultiMapping schema;
 	
-	private String omitSteps = "SPLIT-SENTENCES,NER";
+	private String omitSteps = "GENIA_SPLITTER,BANNER";
+	private String steps ="LOAD,GENIA_SPLITTER,BANNER,BLLIP_BIO,STANFORD_CONVERT,SPLIT_NAMES,FIND_HEADS,SAVE";
+
 	private ExecutableFile python2Executable;
 	private InputDirectory teesHome;
+	
+	private String detector = "Detectors.EdgeDetector";
 
 	@Param(nameType = NameType.LAYER)
 	public String getTokenLayerName() {
@@ -94,6 +98,15 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 		this.omitSteps = omitSteps;
 	}
 	
+	public String getSteps() {
+		return steps;
+	}
+
+	public void setSteps(String steps) {
+		this.steps = steps;
+	}
+
+	
 	@Param
 	public InputDirectory getTeesHome() {
 		return teesHome;
@@ -110,5 +123,13 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 
 	public void setPython2Executable(ExecutableFile python2Executable) {
 		this.python2Executable = python2Executable;
+	}
+	
+	public String getDetector() {
+		return detector;
+	}
+
+	public void setDetector(String detector) {
+		this.detector = detector;
 	}
 }
