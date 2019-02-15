@@ -1,5 +1,7 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes;
 
+import java.util.logging.Logger;
+
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.AbstractContesTerms.ContesTermsResolvedObject;
@@ -12,16 +14,18 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Checkable;
 import fr.inra.maiage.bibliome.util.files.AbstractFile;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 
-public abstract class AbstractContesTerms<F extends AbstractFile,T extends ContesTermClassifier<F>> extends CorpusModule<ContesTermsResolvedObject> implements AbstractContes {
+public abstract class AbstractContesTerms<F extends AbstractFile,T extends ContesTermClassifier<F>> extends CorpusModule<ContesTermsResolvedObject> implements AbstractContes, Checkable {
 	private InputDirectory contesDir;
 	private String tokenLayerName = DefaultNames.getWordLayer();
 	private String formFeatureName = Annotation.FORM_FEATURE_NAME;
 	private InputFile ontology;
 	private InputFile wordEmbeddings;
+	private InputFile wordEmbeddingsModel;
 	private T[] termClassifiers;
 
 	@Override
@@ -36,7 +40,7 @@ public abstract class AbstractContesTerms<F extends AbstractFile,T extends Conte
 		return formFeatureName;
 	}
 
-	@Param
+	@Param(mandatory=false)
 	public InputFile getWordEmbeddings() {
 		return wordEmbeddings;
 	}
@@ -50,6 +54,15 @@ public abstract class AbstractContesTerms<F extends AbstractFile,T extends Conte
 	@Param
 	public InputFile getOntology() {
 		return ontology;
+	}
+
+	@Param(mandatory=false)
+	public InputFile getWordEmbeddingsModel() {
+		return wordEmbeddingsModel;
+	}
+
+	public void setWordEmbeddingsModel(InputFile wordEmbeddingsModel) {
+		this.wordEmbeddingsModel = wordEmbeddingsModel;
 	}
 
 	protected T[] getTermClassifiers() {
@@ -105,5 +118,21 @@ public abstract class AbstractContesTerms<F extends AbstractFile,T extends Conte
 			super.collectUsedNames(nameUsage, defaultType);
 			nameUsage.collectUsedNamesArray(this.termClassifiers, defaultType);
 		}
+	}
+
+	@Override
+	public boolean check(Logger logger) {
+		if (wordEmbeddings == null) {
+			if (wordEmbeddingsModel == null) {
+				logger.severe("either one of wordEmbeddings or wordEmbeddingsModel is mandatory");
+				return false;
+			}
+			return true;
+		}
+		if (wordEmbeddingsModel != null) {
+			logger.severe("wordEmbeddings and wordEmbeddingsModel are mutually exclusive");
+			return false;
+		}
+		return true;
 	}
 }
