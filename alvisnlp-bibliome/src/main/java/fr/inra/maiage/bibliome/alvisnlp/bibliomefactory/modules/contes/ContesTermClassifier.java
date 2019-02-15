@@ -16,15 +16,17 @@ import fr.inra.maiage.bibliome.util.files.AbstractFile;
 public abstract class ContesTermClassifier<F extends AbstractFile> implements Resolvable<ContesTermClassifier.Resolved> {
 	private final Expression documentFilter;
 	private final Expression sectionFilter;
+	private final Double factor;
 	private final String termLayerName;
 	private final String conceptFeatureName;
 	private final String similarityFeatureName;
 	private final F regressionMatrixFile;
 	
-	protected ContesTermClassifier(Expression documentFilter, Expression sectionFilter, String termLayerName, String conceptFeatureName, String similarityFeatureName, F regressionMatrixFile) {
+	protected ContesTermClassifier(Expression documentFilter, Expression sectionFilter, Double factor, String termLayerName, String conceptFeatureName, String similarityFeatureName, F regressionMatrixFile) {
 		super();
 		this.documentFilter = documentFilter;
 		this.sectionFilter = sectionFilter;
+		this.factor = factor;
 		this.termLayerName = termLayerName;
 		this.conceptFeatureName = conceptFeatureName;
 		this.similarityFeatureName = similarityFeatureName;
@@ -61,6 +63,10 @@ public abstract class ContesTermClassifier<F extends AbstractFile> implements Re
 
 		public Evaluator getSectionFilter() {
 			return sectionFilter;
+		}
+
+		public Double getFactor() {
+			return contesTermClassifier.factor;
 		}
 
 		public String getTermLayerName() {

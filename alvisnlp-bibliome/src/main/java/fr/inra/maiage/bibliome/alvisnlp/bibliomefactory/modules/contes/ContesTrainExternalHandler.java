@@ -99,6 +99,8 @@ class ContesTrainExternalHandler extends AbstractContesTermsExternalHandler<Outp
 			result.add(getAttributionsFile(i).getAbsolutePath());
 			result.add("--regression-matrix");
 			result.add(termClassifiers[i].getRegressionMatrixFile().getAbsolutePath());
+			result.add("--factor");
+			result.add(termClassifiers[i].getFactor().toString());
 		}
 		return result;
 	}

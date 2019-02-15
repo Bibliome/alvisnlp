@@ -18,12 +18,13 @@ abstract class AbstractContesTermClassifierParamConverter<F extends AbstractFile
 	
 	protected abstract Class<F> getMatrixFileClass();
 	
-	protected abstract T createContesTermClassifier(Expression documentFilter, Expression sectionFilter, String termLayerName, String conceptFeatureName, String similarityFeatureName, F regressionMatrixFile);
+	protected abstract T createContesTermClassifier(Expression documentFilter, Expression sectionFilter, Double factor, String termLayerName, String conceptFeatureName, String similarityFeatureName, F regressionMatrixFile);
 
 	@Override
 	protected T convertXML(Element xmlValue) throws ConverterException {
 		Expression documentFilter = DefaultExpressions.TRUE;
 		Expression sectionFilter = DefaultExpressions.TRUE;
+		Double factor = 1.0;
 		String termLayerName = null;
 		String conceptFeatureName = null;
 		String similarityFeatureName = null;
@@ -45,6 +46,9 @@ abstract class AbstractContesTermClassifierParamConverter<F extends AbstractFile
 		}
 		if (xmlValue.hasAttribute("regressionMatrixFile")) {
 			regressionMatrixFile = convertComponent(getMatrixFileClass(), xmlValue.getAttribute("regressionMatrixFile"));
+		}
+		if (xmlValue.hasAttribute("factor")) {
+			factor = convertComponent(Double.class, xmlValue.getAttribute("factor"));
 		}
 		for (Element child : XMLUtils.childrenElements(xmlValue)) {
 			String tag = child.getTagName();
@@ -74,6 +78,10 @@ abstract class AbstractContesTermClassifierParamConverter<F extends AbstractFile
 					regressionMatrixFile = convertComponent(getMatrixFileClass(), contents);
 					break;
 				}
+				case "factor": {
+					factor = convertComponent(Double.class, contents);
+					break;
+				}
 				default: {
 					cannotConvertXML(xmlValue, "incorrect tag " + tag);
 				}
@@ -88,6 +96,6 @@ abstract class AbstractContesTermClassifierParamConverter<F extends AbstractFile
 		if (regressionMatrixFile == null) {
 			cannotConvertXML(xmlValue, "missing regressionMatrixFile");
 		}
-		return createContesTermClassifier(documentFilter, sectionFilter, termLayerName, conceptFeatureName, similarityFeatureName, regressionMatrixFile);
+		return createContesTermClassifier(documentFilter, sectionFilter, factor, termLayerName, conceptFeatureName, similarityFeatureName, regressionMatrixFile);
 	}
 }

@@ -110,6 +110,8 @@ class ContesPredictExternalHandler extends AbstractContesTermsExternalHandler<In
 			result.add(termClassifiers[i].getRegressionMatrixFile().getAbsolutePath());
 			result.add("--output");
 			result.add(getAttributionsFile(i).getAbsolutePath());
+			result.add("--factor");
+			result.add(termClassifiers[i].getFactor().toString());
 		}
 		return result;
 	}
