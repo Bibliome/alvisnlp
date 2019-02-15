@@ -1,6 +1,7 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
@@ -14,11 +15,12 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Checkable;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 @AlvisNLPModule(beta=true)
-public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> implements AbstractContes {
+public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> implements AbstractContes, Checkable {
 	private InputDirectory contesDir;
 	
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
@@ -32,6 +34,7 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 	
 	private OutputFile jsonFile;
 	private OutputFile txtFile;
+	private OutputFile binFile;
 	private Integer workers;
 	
 	@Override
@@ -69,7 +72,7 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 		return minCount;
 	}
 
-	@Param
+	@Param(mandatory=false)
 	public OutputFile getJsonFile() {
 		return jsonFile;
 	}
@@ -77,6 +80,11 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 	@Param(mandatory=false)
 	public OutputFile getTxtFile() {
 		return txtFile;
+	}
+
+	@Param(mandatory=false)
+	public OutputFile getBinFile() {
+		return binFile;
 	}
 
 	@Param
@@ -100,6 +108,10 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 	@Param
 	public InputDirectory getContesDir() {
 		return contesDir;
+	}
+
+	public void setBinFile(OutputFile binFile) {
+		this.binFile = binFile;
 	}
 
 	@Override
@@ -162,5 +174,14 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
+	}
+
+	@Override
+	public boolean check(Logger logger) {
+		if ((jsonFile == null) && (txtFile == null) && (binFile == null)) {
+			logger.severe("no vector or model output file, either jsonFile, txtFile or binFile is mandatory");
+			return false;
+		}
+		return true;
 	}
 }
