@@ -119,21 +119,9 @@ class Word2VecExternalHandler extends AbstractContesExternalHandler<SectionResol
 		Word2Vec owner = getModule();
 		result.add(owner.getPython3Executable().getAbsolutePath());
 		result.add(getContesCommand());
-		File jsonFile = owner.getJsonFile();
-		if (jsonFile != null) {
-			result.add("--json");
-			result.add(jsonFile.getAbsolutePath());
-		}
-		File txtFile = getEffectiveTxtFile();
-		if (txtFile != null) {
-			result.add("--txt");
-			result.add(txtFile.getAbsolutePath());
-		}
-		File binFile = owner.getBinFile();
-		if (binFile != null) {
-			result.add("--bin");
-			result.add(binFile.getAbsolutePath());
-		}
+		addOptionalFile(result, "--json", owner.getJsonFile());
+		addOptionalFile(result, "--txt", getEffectiveTxtFile());
+		addOptionalFile(result, "--bin", owner.getModelFile());
 		result.add("--vector-size");
 		result.add(owner.getVectorSize().toString());
 		result.add("--window-size");

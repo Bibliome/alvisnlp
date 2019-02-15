@@ -34,7 +34,7 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 	
 	private OutputFile jsonFile;
 	private OutputFile txtFile;
-	private OutputFile binFile;
+	private OutputFile modelFile;
 	private Integer workers;
 	
 	@Override
@@ -83,8 +83,8 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 	}
 
 	@Param(mandatory=false)
-	public OutputFile getBinFile() {
-		return binFile;
+	public OutputFile getModelFile() {
+		return modelFile;
 	}
 
 	@Param
@@ -110,8 +110,8 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 		return contesDir;
 	}
 
-	public void setBinFile(OutputFile binFile) {
-		this.binFile = binFile;
+	public void setModelFile(OutputFile binFile) {
+		this.modelFile = binFile;
 	}
 
 	@Override
@@ -178,8 +178,8 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 
 	@Override
 	public boolean check(Logger logger) {
-		if ((jsonFile == null) && (txtFile == null) && (binFile == null)) {
-			logger.severe("no vector or model output file, either jsonFile, txtFile or binFile is mandatory");
+		if ((jsonFile == null) && (txtFile == null) && (modelFile == null)) {
+			logger.severe("no vector or model output file, either jsonFile, txtFile or modelFile is mandatory");
 			return false;
 		}
 		return true;
