@@ -97,6 +97,7 @@ class ContesPredictExternalHandler extends AbstractContesTermsExternalHandler<In
 		ContesPredict owner = getModule();
 		result.add(owner.getPython3Executable().getAbsolutePath());
 		result.add(getContesCommand());
+		addAdditionalArguments(result);
 		addOptionalFile(result, "--word-vectors", owner.getWordEmbeddings());
 		addOptionalFile(result, "--word-vectors-bin", owner.getWordEmbeddingsModel());
 		result.add("--ontology");

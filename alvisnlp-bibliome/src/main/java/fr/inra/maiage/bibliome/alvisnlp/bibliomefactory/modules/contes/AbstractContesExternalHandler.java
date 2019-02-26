@@ -1,6 +1,7 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -51,8 +52,16 @@ abstract class AbstractContesExternalHandler<R extends ResolvedObjects,T extends
 		return null;
 	}
 	
+	protected void addAdditionalArguments(List<String> cmdl) {
+		String[] aa = getModule().getAdditionalArguments();
+		if (aa != null) {
+			cmdl.addAll(Arrays.asList(aa));
+		}
+	}
+	
 	protected static void addOptionalFile(List<String> cmdl, String opt, File f) {
-		if (opt != null) {
+		if (f != null) {
+			cmdl.add(opt);
 			cmdl.add(f.getAbsolutePath());
 		}
 	}

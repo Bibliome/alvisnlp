@@ -18,6 +18,11 @@ public interface AbstractContes {
 	@Param
 	ExecutableFile getPython3Executable();
 
+	@Param(mandatory=false)
+	String[] getAdditionalArguments();
+	
+	void setAdditionalArguments(String[] additionalArguments);
+	
 	void setContesDir(InputDirectory contesDir);
 
 	void setTokenLayerName(String tokenLayer);

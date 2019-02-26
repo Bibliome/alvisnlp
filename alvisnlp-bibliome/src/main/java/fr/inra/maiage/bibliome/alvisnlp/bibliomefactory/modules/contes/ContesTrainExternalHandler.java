@@ -86,6 +86,7 @@ class ContesTrainExternalHandler extends AbstractContesTermsExternalHandler<Outp
 		List<String> result = new ArrayList<String>(20);
 		result.add(owner.getPython3Executable().getAbsolutePath());
 		result.add(getContesCommand());
+		addAdditionalArguments(result);
 		addOptionalFile(result, "--word-vectors", owner.getWordEmbeddings());
 		addOptionalFile(result, "--word-vectors-bin", owner.getWordEmbeddingsModel());
 		result.add("--ontology");

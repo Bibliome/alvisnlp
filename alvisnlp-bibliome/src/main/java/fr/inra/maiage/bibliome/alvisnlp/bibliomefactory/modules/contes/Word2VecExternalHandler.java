@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -119,6 +120,7 @@ class Word2VecExternalHandler extends AbstractContesExternalHandler<SectionResol
 		Word2Vec owner = getModule();
 		result.add(owner.getPython3Executable().getAbsolutePath());
 		result.add(getContesCommand());
+		addAdditionalArguments(result);
 		addOptionalFile(result, "--json", owner.getJsonFile());
 		addOptionalFile(result, "--txt", getEffectiveTxtFile());
 		addOptionalFile(result, "--bin", owner.getModelFile());
