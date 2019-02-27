@@ -110,6 +110,15 @@ public abstract class PropertiesLibrary extends FunctionLibrary {
 		return sec.getContents();
 	}
 	
+	@Function
+	public static String last(EvaluationContext ctx, Element elt, Evaluator key) {
+		String featureKey = key.evaluateString(ctx, elt);
+		if (elt.hasFeature(featureKey)) {
+			return elt.getLastFeature(featureKey);
+		}
+		return "";
+	}
+	
 	@Function(firstFtor="@", ftors=1)
 	public static final Evaluator last(String key) {
 		return new LastFeatureEvaluator(key);
