@@ -11,6 +11,12 @@
     <constantAnnotationFeatures>ne-type=taxon</constantAnnotationFeatures>
   </taxa>
 
+  <rename-form class="CopyFeature">
+    <target>documents.sections.(layer:taxaO|layer:Bacteria)</target>
+    <sourceFeatureName>form</sourceFeatureName>
+    <targetFeatureName>copy</targetFeatureName>
+  </rename-form>
+  
   <copy class="Action">
     <target>documents.sections.layer:taxaO</target>
     <action>add:taxaA|add:taxaB</action>
@@ -38,7 +44,7 @@
       <sections>documents.sections</sections>
       <reference>layer:Bacteria</reference>
       <predicted>layer:taxaO</predicted>
-      <face>@form</face>
+      <face>@copy</face>
       <outFile>compareO.txt</outFile>
       <similarity>strict</similarity>
     </O>
@@ -47,7 +53,7 @@
       <sections>documents.sections</sections>
       <reference>layer:Bacteria</reference>
       <predicted>layer:taxaA</predicted>
-      <face>@form</face>
+      <face>@copy</face>
       <outFile>compareA.txt</outFile>
       <similarity>strict</similarity>
     </A>
@@ -56,7 +62,7 @@
       <sections>documents.sections</sections>
       <reference>layer:Bacteria</reference>
       <predicted>layer:taxaB</predicted>
-      <face>@form</face>
+      <face>@copy</face>
       <outFile>compareB.txt</outFile>
       <similarity>strict</similarity>
     </B>
