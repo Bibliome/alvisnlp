@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-doc author="" beta="true" date=""
+	short-target="PubAnnotationReader"
+	target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.PubAnnotationReader">
+	<synopsis>
+		<p>Read stream in <a href="http://www.pubannotation.org/docs/annotation-format/">PubAnnotation JSON format</a>.</p>
+	</synopsis>
+
+	<module-doc>
+		<description>
+			<p><this/> reads the contents of <param>source</param> in <a href="http://www.pubannotation.org/docs/annotation-format/">PubAnnotation JSON format</a>. The following conversions are observed:
+			<ul>
+			  <li>single-span denotations are converted as annotations in a layer named as the denotation object;</li>
+			  <li>multi-span denotations are converted as tuples, in a relation named as the denotation object, with one argument for each fragment with roles <code>fragN</code>;</li>
+			  <li>relations are converted as tuples, in a relation named as the relation predicate, with two arguments;</li>
+			  <li>modifications are converted as additional features on the element representing the modification object.</li>
+			</ul>
+			</p>
+		</description>
+
+		<param-doc mandatory="required" name="source"
+			short-type="SourceStream"
+			type="fr.inra.maiage.bibliome.util.streams.SourceStream">
+			<p>Source stream in PubAnnotation JSON format.</p>
+		</param-doc>
+
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.module.ActionInterfaceParamsDoc</include-doc>
+	</module-doc>
+</alvisnlp-doc>
