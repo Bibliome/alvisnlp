@@ -32,7 +32,7 @@ public class SetFeature extends CorpusModule<SetFeatureResolvedObjects> {
 		EvaluationContext actionCtx = new EvaluationContext(logger, DummyAction.INSTANCE);
 		int n = 0;
 		for (Element t : Iterators.loop(res.target.evaluateElements(evalCtx, corpus))) {
-			actionCtx.registerSetFeature(t, featureName, featureName);
+			actionCtx.registerSetFeature(t, featureName, featureValue);
 			n++;
 		}
 		commit(ctx, actionCtx);
