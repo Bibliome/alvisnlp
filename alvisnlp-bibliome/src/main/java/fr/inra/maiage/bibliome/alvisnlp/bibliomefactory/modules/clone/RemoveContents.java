@@ -143,7 +143,7 @@ public abstract class RemoveContents extends SectionModule<SectionResolvedObject
 		Layer stripLayer = sec.getLayer(stripLayerName);
 		if (stripLayer.hasOverlaps()) {
 			logger.warning("overlapping annotations, merging");
-			return mergeOverlapping(stripLayer);
+			return stripLayer.mergeOverlaps(this);
 		}
 		return stripLayer;
 	}
@@ -157,28 +157,6 @@ public abstract class RemoveContents extends SectionModule<SectionResolvedObject
 		}
 		sb.append(contents.substring(reach));
 		return sb.toString();
-	}
-	
-	private Layer mergeOverlapping(Layer source) {
-		Layer result = new Layer(source.getSection());
-		int start = -1;
-		int end = 0;
-		for (Annotation a : source) {
-			if (a.getStart() > end) {
-				if (start > -1) {
-					new Annotation(this, result, start, end);
-				}
-				start = a.getStart();
-				end = a.getEnd();
-				continue;
-			}
-			start = Math.min(end, a.getStart());
-			end = Math.max(end, a.getEnd());
-		}
-		if (start > -1) {
-			new Annotation(this, result, start, end);
-		}
-		return result;
 	}
 
 	@Override
