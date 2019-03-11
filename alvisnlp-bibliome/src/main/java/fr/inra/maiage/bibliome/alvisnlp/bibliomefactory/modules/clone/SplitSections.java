@@ -17,6 +17,8 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.clone;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -56,9 +58,11 @@ public abstract class SplitSections extends SectionModule<SectionResolvedObjects
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		Map<Element,Pair<Element,Document>> map = new LinkedHashMap<Element,Pair<Element,Document>>();
-		for (Document doc : Iterators.loop(documentIterator(evalCtx, corpus))) {
+		Collection<Document> documents = Iterators.fill(documentIterator(evalCtx, corpus), new ArrayList<Document>());
+		for (Document doc : documents) {
 			int nSelect = 0;
-			for (Section sec : Iterators.loop(sectionIterator(evalCtx, doc))) {
+			Collection<Section> sections = Iterators.fill(sectionIterator(evalCtx, doc), new ArrayList<Section>());
+			for (Section sec : sections) {
 				Layer selectLayer = getSelectLayer(logger, sec);
 				for (Annotation selectAnnotation : selectLayer) {
 					Document newDoc = getNewDocument(map, doc, nSelect++);
@@ -86,7 +90,7 @@ public abstract class SplitSections extends SectionModule<SectionResolvedObjects
 	private Document getNewDocument(Map<Element,Pair<Element,Document>> map, Document doc, int nSelect) {
 		if (splitDocuments) {
 			String id = doc.getId();
-			String newId = String.format("%s__%d", id, nSelect);
+			String newId = String.format("%s__%03d", id, nSelect);
 			Document result = Document.getDocument(this, doc.getCorpus(), newId);
 			putMapping(map, doc, result, result);
 			return result;
@@ -94,7 +98,7 @@ public abstract class SplitSections extends SectionModule<SectionResolvedObjects
 		map.put(doc, new Pair<Element,Document>(doc, doc));
 		return doc;
 	}
-	
+
 	private void clone(Map<Element, Pair<Element,Document>> map, Annotation selectAnnotation, Document newDoc) {
 		Section sec = selectAnnotation.getSection();
 		String newContents = selectAnnotation.getForm();
@@ -156,16 +160,17 @@ public abstract class SplitSections extends SectionModule<SectionResolvedObjects
 		}
 	}
 	
-	private static Element getArgument(Map<Element,Pair<Element,Document>> map, Element oldArg, Document oldDoc) {
-		if (oldDoc == null) {
-			if (map.containsKey(oldArg)) {
-				return map.get(oldArg).first;
-			}
-			return null;
+	private static Element getArgument(Map<Element,Pair<Element,Document>> map, Element oldArg, Document newDoc) {
+		Document oldDoc = DownCastElement.toDocument(oldArg);
+		if (oldDoc != null) {
+			return newDoc;
 		}
-		return oldDoc;
+		if (map.containsKey(oldArg)) {
+			return map.get(oldArg).first;
+		}
+		return null;
 	}
-	
+
 	@SuppressWarnings("unused")
 	private static void removeOldSections(Logger logger, Map<Element,Element> map) {
 		int n = 0;
