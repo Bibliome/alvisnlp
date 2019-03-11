@@ -30,6 +30,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreator;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.defaultmap.DefaultArrayListHashMap;
 import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
@@ -498,6 +499,31 @@ public class Layer extends AbstractCollection<Annotation> implements Serializabl
 		removeOverlaps(comp, true, true, true);
 	}
 	
+	public Layer mergeOverlaps(AnnotationCreator ac, Layer result) {
+		int start = -1;
+		int end = 0;
+		for (Annotation a : annotations) {
+			if (a.getStart() > end) {
+				if (start > -1) {
+					new Annotation(ac, result, start, end);
+				}
+				start = a.getStart();
+				end = a.getEnd();
+				continue;
+			}
+			start = Math.min(end, a.getStart());
+			end = Math.max(end, a.getEnd());
+		}
+		if (start > -1) {
+			new Annotation(ac, result, start, end);
+		}
+		return result;
+	}
+	
+	public Layer mergeOverlaps(AnnotationCreator ac) {
+		return mergeOverlaps(ac, new Layer(section));
+	}
+
     private final static Mapper<Annotation,String> annotationIdMapper = new Mapper<Annotation,String>() {
         @Override
         public String map(Annotation x) {
