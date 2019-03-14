@@ -53,6 +53,7 @@ public abstract class SplitSections extends SectionModule<SectionResolvedObjects
 	private String selectLayerName;
 	private Boolean mergeOverlapping = false;
 	private Boolean splitDocuments = false;
+	private String croppedAnnotationFeatureName = "cropped";
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -150,6 +151,9 @@ public abstract class SplitSections extends SectionModule<SectionResolvedObjects
 			int newEnd = end > selectEnd ? selectEnd - selectStart : end - selectStart;
 			Annotation newA = new Annotation(this, target, newStart, newEnd);
 			map.put(newDoc, a, newA);
+			if ((start < selectStart) || (end > selectEnd)) {
+				newA.addFeature(croppedAnnotationFeatureName, "true");
+			}
 		}
 	}
 
@@ -221,6 +225,15 @@ public abstract class SplitSections extends SectionModule<SectionResolvedObjects
 	@Param
 	public Boolean getMergeOverlapping() {
 		return mergeOverlapping;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getCroppedAnnotationFeatureName() {
+		return croppedAnnotationFeatureName;
+	}
+
+	public void setCroppedAnnotationFeatureName(String croppedAnnotationFeatureName) {
+		this.croppedAnnotationFeatureName = croppedAnnotationFeatureName;
 	}
 
 	public void setMergeOverlapping(Boolean mergeOverlapping) {
