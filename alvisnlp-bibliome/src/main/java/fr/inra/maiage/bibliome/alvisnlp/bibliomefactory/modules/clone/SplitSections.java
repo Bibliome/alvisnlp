@@ -51,6 +51,7 @@ import fr.inra.maiage.bibliome.util.Pair;
 @AlvisNLPModule(beta=true)
 public abstract class SplitSections extends SectionModule<SectionResolvedObjects> implements AnnotationCreator, DocumentCreator, SectionCreator, TupleCreator {
 	private String selectLayerName;
+	private Boolean mergeOverlapping = false;
 	private Boolean splitDocuments = false;
 
 	@Override
@@ -215,6 +216,15 @@ public abstract class SplitSections extends SectionModule<SectionResolvedObjects
 	@Param
 	public Boolean getSplitDocuments() {
 		return splitDocuments;
+	}
+
+	@Param
+	public Boolean getMergeOverlapping() {
+		return mergeOverlapping;
+	}
+
+	public void setMergeOverlapping(Boolean mergeOverlapping) {
+		this.mergeOverlapping = mergeOverlapping;
 	}
 
 	public void setSelectLayerName(String selectLayerName) {
