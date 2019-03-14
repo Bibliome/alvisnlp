@@ -99,7 +99,7 @@ public abstract class SplitSections extends SectionModule<SectionResolvedObjects
 
 	private Layer getSelectLayer(Logger logger, Section sec) {
 		Layer selectLayer = sec.getLayer(selectLayerName);
-		if (selectLayer.hasOverlaps()) {
+		if (mergeOverlapping && selectLayer.hasOverlaps()) {
 			logger.warning("overlapping annotations, merging");
 			return selectLayer.mergeOverlaps(this);
 		}
