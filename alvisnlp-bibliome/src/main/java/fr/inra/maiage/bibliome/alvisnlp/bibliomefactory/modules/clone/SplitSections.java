@@ -57,7 +57,7 @@ public abstract class SplitSections extends SectionModule<SectionResolvedObjects
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
-		Map<Element,Pair<Element,Document>> map = new LinkedHashMap<Element,Pair<Element,Document>>();
+		ElementMapping map = new ElementMapping();
 		Collection<Document> documents = Iterators.fill(documentIterator(evalCtx, corpus), new ArrayList<Document>());
 		for (Document doc : documents) {
 			int nSelect = 0;
@@ -72,10 +72,27 @@ public abstract class SplitSections extends SectionModule<SectionResolvedObjects
 		}
 		cloneArgs(map);
 	}
+	
+	@SuppressWarnings("serial")
+	private static class ElementMapping extends LinkedHashMap<Pair<Document,Element>,Element> {
+		private ElementMapping() {
+			super();
+		}
 
-	private static void putMapping(Map<Element,Pair<Element,Document>> map, Element oldElt, Element newElt, Document newDoc) {
-		map.put(oldElt, new Pair<Element,Document>(newElt, newDoc));
-		newElt.addMultiFeatures(oldElt.getFeatures());
+		private void put(Document newDoc, Element oldElt, Element newElt, boolean copyFeatures) {
+			put(new Pair<Document,Element>(newDoc, oldElt), newElt);
+			if (copyFeatures) {
+				newElt.addMultiFeatures(oldElt.getFeatures());
+			}
+		}
+		
+		private void put(Document newDoc, Element oldElt, Element newElt) {
+			put(newDoc, oldElt, newElt, true);
+		}
+		
+		private Element get(Document newDoc, Element oldElt) {
+			return get(new Pair<Document,Element>(newDoc, oldElt));
+		}
 	}
 
 	private Layer getSelectLayer(Logger logger, Section sec) {
@@ -87,23 +104,23 @@ public abstract class SplitSections extends SectionModule<SectionResolvedObjects
 		return selectLayer;
 	}
 
-	private Document getNewDocument(Map<Element,Pair<Element,Document>> map, Document doc, int nSelect) {
+	private Document getNewDocument(ElementMapping map, Document doc, int nSelect) {
 		if (splitDocuments) {
 			String id = doc.getId();
 			String newId = String.format("%s__%03d", id, nSelect);
 			Document result = Document.getDocument(this, doc.getCorpus(), newId);
-			putMapping(map, doc, result, result);
+			map.put(result, doc, result);
 			return result;
 		}
-		map.put(doc, new Pair<Element,Document>(doc, doc));
+		map.put(doc, doc, doc, false);
 		return doc;
 	}
 
-	private void clone(Map<Element, Pair<Element,Document>> map, Annotation selectAnnotation, Document newDoc) {
+	private void clone(ElementMapping map, Annotation selectAnnotation, Document newDoc) {
 		Section sec = selectAnnotation.getSection();
 		String newContents = selectAnnotation.getForm();
 		Section newSec = new Section(this, newDoc, sec.getName(), newContents);
-		putMapping(map, sec, newSec, newDoc);
+		map.put(newDoc, sec, newSec);
 		
 		for (Layer layer : sec.getAllLayers()) {
 			cloneLayer(map, selectAnnotation, newSec, layer);
@@ -114,7 +131,7 @@ public abstract class SplitSections extends SectionModule<SectionResolvedObjects
 		}
 	}
 
-	private void cloneLayer(Map<Element,Pair<Element,Document>> map, Annotation selectAnnotation, Section newSec, Layer source) {
+	private void cloneLayer(ElementMapping map, Annotation selectAnnotation, Section newSec, Layer source) {
 		Document newDoc = newSec.getDocument();
 		Layer target = new Layer(newSec, source.getName());
 		int selectStart = selectAnnotation.getStart();
@@ -131,44 +148,34 @@ public abstract class SplitSections extends SectionModule<SectionResolvedObjects
 			int newStart = start < selectStart ? 0 : start - selectStart;
 			int newEnd = end > selectEnd ? selectEnd - selectStart : end - selectStart;
 			Annotation newA = new Annotation(this, target, newStart, newEnd);
-			putMapping(map, a, newA, newDoc);
+			map.put(newDoc, a, newA);
 		}
 	}
 
-	private void cloneRelation(Map<Element,Pair<Element,Document>> map, Section newSec, Relation rel) {
+	private void cloneRelation(ElementMapping map, Section newSec, Relation rel) {
 		Document newDoc = newSec.getDocument();
 		Relation newRel = new Relation(this, newSec, rel.getName());
-		putMapping(map, rel, newRel, newDoc);
+		map.put(newDoc, rel, newRel);
 		for (Tuple t : rel.getTuples()) {
 			Tuple newT = new Tuple(this, newRel);
-			putMapping(map, t, newT, newDoc);
+			map.put(newDoc, t, newT);
 		}
 	}
 	
-	private static void cloneArgs(Map<Element,Pair<Element,Document>> map) {
-		for (Map.Entry<Element,Pair<Element,Document>> e : map.entrySet()) {
-			Tuple oldT = DownCastElement.toTuple(e.getKey());
+	private static void cloneArgs(ElementMapping map) {
+		for (Map.Entry<Pair<Document,Element>,Element> e : map.entrySet()) {
+			Tuple oldT = DownCastElement.toTuple(e.getKey().second);
 			if (oldT != null) {
-				Pair<Element,Document> p = e.getValue();
-				Tuple newT = DownCastElement.toTuple(p.first);
+				Element elt = e.getValue();
+				Tuple newT = DownCastElement.toTuple(elt);
+				Document newDoc = newT.getRelation().getSection().getDocument();
 				for (String role : oldT.getRoles()) {
 					Element oldArg = oldT.getArgument(role);
-					Element newArg = getArgument(map, oldArg, p.second);
+					Element newArg = map.get(newDoc, oldArg);
 					newT.setArgument(role, newArg);
 				}
 			}
 		}
-	}
-	
-	private static Element getArgument(Map<Element,Pair<Element,Document>> map, Element oldArg, Document newDoc) {
-		Document oldDoc = DownCastElement.toDocument(oldArg);
-		if (oldDoc != null) {
-			return newDoc;
-		}
-		if (map.containsKey(oldArg)) {
-			return map.get(oldArg).first;
-		}
-		return null;
 	}
 
 	@SuppressWarnings("unused")
