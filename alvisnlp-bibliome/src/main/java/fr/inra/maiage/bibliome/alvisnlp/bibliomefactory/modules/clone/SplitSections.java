@@ -23,8 +23,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.StringLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.standard.PropertiesLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.clone.SplitSections.SplitSectionsResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
@@ -39,9 +42,16 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.DocumentCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.SectionCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ConstantsLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.LibraryResolver;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.VariableLibrary;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.VariableLibrary.Variable;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
@@ -49,11 +59,12 @@ import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Pair;
 
 @AlvisNLPModule(beta=true)
-public abstract class SplitSections extends SectionModule<SectionResolvedObjects> implements AnnotationCreator, DocumentCreator, SectionCreator, TupleCreator {
+public abstract class SplitSections extends SectionModule<SplitSectionsResolvedObjects> implements AnnotationCreator, DocumentCreator, SectionCreator, TupleCreator {
 	private String selectLayerName;
 	private Boolean mergeOverlapping = false;
 	private Boolean splitDocuments = false;
 	private String croppedAnnotationFeatureName = "cropped";
+	private Expression docId = new Expression(StringLibrary.NAME, new Expression(PropertiesLibrary.NAME, "@", Document.ID_FEATURE_NAME), new Expression(ConstantsLibrary.NAME, "string", "__"), new Expression("split", "num"));
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -67,12 +78,31 @@ public abstract class SplitSections extends SectionModule<SectionResolvedObjects
 			for (Section sec : sections) {
 				Layer selectLayer = getSelectLayer(logger, sec);
 				for (Annotation selectAnnotation : selectLayer) {
-					Document newDoc = getNewDocument(map, doc, nSelect++);
+					Document newDoc = getNewDocument(map, doc, nSelect++, evalCtx);
 					clone(map, selectAnnotation, newDoc);
 				}
 			}
 		}
 		cloneArgs(map);
+	}
+	
+	public static class SplitSectionsResolvedObjects extends SectionResolvedObjects {
+		private final Evaluator docId;
+		private final Variable numVariable;
+		
+		public SplitSectionsResolvedObjects(ProcessingContext<Corpus> ctx, SplitSections module) throws ResolverException {
+			super(ctx, module);
+			VariableLibrary splitLib = new VariableLibrary("split");
+			numVariable = splitLib.newVariable("num");
+			LibraryResolver splitResolver = splitLib.newLibraryResolver(rootResolver);
+			this.docId = module.docId.resolveExpressions(splitResolver);
+		}
+
+		@Override
+		public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
+			super.collectUsedNames(nameUsage, defaultType);
+			docId.collectUsedNames(nameUsage, defaultType);
+		}
 	}
 	
 	@SuppressWarnings("serial")
@@ -106,10 +136,11 @@ public abstract class SplitSections extends SectionModule<SectionResolvedObjects
 		return selectLayer;
 	}
 
-	private Document getNewDocument(ElementMapping map, Document doc, int nSelect) {
+	private Document getNewDocument(ElementMapping map, Document doc, int nSelect, EvaluationContext ctx) {
 		if (splitDocuments) {
-			String id = doc.getId();
-			String newId = String.format("%s__%03d", id, nSelect);
+			SplitSectionsResolvedObjects resObj = getResolvedObjects();
+			resObj.numVariable.set(nSelect);
+			String newId = resObj.docId.evaluateString(ctx, doc);
 			Document result = Document.getDocument(this, doc.getCorpus(), newId);
 			map.put(result, doc, result);
 			return result;
@@ -208,8 +239,8 @@ public abstract class SplitSections extends SectionModule<SectionResolvedObjects
 	}
 
 	@Override
-	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
-		return new SectionResolvedObjects(ctx, this);
+	protected SplitSectionsResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		return new SplitSectionsResolvedObjects(ctx, this);
 	}
 
 	@Param(nameType=NameType.LAYER)
@@ -230,6 +261,15 @@ public abstract class SplitSections extends SectionModule<SectionResolvedObjects
 	@Param(nameType=NameType.FEATURE)
 	public String getCroppedAnnotationFeatureName() {
 		return croppedAnnotationFeatureName;
+	}
+
+	@Param
+	public Expression getDocId() {
+		return docId;
+	}
+
+	public void setDocId(Expression docId) {
+		this.docId = docId;
 	}
 
 	public void setCroppedAnnotationFeatureName(String croppedAnnotationFeatureName) {
