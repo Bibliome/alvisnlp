@@ -11,7 +11,9 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
 
-class ElementToJSONConverter implements ElementVisitor<JSONObject,Void> {
+enum ElementToJSONConverter implements ElementVisitor<JSONObject,Void> {
+	INSTANCE;
+	
 	@SuppressWarnings("unchecked")
 	private static JSONObject createObject(Element elt) {
 		JSONObject result = new JSONObject();
@@ -67,5 +69,9 @@ class ElementToJSONConverter implements ElementVisitor<JSONObject,Void> {
 	@Override
 	public JSONObject visit(Element e, Void param) {
 		return createObject(e);
+	}
+	
+	static JSONObject convert(Element elt) {
+		return elt.accept(INSTANCE, null);
 	}
 }

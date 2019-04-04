@@ -267,7 +267,7 @@ public class Server extends NanoHTTPD {
 		@Override
 		protected JSONObject convert(I item) {
 			cache.put(item.getStringId(), item);
-			return item.accept(new ElementToJSONConverter(), null);
+			return ElementToJSONConverter.convert(item);
 		}
 	}
 	
@@ -386,7 +386,7 @@ public class Server extends NanoHTTPD {
 		protected JSONObject convert(ArgumentElement item) {
 			Element arg = item.getArgument();
 			cache.put(arg.getStringId(), arg);
-			JSONObject result = arg.accept(new ElementToJSONConverter(), null);
+			JSONObject result = ElementToJSONConverter.convert(arg);
 			String role = item.getRole();
 			result.put("role", role);
 			return result;
