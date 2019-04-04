@@ -1,4 +1,4 @@
-package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http;
+package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api;
 
 import org.json.simple.JSONObject;
 

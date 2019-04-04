@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import fi.iki.elonen.NanoHTTPD;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.APIResponseFactory;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.LibraryResolver;
 import fr.inra.maiage.bibliome.util.Strings;
