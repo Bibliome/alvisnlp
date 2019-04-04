@@ -14,12 +14,14 @@ public class Server extends NanoHTTPD {
 	private final Logger logger;
 	private final ResponseFactory apiResponseFactory;
 	private final ResponseFactory defaultResponseFactory;
+	private final ResponseFactory resourceResponseFactory;
 
 	public Server(int port, Logger logger, Corpus corpus, LibraryResolver libraryResolver) {
 		super(port);
 		this.logger = logger;
 		this.defaultResponseFactory = new DefaultResponseFactory(logger);
 		this.apiResponseFactory = new APIResponseFactory(logger, libraryResolver, corpus);
+		this.resourceResponseFactory = new ResourceResponseFactory(logger);
 	}
 
 	@Override
@@ -28,22 +30,30 @@ public class Server extends NanoHTTPD {
 		if (method != Method.GET) {
 			return defaultResponseFactory.createBadRequestResponse("server only processes GET requests (not " + method + ")");
 		}
-		String uri = session.getUri();
-		getLogger().fine("request URI: " + uri);
-		List<String> path = parseUri(uri);
-		if (path.isEmpty()) {
-			return defaultResponseFactory.createResponse(session, path);
-		}
-		String cmd = path.remove(0);
-		switch (cmd) {
-			case "index.html":
-			case "index.htm":
-			case "home":
+		try {
+			String uri = session.getUri();
+			getLogger().fine("request URI: " + uri);
+			List<String> path = parseUri(uri);
+			if (path.isEmpty()) {
 				return defaultResponseFactory.createResponse(session, path);
-			case "api":
-				return apiResponseFactory.createResponse(session, path);
+			}
+			String cmd = path.remove(0);
+			switch (cmd) {
+				case "index.html":
+				case "index.htm":
+				case "home":
+					return defaultResponseFactory.createResponse(session, path);
+				case "api":
+					return apiResponseFactory.createResponse(session, path);
+				case "res":
+				case "resource":
+					return resourceResponseFactory.createResponse(session, path);
+			}
+			return defaultResponseFactory.createNotFoundResponse(session);
 		}
-		return defaultResponseFactory.createNotFoundResponse(session);
+		catch (Exception e) {
+			return defaultResponseFactory.createBadRequestResponse(e.getMessage());
+		}
 	}
 
 	private static List<String> parseUri(String uri) {

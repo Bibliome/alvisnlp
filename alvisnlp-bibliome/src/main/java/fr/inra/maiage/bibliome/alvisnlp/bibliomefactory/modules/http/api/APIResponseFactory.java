@@ -46,7 +46,7 @@ public class APIResponseFactory extends ResponseFactory {
 	}
 
 	@Override
-	protected Response createResponse(IHTTPSession session, List<String> path) {
+	protected Response createResponse(IHTTPSession session, List<String> path) throws Exception {
 		if (path.isEmpty()) {
 			return createNotFoundResponse(session);
 		}
@@ -84,27 +84,22 @@ public class APIResponseFactory extends ResponseFactory {
 	}
 	
 	@SuppressWarnings("unchecked")
-	private <P extends Element,I> Response createResponse(IHTTPSession session, List<String> path, ItemsRetriever<P,I> retriever) {
-		try {
-			if (!path.isEmpty()) {
-				return createNotFoundResponse(session);
-			}
-			Map<String,String> params = session.getParms();
-			Element eParent = getElement(params);
-			P parent = retriever.parentType.cast(eParent);
-			if (parent == null) {
-				return createBadRequestResponse("element is not a " + retriever.parentType.getName() + ": " + params.get("uid"));
-			}
-			JSONArray result = new JSONArray();
-			for (I item : Iterators.loop(retriever.getIterator(params, parent))) {
-				JSONObject jItem = retriever.convert(item);
-				result.add(jItem);
-			}
-			return createJSONResponse(result);
+	private <P extends Element,I> Response createResponse(IHTTPSession session, List<String> path, ItemsRetriever<P,I> retriever) throws Exception {
+		if (!path.isEmpty()) {
+			return createNotFoundResponse(session);
 		}
-		catch (Exception e) {
-			return createBadRequestResponse(e.getMessage());
+		Map<String,String> params = session.getParms();
+		Element eParent = getElement(params);
+		P parent = retriever.parentType.cast(eParent);
+		if (parent == null) {
+			return createBadRequestResponse("element is not a " + retriever.parentType.getName() + ": " + params.get("uid"));
 		}
+		JSONArray result = new JSONArray();
+		for (I item : Iterators.loop(retriever.getIterator(params, parent))) {
+			JSONObject jItem = retriever.convert(item);
+			result.add(jItem);
+		}
+		return createJSONResponse(result);
 	}
 	
 	private final ItemsRetriever<Element,Element> evaluateRetriever = new ElementsRetriever<Element,Element>(ElementType.ANY) {

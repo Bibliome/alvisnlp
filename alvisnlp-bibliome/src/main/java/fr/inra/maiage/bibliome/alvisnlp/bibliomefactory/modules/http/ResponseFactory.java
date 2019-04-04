@@ -1,5 +1,6 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -16,7 +17,7 @@ public abstract class ResponseFactory {
 		this.logger = logger;
 	}
 
-	protected abstract Response createResponse(IHTTPSession session, List<String> path);
+	protected abstract Response createResponse(IHTTPSession session, List<String> path) throws IOException, Exception;
 	
 	protected Response createNotFoundResponse(IHTTPSession session) {
 		logger.info("not found: " + session.getUri());
