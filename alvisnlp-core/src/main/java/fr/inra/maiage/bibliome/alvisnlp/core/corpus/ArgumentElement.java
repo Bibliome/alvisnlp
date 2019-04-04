@@ -40,6 +40,14 @@ public final class ArgumentElement implements Element {
 //		System.err.println("argument = " + argument);
 	}
 
+	public String getRole() {
+		return role;
+	}
+
+	public Element getArgument() {
+		return argument;
+	}
+
 	@Override
 	public String getStaticFeatureValue() {
 		return role;
