@@ -2,6 +2,8 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http;
 
 import java.io.Reader;
 import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -18,6 +20,7 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.converters.expression.pa
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.converters.expression.parser.ParseException;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.standard.NavigationLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.ArgumentElement;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DownCastElement;
@@ -154,273 +157,276 @@ public class Server extends NanoHTTPD {
 			return createNotFoundResponse(session);
 		}
 		String cmd = path.remove(0);
+		ItemsRetriever<?,?> retriever = getRetriever(cmd);
+		if (retriever == null) {
+			return createNotFoundResponse(session);
+		}
+		return retriever.getResponse(session, path);
+	}
+	
+	private ItemsRetriever<?,?> getRetriever(String cmd) {
 		switch (cmd) {
 			case "features":
-				return getAPIFeaturesResponse(session, path);
+				return featuresRetriever;
 			case "documents":
-				return getAPIDocumentsResponse(session, path);
+				return documentsRetriever;
 			case "sections":
-				return getAPISectionsResponse(session, path);
+				return sectionsRetriever;
 			case "layers":
-				return getAPILayersResponse(session, path);
+				return layersRetriever;
 			case "annotations":
-				return getAPIAnnotationsResponse(session, path);
+				return annotationsRetriever;
 			case "relations":
-				return getAPIRelationsResponse(session, path);
+				return relationsRetriever;
 			case "tuples":
-				return getAPITuplesResponse(session, path);
+				return tuplesRetriever;
 			case "arguments":
-				return getAPIArgumentsResponse(session, path);
+				return argumentsRetriever;
 			case "evaluate":
-				return getAPIEvaluateResponse(session, path);
+				return evaluateRetriever;
 			default:
-				return createNotFoundResponse(session);
-		}
-	}
-
-	private Response getAPIFeaturesResponse(IHTTPSession session, List<String> path) {
-		try {
-			if (!path.isEmpty()) {
-				return createNotFoundResponse(session);
-			}
-			Map<String,String> params = session.getParms();
-			Element elt = getElement(params);
-			JSONObject jFeatures = ElementToJSONConverter.convertFeatures(elt);
-			return createJSONResponse(jFeatures);
-		}
-		catch (CorpusDataException e) {
-			return createBadRequestResponse(e.getMessage());
-		}
-	}
-
-	@SuppressWarnings("unchecked")
-	private Response getAPIDocumentsResponse(IHTTPSession session, List<String> path) {
-		try {
-			if (!path.isEmpty()) {
-				return createNotFoundResponse(session);
-			}
-			Map<String,String> params = session.getParms();
-			Element elt = getElement(params);
-			Corpus corpus = DownCastElement.toCorpus(elt);
-			if (corpus == null) {
-				return createBadRequestResponse("element is not a corpus: " + params.get("uid"));
-			}
-			JSONArray jDocs = new JSONArray();
-			ElementToJSONConverter converter = new ElementToJSONConverter();
-			for (Document doc : Iterators.loop(corpus.documentIterator())) {
-				JSONObject jDoc = doc.accept(converter, null);
-				jDocs.add(jDoc);
-			}
-			return createJSONResponse(jDocs);
-		}
-		catch (CorpusDataException e) {
-			return createBadRequestResponse(e.getMessage());
-		}
-	}
-
-	@SuppressWarnings("unchecked")
-	private Response getAPISectionsResponse(IHTTPSession session, List<String> path) {
-		try {
-			if (!path.isEmpty()) {
-				return createNotFoundResponse(session);
-			}
-			Map<String,String> params = session.getParms();
-			Element elt = getElement(params);
-			Document doc = DownCastElement.toDocument(elt);
-			if (doc == null) {
-				return createBadRequestResponse("element is not a document: " + params.get("uid"));
-			}
-			JSONArray jSections = new JSONArray();
-			ElementToJSONConverter converter = new ElementToJSONConverter();
-			for (Section sec : Iterators.loop(doc.sectionIterator())) {
-				JSONObject jSec = sec.accept(converter, null);
-				jSections.add(jSec);
-			}
-			return createJSONResponse(jSections);
-		}
-		catch (CorpusDataException e) {
-			return createBadRequestResponse(e.getMessage());
+				return null;
 		}
 	}
 	
-	@SuppressWarnings("unchecked")
-	private Response getAPILayersResponse(IHTTPSession session, List<String> path) {
-		try {
-			if (!path.isEmpty()) {
-				return createNotFoundResponse(session);
-			}
-			Map<String,String> params = session.getParms();
-			Element elt = getElement(params);
-			Section sec = DownCastElement.toSection(elt);
-			if (sec == null) {
-				return createBadRequestResponse("element is not a section: " + params.get("uid"));
-			}
-			JSONArray layerNames = new JSONArray();
-			for (Layer layer : sec.getAllLayers()) {
-				String layerName = layer.getName();
-				layerNames.add(layerName);
-			}
-			return createJSONResponse(layerNames);
+	private static abstract class RetrieverParentHandler<P extends Element> {
+		private final String name;
+		
+		public RetrieverParentHandler(String name) {
+			super();
+			this.name = name;
 		}
-		catch (CorpusDataException e) {
-			return createBadRequestResponse(e.getMessage());
-		}
-	}
 
-	@SuppressWarnings("unchecked")
-	private Response getAPIAnnotationsResponse(IHTTPSession session, List<String> path) {
-		try {
-			if (!path.isEmpty()) {
-				return createNotFoundResponse(session);
-			}
-			Map<String,String> params = session.getParms();
-			Element elt = getElement(params);
-			Section sec = DownCastElement.toSection(elt);
-			if (sec == null) {
-				return createBadRequestResponse("element is not a section: " + params.get("uid"));
-			}
-			JSONArray jAnnotations = new JSONArray();
-			ElementToJSONConverter converter = new ElementToJSONConverter();
-			for (Annotation a : getLayer(params, sec)) {
-				JSONObject jA = a.accept(converter, null);
-				jAnnotations.add(jA);
-			}
-			return createJSONResponse(jAnnotations);
-		}
-		catch (CorpusDataException e) {
-			return createBadRequestResponse(e.getMessage());
+		protected abstract P cast(Element elt);
+		
+		private String getName() {
+			return name;
 		}
 	}
 	
-	private static Layer getLayer(Map<String,String> params, Section sec) throws CorpusDataException {
-		if (params.containsKey("layer")) {
-			String layerName = params.get("layer");
-			if (sec.hasLayer(layerName)) {
-				return sec.getLayer(layerName);
-			}
-			throw new CorpusDataException("no layer " + layerName);
+	private abstract class ItemsRetriever<P extends Element,I> {
+		private final RetrieverParentHandler<P> parentHandler;
+		
+		private ItemsRetriever(RetrieverParentHandler<P> parentHandler) {
+			super();
+			this.parentHandler = parentHandler;
 		}
-		return sec.getAllAnnotations();
-	}
 
-	@SuppressWarnings("unchecked")
-	private Response getAPIRelationsResponse(IHTTPSession session, List<String> path) {
-		try {
-			if (!path.isEmpty()) {
-				return createNotFoundResponse(session);
+		@SuppressWarnings("unchecked")
+		private Response getResponse(IHTTPSession session, List<String> path) {
+			try {
+				if (!path.isEmpty()) {
+					return createNotFoundResponse(session);
+				}
+				Map<String,String> params = session.getParms();
+				Element eParent = getElement(params);
+				P parent = parentHandler.cast(eParent);
+				if (parent == null) {
+					return createBadRequestResponse("element is not a " + parentHandler.getName() + ": " + params.get("uid"));
+				}
+				JSONArray result = new JSONArray();
+				for (I item : Iterators.loop(getIterator(params, parent))) {
+					JSONObject jItem = convert(item);
+					result.add(jItem);
+				}
+				return createJSONResponse(result);
 			}
-			Map<String,String> params = session.getParms();
-			Element elt = getElement(params);
-			Section sec = DownCastElement.toSection(elt);
-			if (sec == null) {
-				return createBadRequestResponse("element is not a section: " + params.get("uid"));
+			catch (Exception e) {
+				return createBadRequestResponse(e.getMessage());
 			}
-			JSONArray jRelations = new JSONArray();
-			ElementToJSONConverter converter = new ElementToJSONConverter();
-			for (Relation rel : sec.getAllRelations()) {
-				JSONObject jRel = rel.accept(converter, null);
-				jRelations.add(jRel);
-			}
-			return createJSONResponse(jRelations);
 		}
-		catch (CorpusDataException e) {
-			return createBadRequestResponse(e.getMessage());
-		}
+		
+		protected abstract Iterator<I> getIterator(Map<String,String> params, P parent) throws Exception;
+		protected abstract JSONObject convert(I item);
 	}
+	
+	private final ItemsRetriever<Element,Map.Entry<String,List<String>>> featuresRetriever = new ItemsRetriever<Element,Map.Entry<String,List<String>>>(ELEMENT_HANDLER) {
+		@Override
+		protected Iterator<Map.Entry<String,List<String>>> getIterator(Map<String,String> params, Element parent) throws Exception {
+			return parent.getFeatures().entrySet().iterator();
+		}
 
-	@SuppressWarnings("unchecked")
-	private Response getAPITuplesResponse(IHTTPSession session, List<String> path) {
-		try {
-			if (!path.isEmpty()) {
-				return createNotFoundResponse(session);
-			}
-			Map<String,String> params = session.getParms();
-			Element elt = getElement(params);
-			Relation rel = DownCastElement.toRelation(elt);
-			if (rel == null) {
-				return createBadRequestResponse("element is not a relation: " + params.get("uid"));
-			}
-			JSONArray jTuples = new JSONArray();
-			ElementToJSONConverter converter = new ElementToJSONConverter();
-			for (Tuple t : rel.getTuples()) {
-				JSONObject jT = t.accept(converter, null);
-				jTuples.add(jT);
-			}
-			return createJSONResponse(jTuples);
+		@SuppressWarnings("unchecked")
+		@Override
+		protected JSONObject convert(Map.Entry<String,List<String>> item) {
+			JSONObject result = new JSONObject();
+			String key = item.getKey();
+			JSONArray values = new JSONArray();
+			values.addAll(item.getValue());
+			result.put("key", key);
+			result.put("values", values);
+			return result;
 		}
-		catch (CorpusDataException e) {
-			return createBadRequestResponse(e.getMessage());
-		}
-	}
+	};
 
-	@SuppressWarnings("unchecked")
-	private Response getAPIArgumentsResponse(IHTTPSession session, List<String> path) {
-		try {
-			if (!path.isEmpty()) {
-				return createNotFoundResponse(session);
-			}
-			Map<String,String> params = session.getParms();
-			Element elt = getElement(params);
-			Tuple t = DownCastElement.toTuple(elt);
-			if (t == null) {
-				return createBadRequestResponse("element is not a tuple: " + params.get("uid"));
-			}
-			JSONObject jArgs = new JSONObject();
-			ElementToJSONConverter converter = new ElementToJSONConverter();
-			for (String role : t.getRoles()) {
-				Element arg = t.getArgument(role);
-				JSONObject jArg = arg.accept(converter, null);
-				jArgs.put(role, jArg);
-			}
-			return createJSONResponse(jArgs);
+	private abstract class ElementsRetriever<P extends Element,I extends Element> extends ItemsRetriever<P,I> {
+		private ElementsRetriever(RetrieverParentHandler<P> parentHandler) {
+			super(parentHandler);
 		}
-		catch (CorpusDataException e) {
-			return createBadRequestResponse(e.getMessage());
+
+		@Override
+		protected JSONObject convert(I item) {
+			cache.put(item.getStringId(), item);
+			return item.accept(new ElementToJSONConverter(), null);
 		}
 	}
+	
+	private static final RetrieverParentHandler<Corpus> CORPUS_HANDLER = new RetrieverParentHandler<Corpus>("corpus") {
+		@Override
+		protected Corpus cast(Element elt) {
+			return DownCastElement.toCorpus(elt);
+		}
+	};
+	
+	private final ItemsRetriever<Corpus,Document> documentsRetriever = new ElementsRetriever<Corpus,Document>(CORPUS_HANDLER) {
+		@Override
+		protected Iterator<Document> getIterator(Map<String,String> params, Corpus parent) {
+			return parent.documentIterator();
+		}
+	};
+	
+	private static final RetrieverParentHandler<Document> DOCUMENT_HANDLER = new RetrieverParentHandler<Document>("document") {
+		@Override
+		protected Document cast(Element elt) {
+			return DownCastElement.toDocument(elt);
+		}
+	};
 
-	@SuppressWarnings("unchecked")
-	private Response getAPIEvaluateResponse(IHTTPSession session, List<String> path) {
-		try {
-			if (!path.isEmpty()) {
-				return createNotFoundResponse(session);
+	private final ItemsRetriever<Document,Section> sectionsRetriever = new ElementsRetriever<Document,Section>(DOCUMENT_HANDLER) {
+		@Override
+		protected Iterator<Section> getIterator(Map<String,String> params, Document parent) {
+			return parent.sectionIterator();
+		}
+	};
+	
+	private static final RetrieverParentHandler<Section> SECTION_HANDLER = new RetrieverParentHandler<Section>("section") {
+		@Override
+		protected Section cast(Element elt) {
+			return DownCastElement.toSection(elt);
+		}
+	};
+	
+	private final ItemsRetriever<Section,Layer> layersRetriever = new ItemsRetriever<Section,Layer>(SECTION_HANDLER) {
+		@Override
+		protected Iterator<Layer> getIterator(Map<String, String> params, Section parent) throws Exception {
+			return parent.getAllLayers().iterator();
+		}
+
+		@SuppressWarnings("unchecked")
+		@Override
+		protected JSONObject convert(Layer item) {
+			JSONObject result = new JSONObject();
+			String layerName = item.getName();
+			result.put("name", layerName);
+			return result;
+		}
+	};
+
+	private final ItemsRetriever<Section,Annotation> annotationsRetriever = new ElementsRetriever<Section,Annotation>(SECTION_HANDLER) {
+		@Override
+		protected Iterator<Annotation> getIterator(Map<String,String> params, Section parent) throws CorpusDataException {
+			Layer layer = getLayer(params, parent);
+			return layer.iterator();
+		}
+		
+		private Layer getLayer(Map<String,String> params, Section sec) throws CorpusDataException {
+			if (params.containsKey("layer")) {
+				String layerName = params.get("layer");
+				if (sec.hasLayer(layerName)) {
+					return sec.getLayer(layerName);
+				}
+				throw new CorpusDataException("no layer " + layerName);
 			}
-			Map<String,String> params = session.getParms();
-			Element elt = getElement(params);
+			return sec.getAllAnnotations();
+		}
+	};
+	
+	private final ItemsRetriever<Section,Relation> relationsRetriever = new ElementsRetriever<Section,Relation>(SECTION_HANDLER) {
+		@Override
+		protected Iterator<Relation> getIterator(Map<String, String> params, Section parent) throws CorpusDataException {
+			return parent.getAllRelations().iterator();
+		}
+	};
+	
+	private static final RetrieverParentHandler<Relation> RELATION_HANDLER = new RetrieverParentHandler<Relation>("relation") {
+		@Override
+		protected Relation cast(Element elt) {
+			return DownCastElement.toRelation(elt);
+		}
+	};
+	
+	private final ItemsRetriever<Relation,Tuple> tuplesRetriever = new ElementsRetriever<Relation,Tuple>(RELATION_HANDLER) {
+		@Override
+		protected Iterator<Tuple> getIterator(Map<String, String> params, Relation parent) throws CorpusDataException {
+			return parent.getTuples().iterator();
+		}
+	};
+
+	private static final RetrieverParentHandler<Tuple> TUPLE_HANDLER = new RetrieverParentHandler<Tuple>("tuple") {
+		@Override
+		protected Tuple cast(Element elt) {
+			return DownCastElement.toTuple(elt);
+		}
+	};
+	
+	private final ItemsRetriever<Tuple,ArgumentElement> argumentsRetriever = new ItemsRetriever<Tuple,ArgumentElement>(TUPLE_HANDLER) {
+		@Override
+		protected Iterator<ArgumentElement> getIterator(Map<String, String> params, Tuple parent) throws Exception {
+			Collection<ArgumentElement> result = new ArrayList<ArgumentElement>();
+			for (String role : parent.getRoles()) {
+				Element arg = parent.getArgument(role);
+				ArgumentElement argElt = new ArgumentElement(parent, role, arg);
+				result.add(argElt);
+			}
+			return result.iterator();
+		}
+
+		@SuppressWarnings("unchecked")
+		@Override
+		protected JSONObject convert(ArgumentElement item) {
+			Element arg = item.getArgument();
+			cache.put(arg.getStringId(), arg);
+			JSONObject result = arg.accept(new ElementToJSONConverter(), null);
+			String role = item.getRole();
+			result.put("role", role);
+			return result;
+		}
+	};
+	
+	private static final RetrieverParentHandler<Element> ELEMENT_HANDLER = new RetrieverParentHandler<Element>("element") {
+		@Override
+		protected Element cast(Element elt) {
+			return elt;
+		}
+	};
+	
+	private final ItemsRetriever<Element,Element> evaluateRetriever = new ElementsRetriever<Element,Element>(ELEMENT_HANDLER) {
+		@Override
+		protected Iterator<Element> getIterator(Map<String, String> params, Element parent) throws Exception {
 			Evaluator eval = getEvaluator(params);
 			EvaluationContext ctx = new EvaluationContext(logger);
-			Iterator<Element> it = eval.evaluateElements(ctx, elt);
-			JSONArray jElts = new JSONArray();
-			ElementToJSONConverter converter = new ElementToJSONConverter();
-			for (Element e : Iterators.loop(it)) {
-				JSONObject jE = e.accept(converter, null);
-				jElts.add(jE);
+			return eval.evaluateElements(ctx, parent);
+		}
+		
+		private Evaluator getEvaluator(Map<String,String> params) throws ResolverException, ParseException {
+			Expression expr = getExpression(params);
+			return expr.resolveExpressions(librearyResolver);
+		}
+
+		private Expression getExpression(Map<String,String> params) throws ParseException {
+			if (params.containsKey("expr")) {
+				String sExpr = params.get("expr");
+				logger.fine("expression: " + sExpr);
+				return parseExpression(sExpr);
 			}
-			return createJSONResponse(jElts);
+			return new Expression(NavigationLibrary.NAME, "$");
 		}
-		catch (ResolverException|CorpusDataException|ParseException e) {
-			return createBadRequestResponse(e.getMessage());
-		}
-	}
-	
-	private Evaluator getEvaluator(Map<String,String> params) throws ResolverException, ParseException {
-		Expression expr = getExpression(params);
-		return expr.resolveExpressions(librearyResolver);
-	}
 
-	private Expression getExpression(Map<String,String> params) throws ParseException {
-		if (params.containsKey("expr")) {
-			String sExpr = params.get("expr");
-			logger.fine("expression: " + sExpr);
-			return parseExpression(sExpr);
+		private Expression parseExpression(String sExpr) throws ParseException {
+			expressionParser.ReInit(new StringReader(sExpr));
+			return expressionParser.expression();
 		}
-		return new Expression(NavigationLibrary.NAME, "$");
-	}
-
-	private Expression parseExpression(String sExpr) throws ParseException {
-		expressionParser.ReInit(new StringReader(sExpr));
-		return expressionParser.expression();
-	}
+	};
 
 	private Element getElement(Map<String,String> params) throws CorpusDataException {
 		if (params.containsKey("uid")) {
@@ -483,4 +489,3 @@ public class Server extends NanoHTTPD {
 		return elt.getStringId().equals(uid);
 	}
 }
- 

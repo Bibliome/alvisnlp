@@ -1,6 +1,5 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http;
 
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
@@ -13,17 +12,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
 
 class ElementToJSONConverter implements ElementVisitor<JSONObject,Void> {
-	@SuppressWarnings("unchecked")
-	static JSONObject convertFeatures(Element elt) {
-		JSONObject result = new JSONObject();
-		for (String key : elt.getFeatureKeys()) {
-			JSONArray jValues = new JSONArray();
-			jValues.addAll(elt.getFeature(key));
-			result.put(key, jValues);
-		}
-		return result;
-	}
-	
 	@SuppressWarnings("unchecked")
 	private static JSONObject createObject(Element elt) {
 		JSONObject result = new JSONObject();
