@@ -3,11 +3,12 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import org.json.simple.JSONObject;
 
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.CorpusDataException;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.ArgumentElement;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
@@ -95,6 +96,23 @@ abstract class ElementsRetriever<P extends Element,I extends Element> extends It
 			String role = item.getRole();
 			result.put("role", role);
 			return result;
+		}
+	};
+	
+	static final ItemsRetriever<Element,Element> ELEMENT_ANCESTORS = new ElementsRetriever<Element,Element>(ElementType.ANY) {
+		@Override
+		protected Iterator<Element> getIterator(Map<String,String> params, Element parent) throws Exception {
+			List<Element> result = new LinkedList<Element>();
+			Element elt = parent;
+			while (true) {
+				Element ancestor = elt.getParent();
+				if (ancestor == elt) {
+					break;
+				}
+				result.add(0, ancestor);
+				elt = ancestor;
+			}
+			return result.iterator();
 		}
 	};
 }

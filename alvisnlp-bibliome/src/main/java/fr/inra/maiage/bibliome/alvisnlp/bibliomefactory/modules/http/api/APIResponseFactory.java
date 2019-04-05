@@ -76,6 +76,8 @@ public class APIResponseFactory extends ResponseFactory {
 				return ElementsRetriever.RELATION_TUPLES;
 			case "arguments":
 				return ElementsRetriever.TUPLE_ARGUMENTS;
+			case "ancestors":
+				return ElementsRetriever.ELEMENT_ANCESTORS;
 			case "evaluate":
 				return evaluateRetriever;
 			default:
