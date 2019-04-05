@@ -1,5 +1,6 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -42,7 +43,8 @@ public class Server extends NanoHTTPD {
 				case "index.html":
 				case "index.htm":
 				case "home":
-					return defaultResponseFactory.createResponse(session, path);
+					return resourceResponseFactory.createResponse(session, Arrays.asList("index.html"));
+					//return defaultResponseFactory.createResponse(session, path);
 				case "api":
 					return apiResponseFactory.createResponse(session, path);
 				case "res":
