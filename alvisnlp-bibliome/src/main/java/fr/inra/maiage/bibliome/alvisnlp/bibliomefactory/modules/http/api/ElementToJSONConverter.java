@@ -28,6 +28,7 @@ enum ElementToJSONConverter implements ElementVisitor<JSONObject,Void> {
 		JSONObject result = createObject(a);
 		result.put("start", a.getStart());
 		result.put("end", a.getEnd());
+		result.put("form", a.getForm());
 		return result;
 	}
 
@@ -58,6 +59,7 @@ enum ElementToJSONConverter implements ElementVisitor<JSONObject,Void> {
 		JSONObject result = createObject(sec);
 		result.put("name", sec.getName());
 		result.put("order", sec.getOrder());
+		result.put("contents", sec.getContents());
 		return result;
 	}
 
