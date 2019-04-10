@@ -12,17 +12,20 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverExceptio
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
+import fr.inra.maiage.bibliome.util.files.InputDirectory;
 
 @AlvisNLPModule(beta=true)
 public class HttpServer extends CorpusModule<ResolvedObjects> {
 	private Integer port = 8878;
+	private InputDirectory resourceBaseDir;
 	
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
 			Logger logger = getLogger(ctx);
 			LibraryResolver resolver = getLibraryResolver(ctx);
-			Server server = new Server(port, logger, corpus, resolver);
+			Server server = new Server(port, logger, corpus, resolver, resourceBaseDir);
 			server.start(NanoHTTPD.SOCKET_READ_TIMEOUT, false);
 			logger.info("server started on http://localhost:" + port);
 			logger.config("hit enter to stop server and proceed to next module");
@@ -37,5 +40,14 @@ public class HttpServer extends CorpusModule<ResolvedObjects> {
 	@Override
 	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
+	}
+
+	@Param
+	public InputDirectory getResourceBaseDir() {
+		return resourceBaseDir;
+	}
+
+	public void setResourceBaseDir(InputDirectory resourceBaseDir) {
+		this.resourceBaseDir = resourceBaseDir;
 	}
 }

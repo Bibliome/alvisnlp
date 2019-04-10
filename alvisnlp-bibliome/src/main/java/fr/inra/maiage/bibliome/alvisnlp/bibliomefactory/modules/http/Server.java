@@ -10,6 +10,7 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.APIResp
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.LibraryResolver;
 import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.files.InputDirectory;
 
 public class Server extends NanoHTTPD {
 	private final Logger logger;
@@ -17,12 +18,17 @@ public class Server extends NanoHTTPD {
 	private final ResponseFactory defaultResponseFactory;
 	private final ResponseFactory resourceResponseFactory;
 
-	public Server(int port, Logger logger, Corpus corpus, LibraryResolver libraryResolver) {
+	public Server(int port, Logger logger, Corpus corpus, LibraryResolver libraryResolver, InputDirectory resourceBaseDir) {
 		super(port);
 		this.logger = logger;
 		this.defaultResponseFactory = new DefaultResponseFactory(logger);
 		this.apiResponseFactory = new APIResponseFactory(logger, libraryResolver, corpus);
-		this.resourceResponseFactory = new ResourceResponseFactory(logger);
+		if (resourceBaseDir == null) {
+			this.resourceResponseFactory = new ResourceResponseFactory(logger);
+		}
+		else {
+			this.resourceResponseFactory = new DirectoryResourceResponseFactory(logger, resourceBaseDir);
+		}
 	}
 
 	@Override
