@@ -52,6 +52,8 @@ abstract class ItemsRetriever<P extends Element,I> {
 		protected JSONObject convert(Layer item) {
 			JSONObject result = new JSONObject();
 			String layerName = item.getName();
+			result.put("type", "layer");
+			result.put("section", item.getSection().getStringId());
 			result.put("name", layerName);
 			return result;
 		}
