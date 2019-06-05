@@ -44,6 +44,10 @@ limitations under the License.
     <param-doc name="lineActions">
       <p/>
     </param-doc>
+   
+    <param-doc name="separator">
+      <p/>
+    </param-doc>
   
     <param-doc name="skipBlank">
       <p/>

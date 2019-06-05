@@ -69,6 +69,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 	private Boolean trimColumns = true;
 	private Boolean skipBlank = false;
 	private Boolean commitLines = false;
+	private Character separator = '\t';
 
 	static class TabularReaderResolvedObjects extends ResolvedObjects {
 		private final EntryLibrary entryLib;
@@ -110,6 +111,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 		format.setSkipBlank(skipBlank);
 		format.setSkipEmpty(skipBlank);
 		format.setTrimColumns(trimColumns);
+		format.setSeparator(separator);
 		
 		TabularReaderFileLines trfl = new TabularReaderFileLines(format, getLogger(ctx), resObj.lineActions, evalCtx, commitLines);
 		readLines(ctx, evalCtx, corpus, trfl);
@@ -362,6 +364,15 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 	@Param
 	public Boolean getCommitLines() {
 		return commitLines;
+	}
+
+	@Param
+	public Character getSeparator() {
+		return separator;
+	}
+
+	public void setSeparator(Character separator) {
+		this.separator = separator;
 	}
 
 	public void setCommitLines(Boolean commitLines) {
