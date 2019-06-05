@@ -62,6 +62,8 @@ public class APIResponseFactory extends ResponseFactory {
 		switch (cmd) {
 			case "features":
 				return ItemsRetriever.ELEMENT_FEATURES;
+			case "corpus":
+				return ElementsRetriever.THE_CORPUS;
 			case "documents":
 				return ElementsRetriever.CORPUS_DOCUMENTS;
 			case "sections":

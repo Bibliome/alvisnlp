@@ -9,6 +9,8 @@ import java.util.Map;
 
 import org.json.simple.JSONObject;
 
+import com.google.common.collect.Iterators;
+
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.ArgumentElement;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
@@ -28,6 +30,13 @@ abstract class ElementsRetriever<P extends Element,I extends Element> extends It
 	protected JSONObject convert(I item) {
 		return ElementToJSONConverter.convert(item);
 	}
+	
+	static final ItemsRetriever<Corpus,Corpus> THE_CORPUS = new ElementsRetriever<Corpus, Corpus>(ElementType.CORPUS) {
+		@Override
+		protected Iterator<Corpus> getIterator(Map<String,String> params, Corpus parent) throws Exception {
+			return Iterators.singletonIterator(parent);
+		}
+	};
 
 	static final ItemsRetriever<Corpus,Document> CORPUS_DOCUMENTS = new ElementsRetriever<Corpus,Document>(ElementType.CORPUS) {
 		@Override
