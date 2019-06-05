@@ -198,6 +198,9 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 			case "line":
 				checkExactArity(ftors, args, 0);
 				return LINE;
+			case "width":
+				checkExactArity(ftors, args, 0);
+				return WIDTH;
 			case "range":
 				checkRangeArity(ftors, args, 1, 2);
 				switch (args.size()) {
@@ -323,6 +326,17 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 			@Override
 			public int evaluateInt(EvaluationContext ctx, Element elt) {
 				return line;
+			}
+
+			@Override
+			public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
+			}
+		};
+		
+		private final Evaluator WIDTH = new AbstractIntEvaluator() {
+			@Override
+			public int evaluateInt(EvaluationContext ctx, Element elt) {
+				return entry.size();
 			}
 
 			@Override
