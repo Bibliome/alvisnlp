@@ -1,68 +1,105 @@
-function getAPIURL(ftor, uid, args) {
-	var url = '/api/' + ftor + '?uid=' + uid;
-	if (args !== undefined) {
-		for (key of Object.keys(args)) {
-			url = url + '&' + key + '=' + args[key];
-		}
+
+class ElementFace {
+	static corpus(_) {
+		return '';
 	}
-	console.log(url);
-	return url;
+	
+	static document(doc) {
+		return doc.id;
+	}
+	
+	static section(sec) {
+		return sec.name + ' (' + sec.order + ')';
+	}
 }
 
-function showElements(url) {
+class ElementButtons {
+	static _button(item, onclick, btn) {
+		item.append('<a class="element-button" href="#" onclick="'+onclick+'">[+'+btn+']</a>');
+	}
+	
+	static corpus(item, elt) {
+		ElementButtons._button(item, 'showDocuments(\''+item.attr('id')+'\')', 'docs');
+	}
+	
+	static document(item, elt) {
+		ElementButtons._button(item, 'showSections(\''+item.attr('id')+'\')', 'secs');
+	}
+	
+	static section(item, elt) {
+		
+	}
+}
+
+function createElementItem(elt) {
+	var item = $('<li></li>');
+	item.attr('id', 'elt-' + elt.UID);
+	item.append('<span class="element-type">'+elt.type+'</span>');
+	item.append('<span class="element-face">'+ElementFace[elt.type](elt)+'</span>');
+	ElementButtons[elt.type](item, elt);
+	item.append('<ul></ul>');
+	return item;
+}
+
+function showCorpus() {
 	$.ajax({
-		url: url,
+		url: '/api/corpus',
         error: function(xhr, status, error) {
             console.log(error);
         },
         success: function(data, status, xhr) {
-        	var tbody = $('#result tbody');
-        	tbody.empty();
-        	for (var i = 0; i < data.length; i++) {
-        		var row = elementRow(data[i]);
-        		tbody.append(row);
-        	}
+        	$('#result ul').append(createElementItem(data[0]));
         }
 	});
 }
 
-class ElementRow {
-	static document(row, elt) {
-		row.append($('<td>'+elt.id+'</td>'));
-		row.append($('<td>[<a onclick="showElements(\''+getAPIURL('sections', elt.UID)+'\')">sections</a>]</td>'))
+function showDocuments(id) {
+	console.log(id);
+	var ul = $('#'+id+' > ul');
+	console.log(ul);
+	if (ul.is(':empty')) {
+		$.ajax({
+			url: '/api/documents',
+			error: function(xhr, status, error) {
+				console.log(error);
+			},
+			success: function(data, status, xhr) {
+				ul.empty();
+				for (var elt of data) {
+					ul.append(createElementItem(elt));
+				}
+			}
+		});
 	}
-	
-	static section(row, elt) {
-		row.append($('<td>'+elt.name+'/'+elt.order+'</td>'));
-		row.append($('<td>[<a onclick="showElements(\''+getAPIURL('layers', elt.UID)+'\')">layers</a>]</td>'))
-	}
-	
-	static layer(row, elt) {
-		row.append($('<td>'+elt.name+'</td>'));
-		row.append($('<td>[<a onclick="showElements(\''+getAPIURL('annotations', elt.section, {'layer': elt.name})+'\')">annotations</a>]</td>'))
-	}
-	
-	static annotation(row, elt) {
-		row.append($('<td>'+elt.form+'</td>'));
-		row.append($('<td>'+elt.start+'-'+elt.end+'</td>'));
+	else {
+		ul.empty();
 	}
 }
 
-function elementRow(elt) {
-	var row = $('<tr>');
-	row.append($('<td>'+elt.type+'</td>'));
-	var fun = ElementRow[elt.type];
-	if (fun === undefined) {
-		console.log(elt);
+function showSections(id) {
+	console.log(id);
+	var ul = $('#'+id+' > ul');
+	console.log(ul);
+	if (ul.is(':empty')) {
+		$.ajax({
+			url: '/api/sections?uid=' + id.substring(4),
+			error: function(xhr, status, error) {
+				console.log(error);
+			},
+			success: function(data, status, xhr) {
+				ul.empty();
+				for (var elt of data) {
+					ul.append(createElementItem(elt));
+				}
+			}
+		});
 	}
 	else {
-		//console.log(elt);
-		fun(row, elt);
+		ul.empty();
 	}
-	return row;
 }
 
 $(document).ready(function() {
-	showElements('/api/documents');
+	showCorpus();
 }
 );
