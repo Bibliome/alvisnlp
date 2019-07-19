@@ -172,11 +172,17 @@ public class GeniaTaggerExternalHandler extends ExternalHandler<Corpus,GeniaTagg
 		if (lemma.equals("have") && pos.startsWith("VB")) {
 			return "VH" + pos.substring(2);
 		}
-		if (lemma.equals("be") && pos.startsWith("VB")) {
+		if (!lemma.equals("be") && pos.startsWith("VB")) {
 			return "VV" + pos.substring(2);
 		}
 		if (pos.startsWith("NNP")) {
 			return "NP" + pos.substring(3);
+		}
+		if (pos.equals("HYPH")) {
+			return ":";
+		}
+		if (pos.equals("AFX")) {
+			return "NN";
 		}
 		if (pos.startsWith("PRP")) {
 			return "PP" + pos.substring(3);
