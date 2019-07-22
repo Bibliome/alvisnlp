@@ -36,7 +36,7 @@ class ChemspotExternalHandler extends ExternalHandler<Corpus,Chemspot> {
 			String content = sec.getContents();
 			InputFile file = new InputFile(inputDir, name + ".txt");
 			try (PrintStream out = new PrintStream(file)) {
-				out.print(content);
+				out.print(content.replace('\n', ' '));
 			}
 		}
 	}
@@ -144,7 +144,7 @@ class ChemspotExternalHandler extends ExternalHandler<Corpus,Chemspot> {
 			int start = start0 + 1;
 			int end = end0 + 2;
 			Section sec = data.getSection();
-			String content = sec.getContents();
+			String content = sec.getContents().replace('\n', ' ');
 			while (start >= 0) {
 				String s = content.substring(start, end);
 				if (s.equals(form)) {
