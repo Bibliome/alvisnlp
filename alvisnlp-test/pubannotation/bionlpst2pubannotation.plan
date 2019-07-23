@@ -1,0 +1,25 @@
+<alvisnlp-plan id="bionlpst2pubannotation">
+  <read file="BioNLP-ST-2016_BB-event/read.plan"/>
+
+  <write class="PubAnnotationExport">
+    <outFile>BB-event.json</outFile>
+    <sourcedb>"BioNLP-ST-2016"</sourcedb>
+    <sourceid>document.@id</sourceid>
+    <denotations>
+      <denot>
+	<instances>layer:Bacteria|layer:Habitat</instances>
+	<begin>start</begin>
+	<end>end</end>
+	<obj>@type</obj>
+      </denot>
+    </denotations>
+    <relations>
+      <rel>
+	<instances>relations:Lives_In.tuples[args:Location.@type == "Habitat"]</instances>
+	<type>"Lives_In"</type>
+	<subject>args:Bacteria</subject>
+	<object>args:Location</object>
+      </rel>
+    </relations>
+  </write>
+</alvisnlp-plan>
