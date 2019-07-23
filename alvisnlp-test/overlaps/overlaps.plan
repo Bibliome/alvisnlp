@@ -2,6 +2,10 @@
 <alvisnlp-plan id="remove-overlaps-test">
   <read base-dir="share" file="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
 
+  <http class="HttpServer">
+    <resourceBaseDir>alvisnlp-bibliome/src/main/resources/fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/http</resourceBaseDir>
+  </http>
+  
   <taxa class="TabularProjector">
     <dictFile base-dir="share">taxa+id_Bacteria.txt</dictFile>
     <targetLayerName>taxaO</targetLayerName>
