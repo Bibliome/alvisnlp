@@ -7,6 +7,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
 public class RelationSpecificationArrayParamConverter extends ArrayParamConverter<RelationSpecification> {
 	@Override
 	protected String[] getAlternateElementTags() {
-		return new String[] { "relations", "rels" };
+		return new String[] { "relation", "rel" };
 	}
 }

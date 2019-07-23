@@ -7,6 +7,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.converters.lib.Converter;
 public class DenotationSpecificationArrayParamConverter extends ArrayParamConverter<DenotationSpecification> {
 	@Override
 	protected String[] getAlternateElementTags() {
-		return new String[] { "denotations", "denot" };
+		return new String[] { "denotation", "denot" };
 	}
 }
