@@ -19,19 +19,26 @@ function usage() {
     then
 	echo "$1" >&2
     fi
-    echo "Usage: $0 [-p DEFAULT_PARAM_VALUES_FILE] INSTALL_DIRECTORY" >&2
+    echo "Usage: $0 [-p DEFAULT_PARAM_VALUES_FILE] [-o DEFAULT_OPTIONS_FILE] INSTALL_DIRECTORY" >&2
     exit 1
 }
 
-while getopts ":p:" opt
+while getopts ":p:o:" opt
 do
     case "$opt" in
 	p)
 	    if [ -n "$DEFAULT_PARAM_VALUES" ]
 	    then
-		usage "Duplicate option -p"
+		usage "Duplicate option -$opt"
 	    fi
 	    DEFAULT_PARAM_VALUES="$OPTARG"
+	    ;;
+	o)
+	    if [ -n "$DEFAULT_OPTIONS" ]
+	    then
+		usage "Duplicate option -$opt"
+	    fi
+	    DEFAULT_OPTIONS="$OPTARG"
 	    ;;
 	\?)
 	    usage "Invalid option: -$OPTARG"
@@ -41,6 +48,7 @@ do
 	    ;;
     esac
 done
+shift $((OPTIND-1))
 
 if [ -z "$DEFAULT_PARAM_VALUES" ]
 then
@@ -55,6 +63,22 @@ then
     if [ -f "share/default-param-values.xml" ]
     then
 	DEFAULT_PARAM_VALUES="share/default-param-values.xml"
+    fi
+fi
+
+if [ -z "$DEFAULT_OPTIONS" ]
+then
+    if [ -f "share/default-options.txt.$HOSTNAME" ]
+    then
+	DEFAULT_OPTIONS="share/default-options.txt.$HOSTNAME"
+    fi
+fi
+
+if [ -z "$DEFAULT_OPTIONS" ]
+then
+    if [ -f "share/default-options.txt" ]
+    then
+	DEFAULT_OPTIONS="share/default-options.txt"
     fi
 fi
 
@@ -74,7 +98,13 @@ if [ -n "$DEFAULT_PARAM_VALUES" ]
 then
     echo "Default parameter values file: $DEFAULT_PARAM_VALUES"
 else
-    echo "Found no default parameter values file (it is highly recommended"
+    echo "Found no default parameter values file (it is highly recommended)"
+fi
+if [ -n "$DEFAULT_OPTIONS" ]
+then
+    echo "Default options file: $DEFAULT_OPTIONS"
+else
+    echo "Found no default options file (no worries)"
 fi
 
 BIN_DIR="$INSTALL_DIR/bin"
@@ -95,9 +125,9 @@ then
     cp -f -u "$DEFAULT_PARAM_VALUES" "$SHARE_DIR/default-param-values.xml"
 fi
 
-if [ -f "share/default-options.txt" ]
+if [ -f "$DEFAULT_OPTIONS" ]
 then
-    cp -f -u "share/default-options.txt" "$SHARE_DIR/default-options.txt"
+    cp -f -u "$DEFAULT_OPTIONS" "$SHARE_DIR/default-options.txt"
 fi
 
 read -r -d '' TEMPLATE <<'EOF'
