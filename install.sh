@@ -14,19 +14,69 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+function usage() {
+    if [ -n "$1" ]
+    then
+	echo "$1" >&2
+    fi
+    echo "Usage: $0 [-p DEFAULT_PARAM_VALUES_FILE] INSTALL_DIRECTORY" >&2
+    exit 1
+}
+
+while getopts ":p:" opt
+do
+    case "$opt" in
+	p)
+	    if [ -n "$DEFAULT_PARAM_VALUES" ]
+	    then
+		usage "Duplicate option -p"
+	    fi
+	    DEFAULT_PARAM_VALUES="$OPTARG"
+	    ;;
+	\?)
+	    usage "Invalid option: -$OPTARG"
+	    ;;
+	:)
+	    usage "Option -$OPTARG requires an argument"
+	    ;;
+    esac
+done
+
+if [ -z "$DEFAULT_PARAM_VALUES" ]
+then
+    if [ -f "share/default-param-values.xml.$HOSTNAME" ]
+    then
+	DEFAULT_PARAM_VALUES="share/default-param-values.xml.$HOSTNAME"
+    fi
+fi
+
+if [ -z "$DEFAULT_PARAM_VALUES" ]
+then
+    if [ -f "share/default-param-values.xml" ]
+    then
+	DEFAULT_PARAM_VALUES="share/default-param-values.xml"
+    fi
+fi
+
 if [ "$#" -ne 1 ]; then
-  echo "Usage: $0 INSTALL_DIRECTORY" >&2
-  exit 1
+    usage "Missing install directory"
 fi
 
 if ! [ -d "$1" ]; then
-    echo "$1 does not exist"
-    exit 1
+    usage "$1 does not exist"
 fi
 
 LIB_FILES="alvisnlp-core/target/lib/*.jar alvisnlp-core/target/*.jar alvisnlp-bibliome/target/lib/*.jar alvisnlp-bibliome/target/*.jar"
 
 INSTALL_DIR="$(readlink -m $1)"
+echo "Install directory: $INSTALL_DIR"
+if [ -n "$DEFAULT_PARAM_VALUES" ]
+then
+    echo "Default parameter values file: $DEFAULT_PARAM_VALUES"
+else
+    echo "Found no default parameter values file (it is highly recommended"
+fi
+
 BIN_DIR="$INSTALL_DIR/bin"
 DOC_DIR="$INSTALL_DIR/doc"
 LIB_DIR="$INSTALL_DIR/lib"
@@ -40,9 +90,9 @@ mkdir -p "$SHARE_DIR"
 
 cp -f -u -r $LIB_FILES "$LIB_DIR"
 
-if [ -f "share/default-param-values.xml" ]
+if [ -n "$DEFAULT_PARAM_VALUES" ]
 then
-    cp -f -u "share/default-param-values.xml" "$SHARE_DIR/default-param-values.xml"
+    cp -f -u "$DEFAULT_PARAM_VALUES" "$SHARE_DIR/default-param-values.xml"
 fi
 
 if [ -f "share/default-options.txt" ]
