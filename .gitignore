@@ -31,3 +31,4 @@ _attic/
 Gemfile.lock
 _site/
 .maven-settings.xml
+.default-param-values.xml
