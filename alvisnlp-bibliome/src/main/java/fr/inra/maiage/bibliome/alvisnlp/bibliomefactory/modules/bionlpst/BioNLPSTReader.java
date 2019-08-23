@@ -117,6 +117,10 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 		Timer<TimerCategory> collectTimer = getTimer(ctx, "import-data", TimerCategory.COLLECT_DATA, false);
 		try {
 			File[] txtFiles = textDir.listFiles(filter);
+			if ((txtFiles == null) || (txtFiles.length == 0)) {
+				logger.severe("no .txt file found");
+				return;
+			}
 			Arrays.sort(txtFiles);
 			for (File f : txtFiles) {
 				BioNLPSTDocument doc = new BioNLPSTDocument(charset, f);
