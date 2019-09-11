@@ -952,6 +952,9 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
         docBuilderFactory.setFeature("http://xml.org/sax/features/use-entity-resolver2", true);
         DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
         Document defaultParamValuesDoc = getDefaultParamValuesDoc(docBuilder);
+        if (!customEntities.isEmpty()) {
+        	logger.severe("custom XML entities is deprecated, support may be discontinued in a future version");
+        }
 		PlanLoader<A> planLoader = new PlanLoader<A>(moduleFactory, converterFactory, defaultParamValuesDoc, inputDirs, outputDir, baseDirs, buildResourceBases(), docBuilder, creatorNameFeature, customEntities);
 
 		Document doc = planLoader.parseDoc(planFile);
