@@ -38,6 +38,10 @@ copy alvisnlp-core\target\*.jar %INSTALL_DIR%\lib\
 copy alvisnlp-bibliome\target\lib\*.jar %INSTALL_DIR%\lib\
 copy alvisnlp-bibliome\target\*.jar %INSTALL_DIR%\lib\
 
+if exist share\default-param-values.xml (
+	copy share\default-param-values.xml %INSTALL_DIR%\share
+)
+
 > %INSTALL_DIR%\bin\alvisnlp.bat (
 echo @echo off
 echo set JVMOPTS=
@@ -53,6 +57,10 @@ echo. ^)
 echo set ALVISOPTS=%%ALVISOPTS%% %%arg%%
 echo goto NextArg
 echo :ArgsEnd
+echo.
+if exist %INSTALL_DIR%\share\default-param-values.xml (
+	echo set ALVISOPTS=%%ALVISOPTS%% -defaultParamValuesFile %INSTALL_DIR%\share\default-param-values.xml
+)
 echo.
 echo java %%JVMOPTS%% -cp "%INSTALL_DIR%\lib\*" fr.inra.maiage.bibliome.alvisnlp.core.app.cli.AlvisNLP %%ALVISOPTS%%
 )
