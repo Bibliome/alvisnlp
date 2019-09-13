@@ -101,7 +101,7 @@ class ContesTrainExternalHandler extends AbstractContesTermsExternalHandler<Outp
 			result.add("--regression-matrix");
 			result.add(termClassifiers[i].getRegressionMatrixFile().getAbsolutePath());
 			result.add("--factor");
-			result.add(termClassifiers[i].getFactor().toString());
+			result.add(termClassifiers[i].getFactor(owner.getDefaultFactor()).toString());
 		}
 		return result;
 	}

@@ -64,8 +64,11 @@ public abstract class ContesTermClassifier<F extends AbstractFile> implements Re
 		public Evaluator getSectionFilter() {
 			return sectionFilter;
 		}
-
-		public Double getFactor() {
+		
+		public Double getFactor(double defaultValue) {
+			if (contesTermClassifier.factor == null) {
+				return defaultValue;
+			}
 			return contesTermClassifier.factor;
 		}
 

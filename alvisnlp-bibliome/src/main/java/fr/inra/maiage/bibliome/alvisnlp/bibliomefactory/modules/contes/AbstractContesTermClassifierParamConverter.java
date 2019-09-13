@@ -24,7 +24,7 @@ abstract class AbstractContesTermClassifierParamConverter<F extends AbstractFile
 	protected T convertXML(Element xmlValue) throws ConverterException {
 		Expression documentFilter = DefaultExpressions.TRUE;
 		Expression sectionFilter = DefaultExpressions.TRUE;
-		Double factor = 1.0;
+		Double factor = null;
 		String termLayerName = null;
 		String conceptFeatureName = null;
 		String similarityFeatureName = null;

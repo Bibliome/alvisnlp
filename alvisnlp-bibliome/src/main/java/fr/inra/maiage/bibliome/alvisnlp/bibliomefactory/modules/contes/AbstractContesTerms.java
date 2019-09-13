@@ -26,6 +26,7 @@ public abstract class AbstractContesTerms<F extends AbstractFile,T extends Conte
 	private InputFile ontology;
 	private InputFile wordEmbeddings;
 	private InputFile wordEmbeddingsModel;
+	private Double defaultFactor = 1.0;
 	private T[] termClassifiers;
 
 	@Override
@@ -59,6 +60,15 @@ public abstract class AbstractContesTerms<F extends AbstractFile,T extends Conte
 	@Param(mandatory=false)
 	public InputFile getWordEmbeddingsModel() {
 		return wordEmbeddingsModel;
+	}
+
+	@Param
+	public Double getDefaultFactor() {
+		return defaultFactor;
+	}
+
+	public void setDefaultFactor(Double defaultFactor) {
+		this.defaultFactor = defaultFactor;
 	}
 
 	public void setWordEmbeddingsModel(InputFile wordEmbeddingsModel) {

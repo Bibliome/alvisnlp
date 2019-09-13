@@ -112,7 +112,7 @@ class ContesPredictExternalHandler extends AbstractContesTermsExternalHandler<In
 			result.add("--output");
 			result.add(getAttributionsFile(i).getAbsolutePath());
 			result.add("--factor");
-			result.add(termClassifiers[i].getFactor().toString());
+			result.add(termClassifiers[i].getFactor(owner.getDefaultFactor()).toString());
 		}
 		return result;
 	}
