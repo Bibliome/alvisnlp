@@ -1,978 +1,978 @@
-BB-cat+ner-1016123	selective broths	OBT:000001	OBT:000065	animal part
+BB-cat+ner-1016123	selective broths	OBT:000001	OBT:000010	part of living organism
 BB-cat+ner-1016123	egg products	OBT:000786	OBT:000000	bacteria habitat
 BB-cat+ner-1016123	egg	OBT:001204	OBT:000000	bacteria habitat
 BB-cat+ner-1016123	egg pulp	OBT:000786	OBT:000000	bacteria habitat
 BB-cat+ner-1016123	egg	OBT:001204	OBT:000000	bacteria habitat
-BB-cat+ner-1016123	strontium chloride M broth	OBT:000001	OBT:000065	animal part
-BB-cat+ner-1016123	strontium selenite broth	OBT:000001	OBT:000065	animal part
-BB-cat+ner-1016123	strontium selenite A broth	OBT:000001	OBT:000065	animal part
+BB-cat+ner-1016123	strontium chloride M broth	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-1016123	strontium selenite broth	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-1016123	strontium selenite A broth	OBT:000001	OBT:000000	bacteria habitat
 BB-cat+ner-1016123	bi-selenite based media	OBT:000001	OBT:000000	bacteria habitat
 BB-cat+ner-1016123	egg products	OBT:000786	OBT:000000	bacteria habitat
 BB-cat+ner-1016123	egg	OBT:001204	OBT:000000	bacteria habitat
-BB-cat+ner-1016123	strontium chloride M broth	OBT:000001	OBT:000065	animal part
-BB-cat+ner-10492485	ozone	OBT:000293	OBT:001295	mammalian
+BB-cat+ner-1016123	strontium chloride M broth	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-10492485	ozone	OBT:000293	OBT:000000	bacteria habitat
 BB-cat+ner-10492485	foods	OBT:000035	OBT:000010	part of living organism
-BB-cat+ner-10492485	Ozone	OBT:000293	OBT:001295	mammalian
+BB-cat+ner-10492485	Ozone	OBT:000293	OBT:000000	bacteria habitat
 BB-cat+ner-10492485	O3	OBT:000293	OBT:000000	bacteria habitat
 BB-cat+ner-10492485	food industry	OBT:001255	OBT:000000	bacteria habitat
 BB-cat+ner-10492485	food	OBT:000035	OBT:000010	part of living organism
-BB-cat+ner-10492485	ozone	OBT:000293	OBT:001295	mammalian
-BB-cat+ner-10492485	food products	OBT:000035	OBT:000010	part of living organism
-BB-cat+ner-10492485	Ozone	OBT:000293	OBT:001295	mammalian
-BB-cat+ner-10492485	Ozone	OBT:000293	OBT:001295	mammalian
-BB-cat+ner-10492485	ozone	OBT:000293	OBT:001295	mammalian
-BB-cat+ner-10492485	ozone	OBT:000293	OBT:001295	mammalian
-BB-cat+ner-10492485	ozone	OBT:000293	OBT:001295	mammalian
+BB-cat+ner-10492485	ozone	OBT:000293	OBT:000000	bacteria habitat
+BB-cat+ner-10492485	food products	OBT:000035	OBT:000000	bacteria habitat
+BB-cat+ner-10492485	Ozone	OBT:000293	OBT:000000	bacteria habitat
+BB-cat+ner-10492485	Ozone	OBT:000293	OBT:000000	bacteria habitat
+BB-cat+ner-10492485	ozone	OBT:000293	OBT:000000	bacteria habitat
+BB-cat+ner-10492485	ozone	OBT:000293	OBT:000000	bacteria habitat
+BB-cat+ner-10492485	ozone	OBT:000293	OBT:000000	bacteria habitat
 BB-cat+ner-10492485	additives	OBT:000293	OBT:000000	bacteria habitat
-BB-cat+ner-10492485	acids	OBT:000293	OBT:000065	animal part
-BB-cat+ner-10492485	surfactants	OBT:000293	OBT:000218	animal
+BB-cat+ner-10492485	acids	OBT:000293	OBT:000010	part of living organism
+BB-cat+ner-10492485	surfactants	OBT:000293	OBT:000000	bacteria habitat
 BB-cat+ner-10492485	sugars	OBT:000924	OBT:000000	bacteria habitat
-BB-cat+ner-10492485	Ozone	OBT:000293	OBT:001295	mammalian
+BB-cat+ner-10492485	Ozone	OBT:000293	OBT:000000	bacteria habitat
 BB-cat+ner-10492485	food industry	OBT:001255	OBT:000000	bacteria habitat
 BB-cat+ner-10492485	food	OBT:000035	OBT:000010	part of living organism
 BB-cat+ner-10492485	product surface	OBT:000035	OBT:000000	bacteria habitat
-BB-cat+ner-10492485	water	OBT:000132	OBT:000010	part of living organism
-BB-cat+ner-10492485	Ozone	OBT:000293	OBT:001295	mammalian
+BB-cat+ner-10492485	water	OBT:000132	OBT:000000	bacteria habitat
+BB-cat+ner-10492485	Ozone	OBT:000293	OBT:000000	bacteria habitat
 BB-cat+ner-10492485	contaminant microflora	OBT:000033	OBT:000000	bacteria habitat
-BB-cat+ner-10492485	meat	OBT:001203	OBT:001804	human
-BB-cat+ner-10492485	poultry	OBT:001482	OBT:000065	animal part
+BB-cat+ner-10492485	meat	OBT:001203	OBT:000000	bacteria habitat
+BB-cat+ner-10492485	poultry	OBT:001482	OBT:000000	bacteria habitat
 BB-cat+ner-10492485	eggs	OBT:001204	OBT:000000	bacteria habitat
-BB-cat+ner-10492485	fish	OBT:001224	OBT:001804	human
+BB-cat+ner-10492485	fish	OBT:001224	OBT:000000	bacteria habitat
 BB-cat+ner-10492485	fruits	OBT:001950	OBT:000000	bacteria habitat
-BB-cat+ner-10492485	vegetables	OBT:000839	OBT:001295	mammalian
-BB-cat+ner-10492485	dry foods	OBT:000877	OBT:000010	part of living organism
+BB-cat+ner-10492485	vegetables	OBT:000839	OBT:000000	bacteria habitat
+BB-cat+ner-10492485	dry foods	OBT:000877	OBT:000000	bacteria habitat
 BB-cat+ner-10492485	pesticide residues	OBT:001776	OBT:000000	bacteria habitat
-BB-cat+ner-10492485	agricultural products	OBT:000022	OBT:000010	part of living organism
-BB-cat+ner-10492485	ozone	OBT:000293	OBT:001295	mammalian
-BB-cat+ner-10492485	food surface	OBT:000035	OBT:000010	part of living organism
+BB-cat+ner-10492485	agricultural products	OBT:000022	OBT:000000	bacteria habitat
+BB-cat+ner-10492485	ozone	OBT:000293	OBT:000000	bacteria habitat
+BB-cat+ner-10492485	food surface	OBT:000035	OBT:000000	bacteria habitat
 BB-cat+ner-10492485	food	OBT:000035	OBT:000010	part of living organism
-BB-cat+ner-10492485	ozone	OBT:000293	OBT:001295	mammalian
+BB-cat+ner-10492485	ozone	OBT:000293	OBT:000000	bacteria habitat
 BB-cat+ner-10492485	food	OBT:000035	OBT:000010	part of living organism
 BB-cat+ner-10658649	host cell	OBT:000056	OBT:000010	part of living organism
 BB-cat+ner-10658649	host cell	OBT:000056	OBT:000010	part of living organism
-BB-cat+ner-10658649	vaccines	OBT:000099	OBT:001804	human
-BB-cat+ner-10738994	patients	OBT:002310	OBT:002187	patient with disease
-BB-cat+ner-10738994	nursing home	OBT:000922	OBT:000218	animal
-BB-cat+ner-10738994	skilled nursing facility	OBT:001423	OBT:001295	mammalian
+BB-cat+ner-10658649	vaccines	OBT:000099	OBT:000000	bacteria habitat
+BB-cat+ner-10738994	patients	OBT:002310	OBT:002115	ill person
+BB-cat+ner-10738994	nursing home	OBT:000922	OBT:000000	bacteria habitat
+BB-cat+ner-10738994	skilled nursing facility	OBT:001423	OBT:000000	bacteria habitat
 BB-cat+ner-10738994	SNF	OBT:000922	OBT:000000	bacteria habitat
-BB-cat+ner-10738994	SNF patients	OBT:002133	OBT:002187	patient with disease
+BB-cat+ner-10738994	SNF patients	OBT:002133	OBT:002115	ill person
 BB-cat+ner-10738994	SNF	OBT:000922	OBT:000000	bacteria habitat
-BB-cat+ner-10738994	patients	OBT:002133	OBT:002187	patient with disease
+BB-cat+ner-10738994	patients	OBT:002133	OBT:002115	ill person
 BB-cat+ner-10738994	community SNF	OBT:000922	OBT:000000	bacteria habitat
 BB-cat+ner-10738994	Nares	OBT:000277	OBT:000000	bacteria habitat
 BB-cat+ner-10738994	Nares	OBT:000641	OBT:000000	bacteria habitat
-BB-cat+ner-10738994	stool swab cultures	OBT:001117	OBT:000010	part of living organism
-BB-cat+ner-10738994	stool	OBT:000703	OBT:001804	human
-BB-cat+ner-10738994	patients	OBT:002133	OBT:002187	patient with disease
-BB-cat+ner-10738994	patients	OBT:002133	OBT:002187	patient with disease
-BB-cat+ner-10738994	oxacillin screening agar	OBT:000073	OBT:000065	animal part
-BB-cat+ner-10738994	patients from one SNF	OBT:002133	OBT:002187	patient with disease
+BB-cat+ner-10738994	stool swab cultures	OBT:001117	OBT:000000	bacteria habitat
+BB-cat+ner-10738994	stool	OBT:000703	OBT:000000	bacteria habitat
+BB-cat+ner-10738994	patients	OBT:002133	OBT:002115	ill person
+BB-cat+ner-10738994	patients	OBT:002133	OBT:002115	ill person
+BB-cat+ner-10738994	oxacillin screening agar	OBT:000073	OBT:000000	bacteria habitat
+BB-cat+ner-10738994	patients from one SNF	OBT:002133	OBT:002115	ill person
 BB-cat+ner-10738994	SNF	OBT:001423	OBT:000000	bacteria habitat
-BB-cat+ner-10738994	SNF patients	OBT:002133	OBT:002187	patient with disease
+BB-cat+ner-10738994	SNF patients	OBT:002133	OBT:002115	ill person
 BB-cat+ner-10738994	SNF	OBT:001423	OBT:000000	bacteria habitat
 BB-cat+ner-11410343	fructose medium	OBT:000001	OBT:000000	bacteria habitat
-BB-cat+ner-11437594	Chondrus crispus	OBT:001922	OBT:000065	animal part
+BB-cat+ner-11437594	Chondrus crispus	OBT:001922	OBT:000000	bacteria habitat
 BB-cat+ner-11437594	Pichia pastoris	OBT:001749	OBT:000000	bacteria habitat
 BB-cat+ner-11437594	red alga Chondrus crispus	OBT:001922	OBT:000000	bacteria habitat
 BB-cat+ner-11437594	methylotrophic yeast Pichia pastoris	OBT:001749	OBT:000000	bacteria habitat
-BB-cat+ner-11437594	P. pastoris	OBT:001749	OBT:002187	patient with disease
+BB-cat+ner-11437594	P. pastoris	OBT:001749	OBT:002115	ill person
 BB-cat+ner-11437594	Saccharomyces cerevisiae	OBT:001749	OBT:000000	bacteria habitat
-BB-cat+ner-11437594	P. pastoris	OBT:001749	OBT:002187	patient with disease
-BB-cat+ner-12728302	soil	OBT:000133	OBT:001804	human
-BB-cat+ner-12781527	eukarya	OBT:000036	OBT:001295	mammalian
-BB-cat+ner-12781527	human gastrointestinal	OBT:000286	OBT:001804	human
-BB-cat+ner-12781527	human	OBT:001804	OBT:001804	human
-BB-cat+ner-12781527	eukaryotes	OBT:000036	OBT:000218	animal
+BB-cat+ner-11437594	P. pastoris	OBT:001749	OBT:002115	ill person
+BB-cat+ner-12728302	soil	OBT:000133	OBT:000000	bacteria habitat
+BB-cat+ner-12781527	eukarya	OBT:000036	OBT:000000	bacteria habitat
+BB-cat+ner-12781527	human gastrointestinal	OBT:000286	OBT:000000	bacteria habitat
+BB-cat+ner-12781527	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-12781527	eukaryotes	OBT:000036	OBT:000000	bacteria habitat
 BB-cat+ner-12970344	red algal	OBT:001922	OBT:000000	bacteria habitat
-BB-cat+ner-12970344	marine	OBT:000078	OBT:000010	part of living organism
-BB-cat+ner-14645268	plant	OBT:000219	OBT:000010	part of living organism
-BB-cat+ner-14645268	plant cell	OBT:000162	OBT:000010	part of living organism
-BB-cat+ner-14645268	plant	OBT:000219	OBT:000010	part of living organism
-BB-cat+ner-14645268	plant cell	OBT:000056	OBT:000010	part of living organism
-BB-cat+ner-14645268	plant	OBT:000219	OBT:000010	part of living organism
-BB-cat+ner-14645268	plant	OBT:000219	OBT:000010	part of living organism
-BB-cat+ner-14645268	animal	OBT:000218	OBT:000065	animal part
-BB-cat+ner-15358511	tryptic soy broth	OBT:000001	OBT:000065	animal part
-BB-cat+ner-15358511	soy	OBT:002162	OBT:000065	animal part
-BB-cat+ner-15358511	nutrient broth	OBT:000001	OBT:000065	animal part
-BB-cat+ner-15358511	apple	OBT:000392	OBT:000010	part of living organism
-BB-cat+ner-15358511	apple	OBT:002019	OBT:000010	part of living organism
+BB-cat+ner-12970344	marine	OBT:000078	OBT:000000	bacteria habitat
+BB-cat+ner-14645268	plant	OBT:000219	OBT:000000	bacteria habitat
+BB-cat+ner-14645268	plant cell	OBT:000162	OBT:000000	bacteria habitat
+BB-cat+ner-14645268	plant	OBT:000219	OBT:000000	bacteria habitat
+BB-cat+ner-14645268	plant cell	OBT:000056	OBT:000000	bacteria habitat
+BB-cat+ner-14645268	plant	OBT:000219	OBT:000000	bacteria habitat
+BB-cat+ner-14645268	plant	OBT:000219	OBT:000000	bacteria habitat
+BB-cat+ner-14645268	animal	OBT:000218	OBT:000000	bacteria habitat
+BB-cat+ner-15358511	tryptic soy broth	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-15358511	soy	OBT:002162	OBT:000000	bacteria habitat
+BB-cat+ner-15358511	nutrient broth	OBT:000001	OBT:000010	part of living organism
+BB-cat+ner-15358511	apple	OBT:000392	OBT:000000	bacteria habitat
+BB-cat+ner-15358511	apple	OBT:002019	OBT:000000	bacteria habitat
 BB-cat+ner-15358511	lettuce surfaces	OBT:000392	OBT:000000	bacteria habitat
-BB-cat+ner-15358511	lettuce	OBT:002085	OBT:000065	animal part
+BB-cat+ner-15358511	lettuce	OBT:002085	OBT:000000	bacteria habitat
 BB-cat+ner-15358511	cell	OBT:000056	OBT:000010	part of living organism
-BB-cat+ner-15358511	tryptic soy broth	OBT:000001	OBT:000065	animal part
-BB-cat+ner-15358511	soy	OBT:002162	OBT:000065	animal part
-BB-cat+ner-15358511	TSB	OBT:000001	OBT:001804	human
-BB-cat+ner-15358511	nutrient broth	OBT:000001	OBT:000065	animal part
-BB-cat+ner-15358511	NB	OBT:000001	OBT:001804	human
-BB-cat+ner-15358511	lettuce	OBT:000392	OBT:000065	animal part
-BB-cat+ner-15358511	lettuce	OBT:002085	OBT:000065	animal part
+BB-cat+ner-15358511	tryptic soy broth	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-15358511	soy	OBT:002162	OBT:000000	bacteria habitat
+BB-cat+ner-15358511	TSB	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-15358511	nutrient broth	OBT:000001	OBT:000010	part of living organism
+BB-cat+ner-15358511	NB	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-15358511	lettuce	OBT:000392	OBT:000000	bacteria habitat
+BB-cat+ner-15358511	lettuce	OBT:002085	OBT:000000	bacteria habitat
 BB-cat+ner-15358511	apple surfaces	OBT:000392	OBT:000000	bacteria habitat
-BB-cat+ner-15358511	apple	OBT:002019	OBT:000010	part of living organism
+BB-cat+ner-15358511	apple	OBT:002019	OBT:000000	bacteria habitat
 BB-cat+ner-15358511	cell	OBT:000056	OBT:000010	part of living organism
-BB-cat+ner-15358511	NB	OBT:000001	OBT:001804	human
-BB-cat+ner-15358511	lettuce	OBT:002085	OBT:000065	animal part
-BB-cat+ner-15358511	lettuce	OBT:000392	OBT:000065	animal part
+BB-cat+ner-15358511	NB	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-15358511	lettuce	OBT:002085	OBT:000000	bacteria habitat
+BB-cat+ner-15358511	lettuce	OBT:000392	OBT:000000	bacteria habitat
 BB-cat+ner-15358511	apple surfaces	OBT:000392	OBT:000000	bacteria habitat
-BB-cat+ner-15358511	apple	OBT:002019	OBT:000010	part of living organism
-BB-cat+ner-15358511	TSB	OBT:000001	OBT:001804	human
-BB-cat+ner-15358511	TSB	OBT:000001	OBT:001804	human
-BB-cat+ner-15358511	NB	OBT:000001	OBT:001804	human
-BB-cat+ner-15358511	TSB	OBT:000001	OBT:001804	human
-BB-cat+ner-15358511	NB	OBT:000001	OBT:001804	human
-BB-cat+ner-16263187	Caco-2 cells	OBT:000240	OBT:002187	patient with disease
-BB-cat+ner-16263187	pigs' jejunal tissue	OBT:002020	OBT:000065	animal part
-BB-cat+ner-16263187	pigs	OBT:002257	OBT:000218	animal
-BB-cat+ner-16263187	jejunal	OBT:001289	OBT:000601	warm-blooded animal
-BB-cat+ner-16263187	intestinal mucosa	OBT:002020	OBT:000010	part of living organism
+BB-cat+ner-15358511	apple	OBT:002019	OBT:000000	bacteria habitat
+BB-cat+ner-15358511	TSB	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-15358511	TSB	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-15358511	NB	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-15358511	TSB	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-15358511	NB	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-16263187	Caco-2 cells	OBT:000240	OBT:002115	ill person
+BB-cat+ner-16263187	pigs' jejunal tissue	OBT:002020	OBT:000000	bacteria habitat
+BB-cat+ner-16263187	pigs	OBT:002257	OBT:000000	bacteria habitat
+BB-cat+ner-16263187	jejunal	OBT:001289	OBT:000000	bacteria habitat
+BB-cat+ner-16263187	intestinal mucosa	OBT:002020	OBT:000000	bacteria habitat
 BB-cat+ner-16263187	intestinal	OBT:001893	OBT:000000	bacteria habitat
-BB-cat+ner-16263187	cultured Caco-2 cells	OBT:000029	OBT:002133	patient
-BB-cat+ner-16263187	pigs' small intestinal tissue	OBT:002020	OBT:000065	animal part
-BB-cat+ner-16263187	pigs	OBT:002257	OBT:000218	animal
-BB-cat+ner-16263187	small intestinal	OBT:002194	OBT:000010	part of living organism
-BB-cat+ner-16263187	fully differentiated Caco-2 cells	OBT:000056	OBT:002133	patient
-BB-cat+ner-16263187	Caco-2	OBT:000056	OBT:002187	patient with disease
+BB-cat+ner-16263187	cultured Caco-2 cells	OBT:000029	OBT:002115	ill person
+BB-cat+ner-16263187	pigs' small intestinal tissue	OBT:002020	OBT:000000	bacteria habitat
+BB-cat+ner-16263187	pigs	OBT:002257	OBT:000000	bacteria habitat
+BB-cat+ner-16263187	small intestinal	OBT:002194	OBT:000000	bacteria habitat
+BB-cat+ner-16263187	fully differentiated Caco-2 cells	OBT:000056	OBT:002115	ill person
+BB-cat+ner-16263187	Caco-2	OBT:000056	OBT:002115	ill person
 BB-cat+ner-16263187	cells	OBT:000056	OBT:000010	part of living organism
-BB-cat+ner-16263187	tissue	OBT:002020	OBT:001804	human
-BB-cat+ner-16263187	pigs' jejunum	OBT:001289	OBT:000065	animal part
-BB-cat+ner-16263187	pigs	OBT:002257	OBT:000218	animal
-BB-cat+ner-16263187	jejunal mucosa	OBT:002020	OBT:000065	animal part
-BB-cat+ner-16263187	jejunal	OBT:001289	OBT:000601	warm-blooded animal
-BB-cat+ner-16263187	jejunal tissue	OBT:002020	OBT:001804	human
-BB-cat+ner-16263187	jejunal	OBT:001289	OBT:000601	warm-blooded animal
-BB-cat+ner-16263187	Caco-2 enterocytes	OBT:000240	OBT:002187	patient with disease
-BB-cat+ner-16263187	pig jejunal tissue	OBT:002020	OBT:000065	animal part
+BB-cat+ner-16263187	tissue	OBT:002020	OBT:000000	bacteria habitat
+BB-cat+ner-16263187	pigs' jejunum	OBT:001289	OBT:000000	bacteria habitat
+BB-cat+ner-16263187	pigs	OBT:002257	OBT:000000	bacteria habitat
+BB-cat+ner-16263187	jejunal mucosa	OBT:002020	OBT:000000	bacteria habitat
+BB-cat+ner-16263187	jejunal	OBT:001289	OBT:000000	bacteria habitat
+BB-cat+ner-16263187	jejunal tissue	OBT:002020	OBT:000000	bacteria habitat
+BB-cat+ner-16263187	jejunal	OBT:001289	OBT:000000	bacteria habitat
+BB-cat+ner-16263187	Caco-2 enterocytes	OBT:000240	OBT:002115	ill person
+BB-cat+ner-16263187	pig jejunal tissue	OBT:002020	OBT:000000	bacteria habitat
 BB-cat+ner-16263187	pig	OBT:002257	OBT:000000	bacteria habitat
-BB-cat+ner-16263187	jejunal	OBT:001289	OBT:000601	warm-blooded animal
-BB-cat+ner-16432479	laboratories	OBT:000609	OBT:001804	human
-BB-cat+ner-16436701	frog	OBT:000921	OBT:000218	animal
+BB-cat+ner-16263187	jejunal	OBT:001289	OBT:000000	bacteria habitat
+BB-cat+ner-16432479	laboratories	OBT:000609	OBT:000000	bacteria habitat
+BB-cat+ner-16436701	frog	OBT:000921	OBT:000000	bacteria habitat
 BB-cat+ner-16436701	food	OBT:000035	OBT:000010	part of living organism
-BB-cat+ner-16436701	high salt concentrations	OBT:000001	OBT:001804	human
-BB-cat+ner-16436701	commercial apple juice	OBT:001750	OBT:000065	animal part
-BB-cat+ner-16436701	apple	OBT:002019	OBT:000010	part of living organism
-BB-cat+ner-16990433	human cells	OBT:000056	OBT:001804	human
-BB-cat+ner-16990433	human	OBT:001804	OBT:001804	human
-BB-cat+ner-16990433	eukaryotic cell	OBT:000056	OBT:000065	animal part
-BB-cat+ner-16990433	plant	OBT:000219	OBT:000010	part of living organism
-BB-cat+ner-17237163	ocular	OBT:000268	OBT:001295	mammalian
-BB-cat+ner-17237163	biofilm	OBT:000037	OBT:001804	human
-BB-cat+ner-17237163	biofilm	OBT:000037	OBT:001804	human
+BB-cat+ner-16436701	high salt concentrations	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-16436701	commercial apple juice	OBT:001750	OBT:000000	bacteria habitat
+BB-cat+ner-16436701	apple	OBT:002019	OBT:000000	bacteria habitat
+BB-cat+ner-16990433	human cells	OBT:000056	OBT:000000	bacteria habitat
+BB-cat+ner-16990433	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-16990433	eukaryotic cell	OBT:000056	OBT:000000	bacteria habitat
+BB-cat+ner-16990433	plant	OBT:000219	OBT:000000	bacteria habitat
+BB-cat+ner-17237163	ocular	OBT:000268	OBT:000000	bacteria habitat
+BB-cat+ner-17237163	biofilm	OBT:000037	OBT:000000	bacteria habitat
+BB-cat+ner-17237163	biofilm	OBT:000037	OBT:000000	bacteria habitat
 BB-cat+ner-17237163	abiotic	OBT:000001	OBT:000000	bacteria habitat
 BB-cat+ner-17237163	biotic surfaces	OBT:000001	OBT:000000	bacteria habitat
-BB-cat+ner-17237163	hydrophilic tissue culture plates	OBT:000029	OBT:000010	part of living organism
+BB-cat+ner-17237163	hydrophilic tissue culture plates	OBT:000029	OBT:000000	bacteria habitat
 BB-cat+ner-17237163	human corneal epithelial (HCE) cells	OBT:000056	OBT:000000	bacteria habitat
-BB-cat+ner-17237163	human	OBT:001804	OBT:001804	human
+BB-cat+ner-17237163	human	OBT:001804	OBT:002115	ill person
 BB-cat+ner-17237163	corneal	OBT:000564	OBT:000000	bacteria habitat
 BB-cat+ner-17237163	epithelial	OBT:000659	OBT:000000	bacteria habitat
 BB-cat+ner-17237163	abiotic surface	OBT:000001	OBT:000000	bacteria habitat
-BB-cat+ner-17237163	HCE cell biotic surface	OBT:000029	OBT:000010	part of living organism
-BB-cat+ner-17237163	HCE cell	OBT:000056	OBT:000010	part of living organism
-BB-cat+ner-17237163	biotic HCE cell surface	OBT:000029	OBT:000010	part of living organism
-BB-cat+ner-17237163	HCE cell	OBT:000056	OBT:000010	part of living organism
+BB-cat+ner-17237163	HCE cell biotic surface	OBT:000029	OBT:000000	bacteria habitat
+BB-cat+ner-17237163	HCE cell	OBT:000056	OBT:000000	bacteria habitat
+BB-cat+ner-17237163	biotic HCE cell surface	OBT:000029	OBT:000000	bacteria habitat
+BB-cat+ner-17237163	HCE cell	OBT:000056	OBT:000000	bacteria habitat
 BB-cat+ner-17237163	abiotic surface	OBT:000001	OBT:000000	bacteria habitat
 BB-cat+ner-17237163	abiotic surface	OBT:000001	OBT:000000	bacteria habitat
 BB-cat+ner-17237163	abiotic surface	OBT:000001	OBT:000000	bacteria habitat
 BB-cat+ner-17237163	biotic surface	OBT:000029	OBT:000000	bacteria habitat
-BB-cat+ner-17237163	HCE cells	OBT:000056	OBT:000010	part of living organism
-BB-cat+ner-17237163	biotic	OBT:000029	OBT:000010	part of living organism
+BB-cat+ner-17237163	HCE cells	OBT:000056	OBT:000000	bacteria habitat
+BB-cat+ner-17237163	biotic	OBT:000029	OBT:000000	bacteria habitat
 BB-cat+ner-17237163	abiotic surfaces	OBT:000001	OBT:000000	bacteria habitat
 BB-cat+ner-17237163	abiotic surface	OBT:000001	OBT:000000	bacteria habitat
 BB-cat+ner-17237163	biotic surface	OBT:000029	OBT:000000	bacteria habitat
-BB-cat+ner-18687046	central nervous system	OBT:000831	OBT:000065	animal part
-BB-cat+ner-18687046	patients	OBT:002133	OBT:002187	patient with disease
+BB-cat+ner-18687046	central nervous system	OBT:000831	OBT:000000	bacteria habitat
+BB-cat+ner-18687046	patients	OBT:002133	OBT:002115	ill person
 BB-cat+ner-18687046	facial	OBT:001325	OBT:000000	bacteria habitat
-BB-cat+ner-18687046	central nervous system	OBT:000831	OBT:000065	animal part
-BB-cat+ner-18687046	CNS	OBT:000831	OBT:001295	mammalian
-BB-cat+ner-18687046	Patients	OBT:002133	OBT:002187	patient with disease
-BB-cat+ner-18687046	trauma intensive care unit	OBT:000213	OBT:000065	animal part
+BB-cat+ner-18687046	central nervous system	OBT:000831	OBT:000000	bacteria habitat
+BB-cat+ner-18687046	CNS	OBT:000831	OBT:000000	bacteria habitat
+BB-cat+ner-18687046	Patients	OBT:002133	OBT:002115	ill person
+BB-cat+ner-18687046	trauma intensive care unit	OBT:000213	OBT:000000	bacteria habitat
 BB-cat+ner-18687046	TICU	OBT:000213	OBT:000000	bacteria habitat
 BB-cat+ner-18687046	brain injury	OBT:000507	OBT:000000	bacteria habitat
-BB-cat+ner-18687046	brain	OBT:001828	OBT:000065	animal part
-BB-cat+ner-18687046	ICU	OBT:000213	OBT:001295	mammalian
-BB-cat+ner-18687046	ICU	OBT:000213	OBT:001295	mammalian
-BB-cat+ner-18687046	patients	OBT:002133	OBT:002187	patient with disease
-BB-cat+ner-18687046	patients	OBT:002133	OBT:002187	patient with disease
-BB-cat+ner-18687046	CNS	OBT:000831	OBT:001295	mammalian
-BB-cat+ner-18687046	patients	OBT:002133	OBT:002187	patient with disease
-BB-cat+ner-18687046	CNS	OBT:000831	OBT:001295	mammalian
-BB-cat+ner-18687046	patient	OBT:002133	OBT:002187	patient with disease
-BB-cat+ner-18687046	patient	OBT:002133	OBT:002187	patient with disease
-BB-cat+ner-18687046	blood stream	OBT:000316	OBT:001804	human
-BB-cat+ner-18687046	blood stream	OBT:000316	OBT:001804	human
-BB-cat+ner-18687046	CNS	OBT:000831	OBT:001295	mammalian
-BB-cat+ner-18845825	children attending a day care center	OBT:002146	OBT:002133	patient
-BB-cat+ner-18845825	day care center	OBT:000583	OBT:002133	patient
-BB-cat+ner-18845825	throats of two healthy children	OBT:000374	OBT:002187	patient with disease
-BB-cat+ner-18845825	healthy children	OBT:001894	OBT:002187	patient with disease
-BB-cat+ner-18845825	colonized children	OBT:001894	OBT:002187	patient with disease
-BB-cat+ner-19049879	large yellow croaker	OBT:002160	OBT:000065	animal part
+BB-cat+ner-18687046	brain	OBT:001828	OBT:000000	bacteria habitat
+BB-cat+ner-18687046	ICU	OBT:000213	OBT:000000	bacteria habitat
+BB-cat+ner-18687046	ICU	OBT:000213	OBT:000000	bacteria habitat
+BB-cat+ner-18687046	patients	OBT:002133	OBT:002115	ill person
+BB-cat+ner-18687046	patients	OBT:002133	OBT:002115	ill person
+BB-cat+ner-18687046	CNS	OBT:000831	OBT:000000	bacteria habitat
+BB-cat+ner-18687046	patients	OBT:002133	OBT:002115	ill person
+BB-cat+ner-18687046	CNS	OBT:000831	OBT:000000	bacteria habitat
+BB-cat+ner-18687046	patient	OBT:002133	OBT:002115	ill person
+BB-cat+ner-18687046	patient	OBT:002133	OBT:002115	ill person
+BB-cat+ner-18687046	blood stream	OBT:000316	OBT:000000	bacteria habitat
+BB-cat+ner-18687046	blood stream	OBT:000316	OBT:000000	bacteria habitat
+BB-cat+ner-18687046	CNS	OBT:000831	OBT:000000	bacteria habitat
+BB-cat+ner-18845825	children attending a day care center	OBT:002146	OBT:002115	ill person
+BB-cat+ner-18845825	day care center	OBT:000583	OBT:002115	ill person
+BB-cat+ner-18845825	throats of two healthy children	OBT:000374	OBT:002115	ill person
+BB-cat+ner-18845825	healthy children	OBT:001894	OBT:002115	ill person
+BB-cat+ner-18845825	colonized children	OBT:001894	OBT:002115	ill person
+BB-cat+ner-19049879	large yellow croaker	OBT:002160	OBT:000000	bacteria habitat
 BB-cat+ner-19049879	Pseudosciaena crocea	OBT:002160	OBT:000000	bacteria habitat
-BB-cat+ner-19049879	large yellow croaker	OBT:002160	OBT:000065	animal part
+BB-cat+ner-19049879	large yellow croaker	OBT:002160	OBT:000000	bacteria habitat
 BB-cat+ner-19049879	Pseudosciaena crocea	OBT:002160	OBT:000000	bacteria habitat
-BB-cat+ner-19049879	spleen	OBT:000560	OBT:000065	animal part
+BB-cat+ner-19049879	spleen	OBT:000560	OBT:000000	bacteria habitat
 BB-cat+ner-19049879	muscle	OBT:000767	OBT:000000	bacteria habitat
-BB-cat+ner-19049879	blood	OBT:000316	OBT:000065	animal part
-BB-cat+ner-19049879	spleen	OBT:000560	OBT:000065	animal part
-BB-cat+ner-19049879	liver	OBT:001852	OBT:001804	human
-BB-cat+ner-19049879	spleen	OBT:000560	OBT:000065	animal part
-BB-cat+ner-19049879	liver	OBT:001852	OBT:001804	human
+BB-cat+ner-19049879	blood	OBT:000316	OBT:000010	part of living organism
+BB-cat+ner-19049879	spleen	OBT:000560	OBT:000000	bacteria habitat
+BB-cat+ner-19049879	liver	OBT:001852	OBT:000000	bacteria habitat
+BB-cat+ner-19049879	spleen	OBT:000560	OBT:000000	bacteria habitat
+BB-cat+ner-19049879	liver	OBT:001852	OBT:000000	bacteria habitat
 BB-cat+ner-19049879	mammals	OBT:001295	OBT:000000	bacteria habitat
-BB-cat+ner-19049879	large yellow croaker	OBT:002160	OBT:000065	animal part
-BB-cat+ner-19075662	biofilms	OBT:000037	OBT:000065	animal part
-BB-cat+ner-19075662	medical devices	OBT:000063	OBT:000065	animal part
-BB-cat+ner-19075662	Biomaterial	OBT:000063	OBT:000218	animal
-BB-cat+ner-19075662	biofilm	OBT:000037	OBT:001804	human
-BB-cat+ner-19075662	host immune system	OBT:000232	OBT:000065	animal part
-BB-cat+ner-19075662	biofilm	OBT:000037	OBT:001804	human
-BB-cat+ner-19075662	biofilm	OBT:000037	OBT:001804	human
+BB-cat+ner-19049879	large yellow croaker	OBT:002160	OBT:000000	bacteria habitat
+BB-cat+ner-19075662	biofilms	OBT:000037	OBT:000000	bacteria habitat
+BB-cat+ner-19075662	medical devices	OBT:000063	OBT:000000	bacteria habitat
+BB-cat+ner-19075662	Biomaterial	OBT:000063	OBT:000000	bacteria habitat
+BB-cat+ner-19075662	biofilm	OBT:000037	OBT:000000	bacteria habitat
+BB-cat+ner-19075662	host immune system	OBT:000232	OBT:000010	part of living organism
+BB-cat+ner-19075662	biofilm	OBT:000037	OBT:000000	bacteria habitat
+BB-cat+ner-19075662	biofilm	OBT:000037	OBT:000000	bacteria habitat
 BB-cat+ner-19075662	established mature biofilms	OBT:000037	OBT:000000	bacteria habitat
 BB-cat+ner-19099664	hematology ward	OBT:001423	OBT:000000	bacteria habitat
 BB-cat+ner-19099664	hematological ward	OBT:001423	OBT:000000	bacteria habitat
-BB-cat+ner-19099664	patients received chemotherapy	OBT:002237	OBT:002133	patient
-BB-cat+ner-19099664	blood	OBT:000316	OBT:000065	animal part
-BB-cat+ner-19099664	urine	OBT:000706	OBT:000065	animal part
-BB-cat+ner-19099664	sputum of patients who accepted chemotherapy	OBT:000740	OBT:002133	patient
-BB-cat+ner-19099664	patients who accepted chemotherapy	OBT:002237	OBT:002133	patient
-BB-cat+ner-19099664	nosocomial	OBT:000009	OBT:001804	human
-BB-cat+ner-19099664	fungi	OBT:000154	OBT:000218	animal
-BB-cat+ner-19099664	Candida	OBT:000154	OBT:000010	part of living organism
-BB-cat+ner-19099664	nosocomial	OBT:000009	OBT:001804	human
-BB-cat+ner-19099664	patients with hematological malignancies	OBT:002237	OBT:002133	patient
-BB-cat+ner-19099664	fungi	OBT:000154	OBT:000218	animal
-BB-cat+ner-19175621	animals	OBT:000218	OBT:000065	animal part
-BB-cat+ner-19175621	humans	OBT:001804	OBT:001804	human
-BB-cat+ner-19175621	Spanish hospitals	OBT:001835	OBT:001804	human
-BB-cat+ner-19175621	animals	OBT:000218	OBT:000065	animal part
-BB-cat+ner-19175621	hospitals	OBT:001835	OBT:001804	human
+BB-cat+ner-19099664	patients received chemotherapy	OBT:002237	OBT:002115	ill person
+BB-cat+ner-19099664	blood	OBT:000316	OBT:000010	part of living organism
+BB-cat+ner-19099664	urine	OBT:000706	OBT:000010	part of living organism
+BB-cat+ner-19099664	sputum of patients who accepted chemotherapy	OBT:000740	OBT:002115	ill person
+BB-cat+ner-19099664	patients who accepted chemotherapy	OBT:002237	OBT:002115	ill person
+BB-cat+ner-19099664	nosocomial	OBT:000009	OBT:000218	animal
+BB-cat+ner-19099664	fungi	OBT:000154	OBT:000000	bacteria habitat
+BB-cat+ner-19099664	Candida	OBT:000154	OBT:000000	bacteria habitat
+BB-cat+ner-19099664	nosocomial	OBT:000009	OBT:000218	animal
+BB-cat+ner-19099664	patients with hematological malignancies	OBT:002237	OBT:002115	ill person
+BB-cat+ner-19099664	fungi	OBT:000154	OBT:000000	bacteria habitat
+BB-cat+ner-19175621	animals	OBT:000218	OBT:000000	bacteria habitat
+BB-cat+ner-19175621	humans	OBT:001804	OBT:002115	ill person
+BB-cat+ner-19175621	Spanish hospitals	OBT:001835	OBT:000000	bacteria habitat
+BB-cat+ner-19175621	animals	OBT:000218	OBT:000000	bacteria habitat
+BB-cat+ner-19175621	hospitals	OBT:001835	OBT:000000	bacteria habitat
 BB-cat+ner-19396518	cerebrospinal fluid	OBT:000306	OBT:000000	bacteria habitat
-BB-cat+ner-19396518	CSF	OBT:000306	OBT:000065	animal part
-BB-cat+ner-19396518	patients diagnosed with bacterial meningitis	OBT:002216	OBT:002133	patient
-BB-cat+ner-19396518	CSF from neonates and children	OBT:000306	OBT:002133	patient
-BB-cat+ner-19396518	CSF	OBT:000306	OBT:000065	animal part
-BB-cat+ner-19396518	neonates	OBT:002316	OBT:000601	warm-blooded animal
-BB-cat+ner-19396518	children	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-19396518	adults	OBT:002185	OBT:000065	animal part
-BB-cat+ner-19396518	CSF	OBT:000306	OBT:000065	animal part
-BB-cat+ner-19396518	clinical	OBT:002133	OBT:001804	human
-BB-cat+ner-19396518	CSF	OBT:000306	OBT:000065	animal part
-BB-cat+ner-19396518	patients with antibiotic administration	OBT:002201	OBT:002133	patient
-BB-cat+ner-19501788	vaccine	OBT:000099	OBT:001804	human
-BB-cat+ner-19501788	diseased Japanese flounder cultured in a local farm	OBT:002303	OBT:000010	part of living organism
-BB-cat+ner-19501788	local farm	OBT:000295	OBT:000065	animal part
-BB-cat+ner-19501788	host serum	OBT:000571	OBT:000065	animal part
+BB-cat+ner-19396518	CSF	OBT:000306	OBT:000000	bacteria habitat
+BB-cat+ner-19396518	patients diagnosed with bacterial meningitis	OBT:002216	OBT:002115	ill person
+BB-cat+ner-19396518	CSF from neonates and children	OBT:000306	OBT:002115	ill person
+BB-cat+ner-19396518	CSF	OBT:000306	OBT:000000	bacteria habitat
+BB-cat+ner-19396518	neonates	OBT:002316	OBT:000000	bacteria habitat
+BB-cat+ner-19396518	children	OBT:002216	OBT:002115	ill person
+BB-cat+ner-19396518	adults	OBT:002185	OBT:000000	bacteria habitat
+BB-cat+ner-19396518	CSF	OBT:000306	OBT:000000	bacteria habitat
+BB-cat+ner-19396518	clinical	OBT:002133	OBT:000000	bacteria habitat
+BB-cat+ner-19396518	CSF	OBT:000306	OBT:000000	bacteria habitat
+BB-cat+ner-19396518	patients with antibiotic administration	OBT:002201	OBT:002115	ill person
+BB-cat+ner-19501788	vaccine	OBT:000099	OBT:000000	bacteria habitat
+BB-cat+ner-19501788	diseased Japanese flounder cultured in a local farm	OBT:002303	OBT:000000	bacteria habitat
+BB-cat+ner-19501788	local farm	OBT:000295	OBT:000000	bacteria habitat
+BB-cat+ner-19501788	host serum	OBT:000571	OBT:000010	part of living organism
 BB-cat+ner-19501788	host blood	OBT:000316	OBT:000010	part of living organism
-BB-cat+ner-19501788	host	OBT:000198	OBT:000010	part of living organism
-BB-cat+ner-19501788	Japanese flounder	OBT:002303	OBT:000010	part of living organism
-BB-cat+ner-19501788	live vaccine	OBT:000099	OBT:000065	animal part
-BB-cat+ner-19501788	oral	OBT:001292	OBT:001804	human
-BB-cat+ner-19501788	Japanese flounder	OBT:002303	OBT:000010	part of living organism
-BB-cat+ner-19501788	Japanese flounder	OBT:002303	OBT:000010	part of living organism
+BB-cat+ner-19501788	host	OBT:000198	OBT:000000	bacteria habitat
+BB-cat+ner-19501788	Japanese flounder	OBT:002303	OBT:000000	bacteria habitat
+BB-cat+ner-19501788	live vaccine	OBT:000099	OBT:000000	bacteria habitat
+BB-cat+ner-19501788	oral	OBT:001292	OBT:000000	bacteria habitat
+BB-cat+ner-19501788	Japanese flounder	OBT:002303	OBT:000000	bacteria habitat
+BB-cat+ner-19501788	Japanese flounder	OBT:002303	OBT:000000	bacteria habitat
 BB-cat+ner-19622846	environmental surfaces in a jail setting	OBT:000011	OBT:000000	bacteria habitat
 BB-cat+ner-19622846	jail	OBT:000562	OBT:000000	bacteria habitat
-BB-cat+ner-19622846	jail environmental surfaces	OBT:000011	OBT:000010	part of living organism
+BB-cat+ner-19622846	jail environmental surfaces	OBT:000011	OBT:000000	bacteria habitat
 BB-cat+ner-19622846	jail	OBT:000562	OBT:000000	bacteria habitat
-BB-cat+ner-19622846	primary and secondary mannitol salts	OBT:000001	OBT:000065	animal part
+BB-cat+ner-19622846	primary and secondary mannitol salts	OBT:000001	OBT:000000	bacteria habitat
 BB-cat+ner-19622846	oxacillin-resistant screening agar	OBT:000073	OBT:000000	bacteria habitat
-BB-cat+ner-19622846	inmates' nasal	OBT:000277	OBT:001295	mammalian
-BB-cat+ner-19622846	inmates	OBT:002234	OBT:000218	animal
-BB-cat+ner-19622846	correctional facilities	OBT:000562	OBT:001295	mammalian
-BB-cat+ner-20005916	peripheral nerves	OBT:000566	OBT:000065	animal part
-BB-cat+ner-20005916	peripheral nervous system	OBT:000747	OBT:000065	animal part
-BB-cat+ner-20005916	PNS	OBT:000747	OBT:000065	animal part
-BB-cat+ner-20005916	nerve	OBT:000566	OBT:000065	animal part
-BB-cat+ner-20005916	Schwann cells	OBT:000565	OBT:000010	part of living organism
-BB-cat+ner-20005916	glial cells of the PNS	OBT:000565	OBT:000010	part of living organism
-BB-cat+ner-20005916	PNS	OBT:000747	OBT:000065	animal part
-BB-cat+ner-20005916	Schwann cells	OBT:000565	OBT:000010	part of living organism
+BB-cat+ner-19622846	inmates' nasal	OBT:000277	OBT:000000	bacteria habitat
+BB-cat+ner-19622846	inmates	OBT:002234	OBT:000000	bacteria habitat
+BB-cat+ner-19622846	correctional facilities	OBT:000562	OBT:000000	bacteria habitat
+BB-cat+ner-20005916	peripheral nerves	OBT:000566	OBT:000000	bacteria habitat
+BB-cat+ner-20005916	peripheral nervous system	OBT:000747	OBT:000000	bacteria habitat
+BB-cat+ner-20005916	PNS	OBT:000747	OBT:000000	bacteria habitat
+BB-cat+ner-20005916	nerve	OBT:000566	OBT:000000	bacteria habitat
+BB-cat+ner-20005916	Schwann cells	OBT:000565	OBT:000000	bacteria habitat
+BB-cat+ner-20005916	glial cells of the PNS	OBT:000565	OBT:000000	bacteria habitat
+BB-cat+ner-20005916	PNS	OBT:000747	OBT:000000	bacteria habitat
+BB-cat+ner-20005916	Schwann cells	OBT:000565	OBT:000000	bacteria habitat
 BB-cat+ner-20005916	nerve injury	OBT:000507	OBT:000000	bacteria habitat
-BB-cat+ner-20005916	nerve	OBT:000566	OBT:000065	animal part
-BB-cat+ner-20005916	Schwann cell	OBT:000565	OBT:000010	part of living organism
-BB-cat+ner-20005916	nerve	OBT:000566	OBT:000065	animal part
-BB-cat+ner-20005916	human	OBT:001804	OBT:001804	human
-BB-cat+ner-20005916	Schwann cells of the adult PNS	OBT:000565	OBT:000010	part of living organism
-BB-cat+ner-20005916	adult PNS	OBT:000747	OBT:000065	animal part
-BB-cat+ner-20005916	adult	OBT:002185	OBT:000065	animal part
-BB-cat+ner-20005916	myelinated Schwann cells	OBT:000565	OBT:000010	part of living organism
-BB-cat+ner-20005916	injury	OBT:000507	OBT:002133	patient
-BB-cat+ner-20005916	myelin-free cells	OBT:000565	OBT:000065	animal part
+BB-cat+ner-20005916	nerve	OBT:000566	OBT:000000	bacteria habitat
+BB-cat+ner-20005916	Schwann cell	OBT:000565	OBT:000000	bacteria habitat
+BB-cat+ner-20005916	nerve	OBT:000566	OBT:000000	bacteria habitat
+BB-cat+ner-20005916	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-20005916	Schwann cells of the adult PNS	OBT:000565	OBT:000000	bacteria habitat
+BB-cat+ner-20005916	adult PNS	OBT:000747	OBT:000000	bacteria habitat
+BB-cat+ner-20005916	adult	OBT:002185	OBT:000000	bacteria habitat
+BB-cat+ner-20005916	myelinated Schwann cells	OBT:000565	OBT:000000	bacteria habitat
+BB-cat+ner-20005916	injury	OBT:000507	OBT:000000	bacteria habitat
+BB-cat+ner-20005916	myelin-free cells	OBT:000565	OBT:000010	part of living organism
 BB-cat+ner-20005916	cell	OBT:000565	OBT:000010	part of living organism
 BB-cat+ner-20005916	infected cells	OBT:000565	OBT:000010	part of living organism
-BB-cat+ner-20005916	adult Schwann cells	OBT:000565	OBT:000010	part of living organism
-BB-cat+ner-20005916	adult	OBT:002185	OBT:000065	animal part
-BB-cat+ner-20005916	PNS	OBT:000747	OBT:000065	animal part
-BB-cat+ner-20073421	murine macrophage-like cell line J774	OBT:002022	OBT:000010	part of living organism
-BB-cat+ner-20073421	murine macrophage	OBT:002022	OBT:000010	part of living organism
+BB-cat+ner-20005916	adult Schwann cells	OBT:000565	OBT:000000	bacteria habitat
+BB-cat+ner-20005916	adult	OBT:002185	OBT:000000	bacteria habitat
+BB-cat+ner-20005916	PNS	OBT:000747	OBT:000000	bacteria habitat
+BB-cat+ner-20073421	murine macrophage-like cell line J774	OBT:002022	OBT:000000	bacteria habitat
+BB-cat+ner-20073421	murine macrophage	OBT:002022	OBT:000000	bacteria habitat
 BB-cat+ner-20073421	murine	OBT:001768	OBT:000000	bacteria habitat
-BB-cat+ner-20073421	human	OBT:001804	OBT:001804	human
-BB-cat+ner-20073421	human cells	OBT:000056	OBT:001804	human
-BB-cat+ner-20073421	human	OBT:001804	OBT:001804	human
-BB-cat+ner-20073421	macrophage-like cell line J774	OBT:002022	OBT:000010	part of living organism
+BB-cat+ner-20073421	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-20073421	human cells	OBT:000056	OBT:000000	bacteria habitat
+BB-cat+ner-20073421	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-20073421	macrophage-like cell line J774	OBT:002022	OBT:000000	bacteria habitat
 BB-cat+ner-20073421	macrophage	OBT:002022	OBT:000010	part of living organism
-BB-cat+ner-20073421	J774 cells	OBT:002022	OBT:000010	part of living organism
-BB-cat+ner-20073421	J774 cell line	OBT:002022	OBT:000010	part of living organism
-BB-cat+ner-20148898	professional phagocytes	OBT:000549	OBT:000010	part of living organism
+BB-cat+ner-20073421	J774 cells	OBT:002022	OBT:000000	bacteria habitat
+BB-cat+ner-20073421	J774 cell line	OBT:002022	OBT:000000	bacteria habitat
+BB-cat+ner-20148898	professional phagocytes	OBT:000549	OBT:000000	bacteria habitat
 BB-cat+ner-20148898	host cells	OBT:000056	OBT:000010	part of living organism
 BB-cat+ner-20148898	host cells	OBT:000056	OBT:000010	part of living organism
-BB-cat+ner-20148898	cell types grown in culture	OBT:000056	OBT:000010	part of living organism
+BB-cat+ner-20148898	cell types grown in culture	OBT:000056	OBT:000000	bacteria habitat
 BB-cat+ner-20148898	professional phagocytes in Peyer's patches	OBT:000549	OBT:000000	bacteria habitat
 BB-cat+ner-20148898	Peyer's patches	OBT:000194	OBT:000000	bacteria habitat
 BB-cat+ner-20148898	mesenteric lymph nodes	OBT:000548	OBT:000000	bacteria habitat
-BB-cat+ner-20148898	spleen	OBT:000560	OBT:000065	animal part
-BB-cat+ner-20148898	B	OBT:001342	OBT:002187	patient with disease
-BB-cat+ner-20148898	T cells	OBT:001342	OBT:002133	patient
-BB-cat+ner-20148898	professional phagocytes	OBT:000549	OBT:000010	part of living organism
-BB-cat+ner-20148898	neutrophils	OBT:000471	OBT:000010	part of living organism
-BB-cat+ner-20148898	cells with translocated Yops	OBT:000549	OBT:000065	animal part
+BB-cat+ner-20148898	spleen	OBT:000560	OBT:000000	bacteria habitat
+BB-cat+ner-20148898	B	OBT:001342	OBT:002115	ill person
+BB-cat+ner-20148898	T cells	OBT:001342	OBT:000000	bacteria habitat
+BB-cat+ner-20148898	professional phagocytes	OBT:000549	OBT:000000	bacteria habitat
+BB-cat+ner-20148898	neutrophils	OBT:000471	OBT:000000	bacteria habitat
+BB-cat+ner-20148898	cells with translocated Yops	OBT:000549	OBT:000010	part of living organism
 BB-cat+ner-20148898	cells	OBT:000549	OBT:000010	part of living organism
-BB-cat+ner-20148898	isolated splenocytes	OBT:000224	OBT:001804	human
-BB-cat+ner-20148898	professional phagocytes	OBT:000549	OBT:000010	part of living organism
-BB-cat+ner-20148898	professional phagocytes	OBT:000549	OBT:000010	part of living organism
-BB-cat+ner-20148898	isolated splenocytes	OBT:000224	OBT:001804	human
+BB-cat+ner-20148898	isolated splenocytes	OBT:000224	OBT:000000	bacteria habitat
+BB-cat+ner-20148898	professional phagocytes	OBT:000549	OBT:000000	bacteria habitat
+BB-cat+ner-20148898	professional phagocytes	OBT:000549	OBT:000000	bacteria habitat
+BB-cat+ner-20148898	isolated splenocytes	OBT:000224	OBT:000000	bacteria habitat
 BB-cat+ner-20148898	cells	OBT:000549	OBT:000010	part of living organism
-BB-cat+ner-20148898	professional phagocytes	OBT:000549	OBT:000010	part of living organism
+BB-cat+ner-20148898	professional phagocytes	OBT:000549	OBT:000000	bacteria habitat
 BB-cat+ner-20148898	cells	OBT:000549	OBT:000010	part of living organism
-BB-cat+ner-20148898	phagocytes	OBT:000549	OBT:000065	animal part
+BB-cat+ner-20148898	phagocytes	OBT:000549	OBT:000000	bacteria habitat
 BB-cat+ner-20148898	cell	OBT:000549	OBT:000010	part of living organism
-BB-cat+ner-21498521	marine	OBT:000078	OBT:000010	part of living organism
+BB-cat+ner-21498521	marine	OBT:000078	OBT:000000	bacteria habitat
 BB-cat+ner-21498521	Hawaiian bobtail squid	OBT:002112	OBT:000000	bacteria habitat
 BB-cat+ner-21498521	Euprymna scolopes	OBT:002112	OBT:000000	bacteria habitat
-BB-cat+ner-21498521	light organ	OBT:000537	OBT:000065	animal part
+BB-cat+ner-21498521	light organ	OBT:000537	OBT:000000	bacteria habitat
 BB-cat+ner-21498521	juvenile squid's light organ	OBT:000537	OBT:000000	bacteria habitat
 BB-cat+ner-21498521	juvenile squid	OBT:000954	OBT:000000	bacteria habitat
 BB-cat+ner-21498521	microheterogeneous mixture of mono- and diphosphorylated diglucosamine disaccharides	OBT:000001	OBT:000000	bacteria habitat
-BB-cat+ner-21498521	E. scolopes	OBT:002112	OBT:000036	eukaryote host
+BB-cat+ner-21498521	E. scolopes	OBT:002112	OBT:000000	bacteria habitat
 BB-cat+ner-21917915	mammals	OBT:001295	OBT:000000	bacteria habitat
-BB-cat+ner-21917915	human	OBT:001804	OBT:001804	human
-BB-cat+ner-21924022	children	OBT:002146	OBT:002187	patient with disease
-BB-cat+ner-21924022	children	OBT:002146	OBT:002187	patient with disease
-BB-cat+ner-21924022	children with digestive system symptoms	OBT:002187	OBT:002133	patient
-BB-cat+ner-21924022	digestive system	OBT:000286	OBT:000065	animal part
-BB-cat+ner-21924022	Serum samples of these patients	OBT:000571	OBT:002133	patient
-BB-cat+ner-21924022	patients	OBT:002307	OBT:002187	patient with disease
-BB-cat+ner-21924022	children	OBT:002307	OBT:002187	patient with disease
-BB-cat+ner-22834551	Artemisia annua	OBT:000789	OBT:001804	human
+BB-cat+ner-21917915	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-21924022	children	OBT:002146	OBT:002115	ill person
+BB-cat+ner-21924022	children	OBT:002146	OBT:002115	ill person
+BB-cat+ner-21924022	children with digestive system symptoms	OBT:002187	OBT:002115	ill person
+BB-cat+ner-21924022	digestive system	OBT:000286	OBT:000000	bacteria habitat
+BB-cat+ner-21924022	Serum samples of these patients	OBT:000571	OBT:002115	ill person
+BB-cat+ner-21924022	patients	OBT:002307	OBT:002115	ill person
+BB-cat+ner-21924022	children	OBT:002307	OBT:002115	ill person
+BB-cat+ner-22834551	Artemisia annua	OBT:000789	OBT:000000	bacteria habitat
 BB-cat+ner-22834551	broiler	OBT:002251	OBT:000000	bacteria habitat
-BB-cat+ner-22834551	intestinal microbiota	OBT:000033	OBT:000010	part of living organism
+BB-cat+ner-22834551	intestinal microbiota	OBT:000033	OBT:000000	bacteria habitat
 BB-cat+ner-22834551	intestinal	OBT:001893	OBT:000000	bacteria habitat
 BB-cat+ner-22834551	aerial parts of the plant Artemisia annua	OBT:000162	OBT:000000	bacteria habitat
-BB-cat+ner-22834551	plant Artemisia annua	OBT:000789	OBT:000010	part of living organism
-BB-cat+ner-22834551	essential oils	OBT:000428	OBT:001804	human
+BB-cat+ner-22834551	plant Artemisia annua	OBT:000789	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	essential oils	OBT:000428	OBT:000000	bacteria habitat
 BB-cat+ner-22834551	broilers	OBT:002251	OBT:000000	bacteria habitat
-BB-cat+ner-22834551	dried A. annua leaves	OBT:000019	OBT:002133	patient
-BB-cat+ner-22834551	A. annua	OBT:000789	OBT:002133	patient
-BB-cat+ner-22834551	n-hexane extract from fresh A. annua leaves	OBT:000019	OBT:002133	patient
-BB-cat+ner-22834551	fresh A. annua leaves	OBT:000849	OBT:002133	patient
-BB-cat+ner-22834551	A. annua	OBT:000789	OBT:002133	patient
+BB-cat+ner-22834551	dried A. annua leaves	OBT:000019	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	A. annua	OBT:000789	OBT:002115	ill person
+BB-cat+ner-22834551	n-hexane extract from fresh A. annua leaves	OBT:000019	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	fresh A. annua leaves	OBT:000849	OBT:002115	ill person
+BB-cat+ner-22834551	A. annua	OBT:000789	OBT:002115	ill person
 BB-cat+ner-22834551	broiler	OBT:002251	OBT:000000	bacteria habitat
-BB-cat+ner-22834551	Dried plant material	OBT:000805	OBT:000010	part of living organism
-BB-cat+ner-22834551	plant	OBT:000789	OBT:000010	part of living organism
-BB-cat+ner-22834551	feed	OBT:000019	OBT:000065	animal part
-BB-cat+ner-22834551	body	OBT:000212	OBT:000065	animal part
-BB-cat+ner-22834551	feed	OBT:000019	OBT:000065	animal part
-BB-cat+ner-22834551	feed	OBT:000019	OBT:000065	animal part
+BB-cat+ner-22834551	Dried plant material	OBT:000805	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	plant	OBT:000789	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	feed	OBT:000019	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	body	OBT:000212	OBT:000010	part of living organism
+BB-cat+ner-22834551	feed	OBT:000019	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	feed	OBT:000019	OBT:000000	bacteria habitat
 BB-cat+ner-22834551	broiler	OBT:002251	OBT:000000	bacteria habitat
-BB-cat+ner-22834551	feed	OBT:000019	OBT:000065	animal part
-BB-cat+ner-22834551	birds	OBT:002251	OBT:000010	part of living organism
-BB-cat+ner-22834551	n-hexane extract	OBT:000805	OBT:000010	part of living organism
-BB-cat+ner-22834551	dried A. annua leaves	OBT:000019	OBT:002133	patient
-BB-cat+ner-22834551	A. annua	OBT:000789	OBT:002133	patient
-BB-cat+ner-22834551	n-hexane extract of A. annua	OBT:000805	OBT:002133	patient
-BB-cat+ner-22834551	A. annua	OBT:000789	OBT:002187	patient with disease
+BB-cat+ner-22834551	feed	OBT:000019	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	birds	OBT:002251	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	n-hexane extract	OBT:000805	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	dried A. annua leaves	OBT:000019	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	A. annua	OBT:000789	OBT:002115	ill person
+BB-cat+ner-22834551	n-hexane extract of A. annua	OBT:000805	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	A. annua	OBT:000789	OBT:002115	ill person
 BB-cat+ner-22834551	broilers	OBT:002251	OBT:000000	bacteria habitat
-BB-cat+ner-22834551	n-hexane extract	OBT:000805	OBT:000010	part of living organism
+BB-cat+ner-22834551	n-hexane extract	OBT:000805	OBT:000000	bacteria habitat
 BB-cat+ner-22834551	intestinal	OBT:001893	OBT:000000	bacteria habitat
-BB-cat+ner-22834551	small intestinal lesions	OBT:000266	OBT:000010	part of living organism
-BB-cat+ner-22834551	small intestinal	OBT:002194	OBT:000010	part of living organism
-BB-cat+ner-22834551	birds supplemented with the n-hexane extract	OBT:002251	OBT:000010	part of living organism
-BB-cat+ner-22834551	n-hexane extract	OBT:000805	OBT:000010	part of living organism
-BB-cat+ner-22834551	challenged control birds	OBT:002251	OBT:001804	human
-BB-cat+ner-22834551	birds receiving dried plant material	OBT:002251	OBT:000010	part of living organism
-BB-cat+ner-22834551	dried plant material	OBT:000849	OBT:000010	part of living organism
-BB-cat+ner-22834551	plant	OBT:000789	OBT:000010	part of living organism
-BB-cat+ner-22834551	n-hexane extracts derived from A. annua	OBT:000019	OBT:002133	patient
-BB-cat+ner-22834551	A. annua	OBT:000789	OBT:002187	patient with disease
+BB-cat+ner-22834551	small intestinal lesions	OBT:000266	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	small intestinal	OBT:002194	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	birds supplemented with the n-hexane extract	OBT:002251	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	n-hexane extract	OBT:000805	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	challenged control birds	OBT:002251	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	birds receiving dried plant material	OBT:002251	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	dried plant material	OBT:000849	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	plant	OBT:000789	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	n-hexane extracts derived from A. annua	OBT:000019	OBT:000000	bacteria habitat
+BB-cat+ner-22834551	A. annua	OBT:000789	OBT:002115	ill person
 BB-cat+ner-23702192	colon	OBT:000930	OBT:000000	bacteria habitat
-BB-cat+ner-23702192	inpatient cases of CDI (48.6% female; median age, 62.5 years; range, 0.1-103.7 years)	OBT:002216	OBT:002187	patient with disease
+BB-cat+ner-23702192	inpatient cases of CDI (48.6% female; median age, 62.5 years; range, 0.1-103.7 years)	OBT:002216	OBT:002115	ill person
 BB-cat+ner-23702192	Mayo Clinic	OBT:001801	OBT:000000	bacteria habitat
-BB-cat+ner-23702192	Patients with severe-complicated CDI	OBT:002216	OBT:002133	patient
-BB-cat+ner-23702192	intensive care unit	OBT:000213	OBT:000065	animal part
-BB-cat+ner-23702192	hospitalized patients	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-23702192	hospitalized	OBT:001835	OBT:000065	animal part
+BB-cat+ner-23702192	Patients with severe-complicated CDI	OBT:002216	OBT:002115	ill person
+BB-cat+ner-23702192	intensive care unit	OBT:000213	OBT:000000	bacteria habitat
+BB-cat+ner-23702192	hospitalized patients	OBT:002216	OBT:002115	ill person
+BB-cat+ner-23702192	hospitalized	OBT:001835	OBT:000000	bacteria habitat
 BB-cat+ner-23702192	inpatients	OBT:002216	OBT:000000	bacteria habitat
-BB-cat+ner-23702192	population-based cohort	OBT:002216	OBT:000010	part of living organism
+BB-cat+ner-23702192	population-based cohort	OBT:002216	OBT:000000	bacteria habitat
 BB-cat+ner-23702192	inpatients	OBT:002216	OBT:000000	bacteria habitat
-BB-cat+ner-23702192	leukocyte	OBT:000471	OBT:001295	mammalian
+BB-cat+ner-23702192	leukocyte	OBT:000471	OBT:000000	bacteria habitat
 BB-cat+ner-23702192	serum	OBT:000571	OBT:000065	animal part
-BB-cat+ner-23702192	patients	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-23702192	leukocytes	OBT:000471	OBT:000065	animal part
-BB-cat+ner-23702192	blood samples	OBT:000316	OBT:002133	patient
+BB-cat+ner-23702192	patients	OBT:002216	OBT:002115	ill person
+BB-cat+ner-23702192	leukocytes	OBT:000471	OBT:000000	bacteria habitat
+BB-cat+ner-23702192	blood samples	OBT:000316	OBT:000000	bacteria habitat
 BB-cat+ner-23702192	serum	OBT:000571	OBT:000065	animal part
-BB-cat+ner-23702192	gastric acid	OBT:000455	OBT:000065	animal part
+BB-cat+ner-23702192	gastric acid	OBT:000455	OBT:000010	part of living organism
 BB-cat+ner-23702192	gastric	OBT:000953	OBT:000065	animal part
-BB-cat+ner-23702192	hospitalized patients	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-23702192	hospitalized	OBT:001835	OBT:000065	animal part
-BB-cat+ner-23855904	UK retail poultry	OBT:001482	OBT:000065	animal part
-BB-cat+ner-23855904	clinical	OBT:002133	OBT:001804	human
-BB-cat+ner-23855904	retail poultry	OBT:001482	OBT:000065	animal part
-BB-cat+ner-23855904	human	OBT:001804	OBT:001804	human
-BB-cat+ner-23855904	retail poultry	OBT:001482	OBT:000065	animal part
-BB-cat+ner-23855904	chicken	OBT:001790	OBT:000065	animal part
-BB-cat+ner-23855904	humans	OBT:001804	OBT:001804	human
-BB-cat+ner-23855904	farmed chickens	OBT:002229	OBT:000065	animal part
-BB-cat+ner-23908036	susceptible individuals	OBT:001804	OBT:000010	part of living organism
-BB-cat+ner-24198224	israeli travelers	OBT:002217	OBT:000065	animal part
+BB-cat+ner-23702192	hospitalized patients	OBT:002216	OBT:002115	ill person
+BB-cat+ner-23702192	hospitalized	OBT:001835	OBT:000000	bacteria habitat
+BB-cat+ner-23855904	UK retail poultry	OBT:001482	OBT:000000	bacteria habitat
+BB-cat+ner-23855904	clinical	OBT:002133	OBT:000000	bacteria habitat
+BB-cat+ner-23855904	retail poultry	OBT:001482	OBT:000000	bacteria habitat
+BB-cat+ner-23855904	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-23855904	retail poultry	OBT:001482	OBT:000000	bacteria habitat
+BB-cat+ner-23855904	chicken	OBT:001790	OBT:000010	part of living organism
+BB-cat+ner-23855904	humans	OBT:001804	OBT:002115	ill person
+BB-cat+ner-23855904	farmed chickens	OBT:002229	OBT:000000	bacteria habitat
+BB-cat+ner-23908036	susceptible individuals	OBT:001804	OBT:000000	bacteria habitat
+BB-cat+ner-24198224	israeli travelers	OBT:002217	OBT:000000	bacteria habitat
 BB-cat+ner-24198224	travelers	OBT:002217	OBT:000065	animal part
-BB-cat+ner-24198224	Israeli travelers	OBT:002217	OBT:000065	animal part
-BB-cat+ner-24198224	patients	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-24198224	Israeli travelers	OBT:002217	OBT:000065	animal part
-BB-cat+ner-24198224	food venue	OBT:000242	OBT:000010	part of living organism
+BB-cat+ner-24198224	Israeli travelers	OBT:002217	OBT:000000	bacteria habitat
+BB-cat+ner-24198224	patients	OBT:002216	OBT:002115	ill person
+BB-cat+ner-24198224	Israeli travelers	OBT:002217	OBT:000000	bacteria habitat
+BB-cat+ner-24198224	food venue	OBT:000242	OBT:000000	bacteria habitat
 BB-cat+ner-24198224	food	OBT:000035	OBT:000010	part of living organism
-BB-cat+ner-24198224	patients	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-24198224	patients treated with ceftriaxone and azithromycin combination	OBT:002216	OBT:002133	patient
-BB-cat+ner-24198224	cases treated with ceftriaxone monotherapy	OBT:002201	OBT:002133	patient
-BB-cat+ner-24198224	Israeli travelers	OBT:002217	OBT:000065	animal part
-BB-cat+ner-24361838	chickens	OBT:002229	OBT:000065	animal part
-BB-cat+ner-24361838	chicken faecal material	OBT:000703	OBT:000065	animal part
-BB-cat+ner-24361838	chicken	OBT:002229	OBT:000065	animal part
-BB-cat+ner-24361838	chickens	OBT:002229	OBT:000065	animal part
+BB-cat+ner-24198224	patients	OBT:002216	OBT:002115	ill person
+BB-cat+ner-24198224	patients treated with ceftriaxone and azithromycin combination	OBT:002216	OBT:000000	bacteria habitat
+BB-cat+ner-24198224	cases treated with ceftriaxone monotherapy	OBT:002201	OBT:000000	bacteria habitat
+BB-cat+ner-24198224	Israeli travelers	OBT:002217	OBT:000000	bacteria habitat
+BB-cat+ner-24361838	chickens	OBT:002229	OBT:000010	part of living organism
+BB-cat+ner-24361838	chicken faecal material	OBT:000703	OBT:000000	bacteria habitat
+BB-cat+ner-24361838	chicken	OBT:002229	OBT:000010	part of living organism
+BB-cat+ner-24361838	chickens	OBT:002229	OBT:000010	part of living organism
 BB-cat+ner-24361838	host cells	OBT:000056	OBT:000010	part of living organism
 BB-cat+ner-24361838	host cells	OBT:000056	OBT:000010	part of living organism
 BB-cat+ner-24361838	intracloacal	OBT:001344	OBT:000000	bacteria habitat
-BB-cat+ner-24361838	chickens	OBT:000323	OBT:000065	animal part
-BB-cat+ner-24361838	visceral organs	OBT:000096	OBT:000065	animal part
+BB-cat+ner-24361838	chickens	OBT:000323	OBT:000010	part of living organism
+BB-cat+ner-24361838	visceral organs	OBT:000096	OBT:000000	bacteria habitat
 BB-cat+ner-24361838	caecal wall of the chicks	OBT:000905	OBT:000000	bacteria habitat
-BB-cat+ner-24361838	caecal	OBT:001260	OBT:000010	part of living organism
-BB-cat+ner-24361838	chicks	OBT:002177	OBT:001295	mammalian
-BB-cat+ner-24361838	caecal content of chickens	OBT:001340	OBT:000065	animal part
-BB-cat+ner-24361838	caecal	OBT:001260	OBT:000010	part of living organism
-BB-cat+ner-24361838	chickens	OBT:002229	OBT:000065	animal part
-BB-cat+ner-24678646	patient	OBT:002133	OBT:002187	patient with disease
-BB-cat+ner-24678646	patients	OBT:002133	OBT:002187	patient with disease
-BB-cat+ner-24678646	patients	OBT:002133	OBT:002187	patient with disease
-BB-cat+ner-24831788	eukaryotic cell	OBT:000056	OBT:000065	animal part
+BB-cat+ner-24361838	caecal	OBT:001260	OBT:000000	bacteria habitat
+BB-cat+ner-24361838	chicks	OBT:002177	OBT:000000	bacteria habitat
+BB-cat+ner-24361838	caecal content of chickens	OBT:001340	OBT:000000	bacteria habitat
+BB-cat+ner-24361838	caecal	OBT:001260	OBT:000000	bacteria habitat
+BB-cat+ner-24361838	chickens	OBT:002229	OBT:000010	part of living organism
+BB-cat+ner-24678646	patient	OBT:002133	OBT:002115	ill person
+BB-cat+ner-24678646	patients	OBT:002133	OBT:002115	ill person
+BB-cat+ner-24678646	patients	OBT:002133	OBT:002115	ill person
+BB-cat+ner-24831788	eukaryotic cell	OBT:000056	OBT:000000	bacteria habitat
 BB-cat+ner-24831788	cell	OBT:000056	OBT:000010	part of living organism
 BB-cat+ner-24831788	cell	OBT:000056	OBT:000010	part of living organism
 BB-cat+ner-24831788	cell	OBT:000056	OBT:000010	part of living organism
-BB-cat+ner-24831788	macrophage cell line	OBT:000029	OBT:000010	part of living organism
+BB-cat+ner-24831788	macrophage cell line	OBT:000029	OBT:000000	bacteria habitat
 BB-cat+ner-24831788	macrophage cell	OBT:002022	OBT:000010	part of living organism
 BB-cat+ner-24831788	host cell	OBT:002022	OBT:000010	part of living organism
 BB-cat+ner-24831788	cell	OBT:002022	OBT:000010	part of living organism
-BB-cat+ner-25098305	upper respiratory tract	OBT:000261	OBT:000065	animal part
-BB-cat+ner-25098305	free-ranging gopher tortoises	OBT:001351	OBT:000065	animal part
+BB-cat+ner-25098305	upper respiratory tract	OBT:000261	OBT:000000	bacteria habitat
+BB-cat+ner-25098305	free-ranging gopher tortoises	OBT:001351	OBT:000000	bacteria habitat
 BB-cat+ner-25098305	Gopherus polyphemus	OBT:001351	OBT:000000	bacteria habitat
-BB-cat+ner-25098305	Upper respiratory tract	OBT:000261	OBT:000065	animal part
-BB-cat+ner-25098305	gopher tortoise	OBT:001351	OBT:000065	animal part
+BB-cat+ner-25098305	Upper respiratory tract	OBT:000261	OBT:000000	bacteria habitat
+BB-cat+ner-25098305	gopher tortoise	OBT:001351	OBT:000000	bacteria habitat
 BB-cat+ner-25098305	Gopherus polyphemus	OBT:001351	OBT:000000	bacteria habitat
-BB-cat+ner-25098305	Georgia, USA tortoise populations	OBT:001351	OBT:000010	part of living organism
-BB-cat+ner-25098305	Georgia tortoise populations	OBT:001351	OBT:000010	part of living organism
-BB-cat+ner-25098305	tortoises	OBT:001351	OBT:000010	part of living organism
-BB-cat+ner-25098305	tortoises	OBT:001351	OBT:000010	part of living organism
-BB-cat+ner-25098305	tortoises	OBT:001351	OBT:000010	part of living organism
-BB-cat+ner-25098305	tortoises	OBT:001351	OBT:000010	part of living organism
-BB-cat+ner-25098305	gopher tortoises	OBT:001351	OBT:000065	animal part
-BB-cat+ner-25098305	Georgia populations of gopher tortoises	OBT:001351	OBT:000065	animal part
-BB-cat+ner-25098305	tortoise populations	OBT:001351	OBT:000010	part of living organism
-BB-cat+ner-25098305	tortoises	OBT:001351	OBT:000010	part of living organism
-BB-cat+ner-25562320	DC	OBT:001925	OBT:000065	animal part
+BB-cat+ner-25098305	Georgia, USA tortoise populations	OBT:001351	OBT:000000	bacteria habitat
+BB-cat+ner-25098305	Georgia tortoise populations	OBT:001351	OBT:000000	bacteria habitat
+BB-cat+ner-25098305	tortoises	OBT:001351	OBT:000000	bacteria habitat
+BB-cat+ner-25098305	tortoises	OBT:001351	OBT:000000	bacteria habitat
+BB-cat+ner-25098305	tortoises	OBT:001351	OBT:000000	bacteria habitat
+BB-cat+ner-25098305	tortoises	OBT:001351	OBT:000000	bacteria habitat
+BB-cat+ner-25098305	gopher tortoises	OBT:001351	OBT:000000	bacteria habitat
+BB-cat+ner-25098305	Georgia populations of gopher tortoises	OBT:001351	OBT:000000	bacteria habitat
+BB-cat+ner-25098305	tortoise populations	OBT:001351	OBT:000000	bacteria habitat
+BB-cat+ner-25098305	tortoises	OBT:001351	OBT:000000	bacteria habitat
+BB-cat+ner-25562320	DC	OBT:001925	OBT:000000	bacteria habitat
 BB-cat+ner-25562320	apoptotic cells	OBT:000056	OBT:000000	bacteria habitat
-BB-cat+ner-25562320	DCs	OBT:001925	OBT:000010	part of living organism
-BB-cat+ner-25562320	DC	OBT:001925	OBT:000065	animal part
-BB-cat+ner-25562320	DCs	OBT:001925	OBT:000010	part of living organism
-BB-cat+ner-25562320	DC	OBT:001925	OBT:000065	animal part
-BB-cat+ner-25562320	Annexin1-deficient mice	OBT:002153	OBT:001804	human
+BB-cat+ner-25562320	DCs	OBT:001925	OBT:000000	bacteria habitat
+BB-cat+ner-25562320	DC	OBT:001925	OBT:000000	bacteria habitat
+BB-cat+ner-25562320	DCs	OBT:001925	OBT:000000	bacteria habitat
+BB-cat+ner-25562320	DC	OBT:001925	OBT:000000	bacteria habitat
+BB-cat+ner-25562320	Annexin1-deficient mice	OBT:002153	OBT:000000	bacteria habitat
 BB-cat+ner-25562320	CD8+ T cell	OBT:001342	OBT:000000	bacteria habitat
-BB-cat+ner-25562320	Mtb-infected human blood monocyte-derived DCs	OBT:001925	OBT:000010	part of living organism
-BB-cat+ner-25562320	Mtb-infected human blood	OBT:000316	OBT:001804	human
-BB-cat+ner-25562320	human blood monocyte	OBT:002023	OBT:001804	human
-BB-cat+ner-25562320	human	OBT:001804	OBT:001804	human
-BB-cat+ner-25562320	DC	OBT:001925	OBT:000065	animal part
-BB-cat+ner-25634638	clinical	OBT:002225	OBT:001804	human
-BB-cat+ner-25634638	patients with CF	OBT:002225	OBT:002187	patient with disease
-BB-cat+ner-25634638	lungs	OBT:000287	OBT:001804	human
-BB-cat+ner-25634638	airways of CF patients	OBT:000124	OBT:002133	patient
-BB-cat+ner-25634638	CF patients	OBT:002225	OBT:002187	patient with disease
-BB-cat+ner-2696427	fish	OBT:001902	OBT:001804	human
-BB-cat+ner-2696427	fish farm sediments	OBT:000974	OBT:000010	part of living organism
-BB-cat+ner-2696427	fish farm	OBT:000295	OBT:000010	part of living organism
-BB-cat+ner-2696427	fish	OBT:001934	OBT:001804	human
-BB-cat+ner-2696427	fish	OBT:001902	OBT:001804	human
-BB-cat+ner-2696427	fish farm sediments	OBT:000974	OBT:000010	part of living organism
-BB-cat+ner-2696427	fish farm	OBT:000295	OBT:000010	part of living organism
-BB-cat+ner-2696427	fish	OBT:001934	OBT:001804	human
-BB-cat+ner-2696427	polyclonal rabbit serum	OBT:000571	OBT:000065	animal part
-BB-cat+ner-2696427	rabbit	OBT:001773	OBT:000065	animal part
-BB-cat+ner-2696427	intestinal tracts of healthy fish	OBT:000286	OBT:001804	human
-BB-cat+ner-2696427	healthy fish	OBT:001902	OBT:001804	human
-BB-cat+ner-2696427	sediments	OBT:000974	OBT:000010	part of living organism
+BB-cat+ner-25562320	Mtb-infected human blood monocyte-derived DCs	OBT:001925	OBT:000000	bacteria habitat
+BB-cat+ner-25562320	Mtb-infected human blood	OBT:000316	OBT:000000	bacteria habitat
+BB-cat+ner-25562320	human blood monocyte	OBT:002023	OBT:000000	bacteria habitat
+BB-cat+ner-25562320	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-25562320	DC	OBT:001925	OBT:000000	bacteria habitat
+BB-cat+ner-25634638	clinical	OBT:002225	OBT:000000	bacteria habitat
+BB-cat+ner-25634638	patients with CF	OBT:002225	OBT:002115	ill person
+BB-cat+ner-25634638	lungs	OBT:000287	OBT:000000	bacteria habitat
+BB-cat+ner-25634638	airways of CF patients	OBT:000124	OBT:002115	ill person
+BB-cat+ner-25634638	CF patients	OBT:002225	OBT:002115	ill person
+BB-cat+ner-2696427	fish	OBT:001902	OBT:000000	bacteria habitat
+BB-cat+ner-2696427	fish farm sediments	OBT:000974	OBT:000000	bacteria habitat
+BB-cat+ner-2696427	fish farm	OBT:000295	OBT:000000	bacteria habitat
+BB-cat+ner-2696427	fish	OBT:001934	OBT:000000	bacteria habitat
+BB-cat+ner-2696427	fish	OBT:001902	OBT:000000	bacteria habitat
+BB-cat+ner-2696427	fish farm sediments	OBT:000974	OBT:000000	bacteria habitat
+BB-cat+ner-2696427	fish farm	OBT:000295	OBT:000000	bacteria habitat
+BB-cat+ner-2696427	fish	OBT:001934	OBT:000000	bacteria habitat
+BB-cat+ner-2696427	polyclonal rabbit serum	OBT:000571	OBT:000010	part of living organism
+BB-cat+ner-2696427	rabbit	OBT:001773	OBT:000000	bacteria habitat
+BB-cat+ner-2696427	intestinal tracts of healthy fish	OBT:000286	OBT:000000	bacteria habitat
+BB-cat+ner-2696427	healthy fish	OBT:001902	OBT:000000	bacteria habitat
+BB-cat+ner-2696427	sediments	OBT:000974	OBT:000000	bacteria habitat
 BB-cat+ner-2696427	sediment samples from diseased farms	OBT:000974	OBT:000000	bacteria habitat
 BB-cat+ner-2696427	diseased farms	OBT:000295	OBT:000000	bacteria habitat
-BB-cat+ner-2696427	sediment sample from a disease-free fish farm	OBT:000974	OBT:001804	human
-BB-cat+ner-2696427	disease-free fish farm	OBT:000295	OBT:000065	animal part
-BB-cat+ner-2696427	fish	OBT:001934	OBT:001804	human
-BB-cat+ner-2696427	sediments	OBT:000974	OBT:000010	part of living organism
-BB-cat+ner-2696427	fish farming	OBT:000295	OBT:001804	human
-BB-cat+ner-2696427	fish	OBT:001934	OBT:001804	human
+BB-cat+ner-2696427	sediment sample from a disease-free fish farm	OBT:000974	OBT:000000	bacteria habitat
+BB-cat+ner-2696427	disease-free fish farm	OBT:000295	OBT:000010	part of living organism
+BB-cat+ner-2696427	fish	OBT:001934	OBT:000000	bacteria habitat
+BB-cat+ner-2696427	sediments	OBT:000974	OBT:000000	bacteria habitat
+BB-cat+ner-2696427	fish farming	OBT:000295	OBT:000000	bacteria habitat
+BB-cat+ner-2696427	fish	OBT:001934	OBT:000000	bacteria habitat
 BB-cat+ner-2696427	rabbit serum	OBT:000571	OBT:000065	animal part
-BB-cat+ner-2696427	rabbit	OBT:001773	OBT:000065	animal part
+BB-cat+ner-2696427	rabbit	OBT:001773	OBT:000000	bacteria habitat
 BB-cat+ner-2696427	rabbit serum	OBT:000571	OBT:000065	animal part
-BB-cat+ner-2696427	rabbit	OBT:001773	OBT:000065	animal part
-BB-cat+ner-2696427	rabbit	OBT:001773	OBT:000065	animal part
-BB-cat+ner-3074181	clinical	OBT:002133	OBT:001804	human
-BB-cat+ner-3074181	clinical materials (amniotic fluid, intrauterine secretions, exudates of the pelvic dead space) of patients with various infections	OBT:002133	OBT:001804	human
+BB-cat+ner-2696427	rabbit	OBT:001773	OBT:000000	bacteria habitat
+BB-cat+ner-2696427	rabbit	OBT:001773	OBT:000000	bacteria habitat
+BB-cat+ner-3074181	clinical	OBT:002133	OBT:000000	bacteria habitat
+BB-cat+ner-3074181	clinical materials (amniotic fluid, intrauterine secretions, exudates of the pelvic dead space) of patients with various infections	OBT:002133	OBT:000000	bacteria habitat
 BB-cat+ner-3074181	amniotic fluid	OBT:000315	OBT:000000	bacteria habitat
-BB-cat+ner-3074181	intrauterine secretions	OBT:000492	OBT:000010	part of living organism
+BB-cat+ner-3074181	intrauterine secretions	OBT:000492	OBT:000000	bacteria habitat
 BB-cat+ner-3074181	intrauterine	OBT:000520	OBT:000000	bacteria habitat
 BB-cat+ner-3074181	exudates of the pelvic dead space	OBT:000103	OBT:000000	bacteria habitat
-BB-cat+ner-3074181	pelvic dead space	OBT:000126	OBT:001295	mammalian
-BB-cat+ner-3074181	patients with various infections	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-3074181	body fluids	OBT:000103	OBT:000065	animal part
-BB-cat+ner-3074181	body	OBT:000212	OBT:000065	animal part
-BB-cat+ner-3074181	genital tissues	OBT:000198	OBT:001804	human
-BB-cat+ner-3074181	genital	OBT:000381	OBT:001804	human
-BB-cat+ner-3074181	genital tissues	OBT:000381	OBT:001804	human
-BB-cat+ner-3074181	women with genital infections	OBT:002216	OBT:002133	patient
-BB-cat+ner-3074181	genital	OBT:000381	OBT:001804	human
-BB-cat+ner-4105033	sucrose-lysozyme preparations	OBT:000001	OBT:000010	part of living organism
-BB-cat+ner-4328756	Purified preparations of Coxiella burnetii	OBT:000001	OBT:001804	human
-BB-cat+ner-4328756	C. burnetii extracts	OBT:000001	OBT:002187	patient with disease
-BB-cat+ner-4328756	normal yolk sacs	OBT:000918	OBT:000010	part of living organism
-BB-cat+ner-4328756	normal	OBT:000918	OBT:000010	part of living organism
-BB-cat+ner-4328756	infected yolk sacs	OBT:000918	OBT:000010	part of living organism
-BB-cat+ner-4328756	normal	OBT:000918	OBT:000010	part of living organism
-BB-cat+ner-4328756	infected yolk sacs	OBT:000918	OBT:000010	part of living organism
-BB-cat+ner-4328756	C. burnetii extract	OBT:000001	OBT:002187	patient with disease
-BB-cat+ner-4329237	Macaca mulatta sensitized with bacille Calmette Guerin cell wall vaccine	OBT:001747	OBT:000065	animal part
+BB-cat+ner-3074181	pelvic dead space	OBT:000126	OBT:000000	bacteria habitat
+BB-cat+ner-3074181	patients with various infections	OBT:002216	OBT:002115	ill person
+BB-cat+ner-3074181	body fluids	OBT:000103	OBT:000000	bacteria habitat
+BB-cat+ner-3074181	body	OBT:000212	OBT:000010	part of living organism
+BB-cat+ner-3074181	genital tissues	OBT:000198	OBT:000000	bacteria habitat
+BB-cat+ner-3074181	genital	OBT:000381	OBT:000000	bacteria habitat
+BB-cat+ner-3074181	genital tissues	OBT:000381	OBT:000000	bacteria habitat
+BB-cat+ner-3074181	women with genital infections	OBT:002216	OBT:002115	ill person
+BB-cat+ner-3074181	genital	OBT:000381	OBT:000000	bacteria habitat
+BB-cat+ner-4105033	sucrose-lysozyme preparations	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-4328756	Purified preparations of Coxiella burnetii	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-4328756	C. burnetii extracts	OBT:000001	OBT:002115	ill person
+BB-cat+ner-4328756	normal yolk sacs	OBT:000918	OBT:000000	bacteria habitat
+BB-cat+ner-4328756	normal	OBT:000918	OBT:000000	bacteria habitat
+BB-cat+ner-4328756	infected yolk sacs	OBT:000918	OBT:000000	bacteria habitat
+BB-cat+ner-4328756	normal	OBT:000918	OBT:000000	bacteria habitat
+BB-cat+ner-4328756	infected yolk sacs	OBT:000918	OBT:000000	bacteria habitat
+BB-cat+ner-4328756	C. burnetii extract	OBT:000001	OBT:002115	ill person
+BB-cat+ner-4329237	Macaca mulatta sensitized with bacille Calmette Guerin cell wall vaccine	OBT:001747	OBT:000000	bacteria habitat
 BB-cat+ner-4329237	Macaca mulatta	OBT:001747	OBT:000000	bacteria habitat
-BB-cat+ner-4329237	bacille Calmette Guerin cell wall vaccine	OBT:000099	OBT:000065	animal part
-BB-cat+ner-448557	pediatric	OBT:002307	OBT:000010	part of living organism
-BB-cat+ner-448557	respiratory	OBT:000164	OBT:001804	human
-BB-cat+ner-448557	respiratory	OBT:000164	OBT:001804	human
-BB-cat+ner-448557	pediatric	OBT:002307	OBT:000010	part of living organism
-BB-cat+ner-448557	children less than 2 years of age	OBT:002307	OBT:002187	patient with disease
-BB-cat+ner-448557	children greater than 9 years of age who had lower respiratory illness	OBT:002187	OBT:002187	patient with disease
-BB-cat+ner-448557	respiratory	OBT:000164	OBT:001804	human
-BB-cat+ner-448557	Males	OBT:002307	OBT:000010	part of living organism
-BB-cat+ner-448557	females	OBT:002191	OBT:000065	animal part
-BB-cat+ner-448557	males	OBT:002167	OBT:000010	part of living organism
-BB-cat+ner-448557	patients with WARI	OBT:002187	OBT:002187	patient with disease
-BB-cat+ner-448557	respiratory	OBT:000164	OBT:001804	human
-BB-cat+ner-448557	Patient	OBT:002307	OBT:002187	patient with disease
-BB-cat+ner-448557	children under 5 years of age	OBT:002187	OBT:002187	patient with disease
-BB-cat+ner-448557	school age children with wheezing illness	OBT:002307	OBT:002133	patient
-BB-cat+ner-448557	diagnosticians	OBT:002252	OBT:001804	human
+BB-cat+ner-4329237	bacille Calmette Guerin cell wall vaccine	OBT:000099	OBT:000000	bacteria habitat
+BB-cat+ner-448557	pediatric	OBT:002307	OBT:000000	bacteria habitat
+BB-cat+ner-448557	respiratory	OBT:000164	OBT:000000	bacteria habitat
+BB-cat+ner-448557	respiratory	OBT:000164	OBT:000000	bacteria habitat
+BB-cat+ner-448557	pediatric	OBT:002307	OBT:000000	bacteria habitat
+BB-cat+ner-448557	children less than 2 years of age	OBT:002307	OBT:002115	ill person
+BB-cat+ner-448557	children greater than 9 years of age who had lower respiratory illness	OBT:002187	OBT:002115	ill person
+BB-cat+ner-448557	respiratory	OBT:000164	OBT:000000	bacteria habitat
+BB-cat+ner-448557	Males	OBT:002307	OBT:000000	bacteria habitat
+BB-cat+ner-448557	females	OBT:002191	OBT:000000	bacteria habitat
+BB-cat+ner-448557	males	OBT:002167	OBT:000000	bacteria habitat
+BB-cat+ner-448557	patients with WARI	OBT:002187	OBT:002115	ill person
+BB-cat+ner-448557	respiratory	OBT:000164	OBT:000000	bacteria habitat
+BB-cat+ner-448557	Patient	OBT:002307	OBT:002115	ill person
+BB-cat+ner-448557	children under 5 years of age	OBT:002187	OBT:002115	ill person
+BB-cat+ner-448557	school age children with wheezing illness	OBT:002307	OBT:002115	ill person
+BB-cat+ner-448557	diagnosticians	OBT:002252	OBT:000000	bacteria habitat
 BB-cat+ner-448557	researchers	OBT:002265	OBT:000000	bacteria habitat
-BB-cat+ner-448557	respiratory	OBT:000164	OBT:001804	human
-BB-cat+ner-607884	Hospital S. Camillo De Lellis	OBT:001835	OBT:002133	patient
-BB-cat+ner-6107735	Pelecypod	OBT:001230	OBT:000065	animal part
+BB-cat+ner-448557	respiratory	OBT:000164	OBT:000000	bacteria habitat
+BB-cat+ner-607884	Hospital S. Camillo De Lellis	OBT:001835	OBT:000000	bacteria habitat
+BB-cat+ner-6107735	Pelecypod	OBT:001230	OBT:000000	bacteria habitat
 BB-cat+ner-6107735	people	OBT:002216	OBT:000000	bacteria habitat
-BB-cat+ner-6107735	household contacts of the patients	OBT:001804	OBT:002133	patient
+BB-cat+ner-6107735	household contacts of the patients	OBT:001804	OBT:002115	ill person
 BB-cat+ner-6107735	household	OBT:000113	OBT:000000	bacteria habitat
-BB-cat+ner-6107735	patients	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-6107735	people with V. cholerae O:1 infection	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-6107735	marine bivalves	OBT:001230	OBT:001804	human
-BB-cat+ner-6107735	marine	OBT:000078	OBT:000010	part of living organism
+BB-cat+ner-6107735	patients	OBT:002216	OBT:002115	ill person
+BB-cat+ner-6107735	people with V. cholerae O:1 infection	OBT:002216	OBT:002115	ill person
+BB-cat+ner-6107735	marine bivalves	OBT:001230	OBT:000000	bacteria habitat
+BB-cat+ner-6107735	marine	OBT:000078	OBT:000000	bacteria habitat
 BB-cat+ner-6107735	arselle	OBT:001230	OBT:000065	animal part
-BB-cat+ner-6107735	pelecypods	OBT:001230	OBT:000065	animal part
+BB-cat+ner-6107735	pelecypods	OBT:001230	OBT:000000	bacteria habitat
 BB-cat+ner-6107735	arselle	OBT:001230	OBT:000065	animal part
-BB-cat+ner-6107735	water	OBT:000132	OBT:000010	part of living organism
-BB-cat+ner-6107735	bivalves	OBT:001230	OBT:001804	human
+BB-cat+ner-6107735	water	OBT:000132	OBT:000000	bacteria habitat
+BB-cat+ner-6107735	bivalves	OBT:001230	OBT:000000	bacteria habitat
 BB-cat+ner-6107735	lagoon on the outskirts of the city of Cagliari	OBT:002104	OBT:000000	bacteria habitat
 BB-cat+ner-6107735	outskirts of the city of Cagliari	OBT:000114	OBT:000000	bacteria habitat
 BB-cat+ner-6107735	Arselle	OBT:001230	OBT:000065	animal part
-BB-cat+ner-6143890	urethral smears	OBT:000492	OBT:000218	animal
-BB-cat+ner-6143890	urethral	OBT:000290	OBT:001804	human
-BB-cat+ner-6143890	urine sediments	OBT:000001	OBT:000065	animal part
-BB-cat+ner-6143890	urine	OBT:000706	OBT:000065	animal part
-BB-cat+ner-6631408	McCoy cells	OBT:000029	OBT:000010	part of living organism
-BB-cat+ner-6631408	clinical	OBT:002133	OBT:001804	human
+BB-cat+ner-6143890	urethral smears	OBT:000492	OBT:000000	bacteria habitat
+BB-cat+ner-6143890	urethral	OBT:000290	OBT:000000	bacteria habitat
+BB-cat+ner-6143890	urine sediments	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-6143890	urine	OBT:000706	OBT:000010	part of living organism
+BB-cat+ner-6631408	McCoy cells	OBT:000029	OBT:000000	bacteria habitat
+BB-cat+ner-6631408	clinical	OBT:002133	OBT:000000	bacteria habitat
 BB-cat+ner-6631408	cycloheximide-treated McCoy cells	OBT:000029	OBT:000000	bacteria habitat
-BB-cat+ner-6631408	clinical	OBT:002133	OBT:001804	human
-BB-cat+ner-6631408	cases of trachoma	OBT:002205	OBT:002133	patient
+BB-cat+ner-6631408	clinical	OBT:002133	OBT:000000	bacteria habitat
+BB-cat+ner-6631408	cases of trachoma	OBT:002205	OBT:000000	bacteria habitat
 BB-cat+ner-6631408	oculogenital origin	OBT:000268	OBT:000000	bacteria habitat
-BB-cat+ner-8347510	subterranean brine	OBT:000048	OBT:001295	mammalian
-BB-cat+ner-8347510	petroleum reservoir production fluid	OBT:000914	OBT:000065	animal part
-BB-cat+ner-8347510	petroleum reservoir	OBT:001243	OBT:000065	animal part
-BB-cat+ner-8347510	petroleum	OBT:000914	OBT:001804	human
-BB-cat+ner-8347510	phototrophic microorganism	OBT:000020	OBT:001804	human
-BB-cat+ner-8347510	subterranean environment	OBT:000048	OBT:001804	human
-BB-cat+ner-8358765	duodenal ulcers	OBT:000935	OBT:002133	patient
-BB-cat+ner-8358765	duodenal	OBT:001293	OBT:001804	human
-BB-cat+ner-8358765	parietal cell	OBT:000056	OBT:000010	part of living organism
+BB-cat+ner-8347510	subterranean brine	OBT:000048	OBT:000000	bacteria habitat
+BB-cat+ner-8347510	petroleum reservoir production fluid	OBT:000914	OBT:000000	bacteria habitat
+BB-cat+ner-8347510	petroleum reservoir	OBT:001243	OBT:000000	bacteria habitat
+BB-cat+ner-8347510	petroleum	OBT:000914	OBT:000000	bacteria habitat
+BB-cat+ner-8347510	phototrophic microorganism	OBT:000020	OBT:000000	bacteria habitat
+BB-cat+ner-8347510	subterranean environment	OBT:000048	OBT:000000	bacteria habitat
+BB-cat+ner-8358765	duodenal ulcers	OBT:000935	OBT:002115	ill person
+BB-cat+ner-8358765	duodenal	OBT:001293	OBT:002115	ill person
+BB-cat+ner-8358765	parietal cell	OBT:000056	OBT:000000	bacteria habitat
 BB-cat+ner-8358765	HCl secretion	OBT:000492	OBT:000000	bacteria habitat
-BB-cat+ner-8358765	gastroduodenal ulcers	OBT:000935	OBT:002133	patient
+BB-cat+ner-8358765	gastroduodenal ulcers	OBT:000935	OBT:002115	ill person
 BB-cat+ner-8358765	gastroduodenal	OBT:000543	OBT:000000	bacteria habitat
-BB-cat+ner-8358765	patients with duodenal ulcers	OBT:002242	OBT:002133	patient
-BB-cat+ner-8358765	duodenal ulcers	OBT:000935	OBT:002133	patient
-BB-cat+ner-8358765	duodenal	OBT:001293	OBT:001804	human
-BB-cat+ner-8358765	duodenal ulcers	OBT:000935	OBT:002133	patient
-BB-cat+ner-8358765	duodenal	OBT:001293	OBT:001804	human
+BB-cat+ner-8358765	patients with duodenal ulcers	OBT:002242	OBT:002115	ill person
+BB-cat+ner-8358765	duodenal ulcers	OBT:000935	OBT:002115	ill person
+BB-cat+ner-8358765	duodenal	OBT:001293	OBT:002115	ill person
+BB-cat+ner-8358765	duodenal ulcers	OBT:000935	OBT:002115	ill person
+BB-cat+ner-8358765	duodenal	OBT:001293	OBT:002115	ill person
 BB-cat+ner-8358765	antrum	OBT:000729	OBT:000000	bacteria habitat
 BB-cat+ner-8358765	antral	OBT:000729	OBT:000000	bacteria habitat
-BB-cat+ner-8358765	chronic duodenal ulcers	OBT:000935	OBT:002133	patient
-BB-cat+ner-8358765	duodenal	OBT:001293	OBT:001804	human
-BB-cat+ner-8358765	ulcers	OBT:000935	OBT:002133	patient
-BB-cat+ner-8358765	subjects with ulcers and bulbitis	OBT:002242	OBT:002133	patient
-BB-cat+ner-8358765	ulcers	OBT:000935	OBT:002133	patient
-BB-cat+ner-8358765	patients	OBT:002242	OBT:002187	patient with disease
-BB-cat+ner-8358765	ulcer	OBT:000935	OBT:002133	patient
-BB-cat+ner-8358765	patients	OBT:002242	OBT:002187	patient with disease
-BB-cat+ner-8358765	patients	OBT:002242	OBT:002187	patient with disease
-BB-cat+ner-8358765	patients	OBT:002242	OBT:002187	patient with disease
-BB-cat+ner-8532424	Respiratory	OBT:000164	OBT:001804	human
-BB-cat+ner-8532424	healthy children	OBT:001894	OBT:002187	patient with disease
-BB-cat+ner-8532424	young children	OBT:002146	OBT:002187	patient with disease
-BB-cat+ner-8532424	respiratory tract	OBT:000164	OBT:001804	human
-BB-cat+ner-8532424	normal flora of children	OBT:000033	OBT:002133	patient
-BB-cat+ner-8532424	children	OBT:002146	OBT:002187	patient with disease
+BB-cat+ner-8358765	chronic duodenal ulcers	OBT:000935	OBT:002115	ill person
+BB-cat+ner-8358765	duodenal	OBT:001293	OBT:002115	ill person
+BB-cat+ner-8358765	ulcers	OBT:000935	OBT:002115	ill person
+BB-cat+ner-8358765	subjects with ulcers and bulbitis	OBT:002242	OBT:002115	ill person
+BB-cat+ner-8358765	ulcers	OBT:000935	OBT:002115	ill person
+BB-cat+ner-8358765	patients	OBT:002242	OBT:002115	ill person
+BB-cat+ner-8358765	ulcer	OBT:000935	OBT:002115	ill person
+BB-cat+ner-8358765	patients	OBT:002242	OBT:002115	ill person
+BB-cat+ner-8358765	patients	OBT:002242	OBT:002115	ill person
+BB-cat+ner-8358765	patients	OBT:002242	OBT:002115	ill person
+BB-cat+ner-8532424	Respiratory	OBT:000164	OBT:000000	bacteria habitat
+BB-cat+ner-8532424	healthy children	OBT:001894	OBT:002115	ill person
+BB-cat+ner-8532424	young children	OBT:002146	OBT:002115	ill person
+BB-cat+ner-8532424	respiratory tract	OBT:000164	OBT:000000	bacteria habitat
+BB-cat+ner-8532424	normal flora of children	OBT:000033	OBT:002115	ill person
+BB-cat+ner-8532424	children	OBT:002146	OBT:002115	ill person
 BB-cat+ner-8532424	throat	OBT:000001	OBT:000000	bacteria habitat
 BB-cat+ner-8532424	throat	OBT:000374	OBT:000000	bacteria habitat
-BB-cat+ner-8532424	nasopharyngeal cultures	OBT:000001	OBT:000065	animal part
-BB-cat+ner-8532424	nasopharyngeal	OBT:000330	OBT:001804	human
-BB-cat+ner-8532424	cohorts of children, ages 6 to 42 months	OBT:002154	OBT:002187	patient with disease
-BB-cat+ner-8532424	day-care center	OBT:000583	OBT:000065	animal part
-BB-cat+ner-8532424	throat cultures	OBT:000001	OBT:000010	part of living organism
+BB-cat+ner-8532424	nasopharyngeal cultures	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-8532424	nasopharyngeal	OBT:000330	OBT:000000	bacteria habitat
+BB-cat+ner-8532424	cohorts of children, ages 6 to 42 months	OBT:002154	OBT:002115	ill person
+BB-cat+ner-8532424	day-care center	OBT:000583	OBT:000000	bacteria habitat
+BB-cat+ner-8532424	throat cultures	OBT:000001	OBT:000000	bacteria habitat
 BB-cat+ner-8532424	throat	OBT:000374	OBT:000000	bacteria habitat
-BB-cat+ner-8532424	children ages 6 months to 14 years	OBT:002146	OBT:002187	patient with disease
-BB-cat+ner-8532424	healthy infants younger than 6 months	OBT:002177	OBT:002133	patient
-BB-cat+ner-8532424	well-baby-care clinic	OBT:001801	OBT:000010	part of living organism
+BB-cat+ner-8532424	children ages 6 months to 14 years	OBT:002146	OBT:002115	ill person
+BB-cat+ner-8532424	healthy infants younger than 6 months	OBT:002177	OBT:002115	ill person
+BB-cat+ner-8532424	well-baby-care clinic	OBT:001801	OBT:000000	bacteria habitat
 BB-cat+ner-8532424	baby	OBT:002154	OBT:000000	bacteria habitat
-BB-cat+ner-8532424	throat cultures	OBT:000001	OBT:000010	part of living organism
+BB-cat+ner-8532424	throat cultures	OBT:000001	OBT:000000	bacteria habitat
 BB-cat+ner-8532424	throat	OBT:000374	OBT:000000	bacteria habitat
-BB-cat+ner-8532424	nasopharyngeal cultures	OBT:000001	OBT:000065	animal part
-BB-cat+ner-8532424	nasopharyngeal	OBT:000330	OBT:001804	human
-BB-cat+ner-8532424	day-care center attendees	OBT:002216	OBT:000065	animal part
-BB-cat+ner-8532424	day-care center	OBT:000583	OBT:000065	animal part
-BB-cat+ner-8532424	children	OBT:002146	OBT:002187	patient with disease
-BB-cat+ner-8532424	children	OBT:002146	OBT:002187	patient with disease
-BB-cat+ner-8532424	colonized children	OBT:002216	OBT:002187	patient with disease
+BB-cat+ner-8532424	nasopharyngeal cultures	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-8532424	nasopharyngeal	OBT:000330	OBT:000000	bacteria habitat
+BB-cat+ner-8532424	day-care center attendees	OBT:002216	OBT:000000	bacteria habitat
+BB-cat+ner-8532424	day-care center	OBT:000583	OBT:000000	bacteria habitat
+BB-cat+ner-8532424	children	OBT:002146	OBT:002115	ill person
+BB-cat+ner-8532424	children	OBT:002146	OBT:002115	ill person
+BB-cat+ner-8532424	colonized children	OBT:002216	OBT:002115	ill person
 BB-cat+ner-8532424	pharyngeal	OBT:001863	OBT:000000	bacteria habitat
-BB-cat+ner-8532424	surgical patients	OBT:002307	OBT:002187	patient with disease
-BB-cat+ner-8532424	infants younger than 6 months	OBT:002177	OBT:002187	patient with disease
-BB-cat+ner-8532424	well-baby-care clinic	OBT:001801	OBT:000010	part of living organism
+BB-cat+ner-8532424	surgical patients	OBT:002307	OBT:002115	ill person
+BB-cat+ner-8532424	infants younger than 6 months	OBT:002177	OBT:002115	ill person
+BB-cat+ner-8532424	well-baby-care clinic	OBT:001801	OBT:000000	bacteria habitat
 BB-cat+ner-8532424	baby	OBT:002154	OBT:000000	bacteria habitat
-BB-cat+ner-8607503	patients with cirrhosis	OBT:002196	OBT:002187	patient with disease
-BB-cat+ner-8607503	medical center	OBT:001423	OBT:000065	animal part
-BB-cat+ner-8607503	cirrhotic patients	OBT:002196	OBT:002187	patient with disease
+BB-cat+ner-8607503	patients with cirrhosis	OBT:002196	OBT:002115	ill person
+BB-cat+ner-8607503	medical center	OBT:001423	OBT:000000	bacteria habitat
+BB-cat+ner-8607503	cirrhotic patients	OBT:002196	OBT:002115	ill person
 BB-cat+ner-8607503	blood culture	OBT:000001	OBT:000010	part of living organism
-BB-cat+ner-8607503	blood	OBT:000316	OBT:000065	animal part
-BB-cat+ner-8607503	clinical microbiology laboratory	OBT:000009	OBT:001804	human
-BB-cat+ner-8607503	Patients with underlying cirrhosis and the aforementioned bacteremia	OBT:002243	OBT:001804	human
-BB-cat+ner-8607503	cirrhotic patients (16 male, five female; mean age, 50.9 yr; range 28-67 yr)	OBT:002196	OBT:002187	patient with disease
-BB-cat+ner-8607503	Child B	OBT:002196	OBT:002187	patient with disease
-BB-cat+ner-8607503	Child C	OBT:002196	OBT:002187	patient with disease
-BB-cat+ner-8607503	Seafood	OBT:000841	OBT:001295	mammalian
-BB-cat+ner-8607503	seawater	OBT:002038	OBT:000218	animal
-BB-cat+ner-8607503	nosocomial	OBT:000009	OBT:001804	human
+BB-cat+ner-8607503	blood	OBT:000316	OBT:000010	part of living organism
+BB-cat+ner-8607503	clinical microbiology laboratory	OBT:000009	OBT:000000	bacteria habitat
+BB-cat+ner-8607503	Patients with underlying cirrhosis and the aforementioned bacteremia	OBT:002243	OBT:000000	bacteria habitat
+BB-cat+ner-8607503	cirrhotic patients (16 male, five female; mean age, 50.9 yr; range 28-67 yr)	OBT:002196	OBT:002115	ill person
+BB-cat+ner-8607503	Child B	OBT:002196	OBT:002115	ill person
+BB-cat+ner-8607503	Child C	OBT:002196	OBT:002115	ill person
+BB-cat+ner-8607503	Seafood	OBT:000841	OBT:000000	bacteria habitat
+BB-cat+ner-8607503	seawater	OBT:002038	OBT:000000	bacteria habitat
+BB-cat+ner-8607503	nosocomial	OBT:000009	OBT:000218	animal
 BB-cat+ner-8607503	ascites	OBT:000456	OBT:000000	bacteria habitat
-BB-cat+ner-8607503	abdominal	OBT:000119	OBT:001804	human
+BB-cat+ner-8607503	abdominal	OBT:000119	OBT:000000	bacteria habitat
 BB-cat+ner-8607503	ascites	OBT:000456	OBT:000000	bacteria habitat
-BB-cat+ner-8607503	patients with skin manifestation	OBT:002196	OBT:002133	patient
-BB-cat+ner-8607503	skin	OBT:000282	OBT:001804	human
-BB-cat+ner-8607503	Patients with decompensated cirrhosis	OBT:002196	OBT:002133	patient
-BB-cat+ner-8607503	raw seafood	OBT:000792	OBT:001295	mammalian
-BB-cat+ner-8607503	skin wounds	OBT:002130	OBT:001804	human
-BB-cat+ner-8607503	skin	OBT:000282	OBT:001804	human
-BB-cat+ner-8607503	salt water	OBT:001495	OBT:000065	animal part
-BB-cat+ner-8997164	Gamma/delta T lymphocytes	OBT:001342	OBT:002133	patient
-BB-cat+ner-8997164	BCG granulomatous lesions	OBT:000231	OBT:000010	part of living organism
+BB-cat+ner-8607503	patients with skin manifestation	OBT:002196	OBT:002115	ill person
+BB-cat+ner-8607503	skin	OBT:000282	OBT:000000	bacteria habitat
+BB-cat+ner-8607503	Patients with decompensated cirrhosis	OBT:002196	OBT:002115	ill person
+BB-cat+ner-8607503	raw seafood	OBT:000792	OBT:000000	bacteria habitat
+BB-cat+ner-8607503	skin wounds	OBT:002130	OBT:000000	bacteria habitat
+BB-cat+ner-8607503	skin	OBT:000282	OBT:000000	bacteria habitat
+BB-cat+ner-8607503	salt water	OBT:001495	OBT:000000	bacteria habitat
+BB-cat+ner-8997164	Gamma/delta T lymphocytes	OBT:001342	OBT:002115	ill person
+BB-cat+ner-8997164	BCG granulomatous lesions	OBT:000231	OBT:000000	bacteria habitat
 BB-cat+ner-8997164	granulomatous	OBT:000222	OBT:000000	bacteria habitat
 BB-cat+ner-8997164	man	OBT:002294	OBT:000065	animal part
-BB-cat+ner-8997164	animal models	OBT:000218	OBT:000065	animal part
-BB-cat+ner-8997164	TCR-gamma delta-bearing T cells	OBT:001342	OBT:001804	human
-BB-cat+ner-8997164	gamma delta T cells	OBT:001342	OBT:001804	human
-BB-cat+ner-8997164	gamma delta T cells	OBT:001342	OBT:001804	human
+BB-cat+ner-8997164	animal models	OBT:000218	OBT:000000	bacteria habitat
+BB-cat+ner-8997164	TCR-gamma delta-bearing T cells	OBT:001342	OBT:000000	bacteria habitat
+BB-cat+ner-8997164	gamma delta T cells	OBT:001342	OBT:000000	bacteria habitat
+BB-cat+ner-8997164	gamma delta T cells	OBT:001342	OBT:000000	bacteria habitat
 BB-cat+ner-8997164	cells	OBT:001342	OBT:000010	part of living organism
 BB-cat+ner-8997164	granulomatous	OBT:000222	OBT:000000	bacteria habitat
-BB-cat+ner-8997164	gamma delta T cells	OBT:001342	OBT:001804	human
-BB-cat+ner-8997164	BCG granulomas	OBT:000222	OBT:000065	animal part
-BB-cat+ner-8997164	T-lymphocytes	OBT:001342	OBT:000065	animal part
-BB-cat+ner-8997164	BCG granulomatous lesion	OBT:000231	OBT:000010	part of living organism
+BB-cat+ner-8997164	gamma delta T cells	OBT:001342	OBT:000000	bacteria habitat
+BB-cat+ner-8997164	BCG granulomas	OBT:000222	OBT:000000	bacteria habitat
+BB-cat+ner-8997164	T-lymphocytes	OBT:001342	OBT:000000	bacteria habitat
+BB-cat+ner-8997164	BCG granulomatous lesion	OBT:000231	OBT:000000	bacteria habitat
 BB-cat+ner-8997164	granulomatous	OBT:000222	OBT:000000	bacteria habitat
-BB-cat+ner-8997164	gamma delta T cells	OBT:001342	OBT:001804	human
-BB-cat+ner-8997164	BCG granulomas without necrosis	OBT:000222	OBT:000010	part of living organism
-BB-cat+ner-8997164	gamma delta T cells	OBT:001342	OBT:001804	human
+BB-cat+ner-8997164	gamma delta T cells	OBT:001342	OBT:000000	bacteria habitat
+BB-cat+ner-8997164	BCG granulomas without necrosis	OBT:000222	OBT:000000	bacteria habitat
+BB-cat+ner-8997164	gamma delta T cells	OBT:001342	OBT:000000	bacteria habitat
 BB-cat+ner-8997164	granulomas with central caseous necrosis, calcification and fibrotic changes	OBT:000222	OBT:000000	bacteria habitat
-BB-cat+ner-8997164	CD8+ gamma delta T lymphocytes	OBT:001342	OBT:001804	human
-BB-cat+ner-8997164	BCG granuloma	OBT:000222	OBT:000065	animal part
-BB-cat+ner-9255900	patients with enteritis	OBT:002187	OBT:002133	patient
+BB-cat+ner-8997164	CD8+ gamma delta T lymphocytes	OBT:001342	OBT:000000	bacteria habitat
+BB-cat+ner-8997164	BCG granuloma	OBT:000222	OBT:000000	bacteria habitat
+BB-cat+ner-9255900	patients with enteritis	OBT:002187	OBT:002115	ill person
 BB-cat+ner-9255900	asymptomatic poultry	OBT:002165	OBT:000000	bacteria habitat
-BB-cat+ner-9255900	human	OBT:001804	OBT:001804	human
-BB-cat+ner-9255900	immunocompromised patient	OBT:002148	OBT:002187	patient with disease
-BB-cat+ner-9526514	tobacco	OBT:001923	OBT:000218	animal
-BB-cat+ner-9526514	hairy-root	OBT:001877	OBT:000010	part of living organism
-BB-cat+ner-9526514	plant	OBT:000219	OBT:000010	part of living organism
-BB-cat+ner-9526514	plant	OBT:000219	OBT:000010	part of living organism
+BB-cat+ner-9255900	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-9255900	immunocompromised patient	OBT:002148	OBT:002115	ill person
+BB-cat+ner-9526514	tobacco	OBT:001923	OBT:000000	bacteria habitat
+BB-cat+ner-9526514	hairy-root	OBT:001877	OBT:000000	bacteria habitat
+BB-cat+ner-9526514	plant	OBT:000219	OBT:000000	bacteria habitat
+BB-cat+ner-9526514	plant	OBT:000219	OBT:000000	bacteria habitat
 BB-cat+ner-9526514	root	OBT:001877	OBT:000000	bacteria habitat
-BB-cat+ner-9526514	tobacco leaf discs	OBT:000741	OBT:001295	mammalian
-BB-cat+ner-9526514	tobacco leaf	OBT:000849	OBT:000218	animal
-BB-cat+ner-9526514	tobacco	OBT:001923	OBT:000218	animal
-BB-cat+ner-9526514	Tobacco plants expressing a chimeric 35S::rolBTR gene	OBT:001923	OBT:000010	part of living organism
-BB-cat+ner-9526514	off-shoots at the stem base	OBT:000417	OBT:000010	part of living organism
-BB-cat+ner-9526514	stem	OBT:001935	OBT:000010	part of living organism
-BB-cat+ner-9526514	wrinkled leaves with epinastic growth	OBT:000849	OBT:001804	human
-BB-cat+ner-9535771	mammalian	OBT:001295	OBT:000065	animal part
-BB-cat+ner-9535771	mammalian	OBT:001295	OBT:000065	animal part
-BB-cat+ner-9535771	mammalian	OBT:001295	OBT:000065	animal part
-BB-cat+ner-9564489	Gingivomandibular	OBT:001868	OBT:000218	animal
-BB-cat+ner-9564489	patient with AIDS	OBT:002311	OBT:002187	patient with disease
-BB-cat+ner-9643457	neutrophil	OBT:002025	OBT:000010	part of living organism
-BB-cat+ner-9643457	cattle	OBT:002302	OBT:000065	animal part
-BB-cat+ner-9643457	healthy cows	OBT:002312	OBT:001804	human
-BB-cat+ner-9643457	neutrophil	OBT:002025	OBT:000010	part of living organism
-BB-cat+ner-9643457	neutrophils	OBT:002025	OBT:000010	part of living organism
-BB-cat+ner-9643457	neutrophils	OBT:002025	OBT:000010	part of living organism
-BB-cat+ner-9643457	cows	OBT:002312	OBT:001804	human
-BB-cat+ner-9643457	neutrophils	OBT:002025	OBT:000010	part of living organism
-BB-cat+ner-9643457	neutrophil	OBT:002025	OBT:000010	part of living organism
-BB-cat+ner-9643457	neutrophils	OBT:002025	OBT:000010	part of living organism
+BB-cat+ner-9526514	tobacco leaf discs	OBT:000741	OBT:000000	bacteria habitat
+BB-cat+ner-9526514	tobacco leaf	OBT:000849	OBT:000000	bacteria habitat
+BB-cat+ner-9526514	tobacco	OBT:001923	OBT:000000	bacteria habitat
+BB-cat+ner-9526514	Tobacco plants expressing a chimeric 35S::rolBTR gene	OBT:001923	OBT:000000	bacteria habitat
+BB-cat+ner-9526514	off-shoots at the stem base	OBT:000417	OBT:000000	bacteria habitat
+BB-cat+ner-9526514	stem	OBT:001935	OBT:000000	bacteria habitat
+BB-cat+ner-9526514	wrinkled leaves with epinastic growth	OBT:000849	OBT:000000	bacteria habitat
+BB-cat+ner-9535771	mammalian	OBT:001295	OBT:000010	part of living organism
+BB-cat+ner-9535771	mammalian	OBT:001295	OBT:000010	part of living organism
+BB-cat+ner-9535771	mammalian	OBT:001295	OBT:000010	part of living organism
+BB-cat+ner-9564489	Gingivomandibular	OBT:001868	OBT:000000	bacteria habitat
+BB-cat+ner-9564489	patient with AIDS	OBT:002311	OBT:002115	ill person
+BB-cat+ner-9643457	neutrophil	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-9643457	cattle	OBT:002302	OBT:000000	bacteria habitat
+BB-cat+ner-9643457	healthy cows	OBT:002312	OBT:000000	bacteria habitat
+BB-cat+ner-9643457	neutrophil	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-9643457	neutrophils	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-9643457	neutrophils	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-9643457	cows	OBT:002312	OBT:000000	bacteria habitat
+BB-cat+ner-9643457	neutrophils	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-9643457	neutrophil	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-9643457	neutrophils	OBT:002025	OBT:000000	bacteria habitat
 BB-cat+ner-9643457	severely diseased animals	OBT:000563	OBT:000000	bacteria habitat
 BB-cat+ner-9798026	gastric	OBT:000953	OBT:000065	animal part
-BB-cat+ner-9798026	human immunodeficiency virus-infected outpatients	OBT:002311	OBT:000065	animal part
+BB-cat+ner-9798026	human immunodeficiency virus-infected outpatients	OBT:002311	OBT:000000	bacteria habitat
 BB-cat+ner-9798026	gastric	OBT:000953	OBT:000065	animal part
-BB-cat+ner-9798026	persons infected with human immunodeficiency virus	OBT:002311	OBT:000065	animal part
-BB-cat+ner-9798026	asymptomatic subjects	OBT:002311	OBT:002133	patient
+BB-cat+ner-9798026	persons infected with human immunodeficiency virus	OBT:002311	OBT:000000	bacteria habitat
+BB-cat+ner-9798026	asymptomatic subjects	OBT:002311	OBT:000000	bacteria habitat
 BB-cat+ner-9798026	Gastric	OBT:000953	OBT:000065	animal part
 BB-cat+ner-9798026	gastric	OBT:000953	OBT:000065	animal part
 BB-cat+ner-9798026	CD4 cell	OBT:001342	OBT:000000	bacteria habitat
 BB-cat+ner-9798026	gastric	OBT:000953	OBT:000065	animal part
-BB-cat+ner-9798026	Subjects with hypoacidity	OBT:002311	OBT:002133	patient
-BB-cat+ner-9798026	subjects without hypoacidity	OBT:002311	OBT:002133	patient
+BB-cat+ner-9798026	Subjects with hypoacidity	OBT:002311	OBT:000000	bacteria habitat
+BB-cat+ner-9798026	subjects without hypoacidity	OBT:002311	OBT:000000	bacteria habitat
 BB-cat+ner-9798026	gastric	OBT:000953	OBT:000065	animal part
-BB-cat+ner-9798026	male gender	OBT:002294	OBT:000601	warm-blooded animal
+BB-cat+ner-9798026	male gender	OBT:002294	OBT:000000	bacteria habitat
 BB-cat+ner-9798026	gastric	OBT:000953	OBT:000065	animal part
 BB-cat+ner-9798026	CD4 cell	OBT:001342	OBT:000000	bacteria habitat
 BB-cat+ner-9798026	gastric	OBT:000953	OBT:000065	animal part
-BB-cat+ner-9798026	HIV-positive black	OBT:002311	OBT:002133	patient
-BB-cat+ner-9798026	HIV-positive	OBT:002311	OBT:002133	patient
+BB-cat+ner-9798026	HIV-positive black	OBT:002311	OBT:002115	ill person
+BB-cat+ner-9798026	HIV-positive	OBT:002311	OBT:002115	ill person
 BB-cat+ner-9798026	gastric	OBT:000953	OBT:000065	animal part
-BB-cat+ner-10496597	gastric mucosa	OBT:000965	OBT:000065	animal part
+BB-cat+ner-10496597	gastric mucosa	OBT:000965	OBT:000010	part of living organism
 BB-cat+ner-10496597	gastric	OBT:000953	OBT:000065	animal part
-BB-cat+ner-10496597	gastric mucosal-associated lymphoid tissue	OBT:000194	OBT:000065	animal part
-BB-cat+ner-10496597	gastric mucosal	OBT:000965	OBT:000065	animal part
+BB-cat+ner-10496597	gastric mucosal-associated lymphoid tissue	OBT:000194	OBT:000010	part of living organism
+BB-cat+ner-10496597	gastric mucosal	OBT:000965	OBT:000010	part of living organism
 BB-cat+ner-10496597	gastric	OBT:000953	OBT:000065	animal part
 BB-cat+ner-10496597	MALT	OBT:000194	OBT:000065	animal part
-BB-cat+ner-10496597	monoclonal B cells	OBT:001342	OBT:002133	patient
+BB-cat+ner-10496597	monoclonal B cells	OBT:001342	OBT:002115	ill person
 BB-cat+ner-10496597	gastric MALT	OBT:000194	OBT:000065	animal part
 BB-cat+ner-10496597	gastric	OBT:000953	OBT:000065	animal part
-BB-cat+ner-10496597	patients with high-grade primary gastric lymphoma	OBT:002238	OBT:002133	patient
-BB-cat+ner-10496597	patients	OBT:002238	OBT:002187	patient with disease
-BB-cat+ner-10496597	patients	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-10496597	patients	OBT:002187	OBT:002187	patient with disease
+BB-cat+ner-10496597	patients with high-grade primary gastric lymphoma	OBT:002238	OBT:002115	ill person
+BB-cat+ner-10496597	patients	OBT:002238	OBT:002115	ill person
+BB-cat+ner-10496597	patients	OBT:002216	OBT:002115	ill person
+BB-cat+ner-10496597	patients	OBT:002187	OBT:002115	ill person
 BB-cat+ner-10496597	gastric	OBT:000953	OBT:000065	animal part
 BB-cat+ner-10496597	MALT	OBT:000194	OBT:000065	animal part
-BB-cat+ner-10496597	CD20	OBT:001342	OBT:000065	animal part
+BB-cat+ner-10496597	CD20	OBT:001342	OBT:000000	bacteria habitat
 BB-cat+ner-10496597	CD3	OBT:001342	OBT:000000	bacteria habitat
 BB-cat+ner-10496597	MALT	OBT:000194	OBT:000065	animal part
-BB-cat+ner-10496597	patients with chronic active gastritis	OBT:002216	OBT:002133	patient
-BB-cat+ner-10496597	CD20-positive cells	OBT:001342	OBT:002133	patient
-BB-cat+ner-10496597	lymphocytic	OBT:001342	OBT:000065	animal part
-BB-cat+ner-10496597	B	OBT:001342	OBT:002187	patient with disease
-BB-cat+ner-10496597	T cells	OBT:001342	OBT:002133	patient
-BB-cat+ner-10496597	lymphocytic	OBT:001342	OBT:000065	animal part
+BB-cat+ner-10496597	patients with chronic active gastritis	OBT:002216	OBT:002115	ill person
+BB-cat+ner-10496597	CD20-positive cells	OBT:001342	OBT:000000	bacteria habitat
+BB-cat+ner-10496597	lymphocytic	OBT:001342	OBT:000000	bacteria habitat
+BB-cat+ner-10496597	B	OBT:001342	OBT:002115	ill person
+BB-cat+ner-10496597	T cells	OBT:001342	OBT:000000	bacteria habitat
+BB-cat+ner-10496597	lymphocytic	OBT:001342	OBT:000000	bacteria habitat
 BB-cat+ner-10496597	Lymphoepithelial lesions	OBT:000231	OBT:000000	bacteria habitat
 BB-cat+ner-10496597	Lymphoepithelial	OBT:000194	OBT:000000	bacteria habitat
 BB-cat+ner-10496597	gastric	OBT:000953	OBT:000065	animal part
-BB-cat+ner-10496597	monoclonal B cells	OBT:001342	OBT:002133	patient
-BB-cat+ner-10496597	CD20	OBT:001342	OBT:000065	animal part
+BB-cat+ner-10496597	monoclonal B cells	OBT:001342	OBT:002115	ill person
+BB-cat+ner-10496597	CD20	OBT:001342	OBT:000000	bacteria habitat
 BB-cat+ner-10496597	CD3	OBT:001342	OBT:000000	bacteria habitat
 BB-cat+ner-10496597	gastric MALT	OBT:000194	OBT:000065	animal part
 BB-cat+ner-10496597	gastric	OBT:000953	OBT:000065	animal part
-BB-cat+ner-11989773	chicken nugget processing plant	OBT:001748	OBT:000010	part of living organism
-BB-cat+ner-11989773	chicken nugget	OBT:001997	OBT:000065	animal part
-BB-cat+ner-11989773	chicken	OBT:001790	OBT:000065	animal part
-BB-cat+ner-11989773	food handlers	OBT:002230	OBT:000065	animal part
+BB-cat+ner-11989773	chicken nugget processing plant	OBT:001748	OBT:000000	bacteria habitat
+BB-cat+ner-11989773	chicken nugget	OBT:001997	OBT:000000	bacteria habitat
+BB-cat+ner-11989773	chicken	OBT:001790	OBT:000010	part of living organism
+BB-cat+ner-11989773	food handlers	OBT:002230	OBT:000000	bacteria habitat
 BB-cat+ner-11989773	food	OBT:000035	OBT:000010	part of living organism
-BB-cat+ner-11989773	chicken nugget processing plant	OBT:001748	OBT:000010	part of living organism
-BB-cat+ner-11989773	chicken nugget	OBT:001997	OBT:000065	animal part
-BB-cat+ner-11989773	selective agars	OBT:000073	OBT:000010	part of living organism
-BB-cat+ner-11989773	PALCAM	OBT:000073	OBT:001295	mammalian
-BB-cat+ner-11989773	LPM	OBT:000073	OBT:000218	animal
-BB-cat+ner-11989773	HCLA	OBT:000073	OBT:000218	animal
-BB-cat+ner-11989773	product samples	OBT:001997	OBT:002133	patient
-BB-cat+ner-11989773	food handler	OBT:002230	OBT:000065	animal part
+BB-cat+ner-11989773	chicken nugget processing plant	OBT:001748	OBT:000000	bacteria habitat
+BB-cat+ner-11989773	chicken nugget	OBT:001997	OBT:000000	bacteria habitat
+BB-cat+ner-11989773	selective agars	OBT:000073	OBT:000000	bacteria habitat
+BB-cat+ner-11989773	PALCAM	OBT:000073	OBT:000000	bacteria habitat
+BB-cat+ner-11989773	LPM	OBT:000073	OBT:000000	bacteria habitat
+BB-cat+ner-11989773	HCLA	OBT:000073	OBT:000000	bacteria habitat
+BB-cat+ner-11989773	product samples	OBT:001997	OBT:000000	bacteria habitat
+BB-cat+ner-11989773	food handler	OBT:002230	OBT:000000	bacteria habitat
 BB-cat+ner-11989773	food	OBT:000035	OBT:000010	part of living organism
-BB-cat+ner-11989773	food handlers	OBT:002230	OBT:000065	animal part
+BB-cat+ner-11989773	food handlers	OBT:002230	OBT:000000	bacteria habitat
 BB-cat+ner-11989773	food	OBT:000035	OBT:000010	part of living organism
-BB-cat+ner-11989773	product samples	OBT:001790	OBT:002133	patient
+BB-cat+ner-11989773	product samples	OBT:001790	OBT:000000	bacteria habitat
 BB-cat+ner-12109661	gastric	OBT:000953	OBT:000065	animal part
 BB-cat+ner-12109661	gastric	OBT:000953	OBT:000065	animal part
 BB-cat+ner-12109661	gastric	OBT:000953	OBT:000065	animal part
-BB-cat+ner-12109661	H. pylori-positive subjects	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-12109661	H. pylori-negative subjects	OBT:001894	OBT:002187	patient with disease
-BB-cat+ner-12109661	gastric mucosa	OBT:000965	OBT:000065	animal part
+BB-cat+ner-12109661	H. pylori-positive subjects	OBT:002216	OBT:002115	ill person
+BB-cat+ner-12109661	H. pylori-negative subjects	OBT:001894	OBT:002115	ill person
+BB-cat+ner-12109661	gastric mucosa	OBT:000965	OBT:000010	part of living organism
 BB-cat+ner-12109661	gastric	OBT:000953	OBT:000065	animal part
-BB-cat+ner-12109661	H. pylori-infected monkeys	OBT:000323	OBT:002187	patient with disease
-BB-cat+ner-12109661	control monkeys	OBT:002099	OBT:001804	human
-BB-cat+ner-12109661	children	OBT:002146	OBT:002187	patient with disease
-BB-cat+ner-12109661	gastric mucosa	OBT:000965	OBT:000065	animal part
-BB-cat+ner-12109661	gastric	OBT:000953	OBT:000065	animal part
-BB-cat+ner-12109661	gastric	OBT:000953	OBT:000065	animal part
-BB-cat+ner-12109661	gastric	OBT:000953	OBT:000065	animal part
-BB-cat+ner-12109661	patients with chronic gastritis	OBT:002216	OBT:002133	patient
-BB-cat+ner-12109661	patients with	OBT:002237	OBT:002187	patient with disease
-BB-cat+ner-12109661	gastric	OBT:000953	OBT:000065	animal part
-BB-cat+ner-12109661	young Japanese gastric cancer patients	OBT:002307	OBT:002133	patient
+BB-cat+ner-12109661	H. pylori-infected monkeys	OBT:000323	OBT:002115	ill person
+BB-cat+ner-12109661	control monkeys	OBT:002099	OBT:000218	animal
+BB-cat+ner-12109661	children	OBT:002146	OBT:002115	ill person
+BB-cat+ner-12109661	gastric mucosa	OBT:000965	OBT:000010	part of living organism
 BB-cat+ner-12109661	gastric	OBT:000953	OBT:000065	animal part
 BB-cat+ner-12109661	gastric	OBT:000953	OBT:000065	animal part
-BB-cat+ner-12109661	young Japanese people	OBT:002146	OBT:001804	human
-BB-cat+ner-12109661	gastric mucosa	OBT:000965	OBT:000065	animal part
+BB-cat+ner-12109661	gastric	OBT:000953	OBT:000065	animal part
+BB-cat+ner-12109661	patients with chronic gastritis	OBT:002216	OBT:002115	ill person
+BB-cat+ner-12109661	patients with	OBT:002237	OBT:002115	ill person
+BB-cat+ner-12109661	gastric	OBT:000953	OBT:000065	animal part
+BB-cat+ner-12109661	young Japanese gastric cancer patients	OBT:002307	OBT:002115	ill person
 BB-cat+ner-12109661	gastric	OBT:000953	OBT:000065	animal part
 BB-cat+ner-12109661	gastric	OBT:000953	OBT:000065	animal part
-BB-cat+ner-1214327	clinical	OBT:002133	OBT:001804	human
-BB-cat+ner-1214327	clinical	OBT:002133	OBT:001804	human
-BB-cat+ner-1214327	gastroenteritis patients	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-1214327	healthy carriers	OBT:001894	OBT:001804	human
-BB-cat+ner-1214327	water	OBT:000132	OBT:000010	part of living organism
-BB-cat+ner-1214327	fish samples	OBT:001902	OBT:002133	patient
-BB-cat+ner-1356998	Human	OBT:001804	OBT:001804	human
-BB-cat+ner-1356998	tick	OBT:000937	OBT:000010	part of living organism
-BB-cat+ner-1356998	ticks	OBT:000937	OBT:000010	part of living organism
-BB-cat+ner-1356998	humans	OBT:002187	OBT:001804	human
-BB-cat+ner-1356998	human	OBT:002187	OBT:001804	human
-BB-cat+ner-1356998	patients suffering from rickettsial disease of different degrees of severity	OBT:002216	OBT:001804	human
-BB-cat+ner-1356998	ticks	OBT:000937	OBT:000010	part of living organism
-BB-cat+ner-1356998	humans	OBT:002187	OBT:001804	human
+BB-cat+ner-12109661	young Japanese people	OBT:002146	OBT:000000	bacteria habitat
+BB-cat+ner-12109661	gastric mucosa	OBT:000965	OBT:000010	part of living organism
+BB-cat+ner-12109661	gastric	OBT:000953	OBT:000065	animal part
+BB-cat+ner-12109661	gastric	OBT:000953	OBT:000065	animal part
+BB-cat+ner-1214327	clinical	OBT:002133	OBT:000000	bacteria habitat
+BB-cat+ner-1214327	clinical	OBT:002133	OBT:000000	bacteria habitat
+BB-cat+ner-1214327	gastroenteritis patients	OBT:002216	OBT:002115	ill person
+BB-cat+ner-1214327	healthy carriers	OBT:001894	OBT:000000	bacteria habitat
+BB-cat+ner-1214327	water	OBT:000132	OBT:000000	bacteria habitat
+BB-cat+ner-1214327	fish samples	OBT:001902	OBT:000000	bacteria habitat
+BB-cat+ner-1356998	Human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-1356998	tick	OBT:000937	OBT:000000	bacteria habitat
+BB-cat+ner-1356998	ticks	OBT:000937	OBT:000000	bacteria habitat
+BB-cat+ner-1356998	humans	OBT:002187	OBT:002115	ill person
+BB-cat+ner-1356998	human	OBT:002187	OBT:002115	ill person
+BB-cat+ner-1356998	patients suffering from rickettsial disease of different degrees of severity	OBT:002216	OBT:000000	bacteria habitat
+BB-cat+ner-1356998	ticks	OBT:000937	OBT:000000	bacteria habitat
+BB-cat+ner-1356998	humans	OBT:002187	OBT:002115	ill person
 BB-cat+ner-14633026	Culex pipiens molestus	OBT:001561	OBT:000000	bacteria habitat
 BB-cat+ner-14633026	culicine mosquito	OBT:001561	OBT:000000	bacteria habitat
-BB-cat+ner-15293611	paediatric	OBT:002146	OBT:000065	animal part
-BB-cat+ner-15293611	paediatric	OBT:000052	OBT:000065	animal part
-BB-cat+ner-15293611	adult cystic fibrosis units	OBT:000052	OBT:000065	animal part
-BB-cat+ner-15293611	adult	OBT:002185	OBT:000065	animal part
-BB-cat+ner-15293611	cystic fibrosis (CF) units	OBT:001423	OBT:000065	animal part
+BB-cat+ner-15293611	paediatric	OBT:002146	OBT:000000	bacteria habitat
+BB-cat+ner-15293611	paediatric	OBT:000052	OBT:000000	bacteria habitat
+BB-cat+ner-15293611	adult cystic fibrosis units	OBT:000052	OBT:000000	bacteria habitat
+BB-cat+ner-15293611	adult	OBT:002185	OBT:000000	bacteria habitat
+BB-cat+ner-15293611	cystic fibrosis (CF) units	OBT:001423	OBT:000000	bacteria habitat
 BB-cat+ner-15293611	Sputum	OBT:000740	OBT:000000	bacteria habitat
-BB-cat+ner-15293611	productive patients	OBT:002225	OBT:002187	patient with disease
+BB-cat+ner-15293611	productive patients	OBT:002225	OBT:002115	ill person
 BB-cat+ner-15293611	regional paediatric	OBT:000052	OBT:000000	bacteria habitat
 BB-cat+ner-15293611	regional	OBT:000052	OBT:000000	bacteria habitat
-BB-cat+ner-15293611	paediatric	OBT:002146	OBT:000065	animal part
-BB-cat+ner-15293611	adult	OBT:002185	OBT:000065	animal part
+BB-cat+ner-15293611	paediatric	OBT:002146	OBT:000000	bacteria habitat
+BB-cat+ner-15293611	adult	OBT:002185	OBT:000000	bacteria habitat
 BB-cat+ner-15293611	sputum	OBT:000740	OBT:000000	bacteria habitat
-BB-cat+ner-15293611	patients	OBT:002225	OBT:002187	patient with disease
-BB-cat+ner-15293611	clinic	OBT:001801	OBT:002133	patient
-BB-cat+ner-15293611	patients	OBT:002225	OBT:002187	patient with disease
-BB-cat+ner-15293611	patients	OBT:002225	OBT:002187	patient with disease
-BB-cat+ner-15293611	patient	OBT:002225	OBT:002187	patient with disease
-BB-cat+ner-15293611	patients	OBT:002225	OBT:002187	patient with disease
-BB-cat+ner-15293611	patients	OBT:002225	OBT:002187	patient with disease
-BB-cat+ner-15293611	patients	OBT:002225	OBT:002187	patient with disease
-BB-cat+ner-15293611	lung	OBT:000287	OBT:001804	human
-BB-cat+ner-15293611	patients	OBT:002225	OBT:002187	patient with disease
-BB-cat+ner-15618837	dyspeptic patients	OBT:002187	OBT:002187	patient with disease
-BB-cat+ner-15618837	patients with chronic dyspepsia	OBT:002187	OBT:002133	patient
-BB-cat+ner-15618837	clinic	OBT:001801	OBT:002133	patient
-BB-cat+ner-15618837	Gastric biopsies	OBT:000953	OBT:000065	animal part
-BB-cat+ner-15618837	Patients with H. pylori infection	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-15618837	dyspeptic patients	OBT:002187	OBT:002187	patient with disease
-BB-cat+ner-16273411	neonatal	OBT:002293	OBT:000218	animal
-BB-cat+ner-16273411	humans	OBT:001804	OBT:001804	human
-BB-cat+ner-16273411	animals	OBT:000218	OBT:000065	animal part
-BB-cat+ner-16273411	humans	OBT:001804	OBT:001804	human
-BB-cat+ner-16273411	placenta of a 38-year-old secondary recurrent aborter	OBT:000577	OBT:002133	patient
-BB-cat+ner-16273411	38-year-old secondary recurrent aborter	OBT:002297	OBT:002133	patient
-BB-cat+ner-16458564	children	OBT:002146	OBT:002187	patient with disease
-BB-cat+ner-16458564	children less than five years of age	OBT:002146	OBT:002187	patient with disease
-BB-cat+ner-16458564	children with diarrhea	OBT:002115	OBT:002187	patient with disease
-BB-cat+ner-16458564	age-matched healthy controls	OBT:001894	OBT:001804	human
-BB-cat+ner-16458564	children with diarrhea	OBT:002115	OBT:002187	patient with disease
-BB-cat+ner-16458564	children less than two years of age	OBT:002115	OBT:002187	patient with disease
-BB-cat+ner-16458564	older children	OBT:002146	OBT:002187	patient with disease
-BB-cat+ner-16458564	Children attending the hospitals	OBT:002216	OBT:002133	patient
-BB-cat+ner-16458564	hospitals	OBT:001835	OBT:001804	human
-BB-cat+ner-16458564	Watery stool	OBT:000703	OBT:001804	human
+BB-cat+ner-15293611	patients	OBT:002225	OBT:002115	ill person
+BB-cat+ner-15293611	clinic	OBT:001801	OBT:000000	bacteria habitat
+BB-cat+ner-15293611	patients	OBT:002225	OBT:002115	ill person
+BB-cat+ner-15293611	patients	OBT:002225	OBT:002115	ill person
+BB-cat+ner-15293611	patient	OBT:002225	OBT:002115	ill person
+BB-cat+ner-15293611	patients	OBT:002225	OBT:002115	ill person
+BB-cat+ner-15293611	patients	OBT:002225	OBT:002115	ill person
+BB-cat+ner-15293611	patients	OBT:002225	OBT:002115	ill person
+BB-cat+ner-15293611	lung	OBT:000287	OBT:000000	bacteria habitat
+BB-cat+ner-15293611	patients	OBT:002225	OBT:002115	ill person
+BB-cat+ner-15618837	dyspeptic patients	OBT:002187	OBT:002115	ill person
+BB-cat+ner-15618837	patients with chronic dyspepsia	OBT:002187	OBT:002115	ill person
+BB-cat+ner-15618837	clinic	OBT:001801	OBT:000000	bacteria habitat
+BB-cat+ner-15618837	Gastric biopsies	OBT:000953	OBT:000010	part of living organism
+BB-cat+ner-15618837	Patients with H. pylori infection	OBT:002216	OBT:002115	ill person
+BB-cat+ner-15618837	dyspeptic patients	OBT:002187	OBT:002115	ill person
+BB-cat+ner-16273411	neonatal	OBT:002293	OBT:000000	bacteria habitat
+BB-cat+ner-16273411	humans	OBT:001804	OBT:002115	ill person
+BB-cat+ner-16273411	animals	OBT:000218	OBT:000000	bacteria habitat
+BB-cat+ner-16273411	humans	OBT:001804	OBT:002115	ill person
+BB-cat+ner-16273411	placenta of a 38-year-old secondary recurrent aborter	OBT:000577	OBT:002115	ill person
+BB-cat+ner-16273411	38-year-old secondary recurrent aborter	OBT:002297	OBT:002115	ill person
+BB-cat+ner-16458564	children	OBT:002146	OBT:002115	ill person
+BB-cat+ner-16458564	children less than five years of age	OBT:002146	OBT:002115	ill person
+BB-cat+ner-16458564	children with diarrhea	OBT:002115	OBT:002115	ill person
+BB-cat+ner-16458564	age-matched healthy controls	OBT:001894	OBT:000000	bacteria habitat
+BB-cat+ner-16458564	children with diarrhea	OBT:002115	OBT:002115	ill person
+BB-cat+ner-16458564	children less than two years of age	OBT:002115	OBT:002115	ill person
+BB-cat+ner-16458564	older children	OBT:002146	OBT:002115	ill person
+BB-cat+ner-16458564	Children attending the hospitals	OBT:002216	OBT:002115	ill person
+BB-cat+ner-16458564	hospitals	OBT:001835	OBT:000000	bacteria habitat
+BB-cat+ner-16458564	Watery stool	OBT:000703	OBT:000000	bacteria habitat
 BB-cat+ner-16458564	mucous stool	OBT:000703	OBT:000000	bacteria habitat
 BB-cat+ner-16458564	mucous	OBT:000640	OBT:000000	bacteria habitat
-BB-cat+ner-16458564	stools	OBT:000703	OBT:001804	human
-BB-cat+ner-16458564	hospitals	OBT:001835	OBT:001804	human
-BB-cat+ner-16458564	children	OBT:002201	OBT:002187	patient with disease
-BB-cat+ner-16458564	children	OBT:002216	OBT:002187	patient with disease
+BB-cat+ner-16458564	stools	OBT:000703	OBT:000000	bacteria habitat
+BB-cat+ner-16458564	hospitals	OBT:001835	OBT:000000	bacteria habitat
+BB-cat+ner-16458564	children	OBT:002201	OBT:002115	ill person
+BB-cat+ner-16458564	children	OBT:002216	OBT:002115	ill person
 BB-cat+ner-16458564	piped water	OBT:001210	OBT:000000	bacteria habitat
-BB-cat+ner-16458564	latrine	OBT:000579	OBT:001295	mammalian
+BB-cat+ner-16458564	latrine	OBT:000579	OBT:000000	bacteria habitat
 BB-cat+ner-16458564	mothers	OBT:002298	OBT:000000	bacteria habitat
-BB-cat+ner-16458564	children	OBT:002146	OBT:002187	patient with disease
+BB-cat+ner-16458564	children	OBT:002146	OBT:002115	ill person
 BB-cat+ner-16458564	mothers	OBT:002298	OBT:000000	bacteria habitat
-BB-cat+ner-16458564	children	OBT:002146	OBT:002187	patient with disease
-BB-cat+ner-16458564	fresh water supply	OBT:000838	OBT:000010	part of living organism
-BB-cat+ner-16458564	fresh water	OBT:001697	OBT:000010	part of living organism
+BB-cat+ner-16458564	children	OBT:002146	OBT:002115	ill person
+BB-cat+ner-16458564	fresh water supply	OBT:000838	OBT:000000	bacteria habitat
+BB-cat+ner-16458564	fresh water	OBT:001697	OBT:000000	bacteria habitat
 BB-cat+ner-16458564	unhygienic septic tank	OBT:001924	OBT:000000	bacteria habitat
-BB-cat+ner-16458564	children	OBT:002146	OBT:002187	patient with disease
+BB-cat+ner-16458564	children	OBT:002146	OBT:002115	ill person
 BB-cat+ner-16514151	rich medium	OBT:000001	OBT:000000	bacteria habitat
-BB-cat+ner-18094887	animals	OBT:000218	OBT:000065	animal part
-BB-cat+ner-18094887	humans	OBT:001804	OBT:001804	human
-BB-cat+ner-18094887	ticks	OBT:000937	OBT:000010	part of living organism
-BB-cat+ner-18094887	fleas	OBT:001513	OBT:000065	animal part
-BB-cat+ner-18094887	flea	OBT:001513	OBT:000065	animal part
-BB-cat+ner-18094887	Adoratopsylla antiquorum antiquorum	OBT:001513	OBT:001295	mammalian
+BB-cat+ner-18094887	animals	OBT:000218	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	humans	OBT:001804	OBT:002115	ill person
+BB-cat+ner-18094887	ticks	OBT:000937	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	fleas	OBT:001513	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	flea	OBT:001513	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	Adoratopsylla antiquorum antiquorum	OBT:001513	OBT:000000	bacteria habitat
 BB-cat+ner-18094887	Ctenocephalides felis felis	OBT:001513	OBT:000000	bacteria habitat
 BB-cat+ner-18094887	Polygenis atopus	OBT:001513	OBT:000000	bacteria habitat
-BB-cat+ner-18094887	Polygenis rimatus	OBT:001513	OBT:000601	warm-blooded animal
-BB-cat+ner-18094887	Polygenis roberti roberti	OBT:001513	OBT:001295	mammalian
+BB-cat+ner-18094887	Polygenis rimatus	OBT:001513	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	Polygenis roberti roberti	OBT:001513	OBT:000000	bacteria habitat
 BB-cat+ner-18094887	Polygenis tripus	OBT:001513	OBT:000000	bacteria habitat
 BB-cat+ner-18094887	Rhopalopsyllus lugubris	OBT:001513	OBT:000000	bacteria habitat
 BB-cat+ner-18094887	Rhopalopsyllus lutzi lutzi	OBT:001513	OBT:000000	bacteria habitat
-BB-cat+ner-18094887	tick	OBT:000937	OBT:000010	part of living organism
-BB-cat+ner-18094887	Amblyomma aureolatum	OBT:000937	OBT:000065	animal part
-BB-cat+ner-18094887	Amblyomma cajennense	OBT:000937	OBT:000065	animal part
-BB-cat+ner-18094887	Amblyomma dubitatum	OBT:000937	OBT:001804	human
+BB-cat+ner-18094887	tick	OBT:000937	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	Amblyomma aureolatum	OBT:000937	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	Amblyomma cajennense	OBT:000937	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	Amblyomma dubitatum	OBT:000937	OBT:000000	bacteria habitat
 BB-cat+ner-18094887	Ixodes loricatus	OBT:000937	OBT:000000	bacteria habitat
 BB-cat+ner-18094887	Rhipicephalus sanguineus	OBT:001890	OBT:000000	bacteria habitat
-BB-cat+ner-18094887	dogs	OBT:002072	OBT:000065	animal part
+BB-cat+ner-18094887	dogs	OBT:002072	OBT:000000	bacteria habitat
 BB-cat+ner-18094887	cats	OBT:002075	OBT:000000	bacteria habitat
-BB-cat+ner-18094887	opossums	OBT:001751	OBT:000065	animal part
-BB-cat+ner-18094887	fleas	OBT:001513	OBT:000065	animal part
-BB-cat+ner-18094887	ticks	OBT:000937	OBT:000010	part of living organism
-BB-cat+ner-18094887	animal	OBT:000316	OBT:000065	animal part
-BB-cat+ner-18094887	animal	OBT:000218	OBT:000065	animal part
-BB-cat+ner-18094887	human blood	OBT:000316	OBT:001804	human
-BB-cat+ner-18094887	human	OBT:001804	OBT:001804	human
-BB-cat+ner-18094887	animal	OBT:000218	OBT:000065	animal part
-BB-cat+ner-18094887	animal	OBT:000001	OBT:000065	animal part
-BB-cat+ner-18094887	human sera	OBT:000001	OBT:001804	human
-BB-cat+ner-18094887	human	OBT:001804	OBT:001804	human
-BB-cat+ner-18094887	opossum	OBT:000571	OBT:000065	animal part
-BB-cat+ner-18094887	opossum	OBT:001751	OBT:000065	animal part
-BB-cat+ner-18094887	dog	OBT:002072	OBT:000065	animal part
-BB-cat+ner-18094887	dog	OBT:000001	OBT:000065	animal part
+BB-cat+ner-18094887	opossums	OBT:001751	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	fleas	OBT:001513	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	ticks	OBT:000937	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	animal	OBT:000316	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	animal	OBT:000218	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	human blood	OBT:000316	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-18094887	animal	OBT:000218	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	animal	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	human sera	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-18094887	opossum	OBT:000571	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	opossum	OBT:001751	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	dog	OBT:002072	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	dog	OBT:000001	OBT:000000	bacteria habitat
 BB-cat+ner-18094887	horse	OBT:000571	OBT:000000	bacteria habitat
 BB-cat+ner-18094887	horse	OBT:002227	OBT:000000	bacteria habitat
-BB-cat+ner-18094887	human sera	OBT:000001	OBT:001804	human
-BB-cat+ner-18094887	human	OBT:001804	OBT:001804	human
-BB-cat+ner-18094887	sera	OBT:000571	OBT:000010	part of living organism
-BB-cat+ner-18094887	opossum	OBT:001751	OBT:000065	animal part
-BB-cat+ner-18094887	opossum	OBT:000001	OBT:000065	animal part
-BB-cat+ner-18094887	dog	OBT:000571	OBT:000065	animal part
-BB-cat+ner-18094887	dog	OBT:002072	OBT:000065	animal part
+BB-cat+ner-18094887	human sera	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-18094887	sera	OBT:000571	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	opossum	OBT:001751	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	opossum	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	dog	OBT:000571	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	dog	OBT:002072	OBT:000000	bacteria habitat
 BB-cat+ner-18094887	horse sera	OBT:000001	OBT:000000	bacteria habitat
 BB-cat+ner-18094887	horse	OBT:002227	OBT:000000	bacteria habitat
-BB-cat+ner-18094887	animals	OBT:000218	OBT:000065	animal part
-BB-cat+ner-18094887	humans	OBT:001804	OBT:001804	human
+BB-cat+ner-18094887	animals	OBT:000218	OBT:000000	bacteria habitat
+BB-cat+ner-18094887	humans	OBT:001804	OBT:002115	ill person
 BB-cat+ner-18694716	LTQ Orbitrap high-resolution mass spectrometer	OBT:000072	OBT:000000	bacteria habitat
-BB-cat+ner-18694716	mixtures of pure compounds and uniformly 13C-labeled cell extracts	OBT:000001	OBT:000010	part of living organism
-BB-cat+ner-18694716	13C-labeled cell	OBT:000056	OBT:000065	animal part
+BB-cat+ner-18694716	mixtures of pure compounds and uniformly 13C-labeled cell extracts	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-18694716	13C-labeled cell	OBT:000056	OBT:000000	bacteria habitat
 BB-cat+ner-18694716	LTQ Obitrap	OBT:000072	OBT:000000	bacteria habitat
-BB-cat+ner-18789156	monocyte-like THP-1 cells	OBT:002023	OBT:002187	patient with disease
-BB-cat+ner-18789156	human	OBT:001804	OBT:001804	human
-BB-cat+ner-18789156	immune cells	OBT:000224	OBT:000065	animal part
-BB-cat+ner-18789156	monocytes	OBT:002023	OBT:000010	part of living organism
+BB-cat+ner-18789156	monocyte-like THP-1 cells	OBT:002023	OBT:002115	ill person
+BB-cat+ner-18789156	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-18789156	immune cells	OBT:000224	OBT:000010	part of living organism
+BB-cat+ner-18789156	monocytes	OBT:002023	OBT:000000	bacteria habitat
 BB-cat+ner-18789156	macrophages	OBT:002022	OBT:000010	part of living organism
 BB-cat+ner-18789156	cell	OBT:000056	OBT:000010	part of living organism
-BB-cat+ner-18789156	human monocyte-like THP-1 cells	OBT:002023	OBT:002133	patient
-BB-cat+ner-18789156	human	OBT:001804	OBT:001804	human
-BB-cat+ner-18789156	monocyte-like THP-1 cells	OBT:002023	OBT:002187	patient with disease
-BB-cat+ner-18789156	monocyte-like THP-1 cells	OBT:002023	OBT:002187	patient with disease
+BB-cat+ner-18789156	human monocyte-like THP-1 cells	OBT:002023	OBT:002115	ill person
+BB-cat+ner-18789156	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-18789156	monocyte-like THP-1 cells	OBT:002023	OBT:002115	ill person
+BB-cat+ner-18789156	monocyte-like THP-1 cells	OBT:002023	OBT:002115	ill person
 BB-cat+ner-18789156	murine	OBT:001768	OBT:000000	bacteria habitat
-BB-cat+ner-18789156	monocyte-like THP-1 cells	OBT:002023	OBT:002187	patient with disease
+BB-cat+ner-18789156	monocyte-like THP-1 cells	OBT:002023	OBT:002115	ill person
 BB-cat+ner-18789156	cell	OBT:000056	OBT:000010	part of living organism
-BB-cat+ner-18789156	host tissues	OBT:000198	OBT:000065	animal part
-BB-cat+ner-18789156	infected monocytes	OBT:002023	OBT:000010	part of living organism
-BB-cat+ner-18789156	human	OBT:001804	OBT:001804	human
-BB-cat+ner-18789156	monocyte-like THP-1 cells	OBT:002023	OBT:002187	patient with disease
-BB-cat+ner-19004249	human	OBT:001804	OBT:001804	human
+BB-cat+ner-18789156	host tissues	OBT:000198	OBT:000000	bacteria habitat
+BB-cat+ner-18789156	infected monocytes	OBT:002023	OBT:000000	bacteria habitat
+BB-cat+ner-18789156	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-18789156	monocyte-like THP-1 cells	OBT:002023	OBT:002115	ill person
+BB-cat+ner-19004249	human	OBT:001804	OBT:002115	ill person
 BB-cat+ner-19339076	Bile	OBT:000313	OBT:000010	part of living organism
 BB-cat+ner-19339076	Bile	OBT:000313	OBT:000010	part of living organism
 BB-cat+ner-19339076	bile	OBT:000313	OBT:000010	part of living organism
 BB-cat+ner-19339076	bile	OBT:000313	OBT:000010	part of living organism
 BB-cat+ner-19339076	bile	OBT:000313	OBT:000010	part of living organism
-BB-cat+ner-19339076	lactose-free M17 medium supplemented with	OBT:000001	OBT:000010	part of living organism
-BB-cat+ner-19339076	lactose-free M17 medium supplemented with	OBT:000001	OBT:000010	part of living organism
+BB-cat+ner-19339076	lactose-free M17 medium supplemented with	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-19339076	lactose-free M17 medium supplemented with	OBT:000001	OBT:000000	bacteria habitat
 BB-cat+ner-19339076	bile	OBT:000313	OBT:000010	part of living organism
 BB-cat+ner-19339076	bile	OBT:000313	OBT:000010	part of living organism
 BB-cat+ner-19339076	bile	OBT:000313	OBT:000010	part of living organism
@@ -992,210 +992,210 @@ BB-cat+ner-19339076	LM17 medium	OBT:000001	OBT:000000	bacteria habitat
 BB-cat+ner-19339076	bile	OBT:000313	OBT:000010	part of living organism
 BB-cat+ner-19339076	bile	OBT:000313	OBT:000010	part of living organism
 BB-cat+ner-19339076	bile	OBT:000313	OBT:000010	part of living organism
-BB-cat+ner-19552770	partridges	OBT:002065	OBT:000010	part of living organism
+BB-cat+ner-19552770	partridges	OBT:002065	OBT:000000	bacteria habitat
 BB-cat+ner-19552770	Perdix perdix	OBT:002065	OBT:000000	bacteria habitat
 BB-cat+ner-19552770	commercially reared partridges	OBT:001799	OBT:000000	bacteria habitat
 BB-cat+ner-19552770	Perdix perdix	OBT:002065	OBT:000000	bacteria habitat
 BB-cat+ner-19552770	Cloacal swabs of partridges	OBT:001117	OBT:000000	bacteria habitat
 BB-cat+ner-19552770	Cloacal	OBT:001344	OBT:000000	bacteria habitat
-BB-cat+ner-19552770	partridges	OBT:001799	OBT:000010	part of living organism
-BB-cat+ner-19552770	male	OBT:002065	OBT:000010	part of living organism
-BB-cat+ner-19552770	female birds	OBT:001799	OBT:000010	part of living organism
-BB-cat+ner-19552770	game bird farm	OBT:000068	OBT:000065	animal part
-BB-cat+ner-19552770	game bird	OBT:001181	OBT:000065	animal part
+BB-cat+ner-19552770	partridges	OBT:001799	OBT:000000	bacteria habitat
+BB-cat+ner-19552770	male	OBT:002065	OBT:000000	bacteria habitat
+BB-cat+ner-19552770	female birds	OBT:001799	OBT:000000	bacteria habitat
+BB-cat+ner-19552770	game bird farm	OBT:000068	OBT:000000	bacteria habitat
+BB-cat+ner-19552770	game bird	OBT:001181	OBT:000000	bacteria habitat
 BB-cat+ner-19552770	cloacal swabs	OBT:001117	OBT:000000	bacteria habitat
-BB-cat+ner-19552770	Adult partridges	OBT:001799	OBT:000010	part of living organism
-BB-cat+ner-19552770	younger ones	OBT:002065	OBT:001804	human
-BB-cat+ner-19552770	game birds	OBT:001181	OBT:000065	animal part
-BB-cat+ner-19552770	human	OBT:001804	OBT:001804	human
-BB-cat+ner-19552770	animal species	OBT:000218	OBT:000010	part of living organism
+BB-cat+ner-19552770	Adult partridges	OBT:001799	OBT:000000	bacteria habitat
+BB-cat+ner-19552770	younger ones	OBT:002065	OBT:000000	bacteria habitat
+BB-cat+ner-19552770	game birds	OBT:001181	OBT:000000	bacteria habitat
+BB-cat+ner-19552770	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-19552770	animal species	OBT:000218	OBT:000000	bacteria habitat
 BB-cat+ner-19552770	commercially reared partridges	OBT:001799	OBT:000000	bacteria habitat
-BB-cat+ner-20174624	Neutrophils	OBT:002025	OBT:000010	part of living organism
+BB-cat+ner-20174624	Neutrophils	OBT:002025	OBT:000000	bacteria habitat
 BB-cat+ner-20174624	cell	OBT:000056	OBT:000010	part of living organism
-BB-cat+ner-20174624	human innate immune system	OBT:000580	OBT:000065	animal part
-BB-cat+ner-20174624	human	OBT:001804	OBT:001804	human
+BB-cat+ner-20174624	human innate immune system	OBT:000580	OBT:000010	part of living organism
+BB-cat+ner-20174624	human	OBT:001804	OBT:002115	ill person
 BB-cat+ner-20174624	macrophages	OBT:002022	OBT:000010	part of living organism
 BB-cat+ner-20174624	polymorphonuclear leukocytes	OBT:000471	OBT:000000	bacteria habitat
-BB-cat+ner-20174624	neutrophils	OBT:002025	OBT:000010	part of living organism
-BB-cat+ner-20174624	PMNs	OBT:002025	OBT:001804	human
-BB-cat+ner-20174624	innate immune	OBT:000580	OBT:000065	animal part
-BB-cat+ner-20174624	humans	OBT:001804	OBT:001804	human
-BB-cat+ner-20174624	murine macrophages	OBT:002022	OBT:000010	part of living organism
+BB-cat+ner-20174624	neutrophils	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-20174624	PMNs	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-20174624	innate immune	OBT:000580	OBT:000000	bacteria habitat
+BB-cat+ner-20174624	humans	OBT:001804	OBT:002115	ill person
+BB-cat+ner-20174624	murine macrophages	OBT:002022	OBT:000000	bacteria habitat
 BB-cat+ner-20174624	murine	OBT:001768	OBT:000000	bacteria habitat
 BB-cat+ner-20174624	murine	OBT:001925	OBT:000000	bacteria habitat
-BB-cat+ner-20174624	neutrophil	OBT:002025	OBT:000010	part of living organism
-BB-cat+ner-20174624	human monocyte-derived macrophages	OBT:002022	OBT:000010	part of living organism
-BB-cat+ner-20174624	human	OBT:001804	OBT:001804	human
+BB-cat+ner-20174624	neutrophil	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-20174624	human monocyte-derived macrophages	OBT:002022	OBT:000000	bacteria habitat
+BB-cat+ner-20174624	human	OBT:001804	OBT:002115	ill person
 BB-cat+ner-20174624	HMDM	OBT:002022	OBT:000000	bacteria habitat
-BB-cat+ner-20174624	neutrophils	OBT:002025	OBT:000010	part of living organism
-BB-cat+ner-20174624	HMDMs	OBT:002022	OBT:001804	human
-BB-cat+ner-20174624	human neutrophils	OBT:002025	OBT:001804	human
-BB-cat+ner-20174624	human	OBT:001804	OBT:001804	human
-BB-cat+ner-20174624	PMN	OBT:002025	OBT:000010	part of living organism
-BB-cat+ner-20174624	PMN	OBT:002025	OBT:000010	part of living organism
-BB-cat+ner-20174624	human	OBT:001804	OBT:001804	human
-BB-cat+ner-20174624	PMNs	OBT:002025	OBT:001804	human
+BB-cat+ner-20174624	neutrophils	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-20174624	HMDMs	OBT:002022	OBT:000036	eukaryote host
+BB-cat+ner-20174624	human neutrophils	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-20174624	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-20174624	PMN	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-20174624	PMN	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-20174624	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-20174624	PMNs	OBT:002025	OBT:000000	bacteria habitat
 BB-cat+ner-20174624	cell	OBT:000471	OBT:000010	part of living organism
-BB-cat+ner-20174624	PMN	OBT:002025	OBT:000010	part of living organism
-BB-cat+ner-20174624	PMN	OBT:002025	OBT:000010	part of living organism
-BB-cat+ner-20174624	PMN cell	OBT:002025	OBT:000010	part of living organism
-BB-cat+ner-20174624	human neutrophils	OBT:002025	OBT:001804	human
-BB-cat+ner-20174624	human	OBT:001804	OBT:001804	human
-BB-cat+ner-20174624	PMN	OBT:002025	OBT:000010	part of living organism
-BB-cat+ner-20174624	PMN cell	OBT:002025	OBT:000010	part of living organism
-BB-cat+ner-20174624	PMN	OBT:002025	OBT:000010	part of living organism
-BB-cat+ner-20174624	human innate immune	OBT:000580	OBT:001804	human
-BB-cat+ner-20174624	human	OBT:001804	OBT:001804	human
-BB-cat+ner-20174624	PMN	OBT:002025	OBT:000010	part of living organism
-BB-cat+ner-20580604	probiotic fermented milk beverage	OBT:000663	OBT:000010	part of living organism
-BB-cat+ner-20580604	intestinal microbiota	OBT:000033	OBT:000010	part of living organism
+BB-cat+ner-20174624	PMN	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-20174624	PMN	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-20174624	PMN cell	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-20174624	human neutrophils	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-20174624	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-20174624	PMN	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-20174624	PMN cell	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-20174624	PMN	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-20174624	human innate immune	OBT:000580	OBT:000000	bacteria habitat
+BB-cat+ner-20174624	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-20174624	PMN	OBT:002025	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	probiotic fermented milk beverage	OBT:000663	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	intestinal microbiota	OBT:000033	OBT:000000	bacteria habitat
 BB-cat+ner-20580604	intestinal	OBT:001893	OBT:000000	bacteria habitat
 BB-cat+ner-20580604	intestinal environment of healthy individuals with soft stools	OBT:001893	OBT:000000	bacteria habitat
 BB-cat+ner-20580604	healthy individuals with soft stools	OBT:001894	OBT:000000	bacteria habitat
-BB-cat+ner-20580604	soft stools	OBT:000703	OBT:000010	part of living organism
-BB-cat+ner-20580604	fermented milk beverage	OBT:002086	OBT:000010	part of living organism
-BB-cat+ner-20580604	bottle	OBT:002086	OBT:001804	human
-BB-cat+ner-20580604	probiotics	OBT:000663	OBT:001804	human
-BB-cat+ner-20580604	bottle	OBT:000663	OBT:001804	human
-BB-cat+ner-20580604	intestinal microbiota	OBT:000033	OBT:000010	part of living organism
+BB-cat+ner-20580604	soft stools	OBT:000703	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	fermented milk beverage	OBT:002086	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	bottle	OBT:002086	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	probiotics	OBT:000663	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	bottle	OBT:000663	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	intestinal microbiota	OBT:000033	OBT:000000	bacteria habitat
 BB-cat+ner-20580604	intestinal	OBT:001893	OBT:000000	bacteria habitat
 BB-cat+ner-20580604	intestinal environment of healthy individuals with soft stools	OBT:001893	OBT:000000	bacteria habitat
 BB-cat+ner-20580604	healthy individuals with soft stools	OBT:001894	OBT:000000	bacteria habitat
-BB-cat+ner-20580604	soft stools	OBT:000703	OBT:000010	part of living organism
-BB-cat+ner-20580604	healthy adults	OBT:002185	OBT:001804	human
-BB-cat+ner-20580604	soft stools	OBT:000703	OBT:000010	part of living organism
-BB-cat+ner-20580604	probiotics	OBT:000663	OBT:001804	human
-BB-cat+ner-20580604	probiotic	OBT:000663	OBT:000065	animal part
-BB-cat+ner-20580604	stool	OBT:000703	OBT:001804	human
-BB-cat+ner-20580604	water content of the stools	OBT:000103	OBT:000065	animal part
-BB-cat+ner-20580604	stools	OBT:000703	OBT:001804	human
-BB-cat+ner-20580604	probiotic group	OBT:002185	OBT:002133	patient
-BB-cat+ner-20580604	probiotic	OBT:000663	OBT:000065	animal part
-BB-cat+ner-20580604	placebo group	OBT:002185	OBT:002133	patient
-BB-cat+ner-20580604	stool	OBT:000703	OBT:001804	human
-BB-cat+ner-20580604	probiotic	OBT:000663	OBT:000065	animal part
-BB-cat+ner-20580604	stools	OBT:000703	OBT:001804	human
-BB-cat+ner-20580604	probiotics	OBT:000663	OBT:001804	human
-BB-cat+ner-20580604	probiotic	OBT:000663	OBT:000065	animal part
-BB-cat+ner-20580604	probiotic	OBT:002185	OBT:000065	animal part
-BB-cat+ner-20580604	placebo groups	OBT:002185	OBT:002133	patient
-BB-cat+ner-20580604	probiotic fermented milk beverage	OBT:002086	OBT:000010	part of living organism
+BB-cat+ner-20580604	soft stools	OBT:000703	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	healthy adults	OBT:002185	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	soft stools	OBT:000703	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	probiotics	OBT:000663	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	probiotic	OBT:000663	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	stool	OBT:000703	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	water content of the stools	OBT:000103	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	stools	OBT:000703	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	probiotic group	OBT:002185	OBT:002115	ill person
+BB-cat+ner-20580604	probiotic	OBT:000663	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	placebo group	OBT:002185	OBT:002115	ill person
+BB-cat+ner-20580604	stool	OBT:000703	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	probiotic	OBT:000663	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	stools	OBT:000703	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	probiotics	OBT:000663	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	probiotic	OBT:000663	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	probiotic	OBT:002185	OBT:000000	bacteria habitat
+BB-cat+ner-20580604	placebo groups	OBT:002185	OBT:002115	ill person
+BB-cat+ner-20580604	probiotic fermented milk beverage	OBT:002086	OBT:000000	bacteria habitat
 BB-cat+ner-20580604	intestine	OBT:001893	OBT:000000	bacteria habitat
-BB-cat+ner-20580604	stool	OBT:000703	OBT:001804	human
+BB-cat+ner-20580604	stool	OBT:000703	OBT:000000	bacteria habitat
 BB-cat+ner-20580604	healthy individuals with soft stool	OBT:001894	OBT:000000	bacteria habitat
-BB-cat+ner-20580604	soft stool	OBT:000703	OBT:000010	part of living organism
-BB-cat+ner-21270066	perianal ulceration	OBT:000538	OBT:000065	animal part
-BB-cat+ner-21270066	perianal	OBT:000920	OBT:000065	animal part
-BB-cat+ner-21270066	HIV-positive men who have sex with men	OBT:002311	OBT:001804	human
+BB-cat+ner-20580604	soft stool	OBT:000703	OBT:000000	bacteria habitat
+BB-cat+ner-21270066	perianal ulceration	OBT:000538	OBT:000000	bacteria habitat
+BB-cat+ner-21270066	perianal	OBT:000920	OBT:000000	bacteria habitat
+BB-cat+ner-21270066	HIV-positive men who have sex with men	OBT:002311	OBT:000000	bacteria habitat
 BB-cat+ner-21270066	men	OBT:002294	OBT:000065	animal part
 BB-cat+ner-21270066	MSM	OBT:002115	OBT:000065	animal part
-BB-cat+ner-21270066	Patients	OBT:002294	OBT:002187	patient with disease
-BB-cat+ner-21270066	rectal	OBT:000952	OBT:001804	human
-BB-cat+ner-21270066	MSM attending sexually transmitted infection clinics	OBT:002216	OBT:002133	patient
-BB-cat+ner-21270066	sexually transmitted infection clinics	OBT:001801	OBT:002133	patient
-BB-cat+ner-21270066	anorectal	OBT:000920	OBT:001295	mammalian
-BB-cat+ner-21270066	HIV-infected patients presenting with isolated perianal ulcer disease	OBT:002236	OBT:001804	human
-BB-cat+ner-21270066	perianal ulcer	OBT:000538	OBT:002133	patient
-BB-cat+ner-21270066	perianal	OBT:000920	OBT:000065	animal part
-BB-cat+ner-21270066	rectal	OBT:000952	OBT:001804	human
-BB-cat+ner-21270066	MSM with proctitis	OBT:002216	OBT:000065	animal part
-BB-cat+ner-21270066	MSM with perianal ulcer disease	OBT:002311	OBT:001804	human
-BB-cat+ner-21270066	perianal ulcer	OBT:000538	OBT:002133	patient
-BB-cat+ner-21270066	perianal	OBT:000920	OBT:000065	animal part
-BB-cat+ner-21543877	human population	OBT:001804	OBT:001804	human
-BB-cat+ner-21695078	respiratory	OBT:000164	OBT:001804	human
+BB-cat+ner-21270066	Patients	OBT:002294	OBT:002115	ill person
+BB-cat+ner-21270066	rectal	OBT:000952	OBT:000000	bacteria habitat
+BB-cat+ner-21270066	MSM attending sexually transmitted infection clinics	OBT:002216	OBT:002115	ill person
+BB-cat+ner-21270066	sexually transmitted infection clinics	OBT:001801	OBT:002115	ill person
+BB-cat+ner-21270066	anorectal	OBT:000920	OBT:000000	bacteria habitat
+BB-cat+ner-21270066	HIV-infected patients presenting with isolated perianal ulcer disease	OBT:002236	OBT:000000	bacteria habitat
+BB-cat+ner-21270066	perianal ulcer	OBT:000538	OBT:002115	ill person
+BB-cat+ner-21270066	perianal	OBT:000920	OBT:000000	bacteria habitat
+BB-cat+ner-21270066	rectal	OBT:000952	OBT:000000	bacteria habitat
+BB-cat+ner-21270066	MSM with proctitis	OBT:002216	OBT:000000	bacteria habitat
+BB-cat+ner-21270066	MSM with perianal ulcer disease	OBT:002311	OBT:000000	bacteria habitat
+BB-cat+ner-21270066	perianal ulcer	OBT:000538	OBT:002115	ill person
+BB-cat+ner-21270066	perianal	OBT:000920	OBT:000000	bacteria habitat
+BB-cat+ner-21543877	human population	OBT:001804	OBT:000000	bacteria habitat
+BB-cat+ner-21695078	respiratory	OBT:000164	OBT:000000	bacteria habitat
 BB-cat+ner-21695078	infant	OBT:002177	OBT:000000	bacteria habitat
-BB-cat+ner-21695078	female mouse	OBT:002153	OBT:001804	human
-BB-cat+ner-21695078	genital tract	OBT:000381	OBT:001804	human
+BB-cat+ner-21695078	female mouse	OBT:002153	OBT:000000	bacteria habitat
+BB-cat+ner-21695078	genital tract	OBT:000381	OBT:000000	bacteria habitat
 BB-cat+ner-21695078	oviduct	OBT:000381	OBT:000000	bacteria habitat
-BB-cat+ner-21695078	mucosal	OBT:000862	OBT:000010	part of living organism
-BB-cat+ner-21695078	mice	OBT:002153	OBT:001804	human
+BB-cat+ner-21695078	mucosal	OBT:000862	OBT:000000	bacteria habitat
+BB-cat+ner-21695078	mice	OBT:002153	OBT:000000	bacteria habitat
 BB-cat+ner-21695078	intranasal	OBT:000277	OBT:000000	bacteria habitat
-BB-cat+ner-21695078	mice	OBT:002153	OBT:001804	human
-BB-cat+ner-21695078	lung	OBT:000287	OBT:001804	human
-BB-cat+ner-21695078	neutrophils	OBT:000471	OBT:000010	part of living organism
-BB-cat+ner-21695078	T-cells	OBT:001342	OBT:000218	animal
-BB-cat+ner-21695078	lungs	OBT:000287	OBT:001804	human
-BB-cat+ner-21695078	TLR2-deficient mice	OBT:002153	OBT:001804	human
-BB-cat+ner-21695078	lung	OBT:000287	OBT:001804	human
-BB-cat+ner-21695078	mucosal	OBT:000862	OBT:000010	part of living organism
-BB-cat+ner-21695078	mucosal surfaces	OBT:001333	OBT:000010	part of living organism
+BB-cat+ner-21695078	mice	OBT:002153	OBT:000000	bacteria habitat
+BB-cat+ner-21695078	lung	OBT:000287	OBT:000000	bacteria habitat
+BB-cat+ner-21695078	neutrophils	OBT:000471	OBT:000000	bacteria habitat
+BB-cat+ner-21695078	T-cells	OBT:001342	OBT:000000	bacteria habitat
+BB-cat+ner-21695078	lungs	OBT:000287	OBT:000000	bacteria habitat
+BB-cat+ner-21695078	TLR2-deficient mice	OBT:002153	OBT:000000	bacteria habitat
+BB-cat+ner-21695078	lung	OBT:000287	OBT:000000	bacteria habitat
+BB-cat+ner-21695078	mucosal	OBT:000862	OBT:000000	bacteria habitat
+BB-cat+ner-21695078	mucosal surfaces	OBT:001333	OBT:000000	bacteria habitat
 BB-cat+ner-21894542	world's oceans	OBT:002038	OBT:000000	bacteria habitat
-BB-cat+ner-21894542	marine environments	OBT:000078	OBT:001804	human
-BB-cat+ner-21894542	bacterial flora	OBT:000033	OBT:000065	animal part
+BB-cat+ner-21894542	marine environments	OBT:000078	OBT:000000	bacteria habitat
+BB-cat+ner-21894542	bacterial flora	OBT:000033	OBT:000000	bacteria habitat
 BB-cat+ner-21894542	marine organisms	OBT:000002	OBT:000000	bacteria habitat
 BB-cat+ner-23902156	Penicillium crustosum	OBT:000106	OBT:000000	bacteria habitat
 BB-cat+ner-23902156	Penicillium brevicompactum	OBT:000106	OBT:000000	bacteria habitat
 BB-cat+ner-23902156	Penicillium crustosum	OBT:000106	OBT:000000	bacteria habitat
-BB-cat+ner-23902156	P. crustosum	OBT:000106	OBT:002187	patient with disease
-BB-cat+ner-23902156	Penicillium-sensitive atopic sera	OBT:000001	OBT:000010	part of living organism
-BB-cat+ner-25114119	mice	OBT:002153	OBT:001804	human
-BB-cat+ner-25114119	SCID mice	OBT:002153	OBT:001295	mammalian
-BB-cat+ner-25114119	aerosol	OBT:000030	OBT:001295	mammalian
-BB-cat+ner-25114119	aerosolized	OBT:000030	OBT:001804	human
+BB-cat+ner-23902156	P. crustosum	OBT:000106	OBT:002115	ill person
+BB-cat+ner-23902156	Penicillium-sensitive atopic sera	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-25114119	mice	OBT:002153	OBT:000000	bacteria habitat
+BB-cat+ner-25114119	SCID mice	OBT:002153	OBT:000000	bacteria habitat
+BB-cat+ner-25114119	aerosol	OBT:000030	OBT:000000	bacteria habitat
+BB-cat+ner-25114119	aerosolized	OBT:000030	OBT:000000	bacteria habitat
 BB-cat+ner-25114119	murine	OBT:001768	OBT:000000	bacteria habitat
-BB-cat+ner-25114119	mice	OBT:002153	OBT:001804	human
+BB-cat+ner-25114119	mice	OBT:002153	OBT:000000	bacteria habitat
 BB-cat+ner-25114119	macrophages	OBT:002022	OBT:000010	part of living organism
-BB-cat+ner-25114119	human macrophages	OBT:002022	OBT:000065	animal part
-BB-cat+ner-25114119	human	OBT:001804	OBT:001804	human
-BB-cat+ner-25204345	natural fermented koumiss	OBT:002289	OBT:000257	vertebrate
-BB-cat+ner-25204345	yoghurt	OBT:002080	OBT:000218	animal
+BB-cat+ner-25114119	human macrophages	OBT:002022	OBT:000000	bacteria habitat
+BB-cat+ner-25114119	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-25204345	natural fermented koumiss	OBT:002289	OBT:000000	bacteria habitat
+BB-cat+ner-25204345	yoghurt	OBT:002080	OBT:000000	bacteria habitat
 BB-cat+ner-351567	cellophane membrane disks	OBT:000072	OBT:000000	bacteria habitat
-BB-cat+ner-3544198	urine of leprosy patients	OBT:000706	OBT:002133	patient
-BB-cat+ner-3544198	leprosy patients	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-3544198	urine of leprosy patients	OBT:000706	OBT:002133	patient
-BB-cat+ner-3544198	leprosy patients	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-3544198	urine	OBT:000706	OBT:000065	animal part
-BB-cat+ner-3544198	urine of LL patients	OBT:000706	OBT:002133	patient
-BB-cat+ner-3544198	LL patients	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-3544198	nitrocellulose paper	OBT:000001	OBT:000065	animal part
-BB-cat+ner-3544198	urine of LL patients	OBT:000706	OBT:002133	patient
-BB-cat+ner-3544198	LL patients	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-460951	pulmonary	OBT:000287	OBT:000218	animal
-BB-cat+ner-460951	pulmonary	OBT:000287	OBT:000218	animal
+BB-cat+ner-3544198	urine of leprosy patients	OBT:000706	OBT:002115	ill person
+BB-cat+ner-3544198	leprosy patients	OBT:002216	OBT:002115	ill person
+BB-cat+ner-3544198	urine of leprosy patients	OBT:000706	OBT:002115	ill person
+BB-cat+ner-3544198	leprosy patients	OBT:002216	OBT:002115	ill person
+BB-cat+ner-3544198	urine	OBT:000706	OBT:000010	part of living organism
+BB-cat+ner-3544198	urine of LL patients	OBT:000706	OBT:002115	ill person
+BB-cat+ner-3544198	LL patients	OBT:002216	OBT:002115	ill person
+BB-cat+ner-3544198	nitrocellulose paper	OBT:000001	OBT:000000	bacteria habitat
+BB-cat+ner-3544198	urine of LL patients	OBT:000706	OBT:002115	ill person
+BB-cat+ner-3544198	LL patients	OBT:002216	OBT:002115	ill person
+BB-cat+ner-460951	pulmonary	OBT:000287	OBT:000000	bacteria habitat
+BB-cat+ner-460951	pulmonary	OBT:000287	OBT:000000	bacteria habitat
 BB-cat+ner-460951	lymph node	OBT:000548	OBT:000000	bacteria habitat
 BB-cat+ner-460951	lymph	OBT:000302	OBT:000000	bacteria habitat
-BB-cat+ner-460951	children	OBT:002187	OBT:002187	patient with disease
-BB-cat+ner-460951	superficial abscesses	OBT:000506	OBT:000065	animal part
-BB-cat+ner-47483	clinical	OBT:002133	OBT:001804	human
-BB-cat+ner-5526468	human	OBT:001804	OBT:001804	human
-BB-cat+ner-9521147	clinical	OBT:002133	OBT:001804	human
-BB-cat+ner-9521147	clinical	OBT:002133	OBT:001804	human
-BB-cat+ner-9521147	sera from patients with different clinical spectra and with other infections	OBT:000571	OBT:002133	patient
-BB-cat+ner-9521147	patients with different clinical spectra and with other infections	OBT:002216	OBT:002133	patient
-BB-cat+ner-9521147	clinical	OBT:002133	OBT:001804	human
-BB-cat+ner-9521147	soil	OBT:000133	OBT:001804	human
-BB-cat+ner-9521147	soil	OBT:000133	OBT:001804	human
-BB-cat+ner-9521147	sera from patients with melioidosis	OBT:000571	OBT:002133	patient
-BB-cat+ner-9521147	patients with melioidosis	OBT:002216	OBT:002187	patient with disease
+BB-cat+ner-460951	children	OBT:002187	OBT:002115	ill person
+BB-cat+ner-460951	superficial abscesses	OBT:000506	OBT:000000	bacteria habitat
+BB-cat+ner-47483	clinical	OBT:002133	OBT:000000	bacteria habitat
+BB-cat+ner-5526468	human	OBT:001804	OBT:002115	ill person
+BB-cat+ner-9521147	clinical	OBT:002133	OBT:000000	bacteria habitat
+BB-cat+ner-9521147	clinical	OBT:002133	OBT:000000	bacteria habitat
+BB-cat+ner-9521147	sera from patients with different clinical spectra and with other infections	OBT:000571	OBT:002115	ill person
+BB-cat+ner-9521147	patients with different clinical spectra and with other infections	OBT:002216	OBT:002115	ill person
+BB-cat+ner-9521147	clinical	OBT:002133	OBT:000000	bacteria habitat
+BB-cat+ner-9521147	soil	OBT:000133	OBT:000000	bacteria habitat
+BB-cat+ner-9521147	soil	OBT:000133	OBT:000000	bacteria habitat
+BB-cat+ner-9521147	sera from patients with melioidosis	OBT:000571	OBT:002115	ill person
+BB-cat+ner-9521147	patients with melioidosis	OBT:002216	OBT:002115	ill person
 BB-cat+ner-9521147	hyperimmune mouse sera	OBT:000571	OBT:000000	bacteria habitat
-BB-cat+ner-9521147	hyperimmune mouse	OBT:002153	OBT:001295	mammalian
-BB-cat+ner-9553794	vacuum- and modified-atmosphere-packed cold-smoked salmon stored at 5 degrees C	OBT:000895	OBT:002133	patient
-BB-cat+ner-9553794	microflora	OBT:000033	OBT:000065	animal part
-BB-cat+ner-9553794	spoiled cold-smoked salmon	OBT:000578	OBT:000065	animal part
-BB-cat+ner-9553794	vacuum-packed cold-smoked salmon	OBT:001656	OBT:000065	animal part
-BB-cat+ner-9553794	microflora	OBT:000033	OBT:000065	animal part
-BB-cat+ner-9553794	LAB	OBT:000033	OBT:000010	part of living organism
+BB-cat+ner-9521147	hyperimmune mouse	OBT:002153	OBT:000000	bacteria habitat
+BB-cat+ner-9553794	vacuum- and modified-atmosphere-packed cold-smoked salmon stored at 5 degrees C	OBT:000895	OBT:000000	bacteria habitat
+BB-cat+ner-9553794	microflora	OBT:000033	OBT:000000	bacteria habitat
+BB-cat+ner-9553794	spoiled cold-smoked salmon	OBT:000578	OBT:000000	bacteria habitat
+BB-cat+ner-9553794	vacuum-packed cold-smoked salmon	OBT:001656	OBT:000000	bacteria habitat
+BB-cat+ner-9553794	microflora	OBT:000033	OBT:000000	bacteria habitat
+BB-cat+ner-9553794	LAB	OBT:000033	OBT:000000	bacteria habitat
 BB-cat+ner-9553794	vacuum packages	OBT:001145	OBT:000000	bacteria habitat
-BB-cat+ner-9553794	vacuum-packed salmon	OBT:001656	OBT:000065	animal part
-BB-cat+ner-9553794	LAB microflora	OBT:000033	OBT:000010	part of living organism
-BB-cat+ner-9553794	cold-smoked salmon stored at 5 degrees C	OBT:000895	OBT:002187	patient with disease
-BB-cat+ner-9553794	salmon	OBT:001656	OBT:000065	animal part
-BB-cat+ner-9745160	duodenal ulcer	OBT:000935	OBT:002133	patient
-BB-cat+ner-9745160	duodenal	OBT:001293	OBT:001804	human
-BB-cat+ner-9745160	duodenal ulcer	OBT:000935	OBT:002133	patient
-BB-cat+ner-9745160	duodenal	OBT:001293	OBT:001804	human
-BB-cat+ner-9745160	patient	OBT:002133	OBT:002187	patient with disease
-BB-cat+ner-9745160	patients with active duodenal ulcer disease and H pylori infection	OBT:002236	OBT:002187	patient with disease
-BB-cat+ner-9745160	duodenal ulcer	OBT:000935	OBT:002133	patient
-BB-cat+ner-9745160	duodenal	OBT:001293	OBT:001804	human
-BB-cat+ner-9745160	ulcer	OBT:000935	OBT:002133	patient
-BB-cat+ner-9745160	patients	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-9745160	patients	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-9745160	ulcer	OBT:000538	OBT:002133	patient
-BB-cat+ner-9745160	patients	OBT:002216	OBT:002187	patient with disease
-BB-cat+ner-9745160	patients with PPI-based triple therapy	OBT:002186	OBT:002133	patient
-BB-cat+ner-9745160	patients with bismuth-based triple therapy	OBT:002236	OBT:002133	patient
-BB-cat+ner-9745160	patients	OBT:002133	OBT:002187	patient with disease
-BB-cat+ner-9745160	duodenal ulcer	OBT:000935	OBT:002133	patient
-BB-cat+ner-9745160	duodenal	OBT:001293	OBT:001804	human
+BB-cat+ner-9553794	vacuum-packed salmon	OBT:001656	OBT:000000	bacteria habitat
+BB-cat+ner-9553794	LAB microflora	OBT:000033	OBT:000000	bacteria habitat
+BB-cat+ner-9553794	cold-smoked salmon stored at 5 degrees C	OBT:000895	OBT:002115	ill person
+BB-cat+ner-9553794	salmon	OBT:001656	OBT:000000	bacteria habitat
+BB-cat+ner-9745160	duodenal ulcer	OBT:000935	OBT:002115	ill person
+BB-cat+ner-9745160	duodenal	OBT:001293	OBT:002115	ill person
+BB-cat+ner-9745160	duodenal ulcer	OBT:000935	OBT:002115	ill person
+BB-cat+ner-9745160	duodenal	OBT:001293	OBT:002115	ill person
+BB-cat+ner-9745160	patient	OBT:002133	OBT:002115	ill person
+BB-cat+ner-9745160	patients with active duodenal ulcer disease and H pylori infection	OBT:002236	OBT:002115	ill person
+BB-cat+ner-9745160	duodenal ulcer	OBT:000935	OBT:002115	ill person
+BB-cat+ner-9745160	duodenal	OBT:001293	OBT:002115	ill person
+BB-cat+ner-9745160	ulcer	OBT:000935	OBT:002115	ill person
+BB-cat+ner-9745160	patients	OBT:002216	OBT:002115	ill person
+BB-cat+ner-9745160	patients	OBT:002216	OBT:002115	ill person
+BB-cat+ner-9745160	ulcer	OBT:000538	OBT:002115	ill person
+BB-cat+ner-9745160	patients	OBT:002216	OBT:002115	ill person
+BB-cat+ner-9745160	patients with PPI-based triple therapy	OBT:002186	OBT:000000	bacteria habitat
+BB-cat+ner-9745160	patients with bismuth-based triple therapy	OBT:002236	OBT:000000	bacteria habitat
+BB-cat+ner-9745160	patients	OBT:002133	OBT:002115	ill person
+BB-cat+ner-9745160	duodenal ulcer	OBT:000935	OBT:002115	ill person
+BB-cat+ner-9745160	duodenal	OBT:001293	OBT:002115	ill person

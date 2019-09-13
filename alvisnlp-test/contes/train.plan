@@ -16,6 +16,7 @@
     <formFeatureName>norm</formFeatureName>
     <wordEmbeddings>vectors.json</wordEmbeddings>
     <ontology>OntoBiotope_BioNLP-ST-2016.obo</ontology>
+    <defaultFactor>0.65</defaultFactor>
     <termClassifiers>
       <classifier>
 	<documentFilter>@set == "train" or @set == "dev"</documentFilter>
