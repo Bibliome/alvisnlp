@@ -14,6 +14,10 @@
 			<p>Path to the file containing word embeddings, as produced by <module>Word2Vec</module>.</p>
 		</param-doc>
 		
+		<param-doc name="defaultFactor">
+		    <p>Default value for the decay factor.</p>
+		</param-doc>
+		
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.AbstractContesParamsDoc</include-doc>
 </alvisnlp-doc>
