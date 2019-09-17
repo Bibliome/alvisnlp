@@ -22,7 +22,9 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.ResponseFac
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DownCastElement;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
@@ -51,13 +53,16 @@ public class APIResponseFactory extends ResponseFactory {
 			return createNotFoundResponse(session);
 		}
 		String cmd = path.remove(0);
+		if (cmd.equals("treeview")) {
+			return treeviewResponse(session);
+		}
 		ItemsRetriever<?,?> retriever = getRetriever(cmd);
 		if (retriever == null) {
 			return createNotFoundResponse(session);
 		}
 		return createResponse(session, path, retriever);
 	}
-	
+
 	private ItemsRetriever<?,?> getRetriever(String cmd) {
 		switch (cmd) {
 			case "features":
@@ -87,6 +92,126 @@ public class APIResponseFactory extends ResponseFactory {
 		}
 	}
 	
+	private Response treeviewResponse(IHTTPSession session) throws CorpusDataException {
+		return createJSONResponse(treeviewChildren(session));
+	}
+	
+	@SuppressWarnings("unchecked")
+	private JSONArray treeviewChildren(IHTTPSession session) throws CorpusDataException {
+		JSONArray result = new JSONArray();
+		Map<String,String> params = session.getParms();
+		if (!params.containsKey("parentId")) {
+			JSONObject jCorpus = corpus.accept(ElementToTreeviewJSONConverter.INSTANCE, null);
+			result.add(jCorpus);
+			return result;
+		}
+		String id = params.get("parentId");
+		int dash = id.indexOf('-');
+		String ftor = id.substring(0, dash);
+		switch (ftor) {
+			case "children": {
+				String eltId = id.substring(dash+1);
+				Element elt = getElement(eltId);
+				return elt.accept(ElementToTreeviewChildrenJSONConverter.INSTANCE, result);
+			}
+			case "features": {
+				String eltId = id.substring(dash+1);
+				Element elt = getElement(eltId);
+				for (String key : elt.getFeatureKeys()) {
+					String value = elt.getLastFeature(key);
+					JSONObject jFeat = new JSONObject();
+					jFeat.put("id", String.format("values-%s-%s", elt.getStringId(), key));
+					jFeat.put("text", String.format("%s: %s", key, value));
+					jFeat.put("hasChildren", false);
+					result.add(jFeat);
+				}
+				return result;
+			}
+			case "documents": {
+				String eltId = id.substring(dash+1);
+				Element elt = getElement(eltId);
+				Corpus corpus = DownCastElement.toCorpus(elt);
+				if (corpus == null) {
+					throw new CorpusDataException("not a corpus");
+				}
+				for (Document doc : Iterators.loop(corpus.documentIterator())) {
+					JSONObject jDoc = doc.accept(ElementToTreeviewJSONConverter.INSTANCE, null);
+					result.add(jDoc);
+				}
+				return result;
+			}
+			case "sections": {
+				String eltId = id.substring(dash+1);
+				Element elt = getElement(eltId);
+				Document doc = DownCastElement.toDocument(elt);
+				for (Section sec : Iterators.loop(doc.sectionIterator())) {
+					JSONObject jSec = sec.accept(ElementToTreeviewJSONConverter.INSTANCE, null);
+					result.add(jSec);
+				}
+				return result;
+			}
+			case "tuples": {
+				String eltId = id.substring(dash+1);
+				Element elt = getElement(eltId);
+				Relation rel = DownCastElement.toRelation(elt);
+				for (Tuple t : rel.getTuples()) {
+					JSONObject jT = t.accept(ElementToTreeviewJSONConverter.INSTANCE, null);
+					result.add(jT);
+				}
+				return result;
+			}
+			case "relations": {
+				String eltId = id.substring(dash+1);
+				Element elt = getElement(eltId);
+				Section sec = DownCastElement.toSection(elt);
+				for (Relation rel : sec.getAllRelations()) {
+					JSONObject jRel = rel.accept(ElementToTreeviewJSONConverter.INSTANCE, null);
+					result.add(jRel);
+				}
+				return result;
+			}
+			case "layers": {
+				String eltId = id.substring(dash+1);
+				Element elt = getElement(eltId);
+				Section sec = DownCastElement.toSection(elt);
+				for (Layer l : sec.getAllLayers()) {
+					JSONObject jLayer = new JSONObject();
+					jLayer.put("id", String.format("annotations-%s-%s", sec.getStringId(), l.getName()));
+					jLayer.put("text", "Layer: " + l.getName());
+					jLayer.put("hasChildren", true);
+					result.add(jLayer);
+				}
+				return result;
+			}
+			case "arguments": {
+				String eltId = id.substring(dash+1);
+				Element elt = getElement(eltId);
+				Tuple t = DownCastElement.toTuple(elt);
+				for (String role : t.getRoles()) {
+					Element arg = t.getArgument(role);
+					JSONObject jArg = arg.accept(ElementToTreeviewJSONConverter.INSTANCE, role);
+					result.add(jArg);
+				}
+				return result;
+			}
+			case "annotations": {
+				String info = id.substring(dash+1);
+				int dash2 = info.indexOf("-");
+				String eltId = info.substring(0, dash2);
+				Element elt = getElement(eltId);
+				Section sec = DownCastElement.toSection(elt);
+				String layerName = info.substring(dash2+1);
+				Layer layer = sec.getLayer(layerName);
+				for (Annotation a : layer) {
+					JSONObject jA = a.accept(ElementToTreeviewJSONConverter.INSTANCE, null);
+					result.add(jA);
+				}
+				return result;
+			}
+		}
+		throw new CorpusDataException("unknown functor: " + ftor);
+	}
+		
 	@SuppressWarnings("unchecked")
 	private <P extends Element,I> Response createResponse(IHTTPSession session, List<String> path, ItemsRetriever<P,I> retriever) throws Exception {
 		if (!path.isEmpty()) {
