@@ -26,6 +26,9 @@ public enum ElementToTreeviewChildrenJSONConverter implements ElementVisitor<JSO
 	}
 	
 	private static JSONArray addFeaturesChild(JSONArray children, Element elt) {
+		if (elt.isFeatureless()) {
+			return children;
+		}
 		return addChild(children, "features", elt, "Features");
 	}
 
@@ -37,32 +40,49 @@ public enum ElementToTreeviewChildrenJSONConverter implements ElementVisitor<JSO
 	@Override
 	public JSONArray visit(Corpus corpus, JSONArray param) {
 		addFeaturesChild(param, corpus);
-		return addChild(param, "documents", corpus, "Documents");
+		if (corpus.documentIterator().hasNext()) {
+			addChild(param, "documents", corpus, "Documents");
+		}
+		return param;
 	}
 
 	@Override
 	public JSONArray visit(Document doc, JSONArray param) {
 		addFeaturesChild(param, doc);
-		return addChild(param, "sections", doc, "Sections");
+		if (doc.sectionIterator().hasNext()) {
+			addChild(param, "sections", doc, "Sections");
+		}
+		return param;
 	}
 
 	@Override
 	public JSONArray visit(Relation rel, JSONArray param) {
 		addFeaturesChild(param, rel);
-		return addChild(param, "tuples", rel, "Tuples");
+		if (!rel.getTuples().isEmpty()) {
+			addChild(param, "tuples", rel, "Tuples");
+		}
+		return param;
 	}
 
 	@Override
 	public JSONArray visit(Section sec, JSONArray param) {
 		addFeaturesChild(param, sec);
-		addChild(param, "layers", sec, "Layers");
-		return addChild(param, "relations", sec, "Relations");
+		if (!sec.getAllAnnotations().isEmpty()) {
+			addChild(param, "layers", sec, "Layers");
+		}
+		if (!sec.getAllRelations().isEmpty()) {
+			addChild(param, "relations", sec, "Relations");
+		}
+		return param;
 	}
 
 	@Override
 	public JSONArray visit(Tuple t, JSONArray param) {
 		addFeaturesChild(param, t);
-		return addChild(param, "arguments", t, "Arguments");
+		if (t.getArity() > 0) {
+			addChild(param, "arguments", t, "Arguments");
+		}
+		return param;
 	}
 
 	@Override

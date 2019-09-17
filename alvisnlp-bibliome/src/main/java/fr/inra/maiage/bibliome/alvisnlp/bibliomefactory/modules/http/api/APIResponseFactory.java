@@ -175,6 +175,9 @@ public class APIResponseFactory extends ResponseFactory {
 				Element elt = getElement(eltId);
 				Section sec = DownCastElement.toSection(elt);
 				for (Layer l : sec.getAllLayers()) {
+					if (l.isEmpty()) {
+						continue;
+					}
 					JSONObject jLayer = new JSONObject();
 					jLayer.put("id", String.format("annotations-%s-%s", sec.getStringId(), l.getName()));
 					jLayer.put("text", "Layer: " + l.getName());
