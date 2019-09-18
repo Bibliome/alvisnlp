@@ -39,16 +39,24 @@
 }
 
 .argument-role {
-	
+	float: left;
+	width: 80px;
+	color: red;
 }
 
 .annotation-node {
-	font-style: italic;
+
 }
 
 .annotation-offsets {
-	font-family: monospace;	
-	font-style: normal;
+	float: left;
+	width: 80px;
+	font-size: 60%;
+	padding-top: 1.4ex;
+}
+
+.annotation-form {
+	font-style: italic;
 }
 
 .feature-node {
@@ -56,11 +64,13 @@
 }
 
 .feature-key {
-	
+	float: left;
+	min-width: 120px;
+	color: blue;	
 }
 
 .feature-value {
-	
+	font-style: italic;
 }
 
 .layer-node {

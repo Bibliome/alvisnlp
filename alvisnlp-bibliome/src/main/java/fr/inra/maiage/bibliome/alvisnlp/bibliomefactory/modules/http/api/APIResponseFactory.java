@@ -121,7 +121,7 @@ public class APIResponseFactory extends ResponseFactory {
 					String value = elt.getLastFeature(key);
 					JSONObject jFeat = new JSONObject();
 					jFeat.put("id", String.format("values-%s-%s", elt.getStringId(), key));
-					jFeat.put("text", String.format("<span class=\"feature-node\"><span class=\"feature-key\">%s</span>: <span class=\"feature-value\">%s</span></span>", key, value));
+					jFeat.put("text", String.format("<span class=\"feature-node\"><span class=\"feature-key\">%s</span> <span class=\"feature-value\">%s</span></span>", key, value));
 					jFeat.put("hasChildren", false);
 					result.add(jFeat);
 				}

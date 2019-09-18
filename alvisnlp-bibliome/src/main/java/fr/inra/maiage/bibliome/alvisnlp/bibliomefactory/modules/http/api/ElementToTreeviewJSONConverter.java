@@ -35,7 +35,7 @@ public enum ElementToTreeviewJSONConverter implements ElementVisitor<JSONObject,
 
 	@Override
 	public JSONObject visit(Annotation a, String param) {
-		return createObject(a, prefix(param, String.format("<span class=\"element-node annotation-node\"><span class=\"annotation-offsets\">[%d-%d]</span> %s</span>", a.getStart(), a.getEnd(), a.getForm())), "/res/icons/ui-text-field.png", !a.isFeatureless());
+		return createObject(a, prefix(param, String.format("<span class=\"element-node annotation-node\"><span class=\"annotation-offsets\">[%d-%d]</span> <span class=\"annotation-form\">%s</span></span>", a.getStart(), a.getEnd(), a.getForm())), "/res/icons/ui-text-field.png", !a.isFeatureless());
 	}
 
 	@Override
