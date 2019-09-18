@@ -23,6 +23,7 @@ public enum ElementToTreeviewChildrenJSONConverter implements ElementVisitor<JSO
 		child.put("id", "features-" + elt.getStringId());
 		child.put("text", "<span class=\"title-node features-node\">Features</span>");
 		child.put("hasChildren", !elt.isFeatureless());
+		child.put("imageHtml", "<img width=\"24\" height=\"24\" src=\"/res/icons/category.png\">");
 		children.add(child);
 		return children;
 	}
@@ -75,6 +76,7 @@ public enum ElementToTreeviewChildrenJSONConverter implements ElementVisitor<JSO
 			jLayer.put("id", String.format("annotations-%s-%s", sec.getStringId(), name));
 			jLayer.put("text", String.format("<span class=\"layer-node\">%s</span>", name));
 			jLayer.put("hasChildren", !layer.isEmpty());
+			jLayer.put("imageHtml", "<img width=\"24\" height=\"24\" src=\"/res/icons/tags-label.png\">");
 			param.add(jLayer);
 		}
 		for (Relation rel : sec.getAllRelations()) {
