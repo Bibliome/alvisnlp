@@ -6,6 +6,7 @@
     	<link rel="stylesheet" href="/res/css/bootstrap.min.css">
  	    <script src="/res/js/gijgo.min.js" type="text/javascript"></script>
     	<link href="/res/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
 	</head>
 <body>
 	<div class="container-fluid">
@@ -15,6 +16,8 @@
             $(document).ready(function () {
                 $('#tree').tree({
                     uiLibrary: 'bootstrap4',
+                    //iconsLibrary: 'glyphicons',
+                    //iconsLibrary: 'materialicons',
                     dataSource: '/api/treeview',
                     primaryKey: 'id',
                     hasChildrenField: 'hasChildren',

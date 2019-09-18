@@ -16,7 +16,7 @@ public enum ElementToTreeviewChildrenJSONConverter implements ElementVisitor<JSO
 	INSTANCE;
 	
 	@SuppressWarnings("unchecked")
-	private static JSONArray addChild(JSONArray children, String prefix, Element elt, String text) {
+	private static JSONArray addChild(JSONArray children, String prefix, Element elt, String text, String icon) {
 		JSONObject child = new JSONObject();
 		child.put("id", prefix + "-" + elt.getStringId());
 		child.put("text", text);
@@ -29,7 +29,7 @@ public enum ElementToTreeviewChildrenJSONConverter implements ElementVisitor<JSO
 		if (elt.isFeatureless()) {
 			return children;
 		}
-		return addChild(children, "features", elt, "Features");
+		return addChild(children, "features", elt, "Features", null);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public enum ElementToTreeviewChildrenJSONConverter implements ElementVisitor<JSO
 	public JSONArray visit(Corpus corpus, JSONArray param) {
 		addFeaturesChild(param, corpus);
 		if (corpus.documentIterator().hasNext()) {
-			addChild(param, "documents", corpus, "Documents");
+			addChild(param, "documents", corpus, "Documents", null);
 		}
 		return param;
 	}
@@ -50,7 +50,7 @@ public enum ElementToTreeviewChildrenJSONConverter implements ElementVisitor<JSO
 	public JSONArray visit(Document doc, JSONArray param) {
 		addFeaturesChild(param, doc);
 		if (doc.sectionIterator().hasNext()) {
-			addChild(param, "sections", doc, "Sections");
+			addChild(param, "sections", doc, "Sections", null);
 		}
 		return param;
 	}
@@ -59,7 +59,7 @@ public enum ElementToTreeviewChildrenJSONConverter implements ElementVisitor<JSO
 	public JSONArray visit(Relation rel, JSONArray param) {
 		addFeaturesChild(param, rel);
 		if (!rel.getTuples().isEmpty()) {
-			addChild(param, "tuples", rel, "Tuples");
+			addChild(param, "tuples", rel, "Tuples", null);
 		}
 		return param;
 	}
@@ -68,10 +68,10 @@ public enum ElementToTreeviewChildrenJSONConverter implements ElementVisitor<JSO
 	public JSONArray visit(Section sec, JSONArray param) {
 		addFeaturesChild(param, sec);
 		if (!sec.getAllAnnotations().isEmpty()) {
-			addChild(param, "layers", sec, "Layers");
+			addChild(param, "layers", sec, "Layers", null);
 		}
 		if (!sec.getAllRelations().isEmpty()) {
-			addChild(param, "relations", sec, "Relations");
+			addChild(param, "relations", sec, "Relations", null);
 		}
 		return param;
 	}
@@ -80,7 +80,7 @@ public enum ElementToTreeviewChildrenJSONConverter implements ElementVisitor<JSO
 	public JSONArray visit(Tuple t, JSONArray param) {
 		addFeaturesChild(param, t);
 		if (t.getArity() > 0) {
-			addChild(param, "arguments", t, "Arguments");
+			addChild(param, "arguments", t, "Arguments", null);
 		}
 		return param;
 	}
