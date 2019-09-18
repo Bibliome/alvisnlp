@@ -29,7 +29,7 @@ public enum ElementToTreeviewChildrenJSONConverter implements ElementVisitor<JSO
 		if (elt.isFeatureless()) {
 			return children;
 		}
-		return addChild(children, "features", elt, "Features", null);
+		return addChild(children, "features", elt, "<span class=\"title-node features-node\">Features</span>", null);
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public enum ElementToTreeviewChildrenJSONConverter implements ElementVisitor<JSO
 	public JSONArray visit(Corpus corpus, JSONArray param) {
 		addFeaturesChild(param, corpus);
 		if (corpus.documentIterator().hasNext()) {
-			addChild(param, "documents", corpus, "Documents", null);
+			addChild(param, "documents", corpus, "<span class=\"title-node documents-node\">Documents</span>", null);
 		}
 		return param;
 	}
@@ -50,7 +50,7 @@ public enum ElementToTreeviewChildrenJSONConverter implements ElementVisitor<JSO
 	public JSONArray visit(Document doc, JSONArray param) {
 		addFeaturesChild(param, doc);
 		if (doc.sectionIterator().hasNext()) {
-			addChild(param, "sections", doc, "Sections", null);
+			addChild(param, "sections", doc, "<span class=\"title-node sections-node\">Sections</span>", null);
 		}
 		return param;
 	}
@@ -59,7 +59,7 @@ public enum ElementToTreeviewChildrenJSONConverter implements ElementVisitor<JSO
 	public JSONArray visit(Relation rel, JSONArray param) {
 		addFeaturesChild(param, rel);
 		if (!rel.getTuples().isEmpty()) {
-			addChild(param, "tuples", rel, "Tuples", null);
+			addChild(param, "tuples", rel, "<span class=\"title-node tuples-node\">Tuples</span>", null);
 		}
 		return param;
 	}
@@ -68,10 +68,10 @@ public enum ElementToTreeviewChildrenJSONConverter implements ElementVisitor<JSO
 	public JSONArray visit(Section sec, JSONArray param) {
 		addFeaturesChild(param, sec);
 		if (!sec.getAllAnnotations().isEmpty()) {
-			addChild(param, "layers", sec, "Layers", null);
+			addChild(param, "layers", sec, "<span class=\"title-node layers-node\">Layers</span>", null);
 		}
 		if (!sec.getAllRelations().isEmpty()) {
-			addChild(param, "relations", sec, "Relations", null);
+			addChild(param, "relations", sec, "<span class=\"title-node relations-node\">Relations</span>", null);
 		}
 		return param;
 	}
@@ -80,7 +80,7 @@ public enum ElementToTreeviewChildrenJSONConverter implements ElementVisitor<JSO
 	public JSONArray visit(Tuple t, JSONArray param) {
 		addFeaturesChild(param, t);
 		if (t.getArity() > 0) {
-			addChild(param, "arguments", t, "Arguments", null);
+			addChild(param, "arguments", t, "<span class=\"title-node arguments-node\">Arguments</span>", null);
 		}
 		return param;
 	}

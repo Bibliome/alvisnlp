@@ -121,7 +121,7 @@ public class APIResponseFactory extends ResponseFactory {
 					String value = elt.getLastFeature(key);
 					JSONObject jFeat = new JSONObject();
 					jFeat.put("id", String.format("values-%s-%s", elt.getStringId(), key));
-					jFeat.put("text", String.format("%s: %s", key, value));
+					jFeat.put("text", String.format("<span class=\"feature-node\"><span class=\"feature-key\">%s</span>: <span class=\"feature-value\">%s</span></span>", key, value));
 					jFeat.put("hasChildren", false);
 					result.add(jFeat);
 				}
@@ -180,7 +180,7 @@ public class APIResponseFactory extends ResponseFactory {
 					}
 					JSONObject jLayer = new JSONObject();
 					jLayer.put("id", String.format("annotations-%s-%s", sec.getStringId(), l.getName()));
-					jLayer.put("text", "Layer: " + l.getName());
+					jLayer.put("text", String.format("<span class=\"layer-node\">%s</span>", l.getName()));
 					jLayer.put("hasChildren", true);
 					result.add(jLayer);
 				}

@@ -1,8 +1,96 @@
-.element-type {
-	font-size: 50%;
+.title-node {
+	color: gray;
 }
 
-.element-face {
-	font-style: slanted;
+.features-node {
+	
 }
 
+.documents-node {
+	
+}
+
+.sections-node {
+	
+}
+
+.relations-nodes {
+	
+}
+
+.tuples-nodes {
+	
+}
+
+.arguments-node {
+	
+}
+
+.layers-node {
+	
+}
+
+.element-node {
+	
+}
+
+.corpus-node {
+	
+}
+
+.document-node {
+	
+}
+
+.document-node::before {
+	content: "Document: "
+}
+
+.section-node {
+	
+}
+
+.section-node::before {
+	content: "Section: ";
+}
+
+.relation-node {
+	
+}
+
+.relation-node::before {
+	content: "Relation: ";
+}
+
+.tuple-node {
+	
+}
+
+.annotation-node {
+	font-style: italic;
+}
+
+.annotation-offsets {
+	font-family: monospace;	
+	font-style: normal;
+}
+
+.feature-node {
+	
+}
+
+.feature-key {
+	
+}
+
+.feature-value {
+	
+}
+
+.layer-node {
+	
+}
+
+.layer-node::before {
+	content: "Layer: ";
+}
