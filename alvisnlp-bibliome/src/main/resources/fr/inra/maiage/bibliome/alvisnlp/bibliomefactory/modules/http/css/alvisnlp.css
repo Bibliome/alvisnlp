@@ -1,5 +1,5 @@
 .features-node {
-	color: gray;
+	color: #C29979;
 }
 
 .element-node {
@@ -14,24 +14,12 @@
 	
 }
 
-.document-node::before {
-	content: "Document: "
-}
-
 .section-node {
 	
 }
 
-.section-node::before {
-	content: "Section: ";
-}
-
 .relation-node {
 	
-}
-
-.relation-node::before {
-	content: "Relation: ";
 }
 
 .tuple-node {
@@ -41,7 +29,7 @@
 .argument-role {
 	float: left;
 	width: 80px;
-	color: red;
+	color: #C5283D;
 }
 
 .annotation-node {
@@ -66,7 +54,7 @@
 .feature-key {
 	float: left;
 	min-width: 120px;
-	color: blue;	
+	color: #C29979;
 }
 
 .feature-value {
@@ -77,6 +65,3 @@
 	
 }
 
-.layer-node::before {
-	content: "Layer: ";
-}
