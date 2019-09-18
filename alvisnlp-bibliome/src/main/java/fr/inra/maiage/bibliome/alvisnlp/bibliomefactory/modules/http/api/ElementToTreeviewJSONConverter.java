@@ -15,7 +15,7 @@ public enum ElementToTreeviewJSONConverter implements ElementVisitor<JSONObject,
 	INSTANCE;
 
 	@SuppressWarnings("unchecked")
-	private static JSONObject createObject(Element elt, String text, boolean hasChildren) {
+	private static JSONObject createObject(Element elt, String text, String icon, boolean hasChildren) {
 		JSONObject result = new JSONObject();
 		result.put("id", "children-" + elt.getStringId());
 		result.put("text", text);
@@ -32,41 +32,41 @@ public enum ElementToTreeviewJSONConverter implements ElementVisitor<JSONObject,
 
 	@Override
 	public JSONObject visit(Annotation a, String param) {
-		return createObject(a, prefix(param, String.format("[%d-%d] %s", a.getStart(), a.getEnd(), a.getForm())), !a.isFeatureless());
+		return createObject(a, prefix(param, String.format("[%d-%d] %s", a.getStart(), a.getEnd(), a.getForm())), null, !a.isFeatureless());
 	}
 
 	@Override
 	public JSONObject visit(Corpus corpus, String param) {
 		boolean hasChildren = (!corpus.isFeatureless()) || corpus.documentIterator().hasNext();
-		return createObject(corpus, prefix(param, "Corpus"), hasChildren);
+		return createObject(corpus, prefix(param, "Corpus"), null, hasChildren);
 	}
 
 	@Override
 	public JSONObject visit(Document doc, String param) {
 		boolean hasChildren = (!doc.isFeatureless()) || doc.sectionIterator().hasNext();
-		return createObject(doc, prefix(param, "Document: " + doc.getId()), hasChildren);
+		return createObject(doc, prefix(param, "Document: " + doc.getId()), null, hasChildren);
 	}
 
 	@Override
 	public JSONObject visit(Relation rel, String param) {
 		boolean hasChildren = (!rel.isFeatureless()) || (!rel.getTuples().isEmpty());
-		return createObject(rel, prefix(param, "Relation: " + rel.getName()), hasChildren);
+		return createObject(rel, prefix(param, "Relation: " + rel.getName()), null, hasChildren);
 	}
 
 	@Override
 	public JSONObject visit(Section sec, String param) {
 		boolean hasChildren = (!sec.isFeatureless()) || (!sec.getAllRelations().isEmpty()) || (!sec.getAllAnnotations().isEmpty());
-		return createObject(sec, prefix(param, "Section: " + sec.getName()), hasChildren);
+		return createObject(sec, prefix(param, "Section: " + sec.getName()), null, hasChildren);
 	}
 
 	@Override
 	public JSONObject visit(Tuple t, String param) {
 		boolean hasChildren = (!t.isFeatureless()) || (t.getArity() > 0);
-		return createObject(t, prefix(param, "Tuple"), hasChildren);
+		return createObject(t, prefix(param, "Tuple"), null, hasChildren);
 	}
 
 	@Override
 	public JSONObject visit(Element e, String param) {
-		return createObject(e, prefix(param, "Element"), !e.isFeatureless());
+		return createObject(e, prefix(param, "Element"), null, !e.isFeatureless());
 	}
 }
