@@ -2,12 +2,15 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api;
 
 import java.io.Reader;
 import java.io.StringReader;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import org.bouncycastle.util.Strings;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -19,6 +22,10 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.converters.expression.pa
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.converters.expression.parser.ParseException;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.standard.NavigationLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.ResponseFactory;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.ElementToChildrenTreeviewNodes;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.TreeviewElementNode;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.TreeviewFeatureNode;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.TreeviewNode;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
@@ -96,50 +103,32 @@ public class APIResponseFactory extends ResponseFactory {
 		return createJSONResponse(treeviewChildren(session));
 	}
 	
-	@SuppressWarnings("unchecked")
 	private JSONArray treeviewChildren(IHTTPSession session) throws CorpusDataException {
-		JSONArray result = new JSONArray();
 		Map<String,String> params = session.getParms();
 		if (!params.containsKey("parentId")) {
-			JSONObject jCorpus = corpus.accept(ElementToTreeviewJSONConverter.INSTANCE, null);
-			result.add(jCorpus);
-			return result;
+			return TreeviewElementNode.elementsToJSONArray(Collections.singletonList(corpus));
 		}
 		String id = params.get("parentId");
-		int dash = id.indexOf('-');
-		String ftor = id.substring(0, dash);
+		String[] split = Strings.split(id, '-');
+		String eltId = split[0];
+		Element elt = getElement(eltId);
+		String ftor = split[1];
 		switch (ftor) {
 			case "children": {
-				String eltId = id.substring(dash+1);
-				Element elt = getElement(eltId);
-				return elt.accept(ElementToTreeviewChildrenJSONConverter.INSTANCE, result);
+				@SuppressWarnings("rawtypes")
+				Collection<TreeviewNode> nodes = ElementToChildrenTreeviewNodes.getChildren(elt);
+				return TreeviewNode.nodesToJSONArray(nodes);
 			}
 			case "features": {
-				String eltId = id.substring(dash+1);
-				Element elt = getElement(eltId);
-				for (String key : elt.getFeatureKeys()) {
-					String value = elt.getLastFeature(key);
-					JSONObject jFeat = new JSONObject();
-					jFeat.put("id", String.format("values-%s-%s", elt.getStringId(), key));
-					jFeat.put("text", String.format("<span class=\"feature-node\"><span class=\"feature-key\">%s</span> <span class=\"feature-value\">%s</span></span>", key, value));
-					jFeat.put("hasChildren", false);
-					result.add(jFeat);
-				}
-				return result;
+				@SuppressWarnings("rawtypes")
+				Collection<TreeviewNode> nodes = TreeviewFeatureNode.getElementFeatureNodes(elt);
+				return TreeviewNode.nodesToJSONArray(nodes);
 			}
 			case "annotations": {
-				String info = id.substring(dash+1);
-				int dash2 = info.indexOf("-");
-				String eltId = info.substring(0, dash2);
-				Element elt = getElement(eltId);
 				Section sec = DownCastElement.toSection(elt);
-				String layerName = info.substring(dash2+1);
+				String layerName = split[2];
 				Layer layer = sec.getLayer(layerName);
-				for (Annotation a : layer) {
-					JSONObject jA = a.accept(ElementToTreeviewJSONConverter.INSTANCE, null);
-					result.add(jA);
-				}
-				return result;
+				return TreeviewElementNode.elementsToJSONArray(layer);
 			}
 		}
 		throw new CorpusDataException("unknown functor: " + ftor);
