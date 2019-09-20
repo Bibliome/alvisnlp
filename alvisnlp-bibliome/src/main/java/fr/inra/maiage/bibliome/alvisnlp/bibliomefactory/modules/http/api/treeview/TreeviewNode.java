@@ -31,9 +31,14 @@ public abstract class TreeviewNode<T extends Element> {
 	private String getImageHTML() {
 		return String.format("<img width=\"24\" height=\"24\" src=\"%s\">", getIconURL());
 	}
+	
+	private String getText() {
+		return String.format("<span class=\"%s\">%s</span>", getCSSClass(), getRawText());
+	}
 
 	protected abstract String getIdSuffix();
-	protected abstract String getText();
+	protected abstract String getRawText();
+	protected abstract String getCSSClass();
 	protected abstract boolean hasChild();
 	protected abstract String getIconURL();
 	

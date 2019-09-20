@@ -13,8 +13,13 @@ public class TreeviewFeaturesNode extends TreeviewNode<Element> {
 	}
 
 	@Override
-	protected String getText() {
-		return "<span class=\"title-node features-node\">Features</span>";
+	protected String getCSSClass() {
+		return "features-node";
+	}
+
+	@Override
+	protected String getRawText() {
+		return "Features";
 	}
 
 	@Override

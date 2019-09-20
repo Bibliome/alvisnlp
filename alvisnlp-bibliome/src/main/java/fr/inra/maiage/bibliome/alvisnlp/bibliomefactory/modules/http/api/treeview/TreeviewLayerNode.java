@@ -16,8 +16,13 @@ public class TreeviewLayerNode extends TreeviewNode<Section> {
 	}
 
 	@Override
-	protected String getText() {
-		return String.format("<span class=\"layer-node\">%s</span>", layerName);
+	protected String getCSSClass() {
+		return "layer-node";
+	}
+
+	@Override
+	protected String getRawText() {
+		return layerName;
 	}
 
 	@Override

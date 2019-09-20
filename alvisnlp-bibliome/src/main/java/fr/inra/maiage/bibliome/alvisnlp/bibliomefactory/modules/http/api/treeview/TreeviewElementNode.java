@@ -102,6 +102,11 @@ public class TreeviewElementNode extends TreeviewNode<Element> {
 		}
 	}
 	
+	@Override
+	protected String getCSSClass() {
+		return "element-node " + elt.accept(ElementCSSClass.INSTANCE, null);
+	}
+
 	private static String getRoleHTML(String role) {
 		if (role == null) {
 			return "";
@@ -110,8 +115,9 @@ public class TreeviewElementNode extends TreeviewNode<Element> {
 	}
 
 	@Override
-	protected String getText() {
-		return String.format("<span class=\"element-node %s\">%s%s</span>", elt.accept(ElementCSSClass.INSTANCE, null), getRoleHTML(role), elt.accept(ElementText.INSTANCE, null));
+	protected String getRawText() {
+		return getRoleHTML(role) + elt.accept(ElementText.INSTANCE, null);
+//		return String.format("<span class=\"element-node %s\">%s%s</span>", elt.accept(ElementCSSClass.INSTANCE, null), );
 	}
 	
 	private static enum ElementHasChildren implements ElementVisitor<Boolean,Void> {

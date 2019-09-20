@@ -19,8 +19,13 @@ public class TreeviewFeatureNode extends TreeviewNode<Element> {
 	}
 
 	@Override
-	protected String getText() {
-		return String.format("<span class=\"feature-node\"><span class=\"feature-key\">%s</span> <span class=\"feature-value\">%s</span></span>", key, elt.getLastFeature(key));
+	protected String getCSSClass() {
+		return "feature-node";
+	}
+
+	@Override
+	protected String getRawText() {
+		return String.format("<span class=\"feature-key\">%s</span> <span class=\"feature-value\">%s</span>", key, elt.getLastFeature(key));
 	}
 
 	@Override
