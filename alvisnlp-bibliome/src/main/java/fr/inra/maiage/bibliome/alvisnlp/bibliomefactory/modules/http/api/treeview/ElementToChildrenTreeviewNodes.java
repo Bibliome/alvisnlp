@@ -30,7 +30,7 @@ public enum ElementToChildrenTreeviewNodes implements ElementVisitor<Collection<
 	
 	private static Collection<TreeviewNode> addChildren(Collection<TreeviewNode> nodes, Iterable<? extends Element> elements) {
 		for (Element elt : elements) {
-			nodes.add(new TreeviewElementNode(elt, null));
+			nodes.add(TreeviewElementNode.toTreeviewNode(elt, null));
 		}
 		return nodes;
 	}
@@ -77,7 +77,7 @@ public enum ElementToChildrenTreeviewNodes implements ElementVisitor<Collection<
 		addFeaturesChild(param, t);
 		for (String role : t.getRoles()) {
 			Element arg = t.getArgument(role);
-			param.add(new TreeviewElementNode(arg, role));
+			param.add(TreeviewElementNode.toTreeviewNode(arg, role));
 		}
 		return param;
 	}
