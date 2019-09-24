@@ -1,3 +1,7 @@
+html {
+    overflow-y: scroll;
+}
+
 .tree-node {
 	padding-left: 5px;
 }
