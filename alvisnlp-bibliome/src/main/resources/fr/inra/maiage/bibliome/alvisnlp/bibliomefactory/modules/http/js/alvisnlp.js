@@ -71,6 +71,12 @@ function initTreeview() {
     /*theTree.on('dataBound', function () {
         theTree.off('dataBound');
     });*/
+    theTree.on('select', function() {
+    	$('#btn-evaluate').removeClass('disabled');
+    });
+    theTree.on('unselect', function() {
+    	$('#btn-evaluate').addClass('disabled');
+    });
 }
 
 $(document).ready(function () {
