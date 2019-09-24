@@ -35,8 +35,7 @@ public class TreeviewFeatureNode extends TreeviewNode<Element> {
 
 	@Override
 	protected String getIconURL() {
-		// TODO Auto-generated method stub
-		return null;
+		return "/res/icons/tick-small-red.png";
 	}
 	
 	@SuppressWarnings("rawtypes")

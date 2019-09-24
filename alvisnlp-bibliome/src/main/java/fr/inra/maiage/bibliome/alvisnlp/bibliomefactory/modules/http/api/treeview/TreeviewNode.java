@@ -33,7 +33,7 @@ public abstract class TreeviewNode<T extends Element> {
 	}
 	
 	private String getText() {
-		return String.format("<span class=\"%s\">%s</span>", getCSSClass(), getRawText());
+		return String.format("<span class=\"tree-node %s\">%s</span>", getCSSClass(), getRawText());
 	}
 
 	protected abstract String getIdSuffix();

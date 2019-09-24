@@ -1,5 +1,27 @@
+.tree-node {
+	padding-left: 5px;
+}
+
 .features-node {
 	color: #C29979;
+}
+
+li.active > div > span > .features-node {
+	color: #fff;
+}
+
+.feature-node {
+	
+}
+
+.feature-key {
+	float: left;
+	min-width: 120px;
+	color: #C29979;
+}
+
+li.active > div > span > .feature-node > .feature-key {
+	color: #fff;
 }
 
 .element-node {
@@ -26,10 +48,22 @@
 	
 }
 
+.eval-node {
+	color: #C5283D;
+}
+
+li.active > div > span > .eval-node {
+	color: #FFAFBA;
+}
+
 .argument-role {
 	float: left;
 	width: 80px;
-	color: #C5283D;
+	color: #127ECC;
+}
+
+li.active > div > span > span > .argument-role {
+	color: #fff;
 }
 
 .annotation-node {
@@ -45,16 +79,6 @@
 
 .annotation-form {
 	font-style: italic;
-}
-
-.feature-node {
-	
-}
-
-.feature-key {
-	float: left;
-	min-width: 120px;
-	color: #C29979;
 }
 
 .feature-value {
