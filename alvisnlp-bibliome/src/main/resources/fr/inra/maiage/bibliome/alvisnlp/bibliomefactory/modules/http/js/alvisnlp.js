@@ -1,5 +1,17 @@
 var theTree;
 
+function showAlert(level, message) {
+	$('#pane-alert').append(
+	    $('<div class="alert alert-dismissible" role="alert">')
+    		.addClass('alert-'+level)
+        	.append(
+	        	$('<span  style="margin-right: 5mm"></span>').append(message),
+    	        //$('<button type="button" class="close" data-dismiss="alert"></button>').append('<span>&times;</span>')
+        	)
+	        .fadeTo(5000, 1, function() { $(this).fadeOut(500); })
+    );
+}
+
 function getSelectedId() {
 	var sel = theTree.getSelections();
 	if (sel.length == 0) {
@@ -17,25 +29,31 @@ function insertEvaluationNode(eltId, expr, parentNode) {
 		{
 			parentId: eltId + '-evaluate',
 			expr: expr
-		},
-		function(data) {
-			//console.log(data);
-			theTree.addNode(
-				{
-					id: eltId + '-evaluation',
-					text: '<span class="eval-node">'+expr+'</span>',
-					hasChildren: false,
-					imageHtml: '<img width="24" height="24" src="/res/icons/magnifier.png">',
-					children: data,
-					expanded: false
-				},
-				parentNode,
-				2
-			);
-			//var newNode = theTree.getNodeById(eltId + '-evaluation');
-			//theTree.expand(newNode);
-		}
-	);
+		})
+		.done(
+			function(data) {
+				//console.log(data);
+				theTree.addNode(
+					{
+						id: eltId + '-evaluation',
+						text: '<span class="eval-node">'+expr+'</span>',
+						hasChildren: false,
+						imageHtml: '<img width="24" height="24" src="/res/icons/magnifier.png">',
+						children: data,
+						expanded: false
+					},
+					parentNode,
+					2
+				);
+				//var newNode = theTree.getNodeById(eltId + '-evaluation');
+				//theTree.expand(newNode);
+			})
+		.fail(
+			function(data) {
+				showAlert('danger', data.responseText);
+				console.error(data);
+			}
+		);
 }
 
 function evaluateExpression() {
@@ -51,11 +69,12 @@ function evaluateExpression() {
 			insertEvaluationNode(eltId, expr, eltNode);
 			theTree.off('dataBound');
 		});
+		theTree.expand(eltNode);
 	}
 	else {
 		insertEvaluationNode(eltId, expr, eltNode);
+		theTree.expand(eltNode);
 	}
-	theTree.expand(eltNode);
 }
 
 function initTreeview() {

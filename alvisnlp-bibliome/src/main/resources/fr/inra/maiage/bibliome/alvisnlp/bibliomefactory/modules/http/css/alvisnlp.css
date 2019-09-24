@@ -93,3 +93,14 @@ li.active > div > span > span > .argument-role {
 	
 }
 
+#pane-alert {
+	padding-bottom: 10px;
+}
+
+#pane-query {
+	padding-bottom: 10px;
+}
+
+#tree {
+	padding-left: 0.75rem;
+}
