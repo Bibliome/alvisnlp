@@ -99,11 +99,11 @@ public class APIResponseFactory extends ResponseFactory {
 		}
 	}
 	
-	private Response treeviewResponse(IHTTPSession session) throws CorpusDataException {
+	private Response treeviewResponse(IHTTPSession session) throws CorpusDataException, ParseException, ResolverException {
 		return createJSONResponse(treeviewChildren(session));
 	}
 	
-	private JSONArray treeviewChildren(IHTTPSession session) throws CorpusDataException {
+	private JSONArray treeviewChildren(IHTTPSession session) throws CorpusDataException, ParseException, ResolverException {
 		Map<String,String> params = session.getParms();
 		if (!params.containsKey("parentId")) {
 			return TreeviewElementNode.elementsToJSONArray(Collections.singletonList(corpus));
@@ -129,6 +129,15 @@ public class APIResponseFactory extends ResponseFactory {
 				String layerName = split[2];
 				Layer layer = sec.getLayer(layerName);
 				return TreeviewElementNode.elementsToJSONArray(layer);
+			}
+			case "evaluate": {
+				String exprString = params.get("expr");
+				expressionParser.ReInit(new StringReader(exprString));
+				Expression expr = expressionParser.expression();
+				Evaluator eval = expr.resolveExpressions(libraryResolver);
+				EvaluationContext ctx = new EvaluationContext(logger);
+				Iterator<Element> elts = eval.evaluateElements(ctx, elt);
+				return TreeviewElementNode.elementsToJSONArray(Iterators.loop(elts));
 			}
 		}
 		throw new CorpusDataException("unknown functor: " + ftor);
