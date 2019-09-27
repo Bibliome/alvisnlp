@@ -61,6 +61,7 @@ public class Server extends NanoHTTPD {
 			return defaultResponseFactory.createNotFoundResponse(session);
 		}
 		catch (Exception e) {
+			e.printStackTrace();
 			return defaultResponseFactory.createBadRequestResponse(e.getMessage());
 		}
 	}
