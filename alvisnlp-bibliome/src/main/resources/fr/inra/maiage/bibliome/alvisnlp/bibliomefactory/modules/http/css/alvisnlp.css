@@ -53,6 +53,7 @@ li.active > div > span > .feature-node > .feature-key {
 }
 
 .eval-node {
+	font-style: italic;
 	color: #C5283D;
 }
 

@@ -19,7 +19,7 @@ function getSelectedId() {
 	}
 	var nodeId = sel[0];
 	var info = nodeId.split('-');
-	console.log(nodeId);
+	//console.log(nodeId);
 	return info[0];
 }
 
@@ -36,9 +36,9 @@ function insertEvaluationNode(eltId, expr, parentNode) {
 				theTree.addNode(
 					{
 						id: eltId + '-evaluation',
-						text: '<span class="eval-node">'+expr+'</span>',
+						text: '<span class="tree-node eval-node">'+expr+'</span>',
 						hasChildren: false,
-						imageHtml: '<img width="24" height="24" src="/res/icons/magnifier.png">',
+						imageHtml: '<img width="24" height="24" src="/res/icons/gear.png">',
 						children: data,
 						expanded: false
 					},
@@ -47,6 +47,7 @@ function insertEvaluationNode(eltId, expr, parentNode) {
 				);
 				//var newNode = theTree.getNodeById(eltId + '-evaluation');
 				//theTree.expand(newNode);
+				$('#expression').val('');
 			})
 		.fail(
 			function(data) {
@@ -87,9 +88,6 @@ function initTreeview() {
         hasChildrenField: 'hasChildren',
         lazyLoading: true
     });
-    /*theTree.on('dataBound', function () {
-        theTree.off('dataBound');
-    });*/
     theTree.on('select', function() {
     	$('#btn-evaluate').removeClass('disabled');
     });
