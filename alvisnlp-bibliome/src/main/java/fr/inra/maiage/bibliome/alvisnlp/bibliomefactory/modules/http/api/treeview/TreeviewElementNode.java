@@ -29,7 +29,7 @@ public class TreeviewElementNode extends TreeviewNode<Element> {
 
 	@Override
 	protected String getIdSuffix() {
-		return "children";
+		return TreeviewConstants.NodeIdFunctors.CHILDREN;
 	}
 
 	private String getRoleHTML() {

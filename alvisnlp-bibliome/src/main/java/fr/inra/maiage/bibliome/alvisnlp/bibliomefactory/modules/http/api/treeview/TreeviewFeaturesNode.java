@@ -9,7 +9,7 @@ public class TreeviewFeaturesNode extends TreeviewNode<Element> {
 
 	@Override
 	protected String getIdSuffix() {
-		return "features";
+		return TreeviewConstants.NodeIdFunctors.FEATURES;
 	}
 
 	@Override

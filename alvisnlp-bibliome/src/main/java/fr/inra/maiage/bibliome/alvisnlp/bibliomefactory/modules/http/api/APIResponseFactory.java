@@ -23,6 +23,7 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.converters.expression.pa
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.standard.NavigationLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.ResponseFactory;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.ElementToChildrenTreeviewNodes;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.TreeviewConstants;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.TreeviewElementNode;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.TreeviewFeatureNode;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.TreeviewNode;
@@ -105,33 +106,33 @@ public class APIResponseFactory extends ResponseFactory {
 	
 	private JSONArray treeviewChildren(IHTTPSession session) throws CorpusDataException, ParseException, ResolverException {
 		Map<String,String> params = session.getParms();
-		if (!params.containsKey("parentId")) {
+		if (!params.containsKey(TreeviewConstants.Parameters.NODE_ID)) {
 			return TreeviewElementNode.elementsToJSONArray(Collections.singletonList(corpus));
 		}
-		String id = params.get("parentId");
+		String id = params.get(TreeviewConstants.Parameters.NODE_ID);
 		String[] split = Strings.split(id, '-');
 		String eltId = split[0];
 		Element elt = getElement(eltId);
 		String ftor = split[1];
 		switch (ftor) {
-			case "children": {
+			case TreeviewConstants.NodeIdFunctors.CHILDREN: {
 				@SuppressWarnings("rawtypes")
 				Collection<TreeviewNode> nodes = ElementToChildrenTreeviewNodes.getChildren(elt);
 				return TreeviewNode.nodesToJSONArray(nodes);
 			}
-			case "features": {
+			case TreeviewConstants.NodeIdFunctors.FEATURES: {
 				@SuppressWarnings("rawtypes")
 				Collection<TreeviewNode> nodes = TreeviewFeatureNode.getElementFeatureNodes(elt);
 				return TreeviewNode.nodesToJSONArray(nodes);
 			}
-			case "annotations": {
+			case TreeviewConstants.NodeIdFunctors.ANNOTATIONS: {
 				Section sec = DownCastElement.toSection(elt);
 				String layerName = split[2];
 				Layer layer = sec.getLayer(layerName);
 				return TreeviewElementNode.elementsToJSONArray(layer);
 			}
-			case "evaluate": {
-				String exprString = params.get("expr");
+			case TreeviewConstants.NodeIdFunctors.EVALUATE: {
+				String exprString = params.get(TreeviewConstants.Parameters.EXPRESSION);
 				expressionParser.ReInit(new StringReader(exprString));
 				Expression expr = expressionParser.expression();
 				Evaluator eval = expr.resolveExpressions(libraryResolver);

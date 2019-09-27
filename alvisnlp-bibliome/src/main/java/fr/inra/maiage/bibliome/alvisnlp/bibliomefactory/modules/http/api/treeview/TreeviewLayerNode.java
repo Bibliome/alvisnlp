@@ -12,7 +12,7 @@ public class TreeviewLayerNode extends TreeviewNode<Section> {
 
 	@Override
 	protected String getIdSuffix() {
-		return String.format("%s-%s", "annotations", layerName);
+		return String.format("%s-%s", TreeviewConstants.NodeIdFunctors.ANNOTATIONS, layerName);
 	}
 
 	@Override
