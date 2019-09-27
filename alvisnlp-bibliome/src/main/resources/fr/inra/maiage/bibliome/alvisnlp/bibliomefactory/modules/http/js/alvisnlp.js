@@ -1,4 +1,5 @@
 var theTree;
+var currentContentDocId = '';
 
 function showAlert(level, message) {
 	$('#pane-alert').append(
@@ -78,6 +79,11 @@ function evaluateExpression() {
 	}
 }
 
+function updateContentView(docId) {
+	console.log(docId);
+	currentContentDocId = docId;
+}
+
 function initTreeview() {
 	theTree = $('#tree').tree({
 		uiLibrary: 'bootstrap4',
@@ -88,8 +94,23 @@ function initTreeview() {
         hasChildrenField: 'hasChildren',
         lazyLoading: true
     });
-    theTree.on('select', function() {
+    theTree.on('select', function(e, node, id) {
     	$('#btn-evaluate').removeClass('disabled');
+		var info = id.split('-');
+		var eltId = info[0];
+		$.get(
+			'/api/doc-of',
+			{
+				eltId: eltId
+			})
+		.done(function(data) {
+			if ((data != '') && (data != currentContentDocId)) {
+				updateContentView(data);
+			}
+		})
+		.fail(function(data) {
+			console.error(data);
+		});
     });
     theTree.on('unselect', function() {
     	$('#btn-evaluate').addClass('disabled');

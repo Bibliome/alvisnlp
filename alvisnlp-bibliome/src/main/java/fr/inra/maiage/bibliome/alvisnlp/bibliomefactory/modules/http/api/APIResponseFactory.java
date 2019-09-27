@@ -22,6 +22,7 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.converters.expression.pa
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.converters.expression.parser.ParseException;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.standard.NavigationLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.ResponseFactory;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.tags.ElementDocument;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.ElementToChildrenTreeviewNodes;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.TreeviewConstants;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.TreeviewElementNode;
@@ -61,14 +62,21 @@ public class APIResponseFactory extends ResponseFactory {
 			return createNotFoundResponse(session);
 		}
 		String cmd = path.remove(0);
-		if (cmd.equals("treeview")) {
-			return treeviewResponse(session);
+		switch (cmd) {
+			case "treeview": {
+				return treeviewResponse(session);
+			}
+			case "doc-of": {
+				return documentOfResponse(session);
+			}
+			default: {
+				ItemsRetriever<?,?> retriever = getRetriever(cmd);
+				if (retriever == null) {
+					return createNotFoundResponse(session);
+				}
+				return createRetrieverResponse(session, path, retriever);
+			}
 		}
-		ItemsRetriever<?,?> retriever = getRetriever(cmd);
-		if (retriever == null) {
-			return createNotFoundResponse(session);
-		}
-		return createResponse(session, path, retriever);
 	}
 
 	private ItemsRetriever<?,?> getRetriever(String cmd) {
@@ -143,9 +151,20 @@ public class APIResponseFactory extends ResponseFactory {
 		}
 		throw new CorpusDataException("unknown functor: " + ftor);
 	}
-		
+
+	private Response documentOfResponse(IHTTPSession session) throws CorpusDataException {
+		Map<String,String> params = session.getParms();
+		if (!params.containsKey(TreeviewConstants.Parameters.ELEMENT_ID)) {
+			return createBadRequestResponse("missing parameter " + TreeviewConstants.Parameters.ELEMENT_ID);
+		}
+		String eltId = params.get(TreeviewConstants.Parameters.ELEMENT_ID);
+		Element elt = getElement(eltId);
+		Document doc = elt.accept(ElementDocument.INSTANCE, null);
+		return createTextResponse(doc == null ? "" : doc.getId());
+	}
+
 	@SuppressWarnings("unchecked")
-	private <P extends Element,I> Response createResponse(IHTTPSession session, List<String> path, ItemsRetriever<P,I> retriever) throws Exception {
+	private <P extends Element,I> Response createRetrieverResponse(IHTTPSession session, List<String> path, ItemsRetriever<P,I> retriever) throws Exception {
 		if (!path.isEmpty()) {
 			return createNotFoundResponse(session);
 		}
@@ -247,5 +266,9 @@ public class APIResponseFactory extends ResponseFactory {
 	
 	private static Response createJSONResponse(Object obj) {
 		return NanoHTTPD.newFixedLengthResponse(Status.OK, "application/json", obj.toString());
+	}
+
+	private static Response createTextResponse(String s) {
+		return NanoHTTPD.newFixedLengthResponse(Status.OK, "text/plain", s);
 	}
 }
