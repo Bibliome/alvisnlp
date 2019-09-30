@@ -6,6 +6,7 @@ public enum TreeviewConstants {
 	public static enum Parameters {
 		;
 
+		public static final String DOCUMENT_ID = "docId";
 		public static final String ELEMENT_ID = "eltId";
 		public static final String NODE_ID = "parentId";
 		public static final String EXPRESSION = "expr";

@@ -1,5 +1,6 @@
 var theTree;
 var currentContentDocId = '';
+var foo = null;
 
 function showAlert(level, message) {
 	$('#pane-alert').append(
@@ -81,7 +82,21 @@ function evaluateExpression() {
 
 function updateContentView(docId) {
 	console.log(docId);
-	currentContentDocId = docId;
+	$.get(
+		'/api/contentview',
+		{
+			docId: docId
+		})
+	.done(function(data) {
+		console.log(data);
+		$('.div-top').remove();
+		$('#pane-right').append(data);
+		currentContentDocId = docId;
+		foo = data;
+	})
+	.fail(function(data) {
+		console.error(data);
+	});
 }
 
 function initTreeview() {

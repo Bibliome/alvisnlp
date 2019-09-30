@@ -2,6 +2,8 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api;
 
 import java.io.Reader;
 import java.io.StringReader;
+import java.io.StringWriter;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -9,6 +11,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
+
+import javax.xml.parsers.ParserConfigurationException;
 
 import org.bouncycastle.util.Strings;
 import org.json.simple.JSONArray;
@@ -22,6 +26,7 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.converters.expression.pa
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.converters.expression.parser.ParseException;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.standard.NavigationLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.ResponseFactory;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.tags.ContentViewCreator;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.tags.ElementDocument;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.ElementToChildrenTreeviewNodes;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.TreeviewConstants;
@@ -43,6 +48,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.LibraryResolver;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 public class APIResponseFactory extends ResponseFactory {
 	private final LibraryResolver libraryResolver;
@@ -68,6 +74,9 @@ public class APIResponseFactory extends ResponseFactory {
 			}
 			case "doc-of": {
 				return documentOfResponse(session);
+			}
+			case "contentview":{
+				return contentviewResponse(session);
 			}
 			default: {
 				ItemsRetriever<?,?> retriever = getRetriever(cmd);
@@ -161,6 +170,24 @@ public class APIResponseFactory extends ResponseFactory {
 		Element elt = getElement(eltId);
 		Document doc = elt.accept(ElementDocument.INSTANCE, null);
 		return createTextResponse(doc == null ? "" : doc.getId());
+	}
+
+	private Response contentviewResponse(IHTTPSession session) throws ParserConfigurationException {
+		Map<String,String> params = session.getParms();
+		if (!params.containsKey(TreeviewConstants.Parameters.DOCUMENT_ID)) {
+			return createBadRequestResponse("missing parameter " + TreeviewConstants.Parameters.DOCUMENT_ID);
+		}
+		String docId = params.get(TreeviewConstants.Parameters.DOCUMENT_ID);
+		if (!corpus.hasDocument(docId)) {
+			return createBadRequestResponse("no document " + docId);
+		}
+		Document doc = corpus.getDocument(docId);
+		ContentViewCreator cvc = new ContentViewCreator("html", "tag");
+		cvc.addDocument(doc, Arrays.asList("Habitat", "Bacteria"));
+		org.w3c.dom.Document dom = cvc.getDocument();
+		StringWriter w = new StringWriter();
+		XMLUtils.writeDOMToFile(dom, null, w);
+		return createTextResponse(w.toString());
 	}
 
 	@SuppressWarnings("unchecked")

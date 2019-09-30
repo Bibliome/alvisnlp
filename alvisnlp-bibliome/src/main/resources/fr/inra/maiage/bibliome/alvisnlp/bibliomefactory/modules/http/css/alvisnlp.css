@@ -105,3 +105,84 @@ li.active > div > span > span > .argument-role {
 #tree {
 	padding-left: 0.75rem;
 }
+
+.doc-container {
+	
+}
+
+.doc-id {
+	font-size: 120%;
+}
+
+.doc-body {
+	
+}
+
+.sec-container {
+	
+}
+
+.sec-name {
+	
+}
+
+.sec-body {
+	line-height: 2;
+}
+
+.frag {
+}
+
+.frag-notempty {
+	border-top-color: grey;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-bottom-color: grey;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+.frag-nesting-0 {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.frag-nesting-1 {
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.frag-nesting-2 {
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+.frag-empty {
+	
+}
+
+.frag-left-closed {
+	padding-left: 2px;
+	border-left-color: grey;
+	border-left-width: 1px;
+	border-left-style: solid;
+	border-top-left-radius: 2px;
+	border-bottom-left-radius: 2px;
+}
+
+.frag-left-open {
+	
+}
+
+.frag-right-closed {
+	padding-right: 2px;
+	border-right-color: grey;
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-top-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+
+.frag-right-open {
+	
+}
