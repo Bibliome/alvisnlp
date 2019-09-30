@@ -3,13 +3,14 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.StringWriter;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 import java.util.logging.Logger;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -26,6 +27,7 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.converters.expression.pa
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.converters.expression.parser.ParseException;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.standard.NavigationLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.ResponseFactory;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.Server;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.tags.ContentViewCreator;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.tags.ElementDocument;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.ElementToChildrenTreeviewNodes;
@@ -72,8 +74,8 @@ public class APIResponseFactory extends ResponseFactory {
 			case "treeview": {
 				return treeviewResponse(session);
 			}
-			case "doc-of": {
-				return documentOfResponse(session);
+			case "docinfo": {
+				return documentInfoResponse(session);
 			}
 			case "contentview":{
 				return contentviewResponse(session);
@@ -161,7 +163,8 @@ public class APIResponseFactory extends ResponseFactory {
 		throw new CorpusDataException("unknown functor: " + ftor);
 	}
 
-	private Response documentOfResponse(IHTTPSession session) throws CorpusDataException {
+	@SuppressWarnings("unchecked")
+	private Response documentInfoResponse(IHTTPSession session) throws CorpusDataException {
 		Map<String,String> params = session.getParms();
 		if (!params.containsKey(TreeviewConstants.Parameters.ELEMENT_ID)) {
 			return createBadRequestResponse("missing parameter " + TreeviewConstants.Parameters.ELEMENT_ID);
@@ -169,25 +172,48 @@ public class APIResponseFactory extends ResponseFactory {
 		String eltId = params.get(TreeviewConstants.Parameters.ELEMENT_ID);
 		Element elt = getElement(eltId);
 		Document doc = elt.accept(ElementDocument.INSTANCE, null);
-		return createTextResponse(doc == null ? "" : doc.getId());
+		JSONObject result = new JSONObject();
+		if (doc != null) {
+			result.put("found", true);
+			result.put("id", doc.getId());
+			result.put("layers", getDocumentLayers(doc));
+		}
+		else {
+			result.put("found", false);
+		}
+		return createJSONResponse(result);
+	}
+	
+	@SuppressWarnings("unchecked")
+	private static JSONArray getDocumentLayers(Document doc) {
+		Set<String> layerNames = new TreeSet<String>();
+		for (Section sec : Iterators.loop(doc.sectionIterator())) {
+			for (Layer layer : sec.getAllLayers()) {
+				layerNames.add(layer.getName());
+			}
+		}
+		JSONArray result = new JSONArray();
+		result.addAll(layerNames);
+		return result;
 	}
 
 	private Response contentviewResponse(IHTTPSession session) throws ParserConfigurationException {
-		Map<String,String> params = session.getParms();
+		Map<String,List<String>> params = Server.getArrayParams(session.getQueryParameterString());
 		if (!params.containsKey(TreeviewConstants.Parameters.DOCUMENT_ID)) {
 			return createBadRequestResponse("missing parameter " + TreeviewConstants.Parameters.DOCUMENT_ID);
 		}
-		String docId = params.get(TreeviewConstants.Parameters.DOCUMENT_ID);
+		String docId = params.get(TreeviewConstants.Parameters.DOCUMENT_ID).get(0);
 		if (!corpus.hasDocument(docId)) {
 			return createBadRequestResponse("no document " + docId);
 		}
 		Document doc = corpus.getDocument(docId);
+		List<String> layers = params.containsKey(TreeviewConstants.Parameters.LAYERS) ? params.get(TreeviewConstants.Parameters.LAYERS) : Collections.emptyList();
 		ContentViewCreator cvc = new ContentViewCreator("html", "tag");
-		cvc.addDocument(doc, Arrays.asList("Habitat", "Bacteria"));
+		cvc.addDocument(doc, layers);
 		org.w3c.dom.Document dom = cvc.getDocument();
 		StringWriter w = new StringWriter();
 		XMLUtils.writeDOMToFile(dom, null, w);
-		return createTextResponse(w.toString());
+		return createTextResponse(w.toString().replace("\n", "<br/>"));
 	}
 
 	@SuppressWarnings("unchecked")

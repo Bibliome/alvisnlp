@@ -1,6 +1,6 @@
 var theTree;
 var currentContentDocId = '';
-var foo = null;
+
 
 function showAlert(level, message) {
 	$('#pane-alert').append(
@@ -80,19 +80,56 @@ function evaluateExpression() {
 	}
 }
 
+var layers = {};
+
+function updateLayers(docLayers) {
+	for (l in layers) {
+		if (layers.hasOwnProperty(l)) {
+			layers[l] = $('#check-'+l).prop('checked');
+		}
+	}
+	for (l of docLayers) {
+		if (!layers.hasOwnProperty(l)) {
+			layers[l] = false;
+		}
+	}
+	$('.custom-control.custom-checkbox.col-2').remove();
+	for (l in layers) {
+		if (layers.hasOwnProperty(l)) {
+			var checked = '';
+			if (layers[l]) {
+				checked = 'checked';
+			}
+			$('#layer-names').append('<div class="custom-control custom-checkbox col-2"><input type="checkbox" '+checked+' class="custom-control-input" id="check-'+l+'" onChange="updateContentView(currentContentDocId)"><label class="custom-control-label" for="check-'+l+'">'+l+'</label></div>');
+		}
+	}
+}
+
+function getCheckedLayers() {
+	var result = []; 
+	for (l in layers) {
+		if (layers.hasOwnProperty(l)) {
+			if ($('#check-'+l).prop('checked')) {
+				result.push(l);
+			}
+		}
+	}
+	return result;
+}
+
 function updateContentView(docId) {
 	console.log(docId);
 	$.get(
 		'/api/contentview',
 		{
-			docId: docId
+			docId: docId,
+			'layers[]': getCheckedLayers()
 		})
 	.done(function(data) {
-		console.log(data);
+		//console.log(data);
 		$('.div-top').remove();
-		$('#pane-right').append(data);
+		$('#content-view').append(data);
 		currentContentDocId = docId;
-		foo = data;
 	})
 	.fail(function(data) {
 		console.error(data);
@@ -114,13 +151,14 @@ function initTreeview() {
 		var info = id.split('-');
 		var eltId = info[0];
 		$.get(
-			'/api/doc-of',
+			'/api/docinfo',
 			{
 				eltId: eltId
 			})
 		.done(function(data) {
-			if ((data != '') && (data != currentContentDocId)) {
-				updateContentView(data);
+			if (data.found && (data.id != currentContentDocId)) {
+				updateLayers(data.layers);
+				updateContentView(data.id);
 			}
 		})
 		.fail(function(data) {

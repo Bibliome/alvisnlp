@@ -3,6 +3,7 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import fi.iki.elonen.NanoHTTPD;
@@ -79,5 +80,9 @@ public class Server extends NanoHTTPD {
 
 	public Logger getLogger() {
 		return logger;
+	}
+	
+	public static Map<String,List<String>> getArrayParams(String queryString) {
+		return decodeParameters(queryString); // protected ... srsly?
 	}
 }
