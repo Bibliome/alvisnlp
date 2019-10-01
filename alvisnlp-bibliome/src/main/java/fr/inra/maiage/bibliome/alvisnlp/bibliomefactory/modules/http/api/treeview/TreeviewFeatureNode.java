@@ -47,4 +47,9 @@ public class TreeviewFeatureNode extends TreeviewNode<Element> {
 		}
 		return result;
 	}
+
+	@Override
+	protected String getIconAlt() {
+		return "Feature";
+	}
 }

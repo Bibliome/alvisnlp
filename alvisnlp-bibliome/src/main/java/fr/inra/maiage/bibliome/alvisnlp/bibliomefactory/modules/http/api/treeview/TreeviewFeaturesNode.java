@@ -31,4 +31,9 @@ public class TreeviewFeaturesNode extends TreeviewNode<Element> {
 	protected String getIconURL() {
 		return "/res/icons/category.png";
 	}
+
+	@Override
+	protected String getIconAlt() {
+		return "Element features";
+	}
 }

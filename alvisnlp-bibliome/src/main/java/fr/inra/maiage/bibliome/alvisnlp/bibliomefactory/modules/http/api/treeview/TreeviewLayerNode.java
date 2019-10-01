@@ -34,4 +34,9 @@ public class TreeviewLayerNode extends TreeviewNode<Section> {
 	protected String getIconURL() {
 		return "/res/icons/tags-label.png";
 	}
+
+	@Override
+	protected String getIconAlt() {
+		return "Layer";
+	}
 }

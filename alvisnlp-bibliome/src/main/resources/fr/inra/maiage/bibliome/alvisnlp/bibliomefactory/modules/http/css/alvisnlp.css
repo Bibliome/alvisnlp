@@ -95,35 +95,63 @@ li.active > div > span > span > .argument-role {
 }
 
 #pane-alert {
-	padding-bottom: 10px;
+	height: 10vh;
 }
 
 #pane-query {
-	padding-bottom: 10px;
+	height: 10vh;
+}
+
+#btn-evaluate {
+	width: 100%;
 }
 
 #tree {
 	padding-left: 0.75rem;
+	height: 80vh;
+	overflow-y: scroll;
+	width: 100%;
+}
+
+#pane-right {
+	margin-top: 20vh;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#layer-names {
+	
+}
+
+.layer-icon {
+	margin-right: 10px;
 }
 
 .doc-container {
-	
+	margin-top: 3ex;
 }
 
 .doc-id {
-	font-size: 120%;
+	font-size: 150%;
+}
+
+.doc-icon {
+	margin-right: 10px;
 }
 
 .doc-body {
-	
 }
 
 .sec-container {
-	
+	margin-top: 1ex;
 }
 
 .sec-name {
-	
+	font-size: 120%;
+}
+
+.sec-icon {
+	margin-right: 10px;
 }
 
 .sec-body {
@@ -134,10 +162,10 @@ li.active > div > span > span > .argument-role {
 }
 
 .frag-notempty {
-	border-top-color: grey;
+	border-top-color: black;
 	border-top-width: 1px;
 	border-top-style: solid;
-	border-bottom-color: grey;
+	border-bottom-color: black;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 }
@@ -163,7 +191,7 @@ li.active > div > span > span > .argument-role {
 
 .frag-left-closed {
 	padding-left: 2px;
-	border-left-color: grey;
+	border-left-color: black;
 	border-left-width: 1px;
 	border-left-style: solid;
 	border-top-left-radius: 2px;
@@ -176,7 +204,7 @@ li.active > div > span > span > .argument-role {
 
 .frag-right-closed {
 	padding-right: 2px;
-	border-right-color: grey;
+	border-right-color: black;
 	border-right-width: 1px;
 	border-right-style: solid;
 	border-top-right-radius: 2px;

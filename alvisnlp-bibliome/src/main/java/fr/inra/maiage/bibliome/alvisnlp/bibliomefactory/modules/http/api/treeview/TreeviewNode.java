@@ -29,7 +29,7 @@ public abstract class TreeviewNode<T extends Element> {
 	}
 	
 	private String getImageHTML() {
-		return String.format("<img width=\"24\" height=\"24\" src=\"%s\">", getIconURL());
+		return String.format("<img width=\"24\" height=\"24\" src=\"%s\" alt=\"%s\">", getIconURL(), getIconAlt());
 	}
 	
 	private String getText() {
@@ -41,6 +41,7 @@ public abstract class TreeviewNode<T extends Element> {
 	protected abstract String getCSSClass();
 	protected abstract boolean hasChild();
 	protected abstract String getIconURL();
+	protected abstract String getIconAlt();
 	
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static JSONArray nodesToJSONArray(Iterable<TreeviewNode> nodes) {

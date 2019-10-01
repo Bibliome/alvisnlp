@@ -158,8 +158,7 @@ public class ContentViewCreator implements FragmentTagIterator<String,Annotation
 	public void addDocument(fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc, Collection<String> layerNames) {
 		Element docContainer = createElement("div", "doc-container");
 		addPair(null, docContainer);
-		Element docId = createElement("div", "doc-id");
-		docId.setTextContent(doc.getId());
+		addDocId(doc);
 		Element docBody = createElement("div", "doc-body");
 		addPair(null, docBody);
 		for (Section sec : Iterators.loop(doc.sectionIterator())) {
@@ -169,11 +168,23 @@ public class ContentViewCreator implements FragmentTagIterator<String,Annotation
 		openedElements.pop();
 	}
 	
+	private void addDocId(fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc) {
+		Element docId = createElement("div", "doc-id");
+		Element docIcon = document.createElement("img");
+		docIcon.setAttribute("src", "/res/icons/blue-document.png");
+		docIcon.setAttribute("height", "24");
+		docIcon.setAttribute("width", "24");
+		docIcon.setAttribute("alt", "Document");
+		addCSSClasses(docIcon, "doc-icon");
+		docId.appendChild(docIcon);
+		Text txt = document.createTextNode(doc.getId());
+		docId.appendChild(txt);
+	}
+	
 	private void addSection(Section sec, Collection<String> layerNames) {
 		Element secContainer = createElement("div", "sec-container");
 		addPair(null, secContainer);
-		Element secName = createElement("div", "sec-name");
-		secName.setTextContent(sec.getName());
+		addSectionName(sec);
 		Element secBody = createElement("div", "sec-body");
 		addPair(null, secBody);
 		List<FragmentTag<AnnotationInLayer>> tags = createTagList(sec, layerNames);
@@ -181,6 +192,19 @@ public class ContentViewCreator implements FragmentTagIterator<String,Annotation
 		fillNesting(secBody);
 		openedElements.pop();
 		openedElements.pop();	
+	}
+	
+	private void addSectionName(Section sec) {
+		Element secName = createElement("div", "sec-name");
+		Element secIcon = document.createElement("img");
+		secIcon.setAttribute("src", "/res/icons/document-text.png");
+		secIcon.setAttribute("height", "18");
+		secIcon.setAttribute("width", "18");
+		secIcon.setAttribute("alt", "Section");
+		addCSSClasses(secIcon, "sec-icon");
+		secName.appendChild(secIcon);
+		Text txt = document.createTextNode(sec.getName());
+		secName.appendChild(txt);
 	}
 	
 	private List<FragmentTag<AnnotationInLayer>> createTagList(Section sec, Collection<String> layerNames) {

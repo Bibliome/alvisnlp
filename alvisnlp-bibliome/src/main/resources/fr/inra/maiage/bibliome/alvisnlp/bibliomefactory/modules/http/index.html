@@ -12,15 +12,15 @@
 <body>
 	<div class="container-fluid">
 		<div class="row">
-			<div class="col-5" id="pane-left">
+			<div class="col-4" id="pane-left">
 				<div class="container">
 					<div class="row" id="pane-alert">
 					</div>
-					<div class="row" id="pane-query">
-						<div class="col-8">
+					<div class="row align-items-center" id="pane-query">
+						<div class="col-10">
 		    				<input type="text" class="form-control" id="expression" placeholder="Expression">
 						</div>
-						<div class="col-4">
+						<div class="col-2">
 							<button id="btn-evaluate" type="button" class="btn btn-primary disabled" onclick="evaluateExpression()">
 								<img width="30" height="30" src="/res/icons/gear--plus.png">
 							</button>
@@ -31,7 +31,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-7" id="pane-right">
+			<div class="col-8 container" id="pane-right">
 				<div class="row" id="layer-names">
 				</div>
 				<div class="row" id="content-view">
