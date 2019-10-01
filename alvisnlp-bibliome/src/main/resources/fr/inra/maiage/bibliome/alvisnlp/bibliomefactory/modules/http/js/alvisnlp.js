@@ -1,6 +1,21 @@
 var theTree;
 var currentContentDocId = '';
-
+var layers = {};
+var palette = [
+	'#5899DA',
+	'#E8743B',
+	'#19A979',
+	'#ED4A7B',
+	'#945ECF',
+	'#13A4B4',
+	'#525DF4',
+	'#BF399E',
+	'#6C8893',
+	'#EE6868',
+	'#2F6497'
+];
+var nextColorIndex = 0;
+var layerColors = {};
 
 function showAlert(level, message) {
 	$('#pane-alert').append(
@@ -80,7 +95,11 @@ function evaluateExpression() {
 	}
 }
 
-var layers = {};
+function getNextColor() {
+	var result = palette[nextColorIndex];
+	nextColorIndex = (nextColorIndex + 1) % palette.length;
+	return result;
+}
 
 function updateLayers(docLayers) {
 	for (l in layers) {
@@ -93,14 +112,21 @@ function updateLayers(docLayers) {
 			layers[l] = false;
 		}
 	}
-	$('.custom-control.custom-checkbox.col-2').remove();
+	$('#layer-names .col-2').remove();
 	for (l in layers) {
 		if (layers.hasOwnProperty(l)) {
 			var checked = '';
+			var moreClasses= '';
 			if (layers[l]) {
 				checked = 'checked';
+				moreClasses = 'frag frag-notempty frag-left-closed frag-right-closed frag-nesting-0 layer-'+l;
+				if (!(l in layerColors)) {
+					var c = getNextColor();
+					layerColors[l] = c;
+					document.adoptedStyleSheets[0].insertRule('.layer-'+l+' { background-image: radial-gradient(ellipse, white, white, '+c+'); }');
+				}
 			}
-			$('#layer-names').append('<div class="custom-control custom-checkbox col-2"><input type="checkbox" '+checked+' class="custom-control-input" id="check-'+l+'" onChange="updateContentView(currentContentDocId)"><label class="custom-control-label" for="check-'+l+'">'+l+'</label></div>');
+			$('#layer-names').append('<div class="custom-control custom-checkbox col-2"><input type="checkbox" '+checked+' class="custom-control-input" id="check-'+l+'" onChange="updateContentView(currentContentDocId); updateLayers([])"><label class="custom-control-label '+moreClasses+'" for="check-'+l+'"><img src="/res/icons/tags-label.png" height="24" width="24" class="layer-icon" alt="Layer">'+l+'</label></div>');
 		}
 	}
 }
@@ -172,4 +198,5 @@ function initTreeview() {
 
 $(document).ready(function () {
 	initTreeview();
+	document.adoptedStyleSheets = [ new CSSStyleSheet() ];
 });
