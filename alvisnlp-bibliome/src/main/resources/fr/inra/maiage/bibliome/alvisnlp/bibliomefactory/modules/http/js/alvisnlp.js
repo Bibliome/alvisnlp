@@ -95,6 +95,58 @@ function evaluateExpression() {
 	}
 }
 
+function showAndExpandNode(nodeId) {
+	var data = theTree.getDataById(nodeId);
+	if (data.hasChildren) {
+		var node = theTree.getNodeById(nodeId);
+		node[0].scrollIntoViewIfNeeded({behaviour: 'smooth'});
+		theTree.expand(node);
+	}
+}
+
+function showAndExpandNodeArray(nodeIds, andSelect) {
+	var nodeId;
+	theTree.on('dataBound', function(e) {
+		while (nodeIds.length > 0) {
+			console.log(nodeIds);
+			nodeId = nodeIds.shift();
+			var data = theTree.getDataById(nodeId);
+			var end = (data.children === undefined);
+			showAndExpandNode(nodeId);
+			if (end) {
+				break;
+			}
+		}
+		console.log(nodeIds);
+		if (nodeIds.length == 0) {
+			theTree.off('dataBound');
+			if (andSelect) {
+				var node = theTree.getNodeById(nodeId);
+				theTree.unselectAll();
+				theTree.select(node);
+			}
+		}
+	});
+	theTree.trigger('dataBound');
+}
+
+function focusFrag(event, frag) {
+	//console.log(event);
+	$('.frag.frag-focus').removeClass('frag-focus');
+	var eltId = $(frag).data('eltid');
+	var layer = $(frag).data('layer');
+	//console.log(eltId);
+	//console.log(layer);
+	//console.log($(frag).data());
+	$('.frag[data-eltId="'+eltId+'"][data-layer="'+layer+'"]').addClass('frag-focus');
+
+	var docEltId = $(frag).parents('div.doc-container').data('eltid');
+	var secEltId = $(frag).parents('div.sec-container').data('eltid');
+	showAndExpandNodeArray([docEltId + '-children', secEltId + '-children', secEltId + '-annotations-' + layer, eltId + '-children'], true);
+		
+	event.stopPropagation();
+}
+
 function getNextColor() {
 	var result = palette[nextColorIndex];
 	nextColorIndex = (nextColorIndex + 1) % palette.length;
@@ -144,7 +196,7 @@ function getCheckedLayers() {
 }
 
 function updateContentView(docId) {
-	console.log(docId);
+	//console.log(docId);
 	$.get(
 		'/api/contentview',
 		{

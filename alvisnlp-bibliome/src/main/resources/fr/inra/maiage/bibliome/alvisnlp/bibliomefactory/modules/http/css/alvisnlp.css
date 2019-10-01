@@ -129,6 +129,7 @@ li.active > div > span > span > .argument-role {
 
 .doc-container {
 	margin-top: 3ex;
+	cursor: default;
 }
 
 .doc-id {
@@ -213,4 +214,10 @@ li.active > div > span > span > .argument-role {
 
 .frag-right-open {
 	
+}
+
+.frag-focus {
+	border-color: red;
+	border-width: 2px;
+	margin: -1px;
 }

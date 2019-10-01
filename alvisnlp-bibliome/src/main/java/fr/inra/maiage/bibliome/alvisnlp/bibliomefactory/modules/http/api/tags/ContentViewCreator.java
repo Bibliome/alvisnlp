@@ -107,6 +107,9 @@ public class ContentViewCreator implements FragmentTagIterator<String,Annotation
 	private Element createElement(AnnotationInLayer ann, String... cssClasses) {
 		String tagName = getTagName(ann);
 		Element result = createElement(tagName, cssClasses);
+		result.setAttribute("data-eltId", ann.getAnnotation().getStringId());
+		result.setAttribute("data-layer", ann.getLayerName());
+		result.setAttribute("onclick", "focusFrag(event, this)");
 		addCSSClasses(result, "frag", "layer-" + ann.getLayerName());
 		return result;
 	}
@@ -157,6 +160,7 @@ public class ContentViewCreator implements FragmentTagIterator<String,Annotation
 
 	public void addDocument(fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc, Collection<String> layerNames) {
 		Element docContainer = createElement("div", "doc-container");
+		docContainer.setAttribute("data-eltid", doc.getStringId());
 		addPair(null, docContainer);
 		addDocId(doc);
 		Element docBody = createElement("div", "doc-body");
@@ -183,6 +187,7 @@ public class ContentViewCreator implements FragmentTagIterator<String,Annotation
 	
 	private void addSection(Section sec, Collection<String> layerNames) {
 		Element secContainer = createElement("div", "sec-container");
+		secContainer.setAttribute("data-eltid", sec.getStringId());
 		addPair(null, secContainer);
 		addSectionName(sec);
 		Element secBody = createElement("div", "sec-body");
