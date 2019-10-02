@@ -109,7 +109,7 @@ public class ContentViewCreator implements FragmentTagIterator<String,Annotation
 		Element result = createElement(tagName, cssClasses);
 		result.setAttribute("data-eltId", ann.getAnnotation().getStringId());
 		result.setAttribute("data-layer", ann.getLayerName());
-		result.setAttribute("onclick", "focusFrag(event, this)");
+		result.setAttribute("onclick", "focusFrags([this], event, true)");
 		addCSSClasses(result, "frag", "layer-" + ann.getLayerName());
 		return result;
 	}

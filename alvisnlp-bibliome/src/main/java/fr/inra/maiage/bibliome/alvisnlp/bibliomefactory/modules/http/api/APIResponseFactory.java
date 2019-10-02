@@ -3,6 +3,7 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api;
 import java.io.Reader;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
@@ -29,6 +30,7 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.standard.Navigat
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.ResponseFactory;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.Server;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.tags.ContentViewCreator;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.tags.ElementAnnotations;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.tags.ElementDocument;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.ElementToChildrenTreeviewNodes;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.TreeviewConstants;
@@ -177,6 +179,7 @@ public class APIResponseFactory extends ResponseFactory {
 			result.put("found", true);
 			result.put("id", doc.getId());
 			result.put("layers", getDocumentLayers(doc));
+			result.put("annotations", getElementAnnotationIds(elt));
 		}
 		else {
 			result.put("found", false);
@@ -184,6 +187,17 @@ public class APIResponseFactory extends ResponseFactory {
 		return createJSONResponse(result);
 	}
 	
+	@SuppressWarnings("unchecked")
+	private static JSONArray getElementAnnotationIds(Element elt) {
+		JSONArray result = new JSONArray();
+		List<Annotation> annotations = elt.accept(ElementAnnotations.INSTANCE, new ArrayList<Annotation>());
+		for (Annotation a : annotations) {
+			String id = a.getStringId();
+			result.add(id);
+		}
+		return result;
+	}
+
 	@SuppressWarnings("unchecked")
 	private static JSONArray getDocumentLayers(Document doc) {
 		Set<String> layerNames = new TreeSet<String>();

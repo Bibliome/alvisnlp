@@ -108,7 +108,7 @@ function showAndExpandNodeArray(nodeIds, andSelect) {
 	var nodeId;
 	theTree.on('dataBound', function(e) {
 		while (nodeIds.length > 0) {
-			console.log(nodeIds);
+			//console.log(nodeIds);
 			nodeId = nodeIds.shift();
 			var data = theTree.getDataById(nodeId);
 			var end = (data.children === undefined);
@@ -117,7 +117,7 @@ function showAndExpandNodeArray(nodeIds, andSelect) {
 				break;
 			}
 		}
-		console.log(nodeIds);
+		//console.log(nodeIds);
 		if (nodeIds.length == 0) {
 			theTree.off('dataBound');
 			if (andSelect) {
@@ -130,21 +130,26 @@ function showAndExpandNodeArray(nodeIds, andSelect) {
 	theTree.trigger('dataBound');
 }
 
-function focusFrag(event, frag) {
+function focusFrags(frags, event, showInTree) {
 	//console.log(event);
+	//console.log(frags);
 	$('.frag.frag-focus').removeClass('frag-focus');
-	var eltId = $(frag).data('eltid');
-	var layer = $(frag).data('layer');
-	//console.log(eltId);
-	//console.log(layer);
-	//console.log($(frag).data());
-	$('.frag[data-eltId="'+eltId+'"][data-layer="'+layer+'"]').addClass('frag-focus');
-
-	var docEltId = $(frag).parents('div.doc-container').data('eltid');
-	var secEltId = $(frag).parents('div.sec-container').data('eltid');
-	showAndExpandNodeArray([docEltId + '-children', secEltId + '-children', secEltId + '-annotations-' + layer, eltId + '-children'], true);
-		
-	event.stopPropagation();
+	for (frag of frags) {
+		var eltId = $(frag).data('eltid');
+		var layer = $(frag).data('layer');
+		//console.log(eltId);
+		//console.log(layer);
+		//console.log($(frag).data());
+		$('.frag[data-eltid="'+eltId+'"][data-layer="'+layer+'"]').addClass('frag-focus');
+		if (showInTree) {
+			var docEltId = $(frag).parents('div.doc-container').data('eltid');
+			var secEltId = $(frag).parents('div.sec-container').data('eltid');
+			showAndExpandNodeArray([docEltId + '-children', secEltId + '-children', secEltId + '-annotations-' + layer, eltId + '-children'], true);
+		}
+	}
+	if (event !== undefined) {
+		event.stopPropagation();
+	}
 }
 
 function getNextColor() {
@@ -178,7 +183,7 @@ function updateLayers(docLayers) {
 					document.adoptedStyleSheets[0].insertRule('.layer-'+l+' { background-image: radial-gradient(ellipse, white, white, '+c+'); }');
 				}
 			}
-			$('#layer-names').append('<div class="custom-control custom-checkbox col-2"><input type="checkbox" '+checked+' class="custom-control-input" id="check-'+l+'" onChange="updateContentView(currentContentDocId); updateLayers([])"><label class="custom-control-label '+moreClasses+'" for="check-'+l+'"><img src="/res/icons/tags-label.png" height="24" width="24" class="layer-icon" alt="Layer">'+l+'</label></div>');
+			$('#layer-names').append('<div class="custom-control custom-checkbox col-2"><input type="checkbox" '+checked+' class="custom-control-input" id="check-'+l+'" onChange="updateContentView(currentContentDocId, []); updateLayers([])"><label class="custom-control-label '+moreClasses+'" for="check-'+l+'"><img src="/res/icons/tags-label.png" height="24" width="24" class="layer-icon" alt="Layer">'+l+'</label></div>');
 		}
 	}
 }
@@ -195,8 +200,9 @@ function getCheckedLayers() {
 	return result;
 }
 
-function updateContentView(docId) {
+function updateContentView(docId, annotationIds) {
 	//console.log(docId);
+	console.log(annotationIds);
 	$.get(
 		'/api/contentview',
 		{
@@ -208,6 +214,7 @@ function updateContentView(docId) {
 		$('.div-top').remove();
 		$('#content-view').append(data);
 		currentContentDocId = docId;
+		focusFrags(annotationIds.map(function(id) { return $('.frag[data-eltid="'+id+'"]'); }), undefined, false);
 	})
 	.fail(function(data) {
 		console.error(data);
@@ -234,9 +241,15 @@ function initTreeview() {
 				eltId: eltId
 			})
 		.done(function(data) {
-			if (data.found && (data.id != currentContentDocId)) {
-				updateLayers(data.layers);
-				updateContentView(data.id);
+			if (data.found) {
+				if (data.id != currentContentDocId) {
+					updateLayers(data.layers);
+					updateContentView(data.id, data.annotations);
+				}
+				else {
+					//console.log(data.annotations);
+					focusFrags(data.annotations.map(function(id) { return $('.frag[data-eltid="'+id+'"]'); }), undefined, false);
+				}
 			}
 		})
 		.fail(function(data) {
