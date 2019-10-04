@@ -202,7 +202,7 @@ function getCheckedLayers() {
 
 function updateContentView(docId, annotationIds) {
 	//console.log(docId);
-	console.log(annotationIds);
+	//console.log(annotationIds);
 	$.get(
 		'/api/contentview',
 		{
@@ -236,12 +236,12 @@ function initTreeview() {
 		var info = id.split('-');
 		var eltId = info[0];
 		$.get(
-			'/api/docinfo',
+			'/api/info',
 			{
 				eltId: eltId
 			})
 		.done(function(data) {
-			if (data.found) {
+			if (data['found-doc']) {
 				if (data.id != currentContentDocId) {
 					updateLayers(data.layers);
 					updateContentView(data.id, data.annotations);

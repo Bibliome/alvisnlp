@@ -76,8 +76,8 @@ public class APIResponseFactory extends ResponseFactory {
 			case "treeview": {
 				return treeviewResponse(session);
 			}
-			case "docinfo": {
-				return documentInfoResponse(session);
+			case "info": {
+				return infoResponse(session);
 			}
 			case "contentview":{
 				return contentviewResponse(session);
@@ -166,7 +166,7 @@ public class APIResponseFactory extends ResponseFactory {
 	}
 
 	@SuppressWarnings("unchecked")
-	private Response documentInfoResponse(IHTTPSession session) throws CorpusDataException {
+	private Response infoResponse(IHTTPSession session) throws CorpusDataException {
 		Map<String,String> params = session.getParms();
 		if (!params.containsKey(TreeviewConstants.Parameters.ELEMENT_ID)) {
 			return createBadRequestResponse("missing parameter " + TreeviewConstants.Parameters.ELEMENT_ID);
@@ -176,13 +176,13 @@ public class APIResponseFactory extends ResponseFactory {
 		Document doc = elt.accept(ElementDocument.INSTANCE, null);
 		JSONObject result = new JSONObject();
 		if (doc != null) {
-			result.put("found", true);
+			result.put("found-doc", true);
 			result.put("id", doc.getId());
 			result.put("layers", getDocumentLayers(doc));
 			result.put("annotations", getElementAnnotationIds(elt));
 		}
 		else {
-			result.put("found", false);
+			result.put("found-doc", false);
 		}
 		return createJSONResponse(result);
 	}
