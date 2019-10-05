@@ -2,6 +2,7 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treevi
 
 import org.json.simple.JSONArray;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.Constants;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
@@ -31,7 +32,7 @@ public class TreeviewElementNode extends TreeviewNode<Element> {
 
 	@Override
 	protected String getIdSuffix() {
-		return TreeviewConstants.NodeIdFunctors.CHILDREN;
+		return Constants.NodeIdFunctors.CHILDREN;
 	}
 
 	private String getRoleHTML() {

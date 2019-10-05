@@ -1,5 +1,6 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.Constants;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 
 public class TreeviewLayerNode extends TreeviewNode<Section> {
@@ -12,7 +13,7 @@ public class TreeviewLayerNode extends TreeviewNode<Section> {
 
 	@Override
 	protected String getIdSuffix() {
-		return String.format("%s-%s", TreeviewConstants.NodeIdFunctors.ANNOTATIONS, layerName);
+		return String.format("%s-%s", Constants.NodeIdFunctors.ANNOTATIONS, layerName);
 	}
 
 	@Override

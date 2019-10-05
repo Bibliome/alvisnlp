@@ -33,7 +33,6 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.tags.Co
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.tags.ElementAnnotations;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.tags.ElementDocument;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.ElementToChildrenTreeviewNodes;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.TreeviewConstants;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.TreeviewElementNode;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.TreeviewFeatureNode;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview.TreeviewNode;
@@ -130,33 +129,33 @@ public class APIResponseFactory extends ResponseFactory {
 	
 	private JSONArray treeviewChildren(IHTTPSession session) throws CorpusDataException, ParseException, ResolverException {
 		Map<String,String> params = session.getParms();
-		if (!params.containsKey(TreeviewConstants.Parameters.NODE_ID)) {
+		if (!params.containsKey(Constants.Parameters.NODE_ID)) {
 			return TreeviewElementNode.elementsToJSONArray(Collections.singletonList(corpus));
 		}
-		String id = params.get(TreeviewConstants.Parameters.NODE_ID);
+		String id = params.get(Constants.Parameters.NODE_ID);
 		String[] split = Strings.split(id, '-');
 		String eltId = split[0];
 		Element elt = getElement(eltId);
 		String ftor = split[1];
 		switch (ftor) {
-			case TreeviewConstants.NodeIdFunctors.CHILDREN: {
+			case Constants.NodeIdFunctors.CHILDREN: {
 				@SuppressWarnings("rawtypes")
 				Collection<TreeviewNode> nodes = ElementToChildrenTreeviewNodes.getChildren(elt);
 				return TreeviewNode.nodesToJSONArray(nodes);
 			}
-			case TreeviewConstants.NodeIdFunctors.FEATURES: {
+			case Constants.NodeIdFunctors.FEATURES: {
 				@SuppressWarnings("rawtypes")
 				Collection<TreeviewNode> nodes = TreeviewFeatureNode.getElementFeatureNodes(elt);
 				return TreeviewNode.nodesToJSONArray(nodes);
 			}
-			case TreeviewConstants.NodeIdFunctors.ANNOTATIONS: {
+			case Constants.NodeIdFunctors.ANNOTATIONS: {
 				Section sec = DownCastElement.toSection(elt);
 				String layerName = split[2];
 				Layer layer = sec.getLayer(layerName);
 				return TreeviewElementNode.elementsToJSONArray(layer);
 			}
-			case TreeviewConstants.NodeIdFunctors.EVALUATE: {
-				String exprString = params.get(TreeviewConstants.Parameters.EXPRESSION);
+			case Constants.NodeIdFunctors.EVALUATE: {
+				String exprString = params.get(Constants.Parameters.EXPRESSION);
 				expressionParser.ReInit(new StringReader(exprString));
 				Expression expr = expressionParser.expression();
 				Evaluator eval = expr.resolveExpressions(libraryResolver);
@@ -171,10 +170,10 @@ public class APIResponseFactory extends ResponseFactory {
 	@SuppressWarnings("unchecked")
 	private Response infoResponse(IHTTPSession session) throws CorpusDataException {
 		Map<String,String> params = session.getParms();
-		if (!params.containsKey(TreeviewConstants.Parameters.ELEMENT_ID)) {
-			return createBadRequestResponse("missing parameter " + TreeviewConstants.Parameters.ELEMENT_ID);
+		if (!params.containsKey(Constants.Parameters.ELEMENT_ID)) {
+			return createBadRequestResponse("missing parameter " + Constants.Parameters.ELEMENT_ID);
 		}
-		String eltId = params.get(TreeviewConstants.Parameters.ELEMENT_ID);
+		String eltId = params.get(Constants.Parameters.ELEMENT_ID);
 		Element elt = getElement(eltId);
 		Document doc = elt.accept(ElementDocument.INSTANCE, null);
 		JSONObject result = new JSONObject();
@@ -192,10 +191,10 @@ public class APIResponseFactory extends ResponseFactory {
 
 	private Response defaultExpression(IHTTPSession session) throws CorpusDataException {
 		Map<String,String> params = session.getParms();
-		if (!params.containsKey(TreeviewConstants.Parameters.ELEMENT_ID)) {
-			return createBadRequestResponse("missing parameter " + TreeviewConstants.Parameters.ELEMENT_ID);
+		if (!params.containsKey(Constants.Parameters.ELEMENT_ID)) {
+			return createBadRequestResponse("missing parameter " + Constants.Parameters.ELEMENT_ID);
 		}
-		String eltId = params.get(TreeviewConstants.Parameters.ELEMENT_ID);
+		String eltId = params.get(Constants.Parameters.ELEMENT_ID);
 		Element elt = getElement(eltId);
 		return createTextResponse(getDefaultExpression(params, elt));
 	}
@@ -208,8 +207,8 @@ public class APIResponseFactory extends ResponseFactory {
 			case OTHER: return "";
 			case RELATION: return "tuples";
 			case SECTION: {
-				if (params.containsKey(TreeviewConstants.Parameters.LAYER_NAME)) {
-					String layerName = params.get(TreeviewConstants.Parameters.LAYER_NAME);
+				if (params.containsKey(Constants.Parameters.LAYER_NAME)) {
+					String layerName = params.get(Constants.Parameters.LAYER_NAME);
 					return "layer:" + layerName;
 				}
 				return "relations";
@@ -245,15 +244,15 @@ public class APIResponseFactory extends ResponseFactory {
 
 	private Response contentviewResponse(IHTTPSession session) throws ParserConfigurationException {
 		Map<String,List<String>> params = Server.getArrayParams(session.getQueryParameterString());
-		if (!params.containsKey(TreeviewConstants.Parameters.DOCUMENT_ID)) {
-			return createBadRequestResponse("missing parameter " + TreeviewConstants.Parameters.DOCUMENT_ID);
+		if (!params.containsKey(Constants.Parameters.DOCUMENT_ID)) {
+			return createBadRequestResponse("missing parameter " + Constants.Parameters.DOCUMENT_ID);
 		}
-		String docId = params.get(TreeviewConstants.Parameters.DOCUMENT_ID).get(0);
+		String docId = params.get(Constants.Parameters.DOCUMENT_ID).get(0);
 		if (!corpus.hasDocument(docId)) {
 			return createBadRequestResponse("no document " + docId);
 		}
 		Document doc = corpus.getDocument(docId);
-		List<String> layers = params.containsKey(TreeviewConstants.Parameters.LAYERS) ? params.get(TreeviewConstants.Parameters.LAYERS) : Collections.emptyList();
+		List<String> layers = params.containsKey(Constants.Parameters.LAYERS) ? params.get(Constants.Parameters.LAYERS) : Collections.emptyList();
 		ContentViewCreator cvc = new ContentViewCreator("html", "tag");
 		cvc.addDocument(doc, layers);
 		org.w3c.dom.Document dom = cvc.getDocument();

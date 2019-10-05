@@ -1,6 +1,6 @@
-package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview;
+package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api;
 
-public enum TreeviewConstants {
+public enum Constants {
 	;
 
 	public static enum Parameters {

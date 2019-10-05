@@ -1,5 +1,6 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treeview;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.Constants;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 
 public class TreeviewFeaturesNode extends TreeviewNode<Element> {
@@ -9,7 +10,7 @@ public class TreeviewFeaturesNode extends TreeviewNode<Element> {
 
 	@Override
 	protected String getIdSuffix() {
-		return TreeviewConstants.NodeIdFunctors.FEATURES;
+		return Constants.NodeIdFunctors.FEATURES;
 	}
 
 	@Override
