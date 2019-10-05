@@ -261,7 +261,30 @@ function initTreeview() {
     });
 }
 
+function focusExpression() {
+	var sel = theTree.getSelections();
+	if (sel.length == 0) {
+		return;
+	}
+	var nodeId = sel[0];
+	var info = nodeId.split('-');
+	var eltId = info[0];
+	var params = {
+		eltId: eltId
+	};
+	if (info[1] == 'annotations') {
+		params.layer = info[2];
+	}
+	$.get(
+		'/api/defaultexpr',
+		params
+	).done(function(data) {
+		$('#expression').val(data);
+	})
+}
+
 $(document).ready(function () {
 	initTreeview();
+	$('#expression').on('focus', focusExpression);
 	document.adoptedStyleSheets = [ new CSSStyleSheet() ];
 });

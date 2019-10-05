@@ -79,8 +79,11 @@ public class APIResponseFactory extends ResponseFactory {
 			case "info": {
 				return infoResponse(session);
 			}
-			case "contentview":{
+			case "contentview": {
 				return contentviewResponse(session);
+			}
+			case "defaultexpr": {
+				return defaultExpression(session);
 			}
 			default: {
 				ItemsRetriever<?,?> retriever = getRetriever(cmd);
@@ -186,7 +189,36 @@ public class APIResponseFactory extends ResponseFactory {
 		}
 		return createJSONResponse(result);
 	}
+
+	private Response defaultExpression(IHTTPSession session) throws CorpusDataException {
+		Map<String,String> params = session.getParms();
+		if (!params.containsKey(TreeviewConstants.Parameters.ELEMENT_ID)) {
+			return createBadRequestResponse("missing parameter " + TreeviewConstants.Parameters.ELEMENT_ID);
+		}
+		String eltId = params.get(TreeviewConstants.Parameters.ELEMENT_ID);
+		Element elt = getElement(eltId);
+		return createTextResponse(getDefaultExpression(params, elt));
+	}
 	
+	private static String getDefaultExpression(Map<String,String> params, Element elt) {
+		switch (elt.getType()) {
+			case ANNOTATION: return "";
+			case CORPUS: return "documents";
+			case DOCUMENT: return "sections";
+			case OTHER: return "";
+			case RELATION: return "tuples";
+			case SECTION: {
+				if (params.containsKey(TreeviewConstants.Parameters.LAYER_NAME)) {
+					String layerName = params.get(TreeviewConstants.Parameters.LAYER_NAME);
+					return "layer:" + layerName;
+				}
+				return "relations";
+			}
+			case TUPLE: return "args";
+		}
+		throw new RuntimeException();
+	}
+
 	@SuppressWarnings("unchecked")
 	private static JSONArray getElementAnnotationIds(Element elt) {
 		JSONArray result = new JSONArray();

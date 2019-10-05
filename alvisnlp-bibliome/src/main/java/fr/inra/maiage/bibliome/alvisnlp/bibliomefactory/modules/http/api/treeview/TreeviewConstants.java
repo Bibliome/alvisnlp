@@ -6,6 +6,7 @@ public enum TreeviewConstants {
 	public static enum Parameters {
 		;
 
+		public static final String LAYER_NAME = "layer";
 		public static final String LAYERS = "layers[]";
 		public static final String DOCUMENT_ID = "docId";
 		public static final String ELEMENT_ID = "eltId";
