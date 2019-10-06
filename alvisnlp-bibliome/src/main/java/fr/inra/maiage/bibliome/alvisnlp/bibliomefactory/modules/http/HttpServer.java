@@ -30,6 +30,7 @@ public class HttpServer extends CorpusModule<ResolvedObjects> {
 			logger.info("server started on http://localhost:" + port);
 			logger.config("hit enter to stop server and proceed to next module");
 			System.in.read();
+			server.stop();
 			logger.info("server stopped");
 		}
 		catch (IOException e) {
@@ -42,7 +43,7 @@ public class HttpServer extends CorpusModule<ResolvedObjects> {
 		return new ResolvedObjects(ctx, this);
 	}
 
-	@Param
+	@Param(mandatory=false)
 	public InputDirectory getResourceBaseDir() {
 		return resourceBaseDir;
 	}
