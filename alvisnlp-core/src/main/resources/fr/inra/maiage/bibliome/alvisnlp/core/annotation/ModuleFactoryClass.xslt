@@ -60,6 +60,14 @@ public final class <xsl:value-of select="@name"/> extends fr.inra.maiage.bibliom
 			<xsl:otherwise>return null;</xsl:otherwise>
 		</xsl:choose>
 	}
+	
+	@Override
+	public String getBrowserModule() {
+		<xsl:choose>
+			<xsl:when test="@browserModule">return "<xsl:value-of select="@browserModule"/>";</xsl:when>
+			<xsl:otherwise>return null;</xsl:otherwise>
+		</xsl:choose>
+	}
 }
 	</xsl:template>
 </xsl:stylesheet>

@@ -54,6 +54,7 @@ class ModuleFactoryModel extends AbstractFactoryModel {
 	private final String factoryInterface;
 	private final String prefix;
 	private final String shellModule;
+	private final String browserModule;
 	private final Collection<ModuleModel> modules = new ArrayList<ModuleModel>();
 	
 	/**
@@ -62,13 +63,14 @@ class ModuleFactoryModel extends AbstractFactoryModel {
 	 * @param model
 	 * @param prefix
 	 */
-	ModuleFactoryModel(String fullName, String dataClass, String sequenceImplementationClass, String factoryInterface, String prefix, String shellModule) {
+	ModuleFactoryModel(String fullName, String dataClass, String sequenceImplementationClass, String factoryInterface, String prefix, String shellModule, String browserModule) {
 		super(fullName);
 		this.dataClass = dataClass;
 		this.sequenceImplementationClass = sequenceImplementationClass;
 		this.factoryInterface = factoryInterface;
 		this.prefix = prefix;
 		this.shellModule = shellModule;
+		this.browserModule = browserModule;
 	}
 
 	/**
@@ -91,6 +93,7 @@ class ModuleFactoryModel extends AbstractFactoryModel {
 		root.setAttribute("sequenceClass", sequenceImplementationClass);
 		root.setAttribute("factoryInterface", factoryInterface);
 		root.setAttribute("shellModule", shellModule);
+		root.setAttribute("browserModule", browserModule);
 		for (ModuleModel module : modules)
 			root.appendChild(module.getDOM(doc));
 	}

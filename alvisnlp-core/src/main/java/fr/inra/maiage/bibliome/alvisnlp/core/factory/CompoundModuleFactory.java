@@ -57,4 +57,11 @@ public class CompoundModuleFactory<T extends Annotable> extends CompositeService
 			return f.getShellModule();
 		return null;
 	}
+
+	@Override
+	public String getBrowserModule() {
+		for (ModuleFactory<T> f : getServiceFactories())
+			return f.getBrowserModule();
+		return null;
+	}
 }

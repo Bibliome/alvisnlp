@@ -40,6 +40,7 @@
 						<arg>-AconverterFactoryName=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.BibliomeConverterFactory</arg>
 						<arg>-AresourceBases=fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/resources</arg>
 						<arg>-AshellModule=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.shell.Shell</arg>
+						<arg>-AbrowserModule=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.HttpServer</arg>
 						<arg>-Xlint:all</arg>
 					</compilerArgs>
 					<!--<verbose>true</verbose> -->

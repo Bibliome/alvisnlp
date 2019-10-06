@@ -88,6 +88,8 @@ public class PlanLoader<T extends Annotable> {
 	
 	public static final String SHELL_ELEMENT_NAME = "shell";
 	
+	public static final String BROWSER_ELEMENT_NAME = "browser";
+	
 	/** Tag name for module parameter. */
 	public static final String PARAM_ELEMENT_NAME = "param";
 	
@@ -348,6 +350,16 @@ public class PlanLoader<T extends Annotable> {
 					String shellModule;
 					shellModule = moduleFactory.getShellModule();
 					childElement.setAttribute(CLASS_ATTRIBUTE_NAME, shellModule);
+					Module<T> module = loadModule(logger, childElement);
+					result.appendModule(module);
+					continue;
+				}
+				if (BROWSER_ELEMENT_NAME.equals(childName)) {
+					String id = "browser_" + (++nShells);
+					childElement.setAttribute(ID_ATTRIBUTE_NAME, id);
+					String browserModule;
+					browserModule = moduleFactory.getBrowserModule();
+					childElement.setAttribute(CLASS_ATTRIBUTE_NAME, browserModule);
 					Module<T> module = loadModule(logger, childElement);
 					result.appendModule(module);
 					continue;

@@ -28,4 +28,5 @@ import fr.inra.maiage.bibliome.util.service.ServiceFactory;
 public interface ModuleFactory<T extends Annotable> extends ServiceFactory<Class<? extends Module<T>>,Module<T>> {
 	Sequence<T> newSequence();
 	String getShellModule();
+	String getBrowserModule();
 }

@@ -710,6 +710,11 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 		appendModule("command-line-shell", moduleFactory.getShellModule());
 	}
 	
+	@CLIOption("-browser")
+	public void browser() {
+		appendModule("annotation-browser", moduleFactory.getBrowserModule());
+	}
+	
 	private static final Pattern OMTD_PARAM_PATTERN = Pattern.compile("--param:(?<alias>[^=]+)=(?<value>.+)");
 
 	@Override

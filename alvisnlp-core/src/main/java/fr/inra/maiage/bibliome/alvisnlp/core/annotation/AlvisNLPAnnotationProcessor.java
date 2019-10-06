@@ -57,7 +57,8 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Library;
 	"factoryInterface",
 	"converterFactoryName",
 	"classPrefix",
-	"shellModule"
+	"shellModule",
+	"browserModule"
 })
 @SupportedSourceVersion(SourceVersion.RELEASE_7)
 public class AlvisNLPAnnotationProcessor extends AbstractProcessor {
@@ -85,7 +86,8 @@ public class AlvisNLPAnnotationProcessor extends AbstractProcessor {
 				String sequenceImplementationClass = ctx.getOption("sequenceImplementationClass");
 				String factoryInterface = ctx.getOption("factoryInterface");
 				String shellModule = ctx.getOption("shellModule");
-				ModuleFactoryModel moduleFactory = new ModuleFactoryModel(moduleFactoryName, dataClass, sequenceImplementationClass, factoryInterface, prefix, shellModule);
+				String browserModule = ctx.getOption("browserModule");
+				ModuleFactoryModel moduleFactory = new ModuleFactoryModel(moduleFactoryName, dataClass, sequenceImplementationClass, factoryInterface, prefix, shellModule, browserModule);
 
 				ctx.note("processing module sources");
 				for (TypeElement moduleElement : ElementFilter.typesIn(roundEnv.getElementsAnnotatedWith(ctx.getModuleAnnotation()))) {
