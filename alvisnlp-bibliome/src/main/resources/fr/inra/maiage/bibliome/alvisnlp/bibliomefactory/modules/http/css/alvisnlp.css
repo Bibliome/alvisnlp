@@ -115,8 +115,8 @@ li.active > div > span > span > .argument-role {
 
 #pane-right {
 	margin-top: 20vh;
-	padding-left: 15px;
-	padding-right: 15px;
+	padding-left: 50px;
+	padding-right: 50px;
 }
 
 #layer-names {
@@ -156,7 +156,7 @@ li.active > div > span > span > .argument-role {
 }
 
 .sec-body {
-	line-height: 2;
+	line-height: 3;
 }
 
 .frag {
