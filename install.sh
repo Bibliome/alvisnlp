@@ -65,6 +65,40 @@ do
 done
 shift $((OPTIND-1))
 
+OS="$(uname -s)"
+case "$OS" in
+    Darwin*)
+	READLINK=greadlink
+	CP=gcp
+	MKDIR=mkdir
+	LOCATE=locate
+	GREP=ggrep
+	XARGS=xargs
+	FIND=find
+	AWK=mawk
+	SORT=gsort
+	CUT=gcut
+	HEAD=ghead
+	CHMOD=gchmod
+	SED=gsed
+	;;
+    *)
+	READLINK=realink
+	CP=cp
+	MKDIR=gmkdir
+	LOCATE=glocate
+	GREP=grep
+	XARGS=xargs
+	FIND=find
+	AWK=mawk
+	SORT=sort
+	CUT=cut
+	HEAD=head
+	CHMOD=chmod
+	SED=sed
+	;;
+esac
+
 function search_executable() {
     name="$1"
     exclude="$2"
@@ -76,9 +110,9 @@ function search_executable() {
     fi
     if [ -n "$exclude" ]
     then
-	result=$(locate --regex -b ^$name$ | grep -P -v "$exclude" | xargs -n 1 -I_FILE_ find '_FILE_' -type f -executable -maxdepth 0 2>/dev/null | awk '{ print length, $0 }' | sort -n | cut -d ' ' -f 2- | head -n 1)
+	result=$($LOCATE --regex -b ^$name$ | $GREP -P -v "$exclude" | $XARGS -n 1 -I_FILE_ $FIND '_FILE_' -type f -executable -maxdepth 0 2>/dev/null | $AWK '{ print length, $0 }' | $SORT -n | $CUT -d ' ' -f 2- | $HEAD -n 1)
     else
-	result=$(locate --regex -b ^$name$ | xargs -n 1 -I_FILE_ find '_FILE_' -type f -executable -maxdepth 0 2>/dev/null | head -n 1)
+	result=$($LOCATE --regex -b ^$name$ | $XARGS -n 1 -I_FILE_ $FIND '_FILE_' -type f -executable -maxdepth 0 2>/dev/null | $HEAD -n 1)
     fi
     if [ -n "$result" ]
     then
@@ -93,9 +127,9 @@ function search_directory() {
     exclude="$2"
     if [ -n "$exclude" ]
     then
-	locate --regex -b ^"$name"$ | grep -P -v "$exclude" | xargs -n 1 -I_FILE_ find '_FILE_' -type d -executable -maxdepth 0 2>/dev/null | head -n 1
+	$LOCATE --regex -b ^"$name"$ | $GREP -P -v "$exclude" | $XARGS -n 1 -I_FILE_ $FIND '_FILE_' -type d -executable -maxdepth 0 2>/dev/null | $HEAD -n 1
     else
-	locate --regex -b ^"$name"$ | xargs -n 1 -I_FILE_ find '_FILE_' -type d -executable -maxdepth 0 2>/dev/null | awk '{ print length, $0 }' | sort -n | cut -d ' ' -f 2- | head -n 1
+	$LOCATE --regex -b ^"$name"$ | $XARGS -n 1 -I_FILE_ $FIND '_FILE_' -type d -executable -maxdepth 0 2>/dev/null | $AWK '{ print length, $0 }' | $SORT -n | $CUT -d ' ' -f 2- | $HEAD -n 1
     fi
 }
 
@@ -129,7 +163,7 @@ then
     read -e -p "Location of enju parser: " -i "$default" enju
     if [ -n "$enju" ]
     then
-	enju=$(readlink -m "$enju")
+	enju=$($READLINK -m "$enju")
 	start_module fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.enju.EnjuParser
 	param enjuExecutable "$enju"
 	end_module
@@ -180,7 +214,7 @@ then
 
     echo
     echo Defaults for StanfordNER
-    ser=$(locate .crf.ser.gz | head -n 1)
+    ser=$($LOCATE .crf.ser.gz | $HEAD -n 1)
     read -e -p "Location of Stanford NER classifier: " -i "$ser" ser
     if [ -n "$ser" ]
     then
@@ -195,7 +229,7 @@ then
     read -e -p "Location of Tree tagger executable: " -i "$tt" tt
     if [ -n "$tt" ]
     then
-	par=$(locate -b english*bin)
+	par=$($LOCATE -b english*bin)
 	read -e -p "Location of default PAR file: " -i "$par" par
 	start_module fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.treetagger.TreeTagger
 	param treeTaggerExecutable "$tt"
@@ -369,7 +403,7 @@ fi
 
 LIB_FILES="alvisnlp-core/target/lib/*.jar alvisnlp-core/target/*.jar alvisnlp-bibliome/target/lib/*.jar alvisnlp-bibliome/target/*.jar"
 
-INSTALL_DIR="$(readlink -m $1)"
+INSTALL_DIR="$($READLINK -m $1)"
 echo "Install directory: $INSTALL_DIR"
 if [ -n "$DEFAULT_PARAM_VALUES" ]
 then
@@ -389,22 +423,22 @@ DOC_DIR="$INSTALL_DIR/doc"
 LIB_DIR="$INSTALL_DIR/lib"
 SHARE_DIR="$INSTALL_DIR/share"
 
-mkdir -p "$INSTALL_DIR"
-mkdir -p "$BIN_DIR"
-mkdir -p "$DOC_DIR"
-mkdir -p "$LIB_DIR"
-mkdir -p "$SHARE_DIR"
+$MKDIR -p "$INSTALL_DIR"
+$MKDIR -p "$BIN_DIR"
+$MKDIR -p "$DOC_DIR"
+$MKDIR -p "$LIB_DIR"
+$MKDIR -p "$SHARE_DIR"
 
-cp -f -u -r $LIB_FILES "$LIB_DIR"
+$CP -f -u -r $LIB_FILES "$LIB_DIR"
 
 if [ -n "$DEFAULT_PARAM_VALUES" ]
 then
-    cp -f -u "$DEFAULT_PARAM_VALUES" "$SHARE_DIR/default-param-values.xml"
+    $CP -f -u "$DEFAULT_PARAM_VALUES" "$SHARE_DIR/default-param-values.xml"
 fi
 
 if [ -f "$DEFAULT_OPTIONS" ]
 then
-    cp -f -u "$DEFAULT_OPTIONS" "$SHARE_DIR/default-options.txt"
+    $CP -f -u "$DEFAULT_OPTIONS" "$SHARE_DIR/default-options.txt"
 fi
 
 read -r -d '' TEMPLATE <<'EOF'
@@ -447,6 +481,6 @@ $cmd
 EOF
 
 BIN_FILE="$BIN_DIR/alvisnlp"
-sed -e "s,__INSTALL_DIR__,$INSTALL_DIR," <<<"$TEMPLATE" >"$BIN_FILE"
-chmod +x "$BIN_FILE"
+$SED -e "s,__INSTALL_DIR__,$INSTALL_DIR," <<<"$TEMPLATE" >"$BIN_FILE"
+$CHMOD +x "$BIN_FILE"
 
