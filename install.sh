@@ -70,8 +70,8 @@ case "$OS" in
     Darwin*)
 	READLINK=greadlink
 	CP=gcp
-	MKDIR=mkdir
-	LOCATE=locate
+	MKDIR=gmkdir
+	LOCATE=glocate
 	GREP=ggrep
 	XARGS=xargs
 	FIND=find
@@ -83,10 +83,10 @@ case "$OS" in
 	SED=gsed
 	;;
     *)
-	READLINK=realink
+	READLINK=readlink
 	CP=cp
-	MKDIR=gmkdir
-	LOCATE=glocate
+	MKDIR=mkdir
+	LOCATE=locate
 	GREP=grep
 	XARGS=xargs
 	FIND=find
