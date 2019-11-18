@@ -27,6 +27,8 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
+import fr.inra.maiage.bibliome.util.fragments.Fragment;
+import fr.inra.maiage.bibliome.util.fragments.SimpleFragment;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule(beta=true)
@@ -53,6 +55,7 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 	private SourceStream extractStream;
 	private String tokenLayerName = "tokens";
 	private String ordFeatureKey = "ord";
+	private String sectionName = "text";
 	
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -83,65 +86,28 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 		for (String col : DOCUMENT_FEATURES) {
 			doc.addFeature(col, record.get(col));
 		}
-		Section title = createSection(doc, record, "title");
-		Section text = createSection(doc, record, "text");
-		Section current = title;
-		String content = current.getContents();
-		Layer tokenLayer = title.ensureLayer(tokenLayerName);
-		int from = 0;
 		List<String> tokens = getTokens(record);
-		for (int i = 0; i < tokens.size(); ++i) {
-			String form = tokens.get(i);
-			int start = lookupToken(logger, content, from, form);
-			if (start == -1) {
-				if (current == text) {
-					logger.warning("reached end of text in " + docId + " at token " + form + ", ignoring everything");
-					return;
-				}
-				current = text;
-				content = current.getContents();
-				tokenLayer = current.ensureLayer(tokenLayerName);
-				from = 0;
-				start = lookupToken(logger, content, from, form);
+		List<Fragment> frags = new ArrayList<Fragment>(tokens.size());
+		StringBuilder content = new StringBuilder();
+		for (String t : tokens) {
+			if (content.length() > 0) {
+				content.append(' ');
 			}
-			if (start == -1) {
-				logger.warning("in " + docId + ", could not find token " + form + ", ignoring it");
-				continue;
-			}
-			from = start + form.length();
-			Annotation a = new Annotation(this, tokenLayer, start, from);
+			int start = content.length();
+			content.append(t);
+			int end = content.length();
+			Fragment f = new SimpleFragment(start, end);
+			frags.add(f);
+		}
+		Section sec = new Section(this, doc, sectionName , content.toString());
+		Layer layer = sec.ensureLayer(tokenLayerName);
+		for (int i = 0; i < frags.size(); ++i) {
+			Fragment f = frags.get(i);
+			Annotation a = new Annotation(this, layer, f.getStart(), f.getEnd());
 			a.addFeature(ordFeatureKey, Integer.toString(i));
 		}
 	}
 	
-	private static int lookupToken(Logger logger, String content, int from, String form) {
-		int result = content.indexOf(form, from);
-		if (result != -1) {
-			return result;
-		}
-		Pattern pat = tokenToPattern(form);
-		Matcher m = pat.matcher(content);
-		if (m.find(from)) {
-			logger.warning("force-fit " + form + " to " + m.group());
-			return m.start();
-		}
-		return -1;
-	}
-
-	private static Pattern tokenToPattern(String form) {
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < form.length(); ++i) {
-			char c = form.charAt(i);
-			if (Character.isWhitespace(c) || c == '_') {
-				sb.append("[\\s_]");
-			}
-			else {
-				sb.append("[^\\s_]");
-			}
-		}
-		return Pattern.compile(sb.toString());
-	}
-
 	private static final Pattern TOKEN_PATTERN = Pattern.compile("<t>(.+?)</t>");
 	private static List<String> getTokens(CSVRecord record) {
 		List<String> result = new ArrayList<String>();
@@ -149,15 +115,12 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 		Matcher m = TOKEN_PATTERN.matcher(s);
 		while (m.find()) {
 			String t = m.group(1);
+			if (t.equals("<br />")) {
+				t = "\n";
+			}
 			result.add(t);
 		}
 		return result;
-	}
-	
-	
-
-	private Section createSection(Document doc, CSVRecord record, String column) {
-		return new Section(this, doc, column, record.get(column));
 	}
 
 	@Override
