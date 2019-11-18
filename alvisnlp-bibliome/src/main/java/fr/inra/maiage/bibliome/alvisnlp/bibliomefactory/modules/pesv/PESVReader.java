@@ -2,17 +2,14 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pesv;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.io.StringReader;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
@@ -31,7 +28,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
-import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 @AlvisNLPModule(beta=true)
 public abstract class PESVReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator {
@@ -64,62 +60,101 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 			Logger logger = getLogger(ctx);
 			loadDocuments(logger, corpus);
 		}
-		catch (IOException | SAXException e) {
+		catch (IOException e) {
 			throw new ProcessingException(e);
 		}
 	}
 	
-	private void loadDocuments(Logger logger, Corpus corpus) throws IOException, SAXException {
+	private void loadDocuments(Logger logger, Corpus corpus) throws IOException {
 		try (Reader r = docStream.getReader()) {
-			RECORD: for (CSVRecord record : CSVFormat.MYSQL.withQuote('"').withFirstRecordAsHeader().parse(r)) {
-				if (!record.isConsistent()) {
-					logger.warning("line " + record.getRecordNumber() + " has wrong number of columns, ignoring");
-					continue;
-				}
-				String docId = record.get("id");
-				Document doc = Document.getDocument(this, corpus, docId);
-				Section title = createSection(doc, record, "title");
-				Section text = createSection(doc, record, "text");
-				for (String col : DOCUMENT_FEATURES) {
-					doc.addFeature(col, record.get(col));
-				}
-				Section current = title;
-				String content = current.getContents();
-				Layer tokenLayer = title.ensureLayer(tokenLayerName);
-				int from = 0;
-				NodeList tokens = getTokens(record);
-				for (int i = 0; i < tokens.getLength(); ++i) {
-					Element t = (Element) tokens.item(i);
-					String form = t.getTextContent();
-					int start = content.indexOf(form, from);
-					if (start == -1) {
-						if (current == text) {
-							logger.warning("reached end of text in " + docId + " at token " + form + ", ignoring everything");
-							continue RECORD;
-						}
-						current = text;
-						content = current.getContents();
-						tokenLayer = title.ensureLayer(tokenLayerName);
-						from = 0;
-						start = content.indexOf(form, from);
-					}
-					if (start == -1) {
-						logger.warning("in " + docId + ", could not find token " + form + ", ignoring it");
-						continue;
-					}
-					from = start + form.length();
-					Annotation a = new Annotation(this, tokenLayer, start, from);
-					a.addFeature(ordFeatureKey, Integer.toString(i));
-				}
+			for (CSVRecord record : CSVFormat.MYSQL.withQuote('"').withFirstRecordAsHeader().parse(r)) {
+				loadDocument(logger, corpus, record);
 			}
 		}
 	}
 	
-	private static NodeList getTokens(CSVRecord record) throws SAXException, IOException {
-		String tokensString = "<dummy>" + record.get("processed_text") + "</dummy>";
-		org.w3c.dom.Document doc = XMLUtils.docBuilder.parse(new InputSource(new StringReader(tokensString)));
-		return doc.getElementsByTagName("t");
+	private void loadDocument(Logger logger, Corpus corpus, CSVRecord record) {
+		if (!record.isConsistent()) {
+			logger.warning("line " + record.getRecordNumber() + " has wrong number of columns, ignoring");
+			return;
+		}
+		String docId = record.get("id");
+		Document doc = Document.getDocument(this, corpus, docId);
+		for (String col : DOCUMENT_FEATURES) {
+			doc.addFeature(col, record.get(col));
+		}
+		Section title = createSection(doc, record, "title");
+		Section text = createSection(doc, record, "text");
+		Section current = title;
+		String content = current.getContents();
+		Layer tokenLayer = title.ensureLayer(tokenLayerName);
+		int from = 0;
+		List<String> tokens = getTokens(record);
+		for (int i = 0; i < tokens.size(); ++i) {
+			String form = tokens.get(i);
+			int start = lookupToken(logger, content, from, form);
+			if (start == -1) {
+				if (current == text) {
+					logger.warning("reached end of text in " + docId + " at token " + form + ", ignoring everything");
+					return;
+				}
+				current = text;
+				content = current.getContents();
+				tokenLayer = current.ensureLayer(tokenLayerName);
+				from = 0;
+				start = lookupToken(logger, content, from, form);
+			}
+			if (start == -1) {
+				logger.warning("in " + docId + ", could not find token " + form + ", ignoring it");
+				continue;
+			}
+			from = start + form.length();
+			Annotation a = new Annotation(this, tokenLayer, start, from);
+			a.addFeature(ordFeatureKey, Integer.toString(i));
+		}
 	}
+	
+	private static int lookupToken(Logger logger, String content, int from, String form) {
+		int result = content.indexOf(form, from);
+		if (result != -1) {
+			return result;
+		}
+		Pattern pat = tokenToPattern(form);
+		Matcher m = pat.matcher(content);
+		if (m.find(from)) {
+			logger.warning("force-fit " + form + " to " + m.group());
+			return m.start();
+		}
+		return -1;
+	}
+
+	private static Pattern tokenToPattern(String form) {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < form.length(); ++i) {
+			char c = form.charAt(i);
+			if (Character.isWhitespace(c) || c == '_') {
+				sb.append("[\\s_]");
+			}
+			else {
+				sb.append("[^\\s_]");
+			}
+		}
+		return Pattern.compile(sb.toString());
+	}
+
+	private static final Pattern TOKEN_PATTERN = Pattern.compile("<t>(.+?)</t>");
+	private static List<String> getTokens(CSVRecord record) {
+		List<String> result = new ArrayList<String>();
+		String s = record.get("processed_text");
+		Matcher m = TOKEN_PATTERN.matcher(s);
+		while (m.find()) {
+			String t = m.group(1);
+			result.add(t);
+		}
+		return result;
+	}
+	
+	
 
 	private Section createSection(Document doc, CSVRecord record, String column) {
 		return new Section(this, doc, column, record.get(column));

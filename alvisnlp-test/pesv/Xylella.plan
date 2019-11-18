@@ -1,6 +1,6 @@
 <alvisnlp-plan id="Xylella">
   <read class="PESVReader">
-    <docStream>test/Xylella/articleweb.csv</docStream>
+    <docStream>Xylella/articleweb.csv</docStream>
   </read>
 
   <shell/>
