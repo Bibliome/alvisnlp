@@ -83,7 +83,7 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 		}
 	}
 	
-	private void loadEntities(Logger logger, Corpus corpus, CSVRecord record) {
+	private void loadEntities(@SuppressWarnings("unused") Logger logger, Corpus corpus, CSVRecord record) {
 //		if (!record.isConsistent()) {
 //			logger.warning("line " + record.getRecordNumber() + " has wrong number of columns, ignoring");
 //			return;
