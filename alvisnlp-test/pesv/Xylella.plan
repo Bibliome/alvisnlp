@@ -3,4 +3,40 @@
     <docStream>articleweb.csv</docStream>
     <entitiesStream>extracted_information.csv</entitiesStream>
   </read>
+
+  <write class="TabularExport">
+    <outDir>.</outDir>
+    <corpusFile>extracted_information.csv</corpusFile>
+    <lines>documents.sections.layer:entities</lines>
+    <columns>
+      @id,
+      @position,
+      inside:tokens{0}.@ord,
+      int(inside:tokens),
+      @type,
+      @label,
+      @user_label,
+      @value,
+      @confidence,
+      @distribution,
+      @occurrences,
+      @id_geonames,
+      @geo_name,
+      @geo_class,
+      @geo_code,
+      @geo_latitude,
+      @geo_longitude,
+      @geo_country_code,
+      @geo_adm1,
+      @geo_adm2,
+      @date,
+      section.document.@id,
+      @id_,
+      @id_rssfeed
+    </columns>
+    <headers>
+      "id", "position", "token_index", "length", "type", "label", "user_label", "value", "confidence", "distribution", "occurrences", "id_geonames", "geo_name", "geo_class", "geo_code", "geo_latitude", "geo_longitude", "geo_country_code", "geo_adm1", "geo_adm2", "date", "id_articleweb", "id_", "id_rssfeed"
+    </headers>
+    <trueCSV/>
+  </write>
 </alvisnlp-plan>
