@@ -86,6 +86,11 @@ limitations under the License.
     <param-doc name="trim">
       <p/>
     </param-doc>
+    
+    <param-doc name="trueCSV">
+    	<p>Use CSV Commons library for the output.</p>
+    </param-doc>
+    
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
 </module-doc>
 </alvisnlp-doc>

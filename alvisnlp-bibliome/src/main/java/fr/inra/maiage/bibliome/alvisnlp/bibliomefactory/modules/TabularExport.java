@@ -18,9 +18,15 @@ limitations under the License.
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
+import java.io.Writer;
 import java.util.logging.Logger;
+
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVPrinter;
+import org.apache.commons.csv.QuoteMode;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.TabularExport.TabularExportResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
@@ -63,6 +69,7 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> im
 	private Boolean append = false;
 	private Boolean trim = false;
 	private File corpusFile = null;
+	private Boolean trueCSV = false;
 	
 	static class TabularExportResolvedObjects extends ResolvedObjects {
 		private final Variable lineVar;
@@ -130,6 +137,14 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> im
 		ps.println(line);
 		writeTimer.stop();
 	}
+	
+	private static void printCSVLine(Timer<TimerCategory> writeTimer, CSVPrinter printer, Evaluator[] valuesEvaluators, EvaluationContext evalCtx, Element elt) throws IOException {
+		String[] values = evaluateArray(valuesEvaluators, evalCtx, elt);
+		writeTimer.start();
+		printer.printRecord((Object[]) values);
+		//printer.println();
+		writeTimer.stop();
+	}
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -137,24 +152,54 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> im
     	Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		Timer<TimerCategory> writeTimer = getTimer(ctx, "write", TimerCategory.EXPORT, false);
-		for (Element fileElement : Iterators.loop(resObj.files.evaluateElements(evalCtx, corpus))) {
-			String fileNameString = resObj.fileName.evaluateString(evalCtx, fileElement);
-			OutputFile outputFile = new OutputFile(outDir, fileNameString);
-			TargetStream target = new FileTargetStream(charset, outputFile, append);
-			try (PrintStream ps = target.getPrintStream()) {
-				if (headers != null) {
-					printLine(writeTimer, ps, resObj.headers, evalCtx, fileElement);
+		try {
+			for (Element fileElement : Iterators.loop(resObj.files.evaluateElements(evalCtx, corpus))) {
+				String fileNameString = resObj.fileName.evaluateString(evalCtx, fileElement);
+				if (trueCSV) {
+					writeCSV(writeTimer, evalCtx, fileElement, fileNameString);
 				}
-				for (Element lineElement : Iterators.loop(resObj.lines.evaluateElements(evalCtx, fileElement))) {
-					resObj.lineVar.set(lineElement);
-					printLine(writeTimer, ps, resObj.columns, evalCtx, lineElement);
-				}
-				if (footers != null) {
-					printLine(writeTimer, ps, resObj.footers, evalCtx, fileElement);
+				else {
+					writeRegular(writeTimer, evalCtx, fileElement, fileNameString);
 				}
 			}
-			catch (IOException e) {
-				throw new ProcessingException(e);
+		}
+		catch (IOException e) {
+			throw new ProcessingException(e);
+		}
+	}
+	
+	private void writeRegular(Timer<TimerCategory> writeTimer, EvaluationContext evalCtx, Element fileElement, String fileNameString) throws IOException {
+		TabularExportResolvedObjects resObj = getResolvedObjects();
+		OutputFile outputFile = new OutputFile(outDir, fileNameString);
+		TargetStream target = new FileTargetStream(charset, outputFile, append);
+		try (PrintStream ps = target.getPrintStream()) {
+			if (headers != null) {
+				printLine(writeTimer, ps, resObj.headers, evalCtx, fileElement);
+			}
+			for (Element lineElement : Iterators.loop(resObj.lines.evaluateElements(evalCtx, fileElement))) {
+				resObj.lineVar.set(lineElement);
+				printLine(writeTimer, ps, resObj.columns, evalCtx, lineElement);
+			}
+			if (footers != null) {
+				printLine(writeTimer, ps, resObj.footers, evalCtx, fileElement);
+			}
+		}
+	}
+	
+	private void writeCSV(Timer<TimerCategory> writeTimer, EvaluationContext evalCtx, Element fileElement, String fileNameString) throws IOException {
+		TabularExportResolvedObjects resObj = getResolvedObjects();
+		CSVFormat format = CSVFormat.MYSQL.withQuote('"').withDelimiter(separator.charAt(0));
+		try (Writer writer = new FileWriter(fileNameString)) {
+			CSVPrinter printer = new CSVPrinter(writer, format);
+			if (headers != null) {
+				printCSVLine(writeTimer, printer, resObj.headers, evalCtx, fileElement);
+			}
+			for (Element lineElement : Iterators.loop(resObj.lines.evaluateElements(evalCtx, fileElement))) {
+				resObj.lineVar.set(lineElement);
+				printCSVLine(writeTimer, printer, resObj.columns, evalCtx, lineElement);
+			}
+			if (footers != null) {
+				printCSVLine(writeTimer, printer, resObj.footers, evalCtx, fileElement);
 			}
 		}
 	}
@@ -239,6 +284,15 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> im
 	@Param(mandatory=false)
 	public File getCorpusFile() {
 		return corpusFile;
+	}
+
+	@Param
+	public Boolean getTrueCSV() {
+		return trueCSV;
+	}
+
+	public void setTrueCSV(Boolean trueCSV) {
+		this.trueCSV = trueCSV;
 	}
 
 	public void setCorpusFile(File corpusFile) {
