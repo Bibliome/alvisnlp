@@ -22,7 +22,7 @@ import java.io.OutputStream;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import org.apache.jena.fuseki.embedded.FusekiEmbeddedServer;
+import org.apache.jena.fuseki.embedded.FusekiServer;
 import org.apache.jena.query.Dataset;
 import org.apache.jena.query.DatasetFactory;
 import org.apache.jena.rdf.model.Model;
@@ -148,7 +148,7 @@ public class RDFExport extends CorpusModule<RDFExportResolvedObjects> {
 		logger.info("wrote " + count + " statements");
 		if (startServer) {
 			Dataset ds = DatasetFactory.assemble(resObj.model);
-			FusekiEmbeddedServer server = FusekiEmbeddedServer.create().add("alvisnlp", ds).build();
+			FusekiServer server = FusekiServer.create().add("alvisnlp", ds).build();
 			server.start();
 		}
 	}
