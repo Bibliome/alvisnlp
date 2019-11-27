@@ -188,8 +188,9 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> im
 	
 	private void writeCSV(Timer<TimerCategory> writeTimer, EvaluationContext evalCtx, Element fileElement, String fileNameString) throws IOException {
 		TabularExportResolvedObjects resObj = getResolvedObjects();
+		OutputFile outputFile = new OutputFile(outDir, fileNameString);
 		CSVFormat format = CSVFormat.MYSQL.withQuote('"').withDelimiter(separator.charAt(0));
-		try (Writer writer = new FileWriter(fileNameString)) {
+		try (Writer writer = new FileWriter(outputFile)) {
 			CSVPrinter printer = new CSVPrinter(writer, format);
 			if (headers != null) {
 				printCSVLine(writeTimer, printer, resObj.headers, evalCtx, fileElement);
