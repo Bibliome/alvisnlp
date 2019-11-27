@@ -85,12 +85,15 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 		}
 	}
 	
-	private void loadEntities(@SuppressWarnings("unused") Logger logger, Corpus corpus, CSVRecord record) {
-//		if (!record.isConsistent()) {
-//			logger.warning("line " + record.getRecordNumber() + " has wrong number of columns, ignoring");
-//			return;
-//		}
+	private void loadEntities(Logger logger, Corpus corpus, CSVRecord record) {
+		if (!record.isConsistent()) {
+			logger.warning("line " + record.getRecordNumber() + " has wrong number of columns");
+		}
 		String docId = record.get("id_articleweb");
+		if (!corpus.hasDocument(docId)) {
+			logger.warning("line " + record.getRecordNumber() + ": no document " + docId + ", ignoring record");
+			return;
+		}
 		Document doc = corpus.getDocument(docId);
 		Section sec = doc.sectionIterator(sectionName).next();
 		Annotation a = createAnnotation(sec, record);
@@ -142,8 +145,7 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 		
 	private void loadDocument(Logger logger, Corpus corpus, CSVRecord record) {
 		if (!record.isConsistent()) {
-			logger.warning("line " + record.getRecordNumber() + " has wrong number of columns, ignoring");
-			return;
+			logger.warning("line " + record.getRecordNumber() + " has wrong number of columns");
 		}
 		String docId = record.get("id");
 		Document doc = Document.getDocument(this, corpus, docId);
