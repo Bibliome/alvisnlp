@@ -245,6 +245,7 @@ public class PlanLoader<T extends Annotable> {
 		if (!PLAN_ELEMENT_NAME.equals(elt.getTagName()))
 			throw new PlanException("expected element " + PLAN_ELEMENT_NAME + ", got " + elt.getTagName());
 		Sequence<T> result = loadSequence(logger, doc.getDocumentElement(), true);
+		result.setSequenceSourceName(source);
 		logger.fine("finished loading " + source);
 		return result;
 	}

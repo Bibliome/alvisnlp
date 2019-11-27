@@ -141,4 +141,6 @@ public interface Module<T extends Annotable> extends ElementCreator, Documentabl
 	<P> void accept(ModuleVisitor<T,P> visitor, P param) throws ModuleException;
 
 	boolean testProcess(ProcessingContext<T> ctx, T corpus) throws ModuleException;
+	
+	String getModuleSourceName();
 }

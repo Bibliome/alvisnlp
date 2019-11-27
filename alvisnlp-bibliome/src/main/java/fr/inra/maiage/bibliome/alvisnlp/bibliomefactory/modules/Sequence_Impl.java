@@ -47,6 +47,7 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
     private final List<Module<Corpus>> moduleSequence = new ArrayList<Module<Corpus>>();
     private final Map<String,CompositeParamHandler<Corpus>> params = new LinkedHashMap<String,CompositeParamHandler<Corpus>>();
     private final Map<String,String> properties = new LinkedHashMap<String,String>();
+    private String sourceName = null;
     private String[] select;
 
     public Sequence_Impl() {
@@ -240,6 +241,19 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
 	@Override
 	public void setProperty(String name, String value) {
 		properties.put(name, value);
+	}
+
+	@Override
+	public void setSequenceSourceName(String sourceName) {
+		this.sourceName = sourceName;
+	}
+
+	@Override
+	public String getModuleSourceName() {
+		if (sourceName == null) {
+			return super.getModuleSourceName();
+		}
+		return sourceName;
 	}
 
 	@Param(mandatory=false)

@@ -61,6 +61,7 @@ import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 public abstract class ModuleBase<T extends Annotable> implements Module<T> {
 	@SuppressWarnings("serial")
 	public static final Level HIGHLIGHT = new Level("HIGHLIGHT", Level.INFO.intValue() + 1) {};
+	protected static final String UNKNOWN_SOURCE = "<<unknown source>>";
 
     private final Map<String,ParamHandler<T>> paramHandlers  = new LinkedHashMap<String,ParamHandler<T>>();
     private final String resourceBundleName;
@@ -531,5 +532,13 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public String getModuleSourceName() {
+		if (sequence == null) {
+			return UNKNOWN_SOURCE;
+		}
+		return sequence.getModuleSourceName();
 	}
 }

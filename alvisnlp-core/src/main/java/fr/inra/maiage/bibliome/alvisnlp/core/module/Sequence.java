@@ -203,4 +203,6 @@ public interface Sequence<T extends Annotable> extends Module<T> {
 	String getProperty(String name);
 	
 	void setProperty(String name, String value);
+	
+	void setSequenceSourceName(String sourceName);
 }
