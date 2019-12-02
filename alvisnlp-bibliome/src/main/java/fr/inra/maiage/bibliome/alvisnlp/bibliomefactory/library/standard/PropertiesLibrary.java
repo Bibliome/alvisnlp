@@ -160,4 +160,13 @@ public abstract class PropertiesLibrary extends FunctionLibrary {
 			nameUsage.addNames(NameType.FEATURE, key);
 		}
 	}
+	
+	@Function
+	public static final int order(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+		Section sec = DownCastElement.toSection(elt);
+		if (sec == null) {
+			return 0;
+		}
+		return sec.getOrder();
+	}
 }

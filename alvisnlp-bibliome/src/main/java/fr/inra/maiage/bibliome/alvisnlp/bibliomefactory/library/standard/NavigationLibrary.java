@@ -535,6 +535,74 @@ public abstract class NavigationLibrary extends FunctionLibrary {
 		return sections(ctx, elt, (String) null);
 	}
 	
+	@Function(firstFtor="sections-before")
+	public static final List<Element> sectionBefore(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+		Section sec = DownCastElement.toSection(elt);
+		if (sec == null) {
+			return Collections.emptyList();
+		}
+		Document doc = sec.getDocument();
+		int ord = sec.getOrder();
+		List<Element> result = new ArrayList<Element>();
+		for (Section s : Iterators.loop(doc.sectionIterator())) {
+			if (s.getOrder() < ord) {
+				result.add(s);
+			}
+		}
+		return result;
+	}
+	
+	@Function(firstFtor="sections-before", ftors=1, nameTypes= {NameType.SECTION})
+	public static final List<Element> sectionBefore(@SuppressWarnings("unused") EvaluationContext ctx, Element elt, String name) {
+		Section sec = DownCastElement.toSection(elt);
+		if (sec == null) {
+			return Collections.emptyList();
+		}
+		Document doc = sec.getDocument();
+		int ord = sec.getOrder();
+		List<Element> result = new ArrayList<Element>();
+		for (Section s : Iterators.loop(doc.sectionIterator(name))) {
+			if (s.getOrder() < ord) {
+				result.add(s);
+			}
+		}
+		return result;
+	}
+	
+	@Function(firstFtor="sections-after")
+	public static final List<Element> sectionAfter(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+		Section sec = DownCastElement.toSection(elt);
+		if (sec == null) {
+			return Collections.emptyList();
+		}
+		Document doc = sec.getDocument();
+		int ord = sec.getOrder();
+		List<Element> result = new ArrayList<Element>();
+		for (Section s : Iterators.loop(doc.sectionIterator())) {
+			if (s.getOrder() > ord) {
+				result.add(s);
+			}
+		}
+		return result;
+	}
+	
+	@Function(firstFtor="sections-after", ftors=1, nameTypes= {NameType.SECTION})
+	public static final List<Element> sectionAfter(@SuppressWarnings("unused") EvaluationContext ctx, Element elt, String name) {
+		Section sec = DownCastElement.toSection(elt);
+		if (sec == null) {
+			return Collections.emptyList();
+		}
+		Document doc = sec.getDocument();
+		int ord = sec.getOrder();
+		List<Element> result = new ArrayList<Element>();
+		for (Section s : Iterators.loop(doc.sectionIterator(name))) {
+			if (s.getOrder() > ord) {
+				result.add(s);
+			}
+		}
+		return result;
+	}
+	
 	@Function(ftors=1, nameTypes={NameType.FEATURE})
 	public static final List<Element> features(@SuppressWarnings("unused") EvaluationContext ctx, Element elt, String key) {
 		if (!elt.hasFeature(key))
