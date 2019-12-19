@@ -75,6 +75,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.CheckMandatoryParameters;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.CheckParamValueConstraints;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.CheckUniquePaths;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.CollectModules;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.CollectResources;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ParamHandler;
@@ -350,7 +351,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	@CLIOption("--param")
 	public static void OMTD_setParam() throws CLIOException {
 		// this option should not be used actualy, this annotated method forces it to appear in the usage message
-		throw new CLIOException("unknow option --param");
+		throw new CLIOException("unknown option --param");
 	}
 	
 	@CLIOption("-environmentEntities")
@@ -942,7 +943,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     		InputSource is = new InputSource(new StringReader(xmlValue));
     		Document doc = XMLUtils.docBuilder.parse(is);
     		Element elt = doc.getDocumentElement();
-    		planLoader.setParam(logger, elt, module);
+    		planLoader.setParam(logger, "cmdline:", elt, module);
 		}
     }
     
@@ -985,7 +986,13 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 
         	if (CheckParamValueConstraints.visit(ctx, logger, result))
         		throw new PlanException("some parameter values do not satisfy constraints");
+        	
 
+        	if (logger.isLoggable(Level.FINE)) {
+        		logger.fine("External resources");
+        		CollectResources.visit(ctx, logger, result);
+        	}
+        	
         	result.init(ctx);
 
         	for (Map.Entry<String,String> e : dumpModules.entrySet()) {

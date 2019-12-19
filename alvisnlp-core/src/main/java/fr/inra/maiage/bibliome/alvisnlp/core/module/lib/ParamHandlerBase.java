@@ -37,6 +37,7 @@ public class ParamHandlerBase<A extends Annotable> implements ParamHandler<A> {
     private final Param annot;
     private final String name;
     private final String nameType;
+    private String paramSourceName;
     private boolean inhibitCheck = false;
     
     /**
@@ -133,5 +134,18 @@ public class ParamHandlerBase<A extends Annotable> implements ParamHandler<A> {
 	@Override
 	public String getNameType() {
 		return nameType;
+	}
+
+	@Override
+	public String getParamSourceName() {
+		if (paramSourceName == null) {
+			return owner.getModuleSourceName();
+		}
+		return paramSourceName;
+	}
+
+	@Override
+	public void setParamSourceName(String sourceName) {
+		paramSourceName = sourceName;
 	}
 }

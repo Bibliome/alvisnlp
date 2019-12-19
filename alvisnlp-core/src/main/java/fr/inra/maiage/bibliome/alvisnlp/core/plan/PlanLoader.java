@@ -244,7 +244,7 @@ public class PlanLoader<T extends Annotable> {
 		Element elt = doc.getDocumentElement();
 		if (!PLAN_ELEMENT_NAME.equals(elt.getTagName()))
 			throw new PlanException("expected element " + PLAN_ELEMENT_NAME + ", got " + elt.getTagName());
-		Sequence<T> result = loadSequence(logger, doc.getDocumentElement(), true);
+		Sequence<T> result = loadSequence(logger, source, doc.getDocumentElement(), true);
 		result.setSequenceSourceName(source);
 		logger.fine("finished loading " + source);
 		return result;
@@ -293,7 +293,7 @@ public class PlanLoader<T extends Annotable> {
 		}
 	}
 
-	private Sequence<T> loadSequence(Logger logger, Element elt, boolean plan) throws PlanException, ModuleException, ServiceException, ConverterException, SAXException, IOException, URISyntaxException {
+	private Sequence<T> loadSequence(Logger logger, String source, Element elt, boolean plan) throws PlanException, ModuleException, ServiceException, ConverterException, SAXException, IOException, URISyntaxException {
 		Sequence<T> result = moduleFactory.newSequence();
 		if (result == null) {
 			throw new ModuleException("could not instanciate sequence");
@@ -315,14 +315,14 @@ public class PlanLoader<T extends Annotable> {
 				if (MODULE_ELEMENT_NAME.equals(childName)) {
 					logger.severe("the tag " + MODULE_ELEMENT_NAME + " is deprecated, use tags names as module identifiers");
 					logger.severe("future versions might not support " + MODULE_ELEMENT_NAME);
-					Module<T> module = loadModule(logger, childElement);
+					Module<T> module = loadModule(logger, source, childElement);
 					result.appendModule(module);
 					continue;
 				}
 				if (SEQUENCE_ELEMENT_NAME.equals(childName)) {
 					logger.severe("the tag " + SEQUENCE_ELEMENT_NAME + " is deprecated, use tags names as sequence identifiers");
 					logger.severe("future versions might not support " + SEQUENCE_ELEMENT_NAME);
-					Sequence<T> sequence = loadSequence(logger, childElement, false);
+					Sequence<T> sequence = loadSequence(logger, source, childElement, false);
 					result.appendModule(sequence);
 					continue;
 				}
@@ -334,15 +334,15 @@ public class PlanLoader<T extends Annotable> {
 					continue;
 				}
 				if (ACTIVE_PARAM_ELEMENT_NAME.equals(childName)) {
-					setParam(logger, childElement, result);
+					setParam(logger, source, childElement, result);
 					continue;
 				}
 				if (SELECT_PARAM_ELEMENT_NAME.equals(childName)) {
-					setParam(logger, childElement, result);
+					setParam(logger, source, childElement, result);
 					continue;
 				}
 				if (USER_FUNCTIONS_PARAM_ELEMENT_NAME.equals(childName)) {
-					setParam(logger, childElement, result);
+					setParam(logger, source, childElement, result);
 					continue;
 				}
 				if (SHELL_ELEMENT_NAME.equals(childName)) {
@@ -351,7 +351,7 @@ public class PlanLoader<T extends Annotable> {
 					String shellModule;
 					shellModule = moduleFactory.getShellModule();
 					childElement.setAttribute(CLASS_ATTRIBUTE_NAME, shellModule);
-					Module<T> module = loadModule(logger, childElement);
+					Module<T> module = loadModule(logger, source, childElement);
 					result.appendModule(module);
 					continue;
 				}
@@ -361,7 +361,7 @@ public class PlanLoader<T extends Annotable> {
 					String browserModule;
 					browserModule = moduleFactory.getBrowserModule();
 					childElement.setAttribute(CLASS_ATTRIBUTE_NAME, browserModule);
-					Module<T> module = loadModule(logger, childElement);
+					Module<T> module = loadModule(logger, source, childElement);
 					result.appendModule(module);
 					continue;
 				}
@@ -389,7 +389,7 @@ public class PlanLoader<T extends Annotable> {
 					documentation.setDocument(locale, doc);
 					continue;
 				}
-				Module<T> module = loadModuleOrSequence(logger, childElement);
+				Module<T> module = loadModuleOrSequence(logger, source, childElement);
 				result.appendModule(module);
 				continue;
 //				throw new PlanException("unexpected element: " + childName + " (plan: " + plan + ")");
@@ -441,9 +441,9 @@ public class PlanLoader<T extends Annotable> {
 		}
 	}
 	
-	private Module<T> loadModuleOrSequence(Logger logger, Element elt) throws PlanException, ConverterException, ServiceException, SAXException, IOException, URISyntaxException, ModuleException {
+	private Module<T> loadModuleOrSequence(Logger logger, String source, Element elt) throws PlanException, ConverterException, ServiceException, SAXException, IOException, URISyntaxException, ModuleException {
 		if (elt.hasAttribute(CLASS_ATTRIBUTE_NAME)) {
-			return loadModule(logger, elt);
+			return loadModule(logger, source, elt);
 		}
 		if (elt.hasAttribute(SOURCE_ATTRIBUTE_NAME)) {
 			return importPlan(logger, elt);
@@ -453,20 +453,20 @@ public class PlanLoader<T extends Annotable> {
 				return importPlan(logger, elt);
 			}
 		}
-		return loadSequence(logger, elt, false);
+		return loadSequence(logger, source, elt, false);
 	}
 
-	private Module<T> loadModule(Logger logger, Element elt) throws PlanException, ParameterException, ConverterException, ServiceException, SAXException, IOException, URISyntaxException {
+	private Module<T> loadModule(Logger logger, String source, Element elt) throws PlanException, ParameterException, ConverterException, ServiceException, SAXException, IOException, URISyntaxException {
 		String moduleClass = getAttribute(elt, CLASS_ATTRIBUTE_NAME);
 		Module<T> result = getModuleInstance(moduleClass);
 		setModuleId(logger, result, elt);
 		result.setCreatorNameFeature(creatorNameFeature);
-		setDefaultParams(logger, result);
-		setModuleParams(logger, elt, result);
+		setDefaultParams(logger, source, result);
+		setModuleParams(logger, source, elt, result);
 		return result;
 	}
 	
-	private void setModuleParams(Logger logger, Element parent, Module<T> module) throws PlanException, ParameterException, UnsupportedServiceException, ConverterException, SAXException, IOException, URISyntaxException {
+	private void setModuleParams(Logger logger, String source, Element parent, Module<T> module) throws PlanException, ParameterException, UnsupportedServiceException, ConverterException, SAXException, IOException, URISyntaxException {
 		for (Node child : XMLUtils.childrenNodes(parent)) {
 			if (child instanceof Comment)
 				continue;
@@ -474,20 +474,20 @@ public class PlanLoader<T extends Annotable> {
 				continue;
 			if (child instanceof Element) {
 				Element childElement = (Element) child;
-				setParam(logger, childElement, module);
+				setParam(logger, source, childElement, module);
 				continue;
 			}
 			throw new PlanException("unexpected node: " + child);
 		}
 	}
 	
-	private void setDefaultParams(Logger logger, Module<T> module) throws ParameterException, UnsupportedServiceException, PlanException, ConverterException, SAXException, IOException, URISyntaxException {
+	private void setDefaultParams(Logger logger, String source, Module<T> module) throws ParameterException, UnsupportedServiceException, PlanException, ConverterException, SAXException, IOException, URISyntaxException {
 		String moduleClass = module.getModuleClass();
 		if (!defaultParamValues.containsKey(moduleClass)) {
 			return;
 		}
 		for (Element elt : defaultParamValues.get(moduleClass)) {
-			setParam(logger, elt, module);
+			setParam(logger, source, elt, module);
 		}
 	}
 
@@ -503,7 +503,7 @@ public class PlanLoader<T extends Annotable> {
 		Module<T> result = loadSource(logger, sourceString, baseDir);
 		setModuleId(logger, result, elt);
 		if (!XMLUtils.childrenElements(elt).isEmpty()) {
-			setModuleParams(logger, elt, result);
+			setModuleParams(logger, sourceString, elt, result);
 		}
 		return result;
 	}
@@ -559,7 +559,7 @@ public class PlanLoader<T extends Annotable> {
 		return null;
 	}
 	
-	public void setParam(Logger logger, Element elt, Module<T> module) throws PlanException, ParameterException, ConverterException, UnsupportedServiceException, SAXException, IOException, URISyntaxException {
+	public void setParam(Logger logger, String sourceName, Element elt, Module<T> module) throws PlanException, ParameterException, ConverterException, UnsupportedServiceException, SAXException, IOException, URISyntaxException {
 		String eltName = elt.getTagName();
 		String paramName;
 		if (eltName.equals(PARAM_ELEMENT_NAME)) {
@@ -597,6 +597,7 @@ public class PlanLoader<T extends Annotable> {
 			try (InputStream is = source.getInputStream()) {
 				Document doc = docBuilder.parse(is);
 				elt = doc.getDocumentElement();
+				sourceName = source.getStreamName(is);
 			}
 		}
 		try {
@@ -604,6 +605,7 @@ public class PlanLoader<T extends Annotable> {
 //			System.err.println("paramName = " + paramName);
 //			System.err.println("value = " + value);
 			paramHandler.setValue(value);
+			paramHandler.setParamSourceName(sourceName);
 		}
 		catch (ConverterException e) {
 			throw new ConverterException("in module " + module.getPath() + ", parameter " + paramName + ": " + e.getMessage(), e);

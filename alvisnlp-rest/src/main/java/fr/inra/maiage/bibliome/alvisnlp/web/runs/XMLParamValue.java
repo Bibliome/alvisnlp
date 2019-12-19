@@ -40,7 +40,7 @@ public class XMLParamValue extends ParamValue<Element> {
 
 	@Override
 	public void setParam(Logger logger, PlanLoader<Corpus> planLoader, Sequence<Corpus> plan) throws ParameterException, UnsupportedServiceException, PlanException, ConverterException, SAXException, IOException, URISyntaxException {
-		planLoader.setParam(logger, getValue(), plan);
+		planLoader.setParam(logger, "http-param:", getValue(), plan);
 	}
 
 	@Override

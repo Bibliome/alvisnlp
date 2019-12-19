@@ -76,4 +76,8 @@ public interface ParamHandler<A extends Annotable> {
     String getNameType();
     
     <P> void accept(ModuleVisitor<A,P> visitor, P param) throws ModuleException;
+    
+    String getParamSourceName();
+    
+    void setParamSourceName(String sourceName);
 }

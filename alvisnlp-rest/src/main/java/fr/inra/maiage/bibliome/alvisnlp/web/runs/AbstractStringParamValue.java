@@ -45,7 +45,7 @@ public abstract class AbstractStringParamValue extends ParamValue<String> {
 		Document doc = XMLUtils.docBuilder.newDocument();
 		Element elt = XMLUtils.createRootElement(doc, getName());
 		elt.setTextContent(getConcreteValue());
-		planLoader.setParam(logger, elt, plan);
+		planLoader.setParam(logger, "http-param:", elt, plan);
 	}
 
 	@Override

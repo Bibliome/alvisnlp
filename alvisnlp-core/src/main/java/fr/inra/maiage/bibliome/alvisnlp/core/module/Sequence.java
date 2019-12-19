@@ -96,6 +96,7 @@ public interface Sequence<T extends Annotable> extends Module<T> {
 		private final Sequence<T> module;
 		private final String name;
 		private final List<ParamHandler<T>> paramHandlers = new ArrayList<ParamHandler<T>>();
+	    private String paramSourceName;
 		
 		public CompositeParamHandler(Sequence<T> module, String name) {
 			super();
@@ -193,6 +194,19 @@ public interface Sequence<T extends Annotable> extends Module<T> {
 		@Override
 		public String getNameType() {
 			return firstHandler().getNameType();
+		}
+
+		@Override
+		public String getParamSourceName() {
+			if (paramSourceName == null) {
+				return module.getModuleSourceName();
+			}
+			return paramSourceName;
+		}
+
+		@Override
+		public void setParamSourceName(String sourceName) {
+			paramSourceName = sourceName;
 		}
 	}
 
