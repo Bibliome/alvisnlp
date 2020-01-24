@@ -49,6 +49,7 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 			"skos:altLabel",
 			"skos:hiddenLabel",
 			"skos:notation",
+			"oboInOwl:hasBroadSynonym",
 			"oboInOwl:hasExactSynonym",
 			"oboInOwl:hasRelatedSynonym",
 			"oboInOwl:hasSynonym"
