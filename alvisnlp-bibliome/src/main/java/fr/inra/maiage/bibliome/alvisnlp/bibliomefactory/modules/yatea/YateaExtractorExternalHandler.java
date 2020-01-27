@@ -74,8 +74,8 @@ public class YateaExtractorExternalHandler<S extends SectionResolvedObjects> ext
     	readYateaConfig(owner.getRcFile(), defaultConfig, options);
     	updateProperties(defaultConfig, owner.getYateaDefaultConfig());
     	updateProperties(options, owner.getYateaOptions());
-    	updateProperty(defaultConfig, "CONFIG_DIR", owner.getConfigDir());
-    	updateProperty(defaultConfig, "LOCALE_DIR", owner.getLocaleDir());
+    	updateProperty(defaultConfig, "CONFIG_DIR", owner.getConfigDir().getAbsolutePath());
+    	updateProperty(defaultConfig, "LOCALE_DIR", owner.getLocaleDir().getAbsolutePath());
     	updateProperty(options, "output-path", owner.getOutputDir());
     	updateProperty(options, "language", owner.getLanguage());
     	updateProperty(options, "termino", testifiedTerminology);
