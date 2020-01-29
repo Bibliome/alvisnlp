@@ -52,10 +52,10 @@ import fr.inra.maiage.bibliome.util.streams.TargetStream;
 public class LayerComparator extends SectionModule<SectionResolvedObjects> {
 
     /** Layer containing reference annotations. */
-    private String referenceLayerName = null;
+    private String[] referenceLayerName = null;
 
     /** Layer containing predicted annotations. */
-    private String predictedLayerName = null;
+    private String[] predictedLayerName = null;
 
     /** Path to the file where to write the results. */
     private TargetStream   outFile            = null;
@@ -87,6 +87,16 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
 	}
+    
+    private static Layer fillLayer(Section sec, String[] names) {
+    	Layer result = new Layer(sec);
+    	for (String name : names) {
+    		if (sec.hasLayer(name)) {
+    			result.addAll(sec.getLayer(name));
+    		}
+    	}
+    	return result;
+    }
 
 	/*
      * (non-Javadoc)
@@ -105,8 +115,8 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
     		int corpusPred = 0;
     		Timer<TimerCategory> writeTimer = getTimer(ctx, "write-txt", TimerCategory.PREPARE_DATA, false);
     		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-    			Layer referenceLayer = sec.ensureLayer(referenceLayerName);
-    			Layer predictedLayer = sec.ensureLayer(predictedLayerName);
+    			Layer referenceLayer = fillLayer(sec, getReferenceLayerName());
+    			Layer predictedLayer = fillLayer(sec, getPredictedLayerName());
     			int tp = 0;
     			writeTimer.start();
     			ps.printf("Document %s, section %s\n    False positives:\n", sec.getDocument().getId(), sec.getName());
@@ -193,7 +203,10 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
     private static void printResults(Timer<TimerCategory> writeTimer, PrintStream ps, int tp, int ref, int pred) {
         double h = 100.0 * tp;
         writeTimer.start();
-        ps.printf("    Recall      %2.6f%%\n    Precision   %2.6f%%\n\n", h / ref, h / pred);
+        double rec = h/ref;
+        double pre = h/pred;
+        double f1 = 2 * rec * pre / (rec + pre);
+        ps.printf("    Recall      %2.6f%%\n    Precision   %2.6f%%\n    F1          %2.6f\n\n", rec, pre, f1);
         writeTimer.stop();
     }
 
@@ -203,7 +216,7 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
      * @return the referenceLayerName
      */
     @Param(nameType=NameType.LAYER, defaultDoc = "Name of the reference layer.")
-    public String getReferenceLayerName() {
+    public String[] getReferenceLayerName() {
         return referenceLayerName;
     }
 
@@ -213,7 +226,7 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
      * @param referenceLayerName
      *            the referenceLayerName to set
      */
-    public void setReferenceLayerName(String referenceLayerName) {
+    public void setReferenceLayerName(String[] referenceLayerName) {
         this.referenceLayerName = referenceLayerName;
     }
 
@@ -223,7 +236,7 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
      * @return the predictedLayerName
      */
     @Param(nameType=NameType.LAYER, defaultDoc = "Name of the source layer.")
-    public String getPredictedLayerName() {
+    public String[] getPredictedLayerName() {
         return predictedLayerName;
     }
 
@@ -233,7 +246,7 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
      * @param predictedLayerName
      *            the predictedLayerName to set
      */
-    public void setPredictedLayerName(String predictedLayerName) {
+    public void setPredictedLayerName(String[] predictedLayerName) {
         this.predictedLayerName = predictedLayerName;
     }
 
