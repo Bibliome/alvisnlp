@@ -48,6 +48,15 @@ public class HttpServer extends CorpusModule<ResolvedObjects> {
 		return resourceBaseDir;
 	}
 
+	@Param
+	public Integer getPort() {
+		return port;
+	}
+
+	public void setPort(Integer port) {
+		this.port = port;
+	}
+
 	public void setResourceBaseDir(InputDirectory resourceBaseDir) {
 		this.resourceBaseDir = resourceBaseDir;
 	}
