@@ -16,6 +16,7 @@ var palette = [
 ];
 var nextColorIndex = 0;
 var layerColors = {};
+var currentCorpusId;
 
 function showAlert(level, message) {
 	$('#pane-alert').append(
@@ -75,6 +76,7 @@ function insertEvaluationNode(eltId, expr, parentNode) {
 }
 
 function evaluateExpression() {
+	//checkCurrentCorpusId();
 	var eltId = getSelectedId();
 	var expr = $('#expression').val();
 	if (expr == '') {
@@ -105,6 +107,7 @@ function showAndExpandNode(nodeId) {
 }
 
 function showAndExpandNodeArray(nodeIds, andSelect) {
+	//checkCurrentCorpusId();
 	var nodeId;
 	theTree.on('dataBound', function(e) {
 		while (nodeIds.length > 0) {
@@ -131,6 +134,9 @@ function showAndExpandNodeArray(nodeIds, andSelect) {
 }
 
 function focusFrags(frags, event, showInTree) {
+	if (showInTree) {
+		checkCurrentCorpusId();
+	}
 	//console.log(event);
 	//console.log(frags);
 	$('.frag.frag-focus').removeClass('frag-focus');
@@ -159,6 +165,7 @@ function getNextColor() {
 }
 
 function updateLayers(docLayers) {
+	//checkCurrentCorpusId();
 	for (l in layers) {
 		if (layers.hasOwnProperty(l)) {
 			layers[l] = $('#check-'+l).prop('checked');
@@ -183,7 +190,7 @@ function updateLayers(docLayers) {
 					document.adoptedStyleSheets[0].insertRule('.layer-'+l+' { background-image: radial-gradient(ellipse, white, white, '+c+'); }');
 				}
 			}
-			$('#layer-names').append('<div class="custom-control custom-checkbox col-2"><input type="checkbox" '+checked+' class="custom-control-input" id="check-'+l+'" onChange="updateContentView(currentContentDocId, []); updateLayers([])"><label class="custom-control-label '+moreClasses+'" for="check-'+l+'"><img src="/res/icons/tags-label.png" height="24" width="24" class="layer-icon" alt="Layer">'+l+'</label></div>');
+			$('#layer-names').append('<div class="custom-control custom-checkbox col-2"><input type="checkbox" '+checked+' class="custom-control-input" id="check-'+l+'" onChange="checkCurrentCorpusId(); updateContentView(currentContentDocId, []); updateLayers([])"><label class="custom-control-label '+moreClasses+'" for="check-'+l+'"><img src="/res/icons/tags-label.png" height="24" width="24" class="layer-icon" alt="Layer">'+l+'</label></div>');
 		}
 	}
 }
@@ -203,6 +210,7 @@ function getCheckedLayers() {
 function updateContentView(docId, annotationIds) {
 	//console.log(docId);
 	//console.log(annotationIds);
+	//checkCurrentCorpusId();
 	$.get(
 		'/api/contentview',
 		{
@@ -232,6 +240,7 @@ function initTreeview() {
         lazyLoading: true
     });
     theTree.on('select', function(e, node, id) {
+		checkCurrentCorpusId();
     	$('#btn-evaluate').removeClass('disabled');
 		var info = id.split('-');
 		var eltId = info[0];
@@ -262,6 +271,7 @@ function initTreeview() {
 }
 
 function focusExpression() {
+	checkCurrentCorpusId();
 	var sel = theTree.getSelections();
 	if (sel.length == 0) {
 		return;
@@ -281,6 +291,23 @@ function focusExpression() {
 	).done(function(data) {
 		$('#expression').val(data);
 	})
+}
+
+function checkCurrentCorpusId() {
+	console.log(currentCorpusId);
+	$.get(
+		'/api/corpus'
+	).done(function(data) {
+		var id = data[0]['UID'];
+		if (currentCorpusId === undefined) {
+			currentCorpusId = id;
+			return;
+		}
+		if (currentCorpusId != id) {
+			showAlert('warning', 'Reloading...');
+			window.location.reload(true);
+		}
+	});
 }
 
 $(document).ready(function () {
