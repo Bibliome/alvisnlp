@@ -111,6 +111,7 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
     	EvaluationContext evalCtx = new EvaluationContext(logger);
     	try (PrintStream ps = outFile.getPrintStream()) {
     		int corpusTP = 0;
+    		int relaxedCorpusTP = 0;
     		int corpusRef = 0;
     		int corpusPred = 0;
     		Timer<TimerCategory> writeTimer = getTimer(ctx, "write-txt", TimerCategory.PREPARE_DATA, false);
@@ -118,20 +119,28 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
     			Layer referenceLayer = fillLayer(sec, getReferenceLayerName());
     			Layer predictedLayer = fillLayer(sec, getPredictedLayerName());
     			int tp = 0;
+    			int relaxedTP = 0;
     			writeTimer.start();
     			ps.printf("Document %s, section %s\n    False positives:\n", sec.getDocument().getId(), sec.getName());
     			writeTimer.stop();
     			for (Annotation pred : predictedLayer) {
-    				if (referenceLayer.span(pred).size() > 0)
+    				if (referenceLayer.span(pred).size() > 0) {
     					tp++;
-    				else
+    					relaxedTP++;
+    				}
+    				else {
+        				if (referenceLayer.overlapping(pred).size() > 0) {
+        					relaxedTP++;
+        				}
     					printAnnotation(writeTimer, ps, pred);
+    				}
     			}
     			writeTimer.start();
     			ps.print("    False negatives:\n");
     			writeTimer.stop();
     			for (Annotation ref : referenceLayer) {
-    				if (predictedLayer.span(ref).size() == 0)
+    				Layer matches = predictedLayer.span(ref);
+    				if (matches.size() == 0)
     					printAnnotation(writeTimer, ps, ref);
     			}
     			writeTimer.start();
@@ -144,15 +153,18 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
     			}
     			int nPred = predictedLayer.size();
     			int nRef = referenceLayer.size();
-    			printResults(writeTimer, ps, tp, nRef, nPred);
+    			printResults(writeTimer, ps, tp, nRef, nPred, "Strict");
+    			printResults(writeTimer, ps, relaxedTP, nRef, nPred, "Relaxed");
     			corpusTP += tp;
+    			relaxedCorpusTP += relaxedTP;
     			corpusRef += nRef;
     			corpusPred += nPred;
     		}
     		writeTimer.start();
     		ps.print("Global scores:\n");
     		writeTimer.stop();
-    		printResults(writeTimer, ps, corpusTP, corpusRef, corpusPred);
+    		printResults(writeTimer, ps, corpusTP, corpusRef, corpusPred, "Strict");
+    		printResults(writeTimer, ps, relaxedCorpusTP, corpusRef, corpusPred, "Relaxed");
     	}
 		catch (IOException e) {
 			throw new ProcessingException(e);
@@ -200,13 +212,13 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
      * @param pred
      *            the pred
      */
-    private static void printResults(Timer<TimerCategory> writeTimer, PrintStream ps, int tp, int ref, int pred) {
+    private static void printResults(Timer<TimerCategory> writeTimer, PrintStream ps, int tp, int ref, int pred, String prefix) {
         double h = 100.0 * tp;
         writeTimer.start();
         double rec = h/ref;
         double pre = h/pred;
         double f1 = 2 * rec * pre / (rec + pre);
-        ps.printf("    Recall      %2.6f%%\n    Precision   %2.6f%%\n    F1          %2.6f\n\n", rec, pre, f1);
+        ps.printf("    %s Recall      %2.6f%%\n    %s Precision   %2.6f%%\n    %s F1          %2.6f\n\n", prefix, rec, prefix, pre, prefix, f1);
         writeTimer.stop();
     }
 
