@@ -9,8 +9,13 @@ Document BB-cat+ner-10496597, section text
         'Helicobacter' at 328 should be 'Helicobacter pylori' at 328
         'Helicobacter' at 738 should be 'Helicobacter pylori' at 738
         'Helicobacter' at 1831 should be 'Helicobacter pylori' at 1831
-    Recall      100.000000%
-    Precision   50.000000%
+    Strict Recall      100.000000%
+    Strict Precision   50.000000%
+    Strict F1          66.666667
+
+    Relaxed Recall      200.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          133.333333
 
 Document BB-cat+ner-11989773, section text
     False positives:
@@ -28,8 +33,13 @@ Document BB-cat+ner-11989773, section text
         'Listeria' at 75 should be 'Listeria monocytogenes' at 75
         'Listeria' at 277 should be 'Listeria sp.' at 277
         'Listeria' at 294 should be 'Listeria monocytogenes' at 294
-    Recall      50.000000%
-    Precision   28.571429%
+    Strict Recall      50.000000%
+    Strict Precision   28.571429%
+    Strict F1          36.363636
+
+    Relaxed Recall      150.000000%
+    Relaxed Precision   85.714286%
+    Relaxed F1          109.090909
 
 Document BB-cat+ner-12109661, section text
     False positives:
@@ -51,8 +61,13 @@ Document BB-cat+ner-12109661, section text
     Span mismatches:
         'Helicobacter' at 10 should be 'Helicobacter pylori' at 10
         'Helicobacter' at 165 should be 'Helicobacter pylori' at 165
-    Recall      15.384615%
-    Precision   50.000000%
+    Strict Recall      15.384615%
+    Strict Precision   50.000000%
+    Strict F1          23.529412
+
+    Relaxed Recall      30.769231%
+    Relaxed Precision   100.000000%
+    Relaxed F1          47.058824
 
 Document BB-cat+ner-1214327, section text
     False positives:
@@ -62,8 +77,13 @@ Document BB-cat+ner-1214327, section text
     True positives: 1
     Span mismatches:
         'Vibrio' at 13 should be 'Vibrio parahaemolyticus' at 13
-    Recall      50.000000%
-    Precision   50.000000%
+    Strict Recall      50.000000%
+    Strict Precision   50.000000%
+    Strict F1          50.000000
+
+    Relaxed Recall      100.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          100.000000
 
 Document BB-cat+ner-1356998, section text
     False positives:
@@ -81,8 +101,13 @@ Document BB-cat+ner-1356998, section text
     True positives: 2
     Span mismatches:
         'Rickettsia' at 769 should be 'Rickettsia conorii' at 769
-    Recall      18.181818%
-    Precision   66.666667%
+    Strict Recall      18.181818%
+    Strict Precision   66.666667%
+    Strict F1          28.571429
+
+    Relaxed Recall      27.272727%
+    Relaxed Precision   100.000000%
+    Relaxed F1          42.857143
 
 Document BB-cat+ner-14633026, section text
     False positives:
@@ -101,8 +126,13 @@ Document BB-cat+ner-14633026, section text
         'Bacillus' at 36 should be 'Bacillus thuringiensis serovar sotto' at 36
         'Bacillus thuringiensis' at 185 should be 'Bacillus thuringiensis serovar sotto strain 96-OK-85-24' at 185
         'Bacillus' at 185 should be 'Bacillus thuringiensis serovar sotto strain 96-OK-85-24' at 185
-    Recall      33.333333%
-    Precision   33.333333%
+    Strict Recall      33.333333%
+    Strict Precision   33.333333%
+    Strict F1          33.333333
+
+    Relaxed Recall      100.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          100.000000
 
 Document BB-cat+ner-15293611, section text
     False positives:
@@ -115,8 +145,13 @@ Document BB-cat+ner-15293611, section text
     Span mismatches:
         'Pseudomonas' at 18 should be 'Pseudomonas aeruginosa' at 18
         'Pseudomonas' at 132 should be 'Pseudomonas aeruginosa' at 132
-    Recall      50.000000%
-    Precision   50.000000%
+    Strict Recall      50.000000%
+    Strict Precision   50.000000%
+    Strict F1          50.000000
+
+    Relaxed Recall      100.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          100.000000
 
 Document BB-cat+ner-15618837, section text
     False positives:
@@ -134,8 +169,13 @@ Document BB-cat+ner-15618837, section text
     Span mismatches:
         'Helicobacter' at 14 should be 'Helicobacter pylori' at 14
         'Helicobacter' at 163 should be 'Helicobacter pylori' at 163
-    Recall      22.222222%
-    Precision   50.000000%
+    Strict Recall      22.222222%
+    Strict Precision   50.000000%
+    Strict F1          30.769231
+
+    Relaxed Recall      44.444444%
+    Relaxed Precision   100.000000%
+    Relaxed F1          61.538462
 
 Document BB-cat+ner-16273411, section text
     False positives:
@@ -148,8 +188,13 @@ Document BB-cat+ner-16273411, section text
         'Klebsiella' at 57 should be 'Klebsiella pneumonia' at 57
         'Klebsiella' at 321 should be 'Klebsiella pneumonia' at 321
         'Klebsiella' at 608 should be 'Klebsiella pneumonia' at 608
-    Recall      100.000000%
-    Precision   50.000000%
+    Strict Recall      100.000000%
+    Strict Precision   50.000000%
+    Strict F1          66.666667
+
+    Relaxed Recall      200.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          133.333333
 
 Document BB-cat+ner-16458564, section text
     False positives:
@@ -183,8 +228,13 @@ Document BB-cat+ner-16458564, section text
         'Escherichia' at 2058 should be 'Escherichia coli' at 2058
         'Shigella' at 2076 should be 'Shigella spp' at 2076
         'Bacteroides' at 2110 should be 'Bacteroides fragilis' at 2110
-    Recall      46.153846%
-    Precision   37.500000%
+    Strict Recall      46.153846%
+    Strict Precision   37.500000%
+    Strict F1          41.379310
+
+    Relaxed Recall      123.076923%
+    Relaxed Precision   100.000000%
+    Relaxed F1          110.344828
 
 Document BB-cat+ner-16514151, section text
     False positives:
@@ -196,8 +246,13 @@ Document BB-cat+ner-16514151, section text
     Span mismatches:
         'Escherichia' at 674 should be 'Escherichia coli' at 674
         'Deinococcus' at 1387 should be 'Deinococcus radiodurans' at 1387
-    Recall      66.666667%
-    Precision   50.000000%
+    Strict Recall      66.666667%
+    Strict Precision   50.000000%
+    Strict F1          57.142857
+
+    Relaxed Recall      133.333333%
+    Relaxed Precision   100.000000%
+    Relaxed F1          114.285714
 
 Document BB-cat+ner-18094887, section text
     False positives:
@@ -221,8 +276,13 @@ Document BB-cat+ner-18094887, section text
     Span mismatches:
         'Rickettsia' at 612 should be 'Rickettsia felis' at 612
         'Rickettsia' at 684 should be 'Rickettsia bellii' at 684
-    Recall      23.529412%
-    Precision   66.666667%
+    Strict Recall      23.529412%
+    Strict Precision   66.666667%
+    Strict F1          34.782609
+
+    Relaxed Recall      35.294118%
+    Relaxed Precision   100.000000%
+    Relaxed F1          52.173913
 
 Document BB-cat+ner-18694716, section text
     False positives:
@@ -233,8 +293,13 @@ Document BB-cat+ner-18694716, section text
     Span mismatches:
         'Methylobacterium extorquens' at 1035 should be 'Methylobacterium extorquens AM1' at 1035
         'Methylobacterium' at 1035 should be 'Methylobacterium extorquens AM1' at 1035
-    Recall      100.000000%
-    Precision   33.333333%
+    Strict Recall      100.000000%
+    Strict Precision   33.333333%
+    Strict F1          50.000000
+
+    Relaxed Recall      300.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          150.000000
 
 Document BB-cat+ner-18789156, section text
     False positives:
@@ -262,8 +327,13 @@ Document BB-cat+ner-18789156, section text
         'Francisella' at 759 should be 'Francisella tularensis Live Vaccine Strain' at 759
         'Francisella' at 1950 should be 'Francisella tularensis' at 1950
         'F. tularensis' at 2189 should be 'F. tularensis ssp tularensis' at 2189
-    Recall      35.714286%
-    Precision   45.454545%
+    Strict Recall      35.714286%
+    Strict Precision   45.454545%
+    Strict F1          40.000000
+
+    Relaxed Recall      78.571429%
+    Relaxed Precision   100.000000%
+    Relaxed F1          88.000000
 
 Document BB-cat+ner-19004249, section text
     False positives:
@@ -274,8 +344,13 @@ Document BB-cat+ner-19004249, section text
     Span mismatches:
         'Staphylococcus' at 221 should be 'Staphylococcus aureus' at 221
         'Escherichia' at 247 should be 'Escherichia coli' at 247
-    Recall      100.000000%
-    Precision   60.000000%
+    Strict Recall      100.000000%
+    Strict Precision   60.000000%
+    Strict F1          75.000000
+
+    Relaxed Recall      166.666667%
+    Relaxed Precision   100.000000%
+    Relaxed F1          125.000000
 
 Document BB-cat+ner-19339076, section text
     False positives:
@@ -294,8 +369,13 @@ Document BB-cat+ner-19339076, section text
         'Lactococcus' at 19 should be 'Lactococcus lactis' at 19
         'L. lactis' at 1153 should be 'L. lactis subsp. cremoris' at 1153
         'L. lactis' at 1478 should be 'L. lactis subsp. lactis' at 1478
-    Recall      14.285714%
-    Precision   25.000000%
+    Strict Recall      14.285714%
+    Strict Precision   25.000000%
+    Strict F1          18.181818
+
+    Relaxed Recall      57.142857%
+    Relaxed Precision   100.000000%
+    Relaxed F1          72.727273
 
 Document BB-cat+ner-19552770, section text
     False positives:
@@ -325,8 +405,13 @@ Document BB-cat+ner-19552770, section text
         'Campylobacter' at 892 should be 'Campylobacter lari' at 892
         'Campylobacter' at 1117 should be 'Campylobacter spp.' at 1117
         'Campylobacter' at 1243 should be 'Campylobacter coli' at 1243
-    Recall      54.545455%
-    Precision   40.000000%
+    Strict Recall      54.545455%
+    Strict Precision   40.000000%
+    Strict F1          46.153846
+
+    Relaxed Recall      136.363636%
+    Relaxed Precision   100.000000%
+    Relaxed F1          115.384615
 
 Document BB-cat+ner-19621381, section text
     False positives:
@@ -335,8 +420,13 @@ Document BB-cat+ner-19621381, section text
     True positives: 1
     Span mismatches:
         'Escherichia' at 746 should be 'Escherichia coli' at 746
-    Recall      100.000000%
-    Precision   50.000000%
+    Strict Recall      100.000000%
+    Strict Precision   50.000000%
+    Strict F1          66.666667
+
+    Relaxed Recall      200.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          133.333333
 
 Document BB-cat+ner-20174624, section text
     False positives:
@@ -353,8 +443,13 @@ Document BB-cat+ner-20174624, section text
         'Y. pestis' at 1190 should be 'Y. pestis strain KIM6' at 1190
         'Y. pestis' at 1458 should be 'Y. pestis strain KIM6' at 1458
         'Y. pestis' at 1657 should be 'Y. pestis KIM5' at 1657
-    Recall      73.333333%
-    Precision   78.571429%
+    Strict Recall      73.333333%
+    Strict Precision   78.571429%
+    Strict F1          75.862069
+
+    Relaxed Recall      93.333333%
+    Relaxed Precision   100.000000%
+    Relaxed F1          96.551724
 
 Document BB-cat+ner-20580604, section text
     False positives:
@@ -375,8 +470,13 @@ Document BB-cat+ner-20580604, section text
         'Lactobacillus' at 58 should be 'Lactobacillus casei strain Shirota' at 58
         'Lactobacillus casei' at 277 should be 'Lactobacillus casei strain Shirota' at 277
         'Lactobacillus' at 277 should be 'Lactobacillus casei strain Shirota' at 277
-    Recall      0.000000%
-    Precision   0.000000%
+    Strict Recall      0.000000%
+    Strict Precision   0.000000%
+    Strict F1          NaN
+
+    Relaxed Recall      66.666667%
+    Relaxed Precision   100.000000%
+    Relaxed F1          80.000000
 
 Document BB-cat+ner-21270066, section text
     False positives:
@@ -386,8 +486,13 @@ Document BB-cat+ner-21270066, section text
     True positives: 1
     Span mismatches:
         'Chlamydia' at 695 should be 'Chlamydia trachomatis' at 695
-    Recall      50.000000%
-    Precision   50.000000%
+    Strict Recall      50.000000%
+    Strict Precision   50.000000%
+    Strict F1          50.000000
+
+    Relaxed Recall      100.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          100.000000
 
 Document BB-cat+ner-21543877, section text
     False positives:
@@ -401,8 +506,13 @@ Document BB-cat+ner-21543877, section text
         'Mycobacterium tuberculosis' at 102 should be 'Mycobacterium tuberculosis H37Rv' at 102
         'Mycobacterium' at 102 should be 'Mycobacterium tuberculosis H37Rv' at 102
         'Mycobacterium' at 517 should be 'Mycobacterium tuberculosis' at 517
-    Recall      50.000000%
-    Precision   25.000000%
+    Strict Recall      50.000000%
+    Strict Precision   25.000000%
+    Strict F1          33.333333
+
+    Relaxed Recall      200.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          133.333333
 
 Document BB-cat+ner-21695078, section text
     False positives:
@@ -414,16 +524,26 @@ Document BB-cat+ner-21695078, section text
     Span mismatches:
         'Chlamydia' at 22 should be 'Chlamydia muridarum' at 22
         'Chlamydia' at 100 should be 'Chlamydia trachomatis' at 100
-    Recall      80.000000%
-    Precision   66.666667%
+    Strict Recall      80.000000%
+    Strict Precision   66.666667%
+    Strict F1          72.727273
+
+    Relaxed Recall      120.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          109.090909
 
 Document BB-cat+ner-21894542, section text
     False positives:
     False negatives:
     True positives: 3
     Span mismatches:
-    Recall      100.000000%
-    Precision   100.000000%
+    Strict Recall      100.000000%
+    Strict Precision   100.000000%
+    Strict F1          100.000000
+
+    Relaxed Recall      100.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          100.000000
 
 Document BB-cat+ner-23902156, section text
     False positives:
@@ -432,8 +552,13 @@ Document BB-cat+ner-23902156, section text
     True positives: 1
     Span mismatches:
         'Escherichia' at 479 should be 'Escherichia coli' at 479
-    Recall      100.000000%
-    Precision   50.000000%
+    Strict Recall      100.000000%
+    Strict Precision   50.000000%
+    Strict F1          66.666667
+
+    Relaxed Recall      200.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          133.333333
 
 Document BB-cat+ner-25114119, section text
     False positives:
@@ -459,8 +584,13 @@ Document BB-cat+ner-25114119, section text
     Span mismatches:
         'Coxiella' at 181 should be 'Coxiella burnetii' at 181
         'Coxiella' at 250 should be 'Coxiella burnetii' at 250
-    Recall      11.764706%
-    Precision   50.000000%
+    Strict Recall      11.764706%
+    Strict Precision   50.000000%
+    Strict F1          19.047619
+
+    Relaxed Recall      23.529412%
+    Relaxed Precision   100.000000%
+    Relaxed F1          38.095238
 
 Document BB-cat+ner-25204345, section text
     False positives:
@@ -475,8 +605,13 @@ Document BB-cat+ner-25204345, section text
     Span mismatches:
         'Enterococcus durans' at 1470 should be 'Enterococcus durans HZ28' at 1470
         'Enterococcus' at 1470 should be 'Enterococcus durans HZ28' at 1470
-    Recall      33.333333%
-    Precision   50.000000%
+    Strict Recall      33.333333%
+    Strict Precision   50.000000%
+    Strict F1          40.000000
+
+    Relaxed Recall      66.666667%
+    Relaxed Precision   100.000000%
+    Relaxed F1          80.000000
 
 Document BB-cat+ner-351567, section text
     False positives:
@@ -487,8 +622,13 @@ Document BB-cat+ner-351567, section text
     True positives: 1
     Span mismatches:
         'Escherichia' at 115 should be 'Escherichia coli' at 115
-    Recall      33.333333%
-    Precision   50.000000%
+    Strict Recall      33.333333%
+    Strict Precision   50.000000%
+    Strict F1          40.000000
+
+    Relaxed Recall      66.666667%
+    Relaxed Precision   100.000000%
+    Relaxed F1          80.000000
 
 Document BB-cat+ner-3544198, section text
     False positives:
@@ -499,8 +639,13 @@ Document BB-cat+ner-3544198, section text
     Span mismatches:
         'Mycobacterium' at 40 should be 'Mycobacterium leprae' at 40
         'Mycobacterium' at 163 should be 'Mycobacterium leprae' at 163
-    Recall      100.000000%
-    Precision   50.000000%
+    Strict Recall      100.000000%
+    Strict Precision   50.000000%
+    Strict F1          66.666667
+
+    Relaxed Recall      200.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          133.333333
 
 Document BB-cat+ner-460951, section text
     False positives:
@@ -513,8 +658,13 @@ Document BB-cat+ner-460951, section text
     True positives: 1
     Span mismatches:
         'M. fortuitum' at 417 should be 'M. fortuitum-chelonei complex' at 417
-    Recall      20.000000%
-    Precision   50.000000%
+    Strict Recall      20.000000%
+    Strict Precision   50.000000%
+    Strict F1          28.571429
+
+    Relaxed Recall      40.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          57.142857
 
 Document BB-cat+ner-47483, section text
     False positives:
@@ -537,8 +687,13 @@ Document BB-cat+ner-47483, section text
         'Haemophilus influenzae' at 156 should be 'Haemophilus influenzae type B' at 156
         'Haemophilus' at 156 should be 'Haemophilus influenzae type B' at 156
         'Escherichia' at 789 should be 'Escherichia coli' at 789
-    Recall      14.285714%
-    Precision   16.666667%
+    Strict Recall      14.285714%
+    Strict Precision   16.666667%
+    Strict F1          15.384615
+
+    Relaxed Recall      85.714286%
+    Relaxed Precision   100.000000%
+    Relaxed F1          92.307692
 
 Document BB-cat+ner-5526468, section text
     False positives:
@@ -547,8 +702,13 @@ Document BB-cat+ner-5526468, section text
     True positives: 1
     Span mismatches:
         'Vibrio' at 0 should be 'Vibrio fetus' at 0
-    Recall      100.000000%
-    Precision   50.000000%
+    Strict Recall      100.000000%
+    Strict Precision   50.000000%
+    Strict F1          66.666667
+
+    Relaxed Recall      200.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          133.333333
 
 Document BB-cat+ner-8559802, section text
     False positives:
@@ -563,8 +723,13 @@ Document BB-cat+ner-8559802, section text
         'Salmonella' at 71 should be 'Salmonella typhimurium' at 71
         'Salmonella typhimurium' at 166 should be 'Salmonella typhimurium (993)' at 166
         'Salmonella' at 166 should be 'Salmonella typhimurium (993)' at 166
-    Recall      60.000000%
-    Precision   50.000000%
+    Strict Recall      60.000000%
+    Strict Precision   50.000000%
+    Strict F1          54.545455
+
+    Relaxed Recall      120.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          109.090909
 
 Document BB-cat+ner-9521147, section text
     False positives:
@@ -587,8 +752,13 @@ Document BB-cat+ner-9521147, section text
     Span mismatches:
         'Burkholderia pseudomallei' at 41 should be 'Ara+ Burkholderia pseudomallei' at 36
         'Burkholderia' at 41 should be 'Ara+ Burkholderia pseudomallei' at 36
-    Recall      14.285714%
-    Precision   50.000000%
+    Strict Recall      14.285714%
+    Strict Precision   50.000000%
+    Strict F1          22.222222
+
+    Relaxed Recall      28.571429%
+    Relaxed Precision   100.000000%
+    Relaxed F1          44.444444
 
 Document BB-cat+ner-9553794, section text
     False positives:
@@ -618,8 +788,13 @@ Document BB-cat+ner-9553794, section text
         'Rahnella' at 1194 should be 'Rahnella aquatilis' at 1194
         'Aeromonas' at 1231 should be 'Aeromonas hydrophila' at 1231
         'Carnobacterium' at 1350 should be 'Carnobacterium piscicola' at 1350
-    Recall      52.631579%
-    Precision   58.823529%
+    Strict Recall      52.631579%
+    Strict Precision   58.823529%
+    Strict F1          55.555556
+
+    Relaxed Recall      89.473684%
+    Relaxed Precision   100.000000%
+    Relaxed F1          94.444444
 
 Document BB-cat+ner-9745160, section text
     False positives:
@@ -637,10 +812,20 @@ Document BB-cat+ner-9745160, section text
     Span mismatches:
         'Helicobacter' at 79 should be 'Helicobacter pylori' at 79
         'Helicobacter' at 196 should be 'Helicobacter pylori' at 196
-    Recall      30.000000%
-    Precision   60.000000%
+    Strict Recall      30.000000%
+    Strict Precision   60.000000%
+    Strict F1          40.000000
+
+    Relaxed Recall      50.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          66.666667
 
 Global scores:
-    Recall      39.112903%
-    Precision   48.743719%
+    Strict Recall      39.112903%
+    Strict Precision   48.743719%
+    Strict F1          43.400447
+
+    Relaxed Recall      79.838710%
+    Relaxed Precision   99.497487%
+    Relaxed F1          88.590604
 

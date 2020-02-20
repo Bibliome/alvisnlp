@@ -44,7 +44,7 @@
 
     <tag class="WekaPredict">
       <relationDefinition load="attributes.xml"/>
-      <classifierFile inhibitCheck="yes">classifier.model</classifierFile>
+      <classifierFile output-feed="yes">classifier.model</classifierFile>
       <predictedClassFeatureKey>predictedClass</predictedClassFeatureKey>
       <examples>documents[@set=="dev"].sections.layer:PredictedBacteria</examples>
     </tag>

@@ -37,8 +37,13 @@ Document BB-cat+ner-10496597, section text
         'T cells' at 1438 should be 'cells' at 1440
         'gastric biopsies' at 1715 should be 'gastric' at 1715
         'gastric' at 2026 should be 'gastric MALT' at 2026
-    Recall      22.222222%
-    Precision   88.888889%
+    Strict Recall      22.222222%
+    Strict Precision   88.888889%
+    Strict F1          35.555556
+
+    Relaxed Recall      25.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          40.000000
 
 Document BB-cat+ner-11989773, section text
     False positives:
@@ -66,8 +71,13 @@ Document BB-cat+ner-11989773, section text
         'chicken nugget processing plant' at 510 should be 'chicken nugget' at 510
         'food handler samples' at 1087 should be 'food handler' at 1087
         'food handler samples' at 1087 should be 'food' at 1087
-    Recall      11.764706%
-    Precision   66.666667%
+    Strict Recall      11.764706%
+    Strict Precision   66.666667%
+    Strict F1          20.000000
+
+    Relaxed Recall      17.647059%
+    Relaxed Precision   100.000000%
+    Relaxed F1          30.000000
 
 Document BB-cat+ner-12109661, section text
     False positives:
@@ -96,8 +106,13 @@ Document BB-cat+ner-12109661, section text
         'gastric cancer patients' at 1076 should be 'gastric' at 1076
         'people' at 1264 should be 'young Japanese people' at 1249
         'gastric mucosa' at 1360 should be 'gastric' at 1360
-    Recall      52.000000%
-    Precision   86.666667%
+    Strict Recall      52.000000%
+    Strict Precision   86.666667%
+    Strict F1          65.000000
+
+    Relaxed Recall      60.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          75.000000
 
 Document BB-cat+ner-1214327, section text
     False positives:
@@ -106,8 +121,13 @@ Document BB-cat+ner-1214327, section text
         'clinical' at 210
     True positives: 4
     Span mismatches:
-    Recall      66.666667%
-    Precision   100.000000%
+    Strict Recall      66.666667%
+    Strict Precision   100.000000%
+    Strict F1          80.000000
+
+    Relaxed Recall      66.666667%
+    Relaxed Precision   100.000000%
+    Relaxed F1          80.000000
 
 Document BB-cat+ner-1356998, section text
     False positives:
@@ -122,8 +142,13 @@ Document BB-cat+ner-1356998, section text
     True positives: 3
     Span mismatches:
         'patients' at 421 should be 'patients suffering from rickettsial disease of different degrees of severity' at 421
-    Recall      37.500000%
-    Precision   60.000000%
+    Strict Recall      37.500000%
+    Strict Precision   60.000000%
+    Strict F1          46.153846
+
+    Relaxed Recall      50.000000%
+    Relaxed Precision   80.000000%
+    Relaxed F1          61.538462
 
 Document BB-cat+ner-14633026, section text
     False positives:
@@ -132,8 +157,13 @@ Document BB-cat+ner-14633026, section text
         'culicine mosquito' at 919
     True positives: 0
     Span mismatches:
-    Recall      0.000000%
-    Precision   NaN%
+    Strict Recall      0.000000%
+    Strict Precision   NaN%
+    Strict F1          NaN
+
+    Relaxed Recall      0.000000%
+    Relaxed Precision   NaN%
+    Relaxed F1          NaN
 
 Document BB-cat+ner-15293611, section text
     False positives:
@@ -157,8 +187,13 @@ Document BB-cat+ner-15293611, section text
         'lung' at 1045
     True positives: 8
     Span mismatches:
-    Recall      32.000000%
-    Precision   100.000000%
+    Strict Recall      32.000000%
+    Strict Precision   100.000000%
+    Strict F1          48.484848
+
+    Relaxed Recall      32.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          48.484848
 
 Document BB-cat+ner-15618837, section text
     False positives:
@@ -170,8 +205,13 @@ Document BB-cat+ner-15618837, section text
     True positives: 3
     Span mismatches:
         'Patients' at 504 should be 'Patients with H. pylori infection' at 504
-    Recall      50.000000%
-    Precision   75.000000%
+    Strict Recall      50.000000%
+    Strict Precision   75.000000%
+    Strict F1          60.000000
+
+    Relaxed Recall      66.666667%
+    Relaxed Precision   100.000000%
+    Relaxed F1          80.000000
 
 Document BB-cat+ner-16273411, section text
     False positives:
@@ -181,8 +221,13 @@ Document BB-cat+ner-16273411, section text
         '38-year-old secondary recurrent aborter' at 656
     True positives: 3
     Span mismatches:
-    Recall      50.000000%
-    Precision   100.000000%
+    Strict Recall      50.000000%
+    Strict Precision   100.000000%
+    Strict F1          66.666667
+
+    Relaxed Recall      50.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          66.666667
 
 Document BB-cat+ner-16458564, section text
     False positives:
@@ -204,8 +249,13 @@ Document BB-cat+ner-16458564, section text
     True positives: 12
     Span mismatches:
         'hospitals' at 1344 should be 'Children attending the hospitals' at 1321
-    Recall      46.153846%
-    Precision   100.000000%
+    Strict Recall      46.153846%
+    Strict Precision   100.000000%
+    Strict F1          63.157895
+
+    Relaxed Recall      46.153846%
+    Relaxed Precision   100.000000%
+    Relaxed F1          63.157895
 
 Document BB-cat+ner-16514151, section text
     False positives:
@@ -214,8 +264,13 @@ Document BB-cat+ner-16514151, section text
         'rich medium' at 810
     True positives: 0
     Span mismatches:
-    Recall      0.000000%
-    Precision   0.000000%
+    Strict Recall      0.000000%
+    Strict Precision   0.000000%
+    Strict F1          NaN
+
+    Relaxed Recall      0.000000%
+    Relaxed Precision   0.000000%
+    Relaxed F1          NaN
 
 Document BB-cat+ner-18094887, section text
     False positives:
@@ -280,8 +335,13 @@ Document BB-cat+ner-18094887, section text
         'human sera' at 989 should be 'sera' at 995
         'human sera' at 989 should be 'sera' at 995
         'human sera' at 989 should be 'sera' at 995
-    Recall      10.714286%
-    Precision   100.000000%
+    Strict Recall      10.714286%
+    Strict Precision   100.000000%
+    Strict F1          19.354839
+
+    Relaxed Recall      10.714286%
+    Relaxed Precision   100.000000%
+    Relaxed F1          19.354839
 
 Document BB-cat+ner-18694716, section text
     False positives:
@@ -295,8 +355,13 @@ Document BB-cat+ner-18694716, section text
     Span mismatches:
         'cell extracts' at 763 should be 'mixtures of pure compounds and uniformly 13C-labeled cell extracts' at 710
         'cell extracts' at 763 should be '13C-labeled cell' at 751
-    Recall      0.000000%
-    Precision   0.000000%
+    Strict Recall      0.000000%
+    Strict Precision   0.000000%
+    Strict F1          NaN
+
+    Relaxed Recall      25.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          40.000000
 
 Document BB-cat+ner-18789156, section text
     False positives:
@@ -317,16 +382,26 @@ Document BB-cat+ner-18789156, section text
     Span mismatches:
         'human monocyte-like THP-1 cells' at 850 should be 'human' at 850
         'human monocyte-like THP-1 cells' at 850 should be 'monocyte-like THP-1 cells' at 856
-    Recall      29.411765%
-    Precision   100.000000%
+    Strict Recall      29.411765%
+    Strict Precision   100.000000%
+    Strict F1          45.454545
+
+    Relaxed Recall      29.411765%
+    Relaxed Precision   100.000000%
+    Relaxed F1          45.454545
 
 Document BB-cat+ner-19004249, section text
     False positives:
     False negatives:
     True positives: 1
     Span mismatches:
-    Recall      100.000000%
-    Precision   100.000000%
+    Strict Recall      100.000000%
+    Strict Precision   100.000000%
+    Strict F1          100.000000
+
+    Relaxed Recall      100.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          100.000000
 
 Document BB-cat+ner-19339076, section text
     False positives:
@@ -359,8 +434,13 @@ Document BB-cat+ner-19339076, section text
         'bile' at 2352
     True positives: 2
     Span mismatches:
-    Recall      7.142857%
-    Precision   100.000000%
+    Strict Recall      7.142857%
+    Strict Precision   100.000000%
+    Strict F1          13.333333
+
+    Relaxed Recall      7.142857%
+    Relaxed Precision   100.000000%
+    Relaxed F1          13.333333
 
 Document BB-cat+ner-19552770, section text
     False positives:
@@ -389,16 +469,26 @@ Document BB-cat+ner-19552770, section text
         'male and female birds' at 274 should be 'female birds' at 283
         'male and female birds' at 274 should be 'birds' at 290
         'game bird farm' at 304 should be 'game bird' at 304
-    Recall      10.526316%
-    Precision   66.666667%
+    Strict Recall      10.526316%
+    Strict Precision   66.666667%
+    Strict F1          18.181818
+
+    Relaxed Recall      15.789474%
+    Relaxed Precision   100.000000%
+    Relaxed F1          27.272727
 
 Document BB-cat+ner-19621381, section text
     False positives:
     False negatives:
     True positives: 0
     Span mismatches:
-    Recall      NaN%
-    Precision   NaN%
+    Strict Recall      NaN%
+    Strict Precision   NaN%
+    Strict F1          NaN
+
+    Relaxed Recall      NaN%
+    Relaxed Precision   NaN%
+    Relaxed F1          NaN
 
 Document BB-cat+ner-20174624, section text
     False positives:
@@ -437,8 +527,13 @@ Document BB-cat+ner-20174624, section text
         'human neutrophils' at 938 should be 'human' at 938
         'human neutrophils' at 1763 should be 'human' at 1763
         'human' at 2008 should be 'human innate immune' at 2008
-    Recall      34.210526%
-    Precision   100.000000%
+    Strict Recall      34.210526%
+    Strict Precision   100.000000%
+    Strict F1          50.980392
+
+    Relaxed Recall      34.210526%
+    Relaxed Precision   100.000000%
+    Relaxed F1          50.980392
 
 Document BB-cat+ner-20580604, section text
     False positives:
@@ -484,8 +579,13 @@ Document BB-cat+ner-20580604, section text
         'healthy individuals with soft stools' at 475 should be 'intestinal environment of healthy individuals with soft stools' at 449
         'healthy individuals with soft stools' at 475 should be 'soft stools' at 500
         'healthy individuals with soft stool' at 1778 should be 'soft stool' at 1803
-    Recall      15.789474%
-    Precision   100.000000%
+    Strict Recall      15.789474%
+    Strict Precision   100.000000%
+    Strict F1          27.272727
+
+    Relaxed Recall      15.789474%
+    Relaxed Precision   100.000000%
+    Relaxed F1          27.272727
 
 Document BB-cat+ner-21270066, section text
     False positives:
@@ -518,16 +618,26 @@ Document BB-cat+ner-21270066, section text
         'MSM with perianal ulcer' at 1113 should be 'MSM with perianal ulcer disease' at 1113
         'MSM with perianal ulcer' at 1113 should be 'perianal ulcer' at 1122
         'MSM with perianal ulcer' at 1113 should be 'perianal' at 1122
-    Recall      0.000000%
-    Precision   0.000000%
+    Strict Recall      0.000000%
+    Strict Precision   0.000000%
+    Strict F1          NaN
+
+    Relaxed Recall      11.111111%
+    Relaxed Precision   100.000000%
+    Relaxed F1          20.000000
 
 Document BB-cat+ner-21543877, section text
     False positives:
     False negatives:
     True positives: 1
     Span mismatches:
-    Recall      100.000000%
-    Precision   100.000000%
+    Strict Recall      100.000000%
+    Strict Precision   100.000000%
+    Strict F1          100.000000
+
+    Relaxed Recall      100.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          100.000000
 
 Document BB-cat+ner-21695078, section text
     False positives:
@@ -553,8 +663,13 @@ Document BB-cat+ner-21695078, section text
     Span mismatches:
         'female mouse model of genital tract chlamydia' at 219 should be 'female mouse' at 219
         'female mouse model of genital tract chlamydia' at 219 should be 'genital tract' at 241
-    Recall      5.882353%
-    Precision   50.000000%
+    Strict Recall      5.882353%
+    Strict Precision   50.000000%
+    Strict F1          10.526316
+
+    Relaxed Recall      11.764706%
+    Relaxed Precision   100.000000%
+    Relaxed F1          21.052632
 
 Document BB-cat+ner-21894542, section text
     False positives:
@@ -566,8 +681,13 @@ Document BB-cat+ner-21894542, section text
     True positives: 1
     Span mismatches:
         'marine' at 357 should be 'marine organisms' at 357
-    Recall      25.000000%
-    Precision   50.000000%
+    Strict Recall      25.000000%
+    Strict Precision   50.000000%
+    Strict F1          33.333333
+
+    Relaxed Recall      50.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          66.666667
 
 Document BB-cat+ner-23902156, section text
     False positives:
@@ -579,8 +699,13 @@ Document BB-cat+ner-23902156, section text
         'Penicillium-sensitive atopic sera' at 1101
     True positives: 0
     Span mismatches:
-    Recall      0.000000%
-    Precision   NaN%
+    Strict Recall      0.000000%
+    Strict Precision   NaN%
+    Strict F1          NaN
+
+    Relaxed Recall      0.000000%
+    Relaxed Precision   NaN%
+    Relaxed F1          NaN
 
 Document BB-cat+ner-25114119, section text
     False positives:
@@ -596,8 +721,13 @@ Document BB-cat+ner-25114119, section text
     True positives: 1
     Span mismatches:
         'human macrophages' at 1661 should be 'human' at 1661
-    Recall      11.111111%
-    Precision   100.000000%
+    Strict Recall      11.111111%
+    Strict Precision   100.000000%
+    Strict F1          20.000000
+
+    Relaxed Recall      11.111111%
+    Relaxed Precision   100.000000%
+    Relaxed F1          20.000000
 
 Document BB-cat+ner-25204345, section text
     False positives:
@@ -606,8 +736,13 @@ Document BB-cat+ner-25204345, section text
         'yoghurt' at 278
     True positives: 0
     Span mismatches:
-    Recall      0.000000%
-    Precision   NaN%
+    Strict Recall      0.000000%
+    Strict Precision   NaN%
+    Strict F1          NaN
+
+    Relaxed Recall      0.000000%
+    Relaxed Precision   NaN%
+    Relaxed F1          NaN
 
 Document BB-cat+ner-351567, section text
     False positives:
@@ -615,8 +750,13 @@ Document BB-cat+ner-351567, section text
         'cellophane membrane disks' at 171
     True positives: 0
     Span mismatches:
-    Recall      0.000000%
-    Precision   NaN%
+    Strict Recall      0.000000%
+    Strict Precision   NaN%
+    Strict F1          NaN
+
+    Relaxed Recall      0.000000%
+    Relaxed Precision   NaN%
+    Relaxed F1          NaN
 
 Document BB-cat+ner-3544198, section text
     False positives:
@@ -633,8 +773,13 @@ Document BB-cat+ner-3544198, section text
         'urine of leprosy patients' at 210 should be 'leprosy patients' at 219
         'LL patients' at 474 should be 'urine of LL patients' at 465
         'LL patients' at 721 should be 'urine of LL patients' at 712
-    Recall      40.000000%
-    Precision   100.000000%
+    Strict Recall      40.000000%
+    Strict Precision   100.000000%
+    Strict F1          57.142857
+
+    Relaxed Recall      40.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          57.142857
 
 Document BB-cat+ner-460951, section text
     False positives:
@@ -646,8 +791,13 @@ Document BB-cat+ner-460951, section text
         'superficial abscesses' at 463
     True positives: 1
     Span mismatches:
-    Recall      16.666667%
-    Precision   100.000000%
+    Strict Recall      16.666667%
+    Strict Precision   100.000000%
+    Strict F1          28.571429
+
+    Relaxed Recall      16.666667%
+    Relaxed Precision   100.000000%
+    Relaxed F1          28.571429
 
 Document BB-cat+ner-47483, section text
     False positives:
@@ -655,24 +805,39 @@ Document BB-cat+ner-47483, section text
         'clinical' at 237
     True positives: 0
     Span mismatches:
-    Recall      0.000000%
-    Precision   NaN%
+    Strict Recall      0.000000%
+    Strict Precision   NaN%
+    Strict F1          NaN
+
+    Relaxed Recall      0.000000%
+    Relaxed Precision   NaN%
+    Relaxed F1          NaN
 
 Document BB-cat+ner-5526468, section text
     False positives:
     False negatives:
     True positives: 1
     Span mismatches:
-    Recall      100.000000%
-    Precision   100.000000%
+    Strict Recall      100.000000%
+    Strict Precision   100.000000%
+    Strict F1          100.000000
+
+    Relaxed Recall      100.000000%
+    Relaxed Precision   100.000000%
+    Relaxed F1          100.000000
 
 Document BB-cat+ner-8559802, section text
     False positives:
     False negatives:
     True positives: 0
     Span mismatches:
-    Recall      NaN%
-    Precision   NaN%
+    Strict Recall      NaN%
+    Strict Precision   NaN%
+    Strict F1          NaN
+
+    Relaxed Recall      NaN%
+    Relaxed Precision   NaN%
+    Relaxed F1          NaN
 
 Document BB-cat+ner-9521147, section text
     False positives:
@@ -695,8 +860,13 @@ Document BB-cat+ner-9521147, section text
         'pooled sera' at 1332 should be 'sera from patients with melioidosis' at 1339
         'patients with melioidosis' at 1349 should be 'sera from patients with melioidosis' at 1339
         'hyperimmune mouse sera' at 1379 should be 'hyperimmune mouse' at 1379
-    Recall      18.181818%
-    Precision   50.000000%
+    Strict Recall      18.181818%
+    Strict Precision   50.000000%
+    Strict F1          26.666667
+
+    Relaxed Recall      36.363636%
+    Relaxed Precision   100.000000%
+    Relaxed F1          53.333333
 
 Document BB-cat+ner-9553794, section text
     False positives:
@@ -715,8 +885,13 @@ Document BB-cat+ner-9553794, section text
         'salmon' at 1707
     True positives: 0
     Span mismatches:
-    Recall      0.000000%
-    Precision   NaN%
+    Strict Recall      0.000000%
+    Strict Precision   NaN%
+    Strict F1          NaN
+
+    Relaxed Recall      0.000000%
+    Relaxed Precision   NaN%
+    Relaxed F1          NaN
 
 Document BB-cat+ner-9745160, section text
     False positives:
@@ -745,10 +920,20 @@ Document BB-cat+ner-9745160, section text
         'patients with PPI' at 1985 should be 'patients with PPI-based triple therapy' at 1985
         'patients with bismuth' at 2065 should be 'patients with bismuth-based triple therapy' at 2065
         'duodenal ulcer' at 2508 should be 'duodenal' at 2508
-    Recall      38.888889%
-    Precision   63.636364%
+    Strict Recall      38.888889%
+    Strict Precision   63.636364%
+    Strict F1          48.275862
+
+    Relaxed Recall      55.555556%
+    Relaxed Precision   90.909091%
+    Relaxed F1          68.965517
 
 Global scores:
-    Recall      23.157895%
-    Precision   84.615385%
+    Strict Recall      23.157895%
+    Strict Precision   84.615385%
+    Strict F1          36.363636
+
+    Relaxed Recall      26.736842%
+    Relaxed Precision   97.692308%
+    Relaxed F1          41.983471
 
