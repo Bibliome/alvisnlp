@@ -24,9 +24,7 @@ The feature and section names are the 2-character field code. For an interpretat
 
 ## Parameters
 
-<a name="source">
-
-### source
+<h3 name="source" class="param">source</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -34,9 +32,7 @@ The feature and section names are the 2-character field code. For an interpretat
 </div>
 Location of the WoK file(s).
 
-<a name="constantDocumentFeatures">
-
-### constantDocumentFeatures
+<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -44,9 +40,7 @@ Location of the WoK file(s).
 </div>
 Constant features to add to each document created by this module.
 
-<a name="constantSectionFeatures">
-
-### constantSectionFeatures
+<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -54,9 +48,7 @@ Constant features to add to each document created by this module.
 </div>
 Constant features to add to each section created by this module.
 
-<a name="tabularFormat">
-
-### tabularFormat
+<h3 name="tabularFormat" class="param">tabularFormat</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>

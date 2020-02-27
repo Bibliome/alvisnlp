@@ -25,9 +25,7 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 
 ## Parameters
 
-<a name="lemmaFile">
-
-### lemmaFile
+<h3 name="lemmaFile" class="param">lemmaFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -35,9 +33,7 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 </div>
 Path to the file containing lemmas.
 
-<a name="mergeFile">
-
-### mergeFile
+<h3 name="mergeFile" class="param">mergeFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -45,9 +41,7 @@ Path to the file containing lemmas.
 </div>
 Path to the merged terms file.
 
-<a name="quasiSynonymsFile">
-
-### quasiSynonymsFile
+<h3 name="quasiSynonymsFile" class="param">quasiSynonymsFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -55,9 +49,7 @@ Path to the merged terms file.
 </div>
 Path to the quasi-synonyms file.
 
-<a name="synonymsFile">
-
-### synonymsFile
+<h3 name="synonymsFile" class="param">synonymsFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -65,9 +57,7 @@ Path to the quasi-synonyms file.
 </div>
 Path to the synonyms file.
 
-<a name="targetLayerName">
-
-### targetLayerName
+<h3 name="targetLayerName" class="param">targetLayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -75,9 +65,7 @@ Path to the synonyms file.
 </div>
 Name of the layer where to put match annotations.
 
-<a name="acronymsFile">
-
-### acronymsFile
+<h3 name="acronymsFile" class="param">acronymsFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -85,9 +73,7 @@ Name of the layer where to put match annotations.
 </div>
 Path to the acronyms file.
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -95,9 +81,7 @@ Path to the acronyms file.
 </div>
 Constant features to add to each annotation created by this module
 
-<a name="saveDictFile">
-
-### saveDictFile
+<h3 name="saveDictFile" class="param">saveDictFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -105,9 +89,7 @@ Constant features to add to each annotation created by this module
 </div>
 Path of the file where to save the dictionary.
 
-<a name="typographicVariationsFile">
-
-### typographicVariationsFile
+<h3 name="typographicVariationsFile" class="param">typographicVariationsFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -115,9 +97,7 @@ Path of the file where to save the dictionary.
 </div>
 Path to the typographic variations file.
 
-<a name="canonicalFormFeature">
-
-### canonicalFormFeature
+<h3 name="canonicalFormFeature" class="param">canonicalFormFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `lemma`
 </div>
@@ -125,9 +105,7 @@ Path to the typographic variations file.
 </div>
 Feature where to store the term canonical form.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -135,9 +113,7 @@ Feature where to store the term canonical form.
 </div>
 Only process document that satisfy this filter.
 
-<a name="errorDuplicateValues">
-
-### errorDuplicateValues
+<h3 name="errorDuplicateValues" class="param">errorDuplicateValues</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -145,9 +121,7 @@ Only process document that satisfy this filter.
 </div>
 Either to stop when a duplicate entry is seen.
 
-<a name="ignoreCase">
-
-### ignoreCase
+<h3 name="ignoreCase" class="param">ignoreCase</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -155,9 +129,7 @@ Either to stop when a duplicate entry is seen.
 </div>
 Match ignoring case.
 
-<a name="ignoreDiacritics">
-
-### ignoreDiacritics
+<h3 name="ignoreDiacritics" class="param">ignoreDiacritics</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -165,9 +137,7 @@ Match ignoring case.
 </div>
 Match ignoring diacritics.
 
-<a name="ignoreWhitespace">
-
-### ignoreWhitespace
+<h3 name="ignoreWhitespace" class="param">ignoreWhitespace</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -175,9 +145,7 @@ Match ignoring diacritics.
 </div>
 Match ignoring whitespace characters.
 
-<a name="multipleValueAction">
-
-### multipleValueAction
+<h3 name="multipleValueAction" class="param">multipleValueAction</h3>
 
 <div class="param-level param-level-default-value">Default value: `add`
 </div>
@@ -185,9 +153,7 @@ Match ignoring whitespace characters.
 </div>
 Either to stop when multiple entries with the same key is seen.
 
-<a name="normalizeSpace">
-
-### normalizeSpace
+<h3 name="normalizeSpace" class="param">normalizeSpace</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -195,9 +161,7 @@ Either to stop when multiple entries with the same key is seen.
 </div>
 Match normalizing whitespace.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -205,11 +169,9 @@ Match normalizing whitespace.
 </div>
 Process only sections that satisfy this filter.
 
-<a name="subject">
+<h3 name="subject" class="param">subject</h3>
 
-### subject
-
-<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.ContentsSubject@96def03`
+<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.ContentsSubject@595b007d`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.Subject" class="converter">Subject</a>
 </div>

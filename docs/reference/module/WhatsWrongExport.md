@@ -10,9 +10,7 @@ synopsis
 
 ## Parameters
 
-<a name="outFile">
-
-### outFile
+<h3 name="outFile" class="param">outFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,9 +18,7 @@ synopsis
 </div>
 Data sink where to write.
 
-<a name="relationName">
-
-### relationName
+<h3 name="relationName" class="param">relationName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,9 +26,7 @@ Data sink where to write.
 </div>
 Name of the relation that contains tuples that will be represented as relations.
 
-<a name="sentences">
-
-### sentences
+<h3 name="sentences" class="param">sentences</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,9 +34,7 @@ Name of the relation that contains tuples that will be represented as relations.
 </div>
 Expression evaluated as a list of elements with the section as the context element. The result specifies the sentences in the section.
 
-<a name="entities">
-
-### entities
+<h3 name="entities" class="param">entities</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -50,9 +42,7 @@ Expression evaluated as a list of elements with the section as the context eleme
 </div>
 Names of layers containing named entities.
 
-<a name="entityType">
-
-### entityType
+<h3 name="entityType" class="param">entityType</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -60,9 +50,7 @@ Names of layers containing named entities.
 </div>
 Name of the feature of entity annotations containing the named entity type.
 
-<a name="dependent">
-
-### dependent
+<h3 name="dependent" class="param">dependent</h3>
 
 <div class="param-level param-level-default-value">Default value: `dependent`
 </div>
@@ -70,19 +58,15 @@ Name of the feature of entity annotations containing the named entity type.
 </div>
 Name of the tuple role that references the dependent. The dependent must be in the <a href="#words" class="param">words</a> layer.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="head">
-
-### head
+<h3 name="head" class="param">head</h3>
 
 <div class="param-level param-level-default-value">Default value: `head`
 </div>
@@ -90,9 +74,7 @@ Only process document that satisfy this filter.
 </div>
 Name of the tuple role that references the head. The head must be in the <a href="#words" class="param">words</a> layer.
 
-<a name="label">
-
-### label
+<h3 name="label" class="param">label</h3>
 
 <div class="param-level param-level-default-value">Default value: `label`
 </div>
@@ -100,19 +82,15 @@ Name of the tuple role that references the head. The head must be in the <a href
 </div>
 Name of the tuple feature that specifies the relation label.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Process only sections that satisfy this filter.
+Process only sections that satisfy this expression.
 
-<a name="sentence">
-
-### sentence
+<h3 name="sentence" class="param">sentence</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentence`
 </div>
@@ -120,9 +98,7 @@ Process only sections that satisfy this filter.
 </div>
 Name of the tuple role that references the sentence.
 
-<a name="wordForm">
-
-### wordForm
+<h3 name="wordForm" class="param">wordForm</h3>
 
 <div class="param-level param-level-default-value">Default value: `form`
 </div>
@@ -130,9 +106,7 @@ Name of the tuple role that references the sentence.
 </div>
 Name of the feature that specifies the word form.
 
-<a name="words">
-
-### words
+<h3 name="words" class="param">words</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>

@@ -10,9 +10,7 @@ Runs Genia Tagger on annotations.
 
 ## Parameters
 
-<a name="geniaDir">
-
-### geniaDir
+<h3 name="geniaDir" class="param">geniaDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,9 +18,7 @@ Runs Genia Tagger on annotations.
 </div>
 Directory where geniatagger is installed.
 
-<a name="chunkFeature">
-
-### chunkFeature
+<h3 name="chunkFeature" class="param">chunkFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,9 +26,7 @@ Directory where geniatagger is installed.
 </div>
 UNDOCUMENTED
 
-<a name="entityFeature">
-
-### entityFeature
+<h3 name="entityFeature" class="param">entityFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,19 +34,15 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="geniaCharset">
-
-### geniaCharset
+<h3 name="geniaCharset" class="param">geniaCharset</h3>
 
 <div class="param-level param-level-default-value">Default value: `UTF-8`
 </div>
@@ -60,19 +50,15 @@ Only process document that satisfy this filter.
 </div>
 Character encoding of geniatagger input and output.
 
-<a name="geniaTaggerExecutable">
+<h3 name="geniaTaggerExecutable" class="param">geniaTaggerExecutable</h3>
 
-### geniaTaggerExecutable
-
-<div class="param-level param-level-default-value">Default value: `geniatagger`
+<div class="param-level param-level-default-value">Default value: `./geniatagger`
 </div>
 <div class="param-type">Type: <a href="../converter/java.io.File" class="converter">File</a>
 </div>
 Name of the geniatagger executable file.
 
-<a name="lemmaFeature">
-
-### lemmaFeature
+<h3 name="lemmaFeature" class="param">lemmaFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `lemma`
 </div>
@@ -80,9 +66,7 @@ Name of the geniatagger executable file.
 </div>
 UNDOCUMENTED
 
-<a name="posFeature">
-
-### posFeature
+<h3 name="posFeature" class="param">posFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `pos`
 </div>
@@ -90,19 +74,15 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, boolean:and(nav:layer:sentences(), nav:layer:words()))`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Process only sections that satisfy this filter.
+Process only sections that satisfy this expression.
 
-<a name="sentenceFilter">
-
-### sentenceFilter
+<h3 name="sentenceFilter" class="param">sentenceFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -110,9 +90,7 @@ Process only sections that satisfy this filter.
 </div>
 Evaluated as a boolean with the sentence annotation as the context element. *GeniaTagger* only process the sentence if the result is true. To filter sentences that are too long for Genia Tagger, use "length < 1024".
 
-<a name="sentenceLayerName">
-
-### sentenceLayerName
+<h3 name="sentenceLayerName" class="param">sentenceLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -120,9 +98,7 @@ Evaluated as a boolean with the sentence annotation as the context element. *Gen
 </div>
 UNDOCUMENTED
 
-<a name="treeTaggerTagset">
-
-### treeTaggerTagset
+<h3 name="treeTaggerTagset" class="param">treeTaggerTagset</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -130,9 +106,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="wordFormFeature">
-
-### wordFormFeature
+<h3 name="wordFormFeature" class="param">wordFormFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `form`
 </div>
@@ -140,9 +114,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="wordLayerName">
-
-### wordLayerName
+<h3 name="wordLayerName" class="param">wordLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>

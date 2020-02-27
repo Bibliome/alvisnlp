@@ -4,10 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>{{ site.title }} {{ site.description }}</title>
-    <!--<link href='https://fonts.googleapis.com/css?family=Arvo:400,700,400italic' rel='stylesheet' type='text/css'>-->
-    <!-- <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}"> -->
     <link rel="stylesheet" href="{{ '/assets/css/alvis.css' | relative_url }}">
-    <script src="{{ '/assets/js/jquery-3.1.1.min.js' | relative_url }}"></script>
+    <link rel="stylesheet" href="{{ '/assets/css/bootstrap.min.css' | relative_url }}">
+    <script src="{{ '/assets/js/jquery-3.3.1.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/popper.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/bootstrap.min.js' | relative_url }}"></script>
     <script src="{{ '/assets/js/alvis.js' | relative_url }}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
@@ -17,29 +18,36 @@
   <body>
     <div class="wrapper">
       <header>
-	<div id="header-title">
-          <h1 class="header">{{ site.title }}</h1>
-          <p class="header">{{ site.description }}</p>
-	</div>
+        <h1 class="header-title">{{ site.title }}</h1>
+        <span class="header-title">{{ site.description }}</span>
 
-	<div id="main-menu">
-          <a class="menu-item menu-top" href="{{ '/' | relative_url }}">Home</a>
-          <a class="menu-item menu-top" href="Getting-started">Getting started</a>
-          <a class="menu-item menu-top" href="Download">Download</a>
-          <div class="dropdown">
-	    <span class="menu-item menu-top dropdown-trigger">Documentation</span>
-	    <div class="dropdown-content">
-	      <a class="menu-item" href="{{ '/Getting-started' | relative_url }}">Getting started</a>
-	      <a class="menu-item" href="{{ '/Data-model' | relative_url }}">Data model</a>
-	      <a class="menu-item" href="{{ '/Write-a-plan' | relative_url }}">Write a plan</a>
-	      <a class="menu-item" href="{{ '/reference/Module-list' | relative_url }}">Module reference</a>
-	      <a class="menu-item" href="{{ '/Element-expression-examples' | relative_url }}">Expression examples</a>
-	      <a class="menu-item" href="{{ '/Element-expression-reference' | relative_url }}">Expression reference</a>
-	      <a class="menu-item" href="{{ '/Create-a-module' | relative_url }}">Create a module</a>
+	<ul class="nav justify-content-end">
+	  <li class="nav-item menu-item">
+	    <a class="nav-link menu-link" href="{{ '/' | relative_url }}">Home</a>
+	  </li>
+	  <li class="nav-item menu-item">
+            <a class="nav-link menu-link" href="{{ '/Getting-started' | relative_url }}">Getting started</a>
+	  </li>
+	  <li class="nav-item menu-item">
+            <a class="nav-link menu-link" href="{{ '/Download' | relative_url }}">Download</a>
+	  </li>
+	  <li class="nav-item menu-item dropdown">
+	    <a class="nav-link menu-link dropdown-toggle" data-toggle="dropdown" role="link">Documentation</a>
+	    <div id="doc-menu" class="dropdown-menu">
+	      <a class="dropdown-item menu-link" href="{{ '/Getting-started' | relative_url }}">Getting started</a>
+	      <a class="dropdown-item menu-link" href="{{ '/Data-model' | relative_url }}">Data model</a>
+	      <a class="dropdown-item menu-link" href="{{ '/Write-a-plan' | relative_url }}">Write a plan</a>
+	      <a class="dropdown-item menu-link" href="{{ '/reference/Module-reference' | relative_url }}">Module reference</a>
+	      <div class="dropdown-divider"></div>
+	      <a class="dropdown-item menu-link" href="{{ '/Element-expression-examples' | relative_url }}">Expression examples</a>
+	      <a class="dropdown-item menu-link" href="{{ '/Element-expression-reference' | relative_url }}">Expression reference</a>
+	      <a class="dropdown-item menu-link" href="{{ '/Create-a-module' | relative_url }}">Create a module</a>
 	    </div>
-	  </div>
-          <a class="menu-item menu-top" href="{{ site.github.repository_url }}">GitHub</a>
-	</div>
+	  </li>
+	  <li class="nav-item menu-item">
+            <a class="nav-link menu-link" href="{{ site.github.repository_url }}">GitHub</a>
+	  </li>
+	</ul>
       </header>
 
       <div id="toc">

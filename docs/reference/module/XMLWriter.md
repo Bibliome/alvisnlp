@@ -22,9 +22,7 @@ The stylesheet operates on an empty XML document bound to the root element, howe
 
 ## Parameters
 
-<a name="fileName">
-
-### fileName
+<h3 name="fileName" class="param">fileName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -32,9 +30,7 @@ The stylesheet operates on an empty XML document bound to the root element, howe
 </div>
 Expression evaluated as a string with the file root element as the context element. The result specifies the file where to write the result.
 
-<a name="outDir">
-
-### outDir
+<h3 name="outDir" class="param">outDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -42,9 +38,7 @@ Expression evaluated as a string with the file root element as the context eleme
 </div>
 Base directory where all file are written.
 
-<a name="roots">
-
-### roots
+<h3 name="roots" class="param">roots</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -52,9 +46,7 @@ Base directory where all file are written.
 </div>
 Expression evaluated as a list of elements with the corpus as the context element. *XMLWriter* writes a file for each element in the result.
 
-<a name="xslTransform">
-
-### xslTransform
+<h3 name="xslTransform" class="param">xslTransform</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -62,9 +54,7 @@ Expression evaluated as a list of elements with the corpus as the context elemen
 </div>
 XSLT stylesheet that specifies the output.
 
-<a name="indent">
-
-### indent
+<h3 name="indent" class="param">indent</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>

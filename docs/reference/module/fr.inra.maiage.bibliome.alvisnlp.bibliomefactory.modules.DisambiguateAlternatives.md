@@ -11,9 +11,7 @@ Disambiguate features that have multiple values.
 
 ## Parameters
 
-<a name="ambiguousFeature">
-
-### ambiguousFeature
+<h3 name="ambiguousFeature" class="param">ambiguousFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -21,9 +19,7 @@ Disambiguate features that have multiple values.
 </div>
 Feature to disambiguate.
 
-<a name="target">
-
-### target
+<h3 name="target" class="param">target</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -31,19 +27,15 @@ Feature to disambiguate.
 </div>
 Elements to disambiguate.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="warnIfAmbiguous">
-
-### warnIfAmbiguous
+<h3 name="warnIfAmbiguous" class="param">warnIfAmbiguous</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>

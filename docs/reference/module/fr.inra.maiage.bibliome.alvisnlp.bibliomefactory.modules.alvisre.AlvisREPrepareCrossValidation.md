@@ -12,9 +12,7 @@ synopsis
 
 ## Parameters
 
-<a name="cParameter">
-
-### cParameter
+<h3 name="cParameter" class="param">cParameter</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,9 +20,7 @@ synopsis
 </div>
 
 
-<a name="outDir">
-
-### outDir
+<h3 name="outDir" class="param">outDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -32,9 +28,7 @@ synopsis
 </div>
 
 
-<a name="relations">
-
-### relations
+<h3 name="relations" class="param">relations</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -42,9 +36,7 @@ synopsis
 </div>
 
 
-<a name="schema">
-
-### schema
+<h3 name="schema" class="param">schema</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -52,9 +44,7 @@ synopsis
 </div>
 
 
-<a name="similarityFunction">
-
-### similarityFunction
+<h3 name="similarityFunction" class="param">similarityFunction</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -62,9 +52,7 @@ synopsis
 </div>
 
 
-<a name="terms">
-
-### terms
+<h3 name="terms" class="param">terms</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -72,19 +60,15 @@ synopsis
 </div>
 
 
-<a name="dependencies">
+<h3 name="dependencies" class="param">dependencies</h3>
 
-### dependencies
-
-<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRERelations@4445629`
+<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRERelations@7c729a55`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRERelations" class="converter">AlvisRERelations</a>
 </div>
 
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -92,9 +76,7 @@ synopsis
 </div>
 Only process document that satisfy this filter.
 
-<a name="folds">
-
-### folds
+<h3 name="folds" class="param">folds</h3>
 
 <div class="param-level param-level-default-value">Default value: `10`
 </div>
@@ -102,9 +84,7 @@ Only process document that satisfy this filter.
 </div>
 
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -112,9 +92,7 @@ Only process document that satisfy this filter.
 </div>
 Process only sections that satisfy this filter.
 
-<a name="sectionSeparator">
-
-### sectionSeparator
+<h3 name="sectionSeparator" class="param">sectionSeparator</h3>
 
 <div class="param-level param-level-default-value">Default value: `
 `
@@ -123,21 +101,17 @@ Process only sections that satisfy this filter.
 </div>
 
 
-<a name="sentences">
+<h3 name="sentences" class="param">sentences</h3>
 
-### sentences
-
-<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRETokens@45b9a632`
+<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRETokens@3bb9a3ff`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRETokens" class="converter">AlvisRETokens</a>
 </div>
 
 
-<a name="words">
+<h3 name="words" class="param">words</h3>
 
-### words
-
-<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRETokens@43301423`
+<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRETokens@6356695f`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRETokens" class="converter">AlvisRETokens</a>
 </div>

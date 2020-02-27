@@ -18,9 +18,7 @@ Syntax parsing with [CCG Parser](http://svn.ask.it.usyd.edu.au/trac/candc/wiki).
 
 ## Parameters
 
-<a name="executable">
-
-### executable
+<h3 name="executable" class="param">executable</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -28,9 +26,7 @@ Syntax parsing with [CCG Parser](http://svn.ask.it.usyd.edu.au/trac/candc/wiki).
 </div>
 Path to the CCG Parser executable.
 
-<a name="parserModel">
-
-### parserModel
+<h3 name="parserModel" class="param">parserModel</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -38,9 +34,7 @@ Path to the CCG Parser executable.
 </div>
 Path to the parser model file.
 
-<a name="superModel">
-
-### superModel
+<h3 name="superModel" class="param">superModel</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -48,29 +42,23 @@ Path to the parser model file.
 </div>
 Path to the CCG supertagger model file.
 
-<a name="constantRelationFeatures">
-
-### constantRelationFeatures
+<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each relation created by this module
+Constant features to add to each relation created by this module.
 
-<a name="constantTupleFeatures">
-
-### constantTupleFeatures
+<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each tuple created by this module
+Constant features to add to each tuple created by this module.
 
-<a name="stanfordMarkedUpScript">
-
-### stanfordMarkedUpScript
+<h3 name="stanfordMarkedUpScript" class="param">stanfordMarkedUpScript</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -78,9 +66,7 @@ Constant features to add to each tuple created by this module
 </div>
 Path to the markedup script for Stanford tagset output. See [Biomedical parsing for CCG](http://svn.ask.it.usyd.edu.au/trac/candc/wiki/Biomedical).
 
-<a name="stanfordScript">
-
-### stanfordScript
+<h3 name="stanfordScript" class="param">stanfordScript</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -88,9 +74,7 @@ Path to the markedup script for Stanford tagset output. See [Biomedical parsing 
 </div>
 Post-processing script for Stanford tagset output. See [Biomedical parsing for CCG](http://svn.ask.it.usyd.edu.au/trac/candc/wiki/Biomedical).
 
-<a name="dependentRole">
-
-### dependentRole
+<h3 name="dependentRole" class="param">dependentRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `dependent`
 </div>
@@ -98,29 +82,23 @@ Post-processing script for Stanford tagset output. See [Biomedical parsing for C
 </div>
 Name of the role that denote the dependent word in the dependency tuple.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="formFeatureName">
-
-### formFeatureName
+<h3 name="formFeatureName" class="param">formFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `form`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-Name of the feature containing the word surface form.
+Name of the feature in word annotations that contains the surface form.
 
-<a name="headRole">
-
-### headRole
+<h3 name="headRole" class="param">headRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `head`
 </div>
@@ -128,19 +106,15 @@ Name of the feature containing the word surface form.
 </div>
 Name of the role that denote the head word in the dependency tuple.
 
-<a name="internalEncoding">
-
-### internalEncoding
+<h3 name="internalEncoding" class="param">internalEncoding</h3>
 
 <div class="param-level param-level-default-value">Default value: `UTF-8`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-Character encoding of CCG tools input and output.
+Character encoding to use for CCG input and output files.
 
-<a name="labelFeatureName">
-
-### labelFeatureName
+<h3 name="labelFeatureName" class="param">labelFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `label`
 </div>
@@ -148,9 +122,7 @@ Character encoding of CCG tools input and output.
 </div>
 Name of the feature containing the dependency label.
 
-<a name="lpTransformation">
-
-### lpTransformation
+<h3 name="lpTransformation" class="param">lpTransformation</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -158,9 +130,7 @@ Name of the feature containing the dependency label.
 </div>
 Either to translate into LP tag-set.
 
-<a name="maxRuns">
-
-### maxRuns
+<h3 name="maxRuns" class="param">maxRuns</h3>
 
 <div class="param-level param-level-default-value">Default value: `1`
 </div>
@@ -168,9 +138,7 @@ Either to translate into LP tag-set.
 </div>
 Maximal number of CCG runs.
 
-<a name="maxSuperCats">
-
-### maxSuperCats
+<h3 name="maxSuperCats" class="param">maxSuperCats</h3>
 
 <div class="param-level param-level-default-value">Default value: `500000`
 </div>
@@ -178,19 +146,15 @@ Maximal number of CCG runs.
 </div>
 Maximum number of supercats before the parse explodes (cited from CCG documentation).
 
-<a name="posFeatureName">
-
-### posFeatureName
+<h3 name="posFeatureName" class="param">posFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `pos`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-Name of the feature containing the word POS tag.
+Name of the feature in word annotations where to write POS tags. This feature is read for previous POS tags if <a href="#keepPreviousPos" class="param">keepPreviousPos</a> is set to *true*.
 
-<a name="relationName">
-
-### relationName
+<h3 name="relationName" class="param">relationName</h3>
 
 <div class="param-level param-level-default-value">Default value: `dependencies`
 </div>
@@ -198,19 +162,15 @@ Name of the feature containing the word POS tag.
 </div>
 Name of the relation containing dependencies.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, boolean:and(nav:layer:sentences(), nav:layer:words()))`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Process only sections that satisfy this filter.
+Process only sections that satisfy this expression.
 
-<a name="sentenceFilter">
-
-### sentenceFilter
+<h3 name="sentenceFilter" class="param">sentenceFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -218,9 +178,7 @@ Process only sections that satisfy this filter.
 </div>
 Process only sentences that satisfy this filter.
 
-<a name="sentenceLayerName">
-
-### sentenceLayerName
+<h3 name="sentenceLayerName" class="param">sentenceLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -228,9 +186,7 @@ Process only sentences that satisfy this filter.
 </div>
 Name of the layer containing sentence annotations.
 
-<a name="sentenceRole">
-
-### sentenceRole
+<h3 name="sentenceRole" class="param">sentenceRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentence`
 </div>
@@ -238,9 +194,15 @@ Name of the layer containing sentence annotations.
 </div>
 Name of the role that denote the sentence to which belongs a dependency tuple.
 
-<a name="wordLayerName">
+<h3 name="supertagFeatureName" class="param">supertagFeatureName</h3>
 
-### wordLayerName
+<div class="param-level param-level-default-value">Default value: `supertag`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+UNDOCUMENTED
+
+<h3 name="wordLayerName" class="param">wordLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>

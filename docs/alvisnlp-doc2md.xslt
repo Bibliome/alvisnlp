@@ -72,7 +72,7 @@ limitations under the License.
 	</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <xsl:text>&lt;h2>
+    <xsl:text>&lt;h2 class="no-toc">
 &lt;a href="{{ &apos;/reference/</xsl:text>
     <xsl:value-of select="concat($class, '/', @target)"/>
     <xsl:text>&apos; | relative_url }}" class="</xsl:text>
@@ -115,8 +115,9 @@ limitations under the License.
   </xsl:template>
   
   <xsl:template match="param-doc">
-    <xsl:value-of select="concat('&lt;a name=&quot;', @name, '&quot;>', $nl, $nl)"/>
-    <xsl:value-of select="concat('### ', @name, $nl, $nl)"/>
+    <!--<xsl:value-of select="concat('&lt;a name=&quot;', @name, '&quot;>', $nl, $nl)"/>
+    <xsl:value-of select="concat('### ', @name, $nl, $nl)"/>-->
+    <xsl:value-of select="concat('&lt;h3 name=&quot;', @name, '&quot; class=&quot;param&quot;>', @name, '&lt;/h3>', $nl, $nl)"/>
     <xsl:choose>
       <xsl:when test="@default-value">
 	<xsl:text>&lt;div class="param-level param-level-default-value"></xsl:text>

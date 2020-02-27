@@ -10,19 +10,15 @@ Reads documents and annotations in the [BioNLP-ST 2013 a1/a2 format](XXX).
 
 ## Parameters
 
-<a name="textDir">
-
-### textDir
+<h3 name="textDir" class="param">textDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
 </div>
-Path to the directory containing `.a2` files.
+Path to the directory containing `.txt` files.
 
-<a name="a1Dir">
-
-### a1Dir
+<h3 name="a1Dir" class="param">a1Dir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,9 +26,7 @@ Path to the directory containing `.a2` files.
 </div>
 Path to the directory containing `.a1` files. If this parameter is not set, then *BioNLPSTReader* does not read `a1` files. This directory must contain one `.a1` file for each `.txt` file found in <a href="#textDir" class="param">textDir</a>.
 
-<a name="a2Dir">
-
-### a2Dir
+<h3 name="a2Dir" class="param">a2Dir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,59 +34,47 @@ Path to the directory containing `.a1` files. If this parameter is not set, then
 </div>
 Path to the directory containing `.a2` files. If this parameter is not set, then *BioNLPSTReader* does not read `a2` files. This directory must contain one `.a2` file for each `.txt` file found in <a href="#textDir" class="param">textDir</a>.
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each annotation created by this module
+Constant features to add to each annotation created by this module.
 
-<a name="constantDocumentFeatures">
-
-### constantDocumentFeatures
+<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each document created by this module
+Constant features to add to each document created by this module.
 
-<a name="constantRelationFeatures">
-
-### constantRelationFeatures
+<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each relation created by this module
+Constant features to add to each relation created by this module.
 
-<a name="constantSectionFeatures">
-
-### constantSectionFeatures
+<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each section created by this module
+Constant features to add to each section created by this module.
 
-<a name="constantTupleFeatures">
-
-### constantTupleFeatures
+<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each tuple created by this module
+Constant features to add to each tuple created by this module.
 
-<a name="schema">
-
-### schema
+<h3 name="schema" class="param">schema</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -100,9 +82,7 @@ Constant features to add to each tuple created by this module
 </div>
 Annotation schema against which the annotations are checked. *BioNLPSTReader* aborts if the annotations do not check. If not set, the annotations are not checked.
 
-<a name="charset">
-
-### charset
+<h3 name="charset" class="param">charset</h3>
 
 <div class="param-level param-level-default-value">Default value: `UTF-8`
 </div>
@@ -110,9 +90,7 @@ Annotation schema against which the annotations are checked. *BioNLPSTReader* ab
 </div>
 Character encoding of all imported files.
 
-<a name="equivalenceItemPrefix">
-
-### equivalenceItemPrefix
+<h3 name="equivalenceItemPrefix" class="param">equivalenceItemPrefix</h3>
 
 <div class="param-level param-level-default-value">Default value: `item`
 </div>
@@ -120,9 +98,7 @@ Character encoding of all imported files.
 </div>
 Prefix of the role of arguments that represent group elements.
 
-<a name="equivalenceRelationName">
-
-### equivalenceRelationName
+<h3 name="equivalenceRelationName" class="param">equivalenceRelationName</h3>
 
 <div class="param-level param-level-default-value">Default value: `equiv`
 </div>
@@ -130,9 +106,7 @@ Prefix of the role of arguments that represent group elements.
 </div>
 Name of the relation whose tuples represent equivalences.
 
-<a name="eventKind">
-
-### eventKind
+<h3 name="eventKind" class="param">eventKind</h3>
 
 <div class="param-level param-level-default-value">Default value: `event`
 </div>
@@ -140,9 +114,7 @@ Name of the relation whose tuples represent equivalences.
 </div>
 Kind value for event annotations.
 
-<a name="fragmentCountFeatureName">
-
-### fragmentCountFeatureName
+<h3 name="fragmentCountFeatureName" class="param">fragmentCountFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `fragments`
 </div>
@@ -150,9 +122,7 @@ Kind value for event annotations.
 </div>
 Feature where to store the number of merged fragments. This feature is only set if <a href="#textBoundAsAnnotations" class="param">textBoundAsAnnotations</a> is `true`.
 
-<a name="idFeatureName">
-
-### idFeatureName
+<h3 name="idFeatureName" class="param">idFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `id`
 </div>
@@ -160,9 +130,7 @@ Feature where to store the number of merged fragments. This feature is only set 
 </div>
 Feature where to store the annotation identifier.
 
-<a name="kindFeatureName">
-
-### kindFeatureName
+<h3 name="kindFeatureName" class="param">kindFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `kind`
 </div>
@@ -170,9 +138,7 @@ Feature where to store the annotation identifier.
 </div>
 Feature of relations contatining the annotation kind.
 
-<a name="relationKind">
-
-### relationKind
+<h3 name="relationKind" class="param">relationKind</h3>
 
 <div class="param-level param-level-default-value">Default value: `relation`
 </div>
@@ -180,9 +146,7 @@ Feature of relations contatining the annotation kind.
 </div>
 Kind value for relation annotations.
 
-<a name="sectionName">
-
-### sectionName
+<h3 name="sectionName" class="param">sectionName</h3>
 
 <div class="param-level param-level-default-value">Default value: `text`
 </div>
@@ -190,9 +154,7 @@ Kind value for relation annotations.
 </div>
 Name of the unique section contating all the text.
 
-<a name="textBoundAsAnnotations">
-
-### textBoundAsAnnotations
+<h3 name="textBoundAsAnnotations" class="param">textBoundAsAnnotations</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -200,9 +162,7 @@ Name of the unique section contating all the text.
 </div>
 If `true`, *BioNLPSTReader* imports text-bound annotations as annotations instead of tuples. Multiple fragments text-bound annotations are merged.
 
-<a name="textBoundFragmentRolePrefix">
-
-### textBoundFragmentRolePrefix
+<h3 name="textBoundFragmentRolePrefix" class="param">textBoundFragmentRolePrefix</h3>
 
 <div class="param-level param-level-default-value">Default value: `frag`
 </div>
@@ -210,9 +170,7 @@ If `true`, *BioNLPSTReader* imports text-bound annotations as annotations instea
 </div>
 Prefix of the role of arguments that represent text-bound fragments.
 
-<a name="textKind">
-
-### textKind
+<h3 name="textKind" class="param">textKind</h3>
 
 <div class="param-level param-level-default-value">Default value: `text`
 </div>
@@ -220,9 +178,7 @@ Prefix of the role of arguments that represent text-bound fragments.
 </div>
 Kind value for text annotations.
 
-<a name="triggerRole">
-
-### triggerRole
+<h3 name="triggerRole" class="param">triggerRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `trigger`
 </div>
@@ -230,9 +186,7 @@ Kind value for text annotations.
 </div>
 Role of the argument that represent an event trigger.
 
-<a name="typeFeatureName">
-
-### typeFeatureName
+<h3 name="typeFeatureName" class="param">typeFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `type`
 </div>

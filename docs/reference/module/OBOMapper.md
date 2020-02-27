@@ -2,151 +2,131 @@
 
 ## Synopsis
 
-synopsis
+Maps names and synonyms of terms defined in OBO files.
 
 ## Description
 
-synopsis
+*OBOMapper* maps names and synonyms of terms described in <a href="#oboFiles" class="param">oboFiles</a> on <a href="#target" class="param">target</a>.
 
 ## Parameters
 
-<a name="form">
-
-### form
+<h3 name="form" class="param">form</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
+Expression evaluated as a string with the target element as context that specifies the target key.
 
-
-<a name="oboFiles">
-
-### oboFiles
+<h3 name="oboFiles" class="param">oboFiles</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputFile[]" class="converter">InputFile[]</a>
 </div>
+Paths to the OBO files to map.
 
-
-<a name="target">
-
-### target
+<h3 name="target" class="param">target</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
+Expression evaluated as a list of elements with the corpus as context that specify the elements to be mapped.
 
-
-<a name="ancestorsFeature">
-
-### ancestorsFeature
+<h3 name="ancestorsFeature" class="param">ancestorsFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-Name of the feature that contains the term ancestors ids.
+Name of the feature where to store the term ancestors ids.
 
-<a name="childrenFeature">
-
-### childrenFeature
+<h3 name="childrenFeature" class="param">childrenFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-Name of the feature that contains the term children ids.
+Name of the feature where to store the term children ids.
 
-<a name="idFeature">
-
-### idFeature
+<h3 name="idFeature" class="param">idFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
+Name of the feature where to store the term id.
 
-
-<a name="nameFeature">
-
-### nameFeature
+<h3 name="nameFeature" class="param">nameFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
+Name of the feature where to store the term name.
 
-
-<a name="parentsFeature">
-
-### parentsFeature
+<h3 name="parentsFeature" class="param">parentsFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-Name of the feature that contains the term parents ids.
+Name of the feature where to store the term parents ids.
 
-<a name="pathFeature">
-
-### pathFeature
+<h3 name="pathFeature" class="param">pathFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
+Name of the feature where to store the term id path from the root.
 
-
-<a name="versionFeature">
-
-### versionFeature
+<h3 name="synonymsFeature" class="param">synonymsFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
+Name of the feature where to store the term synonyms.
 
+<h3 name="versionFeature" class="param">versionFeature</h3>
 
-<a name="idKeys">
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Name of the feature where to store the ontology version.
 
-### idKeys
+<h3 name="idKeys" class="param">idKeys</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
+Map the term keys instead of name and synonyms
 
-
-<a name="ignoreCase">
-
-### ignoreCase
+<h3 name="ignoreCase" class="param">ignoreCase</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
+Either to match ignoring the case.
 
-
-<a name="keepDBXref">
-
-### keepDBXref
+<h3 name="keepDBXref" class="param">keepDBXref</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
+Either to store term dbxrefs. Dbxrefs are stored in features that match the database name.
 
-
-<a name="operator">
-
-### operator
+<h3 name="operator" class="param">operator</h3>
 
 <div class="param-level param-level-default-value">Default value: `exact`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper.MappingOperator" class="converter">MappingOperator</a>
 </div>
-
+Matching operator.
 

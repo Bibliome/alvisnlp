@@ -22,9 +22,7 @@ Runs a Prolog program with the corpus data structure encoded as facts.
 
 ## Parameters
 
-<a name="facts">
-
-### facts
+<h3 name="facts" class="param">facts</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -32,9 +30,7 @@ Runs a Prolog program with the corpus data structure encoded as facts.
 </div>
 Fact specifications.
 
-<a name="goals">
-
-### goals
+<h3 name="goals" class="param">goals</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -42,9 +38,7 @@ Fact specifications.
 </div>
 Goal specifications.
 
-<a name="target">
-
-### target
+<h3 name="target" class="param">target</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -52,9 +46,7 @@ Goal specifications.
 </div>
 Top-level elements for which facts and goals are computed. This expression is evaluated as a list of elements with the corpus as context.
 
-<a name="theory">
-
-### theory
+<h3 name="theory" class="param">theory</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -62,9 +54,7 @@ Top-level elements for which facts and goals are computed. This expression is ev
 </div>
 Source of the main Prolog program.
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -72,9 +62,7 @@ Source of the main Prolog program.
 </div>
 Constant features to add to each annotation created by this module
 
-<a name="constantDocumentFeatures">
-
-### constantDocumentFeatures
+<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -82,9 +70,7 @@ Constant features to add to each annotation created by this module
 </div>
 Constant features to add to each document created by this module
 
-<a name="constantRelationFeatures">
-
-### constantRelationFeatures
+<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -92,9 +78,7 @@ Constant features to add to each document created by this module
 </div>
 Constant features to add to each relation created by this module
 
-<a name="constantSectionFeatures">
-
-### constantSectionFeatures
+<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -102,9 +86,7 @@ Constant features to add to each relation created by this module
 </div>
 Constant features to add to each section created by this module
 
-<a name="constantTupleFeatures">
-
-### constantTupleFeatures
+<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -112,9 +94,7 @@ Constant features to add to each section created by this module
 </div>
 Constant features to add to each tuple created by this module
 
-<a name="addToLayer">
-
-### addToLayer
+<h3 name="addToLayer" class="param">addToLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -122,9 +102,7 @@ Constant features to add to each tuple created by this module
 </div>
 Either the goal actions may add annotations to layers.
 
-<a name="createAnnotations">
-
-### createAnnotations
+<h3 name="createAnnotations" class="param">createAnnotations</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -132,9 +110,7 @@ Either the goal actions may add annotations to layers.
 </div>
 Either the goal actions may create annotations.
 
-<a name="createDocuments">
-
-### createDocuments
+<h3 name="createDocuments" class="param">createDocuments</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -142,9 +118,7 @@ Either the goal actions may create annotations.
 </div>
 Either the goal actions may create documents.
 
-<a name="createRelations">
-
-### createRelations
+<h3 name="createRelations" class="param">createRelations</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -152,9 +126,7 @@ Either the goal actions may create documents.
 </div>
 Either the goal actions may create relations.
 
-<a name="createSections">
-
-### createSections
+<h3 name="createSections" class="param">createSections</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -162,9 +134,7 @@ Either the goal actions may create relations.
 </div>
 Either the goal actions may create sections.
 
-<a name="createTuples">
-
-### createTuples
+<h3 name="createTuples" class="param">createTuples</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -172,9 +142,7 @@ Either the goal actions may create sections.
 </div>
 Either the goal actions may create tuples.
 
-<a name="deleteElements">
-
-### deleteElements
+<h3 name="deleteElements" class="param">deleteElements</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -182,9 +150,7 @@ Either the goal actions may create tuples.
 </div>
 Either the goal actions may delete elements.
 
-<a name="removeFromLayer">
-
-### removeFromLayer
+<h3 name="removeFromLayer" class="param">removeFromLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -192,9 +158,7 @@ Either the goal actions may delete elements.
 </div>
 Either the goal actions may remove annotations from layers.
 
-<a name="setArguments">
-
-### setArguments
+<h3 name="setArguments" class="param">setArguments</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -202,9 +166,7 @@ Either the goal actions may remove annotations from layers.
 </div>
 Either the goal actions may set tuple arguments.
 
-<a name="setFeatures">
-
-### setFeatures
+<h3 name="setFeatures" class="param">setFeatures</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>

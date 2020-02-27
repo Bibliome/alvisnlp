@@ -1,0 +1,1 @@
+<a class="module" href="{{ '/reference/module/' | append:include.class | relative_url }}">{{ include.class }}</a>

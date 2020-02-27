@@ -12,9 +12,7 @@
 
 ## Parameters
 
-<a name="textDir">
-
-### textDir
+<h3 name="textDir" class="param">textDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,9 +20,7 @@
 </div>
 Path to the directory containing I2B2 text files.
 
-<a name="assertionsDir">
-
-### assertionsDir
+<h3 name="assertionsDir" class="param">assertionsDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -32,9 +28,7 @@ Path to the directory containing I2B2 text files.
 </div>
 Path to the directory where assertion files can be found.
 
-<a name="conceptsDir">
-
-### conceptsDir
+<h3 name="conceptsDir" class="param">conceptsDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -42,59 +36,47 @@ Path to the directory where assertion files can be found.
 </div>
 Path to the directory that contains concept annotations.
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each annotation created by this module
+Constant features to add to each annotation created by this module.
 
-<a name="constantDocumentFeatures">
-
-### constantDocumentFeatures
+<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each document created by this module
+Constant features to add to each document created by this module.
 
-<a name="constantRelationFeatures">
-
-### constantRelationFeatures
+<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each relation created by this module
+Constant features to add to each relation created by this module.
 
-<a name="constantSectionFeatures">
-
-### constantSectionFeatures
+<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each section created by this module
+Constant features to add to each section created by this module.
 
-<a name="constantTupleFeatures">
-
-### constantTupleFeatures
+<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each tuple created by this module
+Constant features to add to each tuple created by this module.
 
-<a name="relationsDir">
-
-### relationsDir
+<h3 name="relationsDir" class="param">relationsDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -102,9 +84,7 @@ Constant features to add to each tuple created by this module
 </div>
 Path to the directory where relation files can be found.
 
-<a name="assertionFeature">
-
-### assertionFeature
+<h3 name="assertionFeature" class="param">assertionFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `assertion`
 </div>
@@ -112,9 +92,7 @@ Path to the directory where relation files can be found.
 </div>
 
 
-<a name="conceptTypeFeature">
-
-### conceptTypeFeature
+<h3 name="conceptTypeFeature" class="param">conceptTypeFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `type`
 </div>
@@ -122,9 +100,7 @@ Path to the directory where relation files can be found.
 </div>
 Feature where to store the concept type.
 
-<a name="conceptsLayerName">
-
-### conceptsLayerName
+<h3 name="conceptsLayerName" class="param">conceptsLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `concepts`
 </div>
@@ -132,9 +108,7 @@ Feature where to store the concept type.
 </div>
 Name of the layer where to store concepts annotations.
 
-<a name="leftRole">
-
-### leftRole
+<h3 name="leftRole" class="param">leftRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `left`
 </div>
@@ -142,9 +116,7 @@ Name of the layer where to store concepts annotations.
 </div>
 Name of the left argument of relations.
 
-<a name="linenoFeature">
-
-### linenoFeature
+<h3 name="linenoFeature" class="param">linenoFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `lineno`
 </div>
@@ -152,9 +124,7 @@ Name of the left argument of relations.
 </div>
 Name of the feature where to store the line number.
 
-<a name="linesLayerName">
-
-### linesLayerName
+<h3 name="linesLayerName" class="param">linesLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `lines`
 </div>
@@ -162,9 +132,7 @@ Name of the feature where to store the line number.
 </div>
 Name of the layer where to store lines.
 
-<a name="rightRole">
-
-### rightRole
+<h3 name="rightRole" class="param">rightRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `right`
 </div>
@@ -172,9 +140,7 @@ Name of the layer where to store lines.
 </div>
 
 
-<a name="sectionName">
-
-### sectionName
+<h3 name="sectionName" class="param">sectionName</h3>
 
 <div class="param-level param-level-default-value">Default value: `text`
 </div>
@@ -182,9 +148,7 @@ Name of the layer where to store lines.
 </div>
 Name of the unique section of each document.
 
-<a name="tokenNumberFeature">
-
-### tokenNumberFeature
+<h3 name="tokenNumberFeature" class="param">tokenNumberFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `tokenno`
 </div>
@@ -192,9 +156,7 @@ Name of the unique section of each document.
 </div>
 Feature where to store the token index.
 
-<a name="tokensLayerName">
-
-### tokensLayerName
+<h3 name="tokensLayerName" class="param">tokensLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `tokens`
 </div>

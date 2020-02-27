@@ -12,9 +12,7 @@ synopsis
 
 ## Parameters
 
-<a name="fileName">
-
-### fileName
+<h3 name="fileName" class="param">fileName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,9 +20,7 @@ synopsis
 </div>
 
 
-<a name="files">
-
-### files
+<h3 name="files" class="param">files</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -32,9 +28,7 @@ synopsis
 </div>
 
 
-<a name="outDir">
-
-### outDir
+<h3 name="outDir" class="param">outDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -42,9 +36,7 @@ synopsis
 </div>
 
 
-<a name="statements">
-
-### statements
+<h3 name="statements" class="param">statements</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -52,9 +44,7 @@ synopsis
 </div>
 
 
-<a name="charset">
-
-### charset
+<h3 name="charset" class="param">charset</h3>
 
 <div class="param-level param-level-default-value">Default value: `UTF-8`
 </div>
@@ -62,9 +52,7 @@ synopsis
 </div>
 
 
-<a name="format">
-
-### format
+<h3 name="format" class="param">format</h3>
 
 <div class="param-level param-level-default-value">Default value: `RDF/XML/pretty`
 </div>
@@ -72,9 +60,7 @@ synopsis
 </div>
 
 
-<a name="prefixes">
-
-### prefixes
+<h3 name="prefixes" class="param">prefixes</h3>
 
 <div class="param-level param-level-default-value">Default value: `{}`
 </div>

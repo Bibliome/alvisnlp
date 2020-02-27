@@ -31,9 +31,7 @@
 
 ## Parameters
 
-<a name="entries">
-
-### entries
+<h3 name="entries" class="param">entries</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -41,9 +39,7 @@
 </div>
 Expression evaluated from the corpus as a list of elements.
 
-<a name="key">
-
-### key
+<h3 name="key" class="param">key</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -51,9 +47,7 @@ Expression evaluated from the corpus as a list of elements.
 </div>
 Value of each entry. This expression is evaluated as a string from the entry element.
 
-<a name="outFile">
-
-### outFile
+<h3 name="outFile" class="param">outFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -61,9 +55,7 @@ Value of each entry. This expression is evaluated as a string from the entry ele
 </div>
 File where to write the result.
 
-<a name="aggregators">
-
-### aggregators
+<h3 name="aggregators" class="param">aggregators</h3>
 
 <div class="param-level param-level-default-value">Default value: ``
 </div>
@@ -71,9 +63,7 @@ File where to write the result.
 </div>
 Aggregate functions to compute for each value.
 
-<a name="separator">
-
-### separator
+<h3 name="separator" class="param">separator</h3>
 
 <div class="param-level param-level-default-value">Default value: `	`
 </div>

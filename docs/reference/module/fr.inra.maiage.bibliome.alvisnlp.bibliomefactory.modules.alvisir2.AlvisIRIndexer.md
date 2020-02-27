@@ -10,9 +10,7 @@ synopsis
 
 ## Parameters
 
-<a name="documents">
-
-### documents
+<h3 name="documents" class="param">documents</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,9 +18,7 @@ synopsis
 </div>
 
 
-<a name="fieldNames">
-
-### fieldNames
+<h3 name="fieldNames" class="param">fieldNames</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,9 +26,7 @@ synopsis
 </div>
 
 
-<a name="indexDir">
-
-### indexDir
+<h3 name="indexDir" class="param">indexDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,9 +34,7 @@ synopsis
 </div>
 
 
-<a name="clearIndex">
-
-### clearIndex
+<h3 name="clearIndex" class="param">clearIndex</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -50,9 +42,7 @@ synopsis
 </div>
 
 
-<a name="propertyKeys">
-
-### propertyKeys
+<h3 name="propertyKeys" class="param">propertyKeys</h3>
 
 <div class="param-level param-level-default-value">Default value: ``
 </div>
@@ -60,9 +50,7 @@ synopsis
 </div>
 
 
-<a name="recordGlobalIndexAttributes">
-
-### recordGlobalIndexAttributes
+<h3 name="recordGlobalIndexAttributes" class="param">recordGlobalIndexAttributes</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -70,9 +58,7 @@ synopsis
 </div>
 
 
-<a name="relations">
-
-### relations
+<h3 name="relations" class="param">relations</h3>
 
 <div class="param-level param-level-default-value">Default value: `{}`
 </div>
@@ -80,9 +66,7 @@ synopsis
 </div>
 
 
-<a name="tokenPositionGap">
-
-### tokenPositionGap
+<h3 name="tokenPositionGap" class="param">tokenPositionGap</h3>
 
 <div class="param-level param-level-default-value">Default value: `256`
 </div>

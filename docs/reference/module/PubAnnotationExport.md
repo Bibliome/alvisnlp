@@ -12,9 +12,7 @@ UNDOCUMENTED
 
 ## Parameters
 
-<a name="outFile">
-
-### outFile
+<h3 name="outFile" class="param">outFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,43 +20,59 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="denotations">
+<h3 name="divid" class="param">divid</h3>
 
-### denotations
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
+UNDOCUMENTED
 
-<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.DenotationSpecification@4df50bcc`
+<h3 name="sourcedb" class="param">sourcedb</h3>
+
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
+UNDOCUMENTED
+
+<h3 name="sourceid" class="param">sourceid</h3>
+
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
+UNDOCUMENTED
+
+<h3 name="denotations" class="param">denotations</h3>
+
+<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.DenotationSpecification@6b927fb`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.DenotationSpecification[]" class="converter">DenotationSpecification[]</a>
 </div>
 UNDOCUMENTED
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-UNDOCUMENTED
+Only process document that satisfy this expression.
 
-<a name="relations">
+<h3 name="relations" class="param">relations</h3>
 
-### relations
-
-<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.RelationSpecification@54c562f7`
+<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.RelationSpecification@4fb0f2b9`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.RelationSpecification[]" class="converter">RelationSpecification[]</a>
 </div>
 UNDOCUMENTED
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-UNDOCUMENTED
+Process only sections that satisfy this expression.
 

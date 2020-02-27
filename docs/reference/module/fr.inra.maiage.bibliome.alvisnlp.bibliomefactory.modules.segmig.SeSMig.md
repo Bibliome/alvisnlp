@@ -27,19 +27,15 @@ If <a href="#noBreakLayerName" class="param">noBreakLayerName</a> is defined, th
 
 ## Parameters
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each annotation created by this module
+Constant features to add to each annotation created by this module.
 
-<a name="noBreakLayerName">
-
-### noBreakLayerName
+<h3 name="noBreakLayerName" class="param">noBreakLayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -47,19 +43,15 @@ Constant features to add to each annotation created by this module
 </div>
 Name of the layer containing annotations within which there cannot be sentence boundaries.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="eosStatusFeature">
-
-### eosStatusFeature
+<h3 name="eosStatusFeature" class="param">eosStatusFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `eos`
 </div>
@@ -67,9 +59,7 @@ Only process document that satisfy this filter.
 </div>
 Name of the feature (in words) containing the end-of-sentence status (not-eos, maybe-eos).
 
-<a name="formFeature">
-
-### formFeature
+<h3 name="formFeature" class="param">formFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `form`
 </div>
@@ -77,19 +67,15 @@ Name of the feature (in words) containing the end-of-sentence status (not-eos, m
 </div>
 Name of the feature containing the word surface form.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Process only sections that satisfy this filter.
+Process only sections that satisfy this expression.
 
-<a name="strongPunctuations">
-
-### strongPunctuations
+<h3 name="strongPunctuations" class="param">strongPunctuations</h3>
 
 <div class="param-level param-level-default-value">Default value: `?.!`
 </div>
@@ -97,9 +83,7 @@ Process only sections that satisfy this filter.
 </div>
 List of strong punctuations.
 
-<a name="targetLayerName">
-
-### targetLayerName
+<h3 name="targetLayerName" class="param">targetLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -107,9 +91,7 @@ List of strong punctuations.
 </div>
 Name of the layer where to store sentence annotations.
 
-<a name="typeFeature">
-
-### typeFeature
+<h3 name="typeFeature" class="param">typeFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `wordType`
 </div>
@@ -117,9 +99,7 @@ Name of the layer where to store sentence annotations.
 </div>
 Name of the feature where to read word annotation type.
 
-<a name="wordLayerName">
-
-### wordLayerName
+<h3 name="wordLayerName" class="param">wordLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>

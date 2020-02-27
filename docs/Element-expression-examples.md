@@ -1,41 +1,22 @@
-# Table of Contents
+# Expression examples
 
-> * [Introduction](#Introduction-1)
-> * [Sections in the corpus \corpus\](#Sections-in-the-corpus-\corpus\-1)
-> * [Abstract sections \corpus\](#Abstract-sections-\corpus\-1)
-> * [Abstract sections in the test set \corpus\](#Abstract-sections-in-the-test-set-\corpus\-1)
-> * [Documents whose PMID is in a file \corpus\](#Documents-whose-PMID-is-in-a-file-\corpus\-1)
-> * [All genes and taxa \section\](#All-genes-and-taxa-\section\-1)
-> * [All words included in a sentence \annotation\](#All-words-included-in-a-sentence-\annotation\-1)
-> * [All verbs \section\](#All-verbs-\section\-1)
-> * [All syntactic dependencies \section\](#All-syntactic-dependencies-\section\-1)
-> * [Words that are subject \section\](#Words-that-are-subject-\section\-1)
-> * [Subject of a verb \annotation\](#Subject-of-a-verb-\annotation\-1)
-</toc>
-
-
-
-<a name="Introduction-1" />
-
-# Introduction
+## Introduction
 
 The type of the expected kind of context element is given between
 brackets in the example title. For detailed information on all the
 expression parts, you may refer to \[\[Element expression reference\]\].
 
 
-<a name="Sections-in-the-corpus-\corpus\-1" />
 
-# Sections in the corpus \[corpus\]
+## Sections in the corpus \[corpus\]
 
 ```
 documents.sections
 ```
 
 
-<a name="Abstract-sections-\corpus\-1" />
 
-# Abstract sections \[corpus\]
+## Abstract sections \[corpus\]
 
 ```
 documents.sections:abstract
@@ -48,9 +29,8 @@ documents.sections[@name == "abstract"]
 ```
 
 
-<a name="Abstract-sections-in-the-test-set-\corpus\-1" />
 
-# Abstract sections in the test set \[corpus\]
+## Abstract sections in the test set \[corpus\]
 
 
 ```
@@ -61,9 +41,8 @@ This assumes that documents have a feature with key *set* that denote
 the set to which it pertains.
 
 
-<a name="Documents-whose-PMID-is-in-a-file-\corpus\-1" />
 
-# Documents whose PMID is in a file \[corpus\]
+## Documents whose PMID is in a file \[corpus\]
 
 
 ```
@@ -75,9 +54,8 @@ This assumes that the PMID of the document is in a feature with key
 *good\_pmids.txt* containing all PMIDs of interest (one per line).
 
 
-<a name="All-genes-and-taxa-\section\-1" />
 
-# All genes and taxa \[section\]
+## All genes and taxa \[section\]
 
 
 ```
@@ -100,9 +78,8 @@ containing the named entity type of the annotation. The annotations are
 given in standard order regardless of the type.
 
 
-<a name="All-words-included-in-a-sentence-\annotation\-1" />
 
-# All words included in a sentence \[annotation\]
+## All words included in a sentence \[annotation\]
 
 
 ```
@@ -113,9 +90,8 @@ This assumes that the context element is an annotation representing a
 sentence. It also assumes that all words are in a layer named *words*.
 
 
-<a name="All-verbs-\section\-1" />
 
-# All verbs \[section\]
+## All verbs \[section\]
 
 
 ```
@@ -133,9 +109,8 @@ Both assume all word annotations are in a layer named *words* and have a
 feature with key *pos* whose value denote its POS.
 
 
-<a name="All-syntactic-dependencies-\section\-1" />
 
-# All syntactic dependencies \[section\]
+## All syntactic dependencies \[section\]
 
 
 ```
@@ -146,9 +121,8 @@ This assumes syntactic dependencies are in a relation named
 *dependencies*.
 
 
-<a name="Words-that-are-subject-\section\-1" />
 
-# Words that are subject \[section\]
+## Words that are subject \[section\]
 
 
 ```
@@ -163,9 +137,8 @@ relations:dependencies.tuples[@label == "SUBJ:V-N" and args:head.@pos ^= "V"].ar
 ```
 
 
-<a name="Subject-of-a-verb-\annotation\-1" />
 
-# Subject of a verb \[annotation\]
+## Subject of a verb \[annotation\]
 
 
 ```

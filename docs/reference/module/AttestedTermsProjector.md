@@ -25,9 +25,7 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 
 ## Parameters
 
-<a name="targetLayerName">
-
-### targetLayerName
+<h3 name="targetLayerName" class="param">targetLayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -35,9 +33,7 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 </div>
 Name of the layer where to put match annotations.
 
-<a name="termsFile">
-
-### termsFile
+<h3 name="termsFile" class="param">termsFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -45,9 +41,7 @@ Name of the layer where to put match annotations.
 </div>
 Attested terms file.
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -55,9 +49,7 @@ Attested terms file.
 </div>
 Constant features to add to each annotation created by this module
 
-<a name="termFeatureName">
-
-### termFeatureName
+<h3 name="termFeatureName" class="param">termFeatureName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -65,9 +57,7 @@ Constant features to add to each annotation created by this module
 </div>
 Name of the feature where to write the term form.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -75,9 +65,7 @@ Name of the feature where to write the term form.
 </div>
 Only process document that satisfy this filter.
 
-<a name="errorDuplicateValues">
-
-### errorDuplicateValues
+<h3 name="errorDuplicateValues" class="param">errorDuplicateValues</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -85,9 +73,7 @@ Only process document that satisfy this filter.
 </div>
 Either to stop when a duplicate entry is seen.
 
-<a name="ignoreCase">
-
-### ignoreCase
+<h3 name="ignoreCase" class="param">ignoreCase</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -95,9 +81,7 @@ Either to stop when a duplicate entry is seen.
 </div>
 Match ignoring case.
 
-<a name="ignoreDiacritics">
-
-### ignoreDiacritics
+<h3 name="ignoreDiacritics" class="param">ignoreDiacritics</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -105,9 +89,7 @@ Match ignoring case.
 </div>
 Match ignoring diacritics.
 
-<a name="ignoreWhitespace">
-
-### ignoreWhitespace
+<h3 name="ignoreWhitespace" class="param">ignoreWhitespace</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -115,9 +97,7 @@ Match ignoring diacritics.
 </div>
 Match ignoring whitespace characters.
 
-<a name="lemmaFeatureName">
-
-### lemmaFeatureName
+<h3 name="lemmaFeatureName" class="param">lemmaFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `lemma`
 </div>
@@ -125,9 +105,7 @@ Match ignoring whitespace characters.
 </div>
 Name of the feature where to write the term lemma.
 
-<a name="lemmaKeys">
-
-### lemmaKeys
+<h3 name="lemmaKeys" class="param">lemmaKeys</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -135,9 +113,7 @@ Name of the feature where to write the term lemma.
 </div>
 Either to project lemmas instead of the forms.
 
-<a name="multipleValueAction">
-
-### multipleValueAction
+<h3 name="multipleValueAction" class="param">multipleValueAction</h3>
 
 <div class="param-level param-level-default-value">Default value: `add`
 </div>
@@ -145,9 +121,7 @@ Either to project lemmas instead of the forms.
 </div>
 Either to stop when multiple entries with the same key is seen.
 
-<a name="normalizeSpace">
-
-### normalizeSpace
+<h3 name="normalizeSpace" class="param">normalizeSpace</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -155,9 +129,7 @@ Either to stop when multiple entries with the same key is seen.
 </div>
 Match normalizing whitespace.
 
-<a name="posFeatureName">
-
-### posFeatureName
+<h3 name="posFeatureName" class="param">posFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `pos`
 </div>
@@ -165,9 +137,7 @@ Match normalizing whitespace.
 </div>
 Name of the feature where to write the term POS tags.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -175,11 +145,9 @@ Name of the feature where to write the term POS tags.
 </div>
 Process only sections that satisfy this filter.
 
-<a name="subject">
+<h3 name="subject" class="param">subject</h3>
 
-### subject
-
-<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.ContentsSubject@75329a49`
+<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.ContentsSubject@6d763516`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.Subject" class="converter">Subject</a>
 </div>

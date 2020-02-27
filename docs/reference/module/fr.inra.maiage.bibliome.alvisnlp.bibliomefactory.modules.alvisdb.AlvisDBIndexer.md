@@ -12,9 +12,7 @@ synopsis
 
 ## Parameters
 
-<a name="elements">
-
-### elements
+<h3 name="elements" class="param">elements</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,9 +20,7 @@ synopsis
 </div>
 
 
-<a name="indexDir">
-
-### indexDir
+<h3 name="indexDir" class="param">indexDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -32,9 +28,7 @@ synopsis
 </div>
 
 
-<a name="append">
-
-### append
+<h3 name="append" class="param">append</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>

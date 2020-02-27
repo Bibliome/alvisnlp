@@ -10,9 +10,7 @@ Deprecated alias for <a href="../module/ElementProjector" class="module">Element
 
 ## Parameters
 
-<a name="action">
-
-### action
+<h3 name="action" class="param">action</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,9 +18,7 @@ Deprecated alias for <a href="../module/ElementProjector" class="module">Element
 </div>
 
 
-<a name="entries">
-
-### entries
+<h3 name="entries" class="param">entries</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,9 +26,7 @@ Deprecated alias for <a href="../module/ElementProjector" class="module">Element
 </div>
 
 
-<a name="key">
-
-### key
+<h3 name="key" class="param">key</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,9 +34,7 @@ Deprecated alias for <a href="../module/ElementProjector" class="module">Element
 </div>
 
 
-<a name="targetLayerName">
-
-### targetLayerName
+<h3 name="targetLayerName" class="param">targetLayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -50,9 +42,7 @@ Deprecated alias for <a href="../module/ElementProjector" class="module">Element
 </div>
 
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -60,9 +50,7 @@ Deprecated alias for <a href="../module/ElementProjector" class="module">Element
 </div>
 Constant features to add to each annotation created by this module
 
-<a name="constantDocumentFeatures">
-
-### constantDocumentFeatures
+<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -70,9 +58,7 @@ Constant features to add to each annotation created by this module
 </div>
 Constant features to add to each document created by this module
 
-<a name="constantRelationFeatures">
-
-### constantRelationFeatures
+<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -80,9 +66,7 @@ Constant features to add to each document created by this module
 </div>
 Constant features to add to each relation created by this module
 
-<a name="constantSectionFeatures">
-
-### constantSectionFeatures
+<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -90,9 +74,7 @@ Constant features to add to each relation created by this module
 </div>
 Constant features to add to each section created by this module
 
-<a name="constantTupleFeatures">
-
-### constantTupleFeatures
+<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -100,9 +82,7 @@ Constant features to add to each section created by this module
 </div>
 Constant features to add to each tuple created by this module
 
-<a name="trieSink">
-
-### trieSink
+<h3 name="trieSink" class="param">trieSink</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -110,9 +90,7 @@ Constant features to add to each tuple created by this module
 </div>
 
 
-<a name="trieSource">
-
-### trieSource
+<h3 name="trieSource" class="param">trieSource</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -120,9 +98,7 @@ Constant features to add to each tuple created by this module
 </div>
 
 
-<a name="addToLayer">
-
-### addToLayer
+<h3 name="addToLayer" class="param">addToLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -130,9 +106,7 @@ Constant features to add to each tuple created by this module
 </div>
 
 
-<a name="allUpperCaseInsensitive">
-
-### allUpperCaseInsensitive
+<h3 name="allUpperCaseInsensitive" class="param">allUpperCaseInsensitive</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -140,9 +114,7 @@ Constant features to add to each tuple created by this module
 </div>
 
 
-<a name="allowJoined">
-
-### allowJoined
+<h3 name="allowJoined" class="param">allowJoined</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -150,9 +122,7 @@ Constant features to add to each tuple created by this module
 </div>
 
 
-<a name="caseInsensitive">
-
-### caseInsensitive
+<h3 name="caseInsensitive" class="param">caseInsensitive</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -160,9 +130,7 @@ Constant features to add to each tuple created by this module
 </div>
 
 
-<a name="createAnnotations">
-
-### createAnnotations
+<h3 name="createAnnotations" class="param">createAnnotations</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -170,9 +138,7 @@ Constant features to add to each tuple created by this module
 </div>
 
 
-<a name="createDocuments">
-
-### createDocuments
+<h3 name="createDocuments" class="param">createDocuments</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -180,9 +146,7 @@ Constant features to add to each tuple created by this module
 </div>
 
 
-<a name="createRelations">
-
-### createRelations
+<h3 name="createRelations" class="param">createRelations</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -190,9 +154,7 @@ Constant features to add to each tuple created by this module
 </div>
 
 
-<a name="createSections">
-
-### createSections
+<h3 name="createSections" class="param">createSections</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -200,9 +162,7 @@ Constant features to add to each tuple created by this module
 </div>
 
 
-<a name="createTuples">
-
-### createTuples
+<h3 name="createTuples" class="param">createTuples</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -210,9 +170,7 @@ Constant features to add to each tuple created by this module
 </div>
 
 
-<a name="deleteElements">
-
-### deleteElements
+<h3 name="deleteElements" class="param">deleteElements</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -220,9 +178,7 @@ Constant features to add to each tuple created by this module
 </div>
 
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -230,9 +186,7 @@ Constant features to add to each tuple created by this module
 </div>
 Only process document that satisfy this filter.
 
-<a name="ignoreDiacritics">
-
-### ignoreDiacritics
+<h3 name="ignoreDiacritics" class="param">ignoreDiacritics</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -240,9 +194,7 @@ Only process document that satisfy this filter.
 </div>
 
 
-<a name="joinDash">
-
-### joinDash
+<h3 name="joinDash" class="param">joinDash</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -250,9 +202,7 @@ Only process document that satisfy this filter.
 </div>
 
 
-<a name="matchStartCaseInsensitive">
-
-### matchStartCaseInsensitive
+<h3 name="matchStartCaseInsensitive" class="param">matchStartCaseInsensitive</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -260,9 +210,7 @@ Only process document that satisfy this filter.
 </div>
 
 
-<a name="multipleEntryBehaviour">
-
-### multipleEntryBehaviour
+<h3 name="multipleEntryBehaviour" class="param">multipleEntryBehaviour</h3>
 
 <div class="param-level param-level-default-value">Default value: `all`
 </div>
@@ -270,9 +218,7 @@ Only process document that satisfy this filter.
 </div>
 
 
-<a name="removeFromLayer">
-
-### removeFromLayer
+<h3 name="removeFromLayer" class="param">removeFromLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -280,9 +226,7 @@ Only process document that satisfy this filter.
 </div>
 
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -290,9 +234,7 @@ Only process document that satisfy this filter.
 </div>
 Process only sections that satisfy this filter.
 
-<a name="setArguments">
-
-### setArguments
+<h3 name="setArguments" class="param">setArguments</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -300,9 +242,7 @@ Process only sections that satisfy this filter.
 </div>
 
 
-<a name="setFeatures">
-
-### setFeatures
+<h3 name="setFeatures" class="param">setFeatures</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -310,9 +250,7 @@ Process only sections that satisfy this filter.
 </div>
 
 
-<a name="skipConsecutiveWhitespaces">
-
-### skipConsecutiveWhitespaces
+<h3 name="skipConsecutiveWhitespaces" class="param">skipConsecutiveWhitespaces</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -320,9 +258,7 @@ Process only sections that satisfy this filter.
 </div>
 
 
-<a name="skipWhitespace">
-
-### skipWhitespace
+<h3 name="skipWhitespace" class="param">skipWhitespace</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -330,9 +266,7 @@ Process only sections that satisfy this filter.
 </div>
 
 
-<a name="subject">
-
-### subject
+<h3 name="subject" class="param">subject</h3>
 
 <div class="param-level param-level-default-value">Default value: `WORD`
 </div>
@@ -340,9 +274,7 @@ Process only sections that satisfy this filter.
 </div>
 
 
-<a name="wordStartCaseInsensitive">
-
-### wordStartCaseInsensitive
+<h3 name="wordStartCaseInsensitive" class="param">wordStartCaseInsensitive</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>

@@ -12,9 +12,7 @@ Merge several sections into a single one.
 
 ## Parameters
 
-<a name="targetSectionName">
-
-### targetSectionName
+<h3 name="targetSectionName" class="param">targetSectionName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,49 +20,39 @@ Merge several sections into a single one.
 </div>
 Name of the section to create.
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each annotation created by this module
+Constant features to add to each annotation created by this module.
 
-<a name="constantRelationFeatures">
-
-### constantRelationFeatures
+<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each relation created by this module
+Constant features to add to each relation created by this module.
 
-<a name="constantSectionFeatures">
-
-### constantSectionFeatures
+<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each section created by this module
+Constant features to add to each section created by this module.
 
-<a name="constantTupleFeatures">
-
-### constantTupleFeatures
+<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each tuple created by this module
+Constant features to add to each tuple created by this module.
 
-<a name="fragmentLayerName">
-
-### fragmentLayerName
+<h3 name="fragmentLayerName" class="param">fragmentLayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -72,9 +60,7 @@ Constant features to add to each tuple created by this module
 </div>
 Name of the layer that contains annotations to include/exclude in/from the new section contents. If this parameter is not set, then *MergeSections* concatenates the whole contents of the sections.
 
-<a name="sectionsLayerName">
-
-### sectionsLayerName
+<h3 name="sectionsLayerName" class="param">sectionsLayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -82,19 +68,15 @@ Name of the layer that contains annotations to include/exclude in/from the new s
 </div>
 Name of the layer in the new section that contains annotations that have the span of the contents of the source sections. Each source section is represented by a distinct annotation. This annotations have the same features as the corresponding section (including `name`). If this parameter is not set, then *MergeSections* does not create thses annotations.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="fragmentSelection">
-
-### fragmentSelection
+<h3 name="fragmentSelection" class="param">fragmentSelection</h3>
 
 <div class="param-level param-level-default-value">Default value: `exclude`
 </div>
@@ -102,9 +84,7 @@ Only process document that satisfy this filter.
 </div>
 If this parameter equals `include`, then *MergeSections* only concatenates contents that is included in annotations in the layer <a href="#fragmentLayerName" class="param">fragmentLayerName</a>. If this parameter equals `exclude`, then *MergeSections* only concatenates contents that is *not* included in annotations in the layer <a href="#fragmentLayerName" class="param">fragmentLayerName</a>. If <a href="#fragmentLayerName" class="param">fragmentLayerName</a> is not set, then this parameter is ignored.
 
-<a name="fragmentSeparator">
-
-### fragmentSeparator
+<h3 name="fragmentSeparator" class="param">fragmentSeparator</h3>
 
 <div class="param-level param-level-default-value">Default value: ``
 </div>
@@ -112,9 +92,7 @@ If this parameter equals `include`, then *MergeSections* only concatenates conte
 </div>
 Text to insert between the contents of concatenated fragments. If <a href="#fragmentLayerName" class="param">fragmentLayerName</a> is not set, then this parameter is ignored.
 
-<a name="removeSections">
-
-### removeSections
+<h3 name="removeSections" class="param">removeSections</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -122,19 +100,15 @@ Text to insert between the contents of concatenated fragments. If <a href="#frag
 </div>
 Either to remove the sections that have been concatenated after the new section has been created.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Process only sections that satisfy this filter.
+Process only sections that satisfy this expression.
 
-<a name="sectionSeparator">
-
-### sectionSeparator
+<h3 name="sectionSeparator" class="param">sectionSeparator</h3>
 
 <div class="param-level param-level-default-value">Default value: ``
 </div>

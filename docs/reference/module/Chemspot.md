@@ -14,9 +14,7 @@ Looks for mentions of chemicals and molecule names using [Chemspot](https://www.
 
 ## Parameters
 
-<a name="chemspotDir">
-
-### chemspotDir
+<h3 name="chemspotDir" class="param">chemspotDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -24,19 +22,15 @@ Looks for mentions of chemicals and molecule names using [Chemspot](https://www.
 </div>
 Chemspot install directory.
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each annotation created by this module
+Constant features to add to each annotation created by this module.
 
-<a name="casFeatureName">
-
-### casFeatureName
+<h3 name="casFeatureName" class="param">casFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `CAS`
 </div>
@@ -44,9 +38,7 @@ Constant features to add to each annotation created by this module
 </div>
 Feature where to store the CAS identifier.
 
-<a name="chebFeatureName">
-
-### chebFeatureName
+<h3 name="chebFeatureName" class="param">chebFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `CHEB`
 </div>
@@ -54,9 +46,7 @@ Feature where to store the CAS identifier.
 </div>
 Feature where to store the CHEB identifier.
 
-<a name="chemTypeFeatureName">
-
-### chemTypeFeatureName
+<h3 name="chemTypeFeatureName" class="param">chemTypeFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `chem-type`
 </div>
@@ -64,9 +54,7 @@ Feature where to store the CHEB identifier.
 </div>
 Feature where to store the chemical type (SYSTEMATIC, IDENTIFIER, FORMULA, TRIVIAL, ABBREVIATION, FAMILY, MULTIPLE, UNKNOWN).
 
-<a name="chidFeatureName">
-
-### chidFeatureName
+<h3 name="chidFeatureName" class="param">chidFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `CHID`
 </div>
@@ -74,19 +62,15 @@ Feature where to store the chemical type (SYSTEMATIC, IDENTIFIER, FORMULA, TRIVI
 </div>
 Feature where to store the CHID identifier.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="drugFeatureName">
-
-### drugFeatureName
+<h3 name="drugFeatureName" class="param">drugFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `DRUG`
 </div>
@@ -94,9 +78,7 @@ Only process document that satisfy this filter.
 </div>
 Feature where to store the DRUG identifier.
 
-<a name="fdaDateFeatureName">
-
-### fdaDateFeatureName
+<h3 name="fdaDateFeatureName" class="param">fdaDateFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `FDA`
 </div>
@@ -104,9 +86,7 @@ Feature where to store the DRUG identifier.
 </div>
 Feature where to store the FDA_DATE identifier.
 
-<a name="fdaFeatureName">
-
-### fdaFeatureName
+<h3 name="fdaFeatureName" class="param">fdaFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `FDA_DATE`
 </div>
@@ -114,9 +94,7 @@ Feature where to store the FDA_DATE identifier.
 </div>
 Feature where to store the FDA identifier.
 
-<a name="hmdbFeatureName">
-
-### hmdbFeatureName
+<h3 name="hmdbFeatureName" class="param">hmdbFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `HMDB`
 </div>
@@ -124,9 +102,7 @@ Feature where to store the FDA identifier.
 </div>
 Feature where to store the HMBD identifier.
 
-<a name="inchFeatureName">
-
-### inchFeatureName
+<h3 name="inchFeatureName" class="param">inchFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `INCH`
 </div>
@@ -134,9 +110,7 @@ Feature where to store the HMBD identifier.
 </div>
 Feature where to store the INCH identifier.
 
-<a name="javaHome">
-
-### javaHome
+<h3 name="javaHome" class="param">javaHome</h3>
 
 <div class="param-level param-level-default-value">Default value: `/home/rbossy/dist/jdk1.8.0_121`
 </div>
@@ -144,9 +118,7 @@ Feature where to store the INCH identifier.
 </div>
 Root directory of the Java implementation.
 
-<a name="kegdFeatureName">
-
-### kegdFeatureName
+<h3 name="kegdFeatureName" class="param">kegdFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `KEGD`
 </div>
@@ -154,9 +126,7 @@ Root directory of the Java implementation.
 </div>
 Feature where to store the KEGD identifier.
 
-<a name="keggFeatureName">
-
-### keggFeatureName
+<h3 name="keggFeatureName" class="param">keggFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `KEGG`
 </div>
@@ -164,9 +134,7 @@ Feature where to store the KEGD identifier.
 </div>
 Feature where to store the KEGG identifier.
 
-<a name="meshFeatureName">
-
-### meshFeatureName
+<h3 name="meshFeatureName" class="param">meshFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `MESH`
 </div>
@@ -174,9 +142,7 @@ Feature where to store the KEGG identifier.
 </div>
 Feature where to store the MESH identifier.
 
-<a name="noDict">
-
-### noDict
+<h3 name="noDict" class="param">noDict</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -184,9 +150,7 @@ Feature where to store the MESH identifier.
 </div>
 Do not use lexicons, only the CRF classifier. Uses less memory.
 
-<a name="pubcFeatureName">
-
-### pubcFeatureName
+<h3 name="pubcFeatureName" class="param">pubcFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `PUBC`
 </div>
@@ -194,9 +158,7 @@ Do not use lexicons, only the CRF classifier. Uses less memory.
 </div>
 Feature where to store the PUBC identifier.
 
-<a name="pubsFeatureName">
-
-### pubsFeatureName
+<h3 name="pubsFeatureName" class="param">pubsFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `PUBS`
 </div>
@@ -204,19 +166,15 @@ Feature where to store the PUBC identifier.
 </div>
 Feature where to store the PUBS identifier.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Process only sections that satisfy this filter.
+Process only sections that satisfy this expression.
 
-<a name="targetLayerName">
-
-### targetLayerName
+<h3 name="targetLayerName" class="param">targetLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `chemspot`
 </div>

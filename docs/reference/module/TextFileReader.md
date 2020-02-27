@@ -18,9 +18,7 @@ The created documents will all have the features defined in <a href="#constantDo
 
 ## Parameters
 
-<a name="sourcePath">
-
-### sourcePath
+<h3 name="sourcePath" class="param">sourcePath</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -28,29 +26,23 @@ The created documents will all have the features defined in <a href="#constantDo
 </div>
 Path to the source directory or source file.
 
-<a name="constantDocumentFeatures">
-
-### constantDocumentFeatures
+<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each document created by this module
+Constant features to add to each document created by this module.
 
-<a name="constantSectionFeatures">
-
-### constantSectionFeatures
+<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each section created by this module
+Constant features to add to each section created by this module.
 
-<a name="linesLimit">
-
-### linesLimit
+<h3 name="linesLimit" class="param">linesLimit</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -58,9 +50,7 @@ Constant features to add to each section created by this module
 </div>
 Maximum number of lines per document.
 
-<a name="sizeLimit">
-
-### sizeLimit
+<h3 name="sizeLimit" class="param">sizeLimit</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -68,9 +58,7 @@ Maximum number of lines per document.
 </div>
 Maximum number of characters per document. No limit if not set.
 
-<a name="baseNameId">
-
-### baseNameId
+<h3 name="baseNameId" class="param">baseNameId</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -78,9 +66,7 @@ Maximum number of characters per document. No limit if not set.
 </div>
 Use the filename base name instead of the full path as document identifier.
 
-<a name="charset">
-
-### charset
+<h3 name="charset" class="param">charset</h3>
 
 <div class="param-level param-level-default-value">Default value: `UTF-8`
 </div>
@@ -88,11 +74,9 @@ Use the filename base name instead of the full path as document identifier.
 </div>
 Character set of the input files.
 
-<a name="sectionName">
+<h3 name="sectionName" class="param">sectionName</h3>
 
-### sectionName
-
-<div class="param-level param-level-default-value">Default value: `contents`
+<div class="param-level param-level-default-value">Default value: `text`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>

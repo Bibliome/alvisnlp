@@ -10,9 +10,7 @@ Compares two sets of elements.
 
 ## Parameters
 
-<a name="face">
-
-### face
+<h3 name="face" class="param">face</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,9 +18,7 @@ Compares two sets of elements.
 </div>
 Expression evaluated from a reference or predicted element as a string that will be written in <a href="#outFile" class="param">outFile</a>.
 
-<a name="outFile">
-
-### outFile
+<h3 name="outFile" class="param">outFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,9 +26,7 @@ Expression evaluated from a reference or predicted element as a string that will
 </div>
 File where to write results.
 
-<a name="predicted">
-
-### predicted
+<h3 name="predicted" class="param">predicted</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,9 +34,7 @@ File where to write results.
 </div>
 Set of predicted elements.
 
-<a name="reference">
-
-### reference
+<h3 name="reference" class="param">reference</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -50,9 +42,7 @@ Set of predicted elements.
 </div>
 Set of reference elements.
 
-<a name="sections">
-
-### sections
+<h3 name="sections" class="param">sections</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -60,9 +50,7 @@ Set of reference elements.
 </div>
 Elements from which <a href="#predicted" class="param">predicted</a> and <a href="#reference" class="param">reference</a> are evaluated.
 
-<a name="similarity">
-
-### similarity
+<h3 name="similarity" class="param">similarity</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -70,9 +58,7 @@ Elements from which <a href="#predicted" class="param">predicted</a> and <a href
 </div>
 Similarity function between two elements.
 
-<a name="showFullMatches">
-
-### showFullMatches
+<h3 name="showFullMatches" class="param">showFullMatches</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -80,9 +66,7 @@ Similarity function between two elements.
 </div>
 Either to write matches where the similarity equals 1 (true positives).
 
-<a name="showPrecision">
-
-### showPrecision
+<h3 name="showPrecision" class="param">showPrecision</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -90,9 +74,7 @@ Either to write matches where the similarity equals 1 (true positives).
 </div>
 Either to write the precision.
 
-<a name="showRecall">
-
-### showRecall
+<h3 name="showRecall" class="param">showRecall</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>

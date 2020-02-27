@@ -10,9 +10,7 @@ Maps elements according to a tab-separated mapping file.
 
 ## Parameters
 
-<a name="form">
-
-### form
+<h3 name="form" class="param">form</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,9 +18,7 @@ Maps elements according to a tab-separated mapping file.
 </div>
 Expression evaluated as a string with the target element as context that specifies the target key.
 
-<a name="mappingFile">
-
-### mappingFile
+<h3 name="mappingFile" class="param">mappingFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,9 +26,7 @@ Expression evaluated as a string with the target element as context that specifi
 </div>
 Tab-separated file containing the dictionary.
 
-<a name="target">
-
-### target
+<h3 name="target" class="param">target</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,9 +34,7 @@ Tab-separated file containing the dictionary.
 </div>
 Expression evaluated as a list of elements with the corpus as context that specify the elements to be mapped.
 
-<a name="targetFeatures">
-
-### targetFeatures
+<h3 name="targetFeatures" class="param">targetFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -50,9 +42,7 @@ Expression evaluated as a list of elements with the corpus as context that speci
 </div>
 Name of the features where to store the columns of matched lines.
 
-<a name="ignoreCase">
-
-### ignoreCase
+<h3 name="ignoreCase" class="param">ignoreCase</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -60,9 +50,7 @@ Name of the features where to store the columns of matched lines.
 </div>
 Either to match ignoring the case.
 
-<a name="keyColumn">
-
-### keyColumn
+<h3 name="keyColumn" class="param">keyColumn</h3>
 
 <div class="param-level param-level-default-value">Default value: `0`
 </div>
@@ -70,9 +58,7 @@ Either to match ignoring the case.
 </div>
 Index of the line key in <a href="#mappingFile" class="param">mappingFile</a>.
 
-<a name="operator">
-
-### operator
+<h3 name="operator" class="param">operator</h3>
 
 <div class="param-level param-level-default-value">Default value: `exact`
 </div>
@@ -80,9 +66,7 @@ Index of the line key in <a href="#mappingFile" class="param">mappingFile</a>.
 </div>
 Matching operator.
 
-<a name="separator">
-
-### separator
+<h3 name="separator" class="param">separator</h3>
 
 <div class="param-level param-level-default-value">Default value: `	`
 </div>

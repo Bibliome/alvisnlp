@@ -31,19 +31,15 @@ The created annotations have the feature <a href="#annotationTypeFeature" class=
 
 ## Parameters
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each annotation created by this module
+Constant features to add to each annotation created by this module.
 
-<a name="fixedFormLayerName">
-
-### fixedFormLayerName
+<h3 name="fixedFormLayerName" class="param">fixedFormLayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -51,9 +47,7 @@ Constant features to add to each annotation created by this module
 </div>
 Name of the layer containing annotations that should not be split into several words.
 
-<a name="annotationComparator">
-
-### annotationComparator
+<h3 name="annotationComparator" class="param">annotationComparator</h3>
 
 <div class="param-level param-level-default-value">Default value: `length`
 </div>
@@ -61,9 +55,7 @@ Name of the layer containing annotations that should not be split into several w
 </div>
 Comparator to use when removing overlapping fixed form annotations.
 
-<a name="annotationTypeFeature">
-
-### annotationTypeFeature
+<h3 name="annotationTypeFeature" class="param">annotationTypeFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `wordType`
 </div>
@@ -71,9 +63,7 @@ Comparator to use when removing overlapping fixed form annotations.
 </div>
 Name of the feature where to put the word type (word, punctuation, etc).
 
-<a name="balancedPunctuations">
-
-### balancedPunctuations
+<h3 name="balancedPunctuations" class="param">balancedPunctuations</h3>
 
 <div class="param-level param-level-default-value">Default value: `()[]{}""`
 </div>
@@ -81,19 +71,15 @@ Name of the feature where to put the word type (word, punctuation, etc).
 </div>
 Balanced punctuation characters. The opening punctuation must be immediately followed by the corresponding closing punctuation. If this parameter value has an odd length, then a warning will be issued and the last character will be ignored.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="fixedType">
-
-### fixedType
+<h3 name="fixedType" class="param">fixedType</h3>
 
 <div class="param-level param-level-default-value">Default value: `fixed`
 </div>
@@ -101,9 +87,7 @@ Only process document that satisfy this filter.
 </div>
 Value of the type feature for annotations copied from fixed forms.
 
-<a name="punctuationType">
-
-### punctuationType
+<h3 name="punctuationType" class="param">punctuationType</h3>
 
 <div class="param-level param-level-default-value">Default value: `punctuation`
 </div>
@@ -111,9 +95,7 @@ Value of the type feature for annotations copied from fixed forms.
 </div>
 Value of the type feature for punctuation annotations.
 
-<a name="punctuations">
-
-### punctuations
+<h3 name="punctuations" class="param">punctuations</h3>
 
 <div class="param-level param-level-default-value">Default value: `?.!;,:-`
 </div>
@@ -121,19 +103,15 @@ Value of the type feature for punctuation annotations.
 </div>
 List of punctuations, be them weak or strong.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Process only sections that satisfy this filter.
+Process only sections that satisfy this expression.
 
-<a name="targetLayerName">
-
-### targetLayerName
+<h3 name="targetLayerName" class="param">targetLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
@@ -141,9 +119,7 @@ Process only sections that satisfy this filter.
 </div>
 Layer where to store word annotations.
 
-<a name="wordType">
-
-### wordType
+<h3 name="wordType" class="param">wordType</h3>
 
 <div class="param-level param-level-default-value">Default value: `word`
 </div>

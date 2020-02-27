@@ -12,9 +12,7 @@ The created annotations will automatically have all features defined in <a href=
 
 ## Parameters
 
-<a name="pattern">
-
-### pattern
+<h3 name="pattern" class="param">pattern</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,9 +20,7 @@ The created annotations will automatically have all features defined in <a href=
 </div>
 Regular expression to match.
 
-<a name="targetLayerName">
-
-### targetLayerName
+<h3 name="targetLayerName" class="param">targetLayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -32,9 +28,7 @@ Regular expression to match.
 </div>
 Name of the layer where to store matches.
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -42,23 +36,19 @@ Name of the layer where to store matches.
 </div>
 Constant features to add to each annotation created by this module.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Process only sections that satisfy this filter.
+Process only sections that satisfy this expression.
 

@@ -10,9 +10,7 @@ Computes annotation n-grams.
 
 ## Parameters
 
-<a name="maxNGramSize">
-
-### maxNGramSize
+<h3 name="maxNGramSize" class="param">maxNGramSize</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,9 +18,7 @@ Computes annotation n-grams.
 </div>
 Maximum number of tokens in n-grams.
 
-<a name="targetLayerName">
-
-### targetLayerName
+<h3 name="targetLayerName" class="param">targetLayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,29 +26,23 @@ Maximum number of tokens in n-grams.
 </div>
 Name of the layer where to add n-gram annotations, recycled annotations will also be added in this layer.
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each annotation created by this module
+Constant features to add to each annotation created by this module.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="keepAnnotations">
-
-### keepAnnotations
+<h3 name="keepAnnotations" class="param">keepAnnotations</h3>
 
 <div class="param-level param-level-default-value">Default value: ``
 </div>
@@ -60,19 +50,15 @@ Only process document that satisfy this filter.
 </div>
 Name of layers where to search for recycled annotations.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Process only sections that satisfy this filter.
+Process only sections that satisfy this expression.
 
-<a name="sentenceLayerName">
-
-### sentenceLayerName
+<h3 name="sentenceLayerName" class="param">sentenceLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -80,9 +66,7 @@ Process only sections that satisfy this filter.
 </div>
 Name of the sentence layer.
 
-<a name="tokenLayerName">
-
-### tokenLayerName
+<h3 name="tokenLayerName" class="param">tokenLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>

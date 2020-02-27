@@ -30,9 +30,7 @@ Removes overlapping annotations from a given layer.
 
 ## Parameters
 
-<a name="layerName">
-
-### layerName
+<h3 name="layerName" class="param">layerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,9 +38,7 @@ Removes overlapping annotations from a given layer.
 </div>
 Name of the layer to clear.
 
-<a name="annotationComparator">
-
-### annotationComparator
+<h3 name="annotationComparator" class="param">annotationComparator</h3>
 
 <div class="param-level param-level-default-value">Default value: `length`
 </div>
@@ -50,19 +46,15 @@ Name of the layer to clear.
 </div>
 Comparator to use in order to choose between overlapping annotations.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="removeEqual">
-
-### removeEqual
+<h3 name="removeEqual" class="param">removeEqual</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -70,9 +62,7 @@ Only process document that satisfy this filter.
 </div>
 Either to remove annotations with equal spans.
 
-<a name="removeIncluded">
-
-### removeIncluded
+<h3 name="removeIncluded" class="param">removeIncluded</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -80,9 +70,7 @@ Either to remove annotations with equal spans.
 </div>
 Either to remove annotations fully included in another annotation.
 
-<a name="removeOverlapping">
-
-### removeOverlapping
+<h3 name="removeOverlapping" class="param">removeOverlapping</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -90,13 +78,11 @@ Either to remove annotations fully included in another annotation.
 </div>
 Either to remove strictly overlapping annotations.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Process only sections that satisfy this filter.
+Process only sections that satisfy this expression.
 

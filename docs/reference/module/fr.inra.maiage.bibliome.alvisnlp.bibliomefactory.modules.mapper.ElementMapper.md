@@ -12,9 +12,7 @@ Maps elements according to a collection of mapping elements.
 
 ## Parameters
 
-<a name="entries">
-
-### entries
+<h3 name="entries" class="param">entries</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,9 +20,7 @@ Maps elements according to a collection of mapping elements.
 </div>
 Expression evaluated as a list of elements with the corpus as the context element. Each element represents an entry.
 
-<a name="form">
-
-### form
+<h3 name="form" class="param">form</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -32,9 +28,7 @@ Expression evaluated as a list of elements with the corpus as the context elemen
 </div>
 Expression evaluated as a string with the target element as context that specifies the target key.
 
-<a name="key">
-
-### key
+<h3 name="key" class="param">key</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -42,19 +36,15 @@ Expression evaluated as a string with the target element as context that specifi
 </div>
 Expression evaluated as a string with the entry element as the context. The result determines the entry key.
 
-<a name="target">
-
-### target
+<h3 name="target" class="param">target</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Expression evaluated as a list of elements with the corpus as the context element. The result determines the elements to be mapped.
+Expression evaluated as a list of elements with the corpus as context that specify the elements to be mapped.
 
-<a name="targetFeatures">
-
-### targetFeatures
+<h3 name="targetFeatures" class="param">targetFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -62,9 +52,7 @@ Expression evaluated as a list of elements with the corpus as the context elemen
 </div>
 Name of the features where to store the values of matched entries.
 
-<a name="values">
-
-### values
+<h3 name="values" class="param">values</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -72,9 +60,7 @@ Name of the features where to store the values of matched entries.
 </div>
 Expressions evaluated as strings with the entry element as the context. The results specify the feature values of targets that match the entry key.
 
-<a name="ignoreCase">
-
-### ignoreCase
+<h3 name="ignoreCase" class="param">ignoreCase</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -82,9 +68,7 @@ Expressions evaluated as strings with the entry element as the context. The resu
 </div>
 Either to match ignoring the case.
 
-<a name="operator">
-
-### operator
+<h3 name="operator" class="param">operator</h3>
 
 <div class="param-level param-level-default-value">Default value: `exact`
 </div>

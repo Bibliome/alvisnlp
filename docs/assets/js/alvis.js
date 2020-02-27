@@ -7,7 +7,7 @@ function get_header_structure() {
 	children: []
     };
     var current = top;
-    $('h2 , h3 , h4 , h5').each(function() {
+    $('h2 , h3 , h4 , h5').not('.no-toc').each(function() {
 	var level = Number(this.nodeName.substring(1));
 	var p;
 	for (p = current; p.level >= level; p = p.parent);

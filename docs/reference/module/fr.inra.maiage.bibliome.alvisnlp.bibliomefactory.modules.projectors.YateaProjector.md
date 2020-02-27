@@ -12,9 +12,7 @@ synopsis
 
 ## Parameters
 
-<a name="targetLayerName">
-
-### targetLayerName
+<h3 name="targetLayerName" class="param">targetLayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,9 +20,7 @@ synopsis
 </div>
 Name of the layer where to put match annotations.
 
-<a name="yateaFile">
-
-### yateaFile
+<h3 name="yateaFile" class="param">yateaFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -32,9 +28,7 @@ Name of the layer where to put match annotations.
 </div>
 
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -42,9 +36,7 @@ Name of the layer where to put match annotations.
 </div>
 Constant features to add to each annotation created by this module
 
-<a name="termLemma">
-
-### termLemma
+<h3 name="termLemma" class="param">termLemma</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -52,9 +44,7 @@ Constant features to add to each annotation created by this module
 </div>
 
 
-<a name="termPOS">
-
-### termPOS
+<h3 name="termPOS" class="param">termPOS</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -62,9 +52,7 @@ Constant features to add to each annotation created by this module
 </div>
 
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -72,9 +60,7 @@ Constant features to add to each annotation created by this module
 </div>
 Only process document that satisfy this filter.
 
-<a name="errorDuplicateValues">
-
-### errorDuplicateValues
+<h3 name="errorDuplicateValues" class="param">errorDuplicateValues</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -82,9 +68,7 @@ Only process document that satisfy this filter.
 </div>
 Either to stop when a duplicate entry is seen.
 
-<a name="head">
-
-### head
+<h3 name="head" class="param">head</h3>
 
 <div class="param-level param-level-default-value">Default value: `head`
 </div>
@@ -92,9 +76,7 @@ Either to stop when a duplicate entry is seen.
 </div>
 
 
-<a name="ignoreCase">
-
-### ignoreCase
+<h3 name="ignoreCase" class="param">ignoreCase</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -102,9 +84,7 @@ Either to stop when a duplicate entry is seen.
 </div>
 Match ignoring case.
 
-<a name="ignoreDiacritics">
-
-### ignoreDiacritics
+<h3 name="ignoreDiacritics" class="param">ignoreDiacritics</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -112,9 +92,7 @@ Match ignoring case.
 </div>
 Match ignoring diacritics.
 
-<a name="ignoreWhitespace">
-
-### ignoreWhitespace
+<h3 name="ignoreWhitespace" class="param">ignoreWhitespace</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -122,9 +100,7 @@ Match ignoring diacritics.
 </div>
 Match ignoring whitespace characters.
 
-<a name="mnpOnly">
-
-### mnpOnly
+<h3 name="mnpOnly" class="param">mnpOnly</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -132,9 +108,7 @@ Match ignoring whitespace characters.
 </div>
 
 
-<a name="modifier">
-
-### modifier
+<h3 name="modifier" class="param">modifier</h3>
 
 <div class="param-level param-level-default-value">Default value: `modifier`
 </div>
@@ -142,9 +116,7 @@ Match ignoring whitespace characters.
 </div>
 
 
-<a name="monoHeadId">
-
-### monoHeadId
+<h3 name="monoHeadId" class="param">monoHeadId</h3>
 
 <div class="param-level param-level-default-value">Default value: `mono-head`
 </div>
@@ -152,9 +124,7 @@ Match ignoring whitespace characters.
 </div>
 
 
-<a name="multipleValueAction">
-
-### multipleValueAction
+<h3 name="multipleValueAction" class="param">multipleValueAction</h3>
 
 <div class="param-level param-level-default-value">Default value: `add`
 </div>
@@ -162,9 +132,7 @@ Match ignoring whitespace characters.
 </div>
 Either to stop when multiple entries with the same key is seen.
 
-<a name="normalizeSpace">
-
-### normalizeSpace
+<h3 name="normalizeSpace" class="param">normalizeSpace</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -172,9 +140,7 @@ Either to stop when multiple entries with the same key is seen.
 </div>
 Match normalizing whitespace.
 
-<a name="projectLemmas">
-
-### projectLemmas
+<h3 name="projectLemmas" class="param">projectLemmas</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -182,9 +148,7 @@ Match normalizing whitespace.
 </div>
 
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -192,19 +156,15 @@ Match normalizing whitespace.
 </div>
 Process only sections that satisfy this filter.
 
-<a name="subject">
+<h3 name="subject" class="param">subject</h3>
 
-### subject
-
-<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.ContentsSubject@5e316c74`
+<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.ContentsSubject@6b81ce95`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.Subject" class="converter">Subject</a>
 </div>
 Subject on which to project the dictionary.
 
-<a name="termId">
-
-### termId
+<h3 name="termId" class="param">termId</h3>
 
 <div class="param-level param-level-default-value">Default value: `term-id`
 </div>

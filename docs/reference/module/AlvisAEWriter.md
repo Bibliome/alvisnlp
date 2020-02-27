@@ -10,9 +10,7 @@ Writes each document in a file in the AlvisAE protocol format.
 
 ## Parameters
 
-<a name="annotationSets">
-
-### annotationSets
+<h3 name="annotationSets" class="param">annotationSets</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,9 +18,7 @@ Writes each document in a file in the AlvisAE protocol format.
 </div>
 Annotation Set specifications.
 
-<a name="documentDescription">
-
-### documentDescription
+<h3 name="documentDescription" class="param">documentDescription</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,9 +26,7 @@ Annotation Set specifications.
 </div>
 Document description.
 
-<a name="outDir">
-
-### outDir
+<h3 name="outDir" class="param">outDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,9 +34,7 @@ Document description.
 </div>
 Directory where to write files.
 
-<a name="schemaFile">
-
-### schemaFile
+<h3 name="schemaFile" class="param">schemaFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -50,19 +42,15 @@ Directory where to write files.
 </div>
 AlvisAE schema file to include in all document files.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="documentProperties">
-
-### documentProperties
+<h3 name="documentProperties" class="param">documentProperties</h3>
 
 <div class="param-level param-level-default-value">Default value: `{}`
 </div>
@@ -70,9 +58,7 @@ Only process document that satisfy this filter.
 </div>
 Document properties specification.
 
-<a name="fileName">
-
-### fileName
+<h3 name="fileName" class="param">fileName</h3>
 
 <div class="param-level param-level-default-value">Default value: `str:concat(properties:@:id(), constant:string:.json())`
 </div>
@@ -80,9 +66,7 @@ Document properties specification.
 </div>
 
 
-<a name="owner">
-
-### owner
+<h3 name="owner" class="param">owner</h3>
 
 <div class="param-level param-level-default-value">Default value: `0`
 </div>
@@ -90,9 +74,7 @@ Document properties specification.
 </div>
 Owner ID of the documents.
 
-<a name="publish">
-
-### publish
+<h3 name="publish" class="param">publish</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -100,13 +82,11 @@ Owner ID of the documents.
 </div>
 Publish the exported annotation sets.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Process only sections that satisfy this filter.
+Process only sections that satisfy this expression.
 

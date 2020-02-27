@@ -12,9 +12,7 @@ For each match, *PatternMatcher* applies all actions specified by <a href="#acti
 
 ## Parameters
 
-<a name="actions">
-
-### actions
+<h3 name="actions" class="param">actions</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,9 +20,7 @@ For each match, *PatternMatcher* applies all actions specified by <a href="#acti
 </div>
 Actions to perform each time the pattern is matched on the annotation sequence. See <a href="../converter/MatchActionArray" class="converter">MatchActionArray</a> for all available actions.
 
-<a name="pattern">
-
-### pattern
+<h3 name="pattern" class="param">pattern</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -32,39 +28,31 @@ Actions to perform each time the pattern is matched on the annotation sequence. 
 </div>
 Pattern to match see <a href="../converter/ElementPattern" class="converter">ElementPattern</a> for pattern syntax.
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Features to add to all annotations created by this module, these features are added for all actions that create an annotation.
+Constant features to add to each annotation created by this module.
 
-<a name="constantRelationFeatures">
-
-### constantRelationFeatures
+<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Features to add to all relations created by this module, these features are added for all realtions that have been created by an action that creates a tuple.
+Constant features to add to each relation created by this module.
 
-<a name="constantTupleFeatures">
-
-### constantTupleFeatures
+<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Features to add to all tuples created by this module, these features are added for all actions that create a tuple.
+Constant features to add to each tuple created by this module.
 
-<a name="annotationComparator">
-
-### annotationComparator
+<h3 name="annotationComparator" class="param">annotationComparator</h3>
 
 <div class="param-level param-level-default-value">Default value: `length`
 </div>
@@ -72,19 +60,15 @@ Features to add to all tuples created by this module, these features are added f
 </div>
 Comparator to use when removing overlaps.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process documents that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="layerName">
-
-### layerName
+<h3 name="layerName" class="param">layerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
@@ -92,9 +76,7 @@ Only process documents that satisfy this filter.
 </div>
 Match the pattern on the annotations contained in this layer.
 
-<a name="overlappingBehaviour">
-
-### overlappingBehaviour
+<h3 name="overlappingBehaviour" class="param">overlappingBehaviour</h3>
 
 <div class="param-level param-level-default-value">Default value: `remove`
 </div>
@@ -102,13 +84,11 @@ Match the pattern on the annotations contained in this layer.
 </div>
 What to do if the layer contains overlapping annotations.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process sections that satisfy this filter.
+Process only sections that satisfy this expression.
 

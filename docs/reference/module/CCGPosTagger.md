@@ -12,9 +12,7 @@ If <a href="#keepPreviousPos" class="param">keepPreviousPos</a> is set to *true*
 
 ## Parameters
 
-<a name="executable">
-
-### executable
+<h3 name="executable" class="param">executable</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,9 +20,7 @@ If <a href="#keepPreviousPos" class="param">keepPreviousPos</a> is set to *true*
 </div>
 Path to the CCG POS tagger executable.
 
-<a name="model">
-
-### model
+<h3 name="model" class="param">model</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -32,19 +28,15 @@ Path to the CCG POS tagger executable.
 </div>
 Path to the CCG POS model.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="formFeatureName">
-
-### formFeatureName
+<h3 name="formFeatureName" class="param">formFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `form`
 </div>
@@ -52,9 +44,7 @@ Only process document that satisfy this filter.
 </div>
 Name of the feature in word annotations that contains the surface form.
 
-<a name="internalEncoding">
-
-### internalEncoding
+<h3 name="internalEncoding" class="param">internalEncoding</h3>
 
 <div class="param-level param-level-default-value">Default value: `UTF-8`
 </div>
@@ -62,9 +52,7 @@ Name of the feature in word annotations that contains the surface form.
 </div>
 Character encoding to use for CCG input and output files.
 
-<a name="keepPreviousPos">
-
-### keepPreviousPos
+<h3 name="keepPreviousPos" class="param">keepPreviousPos</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -72,9 +60,7 @@ Character encoding to use for CCG input and output files.
 </div>
 Either to keep previous POS tags.
 
-<a name="maxRuns">
-
-### maxRuns
+<h3 name="maxRuns" class="param">maxRuns</h3>
 
 <div class="param-level param-level-default-value">Default value: `1`
 </div>
@@ -82,9 +68,7 @@ Either to keep previous POS tags.
 </div>
 Maximal number of CCG runs.
 
-<a name="posFeatureName">
-
-### posFeatureName
+<h3 name="posFeatureName" class="param">posFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `pos`
 </div>
@@ -92,19 +76,15 @@ Maximal number of CCG runs.
 </div>
 Name of the feature in word annotations where to write POS tags. This feature is read for previous POS tags if <a href="#keepPreviousPos" class="param">keepPreviousPos</a> is set to *true*.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, boolean:and(nav:layer:sentences(), nav:layer:words()))`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Process only sections that satisfy this filter.
+Process only sections that satisfy this expression.
 
-<a name="sentenceFilter">
-
-### sentenceFilter
+<h3 name="sentenceFilter" class="param">sentenceFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -112,9 +92,7 @@ Process only sections that satisfy this filter.
 </div>
 Process only sentences that satisfy this filter.
 
-<a name="sentenceLayerName">
-
-### sentenceLayerName
+<h3 name="sentenceLayerName" class="param">sentenceLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -122,9 +100,7 @@ Process only sentences that satisfy this filter.
 </div>
 Name of the layer containing sentence annotations.
 
-<a name="silent">
-
-### silent
+<h3 name="silent" class="param">silent</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -132,9 +108,7 @@ Name of the layer containing sentence annotations.
 </div>
 Either to shut the CCG output (CCG can be quite verbose).
 
-<a name="wordLayerName">
-
-### wordLayerName
+<h3 name="wordLayerName" class="param">wordLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>

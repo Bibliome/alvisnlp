@@ -10,9 +10,7 @@ Project-specific text file reader.
 
 ## Parameters
 
-<a name="sourcePath">
-
-### sourcePath
+<h3 name="sourcePath" class="param">sourcePath</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,9 +18,7 @@ Project-specific text file reader.
 </div>
 Path to the source directory or source file.
 
-<a name="xmlDir">
-
-### xmlDir
+<h3 name="xmlDir" class="param">xmlDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,9 +26,7 @@ Path to the source directory or source file.
 </div>
 Directory where to find metadata files.
 
-<a name="constantDocumentFeatures">
-
-### constantDocumentFeatures
+<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,9 +34,7 @@ Directory where to find metadata files.
 </div>
 Constant features to add to each document created by this module
 
-<a name="constantSectionFeatures">
-
-### constantSectionFeatures
+<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -50,9 +42,7 @@ Constant features to add to each document created by this module
 </div>
 Constant features to add to each section created by this module
 
-<a name="linesLimit">
-
-### linesLimit
+<h3 name="linesLimit" class="param">linesLimit</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -60,9 +50,7 @@ Constant features to add to each section created by this module
 </div>
 Maximum number of lines per document.
 
-<a name="sizeLimit">
-
-### sizeLimit
+<h3 name="sizeLimit" class="param">sizeLimit</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -70,9 +58,7 @@ Maximum number of lines per document.
 </div>
 Maximum number of characters per document. No limit if not set.
 
-<a name="bodySectionName">
-
-### bodySectionName
+<h3 name="bodySectionName" class="param">bodySectionName</h3>
 
 <div class="param-level param-level-default-value">Default value: `body`
 </div>
@@ -80,9 +66,7 @@ Maximum number of characters per document. No limit if not set.
 </div>
 Name of the section containing the contents of the document.
 
-<a name="charset">
-
-### charset
+<h3 name="charset" class="param">charset</h3>
 
 <div class="param-level param-level-default-value">Default value: `UTF-8`
 </div>
@@ -90,9 +74,7 @@ Name of the section containing the contents of the document.
 </div>
 Character set of the input files.
 
-<a name="titleSectionName">
-
-### titleSectionName
+<h3 name="titleSectionName" class="param">titleSectionName</h3>
 
 <div class="param-level param-level-default-value">Default value: `title`
 </div>

@@ -18,9 +18,7 @@ Parameters <a href="#stdin" class="param">stdin</a> and <a href="#stdout" class=
 
 ## Parameters
 
-<a name="script">
-
-### script
+<h3 name="script" class="param">script</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -28,9 +26,7 @@ Parameters <a href="#stdin" class="param">stdin</a> and <a href="#stdout" class=
 </div>
 The script to run (the source is inside the plan, not a path to a file).
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -38,9 +34,7 @@ The script to run (the source is inside the plan, not a path to a file).
 </div>
 Constant features to add to each annotation created by this module
 
-<a name="constantDocumentFeatures">
-
-### constantDocumentFeatures
+<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -48,9 +42,7 @@ Constant features to add to each annotation created by this module
 </div>
 Constant features to add to each document created by this module
 
-<a name="constantRelationFeatures">
-
-### constantRelationFeatures
+<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -58,9 +50,7 @@ Constant features to add to each document created by this module
 </div>
 Constant features to add to each relation created by this module
 
-<a name="constantSectionFeatures">
-
-### constantSectionFeatures
+<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -68,9 +58,7 @@ Constant features to add to each relation created by this module
 </div>
 Constant features to add to each section created by this module
 
-<a name="constantTupleFeatures">
-
-### constantTupleFeatures
+<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -78,9 +66,7 @@ Constant features to add to each section created by this module
 </div>
 Constant features to add to each tuple created by this module
 
-<a name="language">
-
-### language
+<h3 name="language" class="param">language</h3>
 
 <div class="param-level param-level-default-value">Default value: `JavaScript`
 </div>

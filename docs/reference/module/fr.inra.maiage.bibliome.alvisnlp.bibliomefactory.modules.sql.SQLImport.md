@@ -12,9 +12,7 @@ synopsis
 
 ## Parameters
 
-<a name="action">
-
-### action
+<h3 name="action" class="param">action</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,9 +20,7 @@ synopsis
 </div>
 
 
-<a name="parameters">
-
-### parameters
+<h3 name="parameters" class="param">parameters</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -32,9 +28,7 @@ synopsis
 </div>
 
 
-<a name="password">
-
-### password
+<h3 name="password" class="param">password</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -42,9 +36,7 @@ synopsis
 </div>
 
 
-<a name="query">
-
-### query
+<h3 name="query" class="param">query</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -52,9 +44,7 @@ synopsis
 </div>
 
 
-<a name="target">
-
-### target
+<h3 name="target" class="param">target</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -62,9 +52,7 @@ synopsis
 </div>
 
 
-<a name="url">
-
-### url
+<h3 name="url" class="param">url</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -72,9 +60,7 @@ synopsis
 </div>
 
 
-<a name="username">
-
-### username
+<h3 name="username" class="param">username</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -82,153 +68,123 @@ synopsis
 </div>
 
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each annotation created by this module
+Constant features to add to each annotation created by this module.
 
-<a name="constantDocumentFeatures">
-
-### constantDocumentFeatures
+<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each document created by this module
+Constant features to add to each document created by this module.
 
-<a name="constantRelationFeatures">
-
-### constantRelationFeatures
+<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each relation created by this module
+Constant features to add to each relation created by this module.
 
-<a name="constantSectionFeatures">
-
-### constantSectionFeatures
+<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each section created by this module
+Constant features to add to each section created by this module.
 
-<a name="constantTupleFeatures">
-
-### constantTupleFeatures
+<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each tuple created by this module
+Constant features to add to each tuple created by this module.
 
-<a name="addToLayer">
-
-### addToLayer
+<h3 name="addToLayer" class="param">addToLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
+Allow to add annotations to layers.
 
-
-<a name="createAnnotations">
-
-### createAnnotations
+<h3 name="createAnnotations" class="param">createAnnotations</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
+Allow the creation of annotations.
 
-
-<a name="createDocuments">
-
-### createDocuments
+<h3 name="createDocuments" class="param">createDocuments</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
+Allow the creation of documents.
 
-
-<a name="createRelations">
-
-### createRelations
+<h3 name="createRelations" class="param">createRelations</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
+Allow the creation of relations.
 
-
-<a name="createSections">
-
-### createSections
+<h3 name="createSections" class="param">createSections</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
+Allow the creation of sections.
 
-
-<a name="createTuples">
-
-### createTuples
+<h3 name="createTuples" class="param">createTuples</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
+Allow to create tuples.
 
-
-<a name="deleteElements">
-
-### deleteElements
+<h3 name="deleteElements" class="param">deleteElements</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
+Allow to delete elements.
 
-
-<a name="removeFromLayer">
-
-### removeFromLayer
+<h3 name="removeFromLayer" class="param">removeFromLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
+Allow to remove annotations from layers.
 
-
-<a name="setArguments">
-
-### setArguments
+<h3 name="setArguments" class="param">setArguments</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
+Allow to set tuple arguments.
 
-
-<a name="setFeatures">
-
-### setFeatures
+<h3 name="setFeatures" class="param">setFeatures</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
-
+Allow to set element features.
 

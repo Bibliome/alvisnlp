@@ -28,10 +28,10 @@
 This page provides pragmatic insights about the generic Weka wrapper
 modules, for complete parameter description refer to the reference
 documentation of
-[TrainingElementClassifier](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/modules/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.newclassifiers.TrainingElementClassifier),
-[TaggingElementClassifier](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/modules/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.newclassifiers.TaggingElementClassifier)
+[TrainingElementClassifier](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/modules/org.bibliome.alvisnlp.modules.newclassifiers.TrainingElementClassifier),
+[TaggingElementClassifier](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/modules/org.bibliome.alvisnlp.modules.newclassifiers.TaggingElementClassifier)
 and
-[SelectingElementClassifier](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/modules/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.newclassifiers.SelectingElementClassifier).
+[SelectingElementClassifier](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/modules/org.bibliome.alvisnlp.modules.newclassifiers.SelectingElementClassifier).
 
 
 <a name="Overview-1" />
@@ -96,7 +96,7 @@ documents.sections.layer:sentences
 This assumes a layer named `sentences` that contains annotations
 representing sentences. For instance this layer could have been filled
 with
-[SeSMig](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/modules/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.segmig.SeSMig).
+[SeSMig](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/modules/org.bibliome.alvisnlp.modules.segmig.SeSMig).
 
 To restrict the target to only some sentences, for instance those that
 contain at least two gene names:
@@ -110,7 +110,7 @@ from previous modules.
 
 Now for NER tasks, you may want to classify annotation n-grams, then
 you'd use the
-[NGrams](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/modules/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.NGrams)
+[NGrams](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/modules/org.bibliome.alvisnlp.modules.NGrams)
 module:
 
 ```xml
@@ -141,7 +141,7 @@ documents.sections.relations:genePairs.tuples
 
 This assumes a relation named `genePairs`. Note that all gene name pairs
 in a sentence can be generated with the module
-[CartesianProductTuples](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/modules/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CartesianProductTuples)
+[CartesianProductTuples](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/modules/org.bibliome.alvisnlp.modules.CartesianProductTuples)
 like this:
 
 ```xml
@@ -292,7 +292,7 @@ Do not count punctuations:
 
 This assumes that words have a feature `type` indicating the word type
 (see [WoSMig annotationTypeFeature
-parameter](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/modules/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.segmig.WoSMig#annotationTypeFeature)).
+parameter](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/modules/org.bibliome.alvisnlp.modules.segmig.WoSMig#annotationTypeFeature)).
 
 
 <a name="POS-category-of-word-1" />
@@ -367,7 +367,7 @@ attribute (depending on `COUNT`).
 ```
 
 You may generate `words.txt` with
-[AggregateValues](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/modules/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.AggregateValues):
+[AggregateValues](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/modules/org.bibliome.alvisnlp.modules.AggregateValues):
 
 ```xml
 <vocabulary class="AggregateValues">

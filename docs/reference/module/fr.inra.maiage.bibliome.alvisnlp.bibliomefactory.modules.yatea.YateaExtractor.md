@@ -12,9 +12,7 @@ The YaTeA is called using the executable set in <a href="#yateaExecutable" class
 
 ## Parameters
 
-<a name="rcFile">
-
-### rcFile
+<h3 name="rcFile" class="param">rcFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,19 +20,7 @@ The YaTeA is called using the executable set in <a href="#yateaExecutable" class
 </div>
 Path to the YaTeA configuration file.
 
-<a name="workingDir">
-
-### workingDir
-
-<div class="param-level param-level-optional">Optional
-</div>
-<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.WorkingDirectory" class="converter">WorkingDirectory</a>
-</div>
-Path to the directory where YaTeA is launched.
-
-<a name="yateaExecutable">
-
-### yateaExecutable
+<h3 name="yateaExecutable" class="param">yateaExecutable</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -42,9 +28,7 @@ Path to the directory where YaTeA is launched.
 </div>
 Path to the YaTeA executable file.
 
-<a name="configDir">
-
-### configDir
+<h3 name="configDir" class="param">configDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -52,9 +36,7 @@ Path to the YaTeA executable file.
 </div>
 
 
-<a name="language">
-
-### language
+<h3 name="language" class="param">language</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -62,9 +44,7 @@ Path to the YaTeA executable file.
 </div>
 
 
-<a name="localeDir">
-
-### localeDir
+<h3 name="localeDir" class="param">localeDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -72,9 +52,7 @@ Path to the YaTeA executable file.
 </div>
 
 
-<a name="outputDir">
-
-### outputDir
+<h3 name="outputDir" class="param">outputDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -82,9 +60,7 @@ Path to the YaTeA executable file.
 </div>
 
 
-<a name="perlLib">
-
-### perlLib
+<h3 name="perlLib" class="param">perlLib</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -92,9 +68,7 @@ Path to the YaTeA executable file.
 </div>
 Contents of the PERLLIB in the environment of Yatea binary.
 
-<a name="postProcessingConfig">
-
-### postProcessingConfig
+<h3 name="postProcessingConfig" class="param">postProcessingConfig</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -102,9 +76,7 @@ Contents of the PERLLIB in the environment of Yatea binary.
 </div>
 BioYaTeA option: path to the post-processing file option.
 
-<a name="postProcessingOutput">
-
-### postProcessingOutput
+<h3 name="postProcessingOutput" class="param">postProcessingOutput</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -112,9 +84,7 @@ BioYaTeA option: path to the post-processing file option.
 </div>
 BioYaTeA option: path to the result file after post-processing.
 
-<a name="suffix">
-
-### suffix
+<h3 name="suffix" class="param">suffix</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -122,9 +92,15 @@ BioYaTeA option: path to the result file after post-processing.
 </div>
 
 
-<a name="testifiedTerminology">
+<h3 name="termListFile" class="param">termListFile</h3>
 
-### testifiedTerminology
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.OutputFile" class="converter">OutputFile</a>
+</div>
+Path where to write the candidates list produced by YaTeA.
+
+<h3 name="testifiedTerminology" class="param">testifiedTerminology</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -132,9 +108,23 @@ BioYaTeA option: path to the result file after post-processing.
 </div>
 
 
-<a name="bioYatea">
+<h3 name="workingDir" class="param">workingDir</h3>
 
-### bioYatea
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.WorkingDirectory" class="converter">WorkingDirectory</a>
+</div>
+Path to the directory where YaTeA is launched. This parameter is **deprecated**, use <a href="#xmlTermsFile" class="param">xmlTermsFile</a> and <a href="#termListFile" class="param">termListFile</a> instead.
+
+<h3 name="xmlTermsFile" class="param">xmlTermsFile</h3>
+
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.OutputFile" class="converter">OutputFile</a>
+</div>
+Path where to write the candidates XML file produced by YaTeA.
+
+<h3 name="bioYatea" class="param">bioYatea</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -142,19 +132,15 @@ BioYaTeA option: path to the result file after post-processing.
 </div>
 
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+UNDOCUMENTED
 
-<a name="documentTokens">
-
-### documentTokens
+<h3 name="documentTokens" class="param">documentTokens</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -162,9 +148,7 @@ Only process document that satisfy this filter.
 </div>
 Either to write DOCUMENT special tokens. Not every YaTeA version accepts them.
 
-<a name="formFeature">
-
-### formFeature
+<h3 name="formFeature" class="param">formFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `form`
 </div>
@@ -172,9 +156,7 @@ Either to write DOCUMENT special tokens. Not every YaTeA version accepts them.
 </div>
 Feature containing the word form.
 
-<a name="lemmaFeature">
-
-### lemmaFeature
+<h3 name="lemmaFeature" class="param">lemmaFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `lemma`
 </div>
@@ -182,9 +164,7 @@ Feature containing the word form.
 </div>
 Feature containing the word lemma.
 
-<a name="posFeature">
-
-### posFeature
+<h3 name="posFeature" class="param">posFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `pos`
 </div>
@@ -192,19 +172,15 @@ Feature containing the word lemma.
 </div>
 Feature containing the word POS tag.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Process only sections that satisfy this filter.
+UNDOCUMENTED
 
-<a name="sentenceLayerName">
-
-### sentenceLayerName
+<h3 name="sentenceLayerName" class="param">sentenceLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -212,9 +188,7 @@ Process only sections that satisfy this filter.
 </div>
 Name of the layer containing sentence annotations, sentences are reinforced.
 
-<a name="wordLayerName">
-
-### wordLayerName
+<h3 name="wordLayerName" class="param">wordLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
@@ -222,9 +196,7 @@ Name of the layer containing sentence annotations, sentences are reinforced.
 </div>
 Name of the layer containing the word annotations.
 
-<a name="yateaDefaultConfig">
-
-### yateaDefaultConfig
+<h3 name="yateaDefaultConfig" class="param">yateaDefaultConfig</h3>
 
 <div class="param-level param-level-default-value">Default value: `{}`
 </div>
@@ -232,9 +204,7 @@ Name of the layer containing the word annotations.
 </div>
 
 
-<a name="yateaOptions">
-
-### yateaOptions
+<h3 name="yateaOptions" class="param">yateaOptions</h3>
 
 <div class="param-level param-level-default-value">Default value: `{}`
 </div>

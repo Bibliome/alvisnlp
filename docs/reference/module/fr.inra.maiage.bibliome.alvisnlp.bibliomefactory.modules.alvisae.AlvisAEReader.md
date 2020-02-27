@@ -21,9 +21,7 @@
 
 ## Parameters
 
-<a name="campaignId">
-
-### campaignId
+<h3 name="campaignId" class="param">campaignId</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -31,9 +29,7 @@
 </div>
 Identifier of the AlvisAE campaign to import.
 
-<a name="password">
-
-### password
+<h3 name="password" class="param">password</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -41,9 +37,7 @@ Identifier of the AlvisAE campaign to import.
 </div>
 User password for JDBC connection.
 
-<a name="schema">
-
-### schema
+<h3 name="schema" class="param">schema</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -51,9 +45,7 @@ User password for JDBC connection.
 </div>
 PostgreSQL schema.
 
-<a name="url">
-
-### url
+<h3 name="url" class="param">url</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -61,9 +53,7 @@ PostgreSQL schema.
 </div>
 PostgreSQL database URL.
 
-<a name="username">
-
-### username
+<h3 name="username" class="param">username</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -71,59 +61,47 @@ PostgreSQL database URL.
 </div>
 PostgreSQL user name.
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each annotation created by this module
+Constant features to add to each annotation created by this module.
 
-<a name="constantDocumentFeatures">
-
-### constantDocumentFeatures
+<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each document created by this module
+Constant features to add to each document created by this module.
 
-<a name="constantRelationFeatures">
-
-### constantRelationFeatures
+<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each relation created by this module
+Constant features to add to each relation created by this module.
 
-<a name="constantSectionFeatures">
-
-### constantSectionFeatures
+<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each section created by this module
+Constant features to add to each section created by this module.
 
-<a name="constantTupleFeatures">
-
-### constantTupleFeatures
+<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each tuple created by this module
+Constant features to add to each tuple created by this module.
 
-<a name="docDescriptions">
-
-### docDescriptions
+<h3 name="docDescriptions" class="param">docDescriptions</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -131,9 +109,7 @@ Constant features to add to each tuple created by this module
 </div>
 If set, *AlvisAEReader* imports only documents whose description is included in the value. If not set, then *AlvisAEReader* imports all documents.
 
-<a name="docExternalIds">
-
-### docExternalIds
+<h3 name="docExternalIds" class="param">docExternalIds</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -141,9 +117,7 @@ If set, *AlvisAEReader* imports only documents whose description is included in 
 </div>
 If set, *AlvisAEReader* imports only documents whose external id is included in the value. If not set, then *AlvisAEReader* imports all documents.
 
-<a name="docIds">
-
-### docIds
+<h3 name="docIds" class="param">docIds</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -151,9 +125,7 @@ If set, *AlvisAEReader* imports only documents whose external id is included in 
 </div>
 If set, *AlvisAEReader* imports only documents whose external id is included in the value. If not set, then *AlvisAEReader* imports all documents.
 
-<a name="taskFeature">
-
-### taskFeature
+<h3 name="taskFeature" class="param">taskFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -161,9 +133,7 @@ If set, *AlvisAEReader* imports only documents whose external id is included in 
 </div>
 Name of the feature where to store the name task where the annotation belongs.
 
-<a name="taskId">
-
-### taskId
+<h3 name="taskId" class="param">taskId</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -171,9 +141,7 @@ Name of the feature where to store the name task where the annotation belongs.
 </div>
 If set, *AlvisAEReader* imports only annotation sets of tasks whose id is included in the value. If this parameter and <a href="#taskName" class="param">taskName</a> are not set, *AlvisAEReader* imports annotations of all tasks.
 
-<a name="taskIdFeature">
-
-### taskIdFeature
+<h3 name="taskIdFeature" class="param">taskIdFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -181,9 +149,7 @@ If set, *AlvisAEReader* imports only annotation sets of tasks whose id is includ
 </div>
 Feature where to store the task identifier from which the annotation was imported.
 
-<a name="taskName">
-
-### taskName
+<h3 name="taskName" class="param">taskName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -191,9 +157,7 @@ Feature where to store the task identifier from which the annotation was importe
 </div>
 If set, *AlvisAEReader* imports only annotation sets of tasks whose name is included in the value. If this parameter and <a href="#taskId" class="param">taskId</a> are not set, *AlvisAEReader* imports annotations of all tasks.
 
-<a name="userFeature">
-
-### userFeature
+<h3 name="userFeature" class="param">userFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -201,9 +165,7 @@ If set, *AlvisAEReader* imports only annotation sets of tasks whose name is incl
 </div>
 Name of the feature where to store the name of the AlvisAE user that created the annotation.
 
-<a name="userIdFeature">
-
-### userIdFeature
+<h3 name="userIdFeature" class="param">userIdFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -211,9 +173,7 @@ Name of the feature where to store the name of the AlvisAE user that created the
 </div>
 Feature where to store the user identifier from which the annotation was imported.
 
-<a name="userIds">
-
-### userIds
+<h3 name="userIds" class="param">userIds</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -221,9 +181,7 @@ Feature where to store the user identifier from which the annotation was importe
 </div>
 If set, *AlvisAEReader* imports only annotation sets created by an user whose id is included in the value. If this parameter and <a href="#userNames" class="param">userNames</a> are not set, *AlvisAEReader* imports annotations of all users.
 
-<a name="userNames">
-
-### userNames
+<h3 name="userNames" class="param">userNames</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -231,9 +189,7 @@ If set, *AlvisAEReader* imports only annotation sets created by an user whose id
 </div>
 If set, *AlvisAEReader* imports only annotation sets created by an user included in the value. If this parameter and <a href="#userIds" class="param">userIds</a> are not set, *AlvisAEReader* imports annotations of all users.
 
-<a name="adjudicate">
-
-### adjudicate
+<h3 name="adjudicate" class="param">adjudicate</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -241,9 +197,7 @@ If set, *AlvisAEReader* imports only annotation sets created by an user included
 </div>
 Either to automatically adjudicate identical source annotations, implies <a href="#loadDependencies" class="param">loadDependencies</a>.
 
-<a name="annotationIdFeature">
-
-### annotationIdFeature
+<h3 name="annotationIdFeature" class="param">annotationIdFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `id`
 </div>
@@ -251,9 +205,7 @@ Either to automatically adjudicate identical source annotations, implies <a href
 </div>
 Name of the feature where to store AlvisAE identifier of the annotation.
 
-<a name="annotationSetIdFeature">
-
-### annotationSetIdFeature
+<h3 name="annotationSetIdFeature" class="param">annotationSetIdFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `annotation-set`
 </div>
@@ -261,9 +213,7 @@ Name of the feature where to store AlvisAE identifier of the annotation.
 </div>
 Name of the feature where to store the identifier of the annotation set to which belongs the annotation.
 
-<a name="createdFeature">
-
-### createdFeature
+<h3 name="createdFeature" class="param">createdFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `created`
 </div>
@@ -271,9 +221,7 @@ Name of the feature where to store the identifier of the annotation set to which
 </div>
 Feature containing the annotation creation date.
 
-<a name="descriptionFeature">
-
-### descriptionFeature
+<h3 name="descriptionFeature" class="param">descriptionFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `description`
 </div>
@@ -281,9 +229,7 @@ Feature containing the annotation creation date.
 </div>
 Feature containing the document description.
 
-<a name="externalIdFeature">
-
-### externalIdFeature
+<h3 name="externalIdFeature" class="param">externalIdFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `external-id`
 </div>
@@ -291,9 +237,7 @@ Feature containing the document description.
 </div>
 Feature containing the document external id.
 
-<a name="fragmentRolePrefix">
-
-### fragmentRolePrefix
+<h3 name="fragmentRolePrefix" class="param">fragmentRolePrefix</h3>
 
 <div class="param-level param-level-default-value">Default value: `frag`
 </div>
@@ -301,9 +245,7 @@ Feature containing the document external id.
 </div>
 For tuples that represent text-bound annotations, prefix of the role of fragment arguments.
 
-<a name="fragmentTypeFeature">
-
-### fragmentTypeFeature
+<h3 name="fragmentTypeFeature" class="param">fragmentTypeFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `type`
 </div>
@@ -311,9 +253,7 @@ For tuples that represent text-bound annotations, prefix of the role of fragment
 </div>
 In annotations that represent text-bound fragments, name of the feature where to store the type of the annotation.
 
-<a name="fragmentsLayerName">
-
-### fragmentsLayerName
+<h3 name="fragmentsLayerName" class="param">fragmentsLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `alvisae`
 </div>
@@ -321,9 +261,7 @@ In annotations that represent text-bound fragments, name of the feature where to
 </div>
 Name of the layer where to store text-bound annotation fragments.
 
-<a name="head">
-
-### head
+<h3 name="head" class="param">head</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -331,9 +269,7 @@ Name of the layer where to store text-bound annotation fragments.
 </div>
 If `true`, then *AlvisAEReader* imports the *head* annotation set. If `false`, then *AlvisAEReader* imports the annotation set with version 1.
 
-<a name="htmlLayerName">
-
-### htmlLayerName
+<h3 name="htmlLayerName" class="param">htmlLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `html`
 </div>
@@ -341,9 +277,7 @@ If `true`, then *AlvisAEReader* imports the *head* annotation set. If `false`, t
 </div>
 Name of the layer where to store annotations that represent HTML tags.
 
-<a name="htmlTagFeature">
-
-### htmlTagFeature
+<h3 name="htmlTagFeature" class="param">htmlTagFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `tag`
 </div>
@@ -351,9 +285,7 @@ Name of the layer where to store annotations that represent HTML tags.
 </div>
 Feature where to store HTML tag name for annotations imported from the HTML annotation set.
 
-<a name="itemRolePrefix">
-
-### itemRolePrefix
+<h3 name="itemRolePrefix" class="param">itemRolePrefix</h3>
 
 <div class="param-level param-level-default-value">Default value: `item`
 </div>
@@ -361,9 +293,7 @@ Feature where to store HTML tag name for annotations imported from the HTML anno
 </div>
 Prefix of the roles of arguments that represent group items.
 
-<a name="kindFeature">
-
-### kindFeature
+<h3 name="kindFeature" class="param">kindFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `kind`
 </div>
@@ -371,9 +301,7 @@ Prefix of the roles of arguments that represent group items.
 </div>
 Name of the relation feature containing the annotation kind (values are: *text-bound*, *group*, or *relation*).
 
-<a name="loadDependencies">
-
-### loadDependencies
+<h3 name="loadDependencies" class="param">loadDependencies</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -381,9 +309,7 @@ Name of the relation feature containing the annotation kind (values are: *text-b
 </div>
 Either to load dependencies if the annotation set task is a review.
 
-<a name="loadGroups">
-
-### loadGroups
+<h3 name="loadGroups" class="param">loadGroups</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -391,9 +317,7 @@ Either to load dependencies if the annotation set task is a review.
 </div>
 Either to import group annotations.
 
-<a name="loadRelations">
-
-### loadRelations
+<h3 name="loadRelations" class="param">loadRelations</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -401,9 +325,7 @@ Either to import group annotations.
 </div>
 Either to import relation annotations.
 
-<a name="loadTextBound">
-
-### loadTextBound
+<h3 name="loadTextBound" class="param">loadTextBound</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -411,9 +333,7 @@ Either to import relation annotations.
 </div>
 Either to import text-bound annotations.
 
-<a name="oldModel">
-
-### oldModel
+<h3 name="oldModel" class="param">oldModel</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -421,9 +341,7 @@ Either to import text-bound annotations.
 </div>
 Support database model for AlvisAE v0.3.
 
-<a name="referentFeature">
-
-### referentFeature
+<h3 name="referentFeature" class="param">referentFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `referent`
 </div>
@@ -431,19 +349,15 @@ Support database model for AlvisAE v0.3.
 </div>
 Name of the feature where to store back-reference of sources.
 
-<a name="sectionName">
+<h3 name="sectionName" class="param">sectionName</h3>
 
-### sectionName
-
-<div class="param-level param-level-default-value">Default value: `alvisae`
+<div class="param-level param-level-default-value">Default value: `text`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the unique section created in each document.
 
-<a name="sourceRolePrefix">
-
-### sourceRolePrefix
+<h3 name="sourceRolePrefix" class="param">sourceRolePrefix</h3>
 
 <div class="param-level param-level-default-value">Default value: `source`
 </div>
@@ -451,9 +365,7 @@ Name of the unique section created in each document.
 </div>
 Prefix for the roles for source annotations, will only be used if <a href="#loadDependencies" class="param">loadDependencies</a> is true.
 
-<a name="typeFeature">
-
-### typeFeature
+<h3 name="typeFeature" class="param">typeFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `type`
 </div>
@@ -461,9 +373,7 @@ Prefix for the roles for source annotations, will only be used if <a href="#load
 </div>
 Feature that contains the type of the annotation.
 
-<a name="unmatchedFeature">
-
-### unmatchedFeature
+<h3 name="unmatchedFeature" class="param">unmatchedFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `unmatched`
 </div>

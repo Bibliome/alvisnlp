@@ -1,70 +1,6 @@
-# Table of Contents
+# Expression reference
 
-> * [Introduction](#Introduction-1)
-> * [Context Element](#Context-Element-1)
-> * [Evaluation types](#Evaluation-types-1)
->   * [Scalar types](#Scalar-types-1)
->     * [Boolean](#Boolean-1)
->     * [Double](#Double-1)
->     * [Integer](#Integer-1)
->     * [String](#String-1)
->   * [Element list](#Element-list-1)
->   * [Type coercion](#Type-coercion-1)
-> * [Syntax for names](#Syntax-for-names-1)
-> * [Construct reference](#Construct-reference-1)
->   * [Boolean literal \boolean\](#Boolean-literal-\boolean\-1)
->   * [Integer literal \integer\](#Integer-literal-\integer\-1)
->   * [Double literal \double\](#Double-literal-\double\-1)
->   * [String literal \string\](#String-literal-\string\-1)
->   * [Boolean operators \boolean\](#Boolean-operators-\boolean\-1)
->   * [General comparison \boolean\](#General-comparison-\boolean\-1)
->   * [Number comparison \boolean\](#Number-comparison-\boolean\-1)
->   * [String comparison \boolean\](#String-comparison-\boolean\-1)
->   * [String concatenation \string\](#String-concatenation-\string\-1)
->   * [Regexp match](#Regexp-match-1)
->   * [Arithmetic \double\](#Arithmetic-\double\-1)
->   * [Unary minus \double\](#Unary-minus-\double\-1)
->   * [Dictionary lookup \boolean\](#Dictionary-lookup-\boolean\-1)
->   * [Feature \string\](#Feature-\string\-1)
->   * [Any feature value equals \boolean\](#Any-feature-value-equals-\boolean\-1)
->   * [Annotation positions \integer\](#Annotation-positions-\integer\-1)
->   * [Element length \integer\](#Element-length-\integer\-1)
->   * [Section contents \string\](#Section-contents-\string\-1)
->   * [Conditional](#Conditional-1)
->   * [Union \list\](#Union-\list\-1)
->   * [Path](#Path-1)
->   * [Element navigation expressions \list\](#Element-navigation-expressions-\list\-1)
->     * [Filters](#Filters-1)
->     * [Ranges](#Ranges-1)
->     * [Self](#Self-1)
->     * [Element corpus](#Element-corpus-1)
->     * [Element document](#Element-document-1)
->     * [Element section](#Element-section-1)
->     * [Tuple relation](#Tuple-relation-1)
->     * [Corpus documents](#Corpus-documents-1)
->     * [Document sections](#Document-sections-1)
->     * [Section annotations](#Section-annotations-1)
->     * [Section relations](#Section-relations-1)
->     * [Relation tuples](#Relation-tuples-1)
->     * [Tuple arguments](#Tuple-arguments-1)
->     * [Reverse tuple lookup](#Reverse-tuple-lookup-1)
->     * [Annotation siblings](#Annotation-siblings-1)
->   * [Side-effect expressions](#Side-effect-expressions-1)
->     * [Element creation](#Element-creation-1)
->     * [Set argument](#Set-argument-1)
->     * [Set feature](#Set-feature-1)
->     * [Delete element](#Delete-element-1)
->     * [Add to layer](#Add-to-layer-1)
->     * [Remove from layer](#Remove-from-layer-1)
->   * [Library function call](#Library-function-call-1)
-> * [Operator precedence and associativity](#Operator-precedence-and-associativity-1)
-</toc>
-
-
-
-<a name="Introduction-1" />
-
-# Introduction
+## Introduction
 
 Element Expressions is a language for exploring and querying the
 AlvisNLP Corpus. It can be used to test features, count elements,
@@ -73,15 +9,14 @@ shares a lot of common points with XPath, so if you are, or become,
 familiar with XPath, then good for you. You may find the following pages
 also useful:
 
--   [[Element Expression Examples]] contains several examples of
+-   <a href="{{ '/Element-expression-examples' | relative_url }}">Expression Examples</a> contains several examples of
 expressions in increasing order of trickiness;
--   [[Shell]] describes the AlvisNLP/ML Shell that you can use to
+-   {% include module class="Shell" %} describes the AlvisNLP/ML Shell that you can use to
 train yourself to write expressions.
 
 
-<a name="Context-Element-1" />
 
-# Context Element
+## Context Element
 
 Expressions are evaluated within a context that includes an element. The
 context element can be one of the following:
@@ -101,61 +36,53 @@ on the context element. Wherever an expression is expected, for instance
 as a module parameter, the context element sould be documented.
 
 
-<a name="Evaluation-types-1" />
 
-# Evaluation types
+## Evaluation types
 
 An expression can be evaluated as on of four types: boolean, number,
 string or element list. The evaluation type should be documented along
 with the context element.
 
 
-<a name="Scalar-types-1" />
 
-## Scalar types
+### Scalar types
 
 
-<a name="Boolean-1" />
 
-### Boolean
+#### Boolean
 
 The boolean type has two values: `false` and `true`.
 
 
-<a name="Double-1" />
 
-### Double
+#### Double
 
 The double type is a double precision 64-bit floating point number (Java
 `double`).
 
 
-<a name="Integer-1" />
 
-### Integer
+#### Integer
 
 The integer type is a 32-bit signed integer (Java `int`).
 
 
-<a name="String-1" />
 
-### String
+#### String
 
 The string type is a 16-bit unicode character sequence (Java `String`).
 
 
-<a name="Element-list-1" />
 
-## Element list
+### Element list
 
 The element list type is an ordered collection of elements. In most
 cases elements in an element list are of the same type (all Annotations
 or all Documents etc.).
 
 
-<a name="Type-coercion-1" />
 
-## Type coercion
+### Type coercion
 
 The majority of expressions have a priviledged or primary evaluation
 type, however they can be evaluated into any other type. The value is
@@ -172,16 +99,15 @@ Some expressions have specific coercion rules.
 
 
 
-<a name="Syntax-for-names-1" />
 
-# Syntax for names
+## Syntax for names
 
 Some expressions require a name (feature key or layer name for
 instance). Names are single quote character sequences. The quotes can be
 omitted if all the following conditions are met:
 
 -   all characters are alphabetic (`A-Za-z`) or undescore (`_`)
--   the name is different from any reserved word:\
+-   the name is different from any reserved word:
 
 ```
 after and any arg args before boolean contents corpus delete document documents double elements else end false feat fun if in int inside layer length not new or outside overlapping relation relations section sections span start string then true tuples
@@ -191,9 +117,8 @@ Note that names and keywords are case-sensitive. All keywords are all
 lowercase.
 
 
-<a name="Construct-reference-1" />
 
-# Construct reference
+## Construct reference
 
 In the following sections each available expression is described. The
 usage of the expression is given in code blocks with the
@@ -209,9 +134,8 @@ If there is a preferred type for the expression, then this type is
 specified between brackets in the expression name.
 
 
-<a name="Boolean-literal-\boolean\-1" />
 
-## Boolean literal \[boolean\]
+### Boolean literal \[boolean\]
 
 ```
 false
@@ -219,27 +143,24 @@ true
 ```
 
 
-<a name="Integer-literal-\integer\-1" />
 
-## Integer literal \[integer\]
+### Integer literal \[integer\]
 
 ```
 [0-9]+
 ```
 
 
-<a name="Double-literal-\double\-1" />
 
-## Double literal \[double\]
+### Double literal \[double\]
 
 ```
 ([0-9]*\.)?[0-9]+
 ```
 
 
-<a name="String-literal-\string\-1" />
 
-## String literal \[string\]
+### String literal \[string\]
 
 ```
 "..."
@@ -249,9 +170,8 @@ String constants are double quoted character sequences. The usual Java
 escape sequences apply.
 
 
-<a name="Boolean-operators-\boolean\-1" />
 
-## Boolean operators \[boolean\]
+### Boolean operators \[boolean\]
 
 ```
 LEFT and RIGHT
@@ -264,9 +184,8 @@ context element.
 Binary boolean operator evaluation is short-circuited.
 
 
-<a name="General-comparison-\boolean\-1" />
 
-## General comparison \[boolean\]
+### General comparison \[boolean\]
 
 ```
 LEFT == RIGHT
@@ -278,9 +197,8 @@ element. If `LEFT` is an expression of scalar type, then its type is
 used. Otherwise, the type of `RIGHT` is used.
 
 
-<a name="Number-comparison-\boolean\-1" />
 
-## Number comparison \[boolean\]
+### Number comparison \[boolean\]
 
 ```
 LEFT < RIGHT
@@ -293,9 +211,8 @@ LEFT >= RIGHT
 element.
 
 
-<a name="String-comparison-\boolean\-1" />
 
-## String comparison \[boolean\]
+### String comparison \[boolean\]
 
 ```
 LEFT ?= RIGHT
@@ -306,14 +223,15 @@ LEFT =^ RIGHT
 `LEFT` and `RIGHT` are evaluated as strings using the same context
 element.
 
+| **Operator** |  |
+|--------------|--|
 | `?=` | contains |
 | `^=` | starts with |
 | `=^` | ends with |
 
 
-<a name="String-concatenation-\string\-1" />
 
-## String concatenation \[string\]
+### String concatenation \[string\]
 
 ```
 LEFT ^ RIGHT
@@ -323,9 +241,8 @@ LEFT ^ RIGHT
 element.
 
 
-<a name="Regexp-match-1" />
 
-## Regexp match
+### Regexp match
 
 ```
 TARGET =~ "PATTERN"
@@ -344,9 +261,8 @@ If evaluated as an element list, then this expression returns an empty
 list.
 
 
-<a name="Arithmetic-\double\-1" />
 
-## Arithmetic \[double\]
+### Arithmetic \[double\]
 
 ```
 LEFT + RIGHT
@@ -360,9 +276,8 @@ LEFT % RIGHT
 element.
 
 
-<a name="Unary-minus-\double\-1" />
 
-## Unary minus \[double\]
+### Unary minus \[double\]
 
 ```
 - EXPR
@@ -371,9 +286,8 @@ element.
 `EXPR` is evaluated as a number with the same context element.
 
 
-<a name="Dictionary-lookup-\boolean\-1" />
 
-## Dictionary lookup \[boolean\]
+### Dictionary lookup \[boolean\]
 
 ```
 EXPR in "FILE"[:"ENCODING"]
@@ -387,9 +301,8 @@ The dictionary file must contain one entry per line. This expression
 returns true if and only if the dictionary contains the first operand.
 
 
-<a name="Feature-\string\-1" />
 
-## Feature \[string\]
+### Feature \[string\]
 
 ```
 @KEY
@@ -402,9 +315,8 @@ and only if the context element has a feature with key `KEY`, *even if
 the feature value is an empty string*.
 
 
-<a name="Any-feature-value-equals-\boolean\-1" />
 
-## Any feature value equals \[boolean\]
+### Any feature value equals \[boolean\]
 
 ```
 any KEY == EXPR
@@ -416,9 +328,8 @@ This expression returns true if at least one of the values of the
 feature with key `KEY` in the context element equals `EXPR`.
 
 
-<a name="Annotation-positions-\integer\-1" />
 
-## Annotation positions \[integer\]
+### Annotation positions \[integer\]
 
 ```
 start
@@ -429,9 +340,8 @@ These expressions return respectively the start and end positions if the
 context element is an annotation. Otherwise it returns `0`.
 
 
-<a name="Element-length-\integer\-1" />
 
-## Element length \[integer\]
+### Element length \[integer\]
 
 ```
 length
@@ -443,9 +353,8 @@ If the context element is a section, then this expression returns
 returns the length of the section's contents.
 
 
-<a name="Section-contents-\string\-1" />
 
-## Section contents \[string\]
+### Section contents \[string\]
 
 ```
 contents
@@ -455,9 +364,8 @@ If the context element is a section, then this expression returns its
 contents. Otherwise the empty string is returned.
 
 
-<a name="Conditional-1" />
 
-## Conditional
+### Conditional
 
 ```
 if CONDITION then TRUE else TRUE
@@ -469,9 +377,8 @@ context element. Otherwise `FALSE` is evaluated as the same type with
 the same context element.
 
 
-<a name="Union-\list\-1" />
 
-## Union \[list\]
+### Union \[list\]
 
 ```
 LEFT | RIGHT
@@ -482,9 +389,8 @@ element. This expression returns the concatenation of the two results.\
 Elements in the result list are not reordered. Duplicate lements remain.
 
 
-<a name="Path-1" />
 
-## Path
+### Path
 
 ```
 LEFT . RIGHT
@@ -502,9 +408,8 @@ If this expression is evaluated as a list, then it returns the
 concatenation of all successive evaluations of `RIGHT` as a list.
 
 
-<a name="Element-navigation-expressions-\list\-1" />
 
-## Element navigation expressions \[list\]
+### Element navigation expressions \[list\]
 
 Element navigation expressions returns elements according to a
 navigation specification. The following subsections describe each
@@ -514,9 +419,8 @@ filter and ranges specifies the order in which they are applied. If a
 range follows a filter, then range is applied after the filter.
 
 
-<a name="Filters-1" />
 
-### Filters
+#### Filters
 
 ```
 SPEC [ EXPR ]
@@ -528,9 +432,8 @@ The expression returns the list of elements for which `EXPR` was
 evaluated as `true`.
 
 
-<a name="Ranges-1" />
 
-### Ranges
+#### Ranges
 
 ```
 SPEC { N }
@@ -543,9 +446,10 @@ SPEC { N : }
 constants.\
 The returned list is a sublist of the list returned by `SPEC`:
 
+| **Specification** |  |
+|-------------------|--|
 | `N` | a singleton list with the `N`th element|
-| `N : M` | the sublist from the `N`th (inclusive) to the `M`th (exclusive)
-elements|
+| `N : M` | the sublist from the `N`th (inclusive) to the `M`th (exclusive) elements|
 | `: M` | the sublist from the start to the `M`th element (exlusive)|
 | `N :` | the sublist from the `N`th element (inclusive) to the end|
 
@@ -556,9 +460,8 @@ If the indexes are out of the list boundaries then the index is
 "cropped".
 
 
-<a name="Self-1" />
 
-### Self
+#### Self
 
 ```
 $
@@ -567,9 +470,8 @@ $
 This expression returns the context element.
 
 
-<a name="Element-corpus-1" />
 
-### Element corpus
+#### Element corpus
 
 ```
 corpus
@@ -578,9 +480,8 @@ corpus
 This expression returns the currently annotated corpus.
 
 
-<a name="Element-document-1" />
 
-### Element document
+#### Element document
 
 ```
 document
@@ -592,9 +493,8 @@ If the context element is a document, then this document is returned.\
 If the context element is the corpus, then the empty list is returned.
 
 
-<a name="Element-section-1" />
 
-### Element section
+#### Element section
 
 ```
 section
@@ -607,9 +507,8 @@ If the context element is the corpus or a document, then the empty list
 is returned.
 
 
-<a name="Tuple-relation-1" />
 
-### Tuple relation
+#### Tuple relation
 
 ```
 relation
@@ -620,9 +519,8 @@ list with the relation to which the tuple belongs. Otherwise it returns
 the empty list.
 
 
-<a name="Corpus-documents-1" />
 
-### Corpus documents
+#### Corpus documents
 
 ```
 documents
@@ -638,9 +536,8 @@ corpus, or there is no document with the specified identifier, then this
 expression returns an empty list.
 
 
-<a name="Document-sections-1" />
 
-### Document sections
+#### Document sections
 
 ```
 sections
@@ -656,9 +553,8 @@ document, or there is no section with the specified name, then this
 expression returns the empty list.
 
 
-<a name="Section-annotations-1" />
 
-### Section annotations
+#### Section annotations
 
 ```
 layer
@@ -678,9 +574,8 @@ In all cases, the list of annotations is sorted by standard order
 (increasing start, then decreasing end) and duplicates are removed.
 
 
-<a name="Section-relations-1" />
 
-### Section relations
+#### Section relations
 
 ```
 relations
@@ -696,9 +591,8 @@ section, or there is no relation with the specified name, then this
 expression returns the empty list.
 
 
-<a name="Relation-tuples-1" />
 
-### Relation tuples
+#### Relation tuples
 
 ```
 tuples
@@ -708,9 +602,8 @@ If the context element is a relation, then this expression returns a
 list of all tuples of the relation. Otherwise it returns the empty list.
 
 
-<a name="Tuple-arguments-1" />
 
-### Tuple arguments
+#### Tuple arguments
 
 ```
 args
@@ -727,9 +620,8 @@ if the tuple does not have an argument with the specified role, then
 this expression returns the empty list.
 
 
-<a name="Reverse-tuple-lookup-1" />
 
-### Reverse tuple lookup
+#### Reverse tuple lookup
 
 ```
 tuples : RELATION
@@ -751,9 +643,8 @@ contain a relation with the specified name, then this expression
 returns the empty list.
 
 
-<a name="Annotation-siblings-1" />
 
-### Annotation siblings
+#### Annotation siblings
 
 ```
 after : NAME
@@ -768,8 +659,9 @@ If the context element is an annotation, then this expression returns a
 list of annotations in the layer with name `NAME` in the same section.
 The annotations included in the result list depend on the keyword:
 
-| `after`       | start after the context annotation end        |
+| **Functor** |  |
 |---------------|-----------------------------------------------|
+| `after`       | start after the context annotation end        |
 | `before`      | end before the context annotation start       |
 | `inside`      | fully included in the context annotation span |
 | `outside`     | fully includes the context annotation         |
@@ -782,18 +674,16 @@ empty list.\
 In all cases, the returned list is sorted in standard order.
 
 
-<a name="Side-effect-expressions-1" />
 
-## Side-effect expressions
+### Side-effect expressions
 
 Side-effect expressions affect the corpus data structure. Only some
 modules allow actions inside an expression; refer to the module
 documentation.
 
 
-<a name="Element-creation-1" />
 
-### Element creation
+#### Element creation
 
 ```
 new : document ( ID )
@@ -829,9 +719,8 @@ annotations of the same section in `ANNOTATIONS`, then adds it to the
 specified layer.
 
 
-<a name="Set-argument-1" />
 
-### Set argument
+#### Set argument
 
 ```
 arg : ROLE ( ARG )
@@ -846,9 +735,8 @@ This expression always return the context element, so different
 arguments can be chained by paths.
 
 
-<a name="Set-feature-1" />
 
-### Set feature
+#### Set feature
 
 ```
 feat : KEY ( VALUE )
@@ -861,9 +749,8 @@ This expression always return the context element, so different
 arguments can be chained by paths.
 
 
-<a name="Delete-element-1" />
 
-### Delete element
+#### Delete element
 
 ```
 delete
@@ -873,9 +760,8 @@ This expression deletes the context element. The deletion is permanent.
 The corpus cannot be deleted.
 
 
-<a name="Add-to-layer-1" />
 
-### Add to layer
+#### Add to layer
 
 ```
 add : NAME
@@ -885,9 +771,8 @@ If the context element is an annotation, then this expression adds it to
 the layer named `NAME`.
 
 
-<a name="Remove-from-layer-1" />
 
-### Remove from layer
+#### Remove from layer
 
 ```
 remove : NAME
@@ -897,9 +782,8 @@ If the context element is an annotation, then this expression removes it
 from the layer named `NAME`.
 
 
-<a name="Library-function-call-1" />
 
-## Library function call
+### Library function call
 
 lib : FTOR1 : ... : FTORn ( ARG1 , ... , ARGm )
 
@@ -909,9 +793,8 @@ This expression calls a library function with arguments `ARG1`, ...,
 
 
 
-<a name="Operator-precedence-and-associativity-1" />
 
-# Operator precedence and associativity
+## Operator precedence and associativity
 
 The following operators are listed in descending order of precedence.
 The precedence can be overriden with parentheses.

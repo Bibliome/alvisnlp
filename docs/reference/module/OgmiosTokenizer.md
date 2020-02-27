@@ -19,9 +19,7 @@ If <a href="#separatorTokens" class="param">separatorTokens</a> is false, the *O
 
 ## Parameters
 
-<a name="targetLayerName">
-
-### targetLayerName
+<h3 name="targetLayerName" class="param">targetLayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -29,9 +27,7 @@ If <a href="#separatorTokens" class="param">separatorTokens</a> is false, the *O
 </div>
 Name of the layer where to store the tokens.
 
-<a name="tokenTypeFeature">
-
-### tokenTypeFeature
+<h3 name="tokenTypeFeature" class="param">tokenTypeFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -39,9 +35,7 @@ Name of the layer where to store the tokens.
 </div>
 Name of the token feature where to store the token type (alpha, num, sep, symb).
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -49,9 +43,7 @@ Name of the token feature where to store the token type (alpha, num, sep, symb).
 </div>
 Constant features to add to each annotation created by this module
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -59,9 +51,7 @@ Constant features to add to each annotation created by this module
 </div>
 Only process document that satisfy this filter.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -69,9 +59,7 @@ Only process document that satisfy this filter.
 </div>
 Process only sections that satisfy this filter.
 
-<a name="separatorTokens">
-
-### separatorTokens
+<h3 name="separatorTokens" class="param">separatorTokens</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>

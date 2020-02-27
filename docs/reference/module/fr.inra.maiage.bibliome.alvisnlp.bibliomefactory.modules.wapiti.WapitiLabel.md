@@ -12,9 +12,7 @@ synopsis
 
 ## Parameters
 
-<a name="features">
-
-### features
+<h3 name="features" class="param">features</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,9 +20,7 @@ synopsis
 </div>
 
 
-<a name="labelFeature">
-
-### labelFeature
+<h3 name="labelFeature" class="param">labelFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -32,9 +28,7 @@ synopsis
 </div>
 
 
-<a name="modelFile">
-
-### modelFile
+<h3 name="modelFile" class="param">modelFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -42,9 +36,7 @@ synopsis
 </div>
 
 
-<a name="wapitiExecutable">
-
-### wapitiExecutable
+<h3 name="wapitiExecutable" class="param">wapitiExecutable</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -52,9 +44,7 @@ synopsis
 </div>
 
 
-<a name="commandLineOptions">
-
-### commandLineOptions
+<h3 name="commandLineOptions" class="param">commandLineOptions</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -62,29 +52,23 @@ synopsis
 </div>
 
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Process only sections that satisfy this filter.
+Process only sections that satisfy this expression.
 
-<a name="sentenceLayerName">
-
-### sentenceLayerName
+<h3 name="sentenceLayerName" class="param">sentenceLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -92,9 +76,7 @@ Process only sections that satisfy this filter.
 </div>
 
 
-<a name="tokenLayerName">
-
-### tokenLayerName
+<h3 name="tokenLayerName" class="param">tokenLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>

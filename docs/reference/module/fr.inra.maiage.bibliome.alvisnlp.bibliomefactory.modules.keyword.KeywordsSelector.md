@@ -16,9 +16,7 @@ Selects most relevant keywords in documents.
 
 ## Parameters
 
-<a name="keywordFeature">
-
-### keywordFeature
+<h3 name="keywordFeature" class="param">keywordFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -26,9 +24,7 @@ Selects most relevant keywords in documents.
 </div>
 Document feature where to store the selected keywords.
 
-<a name="outFile">
-
-### outFile
+<h3 name="outFile" class="param">outFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -36,9 +32,7 @@ Document feature where to store the selected keywords.
 </div>
 
 
-<a name="scoreFeature">
-
-### scoreFeature
+<h3 name="scoreFeature" class="param">scoreFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -46,9 +40,7 @@ Document feature where to store the selected keywords.
 </div>
 Document feature where to store the score of selected keywords computed by <a href="#scoreFunction" class="param">scoreFunction</a>.
 
-<a name="charset">
-
-### charset
+<h3 name="charset" class="param">charset</h3>
 
 <div class="param-level param-level-default-value">Default value: `UTF-8`
 </div>
@@ -56,9 +48,7 @@ Document feature where to store the score of selected keywords computed by <a hr
 </div>
 
 
-<a name="documentId">
-
-### documentId
+<h3 name="documentId" class="param">documentId</h3>
 
 <div class="param-level param-level-default-value">Default value: `properties:@:id()`
 </div>
@@ -66,9 +56,7 @@ Document feature where to store the score of selected keywords computed by <a hr
 </div>
 
 
-<a name="documents">
-
-### documents
+<h3 name="documents" class="param">documents</h3>
 
 <div class="param-level param-level-default-value">Default value: `nav:documents()`
 </div>
@@ -76,9 +64,7 @@ Document feature where to store the score of selected keywords computed by <a hr
 </div>
 
 
-<a name="keywordCount">
-
-### keywordCount
+<h3 name="keywordCount" class="param">keywordCount</h3>
 
 <div class="param-level param-level-default-value">Default value: `2147483647`
 </div>
@@ -86,9 +72,7 @@ Document feature where to store the score of selected keywords computed by <a hr
 </div>
 Number of keywords to select.
 
-<a name="keywordForm">
-
-### keywordForm
+<h3 name="keywordForm" class="param">keywordForm</h3>
 
 <div class="param-level param-level-default-value">Default value: `properties:@:form()`
 </div>
@@ -96,9 +80,7 @@ Number of keywords to select.
 </div>
 Text of the keyword. This expression is evaluated as a string with the keyword element as the context.
 
-<a name="keywords">
-
-### keywords
+<h3 name="keywords" class="param">keywords</h3>
 
 <div class="param-level param-level-default-value">Default value: `nav:.(nav:sections(), nav:layer:words())`
 </div>
@@ -106,9 +88,7 @@ Text of the keyword. This expression is evaluated as a string with the keyword e
 </div>
 Expression evaluated as a list of elements with the document as the context element. Each element represents a keyword of the document.
 
-<a name="scoreFunction">
-
-### scoreFunction
+<h3 name="scoreFunction" class="param">scoreFunction</h3>
 
 <div class="param-level param-level-default-value">Default value: `ABSOLUTE`
 </div>
@@ -116,9 +96,7 @@ Expression evaluated as a list of elements with the document as the context elem
 </div>
 Function to use for ranking keywords. Available functions include the keyword frequency, different variants of tf-idf and Okapi BM25.
 
-<a name="scoreThreshold">
-
-### scoreThreshold
+<h3 name="scoreThreshold" class="param">scoreThreshold</h3>
 
 <div class="param-level param-level-default-value">Default value: `0.0`
 </div>
@@ -126,9 +104,7 @@ Function to use for ranking keywords. Available functions include the keyword fr
 </div>
 
 
-<a name="separator">
-
-### separator
+<h3 name="separator" class="param">separator</h3>
 
 <div class="param-level param-level-default-value">Default value: `	`
 </div>

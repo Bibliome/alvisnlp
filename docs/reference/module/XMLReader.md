@@ -8,7 +8,7 @@ Reads XML files and creates elements.
 
 *XMLReader* reads its input from <a href="#sourcePath" class="param">sourcePath</a> as XML and creates documents, sections, annotations, relations or tuples. The structure of the input XML is handled through the <a href="#xlsTransform" class="param">xlsTransform</a> XSLT stylesheet.
 
-*XMLReader* also provides XSLT function and element extensions. The namespace for all extensions is `xalan://fr.inra.maiage.bibliome.alvisnlp.biliomefactory.modules.xml.XMLReader2`.
+*XMLReader* also provides XSLT function and element extensions. The namespace for all extensions is `xalan://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml.XMLReader2`.
 
 ### Element extensions
 * `document`: creates a document in the current corpus. The identifier is either a string specified by the attribute id, or an XPath expression specified by the xpath-id attribute. The expression is evaluated as a string.
@@ -30,9 +30,7 @@ Note: the inline() function also process comment and processing instruction node
 
 ## Parameters
 
-<a name="sourcePath">
-
-### sourcePath
+<h3 name="sourcePath" class="param">sourcePath</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,9 +38,7 @@ Note: the inline() function also process comment and processing instruction node
 </div>
 Path to the source directory or source file.
 
-<a name="xslTransform">
-
-### xslTransform
+<h3 name="xslTransform" class="param">xslTransform</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -50,59 +46,47 @@ Path to the source directory or source file.
 </div>
 XSLT Stylesheet to apply on the input.
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each annotation created by this module
+Constant features to add to each annotation created by this module.
 
-<a name="constantDocumentFeatures">
-
-### constantDocumentFeatures
+<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each document created by this module
+Constant features to add to each document created by this module.
 
-<a name="constantRelationFeatures">
-
-### constantRelationFeatures
+<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each relation created by this module
+Constant features to add to each relation created by this module.
 
-<a name="constantSectionFeatures">
-
-### constantSectionFeatures
+<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each section created by this module
+Constant features to add to each section created by this module.
 
-<a name="constantTupleFeatures">
-
-### constantTupleFeatures
+<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each tuple created by this module
+Constant features to add to each tuple created by this module.
 
-<a name="stringParams">
-
-### stringParams
+<h3 name="stringParams" class="param">stringParams</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -110,9 +94,7 @@ Constant features to add to each tuple created by this module
 </div>
 Parameters to pass to the XSLT Stylesheet specified by <a href="#xslTransform" class="param">xslTransform</a>.
 
-<a name="html">
-
-### html
+<h3 name="html" class="param">html</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -120,9 +102,7 @@ Parameters to pass to the XSLT Stylesheet specified by <a href="#xslTransform" c
 </div>
 Set to true if the input is HTML rather than XML.
 
-<a name="rawTagNames">
-
-### rawTagNames
+<h3 name="rawTagNames" class="param">rawTagNames</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>

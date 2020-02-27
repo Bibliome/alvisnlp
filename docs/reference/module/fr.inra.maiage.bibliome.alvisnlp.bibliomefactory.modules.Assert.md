@@ -10,9 +10,7 @@ Tests an assertion on specified elements.
 
 ## Parameters
 
-<a name="assertion">
-
-### assertion
+<h3 name="assertion" class="param">assertion</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,9 +18,7 @@ Tests an assertion on specified elements.
 </div>
 Expression evaluated as a boolean with the target element as the context element. This parameter specifies the assertion to be checked on each target.
 
-<a name="target">
-
-### target
+<h3 name="target" class="param">target</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,9 +26,7 @@ Expression evaluated as a boolean with the target element as the context element
 </div>
 Expression evaluated as a list of elements with the corpus as the context element. This parameter specifies the elements on which the assertion is checked.
 
-<a name="message">
-
-### message
+<h3 name="message" class="param">message</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,9 +34,7 @@ Expression evaluated as a list of elements with the corpus as the context elemen
 </div>
 Customize the assertion failure message. This expression is evaluated as a string from the failed target.
 
-<a name="outFile">
-
-### outFile
+<h3 name="outFile" class="param">outFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -50,9 +42,7 @@ Customize the assertion failure message. This expression is evaluated as a strin
 </div>
 Path to the file where to record assertion failures. If not set then assertion failures are not recorded, and only displayed on the log.
 
-<a name="stopAt">
-
-### stopAt
+<h3 name="stopAt" class="param">stopAt</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -60,9 +50,7 @@ Path to the file where to record assertion failures. If not set then assertion f
 </div>
 Maximum number of assertion failures before *Assert* will stop checking.
 
-<a name="severe">
-
-### severe
+<h3 name="severe" class="param">severe</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>

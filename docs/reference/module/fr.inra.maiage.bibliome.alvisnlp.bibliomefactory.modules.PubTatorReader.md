@@ -12,9 +12,7 @@ synopsis
 
 ## Parameters
 
-<a name="sourcePath">
-
-### sourcePath
+<h3 name="sourcePath" class="param">sourcePath</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,39 +20,31 @@ synopsis
 </div>
 
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each annotation created by this module
+Constant features to add to each annotation created by this module.
 
-<a name="constantDocumentFeatures">
-
-### constantDocumentFeatures
+<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each document created by this module
+Constant features to add to each document created by this module.
 
-<a name="constantSectionFeatures">
-
-### constantSectionFeatures
+<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each section created by this module
+Constant features to add to each section created by this module.
 
-<a name="classFeature">
-
-### classFeature
+<h3 name="classFeature" class="param">classFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `class`
 </div>
@@ -62,9 +52,7 @@ Constant features to add to each section created by this module
 </div>
 
 
-<a name="offsetFeature">
-
-### offsetFeature
+<h3 name="offsetFeature" class="param">offsetFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `offset`
 </div>
@@ -72,9 +60,7 @@ Constant features to add to each section created by this module
 </div>
 
 
-<a name="typeFeature">
-
-### typeFeature
+<h3 name="typeFeature" class="param">typeFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `type`
 </div>

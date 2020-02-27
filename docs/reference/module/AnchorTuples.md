@@ -10,9 +10,7 @@ Creates tuples with a common argument.
 
 ## Parameters
 
-<a name="anchor">
-
-### anchor
+<h3 name="anchor" class="param">anchor</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,9 +18,7 @@ Creates tuples with a common argument.
 </div>
 First argument of each created tuple.
 
-<a name="anchorRole">
-
-### anchorRole
+<h3 name="anchorRole" class="param">anchorRole</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,9 +26,7 @@ First argument of each created tuple.
 </div>
 Name of the role for the anchor in the created tuple.
 
-<a name="arguments">
-
-### arguments
+<h3 name="arguments" class="param">arguments</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,9 +34,7 @@ Name of the role for the anchor in the created tuple.
 </div>
 Role/expression pairs of additional arguments for the created tuples. Expressions are evaluated as element lists with the anchor as the context element.
 
-<a name="relationName">
-
-### relationName
+<h3 name="relationName" class="param">relationName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -50,9 +42,7 @@ Role/expression pairs of additional arguments for the created tuples. Expression
 </div>
 Name of the relation in which tuples must be created.
 
-<a name="constantRelationFeatures">
-
-### constantRelationFeatures
+<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -60,9 +50,7 @@ Name of the relation in which tuples must be created.
 </div>
 Constant features to add to each relation created by this module
 
-<a name="constantTupleFeatures">
-
-### constantTupleFeatures
+<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -70,23 +58,19 @@ Constant features to add to each relation created by this module
 </div>
 Constant features to add to each tuple created by this module
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Process only sections that satisfy this filter.
+Process only sections that satisfy this expression.
 

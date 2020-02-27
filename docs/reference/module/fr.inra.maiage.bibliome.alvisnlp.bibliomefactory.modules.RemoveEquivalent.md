@@ -12,9 +12,7 @@ synopsis
 
 ## Parameters
 
-<a name="equivalency">
-
-### equivalency
+<h3 name="equivalency" class="param">equivalency</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,9 +20,7 @@ synopsis
 </div>
 
 
-<a name="target">
-
-### target
+<h3 name="target" class="param">target</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -32,9 +28,7 @@ synopsis
 </div>
 
 
-<a name="priority">
-
-### priority
+<h3 name="priority" class="param">priority</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>

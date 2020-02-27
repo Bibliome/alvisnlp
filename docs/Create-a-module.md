@@ -49,7 +49,7 @@ public class MyModule extends CorpusModule<ResolvedObjects> {
 
 
 ## Declare the Module XML Description
-The module description is partially generated from the module Class implementation. By convention, its name corresponds to the name of the module class with the `Doc` string appended \(e.g., for `MyModule.java),`the name of the module description is `MyModuleDoc.xml`\). You must complete the description taking care of providing information needed to understand the module. An example of a module description is available [here](https://github.com/Bibliome/alvisnlp/blob/master/bibliome/src/main/resources/fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/compare/CompareElementsDoc.xml).
+The module description is partially generated from the module Class implementation. By convention, its name corresponds to the name of the module class with the `Doc` string appended \(e.g., for `MyModule.java),`the name of the module description is `MyModuleDoc.xml`\). You must complete the description taking care of providing information needed to understand the module. An example of a module description is available [here](https://github.com/Bibliome/alvisnlp/blob/master/bibliome/src/main/resources/org/bibliome/alvisnlp/modules/compare/CompareElementsDoc.xml).
 
 
 

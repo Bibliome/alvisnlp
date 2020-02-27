@@ -13,19 +13,15 @@ Reads terms in [OBO files](XXX) as documents.
 
 ## Parameters
 
-<a name="oboFiles">
-
-### oboFiles
+<h3 name="oboFiles" class="param">oboFiles</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputFile[]" class="converter">InputFile[]</a>
 </div>
 OBO files to read.
 
-<a name="ancestorsFeature">
-
-### ancestorsFeature
+<h3 name="ancestorsFeature" class="param">ancestorsFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -33,9 +29,7 @@ OBO files to read.
 </div>
 Name of the feature that contains the term ancestors ids.
 
-<a name="childrenFeature">
-
-### childrenFeature
+<h3 name="childrenFeature" class="param">childrenFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -43,29 +37,23 @@ Name of the feature that contains the term ancestors ids.
 </div>
 Name of the feature that contains the term children ids.
 
-<a name="constantDocumentFeatures">
-
-### constantDocumentFeatures
+<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each document created by this module
+Constant features to add to each document created by this module.
 
-<a name="constantSectionFeatures">
-
-### constantSectionFeatures
+<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each section created by this module
+Constant features to add to each section created by this module.
 
-<a name="excludeOBOBuiltins">
-
-### excludeOBOBuiltins
+<h3 name="excludeOBOBuiltins" class="param">excludeOBOBuiltins</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -73,9 +61,7 @@ Constant features to add to each section created by this module
 </div>
 Either to exclude builtin OBO terms.
 
-<a name="idPrefix">
-
-### idPrefix
+<h3 name="idPrefix" class="param">idPrefix</h3>
 
 <div class="param-level param-level-default-value">Default value: ``
 </div>
@@ -83,9 +69,7 @@ Either to exclude builtin OBO terms.
 </div>
 Prefix to prepend to each Term identifier.
 
-<a name="nameSectionName">
-
-### nameSectionName
+<h3 name="nameSectionName" class="param">nameSectionName</h3>
 
 <div class="param-level param-level-default-value">Default value: `name`
 </div>
@@ -93,9 +77,7 @@ Prefix to prepend to each Term identifier.
 </div>
 Name of the section that contains the term name.
 
-<a name="parentFeature">
-
-### parentFeature
+<h3 name="parentFeature" class="param">parentFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `is_a`
 </div>
@@ -103,9 +85,7 @@ Name of the section that contains the term name.
 </div>
 Name of the feature that contains the term parents.
 
-<a name="pathFeature">
-
-### pathFeature
+<h3 name="pathFeature" class="param">pathFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `path`
 </div>
@@ -113,9 +93,7 @@ Name of the feature that contains the term parents.
 </div>
 Name of the feature that contains the term paths.
 
-<a name="synonymSectionName">
-
-### synonymSectionName
+<h3 name="synonymSectionName" class="param">synonymSectionName</h3>
 
 <div class="param-level param-level-default-value">Default value: `synonym`
 </div>

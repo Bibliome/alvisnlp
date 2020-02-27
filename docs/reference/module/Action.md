@@ -6,15 +6,15 @@ Applies action expressions on selected elements.
 
 ## Description
 
-*Action* evaluates <a href="#target" class="param">target</a> as a list of elements, then it evaluates <a href="#action" class="param">action</a> on each element.
+*Action* evaluates <a href="#commit" class="param">commit</a> as a list of elements, then <a href="#target" class="param">target</a> as a list of elements on each commit element, then <a href="#action" class="param">action</a> on each target element.
 
 *Action* is useful when <a href="#action" class="param">action</a> is a side-effect expression. The side-effect expressions allowed are controlled by: <a href="#createDocuments" class="param">createDocuments</a>, <a href="#createSections" class="param">createSections</a>, <a href="#createRelations" class="param">createRelations</a>, <a href="#createTuples" class="param">createTuples</a>, <a href="#createAnnotations" class="param">createAnnotations</a>, <a href="#setArguments" class="param">setArguments</a>, <a href="#setFeatures" class="param">setFeatures</a> and <a href="#deleteElements" class="param">deleteElements</a>. If these parameters are not set to true then *Action* will refuse to evaluate the corresponding side-effect expressions.
 
+*Action* commits the changes on the data structure when each <a href="#commit" class="param">commit</a> element is done. When processing very large corpora, set <a href="#commit" class="param">commit</a> to reach documents or sections.
+
 ## Parameters
 
-<a name="action">
-
-### action
+<h3 name="action" class="param">action</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,69 +22,55 @@ Applies action expressions on selected elements.
 </div>
 Action to perform on each result of <a href="#target" class="param">target</a>.
 
-<a name="target">
-
-### target
+<h3 name="target" class="param">target</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Elements on which to perform the action. The expression is evaluated as a list of elements with the corpus as the context element.
+Elements on which to perform the action. The expression is evaluated as a list of elements with the commit element as the context element.
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each annotation created by this module
+Constant features to add to each annotation created by this module.
 
-<a name="constantDocumentFeatures">
-
-### constantDocumentFeatures
+<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each document created by this module
+Constant features to add to each document created by this module.
 
-<a name="constantRelationFeatures">
-
-### constantRelationFeatures
+<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each relation created by this module
+Constant features to add to each relation created by this module.
 
-<a name="constantSectionFeatures">
-
-### constantSectionFeatures
+<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each section created by this module
+Constant features to add to each section created by this module.
 
-<a name="constantTupleFeatures">
-
-### constantTupleFeatures
+<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each tuple created by this module
+Constant features to add to each tuple created by this module.
 
-<a name="addToLayer">
-
-### addToLayer
+<h3 name="addToLayer" class="param">addToLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -92,9 +78,15 @@ Constant features to add to each tuple created by this module
 </div>
 Allow to add annotations to layers.
 
-<a name="createAnnotations">
+<h3 name="commit" class="param">commit</h3>
 
-### createAnnotations
+<div class="param-level param-level-default-value">Default value: `nav:$()`
+</div>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
+Elements after which to commit changes. The expression is evaluated as a list of elements with the corpus as the context element.
+
+<h3 name="createAnnotations" class="param">createAnnotations</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -102,9 +94,7 @@ Allow to add annotations to layers.
 </div>
 Allow the creation of annotations.
 
-<a name="createDocuments">
-
-### createDocuments
+<h3 name="createDocuments" class="param">createDocuments</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -112,9 +102,7 @@ Allow the creation of annotations.
 </div>
 Allow the creation of documents.
 
-<a name="createRelations">
-
-### createRelations
+<h3 name="createRelations" class="param">createRelations</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -122,9 +110,7 @@ Allow the creation of documents.
 </div>
 Allow the creation of relations.
 
-<a name="createSections">
-
-### createSections
+<h3 name="createSections" class="param">createSections</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -132,9 +118,7 @@ Allow the creation of relations.
 </div>
 Allow the creation of sections.
 
-<a name="createTuples">
-
-### createTuples
+<h3 name="createTuples" class="param">createTuples</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -142,9 +126,7 @@ Allow the creation of sections.
 </div>
 Allow to create tuples.
 
-<a name="deleteElements">
-
-### deleteElements
+<h3 name="deleteElements" class="param">deleteElements</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -152,9 +134,7 @@ Allow to create tuples.
 </div>
 Allow to delete elements.
 
-<a name="removeFromLayer">
-
-### removeFromLayer
+<h3 name="removeFromLayer" class="param">removeFromLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -162,9 +142,7 @@ Allow to delete elements.
 </div>
 Allow to remove annotations from layers.
 
-<a name="setArguments">
-
-### setArguments
+<h3 name="setArguments" class="param">setArguments</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -172,9 +150,7 @@ Allow to remove annotations from layers.
 </div>
 Allow to set tuple arguments.
 
-<a name="setFeatures">
-
-### setFeatures
+<h3 name="setFeatures" class="param">setFeatures</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>

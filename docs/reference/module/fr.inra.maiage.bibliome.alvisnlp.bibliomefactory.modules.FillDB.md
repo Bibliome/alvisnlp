@@ -12,9 +12,7 @@ Stores the corpus into a SQL database.
 
 ## Parameters
 
-<a name="password">
-
-### password
+<h3 name="password" class="param">password</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,9 +20,7 @@ Stores the corpus into a SQL database.
 </div>
 Password for RDBMS access.
 
-<a name="schema">
-
-### schema
+<h3 name="schema" class="param">schema</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -32,9 +28,7 @@ Password for RDBMS access.
 </div>
 Schema of the filled tables.
 
-<a name="url">
-
-### url
+<h3 name="url" class="param">url</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -42,9 +36,7 @@ Schema of the filled tables.
 </div>
 URL of the database.
 
-<a name="username">
-
-### username
+<h3 name="username" class="param">username</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -52,9 +44,7 @@ URL of the database.
 </div>
 User for RDBMS access.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -62,9 +52,7 @@ User for RDBMS access.
 </div>
 Only process document that satisfy this filter.
 
-<a name="jdbcDriver">
-
-### jdbcDriver
+<h3 name="jdbcDriver" class="param">jdbcDriver</h3>
 
 <div class="param-level param-level-default-value">Default value: `org.postgresql.Driver`
 </div>
@@ -72,9 +60,7 @@ Only process document that satisfy this filter.
 </div>
 JDBC driver for the RDBMS.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>

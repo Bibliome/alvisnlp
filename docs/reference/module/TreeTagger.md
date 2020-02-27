@@ -18,9 +18,7 @@ If <a href="#recordDir" class="param">recordDir</a> and <a href="#recordFeatures
 
 ## Parameters
 
-<a name="parFile">
-
-### parFile
+<h3 name="parFile" class="param">parFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -28,9 +26,7 @@ If <a href="#recordDir" class="param">recordDir</a> and <a href="#recordFeatures
 </div>
 Path to the language model file.
 
-<a name="treeTaggerExecutable">
-
-### treeTaggerExecutable
+<h3 name="treeTaggerExecutable" class="param">treeTaggerExecutable</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -38,19 +34,15 @@ Path to the language model file.
 </div>
 Path to the tree-tagger executable file.
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each annotation created by this module
+Constant features to add to each annotation created by this module.
 
-<a name="lexiconFile">
-
-### lexiconFile
+<h3 name="lexiconFile" class="param">lexiconFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -58,9 +50,7 @@ Constant features to add to each annotation created by this module
 </div>
 Path to a tree-tagger lexicon file, if set the lexicon will be applied to the corpus before treetagger processes it.
 
-<a name="recordDir">
-
-### recordDir
+<h3 name="recordDir" class="param">recordDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -68,9 +58,7 @@ Path to a tree-tagger lexicon file, if set the lexicon will be applied to the co
 </div>
 Path to the directory where to write tree-tagger result files (one file per section).
 
-<a name="recordFeatures">
-
-### recordFeatures
+<h3 name="recordFeatures" class="param">recordFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -78,19 +66,15 @@ Path to the directory where to write tree-tagger result files (one file per sect
 </div>
 List of attributes to display in result files.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="formFeature">
-
-### formFeature
+<h3 name="formFeature" class="param">formFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `form`
 </div>
@@ -98,9 +82,7 @@ Only process document that satisfy this filter.
 </div>
 Name of the feature denoting the token surface form.
 
-<a name="inputCharset">
-
-### inputCharset
+<h3 name="inputCharset" class="param">inputCharset</h3>
 
 <div class="param-level param-level-default-value">Default value: `ISO-8859-1`
 </div>
@@ -108,9 +90,7 @@ Name of the feature denoting the token surface form.
 </div>
 Tree-tagger input corpus character set.
 
-<a name="lemmaFeature">
-
-### lemmaFeature
+<h3 name="lemmaFeature" class="param">lemmaFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `lemma`
 </div>
@@ -118,9 +98,7 @@ Tree-tagger input corpus character set.
 </div>
 Name of the feature to set with the lemma.
 
-<a name="noUnknownLemma">
-
-### noUnknownLemma
+<h3 name="noUnknownLemma" class="param">noUnknownLemma</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -128,9 +106,7 @@ Name of the feature to set with the lemma.
 </div>
 Either to replace unknown lemmas with the surface form.
 
-<a name="outputCharset">
-
-### outputCharset
+<h3 name="outputCharset" class="param">outputCharset</h3>
 
 <div class="param-level param-level-default-value">Default value: `ISO-8859-1`
 </div>
@@ -138,9 +114,7 @@ Either to replace unknown lemmas with the surface form.
 </div>
 Tree-tagger output character set.
 
-<a name="posFeature">
-
-### posFeature
+<h3 name="posFeature" class="param">posFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `pos`
 </div>
@@ -148,9 +122,7 @@ Tree-tagger output character set.
 </div>
 Name of the feature to set with the POS tag.
 
-<a name="recordCharset">
-
-### recordCharset
+<h3 name="recordCharset" class="param">recordCharset</h3>
 
 <div class="param-level param-level-default-value">Default value: `UTF-8`
 </div>
@@ -158,19 +130,15 @@ Name of the feature to set with the POS tag.
 </div>
 Character encoding of the result files.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Process only sections that satisfy this filter.
+Process only sections that satisfy this expression.
 
-<a name="sentenceLayerName">
-
-### sentenceLayerName
+<h3 name="sentenceLayerName" class="param">sentenceLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -178,9 +146,7 @@ Process only sections that satisfy this filter.
 </div>
 Name of the layer containing sentence annotations, sentences are reinforced.
 
-<a name="wordLayerName">
-
-### wordLayerName
+<h3 name="wordLayerName" class="param">wordLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>

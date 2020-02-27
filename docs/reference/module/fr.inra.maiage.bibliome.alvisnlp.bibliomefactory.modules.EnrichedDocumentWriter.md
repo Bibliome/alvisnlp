@@ -10,9 +10,7 @@ Writes the corpus in the infamous Alvis Enriched Document Format suitable for in
 
 ## Parameters
 
-<a name="idMetaFeature">
-
-### idMetaFeature
+<h3 name="idMetaFeature" class="param">idMetaFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,9 +18,7 @@ Writes the corpus in the infamous Alvis Enriched Document Format suitable for in
 </div>
 Metadata key for the document id.
 
-<a name="metaTrans">
-
-### metaTrans
+<h3 name="metaTrans" class="param">metaTrans</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,9 +26,7 @@ Metadata key for the document id.
 </div>
 Metadata key translation.
 
-<a name="neLayerName">
-
-### neLayerName
+<h3 name="neLayerName" class="param">neLayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,9 +34,7 @@ Metadata key translation.
 </div>
 Name of the layer containing named entity annotations.
 
-<a name="outDir">
-
-### outDir
+<h3 name="outDir" class="param">outDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -50,9 +42,7 @@ Name of the layer containing named entity annotations.
 </div>
 Path to the directory where to write files.
 
-<a name="outFilePrefix">
-
-### outFilePrefix
+<h3 name="outFilePrefix" class="param">outFilePrefix</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -60,9 +50,7 @@ Path to the directory where to write files.
 </div>
 Prefix of the name of generated files.
 
-<a name="termCanonicalFormFeature">
-
-### termCanonicalFormFeature
+<h3 name="termCanonicalFormFeature" class="param">termCanonicalFormFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -70,9 +58,7 @@ Prefix of the name of generated files.
 </div>
 Name of the feature containing the term canonical form.
 
-<a name="termLayerName">
-
-### termLayerName
+<h3 name="termLayerName" class="param">termLayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -80,9 +66,7 @@ Name of the feature containing the term canonical form.
 </div>
 Name of the layer containing the term annotations.
 
-<a name="tokenLayerName">
-
-### tokenLayerName
+<h3 name="tokenLayerName" class="param">tokenLayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -90,9 +74,7 @@ Name of the layer containing the term annotations.
 </div>
 Name of the layer containing token annotations.
 
-<a name="tokenTypeFeature">
-
-### tokenTypeFeature
+<h3 name="tokenTypeFeature" class="param">tokenTypeFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -100,9 +82,7 @@ Name of the layer containing token annotations.
 </div>
 Name of the feature in token annotations containing the token type.
 
-<a name="urlPrefix">
-
-### urlPrefix
+<h3 name="urlPrefix" class="param">urlPrefix</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -110,9 +90,7 @@ Name of the feature in token annotations containing the token type.
 </div>
 Prefix for the document URL.
 
-<a name="semanticFeature">
-
-### semanticFeature
+<h3 name="semanticFeature" class="param">semanticFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -120,9 +98,7 @@ Prefix for the document URL.
 </div>
 Name of the feature containing semantic features of named entities and terms.
 
-<a name="blockSize">
-
-### blockSize
+<h3 name="blockSize" class="param">blockSize</h3>
 
 <div class="param-level param-level-default-value">Default value: `100`
 </div>
@@ -130,9 +106,7 @@ Name of the feature containing semantic features of named entities and terms.
 </div>
 Number of documents in each document block.
 
-<a name="blockStart">
-
-### blockStart
+<h3 name="blockStart" class="param">blockStart</h3>
 
 <div class="param-level param-level-default-value">Default value: `0`
 </div>
@@ -140,9 +114,7 @@ Number of documents in each document block.
 </div>
 Start point for document block numbering.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -150,9 +122,7 @@ Start point for document block numbering.
 </div>
 Only process document that satisfy this filter.
 
-<a name="lemmaFeature">
-
-### lemmaFeature
+<h3 name="lemmaFeature" class="param">lemmaFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `lemma`
 </div>
@@ -160,9 +130,7 @@ Only process document that satisfy this filter.
 </div>
 Name of the feature in word annotations containing the lemma.
 
-<a name="neCanonicalFormFeature">
-
-### neCanonicalFormFeature
+<h3 name="neCanonicalFormFeature" class="param">neCanonicalFormFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `lemma`
 </div>
@@ -170,19 +138,15 @@ Name of the feature in word annotations containing the lemma.
 </div>
 Name of the feature in named entity annotations containing the canonical form.
 
-<a name="neTypeFeature">
+<h3 name="neTypeFeature" class="param">neTypeFeature</h3>
 
-### neTypeFeature
-
-<div class="param-level param-level-default-value">Default value: `neType`
+<div class="param-level param-level-default-value">Default value: `ne-type`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the feature in named entity annotations containing the named entity type.
 
-<a name="outFileSuffix">
-
-### outFileSuffix
+<h3 name="outFileSuffix" class="param">outFileSuffix</h3>
 
 <div class="param-level param-level-default-value">Default value: `.sem`
 </div>
@@ -190,9 +154,7 @@ Name of the feature in named entity annotations containing the named entity type
 </div>
 Suffix of the name of generated files.
 
-<a name="posFeature">
-
-### posFeature
+<h3 name="posFeature" class="param">posFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `pos`
 </div>
@@ -200,9 +162,7 @@ Suffix of the name of generated files.
 </div>
 Name of the feature in word annotations containing the POS tag.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -210,9 +170,7 @@ Name of the feature in word annotations containing the POS tag.
 </div>
 Process only sections that satisfy this filter.
 
-<a name="sentenceLayerName">
-
-### sentenceLayerName
+<h3 name="sentenceLayerName" class="param">sentenceLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -220,9 +178,7 @@ Process only sections that satisfy this filter.
 </div>
 Name of the layer containing sentence annotations.
 
-<a name="urlSuffixFeature">
-
-### urlSuffixFeature
+<h3 name="urlSuffixFeature" class="param">urlSuffixFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `id`
 </div>
@@ -230,9 +186,7 @@ Name of the layer containing sentence annotations.
 </div>
 Document feature to use as the URL suffix.
 
-<a name="wordLayerName">
-
-### wordLayerName
+<h3 name="wordLayerName" class="param">wordLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>

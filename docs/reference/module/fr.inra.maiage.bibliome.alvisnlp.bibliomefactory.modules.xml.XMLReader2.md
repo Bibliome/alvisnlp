@@ -10,9 +10,7 @@ Deprecated alias for <a href="../module/XMLReader" class="module">XMLReader</a>.
 
 ## Parameters
 
-<a name="sourcePath">
-
-### sourcePath
+<h3 name="sourcePath" class="param">sourcePath</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,9 +18,7 @@ Deprecated alias for <a href="../module/XMLReader" class="module">XMLReader</a>.
 </div>
 Path to the source directory or source file.
 
-<a name="xslTransform">
-
-### xslTransform
+<h3 name="xslTransform" class="param">xslTransform</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,9 +26,7 @@ Path to the source directory or source file.
 </div>
 XSLT Stylesheet to apply on the input.
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,9 +34,7 @@ XSLT Stylesheet to apply on the input.
 </div>
 Constant features to add to each annotation created by this module
 
-<a name="constantDocumentFeatures">
-
-### constantDocumentFeatures
+<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -50,9 +42,7 @@ Constant features to add to each annotation created by this module
 </div>
 Constant features to add to each document created by this module
 
-<a name="constantRelationFeatures">
-
-### constantRelationFeatures
+<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -60,9 +50,7 @@ Constant features to add to each document created by this module
 </div>
 Constant features to add to each relation created by this module
 
-<a name="constantSectionFeatures">
-
-### constantSectionFeatures
+<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -70,9 +58,7 @@ Constant features to add to each relation created by this module
 </div>
 Constant features to add to each section created by this module
 
-<a name="constantTupleFeatures">
-
-### constantTupleFeatures
+<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -80,9 +66,7 @@ Constant features to add to each section created by this module
 </div>
 Constant features to add to each tuple created by this module
 
-<a name="stringParams">
-
-### stringParams
+<h3 name="stringParams" class="param">stringParams</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -90,9 +74,7 @@ Constant features to add to each tuple created by this module
 </div>
 Parameters to pass to the XSLT Stylesheet specified by <a href="#xslTransform" class="param">xslTransform</a>.
 
-<a name="html">
-
-### html
+<h3 name="html" class="param">html</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -100,9 +82,7 @@ Parameters to pass to the XSLT Stylesheet specified by <a href="#xslTransform" c
 </div>
 Set to true if the input is HTML rather than XML.
 
-<a name="rawTagNames">
-
-### rawTagNames
+<h3 name="rawTagNames" class="param">rawTagNames</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>

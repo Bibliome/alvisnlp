@@ -10,9 +10,7 @@ Sequence of documents.
 
 ## Parameters
 
-<a name="select">
-
-### select
+<h3 name="select" class="param">select</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>

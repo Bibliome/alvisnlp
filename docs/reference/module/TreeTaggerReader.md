@@ -15,19 +15,7 @@ The document identifier is the path of the corresponding file.
 
 ## Parameters
 
-<a name="sectionName">
-
-### sectionName
-
-<div class="param-level param-level-optional">Optional
-</div>
-<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
-</div>
-Name of the section of each document.
-
-<a name="sourcePath">
-
-### sourcePath
+<h3 name="sourcePath" class="param">sourcePath</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -35,39 +23,31 @@ Name of the section of each document.
 </div>
 Path to the source directory or source file.
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each annotation created by this module
+Constant features to add to each annotation created by this module.
 
-<a name="constantDocumentFeatures">
-
-### constantDocumentFeatures
+<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each document created by this module
+Constant features to add to each document created by this module.
 
-<a name="constantSectionFeatures">
-
-### constantSectionFeatures
+<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each section created by this module
+Constant features to add to each section created by this module.
 
-<a name="lemmaFeatureKey">
-
-### lemmaFeatureKey
+<h3 name="lemmaFeatureKey" class="param">lemmaFeatureKey</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -75,9 +55,7 @@ Constant features to add to each section created by this module
 </div>
 Name of the feature where to store word lemmas.
 
-<a name="posFeatureKey">
-
-### posFeatureKey
+<h3 name="posFeatureKey" class="param">posFeatureKey</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -85,9 +63,7 @@ Name of the feature where to store word lemmas.
 </div>
 Name of the feature where to store word POS tags.
 
-<a name="charset">
-
-### charset
+<h3 name="charset" class="param">charset</h3>
 
 <div class="param-level param-level-default-value">Default value: `UTF-8`
 </div>
@@ -95,9 +71,15 @@ Name of the feature where to store word POS tags.
 </div>
 Character set of input files.
 
-<a name="sentenceLayerName">
+<h3 name="sectionName" class="param">sectionName</h3>
 
-### sentenceLayerName
+<div class="param-level param-level-default-value">Default value: `text`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Name of the section of each document.
+
+<h3 name="sentenceLayerName" class="param">sentenceLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -105,9 +87,7 @@ Character set of input files.
 </div>
 Name of the layer where to store sentence annotations.
 
-<a name="wordLayerName">
-
-### wordLayerName
+<h3 name="wordLayerName" class="param">wordLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>

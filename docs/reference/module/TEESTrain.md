@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-Train a model that predict an Alvis relation with TEES Trainer
+Train a model that can be used to predict binary relations using TEES 
 
 ## Description
 
@@ -10,9 +10,7 @@ Train a model that predict an Alvis relation with TEES Trainer
 
 ## Parameters
 
-<a name="modelTargetDir">
-
-### modelTargetDir
+<h3 name="modelTargetDir" class="param">modelTargetDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,19 +18,23 @@ Train a model that predict an Alvis relation with TEES Trainer
 </div>
  Path to the directory where put the trained model
 
-<a name="namedEntityLayerName">
-
-### namedEntityLayerName
+<h3 name="namedEntityLayerName" class="param">namedEntityLayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
- Name of the layer containing the named entities 
+Name of the layer containing the named entities.
 
-<a name="schema">
+<h3 name="python2Executable" class="param">python2Executable</h3>
 
-### schema
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.ExecutableFile" class="converter">ExecutableFile</a>
+</div>
+Path to the Python 2 executable, TEES will fail if run through Python 3.
+
+<h3 name="schema" class="param">schema</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -50,39 +52,31 @@ Train a model that predict an Alvis relation with TEES Trainer
 
 
 
-<a name="teesHome">
-
-### teesHome
+<h3 name="teesHome" class="param">teesHome</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
 </div>
- Path to tees home directory. 
+Path to the TEES home directory.
 
-<a name="constantRelationFeatures">
-
-### constantRelationFeatures
+<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-UNDOCUMENTED
+Constant features to add to each relation created by this module.
 
-<a name="constantTupleFeatures">
-
-### constantTupleFeatures
+<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-UNDOCUMENTED
+Constant features to add to each tuple created by this module.
 
-<a name="corpusSetFeature">
-
-### corpusSetFeature
+<h3 name="corpusSetFeature" class="param">corpusSetFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `set`
 </div>
@@ -90,9 +84,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="devSetValue">
-
-### devSetValue
+<h3 name="devSetValue" class="param">devSetValue</h3>
 
 <div class="param-level param-level-default-value">Default value: `dev`
 </div>
@@ -100,19 +92,15 @@ UNDOCUMENTED
 </div>
  Feature key of the dev set corpus. 
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-UNDOCUMENTED
+Only process document that satisfy this expression.
 
-<a name="modelName">
-
-### modelName
+<h3 name="modelName" class="param">modelName</h3>
 
 <div class="param-level param-level-default-value">Default value: `test-model`
 </div>
@@ -120,59 +108,47 @@ UNDOCUMENTED
 </div>
  give a name to the trained model
 
-<a name="namedEntityTypeFeature">
+<h3 name="namedEntityTypeFeature" class="param">namedEntityTypeFeature</h3>
 
-### namedEntityTypeFeature
-
-<div class="param-level param-level-default-value">Default value: `neType`
+<div class="param-level param-level-default-value">Default value: `ne-type`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
- Name of the feature to access the type of the named entities 
+Name of the feature to access the type of the named entities.
 
-<a name="omitSteps">
+<h3 name="omitSteps" class="param">omitSteps</h3>
 
-### omitSteps
-
-<div class="param-level param-level-default-value">Default value: `SPLIT-SENTENCES,NER`
+<div class="param-level param-level-default-value">Default value: `GENIA_SPLITTER,BANNER`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
- Set the preprocessing steps to omit in the form of [SPLIT-SENTENCES][,NER][,PARSE][,FIND-HEADS]
+Set the preprocessing steps to ignore in the form of [GENIA_SPLITTER][,BANNER][,BLLIP_BIO][,STANFORD_CONVERT][,SPLIT_NAMES][,FIND_HEADS] 
 
-<a name="posFeature">
-
-### posFeature
+<h3 name="posFeature" class="param">posFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `pos`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Name of the feature containing the POS-tag.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, boolean:and(nav:layer:words(), nav:layer:sentences()))`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-UNDOCUMENTED
+Process only sections that satisfy this expression.
 
-<a name="sentenceLayerName">
-
-### sentenceLayerName
+<h3 name="sentenceLayerName" class="param">sentenceLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Name of the layer that contains sentence annotations.
 
-<a name="testSetValue">
-
-### testSetValue
+<h3 name="testSetValue" class="param">testSetValue</h3>
 
 <div class="param-level param-level-default-value">Default value: `test`
 </div>
@@ -180,19 +156,15 @@ UNDOCUMENTED
 </div>
  Feature key of the test set corpus. 
 
-<a name="tokenLayerName">
-
-### tokenLayerName
+<h3 name="tokenLayerName" class="param">tokenLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Name of the layer that contains tokens.
 
-<a name="trainSetValue">
-
-### trainSetValue
+<h3 name="trainSetValue" class="param">trainSetValue</h3>
 
 <div class="param-level param-level-default-value">Default value: `train`
 </div>

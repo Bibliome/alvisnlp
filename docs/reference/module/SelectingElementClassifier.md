@@ -10,9 +10,7 @@ Deprecated alias for <a href="../module/WekaSelectAttributes" class="module">Wek
 
 ## Parameters
 
-<a name="evaluationFile">
-
-### evaluationFile
+<h3 name="evaluationFile" class="param">evaluationFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,9 +18,7 @@ Deprecated alias for <a href="../module/WekaSelectAttributes" class="module">Wek
 </div>
 UNDOCUMENTED
 
-<a name="evaluator">
-
-### evaluator
+<h3 name="evaluator" class="param">evaluator</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,9 +26,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="examples">
-
-### examples
+<h3 name="examples" class="param">examples</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,9 +34,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="relationDefinition">
-
-### relationDefinition
+<h3 name="relationDefinition" class="param">relationDefinition</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -50,9 +42,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="evaluatorOptions">
-
-### evaluatorOptions
+<h3 name="evaluatorOptions" class="param">evaluatorOptions</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -60,9 +50,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="search">
-
-### search
+<h3 name="search" class="param">search</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -70,9 +58,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="searchOptions">
-
-### searchOptions
+<h3 name="searchOptions" class="param">searchOptions</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>

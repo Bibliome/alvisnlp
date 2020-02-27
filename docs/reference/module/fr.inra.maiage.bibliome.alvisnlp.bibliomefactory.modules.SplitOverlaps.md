@@ -17,9 +17,7 @@ Splits overlapping annotations.
 
 ## Parameters
 
-<a name="checkedlayerNames">
-
-### checkedlayerNames
+<h3 name="checkedlayerNames" class="param">checkedlayerNames</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -27,9 +25,7 @@ Splits overlapping annotations.
 </div>
 Source layers.
 
-<a name="modifiedlayerName">
-
-### modifiedlayerName
+<h3 name="modifiedlayerName" class="param">modifiedlayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -37,9 +33,7 @@ Source layers.
 </div>
 Target layer.
 
-<a name="indexFeatureName">
-
-### indexFeatureName
+<h3 name="indexFeatureName" class="param">indexFeatureName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -47,23 +41,19 @@ Target layer.
 </div>
 Feature where to store the index of the split annotations.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Process only sections that satisfy this filter.
+Process only sections that satisfy this expression.
 

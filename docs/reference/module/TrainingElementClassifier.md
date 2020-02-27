@@ -10,9 +10,7 @@ Deprecated alias for <a href="../module/WekaTrain" class="module">WekaTrain</a>.
 
 ## Parameters
 
-<a name="algorithm">
-
-### algorithm
+<h3 name="algorithm" class="param">algorithm</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,9 +18,7 @@ Deprecated alias for <a href="../module/WekaTrain" class="module">WekaTrain</a>.
 </div>
 UNDOCUMENTED
 
-<a name="classifierFile">
-
-### classifierFile
+<h3 name="classifierFile" class="param">classifierFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,9 +26,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="examples">
-
-### examples
+<h3 name="examples" class="param">examples</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,9 +34,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="relationDefinition">
-
-### relationDefinition
+<h3 name="relationDefinition" class="param">relationDefinition</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -50,9 +42,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="arffFile">
-
-### arffFile
+<h3 name="arffFile" class="param">arffFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -60,9 +50,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="classifierInfoFile">
-
-### classifierInfoFile
+<h3 name="classifierInfoFile" class="param">classifierInfoFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -70,9 +58,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="classifierOptions">
-
-### classifierOptions
+<h3 name="classifierOptions" class="param">classifierOptions</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -80,9 +66,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="crossFolds">
-
-### crossFolds
+<h3 name="crossFolds" class="param">crossFolds</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -90,9 +74,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="evaluationFile">
-
-### evaluationFile
+<h3 name="evaluationFile" class="param">evaluationFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -100,9 +82,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="foldFeatureKey">
-
-### foldFeatureKey
+<h3 name="foldFeatureKey" class="param">foldFeatureKey</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -110,9 +90,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="predictedClassFeatureKey">
-
-### predictedClassFeatureKey
+<h3 name="predictedClassFeatureKey" class="param">predictedClassFeatureKey</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -120,9 +98,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="randomSeed">
-
-### randomSeed
+<h3 name="randomSeed" class="param">randomSeed</h3>
 
 <div class="param-level param-level-default-value">Default value: `1`
 </div>

@@ -10,9 +10,7 @@ Deprecated alias for <a href="../module/WekaPredict" class="module">WekaPredict<
 
 ## Parameters
 
-<a name="classifierFile">
-
-### classifierFile
+<h3 name="classifierFile" class="param">classifierFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,9 +18,7 @@ Deprecated alias for <a href="../module/WekaPredict" class="module">WekaPredict<
 </div>
 UNDOCUMENTED
 
-<a name="examples">
-
-### examples
+<h3 name="examples" class="param">examples</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,9 +26,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="predictedClassFeatureKey">
-
-### predictedClassFeatureKey
+<h3 name="predictedClassFeatureKey" class="param">predictedClassFeatureKey</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,9 +34,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="relationDefinition">
-
-### relationDefinition
+<h3 name="relationDefinition" class="param">relationDefinition</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -50,9 +42,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<a name="evaluationFile">
-
-### evaluationFile
+<h3 name="evaluationFile" class="param">evaluationFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>

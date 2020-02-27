@@ -13,8 +13,12 @@ mkdir -p reference/converter
 mkdir -p reference/library
 
 echo Clearing existing pages
-rm -f reference/*.md
-rm -f reference/*/*.md
+rm -f reference/Converter-list.md
+rm -f reference/Library-list.md
+rm -f reference/Module-list.md
+rm -f reference/converter/*.md
+rm -f reference/library/*.md
+rm -f reference/module/*.md
 
 echo Building module list
 build -supportedModulesXML >reference/Module-list.md

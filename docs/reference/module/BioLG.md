@@ -22,9 +22,7 @@ The BioLG output is directly fed to *lp2lp* executable specified by <a href="#lp
 
 ## Parameters
 
-<a name="linkageNumberFeature">
-
-### linkageNumberFeature
+<h3 name="linkageNumberFeature" class="param">linkageNumberFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -32,9 +30,7 @@ The BioLG output is directly fed to *lp2lp* executable specified by <a href="#lp
 </div>
 Name of the dependecy tuple feature containing the linkage number.
 
-<a name="lp2lpConf">
-
-### lp2lpConf
+<h3 name="lp2lpConf" class="param">lp2lpConf</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -42,9 +38,7 @@ Name of the dependecy tuple feature containing the linkage number.
 </div>
 Path to the lp2lp configuration file.
 
-<a name="lp2lpExecutable">
-
-### lp2lpExecutable
+<h3 name="lp2lpExecutable" class="param">lp2lpExecutable</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -52,9 +46,7 @@ Path to the lp2lp configuration file.
 </div>
 Path to the lp2lp executable.
 
-<a name="parserPath">
-
-### parserPath
+<h3 name="parserPath" class="param">parserPath</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -62,9 +54,7 @@ Path to the lp2lp executable.
 </div>
 Directory where BioLG is installed.
 
-<a name="constantRelationFeatures">
-
-### constantRelationFeatures
+<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -72,9 +62,7 @@ Directory where BioLG is installed.
 </div>
 Constant features to add to each relation created by this module
 
-<a name="constantTupleFeatures">
-
-### constantTupleFeatures
+<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -82,9 +70,7 @@ Constant features to add to each relation created by this module
 </div>
 Constant features to add to each tuple created by this module
 
-<a name="maxLinkages">
-
-### maxLinkages
+<h3 name="maxLinkages" class="param">maxLinkages</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -92,9 +78,7 @@ Constant features to add to each tuple created by this module
 </div>
 Maximum number of linkages to store.
 
-<a name="dependencyLabelFeature">
-
-### dependencyLabelFeature
+<h3 name="dependencyLabelFeature" class="param">dependencyLabelFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `label`
 </div>
@@ -102,9 +86,7 @@ Maximum number of linkages to store.
 </div>
 Name of the dependency tuple feature containing the dependency label.
 
-<a name="dependencyRelation">
-
-### dependencyRelation
+<h3 name="dependencyRelation" class="param">dependencyRelation</h3>
 
 <div class="param-level param-level-default-value">Default value: `dependencies`
 </div>
@@ -112,9 +94,7 @@ Name of the dependency tuple feature containing the dependency label.
 </div>
 Name of the relation containing the dependencies.
 
-<a name="dependentRole">
-
-### dependentRole
+<h3 name="dependentRole" class="param">dependentRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `dependent`
 </div>
@@ -122,9 +102,7 @@ Name of the relation containing the dependencies.
 </div>
 Name of the role of the modifier in the dependency relation.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -132,9 +110,7 @@ Name of the role of the modifier in the dependency relation.
 </div>
 Only process document that satisfy this filter.
 
-<a name="headRole">
-
-### headRole
+<h3 name="headRole" class="param">headRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `head`
 </div>
@@ -142,9 +118,7 @@ Only process document that satisfy this filter.
 </div>
 Name of the role of the head in the dependency relation.
 
-<a name="posFeature">
-
-### posFeature
+<h3 name="posFeature" class="param">posFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `pos`
 </div>
@@ -152,9 +126,7 @@ Name of the role of the head in the dependency relation.
 </div>
 Name of the feature in word annotations containing the POS tag.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, boolean:and(nav:layer:sentences(), nav:layer:words()))`
 </div>
@@ -162,9 +134,7 @@ Name of the feature in word annotations containing the POS tag.
 </div>
 Process only sections that satisfy this filter.
 
-<a name="sentenceFilter">
-
-### sentenceFilter
+<h3 name="sentenceFilter" class="param">sentenceFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -172,9 +142,7 @@ Process only sections that satisfy this filter.
 </div>
 Expression evaluated as a boolean for each sentence. *BioLG* only parses sentences for which the result is true.
 
-<a name="sentenceLayer">
-
-### sentenceLayer
+<h3 name="sentenceLayer" class="param">sentenceLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -182,9 +150,7 @@ Expression evaluated as a boolean for each sentence. *BioLG* only parses sentenc
 </div>
 Layer containing sentence annotations.
 
-<a name="sentenceRole">
-
-### sentenceRole
+<h3 name="sentenceRole" class="param">sentenceRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentence`
 </div>
@@ -192,9 +158,7 @@ Layer containing sentence annotations.
 </div>
 Name of the role of the sentence in the dependency relation.
 
-<a name="timeout">
-
-### timeout
+<h3 name="timeout" class="param">timeout</h3>
 
 <div class="param-level param-level-default-value">Default value: `120`
 </div>
@@ -202,9 +166,7 @@ Name of the role of the sentence in the dependency relation.
 </div>
 Time in seconds before entering in panic mode.
 
-<a name="union">
-
-### union
+<h3 name="union" class="param">union</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -212,9 +174,7 @@ Time in seconds before entering in panic mode.
 </div>
 Either to process unions.
 
-<a name="wordLayer">
-
-### wordLayer
+<h3 name="wordLayer" class="param">wordLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
@@ -222,9 +182,7 @@ Either to process unions.
 </div>
 Layer containing word annotations.
 
-<a name="wordNumberLimit">
-
-### wordNumberLimit
+<h3 name="wordNumberLimit" class="param">wordNumberLimit</h3>
 
 <div class="param-level param-level-default-value">Default value: `1000`
 </div>

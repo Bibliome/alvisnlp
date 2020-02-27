@@ -12,9 +12,7 @@ Reads PDF or DOC files and adds a document in the corpus for each file.
 
 ## Parameters
 
-<a name="source">
-
-### source
+<h3 name="source" class="param">source</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,39 +20,31 @@ Reads PDF or DOC files and adds a document in the corpus for each file.
 </div>
 Path to the source directory or source file.
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-UNDOCUMENTED
+Constant features to add to each annotation created by this module.
 
-<a name="constantDocumentFeatures">
-
-### constantDocumentFeatures
+<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each document created by this module
+Constant features to add to each document created by this module.
 
-<a name="constantSectionFeatures">
-
-### constantSectionFeatures
+<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each section created by this module
+Constant features to add to each section created by this module.
 
-<a name="htmlLayerName">
-
-### htmlLayerName
+<h3 name="htmlLayerName" class="param">htmlLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `html`
 </div>
@@ -62,9 +52,7 @@ Constant features to add to each section created by this module
 </div>
 
 
-<a name="sectionName">
-
-### sectionName
+<h3 name="sectionName" class="param">sectionName</h3>
 
 <div class="param-level param-level-default-value">Default value: `text`
 </div>
@@ -72,9 +60,7 @@ Constant features to add to each section created by this module
 </div>
 Name of the single section containing the whole contents of a file.
 
-<a name="tagFeatureName">
-
-### tagFeatureName
+<h3 name="tagFeatureName" class="param">tagFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `tag`
 </div>

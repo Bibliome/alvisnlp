@@ -10,9 +10,7 @@ Deprecated alias for <a href="../module/SimpleProjector" class="module">SimplePr
 
 ## Parameters
 
-<a name="dictFile">
-
-### dictFile
+<h3 name="dictFile" class="param">dictFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,9 +18,7 @@ Deprecated alias for <a href="../module/SimpleProjector" class="module">SimplePr
 </div>
 Source of the dictionary.
 
-<a name="targetLayerName">
-
-### targetLayerName
+<h3 name="targetLayerName" class="param">targetLayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,9 +26,7 @@ Source of the dictionary.
 </div>
 Name of the layer that contains the match annotations.
 
-<a name="valueFeatures">
-
-### valueFeatures
+<h3 name="valueFeatures" class="param">valueFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,9 +34,7 @@ Name of the layer that contains the match annotations.
 </div>
 Target features in match annotations. The values are the columns in the matched entry line.
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -50,9 +42,7 @@ Target features in match annotations. The values are the columns in the matched 
 </div>
 Constant features to add to each annotation created by this module
 
-<a name="trieSink">
-
-### trieSink
+<h3 name="trieSink" class="param">trieSink</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -60,9 +50,7 @@ Constant features to add to each annotation created by this module
 </div>
 If set, *SimpleProjector2* writes the compiled dictionary to the specified file.
 
-<a name="trieSource">
-
-### trieSource
+<h3 name="trieSource" class="param">trieSource</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -70,9 +58,7 @@ If set, *SimpleProjector2* writes the compiled dictionary to the specified file.
 </div>
 If set, read the compiled dictionary from the specified files. Compiled dictionaries are generally faster for large dictionaries.
 
-<a name="allUpperCaseInsensitive">
-
-### allUpperCaseInsensitive
+<h3 name="allUpperCaseInsensitive" class="param">allUpperCaseInsensitive</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -80,9 +66,7 @@ If set, read the compiled dictionary from the specified files. Compiled dictiona
 </div>
 Either the match allows case substitution on all characters in words that are all upper case.
 
-<a name="allowJoined">
-
-### allowJoined
+<h3 name="allowJoined" class="param">allowJoined</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -90,9 +74,7 @@ Either the match allows case substitution on all characters in words that are al
 </div>
 Either the match allows arbitrary suppression of whitespace characters in the subject. For instance, the contents *aminoacid* matches the entry *amino acid*.
 
-<a name="caseInsensitive">
-
-### caseInsensitive
+<h3 name="caseInsensitive" class="param">caseInsensitive</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -100,9 +82,7 @@ Either the match allows arbitrary suppression of whitespace characters in the su
 </div>
 Either the match allows case substitutions on all characters.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -110,9 +90,7 @@ Either the match allows case substitutions on all characters.
 </div>
 Only process document that satisfy this filter.
 
-<a name="ignoreDiacritics">
-
-### ignoreDiacritics
+<h3 name="ignoreDiacritics" class="param">ignoreDiacritics</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -120,9 +98,7 @@ Only process document that satisfy this filter.
 </div>
 Either the match allows dicacritics substitutions on all characters. For instance the contents *acide amine* matches the entry *acide aminé*.
 
-<a name="joinDash">
-
-### joinDash
+<h3 name="joinDash" class="param">joinDash</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -130,9 +106,7 @@ Either the match allows dicacritics substitutions on all characters. For instanc
 </div>
 Either to treat dash characters (-) as whitespace characters if <a href="#allowJoined" class="param">allowJoined</a> is `true`. For instance, the contents *aminoacid* matches the entry *amino-acid*.
 
-<a name="keyIndex">
-
-### keyIndex
+<h3 name="keyIndex" class="param">keyIndex</h3>
 
 <div class="param-level param-level-default-value">Default value: `0`
 </div>
@@ -140,9 +114,7 @@ Either to treat dash characters (-) as whitespace characters if <a href="#allowJ
 </div>
 Specifies the key column index (starting at 0).
 
-<a name="matchStartCaseInsensitive">
-
-### matchStartCaseInsensitive
+<h3 name="matchStartCaseInsensitive" class="param">matchStartCaseInsensitive</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -150,9 +122,7 @@ Specifies the key column index (starting at 0).
 </div>
 Either the match allows case substitution on the first character of the entry key.
 
-<a name="multipleEntryBehaviour">
-
-### multipleEntryBehaviour
+<h3 name="multipleEntryBehaviour" class="param">multipleEntryBehaviour</h3>
 
 <div class="param-level param-level-default-value">Default value: `all`
 </div>
@@ -160,9 +130,7 @@ Either the match allows case substitution on the first character of the entry ke
 </div>
 Specifies the behavious of *SimpleProjector2* if <a href="#dictFile" class="param">dictFile</a> contains several entries with the same key.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -170,9 +138,7 @@ Specifies the behavious of *SimpleProjector2* if <a href="#dictFile" class="para
 </div>
 Process only sections that satisfy this filter.
 
-<a name="separator">
-
-### separator
+<h3 name="separator" class="param">separator</h3>
 
 <div class="param-level param-level-default-value">Default value: `	`
 </div>
@@ -180,9 +146,7 @@ Process only sections that satisfy this filter.
 </div>
 Specifies the character that separates columns in <a href="#dictFile" class="param">dictFile</a>.
 
-<a name="skipBlank">
-
-### skipBlank
+<h3 name="skipBlank" class="param">skipBlank</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -190,9 +154,7 @@ Specifies the character that separates columns in <a href="#dictFile" class="par
 </div>
 In <a href="#dictFile" class="param">dictFile</a>, skip lines that contain only whitespace characters.
 
-<a name="skipConsecutiveWhitespaces">
-
-### skipConsecutiveWhitespaces
+<h3 name="skipConsecutiveWhitespaces" class="param">skipConsecutiveWhitespaces</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -200,9 +162,7 @@ In <a href="#dictFile" class="param">dictFile</a>, skip lines that contain only 
 </div>
 Either the match allows insertion of consecutive whitespace characters in the subject. For instance, the contents *amino  acid* matches the entry *amino acid*.
 
-<a name="skipEmpty">
-
-### skipEmpty
+<h3 name="skipEmpty" class="param">skipEmpty</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -210,9 +170,7 @@ Either the match allows insertion of consecutive whitespace characters in the su
 </div>
 In <a href="#dictFile" class="param">dictFile</a>, skip empty lines.
 
-<a name="skipWhitespace">
-
-### skipWhitespace
+<h3 name="skipWhitespace" class="param">skipWhitespace</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -220,9 +178,7 @@ In <a href="#dictFile" class="param">dictFile</a>, skip empty lines.
 </div>
 Either the match allows arbitrary insertion of whitespace characters in the subject. For instance, the contents *amino acid* matches the entry *aminoacid*.
 
-<a name="strictColumnNumber">
-
-### strictColumnNumber
+<h3 name="strictColumnNumber" class="param">strictColumnNumber</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -230,9 +186,7 @@ Either the match allows arbitrary insertion of whitespace characters in the subj
 </div>
 Either to check that every line in <a href="#dictFile" class="param">dictFile</a> has the same number of columns as the number of features specified in <a href="#entryFeatureNames" class="param">entryFeatureNames</a>.
 
-<a name="subject">
-
-### subject
+<h3 name="subject" class="param">subject</h3>
 
 <div class="param-level param-level-default-value">Default value: `WORD`
 </div>
@@ -240,9 +194,7 @@ Either to check that every line in <a href="#dictFile" class="param">dictFile</a
 </div>
 Specifies the contents to match.
 
-<a name="trimColumns">
-
-### trimColumns
+<h3 name="trimColumns" class="param">trimColumns</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -250,9 +202,7 @@ Specifies the contents to match.
 </div>
 Either to trim column values in <a href="#dictFile" class="param">dictFile</a> from leading and trailing whitespace characters.
 
-<a name="wordStartCaseInsensitive">
-
-### wordStartCaseInsensitive
+<h3 name="wordStartCaseInsensitive" class="param">wordStartCaseInsensitive</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>

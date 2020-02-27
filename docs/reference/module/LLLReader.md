@@ -10,9 +10,7 @@ Read files and annotations in [LLL format](XXX).
 
 ## Parameters
 
-<a name="source">
-
-### source
+<h3 name="source" class="param">source</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,59 +18,47 @@ Read files and annotations in [LLL format](XXX).
 </div>
 Path of the file or directory, or URL, containg the files to import.
 
-<a name="constantAnnotationFeatures">
-
-### constantAnnotationFeatures
+<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each annotation created by this module
+Constant features to add to each annotation created by this module.
 
-<a name="constantDocumentFeatures">
-
-### constantDocumentFeatures
+<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each document created by this module
+Constant features to add to each document created by this module.
 
-<a name="constantRelationFeatures">
-
-### constantRelationFeatures
+<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each relation created by this module
+Constant features to add to each relation created by this module.
 
-<a name="constantSectionFeatures">
-
-### constantSectionFeatures
+<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each section created by this module
+Constant features to add to each section created by this module.
 
-<a name="constantTupleFeatures">
-
-### constantTupleFeatures
+<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
-Constant features to add to each tuple created by this module
+Constant features to add to each tuple created by this module.
 
-<a name="agentFeatureName">
-
-### agentFeatureName
+<h3 name="agentFeatureName" class="param">agentFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `agent`
 </div>
@@ -80,9 +66,7 @@ Constant features to add to each tuple created by this module
 </div>
 Feature that has the value `yes` for entities that represent an agent.
 
-<a name="dependenciesRelationName">
-
-### dependenciesRelationName
+<h3 name="dependenciesRelationName" class="param">dependenciesRelationName</h3>
 
 <div class="param-level param-level-default-value">Default value: `dependencies`
 </div>
@@ -90,9 +74,7 @@ Feature that has the value `yes` for entities that represent an agent.
 </div>
 Name of the relation whose tuples represent dependencies.
 
-<a name="dependencyLabelFeatureName">
-
-### dependencyLabelFeatureName
+<h3 name="dependencyLabelFeatureName" class="param">dependencyLabelFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `label`
 </div>
@@ -100,9 +82,7 @@ Name of the relation whose tuples represent dependencies.
 </div>
 Feature where to store the dependency label.
 
-<a name="dependentRole">
-
-### dependentRole
+<h3 name="dependentRole" class="param">dependentRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `dependent`
 </div>
@@ -110,9 +90,7 @@ Feature where to store the dependency label.
 </div>
 Name of the role of the argument that represent the dependency dependent.
 
-<a name="genicAgentRole">
-
-### genicAgentRole
+<h3 name="genicAgentRole" class="param">genicAgentRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `agent`
 </div>
@@ -120,9 +98,7 @@ Name of the role of the argument that represent the dependency dependent.
 </div>
 Role of the argument that represent the genic interaction target.
 
-<a name="genicInteractionRelationName">
-
-### genicInteractionRelationName
+<h3 name="genicInteractionRelationName" class="param">genicInteractionRelationName</h3>
 
 <div class="param-level param-level-default-value">Default value: `genicInteraction`
 </div>
@@ -130,9 +106,7 @@ Role of the argument that represent the genic interaction target.
 </div>
 Name of the relation whose tuples represent genic interactions.
 
-<a name="genicTargetRole">
-
-### genicTargetRole
+<h3 name="genicTargetRole" class="param">genicTargetRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `target`
 </div>
@@ -140,9 +114,7 @@ Name of the relation whose tuples represent genic interactions.
 </div>
 Role of the argument that represent the genic interaction target.
 
-<a name="headRole">
-
-### headRole
+<h3 name="headRole" class="param">headRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `head`
 </div>
@@ -150,9 +122,7 @@ Role of the argument that represent the genic interaction target.
 </div>
 Name of the role of the argument that represent the dependency head.
 
-<a name="idFeatureName">
-
-### idFeatureName
+<h3 name="idFeatureName" class="param">idFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `id`
 </div>
@@ -160,9 +130,7 @@ Name of the role of the argument that represent the dependency head.
 </div>
 Feature where to store annotations and tuples identifiers.
 
-<a name="lemmaFeatureName">
-
-### lemmaFeatureName
+<h3 name="lemmaFeatureName" class="param">lemmaFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `lemma`
 </div>
@@ -170,19 +138,15 @@ Feature where to store annotations and tuples identifiers.
 </div>
 Feature where to store the word lemma.
 
-<a name="sectionName">
+<h3 name="sectionName" class="param">sectionName</h3>
 
-### sectionName
-
-<div class="param-level param-level-default-value">Default value: `sentence`
+<div class="param-level param-level-default-value">Default value: `text`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the unique section created.
 
-<a name="sentenceLayerName">
-
-### sentenceLayerName
+<h3 name="sentenceLayerName" class="param">sentenceLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -190,9 +154,7 @@ Name of the unique section created.
 </div>
 Name of the layer where to store sentence annotations.
 
-<a name="targetFeatureName">
-
-### targetFeatureName
+<h3 name="targetFeatureName" class="param">targetFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `target`
 </div>
@@ -200,9 +162,7 @@ Name of the layer where to store sentence annotations.
 </div>
 Feature that has the value `yes` for entities that represent a target.
 
-<a name="wordLayerName">
-
-### wordLayerName
+<h3 name="wordLayerName" class="param">wordLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>

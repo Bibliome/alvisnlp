@@ -12,9 +12,7 @@ synopsis
 
 ## Parameters
 
-<a name="conceptAnnotations">
-
-### conceptAnnotations
+<h3 name="conceptAnnotations" class="param">conceptAnnotations</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,9 +20,7 @@ synopsis
 </div>
 
 
-<a name="conceptId">
-
-### conceptId
+<h3 name="conceptId" class="param">conceptId</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -32,9 +28,7 @@ synopsis
 </div>
 
 
-<a name="documents">
-
-### documents
+<h3 name="documents" class="param">documents</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -42,9 +36,7 @@ synopsis
 </div>
 
 
-<a name="sectionName">
-
-### sectionName
+<h3 name="sectionName" class="param">sectionName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>

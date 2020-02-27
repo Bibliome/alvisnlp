@@ -10,9 +10,7 @@ Compares annotations in two different layers.
 
 ## Parameters
 
-<a name="outFile">
-
-### outFile
+<h3 name="outFile" class="param">outFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -20,9 +18,7 @@ Compares annotations in two different layers.
 </div>
 Path to the file where to store results.
 
-<a name="predictedLayerName">
-
-### predictedLayerName
+<h3 name="predictedLayerName" class="param">predictedLayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,9 +26,7 @@ Path to the file where to store results.
 </div>
 Name of the source layer.
 
-<a name="referenceLayerName">
-
-### referenceLayerName
+<h3 name="referenceLayerName" class="param">referenceLayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,23 +34,19 @@ Name of the source layer.
 </div>
 Name of the reference layer.
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Process only sections that satisfy this filter.
+Process only sections that satisfy this expression.
 

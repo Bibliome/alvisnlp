@@ -11,6 +11,11 @@ Writes the corpus data structure in files in tabular format.
   
 
 
+	If <a href="#corpusFile" class="param">corpusFile</a> is set, then it overrides <a href="#files" class="param">files</a> and <a href="#fileName" class="param">fileName</a>.
+	The whole corpus goes into a single file.
+  
+
+
   	The file is a table where each line is the result of the evaluation of <a href="#lines" class="param">lines</a> as a list of element with the file element as the context element.
   	Each line will have as many columns as the size of the <a href="#columns" class="param">columns</a> array.
   
@@ -21,9 +26,7 @@ Writes the corpus data structure in files in tabular format.
 
 ## Parameters
 
-<a name="columns">
-
-### columns
+<h3 name="columns" class="param">columns</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -31,29 +34,7 @@ Writes the corpus data structure in files in tabular format.
 </div>
 Expressions that specify the contents of each column.
 
-<a name="fileName">
-
-### fileName
-
-<div class="param-level param-level-optional">Optional
-</div>
-<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
-</div>
-Name of the file.
-
-<a name="files">
-
-### files
-
-<div class="param-level param-level-optional">Optional
-</div>
-<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
-</div>
-Expression that specifies which element corresponds to each file.
-
-<a name="lines">
-
-### lines
+<h3 name="lines" class="param">lines</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -61,9 +42,7 @@ Expression that specifies which element corresponds to each file.
 </div>
 Expression that specifies which element corresponds to each line.
 
-<a name="outDir">
-
-### outDir
+<h3 name="outDir" class="param">outDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -71,9 +50,31 @@ Expression that specifies which element corresponds to each line.
 </div>
 Directory where files are written.
 
-<a name="footers">
+<h3 name="corpusFile" class="param">corpusFile</h3>
 
-### footers
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.io.File" class="converter">File</a>
+</div>
+Path to a single file for the whole corpus. This parameter will override both <a href="#files" class="param">files</a> and <a href="#fileNames" class="param">fileNames</a>.
+
+<h3 name="fileName" class="param">fileName</h3>
+
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
+Name of the file.
+
+<h3 name="files" class="param">files</h3>
+
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
+Expression that specifies which element corresponds to each file.
+
+<h3 name="footers" class="param">footers</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -81,9 +82,7 @@ Directory where files are written.
 </div>
 Last line of output files.
 
-<a name="headers">
-
-### headers
+<h3 name="headers" class="param">headers</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -91,9 +90,7 @@ Last line of output files.
 </div>
 First line of output files.
 
-<a name="append">
-
-### append
+<h3 name="append" class="param">append</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -101,9 +98,7 @@ First line of output files.
 </div>
 Either to append the export at the end of a file, if the file exists.
 
-<a name="charset">
-
-### charset
+<h3 name="charset" class="param">charset</h3>
 
 <div class="param-level param-level-default-value">Default value: `UTF-8`
 </div>
@@ -111,9 +106,7 @@ Either to append the export at the end of a file, if the file exists.
 </div>
 Character encoding of the written files.
 
-<a name="separator">
-
-### separator
+<h3 name="separator" class="param">separator</h3>
 
 <div class="param-level param-level-default-value">Default value: `	`
 </div>
@@ -121,13 +114,19 @@ Character encoding of the written files.
 </div>
 Character that separates columns.
 
-<a name="trim">
-
-### trim
+<h3 name="trim" class="param">trim</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
 
+
+<h3 name="trueCSV" class="param">trueCSV</h3>
+
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
+UNDOCUMENTED
 

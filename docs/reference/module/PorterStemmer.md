@@ -12,19 +12,15 @@ synopsis
 
 ## Parameters
 
-<a name="documentFilter">
-
-### documentFilter
+<h3 name="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Only process document that satisfy this filter.
+Only process document that satisfy this expression.
 
-<a name="formFeature">
-
-### formFeature
+<h3 name="formFeature" class="param">formFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `form`
 </div>
@@ -32,9 +28,7 @@ Only process document that satisfy this filter.
 </div>
 
 
-<a name="language">
-
-### language
+<h3 name="language" class="param">language</h3>
 
 <div class="param-level param-level-default-value">Default value: `english`
 </div>
@@ -42,9 +36,7 @@ Only process document that satisfy this filter.
 </div>
 
 
-<a name="layerName">
-
-### layerName
+<h3 name="layerName" class="param">layerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
@@ -52,19 +44,15 @@ Only process document that satisfy this filter.
 </div>
 
 
-<a name="sectionFilter">
-
-### sectionFilter
+<h3 name="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Process only sections that satisfy this filter.
+Process only sections that satisfy this expression.
 
-<a name="stemFeature">
-
-### stemFeature
+<h3 name="stemFeature" class="param">stemFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `stem`
 </div>

@@ -12,9 +12,7 @@ Trains a Weka classifier where examples are elements.
 
 ## Parameters
 
-<a name="algorithm">
-
-### algorithm
+<h3 name="algorithm" class="param">algorithm</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,9 +20,7 @@ Trains a Weka classifier where examples are elements.
 </div>
 Classifier algorithm, this must be the canonical name of a class that extends Weka's [Classifier](http://weka.sourceforge.net/doc/weka/classifiers/Classifier.html).
 
-<a name="classifierFile">
-
-### classifierFile
+<h3 name="classifierFile" class="param">classifierFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -32,9 +28,7 @@ Classifier algorithm, this must be the canonical name of a class that extends We
 </div>
 File where to write the trained classifier serialization.
 
-<a name="examples">
-
-### examples
+<h3 name="examples" class="param">examples</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -42,9 +36,7 @@ File where to write the trained classifier serialization.
 </div>
 Training set examples. This expression is evaluated as a list of elements with the corpus as the context element.
 
-<a name="relationDefinition">
-
-### relationDefinition
+<h3 name="relationDefinition" class="param">relationDefinition</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -52,9 +44,7 @@ Training set examples. This expression is evaluated as a list of elements with t
 </div>
 Specification of example attributes and class.
 
-<a name="arffFile">
-
-### arffFile
+<h3 name="arffFile" class="param">arffFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -62,9 +52,7 @@ Specification of example attributes and class.
 </div>
 File where to write the training set in [ARFF](http://www.cs.waikato.ac.nz/ml/weka/arff.html) format.
 
-<a name="classifierInfoFile">
-
-### classifierInfoFile
+<h3 name="classifierInfoFile" class="param">classifierInfoFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -72,9 +60,7 @@ File where to write the training set in [ARFF](http://www.cs.waikato.ac.nz/ml/we
 </div>
 File where to write classifier information and statistics.
 
-<a name="classifierOptions">
-
-### classifierOptions
+<h3 name="classifierOptions" class="param">classifierOptions</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -82,9 +68,7 @@ File where to write classifier information and statistics.
 </div>
 Options to the classifier algorithm.
 
-<a name="crossFolds">
-
-### crossFolds
+<h3 name="crossFolds" class="param">crossFolds</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -92,19 +76,15 @@ Options to the classifier algorithm.
 </div>
 Number of segments for cross validation.
 
-<a name="evaluationFile">
-
-### evaluationFile
+<h3 name="evaluationFile" class="param">evaluationFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
 </div>
-File where to write evaluation results, if cross validation is activated.
+File where to write evaluation results.
 
-<a name="foldFeatureKey">
-
-### foldFeatureKey
+<h3 name="foldFeatureKey" class="param">foldFeatureKey</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -112,9 +92,7 @@ File where to write evaluation results, if cross validation is activated.
 </div>
 Feature where to write the fold number in which the training element was in the test set if cross validation is activated.
 
-<a name="predictedClassFeatureKey">
-
-### predictedClassFeatureKey
+<h3 name="predictedClassFeatureKey" class="param">predictedClassFeatureKey</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -122,9 +100,7 @@ Feature where to write the fold number in which the training element was in the 
 </div>
 Feature where to write the class prediction if cross validation is activated.
 
-<a name="randomSeed">
-
-### randomSeed
+<h3 name="randomSeed" class="param">randomSeed</h3>
 
 <div class="param-level param-level-default-value">Default value: `1`
 </div>
