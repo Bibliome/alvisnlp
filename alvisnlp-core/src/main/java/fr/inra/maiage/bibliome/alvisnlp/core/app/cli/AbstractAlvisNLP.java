@@ -172,6 +172,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	@CLIOption(value="-version", stop=true)
 	public final void version() {
         System.out.println(gitInfo.getBuildVersion());
+        System.out.println("tag: " + gitInfo.getClosestTagName() + " +" + gitInfo.getClosestTagCommitCount());
         if (!gitInfo.isCanonicalRemoteOrigin()) {
         	System.out.format("Remote URL: %s\n", gitInfo.getRemoteOriginURL());
         }
@@ -179,11 +180,9 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
         if (!gitInfo.isDefaultBranch()) {
         	System.out.format("Branch: %s\n", gitInfo.getBranch());
         }
-        if (gitInfo.isDirty()) {
-        	System.out.format("Built: %s (%s)\n", gitInfo.getBuildHost(), gitInfo.getBuildTime());
-        }
+        System.out.format("Built: %s (%s)\n", gitInfo.getBuildHost(), gitInfo.getBuildTime());
 	}
-	
+
 	/**
 	 * CLI option: be verbose.
 	 */
@@ -1048,6 +1047,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     
     private void logVersion(Logger logger) {
     	logger.config("build version: " + gitInfo.getBuildVersion());
+    	logger.config("tag: " + gitInfo.getClosestTagName() + " +" + gitInfo.getClosestTagCommitCount());
         if (!gitInfo.isCanonicalRemoteOrigin()) {
         	logger.config("remote URL: " + gitInfo.getRemoteOriginURL());
         }
@@ -1056,11 +1056,8 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
         if (!gitInfo.isDefaultBranch()) {
         	logger.config("branch: " + gitInfo.getBranch());
         }
-        if (gitInfo.isDirty()) {
-        	logger.warning("dirty build");
-        	logger.config("build host: " + gitInfo.getBuildHost());
-        	logger.config("build time: " + gitInfo.getBuildTime());
-        }
+    	logger.config("build host: " + gitInfo.getBuildHost());
+    	logger.config("build time: " + gitInfo.getBuildTime());
     }
     
     protected void initProcessingContext(Logger logger, C ctx, Module<A> mainModule) throws IOException, ModuleException{
