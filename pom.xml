@@ -5,7 +5,7 @@
   <groupId>fr.jouy.inra.maiage.bibliome</groupId>
   <artifactId>alvisnlp</artifactId>
   <packaging>pom</packaging>
-  <version>0.7.0</version>
+  <version>1.0.0-SNAPSHOT</version>
   <name>AlvisNLP/ML</name>
 
   <repositories>
@@ -28,7 +28,7 @@
   
   <scm>
     <developerConnection>scm:git:https://github.com/Bibliome/alvisnlp.git</developerConnection>
-    <tag>0.7.0</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <build>
