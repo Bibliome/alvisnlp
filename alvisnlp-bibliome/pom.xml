@@ -15,6 +15,16 @@
 			<id>bibliome</id>
 			<url>http://bibliome.jouy.inra.fr/maven-repository</url>
 		</repository>
+		
+    <repository>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url> <!-- the https you've been looking for -->
+      <layout>default</layout>
+      <snapshots>
+	<enabled>true</enabled> <!-- or set to true if desired, default is false -->
+      </snapshots>
+    </repository>
 	</repositories>
 
 	<properties>
