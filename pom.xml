@@ -10,6 +10,18 @@
   <version>0.5rc-SNAPSHOT</version>
   <name>AlvisNLP/ML</name>
 
+  <repositories>
+    <repository>
+      <id>central</id>
+      <name>Central Repository</name>
+      <url>https://repo.maven.apache.org/maven2</url> <!-- the https you've been looking for -->
+      <layout>default</layout>
+      <snapshots>
+	<enabled>true</enabled> <!-- or set to true if desired, default is false -->
+      </snapshots>
+    </repository>
+  </repositories>
+  
   <modules>
     <module>alvisnlp-core</module>
     <module>alvisnlp-bibliome</module>
