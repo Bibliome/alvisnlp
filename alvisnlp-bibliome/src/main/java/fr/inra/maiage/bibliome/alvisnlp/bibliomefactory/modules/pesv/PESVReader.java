@@ -5,6 +5,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -36,24 +37,6 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule(beta=true)
 public abstract class PESVReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator {
-	private static final String[] DOCUMENT_FEATURES = {
-			"url",
-			"source",
-			"lang",
-			"probability_lang",
-			"date_submitted",
-			"date_aspirated",
-			"id_rssfeed",
-			"source_text",
-			"source_title",
-			"description",
-			"created_at",
-			"published_at",
-			"content_type",
-			"extension",
-			"source_lang"
-	};
-	
 	private SourceStream docStream;
 	private SourceStream entitiesStream;
 	private String tokenLayerName = "tokens";
@@ -149,8 +132,12 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 		}
 		String docId = record.get("id");
 		Document doc = Document.getDocument(this, corpus, docId);
-		for (String col : DOCUMENT_FEATURES) {
-			doc.addFeature(col, record.get(col));
+		Map<String,String> features = record.toMap();
+		for (Map.Entry<String,String> e : features.entrySet()) {
+			String key = e.getKey();
+			if (!key.equals("id")) {
+				doc.addFeature(key, e.getValue());
+			}
 		}
 		List<String> tokens = getTokens(record);
 		List<Fragment> frags = new ArrayList<Fragment>(tokens.size());
