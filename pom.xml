@@ -50,17 +50,11 @@
 	  <artifactId>maven-release-plugin</artifactId>
 	  <version>3.0.0-M1</version>
 	  <configuration>
-	    <!-- remove these when release config is done -->
-	    <!--<dryRun>true</dryRun>-->
-	    <checkModificationExcludes>pom.xml</checkModificationExcludes>
-
 	    <!-- inject release numbers programmatically -->
 	    <releaseVersion>0.7.0</releaseVersion>
 	    <developmentVersion>1.0.0-SNAPSHOT</developmentVersion>
 
-	    <updateDependencies>false</updateDependencies>
 	    <autoVersionSubmodules>true</autoVersionSubmodules>
-	    <pushChanges>false</pushChanges>
 	    <tagNameFormat>@{project.version}</tagNameFormat>
 	  </configuration>
 	</plugin>
