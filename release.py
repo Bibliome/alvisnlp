@@ -2,6 +2,7 @@
 
 import re
 import sys
+import os
 
 GIT_PROPERTIES = 'alvisnlp-core/target/classes/fr/inra/maiage/bibliome/alvisnlp/core/app/AlvisNLPGit.properties'
 
@@ -48,5 +49,5 @@ elif len(sys.argv) == 2:
     sys.stdout.write('Next: %s\n' % verstr(new))
     dev = increase(new, 'major')
     sys.stdout.write('Development: %s-SNAPSHOT\n' % verstr(dev))
-
+    os.system('mvn -DreleaseVersion=%s -DdevelopmentVersion=%s release:prepare' % (verstr(new), verstr(dev)))
 
