@@ -169,6 +169,10 @@
 </h2>
 
 <h2 class="no-toc">
+<a href="{{ '/reference/converter/org.apache.jena.riot.Lang' | relative_url }}" class="converter">Lang</a>
+</h2>
+
+<h2 class="no-toc">
 <a href="{{ '/reference/converter/java.lang.Long' | relative_url }}" class="converter">Long</a>
 </h2>
 

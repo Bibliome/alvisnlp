@@ -55,6 +55,14 @@ Feature where to store the entry URI.
 </div>
 Constant features to add to each annotation created by this module.
 
+<h3 name="language" class="param">language</h3>
+
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+UNDOCUMENTED
+
 <h3 name="trieSink" class="param">trieSink</h3>
 
 <div class="param-level param-level-optional">Optional
@@ -129,7 +137,7 @@ Mapping from feature names to property URIs. This parameter indicates the proper
 
 <h3 name="labelURIs" class="param">labelURIs</h3>
 
-<div class="param-level param-level-default-value">Default value: `rdfs:label,skos:prefLabel,skos:altLabel,skos:hiddenLabel,skos:notation,oboInOwl:hasExactSynonym,oboInOwl:hasRelatedSynonym,oboInOwl:hasSynonym`
+<div class="param-level param-level-default-value">Default value: `rdfs:label,skos:prefLabel,skos:altLabel,skos:hiddenLabel,skos:notation,oboInOwl:hasBroadSynonym,oboInOwl:hasExactSynonym,oboInOwl:hasRelatedSynonym,oboInOwl:hasSynonym`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
 </div>
@@ -158,6 +166,14 @@ Specifies the behavior if <a href="#dictFile" class="param">dictFile</a> contain
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
 Specify URI prefixes to be used in <a href="#resourceTypeURIs" class="param">resourceTypeURIs</a>, <a href="#labelURIs" class="param">labelURIs</a>, and <a href="#labelFeatures" class="param">labelFeatures</a>
+
+<h3 name="rdfFormat" class="param">rdfFormat</h3>
+
+<div class="param-level param-level-default-value">Default value: `Lang:RDF/XML`
+</div>
+<div class="param-type">Type: <a href="../converter/org.apache.jena.riot.Lang" class="converter">Lang</a>
+</div>
+UNDOCUMENTED
 
 <h3 name="resourceTypeURIs" class="param">resourceTypeURIs</h3>
 

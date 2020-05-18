@@ -22,7 +22,7 @@ Path to the file where to store results.
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
 </div>
 Name of the source layer.
 
@@ -30,7 +30,7 @@ Name of the source layer.
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
 </div>
 Name of the reference layer.
 
