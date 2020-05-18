@@ -57,6 +57,10 @@ limitations under the License.
     <param-doc name="prefixes">
       <p>Specify URI prefixes to be used in <param name="resourceTypeURIs"/>, <param name="labelURIs"/>, and <param name="labelFeatures"/></p>
     </param-doc>
+    
+    <param-doc>
+      <p>Specify the RDF serialization format (xml, rdfxml, xmlrdf, turtle, ttl, n3, ntriples, ntriple, nt, jsonld, rdfjson, jsonrdf, json, trig, nquads, nq, nthrift, csv, tsv, trix).</p>
+    </param-doc>
 
 	<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.TrieProjectorParamsDoc</include-doc>
   </module-doc>

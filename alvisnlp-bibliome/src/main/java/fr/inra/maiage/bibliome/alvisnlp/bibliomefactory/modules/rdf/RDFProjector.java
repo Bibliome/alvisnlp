@@ -38,6 +38,7 @@ import fr.inra.maiage.bibliome.util.trie.Trie;
 @AlvisNLPModule(beta=true)
 public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,Resource> {
 	private SourceStream source;
+	private Lang rdfFormat = Lang.RDFXML;
 	private Mapping prefixes = new Mapping();
 	private String[] resourceTypeURIs = {
 			"owl:Class",
@@ -122,7 +123,7 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 			logger.info("loading model from: " + source.getStreamName(is));
 //			System.err.println("is = " + is);
 //			model.read(is, null, Lang.RDFXML.toString());
-			RDFDataMgr.read(model, is, Lang.RDFXML);
+			RDFDataMgr.read(model, is, rdfFormat);
 		}
 		return model;
 	}
@@ -192,6 +193,15 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 	@Param
 	public Mapping getPrefixes() {
 		return prefixes;
+	}
+
+	@Param
+	public Lang getRdfFormat() {
+		return rdfFormat;
+	}
+
+	public void setRdfFormat(Lang rdfFormat) {
+		this.rdfFormat = rdfFormat;
 	}
 
 	public void setPrefixes(Mapping prefixes) {
