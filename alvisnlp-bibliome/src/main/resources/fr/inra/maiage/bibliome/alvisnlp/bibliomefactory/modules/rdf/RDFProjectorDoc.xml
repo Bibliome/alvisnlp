@@ -58,8 +58,12 @@ limitations under the License.
       <p>Specify URI prefixes to be used in <param name="resourceTypeURIs"/>, <param name="labelURIs"/>, and <param name="labelFeatures"/></p>
     </param-doc>
     
-    <param-doc>
+    <param-doc name="rdfFormat">
       <p>Specify the RDF serialization format (xml, rdfxml, xmlrdf, turtle, ttl, n3, ntriples, ntriple, nt, jsonld, rdfjson, jsonrdf, json, trig, nquads, nq, nthrift, csv, tsv, trix).</p>
+    </param-doc>
+    
+    <param-doc name="language">
+      <p>Specify the language of labels to project. If this parameter is not set then labels of any language are projected. Labels without a language qualifier are always projected regardless of the value of this parameter.</p>
     </param-doc>
 
 	<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.TrieProjectorParamsDoc</include-doc>

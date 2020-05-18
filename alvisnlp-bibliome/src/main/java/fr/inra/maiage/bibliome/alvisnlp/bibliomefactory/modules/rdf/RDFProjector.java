@@ -39,6 +39,7 @@ import fr.inra.maiage.bibliome.util.trie.Trie;
 public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,Resource> {
 	private SourceStream source;
 	private Lang rdfFormat = Lang.RDFXML;
+	private String language = null;
 	private Mapping prefixes = new Mapping();
 	private String[] resourceTypeURIs = {
 			"owl:Class",
@@ -82,8 +83,10 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 				for (Property prop : labelPropertyProps) {
 					for (RDFNode node : Iterators.loop(model.listObjectsOfProperty(res, prop))) {
 						String label = getNodeValue(node);
-						trie.addEntry(label, res);
-						nEntries++;
+						if (label != null) {
+							trie.addEntry(label, res);
+							nEntries++;
+						}
 					}
 				}
 			}
@@ -99,10 +102,14 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 		return result;
 	}
 	
-	private static String getNodeValue(RDFNode node) {
+	private String getNodeValue(RDFNode node) {
 		if (node.isLiteral()) {
 			Literal lit = node.asLiteral();
-			return lit.getLexicalForm();
+			String lang = lit.getLanguage();
+			if ((language == null) || lang.isEmpty() || (lang.equals(language))) {
+				return lit.getLexicalForm();
+			}
+			return null;
 		}
 		if (node.isResource()) {
 			Resource res = node.asResource();
@@ -198,6 +205,15 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 	@Param
 	public Lang getRdfFormat() {
 		return rdfFormat;
+	}
+
+	@Param(mandatory=false)
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 
 	public void setRdfFormat(Lang rdfFormat) {
