@@ -1,0 +1,125 @@
+△ dev/alvis_test/alvisnlp ▶ sudo ./install.sh -i alvisnlp/                                                                                                                                                                                master :: 26d :: ⬡
+Interactive mode for third-party tools
+
+Defaults for EnjuParser
+locate: illegal option -- -
+usage: locate [-0Scims] [-l limit] [-d database] pattern ...
+
+default database: `/var/db/locate.database' or $LOCATE_PATH
+./install.sh: line 129: read: -i: invalid option
+read: usage: read [-ers] [-u fd] [-t timeout] [-p prompt] [-a array] [-n nchars] [-d delim] [name ...]
+
+Defaults for CCGParser and CCGPosTagger
+locate: illegal option -- -
+usage: locate [-0Scims] [-l limit] [-d database] pattern ...
+
+default database: `/var/db/locate.database' or $LOCATE_PATH
+./install.sh: line 149: read: -i: invalid option
+read: usage: read [-ers] [-u fd] [-t timeout] [-p prompt] [-a array] [-n nchars] [-d delim] [name ...]
+./install.sh: line 160: read: -i: invalid option
+read: usage: read [-ers] [-u fd] [-t timeout] [-p prompt] [-a array] [-n nchars] [-d delim] [name ...]
+
+Defaults for GeniaTagger
+locate: illegal option -- -
+usage: locate [-0Scims] [-l limit] [-d database] pattern ...
+
+default database: `/var/db/locate.database' or $LOCATE_PATH
+./install.sh: line 173: read: -i: invalid option
+read: usage: read [-ers] [-u fd] [-t timeout] [-p prompt] [-a array] [-n nchars] [-d delim] [name ...]
+
+Defaults for StanfordNER
+
+WARNING: The locate database (/var/db/locate.database) does not exist.
+To create the database, run the following command:
+
+  sudo launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist
+
+Please be aware that the database can take some time to generate; once
+the database has been created, this message will no longer appear.
+
+./install.sh: line 184: read: -i: invalid option
+read: usage: read [-ers] [-u fd] [-t timeout] [-p prompt] [-a array] [-n nchars] [-d delim] [name ...]
+
+Defaults for TreeTagger
+locate: illegal option -- -
+usage: locate [-0Scims] [-l limit] [-d database] pattern ...
+
+default database: `/var/db/locate.database' or $LOCATE_PATH
+./install.sh: line 195: read: -i: invalid option
+read: usage: read [-ers] [-u fd] [-t timeout] [-p prompt] [-a array] [-n nchars] [-d delim] [name ...]
+
+Defaults for YateaExtractor and TomapTrain
+locate: illegal option -- -
+usage: locate [-0Scims] [-l limit] [-d database] pattern ...
+
+default database: `/var/db/locate.database' or $LOCATE_PATH
+./install.sh: line 213: read: -i: invalid option
+read: usage: read [-ers] [-u fd] [-t timeout] [-p prompt] [-a array] [-n nchars] [-d delim] [name ...]
+
+Defaults for TEESTrain and TEESClassify
+locate: illegal option -- -
+usage: locate [-0Scims] [-l limit] [-d database] pattern ...
+
+default database: `/var/db/locate.database' or $LOCATE_PATH
+./install.sh: line 237: read: -i: invalid option
+read: usage: read [-ers] [-u fd] [-t timeout] [-p prompt] [-a array] [-n nchars] [-d delim] [name ...]
+
+Defaults for Chemspot
+locate: illegal option -- -
+usage: locate [-0Scims] [-l limit] [-d database] pattern ...
+
+default database: `/var/db/locate.database' or $LOCATE_PATH
+./install.sh: line 255: read: -i: invalid option
+read: usage: read [-ers] [-u fd] [-t timeout] [-p prompt] [-a array] [-n nchars] [-d delim] [name ...]
+
+Defaults for Word2Vec, ContesTrain and ContesPredict
+locate: illegal option -- -
+usage: locate [-0Scims] [-l limit] [-d database] pattern ...
+
+default database: `/var/db/locate.database' or $LOCATE_PATH
+./install.sh: line 266: read: -i: invalid option
+read: usage: read [-ers] [-u fd] [-t timeout] [-p prompt] [-a array] [-n nchars] [-d delim] [name ...]
+
+Defaults for Species
+locate: illegal option -- -
+usage: locate [-0Scims] [-l limit] [-d database] pattern ...
+
+default database: `/var/db/locate.database' or $LOCATE_PATH
+./install.sh: line 290: read: -i: invalid option
+read: usage: read [-ers] [-u fd] [-t timeout] [-p prompt] [-a array] [-n nchars] [-d delim] [name ...]
+
+Defaults for Ab3P
+locate: illegal option -- -
+usage: locate [-0Scims] [-l limit] [-d database] pattern ...
+
+default database: `/var/db/locate.database' or $LOCATE_PATH
+./install.sh: line 301: read: -i: invalid option
+read: usage: read [-ers] [-u fd] [-t timeout] [-p prompt] [-a array] [-n nchars] [-d delim] [name ...]
+
+Defaults for WapitiTrain WapitiLabel
+locate: illegal option -- -
+usage: locate [-0Scims] [-l limit] [-d database] pattern ...
+
+default database: `/var/db/locate.database' or $LOCATE_PATH
+./install.sh: line 312: read: -i: invalid option
+read: usage: read [-ers] [-u fd] [-t timeout] [-p prompt] [-a array] [-n nchars] [-d delim] [name ...]
+
+Done at last!
+
+readlink: illegal option -- m
+usage: readlink [-n] [file ...]
+Install directory:
+Default parameter values file: .default-param-values.xml
+Default options file: share/default-options.txt
+mkdir: : No such file or directory
+cp: illegal option -- u
+usage: cp [-R [-H | -L | -P]] [-fi | -n] [-apvXc] source_file target_file
+       cp [-R [-H | -L | -P]] [-fi | -n] [-apvXc] source_file ... target_directory
+cp: illegal option -- u
+usage: cp [-R [-H | -L | -P]] [-fi | -n] [-apvXc] source_file target_file
+       cp [-R [-H | -L | -P]] [-fi | -n] [-apvXc] source_file ... target_directory
+cp: illegal option -- u
+usage: cp [-R [-H | -L | -P]] [-fi | -n] [-apvXc] source_file target_file
+       cp [-R [-H | -L | -P]] [-fi | -n] [-apvXc] source_file ... target_directory
+./install.sh: line 450: /bin/alvisnlp: Operation not permitted
+chmod: /bin/alvisnlp: No such file or directory
