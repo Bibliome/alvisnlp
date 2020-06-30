@@ -1,0 +1,79 @@
+<alvisnlp-plan id="generic-yatea">
+  <alvisnlp-doc>
+    <synopsis>
+      <p>Extract terms from files with yatea.</p>
+    </synopsis>
+
+    <plan-doc>
+      <description>
+	<p>
+	  <this/> reads documents specified with <param>source</param> and extract terms using YaTeA.
+	  <this/> records extracted documents in the file specified with <param>termsFile</param>.
+	  This file is in YaTeA XML format. 
+	</p>
+	<p>
+	  <this/> processes the files with the following steps:
+	  <ol>
+	    <li>Document loading (using <code>res://reader.plan</code>).</li>
+	    <li>Segmentation (using <code>res://segmentation.plan</code>).</li>
+	    <li>POS-tagging (using either <module>TreeTagger</module> or <module>GeniaTagger</module>, see <param>pos-tagger</param>).</li>
+	    <li>Term extraction (using <module>YateaExtractor</module>).</li> 
+	  </ol>
+	</p>
+      </description>
+
+      <param-doc name="source">
+	<p>Path to the documents. May be a file, a directory, an archive or an URL.</p>
+      </param-doc>
+
+      <param-doc name="format">
+	<p>Format of the files (see <code>res://reader.plan</code>, default: <code>text</code>).</p>
+      </param-doc>
+
+      <param-doc name="termsFile">
+	<p>Path to the file where to record extracted terms.</p>
+      </param-doc>
+
+      <param-doc name="pos-tagger">
+	<p>POS-tagger module. Must be either <code>tree-tagger</code> (default) or <code>genia-tagger</code>.</p>
+      </param-doc>
+    </plan-doc>
+  </alvisnlp-doc>
+  
+  <param name="source">
+    <alias module="read" param="source"/>
+  </param>
+
+  <param name="format">
+    <alias module="read" param="select"/>
+  </param>
+
+  <param name="termsFile">
+    <alias module="yatea" param="xmlTermsFile"/>
+  </param>
+
+  <param name="pos-tagger">
+    <alias module="pos" param="select"/>
+  </param>
+
+  <read href="res://reader.plan">
+    <select>text</select>
+  </read>
+
+  <seg href="res://segmentation.plan"/>
+
+  <pos>
+    <select>tree-tagger</select>
+
+    <tree-tagger class="TreeTagger">
+      <noUnknownLemma/>
+    </tree-tagger>
+
+    <genia-tagger class="GeniaTagger">
+      <treeTaggerTagset/>
+    </genia-tagger>
+  </pos>
+
+  <yatea class="YateaExtractor">
+  </yatea>
+</alvisnlp-plan>
