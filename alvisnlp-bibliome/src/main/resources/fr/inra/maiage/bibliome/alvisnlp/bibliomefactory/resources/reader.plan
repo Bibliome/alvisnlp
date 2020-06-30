@@ -64,25 +64,25 @@
 
   <wok class="WebOfKnowledgeReader"/>
 
-  <endnote class="XMLReader2">
-    <xslTransform>res://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.resources.XMLReader/endnote2alvisnlp.xslt</xslTransform>
+  <endnote class="XMLReader">
+    <xslTransform>res://XMLReader/endnote2alvisnlp.xslt</xslTransform>
   </endnote>
 
-  <html class="XMLReader2">
-    <xslTransform>res://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.resources.XMLReader/html2alvisnlp.xslt</xslTransform>
+  <html class="XMLReader">
+    <xslTransform>res://XMLReader/html2alvisnlp.xslt</xslTransform>
     <html/>
   </html>
 
-  <prod-inra class="XMLReader2">
-    <xslTransform>res://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.resources.XMLReader/prodINRA2alvisnlp.xslt</xslTransform>
+  <prod-inra class="XMLReader">
+    <xslTransform>res://XMLReader/prodINRA2alvisnlp.xslt</xslTransform>
   </prod-inra>
 
-  <pubmed class="XMLReader2">
-    <xslTransform>res://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.resources.XMLReader/pubmed2alvisnlp.xslt</xslTransform>
+  <pubmed class="XMLReader">
+    <xslTransform>res://XMLReader/pubmed2alvisnlp.xslt</xslTransform>
   </pubmed>
 
-  <pmc class="XMLReader2">
-    <xslTransform>res://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.resources.XMLReader/pmc2alvisnlp.xslt</xslTransform>
+  <pmc class="XMLReader">
+    <xslTransform>res://XMLReader/pmc2alvisnlp.xslt</xslTransform>
   </pmc>
   
   <xmi class="XMIImport">
