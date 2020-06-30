@@ -176,9 +176,9 @@ limitations under the License.
 
   <xsl:template match="this"><xsl:value-of select="ansi:bright(//alvisnlp-doc/@short-target)"/></xsl:template>
 
-  <xsl:template match="param"><xsl:value-of select="ansi:green(@name)"/></xsl:template>
+  <xsl:template match="param"><xsl:value-of select="ansi:green(@name|.)"/></xsl:template>
 
-  <xsl:template match="module"><xsl:value-of select="ansi:blue(@name)"/></xsl:template>
+  <xsl:template match="module"><xsl:value-of select="ansi:blue(@name|.)"/></xsl:template>
 
-  <xsl:template match="converter">`<xsl:value-of select="ansi:red(@name)"/>'</xsl:template>
+  <xsl:template match="converter">`<xsl:value-of select="ansi:red(@name|.)"/>'</xsl:template>
 </xsl:stylesheet>
