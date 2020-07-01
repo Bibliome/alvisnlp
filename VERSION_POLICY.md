@@ -62,3 +62,9 @@ Each `FIX`, `MINOR` or `MAJOR` increment must be tagged. The tag corresponding t
 
 Each `FIX`, `MINOR` or `MAJOR` increment must have its own entry in the `CHANGES` file.
 The tagged commit must include the updated `CHANGES` file.
+
+# Step-by-step guide to next version
+
+1. Build AlvisNLP
+2. Edit `CHANGES.py`
+2. Run `release.py`

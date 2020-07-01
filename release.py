@@ -1,8 +1,9 @@
-#!/bin/env python
+#!/bin/env python3.6
 
 import re
 import sys
 import os
+import subprocess
 
 GIT_PROPERTIES = 'alvisnlp-core/target/classes/fr/inra/maiage/bibliome/alvisnlp/core/app/AlvisNLPGit.properties'
 
@@ -49,5 +50,10 @@ elif len(sys.argv) == 2:
     sys.stdout.write('Next: %s\n' % verstr(new))
     dev = increase(new, 'major')
     sys.stdout.write('Development: %s-SNAPSHOT\n' % verstr(dev))
-    os.system('mvn -DreleaseVersion=%s -DdevelopmentVersion=%s release:prepare' % (verstr(new), verstr(dev)))
+    sys.stdout.write('Generating documentation\n')
+    with open('docs/_includes/version', 'w') as f:
+        f.write(new)
+    subprocess.run(('./build-reference.sh',), shell=True, cwd='docs')
+    sys.stdout.write('Running mvn release:prepare\n')
+    subprocess.run(('mvn', f'-DreleaseVersion={verstr(new)}', f'-DdevelopmentVersion={verstr(dev)}', 'release:prepare'), shell=True)
 
