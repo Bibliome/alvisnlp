@@ -197,7 +197,7 @@ If you want to force entities as tokens, this plan assumes they are annotations 
 | {% include module class="GeniaTagger" %}     | POS-tagging \& lemmatiation |
 | {% include module class="PorterStemmer" %}   | Stemming |
 | {% include module class="TreeTagger" %}      | POS-tagging \& lemmatiation |
-| {% include module class="YateatExtractor" %} | Term extraction |
+| {% include module class="YateaExtractor" %} | Term extraction |
 
 
 ## Miscellanous
