@@ -7,6 +7,9 @@ function build() {
     $ALVISNLP $@ | xsltproc $ALVISNLPDOC2MD -     
 }
 
+echo Creating version file
+$ALVISNLP -version | grep ^tag: | cut -d ' ' -f 2 | head -c -1 >_includes/version
+
 echo Creating reference directory tree
 mkdir -p reference/module
 mkdir -p reference/converter
