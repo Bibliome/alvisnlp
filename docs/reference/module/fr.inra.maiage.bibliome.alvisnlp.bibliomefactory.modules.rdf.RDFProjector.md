@@ -61,7 +61,7 @@ Constant features to add to each annotation created by this module.
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Specify the language of labels to project. If this parameter is not set then labels of any language are projected. Labels without a language qualifier are always projected regardless of the value of this parameter.
 
 <h3 name="trieSink" class="param">trieSink</h3>
 
@@ -173,7 +173,7 @@ Specify URI prefixes to be used in <a href="#resourceTypeURIs" class="param">res
 </div>
 <div class="param-type">Type: <a href="../converter/org.apache.jena.riot.Lang" class="converter">Lang</a>
 </div>
-UNDOCUMENTED
+Specify the RDF serialization format (xml, rdfxml, xmlrdf, turtle, ttl, n3, ntriples, ntriple, nt, jsonld, rdfjson, jsonrdf, json, trig, nquads, nq, nthrift, csv, tsv, trix).
 
 <h3 name="resourceTypeURIs" class="param">resourceTypeURIs</h3>
 
