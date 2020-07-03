@@ -65,6 +65,4 @@ The tagged commit must include the updated `CHANGES` file.
 
 # Step-by-step guide to next version
 
-1. Build AlvisNLP
-2. Edit `CHANGES.py`
-2. Run `release.py`
+1. Run `release.py fix|minor|major`
