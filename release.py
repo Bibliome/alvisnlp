@@ -70,7 +70,7 @@ elif len(sys.argv) == 2:
         if INCREASE == 'fix': f.write('### ')
         elif INCREASE == 'minor': f.write('## ')
         else: f.write('# ')
-        f.write('{verstr(new)}\n\n')
+        f.write(f'{verstr(new)}\n\n')
     subprocess.run('emacs CHANGES.md', shell=True, check=True)
     git_add_and_commit('CHANGES.md', f'CHANGES.md for {verstr(new)}')
 
