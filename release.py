@@ -81,5 +81,5 @@ elif len(sys.argv) == 2:
     git_add_and_commit('docs/reference docs/_includes/version', f'documentation for {verstr(new)}')
     
     message('Running mvn release:prepare')
-    subprocess.run(f'mvn -DreleaseVersion={verstr(new)} -DdevelopmentVersion={verstr(dev)} release:prepare', shell=True, check=True)
+    subprocess.run(f'mvn -Dtag={verstr(new)} -DreleaseVersion={verstr(new)} -DdevelopmentVersion={verstr(dev)} release:prepare', shell=True, check=True)
 
