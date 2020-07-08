@@ -26,6 +26,7 @@ expose-repository.sh
 maven-repository/
 .test/
 share/default-param-values.xml
+share/default-param-values.xml.*
 share/default-options.txt
 _attic/
 Gemfile.lock
