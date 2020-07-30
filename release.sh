@@ -43,15 +43,25 @@ increment="$1"
 
 # read current version
 current=$(git describe --abbrev=0)
+hl Current: "$current"
+if [ -z "$increment" ]
+then
+    exit 0
+fi
 
 # compute next versions
 next=$(increment "$current" "$increment")
 devel=$(increment "$next" major)-SNAPSHOT
 
-hl Current: "$current"
 hl Next: "$next"
 hl Devel: "$devel"
 
+# check modified files
+if git status --porcelain | sed -e 's,^ ,,' | grep '^[MADRCU]'
+then
+    hl Check the files above under version control
+    exit 1
+fi
 
 # edit change log file
 hl Edit $CHANGELOG
