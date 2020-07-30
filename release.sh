@@ -41,6 +41,17 @@ function increment {
 # parameter: increment
 increment="$1"
 
+# parameter: force
+force="$2"
+if [ -n "$force" ]
+then
+    if [ "$force" != "force" ]
+    then
+	hl Unknown option "$force"
+	exit 1
+    fi
+fi
+
 # read current version
 current=$(git describe --abbrev=0)
 hl Current: "$current"
@@ -59,8 +70,13 @@ hl Devel: "$devel"
 # check modified files
 if git status --porcelain | sed -e 's,^ ,,' | grep '^[MADRCU]'
 then
-    hl Check the files above under version control
-    exit 1
+    if [ -z "$force"]
+    then
+	hl Commit the above
+	exit 1
+    else
+	hl Going through anyway
+    fi
 fi
 
 # edit change log file
@@ -77,6 +93,7 @@ case "$increment" in
 	echo "# $next"
 	;;
 esac >>$CHANGELOG
+git log --all --decorate --oneline --graph | sed "/$current/q"
 $EDITOR $CHANGELOG
 
 # build & install AlvisNLP
