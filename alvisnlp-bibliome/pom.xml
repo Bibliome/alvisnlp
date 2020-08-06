@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>fr.jouy.inra.maiage.bibliome</groupId>
 		<artifactId>alvisnlp</artifactId>
-		<version>0.8.1</version>
+		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>alvisnlp-bibliome</artifactId>
 	<name>AlvisNLP Bibliome Module Factory</name>
@@ -359,7 +359,7 @@
 		<dependency>
 			<groupId>fr.jouy.inra.maiage.bibliome</groupId>
 			<artifactId>alvisnlp-core</artifactId>
-			<version>0.8.1</version>
+			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 
 <dependency>
