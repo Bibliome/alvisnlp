@@ -116,7 +116,7 @@ function update_poms {
     local version="$1"
     for pom in $POM_FILES
     do
-	sed -i -e "0,/<version>/s,<version>.*</version>,<version>$version</version>," "$pom"
+	xsltproc --stringparam alvisnlp-version "$version" -o "$pom" update-pom-version.xslt "$pom"
     done
 }
 update_poms "$next"
