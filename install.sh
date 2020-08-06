@@ -440,10 +440,7 @@ then
     OPTS="$OPTS "$(cat __INSTALL_DIR__/share/default-options.txt)
 fi
 
-cmd="java $JVMOPTS fr.inra.maiage.bibliome.alvisnlp.core.app.cli.AlvisNLP ""$OPTS ""$@"
-#echo $CLASSPATH
-#echo $cmd
-$cmd
+java $JVMOPTS fr.inra.maiage.bibliome.alvisnlp.core.app.cli.AlvisNLP $OPTS "$@"
 EOF
 
 BIN_FILE="$BIN_DIR/alvisnlp"
