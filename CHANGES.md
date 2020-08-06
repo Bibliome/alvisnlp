@@ -22,3 +22,10 @@ Initial version since version policy is in force.
 * Added embedded resource `yatea.plan`
 * Added current version in the online documentation
 * Refactored release script
+
+### 0.8.1
+
+* Fixed:
+  - launch script now interprets correctly arguments protected by quotes that contains spaces
+  - release script correctly replaces versions in POM files
+ 

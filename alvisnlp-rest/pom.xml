@@ -1,10 +1,11 @@
+<?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>fr.jouy.inra.maiage.bibliome</groupId>
     <artifactId>alvisnlp</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.8.1</version>
   </parent>
   <artifactId>alvisnlp-rest</artifactId>
   <packaging>war</packaging>
@@ -51,12 +52,12 @@
     <dependency>
       <groupId>fr.jouy.inra.maiage.bibliome</groupId>
       <artifactId>alvisnlp-core</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
+      <version>0.8.1</version>
     </dependency>
     <dependency>
       <groupId>fr.jouy.inra.maiage.bibliome</groupId>
       <artifactId>alvisnlp-bibliome</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
+      <version>0.8.1</version>
     </dependency>
 
     <dependency>
@@ -86,17 +87,14 @@
     <glassfish.version>3.1.1</glassfish.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-</project>
-
-
-	  <!--
+</project><!--
     <dependency>
       <groupId>com.sun.jersey</groupId>
       <artifactId>jersey-json</artifactId>
       <version>${jersey.version}</version>
       </dependency>
 	  -->
-	  <!--
+<!--
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -104,7 +102,7 @@
       <scope>test</scope>
       </dependency>
 	  -->
-	  <!--
+<!--
     <dependency>
       <groupId>com.sun.jersey</groupId>
       <artifactId>jersey-client</artifactId>
@@ -112,7 +110,7 @@
       <scope>test</scope>
       </dependency>
 	  -->
-	  <!--
+<!--
     <dependency>
       <groupId>org.glassfish.extras</groupId>
       <artifactId>glassfish-embedded-web</artifactId>
@@ -120,8 +118,8 @@
       <scope>test</scope>
       </dependency>
       -->
-    <!-- <dependency> to scan classes by annotations -->
-    <!-- <groupId>net.sf.corn</groupId> -->
-    <!-- <artifactId>corn-cps</artifactId> -->
-    <!-- <version>1.1.7</version> -->
-    <!-- </dependency> -->
+<!-- <dependency> to scan classes by annotations -->
+<!-- <groupId>net.sf.corn</groupId> -->
+<!-- <artifactId>corn-cps</artifactId> -->
+<!-- <version>1.1.7</version> -->
+<!-- </dependency> -->
