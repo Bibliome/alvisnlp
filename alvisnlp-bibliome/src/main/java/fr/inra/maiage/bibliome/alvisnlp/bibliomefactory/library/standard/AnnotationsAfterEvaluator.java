@@ -32,6 +32,6 @@ final class AnnotationsAfterEvaluator extends AbstractAnnotationSiblings {
 
 	@Override
 	protected Layer getAnnotations(Layer layer, Annotation a) {
-		return layer.after(a.getEnd());
+		return layer.after(a.getEnd() - 1);
 	}
 }
