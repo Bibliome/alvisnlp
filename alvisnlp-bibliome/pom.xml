@@ -369,6 +369,11 @@
 </dependency>
 
 
+<dependency>
+    <groupId>com.github.pemistahl</groupId>
+    <artifactId>lingua</artifactId>
+    <version>1.0.3</version>
+</dependency>
 
 
 		<dependency>
