@@ -19,23 +19,20 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tabular;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tabular.TabularReader.TabularReaderResolvedObjects;
-
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.AbstractElement;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.ElementType;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.ElementVisitor;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.AbstractIntEvaluator;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.AbstractListEvaluator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.AbstractStringEvaluator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
@@ -49,15 +46,11 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.StringCat;
-import fr.inra.maiage.bibliome.util.filelines.FileLines;
 import fr.inra.maiage.bibliome.util.filelines.InvalidFileLineEntry;
-import fr.inra.maiage.bibliome.util.filelines.TabularFormat;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule(beta=true)
@@ -65,11 +58,9 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 	private SourceStream source;
 	private Expression sourceElement;
 	private Expression[] lineActions;
-	private Integer checkNumColumns;
-	private Boolean trimColumns = true;
-	private Boolean skipBlank = false;
 	private Boolean commitLines = false;
 	private Character separator = '\t';
+	private Character quote = '"';
 
 	static class TabularReaderResolvedObjects extends ResolvedObjects {
 		private final EntryLibrary entryLib;
@@ -99,82 +90,50 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
-		TabularReaderResolvedObjects resObj = getResolvedObjects();
     	Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(commitLines ? null : logger, this);
-
-		TabularFormat format = new TabularFormat();
-		if (checkNumColumns != null) {
-			format.setNumColumns(checkNumColumns);
-			format.setStrictColumnNumber(true);
-		}
-		format.setSkipBlank(skipBlank);
-		format.setSkipEmpty(skipBlank);
-		format.setTrimColumns(trimColumns);
-		format.setSeparator(separator);
-		
-		TabularReaderFileLines trfl = new TabularReaderFileLines(format, getLogger(ctx), resObj.lineActions, evalCtx, commitLines);
-		readLines(ctx, evalCtx, corpus, trfl);
-		commit(ctx, evalCtx);
-	}
-	
-	@TimeThis(task="read", category=TimerCategory.LOAD_RESOURCE)
-	protected void readLines(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, Corpus corpus, TabularReaderFileLines trfl) throws ProcessingException {
 		TabularReaderResolvedObjects resObj = getResolvedObjects();
-		try {
-			for (BufferedReader r : Iterators.loop(source.getBufferedReaders())) {
-				resObj.entryLib.startSource(source.getStreamName(r));
-				Iterator<Element> it = resObj.sourceElement.evaluateElements(evalCtx, corpus);
-				if (it.hasNext()) {
-					trfl.element = it.next();
-					trfl.process(r, resObj.entryLib);
+		CSVFormat format = CSVFormat.MYSQL.withQuote(quote).withDelimiter(separator).withHeader();
+		Iterator<Element> it = resObj.sourceElement.evaluateElements(evalCtx, corpus);
+		if (it.hasNext()) {
+			Element element = it.next();
+			try {
+				for (BufferedReader r : Iterators.loop(source.getBufferedReaders())) {
+					resObj.entryLib.startSource(source.getStreamName(r));
+					try (CSVParser parser = new CSVParser(r, format)) {
+						int line = 0;
+						for (CSVRecord entry : parser) {
+							resObj.entryLib.startLine(++line, entry);
+							for (Evaluator expr : resObj.lineActions) {
+								Iterators.deplete(expr.evaluateElements(evalCtx, element));
+							}
+							if (commitLines) {
+								evalCtx.commit();
+							}
+						}
+					}
+					r.close();
 				}
-				r.close();
+			}
+			catch (IOException|InvalidFileLineEntry e) {
+				throw new ProcessingException(e);
 			}
 		}
-		catch (IOException|InvalidFileLineEntry e) {
-			throw new ProcessingException(e);
-		}
-	}
-	
-	protected static final class TabularReaderFileLines extends FileLines<EntryLibrary> {
-		private final Evaluator[] actions;
-		private final EvaluationContext evalCtx;
-		private final boolean commitLines;
-		private Element element;
-		
-		
-		private TabularReaderFileLines(TabularFormat format, Logger logger, Evaluator[] actions, EvaluationContext evalCtx, boolean commitLines) {
-			super(format, logger);
-			this.actions = actions;
-			this.evalCtx = evalCtx;
-			this.commitLines = commitLines;
-		}
-
-		@Override
-		public void processEntry(EntryLibrary data, int lineno, List<String> entry) throws InvalidFileLineEntry {
-			data.startLine(lineno, entry);
-			for (Evaluator expr : actions) {
-				Iterators.deplete(expr.evaluateElements(evalCtx, element));
-			}
-			if (commitLines) {
-				evalCtx.commit();
-			}
-		}
+		commit(ctx, evalCtx);
 	}
 	
 	protected static final class EntryLibrary extends FunctionLibrary {
 		private String source = "";
-		private List<String> entry = Collections.emptyList();
+		private CSVRecord entry = null;
 		private int line = 0;
 
 		private void startSource(String source) {
 			this.source = source;
-			entry = Collections.emptyList();
+			entry = null;
 			line = 0;
 		}
 		
-		private void startLine(int line, List<String> entry) {
+		private void startLine(int line, CSVRecord entry) {
 			this.line = line;
 			this.entry = entry;
 		}
@@ -201,12 +160,6 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 			case "width":
 				checkExactArity(ftors, args, 0);
 				return WIDTH;
-			case "range":
-				checkRangeArity(ftors, args, 1, 2);
-				switch (args.size()) {
-				case 1: return new ColumnRangeEvaluator(args.get(0).resolveExpressions(resolver), null);
-				case 2: return new ColumnRangeEvaluator(args.get(0).resolveExpressions(resolver), args.get(1).resolveExpressions(resolver));
-				}
 			}
 			return null;
 		}
@@ -240,72 +193,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 				column.collectUsedNames(nameUsage, defaultType);
 			}
 		}
-		
-		private final class ColumnRangeEvaluator extends AbstractListEvaluator {
-			private final Evaluator from;
-			private final Evaluator to;
-			
-			private ColumnRangeEvaluator(Evaluator from, Evaluator to) {
-				super();
-				this.from = from;
-				this.to = to;
-			}
 
-			@Override
-			public List<Element> evaluateList(EvaluationContext ctx, Element elt) {
-				int from = this.from.evaluateInt(ctx, elt);
-				int to = this.to == null ? entry.size() : this.to.evaluateInt(ctx, elt);
-				List<Element> result = new ArrayList<Element>(to - from);
-				for (String s : entry.subList(from, to)) {
-					result.add(new ColumnElement(elt, s));
-				}
-				return result;
-			}
-
-			@Override
-			public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
-				from.collectUsedNames(nameUsage, defaultType);
-				to.collectUsedNames(nameUsage, defaultType);
-			}
-		}
-		
-		@SuppressWarnings("serial")
-		private static final class ColumnElement extends AbstractElement {
-			private final Element parent;
-			private final String value;
-
-			private ColumnElement(Element parent, String value) {
-				super("value", null);
-				this.parent = parent;
-				this.value = value;
-			}
-
-			@Override
-			public String getStaticFeatureValue() {
-				return value;
-			}
-
-			@Override
-			public <R,P> R accept(ElementVisitor<R, P> visitor, P param) {
-				return visitor.visit(this, param);
-			}
-
-			@Override
-			public ElementType getType() {
-				return ElementType.OTHER;
-			}
-
-			@Override
-			public Element getParent() {
-				return parent;
-			}
-
-			@Override
-			public Element getOriginal() {
-				return parent;
-			}
-		}
-		
 		private final Evaluator SOURCE = new AbstractStringEvaluator() {
 			@Override
 			public String evaluateString(EvaluationContext ctx, Element elt) {
@@ -360,21 +248,6 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 		return lineActions;
 	}
 
-	@Param(mandatory=false)
-	public Integer getCheckNumColumns() {
-		return checkNumColumns;
-	}
-
-	@Param
-	public Boolean getTrimColumns() {
-		return trimColumns;
-	}
-
-	@Param
-	public Boolean getSkipBlank() {
-		return skipBlank;
-	}
-
 	@Param
 	public Boolean getCommitLines() {
 		return commitLines;
@@ -403,17 +276,5 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 
 	public void setLineActions(Expression[] lineActions) {
 		this.lineActions = lineActions;
-	}
-
-	public void setCheckNumColumns(Integer checkNumColumns) {
-		this.checkNumColumns = checkNumColumns;
-	}
-
-	public void setTrimColumns(Boolean trimColumns) {
-		this.trimColumns = trimColumns;
-	}
-
-	public void setSkipBlank(Boolean skipBlank) {
-		this.skipBlank = skipBlank;
 	}
 }
