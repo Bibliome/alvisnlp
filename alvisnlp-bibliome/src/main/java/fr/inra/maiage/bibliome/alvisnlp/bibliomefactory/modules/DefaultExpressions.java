@@ -47,7 +47,8 @@ public class DefaultExpressions {
 	public static final Expression ANNOTATION_END = ExpressionParser.parseUnsafe("end");
 	public static final Expression CORPUS_DOCUMENTS = ExpressionParser.parseUnsafe("documents");
 	public static final Expression DOCUMENT_SECTIONS = ExpressionParser.parseUnsafe("sections");
-	
+	public static final Expression CORPUS_SECTIONS = ExpressionParser.parseUnsafe("documents.sections");
+
 	public static Expression feature(String name) {
 		return ExpressionParser.parseUnsafe("@" + name);
 	}
