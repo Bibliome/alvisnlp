@@ -2,13 +2,13 @@
 
 ## Synopsis
 
-synopsis
+*TomapProjector* searches for terms and associates a category identifier using  [ToMap](https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md).
 
 **This module is experimental.**
 
 ## Description
 
-synopsis
+*TomapProjector* searches for the terms specified by <a href="#yateaFile" class="param">yateaFile</a> (in YaTeA XML output format) and classifies them using the [ToMap](https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md) classifier specified by <a href="#tomapClassifier" class="param">tomapClassifier</a>.
 
 ## Parameters
 
@@ -18,7 +18,9 @@ synopsis
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
+Name of the feature where to store the concept identifier.
 
+If not set, the concept identifier will not be stored.
 
 <h3 name="targetLayerName" class="param">targetLayerName</h3>
 
@@ -34,7 +36,7 @@ Name of the layer that contains the match annotations.
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tomap.TomapClassifier" class="converter">TomapClassifier</a>
 </div>
-
+Path to the file containing proxy terms, their associated identifiers and syntactic structure. Generate this file with <a href="../module/TomapTrain" class="module">TomapTrain</a>.
 
 <h3 name="yateaFile" class="param">yateaFile</h3>
 
@@ -42,7 +44,7 @@ Name of the layer that contains the match annotations.
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
-
+Path to the file containing extracted terms. This file may be generated with <a href="../module/YateaExtractor" class="module">YateaExtractor</a>.
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
@@ -58,7 +60,9 @@ Constant features to add to each annotation created by this module.
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
+Prefix of feature names for the assignment explanation. Features are `concept-synonym`, `significant-head`, `candidate-head`.
 
+If not set, the features will not be stored.
 
 <h3 name="scoreFeature" class="param">scoreFeature</h3>
 
@@ -66,7 +70,9 @@ Constant features to add to each annotation created by this module.
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
+Feature where to store the similarity between the candidate and proxy terms.
 
+If not set, the similarity will not be stored.
 
 <h3 name="trieSink" class="param">trieSink</h3>
 
@@ -138,7 +144,9 @@ If set to *true*, then treat dash characters (-) as whitespace characters with r
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
+Compare candidate and proxy terms by their lemma. By default *TomapProjector* compares their surface forms.
 
+This parameter also affects how significant components and token heads are matched.
 
 <h3 name="matchStartCaseInsensitive" class="param">matchStartCaseInsensitive</h3>
 
@@ -162,7 +170,7 @@ Specifies the behavior if <a href="#dictFile" class="param">dictFile</a> contain
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
-
+Only search for maximal noun phrase terms. By default searches for all terms.
 
 <h3 name="sectionFilter" class="param">sectionFilter</h3>
 

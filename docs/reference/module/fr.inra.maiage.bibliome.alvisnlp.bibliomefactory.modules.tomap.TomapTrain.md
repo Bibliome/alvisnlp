@@ -2,13 +2,20 @@
 
 ## Synopsis
 
-synopsis
+*TomapTrain* analyzes terms in preparation of the classification of candidates with [ToMap](https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md).
 
 **This module is experimental.**
 
 ## Description
 
-synopsis
+*TomapTrain* assumes each sentence or section is a proxy term according to the [ToMap](https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md) method.
+  	*TomapTrain* analyzes the syntactic structure of sections and stores them in <a href="#outFile" class="param">outFile</a>.
+  	Use this file for classifying terms with <a href="../module/TomapProjector" class="module">TomapProjector</a>. 
+  	The identifier associated with the proxy is specified with <a href="#conceptIdentifier" class="param">conceptIdentifier</a>.
+  
+
+<a href="#conceptIdentifier" class="param">conceptIdentifier</a> is 
+  
 
 ## Parameters
 
@@ -18,7 +25,7 @@ synopsis
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-
+An expression evaluated as a string from the section or sentence that specifies the identifier associated with the proxy.
 
 <h3 name="outFile" class="param">outFile</h3>
 
@@ -26,7 +33,7 @@ synopsis
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
 </div>
-
+Path to the file where to store the proxy syntactic structures and associated identifiers/
 
 <h3 name="rcFile" class="param">rcFile</h3>
 
