@@ -45,7 +45,7 @@ public class TomapClassifierParamConverter extends AbstractParamConverter<TomapC
 		SourceStream tomapFile = convertComponent(SourceStream.class, tomapPath);
 		SourceStream headGraylistFile = getSourceAttribute(xmlValue, "graylist");
 		String defaultConcept = XMLUtils.getAttribute(xmlValue, "default", null);
-		CandidateDistanceFactory candidateDistanceFactory = getCandidateDistance(xmlValue);
+		CandidateDistanceFactory candidateDistanceFactory = getCandidateScore(xmlValue);
 		SourceStream emptyWordsFile = getSourceAttribute(xmlValue, "empty-words");
 		boolean wholeCandidateDistance = XMLUtils.getBooleanAttribute(xmlValue, "whole-candidate-distance", false);
 		boolean wholeProxyDistance = XMLUtils.getBooleanAttribute(xmlValue, "whole-proxy-distance", true);
@@ -62,9 +62,9 @@ public class TomapClassifierParamConverter extends AbstractParamConverter<TomapC
 		return null;
 	}
 
-	private CandidateDistanceFactory getCandidateDistance(Element xmlValue) throws ConverterException {
-		if (xmlValue.hasAttribute("distance")) {
-			String dist = xmlValue.getAttribute("distance");
+	private CandidateDistanceFactory getCandidateScore(Element xmlValue) throws ConverterException {
+		if (xmlValue.hasAttribute("score")) {
+			String dist = xmlValue.getAttribute("score");
 			switch (dist) {
 				case "jaccard":
 					return StandardCandidateDistanceFactory.JACCARD;

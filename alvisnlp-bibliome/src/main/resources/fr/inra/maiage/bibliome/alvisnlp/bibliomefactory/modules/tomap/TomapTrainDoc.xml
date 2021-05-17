@@ -18,22 +18,30 @@ limitations under the License.
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tomap.TomapTrain">
 
   <synopsis>
-    <p>synopsis</p>
+    <p><this/> analyzes terms in preparation of the classification of candidates with <a href="https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md">ToMap</a>.</p>
   </synopsis>
 
   <module-doc>
     <description>
-      <p>synopsis</p>
+      <p>
+      	<this/> assumes each sentence or section is a proxy term according to the <a href="https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md">ToMap</a> method.
+      	<this/> analyzes the syntactic structure of sections and stores them in <param>outFile</param>.
+      	Use this file for classifying terms with <module>TomapProjector</module>. 
+      	The identifier associated with the proxy is specified with <param>conceptIdentifier</param>.
+      </p>
+      <p>
+      	<param>conceptIdentifier</param> is 
+      </p>
     </description>
   
     <param-doc name="conceptIdentifier">
-      <p/>
+      <p>An expression evaluated as a string from the section or sentence that specifies the identifier associated with the proxy.</p>
     </param-doc>
   
     <param-doc name="outFile">
-      <p/>
+      <p>Path to the file where to store the proxy syntactic structures and associated identifiers/</p>
     </param-doc>
 
-      <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.yatea.AbstractYateaExtractorParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.yatea.AbstractYateaExtractorParamsDoc</include-doc>
 </module-doc>
 </alvisnlp-doc>

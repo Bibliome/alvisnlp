@@ -17,40 +17,44 @@ limitations under the License.
 
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tomap.TomapProjector">
   <synopsis>
-    <p>synopsis</p>
+    <p><this/> searches for terms and associates a category identifier using  <a href="https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md">ToMap</a>.</p>
   </synopsis>
 
   <module-doc>
     <description>
-      <p>synopsis</p>
+      <p><this/> searches for the terms specified by <param>yateaFile</param> (in YaTeA XML output format) and classifies them using the <a href="https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md">ToMap</a> classifier specified by <param>tomapClassifier</param>.</p>
     </description>
   
     <param-doc name="lemmaKeys">
-      <p/>
+      <p>Compare candidate and proxy terms by their lemma. By default <this/> compares their surface forms.</p>
+      <p>This parameter also affects how significant components and token heads are matched.</p> 
     </param-doc>
     
     <param-doc name="onlyMNP">
-      <p/>
+      <p>Only search for maximal noun phrase terms. By default searches for all terms.</p> 
     </param-doc>
   
     <param-doc name="explanationFeaturePrefix">
-      <p/>
-    </param-doc>
-  
-    <param-doc name="yateaFile">
-      <p/>
-    </param-doc>
-  
-    <param-doc name="conceptFeature">
-      <p/>
+      <p>Prefix of feature names for the assignment explanation. Features are <code>concept-synonym</code>, <code>significant-head</code>, <code>candidate-head</code>.</p>
+      <p>If not set, the features will not be stored.</p>
     </param-doc>
   
     <param-doc name="scoreFeature">
-      <p/>
+      <p>Feature where to store the similarity between the candidate and proxy terms.</p>
+      <p>If not set, the similarity will not be stored.</p>
+    </param-doc>
+  
+    <param-doc name="conceptFeature">
+      <p>Name of the feature where to store the concept identifier.</p>
+      <p>If not set, the concept identifier will not be stored.</p>
+    </param-doc>
+  
+    <param-doc name="yateaFile">
+      <p>Path to the file containing extracted terms. This file may be generated with <module>YateaExtractor</module>.</p>
     </param-doc>
   
     <param-doc name="tomapClassifier">
-      <p/>
+      <p>Path to the file containing proxy terms, their associated identifiers and syntactic structure. Generate this file with <module>TomapTrain</module>.</p>
     </param-doc>
 
 	<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.TrieProjectorParamsDoc</include-doc>
