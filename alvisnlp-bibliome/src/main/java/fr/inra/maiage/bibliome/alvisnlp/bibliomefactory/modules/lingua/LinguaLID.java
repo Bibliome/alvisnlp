@@ -59,7 +59,7 @@ public class LinguaLID extends CorpusModule<LinguaLIDResolvedObjects> {
 	
 	private LanguageDetectorBuilder getLanguageDetectorBuilder() {
 		if (includeLanguages == null) {
-			return LanguageDetectorBuilder.fromAllLanguages();
+			return LanguageDetectorBuilder.fromAllSpokenLanguages();
 		}
 		return LanguageDetectorBuilder.fromLanguages(includeLanguages);
 	}
