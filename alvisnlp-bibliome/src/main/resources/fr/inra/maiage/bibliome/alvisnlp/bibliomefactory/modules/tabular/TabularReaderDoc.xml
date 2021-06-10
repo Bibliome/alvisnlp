@@ -85,6 +85,10 @@ limitations under the License.
     <param-doc name="trueCSV">
       <p>Use CSV Commons library (handles quoted values).</p>
     </param-doc>
+    
+    <param-doc name="header">
+      <p>Either to skip the first row.</p>
+    </param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.module.ActionInterfaceParamsDoc</include-doc>
