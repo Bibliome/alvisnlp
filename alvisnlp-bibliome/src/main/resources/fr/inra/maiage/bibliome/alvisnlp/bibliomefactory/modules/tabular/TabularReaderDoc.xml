@@ -33,44 +33,57 @@ limitations under the License.
 -->
 
   <synopsis>
-    <p>synopsis</p>
+    <p>Reads a tabular file and applies actions for each line.</p>
   </synopsis>
 
   <module-doc>
     <description>
-      <p>synopsis</p>
+      <p><this/> reads <param>source</param> as a tabular file and for each line evaluates each <param>lineActions</param>.</p>
     </description>
   
     <param-doc name="lineActions">
-      <p/>
+      <p>Action expressions to evaluate at each row. The expressions are evaluated from the element specified by <param>sourceElement</param>.</p>
+      <p>
+      	The library <code>tab</code> defines the following functions:
+      	<ul>
+      		<li><code>tab:column(N)</code> : value of the <i>Nth</i> column.</li>
+      		<li><code>tab:source</code> : name of the input source being parsed.</li>
+      		<li><code>tab:line</code> : current row number.</li>
+      		<li><code>tab:width</code> : number of column in the current row.</li>
+      	</ul>
+      </p>
     </param-doc>
    
     <param-doc name="separator">
-      <p/>
+      <p>Column separator character.</p>
     </param-doc>
   
     <param-doc name="skipBlank">
-      <p/>
+      <p>Either to skip blank lines.</p>
     </param-doc>
   
     <param-doc name="sourceElement">
-      <p/>
+      <p>For each source, this expression is evaluated as a sngle element from the corpus. <param>lineActions</param> will be evaluated from this element.</p>
     </param-doc>
   
     <param-doc name="source">
-      <p/>
+      <p>Source of CSV. Maybe a path to a file or an URL</p>
     </param-doc>
   
     <param-doc name="trimColumns">
-      <p/>
+      <p>Either to trim values from leading and trailing whitespace</p>
     </param-doc>
   
     <param-doc name="checkNumColumns">
-      <p/>
+      <p>Either to check that all rows have the same number of columns. The execution will fail if one row has a wrong number of columns.</p> 
     </param-doc>
   
     <param-doc name="commitLines">
-      <p/>
+      <p>Commit changes at each line.</p>
+    </param-doc>
+    
+    <param-doc name="trueCSV">
+      <p>Use CSV Commons library (handles quoted values).</p>
     </param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>

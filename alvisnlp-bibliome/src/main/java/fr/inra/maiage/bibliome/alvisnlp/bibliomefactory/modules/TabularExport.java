@@ -26,7 +26,6 @@ import java.util.logging.Logger;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
-import org.apache.commons.csv.QuoteMode;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.TabularExport.TabularExportResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
