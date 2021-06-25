@@ -138,7 +138,7 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 		}
 		
 		for (Relation rel : sec.getAllRelations()) {
-			Relation newRelation = clone(mapping, rel, new Relation(this, newSection, rel.getName()));
+			Relation newRelation = clone(mapping, rel, newSection.ensureRelation(this, rel.getName()));
 			for (Tuple t : rel.getTuples())
 				clone(mapping, t, new Tuple(this, newRelation));
 		}
