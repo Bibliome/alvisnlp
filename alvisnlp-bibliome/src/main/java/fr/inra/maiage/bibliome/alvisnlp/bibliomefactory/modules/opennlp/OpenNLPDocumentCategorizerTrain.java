@@ -13,6 +13,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 import opennlp.tools.doccat.DoccatFactory;
@@ -60,5 +61,23 @@ public class OpenNLPDocumentCategorizerTrain extends OpenNLPDocumentCategorizerB
 			result.add(ds);
 		}
 		return new CollectionObjectStream<DocumentSample>(result);
+	}
+
+	@Param
+	public TargetStream getModel() {
+		return model;
+	}
+
+	@Param
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setModel(TargetStream model) {
+		this.model = model;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 }
