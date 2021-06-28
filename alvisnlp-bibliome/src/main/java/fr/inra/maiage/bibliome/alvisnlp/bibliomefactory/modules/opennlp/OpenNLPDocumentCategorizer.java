@@ -61,12 +61,12 @@ public class OpenNLPDocumentCategorizer extends OpenNLPDocumentCategorizerBase {
 		return model;
 	}
 
-	@Param(nameType=NameType.FEATURE)
+	@Param(nameType=NameType.FEATURE, mandatory=false)
 	public String getScoreFeature() {
 		return scoreFeature;
 	}
 
-	@Param(nameType=NameType.FEATURE)
+	@Param(nameType=NameType.FEATURE, mandatory=false)
 	public String getScoresFeaturePrefix() {
 		return scoresFeaturePrefix;
 	}
