@@ -24,6 +24,9 @@ limitations under the License.
     <string-conversion>
       <p>
 	<ul>
+	  <li><em>annotation-strict</em>: strict comparison of annotation boundaries (if boundaries are equal, then 1, otherwise 0);</li>
+	  <li><em>annotation-relaxed</em>: relaxed comparison of annotation boundaries (if boundaries overlap, then 1, otherwise 0);</li>
+	  <li><em>annotation-jaccard</em>: Jaccard index of annotation boundaries (common offsets divided by all offsets);</li>
 	  <li><em>edit(KEY)</em>: levenshtein distance between the values of feature with key <em>KEY</em>;</li>
 	  <li><em>KEY(FAIL)</em>: 1 if the values of feature with key <em>KEY</em> are equal, <em>FAIL</em> otherwise;</li>
 	  <li><em>KEY</em>: 1 if the values of feature with key <em>KEY</em> are equal, 0 otherwise.</li>

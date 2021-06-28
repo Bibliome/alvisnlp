@@ -52,12 +52,23 @@ public class ElementSimilarityParamConverter extends ClosedValueSetParamConverte
 	private static Pattern FEATURE_SIMILARITY_PATTERN = Pattern.compile("(\\S+)\\s*\\(\\s*(\\S+)\\s*\\)");
 	
 	private static ElementSimilarity featureSimilarity(String s) {
-		Matcher m = FEATURE_SIMILARITY_PATTERN.matcher(s);
-		if (!m.matches())
-			return new FeatureSimilarity(s);
-		if ("edit".equalsIgnoreCase(m.group(2)))
-			return new FeatureEdit(m.group(1));
-		return new FeatureSimilarity(m.group(1), Double.parseDouble(m.group(2)));
+		switch (s) {
+			case "annotation-strict":
+				return StandardSimilarity.ANNOTATION_STRICT;
+			case "annotation-relaxed":
+				return StandardSimilarity.ANNOTATION_LAX;
+			case "annotation-jaccard":
+			case "jaccard":
+				return StandardSimilarity.ANNOTATION_JACCARD;
+			default: {
+				Matcher m = FEATURE_SIMILARITY_PATTERN.matcher(s);
+				if (!m.matches())
+					return new FeatureSimilarity(s);
+				if ("edit".equalsIgnoreCase(m.group(2)))
+					return new FeatureEdit(m.group(1));
+				return new FeatureSimilarity(m.group(1), Double.parseDouble(m.group(2)));
+			}
+		}
 	}
 
 	@Override
