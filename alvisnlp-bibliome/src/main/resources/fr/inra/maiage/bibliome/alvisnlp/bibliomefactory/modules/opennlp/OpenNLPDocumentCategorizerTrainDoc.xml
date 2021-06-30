@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-doc author="" beta="true" date=""
+	short-target="OpenNLPDocumentCategorizerTrain"
+	target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.opennlp.OpenNLPDocumentCategorizerTrain">
+	<synopsis>
+		<p>Train a document categorizer using the <a href="https://opennlp.apache.org/">OpenNLP</a> library.</p>
+	</synopsis>
+
+	<module-doc>
+		<description>
+			<p><this/> trains a document categorizer using the <a href="https://opennlp.apache.org/">OpenNLP</a> library.
+			The documents and their class are specified by <param>documents</param> and <param>categoryFeature</param>.
+			The classifier algorithm uses the document content specified by <param>tokens</param> and <param>form</param>. 
+			</p>
+			<p>By default the features are BOW but can be deactivated with <param>bagOfWords</param>.
+			Additionally <param>nGrams</param> can be set to add n-gram features. 
+			</p>
+			<p>The classifier is stored in <param>classifier</param>. This file can be used by <module>OpenNLPDocumentCategorizer</module>. 
+			</p>
+		</description>
+
+		<param-doc default-value="PERCEPTRON"
+			mandatory="default: PERCEPTRON" name="algorithm"
+			short-type="OpenNLPAlgorithm"
+			type="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.opennlp.OpenNLPAlgorithm">
+			<p>Categorization algorithm. Must be one of:
+			<ul>
+			<li><em>naive-bayes</em>, <em>nb</em></li>
+			<li><em>generalized-iterative-scaling</em>, <em>gis</em></li>
+			<li><em>perceptron</em></li>
+			<li><em>quasi-newton</em>, <em>qn</em>, <em>l-bfgs</em>, <em>lbfgs</em>, <em>bfgs</em></li>
+			</ul>
+			</p>
+		</param-doc>
+
+		<param-doc default-value="true" mandatory="default: true"
+			name="bagOfWords" short-type="Boolean" type="java.lang.Boolean">
+			<p>Either to generate single-word features.</p>
+		</param-doc>
+
+		<param-doc mandatory="required" name="categoryFeature"
+			name-type="feature" short-type="String" type="java.lang.String">
+			<p>Feature where the category is read.</p>
+		</param-doc>
+
+		<param-doc mandatory="optional" name="classWeights"
+			short-type="IntegerMapping"
+			type="fr.inra.maiage.bibliome.alvisnlp.core.module.types.IntegerMapping">
+			<p>Weight of samples of each class. This parameter is useful to compensate unbalanced training sets. The default weight is 1.</p>
+		</param-doc>
+
+		<param-doc default-value="100" mandatory="default: 100"
+			name="iterations" short-type="Integer" type="java.lang.Integer">
+			<p>Number of learning iterations.</p>
+		</param-doc>
+
+		<param-doc mandatory="required" name="language"
+			short-type="String" type="java.lang.String">
+			<p>Language of the documents (ISO 639-1 two-letter code).</p>
+		</param-doc>
+
+		<param-doc mandatory="required" name="model"
+			short-type="TargetStream"
+			type="fr.inra.maiage.bibliome.util.streams.TargetStream">
+			<p>File where to store the classifier.</p>
+		</param-doc>
+
+		<param-doc mandatory="optional" name="nGrams"
+			short-type="Integer" type="java.lang.Integer">
+			<p>Maximum size of n-gram features (minimum is 2). If not set, then do not use n-gram features.</p>
+		</param-doc>
+		
+		<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.opennlp.OpenNLPDocumentCategorizerBaseDoc</include-doc>
+		
+	</module-doc>
+</alvisnlp-doc>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-doc short-target="OpenNLPAlgorithm" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.opennlp.OpenNLPAlgorithm">
+  <synopsis>
+    <p>Converts into a an algorithm known to <module>OpenNLPDocumentCategorizerTrain</module>.</p>
+  </synopsis>
+
+  <converter-doc>
+    <string-conversion>
+			<p>Only the following values are accepted:
+			<ul>
+			<li><em>naive-bayes</em>, <em>nb</em></li>
+			<li><em>generalized-iterative-scaling</em>, <em>gis</em></li>
+			<li><em>perceptron</em></li>
+			<li><em>quasi-newton</em>, <em>qn</em>, <em>l-bfgs</em>, <em>lbfgs</em>, <em>bfgs</em></li>
+			</ul>
+			</p>
+    </string-conversion>
+  
+    <xml-conversion>
+      <p>
+	<xverb><param value="ALGO"/></xverb>
+	or
+	<xverb><param>ALGO</param></xverb>
+	<em>ALGO</em> is converted into the algorithm as specified by the string conversion.
+      </p>
+    </xml-conversion>
+  </converter-doc>
+</alvisnlp-doc>

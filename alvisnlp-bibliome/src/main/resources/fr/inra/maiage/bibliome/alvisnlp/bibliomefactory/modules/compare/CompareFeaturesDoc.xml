@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-doc author="" beta="true" date=""
+	short-target="CompareFeatures"
+	target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.compare.CompareFeatures">
+	<synopsis>
+		<p>Compare two features in a set of elements.</p>
+	</synopsis>
+
+	<module-doc>
+		<description>
+			<p><this/> compares the value of <param>referenceFeature</param> and <param>predictedFeature</param> in the elements specified by <param>items</param>.
+			The comparison is aggregated using standard metrics (accuracy, recall, precision and F-score).
+			<this/> is useful to evaluate classification predictions against a reference.
+			</p>
+			<p>The results are displayed in the log and written in the file specified by <param>outFile</param>.</p>
+			<p>By default the metrics are computed for each distinct value of <param>referenceFeature</param> and <param>predictedFeature</param>. If <param>classesOfInterest</param> is set, then <this/> will only compute metrics for the specified values.</p>
+		</description>
+
+		<param-doc mandatory="optional" name="classesOfInterest"
+			short-type="String[]" type="java.lang.String[]">
+			<p>Values for which metrics are computed. All values if not set.</p>
+		</param-doc>
+
+		<param-doc mandatory="required" name="items"
+			short-type="Expression"
+			type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
+			<p>Elements for which to compare both features. <param>items</param> is evaluated from the corpus.</p>
+		</param-doc>
+
+		<param-doc mandatory="required" name="outFile"
+			short-type="TargetStream"
+			type="fr.inra.maiage.bibliome.util.streams.TargetStream">
+			<p>File where to write results.</p>
+		</param-doc>
+
+		<param-doc mandatory="required" name="predictedFeature"
+			name-type="feature" short-type="String" type="java.lang.String">
+			<p>Feature containing the predicted value.</p>
+		</param-doc>
+
+		<param-doc mandatory="required" name="referenceFeature"
+			name-type="feature" short-type="String" type="java.lang.String">
+			<p>Feature containing the reference value.</p>
+		</param-doc>
+		<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
+	</module-doc>
+</alvisnlp-doc>
