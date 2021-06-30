@@ -15,6 +15,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.types.IntegerMapping;
 import fr.inra.maiage.bibliome.util.Checkable;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
@@ -39,6 +40,8 @@ public class OpenNLPDocumentCategorizerTrain extends OpenNLPDocumentCategorizerB
 	private OpenNLPAlgorithm algorithm = OpenNLPAlgorithm.PERCEPTRON;
 	private Boolean bagOfWords = true;
 	private Integer nGrams = null;
+	private IntegerMapping classWeights;
+	private Integer iterations = 100;
 	
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -48,6 +51,7 @@ public class OpenNLPDocumentCategorizerTrain extends OpenNLPDocumentCategorizerB
 		TrainingParameters mlParams = ModelUtil.createDefaultTrainingParameters();
 		mlParams.put(AbstractTrainer.ALGORITHM_PARAM, algorithm.paramValue);
 		mlParams.put(AbstractTrainer.VERBOSE_PARAM, "false");
+		mlParams.put(AbstractTrainer.ITERATIONS_PARAM, iterations);
 		try (OutputStream os = model.getOutputStream()) {
 			DoccatFactory factory = new DoccatFactory(getFeatureGenerators());
 			DoccatModel dcmodel = DocumentCategorizerME.train(language, trainingSet, mlParams, factory);
@@ -69,6 +73,16 @@ public class OpenNLPDocumentCategorizerTrain extends OpenNLPDocumentCategorizerB
 		return result.toArray(new FeatureGenerator[2]);
 	}
 	
+	private int getWeight(String theClass) {
+		if (classWeights == null) {
+			return 1;
+		}
+		if (classWeights.containsKey(theClass)) {
+			return classWeights.get(theClass);
+		}
+		return 1;
+	}
+	
 	private DocumentSample getDocumentSample(EvaluationContext evalCtx, Element doc) {
 		OpenNLPDocumentCategorizerResolvedObjects resObj = getResolvedObjects();
 		String[] tokens = resObj.getDocumentTokens(evalCtx, doc);
@@ -81,7 +95,10 @@ public class OpenNLPDocumentCategorizerTrain extends OpenNLPDocumentCategorizerB
 		OpenNLPDocumentCategorizerResolvedObjects resObj = getResolvedObjects();
 		for (Element doc : Iterators.loop(resObj.getDocuments(evalCtx, corpus))) {
 			DocumentSample ds = getDocumentSample(evalCtx, doc);
-			result.add(ds);
+			int w = getWeight(ds.getCategory());
+			for (int i = 0; i < w; ++i) {
+				result.add(ds);
+			}
 		}
 		return new CollectionObjectStream<DocumentSample>(result);
 	}
@@ -122,6 +139,24 @@ public class OpenNLPDocumentCategorizerTrain extends OpenNLPDocumentCategorizerB
 	@Param(mandatory=false)
 	public Integer getnGrams() {
 		return nGrams;
+	}
+
+	@Param(mandatory=false)
+	public IntegerMapping getClassWeights() {
+		return classWeights;
+	}
+
+	@Param
+	public Integer getIterations() {
+		return iterations;
+	}
+
+	public void setIterations(Integer iterations) {
+		this.iterations = iterations;
+	}
+
+	public void setClassWeights(IntegerMapping classWeights) {
+		this.classWeights = classWeights;
 	}
 
 	public void setBagOfWords(Boolean bagOfWords) {
