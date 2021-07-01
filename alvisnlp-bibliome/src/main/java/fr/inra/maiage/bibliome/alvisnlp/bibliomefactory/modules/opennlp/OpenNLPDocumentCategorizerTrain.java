@@ -47,7 +47,7 @@ public class OpenNLPDocumentCategorizerTrain extends OpenNLPDocumentCategorizerB
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
-		ObjectStream<DocumentSample> trainingSet = getTrainingSet(evalCtx, corpus);
+		ObjectStream<DocumentSample> trainingSet = getTrainingSet(logger, evalCtx, corpus);
 		TrainingParameters mlParams = ModelUtil.createDefaultTrainingParameters();
 		mlParams.put(AbstractTrainer.ALGORITHM_PARAM, algorithm.paramValue);
 		mlParams.put(AbstractTrainer.VERBOSE_PARAM, "false");
@@ -62,18 +62,25 @@ public class OpenNLPDocumentCategorizerTrain extends OpenNLPDocumentCategorizerB
 		}
 	}
 	
-	private FeatureGenerator[] getFeatureGenerators() throws InvalidFormatException {
+	private FeatureGenerator[] getFeatureGenerators() throws InvalidFormatException, ProcessingException {
 		List<FeatureGenerator> result = new ArrayList<FeatureGenerator>(2);
 		if (bagOfWords) {
 			result.add(new BagOfWordsFeatureGenerator());
 		}
-		if (nGrams != null) {
+		if ((nGrams != null) && (nGrams > 1)) {
 			result.add(new NGramFeatureGenerator(2, nGrams));
 		}
-		return result.toArray(new FeatureGenerator[2]);
+		if (result.isEmpty()) {
+			throw new ProcessingException("there are no feature generators");
+		}
+		return result.toArray(new FeatureGenerator[result.size()]);
 	}
 	
-	private int getWeight(String theClass) {
+	private int getWeight(DocumentSample ds) {
+		if (ds.getText().length == 0) {
+			return 0;
+		}
+		String theClass = ds.getCategory();
 		if (classWeights == null) {
 			return 1;
 		}
@@ -90,16 +97,20 @@ public class OpenNLPDocumentCategorizerTrain extends OpenNLPDocumentCategorizerB
 		return new DocumentSample(category, tokens);
 	}
 	
-	private ObjectStream<DocumentSample> getTrainingSet(EvaluationContext evalCtx, Corpus corpus) {
+	private ObjectStream<DocumentSample> getTrainingSet(Logger logger, EvaluationContext evalCtx, Corpus corpus) {
 		Collection<DocumentSample> result = new ArrayList<DocumentSample>();
 		OpenNLPDocumentCategorizerResolvedObjects resObj = getResolvedObjects();
 		for (Element doc : Iterators.loop(resObj.getDocuments(evalCtx, corpus))) {
 			DocumentSample ds = getDocumentSample(evalCtx, doc);
-			int w = getWeight(ds.getCategory());
+			int w = getWeight(ds);
+			if (w == 0) {
+				logger.warning("document is empty: " + doc);
+			}
 			for (int i = 0; i < w; ++i) {
 				result.add(ds);
 			}
 		}
+		logger.info("training size: " + result.size());
 		return new CollectionObjectStream<DocumentSample>(result);
 	}
 
