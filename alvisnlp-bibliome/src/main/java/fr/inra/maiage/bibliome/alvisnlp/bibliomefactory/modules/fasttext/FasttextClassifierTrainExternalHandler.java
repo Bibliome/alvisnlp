@@ -22,7 +22,7 @@ public class FasttextClassifierTrainExternalHandler extends FasttextClassifierBa
 	protected void prepare() throws IOException, ModuleException {
 		EvaluationContext evalCtx = new EvaluationContext(getLogger());
 		FasttextClassifierTrain owner = getModule();
-		FasttextClassifierResolvedObjects resObj = owner.getResolvedObjects();
+		FasttextClassifierBaseResolvedObjects resObj = owner.getResolvedObjects();
 		writeDocumentLines(evalCtx, getTrainingFile(), resObj.getDocuments(), resObj.getAttributes(), true, true);
 		if (owner.isValidating()) {
 			FasttextAttribute.Resolved[] attributes = resObj.getValidationAttributes();

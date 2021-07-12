@@ -30,14 +30,14 @@ public class FasttextClassifierLabelExternalHandler extends FasttextClassifierBa
 	protected void prepare() throws IOException, ModuleException {
 		EvaluationContext evalCtx = new EvaluationContext(getLogger());
 		FasttextClassifierLabel owner = getModule();
-		FasttextClassifierResolvedObjects resObj = owner.getResolvedObjects();
+		FasttextClassifierBaseResolvedObjects resObj = owner.getResolvedObjects();
 		writeDocumentLines(evalCtx, getFasttextInputFile(), resObj.getDocuments(), resObj.getAttributes(), false, false);
 	}
 
 	@Override
 	protected void collect() throws IOException, ModuleException {
 		FasttextClassifierLabel owner = getModule();
-		FasttextClassifierResolvedObjects resObj = owner.getResolvedObjects();
+		FasttextClassifierBaseResolvedObjects resObj = owner.getResolvedObjects();
 		EvaluationContext evalCtx = new EvaluationContext(getLogger());
 		SourceStream source = new FileSourceStream("UTF-8", getOutputFile().getAbsolutePath());
 		try (BufferedReader r = source.getBufferedReader()) {

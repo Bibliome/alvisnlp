@@ -9,7 +9,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 
-public abstract class FasttextClassifierBase extends CorpusModule<FasttextClassifierResolvedObjects> {
+public abstract class FasttextClassifierBase extends CorpusModule<FasttextClassifierBaseResolvedObjects> {
 	private ExecutableFile fasttextExecutable;
 	private Expression documents;
 	private FasttextAttribute[] attributes;
@@ -20,8 +20,8 @@ public abstract class FasttextClassifierBase extends CorpusModule<FasttextClassi
 	}
 
 	@Override
-	protected FasttextClassifierResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx)	throws ResolverException {
-		return new FasttextClassifierResolvedObjects(ctx, this);
+	protected FasttextClassifierBaseResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx)	throws ResolverException {
+		return new FasttextClassifierBaseResolvedObjects(ctx, this);
 	}
 
 	@Param

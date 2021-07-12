@@ -8,13 +8,13 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 
-class FasttextClassifierResolvedObjects extends ResolvedObjects {
+class FasttextClassifierBaseResolvedObjects extends ResolvedObjects {
 	private final Evaluator documents;
 	private final FasttextAttribute.Resolved[] attributes;
 	private final Evaluator validationDocuments;
 	private final FasttextAttribute.Resolved[] validationAttributes;
 
-	public FasttextClassifierResolvedObjects(ProcessingContext<Corpus> ctx, FasttextClassifierBase module) throws ResolverException {
+	public FasttextClassifierBaseResolvedObjects(ProcessingContext<Corpus> ctx, FasttextClassifierBase module) throws ResolverException {
 		super(ctx, module);
 		this.documents = module.getDocuments().resolveExpressions(rootResolver);
 		this.attributes = rootResolver.resolveArray(module.getAttributes(), FasttextAttribute.Resolved.class);
