@@ -18,7 +18,7 @@ import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-public abstract class FasttextClassifierBaseExternalHandler<M extends FasttextClassifierBase> extends ExternalHandler<Corpus,M> {
+public abstract class FasttextClassifierBaseExternalHandler<R extends FasttextClassifierBaseResolvedObjects, M extends FasttextClassifierBase<R>> extends ExternalHandler<Corpus,M> {
 	protected static final String FASTTEXT_CLASS_FEATURE_PREFIX = "__label__";
 
 	protected FasttextClassifierBaseExternalHandler(ProcessingContext<Corpus> processingContext, M module, Corpus annotable) {
@@ -50,7 +50,7 @@ public abstract class FasttextClassifierBaseExternalHandler<M extends FasttextCl
 	}
 
 	protected Collection<String> getDocumentLine(EvaluationContext evalCtx, Element doc, FasttextAttribute.Resolved[] attributes, boolean includeClass) {
-		FasttextClassifierBase owner = getModule();
+		FasttextClassifierBase<R> owner = getModule();
 		Collection<String> result = new ArrayList<String>();
 		for (FasttextAttribute.Resolved attr : attributes) {
 			String value = getAttributeValue(attr, evalCtx, doc);

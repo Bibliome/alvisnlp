@@ -16,7 +16,7 @@ import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
-public class FasttextClassifierLabelExternalHandler extends FasttextClassifierBaseExternalHandler<FasttextClassifierLabel> {
+public class FasttextClassifierLabelExternalHandler extends FasttextClassifierBaseExternalHandler<FasttextClassifierBaseResolvedObjects,FasttextClassifierLabel> {
 	public FasttextClassifierLabelExternalHandler(ProcessingContext<Corpus> processingContext, FasttextClassifierLabel module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}

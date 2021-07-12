@@ -11,15 +11,11 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 class FasttextClassifierBaseResolvedObjects extends ResolvedObjects {
 	private final Evaluator documents;
 	private final FasttextAttribute.Resolved[] attributes;
-	private final Evaluator validationDocuments;
-	private final FasttextAttribute.Resolved[] validationAttributes;
 
-	public FasttextClassifierBaseResolvedObjects(ProcessingContext<Corpus> ctx, FasttextClassifierBase module) throws ResolverException {
+	public FasttextClassifierBaseResolvedObjects(ProcessingContext<Corpus> ctx, FasttextClassifierBase<?> module) throws ResolverException {
 		super(ctx, module);
 		this.documents = module.getDocuments().resolveExpressions(rootResolver);
 		this.attributes = rootResolver.resolveArray(module.getAttributes(), FasttextAttribute.Resolved.class);
-		this.validationDocuments = rootResolver.resolveNullable(module.getValidationDocuments());
-		this.validationAttributes = rootResolver.resolveNullableArray(module.getValidationAttributes(), FasttextAttribute.Resolved.class);
 	}
 
 	@Override
@@ -27,8 +23,6 @@ class FasttextClassifierBaseResolvedObjects extends ResolvedObjects {
 		super.collectUsedNames(nameUsage, defaultType);
 		this.documents.collectUsedNames(nameUsage, defaultType);
 		nameUsage.collectUsedNamesArray(attributes, defaultType);
-		nameUsage.collectUsedNamesNullable(validationDocuments, defaultType);
-		nameUsage.collectUsedNamesNullableArray(validationAttributes, defaultType);
 	}
 
 	public Evaluator getDocuments() {
@@ -37,13 +31,5 @@ class FasttextClassifierBaseResolvedObjects extends ResolvedObjects {
 
 	public FasttextAttribute.Resolved[] getAttributes() {
 		return attributes;
-	}
-
-	public Evaluator getValidationDocuments() {
-		return validationDocuments;
-	}
-
-	public FasttextAttribute.Resolved[] getValidationAttributes() {
-		return validationAttributes;
 	}
 }

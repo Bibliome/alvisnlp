@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
@@ -14,7 +15,7 @@ import fr.inra.maiage.bibliome.util.files.InputFile;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 @AlvisNLPModule(beta = true)
-public class FasttextClassifierTrain extends FasttextClassifierBase {
+public class FasttextClassifierTrain extends FasttextClassifierBase<FasttextClassifierTrainResolvedObjects> {
 	private OutputFile modelFile;
 	private IntegerMapping classWeights;
 	private Integer wordGrams;
@@ -47,6 +48,11 @@ public class FasttextClassifierTrain extends FasttextClassifierBase {
 		catch (InterruptedException|IOException e) {
 			throw new ProcessingException(e);
 		}
+	}
+
+	@Override
+	protected FasttextClassifierTrainResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		return new FasttextClassifierTrainResolvedObjects(ctx, this);
 	}
 
 	protected boolean isValidating() {
@@ -149,13 +155,11 @@ public class FasttextClassifierTrain extends FasttextClassifierBase {
 	}
 
 	@Param(mandatory = false)
-	@Override
 	public Expression getValidationDocuments() {
 		return validationDocuments;
 	}
 
 	@Param(mandatory = false)
-	@Override
 	public FasttextAttribute[] getValidationAttributes() {
 		return validationAttributes;
 	}

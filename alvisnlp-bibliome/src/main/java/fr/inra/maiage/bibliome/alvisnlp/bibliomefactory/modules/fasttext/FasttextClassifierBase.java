@@ -1,15 +1,12 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 
-public abstract class FasttextClassifierBase extends CorpusModule<FasttextClassifierBaseResolvedObjects> {
+public abstract class FasttextClassifierBase<R extends FasttextClassifierBaseResolvedObjects> extends CorpusModule<R> {
 	private ExecutableFile fasttextExecutable;
 	private Expression documents;
 	private FasttextAttribute[] attributes;
@@ -17,11 +14,6 @@ public abstract class FasttextClassifierBase extends CorpusModule<FasttextClassi
 
 	public FasttextClassifierBase() {
 		super();
-	}
-
-	@Override
-	protected FasttextClassifierBaseResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx)	throws ResolverException {
-		return new FasttextClassifierBaseResolvedObjects(ctx, this);
 	}
 
 	@Param
@@ -59,8 +51,4 @@ public abstract class FasttextClassifierBase extends CorpusModule<FasttextClassi
 	public void setClassFeature(String classFeature) {
 		this.classFeature = classFeature;
 	}
-	
-	protected abstract Expression getValidationDocuments();
-
-	protected abstract FasttextAttribute[] getValidationAttributes();
 }

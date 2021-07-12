@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
@@ -13,7 +13,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 
 @AlvisNLPModule(beta = true)
-public class FasttextClassifierLabel extends FasttextClassifierBase {
+public class FasttextClassifierLabel extends FasttextClassifierBase<FasttextClassifierBaseResolvedObjects> {
 	private InputFile modelFile;
 	private String probabilityFeature;
 	
@@ -26,6 +26,11 @@ public class FasttextClassifierLabel extends FasttextClassifierBase {
 		catch (InterruptedException|IOException e) {
 			throw new ProcessingException(e);
 		}
+	}
+
+	@Override
+	protected FasttextClassifierBaseResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		return new FasttextClassifierBaseResolvedObjects(ctx, this);
 	}
 
 	@Param
@@ -44,15 +49,5 @@ public class FasttextClassifierLabel extends FasttextClassifierBase {
 
 	public void setModelFile(InputFile modelFile) {
 		this.modelFile = modelFile;
-	}
-
-	@Override
-	protected Expression getValidationDocuments() {
-		return null;
-	}
-
-	@Override
-	protected FasttextAttribute[] getValidationAttributes() {
-		return null;
 	}
 }

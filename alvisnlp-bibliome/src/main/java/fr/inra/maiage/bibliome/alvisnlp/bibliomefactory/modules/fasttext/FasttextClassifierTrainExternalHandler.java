@@ -13,7 +13,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.IntegerMapping;
 
-public class FasttextClassifierTrainExternalHandler extends FasttextClassifierBaseExternalHandler<FasttextClassifierTrain> {
+public class FasttextClassifierTrainExternalHandler extends FasttextClassifierBaseExternalHandler<FasttextClassifierTrainResolvedObjects,FasttextClassifierTrain> {
 	public FasttextClassifierTrainExternalHandler(ProcessingContext<Corpus> processingContext, FasttextClassifierTrain module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
@@ -22,7 +22,7 @@ public class FasttextClassifierTrainExternalHandler extends FasttextClassifierBa
 	protected void prepare() throws IOException, ModuleException {
 		EvaluationContext evalCtx = new EvaluationContext(getLogger());
 		FasttextClassifierTrain owner = getModule();
-		FasttextClassifierBaseResolvedObjects resObj = owner.getResolvedObjects();
+		FasttextClassifierTrainResolvedObjects resObj = owner.getResolvedObjects();
 		writeDocumentLines(evalCtx, getTrainingFile(), resObj.getDocuments(), resObj.getAttributes(), true, true);
 		if (owner.isValidating()) {
 			FasttextAttribute.Resolved[] attributes = resObj.getValidationAttributes();
