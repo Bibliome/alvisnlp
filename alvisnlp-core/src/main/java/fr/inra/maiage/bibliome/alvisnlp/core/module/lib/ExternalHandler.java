@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -166,5 +167,41 @@ public abstract class ExternalHandler<T extends Annotable,M extends Module<T>> {
 				throw new RuntimeException(e);
 			}
 		}
+	}
+
+	public static void addToCommandLine(List<String> cl, String... args) {
+		cl.addAll(Arrays.asList(args));
+	}
+
+	public static void addNotNullToCommandLine(List<String> cl, String[] args) {
+		if (args != null) {
+			cl.addAll(Arrays.asList(args));
+		}
+	}
+
+	public static void addNotNullToCommandLine(List<String> cl, File arg, String opt) {
+		if (arg != null) {
+			if (opt != null) {
+				cl.add(opt);
+			}
+			cl.add(arg.getAbsolutePath());
+		}
+	}
+
+	public static void addNotNullToCommandLine(List<String> cl, Object arg, String opt) {
+		if (arg != null) {
+			if (opt != null) {
+				cl.add(opt);
+			}
+			cl.add(arg.toString());
+		}
+	}
+
+	public static void addNotNullToCommandLine(List<String> cl, File arg) {
+		addNotNullToCommandLine(cl, arg, null);
+	}
+
+	public static void addNotNullToCommandLine(List<String> cl, Object arg) {
+		addNotNullToCommandLine(cl, arg, null);
 	}
 }

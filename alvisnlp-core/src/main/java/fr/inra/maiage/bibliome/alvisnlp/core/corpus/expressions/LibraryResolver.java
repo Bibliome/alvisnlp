@@ -100,4 +100,11 @@ public class LibraryResolver {
 			return null;
 		return resolvable.resolveExpressions(this);
 	}
+
+	public <T,U extends Resolvable<T>> T[] resolveNullableArray(U[] expressions, Class<T> componentClass) throws ResolverException {
+		if (expressions == null) {
+			return null;
+		}
+		return resolveArray(expressions, componentClass);
+	}
 }

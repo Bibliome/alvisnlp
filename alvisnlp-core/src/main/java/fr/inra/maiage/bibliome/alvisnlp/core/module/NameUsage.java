@@ -71,4 +71,10 @@ public class NameUsage {
 			user.collectUsedNames(this, defaultType);
 		}
 	}
+
+	public <T extends NameUser> void collectUsedNamesNullableArray(T[] users, String defaultType) throws ModuleException {
+		if (users != null) {
+			collectUsedNamesArray(users, defaultType);
+		}
+	}
 }
