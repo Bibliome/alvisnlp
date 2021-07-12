@@ -22,7 +22,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import org.apache.commons.csv.CSVFormat;
@@ -176,6 +178,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 		private final Evaluator[] actions;
 		private final EvaluationContext evalCtx;
 		private final boolean commitLines;
+		private List<String> fieldNames = Collections.emptyList();
 		private Element element;
 		private boolean header;
 		
@@ -190,10 +193,12 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 		@Override
 		public void processEntry(EntryLibrary data, int lineno, List<String> entry) throws InvalidFileLineEntry {
 			if (header) {
+				fieldNames = new ArrayList<String>(entry);
 				header = false;
 				return;
 			}
-			data.startLine(lineno, entry);
+			Map<String,String> fields = getFields(entry);
+			data.startLine(lineno, entry, fields);
 			for (Evaluator expr : actions) {
 				Iterators.deplete(expr.evaluateElements(evalCtx, element));
 			}
@@ -201,22 +206,36 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 				evalCtx.commit();
 			}
 		}
+
+		private Map<String,String> getFields(List<String> entry) {
+			Map<String,String> result = new LinkedHashMap<String,String>();
+			Iterator<String> entryIt = entry.iterator();
+			for (String key : fieldNames) {
+				String value = entryIt.hasNext() ? entryIt.next() : "";
+				result.put(key, value);
+			}
+			return result;
+		}
 	}
 	
 	protected static final class EntryLibrary extends FunctionLibrary {
 		private String source = "";
 		private List<String> entry = Collections.emptyList();
+		private Map<String,String> fields = Collections.emptyMap();
+
 		private int line = 0;
 
 		private void startSource(String source) {
 			this.source = source;
 			entry = Collections.emptyList();
+			fields = Collections.emptyMap();
 			line = 0;
 		}
 		
-		private void startLine(int line, List<String> entry) {
+		private void startLine(int line, List<String> entry, Map<String,String> fields) {
 			this.line = line;
 			this.entry = entry;
+			this.fields = fields;
 		}
 		
 		@Override
@@ -225,23 +244,36 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 		}
 
 		@Override
-		public Evaluator resolveExpression(LibraryResolver resolver,	List<String> ftors, List<Expression> args) throws ResolverException {
-			checkExactFtors(ftors, 1);
+		public Evaluator resolveExpression(LibraryResolver resolver, List<String> ftors, List<Expression> args) throws ResolverException {
 			String firstFtor = ftors.get(0);
 			switch (firstFtor) {
 			case "source":
+				checkExactFtors(ftors, 1);
 				checkExactArity(ftors, args, 0);
 				return SOURCE;
 			case "column":
+				checkExactFtors(ftors, 1);
 				checkExactArity(ftors, args, 1);
 				return new ColumnEvaluator(args.get(0).resolveExpressions(resolver));
+			case "field": {
+				checkMaxFtors(ftors, 2);
+				if (ftors.size() == 2) {
+					checkExactArity(ftors, args, 0);
+					return new ConstantFieldEvaluator(ftors.get(1));
+				}
+				checkExactArity(ftors, args, 1);
+				return new FieldEvaluator(args.get(0).resolveExpressions(resolver));
+			}
 			case "line":
+				checkExactFtors(ftors, 1);
 				checkExactArity(ftors, args, 0);
 				return LINE;
 			case "width":
+				checkExactFtors(ftors, 1);
 				checkExactArity(ftors, args, 0);
 				return WIDTH;
 			case "range":
+				checkExactFtors(ftors, 1);
 				checkRangeArity(ftors, args, 1, 2);
 				switch (args.size()) {
 				case 1: return new ColumnRangeEvaluator(args.get(0).resolveExpressions(resolver), null);
@@ -267,12 +299,19 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 			@Override
 			public String evaluateString(EvaluationContext ctx, Element elt) {
 				//System.err.println("entry = " + entry);
-				return entry.get(column.evaluateInt(ctx, elt));
+				int index = column.evaluateInt(ctx, elt);
+				if ((index < 0) || (index >= entry.size())) {
+					return "";
+				}
+				return entry.get(index);
 			}
 			
 			@Override
 			public void evaluateString(EvaluationContext ctx, Element elt, StringCat strcat) {
-				strcat.append(entry.get(column.evaluateInt(ctx, elt)));
+				int index = column.evaluateInt(ctx, elt);
+				if ((index >= 0) && (index < entry.size())) {
+					strcat.append(entry.get(index));
+				}
 			}
 
 			@Override
@@ -281,6 +320,64 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 			}
 		}
 		
+		private final class ConstantFieldEvaluator extends AbstractStringEvaluator {
+			private final String fieldName;
+
+			private ConstantFieldEvaluator(String field) {
+				super();
+				this.fieldName = field;
+			}
+
+			@Override
+			public String evaluateString(EvaluationContext ctx, Element elt) {
+				if (fields.containsKey(fieldName)) {
+					return fields.get(fieldName);
+				}
+				return "";
+			}
+
+			@Override
+			public void evaluateString(EvaluationContext ctx, Element elt, StringCat strcat) {
+				if (fields.containsKey(fieldName)) {
+					strcat.append(fields.get(fieldName));
+				}
+			}
+
+			@Override
+			public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
+			}
+		}
+
+		private final class FieldEvaluator extends AbstractStringEvaluator {
+			private final Evaluator fieldName;
+
+			private FieldEvaluator(Evaluator field) {
+				super();
+				this.fieldName = field;
+			}
+
+			@Override
+			public String evaluateString(EvaluationContext ctx, Element elt) {
+				String key = fieldName.evaluateString(ctx, elt);
+				if (fields.containsKey(key)) {
+					return fields.get(key);
+				}
+				return "";
+			}
+
+			@Override
+			public void evaluateString(EvaluationContext ctx, Element elt, StringCat strcat) {
+				String key = fieldName.evaluateString(ctx, elt);
+				if (fields.containsKey(key)) {
+					strcat.append(fields.get(key));
+				}
+			}
+
+			@Override
+			public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
+			}
+		}
+
 		private final class ColumnRangeEvaluator extends AbstractListEvaluator {
 			private final Evaluator from;
 			private final Evaluator to;

@@ -46,10 +46,11 @@ limitations under the License.
       <p>
       	The library <code>tab</code> defines the following functions:
       	<ul>
-      		<li><code>tab:column(N)</code> : value of the <i>Nth</i> column.</li>
-      		<li><code>tab:source</code> : name of the input source being parsed.</li>
-      		<li><code>tab:line</code> : current row number.</li>
-      		<li><code>tab:width</code> : number of column in the current row.</li>
+	  <li><code>tab:column(N)</code> : value of the <i>Nth</i> column.</li>
+	  <li><code>tab:field:NAME</code> or <code>tab:field(NAME)</code> : value of the column named <i>NAME</i> (requires <param>header</param> set to <i>true</i></li>
+	  <li><code>tab:source</code> : name of the input source being parsed.</li>
+	  <li><code>tab:line</code> : current row number.</li>
+	  <li><code>tab:width</code> : number of column in the current row.</li>
       	</ul>
       </p>
     </param-doc>
