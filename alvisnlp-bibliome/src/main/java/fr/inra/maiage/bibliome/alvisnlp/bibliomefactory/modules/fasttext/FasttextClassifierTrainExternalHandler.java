@@ -24,7 +24,7 @@ public class FasttextClassifierTrainExternalHandler extends FasttextClassifierBa
 		FasttextClassifierTrain owner = getModule();
 		FasttextClassifierTrainResolvedObjects resObj = owner.getResolvedObjects();
 		writeDocumentLines(evalCtx, getTrainingFile(), resObj.getDocuments(), resObj.getAttributes(), true, true);
-		if (owner.isValidating()) {
+		if (owner.getAutotune()) {
 			FasttextAttribute.Resolved[] attributes = resObj.getValidationAttributes();
 			if (attributes == null) {
 				attributes = resObj.getAttributes();
@@ -105,7 +105,7 @@ public class FasttextClassifierTrainExternalHandler extends FasttextClassifierBa
 		addNotNullToCommandLine(result, owner.getWordVectorSize(), "-dim");
 		addNotNullToCommandLine(result, owner.getLearningRate(), "-lr");
 		addNotNullToCommandLine(result, owner.getEpochs(), "-epoch");
-		if (owner.isValidating()) {
+		if (owner.getAutotune()) {
 			addToCommandLine(result, "-autotune-validation", getValidationFile().getAbsolutePath());
 			addToCommandLine(result, "-autotune-duration", owner.getAutotuneDuration().toString());
 		}

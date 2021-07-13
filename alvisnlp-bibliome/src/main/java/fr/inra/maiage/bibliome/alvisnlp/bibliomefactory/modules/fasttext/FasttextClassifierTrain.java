@@ -1,6 +1,7 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext;
 
 import java.io.IOException;
+import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
@@ -11,11 +12,12 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.IntegerMapping;
+import fr.inra.maiage.bibliome.util.Checkable;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 @AlvisNLPModule(beta = true)
-public class FasttextClassifierTrain extends FasttextClassifierBase<FasttextClassifierTrainResolvedObjects> {
+public class FasttextClassifierTrain extends FasttextClassifierBase<FasttextClassifierTrainResolvedObjects> implements Checkable {
 	private OutputFile modelFile;
 	private IntegerMapping classWeights;
 	private Integer wordGrams;
@@ -34,11 +36,12 @@ public class FasttextClassifierTrain extends FasttextClassifierBase<FasttextClas
 	private FasttextLossFunction lossFunction;
 	private Integer threads = 12;
 	private InputFile pretrainedVectors;
+	private Boolean autotune = false;
 	private Expression validationDocuments;
 	private FasttextAttribute[] validationAttributes;
 	private Integer autotuneDuration = 300;
 	private String[] commandlineOptions;
-	
+
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
@@ -51,12 +54,20 @@ public class FasttextClassifierTrain extends FasttextClassifierBase<FasttextClas
 	}
 
 	@Override
-	protected FasttextClassifierTrainResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
-		return new FasttextClassifierTrainResolvedObjects(ctx, this);
+	public boolean check(Logger logger) {
+		if (autotune && (validationDocuments == null)) {
+			logger.severe("autotune requires validationDocuments set");
+			return false;
+		}
+		if ((!autotune) && (validationDocuments != null)) {
+			logger.warning("validationDocuments will be ignored");
+		}
+		return true;
 	}
 
-	protected boolean isValidating() {
-		return validationDocuments != null;
+	@Override
+	protected FasttextClassifierTrainResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		return new FasttextClassifierTrainResolvedObjects(ctx, this);
 	}
 
 	@Param
@@ -167,6 +178,15 @@ public class FasttextClassifierTrain extends FasttextClassifierBase<FasttextClas
 	@Param
 	public Integer getAutotuneDuration() {
 		return autotuneDuration;
+	}
+
+	@Param
+	public Boolean getAutotune() {
+		return autotune;
+	}
+
+	public void setAutotune(Boolean autotune) {
+		this.autotune = autotune;
 	}
 
 	public void setAutotuneDuration(Integer autotuneDuration) {
