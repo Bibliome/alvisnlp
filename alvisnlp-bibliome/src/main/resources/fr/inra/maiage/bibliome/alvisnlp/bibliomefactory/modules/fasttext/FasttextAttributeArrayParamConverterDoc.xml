@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><alvisnlp-doc short-target="FasttextAttribute[]" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextAttribute[]">
+	<synopsis>
+		<p>Converts an array of <converter>FasttextAttribute</converter> used to describe documents in <module>FasttextClassifierTrain</module> and <module>FasttextClassifierLabel</module>.</p>
+	</synopsis>
+	
+	<converter-doc>
+		<string-conversion>
+			<p>String conversion is not available for this type.</p>
+		</string-conversion>
+		
+		<xml-conversion>
+			<p>
+				<xverb>
+					<attributes>
+						<attr tokens="TOKENS" form="FORM"/>
+						<attr tokens="TOKENS" form="FORM"/>
+						...
+					</attributes>
+				</xverb>
+			</p>
+			<p>
+				<em>TOKENS</em> is an expression evaluated from the document element as a list of elements. Each element represents a token.
+			</p>
+			<p>
+				<em>FORM</em> is an expression evaluated from each token as a string. If omitted then it defaults to <code>@form</code>.
+			</p>
+		</xml-conversion>
+	</converter-doc>
+</alvisnlp-doc>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><alvisnlp-doc short-target="FasttextLossFunction" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextLossFunction">
+	<synopsis>
+		<p>Converts a <converter>FasttextLossFunction</converter> used to specify optimization function in <module>FasttextClassifierTrain</module>.</p>
+	</synopsis>
+	
+	<converter-doc>
+		<string-conversion>
+			<p>
+				<ul>
+					<li><code>softmax</code></li>
+					<li><code>skipgram-negative-sampling</code>, <code>negative-sampling</code>, <code>ns</code>.</li>
+					<li><code>skipgram-hierarchical-softmax</code>, <code>hierarchical-softmax</code>, <code>hs</code>.</li>
+				</ul>
+			</p>
+		</string-conversion>
+		
+		<xml-conversion/>
+	</converter-doc>
+</alvisnlp-doc>

@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import com.github.pemistahl.lingua.api.IsoCode639_1;
 import com.github.pemistahl.lingua.api.Language;
 import com.github.pemistahl.lingua.api.LanguageDetector;
 import com.github.pemistahl.lingua.api.LanguageDetectorBuilder;
