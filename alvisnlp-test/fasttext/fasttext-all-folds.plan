@@ -1,0 +1,50 @@
+<alvisnlp-plan id="fasttext-all-folds">
+
+  <fold-0 href="fasttext-fold.plan">
+    <fold>0</fold>
+  </fold-0>
+
+  <fold-1 href="fasttext-fold.plan">
+    <fold>1</fold>
+  </fold-1>
+
+  <fold-2 href="fasttext-fold.plan">
+    <fold>2</fold>
+  </fold-2>
+
+  <fold-3 href="fasttext-fold.plan">
+    <fold>3</fold>
+  </fold-3>
+
+  <fold-4 href="fasttext-fold.plan">
+    <fold>4</fold>
+  </fold-4>
+
+  <fold-5 href="fasttext-fold.plan">
+    <fold>5</fold>
+  </fold-5>
+
+  <fold-6 href="fasttext-fold.plan">
+    <fold>6</fold>
+  </fold-6>
+
+  <fold-7 href="fasttext-fold.plan">
+    <fold>7</fold>
+  </fold-7>
+
+  <fold-8 href="fasttext-fold.plan">
+    <fold>8</fold>
+  </fold-8>
+
+  <fold-9 href="fasttext-fold.plan">
+    <fold>9</fold>
+  </fold-9>
+
+  <fold-10 href="fasttext-fold.plan">
+    <fold>10</fold>
+  </fold-10>
+
+  <fold-11 href="fasttext-fold.plan">
+    <fold>11</fold>
+  </fold-11>
+</alvisnlp-plan>

@@ -1,0 +1,32 @@
+<alvisnlp-plan id="fasttext-fold">
+  <param name="fold">
+    <alias module="set-param" param="featureValue"/>
+  </param>
+  
+  <set-param class="SetFeature">
+    <target>$</target>
+    <featureName>fold</featureName>
+  </set-param>
+
+  <train class="FasttextClassifierTrain">
+    <documents>documents[@fold != corpus.@fold]</documents>
+    <modelFile>model</modelFile>
+    <classFeature>class</classFeature>
+    <validationDocuments>documents[@fold == corpus.@fold]</validationDocuments>
+    <commandlineOptions separator=" ">-autotune-metric recallAtPrecision:50:__label__1</commandlineOptions>
+    <attributes>
+      <attr tokens="sections:title.layer:words" form="@train-form"/>
+      <attr tokens="sections:host" form="contents"/>
+    </attributes>
+  </train>
+
+  <label class="FasttextClassifierLabel">
+    <documents>documents[@fold == corpus.@fold]</documents>
+    <modelFile output-feed="true">model.bin</modelFile>
+    <classFeature>predicted-class</classFeature>
+    <attributes>
+      <attr tokens="sections:title.layer:words" form="@train-form"/>
+      <attr tokens="sections:host" form="contents"/>
+    </attributes>
+  </label>
+</alvisnlp-plan>
