@@ -1,0 +1,53 @@
+<alvisnlp-plan id="preprocessing">
+
+  <seg href="res://segmentation.plan"/>
+  
+  <tokens>
+    <remove-punct class="Action">
+      <target>documents.sections.layer:words[@wordType == "punctuation"]</target>
+      <action>delete</action>
+      <deleteElements/>
+    </remove-punct>
+
+    <form-feature class="SetFeature">
+      <target>$</target>
+      <featureName>train-form-feature</featureName>
+      <featureValue>form</featureValue>
+    </form-feature>
+
+    <form class="Action">
+      <target>documents.sections.layer:words</target>
+      <action>section.document.corpus as c.target.set:feat:train-form(nav:features(c.@train-form-feature))</action>
+      <setFeatures/>
+    </form>
+
+    <lc class="Action">
+      <target>documents.sections.layer:words</target>
+      <action>set:feat:train-form(str:lower(@train-form))</action>
+      <setFeatures/>
+    </lc>
+
+    <simplify-numbers class="Action">
+      <target>documents.sections.layer:words</target>
+      <action>set:feat:train-form(str:seds(@train-form, "[0-9]+", "0"))</action>
+      <setFeatures/>
+    </simplify-numbers>
+  </tokens>
+
+  <host>
+    <section class="Action">
+      <target>documents</target>
+      <action>
+	new:section:host(str:seds(@lien, "http[s]?://([^/]+).*", "$1"))
+      </action>
+      <createSections/>
+    </section>
+
+    <layer class="Action">
+      <target>documents.sections:host</target>
+      <action>new:annotation:words(0, str:len(contents))</action>
+      <createAnnotations/>
+      <addToLayer/>
+    </layer>
+  </host>
+</alvisnlp-plan>

@@ -1,0 +1,9 @@
+<alvisnlp-plan id="evaluate">
+  <eval class="CompareFeatures">
+    <items>documents</items>
+    <referenceFeature>class</referenceFeature>
+    <predictedFeature>predicted-class</predictedFeature>
+    <classesOfInterest>1</classesOfInterest>
+    <outFile>evaluate.txt</outFile>
+  </eval>
+</alvisnlp-plan>

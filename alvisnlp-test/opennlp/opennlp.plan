@@ -1,0 +1,6 @@
+<alvisnlp-plan id="opennlp">
+  <read-data href="classification-read-data.plan"/>
+  <preprocessing href="classification-preprocess.plan"/>
+  <opennlp-all-folds href="opennlp-all-folds.plan"/>
+  <eval href="classification-evaluate.plan" />
+</alvisnlp-plan>

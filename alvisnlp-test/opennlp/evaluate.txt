@@ -1,0 +1,10 @@
+items = 16931.0
+true positives = 12000.0
+accuracy = 0.708759080975725
+metrics for class 1
+    reference = 2248.0
+    prediction = 5699.0
+    true positives = 1508.0
+    recall = 0.6708185053380783
+    precision = 0.26460782593437443
+    f-score = 0.37951428211903865

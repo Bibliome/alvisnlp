@@ -1,0 +1,20 @@
+<alvisnlp-plan id="read-data">
+  <csv class="TabularReader">
+    <source>classification.csv</source>
+    <sourceElement>$</sourceElement>
+    <separator>,</separator>
+    <trueCSV/>
+    <header/>
+    <lineActions>
+      new:document(tab:field:id_article).(
+      new:section:title(tab:field:title)
+      | set:feat:lien(tab:field:lien)
+      | set:feat:class(tab:field:class)
+      | set:feat:fold(tab:field:fold)
+      )
+    </lineActions>
+    <createDocuments/>
+    <createSections/>
+    <setFeatures/>
+  </csv>
+</alvisnlp-plan>
