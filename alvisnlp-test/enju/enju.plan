@@ -1,7 +1,5 @@
 <alvisnlp-plan id="enju">
   <read file="BioNLP-ST-2016_BB-event/read.plan"/>
-
-  <shell/>
   
   <seg href="res://segmentation.plan"/>
 

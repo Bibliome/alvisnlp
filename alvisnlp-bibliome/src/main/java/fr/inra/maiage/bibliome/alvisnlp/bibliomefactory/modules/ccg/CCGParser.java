@@ -71,7 +71,7 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 					logger.severe(e.getMessage());
 					logger.severe("we know sometimes CCG accidentally sentences");
 					logger.severe("let's try to proceed anyway. No guarantee...");
-					logger.severe("btw, input that caused the crash: " + ext.getInputFile().getAbsolutePath());
+					logger.severe("btw, input that caused the crash: " + ext.getCCGInputFile().getAbsolutePath());
 				}
 				ext.doCollect();
 			}
