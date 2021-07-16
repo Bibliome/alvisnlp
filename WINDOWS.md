@@ -85,35 +85,3 @@ Note that the PowerShell `install.ps1` script has not been thoroughly tested.
 `DIR\\bin\\alvisnlp -help`
 
 `DIR` is the base directory of your AlvisNLP/ML install. You migh also add the `DIR/bin` sub-directory to your `Path` environment variable.
-
-# Web service
-
-## Deploy
-
-Deploy the the `alvisnlp-rest\\target\\alvisnlp-rest.war` file in your favourite application container.
-
-For instance, on *glassfish*, run:
-
-`asadmin deploy --contextroot CONTEXT --name NAME alvisnlp-rest\\target\\alvisnlp-rest.war`
-
-## Set context parameters
-
-Set the following context parameters:
-
-| Variable | Description |
-| --- | --- |
-| `alvisnlp.url-base` | Absolute URL of the deployed AlvisNLP/ML application. <br> It should usually be the URL of the container cocatenated with the application context root. |
-| `alvisnlp.processing-dir` | Directory where the data for each run will be stored. |
-| `alvisnlp.plan-dir` | Directory where exposed plans are found. |
-| `alvisnlp.resource-dir` | Directory where to find resources used in plans. |
-| `alvisnlp.executor-class` | Fully qualified name of the class that launches runs. <br> Default: `fr.inra.maiage.bibliome.alvisnlp.web.executor.ThreadExecutor`, executes each run in a separate thread on the same server. |
-
-## Jetty Maven Plugin
-
-You can quick-test the Web Service with the Jetty Maven Plugin:
-
-`mvn jetty:run-war`
-
-## Use it
-
-From a browser open the URL of the AlvisNLP/ML application.

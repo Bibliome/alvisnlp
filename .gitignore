@@ -1,12 +1,6 @@
 bin/
 .project
 .settings/
-alvisnlp-rest/target/
-alvisnlp-rest/.classpath
-alvisnlp-rest/.project
-alvisnlp-rest/.settings
-alvisnlp-rest/expose-repository.sh
-alvisnlp-rest/maven-repository/
 alvisnlp-core/eclipse-build/
 alvisnlp-core/target/
 alvisnlp-core/.classpath

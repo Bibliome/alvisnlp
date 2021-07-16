@@ -24,7 +24,6 @@
   <modules>
     <module>alvisnlp-core</module>
     <module>alvisnlp-bibliome</module>
-    <module>alvisnlp-rest</module>
   </modules>
 
   <build>
