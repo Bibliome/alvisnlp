@@ -31,37 +31,37 @@ abstract class ElementsRetriever<P extends Element,I extends Element> extends It
 		return ElementToJSONConverter.convert(item);
 	}
 	
-	static final ItemsRetriever<Corpus,Corpus> THE_CORPUS = new ElementsRetriever<Corpus, Corpus>(ElementType.CORPUS) {
+	static final ItemsRetriever<Corpus,Corpus> THE_CORPUS = new ElementsRetriever<Corpus,Corpus>(ElementType.CORPUS) {
 		@Override
-		protected Iterator<Corpus> getIterator(Map<String,String> params, Corpus parent) throws Exception {
+		protected Iterator<Corpus> getIterator(Map<String,List<String>> params, Corpus parent) throws Exception {
 			return Iterators.singletonIterator(parent);
 		}
 	};
 
 	static final ItemsRetriever<Corpus,Document> CORPUS_DOCUMENTS = new ElementsRetriever<Corpus,Document>(ElementType.CORPUS) {
 		@Override
-		protected Iterator<Document> getIterator(Map<String,String> params, Corpus parent) {
+		protected Iterator<Document> getIterator(Map<String,List<String>> params, Corpus parent) {
 			return parent.documentIterator();
 		}
 	};
 
 	static final ItemsRetriever<Document,Section> DOCUMENT_SECTIONS = new ElementsRetriever<Document,Section>(ElementType.DOCUMENT) {
 		@Override
-		protected Iterator<Section> getIterator(Map<String,String> params, Document parent) {
+		protected Iterator<Section> getIterator(Map<String,List<String>> params, Document parent) {
 			return parent.sectionIterator();
 		}
 	};
 
 	static final ItemsRetriever<Section,Annotation> SECTION_ANNOTATIONS = new ElementsRetriever<Section,Annotation>(ElementType.SECTION) {
 		@Override
-		protected Iterator<Annotation> getIterator(Map<String,String> params, Section parent) throws CorpusDataException {
+		protected Iterator<Annotation> getIterator(Map<String,List<String>> params, Section parent) throws CorpusDataException {
 			Layer layer = getLayer(params, parent);
 			return layer.iterator();
 		}
 		
-		private Layer getLayer(Map<String,String> params, Section sec) throws CorpusDataException {
+		private Layer getLayer(Map<String,List<String>> params, Section sec) throws CorpusDataException {
 			if (params.containsKey("layer")) {
-				String layerName = params.get("layer");
+				String layerName = params.get("layer").get(0);
 				if (sec.hasLayer(layerName)) {
 					return sec.getLayer(layerName);
 				}
@@ -73,21 +73,21 @@ abstract class ElementsRetriever<P extends Element,I extends Element> extends It
 	
 	static final ItemsRetriever<Section,Relation> SECTION_RELATIONS = new ElementsRetriever<Section,Relation>(ElementType.SECTION) {
 		@Override
-		protected Iterator<Relation> getIterator(Map<String, String> params, Section parent) throws CorpusDataException {
+		protected Iterator<Relation> getIterator(Map<String,List<String>> params, Section parent) throws CorpusDataException {
 			return parent.getAllRelations().iterator();
 		}
 	};
 	
 	static final ItemsRetriever<Relation,Tuple> RELATION_TUPLES = new ElementsRetriever<Relation,Tuple>(ElementType.RELATION) {
 		@Override
-		protected Iterator<Tuple> getIterator(Map<String, String> params, Relation parent) throws CorpusDataException {
+		protected Iterator<Tuple> getIterator(Map<String,List<String>> params, Relation parent) throws CorpusDataException {
 			return parent.getTuples().iterator();
 		}
 	};
 	
 	static final ItemsRetriever<Tuple,ArgumentElement> TUPLE_ARGUMENTS = new ItemsRetriever<Tuple,ArgumentElement>(ElementType.TUPLE) {
 		@Override
-		protected Iterator<ArgumentElement> getIterator(Map<String, String> params, Tuple parent) throws Exception {
+		protected Iterator<ArgumentElement> getIterator(Map<String,List<String>> params, Tuple parent) throws Exception {
 			Collection<ArgumentElement> result = new ArrayList<ArgumentElement>();
 			for (String role : parent.getRoles()) {
 				Element arg = parent.getArgument(role);
@@ -110,7 +110,7 @@ abstract class ElementsRetriever<P extends Element,I extends Element> extends It
 	
 	static final ItemsRetriever<Element,Element> ELEMENT_ANCESTORS = new ElementsRetriever<Element,Element>(ElementType.ANY) {
 		@Override
-		protected Iterator<Element> getIterator(Map<String,String> params, Element parent) throws Exception {
+		protected Iterator<Element> getIterator(Map<String,List<String>> params, Element parent) throws Exception {
 			List<Element> result = new LinkedList<Element>();
 			Element elt = parent;
 			while (true) {

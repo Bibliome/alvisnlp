@@ -128,11 +128,11 @@ public class APIResponseFactory extends ResponseFactory {
 	}
 	
 	private JSONArray treeviewChildren(IHTTPSession session) throws CorpusDataException, ParseException, ResolverException {
-		Map<String,String> params = session.getParms();
+		Map<String,List<String>> params = session.getParameters();
 		if (!params.containsKey(Constants.Parameters.NODE_ID)) {
 			return TreeviewElementNode.elementsToJSONArray(Collections.singletonList(corpus));
 		}
-		String id = params.get(Constants.Parameters.NODE_ID);
+		String id = params.get(Constants.Parameters.NODE_ID).get(0);
 		String[] split = Strings.split(id, '-');
 		String eltId = split[0];
 		Element elt = getElement(eltId);
@@ -155,7 +155,7 @@ public class APIResponseFactory extends ResponseFactory {
 				return TreeviewElementNode.elementsToJSONArray(layer);
 			}
 			case Constants.NodeIdFunctors.EVALUATE: {
-				String exprString = params.get(Constants.Parameters.EXPRESSION);
+				String exprString = params.get(Constants.Parameters.EXPRESSION).get(0);
 				expressionParser.ReInit(new StringReader(exprString));
 				Expression expr = expressionParser.expression();
 				Evaluator eval = expr.resolveExpressions(libraryResolver);
@@ -169,11 +169,11 @@ public class APIResponseFactory extends ResponseFactory {
 
 	@SuppressWarnings("unchecked")
 	private Response infoResponse(IHTTPSession session) throws CorpusDataException {
-		Map<String,String> params = session.getParms();
+		Map<String,List<String>> params = session.getParameters();
 		if (!params.containsKey(Constants.Parameters.ELEMENT_ID)) {
 			return createBadRequestResponse("missing parameter " + Constants.Parameters.ELEMENT_ID);
 		}
-		String eltId = params.get(Constants.Parameters.ELEMENT_ID);
+		String eltId = params.get(Constants.Parameters.ELEMENT_ID).get(0);
 		Element elt = getElement(eltId);
 		Document doc = elt.accept(ElementDocument.INSTANCE, null);
 		JSONObject result = new JSONObject();
@@ -190,16 +190,16 @@ public class APIResponseFactory extends ResponseFactory {
 	}
 
 	private Response defaultExpression(IHTTPSession session) throws CorpusDataException {
-		Map<String,String> params = session.getParms();
+		Map<String,List<String>> params = session.getParameters();
 		if (!params.containsKey(Constants.Parameters.ELEMENT_ID)) {
 			return createBadRequestResponse("missing parameter " + Constants.Parameters.ELEMENT_ID);
 		}
-		String eltId = params.get(Constants.Parameters.ELEMENT_ID);
+		String eltId = params.get(Constants.Parameters.ELEMENT_ID).get(0);
 		Element elt = getElement(eltId);
 		return createTextResponse(getDefaultExpression(params, elt));
 	}
 	
-	private static String getDefaultExpression(Map<String,String> params, Element elt) {
+	private static String getDefaultExpression(Map<String,List<String>> params, Element elt) {
 		switch (elt.getType()) {
 			case ANNOTATION: return "";
 			case CORPUS: return "documents";
@@ -208,7 +208,7 @@ public class APIResponseFactory extends ResponseFactory {
 			case RELATION: return "tuples";
 			case SECTION: {
 				if (params.containsKey(Constants.Parameters.LAYER_NAME)) {
-					String layerName = params.get(Constants.Parameters.LAYER_NAME);
+					String layerName = params.get(Constants.Parameters.LAYER_NAME).get(0);
 					return "layer:" + layerName;
 				}
 				return "relations";
@@ -266,7 +266,7 @@ public class APIResponseFactory extends ResponseFactory {
 		if (!path.isEmpty()) {
 			return createNotFoundResponse(session);
 		}
-		Map<String,String> params = session.getParms();
+		Map<String,List<String>> params = session.getParameters();
 		Element eParent = getElement(params);
 		P parent = retriever.parentType.cast(eParent);
 		if (parent == null) {
@@ -282,20 +282,20 @@ public class APIResponseFactory extends ResponseFactory {
 	
 	private final ItemsRetriever<Element,Element> evaluateRetriever = new ElementsRetriever<Element,Element>(ElementType.ANY) {
 		@Override
-		protected Iterator<Element> getIterator(Map<String, String> params, Element parent) throws Exception {
+		protected Iterator<Element> getIterator(Map<String,List<String>> params, Element parent) throws Exception {
 			Evaluator eval = getEvaluator(params);
 			EvaluationContext ctx = new EvaluationContext(logger);
 			return eval.evaluateElements(ctx, parent);
 		}
 		
-		private Evaluator getEvaluator(Map<String,String> params) throws ResolverException, ParseException {
+		private Evaluator getEvaluator(Map<String,List<String>> params) throws ResolverException, ParseException {
 			Expression expr = getExpression(params);
 			return expr.resolveExpressions(libraryResolver);
 		}
 
-		private Expression getExpression(Map<String,String> params) throws ParseException {
+		private Expression getExpression(Map<String,List<String>> params) throws ParseException {
 			if (params.containsKey("expr")) {
-				String sExpr = params.get("expr");
+				String sExpr = params.get("expr").get(0);
 				logger.fine("expression: " + sExpr);
 				return parseExpression(sExpr);
 			}
@@ -308,9 +308,9 @@ public class APIResponseFactory extends ResponseFactory {
 		}
 	};
 
-	private Element getElement(Map<String,String> params) throws CorpusDataException {
+	private Element getElement(Map<String,List<String>> params) throws CorpusDataException {
 		if (params.containsKey("uid")) {
-			String uid = params.get("uid");
+			String uid = params.get("uid").get(0);
 			return getElement(uid);
 		}
 		return corpus;

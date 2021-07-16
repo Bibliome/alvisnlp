@@ -19,12 +19,12 @@ abstract class ItemsRetriever<P extends Element,I> {
 		this.parentType = parentType;
 	}
 	
-	protected abstract Iterator<I> getIterator(Map<String,String> params, P parent) throws Exception;
+	protected abstract Iterator<I> getIterator(Map<String,List<String>> params, P parent) throws Exception;
 	protected abstract JSONObject convert(I item);
 
 	static final ItemsRetriever<Element,Map.Entry<String,List<String>>> ELEMENT_FEATURES = new ItemsRetriever<Element,Map.Entry<String,List<String>>>(ElementType.ANY) {
 		@Override
-		protected Iterator<Map.Entry<String,List<String>>> getIterator(Map<String,String> params, Element parent) throws Exception {
+		protected Iterator<Map.Entry<String,List<String>>> getIterator(Map<String,List<String>> params, Element parent) throws Exception {
 			return parent.getFeatures().entrySet().iterator();
 		}
 
@@ -43,7 +43,7 @@ abstract class ItemsRetriever<P extends Element,I> {
 	
 	static final ItemsRetriever<Section,Layer> SECTION_LAYERS = new ItemsRetriever<Section,Layer>(ElementType.SECTION) {
 		@Override
-		protected Iterator<Layer> getIterator(Map<String, String> params, Section parent) throws Exception {
+		protected Iterator<Layer> getIterator(Map<String,List<String>> params, Section parent) throws Exception {
 			return parent.getAllLayers().iterator();
 		}
 

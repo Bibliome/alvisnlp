@@ -41,7 +41,7 @@ public class Server extends NanoHTTPD {
 		try {
 			String uri = session.getUri();
 			getLogger().fine("request URI: " + uri);
-			getLogger().fine("request params: " + session.getParms());
+			getLogger().fine("request params: " + session.getParameters());
 			List<String> path = parseUri(uri);
 			if (path.isEmpty()) {
 				return resourceResponseFactory.createResponse(session, Arrays.asList("index.html"));

@@ -24,7 +24,7 @@ class DefaultResponseFactory extends ResponseFactory {
         single(msg, "URI", "uri", session.getUri());
         single(msg, "Method", "method", session.getMethod().toString());
         multiple(msg, "Headers", session.getHeaders());
-        multiple(msg, "Params", session.getParms());
+        multiple(msg, "Params", session.getParameters());
         msg.append("</body></html>\n");
         return NanoHTTPD.newFixedLengthResponse(msg.toString());
 	}
@@ -43,11 +43,11 @@ class DefaultResponseFactory extends ResponseFactory {
 		sb.append("</table>");
 	}
 	
-	private static void row(StringBuilder sb, String key, String value) {
+	private static void row(StringBuilder sb, String key, Object value) {
 		sb.append("<tr><th>");
 		sb.append(key);
 		sb.append("</th><td>");
-		sb.append(value);
+		sb.append(value.toString());
 		sb.append("</td></tr>");
 	}
 	
@@ -58,10 +58,10 @@ class DefaultResponseFactory extends ResponseFactory {
 		closeTable(sb);
 	}
 	
-	private static void multiple(StringBuilder sb, String title, Map<String,String> map) {
+	private static void multiple(StringBuilder sb, String title, Map<String,?> map) {
 		title(sb, title);
 		openTable(sb);
-		for (Map.Entry<String,String> e : map.entrySet()) {
+		for (Map.Entry<String,?> e : map.entrySet()) {
 			row(sb, e.getKey(), e.getValue());
 		}
 		closeTable(sb);
