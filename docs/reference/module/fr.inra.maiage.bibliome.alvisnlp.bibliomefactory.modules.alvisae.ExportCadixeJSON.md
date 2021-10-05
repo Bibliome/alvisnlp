@@ -14,7 +14,7 @@ Deprecated alias for <a href="../module/AlvisAEWriter" class="module">AlvisAEWri
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisae.AnnotationSet[]" class="converter">AnnotationSet[]</a>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisae.AnnotationSet%5B%5D" class="converter">AnnotationSet[]</a>
 </div>
 UNDOCUMENTED
 

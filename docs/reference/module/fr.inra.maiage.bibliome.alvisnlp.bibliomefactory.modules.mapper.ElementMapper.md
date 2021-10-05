@@ -48,7 +48,7 @@ Expression evaluated as a list of elements with the corpus as context that speci
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+<div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
 Name of the features where to store the values of matched entries.
 
@@ -56,7 +56,7 @@ Name of the features where to store the values of matched entries.
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression[]" class="converter">Expression[]</a>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression%5B%5D" class="converter">Expression[]</a>
 </div>
 Expressions evaluated as strings with the entry element as the context. The results specify the feature values of targets that match the entry key.
 

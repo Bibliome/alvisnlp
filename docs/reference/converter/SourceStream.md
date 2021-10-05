@@ -21,55 +21,73 @@ The data source takes either the form of a file/directory path, or an URL. The f
 
 ## XML conversion
 
+
+
 ```xml
 <param value="URL"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param file="URL"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param path="URL"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param url="URL"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param href="URL"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param dir="URL"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param resource="URL"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param>URL</param>
 ```
 
 *URL* is converted as described in the string conversion.
 	All different forms are equivalent; the name of the used attribute has no influence on the data source type.
-	It is thus perfectly legal to write ```xml
+	It is thus perfectly legal to write 
+
+```xml
 <param resource="dir:///path/to/dir"/>
 ```
 
@@ -86,7 +104,9 @@ The data source takes either the form of a file/directory path, or an URL. The f
 
 
 
-If ```xml
+If 
+
+```xml
 param
 ```
 

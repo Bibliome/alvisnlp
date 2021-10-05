@@ -22,7 +22,7 @@ Expression evaluated as a string with the target element as context that specifi
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputFile[]" class="converter">InputFile[]</a>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputFile%5B%5D" class="converter">InputFile[]</a>
 </div>
 Paths to the OBO files to map.
 

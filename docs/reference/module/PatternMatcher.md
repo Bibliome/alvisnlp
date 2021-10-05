@@ -16,7 +16,7 @@ For each match, *PatternMatcher* applies all actions specified by <a href="#acti
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pattern.action.MatchAction[]" class="converter">MatchAction[]</a>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pattern.action.MatchAction%5B%5D" class="converter">MatchAction[]</a>
 </div>
 Actions to perform each time the pattern is matched on the annotation sequence. See <a href="../converter/MatchActionArray" class="converter">MatchActionArray</a> for all available actions.
 

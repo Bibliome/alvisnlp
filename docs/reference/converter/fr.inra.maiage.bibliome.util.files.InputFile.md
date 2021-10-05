@@ -10,25 +10,33 @@ The string value is interpreted as a path to a regular file. The value must be a
 
 ## XML conversion
 
+
+
 ```xml
 <param value="PATH"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param path="PATH"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param file="PATH"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param>PATH</param>
 ```
 

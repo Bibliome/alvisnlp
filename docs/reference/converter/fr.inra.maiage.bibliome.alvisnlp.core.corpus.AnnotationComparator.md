@@ -21,19 +21,25 @@ A composite comparator may be specified by separating multiple values with comma
 
 ## XML conversion
 
+
+
 ```xml
 <param value="COMPARATOR"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param comparator="COMPARATOR"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param>COMPARATOR</param>
 ```
 

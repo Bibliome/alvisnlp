@@ -16,6 +16,8 @@
   	Counting words in the corpus:
   
 
+
+
 ```xml
 
       	<word-count class="AggregateValues">
@@ -59,7 +61,7 @@ File where to write the result.
 
 <div class="param-level param-level-default-value">Default value: ``
 </div>
-<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.aggregate.Aggregator[]" class="converter">Aggregator[]</a>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.aggregate.Aggregator%5B%5D" class="converter">Aggregator[]</a>
 </div>
 Aggregate functions to compute for each value.
 

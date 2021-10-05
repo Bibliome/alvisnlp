@@ -10,6 +10,8 @@ String conversion is not available for this type.
 
 ## XML conversion
 
+
+
 ```xml
 <param>
 	<entry key="KEY1" value="VALUE1"/>
@@ -19,7 +21,9 @@ String conversion is not available for this type.
 
 
 	or
-	```xml
+	
+
+```xml
 <param>
 	<KEY1>VALUE1</KEY1>
 	<KEY2>VALUE2</KEY2>
@@ -28,5 +32,5 @@ String conversion is not available for this type.
 
 
 
-*VALUEn* are converted as <a href="../converter/String[]array of strings" class="converter">String[]array of strings</a>. The value separator can be set with the *separator* attribute.
+*VALUEn* are converted as <a href="../converter/String%5B%5Darray of strings" class="converter">String[]array of strings</a>. The value separator can be set with the *separator* attribute.
 

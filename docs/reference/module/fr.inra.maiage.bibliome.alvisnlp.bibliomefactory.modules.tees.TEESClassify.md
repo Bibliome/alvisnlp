@@ -34,7 +34,9 @@ Path to the Python 2 executable, TEES will fail if run through Python 3.
 </div>
  
   	Give the schema of the relations to train i.e.
-	```xml
+	
+
+```xml
 
       	  <schema>
 	    <Lives_In>Bacteria,Location</Lives_In>

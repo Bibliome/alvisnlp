@@ -221,6 +221,10 @@
 </h2>
 
 <h2 class="no-toc">
+<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.compare.CompareFeatures' | relative_url }}" class="module">CompareFeatures</a>
+</h2>
+
+<h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.ContesPredict' | relative_url }}" class="module">ContesPredict</a>
 </h2>
 
@@ -241,6 +245,14 @@
 </h2>
 
 <h2 class="no-toc">
+<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextClassifierLabel' | relative_url }}" class="module">FasttextClassifierLabel</a>
+</h2>
+
+<h2 class="no-toc">
+<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextClassifierTrain' | relative_url }}" class="module">FasttextClassifierTrain</a>
+</h2>
+
+<h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.geniatagger.GeniaTagger' | relative_url }}" class="module">GeniaTagger</a>
 </h2>
 
@@ -257,6 +269,10 @@
 </h2>
 
 <h2 class="no-toc">
+<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.lingua.LinguaLID' | relative_url }}" class="module">LinguaLID</a>
+</h2>
+
+<h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper.ElementMapper' | relative_url }}" class="module">ElementMapper</a>
 </h2>
 
@@ -270,6 +286,14 @@
 
 <h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper.OBOMapper' | relative_url }}" class="module">OBOMapper</a>
+</h2>
+
+<h2 class="no-toc">
+<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.opennlp.OpenNLPDocumentCategorizer' | relative_url }}" class="module">OpenNLPDocumentCategorizer</a>
+</h2>
+
+<h2 class="no-toc">
+<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.opennlp.OpenNLPDocumentCategorizerTrain' | relative_url }}" class="module">OpenNLPDocumentCategorizerTrain</a>
 </h2>
 
 <h2 class="no-toc">
@@ -310,6 +334,10 @@
 
 <h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rdf.RDFProjector' | relative_url }}" class="module">RDFProjector</a>
+</h2>
+
+<h2 class="no-toc">
+<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rebert.REBERTTrain' | relative_url }}" class="module">REBERTTrain</a>
 </h2>
 
 <h2 class="no-toc">

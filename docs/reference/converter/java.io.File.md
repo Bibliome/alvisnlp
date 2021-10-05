@@ -10,25 +10,33 @@ Interprets the input string as a file or directory path using the current system
 
 ## XML conversion
 
+
+
 ```xml
 <param value="PATH"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param file="PATH"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param path="PATH"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param>PATH</param>
 ```
 

@@ -10,6 +10,8 @@ String conversion is not available for this type.
 
 ## XML conversion
 
+
+
 ```xml
 <relation>... attribute and bag definitions</relation>
 ```
@@ -20,7 +22,9 @@ String conversion is not available for this type.
 
 
 	Attribute definition:
-	```xml
+	
+
+```xml
 <attr>EXPR</attr>
 ```
 
@@ -34,13 +38,17 @@ String conversion is not available for this type.
 
 
 	Bag definition:
-	```xml
+	
+
+```xml
 <bag><value>VALUE</value>...</bag>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <bag>EXPR</bag>
 ```
 

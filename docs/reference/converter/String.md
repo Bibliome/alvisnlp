@@ -10,13 +10,17 @@ The input string is stripped from leading and trailing whitespace characters.
 
 ## XML conversion
 
+
+
 ```xml
 <param value="STRING"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param>STRING</param>
 ```
 

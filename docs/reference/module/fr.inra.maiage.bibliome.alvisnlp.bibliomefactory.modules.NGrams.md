@@ -46,7 +46,7 @@ Only process document that satisfy this expression.
 
 <div class="param-level param-level-default-value">Default value: ``
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+<div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
 Name of layers where to search for recycled annotations.
 

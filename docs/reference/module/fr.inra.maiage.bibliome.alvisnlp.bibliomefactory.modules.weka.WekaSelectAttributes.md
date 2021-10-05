@@ -46,7 +46,7 @@ Specification of example attributes and class.
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+<div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
 Options to the evaluator.
 
@@ -62,7 +62,7 @@ Search heuristic, this should be the canonical name of a class that extends Weka
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+<div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
 Options to the search heuristic.
 

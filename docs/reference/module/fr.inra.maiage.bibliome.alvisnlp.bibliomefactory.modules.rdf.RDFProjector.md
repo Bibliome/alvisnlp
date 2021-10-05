@@ -139,7 +139,7 @@ Mapping from feature names to property URIs. This parameter indicates the proper
 
 <div class="param-level param-level-default-value">Default value: `rdfs:label,skos:prefLabel,skos:altLabel,skos:hiddenLabel,skos:notation,oboInOwl:hasBroadSynonym,oboInOwl:hasExactSynonym,oboInOwl:hasRelatedSynonym,oboInOwl:hasSynonym`
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+<div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
 RDF properties whose object values that represent entry keys.
 
@@ -179,7 +179,7 @@ Specify the RDF serialization format (xml, rdfxml, xmlrdf, turtle, ttl, n3, ntri
 
 <div class="param-level param-level-default-value">Default value: `owl:Class,skos:Concept`
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+<div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
 Type of RDF resources that represent an entry.
 

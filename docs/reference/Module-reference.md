@@ -84,6 +84,7 @@ Export modules translate the contents of the data structure and write it into fi
 | {% include module class="AlvisAEWriter" %}          | `outDir`                | AlvisAE JSON          | Uses the json-simple library |
 | {% include module class="AlvisIRIndexer" %}         | `indexDir`              | AlvisIR index         | Uses the Lucene and alvisir-core libraries |
 | {% include module class="CompareElements" %}        | `outFile`               | Text                  | |
+| {% include module class="CompareFeatures" %}        | `outFile`               | Text                  | |
 | {% include module class="EnrichedDocumentWriter" %} | `outDir`                | Enriched document XML | |
 | {% include module class="LayerComparator" %}        | `outFile`               | Text                  | |
 | {% include module class="PubAnnotationExport" %}    | `outFile`               | PubAnnotation JSON    | Uses the json-simple library |
@@ -146,6 +147,8 @@ This section presents the module classes that can be used to train and classify 
 | {% include module class="TomapTrain" %}   | {% include module class="TomapProjector" %} | Annotations | ToMap               | |
 | {% include module class="WapitiTrain" %}  | {% include module class="WapitiLabel" %}    | Annotations | CRF                 | |
 | {% include module class="WekaTrain" %}    | {% include module class="WekaPredict" %}    | Any         | Various             | Uses the <a href="https://www.cs.waikato.ac.nz/ml/weka/">Weka library</a> |
+| {% include module class="FasttextClassifierTrain" %}    | {% include module class="FasttextClassifierLabel" %}    | Any         | Word vectors             | Uses <a href="https://fasttext.cc/">Fasttext</a> |
+| {% include module class="OpenNLPDocumentCategorizerTrain" %}    | {% include module class="OpenNLPDocumentCategorizer" %}    | Any         | ME             | Uses the <a href="https://opennlp.apache.org/">OpenNLP library</a> |
 | {% include module class="ContesTrain" %}    | {% include module class="ContesPredict" %}    | Annotations         | Word Embedding, LR             | Uses <a href="https://github.com/ArnaudFerre/CONTES">CONTES</a> |
 
 Additionally, the module class {% include module class="WekaSelectAttributes" %} uses the Weka library for attribute selection.
@@ -188,6 +191,7 @@ If you want to force entities as tokens, this plan assumes they are annotations 
 
 | **Module class** | **Function** |
 |------------------|--------------|
+| {% include module class="LinguaLID" %}              | Language identification |
 | {% include module class="Ab" %}              | Abbreviation recognition |
 | {% include module class="BioLG" %}           | Dependency parsing |
 | {% include module class="CCGParser" %}       | Dependency parsing |

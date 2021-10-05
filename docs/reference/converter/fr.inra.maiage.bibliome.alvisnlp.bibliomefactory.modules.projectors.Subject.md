@@ -18,6 +18,8 @@ In string conversion the subject is necessarily the section contents. The conver
 ## XML conversion
 
 For matching the section contents:
+
+
 ```xml
 <param value="plain|words|prefix|suffix"/>
 ```
@@ -25,6 +27,8 @@ For matching the section contents:
 
 
   or:
+
+
 ```xml
 <param contents="plain|words|prefix|suffix"/>
 ```
@@ -32,6 +36,8 @@ For matching the section contents:
 
 
   or:
+
+
 ```xml
 <param>plain|words|prefix|suffix</param>
 ```
@@ -39,7 +45,9 @@ For matching the section contents:
 
 
 For matching annotation feature values:
-  ```xml
+  
+
+```xml
 <param feature="FEATUREKEY" layer="LAYERNAME"/>
 ```
 

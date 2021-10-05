@@ -56,19 +56,25 @@ Examples:
 
 ## XML conversion
 
+
+
 ```xml
 <param value="PATTERN"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param pattern="PATTERN"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param>PATTERN</param>
 ```
 

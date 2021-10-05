@@ -2,11 +2,11 @@
 
 ## Synopsis
 
-Converts into an array of <a href="../converter/alvisnlp.corpus.Expression" class="converter">alvisnlp.corpus.Expression</a>.
+Converts into an array of <a href="../converter/Expression" class="converter">Expression</a>.
 
 ## String conversion
 
-Comma separated sequence of <a href="../converter/alvisnlp.corpus.Expression" class="converter">alvisnlp.corpus.Expression</a>.
+Comma separated sequence of <a href="../converter/Expression" class="converter">Expression</a>.
 
 The item separator can be set with the *separator* attribute.
 
@@ -14,11 +14,13 @@ The item separator can be set with the *separator* attribute.
 
 
 1. String conversion of the tag contents or the value of attribute *value*.
-2. Sequence of ```xml
+2. Sequence of 
+
+```xml
 <element/>
 ```
 
-, each one converted into a <a href="../converter/alvisnlp.corpus.Expression" class="converter">alvisnlp.corpus.Expression</a>.
+ each one converted into a <a href="../converter/alvisnlp.corpus.Expression" class="converter">alvisnlp.corpus.Expression</a>.
 
 
 

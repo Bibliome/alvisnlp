@@ -12,25 +12,33 @@ The item separator can be set with the *separator* attribute.
 
 ## XML conversion
 
+
+
 ```xml
 <param value="ARRAY"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param values="ARRAY"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param>ARRAY</param>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param><element value="VALUE1"/><element>VALUE2</element>...</param>
 ```
 

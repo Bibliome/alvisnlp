@@ -10,6 +10,8 @@ Converts into aggregator functions (see <a href="../module/AggregateValues" clas
 
 ## XML conversion
 
+
+
 ```xml
 
 	<count/>
@@ -17,6 +19,8 @@ Converts into aggregator functions (see <a href="../module/AggregateValues" clas
 ```
 
 Count the number of occurrences of each key.
+
+
 
 ```xml
 

@@ -14,9 +14,13 @@ The entry separator can be set with the *separator* attribute. The separator bet
 
 
 1. String conversion of the tag contents or the value of attribute *value*.
-2. ```xml
+2. 
+
+```xml
 <KEY>VALUE</KEY>
 ```
+
+
 
 ```xml
 <entry>VALUE</entry>

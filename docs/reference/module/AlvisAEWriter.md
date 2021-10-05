@@ -14,7 +14,7 @@ Writes each document in a file in the AlvisAE protocol format.
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisae.AnnotationSet[]" class="converter">AnnotationSet[]</a>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisae.AnnotationSet%5B%5D" class="converter">AnnotationSet[]</a>
 </div>
 Annotation Set specifications.
 

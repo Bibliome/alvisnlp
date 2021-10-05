@@ -26,7 +26,7 @@ Runs a Prolog program with the corpus data structure encoded as facts.
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.prolog.FactDefinition[]" class="converter">FactDefinition[]</a>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.prolog.FactDefinition%5B%5D" class="converter">FactDefinition[]</a>
 </div>
 Fact specifications.
 
@@ -34,7 +34,7 @@ Fact specifications.
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.prolog.GoalDefinition[]" class="converter">GoalDefinition[]</a>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.prolog.GoalDefinition%5B%5D" class="converter">GoalDefinition[]</a>
 </div>
 Goal specifications.
 

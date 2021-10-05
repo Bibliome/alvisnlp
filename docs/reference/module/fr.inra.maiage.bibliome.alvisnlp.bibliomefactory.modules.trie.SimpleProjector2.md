@@ -30,7 +30,7 @@ Name of the layer that contains the match annotations.
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+<div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
 Target features in match annotations. The values are the columns in the matched entry line.
 
@@ -110,7 +110,7 @@ Either to treat dash characters (-) as whitespace characters if <a href="#allowJ
 
 <div class="param-level param-level-default-value">Default value: `0`
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.Integer[]" class="converter">Integer[]</a>
+<div class="param-type">Type: <a href="../converter/java.lang.Integer%5B%5D" class="converter">Integer[]</a>
 </div>
 Specifies the key column index (starting at 0).
 

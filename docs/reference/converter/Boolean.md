@@ -16,13 +16,17 @@ Converts into a true or false value.
 
 ## XML conversion
 
+
+
 ```xml
 <param value="BOOL"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param>BOOL</param>
 ```
 

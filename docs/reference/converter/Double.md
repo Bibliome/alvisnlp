@@ -10,13 +10,17 @@ This converter accepts double precision floating point values in Java syntax (se
 
 ## XML conversion
 
+
+
 ```xml
 <param value="DOUBLE"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param>DOUBLE</param>
 ```
 

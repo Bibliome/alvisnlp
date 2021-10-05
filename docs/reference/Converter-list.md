@@ -5,7 +5,7 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisdb.ADBElements[]' | relative_url }}" class="converter">ADBElements[]</a>
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisdb.ADBElements%5B%5D' | relative_url }}" class="converter">ADBElements[]</a>
 </h2>
 
 <h2 class="no-toc">
@@ -13,7 +13,7 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.aggregate.Aggregator[]' | relative_url }}" class="converter">Aggregator[]</a>
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.aggregate.Aggregator%5B%5D' | relative_url }}" class="converter">Aggregator[]</a>
 </h2>
 
 <h2 class="no-toc">
@@ -21,7 +21,7 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRERelations[]' | relative_url }}" class="converter">AlvisRERelations[]</a>
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRERelations%5B%5D' | relative_url }}" class="converter">AlvisRERelations[]</a>
 </h2>
 
 <h2 class="no-toc">
@@ -29,7 +29,7 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRETokens[]' | relative_url }}" class="converter">AlvisRETokens[]</a>
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRETokens%5B%5D' | relative_url }}" class="converter">AlvisRETokens[]</a>
 </h2>
 
 <h2 class="no-toc">
@@ -41,7 +41,7 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisae.AnnotationSet[]' | relative_url }}" class="converter">AnnotationSet[]</a>
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisae.AnnotationSet%5B%5D' | relative_url }}" class="converter">AnnotationSet[]</a>
 </h2>
 
 <h2 class="no-toc">
@@ -57,7 +57,7 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.ContesPredictTermClassifier[]' | relative_url }}" class="converter">ContesPredictTermClassifier[]</a>
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.ContesPredictTermClassifier%5B%5D' | relative_url }}" class="converter">ContesPredictTermClassifier[]</a>
 </h2>
 
 <h2 class="no-toc">
@@ -65,7 +65,7 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.ContesTrainTermClassifier[]' | relative_url }}" class="converter">ContesTrainTermClassifier[]</a>
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.ContesTrainTermClassifier%5B%5D' | relative_url }}" class="converter">ContesTrainTermClassifier[]</a>
 </h2>
 
 <h2 class="no-toc">
@@ -73,7 +73,7 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.DenotationSpecification[]' | relative_url }}" class="converter">DenotationSpecification[]</a>
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.DenotationSpecification%5B%5D' | relative_url }}" class="converter">DenotationSpecification[]</a>
 </h2>
 
 <h2 class="no-toc">
@@ -105,7 +105,7 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression[]' | relative_url }}" class="converter">Expression[]</a>
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression%5B%5D' | relative_url }}" class="converter">Expression[]</a>
 </h2>
 
 <h2 class="no-toc">
@@ -113,7 +113,19 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.prolog.FactDefinition[]' | relative_url }}" class="converter">FactDefinition[]</a>
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.prolog.FactDefinition%5B%5D' | relative_url }}" class="converter">FactDefinition[]</a>
+</h2>
+
+<h2 class="no-toc">
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextAttribute' | relative_url }}" class="converter">FasttextAttribute</a>
+</h2>
+
+<h2 class="no-toc">
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextAttribute%5B%5D' | relative_url }}" class="converter">FasttextAttribute[]</a>
+</h2>
+
+<h2 class="no-toc">
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextLossFunction' | relative_url }}" class="converter">FasttextLossFunction</a>
 </h2>
 
 <h2 class="no-toc">
@@ -129,7 +141,7 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.prolog.GoalDefinition[]' | relative_url }}" class="converter">GoalDefinition[]</a>
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.prolog.GoalDefinition%5B%5D' | relative_url }}" class="converter">GoalDefinition[]</a>
 </h2>
 
 <h2 class="no-toc">
@@ -153,7 +165,7 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.util.files.InputFile[]' | relative_url }}" class="converter">InputFile[]</a>
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.util.files.InputFile%5B%5D' | relative_url }}" class="converter">InputFile[]</a>
 </h2>
 
 <h2 class="no-toc">
@@ -161,7 +173,11 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/converter/java.lang.Integer[]' | relative_url }}" class="converter">Integer[]</a>
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.IntegerMapping' | relative_url }}" class="converter">IntegerMapping</a>
+</h2>
+
+<h2 class="no-toc">
+<a href="{{ '/reference/converter/java.lang.Integer%5B%5D' | relative_url }}" class="converter">Integer[]</a>
 </h2>
 
 <h2 class="no-toc">
@@ -170,6 +186,14 @@
 
 <h2 class="no-toc">
 <a href="{{ '/reference/converter/org.apache.jena.riot.Lang' | relative_url }}" class="converter">Lang</a>
+</h2>
+
+<h2 class="no-toc">
+<a href="{{ '/reference/converter/com.github.pemistahl.lingua.api.Language' | relative_url }}" class="converter">Language</a>
+</h2>
+
+<h2 class="no-toc">
+<a href="{{ '/reference/converter/com.github.pemistahl.lingua.api.Language%5B%5D' | relative_url }}" class="converter">Language[]</a>
 </h2>
 
 <h2 class="no-toc">
@@ -185,7 +209,7 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pattern.action.MatchAction[]' | relative_url }}" class="converter">MatchAction[]</a>
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pattern.action.MatchAction%5B%5D' | relative_url }}" class="converter">MatchAction[]</a>
 </h2>
 
 <h2 class="no-toc">
@@ -198,6 +222,10 @@
 
 <h2 class="no-toc">
 <a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.MultipleValueAction' | relative_url }}" class="converter">MultipleValueAction</a>
+</h2>
+
+<h2 class="no-toc">
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.opennlp.OpenNLPAlgorithm' | relative_url }}" class="converter">OpenNLPAlgorithm</a>
 </h2>
 
 <h2 class="no-toc">
@@ -229,7 +257,7 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.RelationSpecification[]' | relative_url }}" class="converter">RelationSpecification[]</a>
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.RelationSpecification%5B%5D' | relative_url }}" class="converter">RelationSpecification[]</a>
 </h2>
 
 <h2 class="no-toc">
@@ -245,7 +273,7 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/converter/java.lang.String[]' | relative_url }}" class="converter">String[]</a>
+<a href="{{ '/reference/converter/java.lang.String%5B%5D' | relative_url }}" class="converter">String[]</a>
 </h2>
 
 <h2 class="no-toc">
@@ -281,7 +309,7 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.UserFunction[]' | relative_url }}" class="converter">UserFunction[]</a>
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.UserFunction%5B%5D' | relative_url }}" class="converter">UserFunction[]</a>
 </h2>
 
 <h2 class="no-toc">

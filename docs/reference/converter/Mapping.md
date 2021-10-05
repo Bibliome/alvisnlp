@@ -12,19 +12,25 @@ The entry separator can be modified with the *separator* attribute. The separato
 
 ## XML conversion
 
+
+
 ```xml
 <param value="MAPPING"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param>MAPPING</param>
 ```
 
 
 	where *MAPPING* will be converted according to the string conversion specifications.
   
+
+
 
 ```xml
 <param>
@@ -35,7 +41,9 @@ The entry separator can be modified with the *separator* attribute. The separato
 
 
 	or
-	```xml
+	
+
+```xml
 <param>
 	<KEY1>VALUE1</KEY1>
 	<KEY2>VALUE2</KEY2>

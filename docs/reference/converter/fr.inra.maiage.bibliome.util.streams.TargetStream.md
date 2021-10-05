@@ -18,25 +18,33 @@ The data source takes either the form of a file/directory path, or an URL. The f
 
 ## XML conversion
 
+
+
 ```xml
 <param value="URL"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param file="URL"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param path="URL"/>
 ```
 
 *URL* is converted as described in the string conversion.
 	All different forms are equivalent; the name of the used attribute has no influence on the data source type.
-	It is thus perfectly legal to write ```xml
+	It is thus perfectly legal to write 
+
+```xml
 <param file="stream://stdout"/>
 ```
 
@@ -48,7 +56,9 @@ The data source takes either the form of a file/directory path, or an URL. The f
 
 
 
-If ```xml
+If 
+
+```xml
 param
 ```
 

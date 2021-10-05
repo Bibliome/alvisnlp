@@ -10,31 +10,41 @@ Parses the value as a regular expression in Java Regular Expression Format (see 
 
 ## XML conversion
 
+
+
 ```xml
 <param value="PATTERN"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param pattern="PATTERN"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param regexp="PATTERN"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param regex="PATTERN"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param>PATTERN</param>
 ```
 

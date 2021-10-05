@@ -62,7 +62,7 @@ Path to the directory where to write tree-tagger result files (one file per sect
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+<div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
 List of attributes to display in result files.
 

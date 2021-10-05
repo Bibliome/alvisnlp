@@ -105,7 +105,7 @@ Constant features to add to each tuple created by this module.
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+<div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
 If set, *AlvisAEReader* imports only documents whose description is included in the value. If not set, then *AlvisAEReader* imports all documents.
 
@@ -113,7 +113,7 @@ If set, *AlvisAEReader* imports only documents whose description is included in 
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+<div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
 If set, *AlvisAEReader* imports only documents whose external id is included in the value. If not set, then *AlvisAEReader* imports all documents.
 
@@ -121,7 +121,7 @@ If set, *AlvisAEReader* imports only documents whose external id is included in 
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.Integer[]" class="converter">Integer[]</a>
+<div class="param-type">Type: <a href="../converter/java.lang.Integer%5B%5D" class="converter">Integer[]</a>
 </div>
 If set, *AlvisAEReader* imports only documents whose external id is included in the value. If not set, then *AlvisAEReader* imports all documents.
 
@@ -177,7 +177,7 @@ Feature where to store the user identifier from which the annotation was importe
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.Integer[]" class="converter">Integer[]</a>
+<div class="param-type">Type: <a href="../converter/java.lang.Integer%5B%5D" class="converter">Integer[]</a>
 </div>
 If set, *AlvisAEReader* imports only annotation sets created by an user whose id is included in the value. If this parameter and <a href="#userNames" class="param">userNames</a> are not set, *AlvisAEReader* imports annotations of all users.
 
@@ -185,7 +185,7 @@ If set, *AlvisAEReader* imports only annotation sets created by an user whose id
 
 <div class="param-level param-level-optional">Optional
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.String[]" class="converter">String[]</a>
+<div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
 If set, *AlvisAEReader* imports only annotation sets created by an user included in the value. If this parameter and <a href="#userIds" class="param">userIds</a> are not set, *AlvisAEReader* imports annotations of all users.
 

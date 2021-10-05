@@ -10,19 +10,25 @@ The character value is the first character of the given string, the following ch
 
 ## XML conversion
 
+
+
 ```xml
 <param value="CHAR"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param char="CHAR"/>
 ```
 
 
 	or
-	```xml
+	
+
+```xml
 <param>CHAR</param>
 ```
 
