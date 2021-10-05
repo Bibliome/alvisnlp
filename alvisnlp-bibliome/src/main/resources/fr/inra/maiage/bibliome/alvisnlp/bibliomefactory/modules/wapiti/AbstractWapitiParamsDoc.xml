@@ -17,23 +17,23 @@ limitations under the License.
 
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.wapiti.WapitiLabel">
     <param-doc name="features">
-      <p/>
+      <p>A list of expressions evaluated as strings from the token annotation. The result represents the set of features of each token. For the training phase, the last feature is the label.</p>
     </param-doc>
   
     <param-doc name="sentenceLayerName">
-      <p/>
+      <p>Layer containing sentence annotations.</p>
     </param-doc>
   
     <param-doc name="commandLineOptions">
-      <p/>
+      <p>Additional command line options to pass to <code>wapiti</code>. See the <a href="https://wapiti.limsi.fr/manual.html">Wapiti manual</a> for the list of options. Note that options <code>mode</code>, <code>-T</code>, <code>-a</code>, <code>-p</code>, <code>-m</code> are set automatically by <this/>.</p>
     </param-doc>
   
     <param-doc name="wapitiExecutable">
-      <p/>
+      <p>Path to the <code>wapiti</code> executable.</p>
     </param-doc>
   
     <param-doc name="tokenLayerName">
-      <p/>
+      <p>Layer containing token annotations.</p>
     </param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
