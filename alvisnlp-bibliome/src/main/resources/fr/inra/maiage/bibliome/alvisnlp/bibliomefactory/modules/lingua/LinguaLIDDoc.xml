@@ -11,15 +11,9 @@
 			<p>
 				<this /> evaluates <param>target</param> as a list of elements, then evaluates <param>form</param> for each one as a string. The language of evaluated content is predicted using the <a href="https://github.com/pemistahl/lingua">Lingua</a> library.
 			</p>
-			<p>
-				The predicted language is stored in the feature specified by <param>languageFeature</param> using ISO 639-1 two-letter code. Optionally the confidence score is stored in <param>languageConfidenceFeature</param>.
-			</p>
-			<p>
-				There may be more than one prediction if <param>languageCandidates</param> is set to a number above 1. The last language value has the highest confidence. Low-confidence predictions can be excluded by specifying a value to <param>confidenceThreshold</param>.
-			</p>
-			<p>
-				The set of predicted languages can be restricted with <param>includeLanguages</param>.
-			</p>
+			<p>The predicted language is stored in the feature specified by <param>languageFeature</param> using ISO 639-1 two-letter code. Optionally the confidence score is stored in <param>languageConfidenceFeature</param>.</p>
+			<p>There may be more than one prediction if <param>languageCandidates</param> is set to a number above 1. The last language value has the highest confidence. Low-confidence predictions can be excluded by specifying a value to <param>confidenceThreshold</param>.</p>
+			<p>The set of predicted languages can be restricted with <param>includeLanguages</param>.</p>
 		</description>
 
 		<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc
@@ -35,9 +29,7 @@
 			mandatory="default: properties:contents()" name="form"
 			short-type="Expression"
 			type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
-			<p>
-				String content of the target (section <code>contents</code> by default).
-			</p>
+			<p>String content of the target (section <code>contents</code> by default).</p>
 		</param-doc>
 
 		<param-doc mandatory="optional" name="includeLanguages"
@@ -69,9 +61,7 @@
 			mandatory="default: nav:.(nav:documents(), nav:sections())"
 			name="target" short-type="Expression"
 			type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
-			<p>
-				Elements to predict the language, by default <code>document.contents</code>.
-			</p>
+			<p>Elements to predict the language, by default <code>document.contents</code>.</p>
 		</param-doc>
 	</module-doc>
 </alvisnlp-doc>
