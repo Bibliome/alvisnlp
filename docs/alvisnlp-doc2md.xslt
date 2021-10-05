@@ -74,7 +74,7 @@ limitations under the License.
     </xsl:variable>
     <xsl:text>&lt;h2 class="no-toc">
 &lt;a href="{{ &apos;/reference/</xsl:text>
-    <xsl:value-of select="concat($class, '/', @target)"/>
+    <xsl:value-of select="concat($class, '/', str:replace(str:replace(@target, '[', '%5B'), ']', '%5D'))"/>
     <xsl:text>&apos; | relative_url }}" class="</xsl:text>
     <xsl:value-of select="concat($class, '&quot;>', @short-target)"/>
     <xsl:text>&lt;/a>
@@ -139,7 +139,7 @@ limitations under the License.
       </xsl:otherwise>
     </xsl:choose>
     <xsl:text>&lt;div class="param-type"></xsl:text>
-    <xsl:value-of select="concat('Type: &lt;a href=&quot;../converter/', @type, '&quot; class=&quot;converter&quot;>', @short-type, '&lt;/a>', $nl)"/>
+    <xsl:value-of select="concat('Type: &lt;a href=&quot;../converter/', str:replace(str:replace(@type, '[', '%5B'), ']', '%5D'), '&quot; class=&quot;converter&quot;>', @short-type, '&lt;/a>', $nl)"/>
 	<xsl:text>&lt;/div>
 </xsl:text>
     <xsl:apply-templates/>
@@ -205,7 +205,7 @@ limitations under the License.
   </xsl:template>
 
   <xsl:template match="converter">
-    <xsl:value-of select="concat('&lt;a href=&quot;../converter/', @name, ., '&quot; class=&quot;converter&quot;>', @name, ., '&lt;/a>')"/>
+    <xsl:value-of select="concat('&lt;a href=&quot;../converter/', str:replace(str:replace(@name, '[', '%5B'), ']', '%5D'), ., '&quot; class=&quot;converter&quot;>', @name, ., '&lt;/a>')"/>
   </xsl:template>
 
   <xsl:template match="library">
@@ -305,7 +305,7 @@ limitations under the License.
   </xsl:template>
 
   <xsl:template match="xverb">
-    <xsl:value-of select="concat('```xml', $nl)"/>
+    <xsl:value-of select="concat($nl, $nl, '```xml', $nl)"/>
     <xsl:apply-templates select="*|text()" mode="xverb" />
     <xsl:value-of select="concat($nl, '```', $nl, $nl)"/>
   </xsl:template>
