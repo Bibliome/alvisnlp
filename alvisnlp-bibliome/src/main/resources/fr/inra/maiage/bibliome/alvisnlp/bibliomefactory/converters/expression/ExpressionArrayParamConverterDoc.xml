@@ -17,12 +17,12 @@ limitations under the License.
 
 <alvisnlp-doc author="Robert Bossy" date="2012-04-30" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.converters.expression.ExpressionArrayParamConverter">
   <synopsis>
-    <p>Converts into an array of <converter name="alvisnlp.corpus.Expression"/>.</p>
+    <p>Converts into an array of <converter>Expression</converter>.</p>
   </synopsis>
 
   <converter-doc>
     <string-conversion>
-      <p>Comma separated sequence of <converter name="alvisnlp.corpus.Expression"/>.</p>
+      <p>Comma separated sequence of <converter>Expression</converter>.</p>
       <p>The item separator can be set with the <em>separator</em> attribute.</p>
     </string-conversion>
   
@@ -30,7 +30,7 @@ limitations under the License.
       <p>
 	<ol>
 	  <li>String conversion of the tag contents or the value of attribute <em>value</em>.</li>
-	  <li>Sequence of <xverb><element/></xverb>, each one converted into a <converter name="alvisnlp.corpus.Expression"/>.</li>
+	  <li>Sequence of <xverb><element/></xverb> each one converted into a <converter name="alvisnlp.corpus.Expression"/>.</li>
 	</ol>
       </p>
     </xml-conversion>
