@@ -1,38 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alvisnlp-doc author="" beta="false" date="" short-target="YateaTermsProjector" target="YateaTermsProjector">
   <synopsis>
-    <p>UNDOCUMENTED</p>
+    <p>Search in the sections content for terms extracted by YaTeA (see <module>YateaExtractor</module>).</p>
   </synopsis>
   <module-doc>
     <description>
-      <p>UNDOCUMENTED</p>
+      <p><this/> reads terms in a YaTeA XML output file produced by <module>YateaExtractor</module> and searches for terms in section contents, or whatever specified by <param>subject</param>.</p>
+      <p>The parameters <param name="skipBlank"/>, <param name="skipEmpty"/>, <param name="strictColumnNumber"/>, <param name="trimColumns"/>, <param name="separator"/>, <param name="multipleEntryBehaviour"/> control how the dictionary file is read by <this/>.</p>
+      <p>The parameters <param name="allowJoined"/>, <param name="allUpperCaseInsensitive"/>, <param name="caseInsensitive"/>, <param name="ignoreDiacritics"/>, <param name="joinDash"/>, <param name="matchStartCaseInsensitive"/>, <param name="skipConsecutiveWhitespaces"/>, <param name="skipWhitespace"/> and <param name="wordStartCaseInsensitive"/> control how the keys can match the sections content.</p>
+      <p>The <param name="subject"/> parameter specifies which text of the section should be matched. There are two alternatives:
+      <ul>
+	<li>the entries are matched on the contents of the section (the default), <param name="subject"/> can also control if matches boundaries coincide with word delimiters;</li>
+	<li>the entries are matched on the value of a specified feature of annotations in a given layer separated by a whitespace, in this way entries can be searched against word lemmas, for instance.</li>
+      </ul>
+      </p>
+      <p><this/> creates an annotation for each matched key and adds these annotations to the layer specified by <param name="targetLayerName"/>. Term structure information can be recorded in the features specified by <param>term-id</param>, <param>head</param>, <param>monoHeadId</param>, <param>modifier</param>, and <param>pos</param>. In addition, the created annotations will have the constant features specified in <param name="constantAnnotationFeatures"/>.</p>
+      <p><param>trieSource</param> and <param>trieSink</param> are not supported by <this/>.</p>
     </description>
+    
     <param-doc default-value="head" mandatory="default: head" name="head" name-type="feature" short-type="String" type="java.lang.String">
-      <p>UNDOCUMENTED</p>
+      <p>Feature where to record the matched term's head identifier.</p>
     </param-doc>
+    
     <param-doc default-value="false" mandatory="default: false" name="mnpOnly" short-type="Boolean" type="java.lang.Boolean">
-      <p>UNDOCUMENTED</p>
+      <p>If <i>true</i>, then <this/> only searches for MNP terms.</p>
     </param-doc>
+    
     <param-doc default-value="modifier" mandatory="default: modifier" name="modifier" name-type="feature" short-type="String" type="java.lang.String">
-      <p>UNDOCUMENTED</p>
+      <p>Feature where to record the matched term's modifier identifier.</p>
     </param-doc>
+    
     <param-doc default-value="mono-head" mandatory="default: mono-head" name="monoHeadId" name-type="feature" short-type="String" type="java.lang.String">
-      <p>UNDOCUMENTED</p>
+      <p>Feature where to record the matched term's mono-head (or superhead, or single-token head) identifier.</p>
     </param-doc>
+    
     <param-doc default-value="false" mandatory="default: false" name="projectLemmas" short-type="Boolean" type="java.lang.Boolean">
-      <p>UNDOCUMENTED</p>
+      <p>If <i>true</i>, the this searches for term lemmas instead of surface forms.</p>
     </param-doc>
+    
     <param-doc default-value="term-id" mandatory="default: term-id" name="termId" name-type="feature" short-type="String" type="java.lang.String">
-      <p>UNDOCUMENTED</p>
+      <p>Feature where to record the matched term's identifier.</p>
     </param-doc>
+    
     <param-doc mandatory="required" name="termLemma" name-type="feature" short-type="String" type="java.lang.String">
-      <p>UNDOCUMENTED</p>
+      <p>Feature where to record the matched term's lemma string.</p>
     </param-doc>
+    
     <param-doc default-value="pos" mandatory="default: pos" name="termPOS" name-type="feature" short-type="String" type="java.lang.String">
-      <p>UNDOCUMENTED</p>
+      <p>Feature where to record the matched term's components POS tags.</p>
     </param-doc>
+    
     <param-doc mandatory="required" name="yateaFile" short-type="SourceStream" type="fr.inra.maiage.bibliome.util.streams.SourceStream">
-      <p>UNDOCUMENTED</p>
+      <p>YaTeA output XML file, as produced by <module>YateaExtractor</module>.</p>
     </param-doc>
 
 	<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.TrieProjectorParamsDoc</include-doc>
