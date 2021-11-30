@@ -15,7 +15,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper.FileMapper2">
+<alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper.FileMapper">
   <synopsis>
     <p>Maps elements according to a tab-separated mapping file.</p>
   </synopsis>

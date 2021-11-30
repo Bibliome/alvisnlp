@@ -33,16 +33,21 @@ limitations under the License.
 -->
 
   <synopsis>
-    <p>synopsis</p>
+    <p>Matching operator for <module>FileMapper</module> and <module>ElementMapper</module>.</p>
   </synopsis>
 
   <converter-doc>
     <string-conversion>
-      <p>string conversion</p>
+      <p>One of either:
+      <ul>
+      	<li><i>exact</i>: matches the entry key exactly to the element key.</li>
+      	<li><i>prefix</i>: matches the entry key to the beginning of the element key.</li>
+      </ul>
+      </p>
     </string-conversion>
   
     <xml-conversion>
-      <p>XML conversion</p>
+      <p/>
     </xml-conversion>
   </converter-doc>
 </alvisnlp-doc>

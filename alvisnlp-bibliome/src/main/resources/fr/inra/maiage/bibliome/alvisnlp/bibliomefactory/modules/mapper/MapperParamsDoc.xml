@@ -29,7 +29,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="operator">
-      <p>Matching operator.</p>
+      <p>Matching operator: either *exact* (default) or *prefix*.</p>
     </param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
