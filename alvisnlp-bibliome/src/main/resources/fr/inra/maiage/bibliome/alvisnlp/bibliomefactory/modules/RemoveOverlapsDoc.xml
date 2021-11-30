@@ -39,9 +39,7 @@ limitations under the License.
 	  <p>
 	  <param name="annotationComparator"/> controls which annotation is removed.
 	  </p>
-	  <p>
-	  By default <this/> removes all kinds of annotations, keeping the longest one.
-	  </p>
+	  <p>By default <this/> removes all kinds of annotations, keeping the longest one.</p>
     </description>
   
     <param-doc name="layerName">
