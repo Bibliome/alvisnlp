@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!--
+Copyright 2016, 2017 Institut National de la Recherche Agronomique
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<alvisnlp-doc target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.ConcreteHashLibrary" short-target="hash">
+<!--
+Copyright 2016 Institut National de la Recherche Agronomique
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<synopsis>
+  <p>Functions to compute string hashes.</p>
+</synopsis>
+
+  <library-doc>
+    <function-doc first-ftor="md2" synopsis="hash:md2(s)">
+      <p>Evaluates <em>s</em> as a string and returns the MD2 digest of this string.</p>
+    </function-doc>
+
+    <function-doc first-ftor="md5" synopsis="hash:md5(s)">
+      <p>Evaluates <em>s</em> as a string and returns the MD5 digest of this string.</p>
+    </function-doc>
+
+    <function-doc first-ftor="sha-1" synopsis="hash:sha-1(s)">
+      <p>Evaluates <em>s</em> as a string and returns the SHA-1 digest of this string.</p>
+    </function-doc>
+
+    <function-doc first-ftor="sha-256" synopsis="hash:sha-256(s)">
+      <p>Evaluates <em>s</em> as a string and returns the SHA-256 digest of this string.</p>
+    </function-doc>
+
+    <function-doc first-ftor="sha-512" synopsis="hash:sha-512(s)">
+      <p>Evaluates <em>s</em> as a string and returns the SHA-512 digest of this string.</p>
+    </function-doc>
+  </library-doc>
+</alvisnlp-doc>

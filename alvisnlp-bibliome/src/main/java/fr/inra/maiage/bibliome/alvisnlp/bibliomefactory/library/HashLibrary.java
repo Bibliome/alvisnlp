@@ -9,7 +9,6 @@ import javax.xml.bind.DatatypeConverter;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Function;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.FunctionLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Library;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 
 @Library("hash")
 public abstract class HashLibrary extends FunctionLibrary {
