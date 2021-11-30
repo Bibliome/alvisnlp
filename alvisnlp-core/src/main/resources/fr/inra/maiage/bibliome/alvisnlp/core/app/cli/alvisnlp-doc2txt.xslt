@@ -128,17 +128,18 @@ limitations under the License.
     <xsl:value-of select="string(.)"/>
   </xsl:template>
 
-  <xsl:template match="list">
+  <xsl:template match="ul|list">
     <xsl:apply-templates select="li"/>
   </xsl:template>
 
-  <xsl:template match="enum">
+  <xsl:template match="ol|enum">
     <xsl:apply-templates select="li"/>
   </xsl:template>
 
   <xsl:template match="li">
     <xsl:text>        * </xsl:text>
-    <xsl:apply-templates select="*|text()"/>
+    <xsl:apply-templates select="*|text()"/><xsl:text>
+</xsl:text>
   </xsl:template>
 
   <xsl:template match="a"><xsl:value-of select="."/></xsl:template>
@@ -170,9 +171,9 @@ limitations under the License.
 
   <xsl:template match="this"><xsl:value-of select="//alvisnlp-doc/@short-target"/></xsl:template>
 
-  <xsl:template match="param"><xsl:value-of select="@name"/></xsl:template>
+  <xsl:template match="param"><xsl:value-of select="concat(@name, .)"/></xsl:template>
 
-  <xsl:template match="module"><xsl:value-of select="@name"/></xsl:template>
+  <xsl:template match="module"><xsl:value-of select="concat(@name, .)"/></xsl:template>
 
-  <xsl:template match="converter">`<xsl:value-of select="@name"/>'</xsl:template>
+  <xsl:template match="converter">`<xsl:value-of select="concat(@name, .)"/>'</xsl:template>
 </xsl:stylesheet>
