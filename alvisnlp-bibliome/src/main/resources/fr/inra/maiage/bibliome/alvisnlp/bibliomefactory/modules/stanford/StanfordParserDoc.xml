@@ -12,6 +12,10 @@
 			<p>The corpus must be sentence-split, tokenized and tokens must be POS-tagged.</p>
 			<p>The root is represented as a tuple like dependencies but without a head argument, and labelled <em>root</em>.</p>
 		</description>
+		
+		<param-doc name="language">
+		  <p>Language of the text to parse. <this/> currently supports english (default), french, german, spanish and chinese.</p>
+		</param-doc>
 
 		<param-doc default-value="label" mandatory="default: label"
 			name="dependencyLabelFeatureName" name-type="feature"
