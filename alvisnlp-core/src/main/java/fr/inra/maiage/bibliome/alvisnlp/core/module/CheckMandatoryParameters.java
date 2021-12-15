@@ -22,6 +22,10 @@ import java.util.logging.Logger;
 public class CheckMandatoryParameters<A extends Annotable> extends AbstractParamVisitor<A,Logger> {
 	private boolean hasUnsetMandatoryParam = false;
 	
+	public CheckMandatoryParameters() {
+		super(true);
+	}
+
 	@Override
 	public void visitParam(ParamHandler<A> paramHandler, Logger logger) {
 		if (paramHandler.isMandatory() && !paramHandler.isSet()) {

@@ -17,11 +17,28 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.core.module;
 
+import java.util.List;
+
 public abstract class AbstractModuleVisitor<A extends Annotable,P> implements ModuleVisitor<A,P> {
+	private final boolean onlyActiveModules;
+	
+	protected AbstractModuleVisitor(boolean onlyActiveModules) {
+		super();
+		this.onlyActiveModules = onlyActiveModules;
+	}
+	
+	private List<Module<A>> getSubModules(Sequence<A> sequence) {
+		if (onlyActiveModules) {
+			return sequence.getActiveSubModules();
+		}
+		return sequence.getSubModules();
+	}
+
 	@Override
 	public void visitSequence(Sequence<A> sequence, P param) throws ModuleException {
-		for (Module<A> module : sequence.getSubModules())
+		for (Module<A> module : getSubModules(sequence)) {
 			module.accept(this, param);
+		}
 	}
 
 	@Override

@@ -302,6 +302,10 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
 	}
 	
 	private static class NameUsageVisitor<T extends Annotable> extends AbstractParamVisitor<T,GlobalNameUsage> {
+		private NameUsageVisitor() {
+			super(true);
+		}
+
 		@Override
 		public void visitModule(Module<T> module, GlobalNameUsage param) throws ModuleException {
 			super.visitModule(module, param);

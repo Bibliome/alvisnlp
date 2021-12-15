@@ -1182,7 +1182,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     	
     	if (!noProcess) {
     		Stats<Module<A>,Count> moduleStats = new CountStats<Module<A>>(new LinkedHashMap<Module<A>,Count>());
-    		List<Module<A>> modules = CollectModules.visit(mainModule, false);
+    		List<Module<A>> modules = CollectModules.visit(mainModule, true, false);
     		for (Module<A> m : modules)
     			moduleStats.incr(m, m.getTimer(ctx).getTime());
     		logTimes(logger, "Time spent by effective module:", moduleStats);

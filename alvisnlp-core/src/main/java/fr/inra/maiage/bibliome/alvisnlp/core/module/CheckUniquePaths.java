@@ -25,6 +25,10 @@ public class CheckUniquePaths<A extends Annotable> extends AbstractModuleVisitor
 	private final Collection<String> seenPaths = new LinkedHashSet<String>();
 	private boolean duplicatePath = false;
 	
+	public CheckUniquePaths() {
+		super(false);
+	}
+	
 	@Override
 	public void visitSequence(Sequence<A> sequence, Logger logger) throws ModuleException {
 		visitModule(sequence, logger);

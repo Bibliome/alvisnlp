@@ -89,6 +89,8 @@ public interface Sequence<T extends Annotable> extends Module<T> {
     int getIndexOf(Module<T> module);
     
     List<Module<T>> getSubModules();
+    
+    List<Module<T>> getActiveSubModules();
 
     CompositeParamHandler<T> createAliasParam(String name) throws ParameterException;
 

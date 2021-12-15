@@ -23,8 +23,8 @@ import java.util.List;
 public class CollectModules<A extends Annotable> extends AbstractModuleVisitor<A,List<Module<A>>> {
 	private final boolean sequences;
 
-	private CollectModules(boolean sequences) {
-		super();
+	private CollectModules(boolean onlyActiveModules, boolean sequences) {
+		super(onlyActiveModules);
 		this.sequences = sequences;
 	}
 
@@ -40,8 +40,8 @@ public class CollectModules<A extends Annotable> extends AbstractModuleVisitor<A
 		super.visitSequence(sequence, param);
 	}
 	
-	public static final <A extends Annotable> List<Module<A>> visit(Module<A> module, boolean sequences) throws ModuleException {
-		CollectModules<A> visitor = new CollectModules<A>(sequences);
+	public static final <A extends Annotable> List<Module<A>> visit(Module<A> module, boolean onlyActiveModules, boolean sequences) throws ModuleException {
+		CollectModules<A> visitor = new CollectModules<A>(onlyActiveModules, sequences);
 		List<Module<A>> result = new ArrayList<Module<A>>();
 		module.accept(visitor, result);
 		return result;

@@ -122,7 +122,7 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
     	}
     }
 
-    @Override
+	@Override
     public String getResourceBundleName() {
         return "alvisnlp.app.Sequence_ImplDoc";
     }
@@ -220,6 +220,18 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
 	@Override
 	public List<Module<Corpus>> getSubModules() {
 		return Collections.unmodifiableList(moduleSequence);
+	}
+    
+    @Override
+	public List<Module<Corpus>> getActiveSubModules() {
+    	List<Module<Corpus>> result = new ArrayList<Module<Corpus>>(moduleSequence.size());
+		Set<String> set = new LinkedHashSet<String>(Arrays.asList(select));
+		for (Module<Corpus> mod : moduleSequence) {
+			if (set.contains(mod.getId())) {
+				result.add(mod);
+			}
+		}
+		return Collections.unmodifiableList(result);
 	}
 
 	@Override

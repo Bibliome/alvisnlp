@@ -11,7 +11,7 @@ public class CollectResources<A extends Annotable> extends AbstractParamVisitor<
 	private final String defaultSource;
 
 	private CollectResources(ProcessingContext<A> processingContext, String defaultSource) {
-		super();
+		super(true);
 		this.processingContext = processingContext;
 		this.defaultSource = defaultSource;
 	}

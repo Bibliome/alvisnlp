@@ -26,7 +26,7 @@ public class CheckParamValueConstraints<A extends Annotable> extends AbstractPar
 	private boolean hasConstraintsErrors = false;
 
 	private CheckParamValueConstraints(ProcessingContext<A> processingContext) {
-		super();
+		super(true);
 		this.processingContext = processingContext;
 	}
 
