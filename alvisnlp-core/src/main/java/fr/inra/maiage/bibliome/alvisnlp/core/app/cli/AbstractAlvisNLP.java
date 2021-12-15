@@ -71,6 +71,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.FunctionLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.core.documentation.Documentation;
 import fr.inra.maiage.bibliome.alvisnlp.core.factory.ModuleFactory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.CheckCheckableModules;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.CheckMandatoryParameters;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.CheckParamValueConstraints;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.CheckUniquePaths;
@@ -980,13 +981,18 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
         }
         
         if (!writePlan) {
-        	if (CheckMandatoryParameters.visit(logger, result))
+        	if (CheckMandatoryParameters.visit(logger, result)) {
         		throw new PlanException("some mandatory parameters are not set");
+        	}
 
-        	if (CheckParamValueConstraints.visit(ctx, logger, result))
+        	if (CheckParamValueConstraints.visit(ctx, logger, result)) {
         		throw new PlanException("some parameter values do not satisfy constraints");
+        	}
         	
-
+        	if (CheckCheckableModules.visit(logger, result)) {
+        		throw new PlanException("some module constraints are not met");
+        	}
+        	
         	if (logger.isLoggable(Level.FINE)) {
         		logger.fine("External resources");
         		CollectResources.visit(ctx, logger, result);
