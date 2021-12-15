@@ -224,6 +224,9 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
     
     @Override
 	public List<Module<Corpus>> getActiveSubModules() {
+    	if (select == null) {
+    		return getSubModules();
+    	}
     	List<Module<Corpus>> result = new ArrayList<Module<Corpus>>(moduleSequence.size());
 		Set<String> set = new LinkedHashSet<String>(Arrays.asList(select));
 		for (Module<Corpus> mod : moduleSequence) {
