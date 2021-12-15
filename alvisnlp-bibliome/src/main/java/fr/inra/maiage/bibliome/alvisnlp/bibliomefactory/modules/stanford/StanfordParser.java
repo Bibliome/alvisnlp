@@ -33,11 +33,12 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Checkable;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.LoggingUtils;
 
 @AlvisNLPModule(beta=true)
-public abstract class StanfordParser extends SectionModule<StanfordParserResolvedObjects> implements TupleCreator {
+public abstract class StanfordParser extends SectionModule<StanfordParserResolvedObjects> implements TupleCreator, Checkable {
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
 	private String tokenLayerName = DefaultNames.getWordLayer();
 	private Expression sentenceFilter = ConstantsLibrary.TRUE;
@@ -156,6 +157,16 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 			super(ctx, module);
 			this.sentenceFilter = module.sentenceFilter.resolveExpressions(rootResolver);
 		}
+	}
+	
+	@Override
+	public boolean check(Logger logger) {
+		String parserPath = getParserPath();
+		if (parserPath == null) {
+			logger.severe("language " + language + " is not supported");
+			return false;
+		}
+		return true;
 	}
 
 	@Param(nameType=NameType.LAYER)
