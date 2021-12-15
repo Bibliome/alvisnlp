@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
+import javax.ws.rs.ProcessingException;
+
+import com.github.pemistahl.lingua.api.Language;
+
 import edu.stanford.nlp.ling.TaggedWord;
 import edu.stanford.nlp.parser.nndep.DependencyParser;
 import edu.stanford.nlp.trees.GrammaticalStructure;
@@ -45,6 +49,7 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	private String dependencyLabelFeatureName = DefaultNames.getDependencyLabelFeatureName();
 	private String dependencySentenceRole = DefaultNames.getDependencySentenceRole();
 	private Boolean omitRoot = false;
+	private Language language = Language.ENGLISH;
 	
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -67,8 +72,24 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		}
 	}
 	
-	private static DependencyParser loadParser() {
-		return DependencyParser.loadFromModelFile(DependencyParser.DEFAULT_MODEL);
+	private String getParserPath() {
+		switch (language) {
+			case ENGLISH: return "edu/stanford/nlp/models/parser/nndep/english_UD.gz";
+			case FRENCH: return "edu/stanford/nlp/models/parser/nndep/UD_French.gz";
+			case GERMAN: return "edu/stanford/nlp/models/parser/nndep/UD_German.gz";
+			case SPANISH: return "edu/stanford/nlp/models/parser/nndep/UD_Spanish.gz";
+			case CHINESE: return "edu/stanford/nlp/models/parser/nndep/UD_Chinese.gz";
+			default:
+				return null;
+		}
+	}
+	
+	private DependencyParser loadParser() {
+		String parserPath = getParserPath();
+		if (parserPath == null) {
+			throw new ProcessingException("language " + language + " is not supported");
+		}
+		return DependencyParser.loadFromModelFile(getParserPath());
 	}
 	
 	private void parseSentence(DependencyParser parser, Relation dependencies, Layer tokens, Annotation sentence) {
@@ -190,6 +211,15 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	@Param
 	public Boolean getOmitRoot() {
 		return omitRoot;
+	}
+
+	@Param
+	public Language getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(Language language) {
+		this.language = language;
 	}
 
 	public void setOmitRoot(Boolean omitRoot) {
