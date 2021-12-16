@@ -79,10 +79,23 @@ public class TomapClassifier implements Checkable {
 				logger.warning("head graylist specified but no tomap classifier");
 				result = false;
 			}
+			if (emptyWordsFile != null) {
+				logger.warning("empty words specified but no tomap classifier");
+				result = false;
+			}
 			if (defaultConcept == null) {
 				logger.warning("no tomap classifier, nor default concept");
 				result = false;
 			}
+		}
+		if (tomapFile != null) {
+			result = tomapFile.check(logger) && result;
+		}
+		if (headGraylistFile != null) {
+			result = headGraylistFile.check(logger) && result;
+		}
+		if (emptyWordsFile != null) {
+			result = emptyWordsFile.check(logger) && result;
 		}
 		return result;
 	}
