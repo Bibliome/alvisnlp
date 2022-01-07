@@ -49,6 +49,7 @@ import org.apache.xpath.XPathContext;
 import org.apache.xpath.objects.XObject;
 import org.cyberneko.html.parsers.DOMParser;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -261,8 +262,18 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		return result;
 	}
 	
-	private static final org.w3c.dom.Element copyNodeAndAttributes(Node node) {
+	private static final Element copyAncestors(Node node) {
 		org.w3c.dom.Element result = document.createElement(node.getNodeName());
+		Node parent = node.getParentNode();
+		if (parent.getNodeType() == Node.ELEMENT_NODE) {
+			org.w3c.dom.Element parentCopy = copyAncestors(parent);
+			parentCopy.appendChild(result);
+		}
+		return result;
+	}
+	
+	private static final org.w3c.dom.Element copyNodeAndAttributes(Node node) {
+		org.w3c.dom.Element result = copyAncestors(node);
 		NamedNodeMap attributes = node.getAttributes();
 		for (int i = 0; i < attributes.getLength(); ++i) {
 			Node a = attributes.item(i);
@@ -312,7 +323,14 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 			if (node.getNodeName().isEmpty())
 				break;
 			org.w3c.dom.Element elt = copyNodeAndAttributes(node);
-                        elt.setAttributeNS(INLINE_NAMESPACE, LEVEL_ATTRNAME, Integer.toString(level));
+			//org.w3c.dom.Element elt = (org.w3c.dom.Element) node;
+			try {
+				elt.setAttributeNS(INLINE_NAMESPACE, LEVEL_ATTRNAME, Integer.toString(level));
+			}
+			catch (Throwable t) {
+				System.err.println(t.getClass().getName());
+				System.err.println(t.getMessage());
+			}
 			result.addElement(elt);
 			elt.setAttributeNS(INLINE_NAMESPACE, START_ATTRNAME, Integer.toString(position));
 			for (Node child : XMLUtils.childrenNodes(node))
