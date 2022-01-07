@@ -110,4 +110,13 @@ limitations under the License.
   <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.ContesPredict">
     <contesDir></contesDir>
   </module>
+  
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextClassifierLabel">
+    <fasttextExecutable></fasttextExecutable>
+  </module>
+  
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextClassifierTrain">
+    <fasttextExecutable></fasttextExecutable>
+  </module>
+  
 </default-param-values>
