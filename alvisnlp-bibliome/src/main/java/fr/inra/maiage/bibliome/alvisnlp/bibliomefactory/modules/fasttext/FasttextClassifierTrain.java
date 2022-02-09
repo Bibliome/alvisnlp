@@ -41,6 +41,7 @@ public class FasttextClassifierTrain extends FasttextClassifierBase<FasttextClas
 	private FasttextAttribute[] validationAttributes;
 	private Integer autotuneDuration = 300;
 	private String[] commandlineOptions;
+	private String autotuneMetric = null;
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -55,14 +56,22 @@ public class FasttextClassifierTrain extends FasttextClassifierBase<FasttextClas
 
 	@Override
 	public boolean check(Logger logger) {
-		if (autotune && (validationDocuments == null)) {
-			logger.severe("autotune requires validationDocuments set");
-			return false;
+		boolean result = true;
+		if (autotune) {
+			if (validationDocuments == null) {
+				logger.severe("autotune requires validationDocuments set");
+				result = false;
+			}
 		}
-		if ((!autotune) && (validationDocuments != null)) {
-			logger.warning("validationDocuments will be ignored");
+		else {
+			if (validationDocuments != null) {
+				logger.warning("validationDocuments will be ignored");
+			}
+			if (autotuneMetric != null) {
+				logger.warning("autotuneMetric will be ignored");
+			}
 		}
-		return true;
+		return result;
 	}
 
 	@Override
@@ -183,6 +192,15 @@ public class FasttextClassifierTrain extends FasttextClassifierBase<FasttextClas
 	@Param
 	public Boolean getAutotune() {
 		return autotune;
+	}
+
+	@Param(mandatory = false)
+	public String getAutotuneMetric() {
+		return autotuneMetric;
+	}
+
+	public void setAutotuneMetric(String autotuneMetric) {
+		this.autotuneMetric = autotuneMetric;
 	}
 
 	public void setAutotune(Boolean autotune) {
