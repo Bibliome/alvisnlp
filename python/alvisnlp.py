@@ -89,6 +89,16 @@ class Element:
         else:
             self._features[key] = [value]
 
+    def _features_and_id_to_json(self):
+        j = {'id': self.serid}
+        j['f'] = self._features
+        return j
+
+    def _features_and_id_from_json(self, j):
+        if 'id' in j:
+            self.serid = j['id']
+        self._features = j['f']
+
 
 class Corpus(Element):
     '''AlvisNLP Corpus object.
@@ -147,6 +157,35 @@ class Corpus(Element):
         if doc.identifier in self._documents:
             raise ValueError('duplicate document identifier: ' + doc.identifier)
         self._documents[doc.identifier] = doc
+
+    def to_json(self):
+        j = self._features_and_id_to_json()
+        j['documents'] = list(doc._to_json() for doc in self.documents)
+        return j
+
+    @staticmethod
+    def from_json(j):
+        corpus = Corpus()
+        corpus._features_and_id_from_json(j)
+        for dj in j['documents']:
+            corpus._document_from_json(dj)
+        corpus._dereference_tuple_arguments()
+        return corpus
+
+    def _document_from_json(self, j):
+        doc = Document(self, j['identifier'])
+        doc._features_and_id_from_json(j)
+        for sj in j['sections']:
+            doc._section_from_json(sj)
+        return doc
+
+    def _dereference_tuple_arguments(self):
+        for doc in self.documents:
+            for sec in doc.sections:
+                for rel in sec.relations:
+                    for t in rel.tuples:
+                        for role, ref in t.args.items():
+                            t.set_arg(role, self.all_elements[ref])
 
 
 class Document(Element):
@@ -222,6 +261,26 @@ class Document(Element):
         '''
         check_type(sec, Section)
         self._sections.append(sec)
+
+    def _to_json(self):
+        j = self._features_and_id_to_json()
+        j['identifier'] = self.identifier
+        j['sections'] = list(sec._to_json() for sec in self.sections)
+        return j
+
+    def _section_from_json(self, j):
+        corpus = self.corpus
+        sec = Section(self, j['name'], j['contents'])
+        sec._features_and_id_from_json(j)
+        for aj in j['annotations']:
+            sec._annotation_from_json(aj)
+        for name, aj in j['layers'].items():
+            layer = Layer(sec, name)
+            for a in aj:
+                layer.add_annotation(corpus.all_elements[a])
+        for rj in j['relations']:
+            sec._relation_from_json(rj)
+        return sec
 
 
 class Section(Element):
@@ -360,6 +419,32 @@ class Section(Element):
         if rel.name in self._relations:
             raise ValueError('duplicate relation name: ' + rel.name + ' in ' + self)
         self._relations[rel.name] = rel
+
+    def _to_json(self):
+        j = self._features_and_id_to_json()
+        j['name'] = self.name
+        j['contents'] = self.contents
+        annotations = set()
+        for layer in self.layers:
+            for a in layer.annotations:
+                annotations.add(a)
+        j['annotations'] = list(a._to_json() for a in annotations)
+        j['layers'] = dict((layer.name, list(a.serid for a in layer.annotations)) for layer in self.layers)
+        j['relations'] = list(rel._to_json() for rel in self.relations)
+        return j
+
+    def _annotation_from_json(self, j):
+        oj = j['off']
+        a = Annotation(self, oj[0], oj[1])
+        a._features_and_id_from_json(j)
+        return a
+
+    def _relation_from_json(self, j):
+        rel = Relation(self, j['name'])
+        rel._features_and_id_from_json(j)
+        for tj in j['tuples']:
+            rel._tuple_from_json(tj)
+        return rel
 
 
 class Layer:
@@ -501,6 +586,11 @@ class Annotation(Element, Span):
     def __len__(self):
         return self.end - self.start
 
+    def _to_json(self):
+        j = self._features_and_id_to_json()
+        j['off'] = [self.start, self.end]
+        return j
+
 
 class Relation(Element):
     '''An AlvisNLP Relation object.
@@ -553,6 +643,19 @@ class Relation(Element):
         '''
         check_type(t, Tuple)
         self._tuples.append(t)
+
+    def _to_json(self):
+        j = self._features_and_id_to_json()
+        j['name'] = self.name
+        j['tuples'] = list(t._to_json() for t in self.tuples)
+        return j
+
+    def _tuple_from_json(self, j):
+        t = Tuple(self)
+        t._features_and_id_from_json(j)
+        for role, ref in j['args'].items():
+            t.set_arg(role, ref)
+        return t
 
 
 class Tuple(Element):
@@ -630,3 +733,8 @@ class Tuple(Element):
         get_arg (Element): The argument in this tuple with the specified role.
         '''
         return self._args[role]
+
+    def _to_json(self):
+        j = self._features_and_id_to_json()
+        j['args'] = dict((role, arg.serid) for (role, arg) in self.args.items())
+        return j

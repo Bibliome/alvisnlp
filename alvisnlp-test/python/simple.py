@@ -1,12 +1,9 @@
-import alvisnlp.data
-import alvisnlp.serialization
+import alvisnlp
 import json
 import sys
 
 
 j_in = json.load(sys.stdin)
-deserializer = alvisnlp.serialization.JsonDeserializer()
-corpus = deserializer.deserialize_corpus(j_in)
-serializer = alvisnlp.serialization.JsonSerializer()
-j_out = serializer.serialize_corpus(corpus)
+corpus = alvisnlp.Corpus.from_json(j_in)
+j_out = corpus.to_json()
 json.dump(j_out, sys.stdout)
