@@ -107,6 +107,11 @@ public final class ArgumentElement implements Element {
 	}
 
 	@Override
+	public void clearFeatures() {
+		argument.clearFeatures();
+	}
+
+	@Override
 	public String getFirstFeature(String key) {
 		if (ROLE_FEATURE_KEY.equals(key))
 			return role;

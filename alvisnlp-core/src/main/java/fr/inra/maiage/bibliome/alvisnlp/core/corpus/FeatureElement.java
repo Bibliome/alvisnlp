@@ -88,6 +88,11 @@ public class FeatureElement implements Element {
 	}
 
 	@Override
+	public void clearFeatures() {
+		element.clearFeatures();
+	}
+
+	@Override
 	public String getFirstFeature(String key) {
 		if (KEY_FEATURE_KEY.equals(key)) {
 			return this.key;

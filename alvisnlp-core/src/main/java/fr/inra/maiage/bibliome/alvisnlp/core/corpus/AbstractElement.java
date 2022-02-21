@@ -137,7 +137,11 @@ public abstract class AbstractElement implements Element, Serializable {
     		return Collections.emptyList();
     	return features.remove(key);
 	}
-
+    
+	@Override
+	public void clearFeatures() {
+		features = null;
+	}
 
 	@Override
     public final String getFirstFeature(String key) {

@@ -34,10 +34,10 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.CorpusDumper;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable.Dumper;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable.Dumper;
 import fr.inra.maiage.bibliome.util.Timer;
 
 /**

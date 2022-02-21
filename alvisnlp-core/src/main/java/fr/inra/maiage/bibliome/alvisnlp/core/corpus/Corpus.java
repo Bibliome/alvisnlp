@@ -132,6 +132,10 @@ public final class Corpus extends AbstractElement implements Annotable {
     	if (doc.getCorpus() == this)
     		documents.remove(doc.getId());
     }
+    
+    public void clearDocuments() {
+    	documents.clear();
+    }
 
     /**
      * Adds a new document to this corpus.

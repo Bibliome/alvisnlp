@@ -98,6 +98,11 @@ public abstract class EnumLibrary extends FunctionLibrary {
 		}
 
 		@Override
+		public void clearFeatures() {
+			element.clearFeatures();
+		}
+
+		@Override
 		public String getFirstFeature(String key) {
 			if (NUM_FEATURE_KEY.equals(key)) {
 				return num;

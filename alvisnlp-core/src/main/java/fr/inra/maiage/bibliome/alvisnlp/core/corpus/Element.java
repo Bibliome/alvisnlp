@@ -111,6 +111,8 @@ public interface Element {
      */
     boolean isFeatureless();
 
+    void clearFeatures();
+    
     /**
      * Accepts the specified visitor.
      * @param <R>
