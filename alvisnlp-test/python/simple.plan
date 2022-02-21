@@ -7,7 +7,7 @@
 
   <py class="PythonScript">
     <commandLine separator=" ">/home/rbossy/dist/anaconda3/bin/python /home/rbossy/code/alvisnlp/alvisnlp-test/python/simple.py</commandLine>
-    <environment>PYTHONPATH=/home/rbossy/code/alvisnlp/python</environment>
+    <environment>PYTHONPATH=/home/rbossy/code/alvisnlp/share</environment>
   </py>
   
   <after file="write-features.plan">
