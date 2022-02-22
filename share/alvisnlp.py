@@ -92,7 +92,8 @@ class Element:
         if not self.is_new:
             self._new_features[key].append(value)
 
-    def has_new_feature(self):
+    @property
+    def has_new_features(self):
         return len(self._new_features) > 0
 
     def _features_and_id_to_json(self):
@@ -104,6 +105,11 @@ class Element:
         if 'id' in j:
             self.serid = j['id']
         self._features.update(j['f'])
+
+    def _features_and_id_to_jsondiff(self):
+        j = {'id': self.serid}
+        j['df'] = dict(self._new_features.items())
+        return j
 
 
 class Corpus(Element):
@@ -169,8 +175,17 @@ class Corpus(Element):
         j['documents'] = list(doc._to_json() for doc in self.documents)
         return j
 
+    def to_jsondiff(self):
+        j = self._features_and_id_to_jsondiff()
+        j['documents'] = list(doc._to_json() for doc in self.documents if doc.is_new)
+        j['ddocuments'] = list(doc._to_jsondiff() for doc in self.documents if (not doc.is_new) and doc.has_changes)
+        return j
+
     def write_json(self, f):
         json.dump(self.to_json(), f)
+
+    def write_jsondiff(self, f):
+        json.dump(self.to_jsondiff(), f)
 
     @staticmethod
     def from_json(j, is_new=False):
@@ -178,7 +193,7 @@ class Corpus(Element):
         corpus._features_and_id_from_json(j)
         for dj in j['documents']:
             corpus._document_from_json(dj, is_new)
-        corpus._dereference_tuple_arguments()
+        corpus._dereference_tuple_arguments(is_new)
         return corpus
 
     @staticmethod
@@ -192,13 +207,16 @@ class Corpus(Element):
             doc._section_from_json(sj, is_new)
         return doc
 
-    def _dereference_tuple_arguments(self):
+    def _dereference_tuple_arguments(self, is_new):
         for doc in self.documents:
             for sec in doc.sections:
                 for rel in sec.relations:
                     for t in rel.tuples:
                         for role, ref in t.args.items():
-                            t.set_arg(role, self.all_elements[ref])
+                            if is_new:
+                                t.set_arg(role, self.all_elements[ref])
+                            else:
+                                t._args[role] = self.all_elements[ref]
 
 
 class Document(Element):
@@ -277,8 +295,19 @@ class Document(Element):
 
     def _to_json(self):
         j = self._features_and_id_to_json()
-        j['identifier'] = self.identifier
-        j['sections'] = list(sec._to_json() for sec in self.sections)
+        j['identifier'] = self._identifier
+        j['sections'] = list(sec._to_json() for sec in self._sections)
+        return j
+
+    @property
+    def has_changes(self):
+        return self.has_new_features or any((sec.is_new or sec.has_changes) for sec in self._sections)
+
+    def _to_jsondiff(self):
+        j = self._features_and_id_to_jsondiff()
+        j['identifier'] = self._identifier
+        j['sections'] = list(sec._to_json() for sec in self._sections if sec.is_new)
+        j['dsections'] = list(sec._to_jsondiff() for sec in self._sections if (not sec.is_new) and sec.has_changes)
         return j
 
     def _section_from_json(self, j, is_new):
@@ -290,7 +319,10 @@ class Document(Element):
         for name, aj in j['layers'].items():
             layer = Layer(sec, name)
             for a in aj:
-                layer.add_annotation(corpus.all_elements[a])
+                if is_new:
+                    layer.add_annotation(corpus.all_elements[a])
+                else:
+                    layer._annotations.append(corpus.all_elements[a])
         for rj in j['relations']:
             sec._relation_from_json(rj, is_new)
         return sec
@@ -439,11 +471,32 @@ class Section(Element):
         j['contents'] = self.contents
         annotations = set()
         for layer in self.layers:
-            for a in layer.annotations:
+            for a in layer._annotations:
                 annotations.add(a)
         j['annotations'] = list(a._to_json() for a in annotations)
-        j['layers'] = dict((layer.name, list(a.serid for a in layer.annotations)) for layer in self.layers)
+        j['layers'] = dict((layer.name, list(a.serid for a in layer._annotations)) for layer in self.layers)
         j['relations'] = list(rel._to_json() for rel in self.relations)
+        return j
+
+    @property
+    def has_changes(self):
+        return self.has_new_features or any((len(layer._new_annotations) > 0) for layer in self.layers) or any((rel.is_new or rel.has_changes) for rel in self.relations)
+
+    def _to_jsondiff(self):
+        j = self._features_and_id_to_jsondiff()
+        annotations = set()
+        dannotations = set()
+        for layer in self.layers:
+            for a in layer.annotations:
+                if a.is_new:
+                    annotations.add(a)
+                elif a.has_changes:
+                    dannotations.add(a)
+        j['annotations'] = list(a._to_json() for a in annotations)
+        j['dannotations'] = list(a._to_jsondiff() for a in dannotations)
+        j['layers'] = dict((layer.name, list(a.serid for a in layer._new_annotations)) for layer in self.layers)
+        j['relations'] = list(rel._to_json() for rel in self.relations if rel.is_new)
+        j['drelations'] = list(rel._to_jsondiff() for rel in self.relations if (not rel.is_new) and rel.has_changes)
         return j
 
     def _annotation_from_json(self, j, is_new):
@@ -607,6 +660,14 @@ class Annotation(Element, Span):
         j['off'] = [self.start, self.end]
         return j
 
+    @property
+    def has_changes(self):
+        return self.has_new_features
+
+    def _to_jsondiff(self):
+        j = self._features_and_id_to_jsondiff()
+        return j
+
 
 class Relation(Element):
     '''An AlvisNLP Relation object.
@@ -666,11 +727,22 @@ class Relation(Element):
         j['tuples'] = list(t._to_json() for t in self.tuples)
         return j
 
+    @property
+    def has_changes(self):
+        return self.has_new_features or any((t.is_new or t.has_changes) for t in self._tuples)
+
+    def _to_jsondiff(self):
+        j = self._features_and_id_to_jsondiff()
+        j['name'] = self._name
+        j['tuples'] = list(t._to_json() for t in self._tuples if t.is_new)
+        j['dtuples'] = list(t._to_jsondiff() for t in self._tuples if (not t.is_new) and t.has_changes)
+        return j
+
     def _tuple_from_json(self, j, is_new):
         t = Tuple(self, is_new)
         t._features_and_id_from_json(j)
         for role, ref in j['args'].items():
-            t.set_arg(role, ref)
+            t._args[role] = ref
         return t
 
 
@@ -755,5 +827,14 @@ class Tuple(Element):
 
     def _to_json(self):
         j = self._features_and_id_to_json()
-        j['args'] = dict((role, arg.serid) for (role, arg) in self.args.items())
+        j['args'] = dict((role, arg.serid) for (role, arg) in self._args.items())
+        return j
+
+    @property
+    def has_changes(self):
+        return self.has_new_features or len(self._new_args) > 0
+
+    def _to_jsondiff(self):
+        j = self._features_and_id_to_jsondiff()
+        j['dargs'] = dict((role, arg.serid) for (role, arg) in self._new_args.items())
         return j
