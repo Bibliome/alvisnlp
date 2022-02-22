@@ -1,5 +1,7 @@
 import operator
 import uuid
+import collections
+import json
 
 
 def check_type(o, t):
@@ -22,7 +24,7 @@ class Element:
     '''
 
     def __init__(self):
-        self._features = {}
+        self._features = collections.defaultdict(list)
         self._serid = None
 
     @property
@@ -84,20 +86,17 @@ class Element:
         '''
         check_type(key, str)
         check_type(value, str)
-        if key in self._features:
-            self._features[key].append(value)
-        else:
-            self._features[key] = [value]
+        self._features[key].append(value)
 
     def _features_and_id_to_json(self):
         j = {'id': self.serid}
-        j['f'] = self._features
+        j['f'] = dict(self._features.items())
         return j
 
     def _features_and_id_from_json(self, j):
         if 'id' in j:
             self.serid = j['id']
-        self._features = j['f']
+        self._features.update(j['f'])
 
 
 class Corpus(Element):
@@ -163,6 +162,9 @@ class Corpus(Element):
         j['documents'] = list(doc._to_json() for doc in self.documents)
         return j
 
+    def write_json(self, f):
+        json.dump(self.to_json(), f)
+
     @staticmethod
     def from_json(j):
         corpus = Corpus()
@@ -171,6 +173,10 @@ class Corpus(Element):
             corpus._document_from_json(dj)
         corpus._dereference_tuple_arguments()
         return corpus
+
+    @staticmethod
+    def parse_json(f):
+        return Corpus.from_json(json.load(f))
 
     def _document_from_json(self, j):
         doc = Document(self, j['identifier'])
