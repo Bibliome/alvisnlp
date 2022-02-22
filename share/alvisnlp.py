@@ -23,9 +23,11 @@ class Element:
     corpus (Corpus): returns the corpus to which this element belongs. Immutable.
     '''
 
-    def __init__(self):
+    def __init__(self, is_new=True):
         self._features = collections.defaultdict(list)
+        self._new_features = collections.defaultdict(list)
         self._serid = None
+        self.is_new = is_new
 
     @property
     def serid(self):
@@ -87,6 +89,11 @@ class Element:
         check_type(key, str)
         check_type(value, str)
         self._features[key].append(value)
+        if not self.is_new:
+            self._new_features[key].append(value)
+
+    def has_new_feature(self):
+        return len(self._new_features) > 0
 
     def _features_and_id_to_json(self):
         j = {'id': self.serid}
@@ -105,8 +112,8 @@ class Corpus(Element):
     Attributes:
     documents (list[Document]): list of documents contained in this corpus. Modifications to this list will not change this corpus content. Immutable.
     '''
-    def __init__(self):
-        Element.__init__(self)
+    def __init__(self, is_new=True):
+        Element.__init__(self, is_new)
         self.all_elements = {}
         self._documents = {}
 
@@ -166,11 +173,11 @@ class Corpus(Element):
         json.dump(self.to_json(), f)
 
     @staticmethod
-    def from_json(j):
-        corpus = Corpus()
+    def from_json(j, is_new=False):
+        corpus = Corpus(is_new=is_new)
         corpus._features_and_id_from_json(j)
         for dj in j['documents']:
-            corpus._document_from_json(dj)
+            corpus._document_from_json(dj, is_new)
         corpus._dereference_tuple_arguments()
         return corpus
 
@@ -178,11 +185,11 @@ class Corpus(Element):
     def parse_json(f):
         return Corpus.from_json(json.load(f))
 
-    def _document_from_json(self, j):
-        doc = Document(self, j['identifier'])
+    def _document_from_json(self, j, is_new):
+        doc = Document(self, j['identifier'], is_new=is_new)
         doc._features_and_id_from_json(j)
         for sj in j['sections']:
-            doc._section_from_json(sj)
+            doc._section_from_json(sj, is_new)
         return doc
 
     def _dereference_tuple_arguments(self):
@@ -208,8 +215,8 @@ class Document(Element):
     identifier (str): This document identifier. Immutable.
     sections (list[Section]): List of sections in this document. Modifications will not change this document content. Immutable.
     '''
-    def __init__(self, corpus, identifier):
-        Element.__init__(self)
+    def __init__(self, corpus, identifier, is_new=True):
+        Element.__init__(self, is_new)
         check_type(corpus, Corpus)
         check_type(identifier, str)
         self._corpus = corpus
@@ -274,18 +281,18 @@ class Document(Element):
         j['sections'] = list(sec._to_json() for sec in self.sections)
         return j
 
-    def _section_from_json(self, j):
+    def _section_from_json(self, j, is_new):
         corpus = self.corpus
-        sec = Section(self, j['name'], j['contents'])
+        sec = Section(self, j['name'], j['contents'], is_new)
         sec._features_and_id_from_json(j)
         for aj in j['annotations']:
-            sec._annotation_from_json(aj)
+            sec._annotation_from_json(aj, is_new)
         for name, aj in j['layers'].items():
             layer = Layer(sec, name)
             for a in aj:
                 layer.add_annotation(corpus.all_elements[a])
         for rj in j['relations']:
-            sec._relation_from_json(rj)
+            sec._relation_from_json(rj, is_new)
         return sec
 
 
@@ -307,8 +314,8 @@ class Section(Element):
     layers (list[Layer]): List of all layers in this section. Modifications will not change this section layers. Immutable.
     relations (list[Relation]): List of all relations in this section. Modifications will not change this section relations. Immutable.
     '''
-    def __init__(self, document, name, contents):
-        Element.__init__(self)
+    def __init__(self, document, name, contents, is_new=True):
+        Element.__init__(self, is_new)
         check_type(document, Document)
         check_type(name, str)
         check_type(contents, str)
@@ -439,17 +446,17 @@ class Section(Element):
         j['relations'] = list(rel._to_json() for rel in self.relations)
         return j
 
-    def _annotation_from_json(self, j):
+    def _annotation_from_json(self, j, is_new):
         oj = j['off']
-        a = Annotation(self, oj[0], oj[1])
+        a = Annotation(self, oj[0], oj[1], is_new)
         a._features_and_id_from_json(j)
         return a
 
-    def _relation_from_json(self, j):
-        rel = Relation(self, j['name'])
+    def _relation_from_json(self, j, is_new):
+        rel = Relation(self, j['name'], is_new)
         rel._features_and_id_from_json(j)
         for tj in j['tuples']:
-            rel._tuple_from_json(tj)
+            rel._tuple_from_json(tj, is_new)
         return rel
 
 
@@ -478,6 +485,7 @@ class Layer:
             self._annotations = list(annotations)
         if name is not None:
             section.add_layer(self)
+        self._new_annotations = []
 
     @property
     def section(self):
@@ -512,6 +520,8 @@ class Layer:
         '''
         check_type(a, Annotation)
         self._annotations.append(a)
+        if not self._section.is_new:
+            self._new_annotations.append(a)
 
 
 class Span:
@@ -568,8 +578,8 @@ class Annotation(Element, Span):
     form (str): Surface form of this annotation. Immutable.
     '''
 
-    def __init__(self, sec, start, end):
-        Element.__init__(self)
+    def __init__(self, sec, start, end, is_new=True):
+        Element.__init__(self, is_new)
         Span.__init__(self, start, end)
         check_type(sec, Section)
         if end > len(sec.contents):
@@ -613,8 +623,8 @@ class Relation(Element):
     name (str): Relation name. Immutable.
     tuples (list[Tuple]): list of tuples in this relation. Modifications of this list will not affect this relation tuples. Immutable.
     '''
-    def __init__(self, section, name):
-        Element.__init__(self)
+    def __init__(self, section, name, is_new=True):
+        Element.__init__(self, is_new)
         check_type(section, Section)
         check_type(name, str)
         self._section = section
@@ -656,8 +666,8 @@ class Relation(Element):
         j['tuples'] = list(t._to_json() for t in self.tuples)
         return j
 
-    def _tuple_from_json(self, j):
-        t = Tuple(self)
+    def _tuple_from_json(self, j, is_new):
+        t = Tuple(self, is_new)
         t._features_and_id_from_json(j)
         for role, ref in j['args'].items():
             t.set_arg(role, ref)
@@ -678,11 +688,12 @@ class Tuple(Element):
     arity (int): Number of arguments set in this tuple.
     args (dict[str,Element]): A dictionary with all arguments of this tuple. Modifications to this tuple will not change this tuple arguments. Immutable.
     '''
-    def __init__(self, relation):
-        Element.__init__(self)
+    def __init__(self, relation, is_new=True):
+        Element.__init__(self, is_new)
         check_type(relation, Relation)
         self._relation = relation
         self._args = {}
+        self._new_args = {}
         relation._tuples.append(self)
 
     @property
@@ -714,6 +725,8 @@ class Tuple(Element):
         check_type(role, str)
         check_type(arg, (Element, str))
         self._args[role] = arg
+        if not self.is_new:
+            self._new_args[role] = arg
 
     def has_arg(self, role):
         '''Checks if this tuple has an argument with the specified role.
