@@ -1,16 +1,26 @@
 <alvisnlp-plan id="python-simple">
   <read file="BioNLP-ST-2016_BB-event/read.plan"/>
   
-  <before file="write-features.plan">
+  <features-before file="write-features.plan">
     <file>features-before.txt</file>
-  </before>
+  </features-before>
 
-  <py class="PythonScript">
+  <simple class="PythonScript">
     <commandLine separator=" ">/home/rbossy/dist/anaconda3/bin/python /home/rbossy/code/alvisnlp/alvisnlp-test/python/simple.py</commandLine>
     <environment>PYTHONPATH=/home/rbossy/code/alvisnlp/share</environment>
-  </py>
+  </simple>
   
-  <after file="write-features.plan">
+  <features-after file="write-features.plan">
     <file>features-after.txt</file>
-  </after>
+  </features-after>
+
+  <update class="PythonScript">
+    <commandLine separator=" ">/home/rbossy/dist/anaconda3/bin/python /home/rbossy/code/alvisnlp/alvisnlp-test/python/update.py</commandLine>
+    <environment>PYTHONPATH=/home/rbossy/code/alvisnlp/share</environment>
+    <update/>
+  </update>
+  
+  <features-update file="write-features.plan">
+    <file>features-update.txt</file>
+  </features-update>
 </alvisnlp-plan>

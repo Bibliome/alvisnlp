@@ -307,7 +307,7 @@ class Document(Element):
         j = self._features_and_id_to_jsondiff()
         j['identifier'] = self._identifier
         j['sections'] = list(sec._to_json() for sec in self._sections if sec.is_new)
-        j['dsections'] = list(sec._to_jsondiff() for sec in self._sections if (not sec.is_new) and sec.has_changes)
+        j['dsections'] = dict((sec.serid, sec._to_jsondiff()) for sec in self._sections if (not sec.is_new) and sec.has_changes)
         return j
 
     def _section_from_json(self, j, is_new):
@@ -493,8 +493,8 @@ class Section(Element):
                 elif a.has_changes:
                     dannotations.add(a)
         j['annotations'] = list(a._to_json() for a in annotations)
-        j['dannotations'] = list(a._to_jsondiff() for a in dannotations)
-        j['layers'] = dict((layer.name, list(a.serid for a in layer._new_annotations)) for layer in self.layers)
+        j['dannotations'] = dict((a.serid, a._to_jsondiff()) for a in dannotations)
+        j['dlayers'] = dict((layer.name, list(a.serid for a in layer._new_annotations)) for layer in self.layers)
         j['relations'] = list(rel._to_json() for rel in self.relations if rel.is_new)
         j['drelations'] = list(rel._to_jsondiff() for rel in self.relations if (not rel.is_new) and rel.has_changes)
         return j
@@ -735,7 +735,7 @@ class Relation(Element):
         j = self._features_and_id_to_jsondiff()
         j['name'] = self._name
         j['tuples'] = list(t._to_json() for t in self._tuples if t.is_new)
-        j['dtuples'] = list(t._to_jsondiff() for t in self._tuples if (not t.is_new) and t.has_changes)
+        j['dtuples'] = dict((t.serid, t._to_jsondiff()) for t in self._tuples if (not t.is_new) and t.has_changes)
         return j
 
     def _tuple_from_json(self, j, is_new):

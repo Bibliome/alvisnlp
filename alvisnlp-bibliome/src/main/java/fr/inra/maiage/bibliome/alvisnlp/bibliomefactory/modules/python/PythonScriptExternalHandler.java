@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +28,8 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.Pair;
 import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
@@ -54,117 +58,251 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 		SourceStream source = new FileSourceStream("UTF-8", output.getAbsolutePath());
 		try (Reader r = source.getReader()) {
 			JSONParser parser = new JSONParser();
-			JSONObject json = (JSONObject) parser.parse(r);
-			deserializeCorpus(json);
+			JSONObject jCorpus = (JSONObject) parser.parse(r);
+			if (!getModule().getUpdate()) {
+				Corpus corpus = getAnnotable();
+				corpus.clearDocuments();
+				corpus.clearFeatures();
+			}
+			updateCorpus(jCorpus);
 		}
 		catch (ParseException e) {
 			throw new ModuleException(e);
 		}
 	}
 	
+	private static String getString(JSONObject j, String key) {
+		return (String) j.get(key);
+	}
+	
+	private static JSONObject getObject(JSONObject j, String key) {
+		return (JSONObject) j.get(key);
+	}
+	
+	private static JSONArray getArray(JSONObject j, String key) {
+		return (JSONArray) j.get(key);
+	}
+		
 	@SuppressWarnings("unchecked")
-	private void deserializeCorpus(JSONObject json) {
+	private static List<JSONObject> getObjectList(JSONObject j, String key) {
+		return (JSONArray) j.get(key);
+	}
+	
+	@SuppressWarnings("unchecked")
+	private static Collection<String> getKeys(JSONObject j) {
+		return j.keySet();
+	}
+	
+	@SuppressWarnings("unchecked")
+	private static <T> List<T> getList(JSONArray j) {
+		return j;
+	}
+
+	private void updateCorpus(JSONObject jCorpus) {
 		Corpus corpus = getAnnotable();
-		corpus.clearDocuments();
-		corpus.clearFeatures();
-		corpus.addFeatures((JSONObject) json.get("f"));
-		deserializeDocuments(corpus, (JSONArray) json.get("documents"));
-	}
-	
-	private static void setElementFeaturesAndMap(Map<String,Element> elementMap, Element elt, JSONObject j) {
-		elementMap.put((String) j.get("id"), elt);
-		JSONObject jFeatures = (JSONObject) j.get("f");
-		for (Object oKey : jFeatures.keySet()) {
-			String key = (String) oKey;
-			JSONArray values = (JSONArray) jFeatures.get(key);
-			for (Object oValue : values) {
-				String value = (String) oValue;
-				elt.addFeature(key, value);
+		PythonScript owner = getModule();
+		if (owner.getUpdate()) {
+			updateFeatures(corpus, jCorpus);
+		}
+		else {
+			addFeatures(corpus, jCorpus);
+		}
+		if (owner.getUpdate()) {
+			for (JSONObject jDoc : getObjectList(jCorpus, "ddocuments")) {
+				updateDocument(jDoc);
 			}
 		}
-	}
-	
-	private void deserializeDocuments(Corpus corpus, JSONArray jDocs) {
-		for (Object oDoc : jDocs) {
-			Map<String,Element> elementMap = new HashMap<String,Element>();
-			JSONObject jDoc = (JSONObject) oDoc;
-			Document doc = Document.getDocument(getModule(), corpus, (String) jDoc.get("identifier"));
-			setElementFeaturesAndMap(elementMap, doc, jDoc);
-			deserializeSections(elementMap, doc, (JSONArray) jDoc.get("sections"));
+		for (JSONObject jDoc : getObjectList(jCorpus, "documents")) {
+			createDocument(jDoc);
 		}
 	}
-	
-	private void deserializeSections(Map<String,Element> elementMap, Document doc, JSONArray jSecs) {
-		for (Object oSec : jSecs) {
-			JSONObject jSec = (JSONObject) oSec;
-			Section sec = new Section(getModule(), doc, (String) jSec.get("name"), (String) jSec.get("contents"));
-			setElementFeaturesAndMap(elementMap, sec, jSec);
-			Map<String,Annotation> annotationMap = deserializeAnnotations(elementMap, sec, (JSONArray) jSec.get("annotations"));
-			deserializeLayers(annotationMap, sec, (JSONObject) jSec.get("layers"));
-			deserializeRelations(elementMap, sec, (JSONArray) jSec.get("relations"));
-		}
+
+	@SuppressWarnings("unchecked")
+	private void updateFeatures(Element elt, JSONObject j) {
+		elt.addMultiFeatures(getObject(j, "df"));
 	}
 	
-	private Map<String, Annotation> deserializeAnnotations(Map<String,Element> elementMap, Section sec, JSONArray jAnnotations) {
+	@SuppressWarnings("unchecked")
+	private void addFeatures(Element elt, JSONObject j) {
+		elt.addMultiFeatures(getObject(j, "f"));
+	}
+
+	private void updateDocument(JSONObject jDoc) {
+		Corpus corpus = getAnnotable();
+		Document doc = Document.getDocument(getModule(), corpus, getString(jDoc, "identifier"));
+		updateFeatures(doc, jDoc);
+		Collection<Pair<Tuple,JSONObject>> tupleArgs = new ArrayList<Pair<Tuple,JSONObject>>();
+		Map<String,Element> elementMap = collectElements(doc); 
+		JSONObject dsections = getObject(jDoc, "dsections");
+		for (Section sec : Iterators.loop(doc.sectionIterator())) {
+			String id = sec.getStringId();
+			if (dsections.containsKey(id)) {
+				updateSection(elementMap, tupleArgs, sec, getObject(dsections, id));
+			}
+		}
+		for (JSONObject jSec : getObjectList(jDoc, "sections")) {
+			createSection(elementMap, tupleArgs, doc, jSec);
+		}
+		setTupleArguments(elementMap, tupleArgs);
+	}
+
+	private static Map<String,Element> collectElements(Document doc) {
+		Map<String,Element> result = new HashMap<String,Element>();
+		result.put(doc.getStringId(), doc);
+		for (Section sec : Iterators.loop(doc.sectionIterator())) {
+			result.put(sec.getStringId(), sec);
+			for (Annotation a : sec.getAllAnnotations()) {
+				result.put(a.getStringId(), a);
+			}
+			for (Relation rel : sec.getAllRelations()) {
+				result.put(rel.getStringId(), rel);
+				for (Tuple t : rel.getTuples()) {
+					result.put(t.getStringId(), t);
+				}
+			}
+		}
+		return result;
+	}
+
+	private void updateSection(Map<String,Element> elementMap, Collection<Pair<Tuple,JSONObject>> tupleArgs, Section sec, JSONObject jSec) {
+		updateFeatures(sec, jSec);
+		JSONObject dannotations = getObject(jSec, "dannotations");
 		Map<String,Annotation> annotationMap = new HashMap<String,Annotation>();
-		for (Object oA : jAnnotations) {
-			JSONObject jA = (JSONObject) oA;
-			JSONArray jOff = (JSONArray) jA.get("off");
-			Annotation a = new Annotation(getModule(), sec, (int) (long) jOff.get(0), (int) (long) jOff.get(1));
-			setElementFeaturesAndMap(elementMap, a, jA);
-			annotationMap.put((String) jA.get("id"), a);
-		}
-		return annotationMap;
-	}
-	
-	private void deserializeLayers(Map<String,Annotation> annotationMap, Section sec, JSONObject jLayers) {
-		for (Object oLn : jLayers.keySet()) {
-			String ln = (String) oLn;
-			Layer layer = sec.ensureLayer(ln);
-			JSONArray jAnnotationRefs = (JSONArray) jLayers.get(oLn);
-			for (Object aref : jAnnotationRefs) {
-				Annotation a = annotationMap.get(aref);
-				layer.add(a);
+		for (Annotation a : sec.getAllAnnotations()) {
+			String id = a.getStringId();
+			annotationMap.put(id, a);
+			if (dannotations.containsKey(id)) {
+				updateAnnotation(a, getObject(dannotations, id));
 			}
 		}
+		for (JSONObject jA : getObjectList(jSec, "annotations")) {
+			Annotation a = createAnnotation(sec, jA);
+			addToMap(annotationMap, jA, a);
+			addToMap(elementMap, jA, a);
+		}
+		JSONObject jLayers = getObject(jSec, "dlayers");
+		for (String layerName : getKeys(jLayers)) {
+			fillLayer(sec, annotationMap, jLayers, layerName);
+		}
+		for (JSONObject jRel : getObjectList(jSec, "drelations")) {
+			String relName = getString(jRel, "name");
+			Relation rel = sec.ensureRelation(getModule(), relName);
+			updateRelation(elementMap, tupleArgs, rel, jRel);
+		}
+		for (JSONObject jRel : getObjectList(jSec, "relations")) {
+			Relation rel = createRelation(elementMap, tupleArgs, sec, jRel);
+			addToMap(elementMap, jRel, rel);
+		}
+	}
+
+	private void updateAnnotation(Annotation a, JSONObject jA) {
+		updateFeatures(a, jA);
 	}
 	
-	private void deserializeRelations(Map<String,Element> elementMap, Section sec, JSONArray jRels) {
-		for (Object oRel : jRels) {
-			JSONObject jRel = (JSONObject) oRel;
-			Relation rel = sec.ensureRelation(getModule(), (String) jRel.get("name"));
-			setElementFeaturesAndMap(elementMap, rel, jRel);
-			JSONArray jTuples = (JSONArray) jRel.get("tuples");
-			Map<String,Tuple> tupleMap = deserializeTuples(elementMap, rel, jTuples);
-			setTupleArguments(tupleMap, elementMap, jTuples);
+	private void updateRelation(Map<String,Element> elementMap, Collection<Pair<Tuple,JSONObject>> tupleArgs, Relation rel, JSONObject jRel) {
+		updateFeatures(rel, jRel);
+		JSONObject dtuples = getObject(jRel, "dtuples");
+		for (Tuple t : rel.getTuples()) {
+			String id = t.getStringId();
+			if (dtuples.containsKey(id)) {
+				JSONObject jT = getObject(dtuples, id);
+				updateTuple(t, jT);
+				tupleArgs.add(new Pair<Tuple,JSONObject>(t, getObject(jT, "dargs")));
+			}
+		}
+		for (JSONObject jT : getObjectList(jRel, "tuples")) {
+			Tuple t = createTuple(rel, jT);
+			addToMap(elementMap, jT, t);
+			tupleArgs.add(new Pair<Tuple,JSONObject>(t, getObject(jT, "args")));
+		}
+	}
+
+	private void updateTuple(Tuple t, JSONObject jT) {
+		updateFeatures(t, jT);
+	}
+
+	private void createDocument(JSONObject jDoc) {
+		Corpus corpus = getAnnotable();
+		Document doc = Document.getDocument(getModule(), corpus, getString(jDoc, "identifier"));
+		addFeatures(doc, jDoc);
+		Collection<Pair<Tuple,JSONObject>> tupleArgs = new ArrayList<Pair<Tuple,JSONObject>>();
+		Map<String,Element> elementMap = new HashMap<String,Element>();
+		addToMap(elementMap, jDoc, doc);
+		for (JSONObject jSec : getObjectList(jDoc, "sections")) {
+			createSection(elementMap, tupleArgs, doc, jSec);
+		}
+		setTupleArguments(elementMap, tupleArgs);
+	}
+
+	private static <E extends Element> void addToMap(Map<String,E> elementMap, JSONObject j, E elt) {
+		elementMap.put(getString(j, "id"), elt);
+	}
+
+	private void createSection(Map<String,Element> elementMap, Collection<Pair<Tuple,JSONObject>> tupleArgs, Document doc, JSONObject jSec) {
+		Section sec = new Section(getModule(), doc, getString(jSec, "name"), getString(jSec, "contents"));
+		addFeatures(sec, jSec);
+		Map<String,Annotation> annotationMap = new HashMap<String,Annotation>();
+		for (JSONObject jA : getObjectList(jSec, "annotations")) {
+			Annotation a = createAnnotation(sec, jA);
+			addToMap(annotationMap, jA, a);
+			addToMap(elementMap, jA, a);
+		}
+		JSONObject jLayers = getObject(jSec, "layers");
+		for (String layerName : getKeys(jLayers)) {
+			fillLayer(sec, annotationMap, jLayers, layerName);
+		}
+		for (JSONObject jRel : getObjectList(jSec, "relations")) {
+			Relation rel = createRelation(elementMap, tupleArgs, sec, jRel);
+			addToMap(elementMap, jRel, rel);
+		}
+	}
+
+	private Annotation createAnnotation(Section sec, JSONObject jA) {
+		JSONArray jOff = (JSONArray) jA.get("off");
+		Annotation a = new Annotation(getModule(), sec, (int) (long) jOff.get(0), (int) (long) jOff.get(1));
+		addFeatures(a, jA);
+		return a;
+	}
+
+	private void fillLayer(Section sec, Map<String, Annotation> annotationMap, JSONObject jLayers, String layerName) {
+		Layer layer = sec.ensureLayer(layerName);
+		JSONArray jRefs = getArray(jLayers, layerName);
+		List<String> refs = getList(jRefs); // XXX should be shorter
+		for (String ref : refs) {
+			Annotation a = annotationMap.get(ref);
+			layer.add(a);
 		}
 	}
 	
-	private Map<String, Tuple> deserializeTuples(Map<String,Element> elementMap, Relation rel, JSONArray jTuples) {
-		Map<String,Tuple> tupleMap = new HashMap<String,Tuple>();
-		for (Object oT : jTuples) {
-			JSONObject jT = (JSONObject) oT;
-			Tuple t = new Tuple(getModule(), rel);
-			setElementFeaturesAndMap(elementMap, t, jT);
-			tupleMap.put((String) jT.get("id"), t);
+	private Relation createRelation(Map<String,Element> elementMap, Collection<Pair<Tuple,JSONObject>> tupleArgs, Section sec, JSONObject jRel) {
+		Relation rel = sec.ensureRelation(getModule(), getString(jRel, "name"));
+		addFeatures(rel, jRel);
+		for (JSONObject jT : getObjectList(jRel, "tuples")) {
+			Tuple t = createTuple(rel, jT);
+			addToMap(elementMap, jT, t);
+			tupleArgs.add(new Pair<Tuple,JSONObject>(t, getObject(jT, "args")));
 		}
-		return tupleMap;
+		return rel;
 	}
 	
-	private static void setTupleArguments(Map<String,Tuple> tupleMap, Map<String,Element> elementMap, JSONArray jTuples) {
-		for (Object oT : jTuples) {
-			JSONObject jT = (JSONObject) oT;
-			Tuple t = tupleMap.get(jT.get("id"));
-			JSONObject jArgs = (JSONObject) jT.get("args");
-			for (Object oRole : jArgs.keySet()) {
-				String role = (String) oRole;
-				String ref = (String) jArgs.get(role);
+	private Tuple createTuple(Relation rel, JSONObject jT) {
+		Tuple t = new Tuple(getModule(), rel);
+		addFeatures(t, jT);
+		return t;
+	}
+	
+	private void setTupleArguments(Map<String,Element> elementMap, Collection<Pair<Tuple,JSONObject>> tupleArgs) {
+		for (Pair<Tuple,JSONObject> p : tupleArgs) {
+			Tuple t = p.first;
+			JSONObject j = p.second;
+			for (String role : getKeys(j)) {
+				String ref = getString(j, role);
 				Element arg = elementMap.get(ref);
 				t.setArgument(role, arg);
 			}
 		}
 	}
-
+	
 	@Override
 	protected String getPrepareTask() {
 		return "alvisnlp-to-json";

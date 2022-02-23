@@ -25,6 +25,7 @@ public abstract class PythonScript extends SectionModule<PythonScriptResolvedObj
 	private String[] commandLine;
 	private WorkingDirectory workingDirectory;
 	private Mapping environment;
+	private Boolean update = false;
 	
 	class PythonScriptResolvedObjects extends SectionResolvedObjects {
 		public PythonScriptResolvedObjects(ProcessingContext<Corpus> ctx, PythonScript module) throws ResolverException {
@@ -71,6 +72,15 @@ public abstract class PythonScript extends SectionModule<PythonScriptResolvedObj
 	@Param(mandatory = false)
 	public Mapping getEnvironment() {
 		return environment;
+	}
+
+	@Param
+	public Boolean getUpdate() {
+		return update;
+	}
+
+	public void setUpdate(Boolean update) {
+		this.update = update;
 	}
 
 	public void setEnvironment(Mapping environment) {
