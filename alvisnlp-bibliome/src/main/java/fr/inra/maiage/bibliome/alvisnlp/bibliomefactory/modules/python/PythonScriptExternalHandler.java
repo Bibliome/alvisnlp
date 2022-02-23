@@ -59,12 +59,13 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 		try (Reader r = source.getReader()) {
 			JSONParser parser = new JSONParser();
 			JSONObject jCorpus = (JSONObject) parser.parse(r);
-			if (!getModule().getUpdate()) {
+			boolean update = (boolean) jCorpus.get("update");
+			if (!update) {
 				Corpus corpus = getAnnotable();
 				corpus.clearDocuments();
 				corpus.clearFeatures();
 			}
-			updateCorpus(jCorpus);
+			updateCorpus(jCorpus, update);
 		}
 		catch (ParseException e) {
 			throw new ModuleException(e);
@@ -93,52 +94,43 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 		return j.keySet();
 	}
 	
-	@SuppressWarnings("unchecked")
-	private static <T> List<T> getList(JSONArray j) {
-		return j;
-	}
-
-	private void updateCorpus(JSONObject jCorpus) {
+	private void updateCorpus(JSONObject jCorpus, boolean update) {
 		Corpus corpus = getAnnotable();
-		PythonScript owner = getModule();
-		if (owner.getUpdate()) {
-			updateFeatures(corpus, jCorpus);
-		}
-		else {
-			addFeatures(corpus, jCorpus);
-		}
-		if (owner.getUpdate()) {
+		addFeatures(corpus, jCorpus, update);
+		if (update) {
 			for (JSONObject jDoc : getObjectList(jCorpus, "ddocuments")) {
-				updateDocument(jDoc);
+				processDocument(jDoc, true);
 			}
 		}
 		for (JSONObject jDoc : getObjectList(jCorpus, "documents")) {
-			createDocument(jDoc);
+			processDocument(jDoc, false);
 		}
-	}
-
-	@SuppressWarnings("unchecked")
-	private void updateFeatures(Element elt, JSONObject j) {
-		elt.addMultiFeatures(getObject(j, "df"));
 	}
 	
 	@SuppressWarnings("unchecked")
-	private void addFeatures(Element elt, JSONObject j) {
-		elt.addMultiFeatures(getObject(j, "f"));
+	private void addFeatures(Element elt, JSONObject j, boolean update) {
+		elt.addMultiFeatures(getObject(j, update ? "df" : "f"));
 	}
 
-	private void updateDocument(JSONObject jDoc) {
+	private void processDocument(JSONObject jDoc, boolean update) {
 		Corpus corpus = getAnnotable();
 		Document doc = Document.getDocument(getModule(), corpus, getString(jDoc, "identifier"));
-		updateFeatures(doc, jDoc);
+		addFeatures(doc, jDoc, update);
 		Collection<Pair<Tuple,JSONObject>> tupleArgs = new ArrayList<Pair<Tuple,JSONObject>>();
-		Map<String,Element> elementMap = collectElements(doc); 
-		JSONObject dsections = getObject(jDoc, "dsections");
-		for (Section sec : Iterators.loop(doc.sectionIterator())) {
-			String id = sec.getStringId();
-			if (dsections.containsKey(id)) {
-				updateSection(elementMap, tupleArgs, sec, getObject(dsections, id));
+		Map<String,Element> elementMap;
+		if (update) {
+			elementMap = collectElements(doc);
+			JSONObject dsections = getObject(jDoc, "dsections");
+			for (Section sec : Iterators.loop(doc.sectionIterator())) {
+				String id = sec.getStringId();
+				if (dsections.containsKey(id)) {
+					updateSection(elementMap, tupleArgs, sec, getObject(dsections, id));
+				}
 			}
+		}
+		else {
+			elementMap = new HashMap<String,Element>();
+			addToMap(elementMap, jDoc, doc);
 		}
 		for (JSONObject jSec : getObjectList(jDoc, "sections")) {
 			createSection(elementMap, tupleArgs, doc, jSec);
@@ -165,7 +157,7 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 	}
 
 	private void updateSection(Map<String,Element> elementMap, Collection<Pair<Tuple,JSONObject>> tupleArgs, Section sec, JSONObject jSec) {
-		updateFeatures(sec, jSec);
+		addFeatures(sec, jSec, true);
 		JSONObject dannotations = getObject(jSec, "dannotations");
 		Map<String,Annotation> annotationMap = new HashMap<String,Annotation>();
 		for (Annotation a : sec.getAllAnnotations()) {
@@ -175,20 +167,32 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 				updateAnnotation(a, getObject(dannotations, id));
 			}
 		}
-		for (JSONObject jA : getObjectList(jSec, "annotations")) {
-			Annotation a = createAnnotation(sec, jA);
-			addToMap(annotationMap, jA, a);
-			addToMap(elementMap, jA, a);
-		}
-		JSONObject jLayers = getObject(jSec, "dlayers");
-		for (String layerName : getKeys(jLayers)) {
-			fillLayer(sec, annotationMap, jLayers, layerName);
-		}
+		createAnnotations(elementMap, annotationMap, sec, jSec);
+		fillLayers(annotationMap, sec, jSec, "dlayers");
 		for (JSONObject jRel : getObjectList(jSec, "drelations")) {
 			String relName = getString(jRel, "name");
 			Relation rel = sec.ensureRelation(getModule(), relName);
 			updateRelation(elementMap, tupleArgs, rel, jRel);
 		}
+		createRelations(elementMap, tupleArgs, sec, jSec);
+	}
+	
+	private void createAnnotations(Map<String,Element> elementMap, Map<String,Annotation> annotationMap, Section sec, JSONObject jSec) {
+		for (JSONObject jA : getObjectList(jSec, "annotations")) {
+			Annotation a = createAnnotation(sec, jA);
+			addToMap(annotationMap, jA, a);
+			addToMap(elementMap, jA, a);
+		}
+	}
+	
+	private void fillLayers(Map<String,Annotation> annotationMap, Section sec, JSONObject jSec, String key) {
+		JSONObject jLayers = getObject(jSec, key);
+		for (String layerName : getKeys(jLayers)) {
+			fillLayer(sec, annotationMap, jLayers, layerName);
+		}
+	}
+	
+	private void createRelations(Map<String,Element> elementMap, Collection<Pair<Tuple,JSONObject>> tupleArgs, Section sec, JSONObject jSec) {
 		for (JSONObject jRel : getObjectList(jSec, "relations")) {
 			Relation rel = createRelation(elementMap, tupleArgs, sec, jRel);
 			addToMap(elementMap, jRel, rel);
@@ -196,11 +200,11 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 	}
 
 	private void updateAnnotation(Annotation a, JSONObject jA) {
-		updateFeatures(a, jA);
+		addFeatures(a, jA, true);
 	}
 	
 	private void updateRelation(Map<String,Element> elementMap, Collection<Pair<Tuple,JSONObject>> tupleArgs, Relation rel, JSONObject jRel) {
-		updateFeatures(rel, jRel);
+		addFeatures(rel, jRel, true);
 		JSONObject dtuples = getObject(jRel, "dtuples");
 		for (Tuple t : rel.getTuples()) {
 			String id = t.getStringId();
@@ -210,6 +214,10 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 				tupleArgs.add(new Pair<Tuple,JSONObject>(t, getObject(jT, "dargs")));
 			}
 		}
+		createTuples(elementMap, tupleArgs, rel, jRel);
+	}
+	
+	private void createTuples(Map<String,Element> elementMap, Collection<Pair<Tuple,JSONObject>> tupleArgs, Relation rel, JSONObject jRel) {
 		for (JSONObject jT : getObjectList(jRel, "tuples")) {
 			Tuple t = createTuple(rel, jT);
 			addToMap(elementMap, jT, t);
@@ -218,20 +226,7 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 	}
 
 	private void updateTuple(Tuple t, JSONObject jT) {
-		updateFeatures(t, jT);
-	}
-
-	private void createDocument(JSONObject jDoc) {
-		Corpus corpus = getAnnotable();
-		Document doc = Document.getDocument(getModule(), corpus, getString(jDoc, "identifier"));
-		addFeatures(doc, jDoc);
-		Collection<Pair<Tuple,JSONObject>> tupleArgs = new ArrayList<Pair<Tuple,JSONObject>>();
-		Map<String,Element> elementMap = new HashMap<String,Element>();
-		addToMap(elementMap, jDoc, doc);
-		for (JSONObject jSec : getObjectList(jDoc, "sections")) {
-			createSection(elementMap, tupleArgs, doc, jSec);
-		}
-		setTupleArguments(elementMap, tupleArgs);
+		addFeatures(t, jT, true);
 	}
 
 	private static <E extends Element> void addToMap(Map<String,E> elementMap, JSONObject j, E elt) {
@@ -240,54 +235,38 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 
 	private void createSection(Map<String,Element> elementMap, Collection<Pair<Tuple,JSONObject>> tupleArgs, Document doc, JSONObject jSec) {
 		Section sec = new Section(getModule(), doc, getString(jSec, "name"), getString(jSec, "contents"));
-		addFeatures(sec, jSec);
+		addFeatures(sec, jSec, false);
 		Map<String,Annotation> annotationMap = new HashMap<String,Annotation>();
-		for (JSONObject jA : getObjectList(jSec, "annotations")) {
-			Annotation a = createAnnotation(sec, jA);
-			addToMap(annotationMap, jA, a);
-			addToMap(elementMap, jA, a);
-		}
-		JSONObject jLayers = getObject(jSec, "layers");
-		for (String layerName : getKeys(jLayers)) {
-			fillLayer(sec, annotationMap, jLayers, layerName);
-		}
-		for (JSONObject jRel : getObjectList(jSec, "relations")) {
-			Relation rel = createRelation(elementMap, tupleArgs, sec, jRel);
-			addToMap(elementMap, jRel, rel);
-		}
+		createAnnotations(elementMap, annotationMap, sec, jSec);
+		fillLayers(annotationMap, sec, jSec, "layers");
+		createRelations(elementMap, tupleArgs, sec, jSec);
 	}
 
 	private Annotation createAnnotation(Section sec, JSONObject jA) {
 		JSONArray jOff = (JSONArray) jA.get("off");
 		Annotation a = new Annotation(getModule(), sec, (int) (long) jOff.get(0), (int) (long) jOff.get(1));
-		addFeatures(a, jA);
+		addFeatures(a, jA, false);
 		return a;
 	}
 
 	private void fillLayer(Section sec, Map<String, Annotation> annotationMap, JSONObject jLayers, String layerName) {
 		Layer layer = sec.ensureLayer(layerName);
-		JSONArray jRefs = getArray(jLayers, layerName);
-		List<String> refs = getList(jRefs); // XXX should be shorter
-		for (String ref : refs) {
-			Annotation a = annotationMap.get(ref);
+		for (Object oRef : getArray(jLayers, layerName)) {
+			Annotation a = annotationMap.get(oRef);
 			layer.add(a);
 		}
 	}
 	
 	private Relation createRelation(Map<String,Element> elementMap, Collection<Pair<Tuple,JSONObject>> tupleArgs, Section sec, JSONObject jRel) {
 		Relation rel = sec.ensureRelation(getModule(), getString(jRel, "name"));
-		addFeatures(rel, jRel);
-		for (JSONObject jT : getObjectList(jRel, "tuples")) {
-			Tuple t = createTuple(rel, jT);
-			addToMap(elementMap, jT, t);
-			tupleArgs.add(new Pair<Tuple,JSONObject>(t, getObject(jT, "args")));
-		}
+		addFeatures(rel, jRel, false);
+		createTuples(elementMap, tupleArgs, rel, jRel);
 		return rel;
 	}
 	
 	private Tuple createTuple(Relation rel, JSONObject jT) {
 		Tuple t = new Tuple(getModule(), rel);
-		addFeatures(t, jT);
+		addFeatures(t, jT, false);
 		return t;
 	}
 	
@@ -345,5 +324,4 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 	protected String getOutputFilename() {
 		return "output.json";
 	}
-
 }

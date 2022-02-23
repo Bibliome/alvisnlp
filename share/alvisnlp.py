@@ -172,11 +172,13 @@ class Corpus(Element):
 
     def to_json(self):
         j = self._features_and_id_to_json()
+        j['update'] = False
         j['documents'] = list(doc._to_json() for doc in self.documents)
         return j
 
     def to_jsondiff(self):
         j = self._features_and_id_to_jsondiff()
+        j['update'] = True
         j['documents'] = list(doc._to_json() for doc in self.documents if doc.is_new)
         j['ddocuments'] = list(doc._to_jsondiff() for doc in self.documents if (not doc.is_new) and doc.has_changes)
         return j
