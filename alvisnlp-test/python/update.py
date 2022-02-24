@@ -26,4 +26,5 @@ t = alvisnlp.Tuple(rel)
 t.set_arg('role', a)
 
 
-corpus.write_jsondiff(sys.stdout)
+# corpus.write_jsondiff(sys.stdout)
+corpus.write_events_json(sys.stdout)

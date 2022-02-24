@@ -23,11 +23,10 @@ class Element:
     corpus (Corpus): returns the corpus to which this element belongs. Immutable.
     '''
 
-    def __init__(self, is_new=True):
+    def __init__(self):
         self._features = collections.defaultdict(list)
-        self._new_features = collections.defaultdict(list)
+        self._events = []
         self._serid = None
-        self.is_new = is_new
 
     @property
     def serid(self):
@@ -45,6 +44,23 @@ class Element:
             raise ValueError('duplicate serid')
         self._serid = serid
         self.corpus.all_elements[serid] = self
+
+    @property
+    def events(self):
+        return list(self._events)
+
+    def _add_event(self, e):
+        check_type(e, Event)
+        if self.corpus.log_events:
+            if any(e.supercedes_event(pe) for pe in self._events):
+                self._events = list(pe for pe in self._events if not e.supercedes_event(pe))
+                if not e.remove_self:
+                    self._events.append(e)
+            else:
+                self._events.append(e)
+
+    def has_event(self):
+        raise NotImplementedError()
 
     @property
     def corpus(self):
@@ -89,27 +105,20 @@ class Element:
         check_type(key, str)
         check_type(value, str)
         self._features[key].append(value)
-        if not self.is_new:
-            self._new_features[key].append(value)
-
-    @property
-    def has_new_features(self):
-        return len(self._new_features) > 0
-
-    def _features_and_id_to_json(self):
-        j = {'id': self.serid}
-        j['f'] = dict(self._features.items())
-        return j
+        self._add_event(AddFeature(key, value))
 
     def _features_and_id_from_json(self, j):
         if 'id' in j:
             self.serid = j['id']
         self._features.update(j['f'])
 
-    def _features_and_id_to_jsondiff(self):
-        j = {'id': self.serid}
-        j['df'] = dict(self._new_features.items())
+    def events_to_json(self):
+        j = {'_ev': list(e.to_json() for e in self._events)}
+        self._fill_events_json(j)
         return j
+
+    def _fill_events_json(self, j):
+        raise NotImplementedError()
 
 
 class Corpus(Element):
@@ -118,14 +127,18 @@ class Corpus(Element):
     Attributes:
     documents (list[Document]): list of documents contained in this corpus. Modifications to this list will not change this corpus content. Immutable.
     '''
-    def __init__(self, is_new=True):
-        Element.__init__(self, is_new)
+    def __init__(self, log_events=True):
+        Element.__init__(self)
         self.all_elements = {}
         self._documents = {}
+        self.log_events = log_events
 
     @property
     def corpus(self):
         return self
+
+    def has_event(self):
+        return (len(self._events) > 0) or any(doc.has_event() for doc in self._documents.values())
 
     @property
     def documents(self):
@@ -169,56 +182,43 @@ class Corpus(Element):
         if doc.identifier in self._documents:
             raise ValueError('duplicate document identifier: ' + doc.identifier)
         self._documents[doc.identifier] = doc
+        self._add_event(CreateDocument(doc))
 
-    def to_json(self):
-        j = self._features_and_id_to_json()
-        j['update'] = False
-        j['documents'] = list(doc._to_json() for doc in self.documents)
-        return j
+    def _fill_events_json(self, j):
+        j['docs'] = dict((doc.serid, doc.events_to_json()) for doc in self._documents.values() if doc.has_event())
 
-    def to_jsondiff(self):
-        j = self._features_and_id_to_jsondiff()
-        j['update'] = True
-        j['documents'] = list(doc._to_json() for doc in self.documents if doc.is_new)
-        j['ddocuments'] = list(doc._to_jsondiff() for doc in self.documents if (not doc.is_new) and doc.has_changes)
-        return j
-
-    def write_json(self, f):
-        json.dump(self.to_json(), f)
-
-    def write_jsondiff(self, f):
-        json.dump(self.to_jsondiff(), f)
+    def write_events_json(self, f):
+        json.dump(self.events_to_json(), f)
 
     @staticmethod
-    def from_json(j, is_new=False):
-        corpus = Corpus(is_new=is_new)
+    def from_json(j, log_events):
+        corpus = Corpus(log_events=log_events)
         corpus._features_and_id_from_json(j)
         for dj in j['documents']:
-            corpus._document_from_json(dj, is_new)
-        corpus._dereference_tuple_arguments(is_new)
+            corpus._document_from_json(dj)
+        corpus._dereference_tuple_arguments()
         return corpus
 
     @staticmethod
-    def parse_json(f):
-        return Corpus.from_json(json.load(f))
+    def parse_json(f, log_events=True):
+        corpus = Corpus.from_json(json.load(f), False)
+        corpus.log_events = log_events
+        return corpus
 
-    def _document_from_json(self, j, is_new):
-        doc = Document(self, j['identifier'], is_new=is_new)
+    def _document_from_json(self, j):
+        doc = Document(self, j['identifier'])
         doc._features_and_id_from_json(j)
         for sj in j['sections']:
-            doc._section_from_json(sj, is_new)
+            doc._section_from_json(sj)
         return doc
 
-    def _dereference_tuple_arguments(self, is_new):
+    def _dereference_tuple_arguments(self):
         for doc in self.documents:
             for sec in doc.sections:
                 for rel in sec.relations:
                     for t in rel.tuples:
                         for role, ref in t.args.items():
-                            if is_new:
-                                t.set_arg(role, self.all_elements[ref])
-                            else:
-                                t._args[role] = self.all_elements[ref]
+                            t.set_arg(role, self.all_elements[ref])
 
 
 class Document(Element):
@@ -235,8 +235,8 @@ class Document(Element):
     identifier (str): This document identifier. Immutable.
     sections (list[Section]): List of sections in this document. Modifications will not change this document content. Immutable.
     '''
-    def __init__(self, corpus, identifier, is_new=True):
-        Element.__init__(self, is_new)
+    def __init__(self, corpus, identifier):
+        Element.__init__(self)
         check_type(corpus, Corpus)
         check_type(identifier, str)
         self._corpus = corpus
@@ -251,6 +251,9 @@ class Document(Element):
     @property
     def identifier(self):
         return self._identifier
+
+    def has_event(self):
+        return (len(self._events) > 0) or any(sec.has_event() for sec in self._sections)
 
     @property
     def sections(self):
@@ -294,39 +297,23 @@ class Document(Element):
         '''
         check_type(sec, Section)
         self._sections.append(sec)
+        self._add_event(CreateSection(sec))
 
-    def _to_json(self):
-        j = self._features_and_id_to_json()
-        j['identifier'] = self._identifier
-        j['sections'] = list(sec._to_json() for sec in self._sections)
-        return j
+    def _fill_events_json(self, j):
+        j['secs'] = dict((sec.serid, sec.events_to_json()) for sec in self._sections if sec.has_event())
 
-    @property
-    def has_changes(self):
-        return self.has_new_features or any((sec.is_new or sec.has_changes) for sec in self._sections)
-
-    def _to_jsondiff(self):
-        j = self._features_and_id_to_jsondiff()
-        j['identifier'] = self._identifier
-        j['sections'] = list(sec._to_json() for sec in self._sections if sec.is_new)
-        j['dsections'] = dict((sec.serid, sec._to_jsondiff()) for sec in self._sections if (not sec.is_new) and sec.has_changes)
-        return j
-
-    def _section_from_json(self, j, is_new):
+    def _section_from_json(self, j):
         corpus = self.corpus
-        sec = Section(self, j['name'], j['contents'], is_new)
+        sec = Section(self, j['name'], j['contents'])
         sec._features_and_id_from_json(j)
         for aj in j['annotations']:
-            sec._annotation_from_json(aj, is_new)
+            sec._annotation_from_json(aj)
         for name, aj in j['layers'].items():
             layer = Layer(sec, name)
             for a in aj:
-                if is_new:
-                    layer.add_annotation(corpus.all_elements[a])
-                else:
-                    layer._annotations.append(corpus.all_elements[a])
+                layer.add_annotation(corpus.all_elements[a])
         for rj in j['relations']:
-            sec._relation_from_json(rj, is_new)
+            sec._relation_from_json(rj)
         return sec
 
 
@@ -348,8 +335,8 @@ class Section(Element):
     layers (list[Layer]): List of all layers in this section. Modifications will not change this section layers. Immutable.
     relations (list[Relation]): List of all relations in this section. Modifications will not change this section relations. Immutable.
     '''
-    def __init__(self, document, name, contents, is_new=True):
-        Element.__init__(self, is_new)
+    def __init__(self, document, name, contents):
+        Element.__init__(self)
         check_type(document, Document)
         check_type(name, str)
         check_type(contents, str)
@@ -376,6 +363,9 @@ class Section(Element):
     @property
     def order(self):
         return self._order
+
+    def has_event(self):
+        return (len(self._events) > 0) or any(rel.has_event() for rel in self._relations.values()) or any(layer.has_event() for layer in self._layers.values())
 
     @property
     def contents(self):
@@ -466,52 +456,28 @@ class Section(Element):
         if rel.name in self._relations:
             raise ValueError('duplicate relation name: ' + rel.name + ' in ' + self)
         self._relations[rel.name] = rel
+        self._add_event(CreateRelation(rel))
 
-    def _to_json(self):
-        j = self._features_and_id_to_json()
-        j['name'] = self.name
-        j['contents'] = self.contents
-        annotations = set()
-        for layer in self.layers:
-            for a in layer._annotations:
-                annotations.add(a)
-        j['annotations'] = list(a._to_json() for a in annotations)
-        j['layers'] = dict((layer.name, list(a.serid for a in layer._annotations)) for layer in self.layers)
-        j['relations'] = list(rel._to_json() for rel in self.relations)
-        return j
-
-    @property
-    def has_changes(self):
-        return self.has_new_features or any((len(layer._new_annotations) > 0) for layer in self.layers) or any((rel.is_new or rel.has_changes) for rel in self.relations)
-
-    def _to_jsondiff(self):
-        j = self._features_and_id_to_jsondiff()
-        annotations = set()
-        dannotations = set()
-        for layer in self.layers:
+    def _fill_events_json(self, j):
+        j['rels'] = dict((rel.serid, rel.events_to_json()) for rel in self._relations.values() if rel.has_event())
+        a_events = dict()
+        for layer in self._layers.values():
             for a in layer.annotations:
-                if a.is_new:
-                    annotations.add(a)
-                elif a.has_changes:
-                    dannotations.add(a)
-        j['annotations'] = list(a._to_json() for a in annotations)
-        j['dannotations'] = dict((a.serid, a._to_jsondiff()) for a in dannotations)
-        j['dlayers'] = dict((layer.name, list(a.serid for a in layer._new_annotations)) for layer in self.layers)
-        j['relations'] = list(rel._to_json() for rel in self.relations if rel.is_new)
-        j['drelations'] = list(rel._to_jsondiff() for rel in self.relations if (not rel.is_new) and rel.has_changes)
-        return j
+                if a.serid not in a_events and a.has_event():
+                    a_events[a.serid] = a.events_to_json()
+        j['as'] = a_events
 
-    def _annotation_from_json(self, j, is_new):
+    def _annotation_from_json(self, j):
         oj = j['off']
-        a = Annotation(self, oj[0], oj[1], is_new)
+        a = Annotation(self, oj[0], oj[1])
         a._features_and_id_from_json(j)
         return a
 
-    def _relation_from_json(self, j, is_new):
-        rel = Relation(self, j['name'], is_new)
+    def _relation_from_json(self, j):
+        rel = Relation(self, j['name'])
         rel._features_and_id_from_json(j)
         for tj in j['tuples']:
-            rel._tuple_from_json(tj, is_new)
+            rel._tuple_from_json(tj)
         return rel
 
 
@@ -529,18 +495,13 @@ class Layer:
     name (str): this layer name. Immutable.
     annotations (list[Annotation]): list of annotations in this layer. Modifications will not change this layer annotations. Immutable.
     '''
-    def __init__(self, section, name=None, annotations=None):
+    def __init__(self, section, name):
         check_type(section, Section)
         check_type(name, str)
         self._section = section
         self._name = name
-        if annotations is None:
-            self._annotations = []
-        else:
-            self._annotations = list(annotations)
-        if name is not None:
-            section.add_layer(self)
-        self._new_annotations = []
+        self._annotations = []
+        section.add_layer(self)
 
     @property
     def section(self):
@@ -554,8 +515,8 @@ class Layer:
     def annotations(self):
         return list(self._annotations)
 
-    def _sub_layer(self, annotations):
-        return Layer(self._section, annotations=annotations)
+    def has_event(self):
+        return any(a.has_event() for a in self._annotations)
 
     def __len__(self):
         return len(self._annotations)
@@ -575,8 +536,7 @@ class Layer:
         '''
         check_type(a, Annotation)
         self._annotations.append(a)
-        if not self._section.is_new:
-            self._new_annotations.append(a)
+        a._add_event(AddToLayer(self))
 
 
 class Span:
@@ -633,14 +593,15 @@ class Annotation(Element, Span):
     form (str): Surface form of this annotation. Immutable.
     '''
 
-    def __init__(self, sec, start, end, is_new=True):
-        Element.__init__(self, is_new)
+    def __init__(self, sec, start, end):
+        Element.__init__(self)
         Span.__init__(self, start, end)
         check_type(sec, Section)
         if end > len(sec.contents):
             raise ValueError('end (' + end + ') > length (' + len(sec.contents) + ')')
         self._section = sec
         self._form = sec.contents[start:end]
+        sec._add_event(CreateAnnotation(self))
 
     @property
     def corpus(self):
@@ -657,18 +618,11 @@ class Annotation(Element, Span):
     def __len__(self):
         return self.end - self.start
 
-    def _to_json(self):
-        j = self._features_and_id_to_json()
-        j['off'] = [self.start, self.end]
-        return j
+    def has_event(self):
+        return len(self._events) > 0
 
-    @property
-    def has_changes(self):
-        return self.has_new_features
-
-    def _to_jsondiff(self):
-        j = self._features_and_id_to_jsondiff()
-        return j
+    def _fill_events_json(self, j):
+        pass
 
 
 class Relation(Element):
@@ -686,8 +640,8 @@ class Relation(Element):
     name (str): Relation name. Immutable.
     tuples (list[Tuple]): list of tuples in this relation. Modifications of this list will not affect this relation tuples. Immutable.
     '''
-    def __init__(self, section, name, is_new=True):
-        Element.__init__(self, is_new)
+    def __init__(self, section, name):
+        Element.__init__(self)
         check_type(section, Section)
         check_type(name, str)
         self._section = section
@@ -707,6 +661,9 @@ class Relation(Element):
     def name(self):
         return self._name
 
+    def has_event(self):
+        return (len(self._events) > 0) or any(t.has_event() for t in self._tuples)
+
     @property
     def tuples(self):
         return list(self._tuples)
@@ -722,26 +679,13 @@ class Relation(Element):
         '''
         check_type(t, Tuple)
         self._tuples.append(t)
+        self._add_event(CreateTuple(t))
 
-    def _to_json(self):
-        j = self._features_and_id_to_json()
-        j['name'] = self.name
-        j['tuples'] = list(t._to_json() for t in self.tuples)
-        return j
+    def _fill_events_json(self, j):
+        j['ts'] = dict((t.serid, t.events_to_json()) for t in self._tuples if t.has_event())
 
-    @property
-    def has_changes(self):
-        return self.has_new_features or any((t.is_new or t.has_changes) for t in self._tuples)
-
-    def _to_jsondiff(self):
-        j = self._features_and_id_to_jsondiff()
-        j['name'] = self._name
-        j['tuples'] = list(t._to_json() for t in self._tuples if t.is_new)
-        j['dtuples'] = dict((t.serid, t._to_jsondiff()) for t in self._tuples if (not t.is_new) and t.has_changes)
-        return j
-
-    def _tuple_from_json(self, j, is_new):
-        t = Tuple(self, is_new)
+    def _tuple_from_json(self, j):
+        t = Tuple(self)
         t._features_and_id_from_json(j)
         for role, ref in j['args'].items():
             t._args[role] = ref
@@ -762,13 +706,12 @@ class Tuple(Element):
     arity (int): Number of arguments set in this tuple.
     args (dict[str,Element]): A dictionary with all arguments of this tuple. Modifications to this tuple will not change this tuple arguments. Immutable.
     '''
-    def __init__(self, relation, is_new=True):
-        Element.__init__(self, is_new)
+    def __init__(self, relation):
+        Element.__init__(self)
         check_type(relation, Relation)
         self._relation = relation
         self._args = {}
-        self._new_args = {}
-        relation._tuples.append(self)
+        relation.add_tuple(self)
 
     @property
     def corpus(self):
@@ -781,6 +724,12 @@ class Tuple(Element):
     @property
     def arity(self):
         return len(self._args)
+
+    def has_event(self):
+        return len(self._events) > 0
+
+    def _fill_events_json(self, j):
+        pass
 
     @property
     def args(self):
@@ -799,8 +748,7 @@ class Tuple(Element):
         check_type(role, str)
         check_type(arg, (Element, str))
         self._args[role] = arg
-        if not self.is_new:
-            self._new_args[role] = arg
+        self._add_event(SetArgument(role, arg))
 
     def has_arg(self, role):
         '''Checks if this tuple has an argument with the specified role.
@@ -827,16 +775,217 @@ class Tuple(Element):
         '''
         return self._args[role]
 
-    def _to_json(self):
-        j = self._features_and_id_to_json()
-        j['args'] = dict((role, arg.serid) for (role, arg) in self._args.items())
+
+class Event:
+    def __init__(self):
+        pass
+
+    def to_json(self):
+        j = {'_': self.__class__.CODE}
+        self._fill_json(j)
         return j
 
-    @property
-    def has_changes(self):
-        return self.has_new_features or len(self._new_args) > 0
+    def _fill_json(self, j):
+        raise NotImplementedError()
 
-    def _to_jsondiff(self):
-        j = self._features_and_id_to_jsondiff()
-        j['dargs'] = dict((role, arg.serid) for (role, arg) in self._new_args.items())
-        return j
+    def supercedes_event(self, other):
+        return False
+
+    def remove_self(self):
+        return True
+
+
+class ElementEvent(Event):
+    def __init__(self, elt):
+        Event.__init__(self)
+        self.elt = elt
+
+    def _fill_json(self, j):
+        j['_id'] = self.elt.serid
+
+
+class CreateElementEvent(ElementEvent):
+    def __init__(self, elt):
+        ElementEvent.__init__(self, elt)
+
+
+class DeleteElementEvent(ElementEvent):
+    def __init__(self, elt):
+        ElementEvent.__init__(self, elt)
+
+    def supercedes_event(self, other):
+        if isinstance(other, self.__class__.ANTI_EVENT_CLASS):
+            return self.elt is other.elt
+        return False
+
+
+class FeatureEvent(Event):
+    def __init__(self, key, value):
+        Event.__init__(self)
+        self.key = key
+        self.value = value
+
+    def _fill_json(self, j):
+        j['k'] = self.key
+        j['v'] = self.value
+
+
+class AddFeature(FeatureEvent):
+    CODE = 1
+
+    def __init__(self, key, value):
+        FeatureEvent.__init__(self, key, value)
+
+
+class RemoveFeature(FeatureEvent):
+    CODE = 2
+
+    def __init__(self, key, value=None):
+        FeatureEvent.__init__(self, key, value)
+
+    def supercedes_event(self, other):
+        if isinstance(other, AddFeature):
+            if other.key == self.key:
+                return self.value is None or self.value == other.value
+        return False
+
+
+class CreateDocument(CreateElementEvent):
+    CODE = 3
+
+    def __init__(self, doc):
+        CreateElementEvent.__init__(self, doc)
+
+    def _fill_json(self, j):
+        CreateElementEvent._fill_json(self, j)
+        j['id'] = self.elt.identifier
+
+
+class DeleteDocument(DeleteElementEvent):
+    CODE = 4
+    ANTI_EVENT_CLASS = CreateDocument
+
+    def __init__(self, doc):
+        DeleteElementEvent.__init__(self, doc)
+
+
+class CreateSection(CreateElementEvent):
+    CODE = 5
+
+    def __init__(self, sec):
+        CreateElementEvent.__init__(self, sec)
+
+    def _fill_json(self, j):
+        CreateElementEvent._fill_json(self, j)
+        j['name'] = self.elt.name
+        j['contents'] = self.elt.contents
+
+
+class DeleteSection(DeleteElementEvent):
+    CODE = 6
+    ANTI_EVENT_CLASS = CreateSection
+
+    def __init__(self, sec):
+        DeleteElementEvent.__init__(self, sec)
+
+
+class CreateAnnotation(CreateElementEvent):
+    CODE = 7
+
+    def __init__(self, a):
+        CreateElementEvent.__init__(self, a)
+
+    def _fill_json(self, j):
+        CreateElementEvent._fill_json(self, j)
+        j['s'] = self.elt.start
+        j['e'] = self.elt.end
+
+
+class LayerEvent(Event):
+    def __init__(self, layer):
+        Event.__init__(self)
+        self.layer = layer
+
+    def _fill_json(self, j):
+        j['l'] = self.layer.name
+
+
+class AddToLayer(LayerEvent):
+    CODE = 9
+
+    def __init__(self, layer):
+        LayerEvent.__init__(self, layer)
+
+    def supercedes_event(self, other):
+        if isinstance(other, AddToLayer | RemoveFromLayer):
+            return self.layer is other.layer
+        return False
+
+    def remove_self(self):
+        return False
+
+
+class RemoveFromLayer(LayerEvent):
+    CODE = 10
+
+    def __init__(self, layer):
+        LayerEvent.__init__(self, layer)
+
+    def supercedes_event(self, other):
+        if isinstance(other, AddToLayer):
+            return self.layer is other.layer
+        return False
+
+
+class CreateRelation(CreateElementEvent):
+    CODE = 11
+
+    def __init__(self, rel):
+        CreateElementEvent.__init__(self, rel)
+
+    def _fill_json(self, j):
+        CreateElementEvent._fill_json(self, j)
+        j['name'] = self.elt.name
+
+
+class DeleteRelation(DeleteElementEvent):
+    CODE = 12
+    ANTI_EVENT_CLASS = CreateRelation
+
+    def __init__(self, rel):
+        DeleteElementEvent.__init__(self, rel)
+
+
+class CreateTuple(CreateElementEvent):
+    CODE = 13
+
+    def __init__(self, t):
+        CreateElementEvent.__init__(self, t)
+
+
+class DeleteTuple(DeleteElementEvent):
+    CODE = 14
+    ANTI_EVENT_CLASS = CreateTuple
+
+    def __init__(self, t):
+        DeleteElementEvent.__init__(self, t)
+
+
+class SetArgument(Event):
+    CODE = 15
+
+    def __init__(self, role, arg):
+        self.role = role
+        self.arg = arg
+
+    def _fill_json(self, j):
+        j['r'] = self.role
+        j['a'] = self.arg.serid
+
+    def supercedes_event(self, other):
+        if isinstance(other, SetArgument):
+            return self.role == other.role
+        return False
+
+    def remove_self(self):
+        return False
