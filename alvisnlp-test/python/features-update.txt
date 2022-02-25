@@ -1,9 +1,5 @@
-new-corpus-feature	new-corpus-feature
-set	train
+doc-feature	doc-feature
 id	BB-event-1016123
-set	train
-new-doc-feature	new-doc-feature
-id	BB-event-10658649
 set	train
 id	BB-event-10738994
 set	train
@@ -292,7 +288,6 @@ set	test
 id	BB-event-9521139
 set	test
 id	BB-event-9804019
-id	new-document
 name	text
 name	text
 name	text
@@ -438,8 +433,6 @@ name	text
 name	text
 name	text
 name	text
-name	text
-name	new-section
 fragments	1
 id	T1
 type	Title
@@ -512,46 +505,6 @@ fragments	1
 id	T18
 type	Habitat
 form	strontium chloride M broth
-fragments	1
-id	T1
-type	Title
-form	Identification of a novel glycoprotein-binding activity in Streptococcus pyogenes regulated by the mga gene.
-fragments	1
-id	T3
-type	Bacteria
-form	Streptococcus pyogenes
-fragments	1
-id	T2
-type	Paragraph
-form	The interaction between Streptococcus pyogenes and the host cell surface is not completely understood. Characterization of the adhesion mechanisms of the bacterium to the host cell surface is needed in order to develop new vaccines and anti-adhesion drugs. The presence of glycoprotein-binding activities among streptococcal strains was investigated. An activity binding to thyroglobulin, fetuin, asialofetuin and mucin but not non-glycosylated proteins was found to be present in the majority of the S. pyogenes strains studied. Cross-inhibition experiments suggested that the glycoproteins share a common structure recognized by the bacteria. The glycoprotein-binding activity was found to be proteinaceous, tightly attached to the bacterial surface and it also mediated the adherence of bacteria to solid surfaces coated with glycoproteins. The activity was found by transposon mutagenesis and complementation to be regulated by the multiple-gene regulator Mga, which has been implicated as a regulator of S. pyogenes virulence factors.
-fragments	1
-id	T4
-type	Bacteria
-form	Streptococcus pyogenes
-fragments	1
-id	T5
-type	Habitat
-form	host cell
-fragments	1
-id	T6
-type	Habitat
-form	host cell
-fragments	1
-id	T7
-type	Habitat
-form	vaccines
-fragments	1
-id	T8
-type	Bacteria
-form	streptococcal
-fragments	1
-id	T9
-type	Bacteria
-form	S. pyogenes
-fragments	1
-id	T10
-type	Bacteria
-form	S. pyogenes
 fragments	1
 id	T1
 type	Title
@@ -3893,11 +3846,11 @@ id	T31
 type	Habitat
 form	rabbit serum
 fragments	1
-id	T33
+id	T32
 type	Habitat
 form	rabbit
 fragments	1
-id	T32
+id	T33
 type	Habitat
 form	rabbit
 fragments	1
@@ -5325,11 +5278,11 @@ id	T23
 type	Bacteria
 form	H. pylori
 fragments	2
-id	T24
+id	T25
 type	Habitat
 form	HIV-positive black and Hispanic populations
 fragments	2
-id	T25
+id	T24
 type	Habitat
 form	HIV-positive black and Hispanic populations
 fragments	1
@@ -6009,11 +5962,11 @@ id	T11
 type	Habitat
 form	productive patients
 fragments	2
-id	T13
+id	T12
 type	Habitat
 form	regional paediatric and adult CF units
 fragments	2
-id	T12
+id	T13
 type	Habitat
 form	regional paediatric and adult CF units
 fragments	1
@@ -9469,11 +9422,11 @@ id	T7
 type	Bacteria
 form	W. recta
 fragments	2
-id	T9
+id	T8
 type	Habitat
 form	periodontally healthy and diseased subjects
 fragments	2
-id	T8
+id	T9
 type	Habitat
 form	periodontally healthy and diseased subjects
 fragments	1
@@ -10400,8 +10353,8 @@ fragments	1
 id	T4
 type	Paragraph
 form	Adults undergoing orthopedic, neurosurgical, cardiothoracic, and plastic surgical procedures.
-fragments	3
-id	T16
+fragments	2
+id	T17
 type	Habitat
 form	Adults undergoing orthopedic, neurosurgical, cardiothoracic, and plastic surgical procedures
 fragments	2
@@ -10409,11 +10362,11 @@ id	T15
 type	Habitat
 form	Adults undergoing orthopedic, neurosurgical, cardiothoracic, and plastic surgical procedures
 fragments	3
-id	T18
+id	T16
 type	Habitat
 form	Adults undergoing orthopedic, neurosurgical, cardiothoracic, and plastic surgical procedures
-fragments	2
-id	T17
+fragments	3
+id	T18
 type	Habitat
 form	Adults undergoing orthopedic, neurosurgical, cardiothoracic, and plastic surgical procedures
 fragments	1
@@ -10793,11 +10746,11 @@ id	T6
 type	Habitat
 form	periodontal
 fragments	2
-id	T8
+id	T7
 type	Habitat
 form	patients with and without chronic kidney disease
 fragments	2
-id	T7
+id	T8
 type	Habitat
 form	patients with and without chronic kidney disease
 fragments	1
@@ -11993,11 +11946,11 @@ id	T33
 type	Habitat
 form	pullulan films
 fragments	2
-id	T35
+id	T34
 type	Habitat
 form	vacuum packaged meat and poultry products stored at 4 °C for up to 3 wk
 fragments	2
-id	T34
+id	T35
 type	Habitat
 form	vacuum packaged meat and poultry products stored at 4 °C for up to 3 wk
 fragments	1
@@ -12016,28 +11969,28 @@ fragments	1
 id	T39
 type	Habitat
 form	essential oils
-fragments	2
-id	T40
-type	Habitat
-form	refrigerated, fresh or further processed meat and poultry products
 fragments	3
 id	T41
 type	Habitat
 form	refrigerated, fresh or further processed meat and poultry products
 fragments	2
-id	T42
+id	T40
 type	Habitat
-form	fresh or further processed meat and poultry products
+form	refrigerated, fresh or further processed meat and poultry products
 fragments	3
 id	T43
 type	Habitat
 form	fresh or further processed meat and poultry products
 fragments	2
-id	T44
+id	T42
+type	Habitat
+form	fresh or further processed meat and poultry products
+fragments	2
+id	T45
 type	Habitat
 form	further processed meat and poultry products
 fragments	2
-id	T45
+id	T44
 type	Habitat
 form	further processed meat and poultry products
 fragments	1
@@ -12948,16 +12901,16 @@ fragments	1
 id	T3
 type	Paragraph
 form	On an "intention-to-treat" basis, 116 patients with active (n = 41) or healed (n = 47) peptic ulcer disease or ulcer-like dyspepsia (n = 28) and H. pylori infection received a 1-wk course of omeprazole 20 mg b.i.d., clarythromycin 250 mg b.i.d., and tinidazole 500 mg b.i.d.. Four weeks after treatment withdrawal, cure of H. pylori infection was evaluated by rapid urease test and histology.
-fragments	3
-id	T10
-type	Habitat
-form	patients with active (n = 41) or healed (n = 47) peptic ulcer disease or ulcer-like dyspepsia (n = 28) and H. pylori infection
 fragments	4
 id	T11
 type	Habitat
 form	patients with active (n = 41) or healed (n = 47) peptic ulcer disease or ulcer-like dyspepsia (n = 28) and H. pylori infection
 fragments	3
 id	T9
+type	Habitat
+form	patients with active (n = 41) or healed (n = 47) peptic ulcer disease or ulcer-like dyspepsia (n = 28) and H. pylori infection
+fragments	3
+id	T10
 type	Habitat
 form	patients with active (n = 41) or healed (n = 47) peptic ulcer disease or ulcer-like dyspepsia (n = 28) and H. pylori infection
 fragments	1
@@ -13584,11 +13537,9 @@ fragments	1
 id	T46
 type	Habitat
 form	Non disposable earpieces
-form	Lorem
 kind	relation
 name	Lives_In
 name	equiv
-name	equiv
 kind	relation
 name	Lives_In
 name	equiv
@@ -13899,7 +13850,6 @@ name	equiv
 name	equiv
 name	equiv
 name	equiv
-name	new-relation
 id	R1
 type	Lives_In
 id	R2

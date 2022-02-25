@@ -107,6 +107,17 @@ class Element:
         self._features[key].append(value)
         self._add_event(AddFeature(key, value))
 
+    def remove_feature(self, key, value=None):
+        check_type(key, str)
+        check_type(value, (str, None.__class__))
+        if key not in self._features:
+            raise ValueError()
+        if value is None:
+            del self._features[key]
+        else:
+            self._features[key].remove(value)
+        self._add_event(RemoveFeature(key, value))
+
     def _features_and_id_from_json(self, j):
         if 'id' in j:
             self.serid = j['id']
@@ -183,6 +194,14 @@ class Corpus(Element):
             raise ValueError('duplicate document identifier: ' + doc.identifier)
         self._documents[doc.identifier] = doc
         self._add_event(CreateDocument(doc))
+
+    def remove_document(self, doc):
+        check_type(doc, Document)
+        cdoc = self.get_document(doc.identifier)
+        if cdoc is not doc:
+            raise ValueError()
+        del self._documents[doc.identifier]
+        self._add_event(DeleteDocument(doc))
 
     def _fill_events_json(self, j):
         j['docs'] = dict((doc.serid, doc.events_to_json()) for doc in self._documents.values() if doc.has_event())
@@ -298,6 +317,13 @@ class Document(Element):
         check_type(sec, Section)
         self._sections.append(sec)
         self._add_event(CreateSection(sec))
+
+    def remove_section(self, sec):
+        check_type(sec, Section)
+        if sec not in self._sections:
+            raise ValueError()
+        self._sections.remove(sec)
+        self._add_event(DeleteSection(sec))
 
     def _fill_events_json(self, j):
         j['secs'] = dict((sec.serid, sec.events_to_json()) for sec in self._sections if sec.has_event())
@@ -458,6 +484,14 @@ class Section(Element):
         self._relations[rel.name] = rel
         self._add_event(CreateRelation(rel))
 
+    def remove_relation(self, rel):
+        check_type(rel, Relation)
+        srel = self._relations[rel.name]
+        if srel is not rel:
+            raise ValueError()
+        del self._relations[rel.name]
+        self._events(DeleteRelation(rel))
+
     def _fill_events_json(self, j):
         j['rels'] = dict((rel.serid, rel.events_to_json()) for rel in self._relations.values() if rel.has_event())
         a_events = dict()
@@ -537,6 +571,13 @@ class Layer:
         check_type(a, Annotation)
         self._annotations.append(a)
         a._add_event(AddToLayer(self))
+
+    def remove_annotation(self, a):
+        check_type(a, Annotation)
+        if a not in self._annotations:
+            raise ValueError()
+        self._annotations.remove(a)
+        a._add_event(RemoveFromLayer(self))
 
 
 class Span:
@@ -680,6 +721,13 @@ class Relation(Element):
         check_type(t, Tuple)
         self._tuples.append(t)
         self._add_event(CreateTuple(t))
+
+    def remove_tuple(self, t):
+        check_type(t, Tuple)
+        if t not in self._tuples:
+            raise ValueError()
+        self._tuples.remove(t)
+        self._add_event(DeleteTuple(t))
 
     def _fill_events_json(self, j):
         j['ts'] = dict((t.serid, t.events_to_json()) for t in self._tuples if t.has_event())
@@ -917,7 +965,7 @@ class AddToLayer(LayerEvent):
         LayerEvent.__init__(self, layer)
 
     def supercedes_event(self, other):
-        if isinstance(other, AddToLayer | RemoveFromLayer):
+        if isinstance(other, (AddToLayer, RemoveFromLayer)):
             return self.layer is other.layer
         return False
 
