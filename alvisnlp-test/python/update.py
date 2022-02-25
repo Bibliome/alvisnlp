@@ -7,22 +7,22 @@ doc1, doc2 = corpus.documents
 
 corpus.documents.remove(doc2)
 
-doc1.features.add('doc-feature', 'doc-feature')
+doc1.features['doc-feature'] = 'doc-feature'
 doc1.features.remove('set')
 
 sec = doc1.sections[0]
 
-layer = sec.layers.get('Habitat')
+layer = sec.layers['Habitat']
 a1 = layer.annotations[0]
 layer.remove(a1)
 
-layer = sec.layers.get('Bacteria')
+layer = sec.layers['Bacteria']
 a2 = layer.annotations[0]
-layer.add(a1)
+layer += a1
 
-rel = sec.relations.get('Lives_In')
+rel = sec.relations['Lives_In']
 t = rel.tuples[0]
-t.args.set('role', a2)
+t.args['role'] = a2
 
 
 # corpus.write_jsondiff(sys.stdout)

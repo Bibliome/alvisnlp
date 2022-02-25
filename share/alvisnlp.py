@@ -69,6 +69,9 @@ class Features:
         self._data[key].append(value)
         self._elt._add_event(AddFeature(key, value))
 
+    def __setitem__(self, key, value):
+        self.add(key, value)
+
     def remove(self, key, value=None):
         check_type(key, str)
         check_type(value, (str, None.__class__))
