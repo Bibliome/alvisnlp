@@ -17,6 +17,8 @@
   <update class="PythonScript">
     <commandLine separator=" ">/home/rbossy/dist/anaconda3/bin/python /home/rbossy/code/alvisnlp/alvisnlp-test/python/update.py</commandLine>
     <environment>PYTHONPATH=/home/rbossy/code/alvisnlp/share</environment>
+    <documentFilter>@id == "BB-event-1016123" or @id == "BB-event-10658649"</documentFilter>
+    <layerNames>Bacteria,Habitat</layerNames>
   </update>
   
   <features-update file="write-features.plan">

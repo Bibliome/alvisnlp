@@ -1,7 +1,5 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.python;
 
-import java.util.Map;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -14,20 +12,25 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.util.Iterators;
 
-public class JsonSerializer implements ElementVisitor<JSONObject,Map<String,Element>> {
-	public JsonSerializer() {
+public class JsonSerializer implements ElementVisitor<JSONObject,Void> {
+	private final EvaluationContext evalCtx;
+	private final PythonScript.PythonScriptResolvedObjects resObj;
+
+	public JsonSerializer(EvaluationContext evalCtx, PythonScript.PythonScriptResolvedObjects resObj) {
 		super();
+		this.evalCtx = evalCtx;
+		this.resObj = resObj;
 	}
 
 	@SuppressWarnings("unchecked")
-	private static JSONObject startElement(Element elt, Map<String,Element> param) {
+	private static JSONObject startElement(Element elt) {
 		JSONObject result = new JSONObject();
 		String id = elt.getStringId();
 		result.put("id", id);
 		result.put("f", serializeFeatures(elt));
-		param.put(id, elt);
 		return result;
 	}
 
@@ -48,8 +51,8 @@ public class JsonSerializer implements ElementVisitor<JSONObject,Map<String,Elem
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public JSONObject visit(Annotation a, Map<String,Element> param) {
-		JSONObject result = startElement(a, param);
+	public JSONObject visit(Annotation a, Void param) {
+		JSONObject result = startElement(a);
 		result.put("off", serializeAnnotationOffsets(a));
 		return result;
 	}
@@ -64,16 +67,16 @@ public class JsonSerializer implements ElementVisitor<JSONObject,Map<String,Elem
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public JSONObject visit(Corpus corpus, Map<String,Element> param) {
-		JSONObject result = startElement(corpus, param);
+	public JSONObject visit(Corpus corpus, Void param) {
+		JSONObject result = startElement(corpus);
 		result.put("documents", serializeDocuments(corpus, param));
 		return result;
 	}
 	
 	@SuppressWarnings("unchecked")
-	private JSONArray serializeDocuments(Corpus corpus, Map<String,Element> param) {
+	private JSONArray serializeDocuments(Corpus corpus, Void param) {
 		JSONArray result = new JSONArray();
-		for (Document doc : Iterators.loop(corpus.documentIterator())) {
+		for (Document doc : Iterators.loop(corpus.documentIterator(evalCtx, resObj.getDocumentFilter()))) {
 			JSONObject jDoc = doc.accept(this, param);
 			result.add(jDoc);
 		}
@@ -82,17 +85,17 @@ public class JsonSerializer implements ElementVisitor<JSONObject,Map<String,Elem
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public JSONObject visit(Document doc, Map<String,Element> param) {
-		JSONObject result = startElement(doc, param);
+	public JSONObject visit(Document doc, Void param) {
+		JSONObject result = startElement(doc);
 		result.put("identifier", doc.getId());
 		result.put("sections", serializeSections(doc, param));
 		return result;
 	}
 	
 	@SuppressWarnings("unchecked")
-	private JSONArray serializeSections(Document doc, Map<String,Element> param) {
+	private JSONArray serializeSections(Document doc, Void param) {
 		JSONArray result = new JSONArray();
-		for (Section sec : Iterators.loop(doc.sectionIterator())) {
+		for (Section sec : Iterators.loop(doc.sectionIterator(evalCtx, resObj.getSectionFilter()))) {
 			JSONObject jSec = sec.accept(this, param);
 			result.add(jSec);
 		}
@@ -101,15 +104,15 @@ public class JsonSerializer implements ElementVisitor<JSONObject,Map<String,Elem
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public JSONObject visit(Relation rel, Map<String,Element> param) {
-		JSONObject result = startElement(rel, param);
+	public JSONObject visit(Relation rel, Void param) {
+		JSONObject result = startElement(rel);
 		result.put("name", rel.getName());
 		result.put("tuples", serializeTuples(rel, param));
 		return result;
 	}
 	
 	@SuppressWarnings("unchecked")
-	private JSONArray serializeTuples(Relation rel, Map<String,Element> param) {
+	private JSONArray serializeTuples(Relation rel, Void param) {
 		JSONArray result = new JSONArray();
 		for (Tuple t : rel.getTuples()) {
 			JSONObject jT = t.accept(this, param);
@@ -120,8 +123,8 @@ public class JsonSerializer implements ElementVisitor<JSONObject,Map<String,Elem
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public JSONObject visit(Section sec, Map<String,Element> param) {
-		JSONObject result = startElement(sec, param);
+	public JSONObject visit(Section sec, Void param) {
+		JSONObject result = startElement(sec);
 		result.put("name", sec.getName());
 		result.put("contents", sec.getContents());
 		result.put("annotations", serializeAnnotations(sec, param));
@@ -131,9 +134,9 @@ public class JsonSerializer implements ElementVisitor<JSONObject,Map<String,Elem
 	}
 	
 	@SuppressWarnings("unchecked")
-	private JSONArray serializeAnnotations(Section sec, Map<String,Element> param) {
+	private JSONArray serializeAnnotations(Section sec, Void param) {
 		JSONArray result = new JSONArray();
-		for (Annotation a : sec.getAllAnnotations()) {
+		for (Annotation a : resObj.getAnnotations(sec)) {
 			JSONObject jAnn = a.accept(this, param);
 			result.add(jAnn);
 		}
@@ -144,7 +147,9 @@ public class JsonSerializer implements ElementVisitor<JSONObject,Map<String,Elem
 	private JSONObject serializeLayers(Section sec) {
 		JSONObject result = new JSONObject();
 		for (Layer layer : sec.getAllLayers()) {
-			result.put(layer.getName(), serializeAnnotationRefs(layer));
+			if (resObj.acceptLayer(layer)) {
+				result.put(layer.getName(), serializeAnnotationRefs(layer));
+			}
 		}
 		return result;
 	}
@@ -160,19 +165,21 @@ public class JsonSerializer implements ElementVisitor<JSONObject,Map<String,Elem
 	}
 	
 	@SuppressWarnings("unchecked")
-	private JSONArray serializeRelations(Section sec, Map<String,Element> param) {
+	private JSONArray serializeRelations(Section sec, Void param) {
 		JSONArray relations = new JSONArray();
 		for (Relation rel : sec.getAllRelations()) {
-			JSONObject jRel = rel.accept(this, param);
-			relations.add(jRel);
+			if (resObj.acceptRelation(rel)) {
+				JSONObject jRel = rel.accept(this, param);
+				relations.add(jRel);
+			}
 		}
 		return relations;
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public JSONObject visit(Tuple t, Map<String,Element> param) {
-		JSONObject result = startElement(t, param);
+	public JSONObject visit(Tuple t, Void param) {
+		JSONObject result = startElement(t);
 		result.put("args", serializeArgs(t));
 		return result;
 	}
@@ -189,7 +196,7 @@ public class JsonSerializer implements ElementVisitor<JSONObject,Map<String,Elem
 	}
 
 	@Override
-	public JSONObject visit(Element e, Map<String,Element> param) {
+	public JSONObject visit(Element e, Void param) {
 		throw new RuntimeException();
 	}
 }

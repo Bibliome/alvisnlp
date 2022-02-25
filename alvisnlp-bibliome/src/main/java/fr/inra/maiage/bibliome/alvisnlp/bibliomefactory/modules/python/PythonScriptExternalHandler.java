@@ -24,6 +24,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
@@ -35,15 +36,17 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonScript> {
+	private final EvaluationContext evalCtx;
+
 	public PythonScriptExternalHandler(ProcessingContext<Corpus> processingContext, PythonScript module, Corpus annotable) {
 		super(processingContext, module, annotable);
+		this.evalCtx = new EvaluationContext(getLogger());
 	}
 
 	@Override
 	protected void prepare() throws IOException, ModuleException {
-		JsonSerializer serializer = new JsonSerializer();
-		Map<String,Element> elementMap = new HashMap<String,Element>();
-		JSONObject json = getAnnotable().accept(serializer, elementMap);
+		JsonSerializer serializer = new JsonSerializer(evalCtx, getModule().getResolvedObjects());
+		JSONObject json = getAnnotable().accept(serializer, null);
 		File input = getInputFile();
 		TargetStream target = new FileTargetStream("UTF-8", input.getAbsolutePath());
 		try (Writer out = target.getWriter()) {
@@ -142,7 +145,8 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 	private void handleCorpusEvents(JSONObject j) {
 		Corpus corpus = getAnnotable();
 		Map<String,Document> docMap = new HashMap<String,Document>();
-		for (Document doc : Iterators.loop(corpus.documentIterator())) {
+		PythonScript.PythonScriptResolvedObjects resObj = getModule().getResolvedObjects();
+		for (Document doc : Iterators.loop(corpus.documentIterator(evalCtx, resObj.getDocumentFilter()))) {
 			docMap.put(doc.getStringId(), doc);
 		}
 		for (JSONObject jEvent : getEvents(j)) {
@@ -185,7 +189,8 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 		Map<String,Element> eltMap = new HashMap<String,Element>();
 		eltMap.put(doc.getStringId(), doc);
 		Map<String,Section> secMap = new HashMap<String,Section>();
-		for (Section sec : Iterators.loop(doc.sectionIterator())) {
+		PythonScript.PythonScriptResolvedObjects resObj = getModule().getResolvedObjects();
+		for (Section sec : Iterators.loop(doc.sectionIterator(evalCtx, resObj.getSectionFilter()))) {
 			secMap.put(sec.getStringId(), sec);
 			eltMap.put(sec.getStringId(), sec);
 		}
@@ -233,15 +238,18 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 	}
 	
 	private void handleSectionEvents(Section sec, Collection<SetTupleArg> setTupleArgs, Map<String,Element> eltMap, JSONObject j) {
+		PythonScript.PythonScriptResolvedObjects resObj = getModule().getResolvedObjects();
 		Map<String,Annotation> annMap = new HashMap<String,Annotation>();
-		for (Annotation a : sec.getAllAnnotations()) {
+		for (Annotation a : resObj.getAnnotations(sec)) {
 			annMap.put(a.getStringId(), a);
 			eltMap.put(a.getStringId(), a);
 		}
 		Map<String,Relation> relMap = new HashMap<String,Relation>();
 		for (Relation rel : sec.getAllRelations()) {
-			relMap.put(rel.getStringId(), rel);
-			eltMap.put(rel.getStringId(), rel);
+			if (resObj.acceptRelation(rel)) {
+				relMap.put(rel.getStringId(), rel);
+				eltMap.put(rel.getStringId(), rel);
+			}
 		}
 		for (JSONObject jEvent : getEvents(j)) {
 			handleSectionEvent(sec, annMap, relMap, eltMap, jEvent);

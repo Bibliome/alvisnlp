@@ -3,11 +3,9 @@ import sys
 
 
 corpus = alvisnlp.Corpus.parse_json(sys.stdin)
-
-
-doc1, doc2 = corpus.documents[:2]
+doc1, doc2 = corpus.documents
 sec = doc1.sections[0]
-layer = sec.get_layer('Title')
+layer = sec.get_layer('Habitat')
 a = layer.annotations[0]
 rel = sec.get_relation('Lives_In')
 t = rel.tuples[0]
