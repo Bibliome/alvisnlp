@@ -84,6 +84,11 @@ class Features:
         self._elt._add_event(RemoveFeature(key, value))
 
 
+class DetachedElementError(Exception):
+    def __init__(self, *args, **kwargs):
+        Exception.__init__(self, *args, **kwargs)
+
+
 class Element:
     '''Abstract class for all AlvisNLP elements.
 
@@ -96,6 +101,11 @@ class Element:
         self._features = Features(self)
         self._events = []
         self._serid = None
+        self._detached = True
+
+    def check_detached(self):
+        if self._detached:
+            raise DetachedElementError()
 
     @property
     def serid(self):
@@ -116,15 +126,18 @@ class Element:
 
     @property
     def events(self):
+        self.check_detached()
         return list(self._events)
 
     @property
     def features(self):
+        self.check_detached()
         return self._features
 
     def _add_event(self, e):
         check_type(e, Event)
         if self.corpus.log_events:
+            self.check_detached()
             if any(e.supercedes_event(pe) for pe in self._events):
                 self._events = list(pe for pe in self._events if not e.supercedes_event(pe))
                 if not e.remove_self:
@@ -145,6 +158,7 @@ class Element:
         self._features._data.update(j['f'])
 
     def events_to_json(self):
+        self.check_detached()
         j = {'_ev': list(e.to_json() for e in self._events)}
         self._fill_events_json(j)
         return j
@@ -195,7 +209,7 @@ class Documents:
     def __getitem__(self, identifier):
         return self.get(identifier)
 
-    def add(self, doc):
+    def _add(self, doc):
         '''Adds the specified document in this corpus. This function is called by the Document contructor.
 
         Args:
@@ -208,18 +222,16 @@ class Documents:
         if doc.identifier in self._data:
             raise ValueError('duplicate document identifier: ' + doc.identifier)
         self._data[doc.identifier] = doc
+        doc._detached = False
         self._corpus._add_event(CreateDocument(doc))
 
-    def __iadd__(self, doc):
-        self.add(doc)
-        return self
-
-    def remove(self, doc):
+    def _remove(self, doc):
         check_type(doc, Document)
         cdoc = self.get(doc.identifier)
         if cdoc is not doc:
             raise ValueError()
         del self._data[doc.identifier]
+        doc._detached = True
         self._corpus._add_event(DeleteDocument(doc))
 
 
@@ -231,6 +243,7 @@ class Corpus(Element):
     '''
     def __init__(self, log_events=True):
         Element.__init__(self)
+        self._detached = False
         self.all_elements = {}
         self._documents = Documents(self)
         self.log_events = log_events
@@ -240,6 +253,7 @@ class Corpus(Element):
         return self
 
     def has_event(self):
+        self.check_detached()
         return (len(self._events) > 0) or any(doc.has_event() for doc in self._documents)
 
     @property
@@ -247,9 +261,11 @@ class Corpus(Element):
         return self._documents
 
     def _fill_events_json(self, j):
+        self.check_detached()
         j['docs'] = dict((doc.serid, doc.events_to_json()) for doc in self.documents if doc.has_event())
 
     def write_events_json(self, f):
+        self.check_detached()
         json.dump(self.events_to_json(), f)
 
     @staticmethod
@@ -327,7 +343,7 @@ class Sections:
             return self._data[key]
         return self.get(key)
 
-    def add(self, sec):
+    def _add(self, sec):
         '''Adds the specified section in this document.
 
         Args:
@@ -338,17 +354,15 @@ class Sections:
         '''
         check_type(sec, Section)
         self._data.append(sec)
+        sec._detached = False
         self._doc._add_event(CreateSection(sec))
 
-    def __iadd__(self, sec):
-        self.add(sec)
-        return self
-
-    def remove(self, sec):
+    def _remove(self, sec):
         check_type(sec, Section)
         if sec not in self._data:
             raise ValueError()
         self._data.remove(sec)
+        sec._detached = True
         self._doc._add_event(DeleteSection(sec))
 
 
@@ -373,7 +387,7 @@ class Document(Element):
         self._corpus = corpus
         self._identifier = identifier
         self._sections = Sections(self)
-        corpus.documents.add(self)
+        corpus.documents._add(self)
 
     @property
     def corpus(self):
@@ -384,13 +398,20 @@ class Document(Element):
         return self._identifier
 
     def has_event(self):
+        self.check_detached()
         return (len(self._events) > 0) or any(sec.has_event() for sec in self._sections)
 
     @property
     def sections(self):
+        self.check_detached()
         return self._sections
 
+    def detach(self):
+        self.check_detached()
+        self.corpus.documents._remove(self)
+
     def _fill_events_json(self, j):
+        self.check_detached()
         j['secs'] = dict((sec.serid, sec.events_to_json()) for sec in self._sections if sec.has_event())
 
     def _section_from_json(self, j):
@@ -450,7 +471,7 @@ class Relations:
     def __getitem__(self, name):
         return self.get(name)
 
-    def add(self, rel):
+    def _add(self, rel):
         '''Adds the specified relation in this section.
 
         Args:
@@ -463,18 +484,16 @@ class Relations:
         if rel.name in self._data:
             raise ValueError('duplicate relation name: ' + rel.name + ' in ' + self._sec)
         self._data[rel.name] = rel
+        rel._detached = False
         self._sec._add_event(CreateRelation(rel))
 
-    def __iadd__(self, rel):
-        self.add(rel)
-        return self
-
-    def remove(self, rel):
+    def _remove(self, rel):
         check_type(rel, Relation)
         srel = self._data[rel.name]
         if srel is not rel:
             raise ValueError()
         del self._data[rel.name]
+        rel._detached = True
         self._sec._events(DeleteRelation(rel))
 
 
@@ -515,28 +534,14 @@ class Layers:
         Returns:
         get_layer (Layer): the layer in this section with the specified name.
         '''
+        if name not in self._data:
+            layer = Layer(self._sec, name)
+            self._data[name] = layer
+            return layer
         return self._data[name]
 
     def __getitem__(self, name):
         return self.get(name)
-
-    def add(self, layer):
-        '''Adds the specified layer in this section.
-
-        Args:
-        layer (Layer): The layer to add.
-
-        Raises:
-        ValueError: layer is not of type Layer, or this section has already a layer with the same name.
-        '''
-        check_type(layer, Layer)
-        if layer.name in self._data:
-            raise ValueError('duplicate layer name: ' + layer.name + ' in ' + self._sec)
-        self._data[layer.name] = layer
-
-    def __iadd__(self, layer):
-        self.add(layer)
-        return self
 
 
 class Section(Element):
@@ -568,7 +573,7 @@ class Section(Element):
         self._contents = contents
         self._layers = Layers(self)
         self._relations = Relations(self)
-        document.sections.add(self)
+        document.sections._add(self)
 
     @property
     def corpus(self):
@@ -576,32 +581,44 @@ class Section(Element):
 
     @property
     def document(self):
+        self.check_detached()
         return self._document
 
     @property
     def name(self):
+        self.check_detached()
         return self._name
 
     @property
     def order(self):
+        self.check_detached()
         return self._order
 
     def has_event(self):
+        self.check_detached()
         return (len(self._events) > 0) or any(rel.has_event() for rel in self._relations) or any(layer.has_event() for layer in self._layers)
 
     @property
     def contents(self):
+        self.check_detached()
         return self._contents
 
     @property
     def layers(self):
+        self.check_detached()
         return self._layers
 
     @property
     def relations(self):
+        self.check_detached()
         return self._relations
 
+    def detach(self):
+        self.check_detached()
+        self.document.sections._remove(self)
+
     def _fill_events_json(self, j):
+        self.check_detached()
         j['rels'] = dict((rel.serid, rel.events_to_json()) for rel in self._relations if rel.has_event())
         a_events = dict()
         for layer in self._layers:
@@ -644,7 +661,7 @@ class Layer:
         self._section = section
         self._name = name
         self._annotations = []
-        section.layers.add(self)
+        section.layers._data[name] = self
 
     @property
     def section(self):
@@ -752,6 +769,7 @@ class Annotation(Element, Span):
 
     def __init__(self, sec, start, end):
         Element.__init__(self)
+        self._detached = False  # XXX check layers instead
         Span.__init__(self, start, end)
         check_type(sec, Section)
         if end > len(sec.contents):
@@ -796,7 +814,7 @@ class Tuples:
     def __getitem__(self, index):
         return self._data[index]
 
-    def add(self, t):
+    def _add(self, t):
         '''Adds the specified tuple to this relation.
 
         Args:
@@ -807,17 +825,15 @@ class Tuples:
         '''
         check_type(t, Tuple)
         self._data.append(t)
+        t._detached = False
         self._rel._add_event(CreateTuple(t))
 
-    def __iadd__(self, t):
-        self.add(t)
-        return self
-
-    def remove(self, t):
+    def _remove(self, t):
         check_type(t, Tuple)
         if t not in self._tuples:
             raise ValueError()
         self._data.remove(t)
+        t._detached = True
         self._rel._add_event(DeleteTuple(t))
 
 
@@ -843,7 +859,7 @@ class Relation(Element):
         self._section = section
         self._name = name
         self._tuples = Tuples(self)
-        section.relations.add(self)
+        section.relations._add(self)
 
     @property
     def corpus(self):
@@ -851,6 +867,7 @@ class Relation(Element):
 
     @property
     def section(self):
+        self.check_detached()
         return self._section
 
     @property
@@ -858,13 +875,20 @@ class Relation(Element):
         return self._name
 
     def has_event(self):
+        self.check_detached()
         return (len(self._events) > 0) or any(t.has_event() for t in self._tuples)
 
     @property
     def tuples(self):
+        self.check_detached()
         return self._tuples
 
+    def detach(self):
+        self.check_detached()
+        self.section.relations._remove(self)
+
     def _fill_events_json(self, j):
+        self.check_detached()
         j['ts'] = dict((t.serid, t.events_to_json()) for t in self._tuples if t.has_event())
 
     def _tuple_from_json(self, j):
@@ -964,7 +988,7 @@ class Tuple(Element):
         check_type(relation, Relation)
         self._relation = relation
         self._args = Arguments(self)
-        relation.tuples.add(self)
+        relation.tuples._add(self)
 
     @property
     def corpus(self):
@@ -972,20 +996,29 @@ class Tuple(Element):
 
     @property
     def relation(self):
+        self.check_detached()
         return self._relation
 
     @property
     def arity(self):
+        self.check_detached()
         return len(self._args)
 
     def has_event(self):
+        self.check_detached()
         return len(self._events) > 0
 
+    def detach(self):
+        self.check_detached()
+        self.relation.tuples._remove(self)
+
     def _fill_events_json(self, j):
+        self.check_detached()
         pass
 
     @property
     def args(self):
+        self.check_detached()
         return self._args
 
 
