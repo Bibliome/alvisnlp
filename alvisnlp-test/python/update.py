@@ -5,24 +5,24 @@ import sys
 corpus = alvisnlp.Corpus.parse_json(sys.stdin)
 doc1, doc2 = corpus.documents
 
-corpus.remove_document(doc2)
+corpus.documents.remove(doc2)
 
-doc1.add_feature('doc-feature', 'doc-feature')
-doc1.remove_feature('set')
+doc1.features.add('doc-feature', 'doc-feature')
+doc1.features.remove('set')
 
 sec = doc1.sections[0]
 
-layer = sec.get_layer('Habitat')
+layer = sec.layers.get('Habitat')
 a1 = layer.annotations[0]
-layer.remove_annotation(a1)
+layer.remove(a1)
 
-layer = sec.get_layer('Bacteria')
+layer = sec.layers.get('Bacteria')
 a2 = layer.annotations[0]
-layer.add_annotation(a1)
+layer.add(a1)
 
-rel = sec.get_relation('Lives_In')
+rel = sec.relations.get('Lives_In')
 t = rel.tuples[0]
-t.set_arg('role', a2)
+t.args.set('role', a2)
 
 
 # corpus.write_jsondiff(sys.stdout)

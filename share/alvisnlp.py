@@ -15,6 +15,72 @@ def check_type(o, t):
         raise ValueError('expected: ' + t + ', got: ' + o + ' of type ' + o.__class__)
 
 
+class Features:
+    def __init__(self, elt):
+        self._elt = elt
+        self._data = collections.defaultdict(list)
+
+    def has(self, key):
+        check_type(key, str)
+        return key in self._data
+
+    def __contains__(self, key):
+        return self.has(key)
+
+    def get(self, key):
+        '''Returns a list containing all feature values with the specified key. Returns an empty list if there are no features with the specified key. Modifications of the returned list will not change the features in this object.
+
+        Args:
+        key (str): Feature key.
+
+        Returns:
+        get_feature: a list of feature values.
+        '''
+        return list(self._data[key])
+
+    def get_last(self, key):
+        '''Returns the value of the last feature with the specified key. This is probably what you're looking for. If tthere is no feature with the specified key, then returns an empty string.
+
+        Args:
+        key (str): Feature key.
+
+        Returns:
+        get_last_feature (str): a feature value.
+        '''
+        if key in self._data:
+            return self._data[key][-1]
+        return ''
+
+    def __getitem__(self, key):
+        return self.get_last(key)
+
+    def add(self, key, value):
+        '''Adds a feature key/value pair.
+
+        Args:
+        key (str): The feature key.
+        value (str): The feature value.
+
+        Raises:
+        ValueError: key or value are not str.
+        '''
+        check_type(key, str)
+        check_type(value, str)
+        self._data[key].append(value)
+        self._elt._add_event(AddFeature(key, value))
+
+    def remove(self, key, value=None):
+        check_type(key, str)
+        check_type(value, (str, None.__class__))
+        if key not in self._data:
+            raise ValueError()
+        if value is None:
+            del self._data[key]
+        else:
+            self._data[key].remove(value)
+        self._elt._add_event(RemoveFeature(key, value))
+
+
 class Element:
     '''Abstract class for all AlvisNLP elements.
 
@@ -24,7 +90,7 @@ class Element:
     '''
 
     def __init__(self):
-        self._features = collections.defaultdict(list)
+        self._features = Features(self)
         self._events = []
         self._serid = None
 
@@ -49,6 +115,10 @@ class Element:
     def events(self):
         return list(self._events)
 
+    @property
+    def features(self):
+        return self._features
+
     def _add_event(self, e):
         check_type(e, Event)
         if self.corpus.log_events:
@@ -66,62 +136,10 @@ class Element:
     def corpus(self):
         raise NotImplementedError()
 
-    def get_feature(self, key):
-        '''Returns a list containing all feature values with the specified key. Returns an empty list if there are no features with the specified key. Modifications of the returned list will not change the features in this object.
-
-        Args:
-        key (str): Feature key.
-
-        Returns:
-        get_feature: a list of feature values.
-        '''
-        if key in self._features:
-            return list(self._features[key])
-        return []
-
-    def get_last_feature(self, key):
-        '''Returns the value of the last feature with the specified key. This is probably what you're looking for. If tthere is no feature with the specified key, then returns an empty string.
-
-        Args:
-        key (str): Feature key.
-
-        Returns:
-        get_last_feature (str): a feature value.
-        '''
-        if key in self._features:
-            return self._features[key][-1]
-        return ''
-
-    def add_feature(self, key, value):
-        '''Adds a feature key/value pair.
-
-        Args:
-        key (str): The feature key.
-        value (str): The feature value.
-
-        Raises:
-        ValueError: key or value are not str.
-        '''
-        check_type(key, str)
-        check_type(value, str)
-        self._features[key].append(value)
-        self._add_event(AddFeature(key, value))
-
-    def remove_feature(self, key, value=None):
-        check_type(key, str)
-        check_type(value, (str, None.__class__))
-        if key not in self._features:
-            raise ValueError()
-        if value is None:
-            del self._features[key]
-        else:
-            self._features[key].remove(value)
-        self._add_event(RemoveFeature(key, value))
-
     def _features_and_id_from_json(self, j):
         if 'id' in j:
             self.serid = j['id']
-        self._features.update(j['f'])
+        self._features._data.update(j['f'])
 
     def events_to_json(self):
         j = {'_ev': list(e.to_json() for e in self._events)}
@@ -132,30 +150,18 @@ class Element:
         raise NotImplementedError()
 
 
-class Corpus(Element):
-    '''AlvisNLP Corpus object.
+class Documents:
+    def __init__(self, corpus):
+        self._corpus = corpus
+        self._data = {}
 
-    Attributes:
-    documents (list[Document]): list of documents contained in this corpus. Modifications to this list will not change this corpus content. Immutable.
-    '''
-    def __init__(self, log_events=True):
-        Element.__init__(self)
-        self.all_elements = {}
-        self._documents = {}
-        self.log_events = log_events
+    def __iter__(self):
+        yield from self._data.values()
 
-    @property
-    def corpus(self):
-        return self
+    def __len__(self):
+        return len(self._data)
 
-    def has_event(self):
-        return (len(self._events) > 0) or any(doc.has_event() for doc in self._documents.values())
-
-    @property
-    def documents(self):
-        return list(self._documents.values())
-
-    def has_document(self, identifier):
+    def has(self, identifier):
         '''Checks if this corpus contains a document with the specified identifier.
 
         Args:
@@ -164,9 +170,12 @@ class Corpus(Element):
         Returns:
         has_document (bool): either this corpus contains a document with the specified identifier.
         '''
-        return identifier in self._documents
+        return identifier in self._data
 
-    def get_document(self, identifier):
+    def __contains__(self, identifier):
+        return self.has(identifier)
+
+    def get(self, identifier):
         '''Returns the document in this corpus with the specified identifier.
 
         Args:
@@ -178,9 +187,12 @@ class Corpus(Element):
         Returns:
         get_document (Document): the document in this corpus with the specified identifier.
         '''
-        return self._documents[identifier]
+        return self._data[identifier]
 
-    def add_document(self, doc):
+    def __getitem__(self, identifier):
+        return self.get(identifier)
+
+    def add(self, doc):
         '''Adds the specified document in this corpus. This function is called by the Document contructor.
 
         Args:
@@ -190,21 +202,49 @@ class Corpus(Element):
         ValueError: doc is not of type document, or this corpus has already a document with the same identifier.
         '''
         check_type(doc, Document)
-        if doc.identifier in self._documents:
+        if doc.identifier in self._data:
             raise ValueError('duplicate document identifier: ' + doc.identifier)
-        self._documents[doc.identifier] = doc
-        self._add_event(CreateDocument(doc))
+        self._data[doc.identifier] = doc
+        self._corpus._add_event(CreateDocument(doc))
 
-    def remove_document(self, doc):
+    def __iadd__(self, doc):
+        self.add(doc)
+        return self
+
+    def remove(self, doc):
         check_type(doc, Document)
-        cdoc = self.get_document(doc.identifier)
+        cdoc = self.get(doc.identifier)
         if cdoc is not doc:
             raise ValueError()
-        del self._documents[doc.identifier]
-        self._add_event(DeleteDocument(doc))
+        del self._data[doc.identifier]
+        self._corpus._add_event(DeleteDocument(doc))
+
+
+class Corpus(Element):
+    '''AlvisNLP Corpus object.
+
+    Attributes:
+    documents (list[Document]): list of documents contained in this corpus. Modifications to this list will not change this corpus content. Immutable.
+    '''
+    def __init__(self, log_events=True):
+        Element.__init__(self)
+        self.all_elements = {}
+        self._documents = Documents(self)
+        self.log_events = log_events
+
+    @property
+    def corpus(self):
+        return self
+
+    def has_event(self):
+        return (len(self._events) > 0) or any(doc.has_event() for doc in self._documents)
+
+    @property
+    def documents(self):
+        return self._documents
 
     def _fill_events_json(self, j):
-        j['docs'] = dict((doc.serid, doc.events_to_json()) for doc in self._documents.values() if doc.has_event())
+        j['docs'] = dict((doc.serid, doc.events_to_json()) for doc in self.documents if doc.has_event())
 
     def write_events_json(self, f):
         json.dump(self.events_to_json(), f)
@@ -237,7 +277,76 @@ class Corpus(Element):
                 for rel in sec.relations:
                     for t in rel.tuples:
                         for role, ref in t.args.items():
-                            t.set_arg(role, self.all_elements[ref])
+                            t.args.set(role, self.all_elements[ref])
+
+
+class Sections:
+    def __init__(self, doc):
+        self._doc = doc
+        self._data = []
+
+    def __iter__(self):
+        yield from self._data
+
+    def __len__(self):
+        return len(self._data)
+
+    def has(self, name):
+        '''Check either this document contains at least one section with the specified name.
+
+        Args:
+        name (str): Section name.
+
+        Returns:
+        has_section (bool): Either this document has at least one section with the specified name.
+        '''
+        for sec in self._data:
+            if sec.name == name:
+                return True
+        return False
+
+    def __contains__(self, name):
+        return self.has(name)
+
+    def get(self, name):
+        '''Iterates through sections in this document with the specified name.
+
+        Args:
+        name (str): Sections name.
+
+        Returns:
+        get_sections (Iterable[Section]): all sections in this document with the specified name.
+        '''
+        return list(sec for sec in self._data if sec.name == name)
+
+    def __getitem__(self, key):
+        if isinstance(key, int):
+            return self._data[key]
+        return self.get(key)
+
+    def add(self, sec):
+        '''Adds the specified section in this document.
+
+        Args:
+        sec (Section): The section to add.
+
+        Raises:
+        ValueError: sec is not of thype Section.
+        '''
+        check_type(sec, Section)
+        self._data.append(sec)
+        self._doc._add_event(CreateSection(sec))
+
+    def __iadd__(self, sec):
+        self.add(sec)
+        return self
+
+    def remove(self, sec):
+        check_type(sec, Section)
+        if sec not in self._data:
+            raise ValueError()
+        self._data.remove(sec)
+        self._doc._add_event(DeleteSection(sec))
 
 
 class Document(Element):
@@ -260,8 +369,8 @@ class Document(Element):
         check_type(identifier, str)
         self._corpus = corpus
         self._identifier = identifier
-        self._sections = []
-        corpus.add_document(self)
+        self._sections = Sections(self)
+        corpus.documents.add(self)
 
     @property
     def corpus(self):
@@ -276,54 +385,7 @@ class Document(Element):
 
     @property
     def sections(self):
-        return list(self._sections)
-
-    def has_section(self, name):
-        '''Check either this document contains at least one section with the specified name.
-
-        Args:
-        name (str): Section name.
-
-        Returns:
-        has_section (bool): Either this document has at least one section with the specified name.
-        '''
-        for sec in self._sections:
-            if sec.name == name:
-                return True
-        return False
-
-    def get_sections(self, name):
-        '''Iterates through sections in this document with the specified name.
-
-        Args:
-        name (str): Sections name.
-
-        Returns:
-        get_sections (Iterable[Section]): all sections in this document with the specified name.
-        '''
-        for sec in self._sections:
-            if sec.name == name:
-                yield sec
-
-    def add_section(self, sec):
-        '''Adds the specified section in this document.
-
-        Args:
-        sec (Section): The section to add.
-
-        Raises:
-        ValueError: sec is not of thype Section.
-        '''
-        check_type(sec, Section)
-        self._sections.append(sec)
-        self._add_event(CreateSection(sec))
-
-    def remove_section(self, sec):
-        check_type(sec, Section)
-        if sec not in self._sections:
-            raise ValueError()
-        self._sections.remove(sec)
-        self._add_event(DeleteSection(sec))
+        return self._sections
 
     def _fill_events_json(self, j):
         j['secs'] = dict((sec.serid, sec.events_to_json()) for sec in self._sections if sec.has_event())
@@ -337,10 +399,141 @@ class Document(Element):
         for name, aj in j['layers'].items():
             layer = Layer(sec, name)
             for a in aj:
-                layer.add_annotation(corpus.all_elements[a])
+                layer.add(corpus.all_elements[a])
         for rj in j['relations']:
             sec._relation_from_json(rj)
         return sec
+
+
+class Relations:
+    def __init__(self, sec):
+        self._sec = sec
+        self._data = {}
+
+    def __iter__(self):
+        yield from self._data.values()
+
+    def __len__(self):
+        return len(self._data)
+
+    def has(self, name):
+        '''Checks if this section has a relation with the specified name.
+
+        Args:
+        name (str): Relation name.
+
+        Returns:
+        has_relation (bool): either this section has a relation with the specified name.
+        '''
+        return name in self._data
+
+    def __contains__(self, name):
+        return self.has(name)
+
+    def get(self, name):
+        '''Returns the relation in this section with the specified name.
+
+        Args:
+        name (str): Relation name.
+
+        Raises:
+        KeyError: there is no relation in this section with the specified name.
+
+        Returns:
+        get_relation (Relation): the relation in this section with the specified name.
+        '''
+        return self._data[name]
+
+    def __getitem__(self, name):
+        return self.get(name)
+
+    def add(self, rel):
+        '''Adds the specified relation in this section.
+
+        Args:
+        rel (Relation): The relation to add.
+
+        Raises:
+        ValueError: relation is not of type Relation, or this section has already a relation with the same name.
+        '''
+        check_type(rel, Relation)
+        if rel.name in self._data:
+            raise ValueError('duplicate relation name: ' + rel.name + ' in ' + self._sec)
+        self._data[rel.name] = rel
+        self._sec._add_event(CreateRelation(rel))
+
+    def __iadd__(self, rel):
+        self.add(rel)
+        return self
+
+    def remove(self, rel):
+        check_type(rel, Relation)
+        srel = self._data[rel.name]
+        if srel is not rel:
+            raise ValueError()
+        del self._data[rel.name]
+        self._sec._events(DeleteRelation(rel))
+
+
+class Layers:
+    def __init__(self, sec):
+        self._sec = sec
+        self._data = {}
+
+    def __iter__(self):
+        yield from self._data.values()
+
+    def __len__(self):
+        return len(self._data)
+
+    def has(self, name):
+        '''Checks if this section has a layer with the specified name.
+
+        Args:
+        name (str): Layer name.
+
+        Returns:
+        has_layer (bool): either this section has a layer with the specified name.
+        '''
+        return name in self._data
+
+    def __contains__(self, name):
+        return self.has(name)
+
+    def get(self, name):
+        '''Returns the layer in this section with the specified name.
+
+        Args:
+        name (str): Layer name.
+
+        Raises:
+        KeyError: there is no layer in this section with the specified name.
+
+        Returns:
+        get_layer (Layer): the layer in this section with the specified name.
+        '''
+        return self._data[name]
+
+    def __getitem__(self, name):
+        return self.get(name)
+
+    def add(self, layer):
+        '''Adds the specified layer in this section.
+
+        Args:
+        layer (Layer): The layer to add.
+
+        Raises:
+        ValueError: layer is not of type Layer, or this section has already a layer with the same name.
+        '''
+        check_type(layer, Layer)
+        if layer.name in self._data:
+            raise ValueError('duplicate layer name: ' + layer.name + ' in ' + self._sec)
+        self._data[layer.name] = layer
+
+    def __iadd__(self, layer):
+        self.add(layer)
+        return self
 
 
 class Section(Element):
@@ -370,9 +563,9 @@ class Section(Element):
         self._name = name
         self._order = len(document.sections)
         self._contents = contents
-        self._layers = {}
-        self._relations = {}
-        document.add_section(self)
+        self._layers = Layers(self)
+        self._relations = Relations(self)
+        document.sections.add(self)
 
     @property
     def corpus(self):
@@ -391,7 +584,7 @@ class Section(Element):
         return self._order
 
     def has_event(self):
-        return (len(self._events) > 0) or any(rel.has_event() for rel in self._relations.values()) or any(layer.has_event() for layer in self._layers.values())
+        return (len(self._events) > 0) or any(rel.has_event() for rel in self._relations) or any(layer.has_event() for layer in self._layers)
 
     @property
     def contents(self):
@@ -399,103 +592,16 @@ class Section(Element):
 
     @property
     def layers(self):
-        return list(self._layers.values())
+        return self._layers
 
     @property
     def relations(self):
-        return list(self._relations.values())
-
-    def has_layer(self, name):
-        '''Checks if this section has a layer with the specified name.
-
-        Args:
-        name (str): Layer name.
-
-        Returns:
-        has_layer (bool): either this section has a layer with the specified name.
-        '''
-        return name in self._layers
-
-    def get_layer(self, name):
-        '''Returns the layer in this section with the specified name.
-
-        Args:
-        name (str): Layer name.
-
-        Raises:
-        KeyError: there is no layer in this section with the specified name.
-
-        Returns:
-        get_layer (Layer): the layer in this section with the specified name.
-        '''
-        return self._layers[name]
-
-    def add_layer(self, layer):
-        '''Adds the specified layer in this section.
-
-        Args:
-        layer (Layer): The layer to add.
-
-        Raises:
-        ValueError: layer is not of type Layer, or this section has already a layer with the same name.
-        '''
-        check_type(layer, Layer)
-        if layer.name in self._layers:
-            raise ValueError('duplicate layer name: ' + layer.name + ' in ' + self)
-        self._layers[layer.name] = layer
-
-    def has_relation(self, name):
-        '''Checks if this section has a relation with the specified name.
-
-        Args:
-        name (str): Relation name.
-
-        Returns:
-        has_relation (bool): either this section has a relation with the specified name.
-        '''
-        return name in self._relations
-
-    def get_relation(self, name):
-        '''Returns the relation in this section with the specified name.
-
-        Args:
-        name (str): Relation name.
-
-        Raises:
-        KeyError: there is no relation in this section with the specified name.
-
-        Returns:
-        get_relation (Relation): the relation in this section with the specified name.
-        '''
-        return self._relations[name]
-
-    def add_relation(self, rel):
-        '''Adds the specified relation in this section.
-
-        Args:
-        rel (Relation): The relation to add.
-
-        Raises:
-        ValueError: relation is not of type Relation, or this section has already a relation with the same name.
-        '''
-        check_type(rel, Relation)
-        if rel.name in self._relations:
-            raise ValueError('duplicate relation name: ' + rel.name + ' in ' + self)
-        self._relations[rel.name] = rel
-        self._add_event(CreateRelation(rel))
-
-    def remove_relation(self, rel):
-        check_type(rel, Relation)
-        srel = self._relations[rel.name]
-        if srel is not rel:
-            raise ValueError()
-        del self._relations[rel.name]
-        self._events(DeleteRelation(rel))
+        return self._relations
 
     def _fill_events_json(self, j):
-        j['rels'] = dict((rel.serid, rel.events_to_json()) for rel in self._relations.values() if rel.has_event())
+        j['rels'] = dict((rel.serid, rel.events_to_json()) for rel in self._relations if rel.has_event())
         a_events = dict()
-        for layer in self._layers.values():
+        for layer in self._layers:
             for a in layer.annotations:
                 if a.serid not in a_events and a.has_event():
                     a_events[a.serid] = a.events_to_json()
@@ -535,7 +641,7 @@ class Layer:
         self._section = section
         self._name = name
         self._annotations = []
-        section.add_layer(self)
+        section.layers.add(self)
 
     @property
     def section(self):
@@ -559,7 +665,10 @@ class Layer:
         self._annotations.sort(key=Span.ORDER_KEY)
         return iter(self._annotations)
 
-    def add_annotation(self, a):
+    def __getitem__(self, index):
+        return self._annotations[index]
+
+    def add(self, a):
         '''Adds the specified annotation in this layer.
 
         Args:
@@ -572,7 +681,11 @@ class Layer:
         self._annotations.append(a)
         a._add_event(AddToLayer(self))
 
-    def remove_annotation(self, a):
+    def __iadd__(self, a):
+        self.add(a)
+        return self
+
+    def remove(self, a):
         check_type(a, Annotation)
         if a not in self._annotations:
             raise ValueError()
@@ -666,6 +779,45 @@ class Annotation(Element, Span):
         pass
 
 
+class Tuples:
+    def __init__(self, rel):
+        self._rel = rel
+        self._data = []
+
+    def __iter__(self):
+        yield from self._data
+
+    def __len__(self):
+        return len(self._data)
+
+    def __getitem__(self, index):
+        return self._data[index]
+
+    def add(self, t):
+        '''Adds the specified tuple to this relation.
+
+        Args:
+        t (Tuple): the tuple to add.
+
+        Raises:
+        ValueError: t is not of type Tuple.
+        '''
+        check_type(t, Tuple)
+        self._data.append(t)
+        self._rel._add_event(CreateTuple(t))
+
+    def __iadd__(self, t):
+        self.add(t)
+        return self
+
+    def remove(self, t):
+        check_type(t, Tuple)
+        if t not in self._tuples:
+            raise ValueError()
+        self._data.remove(t)
+        self._rel._add_event(DeleteTuple(t))
+
+
 class Relation(Element):
     '''An AlvisNLP Relation object.
 
@@ -687,8 +839,8 @@ class Relation(Element):
         check_type(name, str)
         self._section = section
         self._name = name
-        self._tuples = []
-        section.add_relation(self)
+        self._tuples = Tuples(self)
+        section.relations.add(self)
 
     @property
     def corpus(self):
@@ -707,27 +859,7 @@ class Relation(Element):
 
     @property
     def tuples(self):
-        return list(self._tuples)
-
-    def add_tuple(self, t):
-        '''Adds the specified tuple to this relation.
-
-        Args:
-        t (Tuple): the tuple to add.
-
-        Raises:
-        ValueError: t is not of type Tuple.
-        '''
-        check_type(t, Tuple)
-        self._tuples.append(t)
-        self._add_event(CreateTuple(t))
-
-    def remove_tuple(self, t):
-        check_type(t, Tuple)
-        if t not in self._tuples:
-            raise ValueError()
-        self._tuples.remove(t)
-        self._add_event(DeleteTuple(t))
+        return self._tuples
 
     def _fill_events_json(self, j):
         j['ts'] = dict((t.serid, t.events_to_json()) for t in self._tuples if t.has_event())
@@ -738,6 +870,76 @@ class Relation(Element):
         for role, ref in j['args'].items():
             t._args[role] = ref
         return t
+
+
+class Arguments:
+    def __init__(self, t):
+        self._t = t
+        self._data = {}
+
+    def __iter__(self):
+        yield from self._data
+
+    def __len__(self):
+        return len(self._data)
+
+    def keys(self):
+        return self._data.keys()
+
+    def values(self):
+        return self._data.values()
+
+    def items(self):
+        return self._data.items()
+
+    def set(self, role, arg):
+        '''Sets an argument. This method will overwrite any previous argument with the same role.
+
+        Args:
+        role (str): Argument role.
+        arg (Element): Argument itself.
+
+        Raises:
+        ValueError: role is not of type str, or arg is not of type Element.
+        '''
+        check_type(role, str)
+        check_type(arg, (Element, str))
+        self._data[role] = arg
+        self._t._add_event(SetArgument(role, arg))
+
+    def __setitem__(self, role, arg):
+        self.set(role, arg)
+
+    def has(self, role):
+        '''Checks if this tuple has an argument with the specified role.
+
+        Args:
+        role (str): Argument role.
+
+        Returns:
+        has_arg (bool): either this tuple has an argument with the specified role.
+        '''
+        return role in self._data
+
+    def __contains__(self, role):
+        return self.has(role)
+
+    def get(self, role):
+        '''Returns the argument in this tuple with the specified role.
+
+        Args:
+        role (str): Argument role.
+
+        Raises:
+        KeyError: this tuple has no argument with the specified role.
+
+        Returns:
+        get_arg (Element): The argument in this tuple with the specified role.
+        '''
+        return self._data[role]
+
+    def __getitem__(self, role):
+        return self.get(role)
 
 
 class Tuple(Element):
@@ -758,8 +960,8 @@ class Tuple(Element):
         Element.__init__(self)
         check_type(relation, Relation)
         self._relation = relation
-        self._args = {}
-        relation.add_tuple(self)
+        self._args = Arguments(self)
+        relation.tuples.add(self)
 
     @property
     def corpus(self):
@@ -781,47 +983,7 @@ class Tuple(Element):
 
     @property
     def args(self):
-        return dict(self._args)
-
-    def set_arg(self, role, arg):
-        '''Sets an argument. This method will overwrite any previous argument with the same role.
-
-        Args:
-        role (str): Argument role.
-        arg (Element): Argument itself.
-
-        Raises:
-        ValueError: role is not of type str, or arg is not of type Element.
-        '''
-        check_type(role, str)
-        check_type(arg, (Element, str))
-        self._args[role] = arg
-        self._add_event(SetArgument(role, arg))
-
-    def has_arg(self, role):
-        '''Checks if this tuple has an argument with the specified role.
-
-        Args:
-        role (str): Argument role.
-
-        Returns:
-        has_arg (bool): either this tuple has an argument with the specified role.
-        '''
-        return role in self._args
-
-    def get_arg(self, role):
-        '''Returns the argument in this tuple with the specified role.
-
-        Args:
-        role (str): Argument role.
-
-        Raises:
-        KeyError: this tuple has no argument with the specified role.
-
-        Returns:
-        get_arg (Element): The argument in this tuple with the specified role.
-        '''
-        return self._args[role]
+        return self._args
 
 
 class Event:
