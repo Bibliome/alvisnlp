@@ -265,6 +265,17 @@ public abstract class StringLibrary extends FunctionLibrary {
 		return "";
 	}
 	
+	@Function(ftors = 1)
+	public static boolean find(String delim, String item, String set) {
+		List<String> lset = Strings.split(set, delim.charAt(0), 0);
+		return lset.contains(item);
+	}
+
+	@Function
+	public static boolean find(String item, String set) {
+		return find(",", item, set);
+	}
+
 	@Function(ftors=2, nameTypes={Function.NO_NAME_TYPE, NameType.FEATURE})
 	public static Iterator<Element> split(EvaluationContext ctx, Element elt, String separator, String feature, Evaluator target) {
 		String sTarget = target.evaluateString(ctx, elt);
