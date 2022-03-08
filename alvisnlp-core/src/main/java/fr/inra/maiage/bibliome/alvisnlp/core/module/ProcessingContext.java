@@ -121,6 +121,8 @@ public interface ProcessingContext<T extends Annotable> {
 
 	boolean isCleanTmpDir();
 	
+	void setCleanTmpDir(boolean cleanTmpDir);
+	
 	Annotable.Dumper<T> getDumper(Logger logger, File file) throws IOException;
 }
 
