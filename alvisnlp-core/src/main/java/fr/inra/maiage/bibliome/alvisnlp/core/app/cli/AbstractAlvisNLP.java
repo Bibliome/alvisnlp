@@ -1035,6 +1035,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     	result.setLocale(locale);
     	result.setDumps(dumps);
         result.setResumeMode(resumeFile != null);
+        result.setCleanTmpDir(cleanTmpDir);
     	return result;
     }
         
