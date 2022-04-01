@@ -108,7 +108,7 @@ BB-event-10658649	text	0	punct	glycoprotein	-
 BB-event-10658649	text	0	compound	activity	binding
 BB-event-10658649	text	0	dep	glycoprotein	activity
 BB-event-10658649	text	0	acl	activity	in
-BB-event-10658649	text	0	root	in	Streptococcus
+BB-event-10658649	text	0	dep	in	Streptococcus
 BB-event-10658649	text	0	dobj	Streptococcus	pyogenes
 BB-event-10658649	text	0	acl	pyogenes	regulated
 BB-event-10658649	text	0	case	gene	by
@@ -333,8 +333,8 @@ BB-event-10738994	text	189	nmod	methicillin	facility
 BB-event-10738994	text	189	compound	)	(
 BB-event-10738994	text	189	compound	)	SNF
 BB-event-10738994	text	189	dep	facility	)
-BB-event-10738994	text	189	punct	assist	,
-BB-event-10738994	text	189	root	,	we
+BB-event-10738994	text	189	punct	we	,
+BB-event-10738994	text	189	dep	assist	we
 BB-event-10738994	text	189	case	genotyping	compared
 BB-event-10738994	text	189	dep	we	genotyping
 BB-event-10738994	text	189	case	field	by
@@ -556,10 +556,10 @@ BB-event-10738994	text	1462	det	study	our
 BB-event-10738994	text	1462	nmod	patients	study
 BB-event-10738994	text	1462	punct	poor	.
 BB-event-11410343	text	0	root		Effects
-BB-event-11410343	text	0	acl	Effects	of
-BB-event-11410343	text	0	root	of	2
+BB-event-11410343	text	0	dep	Effects	of
+BB-event-11410343	text	0	dep	of	2
 BB-event-11410343	text	0	punct	2	,
-BB-event-11410343	text	0	root	,	2'
+BB-event-11410343	text	0	dep	,	2'
 BB-event-11410343	text	0	punct	2'	,
 BB-event-11410343	text	0	conj	2'	5
 BB-event-11410343	text	0	punct	2'	,
@@ -612,11 +612,11 @@ BB-event-11410343	text	100	case	polarization	by
 BB-event-11410343	text	100	compound	polarization	measuring
 BB-event-11410343	text	100	compound	polarization	fluorescence
 BB-event-11410343	text	100	nmod	effects	polarization
-BB-event-11410343	text	100	dep	polarization	using
-BB-event-11410343	text	100	dep	using	1
+BB-event-11410343	text	100	acl	polarization	using
+BB-event-11410343	text	100	dobj	using	1
 BB-event-11410343	text	100	punct	1	,
 BB-event-11410343	text	100	compound	-1	6-diphenyl
-BB-event-11410343	text	100	root	,	-1
+BB-event-11410343	text	100	dep	,	-1
 BB-event-11410343	text	100	punct	-1	,
 BB-event-11410343	text	100	amod	-1	3
 BB-event-11410343	text	100	punct	-1	,
@@ -778,7 +778,7 @@ BB-event-11410343	text	1200	root		show
 BB-event-11410343	text	1200	dep	show	that
 BB-event-11410343	text	1200	compound	cells	biphenyl
 BB-event-11410343	text	1200	compound	cells	affects
-BB-event-11410343	text	1200	root	that	cells
+BB-event-11410343	text	1200	dep	that	cells
 BB-event-11410343	text	1200	case	ways	in
 BB-event-11410343	text	1200	amod	ways	more
 BB-event-11410343	text	1200	nmod	cells	ways
@@ -873,7 +873,7 @@ BB-event-11437594	text	440	compound	approaches	growth
 BB-event-11437594	text	440	amod	approaches	physiological
 BB-event-11437594	text	440	cc	physiological	and
 BB-event-11437594	text	440	conj	physiological	genetic
-BB-event-11437594	text	440	nsubjpass	investigated	approaches
+BB-event-11437594	text	440	nsubj	investigated	approaches
 BB-event-11437594	text	440	case	optimization	for
 BB-event-11437594	text	440	nmod	approaches	optimization
 BB-event-11437594	text	440	case	production	of
@@ -1022,9 +1022,9 @@ BB-event-12728302	text	0	dep	response	fixing
 BB-event-12728302	text	0	dobj	fixing	cyanobacterium
 BB-event-12728302	text	0	acl	cyanobacterium	Anabaena
 BB-event-12728302	text	0	dobj	Anabaena	sp
-BB-event-12728302	text	0	acl	sp	.
+BB-event-12728302	text	0	dep	sp	.
 BB-event-12728302	text	0	compound	L	strain
-BB-event-12728302	text	0	root	.	L
+BB-event-12728302	text	0	dep	.	L
 BB-event-12728302	text	0	nummod	L	-31
 BB-event-12728302	text	0	punct	L	.
 BB-event-12728302	text	124	case	coli	Compared
@@ -1033,13 +1033,13 @@ BB-event-12728302	text	124	compound	coli	Escherichia
 BB-event-12728302	text	124	root		coli
 BB-event-12728302	text	124	punct	coli	,
 BB-event-12728302	text	124	det	nitrogen	the
-BB-event-12728302	text	124	root	,	nitrogen
+BB-event-12728302	text	124	nsubj	,	nitrogen
 BB-event-12728302	text	124	punct	nitrogen	-
 BB-event-12728302	text	124	dep	nitrogen	fixing
 BB-event-12728302	text	124	dobj	fixing	soil
 BB-event-12728302	text	124	dobj	soil	cyanobacterium
 BB-event-12728302	text	124	acl	cyanobacterium	Anabaena
-BB-event-12728302	text	124	root	Anabaena	sp
+BB-event-12728302	text	124	dobj	Anabaena	sp
 BB-event-12728302	text	124	mark	exhibited	.
 BB-event-12728302	text	124	compound	L	strain
 BB-event-12728302	text	124	nsubj	exhibited	L
@@ -1215,9 +1215,9 @@ BB-event-12728302	text	1069	mark	distinguish	to
 BB-event-12728302	text	1069	xcomp	appear	distinguish
 BB-event-12728302	text	1069	det	bacteria	these
 BB-event-12728302	text	1069	dobj	distinguish	bacteria
-BB-event-12728302	text	1069	case	their	in
-BB-event-12728302	text	1069	nmod	distinguish	their
-BB-event-12728302	text	1069	root	their	thermotolerance
+BB-event-12728302	text	1069	dep	distinguish	in
+BB-event-12728302	text	1069	dep	in	their
+BB-event-12728302	text	1069	dep	their	thermotolerance
 BB-event-12728302	text	1069	cc	thermotolerance	and
 BB-event-12728302	text	1069	conj	thermotolerance	recovery
 BB-event-12728302	text	1069	case	stress	from
@@ -1394,7 +1394,7 @@ BB-event-12970344	text	135	det	-1	the
 BB-event-12970344	text	135	compound	-1	beta
 BB-event-12970344	text	135	dobj	cleave	-1
 BB-event-12970344	text	135	punct	cleave	,
-BB-event-12970344	text	135	root	,	4-linkages
+BB-event-12970344	text	135	nsubj	,	4-linkages
 BB-event-12970344	text	135	case	beta	between
 BB-event-12970344	text	135	nmod	4-linkages	beta
 BB-event-12970344	text	135	punct	beta	-
@@ -2072,11 +2072,11 @@ BB-event-15358511	text	577	punct	TSB	,
 BB-event-15358511	text	577	amod	production	supported
 BB-event-15358511	text	577	compound	production	capsule
 BB-event-15358511	text	577	appos	TSB	production
-BB-event-15358511	text	577	case	.	by
-BB-event-15358511	text	577	compound	.	E
-BB-event-15358511	text	577	nmod	production	.
+BB-event-15358511	text	577	acl	production	by
+BB-event-15358511	text	577	dep	by	E
+BB-event-15358511	text	577	dep	E	.
 BB-event-15358511	text	577	compound	O157	coli
-BB-event-15358511	text	577	root	.	O157
+BB-event-15358511	text	577	dep	.	O157
 BB-event-15358511	text	577	punct	O157	:
 BB-event-15358511	text	577	dep	O157	H7
 BB-event-15358511	text	577	punct	O157	.
@@ -2128,9 +2128,9 @@ BB-event-15358511	text	796	det	attachment	the
 BB-event-15358511	text	796	nmod	play	attachment
 BB-event-15358511	text	796	case	E	of
 BB-event-15358511	text	796	nmod	attachment	E
-BB-event-15358511	text	796	punct	attachment	.
+BB-event-15358511	text	796	dep	attachment	.
 BB-event-15358511	text	796	compound	O157	coli
-BB-event-15358511	text	796	root	.	O157
+BB-event-15358511	text	796	dep	.	O157
 BB-event-15358511	text	796	punct	O157	:
 BB-event-15358511	text	796	dep	O157	H7
 BB-event-15358511	text	796	case	surfaces	to
@@ -2181,13 +2181,13 @@ BB-event-16263187	text	136	compound	Lb	Lactobacillus
 BB-event-16263187	text	136	compound	Lb	(
 BB-event-16263187	text	136	nmod	ability	Lb
 BB-event-16263187	text	136	punct	ability	.
-BB-event-16263187	text	136	root	.	)
+BB-event-16263187	text	136	dep	.	)
 BB-event-16263187	text	136	amod	K	gasseri
 BB-event-16263187	text	136	dep	)	K
 BB-event-16263187	text	136	nummod	K	7
 BB-event-16263187	text	136	dep	K	to
 BB-event-16263187	text	136	dep	K	inhibit
-BB-event-16263187	text	136	root	inhibit	adhesion
+BB-event-16263187	text	136	dobj	inhibit	adhesion
 BB-event-16263187	text	136	case	O8	of
 BB-event-16263187	text	136	compound	O8	Escherichia
 BB-event-16263187	text	136	compound	O8	coli
@@ -2222,14 +2222,14 @@ BB-event-16263187	text	334	punct	coli	.
 BB-event-16263187	text	334	dep	E	coli
 BB-event-16263187	text	334	punct	added	,
 BB-event-16263187	text	334	dep	added	before
-BB-event-16263187	text	334	root	before	E
-BB-event-16263187	text	334	acl	E	.
-BB-event-16263187	text	334	root	.	coli
+BB-event-16263187	text	334	dep	before	E
+BB-event-16263187	text	334	dep	E	.
+BB-event-16263187	text	334	dep	.	coli
 BB-event-16263187	text	334	cc	coli	and
 BB-event-16263187	text	334	case	E	after
 BB-event-16263187	text	334	conj	coli	E
 BB-event-16263187	text	334	dep	coli	.
-BB-event-16263187	text	334	root	.	coli
+BB-event-16263187	text	334	dep	.	coli
 BB-event-16263187	text	334	case	competition	for
 BB-event-16263187	text	334	nmod	coli	competition
 BB-event-16263187	text	334	punct	competition	,
@@ -2287,7 +2287,7 @@ BB-event-16263187	text	659	punct	adhered	.
 BB-event-16263187	text	659	nsubj	adhered	coli
 BB-event-16263187	text	659	root		adhered
 BB-event-16263187	text	659	dep	adhered	to
-BB-event-16263187	text	659	root	to	Caco
+BB-event-16263187	text	659	ccomp	to	Caco
 BB-event-16263187	text	659	nummod	monolayer	-2
 BB-event-16263187	text	659	nsubj	lineary	monolayer
 BB-event-16263187	text	659	compound	)	(
@@ -2296,7 +2296,7 @@ BB-event-16263187	text	659	dep	)	/
 BB-event-16263187	text	659	compound	)	well
 BB-event-16263187	text	659	dep	monolayer	)
 BB-event-16263187	text	659	cop	lineary	was
-BB-event-16263187	text	659	root	Caco	lineary
+BB-event-16263187	text	659	ccomp	Caco	lineary
 BB-event-16263187	text	659	amod	)	correlated
 BB-event-16263187	text	659	compound	)	(R(2)=
 BB-event-16263187	text	659	nummod	(R(2)=	0.97
@@ -2365,9 +2365,9 @@ BB-event-16263187	text	910	compound	E	(
 BB-event-16263187	text	910	compound	E	ratio
 BB-event-16263187	text	910	dep	inhibited	E
 BB-event-16263187	text	910	punct	E	.
-BB-event-16263187	text	910	appos	E	coli
-BB-event-16263187	text	910	acl	coli	/
-BB-event-16263187	text	910	root	/	lactobacilli
+BB-event-16263187	text	910	dep	E	coli
+BB-event-16263187	text	910	dep	coli	/
+BB-event-16263187	text	910	dep	/	lactobacilli
 BB-event-16263187	text	910	nummod	lactobacilli	1
 BB-event-16263187	text	910	punct	lactobacilli	:
 BB-event-16263187	text	910	nummod	)	248
@@ -2523,9 +2523,9 @@ BB-event-16263187	text	1740	root		found
 BB-event-16263187	text	1740	mark	effective	to
 BB-event-16263187	text	1740	cop	effective	be
 BB-event-16263187	text	1740	xcomp	found	effective
-BB-event-16263187	text	1740	case	reducing	in
-BB-event-16263187	text	1740	nmod	effective	reducing
-BB-event-16263187	text	1740	root	reducing	E
+BB-event-16263187	text	1740	dep	effective	in
+BB-event-16263187	text	1740	dep	in	reducing
+BB-event-16263187	text	1740	dep	reducing	E
 BB-event-16263187	text	1740	dep	E	.
 BB-event-16263187	text	1740	compound	adhesion	coli
 BB-event-16263187	text	1740	dep	.	adhesion
@@ -2702,7 +2702,7 @@ BB-event-16432479	text	930	nmod	percentage	penicillin
 BB-event-16432479	text	930	punct	penicillin	-
 BB-event-16432479	text	930	amod	N	resistant
 BB-event-16432479	text	930	dep	penicillin	N
-BB-event-16432479	text	930	punct	percentage	.
+BB-event-16432479	text	930	acl	percentage	.
 BB-event-16432479	text	930	compound	resistance	gonorrhoeae
 BB-event-16432479	text	930	amod	resistance	isolated
 BB-event-16432479	text	930	case	region	in
@@ -2718,7 +2718,7 @@ BB-event-16432479	text	930	nummod	%	1.0-11.9
 BB-event-16432479	text	930	amod	resistance	%
 BB-event-16432479	text	930	amod	resistance	carried
 BB-event-16432479	text	930	amod	resistance	chromosomal
-BB-event-16432479	text	930	root	.	resistance
+BB-event-16432479	text	930	dobj	.	resistance
 BB-event-16432479	text	930	cc	resistance	and
 BB-event-16432479	text	930	nummod	%	17.9-38.8
 BB-event-16432479	text	930	conj	resistance	%
@@ -2759,7 +2759,7 @@ BB-event-16432479	text	1202	dep	%	to
 BB-event-16432479	text	1202	compound	%	27.4
 BB-event-16432479	text	1202	nummod	plasmid	%
 BB-event-16432479	text	1202	amod	plasmid	carried
-BB-event-16432479	text	1202	root	whereas	plasmid
+BB-event-16432479	text	1202	dobj	whereas	plasmid
 BB-event-16432479	text	1202	punct	plasmid	-
 BB-event-16432479	text	1202	amod	resistance	mediated
 BB-event-16432479	text	1202	dep	plasmid	resistance
@@ -3080,7 +3080,7 @@ BB-event-16990433	text	332	acl	approaches	establish
 BB-event-16990433	text	332	dobj	establish	that
 BB-event-16990433	text	332	det	repertoire	the
 BB-event-16990433	text	332	compound	repertoire	effector
-BB-event-16990433	text	332	root	that	repertoire
+BB-event-16990433	text	332	dep	that	repertoire
 BB-event-16990433	text	332	case	strain	in
 BB-event-16990433	text	332	det	strain	the
 BB-event-16990433	text	332	compound	strain	Sakai
@@ -3093,7 +3093,7 @@ BB-event-16990433	text	332	compound	O157	coli
 BB-event-16990433	text	332	compound	O157	(
 BB-event-16990433	text	332	compound	O157	EHEC
 BB-event-16990433	text	332	compound	O157	)
-BB-event-16990433	text	332	root	.	O157
+BB-event-16990433	text	332	dep	.	O157
 BB-event-16990433	text	332	punct	O157	:
 BB-event-16990433	text	332	nsubj	larger	H7
 BB-event-16990433	text	332	cop	larger	is
@@ -3196,11 +3196,11 @@ BB-event-16990433	text	1007	case	pathogens	from
 BB-event-16990433	text	1007	compound	pathogens	plant
 BB-event-16990433	text	1007	nmod	effectors	pathogens
 BB-event-16990433	text	1007	dep	pathogens	(
-BB-event-16990433	text	1007	root	(	HopPtoH
+BB-event-16990433	text	1007	dep	(	HopPtoH
 BB-event-16990433	text	1007	punct	HopPtoH	,
-BB-event-16990433	text	1007	root	,	HopW
+BB-event-16990433	text	1007	dep	,	HopW
 BB-event-16990433	text	1007	punct	HopW	,
-BB-event-16990433	text	1007	root	,	AvrA
+BB-event-16990433	text	1007	dep	,	AvrA
 BB-event-16990433	text	1007	dep	AvrA	)
 BB-event-16990433	text	1007	cc	)	and
 BB-event-16990433	text	1007	case	OspD	from
@@ -3421,9 +3421,9 @@ BB-event-17237163	text	680	amod	surface	abiotic
 BB-event-17237163	text	680	nmod	adhesion	surface
 BB-event-17237163	text	680	cop	regulated	was
 BB-event-17237163	text	680	nmod:npmod	regulated	AHL
-BB-event-17237163	text	680	dep	that	regulated
-BB-event-17237163	text	680	punct	regulated	,
-BB-event-17237163	text	680	root	,	adhesion
+BB-event-17237163	text	680	advcl	that	regulated
+BB-event-17237163	text	680	punct	adhesion	,
+BB-event-17237163	text	680	dobj	regulated	adhesion
 BB-event-17237163	text	680	case	surface	to
 BB-event-17237163	text	680	det	surface	the
 BB-event-17237163	text	680	compound	surface	HCE
@@ -3584,10 +3584,10 @@ BB-event-17237163	text	1488	conj	exopolysaccharide	OmpX
 BB-event-17237163	text	1488	punct	found	.
 BB-event-17237163	text	1641	nsubj	concluded	We
 BB-event-17237163	text	1641	root		concluded
-BB-event-17237163	text	1641	dobj	concluded	that
-BB-event-17237163	text	1641	root	that	S
-BB-event-17237163	text	1641	punct	S	.
-BB-event-17237163	text	1641	root	.	marcescens
+BB-event-17237163	text	1641	dep	concluded	that
+BB-event-17237163	text	1641	dep	that	S
+BB-event-17237163	text	1641	dep	S	.
+BB-event-17237163	text	1641	dep	.	marcescens
 BB-event-17237163	text	1641	dep	marcescens	MG1
 BB-event-17237163	text	1641	acl	MG1	utilizes
 BB-event-17237163	text	1641	amod	systems	different
@@ -3933,7 +3933,7 @@ BB-event-19049879	text	1035	amod	expression	lowest
 BB-event-19049879	text	1035	conj	control	expression
 BB-event-19049879	text	1035	case	MyD88	of
 BB-event-19049879	text	1035	nmod	expression	MyD88
-BB-event-19049879	text	1035	root	much	was
+BB-event-19049879	text	1035	dep	much	was
 BB-event-19049879	text	1035	case	liver	in
 BB-event-19049879	text	1035	det	liver	the
 BB-event-19049879	text	1035	nmod	was	liver
@@ -3947,7 +3947,7 @@ BB-event-19049879	text	1035	nmod	)	times
 BB-event-19049879	text	1035	dep	times	(
 BB-event-19049879	text	1035	case	3h	at
 BB-event-19049879	text	1035	nmod	(	3h
-BB-event-19049879	text	1035	root	3h	)
+BB-event-19049879	text	1035	dep	3h	)
 BB-event-19049879	text	1035	case	that	of
 BB-event-19049879	text	1035	nmod	)	that
 BB-event-19049879	text	1035	case	control	in
@@ -4067,12 +4067,12 @@ BB-event-19075662	text	442	punct	S	.
 BB-event-19075662	text	442	conj	S	aureus
 BB-event-19075662	text	442	cc	S	and
 BB-event-19075662	text	442	conj	S	S
-BB-event-19075662	text	442	punct	insights	.
+BB-event-19075662	text	442	acl	insights	.
 BB-event-19075662	text	442	compound	factors	epidermidis
 BB-event-19075662	text	442	amod	factors	structural
 BB-event-19075662	text	442	cc	structural	and
 BB-event-19075662	text	442	conj	structural	functional
-BB-event-19075662	text	442	root	.	factors
+BB-event-19075662	text	442	dobj	.	factors
 BB-event-19075662	text	442	nsubj	effective	that
 BB-event-19075662	text	442	cop	effective	are
 BB-event-19075662	text	442	acl:relcl	factors	effective
@@ -4336,10 +4336,10 @@ BB-event-19099664	text	1226	nmod	resistant	agents
 BB-event-19099664	text	1226	root		increase
 BB-event-19099664	text	1226	punct	increase	.
 BB-event-19175621	text	0	root		Occurrence
-BB-event-19175621	text	0	acl	Occurrence	of
+BB-event-19175621	text	0	dep	Occurrence	of
 BB-event-19175621	text	0	dep	spectrum	extended
 BB-event-19175621	text	0	punct	spectrum	-
-BB-event-19175621	text	0	root	of	spectrum
+BB-event-19175621	text	0	dep	of	spectrum
 BB-event-19175621	text	0	dep	lactamase	beta
 BB-event-19175621	text	0	punct	lactamase	-
 BB-event-19175621	text	0	dep	spectrum	lactamase
@@ -4420,7 +4420,7 @@ BB-event-19175621	text	378	nmod	ESBL	S
 BB-event-19175621	text	378	punct	characterization	.
 BB-event-19175621	text	378	mark	revealed	enterica
 BB-event-19175621	text	378	nsubj	revealed	Livingstone
-BB-event-19175621	text	378	root	.	revealed
+BB-event-19175621	text	378	dep	.	revealed
 BB-event-19175621	text	378	det	gene	a
 BB-event-19175621	text	378	compound	gene	bla(SHV
 BB-event-19175621	text	378	nummod	gene	-2
@@ -4491,7 +4491,7 @@ BB-event-19175621	text	684	nmod	patterns	themselves
 BB-event-19175621	text	684	cc	presented	and
 BB-event-19175621	text	684	advmod	presented	also
 BB-event-19175621	text	684	mark	compared	as
-BB-event-19175621	text	684	root	also	compared
+BB-event-19175621	text	684	dep	also	compared
 BB-event-19175621	text	684	case	bla(CTX	with
 BB-event-19175621	text	684	det	bla(CTX	the
 BB-event-19175621	text	684	nummod	bla(CTX	two
@@ -4764,8 +4764,8 @@ BB-event-19396518	text	1206	punct	high	,
 BB-event-19396518	text	1206	dep	high	followed
 BB-event-19396518	text	1206	case	S	by
 BB-event-19396518	text	1206	nmod	followed	S
-BB-event-19396518	text	1206	punct	followed	.
-BB-event-19396518	text	1206	root	.	pneumoniae
+BB-event-19396518	text	1206	dep	followed	.
+BB-event-19396518	text	1206	dep	.	pneumoniae
 BB-event-19396518	text	1206	dep	pneumoniae	(
 BB-event-19396518	text	1206	nummod	%	21.4
 BB-event-19396518	text	1206	dep	(	%
@@ -5064,7 +5064,7 @@ BB-event-19501788	text	1119	punct	used	,
 BB-event-19501788	text	1119	compound	levels	TFM
 BB-event-19501788	text	1119	amod	levels	affords
 BB-event-19501788	text	1119	amod	levels	high
-BB-event-19501788	text	1119	root	,	levels
+BB-event-19501788	text	1119	dep	,	levels
 BB-event-19501788	text	1119	case	protection	of
 BB-event-19501788	text	1119	nmod	levels	protection
 BB-event-19501788	text	1119	case	flounder	upon
@@ -5074,9 +5074,9 @@ BB-event-19501788	text	1119	case	P	against
 BB-event-19501788	text	1119	neg	only	not
 BB-event-19501788	text	1119	cc:preconj	P	only
 BB-event-19501788	text	1119	nmod	protection	P
-BB-event-19501788	text	1119	punct	levels	.
+BB-event-19501788	text	1119	acl	levels	.
 BB-event-19501788	text	1119	compound	infection	fluorescens
-BB-event-19501788	text	1119	root	.	infection
+BB-event-19501788	text	1119	dep	.	infection
 BB-event-19501788	text	1119	cc	infection	but
 BB-event-19501788	text	1119	advmod	Aeromonas	also
 BB-event-19501788	text	1119	conj	infection	Aeromonas
@@ -5206,8 +5206,8 @@ BB-event-19622846	text	247	dobj	used	tests
 BB-event-19622846	text	247	mark	identify	to
 BB-event-19622846	text	247	advcl	used	identify
 BB-event-19622846	text	247	dobj	identify	S
-BB-event-19622846	text	247	punct	S	.
-BB-event-19622846	text	247	root	.	aureus
+BB-event-19622846	text	247	acl	S	.
+BB-event-19622846	text	247	dobj	.	aureus
 BB-event-19622846	text	247	cc	aureus	and
 BB-event-19622846	text	247	conj	aureus	E-tests
 BB-event-19622846	text	247	mark	determine	to
@@ -5526,7 +5526,7 @@ BB-event-20005916	text	1205	nmod	activate	route
 BB-event-20005916	text	1205	nsubj	bypasses	that
 BB-event-20005916	text	1205	acl:relcl	route	bypasses
 BB-event-20005916	text	1205	dobj	bypasses	the
-BB-event-20005916	text	1205	root	the	classical
+BB-event-20005916	text	1205	amod	the	classical
 BB-event-20005916	text	1205	dep	classical	neuregulin
 BB-event-20005916	text	1205	dep	neuregulin	/
 BB-event-20005916	text	1205	compound	factor	growth
@@ -5567,9 +5567,9 @@ BB-event-20005916	text	1522	dobj	provides	advantage
 BB-event-20005916	text	1522	case	M	for
 BB-event-20005916	text	1522	nmod	advantage	M
 BB-event-20005916	text	1522	punct	provides	.
-BB-event-20005916	text	1522	root	.	leprae
+BB-event-20005916	text	1522	nsubj	.	leprae
 BB-event-20005916	text	1522	dep	leprae	as
-BB-event-20005916	text	1522	root	as	it
+BB-event-20005916	text	1522	dep	as	it
 BB-event-20005916	text	1522	dep	it	induces
 BB-event-20005916	text	1522	compound	myelin	de-differentiation
 BB-event-20005916	text	1522	cc	de-differentiation	and
@@ -5686,7 +5686,7 @@ BB-event-20073421	text	0	det	growth	the
 BB-event-20073421	text	0	nmod	effect	growth
 BB-event-20073421	text	0	case	Francisella	of
 BB-event-20073421	text	0	nmod	growth	Francisella
-BB-event-20073421	text	0	root	Francisella	tularensis
+BB-event-20073421	text	0	dep	Francisella	tularensis
 BB-event-20073421	text	0	dep	tularensis	LVS
 BB-event-20073421	text	0	case	macrophage	in
 BB-event-20073421	text	0	amod	macrophage	murine
@@ -5727,7 +5727,7 @@ BB-event-20073421	text	264	nmod	potential	F
 BB-event-20073421	text	264	punct	evaluate	.
 BB-event-20073421	text	264	compound	strain	tularensis
 BB-event-20073421	text	264	compound	strain	LVS
-BB-event-20073421	text	264	root	.	strain
+BB-event-20073421	text	264	dep	.	strain
 BB-event-20073421	text	264	case	macrophage	in
 BB-event-20073421	text	264	nmod	strain	macrophage
 BB-event-20073421	text	264	punct	strain	-
@@ -5860,7 +5860,7 @@ BB-event-20148898	text	123	xcomp	allowing	establish
 BB-event-20148898	text	123	dobj	establish	infection
 BB-event-20148898	text	123	punct	deliver	.
 BB-event-20148898	text	312	root		Although
-BB-event-20148898	text	312	root	Although	Yersinia
+BB-event-20148898	text	312	dep	Although	Yersinia
 BB-event-20148898	text	312	dobj	Yersinia	pseudotuberculosis
 BB-event-20148898	text	312	acl	pseudotuberculosis	delivers
 BB-event-20148898	text	312	amod	proteins	its
@@ -5903,7 +5903,7 @@ BB-event-20148898	text	312	cc	patches	and
 BB-event-20148898	text	312	conj	patches	spleen
 BB-event-20148898	text	312	punct	targets	,
 BB-event-20148898	text	312	dep	targets	although
-BB-event-20148898	text	312	root	although	it
+BB-event-20148898	text	312	dep	although	it
 BB-event-20148898	text	312	dep	it	colocalizes
 BB-event-20148898	text	312	case	B	with
 BB-event-20148898	text	312	nmod	colocalizes	B
@@ -6046,7 +6046,7 @@ BB-event-20148898	text	1384	conj	encounters	Yops
 BB-event-20148898	text	1384	case	phagocytes	to
 BB-event-20148898	text	1384	nmod	Yops	phagocytes
 BB-event-20148898	text	1384	dep	encounters	while
-BB-event-20148898	text	1384	root	while	refraining
+BB-event-20148898	text	1384	dep	while	refraining
 BB-event-20148898	text	1384	case	translocation	from
 BB-event-20148898	text	1384	nmod	refraining	translocation
 BB-event-20148898	text	1384	case	types	to
@@ -6328,8 +6328,8 @@ BB-event-21498521	text	1329	case	3-position	of
 BB-event-21498521	text	1329	det	3-position	the
 BB-event-21498521	text	1329	nmod	site	3-position
 BB-event-21498521	text	1329	acl	site	consisting
-BB-event-21498521	text	1329	nmod	consisting	of
-BB-event-21498521	text	1329	root	of	phosphoglycerol
+BB-event-21498521	text	1329	case	phosphoglycerol	of
+BB-event-21498521	text	1329	nmod	consisting	phosphoglycerol
 BB-event-21498521	text	1329	dep	phosphoglycerol	(
 BB-event-21498521	text	1329	compound	)	GroP
 BB-event-21498521	text	1329	dep	(	)
@@ -6351,7 +6351,7 @@ BB-event-21498521	text	1329	cc	0	or
 BB-event-21498521	text	1329	conj	0	C16
 BB-event-21498521	text	1329	punct	(	:
 BB-event-21498521	text	1329	dep	(	1
-BB-event-21498521	text	1329	root	1	)
+BB-event-21498521	text	1329	dep	1	)
 BB-event-21498521	text	1329	punct	)	,
 BB-event-21498521	text	1329	cc	)	or
 BB-event-21498521	text	1329	amod	acid	phosphatidic
@@ -6387,22 +6387,22 @@ BB-event-21498521	text	1621	cop	possible	is
 BB-event-21498521	text	1621	root		possible
 BB-event-21498521	text	1621	dep	possible	that
 BB-event-21498521	text	1621	det	features	these
-BB-event-21498521	text	1621	root	that	features
+BB-event-21498521	text	1621	nsubj	that	features
 BB-event-21498521	text	1621	case	V	of
 BB-event-21498521	text	1621	det	V	the
 BB-event-21498521	text	1621	nmod	features	V
-BB-event-21498521	text	1621	punct	features	.
+BB-event-21498521	text	1621	acl	features	.
 BB-event-21498521	text	1621	punct	underlie	fischeri
 BB-event-21498521	text	1621	compound	A	lipid
 BB-event-21498521	text	1621	nsubj	underlie	A
 BB-event-21498521	text	1621	aux	underlie	may
-BB-event-21498521	text	1621	root	.	underlie
+BB-event-21498521	text	1621	ccomp	.	underlie
 BB-event-21498521	text	1621	det	ability	the
 BB-event-21498521	text	1621	dobj	underlie	ability
 BB-event-21498521	text	1621	case	E	of
 BB-event-21498521	text	1621	nmod	ability	E
-BB-event-21498521	text	1621	punct	ability	.
-BB-event-21498521	text	1621	root	.	scolopes
+BB-event-21498521	text	1621	acl	ability	.
+BB-event-21498521	text	1621	dobj	.	scolopes
 BB-event-21498521	text	1621	mark	recognize	to
 BB-event-21498521	text	1621	acl	scolopes	recognize
 BB-event-21498521	text	1621	nmod:poss	partner	its
@@ -6464,7 +6464,7 @@ BB-event-21917915	text	295	punct	show	,
 BB-event-21917915	text	295	nsubj	show	we
 BB-event-21917915	text	295	root		show
 BB-event-21917915	text	295	dep	show	how
-BB-event-21917915	text	295	root	how	one
+BB-event-21917915	text	295	dep	how	one
 BB-event-21917915	text	295	case	commonest	of
 BB-event-21917915	text	295	det	commonest	the
 BB-event-21917915	text	295	nmod	one	commonest
@@ -6543,7 +6543,7 @@ BB-event-21917915	text	638	dobj	limit	capacity
 BB-event-21917915	text	638	case	S	of
 BB-event-21917915	text	638	nmod	capacity	S
 BB-event-21917915	text	638	punct	limit	.
-BB-event-21917915	text	638	root	.	aureus
+BB-event-21917915	text	638	dobj	.	aureus
 BB-event-21917915	text	638	case	Hb	to
 BB-event-21917915	text	638	compound	Hb	utilize
 BB-event-21917915	text	638	nmod	aureus	Hb
@@ -6613,8 +6613,8 @@ BB-event-21924022	text	88	case	pylori	of
 BB-event-21924022	text	88	amod	pylori	multiple
 BB-event-21924022	text	88	compound	pylori	Helicobacter
 BB-event-21924022	text	88	nmod	value	pylori
-BB-event-21924022	text	88	dep	pylori	(
-BB-event-21924022	text	88	root	(	H
+BB-event-21924022	text	88	acl	pylori	(
+BB-event-21924022	text	88	dobj	(	H
 BB-event-21924022	text	88	dep	H	.
 BB-event-21924022	text	88	compound	detection	pylori
 BB-event-21924022	text	88	compound	detection	)
@@ -6630,7 +6630,7 @@ BB-event-21924022	text	88	case	H	of
 BB-event-21924022	text	88	nmod	diagnosis	H
 BB-event-21924022	text	88	punct	detection	.
 BB-event-21924022	text	88	compound	infection	pylori
-BB-event-21924022	text	88	root	.	infection
+BB-event-21924022	text	88	dep	.	infection
 BB-event-21924022	text	88	case	children	in
 BB-event-21924022	text	88	nmod	infection	children
 BB-event-21924022	text	88	punct	infection	.
@@ -6753,7 +6753,7 @@ BB-event-21924022	text	825	nmod	Compared	criterion
 BB-event-21924022	text	825	punct	criterion	"
 BB-event-21924022	text	825	punct	Compared	,
 BB-event-21924022	text	825	det	goodness	the
-BB-event-21924022	text	825	root	,	goodness
+BB-event-21924022	text	825	dep	,	goodness
 BB-event-21924022	text	825	case	fit	of
 BB-event-21924022	text	825	nmod	goodness	fit
 BB-event-21924022	text	825	cc	fit	and
@@ -6768,9 +6768,9 @@ BB-event-21924022	text	825	case	H	of
 BB-event-21924022	text	825	nmod	diagnosis	H
 BB-event-21924022	text	825	punct	goodness	.
 BB-event-21924022	text	825	compound	infection	pylori
-BB-event-21924022	text	825	root	.	infection
-BB-event-21924022	text	825	case	the	of
-BB-event-21924022	text	825	nmod	infection	the
+BB-event-21924022	text	825	dep	.	infection
+BB-event-21924022	text	825	dep	infection	of
+BB-event-21924022	text	825	dep	of	the
 BB-event-21924022	text	825	case	groups	following
 BB-event-21924022	text	825	nummod	groups	four
 BB-event-21924022	text	825	nmod	significant	groups
@@ -6779,7 +6779,7 @@ BB-event-21924022	text	825	nsubj	significant	detection
 BB-event-21924022	text	825	cop	significant	were
 BB-event-21924022	text	825	advmod	significant	all
 BB-event-21924022	text	825	advmod	significant	statistically
-BB-event-21924022	text	825	root	the	significant
+BB-event-21924022	text	825	dep	the	significant
 BB-event-21924022	text	825	dep	significant	(
 BB-event-21924022	text	825	compound	)	P<
 BB-event-21924022	text	825	nummod	)	0.001
@@ -7129,15 +7129,15 @@ BB-event-22834551	text	995	case	addition	of
 BB-event-22834551	text	995	det	addition	the
 BB-event-22834551	text	995	amod	addition	dietary
 BB-event-22834551	text	995	nmod	effect	addition
-BB-event-22834551	text	995	case	(	of
+BB-event-22834551	text	995	acl	addition	of
 BB-event-22834551	text	995	compound	(	dried
 BB-event-22834551	text	995	compound	(	A
 BB-event-22834551	text	995	punct	(	.
 BB-event-22834551	text	995	compound	leaves	annua
 BB-event-22834551	text	995	nsubj	(	leaves
-BB-event-22834551	text	995	nmod	addition	(
+BB-event-22834551	text	995	nmod	of	(
 BB-event-22834551	text	995	nummod	g	10
-BB-event-22834551	text	995	root	(	g
+BB-event-22834551	text	995	dep	(	g
 BB-event-22834551	text	995	dep	kg	/
 BB-event-22834551	text	995	dep	g	kg
 BB-event-22834551	text	995	case	)	on
@@ -7149,7 +7149,7 @@ BB-event-22834551	text	995	conj	)	extract
 BB-event-22834551	text	995	case	A	of
 BB-event-22834551	text	995	nmod	)	A
 BB-event-22834551	text	995	punct	g	.
-BB-event-22834551	text	995	root	.	annua
+BB-event-22834551	text	995	dep	.	annua
 BB-event-22834551	text	995	dep	annua	(
 BB-event-22834551	text	995	nummod	mg	250
 BB-event-22834551	text	995	dep	(	mg
@@ -7174,9 +7174,9 @@ BB-event-22834551	text	1245	root		reduced
 BB-event-22834551	text	1245	det	C	the
 BB-event-22834551	text	1245	amod	C	intestinal
 BB-event-22834551	text	1245	dobj	reduced	C
-BB-event-22834551	text	1245	punct	C	.
+BB-event-22834551	text	1245	dep	C	.
 BB-event-22834551	text	1245	compound	numbers	perfringens
-BB-event-22834551	text	1245	root	.	numbers
+BB-event-22834551	text	1245	dep	.	numbers
 BB-event-22834551	text	1245	cc	numbers	and
 BB-event-22834551	text	1245	det	severity	the
 BB-event-22834551	text	1245	conj	numbers	severity
@@ -7227,7 +7227,7 @@ BB-event-22834551	text	1584	nsubj	indicate	results
 BB-event-22834551	text	1584	root		indicate
 BB-event-22834551	text	1584	dep	indicate	that
 BB-event-22834551	text	1584	compound	extracts	n-hexane
-BB-event-22834551	text	1584	root	that	extracts
+BB-event-22834551	text	1584	dep	that	extracts
 BB-event-22834551	text	1584	acl	extracts	derived
 BB-event-22834551	text	1584	case	A	from
 BB-event-22834551	text	1584	nmod	derived	A
@@ -7467,8 +7467,8 @@ BB-event-23702192	text	1159	root		combinations
 BB-event-23702192	text	1159	case	variables	of
 BB-event-23702192	text	1159	nmod	combinations	variables
 BB-event-23702192	text	1159	acl	variables	identified
-BB-event-23702192	text	1159	nmod	identified	by
-BB-event-23702192	text	1159	root	by	using
+BB-event-23702192	text	1159	dep	identified	by
+BB-event-23702192	text	1159	dep	by	using
 BB-event-23702192	text	1159	amod	models	logistic
 BB-event-23702192	text	1159	compound	models	regression
 BB-event-23702192	text	1159	dobj	using	models
@@ -7716,8 +7716,8 @@ BB-event-23855904	text	670	case	isolates	for
 BB-event-23855904	text	670	det	isolates	these
 BB-event-23855904	text	670	nmod	phylogeny	isolates
 BB-event-23855904	text	670	acl	phylogeny	based
-BB-event-23855904	text	670	nmod	based	upon
-BB-event-23855904	text	670	root	upon	Multi
+BB-event-23855904	text	670	dep	based	upon
+BB-event-23855904	text	670	dep	upon	Multi
 BB-event-23855904	text	670	dep	Multi	Locus
 BB-event-23855904	text	670	compound	Typing	Sequence
 BB-event-23855904	text	670	dobj	Locus	Typing
@@ -8048,11 +8048,11 @@ BB-event-23908036	text	780	det	coefficient	a
 BB-event-23908036	text	780	amod	coefficient	calculated
 BB-event-23908036	text	780	compound	coefficient	Matthews
 BB-event-23908036	text	780	dobj	had	coefficient
-BB-event-23908036	text	780	case	Å³	of
-BB-event-23908036	text	780	nummod	Å³	2.23
-BB-event-23908036	text	780	nmod	coefficient	Å³
-BB-event-23908036	text	780	root	Å³	Da⁻¹
-BB-event-23908036	text	780	root	Da⁻¹	assuming
+BB-event-23908036	text	780	case	2.23	of
+BB-event-23908036	text	780	nmod	coefficient	2.23
+BB-event-23908036	text	780	dep	2.23	Å³
+BB-event-23908036	text	780	dep	Å³	Da⁻¹
+BB-event-23908036	text	780	dep	Da⁻¹	assuming
 BB-event-23908036	text	780	nummod	molecules	four
 BB-event-23908036	text	780	dobj	assuming	molecules
 BB-event-23908036	text	780	case	unit	in
@@ -8102,11 +8102,11 @@ BB-event-23908036	text	1042	det	coefficient	a
 BB-event-23908036	text	1042	amod	coefficient	calculated
 BB-event-23908036	text	1042	compound	coefficient	Matthews
 BB-event-23908036	text	1042	dobj	had	coefficient
-BB-event-23908036	text	1042	case	Å³	of
-BB-event-23908036	text	1042	nummod	Å³	2.48
-BB-event-23908036	text	1042	nmod	coefficient	Å³
-BB-event-23908036	text	1042	root	Å³	Da⁻¹
-BB-event-23908036	text	1042	root	Da⁻¹	assuming
+BB-event-23908036	text	1042	case	2.48	of
+BB-event-23908036	text	1042	nmod	coefficient	2.48
+BB-event-23908036	text	1042	dep	2.48	Å³
+BB-event-23908036	text	1042	dep	Å³	Da⁻¹
+BB-event-23908036	text	1042	dep	Da⁻¹	assuming
 BB-event-23908036	text	1042	nummod	molecules	two
 BB-event-23908036	text	1042	dobj	assuming	molecules
 BB-event-23908036	text	1042	case	unit	in
@@ -8226,9 +8226,9 @@ BB-event-24198224	text	442	compound	)	(
 BB-event-24198224	text	442	compound	)	PFGE
 BB-event-24198224	text	442	dep	electrophoresis	)
 BB-event-24198224	text	442	punct	tested	.
-BB-event-24198224	text	541	case	October	During
-BB-event-24198224	text	541	nummod	October	1
-BB-event-24198224	text	541	root		October
+BB-event-24198224	text	541	root		During
+BB-event-24198224	text	541	dep	During	1
+BB-event-24198224	text	541	dep	1	October
 BB-event-24198224	text	541	nummod	November	2009-30
 BB-event-24198224	text	541	nsubj	diagnosed	November
 BB-event-24198224	text	541	nummod	November	2009
@@ -8240,7 +8240,7 @@ BB-event-24198224	text	541	acl	travelers	returning
 BB-event-24198224	text	541	case	Nepal	from
 BB-event-24198224	text	541	nmod	returning	Nepal
 BB-event-24198224	text	541	cop	diagnosed	were
-BB-event-24198224	text	541	root	October	diagnosed
+BB-event-24198224	text	541	acl:relcl	October	diagnosed
 BB-event-24198224	text	541	case	S	with
 BB-event-24198224	text	541	nmod	diagnosed	S
 BB-event-24198224	text	541	punct	diagnosed	.
@@ -8332,7 +8332,7 @@ BB-event-24198224	text	945	case	defervescence	to
 BB-event-24198224	text	945	nmod	time	defervescence
 BB-event-24198224	text	945	cop	days	was
 BB-event-24198224	text	945	nummod	days	6.6
-BB-event-24198224	text	945	root	whereas	days
+BB-event-24198224	text	945	dep	whereas	days
 BB-event-24198224	text	945	amod	days	(
 BB-event-24198224	text	945	dep	(	±
 BB-event-24198224	text	945	nummod	±	1.8
@@ -8350,13 +8350,13 @@ BB-event-24198224	text	1174	dep	point	source
 BB-event-24198224	text	1174	punct	point	,
 BB-event-24198224	text	1174	punct	point	"
 BB-event-24198224	text	1174	dep	point	Paratyphoid
-BB-event-24198224	text	1174	root	Paratyphoid	Mary
+BB-event-24198224	text	1174	dobj	Paratyphoid	Mary
 BB-event-24198224	text	1174	punct	identified	"
 BB-event-24198224	text	1174	punct	identified	-
 BB-event-24198224	text	1174	amod	outbreak	like
 BB-event-24198224	text	1174	nsubjpass	identified	outbreak
 BB-event-24198224	text	1174	auxpass	identified	was
-BB-event-24198224	text	1174	root	Mary	identified
+BB-event-24198224	text	1174	dep	Mary	identified
 BB-event-24198224	text	1174	case	travelers	among
 BB-event-24198224	text	1174	amod	travelers	Israeli
 BB-event-24198224	text	1174	nmod	identified	travelers
@@ -8487,7 +8487,7 @@ BB-event-24361838	text	527	case	activity	with
 BB-event-24361838	text	527	det	activity	a
 BB-event-24361838	text	527	amod	activity	stronger
 BB-event-24361838	text	527	amod	activity	lytic
-BB-event-24361838	text	527	root	,	activity
+BB-event-24361838	text	527	nmod	,	activity
 BB-event-24361838	text	527	case	former	against
 BB-event-24361838	text	527	det	former	the
 BB-event-24361838	text	527	nmod	activity	former
@@ -8570,7 +8570,7 @@ BB-event-24361838	text	944	compound	)	log₁₀
 BB-event-24361838	text	944	compound	)	CFU
 BB-event-24361838	text	944	dep	)	/
 BB-event-24361838	text	944	compound	)	ml
-BB-event-24361838	text	944	nsubjpass	observed	)
+BB-event-24361838	text	944	nsubj	observed	)
 BB-event-24361838	text	944	cc	)	and
 BB-event-24361838	text	944	conj	)	increment
 BB-event-24361838	text	944	case	titre	in
@@ -9027,7 +9027,7 @@ BB-event-24678646	text	1295	amod	analyses	pooled
 BB-event-24678646	text	1295	root		analyses
 BB-event-24678646	text	1295	punct	analyses	,
 BB-event-24678646	text	1295	det	model	the
-BB-event-24678646	text	1295	root	,	model
+BB-event-24678646	text	1295	dep	,	model
 BB-event-24678646	text	1295	punct	model	-
 BB-event-24678646	text	1295	amod	time	estimated
 BB-event-24678646	text	1295	amod	time	median
@@ -9093,7 +9093,7 @@ BB-event-24678646	text	1675	det	restriction	this
 BB-event-24678646	text	1675	root		restriction
 BB-event-24678646	text	1675	punct	restriction	,
 BB-event-24678646	text	1675	det	model	the
-BB-event-24678646	text	1675	root	,	model
+BB-event-24678646	text	1675	dep	,	model
 BB-event-24678646	text	1675	punct	model	-
 BB-event-24678646	text	1675	compound	time	fitted
 BB-event-24678646	text	1675	compound	time	median
@@ -9331,14 +9331,14 @@ BB-event-24831788	text	528	dep	permeant	)
 BB-event-24831788	text	528	ccomp	identified	permeant
 BB-event-24831788	text	528	punct	permeant	,
 BB-event-24831788	text	528	dep	permeant	(
-BB-event-24831788	text	528	root	(	2
-BB-event-24831788	text	528	root	2	)
+BB-event-24831788	text	528	dep	(	2
+BB-event-24831788	text	528	dep	2	)
 BB-event-24831788	text	528	dep	)	cytotoxic
 BB-event-24831788	text	528	punct	cytotoxic	,
 BB-event-24831788	text	528	cc	cytotoxic	or
 BB-event-24831788	text	528	conj	cytotoxic	(
 BB-event-24831788	text	528	dep	cytotoxic	3
-BB-event-24831788	text	528	root	3	)
+BB-event-24831788	text	528	xcomp	3	)
 BB-event-24831788	text	528	cc:preconj	permeant	neither
 BB-event-24831788	text	528	dobj	)	permeant
 BB-event-24831788	text	528	cc	permeant	nor
@@ -9358,7 +9358,7 @@ BB-event-24831788	text	726	amod	class	last
 BB-event-24831788	text	726	root		class
 BB-event-24831788	text	726	punct	class	,
 BB-event-24831788	text	726	nummod	dyes	four
-BB-event-24831788	text	726	root	,	dyes
+BB-event-24831788	text	726	dep	,	dyes
 BB-event-24831788	text	726	compound	Green	(
 BB-event-24831788	text	726	compound	Green	SYTOX
 BB-event-24831788	text	726	dep	dyes	Green
@@ -9486,9 +9486,9 @@ BB-event-25098305	text	0	nmod	Surveillance	disease
 BB-event-25098305	text	0	cc	disease	and
 BB-event-25098305	text	0	conj	disease	Mycoplasma
 BB-event-25098305	text	0	dep	Surveillance	in
-BB-event-25098305	text	0	root	in	free
+BB-event-25098305	text	0	dep	in	free
 BB-event-25098305	text	0	punct	free	-
-BB-event-25098305	text	0	root	-	ranging
+BB-event-25098305	text	0	dep	-	ranging
 BB-event-25098305	text	0	compound	tortoises	gopher
 BB-event-25098305	text	0	dobj	ranging	tortoises
 BB-event-25098305	text	0	compound	)	(
@@ -9557,8 +9557,8 @@ BB-event-25098305	text	328	root		known
 BB-event-25098305	text	328	punct	known	.
 BB-event-25098305	text	450	nsubj	found	We
 BB-event-25098305	text	450	root		found
-BB-event-25098305	text	450	dobj	found	that
-BB-event-25098305	text	450	root	that	exposure
+BB-event-25098305	text	450	dep	found	that
+BB-event-25098305	text	450	dep	that	exposure
 BB-event-25098305	text	450	case	agassizii	to
 BB-event-25098305	text	450	compound	agassizii	Mycoplasma
 BB-event-25098305	text	450	nmod	exposure	agassizii
@@ -9866,9 +9866,9 @@ BB-event-25562320	text	427	nmod	mediator	DC
 BB-event-25562320	text	427	dep	DC	cross
 BB-event-25562320	text	427	punct	cross	-
 BB-event-25562320	text	427	dep	cross	presentation
-BB-event-25562320	text	427	dobj	presentation	that
+BB-event-25562320	text	427	dep	presentation	that
 BB-event-25562320	text	427	amod	efferocytosis	increases
-BB-event-25562320	text	427	root	that	efferocytosis
+BB-event-25562320	text	427	dep	that	efferocytosis
 BB-event-25562320	text	427	case	DCs	in
 BB-event-25562320	text	427	nmod	efferocytosis	DCs
 BB-event-25562320	text	427	cc	DCs	and
@@ -10102,7 +10102,7 @@ BB-event-25634638	text	614	compound	units	colony
 BB-event-25634638	text	614	compound	units	forming
 BB-event-25634638	text	614	dep	phase	units
 BB-event-25634638	text	614	punct	starts	,
-BB-event-25634638	text	614	root	,	CFUs
+BB-event-25634638	text	614	nsubj	,	CFUs
 BB-event-25634638	text	614	dep	CFUs	)
 BB-event-25634638	text	614	punct	)	,
 BB-event-25634638	text	614	dep	)	up
@@ -10467,8 +10467,8 @@ BB-event-3074181	text	457	nmod	)	patients
 BB-event-3074181	text	457	case	infections	with
 BB-event-3074181	text	457	amod	infections	various
 BB-event-3074181	text	457	nmod	patients	infections
-BB-event-3074181	text	457	punct	determination	,
-BB-event-3074181	text	457	root	,	we
+BB-event-3074181	text	457	punct	we	,
+BB-event-3074181	text	457	dep	determination	we
 BB-event-3074181	text	457	dep	we	obtained
 BB-event-3074181	text	457	dobj	obtained	results
 BB-event-3074181	text	457	acl	results	representing
@@ -10762,7 +10762,7 @@ BB-event-4105033	text	230	advmod	released	even
 BB-event-4105033	text	230	mark	released	though
 BB-event-4105033	text	230	amod	cells	untreated
 BB-event-4105033	text	230	nsubj	released	cells
-BB-event-4105033	text	230	root	,	released
+BB-event-4105033	text	230	conj	,	released
 BB-event-4105033	text	230	dobj	released	phosphatase
 BB-event-4105033	text	230	advmod	suspended	when
 BB-event-4105033	text	230	advcl	released	suspended
@@ -10800,7 +10800,7 @@ BB-event-4105033	text	663	case	addition	In
 BB-event-4105033	text	663	root		addition
 BB-event-4105033	text	663	punct	addition	,
 BB-event-4105033	text	663	det	enzyme	the
-BB-event-4105033	text	663	root	,	enzyme
+BB-event-4105033	text	663	nsubj	,	enzyme
 BB-event-4105033	text	663	acl	enzyme	released
 BB-event-4105033	text	663	case	cells	from
 BB-event-4105033	text	663	amod	cells	whole
@@ -10840,7 +10840,7 @@ BB-event-4105033	text	854	amod	preparations	various
 BB-event-4105033	text	854	nmod	examinations	preparations
 BB-event-4105033	text	854	root		revealed
 BB-event-4105033	text	854	dep	revealed	that
-BB-event-4105033	text	854	root	that	phosphatase
+BB-event-4105033	text	854	dep	that	phosphatase
 BB-event-4105033	text	854	amod	phosphatase	released
 BB-event-4105033	text	854	case	sucrose	in
 BB-event-4105033	text	854	nmod	released	sucrose
@@ -10858,9 +10858,9 @@ BB-event-4105033	text	854	case	lysozyme	of
 BB-event-4105033	text	854	nmod	presence	lysozyme
 BB-event-4105033	text	854	punct	phosphatase	,
 BB-event-4105033	text	854	dep	phosphatase	that
-BB-event-4105033	text	854	root	that	sucrose
+BB-event-4105033	text	854	appos	that	sucrose
 BB-event-4105033	text	854	punct	sucrose	-
-BB-event-4105033	text	854	root	-	lysozyme
+BB-event-4105033	text	854	conj	-	lysozyme
 BB-event-4105033	text	854	acl	lysozyme	prepared
 BB-event-4105033	text	854	nsubj	dissociate	spheroplasts
 BB-event-4105033	text	854	aux	dissociate	did
@@ -11060,7 +11060,7 @@ BB-event-4328756	text	675	case	extracts	on
 BB-event-4328756	text	675	det	extracts	the
 BB-event-4328756	text	675	nmod	performed	extracts
 BB-event-4328756	text	675	punct	performed	,
-BB-event-4328756	text	675	root	,	aldolase
+BB-event-4328756	text	675	conj	,	aldolase
 BB-event-4328756	text	675	case	normal	from
 BB-event-4328756	text	675	cc:preconj	normal	both
 BB-event-4328756	text	675	nmod	aldolase	normal
@@ -11081,7 +11081,7 @@ BB-event-4328756	text	675	nmod	aldolase	C
 BB-event-4328756	text	675	punct	appeared	.
 BB-event-4328756	text	675	compound	extract	burnetii
 BB-event-4328756	text	675	nsubj	appeared	extract
-BB-event-4328756	text	675	root	,	appeared
+BB-event-4328756	text	675	dep	,	appeared
 BB-event-4328756	text	675	case	band	as
 BB-event-4328756	text	675	det	band	a
 BB-event-4328756	text	675	amod	band	single
@@ -11093,12 +11093,12 @@ BB-event-4329237	text	0	root		assay
 BB-event-4329237	text	0	case	hypersensitivity	of
 BB-event-4329237	text	0	compound	hypersensitivity	tuberculin
 BB-event-4329237	text	0	nmod	assay	hypersensitivity
-BB-event-4329237	text	0	case	Macaca	in
-BB-event-4329237	text	0	nmod	assay	Macaca
-BB-event-4329237	text	0	root	Macaca	mulatta
-BB-event-4329237	text	0	dep	mulatta	sensitized
-BB-event-4329237	text	0	dep	sensitized	with
-BB-event-4329237	text	0	root	with	bacille
+BB-event-4329237	text	0	dep	assay	in
+BB-event-4329237	text	0	dep	in	Macaca
+BB-event-4329237	text	0	dep	Macaca	mulatta
+BB-event-4329237	text	0	dobj	mulatta	sensitized
+BB-event-4329237	text	0	case	bacille	with
+BB-event-4329237	text	0	nmod	sensitized	bacille
 BB-event-4329237	text	0	dep	bacille	Calmette
 BB-event-4329237	text	0	amod	vaccine	Guerin
 BB-event-4329237	text	0	compound	vaccine	cell
@@ -11188,18 +11188,18 @@ BB-event-448557	text	301	nmod	greater	years
 BB-event-448557	text	301	case	age	of
 BB-event-448557	text	301	nmod	years	age
 BB-event-448557	text	301	dep	19%	who
-BB-event-448557	text	301	root	who	had
+BB-event-448557	text	301	dep	who	had
 BB-event-448557	text	301	amod	illness	lower
 BB-event-448557	text	301	amod	illness	respiratory
 BB-event-448557	text	301	dobj	had	illness
 BB-event-448557	text	301	punct	had	.
 BB-event-448557	text	490	root		Males
-BB-event-448557	text	490	dep	Males	experienced
+BB-event-448557	text	490	acl	Males	experienced
 BB-event-448557	text	490	compound	times	LRI
 BB-event-448557	text	490	compound	times	1.25
 BB-event-448557	text	490	dep	often	times
 BB-event-448557	text	490	advmod	often	more
-BB-event-448557	text	490	root	experienced	often
+BB-event-448557	text	490	xcomp	experienced	often
 BB-event-448557	text	490	dep	did	than
 BB-event-448557	text	490	dep	often	did
 BB-event-448557	text	490	nsubj	did	females
@@ -11354,10 +11354,10 @@ BB-event-6107735	text	0	nmod	cholera	Sardinia
 BB-event-6107735	text	0	punct	Recurrence	.
 BB-event-6107735	text	56	case	Oct	From
 BB-event-6107735	text	56	root		Oct
-BB-event-6107735	text	56	punct	Oct	.
+BB-event-6107735	text	56	dep	Oct	.
 BB-event-6107735	text	56	compound	Nov	30
 BB-event-6107735	text	56	dep	Nov	to
-BB-event-6107735	text	56	root	.	Nov
+BB-event-6107735	text	56	dep	.	Nov
 BB-event-6107735	text	56	dep	Nov	.
 BB-event-6107735	text	56	dep	.	7
 BB-event-6107735	text	56	punct	7	,
@@ -11414,7 +11414,7 @@ BB-event-6107735	text	309	case	V	with
 BB-event-6107735	text	309	nmod	people	V
 BB-event-6107735	text	309	punct	1	.
 BB-event-6107735	text	309	compound	O	cholerae
-BB-event-6107735	text	309	root	.	O
+BB-event-6107735	text	309	dep	.	O
 BB-event-6107735	text	309	punct	O	:
 BB-event-6107735	text	309	nummod	infection	1
 BB-event-6107735	text	309	nsubj	gave	infection
@@ -11458,9 +11458,9 @@ BB-event-6107735	text	462	amod	arselle	eaten
 BB-event-6107735	text	462	dobj	had	arselle
 BB-event-6107735	text	462	punct	none	.
 BB-event-6107735	text	601	root		V
-BB-event-6107735	text	601	punct	V	.
+BB-event-6107735	text	601	dep	V	.
 BB-event-6107735	text	601	compound	O	cholerae
-BB-event-6107735	text	601	root	.	O
+BB-event-6107735	text	601	nsubj	.	O
 BB-event-6107735	text	601	punct	O	:
 BB-event-6107735	text	601	nsubj	recovered	1
 BB-event-6107735	text	601	cop	recovered	was
@@ -11544,8 +11544,8 @@ BB-event-6631408	text	0	compound	trachomatis	Chlamydia
 BB-event-6631408	text	0	nmod	strains	trachomatis
 BB-event-6631408	text	0	cc	trachomatis	and
 BB-event-6631408	text	0	conj	trachomatis	C
-BB-event-6631408	text	0	punct	requirements	.
-BB-event-6631408	text	0	root	.	psittaci
+BB-event-6631408	text	0	acl	requirements	.
+BB-event-6631408	text	0	nsubj	.	psittaci
 BB-event-6631408	text	0	acl	psittaci	growing
 BB-event-6631408	text	0	case	cells	in
 BB-event-6631408	text	0	compound	cells	McCoy
@@ -11560,7 +11560,7 @@ BB-event-6631408	text	0	compound	origin	host
 BB-event-6631408	text	0	conj	syndrome	origin
 BB-event-6631408	text	0	punct	relationship	.
 BB-event-6631408	text	153	det	effects	The
-BB-event-6631408	text	153	nsubjpass	assessed	effects
+BB-event-6631408	text	153	nsubj	assessed	effects
 BB-event-6631408	text	153	case	omission	of
 BB-event-6631408	text	153	nmod	effects	omission
 BB-event-6631408	text	153	case	acids	of
@@ -11604,7 +11604,7 @@ BB-event-6631408	text	361	case	C	for
 BB-event-6631408	text	361	nmod	which	C
 BB-event-6631408	text	361	acl	C	.
 BB-event-6631408	text	361	compound	strains	trachomatis
-BB-event-6631408	text	361	root	.	strains
+BB-event-6631408	text	361	dep	.	strains
 BB-event-6631408	text	361	acl	strains	correlated
 BB-event-6631408	text	361	case	syndrome	with
 BB-event-6631408	text	361	amod	syndrome	clinical
@@ -11612,8 +11612,8 @@ BB-event-6631408	text	361	nmod	correlated	syndrome
 BB-event-6631408	text	361	cc	syndrome	and
 BB-event-6631408	text	361	case	C	for
 BB-event-6631408	text	361	conj	syndrome	C
-BB-event-6631408	text	361	acl	strains	.
-BB-event-6631408	text	361	root	.	psittaci
+BB-event-6631408	text	361	dep	strains	.
+BB-event-6631408	text	361	dep	.	psittaci
 BB-event-6631408	text	361	case	origin	with
 BB-event-6631408	text	361	compound	origin	host
 BB-event-6631408	text	361	nmod	psittaci	origin
@@ -11656,7 +11656,7 @@ BB-event-6631408	text	667	root		strains
 BB-event-6631408	text	667	case	C	of
 BB-event-6631408	text	667	nmod	strains	C
 BB-event-6631408	text	667	acl	strains	.
-BB-event-6631408	text	667	root	.	trachomatis
+BB-event-6631408	text	667	dep	.	trachomatis
 BB-event-6631408	text	667	punct	trachomatis	,
 BB-event-6631408	text	667	appos	trachomatis	three
 BB-event-6631408	text	667	case	cases	from
@@ -11723,9 +11723,9 @@ BB-event-6631408	text	1071	case	C	Of
 BB-event-6631408	text	1071	det	C	the
 BB-event-6631408	text	1071	nummod	C	four
 BB-event-6631408	text	1071	root		C
-BB-event-6631408	text	1071	acl	C	.
+BB-event-6631408	text	1071	dep	C	.
 BB-event-6631408	text	1071	compound	strains	psittaci
-BB-event-6631408	text	1071	root	.	strains
+BB-event-6631408	text	1071	dep	.	strains
 BB-event-6631408	text	1071	case	hosts	from
 BB-event-6631408	text	1071	amod	hosts	different
 BB-event-6631408	text	1071	nmod	strains	hosts
@@ -11760,13 +11760,13 @@ BB-event-6631408	text	1184	advmod	leucine	also
 BB-event-6631408	text	1184	dep	leucine	glutamine
 BB-event-6631408	text	1184	punct	required	.
 BB-event-8347510	text	0	root		Arhodomonas
-BB-event-8347510	text	0	root	Arhodomonas	aquaeolei
-BB-event-8347510	text	0	root	aquaeolei	gen
+BB-event-8347510	text	0	dep	Arhodomonas	aquaeolei
+BB-event-8347510	text	0	dobj	aquaeolei	gen
 BB-event-8347510	text	0	dep	gen	.
 BB-event-8347510	text	0	compound	.	nov
 BB-event-8347510	text	0	dep	.	.
 BB-event-8347510	text	0	punct	.	,
-BB-event-8347510	text	0	root	,	sp
+BB-event-8347510	text	0	dep	,	sp
 BB-event-8347510	text	0	dep	sp	.
 BB-event-8347510	text	0	compound	.	nov
 BB-event-8347510	text	0	dep	.	.
@@ -11775,7 +11775,7 @@ BB-event-8347510	text	0	det	bacterium	an
 BB-event-8347510	text	0	amod	bacterium	aerobic
 BB-event-8347510	text	0	punct	bacterium	,
 BB-event-8347510	text	0	amod	bacterium	halophilic
-BB-event-8347510	text	0	root	,	bacterium
+BB-event-8347510	text	0	nsubj	,	bacterium
 BB-event-8347510	text	0	acl	bacterium	isolated
 BB-event-8347510	text	0	case	brine	from
 BB-event-8347510	text	0	det	brine	a
@@ -12093,7 +12093,7 @@ BB-event-8358765	text	329	case	(	on
 BB-event-8358765	text	329	nmod	effect	(
 BB-event-8358765	text	329	dep	(	1
 BB-event-8358765	text	329	compound	healing	)
-BB-event-8358765	text	329	root	1	healing
+BB-event-8358765	text	329	dobj	1	healing
 BB-event-8358765	text	329	case	ulcers	of
 BB-event-8358765	text	329	amod	ulcers	duodenal
 BB-event-8358765	text	329	nmod	healing	ulcers
@@ -12106,9 +12106,9 @@ BB-event-8358765	text	329	case	therapy	of
 BB-event-8358765	text	329	nmod	weeks	therapy
 BB-event-8358765	text	329	punct	healing	,
 BB-event-8358765	text	329	appos	healing	(
-BB-event-8358765	text	329	root	(	2
+BB-event-8358765	text	329	dep	(	2
 BB-event-8358765	text	329	compound	elimination	)
-BB-event-8358765	text	329	root	2	elimination
+BB-event-8358765	text	329	dobj	2	elimination
 BB-event-8358765	text	329	case	pylori	of
 BB-event-8358765	text	329	compound	pylori	Helicobacter
 BB-event-8358765	text	329	nmod	elimination	pylori
@@ -12117,8 +12117,8 @@ BB-event-8358765	text	329	det	antrum	the
 BB-event-8358765	text	329	nmod	elimination	antrum
 BB-event-8358765	text	329	punct	elimination	,
 BB-event-8358765	text	329	appos	elimination	(
-BB-event-8358765	text	329	root	(	3
-BB-event-8358765	text	329	root	3	)
+BB-event-8358765	text	329	dep	(	3
+BB-event-8358765	text	329	dep	3	)
 BB-event-8358765	text	329	amod	gastritis	chronic
 BB-event-8358765	text	329	amod	gastritis	antral
 BB-event-8358765	text	329	dobj	)	gastritis
@@ -12446,7 +12446,7 @@ BB-event-8532424	text	988	punct	prevalence	.
 BB-event-8532424	text	1080	root		Overall
 BB-event-8532424	text	1080	dobj	Overall	35
 BB-event-8532424	text	1080	acl	35	of
-BB-event-8532424	text	1080	root	of	48
+BB-event-8532424	text	1080	dep	of	48
 BB-event-8532424	text	1080	acl	48	(
 BB-event-8532424	text	1080	nummod	%	72.9
 BB-event-8532424	text	1080	dobj	(	%
@@ -12466,7 +12466,7 @@ BB-event-8532424	text	1166	case	children	Among
 BB-event-8532424	text	1166	det	children	the
 BB-event-8532424	text	1166	nummod	children	27
 BB-event-8532424	text	1166	root		children
-BB-event-8532424	text	1166	nsubjpass	observed	who
+BB-event-8532424	text	1166	nsubj	observed	who
 BB-event-8532424	text	1166	aux	observed	had
 BB-event-8532424	text	1166	nsubjpass	observed	>
 BB-event-8532424	text	1166	cc	>	or
@@ -12584,7 +12584,7 @@ BB-event-8607503	text	301	punct	Twenty	-
 BB-event-8607503	text	301	nummod	isolates	eight
 BB-event-8607503	text	301	compound	isolates	blood
 BB-event-8607503	text	301	compound	isolates	culture
-BB-event-8607503	text	301	root	-	isolates
+BB-event-8607503	text	301	dep	-	isolates
 BB-event-8607503	text	301	case	V	of
 BB-event-8607503	text	301	amod	V	non-O1
 BB-event-8607503	text	301	nmod	isolates	V
@@ -13006,7 +13006,7 @@ BB-event-8997164	text	946	amod	lymphocytes	CD8+
 BB-event-8997164	text	946	compound	lymphocytes	gamma
 BB-event-8997164	text	946	compound	lymphocytes	delta
 BB-event-8997164	text	946	compound	lymphocytes	T
-BB-event-8997164	text	946	root	that	lymphocytes
+BB-event-8997164	text	946	dep	that	lymphocytes
 BB-event-8997164	text	946	amod	lymphocytes	participate
 BB-event-8997164	text	946	case	formation	in
 BB-event-8997164	text	946	det	formation	the
@@ -13103,13 +13103,13 @@ BB-event-9526514	text	0	amod	homologue	putative
 BB-event-9526514	text	0	compound	homologue	rolB
 BB-event-9526514	text	0	compound	homologue	gene
 BB-event-9526514	text	0	root		homologue
-BB-event-9526514	text	0	case	Agrobacterium	of
-BB-event-9526514	text	0	det	Agrobacterium	the
-BB-event-9526514	text	0	nmod	homologue	Agrobacterium
-BB-event-9526514	text	0	root	Agrobacterium	rhizogenes
+BB-event-9526514	text	0	case	the	of
+BB-event-9526514	text	0	nmod	homologue	the
+BB-event-9526514	text	0	dep	the	Agrobacterium
+BB-event-9526514	text	0	dep	Agrobacterium	rhizogenes
 BB-event-9526514	text	0	dep	rhizogenes	TR
 BB-event-9526514	text	0	punct	TR	-
-BB-event-9526514	text	0	root	-	DNA
+BB-event-9526514	text	0	dep	-	DNA
 BB-event-9526514	text	0	acl	DNA	has
 BB-event-9526514	text	0	amod	activity	different
 BB-event-9526514	text	0	amod	activity	morphogenetic
@@ -13391,10 +13391,10 @@ BB-event-9535771	text	389	nmod	solubility	proteins
 BB-event-9535771	text	389	auxpass	controlled	is
 BB-event-9535771	text	389	ccomp	suggest	controlled
 BB-event-9535771	text	389	dep	controlled	by
-BB-event-9535771	text	389	root	by	whether
+BB-event-9535771	text	389	dep	by	whether
 BB-event-9535771	text	389	det	domains	the
 BB-event-9535771	text	389	compound	domains	protein
-BB-event-9535771	text	389	root	whether	domains
+BB-event-9535771	text	389	dep	whether	domains
 BB-event-9535771	text	389	acl	domains	emerging
 BB-event-9535771	text	389	advmod	emerging	first
 BB-event-9535771	text	389	case	ribosome	from
@@ -13437,7 +13437,7 @@ BB-event-9535771	text	657	compound	in vitro	urea
 BB-event-9535771	text	657	advmod	M	in vitro
 BB-event-9535771	text	657	punct	renatured	,
 BB-event-9535771	text	657	dep	renatured	suggesting
-BB-event-9535771	text	657	dobj	suggesting	that
+BB-event-9535771	text	657	dep	suggesting	that
 BB-event-9535771	text	657	det	support	the
 BB-event-9535771	text	657	compound	support	E
 BB-event-9535771	text	657	punct	support	.
@@ -13445,7 +13445,7 @@ BB-event-9535771	text	657	compound	cytoplasm	coli
 BB-event-9535771	text	657	nsubj	support	cytoplasm
 BB-event-9535771	text	657	aux	support	does
 BB-event-9535771	text	657	neg	support	not
-BB-event-9535771	text	657	root	that	support
+BB-event-9535771	text	657	dep	that	support
 BB-event-9535771	text	657	dep	support	folding
 BB-event-9535771	text	657	case	protein	of
 BB-event-9535771	text	657	det	protein	the
@@ -13903,7 +13903,7 @@ BB-event-9798026	text	783	cop	predictor	was
 BB-event-9798026	text	783	det	predictor	the
 BB-event-9798026	text	783	advmod	significant	most
 BB-event-9798026	text	783	amod	predictor	significant
-BB-event-9798026	text	783	root	that	predictor
+BB-event-9798026	text	783	dep	that	predictor
 BB-event-9798026	text	783	case	hypoacidity	of
 BB-event-9798026	text	783	nmod	predictor	hypoacidity
 BB-event-9798026	text	783	punct	predictor	,
@@ -14238,8 +14238,8 @@ BB-event-10496597	text	1409	case	pattern	with
 BB-event-10496597	text	1409	det	pattern	a
 BB-event-10496597	text	1409	amod	pattern	polyclonal
 BB-event-10496597	text	1409	nmod	associated	pattern
-BB-event-10496597	text	1409	acl	pattern	in
-BB-event-10496597	text	1409	root	in	24
+BB-event-10496597	text	1409	dep	pattern	in
+BB-event-10496597	text	1409	dep	in	24
 BB-event-10496597	text	1409	case	cases	of
 BB-event-10496597	text	1409	nummod	cases	31
 BB-event-10496597	text	1409	nmod	24	cases
@@ -14395,22 +14395,22 @@ BB-event-11989773	text	332	dobj	(	product
 BB-event-11989773	text	332	case	(	from
 BB-event-11989773	text	332	nmod	(	(
 BB-event-11989773	text	332	dep	(	i
-BB-event-11989773	text	332	root	i	)
+BB-event-11989773	text	332	dep	i	)
 BB-event-11989773	text	332	amod	stages	different
 BB-event-11989773	text	332	dobj	)	stages
 BB-event-11989773	text	332	case	processing	of
 BB-event-11989773	text	332	nmod	stages	processing
 BB-event-11989773	text	332	punct	)	,
 BB-event-11989773	text	332	dep	)	(
-BB-event-11989773	text	332	root	(	ii
-BB-event-11989773	text	332	root	ii	)
+BB-event-11989773	text	332	dep	(	ii
+BB-event-11989773	text	332	dep	ii	)
 BB-event-11989773	text	332	amod	environments	different
 BB-event-11989773	text	332	dobj	)	environments
 BB-event-11989773	text	332	punct	)	,
 BB-event-11989773	text	332	cc	)	and
 BB-event-11989773	text	332	conj	)	(
 BB-event-11989773	text	332	dep	)	iii
-BB-event-11989773	text	332	root	iii	)
+BB-event-11989773	text	332	dep	iii	)
 BB-event-11989773	text	332	amod	handlers	different
 BB-event-11989773	text	332	compound	handlers	food
 BB-event-11989773	text	332	nsubj	)	handlers
@@ -14642,7 +14642,7 @@ BB-event-12109661	text	359	punct	subjects	-
 BB-event-12109661	text	359	amod	subjects	negative
 BB-event-12109661	text	359	dep	H	subjects
 BB-event-12109661	text	359	punct	reported	.
-BB-event-12109661	text	481	nsubjpass	reported	It
+BB-event-12109661	text	481	nsubj	reported	It
 BB-event-12109661	text	481	aux	reported	has
 BB-event-12109661	text	481	advmod	reported	also
 BB-event-12109661	text	481	auxpass	reported	been
@@ -14654,13 +14654,13 @@ BB-event-12109661	text	481	case	mucosa	of
 BB-event-12109661	text	481	amod	mucosa	gastric
 BB-event-12109661	text	481	nmod	atrophy	mucosa
 BB-event-12109661	text	481	ccomp	reported	increased
-BB-event-12109661	text	481	case	.	in
-BB-event-12109661	text	481	compound	.	H
-BB-event-12109661	text	481	nmod	increased	.
+BB-event-12109661	text	481	dep	increased	in
+BB-event-12109661	text	481	dep	in	H
+BB-event-12109661	text	481	dep	H	.
 BB-event-12109661	text	481	compound	monkeys	pylori
 BB-event-12109661	text	481	punct	monkeys	-
 BB-event-12109661	text	481	amod	monkeys	infected
-BB-event-12109661	text	481	root	.	monkeys
+BB-event-12109661	text	481	dep	.	monkeys
 BB-event-12109661	text	481	case	monkeys	compared
 BB-event-12109661	text	481	case	monkeys	with
 BB-event-12109661	text	481	compound	monkeys	control
@@ -14774,7 +14774,7 @@ BB-event-12109661	text	1152	mark	one	.
 BB-event-12109661	text	1152	compound	infection	pylori
 BB-event-12109661	text	1152	nsubj	one	infection
 BB-event-12109661	text	1152	cop	one	is
-BB-event-12109661	text	1152	root	that	one
+BB-event-12109661	text	1152	dep	that	one
 BB-event-12109661	text	1152	case	factors	of
 BB-event-12109661	text	1152	det	factors	the
 BB-event-12109661	text	1152	compound	factors	risk
@@ -14997,7 +14997,7 @@ BB-event-1356998	text	90	nmod	isolated	areas
 BB-event-1356998	text	90	case	Israel	of
 BB-event-1356998	text	90	nmod	areas	Israel
 BB-event-1356998	text	90	dep	Israel	(
-BB-event-1356998	text	90	root	(	two
+BB-event-1356998	text	90	dobj	(	two
 BB-event-1356998	text	90	case	ticks	from
 BB-event-1356998	text	90	nmod	two	ticks
 BB-event-1356998	text	90	cc	two	and
@@ -15160,13 +15160,13 @@ BB-event-1356998	text	1026	punct	identical	.
 BB-event-1356998	text	1116	det	study	This
 BB-event-1356998	text	1116	nsubj	showed	study
 BB-event-1356998	text	1116	root		showed
-BB-event-1356998	text	1116	dobj	showed	that
+BB-event-1356998	text	1116	dep	showed	that
 BB-event-1356998	text	1116	det	isolates	the
 BB-event-1356998	text	1116	amod	isolates	Israeli
 BB-event-1356998	text	1116	amod	isolates	spotted
 BB-event-1356998	text	1116	compound	isolates	fever
 BB-event-1356998	text	1116	compound	isolates	group
-BB-event-1356998	text	1116	root	that	isolates
+BB-event-1356998	text	1116	dep	that	isolates
 BB-event-1356998	text	1116	dep	isolates	(
 BB-event-1356998	text	1116	case	ticks	from
 BB-event-1356998	text	1116	cc:preconj	ticks	both
@@ -15264,12 +15264,12 @@ BB-event-14633026	text	308	compound	B	mosquitocidal
 BB-event-14633026	text	308	nmod	differed	B
 BB-event-14633026	text	308	punct	96-OK	.
 BB-event-14633026	text	308	compound	strains	thuringiensis
-BB-event-14633026	text	308	root	.	strains
+BB-event-14633026	text	308	dep	.	strains
 BB-event-14633026	text	308	acl	strains	in
 BB-event-14633026	text	308	punct	strains	:
 BB-event-14633026	text	308	dep	strains	(
-BB-event-14633026	text	308	root	(	1
-BB-event-14633026	text	308	root	1	)
+BB-event-14633026	text	308	dep	(	1
+BB-event-14633026	text	308	dep	1	)
 BB-event-14633026	text	308	dep	)	lacking
 BB-event-14633026	text	308	det	activity	the
 BB-event-14633026	text	308	amod	activity	larvicidal
@@ -15284,8 +15284,8 @@ BB-event-14633026	text	308	conj	molestus	activity
 BB-event-14633026	text	308	punct	lacking	,
 BB-event-14633026	text	308	cc	lacking	and
 BB-event-14633026	text	308	conj	lacking	(
-BB-event-14633026	text	308	root	(	2
-BB-event-14633026	text	308	root	2	)
+BB-event-14633026	text	308	dep	(	2
+BB-event-14633026	text	308	dep	2	)
 BB-event-14633026	text	308	compound	profiles	SDS
 BB-event-14633026	text	308	punct	profiles	-
 BB-event-14633026	text	308	compound	profiles	PAGE
@@ -15312,7 +15312,7 @@ BB-event-14633026	text	629	nmod	clear	results
 BB-event-14633026	text	629	dep	results	that
 BB-event-14633026	text	629	det	96-OK	the
 BB-event-14633026	text	629	compound	96-OK	strain
-BB-event-14633026	text	629	root	that	96-OK
+BB-event-14633026	text	629	dep	that	96-OK
 BB-event-14633026	text	629	punct	96-OK	-
 BB-event-14633026	text	629	nummod	synthesizes	85-24
 BB-event-14633026	text	629	dep	96-OK	synthesizes
@@ -15341,7 +15341,7 @@ BB-event-14633026	text	765	amod	B	mosquitocidal
 BB-event-14633026	text	765	nmod	occurrence	B
 BB-event-14633026	text	765	punct	occurrence	.
 BB-event-14633026	text	765	compound	strain	thuringiensis
-BB-event-14633026	text	765	root	.	strain
+BB-event-14633026	text	765	dep	.	strain
 BB-event-14633026	text	765	case	spectrum	with
 BB-event-14633026	text	765	det	spectrum	an
 BB-event-14633026	text	765	amod	spectrum	unusual
@@ -16028,7 +16028,7 @@ BB-event-16273411	text	533	nmod	time	humans
 BB-event-16273411	text	533	punct	present	,
 BB-event-16273411	text	533	compound	infection	Klebsiella
 BB-event-16273411	text	533	compound	infection	pneumonia
-BB-event-16273411	text	533	root	,	infection
+BB-event-16273411	text	533	nsubj	,	infection
 BB-event-16273411	text	533	case	placenta	in
 BB-event-16273411	text	533	nmod	infection	placenta
 BB-event-16273411	text	533	case	aborter	of
@@ -16240,7 +16240,7 @@ BB-event-16458564	text	990	nmod	years	age
 BB-event-16458564	text	990	punct	years	,
 BB-event-16458564	text	990	dep	years	while
 BB-event-16458564	text	990	compound	spp	Shigella
-BB-event-16458564	text	990	root	while	spp
+BB-event-16458564	text	990	dep	while	spp
 BB-event-16458564	text	990	punct	spp	,
 BB-event-16458564	text	990	cc	spp	and
 BB-event-16458564	text	990	amod	B	enterotoxigenic
@@ -16367,10 +16367,10 @@ BB-event-16458564	text	1668	amod	families	)
 BB-event-16458564	text	1668	amod	families	poor
 BB-event-16458564	text	1668	root		families
 BB-event-16458564	text	1668	punct	families	;
-BB-event-16458564	text	1668	parataxis	families	(
-BB-event-16458564	text	1668	root	(	ii
+BB-event-16458564	text	1668	dep	families	(
+BB-event-16458564	text	1668	dep	(	ii
 BB-event-16458564	text	1668	compound	families	)
-BB-event-16458564	text	1668	root	ii	families
+BB-event-16458564	text	1668	dobj	ii	families
 BB-event-16458564	text	1668	advmod	lacking	where
 BB-event-16458564	text	1668	amod	water	piped
 BB-event-16458564	text	1668	nsubj	lacking	water
@@ -16381,9 +16381,9 @@ BB-event-16458564	text	1668	cop	lacking	were
 BB-event-16458564	text	1668	acl:relcl	families	lacking
 BB-event-16458564	text	1668	punct	families	;
 BB-event-16458564	text	1668	dep	families	(
-BB-event-16458564	text	1668	root	(	iii
+BB-event-16458564	text	1668	dep	(	iii
 BB-event-16458564	text	1668	compound	families	)
-BB-event-16458564	text	1668	root	iii	families
+BB-event-16458564	text	1668	dobj	iii	families
 BB-event-16458564	text	1668	advmod	washed	where
 BB-event-16458564	text	1668	nsubj	washed	mothers
 BB-event-16458564	text	1668	acl:relcl	families	washed
@@ -16397,9 +16397,9 @@ BB-event-16458564	text	1668	det	children	the
 BB-event-16458564	text	1668	nmod	washed	children
 BB-event-16458564	text	1668	punct	families	;
 BB-event-16458564	text	1668	dep	families	(
-BB-event-16458564	text	1668	root	(	iv
+BB-event-16458564	text	1668	dep	(	iv
 BB-event-16458564	text	1668	compound	families	)
-BB-event-16458564	text	1668	root	iv	families
+BB-event-16458564	text	1668	dobj	iv	families
 BB-event-16458564	text	1668	advmod	had	where
 BB-event-16458564	text	1668	nsubj	had	mothers
 BB-event-16458564	text	1668	acl:relcl	families	had
@@ -16410,9 +16410,9 @@ BB-event-16458564	text	1668	case	education	of
 BB-event-16458564	text	1668	nmod	level	education
 BB-event-16458564	text	1668	punct	families	;
 BB-event-16458564	text	1668	dep	families	(
-BB-event-16458564	text	1668	root	(	v
+BB-event-16458564	text	1668	dep	(	v
 BB-event-16458564	text	1668	compound	families	)
-BB-event-16458564	text	1668	root	v	families
+BB-event-16458564	text	1668	dobj	v	families
 BB-event-16458564	text	1668	advmod	reached	where
 BB-event-16458564	text	1668	nsubj	reached	information
 BB-event-16458564	text	1668	case	health	on
@@ -16550,9 +16550,9 @@ BB-event-16514151	text	186	det	polypeptide	a
 BB-event-16514151	text	186	amod	polypeptide	single
 BB-event-16514151	text	186	nmod	embodying	polypeptide
 BB-event-16514151	text	186	dep	polypeptide	the
-BB-event-16514151	text	186	amod	the	metal
+BB-event-16514151	text	186	dep	the	metal
 BB-event-16514151	text	186	punct	metal	-
-BB-event-16514151	text	186	root	-	binding
+BB-event-16514151	text	186	dep	-	binding
 BB-event-16514151	text	186	dobj	binding	domain
 BB-event-16514151	text	186	dep	domain	(
 BB-event-16514151	text	186	compound	)	MBD
@@ -16587,7 +16587,7 @@ BB-event-16514151	text	393	root		examined
 BB-event-16514151	text	393	punct	examined	,
 BB-event-16514151	text	393	mark	understand	to
 BB-event-16514151	text	393	advmod	understand	better
-BB-event-16514151	text	393	root	,	understand
+BB-event-16514151	text	393	xcomp	,	understand
 BB-event-16514151	text	393	det	environments	the
 BB-event-16514151	text	393	dobj	understand	environments
 BB-event-16514151	text	393	case	which	in
@@ -16667,7 +16667,7 @@ BB-event-16514151	text	880	root		interesting
 BB-event-16514151	text	880	mark	note	to
 BB-event-16514151	text	880	xcomp	interesting	note
 BB-event-16514151	text	880	dobj	note	that
-BB-event-16514151	text	880	root	that	cells
+BB-event-16514151	text	880	dep	that	cells
 BB-event-16514151	text	880	acl	cells	expressing
 BB-event-16514151	text	880	advmod	challenge	only
 BB-event-16514151	text	880	compound	challenge	MBD
@@ -16920,7 +16920,7 @@ BB-event-18094887	text	805	root		reacted
 BB-event-18094887	text	805	case	R	to
 BB-event-18094887	text	805	nmod	reacted	R
 BB-event-18094887	text	805	punct	reacted	.
-BB-event-18094887	text	805	root	.	rickettsii
+BB-event-18094887	text	805	dep	.	rickettsii
 BB-event-18094887	text	805	case	titers	with
 BB-event-18094887	text	805	nmod	rickettsii	titers
 BB-event-18094887	text	805	case	least	at
@@ -16970,8 +16970,8 @@ BB-event-18094887	text	1194	compound	response	antibody
 BB-event-18094887	text	1194	dobj	showed	response
 BB-event-18094887	text	1194	case	R	to
 BB-event-18094887	text	1194	nmod	response	R
-BB-event-18094887	text	1194	punct	response	.
-BB-event-18094887	text	1194	root	.	parkeri
+BB-event-18094887	text	1194	dep	response	.
+BB-event-18094887	text	1194	dep	.	parkeri
 BB-event-18094887	text	1194	cc	parkeri	or
 BB-event-18094887	text	1194	det	genotype	a
 BB-event-18094887	text	1194	advmod	closely	very
@@ -16986,14 +16986,14 @@ BB-event-18094887	text	1335	root		suggest
 BB-event-18094887	text	1335	dep	suggest	that
 BB-event-18094887	text	1335	cc:preconj	R	both
 BB-event-18094887	text	1335	dep	that	R
-BB-event-18094887	text	1335	acl	R	.
-BB-event-18094887	text	1335	root	.	rickettsii
+BB-event-18094887	text	1335	dep	R	.
+BB-event-18094887	text	1335	dep	.	rickettsii
 BB-event-18094887	text	1335	cc	rickettsii	and
 BB-event-18094887	text	1335	conj	rickettsii	R
 BB-event-18094887	text	1335	dep	rickettsii	.
 BB-event-18094887	text	1335	compound	animals	parkeri
 BB-event-18094887	text	1335	amod	animals	infected
-BB-event-18094887	text	1335	root	.	animals
+BB-event-18094887	text	1335	nsubj	.	animals
 BB-event-18094887	text	1335	cc	animals	and
 BB-event-18094887	text	1335	conj	animals	/
 BB-event-18094887	text	1335	cc	/	or
@@ -17061,7 +17061,7 @@ BB-event-18694716	text	346	case	30	of
 BB-event-18694716	text	346	nmod	resolution	30
 BB-event-18694716	text	346	punct	resolution	,
 BB-event-18694716	text	346	nummod	(	000
-BB-event-18694716	text	346	root	,	(
+BB-event-18694716	text	346	dep	,	(
 BB-event-18694716	text	346	case	)	at
 BB-event-18694716	text	346	compound	)	m
 BB-event-18694716	text	346	dep	)	/
@@ -17358,7 +17358,7 @@ BB-event-18789156	text	690	amod	nucleolin	expressed
 BB-event-18789156	text	690	nsubj	receptor	nucleolin
 BB-event-18789156	text	690	cop	receptor	is
 BB-event-18789156	text	690	det	receptor	a
-BB-event-18789156	text	690	root	that	receptor
+BB-event-18789156	text	690	dep	that	receptor
 BB-event-18789156	text	690	case	Francisella	for
 BB-event-18789156	text	690	nmod	receptor	Francisella
 BB-event-18789156	text	690	compound	binding	tularensis
@@ -17480,7 +17480,7 @@ BB-event-18789156	text	1338	nsubj	found	we
 BB-event-18789156	text	1338	root		found
 BB-event-18789156	text	1338	mark	detected	that
 BB-event-18789156	text	1338	det	fraction	a
-BB-event-18789156	text	1338	nsubjpass	detected	fraction
+BB-event-18789156	text	1338	nsubj	detected	fraction
 BB-event-18789156	text	1338	case	EF	of
 BB-event-18789156	text	1338	nmod	fraction	EF
 BB-event-18789156	text	1338	punct	Tu	-
@@ -17560,9 +17560,9 @@ BB-event-18789156	text	1809	punct	demonstrate	,
 BB-event-18789156	text	1809	det	results	our
 BB-event-18789156	text	1809	nsubj	demonstrate	results
 BB-event-18789156	text	1809	root		demonstrate
-BB-event-18789156	text	1809	dobj	demonstrate	that
+BB-event-18789156	text	1809	dep	demonstrate	that
 BB-event-18789156	text	1809	det	interaction	the
-BB-event-18789156	text	1809	root	that	interaction
+BB-event-18789156	text	1809	dep	that	interaction
 BB-event-18789156	text	1809	case	nucleolin	between
 BB-event-18789156	text	1809	compound	nucleolin	surface
 BB-event-18789156	text	1809	nmod	interaction	nucleolin
@@ -17618,7 +17618,7 @@ BB-event-18789156	text	2055	nmod	those	F
 BB-event-18789156	text	2055	punct	similar	.
 BB-event-18789156	text	2055	compound	tularensis	tularensis
 BB-event-18789156	text	2055	compound	tularensis	ssp
-BB-event-18789156	text	2055	root	.	tularensis
+BB-event-18789156	text	2055	dep	.	tularensis
 BB-event-18789156	text	2055	punct	tularensis	,
 BB-event-18789156	text	2055	det	mechanism	the
 BB-event-18789156	text	2055	appos	tularensis	mechanism
@@ -17938,7 +17938,7 @@ BB-event-19339076	text	1028	root		fact
 BB-event-19339076	text	1028	dep	fact	that
 BB-event-19339076	text	1028	det	acids	the
 BB-event-19339076	text	1028	amod	acids	fatty
-BB-event-19339076	text	1028	root	that	acids
+BB-event-19339076	text	1028	nsubj	that	acids
 BB-event-19339076	text	1028	acl	acids	associated
 BB-event-19339076	text	1028	case	resistance	with
 BB-event-19339076	text	1028	compound	resistance	bile
@@ -17992,7 +17992,7 @@ BB-event-19339076	text	1310	punct	medium	,
 BB-event-19339076	text	1310	compound	strains	bile
 BB-event-19339076	text	1310	punct	strains	-
 BB-event-19339076	text	1310	amod	strains	resistant
-BB-event-19339076	text	1310	root	,	strains
+BB-event-19339076	text	1310	dep	,	strains
 BB-event-19339076	text	1310	dep	strains	had
 BB-event-19339076	text	1310	advmod	more	significantly
 BB-event-19339076	text	1310	amod	acid	more
@@ -18105,7 +18105,7 @@ BB-event-19339076	text	1961	punct	conclusion	,
 BB-event-19339076	text	1961	det	compositions	the
 BB-event-19339076	text	1961	amod	compositions	fatty
 BB-event-19339076	text	1961	compound	compositions	acid
-BB-event-19339076	text	1961	root	,	compositions
+BB-event-19339076	text	1961	nsubj	,	compositions
 BB-event-19339076	text	1961	case	lactococci	of
 BB-event-19339076	text	1961	det	lactococci	the
 BB-event-19339076	text	1961	compound	lactococci	bile
@@ -18274,8 +18274,8 @@ BB-event-19552770	text	600	nsubj	isolated	spp
 BB-event-19552770	text	600	nsubj	isolated	.
 BB-event-19552770	text	600	cop	isolated	were
 BB-event-19552770	text	600	root		isolated
-BB-event-19552770	text	600	dep	isolated	from
-BB-event-19552770	text	600	root	from	118
+BB-event-19552770	text	600	case	118	from
+BB-event-19552770	text	600	nmod	isolated	118
 BB-event-19552770	text	600	dep	118	(
 BB-event-19552770	text	600	nummod	%	49.2
 BB-event-19552770	text	600	dobj	(	%
@@ -18461,7 +18461,7 @@ BB-event-20174624	text	144	punct	relies	.
 BB-event-20174624	text	321	compound	spp	Yersinia
 BB-event-20174624	text	321	root		spp
 BB-event-20174624	text	321	punct	spp	.
-BB-event-20174624	text	321	root	.	subvert
+BB-event-20174624	text	321	dep	.	subvert
 BB-event-20174624	text	321	det	response	the
 BB-event-20174624	text	321	amod	response	innate
 BB-event-20174624	text	321	amod	response	immune
@@ -18474,21 +18474,21 @@ BB-event-20174624	text	321	nmod	response	humans
 BB-event-20174624	text	321	punct	subvert	.
 BB-event-20174624	text	398	case	particular	In
 BB-event-20174624	text	398	root		particular
-BB-event-20174624	text	398	punct	particular	,
-BB-event-20174624	text	398	det	Yersinia	the
-BB-event-20174624	text	398	root	,	Yersinia
+BB-event-20174624	text	398	punct	the	,
+BB-event-20174624	text	398	dep	particular	the
+BB-event-20174624	text	398	dep	the	Yersinia
 BB-event-20174624	text	398	amod	YopJ	outer
 BB-event-20174624	text	398	compound	YopJ	protein
-BB-event-20174624	text	398	root	Yersinia	YopJ
+BB-event-20174624	text	398	dobj	Yersinia	YopJ
 BB-event-20174624	text	398	dep	YopJ	(
-BB-event-20174624	text	398	dobj	(	Y
-BB-event-20174624	text	398	acl	Y	.
-BB-event-20174624	text	398	root	.	pestis
+BB-event-20174624	text	398	dep	(	Y
+BB-event-20174624	text	398	dep	Y	.
+BB-event-20174624	text	398	dep	.	pestis
 BB-event-20174624	text	398	cc	pestis	and
 BB-event-20174624	text	398	conj	pestis	Y
 BB-event-20174624	text	398	dep	pestis	.
 BB-event-20174624	text	398	compound	)	pseudotuberculosis
-BB-event-20174624	text	398	root	.	)
+BB-event-20174624	text	398	dep	.	)
 BB-event-20174624	text	398	cc	)	and
 BB-event-20174624	text	398	dep	induce	YopP
 BB-event-20174624	text	398	dep	induce	(
@@ -18526,13 +18526,13 @@ BB-event-20174624	text	580	root		defined
 BB-event-20174624	text	580	punct	defined	.
 BB-event-20174624	text	665	case	study	In
 BB-event-20174624	text	665	det	study	this
-BB-event-20174624	text	665	root		study
-BB-event-20174624	text	665	punct	study	,
-BB-event-20174624	text	665	root	,	we
-BB-event-20174624	text	665	ccomp	we	utilized
+BB-event-20174624	text	665	nmod	we	study
+BB-event-20174624	text	665	punct	we	,
+BB-event-20174624	text	665	root		we
+BB-event-20174624	text	665	dep	we	utilized
 BB-event-20174624	text	665	amod	type	wild
 BB-event-20174624	text	665	punct	type	-
-BB-event-20174624	text	665	root	utilized	type
+BB-event-20174624	text	665	dep	utilized	type
 BB-event-20174624	text	665	cc	type	and
 BB-event-20174624	text	665	amod	strains	mutant
 BB-event-20174624	text	665	conj	type	strains
@@ -18584,7 +18584,7 @@ BB-event-20174624	text	863	dep	plasmid	containing
 BB-event-20174624	text	863	nsubj	result	Yersinia
 BB-event-20174624	text	863	aux	result	did
 BB-event-20174624	text	863	neg	result	not
-BB-event-20174624	text	863	root	containing	result
+BB-event-20174624	text	863	dep	containing	result
 BB-event-20174624	text	863	case	activation	in
 BB-event-20174624	text	863	compound	activation	PMN
 BB-event-20174624	text	863	compound	activation	caspase
@@ -18628,7 +18628,7 @@ BB-event-20174624	text	1114	amod	exposure	increased
 BB-event-20174624	text	1114	compound	exposure	surface
 BB-event-20174624	text	1114	nmod	resulted	exposure
 BB-event-20174624	text	1114	acl	exposure	of
-BB-event-20174624	text	1114	root	of	phosphatidylserine
+BB-event-20174624	text	1114	dobj	of	phosphatidylserine
 BB-event-20174624	text	1114	acl	phosphatidylserine	(
 BB-event-20174624	text	1114	compound	)	PS
 BB-event-20174624	text	1114	dobj	(	)
@@ -18668,7 +18668,7 @@ BB-event-20174624	text	1420	nmod	interaction	Y
 BB-event-20174624	text	1420	punct	interaction	.
 BB-event-20174624	text	1420	compound	KIM6	pestis
 BB-event-20174624	text	1420	compound	KIM6	strain
-BB-event-20174624	text	1420	root	.	KIM6
+BB-event-20174624	text	1420	dep	.	KIM6
 BB-event-20174624	text	1420	punct	KIM6	,
 BB-event-20174624	text	1420	nsubj	resulted	inhibition
 BB-event-20174624	text	1420	case	production	of
@@ -18706,7 +18706,7 @@ BB-event-20174624	text	1673	amod	findings	Our
 BB-event-20174624	text	1673	nsubj	showed	findings
 BB-event-20174624	text	1673	root		showed
 BB-event-20174624	text	1673	dep	showed	that
-BB-event-20174624	text	1673	root	that	Yersinia
+BB-event-20174624	text	1673	dep	that	Yersinia
 BB-event-20174624	text	1673	dep	Yersinia	YopJ
 BB-event-20174624	text	1673	cc	YopJ	and
 BB-event-20174624	text	1673	dep	induce	/
@@ -18726,7 +18726,7 @@ BB-event-20174624	text	1782	punct	Furthermore	,
 BB-event-20174624	text	1782	amod	production	robust
 BB-event-20174624	text	1782	compound	production	PMN
 BB-event-20174624	text	1782	compound	production	ROS
-BB-event-20174624	text	1782	root	,	production
+BB-event-20174624	text	1782	nsubj	,	production
 BB-event-20174624	text	1782	case	response	in
 BB-event-20174624	text	1782	nmod	production	response
 BB-event-20174624	text	1782	case	plasmid	to
@@ -19186,10 +19186,10 @@ BB-event-21270066	text	654	nsubj	confirmed	cases
 BB-event-21270066	text	654	cop	confirmed	were
 BB-event-21270066	text	654	root		confirmed
 BB-event-21270066	text	654	dep	confirmed	to
-BB-event-21270066	text	654	root	to	have
+BB-event-21270066	text	654	dep	to	have
 BB-event-21270066	text	654	dep	have	rectal
 BB-event-21270066	text	654	dep	rectal	Chlamydia
-BB-event-21270066	text	654	root	Chlamydia	trachomatis
+BB-event-21270066	text	654	dobj	Chlamydia	trachomatis
 BB-event-21270066	text	654	punct	trachomatis	-
 BB-event-21270066	text	654	amod	DNA	specific
 BB-event-21270066	text	654	dep	trachomatis	DNA
@@ -19584,7 +19584,7 @@ BB-event-21695078	text	474	case	lungs	into
 BB-event-21695078	text	474	det	lungs	the
 BB-event-21695078	text	474	nmod	had	lungs
 BB-event-21695078	text	474	punct	mice	.
-BB-event-21695078	text	745	nsubjpass	explained	This
+BB-event-21695078	text	745	nsubj	explained	This
 BB-event-21695078	text	745	aux	explained	could
 BB-event-21695078	text	745	neg	explained	not
 BB-event-21695078	text	745	auxpass	explained	be
@@ -19626,7 +19626,7 @@ BB-event-21695078	text	871	punct	has	,
 BB-event-21695078	text	871	cc	has	and
 BB-event-21695078	text	871	conj	has	that
 BB-event-21695078	text	871	det	role	the
-BB-event-21695078	text	871	root	that	role
+BB-event-21695078	text	871	dep	that	role
 BB-event-21695078	text	871	case	TLR2	of
 BB-event-21695078	text	871	nmod	role	TLR2
 BB-event-21695078	text	871	case	inflammation	in
@@ -19678,7 +19678,7 @@ BB-event-21894542	text	42	case	environments	of
 BB-event-21894542	text	42	amod	environments	marine
 BB-event-21894542	text	42	nmod	variety	environments
 BB-event-21894542	text	42	punct	distributed	.
-BB-event-21894542	text	270	nsubjpass	identified	They
+BB-event-21894542	text	270	nsubj	identified	They
 BB-event-21894542	text	270	aux	identified	have
 BB-event-21894542	text	270	advmod	identified	also
 BB-event-21894542	text	270	auxpass	identified	been
@@ -19760,9 +19760,9 @@ BB-event-21894542	text	630	amod	strategies	general
 BB-event-21894542	text	630	nmod	genus	strategies
 BB-event-21894542	text	630	punct	shows	:
 BB-event-21894542	text	630	dep	shows	(
-BB-event-21894542	text	630	root	(	1
+BB-event-21894542	text	630	dep	(	1
 BB-event-21894542	text	630	compound	production	)
-BB-event-21894542	text	630	root	1	production
+BB-event-21894542	text	630	dobj	1	production
 BB-event-21894542	text	630	cc	production	and
 BB-event-21894542	text	630	conj	production	utilization
 BB-event-21894542	text	630	case	siderophores	of
@@ -19780,9 +19780,9 @@ BB-event-21894542	text	630	amod	ones	exogenous
 BB-event-21894542	text	630	nmod	variety	ones
 BB-event-21894542	text	630	punct	production	,
 BB-event-21894542	text	630	appos	production	(
-BB-event-21894542	text	630	root	(	2
+BB-event-21894542	text	630	dep	(	2
 BB-event-21894542	text	630	compound	production	)
-BB-event-21894542	text	630	root	2	production
+BB-event-21894542	text	630	dobj	2	production
 BB-event-21894542	text	630	cc	production	and
 BB-event-21894542	text	630	conj	production	utilization
 BB-event-21894542	text	630	case	siderophores	of
@@ -19791,9 +19791,9 @@ BB-event-21894542	text	630	nmod	production	siderophores
 BB-event-21894542	text	630	advmod	production	only
 BB-event-21894542	text	630	punct	production	,
 BB-event-21894542	text	630	dep	production	(
-BB-event-21894542	text	630	root	(	3
+BB-event-21894542	text	630	dep	(	3
 BB-event-21894542	text	630	amod	lack	)
-BB-event-21894542	text	630	root	3	lack
+BB-event-21894542	text	630	dobj	3	lack
 BB-event-21894542	text	630	case	production	of
 BB-event-21894542	text	630	compound	production	siderophore
 BB-event-21894542	text	630	nmod	lack	production
@@ -19922,7 +19922,7 @@ BB-event-23902156	text	322	cop	constructed	was
 BB-event-23902156	text	322	dep	library	constructed
 BB-event-23902156	text	322	cc	constructed	and
 BB-event-23902156	text	322	conj	constructed	screened
-BB-event-23902156	text	322	root	screened	using
+BB-event-23902156	text	322	xcomp	screened	using
 BB-event-23902156	text	322	det	probe	a
 BB-event-23902156	text	322	dobj	using	probe
 BB-event-23902156	text	322	case	sequence	based
@@ -19931,8 +19931,8 @@ BB-event-23902156	text	322	det	sequence	the
 BB-event-23902156	text	322	compound	sequence	DNA
 BB-event-23902156	text	322	nmod	probe	sequence
 BB-event-23902156	text	322	acl	sequence	of
-BB-event-23902156	text	322	root	of	Pen
-BB-event-23902156	text	322	root	Pen	b
+BB-event-23902156	text	322	dep	of	Pen
+BB-event-23902156	text	322	dep	Pen	b
 BB-event-23902156	text	322	nummod	b	26
 BB-event-23902156	text	322	punct	b	.
 BB-event-23902156	text	435	det	clone	A
@@ -19957,8 +19957,8 @@ BB-event-23902156	text	435	cc	immunological	and
 BB-event-23902156	text	435	conj	immunological	physical
 BB-event-23902156	text	435	dep	comparing	properties
 BB-event-23902156	text	435	dep	properties	to
-BB-event-23902156	text	435	root	to	Pen
-BB-event-23902156	text	435	root	Pen	b
+BB-event-23902156	text	435	dep	to	Pen
+BB-event-23902156	text	435	dep	Pen	b
 BB-event-23902156	text	435	nummod	b	26
 BB-event-23902156	text	435	punct	b	.
 BB-event-23902156	text	592	nsubjpass	designated	It
@@ -20094,9 +20094,9 @@ BB-event-23902156	text	981	advmod	23%	only
 BB-event-23902156	text	981	nsubj	positive	23%
 BB-event-23902156	text	981	cop	positive	were
 BB-event-23902156	text	981	advcl	positive	positive
-BB-event-23902156	text	981	case	Pen	for
-BB-event-23902156	text	981	nmod	positive	Pen
-BB-event-23902156	text	981	root	Pen	cr
+BB-event-23902156	text	981	nmod	positive	for
+BB-event-23902156	text	981	dep	for	Pen
+BB-event-23902156	text	981	dep	Pen	cr
 BB-event-23902156	text	981	nummod	cr	26
 BB-event-23902156	text	981	punct	cr	.
 BB-event-23902156	text	1281	det	allergenicity	The
@@ -20118,9 +20118,9 @@ BB-event-23902156	text	1281	cop	variant	be
 BB-event-23902156	text	1281	det	variant	a
 BB-event-23902156	text	1281	amod	variant	hypoallergenic
 BB-event-23902156	text	1281	conj	minor	variant
-BB-event-23902156	text	1281	case	Pen	of
-BB-event-23902156	text	1281	nmod	variant	Pen
-BB-event-23902156	text	1281	root	Pen	b
+BB-event-23902156	text	1281	dep	variant	of
+BB-event-23902156	text	1281	dep	of	Pen
+BB-event-23902156	text	1281	dep	Pen	b
 BB-event-23902156	text	1281	nummod	b	26
 BB-event-23902156	text	1281	punct	b	.
 BB-event-25114119	text	0	root		Characterization
@@ -20153,7 +20153,7 @@ BB-event-25114119	text	200	amod	study	previous
 BB-event-25114119	text	200	nsubj	demonstrated	study
 BB-event-25114119	text	200	root		demonstrated
 BB-event-25114119	text	200	dep	demonstrated	that
-BB-event-25114119	text	200	root	that	treatment
+BB-event-25114119	text	200	dobj	that	treatment
 BB-event-25114119	text	200	case	burnetii	of
 BB-event-25114119	text	200	compound	burnetii	Coxiella
 BB-event-25114119	text	200	nmod	treatment	burnetii
@@ -20180,7 +20180,7 @@ BB-event-25114119	text	200	acl	1E4	inhibited
 BB-event-25114119	text	200	dobj	inhibited	C
 BB-event-25114119	text	200	acl	C	.
 BB-event-25114119	text	200	compound	infection	burnetii
-BB-event-25114119	text	200	root	.	infection
+BB-event-25114119	text	200	dobj	.	infection
 BB-event-25114119	text	200	case	mice	in
 BB-event-25114119	text	200	nmod	infection	mice
 BB-event-25114119	text	200	punct	infection	,
@@ -20234,12 +20234,12 @@ BB-event-25114119	text	670	det	results	The
 BB-event-25114119	text	670	nsubj	indicated	results
 BB-event-25114119	text	670	root		indicated
 BB-event-25114119	text	670	dep	indicated	that
-BB-event-25114119	text	670	root	that	1E4
+BB-event-25114119	text	670	nsubj	that	1E4
 BB-event-25114119	text	670	acl	1E4	conferred
 BB-event-25114119	text	670	amod	protection	significant
 BB-event-25114119	text	670	dobj	conferred	protection
-BB-event-25114119	text	670	acl	protection	against
-BB-event-25114119	text	670	root	against	aerosolized
+BB-event-25114119	text	670	dep	protection	against
+BB-event-25114119	text	670	dep	against	aerosolized
 BB-event-25114119	text	670	dep	aerosolized	C
 BB-event-25114119	text	670	case	burnetii	.
 BB-event-25114119	text	670	nmod	C	burnetii
@@ -20286,10 +20286,10 @@ BB-event-25114119	text	847	advcl	prevent	infection
 BB-event-25114119	text	847	punct	understand	,
 BB-event-25114119	text	847	nsubj	examined	we
 BB-event-25114119	text	847	parataxis	understand	examined
-BB-event-25114119	text	847	dobj	examined	whether
+BB-event-25114119	text	847	dep	examined	whether
 BB-event-25114119	text	847	det	fragment	the
 BB-event-25114119	text	847	compound	fragment	Fab
-BB-event-25114119	text	847	root	whether	fragment
+BB-event-25114119	text	847	dep	whether	fragment
 BB-event-25114119	text	847	case	)	of
 BB-event-25114119	text	847	compound	)	1E4
 BB-event-25114119	text	847	compound	)	(
@@ -20371,7 +20371,7 @@ BB-event-25114119	text	1236	dep	.	.
 BB-event-25114119	text	1431	case	addition	In
 BB-event-25114119	text	1431	root		addition
 BB-event-25114119	text	1431	punct	addition	,
-BB-event-25114119	text	1431	root	,	treatment
+BB-event-25114119	text	1431	conj	,	treatment
 BB-event-25114119	text	1431	case	C	of
 BB-event-25114119	text	1431	nmod	treatment	C
 BB-event-25114119	text	1431	mark	block	.
@@ -20388,13 +20388,13 @@ BB-event-25114119	text	1431	advcl	treatment	block
 BB-event-25114119	text	1431	dobj	block	C
 BB-event-25114119	text	1431	acl	C	.
 BB-event-25114119	text	1431	compound	infection	burnetii
-BB-event-25114119	text	1431	root	.	infection
+BB-event-25114119	text	1431	dep	.	infection
 BB-event-25114119	text	1431	case	macrophages	of
 BB-event-25114119	text	1431	nmod	infection	macrophages
 BB-event-25114119	text	1431	punct	infection	.
 BB-event-25114119	text	1554	root		Interestingly
-BB-event-25114119	text	1554	punct	Interestingly	,
-BB-event-25114119	text	1554	root	,	treatment
+BB-event-25114119	text	1554	punct	treatment	,
+BB-event-25114119	text	1554	dep	Interestingly	treatment
 BB-event-25114119	text	1554	case	C	of
 BB-event-25114119	text	1554	nmod	treatment	C
 BB-event-25114119	text	1554	mark	reduce	.
@@ -20407,7 +20407,7 @@ BB-event-25114119	text	1554	acl	treatment	reduce
 BB-event-25114119	text	1554	dobj	reduce	C
 BB-event-25114119	text	1554	acl	C	.
 BB-event-25114119	text	1554	compound	infectivity	burnetii
-BB-event-25114119	text	1554	root	.	infectivity
+BB-event-25114119	text	1554	dep	.	infectivity
 BB-event-25114119	text	1554	case	macrophages	in
 BB-event-25114119	text	1554	amod	macrophages	human
 BB-event-25114119	text	1554	nmod	infectivity	macrophages
@@ -20864,12 +20864,12 @@ BB-event-351567	text	768	punct	protein	.
 BB-event-351567	text	859	case	contrast	In
 BB-event-351567	text	859	root		contrast
 BB-event-351567	text	859	punct	contrast	,
-BB-event-351567	text	859	root	,	addition
+BB-event-351567	text	859	dep	,	addition
 BB-event-351567	text	859	case	E	of
 BB-event-351567	text	859	nmod	addition	E
 BB-event-351567	text	859	acl	addition	.
 BB-event-351567	text	859	compound	helix	coli
-BB-event-351567	text	859	root	.	helix
+BB-event-351567	text	859	dobj	.	helix
 BB-event-351567	text	859	punct	helix	-
 BB-event-351567	text	859	dep	helix	destabilising
 BB-event-351567	text	859	dobj	destabilising	protein
@@ -21051,7 +21051,7 @@ BB-event-460951	text	67	punct	period	,
 BB-event-460951	text	67	det	Laboratory	the
 BB-event-460951	text	67	compound	Laboratory	Tuberculosis
 BB-event-460951	text	67	compound	Laboratory	Reference
-BB-event-460951	text	67	root	,	Laboratory
+BB-event-460951	text	67	dep	,	Laboratory
 BB-event-460951	text	67	case	Queensland	in
 BB-event-460951	text	67	nmod	Laboratory	Queensland
 BB-event-460951	text	67	dep	Queensland	dealt
@@ -21096,11 +21096,11 @@ BB-event-460951	text	385	dep	isolates	belonged
 BB-event-460951	text	385	case	M	to
 BB-event-460951	text	385	det	M	the
 BB-event-460951	text	385	nmod	belonged	M
-BB-event-460951	text	385	punct	belonged	.
+BB-event-460951	text	385	dep	belonged	.
 BB-event-460951	text	385	compound	complex	fortuitum
 BB-event-460951	text	385	punct	complex	-
 BB-event-460951	text	385	compound	complex	chelonei
-BB-event-460951	text	385	root	.	complex
+BB-event-460951	text	385	nsubj	.	complex
 BB-event-460951	text	385	punct	complex	;
 BB-event-460951	text	385	nsubj	abscesses	most
 BB-event-460951	text	385	cop	abscesses	were
@@ -22844,7 +22844,7 @@ BB-event-10639454	text	1397	amod	E	intestinal
 BB-event-10639454	text	1397	nmod	inoculated	E
 BB-event-10639454	text	1397	punct	inoculated	.
 BB-event-10639454	text	1397	compound	862B	coli
-BB-event-10639454	text	1397	root	.	862B
+BB-event-10639454	text	1397	nsubj	.	862B
 BB-event-10639454	text	1397	punct	862B	,
 BB-event-10639454	text	1397	nsubj	able	which
 BB-event-10639454	text	1397	cop	able	is
@@ -22877,7 +22877,7 @@ BB-event-10639454	text	1737	case	E	with
 BB-event-10639454	text	1737	nmod	inoculated	E
 BB-event-10639454	text	1737	punct	inoculated	.
 BB-event-10639454	text	1737	compound	strains	coli
-BB-event-10639454	text	1737	root	.	strains
+BB-event-10639454	text	1737	dep	.	strains
 BB-event-10639454	text	1737	dep	strains	M623
 BB-event-10639454	text	1737	cc	M623	or
 BB-event-10639454	text	1737	conj	M623	M623DeltaCNF1
@@ -22933,7 +22933,7 @@ BB-event-10639454	text	2146	compound	indicate	data
 BB-event-10639454	text	2146	dep	Taken	indicate
 BB-event-10639454	text	2146	dep	indicate	that
 BB-event-10639454	text	2146	det	CNF1	the
-BB-event-10639454	text	2146	root	that	CNF1
+BB-event-10639454	text	2146	dep	that	CNF1
 BB-event-10639454	text	2146	punct	CNF1	-
 BB-event-10639454	text	2146	dep	CNF1	producing
 BB-event-10639454	text	2146	nsubj	pathogenic	strain
@@ -23365,13 +23365,13 @@ BB-event-11548252	text	114	mwe	as	well
 BB-event-11548252	text	114	mwe	as	as
 BB-event-11548252	text	114	compound	genes	neuraminidase
 BB-event-11548252	text	114	conj	genes	genes
-BB-event-11548252	text	114	dep	genes	(
+BB-event-11548252	text	114	acl	genes	(
 BB-event-11548252	text	114	compound	)	neu
-BB-event-11548252	text	114	root	(	)
+BB-event-11548252	text	114	dobj	(	)
 BB-event-11548252	text	114	punct	)	,
 BB-event-11548252	text	114	case	genomes	in
 BB-event-11548252	text	114	det	genomes	their
-BB-event-11548252	text	114	root	,	genomes
+BB-event-11548252	text	114	nmod	,	genomes
 BB-event-11548252	text	114	case	use	with
 BB-event-11548252	text	114	det	use	the
 BB-event-11548252	text	114	nmod	genomes	use
@@ -23381,7 +23381,7 @@ BB-event-11548252	text	114	compound	probes	DNA
 BB-event-11548252	text	114	nmod	use	probes
 BB-event-11548252	text	114	punct	genomes	.
 BB-event-11548252	text	391	det	possibility	The
-BB-event-11548252	text	391	nsubjpass	shown	possibility
+BB-event-11548252	text	391	nsubj	shown	possibility
 BB-event-11548252	text	391	punct	shown	,
 BB-event-11548252	text	391	case	principle	in
 BB-event-11548252	text	391	nmod	shown	principle
@@ -23435,9 +23435,9 @@ BB-event-11548252	text	549	amod	role	etiological
 BB-event-11548252	text	549	dobj	play	role
 BB-event-11548252	text	549	punct	play	,
 BB-event-11548252	text	549	dep	play	provided
-BB-event-11548252	text	549	root	provided	that
+BB-event-11548252	text	549	dep	provided	that
 BB-event-11548252	text	549	det	expression	the
-BB-event-11548252	text	549	root	that	expression
+BB-event-11548252	text	549	dep	that	expression
 BB-event-11548252	text	549	case	genes	of
 BB-event-11548252	text	549	det	genes	the
 BB-event-11548252	text	549	nmod	expression	genes
@@ -23605,7 +23605,7 @@ BB-event-12443829	text	278	compound	coli	Escherichia
 BB-event-12443829	text	278	dep	clarify	coli
 BB-event-12443829	text	278	punct	clarify	,
 BB-event-12443829	text	278	dep	clarify	we
-BB-event-12443829	text	278	root	we	designed
+BB-event-12443829	text	278	dep	we	designed
 BB-event-12443829	text	278	compound	primers	PCR
 BB-event-12443829	text	278	dobj	designed	primers
 BB-event-12443829	text	278	mark	detect	to
@@ -23644,9 +23644,9 @@ BB-event-12443829	text	476	parataxis	classified	contains
 BB-event-12443829	text	476	dobj	contains	VT2vha
 BB-event-12443829	text	476	cc	VT2vha	and
 BB-event-12443829	text	476	conj	VT2vha	group
-BB-event-12443829	text	476	nummod	(	2
-BB-event-12443829	text	476	dep	group	(
-BB-event-12443829	text	476	root	(	G2
+BB-event-12443829	text	476	nummod	group	2
+BB-event-12443829	text	476	dep	2	(
+BB-event-12443829	text	476	dep	(	G2
 BB-event-12443829	text	476	dep	G2	)
 BB-event-12443829	text	476	dep	)	contains
 BB-event-12443829	text	476	compound	Ount	VT2d
@@ -24369,31 +24369,31 @@ BB-event-15281948	text	242	punct	used	.
 BB-event-15281948	text	395	det	media	The
 BB-event-15281948	text	395	compound	media	culture
 BB-event-15281948	text	395	root		media
-BB-event-15281948	text	395	acl	media	consisted
-BB-event-15281948	text	395	case	(	of
-BB-event-15281948	text	395	cc:preconj	(	either
-BB-event-15281948	text	395	nmod	consisted	(
-BB-event-15281948	text	395	root	(	i
+BB-event-15281948	text	395	dep	media	consisted
+BB-event-15281948	text	395	dep	consisted	of
+BB-event-15281948	text	395	dep	of	either
+BB-event-15281948	text	395	dep	either	(
+BB-event-15281948	text	395	dep	(	i
 BB-event-15281948	text	395	compound	water	)
-BB-event-15281948	text	395	root	i	water
+BB-event-15281948	text	395	dobj	i	water
 BB-event-15281948	text	395	advmod	water	only
 BB-event-15281948	text	395	punct	water	,
 BB-event-15281948	text	395	dep	water	(
-BB-event-15281948	text	395	root	(	ii
-BB-event-15281948	text	395	root	ii	)
+BB-event-15281948	text	395	dep	(	ii
+BB-event-15281948	text	395	dep	ii	)
 BB-event-15281948	text	395	dobj	)	water
 BB-event-15281948	text	395	cc	water	and
 BB-event-15281948	text	395	conj	water	sucrose
 BB-event-15281948	text	395	punct	water	,
 BB-event-15281948	text	395	appos	water	(
-BB-event-15281948	text	395	root	(	iii
-BB-event-15281948	text	395	root	iii	)
+BB-event-15281948	text	395	dep	(	iii
+BB-event-15281948	text	395	dep	iii	)
 BB-event-15281948	text	395	compound	broth	mineral
 BB-event-15281948	text	395	dobj	)	broth
 BB-event-15281948	text	395	cc	broth	or
 BB-event-15281948	text	395	conj	broth	(
 BB-event-15281948	text	395	dep	broth	iv
-BB-event-15281948	text	395	root	iv	)
+BB-event-15281948	text	395	dep	iv	)
 BB-event-15281948	text	395	compound	broth	mineral
 BB-event-15281948	text	395	dobj	)	broth
 BB-event-15281948	text	395	cc	broth	and
@@ -24460,7 +24460,7 @@ BB-event-15281948	text	767	compound	sp	Pseudomonas
 BB-event-15281948	text	767	nmod	occurred	sp
 BB-event-15281948	text	767	punct	extent	.
 BB-event-15281948	text	767	compound	Circle	strain
-BB-event-15281948	text	767	root	.	Circle
+BB-event-15281948	text	767	dep	.	Circle
 BB-event-15281948	text	767	cc	Circle	but
 BB-event-15281948	text	767	cop	dependant	was
 BB-event-15281948	text	767	conj	Circle	dependant
@@ -24499,10 +24499,10 @@ BB-event-15281948	text	1094	case	case	In
 BB-event-15281948	text	1094	det	case	this
 BB-event-15281948	text	1094	amod	case	particular
 BB-event-15281948	text	1094	root		case
-BB-event-15281948	text	1094	punct	case	,
+BB-event-15281948	text	1094	acl	case	,
 BB-event-15281948	text	1094	case	biodegradation	for
 BB-event-15281948	text	1094	det	biodegradation	the
-BB-event-15281948	text	1094	root	,	biodegradation
+BB-event-15281948	text	1094	nmod	,	biodegradation
 BB-event-15281948	text	1094	case	SPs	of
 BB-event-15281948	text	1094	nmod	biodegradation	SPs
 BB-event-15281948	text	1094	acl	biodegradation	used
@@ -24544,13 +24544,13 @@ BB-event-1531512	text	164	dobj	clarifies	distribution
 BB-event-1531512	text	164	case	W	of
 BB-event-1531512	text	164	nmod	distribution	W
 BB-event-1531512	text	164	punct	distribution	.
-BB-event-1531512	text	164	root	.	recta
+BB-event-1531512	text	164	punct	.	recta
 BB-event-1531512	text	164	case	subjects	in
 BB-event-1531512	text	164	advmod	healthy	periodontally
 BB-event-1531512	text	164	amod	subjects	healthy
 BB-event-1531512	text	164	cc	healthy	and
 BB-event-1531512	text	164	conj	healthy	diseased
-BB-event-1531512	text	164	root	recta	subjects
+BB-event-1531512	text	164	nmod	recta	subjects
 BB-event-1531512	text	164	punct	subjects	,
 BB-event-1531512	text	164	cc	subjects	and
 BB-event-1531512	text	164	amod	patients	treated
@@ -24658,22 +24658,22 @@ BB-event-1531512	text	754	nmod	)	proportions
 BB-event-1531512	text	754	case	W	of
 BB-event-1531512	text	754	nmod	proportions	W
 BB-event-1531512	text	754	punct	)	.
-BB-event-1531512	text	754	root	.	recta
-BB-event-1531512	text	754	root	recta	in
-BB-event-1531512	text	754	root	in	subgingival
+BB-event-1531512	text	754	dep	.	recta
+BB-event-1531512	text	754	dep	recta	in
+BB-event-1531512	text	754	dep	in	subgingival
 BB-event-1531512	text	754	dep	subgingival	(
 BB-event-1531512	text	754	nummod	%	4.4
 BB-event-1531512	text	754	dobj	(	%
 BB-event-1531512	text	754	compound	vs	)
 BB-event-1531512	text	754	dep	%	vs
-BB-event-1531512	text	754	punct	%	.
+BB-event-1531512	text	754	dep	%	.
 BB-event-1531512	text	754	amod	samples	supragingival
 BB-event-1531512	text	754	amod	samples	(
 BB-event-1531512	text	754	compound	%	0.3
 BB-event-1531512	text	754	amod	samples	%
 BB-event-1531512	text	754	compound	samples	)
 BB-event-1531512	text	754	compound	samples	plaque
-BB-event-1531512	text	754	root	.	samples
+BB-event-1531512	text	754	dep	.	samples
 BB-event-1531512	text	754	case	AP	from
 BB-event-1531512	text	754	nmod	samples	AP
 BB-event-1531512	text	754	punct	samples	.
@@ -24697,8 +24697,8 @@ BB-event-1531512	text	908	case	samples	between
 BB-event-1531512	text	908	amod	samples	subgingival
 BB-event-1531512	text	908	compound	samples	plaque
 BB-event-1531512	text	908	nmod	detected	samples
-BB-event-1531512	text	908	acl	samples	of
-BB-event-1531512	text	908	root	of	AP
+BB-event-1531512	text	908	case	AP	of
+BB-event-1531512	text	908	nmod	samples	AP
 BB-event-1531512	text	908	dep	AP	(
 BB-event-1531512	text	908	nummod	%	4.4
 BB-event-1531512	text	908	dep	(	%
@@ -24727,8 +24727,8 @@ BB-event-1531512	text	1050	dep	difference	found
 BB-event-1531512	text	1050	case	plaque	between
 BB-event-1531512	text	1050	amod	plaque	supragingival
 BB-event-1531512	text	1050	nmod	found	plaque
-BB-event-1531512	text	1050	acl	plaque	of
-BB-event-1531512	text	1050	root	of	AP
+BB-event-1531512	text	1050	dep	plaque	of
+BB-event-1531512	text	1050	dep	of	AP
 BB-event-1531512	text	1050	acl	AP	(
 BB-event-1531512	text	1050	nummod	%	0.3
 BB-event-1531512	text	1050	dobj	(	%
@@ -24963,7 +24963,7 @@ BB-event-16506453	text	282	nmod	exist	understanding
 BB-event-16506453	text	282	dep	understanding	where
 BB-event-16506453	text	282	det	risks	the
 BB-event-16506453	text	282	amod	risks	greatest
-BB-event-16506453	text	282	root	where	risks
+BB-event-16506453	text	282	dep	where	risks
 BB-event-16506453	text	282	case	animal	for
 BB-event-16506453	text	282	amod	animal	human
 BB-event-16506453	text	282	punct	animal	,
@@ -25050,12 +25050,12 @@ BB-event-16506453	text	669	compound	)	(
 BB-event-16506453	text	669	compound	)	Baker
 BB-event-16506453	text	669	dep	using	)
 BB-event-16506453	text	669	mark	quantify	to
-BB-event-16506453	text	669	dep	)	quantify
+BB-event-16506453	text	669	nmod	)	quantify
 BB-event-16506453	text	669	det	effects	the
 BB-event-16506453	text	669	dobj	quantify	effects
-BB-event-16506453	text	669	acl	effects	that
+BB-event-16506453	text	669	dep	effects	that
 BB-event-16506453	text	669	compound	size	sample
-BB-event-16506453	text	669	root	that	size
+BB-event-16506453	text	669	dep	that	size
 BB-event-16506453	text	669	cc	size	and
 BB-event-16506453	text	669	det	variables	the
 BB-event-16506453	text	669	amod	variables	chosen
@@ -25295,7 +25295,7 @@ BB-event-16629992	text	852	nsubj	demonstrate	results
 BB-event-16629992	text	852	root		demonstrate
 BB-event-16629992	text	852	dobj	demonstrate	that
 BB-event-16629992	text	852	det	ladder	the
-BB-event-16629992	text	852	root	that	ladder
+BB-event-16629992	text	852	dep	that	ladder
 BB-event-16629992	text	852	punct	ladder	-
 BB-event-16629992	text	852	amod	pattern	like
 BB-event-16629992	text	852	dep	amplified	pattern
@@ -25410,7 +25410,7 @@ BB-event-16629992	text	1319	nmod	useful	diagnosis
 BB-event-16629992	text	1319	case	Fl	of
 BB-event-16629992	text	1319	nmod	diagnosis	Fl
 BB-event-16629992	text	1319	punct	useful	.
-BB-event-16629992	text	1319	root	.	columnare
+BB-event-16629992	text	1319	dep	.	columnare
 BB-event-16629992	text	1319	case	hatcheries	in
 BB-event-16629992	text	1319	compound	hatcheries	fish
 BB-event-16629992	text	1319	nmod	columnare	hatcheries
@@ -25472,11 +25472,11 @@ BB-event-17535798	text	98	nmod	bacterium	cattle
 BB-event-17535798	text	98	punct	play	.
 BB-event-17535798	text	204	advmod	then	Why
 BB-event-17535798	text	204	root		then
-BB-event-17535798	text	204	root	then	does
+BB-event-17535798	text	204	dep	then	does
 BB-event-17535798	text	204	dep	does	E
 BB-event-17535798	text	204	dep	E	.
 BB-event-17535798	text	204	compound	O157	coli
-BB-event-17535798	text	204	root	.	O157
+BB-event-17535798	text	204	dep	.	O157
 BB-event-17535798	text	204	punct	O157	:
 BB-event-17535798	text	204	compound	code	H7
 BB-event-17535798	text	204	dep	O157	code
@@ -25544,16 +25544,16 @@ BB-event-17535798	text	563	det	hypothesis	the
 BB-event-17535798	text	563	root		hypothesis
 BB-event-17535798	text	563	dep	hypothesis	that
 BB-event-17535798	text	563	det	carriage	the
-BB-event-17535798	text	563	root	that	carriage
+BB-event-17535798	text	563	dep	that	carriage
 BB-event-17535798	text	563	case	prophage	of
 BB-event-17535798	text	563	det	prophage	the
 BB-event-17535798	text	563	amod	prophage	Stx-encoding
 BB-event-17535798	text	563	nmod	carriage	prophage
 BB-event-17535798	text	563	case	E	of
 BB-event-17535798	text	563	nmod	prophage	E
-BB-event-17535798	text	563	punct	carriage	.
+BB-event-17535798	text	563	dep	carriage	.
 BB-event-17535798	text	563	compound	O157	coli
-BB-event-17535798	text	563	root	.	O157
+BB-event-17535798	text	563	dep	.	O157
 BB-event-17535798	text	563	punct	O157	:
 BB-event-17535798	text	563	dep	O157	H7
 BB-event-17535798	text	563	acl	H7	increases
@@ -25656,7 +25656,7 @@ BB-event-17535798	text	1041	case	E	of
 BB-event-17535798	text	1041	nmod	prophage	E
 BB-event-17535798	text	1041	punct	likely	.
 BB-event-17535798	text	1041	compound	O157	coli
-BB-event-17535798	text	1041	root	.	O157
+BB-event-17535798	text	1041	dep	.	O157
 BB-event-17535798	text	1041	punct	O157	:
 BB-event-17535798	text	1041	dep	O157	H7
 BB-event-17535798	text	1041	cc	H7	and
@@ -25772,7 +25772,7 @@ BB-event-18346136	text	517	root		used
 BB-event-18346136	text	517	punct	used	,
 BB-event-18346136	text	517	det	limit	the
 BB-event-18346136	text	517	compound	limit	detection
-BB-event-18346136	text	517	root	,	limit
+BB-event-18346136	text	517	dobj	,	limit
 BB-event-18346136	text	517	case	S	for
 BB-event-18346136	text	517	amod	S	dead
 BB-event-18346136	text	517	nmod	limit	S
@@ -25789,10 +25789,10 @@ BB-event-18346136	text	517	compound	samples	salami
 BB-event-18346136	text	517	conj	cream	samples
 BB-event-18346136	text	517	cop	high	was
 BB-event-18346136	text	517	dep	limit	high
-BB-event-18346136	text	517	case	)	at
-BB-event-18346136	text	517	nummod	)	10(7
-BB-event-18346136	text	517	nmod	high	)
-BB-event-18346136	text	517	root	)	CFU
+BB-event-18346136	text	517	case	10(7	at
+BB-event-18346136	text	517	nmod	high	10(7
+BB-event-18346136	text	517	dep	10(7	)
+BB-event-18346136	text	517	dep	)	CFU
 BB-event-18346136	text	517	dep	CFU	(
 BB-event-18346136	text	517	nummod	g)	25
 BB-event-18346136	text	517	dep	(	g)
@@ -25847,7 +25847,7 @@ BB-event-18346136	text	742	punct	evaluated	,
 BB-event-18346136	text	742	case	ISO	according
 BB-event-18346136	text	742	mwe	according	to
 BB-event-18346136	text	742	compound	ISO	EN
-BB-event-18346136	text	742	root	,	ISO
+BB-event-18346136	text	742	nmod	,	ISO
 BB-event-18346136	text	742	nummod	ISO	6579
 BB-event-18346136	text	742	punct	ISO	.
 BB-event-18346136	text	975	advmod	evaluated	When
@@ -25880,10 +25880,10 @@ BB-event-18346136	text	975	acl	samples	contaminated
 BB-event-18346136	text	975	case	level	at
 BB-event-18346136	text	975	det	level	a
 BB-event-18346136	text	975	nmod	contaminated	level
-BB-event-18346136	text	975	case	)	of
-BB-event-18346136	text	975	nummod	)	10(0
-BB-event-18346136	text	975	nmod	level	)
-BB-event-18346136	text	975	root	)	CFU
+BB-event-18346136	text	975	case	10(0	of
+BB-event-18346136	text	975	nmod	level	10(0
+BB-event-18346136	text	975	dep	10(0	)
+BB-event-18346136	text	975	dep	)	CFU
 BB-event-18346136	text	975	dep	CFU	(
 BB-event-18346136	text	975	nummod	g)	25
 BB-event-18346136	text	975	dep	(	g)
@@ -25936,7 +25936,7 @@ BB-event-18346136	text	1369	nmod	suitable	detection
 BB-event-18346136	text	1369	case	S	of
 BB-event-18346136	text	1369	nmod	detection	S
 BB-event-18346136	text	1369	punct	suitable	.
-BB-event-18346136	text	1369	root	.	enterica
+BB-event-18346136	text	1369	dep	.	enterica
 BB-event-18346136	text	1369	case	food	in
 BB-event-18346136	text	1369	nmod	enterica	food
 BB-event-18346136	text	1369	punct	enterica	.
@@ -25973,7 +25973,7 @@ BB-event-18809652	text	147	amod	pylori	gastroduodenal
 BB-event-18809652	text	147	compound	pylori	pathogen
 BB-event-18809652	text	147	compound	pylori	Helicobacter
 BB-event-18809652	text	147	nmod	shed	pylori
-BB-event-18809652	text	147	root	)	have
+BB-event-18809652	text	147	dep	)	have
 BB-event-18809652	text	147	amod	effects	measurable
 BB-event-18809652	text	147	dobj	have	effects
 BB-event-18809652	text	147	case	responses	on
@@ -26010,8 +26010,8 @@ BB-event-18809652	text	290	acl	lipopolysaccharide	(
 BB-event-18809652	text	290	dobj	(	LPS
 BB-event-18809652	text	290	dep	LPS	)
 BB-event-18809652	text	290	acl	)	produced
-BB-event-18809652	text	290	nmod	produced	on
-BB-event-18809652	text	290	root	on	H
+BB-event-18809652	text	290	dep	produced	on
+BB-event-18809652	text	290	dep	on	H
 BB-event-18809652	text	290	dep	H	.
 BB-event-18809652	text	290	compound	OMVs	pylori
 BB-event-18809652	text	290	dep	.	OMVs
@@ -26237,7 +26237,7 @@ BB-event-19126546	text	237	cop	understood	is
 BB-event-19126546	text	237	advmod	understood	best
 BB-event-19126546	text	237	root		understood
 BB-event-19126546	text	237	dep	understood	as
-BB-event-19126546	text	237	root	as	regulating
+BB-event-19126546	text	237	dep	as	regulating
 BB-event-19126546	text	237	dobj	regulating	expression
 BB-event-19126546	text	237	case	proteins	of
 BB-event-19126546	text	237	amod	proteins	outer
@@ -26534,9 +26534,9 @@ BB-event-19126546	text	2014	nmod	mode	host
 BB-event-19126546	text	2014	punct	mode	.
 BB-event-19329624	text	0	root		Salinivibrio
 BB-event-19329624	text	0	compound	sp	siamensis
-BB-event-19329624	text	0	root	Salinivibrio	sp
-BB-event-19329624	text	0	punct	sp	.
-BB-event-19329624	text	0	root	.	nov
+BB-event-19329624	text	0	dep	Salinivibrio	sp
+BB-event-19329624	text	0	dep	sp	.
+BB-event-19329624	text	0	dep	.	nov
 BB-event-19329624	text	0	dep	nov	.
 BB-event-19329624	text	0	punct	.	,
 BB-event-19329624	text	0	case	)	from
@@ -26544,7 +26544,7 @@ BB-event-19329624	text	0	compound	)	fermented
 BB-event-19329624	text	0	compound	)	fish
 BB-event-19329624	text	0	compound	)	(
 BB-event-19329624	text	0	compound	)	pla-ra
-BB-event-19329624	text	0	root	,	)
+BB-event-19329624	text	0	nmod	,	)
 BB-event-19329624	text	0	case	Thailand	in
 BB-event-19329624	text	0	nmod	)	Thailand
 BB-event-19329624	text	0	punct	)	.
@@ -27194,7 +27194,7 @@ BB-event-20518637	text	136	amod	procedures	major
 BB-event-20518637	text	136	amod	procedures	surgical
 BB-event-20518637	text	136	nmod	types	procedures
 BB-event-20518637	text	136	punct	determine	.
-BB-event-20518637	text	136	root	.	design
+BB-event-20518637	text	136	dep	.	design
 BB-event-20518637	text	136	punct	design	.
 BB-event-20518637	text	298	amod	study	Retrospective
 BB-event-20518637	text	298	amod	study	cohort
@@ -27263,10 +27263,10 @@ BB-event-20518637	text	684	punct	2003	.
 BB-event-20518637	text	724	root		We
 BB-event-20518637	text	724	dep	We	defined
 BB-event-20518637	text	724	amod	S	invasive
-BB-event-20518637	text	724	root	defined	S
-BB-event-20518637	text	724	punct	S	.
+BB-event-20518637	text	724	dobj	defined	S
+BB-event-20518637	text	724	dep	S	.
 BB-event-20518637	text	724	compound	infection	aureus
-BB-event-20518637	text	724	root	.	infection
+BB-event-20518637	text	724	dep	.	infection
 BB-event-20518637	text	724	case	infection	as
 BB-event-20518637	text	724	cc:preconj	infection	either
 BB-event-20518637	text	724	amod	infection	nonsuperficial
@@ -27483,13 +27483,13 @@ BB-event-20518637	text	1726	punct	common	;
 BB-event-20518637	text	1726	parataxis	common	P
 BB-event-20518637	text	1726	dep	P	<
 BB-event-20518637	text	1726	dep	<	.
-BB-event-20518637	text	1726	root	.	001
+BB-event-20518637	text	1726	dep	.	001
 BB-event-20518637	text	1726	punct	001	,
 BB-event-20518637	text	1726	case	types	compared
 BB-event-20518637	text	1726	case	types	with
 BB-event-20518637	text	1726	amod	types	other
 BB-event-20518637	text	1726	compound	types	procedure
-BB-event-20518637	text	1726	root	,	types
+BB-event-20518637	text	1726	conj	,	types
 BB-event-20518637	text	1726	dep	types	)
 BB-event-20518637	text	1726	punct	)	,
 BB-event-20518637	text	1726	appos	)	comprising
@@ -27538,23 +27538,23 @@ BB-event-20518637	text	2027	punct	incidence	;
 BB-event-20518637	text	2027	dep	incidence	P
 BB-event-20518637	text	2027	dep	P	<
 BB-event-20518637	text	2027	dep	<	.
-BB-event-20518637	text	2027	root	.	001
-BB-event-20518637	text	2027	punct	001	,
+BB-event-20518637	text	2027	dep	.	001
+BB-event-20518637	text	2027	punct	types	,
 BB-event-20518637	text	2027	case	types	compared
 BB-event-20518637	text	2027	case	types	with
 BB-event-20518637	text	2027	amod	types	other
 BB-event-20518637	text	2027	compound	types	procedure
-BB-event-20518637	text	2027	root	,	types
+BB-event-20518637	text	2027	dep	001	types
 BB-event-20518637	text	2027	dep	types	)
 BB-event-20518637	text	2027	punct	)	,
-BB-event-20518637	text	2027	appos	)	comprising
-BB-event-20518637	text	2027	root	comprising	80%
+BB-event-20518637	text	2027	dep	)	comprising
+BB-event-20518637	text	2027	dobj	comprising	80%
 BB-event-20518637	text	2027	case	S	of
 BB-event-20518637	text	2027	amod	S	invasive
 BB-event-20518637	text	2027	nmod	80%	S
 BB-event-20518637	text	2027	punct	80%	.
 BB-event-20518637	text	2027	compound	infections	aureus
-BB-event-20518637	text	2027	root	.	infections
+BB-event-20518637	text	2027	dep	.	infections
 BB-event-20518637	text	2027	case	procedures	after
 BB-event-20518637	text	2027	det	procedures	these
 BB-event-20518637	text	2027	nmod	infections	procedures
@@ -27645,7 +27645,7 @@ BB-event-20609608	text	289	nmod	alterations	cells
 BB-event-20609608	text	289	root		(
 BB-event-20609608	text	289	dobj	(	LSECs
 BB-event-20609608	text	289	dep	LSECs	)
-BB-event-20609608	text	289	root	)	have
+BB-event-20609608	text	289	dep	)	have
 BB-event-20609608	text	289	amod	repercussions	far-reaching
 BB-event-20609608	text	289	dobj	have	repercussions
 BB-event-20609608	text	289	case	liver	on
@@ -27702,11 +27702,11 @@ BB-event-20609608	text	572	nmod	effects	LSECs
 BB-event-20609608	text	572	punct	Gram	.
 BB-event-20609608	text	702	amod	loss	Initial
 BB-event-20609608	text	702	root		loss
-BB-event-20609608	text	702	acl	loss	of
-BB-event-20609608	text	702	root	of	LSEC
+BB-event-20609608	text	702	dep	loss	of
+BB-event-20609608	text	702	dep	of	LSEC
 BB-event-20609608	text	702	dobj	LSEC	porosity
 BB-event-20609608	text	702	acl	porosity	(
-BB-event-20609608	text	702	root	(	defenestration
+BB-event-20609608	text	702	dobj	(	defenestration
 BB-event-20609608	text	702	dep	defenestration	)
 BB-event-20609608	text	702	dep	)	induced
 BB-event-20609608	text	702	case	P	by
@@ -27786,7 +27786,7 @@ BB-event-20609608	text	1226	case	review	In
 BB-event-20609608	text	1226	det	review	this
 BB-event-20609608	text	1226	root		review
 BB-event-20609608	text	1226	punct	review	,
-BB-event-20609608	text	1226	root	,	we
+BB-event-20609608	text	1226	dep	,	we
 BB-event-20609608	text	1226	dep	we	propose
 BB-event-20609608	text	1226	dobj	propose	defenestration
 BB-event-20609608	text	1226	case	LSECs	of
@@ -27817,9 +27817,9 @@ BB-event-20609608	text	1362	compound	rejection	liver
 BB-event-20609608	text	1362	compound	rejection	allograft
 BB-event-20609608	text	1362	conj	hyperlipidemia	rejection
 BB-event-20609608	text	1362	punct	role	,
-BB-event-20609608	text	1362	root	,	LSEC
+BB-event-20609608	text	1362	conj	,	LSEC
 BB-event-20609608	text	1362	dobj	LSEC	changes
-BB-event-20609608	text	1362	root	changes	induced
+BB-event-20609608	text	1362	dep	changes	induced
 BB-event-20609608	text	1362	case	P	by
 BB-event-20609608	text	1362	nmod	induced	P
 BB-event-20609608	text	1362	punct	induced	.
@@ -27830,7 +27830,7 @@ BB-event-20609608	text	1362	nmod	toxins	LPS
 BB-event-20609608	text	1362	cc	LPS	and
 BB-event-20609608	text	1362	conj	LPS	pyocyanin
 BB-event-20609608	text	1362	aux	have	may
-BB-event-20609608	text	1362	root	induced	have
+BB-event-20609608	text	1362	parataxis	induced	have
 BB-event-20609608	text	1362	amod	implications	significant
 BB-event-20609608	text	1362	dep	significant	clinical
 BB-event-20609608	text	1362	dobj	have	implications
@@ -28127,7 +28127,7 @@ BB-event-20637430	text	1402	punct	had	.
 BB-event-20637430	text	1511	case	summary	In
 BB-event-20637430	text	1511	nmod	used	summary
 BB-event-20637430	text	1511	punct	used	,
-BB-event-20637430	text	1511	nsubjpass	used	IHC
+BB-event-20637430	text	1511	nsubj	used	IHC
 BB-event-20637430	text	1511	case	pylori	for
 BB-event-20637430	text	1511	compound	pylori	H
 BB-event-20637430	text	1511	nmod	IHC	pylori
@@ -28205,7 +28205,7 @@ BB-event-20950772	text	196	amod	C	fulminant
 BB-event-20950772	text	196	nmod	colectomy	C
 BB-event-20950772	text	196	punct	increase	.
 BB-event-20950772	text	196	amod	colitis	difficile
-BB-event-20950772	text	196	root	.	colitis
+BB-event-20950772	text	196	dobj	.	colitis
 BB-event-20950772	text	196	compound	)	(
 BB-event-20950772	text	196	compound	)	FCDC
 BB-event-20950772	text	196	dep	colitis	)
@@ -28349,7 +28349,7 @@ BB-event-20950772	text	994	nmod	35%	patients
 BB-event-20950772	text	994	amod	FCDC	developed
 BB-event-20950772	text	994	dep	.	FCDC
 BB-event-20950772	text	994	dep	FCDC	after
-BB-event-20950772	text	994	root	after	having
+BB-event-20950772	text	994	dep	after	having
 BB-event-20950772	text	994	nummod	doses	three
 BB-event-20950772	text	994	nsubj	(	doses
 BB-event-20950772	text	994	case	antibiotic	of
@@ -28561,8 +28561,8 @@ BB-event-21211789	text	640	root		based
 BB-event-21211789	text	640	case	investigation	on
 BB-event-21211789	text	640	det	investigation	the
 BB-event-21211789	text	640	nmod	based	investigation
-BB-event-21211789	text	640	acl	investigation	of
-BB-event-21211789	text	640	root	of	probing
+BB-event-21211789	text	640	dep	investigation	of
+BB-event-21211789	text	640	dep	of	probing
 BB-event-21211789	text	640	dobj	probing	depth
 BB-event-21211789	text	640	acl	depth	(
 BB-event-21211789	text	640	compound	)	PD
@@ -28627,7 +28627,7 @@ BB-event-21211789	text	902	case	plaque	in
 BB-event-21211789	text	902	amod	plaque	subgingival
 BB-event-21211789	text	902	nmod	identification	plaque
 BB-event-21211789	text	902	dep	using	was
-BB-event-21211789	text	902	root	was	performed
+BB-event-21211789	text	902	dep	was	performed
 BB-event-21211789	text	902	xcomp	performed	using
 BB-event-21211789	text	902	compound	reaction	polymerase
 BB-event-21211789	text	902	compound	reaction	chain
@@ -28747,7 +28747,7 @@ BB-event-21211789	text	1544	punct	C	,
 BB-event-21211789	text	1544	cc	C	and
 BB-event-21211789	text	1544	conj	C	T
 BB-event-21211789	text	1544	punct	severe	.
-BB-event-21211789	text	1544	root	.	denticola
+BB-event-21211789	text	1544	dep	.	denticola
 BB-event-21211789	text	1544	case	patients	in
 BB-event-21211789	text	1544	nmod	denticola	patients
 BB-event-21211789	text	1544	case	CKD	with
@@ -29069,14 +29069,14 @@ BB-event-22092526	text	349	punct	evaluated	.
 BB-event-22092526	text	529	case	visit	At
 BB-event-22092526	text	529	det	visit	each
 BB-event-22092526	text	529	root		visit
-BB-event-22092526	text	529	punct	visit	,
+BB-event-22092526	text	529	punct	index	,
 BB-event-22092526	text	529	amod	index	clinical
 BB-event-22092526	text	529	compound	index	[
 BB-event-22092526	text	529	compound	index	plaque
-BB-event-22092526	text	529	root	,	index
+BB-event-22092526	text	529	nmod	visit	index
 BB-event-22092526	text	529	dep	index	(
 BB-event-22092526	text	529	compound	)	PlI
-BB-event-22092526	text	529	root	(	)
+BB-event-22092526	text	529	dobj	(	)
 BB-event-22092526	text	529	cc	)	and
 BB-event-22092526	text	529	amod	(GI)	gingival
 BB-event-22092526	text	529	compound	(GI)	index
@@ -29299,7 +29299,7 @@ BB-event-22662140	text	240	amod	period	epidemic
 BB-event-22662140	text	240	root		period
 BB-event-22662140	text	240	punct	period	,
 BB-event-22662140	text	240	det	strain	a
-BB-event-22662140	text	240	root	,	strain
+BB-event-22662140	text	240	nsubj	,	strain
 BB-event-22662140	text	240	nsubj	failed	that
 BB-event-22662140	text	240	acl:relcl	strain	failed
 BB-event-22662140	text	240	case	outbreaks	to
@@ -29379,10 +29379,10 @@ BB-event-22662140	text	661	conj	shown	harbor
 BB-event-22662140	text	661	det	V	the
 BB-event-22662140	text	661	amod	V	main
 BB-event-22662140	text	661	dobj	harbor	V
-BB-event-22662140	text	661	punct	V	.
+BB-event-22662140	text	661	dep	V	.
 BB-event-22662140	text	661	compound	genes	cholera
 BB-event-22662140	text	661	compound	genes	virulence
-BB-event-22662140	text	661	root	.	genes
+BB-event-22662140	text	661	dep	.	genes
 BB-event-22662140	text	661	punct	genes	.
 BB-event-22662140	text	791	det	approach	A
 BB-event-22662140	text	791	amod	approach	novel
@@ -29508,7 +29508,7 @@ BB-event-22662140	text	1388	punct	frame	.
 BB-event-22662140	text	1492	root		Further
 BB-event-22662140	text	1492	punct	Further	,
 BB-event-22662140	text	1492	det	identification	the
-BB-event-22662140	text	1492	root	,	identification
+BB-event-22662140	text	1492	conj	,	identification
 BB-event-22662140	text	1492	case	reinforces	of
 BB-event-22662140	text	1492	det	reinforces	a
 BB-event-22662140	text	1492	amod	reinforces	common
@@ -29542,11 +29542,11 @@ BB-event-23339910	text	0	conj	larvicidal	pupicidal
 BB-event-23339910	text	0	dobj	Mosquito	activity
 BB-event-23339910	text	0	case	Euphorbia	of
 BB-event-23339910	text	0	nmod	activity	Euphorbia
-BB-event-23339910	text	0	root	Euphorbia	hirta
-BB-event-23339910	text	0	root	hirta	Linn
-BB-event-23339910	text	0	punct	Linn	.
+BB-event-23339910	text	0	dep	Euphorbia	hirta
+BB-event-23339910	text	0	dep	hirta	Linn
+BB-event-23339910	text	0	dep	Linn	.
 BB-event-23339910	text	0	compound	Family	(
-BB-event-23339910	text	0	root	.	Family
+BB-event-23339910	text	0	nsubj	.	Family
 BB-event-23339910	text	0	punct	Family	:
 BB-event-23339910	text	0	compound	sphaericus	Euphorbiaceae
 BB-event-23339910	text	0	compound	sphaericus	)
@@ -29559,7 +29559,7 @@ BB-event-23339910	text	0	compound	Liston	stephensi
 BB-event-23339910	text	0	nmod	sphaericus	Liston
 BB-event-23339910	text	0	punct	sphaericus	.
 BB-event-23339910	text	0	compound	Diptera	(
-BB-event-23339910	text	0	root	.	Diptera
+BB-event-23339910	text	0	dep	.	Diptera
 BB-event-23339910	text	0	punct	Diptera	:
 BB-event-23339910	text	0	compound	)	Culicidae
 BB-event-23339910	text	0	dep	Diptera	)
@@ -29571,11 +29571,11 @@ BB-event-23339910	text	174	amod	activity	larvicidal
 BB-event-23339910	text	174	cc	larvicidal	and
 BB-event-23339910	text	174	conj	larvicidal	pupicidal
 BB-event-23339910	text	174	dobj	explore	activity
-BB-event-23339910	text	174	case	hirta	of
-BB-event-23339910	text	174	compound	hirta	Euphorbia
-BB-event-23339910	text	174	nmod	activity	hirta
-BB-event-23339910	text	174	root	hirta	(
-BB-event-23339910	text	174	root	(	E
+BB-event-23339910	text	174	case	Euphorbia	of
+BB-event-23339910	text	174	nmod	activity	Euphorbia
+BB-event-23339910	text	174	dep	Euphorbia	hirta
+BB-event-23339910	text	174	dobj	hirta	(
+BB-event-23339910	text	174	dep	(	E
 BB-event-23339910	text	174	dep	E	.
 BB-event-23339910	text	174	compound	extract	hirta
 BB-event-23339910	text	174	compound	extract	)
@@ -29609,16 +29609,16 @@ BB-event-23339910	text	372	conj	larvicidal	pupicidal
 BB-event-23339910	text	372	nsubj	assayed	activity
 BB-event-23339910	text	372	cop	assayed	was
 BB-event-23339910	text	372	root		assayed
-BB-event-23339910	text	372	case	.	against
-BB-event-23339910	text	372	det	.	An
-BB-event-23339910	text	372	nmod	assayed	.
-BB-event-23339910	text	372	root	.	stephensi
+BB-event-23339910	text	372	dep	assayed	against
+BB-event-23339910	text	372	dep	against	An
+BB-event-23339910	text	372	dep	An	.
+BB-event-23339910	text	372	dobj	.	stephensi
 BB-event-23339910	text	372	case	concentrations	at
 BB-event-23339910	text	372	amod	concentrations	various
 BB-event-23339910	text	372	nmod	stephensi	concentrations
 BB-event-23339910	text	372	acl	concentrations	ranging
-BB-event-23339910	text	372	acl	ranging	from
-BB-event-23339910	text	372	root	from	(
+BB-event-23339910	text	372	dep	ranging	from
+BB-event-23339910	text	372	dep	from	(
 BB-event-23339910	text	372	nummod	ppm	75-375
 BB-event-23339910	text	372	dobj	(	ppm
 BB-event-23339910	text	372	acl	ppm	)
@@ -29731,7 +29731,7 @@ BB-event-23339910	text	638	dep	hirta	.
 BB-event-23339910	text	1049	root		Moreover
 BB-event-23339910	text	1049	punct	Moreover	,
 BB-event-23339910	text	1049	amod	treatment	combined
-BB-event-23339910	text	1049	root	,	treatment
+BB-event-23339910	text	1049	conj	,	treatment
 BB-event-23339910	text	1049	case	values	of
 BB-event-23339910	text	1049	nmod	treatment	values
 BB-event-23339910	text	1049	case	LC(50)=	of
@@ -29790,8 +29790,8 @@ BB-event-23339910	text	1197	amod	vector	malarial
 BB-event-23339910	text	1197	nmod	control	vector
 BB-event-23339910	text	1197	punct	vector	,
 BB-event-23339910	text	1197	appos	vector	An
-BB-event-23339910	text	1197	punct	An	.
-BB-event-23339910	text	1197	root	.	stephensi
+BB-event-23339910	text	1197	acl	An	.
+BB-event-23339910	text	1197	dep	.	stephensi
 BB-event-23339910	text	1197	case	species	as
 BB-event-23339910	text	1197	compound	species	target
 BB-event-23339910	text	1197	nmod	stephensi	species
@@ -29978,7 +29978,7 @@ BB-event-23895665	text	874	det	perspective	a
 BB-event-23895665	text	874	compound	perspective	laboratory
 BB-event-23895665	text	874	root		perspective
 BB-event-23895665	text	874	punct	perspective	,
-BB-event-23895665	text	874	root	,	Xpert
+BB-event-23895665	text	874	dep	,	Xpert
 BB-event-23895665	text	874	dep	Xpert	MTB
 BB-event-23895665	text	874	amod	MTB	/
 BB-event-23895665	text	874	dep	/	RIF
@@ -30454,7 +30454,7 @@ BB-event-23935486	text	1972	punct	scaffold	.
 BB-event-23935486	text	1972	compound	development	aeruginosa
 BB-event-23935486	text	1972	compound	development	virulence
 BB-event-23935486	text	1972	compound	development	drug
-BB-event-23935486	text	1972	root	.	development
+BB-event-23935486	text	1972	dep	.	development
 BB-event-23935486	text	1972	case	PqsR	by
 BB-event-23935486	text	1972	dep	PqsR	targeting
 BB-event-23935486	text	1972	det	PqsR	the
@@ -30881,11 +30881,11 @@ BB-event-24302732	text	673	det	structure	the
 BB-event-24302732	text	673	amod	structure	crystal
 BB-event-24302732	text	673	nmod	determination	structure
 BB-event-24302732	text	673	dep	structure	of
-BB-event-24302732	text	673	root	of	the
+BB-event-24302732	text	673	dep	of	the
 BB-event-24302732	text	673	dep	the	K
-BB-event-24302732	text	673	punct	K	.
+BB-event-24302732	text	673	dep	K	.
 BB-event-24302732	text	673	compound	enzyme	stuttgartiensis
-BB-event-24302732	text	673	root	.	enzyme
+BB-event-24302732	text	673	dep	.	enzyme
 BB-event-24302732	text	673	case	resolution	at
 BB-event-24302732	text	673	nummod	resolution	1.8
 BB-event-24302732	text	673	compound	resolution	Å
@@ -31124,7 +31124,7 @@ BB-event-24416173	text	937	case	result	to
 BB-event-24416173	text	937	nmod	sample	result
 BB-event-24416173	text	937	punct	sample	,
 BB-event-24416173	text	937	det	HE	the
-BB-event-24416173	text	937	root	,	HE
+BB-event-24416173	text	937	dep	,	HE
 BB-event-24416173	text	937	punct	HE	-
 BB-event-24416173	text	937	dep	HE	LAMP
 BB-event-24416173	text	937	punct	HE	-
@@ -31149,7 +31149,7 @@ BB-event-24416173	text	1051	det	study	a
 BB-event-24416173	text	1051	amod	study	further
 BB-event-24416173	text	1051	root		study
 BB-event-24416173	text	1051	acl	study	(
-BB-event-24416173	text	1051	root	(	tcdB(+)
+BB-event-24416173	text	1051	dobj	(	tcdB(+)
 BB-event-24416173	text	1051	punct	tcdB(+)	,
 BB-event-24416173	text	1051	appos	tcdB(+)	n = 47
 BB-event-24416173	text	1051	punct	tcdB(+)	;
@@ -31326,7 +31326,7 @@ BB-event-24416173	text	1910	root		Further
 BB-event-24416173	text	1910	punct	Further	,
 BB-event-24416173	text	1910	det	time	the
 BB-event-24416173	text	1910	amod	time	rapid
-BB-event-24416173	text	1910	root	,	time
+BB-event-24416173	text	1910	dep	,	time
 BB-event-24416173	text	1910	punct	time	-
 BB-event-24416173	text	1910	compound	protocol	to-result
 BB-event-24416173	text	1910	cc	to-result	and
@@ -31402,8 +31402,8 @@ BB-event-24474814	text	139	nmod	understanding	factors
 BB-event-24474814	text	139	case	pathogenesis	in
 BB-event-24474814	text	139	det	pathogenesis	the
 BB-event-24474814	text	139	nmod	understanding	pathogenesis
-BB-event-24474814	text	139	acl	pathogenesis	of
-BB-event-24474814	text	139	root	of	ascending
+BB-event-24474814	text	139	dep	pathogenesis	of
+BB-event-24474814	text	139	dep	of	ascending
 BB-event-24474814	text	139	dobj	ascending	infection
 BB-event-24474814	text	139	acl	infection	remains
 BB-event-24474814	text	139	xcomp	remains	limited
@@ -31576,8 +31576,8 @@ BB-event-24474814	text	1331	root		demonstrate
 BB-event-24474814	text	1331	det	contribution	a
 BB-event-24474814	text	1331	amod	contribution	distinct
 BB-event-24474814	text	1331	dobj	demonstrate	contribution
-BB-event-24474814	text	1331	acl	contribution	of
-BB-event-24474814	text	1331	root	of	βH
+BB-event-24474814	text	1331	dep	contribution	of
+BB-event-24474814	text	1331	dep	of	βH
 BB-event-24474814	text	1331	dep	βH	/
 BB-event-24474814	text	1331	dep	/	C
 BB-event-24474814	text	1331	case	chorioamnionitis	to
@@ -31707,17 +31707,17 @@ BB-event-24621108	text	656	cop	active	was
 BB-event-24621108	text	656	root		active
 BB-event-24621108	text	656	case	S	against
 BB-event-24621108	text	656	nmod	active	S
-BB-event-24621108	text	656	punct	S	.
-BB-event-24621108	text	656	root	.	aureus
+BB-event-24621108	text	656	dep	S	.
+BB-event-24621108	text	656	nsubj	.	aureus
 BB-event-24621108	text	656	punct	aureus	,
 BB-event-24621108	text	656	appos	aureus	L
 BB-event-24621108	text	656	dep	L	.
-BB-event-24621108	text	656	root	.	monocytogenes
+BB-event-24621108	text	656	nsubj	.	monocytogenes
 BB-event-24621108	text	656	punct	monocytogenes	,
 BB-event-24621108	text	656	appos	monocytogenes	E
-BB-event-24621108	text	656	punct	E	.
+BB-event-24621108	text	656	acl	E	.
 BB-event-24621108	text	656	compound	O157	coli
-BB-event-24621108	text	656	root	.	O157
+BB-event-24621108	text	656	dep	.	O157
 BB-event-24621108	text	656	punct	O157	:
 BB-event-24621108	text	656	dep	O157	H7
 BB-event-24621108	text	656	punct	H7	,
@@ -31727,7 +31727,7 @@ BB-event-24621108	text	656	punct	O157	.
 BB-event-24621108	text	763	root		Typhimurium
 BB-event-24621108	text	763	punct	Typhimurium	,
 BB-event-24621108	text	763	advmod	compared	when
-BB-event-24621108	text	763	root	,	compared
+BB-event-24621108	text	763	dep	,	compared
 BB-event-24621108	text	763	case	1%	with
 BB-event-24621108	text	763	nmod	compared	1%
 BB-event-24621108	text	763	dep	compared	.
@@ -31741,17 +31741,17 @@ BB-event-24621108	text	799	cop	active	were
 BB-event-24621108	text	799	root		active
 BB-event-24621108	text	799	case	S	against
 BB-event-24621108	text	799	nmod	active	S
-BB-event-24621108	text	799	punct	S	.
-BB-event-24621108	text	799	root	.	aureus
+BB-event-24621108	text	799	dep	S	.
+BB-event-24621108	text	799	nsubj	.	aureus
 BB-event-24621108	text	799	punct	aureus	,
 BB-event-24621108	text	799	appos	aureus	L
 BB-event-24621108	text	799	dep	L	.
-BB-event-24621108	text	799	root	.	monocytogenes
+BB-event-24621108	text	799	nsubj	.	monocytogenes
 BB-event-24621108	text	799	punct	monocytogenes	,
 BB-event-24621108	text	799	appos	monocytogenes	E
-BB-event-24621108	text	799	punct	E	.
+BB-event-24621108	text	799	acl	E	.
 BB-event-24621108	text	799	compound	O157	coli
-BB-event-24621108	text	799	root	.	O157
+BB-event-24621108	text	799	dep	.	O157
 BB-event-24621108	text	799	punct	O157	:
 BB-event-24621108	text	799	dep	O157	H7
 BB-event-24621108	text	799	punct	H7	,
@@ -31761,7 +31761,7 @@ BB-event-24621108	text	799	punct	O157	.
 BB-event-24621108	text	907	root		Typhimurium
 BB-event-24621108	text	907	punct	Typhimurium	,
 BB-event-24621108	text	907	advmod	compared	when
-BB-event-24621108	text	907	root	,	compared
+BB-event-24621108	text	907	dep	,	compared
 BB-event-24621108	text	907	case	nm	with
 BB-event-24621108	text	907	nummod	nm	100
 BB-event-24621108	text	907	cc	100	or
@@ -31828,7 +31828,7 @@ BB-event-24621108	text	1261	compound	studies	challenge
 BB-event-24621108	text	1261	root		studies
 BB-event-24621108	text	1261	punct	studies	,
 BB-event-24621108	text	1261	compound	films	pullulan
-BB-event-24621108	text	1261	root	,	films
+BB-event-24621108	text	1261	dobj	,	films
 BB-event-24621108	text	1261	mark	inhibited	containing
 BB-event-24621108	text	1261	det	compounds	the
 BB-event-24621108	text	1261	nsubj	inhibited	compounds
@@ -31844,12 +31844,12 @@ BB-event-24621108	text	1261	nmod	associated	meat
 BB-event-24621108	text	1261	cc	meat	and
 BB-event-24621108	text	1261	compound	products	poultry
 BB-event-24621108	text	1261	conj	meat	products
-BB-event-24621108	text	1261	dep	meat	stored
+BB-event-24621108	text	1261	acl	meat	stored
 BB-event-24621108	text	1261	case	°C	at
 BB-event-24621108	text	1261	nummod	°C	4
 BB-event-24621108	text	1261	nmod	stored	°C
-BB-event-24621108	text	1261	acl	stored	for
-BB-event-24621108	text	1261	root	for	up
+BB-event-24621108	text	1261	dep	stored	for
+BB-event-24621108	text	1261	dep	for	up
 BB-event-24621108	text	1261	case	wk	to
 BB-event-24621108	text	1261	nummod	wk	3
 BB-event-24621108	text	1261	nmod	up	wk
@@ -32004,7 +32004,7 @@ BB-event-24651768	text	464	compound	cells	Killer
 BB-event-24651768	text	464	nmod	found	cells
 BB-event-24651768	text	464	cc	found	and
 BB-event-24651768	text	464	conj	found	have
-BB-event-24651768	text	464	root	have	co-evolved
+BB-event-24651768	text	464	dep	have	co-evolved
 BB-event-24651768	text	464	case	Antigen	with
 BB-event-24651768	text	464	det	Antigen	the
 BB-event-24651768	text	464	amod	Antigen	Human
@@ -32165,7 +32165,7 @@ BB-event-24651768	text	1254	advmod	increased	further
 BB-event-24651768	text	1254	conj	)	increased
 BB-event-24651768	text	1254	dep	increased	when
 BB-event-24651768	text	1254	cc:preconj	KIR2DL2	both
-BB-event-24651768	text	1254	root	when	KIR2DL2
+BB-event-24651768	text	1254	dep	when	KIR2DL2
 BB-event-24651768	text	1254	cc	KIR2DL2	and
 BB-event-24651768	text	1254	conj	KIR2DL2	KIR2DL3
 BB-event-24651768	text	1254	dep	KIR2DL2	(
@@ -32346,7 +32346,7 @@ BB-event-24722168	text	410	dobj	using	model
 BB-event-24722168	text	410	dep	model	found
 BB-event-24722168	text	410	dep	found	that
 BB-event-24722168	text	410	compound	dose	probiotics
-BB-event-24722168	text	410	root	that	dose
+BB-event-24722168	text	410	dep	that	dose
 BB-event-24722168	text	410	punct	dose	-
 BB-event-24722168	text	410	advmod	regulated	dependently
 BB-event-24722168	text	410	dep	dose	regulated
@@ -32397,7 +32397,7 @@ BB-event-24722168	text	574	punct	We	.
 BB-event-24722168	text	745	nsubj	found	We
 BB-event-24722168	text	745	root		found
 BB-event-24722168	text	745	dep	found	that
-BB-event-24722168	text	745	root	that	attenuated
+BB-event-24722168	text	745	dep	that	attenuated
 BB-event-24722168	text	745	dobj	attenuated	HRV
 BB-event-24722168	text	745	acl	HRV	(
 BB-event-24722168	text	745	dobj	(	AttHRV
@@ -32468,10 +32468,10 @@ BB-event-24722168	text	1152	compound	GG	dose
 BB-event-24722168	text	1152	compound	GG	Lactobacillus
 BB-event-24722168	text	1152	compound	GG	rhamnosus
 BB-event-24722168	text	1152	root		GG
-BB-event-24722168	text	1152	compound	LGG	(
-BB-event-24722168	text	1152	dep	GG	LGG
-BB-event-24722168	text	1152	root	LGG	)
-BB-event-24722168	text	1152	root	)	feeding
+BB-event-24722168	text	1152	dep	GG	(
+BB-event-24722168	text	1152	dobj	(	LGG
+BB-event-24722168	text	1152	acl	LGG	)
+BB-event-24722168	text	1152	dobj	)	feeding
 BB-event-24722168	text	1152	amod	feeding	(
 BB-event-24722168	text	1152	nummod	doses	14
 BB-event-24722168	text	1152	dep	(	doses
@@ -32483,7 +32483,7 @@ BB-event-24722168	text	1152	appos	feeding	colony
 BB-event-24722168	text	1152	punct	feeding	-
 BB-event-24722168	text	1152	dep	feeding	forming
 BB-event-24722168	text	1152	punct	forming	-
-BB-event-24722168	text	1152	root	-	unit
+BB-event-24722168	text	1152	conj	-	unit
 BB-event-24722168	text	1152	acl	unit	[
 BB-event-24722168	text	1152	dobj	[	CFU
 BB-event-24722168	text	1152	acl	CFU	]
@@ -32811,10 +32811,10 @@ BB-event-24837294	text	774	amod	us	lead
 BB-event-24837294	text	774	dobj	pgfS	us
 BB-event-24837294	text	774	mark	hypothesize	to
 BB-event-24837294	text	774	acl	us	hypothesize
-BB-event-24837294	text	774	dobj	hypothesize	that
+BB-event-24837294	text	774	dep	hypothesize	that
 BB-event-24837294	text	774	compound	Cnm	PgfS
 BB-event-24837294	text	774	compound	Cnm	modifies
-BB-event-24837294	text	774	root	that	Cnm
+BB-event-24837294	text	774	dep	that	Cnm
 BB-event-24837294	text	774	punct	Cnm	.
 BB-event-24837294	text	963	det	strain	A
 BB-event-24837294	text	963	compound	strain	ΔpgfS
@@ -33274,8 +33274,8 @@ BB-event-3492570	text	446	nummod	hr	29
 BB-event-3492570	text	446	nmod	g	hr
 BB-event-3492570	text	446	case	infection	of
 BB-event-3492570	text	446	nmod	hr	infection
-BB-event-3492570	text	446	dep	infection	(
-BB-event-3492570	text	446	root	(	vs
+BB-event-3492570	text	446	acl	infection	(
+BB-event-3492570	text	446	dobj	(	vs
 BB-event-3492570	text	446	dep	vs	.
 BB-event-3492570	text	446	nummod	/- 14	405
 BB-event-3492570	text	446	amod	/- 14	+
@@ -33358,9 +33358,9 @@ BB-event-3492570	text	820	compound	P	(
 BB-event-3492570	text	820	dep	hr	P
 BB-event-3492570	text	820	amod	P	less
 BB-event-3492570	text	820	dep	less	than
-BB-event-3492570	text	820	root	than	.
+BB-event-3492570	text	820	dep	than	.
 BB-event-3492570	text	820	nummod	)	005
-BB-event-3492570	text	820	root	.	)
+BB-event-3492570	text	820	dep	.	)
 BB-event-3492570	text	820	punct	)	,
 BB-event-3492570	text	820	cc	)	and
 BB-event-3492570	text	820	det	levels	these
@@ -33560,11 +33560,11 @@ BB-event-4387161	text	792	punct	Thus	,
 BB-event-4387161	text	792	compound	dehydrogenase	uridine
 BB-event-4387161	text	792	compound	dehydrogenase	diphosphate
 BB-event-4387161	text	792	compound	dehydrogenase	d-glucose
-BB-event-4387161	text	792	root	,	dehydrogenase
+BB-event-4387161	text	792	conj	,	dehydrogenase
 BB-event-4387161	text	792	case	A	from
 BB-event-4387161	text	792	nmod	dehydrogenase	A
-BB-event-4387161	text	792	punct	dehydrogenase	.
-BB-event-4387161	text	792	root	.	aerogenes
+BB-event-4387161	text	792	dep	dehydrogenase	.
+BB-event-4387161	text	792	nsubj	.	aerogenes
 BB-event-4387161	text	792	acl	aerogenes	differs
 BB-event-4387161	text	792	case	enzyme	from
 BB-event-4387161	text	792	det	enzyme	the
@@ -33938,7 +33938,7 @@ BB-event-7424745	text	398	acl	inhabitants	examined
 BB-event-7424745	text	398	punct	inhabitants	,
 BB-event-7424745	text	398	nummod	Moraxella	35
 BB-event-7424745	text	398	compound	Moraxella	harbored
-BB-event-7424745	text	398	root	,	Moraxella
+BB-event-7424745	text	398	dep	,	Moraxella
 BB-event-7424745	text	398	case	noses	in
 BB-event-7424745	text	398	det	noses	their
 BB-event-7424745	text	398	nmod	Moraxella	noses
@@ -33969,7 +33969,7 @@ BB-event-7424745	text	472	case	population	in
 BB-event-7424745	text	472	det	population	this
 BB-event-7424745	text	472	nmod	change	population
 BB-event-7424745	text	472	punct	1968	,
-BB-event-7424745	text	472	root	,	we
+BB-event-7424745	text	472	dep	,	we
 BB-event-7424745	text	472	dep	we	noted
 BB-event-7424745	text	472	det	decline	a
 BB-event-7424745	text	472	amod	decline	marked
@@ -34099,8 +34099,8 @@ BB-event-7548409	text	554	advmod	different	clearly
 BB-event-7548409	text	554	conj	showed	different
 BB-event-7548409	text	554	case	C	from
 BB-event-7548409	text	554	nmod	different	C
-BB-event-7548409	text	554	punct	C	.
-BB-event-7548409	text	554	root	.	pilosum
+BB-event-7548409	text	554	acl	C	.
+BB-event-7548409	text	554	dep	.	pilosum
 BB-event-7548409	text	554	punct	pilosum	,
 BB-event-7548409	text	554	appos	pilosum	C
 BB-event-7548409	text	554	dep	C	.
@@ -34171,11 +34171,11 @@ BB-event-7766090	text	101	nsubj	explored	expression
 BB-event-7766090	text	101	aux	explored	have
 BB-event-7766090	text	101	cop	explored	been
 BB-event-7766090	text	101	ccomp	controlled	explored
-BB-event-7766090	text	101	case	.	in
-BB-event-7766090	text	101	compound	.	E
-BB-event-7766090	text	101	nmod	explored	.
+BB-event-7766090	text	101	nmod	explored	in
+BB-event-7766090	text	101	dep	in	E
+BB-event-7766090	text	101	dep	E	.
 BB-event-7766090	text	101	compound	cultures	coli
-BB-event-7766090	text	101	root	.	cultures
+BB-event-7766090	text	101	nsubj	.	cultures
 BB-event-7766090	text	101	advmod	added	when
 BB-event-7766090	text	101	det	drug	the
 BB-event-7766090	text	101	nsubjpass	added	drug
@@ -34224,9 +34224,9 @@ BB-event-7766090	text	452	root		detected
 BB-event-7766090	text	452	case	E	in
 BB-event-7766090	text	452	amod	E	other
 BB-event-7766090	text	452	nmod	detected	E
-BB-event-7766090	text	452	punct	E	.
+BB-event-7766090	text	452	dep	E	.
 BB-event-7766090	text	452	compound	strains	coli
-BB-event-7766090	text	452	root	.	strains
+BB-event-7766090	text	452	dep	.	strains
 BB-event-7766090	text	452	cc	strains	and
 BB-event-7766090	text	452	aux	involve	does
 BB-event-7766090	text	452	neg	involve	not
@@ -34386,11 +34386,11 @@ BB-event-7771426	text	313	nummod	b	500
 BB-event-7771426	text	313	compound	b	mg
 BB-event-7771426	text	313	conj	basis	b
 BB-event-7771426	text	313	punct	basis	.
-BB-event-7771426	text	313	root	.	i
-BB-event-7771426	text	313	acl	i	.
-BB-event-7771426	text	313	root	.	d
+BB-event-7771426	text	313	dep	.	i
+BB-event-7771426	text	313	dep	i	.
+BB-event-7771426	text	313	dep	.	d
 BB-event-7771426	text	313	dep	d	.
-BB-event-7771426	text	313	root	.	.
+BB-event-7771426	text	313	dep	.	.
 BB-event-7771426	text	589	nummod	weeks	Four
 BB-event-7771426	text	589	nmod	evaluated	weeks
 BB-event-7771426	text	589	case	weeks	after
@@ -34427,7 +34427,7 @@ BB-event-7771426	text	763	nmod	identified	patients
 BB-event-7771426	text	763	punct	identified	,
 BB-event-7771426	text	763	advmod	identified	H
 BB-event-7771426	text	763	punct	identified	.
-BB-event-7771426	text	763	nsubjpass	identified	pylori
+BB-event-7771426	text	763	nsubj	identified	pylori
 BB-event-7771426	text	763	aux	identified	could
 BB-event-7771426	text	763	neg	identified	not
 BB-event-7771426	text	763	auxpass	identified	be
@@ -34817,7 +34817,7 @@ BB-event-8578217	text	443	conj	healing	H
 BB-event-8578217	text	443	punct	analysed	.
 BB-event-8578217	text	443	compound	rates	pylori
 BB-event-8578217	text	443	compound	rates	eradication
-BB-event-8578217	text	443	root	.	rates
+BB-event-8578217	text	443	dep	.	rates
 BB-event-8578217	text	443	punct	rates	.
 BB-event-8578217	text	612	nummod	study	One
 BB-event-8578217	text	612	nsubj	achieved	study
@@ -34839,7 +34839,7 @@ BB-event-8578217	text	612	conj	86%	H
 BB-event-8578217	text	612	punct	achieved	.
 BB-event-8578217	text	612	compound	rate	pylori
 BB-event-8578217	text	612	compound	rate	eradication
-BB-event-8578217	text	612	root	.	rate
+BB-event-8578217	text	612	dep	.	rate
 BB-event-8578217	text	612	case	40%	of
 BB-event-8578217	text	612	nmod	rate	40%
 BB-event-8578217	text	612	punct	rate	,
@@ -34916,7 +34916,7 @@ BB-event-8578217	text	1114	det	healing	the
 BB-event-8578217	text	1114	amod	healing	4-week
 BB-event-8578217	text	1114	amod	healing	duodenal
 BB-event-8578217	text	1114	compound	healing	ulcer
-BB-event-8578217	text	1114	root	,	healing
+BB-event-8578217	text	1114	nsubj	,	healing
 BB-event-8578217	text	1114	cc	healing	and
 BB-event-8578217	text	1114	dep	distinguishable	H
 BB-event-8578217	text	1114	punct	distinguishable	.
@@ -34954,8 +34954,8 @@ BB-event-8578217	text	1323	ccomp	concluded	agent
 BB-event-8578217	text	1323	case	eradication	for
 BB-event-8578217	text	1323	det	eradication	the
 BB-event-8578217	text	1323	nmod	agent	eradication
-BB-event-8578217	text	1323	acl	eradication	of
-BB-event-8578217	text	1323	root	of	H
+BB-event-8578217	text	1323	dep	eradication	of
+BB-event-8578217	text	1323	dep	of	H
 BB-event-8578217	text	1323	dep	H	.
 BB-event-8578217	text	1323	dep	.	pylori
 BB-event-8578217	text	1323	case	patients	in
@@ -35028,7 +35028,7 @@ BB-event-9467391	text	367	root		far
 BB-event-9467391	text	367	punct	far	,
 BB-event-9467391	text	367	det	S	the
 BB-event-9467391	text	367	amod	S	examined
-BB-event-9467391	text	367	root	,	S
+BB-event-9467391	text	367	conj	,	S
 BB-event-9467391	text	367	punct	exhibited	.
 BB-event-9467391	text	367	compound	strains	mutans
 BB-event-9467391	text	367	nsubj	exhibited	strains
@@ -35047,7 +35047,7 @@ BB-event-9467391	text	442	dobj	describe	technique
 BB-event-9467391	text	442	case	S	for
 BB-event-9467391	text	442	nmod	technique	S
 BB-event-9467391	text	442	punct	describe	.
-BB-event-9467391	text	442	root	.	mutans
+BB-event-9467391	text	442	dep	.	mutans
 BB-event-9467391	text	442	acl	mutans	based
 BB-event-9467391	text	442	case	restriction	on
 BB-event-9467391	text	442	nmod	based	restriction
@@ -35426,14 +35426,14 @@ BB-event-9804019	text	0	compound	earpieced	aurioscope
 BB-event-9804019	text	0	nsubj	cleaned	earpieced
 BB-event-9804019	text	0	cop	cleaned	are
 BB-event-9804019	text	0	conj	earpieces	cleaned
-BB-event-9804019	text	0	punct	cleaned	.
+BB-event-9804019	text	0	dep	cleaned	.
 BB-event-9804019	text	0	compound	survey	randomized
-BB-event-9804019	text	0	root	.	survey
+BB-event-9804019	text	0	dep	.	survey
 BB-event-9804019	text	0	acl	survey	.
 BB-event-9804019	text	0	nummod	clinics	four
 BB-event-9804019	text	0	compound	clinics	community
 BB-event-9804019	text	0	amod	clinics	pediatric
-BB-event-9804019	text	0	root	.	clinics
+BB-event-9804019	text	0	dobj	.	clinics
 BB-event-9804019	text	0	mark	cultured	.
 BB-event-9804019	text	0	nummod	earpieces	42
 BB-event-9804019	text	0	amod	earpieces	pediatricians'
@@ -35456,12 +35456,12 @@ BB-event-9804019	text	0	nummod	methods	two
 BB-event-9804019	text	0	nmod	plates	methods
 BB-event-9804019	text	0	punct	clinics	:
 BB-event-9804019	text	0	dep	clinics	(
-BB-event-9804019	text	0	root	(	1
-BB-event-9804019	text	0	root	1	)
+BB-event-9804019	text	0	dep	(	1
+BB-event-9804019	text	0	dobj	1	)
 BB-event-9804019	text	0	det	earpieces	The
 BB-event-9804019	text	0	nsubj	rolled	earpieces
 BB-event-9804019	text	0	cop	rolled	were
-BB-event-9804019	text	0	root	)	rolled
+BB-event-9804019	text	0	ccomp	)	rolled
 BB-event-9804019	text	0	case	s	for
 BB-event-9804019	text	0	nummod	s	5
 BB-event-9804019	text	0	nmod	rolled	s
@@ -35487,8 +35487,8 @@ BB-event-9804019	text	0	punct	mannitol	-
 BB-event-9804019	text	0	compound	)	plate
 BB-event-9804019	text	0	dep	mannitol	)
 BB-event-9804019	text	0	punct	)	.
-BB-event-9804019	text	0	root	.	(
-BB-event-9804019	text	0	root	(	2
+BB-event-9804019	text	0	dep	.	(
+BB-event-9804019	text	0	acl	(	2
 BB-event-9804019	text	0	mark	swabbed	)
 BB-event-9804019	text	0	det	surface	The
 BB-event-9804019	text	0	amod	surface	entire
@@ -35497,7 +35497,7 @@ BB-event-9804019	text	0	case	earpiece	of
 BB-event-9804019	text	0	det	earpiece	the
 BB-event-9804019	text	0	nmod	surface	earpiece
 BB-event-9804019	text	0	cop	swabbed	was
-BB-event-9804019	text	0	root	2	swabbed
+BB-event-9804019	text	0	advcl	2	swabbed
 BB-event-9804019	text	0	case	cotton	with
 BB-event-9804019	text	0	det	cotton	a
 BB-event-9804019	text	0	amod	cotton	sterile
