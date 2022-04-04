@@ -62,6 +62,7 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
     private final Timer<TimerCategory> timer;
     private final DefaultMap<String,Logger> loggers = new LoggerMap();
     private boolean cleanTmpDir = false;
+    private int maxMmapSize = Integer.MAX_VALUE;
     
     /**
      * Creates a new new processing context object. This object will have the following default behaviour:
@@ -190,6 +191,15 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
     }
     
     @Override
+    public int getMaxMmapSize() {
+		return maxMmapSize;
+	}
+
+	public void setMaxMmapSize(int maxMmapSize) {
+		this.maxMmapSize = maxMmapSize;
+	}
+
+	@Override
     @Deprecated
 	public void callExternal(External<T> ext) throws ModuleException {
     	callExternal(ext, Charset.defaultCharset().name());
