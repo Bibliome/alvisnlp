@@ -30,11 +30,11 @@ public class CorpusDecoder extends ElementDecoder<Corpus> {
 	private final DocumentDecoder docDecoder;
 	private final Unmarshaller<Document> docUnmarshaller;
 	
-	public CorpusDecoder(Unmarshaller<String> stringUnmarshaller) throws IOException {
+	public CorpusDecoder(Unmarshaller<String> stringUnmarshaller, int maxMmapSize) throws IOException {
 		super(stringUnmarshaller);
-		this.docDecoder = new DocumentDecoder(stringUnmarshaller);
+		this.docDecoder = new DocumentDecoder(stringUnmarshaller, maxMmapSize);
 		ReadCache<Document> docCache = MapReadCache.hashMap();
-		this.docUnmarshaller = new Unmarshaller<Document>(stringUnmarshaller.getChannel(), docDecoder, docCache);
+		this.docUnmarshaller = new Unmarshaller<Document>(stringUnmarshaller.getChannel(), docDecoder, docCache, maxMmapSize);
 	}
 
 	@Override

@@ -34,11 +34,11 @@ public class DocumentDecoder extends ElementDecoder<Document> implements Documen
 	private final Unmarshaller<Section> sectionUnmarshaller;
 	private Corpus corpus;
 	
-	DocumentDecoder(Unmarshaller<String> stringUnmarshaller) throws IOException {
+	DocumentDecoder(Unmarshaller<String> stringUnmarshaller, int maxMmapSize) throws IOException {
 		super(stringUnmarshaller);
-		this.sectionDecoder = new SectionDecoder(stringUnmarshaller);
+		this.sectionDecoder = new SectionDecoder(stringUnmarshaller, maxMmapSize);
 		ReadCache<Section> sectionCache = MapReadCache.hashMap();
-		this.sectionUnmarshaller = new Unmarshaller<Section>(stringUnmarshaller.getChannel(), sectionDecoder, sectionCache);
+		this.sectionUnmarshaller = new Unmarshaller<Section>(stringUnmarshaller.getChannel(), sectionDecoder, sectionCache, maxMmapSize);
 	}
 
 	@Override

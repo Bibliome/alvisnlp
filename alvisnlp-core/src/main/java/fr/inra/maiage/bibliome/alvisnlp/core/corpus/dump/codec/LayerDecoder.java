@@ -34,11 +34,11 @@ public class LayerDecoder implements Decoder<Layer> {
 	private final Unmarshaller<Annotation> annotationUnmarshaller;
 	private Section section;
 	
-	LayerDecoder(Unmarshaller<String> stringUnmarshaller) throws IOException {
+	LayerDecoder(Unmarshaller<String> stringUnmarshaller, int maxMmapSize) throws IOException {
 		this.stringUnmarshaller = stringUnmarshaller;
 		this.annotationDecoder = new AnnotationDecoder(stringUnmarshaller);
 		ReadCache<Annotation> annotationCache = MapReadCache.hashMap();
-		this.annotationUnmarshaller = new Unmarshaller<Annotation>(stringUnmarshaller.getChannel(), annotationDecoder, annotationCache);
+		this.annotationUnmarshaller = new Unmarshaller<Annotation>(stringUnmarshaller.getChannel(), annotationDecoder, annotationCache, maxMmapSize);
 	}
 	
 	@Override
