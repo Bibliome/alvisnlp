@@ -99,7 +99,7 @@ $EDITOR $CHANGELOG
 # build & install AlvisNLP
 hl Build and install AlvisNLP
 mvn clean install
-./install.sh .test
+./install.sh .test/alvisnlp
 
 # documentation
 DOC_VERSION_FILE=docs/_includes/version
@@ -124,7 +124,7 @@ update_poms "$next"
 # commit
 COMMIT_FILES="$POM_FILES $CHANGELOG $DOC_VERSION_FILE docs/reference"
 hl Commit changed files
-git add $COMMIT_FILES
+git add docs $COMMIT_FILES
 git commit -m "Updated pom.xml files and documentation for version $next"
 
 # tag
