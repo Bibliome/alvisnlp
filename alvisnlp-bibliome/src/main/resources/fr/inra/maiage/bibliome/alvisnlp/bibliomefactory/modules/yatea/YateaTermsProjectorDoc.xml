@@ -23,7 +23,7 @@
     </param-doc>
     
     <param-doc default-value="false" mandatory="default: false" name="mnpOnly" short-type="Boolean" type="java.lang.Boolean">
-      <p>If <i>true</i>, then <this/> only searches for MNP terms.</p>
+      <p>If <em>true</em>, then <this/> only searches for MNP terms.</p>
     </param-doc>
     
     <param-doc default-value="modifier" mandatory="default: modifier" name="modifier" name-type="feature" short-type="String" type="java.lang.String">
@@ -35,7 +35,7 @@
     </param-doc>
     
     <param-doc default-value="false" mandatory="default: false" name="projectLemmas" short-type="Boolean" type="java.lang.Boolean">
-      <p>If <i>true</i>, the this searches for term lemmas instead of surface forms.</p>
+      <p>If <em>true</em>, the this searches for term lemmas instead of surface forms.</p>
     </param-doc>
     
     <param-doc default-value="term-id" mandatory="default: term-id" name="termId" name-type="feature" short-type="String" type="java.lang.String">
