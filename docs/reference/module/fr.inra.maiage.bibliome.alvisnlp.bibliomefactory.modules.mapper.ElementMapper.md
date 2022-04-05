@@ -74,5 +74,5 @@ Either to match ignoring the case.
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper.MappingOperator" class="converter">MappingOperator</a>
 </div>
-Matching operator.
+Matching operator: either *exact* (default) or *prefix*.
 

@@ -24,9 +24,7 @@ Removes overlapping annotations from a given layer.
 <a href="#annotationComparator" class="param">annotationComparator</a> controls which annotation is removed.
 	  
 
-
-	  By default *RemoveOverlaps* removes all kinds of annotations, keeping the longest one.
-	  
+By default *RemoveOverlaps* removes all kinds of annotations, keeping the longest one.
 
 ## Parameters
 
