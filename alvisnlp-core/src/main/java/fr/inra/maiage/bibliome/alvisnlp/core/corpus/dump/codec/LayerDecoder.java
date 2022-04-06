@@ -18,11 +18,11 @@ limitations under the License.
 package fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.util.marshall.DataBuffer;
 import fr.inra.maiage.bibliome.util.marshall.Decoder;
 import fr.inra.maiage.bibliome.util.marshall.MapReadCache;
 import fr.inra.maiage.bibliome.util.marshall.ReadCache;
@@ -42,14 +42,14 @@ public class LayerDecoder implements Decoder<Layer> {
 	}
 	
 	@Override
-	public Layer decode1(ByteBuffer buffer) {
+	public Layer decode1(DataBuffer buffer) {
 		long nameRef = buffer.getLong();
 		String name = stringUnmarshaller.read(nameRef);
 		return new Layer(section, name);
 	}
 
 	@Override
-	public void decode2(ByteBuffer buffer, Layer object) {
+	public void decode2(DataBuffer buffer, Layer object) {
 		annotationDecoder.setLayer(object);
 		int sz = buffer.getInt();
 		for (int i = 0; i < sz; ++i) {

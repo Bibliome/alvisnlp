@@ -18,7 +18,6 @@ limitations under the License.
 package fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
@@ -26,6 +25,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.SectionCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.marshall.DataBuffer;
 import fr.inra.maiage.bibliome.util.marshall.MapReadCache;
 import fr.inra.maiage.bibliome.util.marshall.ReadCache;
 import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
@@ -47,7 +47,7 @@ public class SectionDecoder extends ElementDecoder<Section> implements SectionCr
 	}
 
 	@Override
-	public Section decode1(ByteBuffer buffer) {
+	public Section decode1(DataBuffer buffer) {
 		String name = readString(buffer);
 		String contents = readString(buffer);
 		Section result = new Section(this, doc, name, contents);

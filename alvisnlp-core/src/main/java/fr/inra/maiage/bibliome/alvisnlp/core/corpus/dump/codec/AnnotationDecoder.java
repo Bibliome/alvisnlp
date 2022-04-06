@@ -17,12 +17,11 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec;
 
-import java.nio.ByteBuffer;
-
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.marshall.DataBuffer;
 import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
 
 public class AnnotationDecoder extends ElementDecoder<Annotation> implements AnnotationCreator {
@@ -33,7 +32,7 @@ public class AnnotationDecoder extends ElementDecoder<Annotation> implements Ann
 	}
 
 	@Override
-	public Annotation decode1(ByteBuffer buffer) {
+	public Annotation decode1(DataBuffer buffer) {
 		int start = buffer.getInt();
 		int end = buffer.getInt();
 		return new Annotation(this, layer, start, end);

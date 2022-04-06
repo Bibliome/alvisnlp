@@ -18,10 +18,10 @@ limitations under the License.
 package fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
+import fr.inra.maiage.bibliome.util.marshall.DataBuffer;
 import fr.inra.maiage.bibliome.util.marshall.MapReadCache;
 import fr.inra.maiage.bibliome.util.marshall.ReadCache;
 import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
@@ -38,7 +38,7 @@ public class CorpusDecoder extends ElementDecoder<Corpus> {
 	}
 
 	@Override
-	public Corpus decode1(ByteBuffer buffer) {
+	public Corpus decode1(DataBuffer buffer) {
 		Corpus result = new Corpus();
 		docDecoder.setCorpus(result);
 		int nDocs = buffer.getInt();
