@@ -2,11 +2,26 @@
 
 ## Synopsis
 
-UNDOCUMENTED
+Search in the sections content for terms extracted by YaTeA (see <a href="../module/YateaExtractor" class="module">YateaExtractor</a>).
 
 ## Description
 
-UNDOCUMENTED
+*YateaTermsProjector* reads terms in a YaTeA XML output file produced by <a href="../module/YateaExtractor" class="module">YateaExtractor</a> and searches for terms in section contents, or whatever specified by <a href="#subject" class="param">subject</a>.
+
+The parameters <a href="#skipBlank" class="param">skipBlank</a>, <a href="#skipEmpty" class="param">skipEmpty</a>, <a href="#strictColumnNumber" class="param">strictColumnNumber</a>, <a href="#trimColumns" class="param">trimColumns</a>, <a href="#separator" class="param">separator</a>, <a href="#multipleEntryBehaviour" class="param">multipleEntryBehaviour</a> control how the dictionary file is read by *YateaTermsProjector*.
+
+The parameters <a href="#allowJoined" class="param">allowJoined</a>, <a href="#allUpperCaseInsensitive" class="param">allUpperCaseInsensitive</a>, <a href="#caseInsensitive" class="param">caseInsensitive</a>, <a href="#ignoreDiacritics" class="param">ignoreDiacritics</a>, <a href="#joinDash" class="param">joinDash</a>, <a href="#matchStartCaseInsensitive" class="param">matchStartCaseInsensitive</a>, <a href="#skipConsecutiveWhitespaces" class="param">skipConsecutiveWhitespaces</a>, <a href="#skipWhitespace" class="param">skipWhitespace</a> and <a href="#wordStartCaseInsensitive" class="param">wordStartCaseInsensitive</a> control how the keys can match the sections content.
+
+The <a href="#subject" class="param">subject</a> parameter specifies which text of the section should be matched. There are two alternatives:
+  
+* the entries are matched on the contents of the section (the default), <a href="#subject" class="param">subject</a> can also control if matches boundaries coincide with word delimiters;
+* the entries are matched on the value of a specified feature of annotations in a given layer separated by a whitespace, in this way entries can be searched against word lemmas, for instance.
+
+
+
+*YateaTermsProjector* creates an annotation for each matched key and adds these annotations to the layer specified by <a href="#targetLayerName" class="param">targetLayerName</a>. Term structure information can be recorded in the features specified by <a href="#term-id" class="param">term-id</a>, <a href="#head" class="param">head</a>, <a href="#monoHeadId" class="param">monoHeadId</a>, <a href="#modifier" class="param">modifier</a>, and <a href="#pos" class="param">pos</a>. In addition, the created annotations will have the constant features specified in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a>.
+
+<a href="#trieSource" class="param">trieSource</a> and <a href="#trieSink" class="param">trieSink</a> are not supported by *YateaTermsProjector*.
 
 ## Parameters
 
@@ -24,7 +39,7 @@ Name of the layer that contains the match annotations.
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
-UNDOCUMENTED
+YaTeA output XML file, as produced by <a href="../module/YateaExtractor" class="module">YateaExtractor</a>.
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
@@ -88,7 +103,7 @@ Only process document that satisfy this expression.
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Feature where to record the matched term's head identifier.
 
 <h3 name="ignoreDiacritics" class="param">ignoreDiacritics</h3>
 
@@ -120,7 +135,7 @@ If set to *true*, then allow case folding on the first character of the entry ke
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
-UNDOCUMENTED
+If *true*, then *YateaTermsProjector* only searches for MNP terms.
 
 <h3 name="modifier" class="param">modifier</h3>
 
@@ -128,7 +143,7 @@ UNDOCUMENTED
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Feature where to record the matched term's modifier identifier.
 
 <h3 name="monoHeadId" class="param">monoHeadId</h3>
 
@@ -136,7 +151,7 @@ UNDOCUMENTED
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Feature where to record the matched term's mono-head (or superhead, or single-token head) identifier.
 
 <h3 name="multipleEntryBehaviour" class="param">multipleEntryBehaviour</h3>
 
@@ -152,7 +167,7 @@ Specifies the behavior if <a href="#dictFile" class="param">dictFile</a> contain
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
-UNDOCUMENTED
+If *true*, the this searches for term lemmas instead of surface forms.
 
 <h3 name="sectionFilter" class="param">sectionFilter</h3>
 
@@ -192,7 +207,7 @@ Specifies the contents to match.
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Feature where to record the matched term's identifier.
 
 <h3 name="termLemma" class="param">termLemma</h3>
 
@@ -200,7 +215,7 @@ UNDOCUMENTED
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Feature where to record the matched term's lemma string.
 
 <h3 name="termPOS" class="param">termPOS</h3>
 
@@ -208,7 +223,7 @@ UNDOCUMENTED
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Feature where to record the matched term's components POS tags.
 
 <h3 name="wordStartCaseInsensitive" class="param">wordStartCaseInsensitive</h3>
 

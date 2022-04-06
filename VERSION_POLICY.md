@@ -1,3 +1,4 @@
+
 # Versioning policy
 
 ## Semantic Versioning
@@ -65,4 +66,4 @@ The tagged commit must include the updated `CHANGES` file.
 
 # Step-by-step guide to next version
 
-1. Run `release.py fix|minor|major`
+1. Run `release.sh fix|minor|major`

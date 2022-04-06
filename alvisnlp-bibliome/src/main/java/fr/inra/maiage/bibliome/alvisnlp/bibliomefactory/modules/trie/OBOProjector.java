@@ -18,6 +18,7 @@ limitations under the License.
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import org.obo.dataadapter.OBOParseException;
@@ -42,6 +43,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.types.MultiMapping;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 import fr.inra.maiage.bibliome.util.marshall.Decoder;
 import fr.inra.maiage.bibliome.util.marshall.Encoder;
@@ -54,6 +56,7 @@ public abstract class OBOProjector extends TrieProjector<SectionResolvedObjects,
 	private String nameFeature;
 	private String idFeature;
 	private String pathFeature;
+	private MultiMapping altPathFeatures;
 	private String parentsFeature;
 	private String childrenFeature;
 	private String ancestorsFeature;
@@ -119,6 +122,15 @@ public abstract class OBOProjector extends TrieProjector<SectionResolvedObjects,
 		if (pathFeature != null) {
 			for (StringBuilder path : OBOUtils.getPaths(value)) {
 				a.addFeature(pathFeature, path.toString());
+			}
+		}
+		if (altPathFeatures != null) {
+			for (Map.Entry<String,String[]> spec : altPathFeatures.entrySet()) {
+				String featureName = spec.getKey();
+				String[] linkNames = spec.getValue();
+				for (StringBuilder path : OBOUtils.getPaths(value, linkNames)) {
+					a.addFeature(featureName, path.toString());
+				}
 			}
 		}
 		if (parentsFeature != null) {
@@ -195,6 +207,15 @@ public abstract class OBOProjector extends TrieProjector<SectionResolvedObjects,
 	@Param(nameType=NameType.FEATURE, mandatory=false)
 	public String getAncestorsFeature() {
 		return ancestorsFeature;
+	}
+
+	@Param(mandatory=false, nameType=NameType.FEATURE)
+	public MultiMapping getAltPathFeatures() {
+		return altPathFeatures;
+	}
+
+	public void setAltPathFeatures(MultiMapping altPathFeatures) {
+		this.altPathFeatures = altPathFeatures;
 	}
 
 	public void setParentsFeature(String parentFeature) {

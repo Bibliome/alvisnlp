@@ -39,6 +39,14 @@ Path to the source OBO files.
 </div>
 Name of the layer that contains the match annotations.
 
+<h3 name="altPathFeatures" class="param">altPathFeatures</h3>
+
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.MultiMapping" class="converter">MultiMapping</a>
+</div>
+UNDOCUMENTED
+
 <h3 name="ancestorsFeature" class="param">ancestorsFeature</h3>
 
 <div class="param-level param-level-optional">Optional

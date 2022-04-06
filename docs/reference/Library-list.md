@@ -53,6 +53,10 @@
 </h2>
 
 <h2 class="no-toc">
+<a href="{{ '/reference/library/hash' | relative_url }}" class="library">hash</a>
+</h2>
+
+<h2 class="no-toc">
 <a href="{{ '/reference/library/id' | relative_url }}" class="library">id</a>
 </h2>
 

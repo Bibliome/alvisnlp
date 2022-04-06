@@ -54,6 +54,14 @@ Path to the FastText executable (see the [GitHub](https://github.com/facebookres
 </div>
 Prefix for the classifier model and the word vector files.
 
+<h3 name="autotuneMetric" class="param">autotuneMetric</h3>
+
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+UNDOCUMENTED
+
 <h3 name="buckets" class="param">buckets</h3>
 
 <div class="param-level param-level-optional">Optional

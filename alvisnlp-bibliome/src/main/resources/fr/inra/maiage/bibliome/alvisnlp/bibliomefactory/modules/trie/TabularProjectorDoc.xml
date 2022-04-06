@@ -31,13 +31,13 @@ limitations under the License.
 	<li>the entries are matched on the value of a specified feature of annotations in a given layer separated by a whitespace, in this way entries can be searched against word lemmas, for instance.</li>
       </ul>
       </p>
-      <p><this/> creates an annotation for each matched key and adds these annotations to the layer specified by <param name="targetLayerName"/>. The created annotations will have features that correspond to the entry columns. Feature keys are specified by <param name="valueFeatures"/>. For instance if <param name="entryFeatureNames"/> is <em>[a,b,c]</em>, then each annotation will have three features named <em>a</em>, <em>b</em> and <em>c</em> with the respective values of the entry's first, second and third columns. A feature name left blank in <param name="entryFeatureNames"/> will not create a feature. Thus, in order to drop the first column of the entry, <param name="valueFeatures"/> should be <em>[,b,c]</em>. In addition, the created annotations will have the constant features specified in <param name="constantAnnotationFeatures"/>.</p>
+      <p><this/> creates an annotation for each matched key and adds these annotations to the layer specified by <param name="targetLayerName"/>. The created annotations will have features that correspond to the entry columns. Feature keys are specified by <param name="valueFeatures"/>. For instance if <param>valueFeatures</param> is <em>[a,b,c]</em>, then each annotation will have three features named <em>a</em>, <em>b</em> and <em>c</em> with the respective values of the entry's first, second and third columns. A feature name left blank in <param>valueFeatures</param> will not create a feature. Thus, in order to drop the first column of the entry, <param name="valueFeatures"/> should be <em>[,b,c]</em>. In addition, the created annotations will have the constant features specified in <param name="constantAnnotationFeatures"/>.</p>
       <p>If <param name="trieSource"/> is specified, then <this/> assumes that the file contains a compiled version of the dictionary. In this case <param name="dictFile"/> is not read.</p>
       <p>If <param name="trieSink"/> is specified, <this/> writes a compiled version of the dictionary in the file. The use of compiled dictionaries may accelerate the processing for large dictionaries.</p>
     </description>
   
     <param-doc name="strictColumnNumber">
-      <p>If set to true, then check that every line in <param name="dictFile"/> has the same number of columns as the number of features specified in <param name="entryFeatureNames"/>.</p>
+      <p>If set to true, then check that every line in <param name="dictFile"/> has the same number of columns as the number of features specified in <param>valueFeatures</param>.</p>
     </param-doc>
   
     <param-doc name="skipBlank">

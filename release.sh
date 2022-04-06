@@ -99,7 +99,7 @@ $EDITOR $CHANGELOG
 # build & install AlvisNLP
 hl Build and install AlvisNLP
 mvn clean install
-./install.sh .test
+./install.sh .test/alvisnlp
 
 # documentation
 DOC_VERSION_FILE=docs/_includes/version
@@ -110,7 +110,7 @@ cd docs
 cd ..
 
 # poms
-POM_FILES="pom.xml alvisnlp-core/pom.xml alvisnlp-bibliome/pom.xml alvisnlp-rest/pom.xml"
+POM_FILES="pom.xml alvisnlp-core/pom.xml alvisnlp-bibliome/pom.xml"
 hl Update pom.xml files
 function update_poms {
     local version="$1"
