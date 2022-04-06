@@ -110,7 +110,7 @@ cd docs
 cd ..
 
 # poms
-POM_FILES="pom.xml alvisnlp-core/pom.xml alvisnlp-bibliome/pom.xml alvisnlp-rest/pom.xml"
+POM_FILES="pom.xml alvisnlp-core/pom.xml alvisnlp-bibliome/pom.xml"
 hl Update pom.xml files
 function update_poms {
     local version="$1"
@@ -124,7 +124,7 @@ update_poms "$next"
 # commit
 COMMIT_FILES="$POM_FILES $CHANGELOG $DOC_VERSION_FILE docs/reference"
 hl Commit changed files
-git add docs $COMMIT_FILES
+git add $COMMIT_FILES
 git commit -m "Updated pom.xml files and documentation for version $next"
 
 # tag
