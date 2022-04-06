@@ -19,7 +19,6 @@ package fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
@@ -40,6 +39,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec.DocumentDecoder;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec.LayerDecoder;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec.RelationDecoder;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec.SectionDecoder;
+import fr.inra.maiage.bibliome.util.marshall.DataBuffer;
 import fr.inra.maiage.bibliome.util.marshall.MapReadCache;
 import fr.inra.maiage.bibliome.util.marshall.ReadCache;
 import fr.inra.maiage.bibliome.util.marshall.StringCodec;
@@ -48,21 +48,19 @@ import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
 public class Undumper implements AutoCloseable {
 	private final Logger logger;
 	private final FileChannel channel;
-	private final int maxMmapSize;
 	
-	public Undumper(Logger logger, FileChannel channel, int maxMmapSize) {
+	public Undumper(Logger logger, FileChannel channel) {
 		super();
 		this.logger = logger;
 		this.channel = channel;
-		this.maxMmapSize = maxMmapSize;
 	}
 	
-	public Undumper(Logger logger, Path path, int maxMmapSize) throws IOException {
-		this(logger, FileChannel.open(path, StandardOpenOption.READ), maxMmapSize);
+	public Undumper(Logger logger, Path path) throws IOException {
+		this(logger, FileChannel.open(path, StandardOpenOption.READ));
 	}
 	
-	public Undumper(Logger logger, File file, int maxMmapSize) throws IOException {
-		this(logger, file.toPath(), maxMmapSize);
+	public Undumper(Logger logger, File file) throws IOException {
+		this(logger, file.toPath());
 	}
 	
 	@Override
@@ -73,22 +71,22 @@ public class Undumper implements AutoCloseable {
 	public Corpus readCorpus() throws IOException {
 		logger.info("undumping...");
 		ReadCache<String> stringCache = MapReadCache.hashMap();
-		Unmarshaller<String> stringUnmarshaller = new Unmarshaller<String>(channel, StringCodec.INSTANCE, stringCache, maxMmapSize);
-		CorpusDecoder corpusDecoder = new CorpusDecoder(stringUnmarshaller, maxMmapSize);
+		Unmarshaller<String> stringUnmarshaller = new Unmarshaller<String>(channel, StringCodec.INSTANCE, stringCache);
+		CorpusDecoder corpusDecoder = new CorpusDecoder(stringUnmarshaller);
 		ReadCache<Corpus> corpusCache = MapReadCache.hashMap();
-		Unmarshaller<Corpus> corpusUnmarshaller = new Unmarshaller<Corpus>(channel, corpusDecoder, corpusCache, maxMmapSize);
+		Unmarshaller<Corpus> corpusUnmarshaller = new Unmarshaller<Corpus>(channel, corpusDecoder, corpusCache);
 		Corpus result = corpusUnmarshaller.read((int) channel.position());
 		processTuplesArguments(corpusDecoder, corpusUnmarshaller, stringUnmarshaller);
 		return result;
 	}
 	
-	private static void processTuplesArguments(CorpusDecoder corpusDecoder, Unmarshaller<Corpus> corpusUnmarshaller, Unmarshaller<String> stringUnmarshaller) {
+	private void processTuplesArguments(CorpusDecoder corpusDecoder, Unmarshaller<Corpus> corpusUnmarshaller, Unmarshaller<String> stringUnmarshaller) {
 		ElementDereferencer argDeref = new ElementDereferencer(corpusDecoder, corpusUnmarshaller);
 		Map<Long,Tuple> tuples = getAllTuples(corpusDecoder);
 		for (Map.Entry<Long,Tuple> e : tuples.entrySet()) {
 			long tRef = e.getKey();
 			Tuple t = e.getValue();
-			ByteBuffer buf = corpusUnmarshaller.getBuffer(tRef);
+			DataBuffer buf = new DataBuffer(channel, tRef);
 			processTupleArguments(buf, stringUnmarshaller, argDeref, t);
 		}
 	}
@@ -100,7 +98,7 @@ public class Undumper implements AutoCloseable {
 		return relDecoder.getAllTuples();
 	}
 
-	private static void processTupleArguments(ByteBuffer buf, Unmarshaller<String> stringUnmarshaller, ElementDereferencer argDeref, Tuple t) {
+	private static void processTupleArguments(DataBuffer buf, Unmarshaller<String> stringUnmarshaller, ElementDereferencer argDeref, Tuple t) {
 		int arity = buf.getInt();
 		for (int i = 0; i < arity; ++i) {
 			long roleRef = buf.getLong();

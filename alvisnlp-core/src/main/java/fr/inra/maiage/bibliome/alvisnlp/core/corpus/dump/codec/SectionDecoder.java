@@ -37,13 +37,13 @@ public class SectionDecoder extends ElementDecoder<Section> implements SectionCr
 	private final Unmarshaller<Relation> relationUnmarshaller;
 	private Document doc;
 
-	SectionDecoder(Unmarshaller<String> stringUnmarshaller, int maxMmapSize) throws IOException {
+	SectionDecoder(Unmarshaller<String> stringUnmarshaller) throws IOException {
 		super(stringUnmarshaller);
-		this.layerDecoder = new LayerDecoder(stringUnmarshaller, maxMmapSize);
-		this.layerUnmarshaller = new Unmarshaller<Layer>(stringUnmarshaller.getChannel(), layerDecoder, maxMmapSize);
-		this.relationDecoder = new RelationDecoder(stringUnmarshaller, maxMmapSize);
+		this.layerDecoder = new LayerDecoder(stringUnmarshaller);
+		this.layerUnmarshaller = new Unmarshaller<Layer>(stringUnmarshaller.getChannel(), layerDecoder);
+		this.relationDecoder = new RelationDecoder(stringUnmarshaller);
 		ReadCache<Relation> relationCache = MapReadCache.hashMap();
-		this.relationUnmarshaller = new Unmarshaller<Relation>(stringUnmarshaller.getChannel(), relationDecoder, relationCache, maxMmapSize);
+		this.relationUnmarshaller = new Unmarshaller<Relation>(stringUnmarshaller.getChannel(), relationDecoder, relationCache);
 	}
 
 	@Override
