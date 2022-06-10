@@ -50,7 +50,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="campaignId">
-      <p>Identifier of the AlvisAE campaign to import.</p>
+      <p>Identifiers of the AlvisAE campaigns to import.</p>
     </param-doc>
   
     <param-doc name="userFeature">
