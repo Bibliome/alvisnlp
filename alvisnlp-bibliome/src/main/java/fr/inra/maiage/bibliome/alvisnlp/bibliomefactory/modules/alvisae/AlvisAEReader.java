@@ -84,6 +84,8 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	private String fragmentsLayerName = "alvisae";
 	private String fragmentRolePrefix = "frag";
 	private String itemRolePrefix = "item";
+	private String campaignIdFeature;
+	private String campaignNameFeature;
 	private String userFeature;
 	private String userIdFeature;
 	private String taskFeature;
@@ -176,6 +178,8 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 		logger.finer("converting document " + doc.getId() + " [" + doc.getExternalId() + "] (" + doc.getDescription() + ")");
 		aDoc.addFeature(externalIdFeature, doc.getExternalId());
 		aDoc.addFeature(descriptionFeature, doc.getDescription());
+		aDoc.addFeature(campaignIdFeature, Integer.toString(doc.getCampaign().getId()));
+		aDoc.addFeature(campaignNameFeature, doc.getCampaign().getName());
 		Section sec = getSection(doc, aDoc);
 		Map<AlvisAEAnnotation,Tuple> mapping = new LinkedHashMap<AlvisAEAnnotation,Tuple>();
 		for (AnnotationSet aset : doc.getAnnotationSets()) {
@@ -482,6 +486,24 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	@Param(mandatory=false, nameType=NameType.FEATURE)
 	public String getTaskIdFeature() {
 		return taskIdFeature;
+	}
+
+	@Param(mandatory=false, nameType=NameType.FEATURE)
+	public String getCampaignIdFeature() {
+		return campaignIdFeature;
+	}
+
+	@Param(mandatory=false, nameType=NameType.FEATURE)
+	public String getCampaignNameFeature() {
+		return campaignNameFeature;
+	}
+
+	public void setCampaignIdFeature(String campaignIdFeature) {
+		this.campaignIdFeature = campaignIdFeature;
+	}
+
+	public void setCampaignNameFeature(String campaignNameFeature) {
+		this.campaignNameFeature = campaignNameFeature;
 	}
 
 	public void setTaskIdFeature(String taskIdFeature) {

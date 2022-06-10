@@ -52,6 +52,14 @@ limitations under the License.
     <param-doc name="campaignId">
       <p>Identifiers of the AlvisAE campaigns to import.</p>
     </param-doc>
+    
+    <param-doc name="campaignIdFeature">
+      <p>Name of the document feature where to store the campaign id.</p>
+    </param-doc>
+    
+    <param-doc name="campaignNameFeature">
+      <p>Name of the document feature where to store the campaign name.</p>
+    </param-doc>
   
     <param-doc name="userFeature">
       <p>Name of the feature where to store the name of the AlvisAE user that created the annotation.</p>
