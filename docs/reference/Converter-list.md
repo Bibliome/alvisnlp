@@ -277,11 +277,11 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.Subject' | relative_url }}" class="converter">Subject</a>
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.Subject' | relative_url }}" class="converter">Subject</a>
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.Subject' | relative_url }}" class="converter">Subject</a>
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.Subject' | relative_url }}" class="converter">Subject</a>
 </h2>
 
 <h2 class="no-toc">

@@ -392,6 +392,7 @@ SHARE_DIR="$INSTALL_DIR/share"
 mkdir -p "$INSTALL_DIR"
 mkdir -p "$BIN_DIR"
 mkdir -p "$DOC_DIR"
+rm -f -r "$LIB_DIR"
 mkdir -p "$LIB_DIR"
 mkdir -p "$SHARE_DIR"
 

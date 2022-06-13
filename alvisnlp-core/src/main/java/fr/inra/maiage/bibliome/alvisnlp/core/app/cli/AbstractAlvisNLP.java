@@ -155,6 +155,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	private String outputDir;
 	private final Map<String,String> baseDirs = new LinkedHashMap<String,String>();
 	private boolean noColors = false;
+	private int maxMmapSize = Integer.MAX_VALUE;
 	
 	/**
 	 * Creates anew CLI instance.
@@ -292,6 +293,11 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	@CLIOption("-resume")
 	public final void setResumeFile(File resumeFile) {
 		this.resumeFile = resumeFile;
+	}
+	
+	@CLIOption("-maxMmapSize")
+	public final void setMaxMmapSize(int maxMmapSize) {
+		this.maxMmapSize = maxMmapSize;
 	}
 	
 	@CLIOption("-cleanTmp")
@@ -1035,6 +1041,8 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     	result.setLocale(locale);
     	result.setDumps(dumps);
         result.setResumeMode(resumeFile != null);
+        result.setCleanTmpDir(cleanTmpDir);
+        result.setMaxMmapSize(maxMmapSize);
     	return result;
     }
         
@@ -1078,7 +1086,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
      * @param logger
      * @throws Exception
      */
-    protected abstract A getCorpus(Logger logger) throws Exception;
+    protected abstract A getCorpus(Logger logger, C ctx) throws Exception;
     	
     /**
      * Process the plan specified in command line.
@@ -1097,7 +1105,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	    	timer.start();
 			Module<A> mainModule = buildMainModule(ctx);
 			initProcessingContext(logger, ctx, mainModule);
-			A corpus = getCorpus(logger);
+			A corpus = getCorpus(logger, ctx);
 			if (noProcess) {
 				logger.info("skipping process...");
 			}

@@ -62,7 +62,7 @@ synopsis
 
 <h3 name="dependencies" class="param">dependencies</h3>
 
-<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRERelations@7b2bbc3`
+<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRERelations@3e694b3f`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRERelations" class="converter">AlvisRERelations</a>
 </div>
@@ -103,7 +103,7 @@ Process only sections that satisfy this filter.
 
 <h3 name="sentences" class="param">sentences</h3>
 
-<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRETokens@a1153bc`
+<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRETokens@1bb5a082`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRETokens" class="converter">AlvisRETokens</a>
 </div>
@@ -111,7 +111,7 @@ Process only sections that satisfy this filter.
 
 <h3 name="words" class="param">words</h3>
 
-<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRETokens@76505305`
+<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRETokens@443118b0`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRETokens" class="converter">AlvisRETokens</a>
 </div>

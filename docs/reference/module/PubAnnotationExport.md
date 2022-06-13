@@ -46,7 +46,7 @@ UNDOCUMENTED
 
 <h3 name="denotations" class="param">denotations</h3>
 
-<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.DenotationSpecification@34123d65`
+<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.DenotationSpecification@6771beb3`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.DenotationSpecification%5B%5D" class="converter">DenotationSpecification[]</a>
 </div>
@@ -62,7 +62,7 @@ Only process document that satisfy this expression.
 
 <h3 name="relations" class="param">relations</h3>
 
-<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.RelationSpecification@3e694b3f`
+<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.RelationSpecification@411f53a0`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.RelationSpecification%5B%5D" class="converter">RelationSpecification[]</a>
 </div>

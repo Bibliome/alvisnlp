@@ -35,11 +35,11 @@ public class RelationDecoder extends ElementDecoder<Relation> implements Relatio
 	private final Unmarshaller<Tuple> tupleUnmarshaller;
 	private Section section;
 
-	RelationDecoder(Unmarshaller<String> stringUnmarshaller) throws IOException {
+	RelationDecoder(Unmarshaller<String> stringUnmarshaller, int maxMmapSize) throws IOException {
 		super(stringUnmarshaller);
 		this.tupleDecoder = new TupleDecoder(stringUnmarshaller);
 		this.tupleCache = MapReadCache.hashMap();
-		this.tupleUnmarshaller = new Unmarshaller<Tuple>(stringUnmarshaller.getChannel(), tupleDecoder, tupleCache);
+		this.tupleUnmarshaller = new Unmarshaller<Tuple>(stringUnmarshaller.getChannel(), tupleDecoder, tupleCache, maxMmapSize);
 	}
 
 	@Override

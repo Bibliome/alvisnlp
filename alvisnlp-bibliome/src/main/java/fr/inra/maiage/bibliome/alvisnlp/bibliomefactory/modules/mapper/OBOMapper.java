@@ -19,6 +19,7 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import org.obo.dataadapter.OBOParseException;
 import org.obo.datamodel.Dbxref;
@@ -39,6 +40,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.types.MultiMapping;
 import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 import fr.inra.maiage.bibliome.util.obo.OBOUtils;
@@ -49,6 +51,7 @@ public class OBOMapper extends Mapper<MapperResolvedObjects,OBOClass> {
 	private String nameFeature;
 	private String idFeature;
 	private String pathFeature;
+	private MultiMapping altPathFeatures;
 	private String parentsFeature;
 	private String childrenFeature;
 	private String ancestorsFeature;
@@ -103,6 +106,15 @@ public class OBOMapper extends Mapper<MapperResolvedObjects,OBOClass> {
 		if (pathFeature != null) {
 			for (StringBuilder path : OBOUtils.getPaths(value)) {
 				target.addFeature(pathFeature, path.toString());
+			}
+		}
+		if (altPathFeatures != null) {
+			for (Map.Entry<String,String[]> spec : altPathFeatures.entrySet()) {
+				String featureName = spec.getKey();
+				String[] linkNames = spec.getValue();
+				for (StringBuilder path : OBOUtils.getPaths(value, linkNames)) {
+					target.addFeature(featureName, path.toString());
+				}
 			}
 		}
 		if (parentsFeature != null) {
@@ -194,6 +206,15 @@ public class OBOMapper extends Mapper<MapperResolvedObjects,OBOClass> {
 	@Param(nameType=NameType.FEATURE, mandatory=false)
 	public String getSynonymsFeature() {
 		return synonymsFeature;
+	}
+
+	@Param(mandatory=false, nameType=NameType.FEATURE)
+	public MultiMapping getAltPathFeatures() {
+		return altPathFeatures;
+	}
+
+	public void setAltPathFeatures(MultiMapping altPathFeatures) {
+		this.altPathFeatures = altPathFeatures;
 	}
 
 	public void setSynonymsFeature(String synonymsFeature) {

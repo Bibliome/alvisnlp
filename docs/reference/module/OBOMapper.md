@@ -34,6 +34,14 @@ Paths to the OBO files to map.
 </div>
 Expression evaluated as a list of elements with the corpus as context that specify the elements to be mapped.
 
+<h3 name="altPathFeatures" class="param">altPathFeatures</h3>
+
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.MultiMapping" class="converter">MultiMapping</a>
+</div>
+UNDOCUMENTED
+
 <h3 name="ancestorsFeature" class="param">ancestorsFeature</h3>
 
 <div class="param-level param-level-optional">Optional
@@ -128,5 +136,5 @@ Either to store term dbxrefs. Dbxrefs are stored in features that match the data
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper.MappingOperator" class="converter">MappingOperator</a>
 </div>
-Matching operator.
+Matching operator: either *exact* (default) or *prefix*.
 

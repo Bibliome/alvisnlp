@@ -56,8 +56,8 @@ public class AlvisNLP extends AbstractAlvisNLP<Corpus,CorpusModuleFactory,Corpus
     }
 
 	@Override
-    protected Corpus getCorpus(Logger logger) throws IOException {
-		Corpus result = createCorpus(logger);
+    protected Corpus getCorpus(Logger logger, CorpusCommandLineProcessingContext ctx) throws IOException {
+		Corpus result = createCorpus(logger, ctx);
         for (Pair<String,String> f : corpusFeatures) {
         	logger.info("setting corpus feature " + f.first + " = " + f.second);
         	result.addFeature(f.first, f.second);
@@ -65,12 +65,12 @@ public class AlvisNLP extends AbstractAlvisNLP<Corpus,CorpusModuleFactory,Corpus
         return result;
     }
 	
-	private Corpus createCorpus(Logger logger) throws IOException {
+	private Corpus createCorpus(Logger logger, CorpusCommandLineProcessingContext ctx) throws IOException {
         if (resumeFile == null) {
 			return new Corpus();
         }
         logger.info("reading corpus dump " + resumeFile.getCanonicalPath());
-        try (Undumper undumper = new Undumper(logger, resumeFile)) {
+        try (Undumper undumper = new Undumper(logger, resumeFile, ctx.getMaxMmapSize())) {
         	return undumper.readCorpus();
         }
 	}

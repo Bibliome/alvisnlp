@@ -40,8 +40,8 @@ limitations under the License.
     <string-conversion>
       <p>One of either:
       <ul>
-      	<li><i>exact</i>: matches the entry key exactly to the element key.</li>
-      	<li><i>prefix</i>: matches the entry key to the beginning of the element key.</li>
+      	<li><em>exact</em>: matches the entry key exactly to the element key.</li>
+      	<li><em>prefix</em>: matches the entry key to the beginning of the element key.</li>
       </ul>
       </p>
     </string-conversion>

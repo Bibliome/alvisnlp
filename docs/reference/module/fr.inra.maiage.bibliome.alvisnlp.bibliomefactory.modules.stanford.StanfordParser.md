@@ -88,6 +88,14 @@ Name of the feature containing the token surface form.
 </div>
 Name of the role of the dependency tuple argument that references the head (governor) token.
 
+<h3 name="language" class="param">language</h3>
+
+<div class="param-level param-level-default-value">Default value: `ENGLISH`
+</div>
+<div class="param-type">Type: <a href="../converter/com.github.pemistahl.lingua.api.Language" class="converter">Language</a>
+</div>
+Language of the text to parse. *StanfordParser* currently supports english (default), french, german, spanish and chinese.
+
 <h3 name="omitRoot" class="param">omitRoot</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`

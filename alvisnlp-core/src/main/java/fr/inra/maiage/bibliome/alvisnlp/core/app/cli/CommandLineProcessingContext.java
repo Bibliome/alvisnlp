@@ -46,6 +46,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalFailureException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase;
+import fr.inra.maiage.bibliome.util.Files;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.Timer;
 import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
@@ -60,7 +61,8 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
     private boolean                                   dumps = true;
     private final Timer<TimerCategory> timer;
     private final DefaultMap<String,Logger> loggers = new LoggerMap();
-    private Thread cleanTmpDirHook = null;
+    private boolean cleanTmpDir = false;
+    private int maxMmapSize = Integer.MAX_VALUE;
     
     /**
      * Creates a new new processing context object. This object will have the following default behaviour:
@@ -131,6 +133,11 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
         }
         corpus.hasBeenProcessedBy(modulePath);
         module.clean();
+        if (cleanTmpDir) {
+    		File tempDir = getTempDir(module);
+			moduleLogger.info("deleting temp dir: " + tempDir);
+			Files.recDelete(tempDir);
+        }
         File dumpFile = module.getDumpFile();
         if (dumpFile == null) {
 			return;
@@ -184,6 +191,15 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
     }
     
     @Override
+    public int getMaxMmapSize() {
+		return maxMmapSize;
+	}
+
+	public void setMaxMmapSize(int maxMmapSize) {
+		this.maxMmapSize = maxMmapSize;
+	}
+
+	@Override
     @Deprecated
 	public void callExternal(External<T> ext) throws ModuleException {
     	callExternal(ext, Charset.defaultCharset().name());
@@ -261,7 +277,7 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
 	
 	@Override
 	public boolean isCleanTmpDir() {
-		return cleanTmpDirHook != null;
+		return cleanTmpDir;
 	}
 
 	@Override
@@ -361,4 +377,9 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
 	protected abstract Collection<String> getNameTypes();
 	
 	protected abstract Collection<String> getIgnoreNameTypes(String nameType);
+
+	@Override
+	public void setCleanTmpDir(boolean cleanTmpDir) {
+		this.cleanTmpDir = cleanTmpDir;
+	}
 }

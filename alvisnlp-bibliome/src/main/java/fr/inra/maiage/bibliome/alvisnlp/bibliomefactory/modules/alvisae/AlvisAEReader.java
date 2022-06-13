@@ -68,7 +68,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	private String schema;
 	private String username;
 	private String password;
-	private Integer campaignId;
+	private Integer[] campaignId;
 	private Integer[] docIds;
 	private String[] docExternalIds;
 	private String[] docDescriptions;
@@ -84,6 +84,8 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	private String fragmentsLayerName = "alvisae";
 	private String fragmentRolePrefix = "frag";
 	private String itemRolePrefix = "item";
+	private String campaignIdFeature;
+	private String campaignNameFeature;
 	private String userFeature;
 	private String userIdFeature;
 	private String taskFeature;
@@ -112,21 +114,23 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
-		Campaign campaign = loadCampaign(ctx);
-		convertCorpus(ctx, corpus, campaign);
-	}
-	
-	@TimeThis(task="load-sql", category=TimerCategory.LOAD_RESOURCE)
-	protected Campaign loadCampaign(ProcessingContext<Corpus> ctx) throws ProcessingException {
 		LoadOptions options = getLoadOptions();
 		try (Connection connection = openConnection(ctx)) {
-			Campaign campaign = new Campaign(oldModel, schema, campaignId);
-			campaign.load(getLogger(ctx), connection, options);
-			return campaign;
+			for (Integer cid : campaignId) {
+				Campaign campaign = loadCampaign(ctx, options, connection, cid);
+				convertCorpus(ctx, corpus, campaign);
+			}
 		}
 		catch (ClassNotFoundException|SQLException|ParseException e) {
 			throw new ProcessingException(e);
 		}
+	}
+	
+	@TimeThis(task="load-sql", category=TimerCategory.LOAD_RESOURCE)
+	protected Campaign loadCampaign(ProcessingContext<Corpus> ctx, LoadOptions options, Connection connection, int cid) throws SQLException, ParseException {
+		Campaign campaign = new Campaign(oldModel, schema, cid);
+		campaign.load(getLogger(ctx), connection, options);
+		return campaign;
 	}
 
 	@TimeThis(task="open-connection")
@@ -174,6 +178,8 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 		logger.finer("converting document " + doc.getId() + " [" + doc.getExternalId() + "] (" + doc.getDescription() + ")");
 		aDoc.addFeature(externalIdFeature, doc.getExternalId());
 		aDoc.addFeature(descriptionFeature, doc.getDescription());
+		aDoc.addFeature(campaignIdFeature, Integer.toString(doc.getCampaign().getId()));
+		aDoc.addFeature(campaignNameFeature, doc.getCampaign().getName());
 		Section sec = getSection(doc, aDoc);
 		Map<AlvisAEAnnotation,Tuple> mapping = new LinkedHashMap<AlvisAEAnnotation,Tuple>();
 		for (AnnotationSet aset : doc.getAnnotationSets()) {
@@ -303,7 +309,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	}
 
 	@Param
-	public Integer getCampaignId() {
+	public Integer[] getCampaignId() {
 		return campaignId;
 	}
 
@@ -482,6 +488,24 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 		return taskIdFeature;
 	}
 
+	@Param(mandatory=false, nameType=NameType.FEATURE)
+	public String getCampaignIdFeature() {
+		return campaignIdFeature;
+	}
+
+	@Param(mandatory=false, nameType=NameType.FEATURE)
+	public String getCampaignNameFeature() {
+		return campaignNameFeature;
+	}
+
+	public void setCampaignIdFeature(String campaignIdFeature) {
+		this.campaignIdFeature = campaignIdFeature;
+	}
+
+	public void setCampaignNameFeature(String campaignNameFeature) {
+		this.campaignNameFeature = campaignNameFeature;
+	}
+
 	public void setTaskIdFeature(String taskIdFeature) {
 		this.taskIdFeature = taskIdFeature;
 	}
@@ -570,7 +594,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 		this.password = password;
 	}
 
-	public void setCampaignId(Integer campaignId) {
+	public void setCampaignId(Integer[] campaignId) {
 		this.campaignId = campaignId;
 	}
 

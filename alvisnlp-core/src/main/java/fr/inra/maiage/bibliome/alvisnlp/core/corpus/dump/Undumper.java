@@ -48,19 +48,21 @@ import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
 public class Undumper implements AutoCloseable {
 	private final Logger logger;
 	private final FileChannel channel;
+	private final int maxMmapSize;
 	
-	public Undumper(Logger logger, FileChannel channel) {
+	public Undumper(Logger logger, FileChannel channel, int maxMmapSize) {
 		super();
 		this.logger = logger;
 		this.channel = channel;
+		this.maxMmapSize = maxMmapSize;
 	}
 	
-	public Undumper(Logger logger, Path path) throws IOException {
-		this(logger, FileChannel.open(path, StandardOpenOption.READ));
+	public Undumper(Logger logger, Path path, int maxMmapSize) throws IOException {
+		this(logger, FileChannel.open(path, StandardOpenOption.READ), maxMmapSize);
 	}
 	
-	public Undumper(Logger logger, File file) throws IOException {
-		this(logger, file.toPath());
+	public Undumper(Logger logger, File file, int maxMmapSize) throws IOException {
+		this(logger, file.toPath(), maxMmapSize);
 	}
 	
 	@Override
@@ -71,10 +73,10 @@ public class Undumper implements AutoCloseable {
 	public Corpus readCorpus() throws IOException {
 		logger.info("undumping...");
 		ReadCache<String> stringCache = MapReadCache.hashMap();
-		Unmarshaller<String> stringUnmarshaller = new Unmarshaller<String>(channel, StringCodec.INSTANCE, stringCache);
-		CorpusDecoder corpusDecoder = new CorpusDecoder(stringUnmarshaller);
+		Unmarshaller<String> stringUnmarshaller = new Unmarshaller<String>(channel, StringCodec.INSTANCE, stringCache, maxMmapSize);
+		CorpusDecoder corpusDecoder = new CorpusDecoder(stringUnmarshaller, maxMmapSize);
 		ReadCache<Corpus> corpusCache = MapReadCache.hashMap();
-		Unmarshaller<Corpus> corpusUnmarshaller = new Unmarshaller<Corpus>(channel, corpusDecoder, corpusCache);
+		Unmarshaller<Corpus> corpusUnmarshaller = new Unmarshaller<Corpus>(channel, corpusDecoder, corpusCache, maxMmapSize);
 		Corpus result = corpusUnmarshaller.read((int) channel.position());
 		processTuplesArguments(corpusDecoder, corpusUnmarshaller, stringUnmarshaller);
 		return result;

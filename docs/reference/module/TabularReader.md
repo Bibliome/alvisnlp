@@ -23,8 +23,8 @@ Action expressions to evaluate at each row. The expressions are evaluated from t
 
   	The library `tab` defines the following functions:
   	
-* `tab:column(N)` : value of the Nth column.
-* `tab:field:NAME` or `tab:field(NAME)` : value of the column named NAME (requires <a href="#header" class="param">header</a> set to true
+* `tab:column(N)` : value of the *Nth* column.
+* `tab:field:NAME` or `tab:field(NAME)` : value of the column named *NAME* (requires <a href="#header" class="param">header</a> set to *true*
 * `tab:source` : name of the input source being parsed.
 * `tab:line` : current row number.
 * `tab:width` : number of column in the current row.
@@ -45,7 +45,7 @@ Source of CSV. Maybe a path to a file or an URL
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-For each source, this expression is evaluated as a sngle element from the corpus. <a href="#lineActions" class="param">lineActions</a> will be evaluated from this element.
+For each source, this expression is evaluated as a single element from the corpus. <a href="#lineActions" class="param">lineActions</a> will be evaluated from this element.
 
 <h3 name="checkNumColumns" class="param">checkNumColumns</h3>
 

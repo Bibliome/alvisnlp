@@ -108,6 +108,7 @@ public class FasttextClassifierTrainExternalHandler extends FasttextClassifierBa
 		if (owner.getAutotune()) {
 			addToCommandLine(result, "-autotune-validation", getValidationFile().getAbsolutePath());
 			addToCommandLine(result, "-autotune-duration", owner.getAutotuneDuration().toString());
+			addNotNullToCommandLine(result, owner.getAutotuneMetric(), "-autotune-metric");
 		}
 		addNotNullToCommandLine(result, owner.getCommandlineOptions());
 		return result;
