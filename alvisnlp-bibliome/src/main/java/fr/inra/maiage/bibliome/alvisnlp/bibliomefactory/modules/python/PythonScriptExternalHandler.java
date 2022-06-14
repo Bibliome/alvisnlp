@@ -433,14 +433,32 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 
 	@Override
 	protected List<String> getCommandLine() {
-		return Arrays.asList(getModule().getCommandLine());
+		List<String> result = new ArrayList<String>();
+		PythonScript owner = getModule();
+		if (owner.getConda() != null) {
+			result.add(owner.getConda().getAbsolutePath());
+			result.add("run");
+			result.add("--no-capture-output");
+			result.add("--name");
+			result.add(owner.getCondaEnvironment());
+		}
+		result.addAll(Arrays.asList(owner.getCommandLine()));
+		return result;
 	}
 
 	@Override
 	protected void updateEnvironment(Map<String,String> env) {
-		Mapping environment = getModule().getEnvironment();
+		PythonScript owner = getModule();
+		Mapping environment = owner.getEnvironment();
 		if (environment != null) {
 			env.putAll(environment);
+		}
+		if (env.containsKey("PYTHONPATH")) {
+			String pp = env.get("PYTHONPATH");
+			env.put("PYTHONPATH", owner.getAlvisnlpPythonDirectory().getAbsolutePath() + ":" + pp);
+		}
+		else {
+			env.put("PYTHONPATH", owner.getAlvisnlpPythonDirectory().getAbsolutePath());
 		}
 	}
 

@@ -26,16 +26,21 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.files.ExecutableFile;
+import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.WorkingDirectory;
 
 @AlvisNLPModule(beta=true)
 public abstract class PythonScript extends SectionModule<PythonScriptResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, RelationCreator, TupleCreator {
+	private ExecutableFile conda;
+	private String condaEnvironment;
 	private String[] commandLine;
 	private WorkingDirectory workingDirectory;
 	private Mapping environment;
 	private String[] relationNames;
 	private String[] layerNames;
-	
+	private InputDirectory alvisnlpPythonDirectory;
+
 	static class PythonScriptResolvedObjects extends SectionResolvedObjects {
 		private final Collection<String> layerNames;
 		private final Collection<String> relationNames;
@@ -125,6 +130,33 @@ public abstract class PythonScript extends SectionModule<PythonScriptResolvedObj
 	@Param(mandatory = false, nameType = NameType.RELATION)
 	public String[] getRelationNames() {
 		return relationNames;
+	}
+
+	@Param(mandatory = false)
+	public String getCondaEnvironment() {
+		return condaEnvironment;
+	}
+
+	@Param(mandatory = false)
+	public ExecutableFile getConda() {
+		return conda;
+	}
+
+	@Param
+	public InputDirectory getAlvisnlpPythonDirectory() {
+		return alvisnlpPythonDirectory;
+	}
+
+	public void setAlvisnlpPythonDirectory(InputDirectory alvisnlpPythonDirectory) {
+		this.alvisnlpPythonDirectory = alvisnlpPythonDirectory;
+	}
+
+	public void setConda(ExecutableFile conda) {
+		this.conda = conda;
+	}
+
+	public void setCondaEnvironment(String condaEnvironment) {
+		this.condaEnvironment = condaEnvironment;
 	}
 
 	public void setRelationNames(String[] relationNames) {
