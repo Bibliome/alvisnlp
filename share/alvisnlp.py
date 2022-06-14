@@ -365,6 +365,15 @@ class Section(Element):
             rel._tuple_from_json(tj)
         return rel
 
+    def create_annotation(self, layerName: str, start: int, end: int, features: dict = None) -> Annotation:
+        layer = self.layers.ensure(layerName)
+        a = Annotation(self, start, end)
+        layer.add(a)
+        if features is not None:
+            for k, v in features.items():
+                a.features.add(k, v)
+        return a
+
 
 class Span:
     '''A span object has a start and end offset. This is a utility class.
@@ -400,6 +409,18 @@ class Span:
     @property
     def end(self) -> int:
         return self._end
+
+    def inside(self, other):
+        return self.start >= other.start and self.end <= other.end
+
+    def outside(self, other):
+        return other.inside(self)
+
+    def span(self, other):
+        return self.start == other.start and self.end == other.end
+
+    def overlap(self, other):
+        self.end > other.start and self.start < other.end
 
 
 class Annotation(Element, Span):
@@ -810,6 +831,11 @@ class Layers:
     def __getitem__(self, name: str) -> Layer:
         return self.get(name)
 
+    def ensure(self, name: str) -> Layer:
+        if name in self:
+            return self[name]
+        return Layer(self._sec, name)
+
 
 class Layer:
     '''An AlvisNLP Layer object. Beware: Layer is not an Element, it has no features. A layer acts as an iterable of annotations.
@@ -877,6 +903,27 @@ class Layer:
             raise ValueError()
         self._annotations.remove(a)
         a._add_event(RemoveFromLayer(self))
+
+    def inside(self, span: Span) -> Iterator[Annotation]:
+        filter(lambda a: a.inside(span), self._annotations)
+
+    def outside(self, span: Span) -> Iterator[Annotation]:
+        filter(lambda a: a.outside(span), self._annotations)
+
+    def span(self, span: Span) -> Iterator[Annotation]:
+        filter(lambda a: a.span(span), self._annotations)
+
+    def overlap(self, span: Span) -> Iterator[Annotation]:
+        filter(lambda a: a.span(span), self._annotations)
+
+    def is_segmentation(self) -> bool:
+        self._annotations.sort(key=Span.ORDER_KEY)
+        prev = None
+        for a in self._annotations:
+            if prev is not None and prev.end > a.start:
+                return False
+            prev = a
+        return True
 
 
 class Tuples:
@@ -1081,7 +1128,7 @@ class CreateSection(CreateElementEvent):
     def __init__(self, sec: Section) -> None:
         CreateElementEvent.__init__(self, sec)
 
-    def _fill_json(self, j : dict) -> None:
+    def _fill_json(self, j: dict) -> None:
         CreateElementEvent._fill_json(self, j)
         j['name'] = self.elt.name
         j['contents'] = self.elt.contents
