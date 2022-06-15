@@ -2,6 +2,7 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.python;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.Reader;
 import java.io.Writer;
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.Files;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
@@ -52,6 +54,20 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 		try (Writer out = target.getWriter()) {
 			json.writeJSONString(out);
 		}
+		if (getModule().isScriptCopy()) {
+			copyScript();
+		}
+	}
+	
+	private void copyScript() throws IOException {
+		try (InputStream is = getModule().getScript().getInputStream()) {
+			File scriptFile = getScriptCopy();
+			Files.copy(is, scriptFile, 1024, true);
+		}
+	}
+	
+	private File getScriptCopy() {
+		return new File(getTempDir(), "script.py");
 	}
 
 	@Override
@@ -441,6 +457,20 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 			result.add("--no-capture-output");
 			result.add("--name");
 			result.add(owner.getCondaEnvironment());
+		}
+		if (owner.getCallPython()) {
+			if (owner.getPython() == null) {
+				result.add("python");
+			}
+			else {
+				result.add(owner.getPython().getAbsolutePath());
+			}
+		}
+		if (owner.isScriptCopy()) {
+			result.add(getScriptCopy().getAbsolutePath());
+		}
+		else {
+			result.add(owner.getScript().getStreamNames().iterator().next());
 		}
 		result.addAll(Arrays.asList(owner.getCommandLine()));
 		return result;

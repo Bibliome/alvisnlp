@@ -31,11 +31,15 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.WorkingDirectory;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule(beta=true)
 public abstract class PythonScript extends SectionModule<PythonScriptResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, RelationCreator, TupleCreator {
 	private ExecutableFile conda;
 	private String condaEnvironment;
+	private Boolean callPython;
+	private ExecutableFile python;
+	private SourceStream script;
 	private String[] commandLine;
 	private WorkingDirectory workingDirectory;
 	private Mapping environment;
@@ -51,9 +55,9 @@ public abstract class PythonScript extends SectionModule<PythonScriptResolvedObj
 		
 		PythonScriptResolvedObjects(ProcessingContext<Corpus> ctx, PythonScript module) throws ResolverException {
 			super(ctx, module);
-			this.layerNames = module.layerNames == null ? null : new HashSet<String>(Arrays.asList(module.layerNames));
-			this.relationNames = module.relationNames == null ? null : new HashSet<String>(Arrays.asList(module.relationNames));
-			this.scriptParams = module.scriptParams.resolveExpressions(rootResolver);
+			this.layerNames = module.getLayerNames() == null ? null : new HashSet<String>(Arrays.asList(module.getLayerNames()));
+			this.relationNames = module.getRelationNames() == null ? null : new HashSet<String>(Arrays.asList(module.getRelationNames()));
+			this.scriptParams = module.getScriptParams().resolveExpressions(rootResolver);
 		}
 		
 		boolean acceptRelation(Relation rel) {
@@ -99,6 +103,10 @@ public abstract class PythonScript extends SectionModule<PythonScriptResolvedObj
 		catch (IOException|InterruptedException e) {
 			throw new ProcessingException(e);
 		}
+	}
+	
+	protected boolean isScriptCopy() {
+		return false;
 	}
 
 	@Override
@@ -159,6 +167,33 @@ public abstract class PythonScript extends SectionModule<PythonScriptResolvedObj
 	@Param
 	public ExpressionMapping getScriptParams() {
 		return scriptParams;
+	}
+
+	@Param
+	public Boolean getCallPython() {
+		return callPython;
+	}
+
+	@Param(mandatory = false)
+	public ExecutableFile getPython() {
+		return python;
+	}
+
+	@Param
+	public SourceStream getScript() {
+		return script;
+	}
+
+	public void setCallPython(Boolean callPython) {
+		this.callPython = callPython;
+	}
+
+	public void setPython(ExecutableFile python) {
+		this.python = python;
+	}
+
+	public void setScript(SourceStream script) {
+		this.script = script;
 	}
 
 	public void setScriptParams(ExpressionMapping scriptParams) {
