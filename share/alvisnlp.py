@@ -159,6 +159,7 @@ class Corpus(Element):
         self.all_elements = {}
         self._documents = Documents(self)
         self.log_events = log_events
+        self.params = {}
 
     @property
     def corpus(self) -> Corpus:
@@ -183,6 +184,7 @@ class Corpus(Element):
     @staticmethod
     def from_json(j, log_events: bool) -> Corpus:
         corpus = Corpus(log_events=log_events)
+        corpus.params = j['params']
         corpus._features_and_id_from_json(j)
         for dj in j['documents']:
             corpus._document_from_json(dj)
