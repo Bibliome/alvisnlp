@@ -465,7 +465,7 @@ class Annotation(Element, Span):
         self._detached = False  # XXX check layers instead
         Span.__init__(self, start, end)
         if end > len(sec.contents):
-            raise ValueError('end (' + end + ') > length (' + len(sec.contents) + ')')
+            raise ValueError('end (%d) > length (%d)' % (end, len(sec.contents)))
         self._section = sec
         self._form = sec.contents[start:end]
         sec._add_event(CreateAnnotation(self))
@@ -931,16 +931,16 @@ class Layer:
         a._add_event(RemoveFromLayer(self))
 
     def inside(self, span: Span) -> Iterator[Annotation]:
-        filter(lambda a: a.inside(span), self._annotations)
+        return filter(lambda a: a.inside(span), self._annotations)
 
     def outside(self, span: Span) -> Iterator[Annotation]:
-        filter(lambda a: a.outside(span), self._annotations)
+        return filter(lambda a: a.outside(span), self._annotations)
 
     def span(self, span: Span) -> Iterator[Annotation]:
-        filter(lambda a: a.span(span), self._annotations)
+        return filter(lambda a: a.span(span), self._annotations)
 
     def overlap(self, span: Span) -> Iterator[Annotation]:
-        filter(lambda a: a.span(span), self._annotations)
+        return filter(lambda a: a.span(span), self._annotations)
 
     def is_segmentation(self) -> bool:
         self._annotations.sort(key=Span.ORDER_KEY)
