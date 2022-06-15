@@ -25,6 +25,8 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.types.EvaluatorMapping;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.types.ExpressionMapping;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
@@ -40,15 +42,18 @@ public abstract class PythonScript extends SectionModule<PythonScriptResolvedObj
 	private String[] relationNames;
 	private String[] layerNames;
 	private InputDirectory alvisnlpPythonDirectory;
+	private ExpressionMapping scriptParams = new ExpressionMapping();
 
 	static class PythonScriptResolvedObjects extends SectionResolvedObjects {
 		private final Collection<String> layerNames;
 		private final Collection<String> relationNames;
+		private final EvaluatorMapping scriptParams;
 		
 		PythonScriptResolvedObjects(ProcessingContext<Corpus> ctx, PythonScript module) throws ResolverException {
 			super(ctx, module);
 			this.layerNames = module.layerNames == null ? null : new HashSet<String>(Arrays.asList(module.layerNames));
 			this.relationNames = module.relationNames == null ? null : new HashSet<String>(Arrays.asList(module.relationNames));
+			this.scriptParams = module.scriptParams.resolveExpressions(rootResolver);
 		}
 		
 		boolean acceptRelation(Relation rel) {
@@ -65,6 +70,10 @@ public abstract class PythonScript extends SectionModule<PythonScriptResolvedObj
 			return layerNames.contains(layer.getName());
 		}
 		
+		EvaluatorMapping getScriptParams() {
+			return scriptParams;
+		}
+
 		Layer getAnnotations(Section sec) {
 			if (layerNames == null) {
 				return sec.getAllAnnotations();
@@ -145,6 +154,15 @@ public abstract class PythonScript extends SectionModule<PythonScriptResolvedObj
 	@Param
 	public InputDirectory getAlvisnlpPythonDirectory() {
 		return alvisnlpPythonDirectory;
+	}
+
+	@Param
+	public ExpressionMapping getScriptParams() {
+		return scriptParams;
+	}
+
+	public void setScriptParams(ExpressionMapping scriptParams) {
+		this.scriptParams = scriptParams;
 	}
 
 	public void setAlvisnlpPythonDirectory(InputDirectory alvisnlpPythonDirectory) {

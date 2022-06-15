@@ -1,5 +1,7 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.python;
 
+import java.util.Map;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -13,6 +15,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
 import fr.inra.maiage.bibliome.util.Iterators;
 
 public class JsonSerializer implements ElementVisitor<JSONObject,Void> {
@@ -70,6 +73,19 @@ public class JsonSerializer implements ElementVisitor<JSONObject,Void> {
 	public JSONObject visit(Corpus corpus, Void param) {
 		JSONObject result = startElement(corpus);
 		result.put("documents", serializeDocuments(corpus, param));
+		result.put("params", serializeScriptParams(corpus, param));
+		return result;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private JSONObject serializeScriptParams(Corpus corpus, Void param) {
+		JSONObject result = new JSONObject();
+		for (Map.Entry<String,Evaluator> e : resObj.getScriptParams().entrySet()) {
+			String key = e.getKey();
+			Evaluator ev = e.getValue();
+			String value = ev.evaluateString(evalCtx, corpus);
+			result.put(key, value);
+		}
 		return result;
 	}
 	
