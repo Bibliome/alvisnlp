@@ -137,6 +137,7 @@ function insert_param_value() {
 }
 
 insert_param_value fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.python.PythonScript alvisnlpPythonDirectory "$SHARE_DIR"
+insert_param_value fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.python.Stanza alvisnlpPythonDirectory "$SHARE_DIR"
 
 cp -f -u share/alvisnlp.py "$SHARE_DIR"
 
