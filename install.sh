@@ -138,6 +138,8 @@ function insert_param_value() {
 
 insert_param_value fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.python.PythonScript alvisnlpPythonDirectory "$SHARE_DIR"
 
+cp -f -u share/alvisnlp.py "$SHARE_DIR"
+
 if [ -n "$DEFAULT_PARAM_VALUES" ]
 then
     cp -f -u "$DEFAULT_PARAM_VALUES" "$SHARE_DIR/default-param-values.xml"
