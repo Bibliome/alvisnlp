@@ -376,6 +376,25 @@ class Section(Element):
                 a.features.add(k, v)
         return a
 
+    def create_tuple(self, relName: str, args: dict = None, features: dict = None) -> Tuple:
+        rel = self.relations.ensure(relName)
+        t = Tuple(rel)
+        if args is not None:
+            for k, v in args.items():
+                t.args[k] = v
+        if features is not None:
+            for k, v in features.items():
+                t.features.add(k, v)
+        return t
+
+    def sentences(self, sentence_layer_name: str = 'sentences'):
+        return self.layers[sentence_layer_name].annotations
+
+    def words(self, sentence: Span = None, word_layer_name: str = 'words'):
+        if sentence is None:
+            return self.layers[word_layer_name].annotations
+        return self.layers[word_layer_name].inside(sentence)
+
 
 class Span:
     '''A span object has a start and end offset. This is a utility class.
@@ -785,6 +804,11 @@ class Relations:
         del self._data[rel.name]
         rel._detached = True
         self._sec._events(DeleteRelation(rel))
+
+    def ensure(self, name):
+        if name in self:
+            return self[name]
+        return Relation(self._sec, name)
 
 
 class Layers:
