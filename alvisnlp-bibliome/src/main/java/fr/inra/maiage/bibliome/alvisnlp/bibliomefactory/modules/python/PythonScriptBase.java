@@ -11,7 +11,6 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.python.PythonScr
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreator;
@@ -23,7 +22,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverExceptio
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.EvaluatorMapping;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.ExpressionMapping;
@@ -33,20 +31,13 @@ import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.WorkingDirectory;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
-@AlvisNLPModule(beta=true)
 public abstract class PythonScriptBase extends SectionModule<PythonScriptResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, RelationCreator, TupleCreator {
 	private ExecutableFile conda;
 	private String condaEnvironment;
-	private Boolean callPython;
 	private ExecutableFile python;
-	private SourceStream script;
-	private String[] commandLine;
 	private WorkingDirectory workingDirectory;
 	private Mapping environment;
-	private String[] relationNames;
-	private String[] layerNames;
 	private InputDirectory alvisnlpPythonDirectory;
-	private ExpressionMapping scriptParams = new ExpressionMapping();
 
 	static class PythonScriptResolvedObjects extends SectionResolvedObjects {
 		private final Collection<String> layerNames;
@@ -105,9 +96,19 @@ public abstract class PythonScriptBase extends SectionModule<PythonScriptResolve
 		}
 	}
 	
-	protected boolean isScriptCopy() {
-		return false;
-	}
+	protected abstract boolean isScriptCopy();
+
+	public abstract String[] getCommandLine();
+
+	public abstract String[] getLayerNames();
+
+	public abstract String[] getRelationNames();
+
+	public abstract ExpressionMapping getScriptParams();
+
+	public abstract Boolean getCallPython();
+
+	public abstract SourceStream getScript();
 
 	@Override
 	protected String[] addLayersToSectionFilter() {
@@ -124,11 +125,6 @@ public abstract class PythonScriptBase extends SectionModule<PythonScriptResolve
 		return new PythonScriptResolvedObjects(ctx, this);
 	}
 
-	@Param
-	public String[] getCommandLine() {
-		return commandLine;
-	}
-
 	@Param(mandatory = false)
 	public WorkingDirectory getWorkingDirectory() {
 		return workingDirectory;
@@ -137,16 +133,6 @@ public abstract class PythonScriptBase extends SectionModule<PythonScriptResolve
 	@Param(mandatory = false)
 	public Mapping getEnvironment() {
 		return environment;
-	}
-
-	@Param(mandatory = false, nameType = NameType.LAYER)
-	public String[] getLayerNames() {
-		return layerNames;
-	}
-
-	@Param(mandatory = false, nameType = NameType.RELATION)
-	public String[] getRelationNames() {
-		return relationNames;
 	}
 
 	@Param(mandatory = false)
@@ -164,40 +150,13 @@ public abstract class PythonScriptBase extends SectionModule<PythonScriptResolve
 		return alvisnlpPythonDirectory;
 	}
 
-	@Param
-	public ExpressionMapping getScriptParams() {
-		return scriptParams;
-	}
-
-	@Param
-	public Boolean getCallPython() {
-		return callPython;
-	}
-
 	@Param(mandatory = false)
 	public ExecutableFile getPython() {
 		return python;
 	}
 
-	@Param
-	public SourceStream getScript() {
-		return script;
-	}
-
-	public void setCallPython(Boolean callPython) {
-		this.callPython = callPython;
-	}
-
 	public void setPython(ExecutableFile python) {
 		this.python = python;
-	}
-
-	public void setScript(SourceStream script) {
-		this.script = script;
-	}
-
-	public void setScriptParams(ExpressionMapping scriptParams) {
-		this.scriptParams = scriptParams;
 	}
 
 	public void setAlvisnlpPythonDirectory(InputDirectory alvisnlpPythonDirectory) {
@@ -212,23 +171,11 @@ public abstract class PythonScriptBase extends SectionModule<PythonScriptResolve
 		this.condaEnvironment = condaEnvironment;
 	}
 
-	public void setRelationNames(String[] relationNames) {
-		this.relationNames = relationNames;
-	}
-
-	public void setLayerNames(String[] layerNames) {
-		this.layerNames = layerNames;
-	}
-
 	public void setEnvironment(Mapping environment) {
 		this.environment = environment;
 	}
 
 	public void setWorkingDirectory(WorkingDirectory workingDirectory) {
 		this.workingDirectory = workingDirectory;
-	}
-
-	public void setCommandLine(String[] commandLine) {
-		this.commandLine = commandLine;
 	}
 }

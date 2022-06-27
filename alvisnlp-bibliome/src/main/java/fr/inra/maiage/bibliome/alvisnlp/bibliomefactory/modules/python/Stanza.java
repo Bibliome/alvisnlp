@@ -3,8 +3,8 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.python;
 import java.util.Collections;
 import java.util.List;
 
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.converters.expression.parser.ExpressionParser;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ConstantsLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
@@ -50,14 +50,19 @@ public abstract class Stanza extends PythonScriptBase {
 		return new String[0];
 	}
 
+	@Override
+	public String[] getRelationNames() {
+		return null;
+	}
+
 	private static Expression getStringConstant(String s) {
-		return ExpressionParser.parseUnsafe("\"" + s + "\"");
+		return ConstantsLibrary.create(s);
 	}
 	
 	private static Expression getStringConstant(boolean b) {
 		return getStringConstant(b ? "yes" : "no");
 	}
-	
+
 	@Override
 	public ExpressionMapping getScriptParams() {
 		ExpressionMapping result = new ExpressionMapping();
