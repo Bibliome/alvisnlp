@@ -14,7 +14,7 @@ import fr.inra.maiage.bibliome.util.streams.ResourceSourceStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule(beta = true)
-public abstract class Stanza extends PythonScript {
+public abstract class Stanza extends PythonScriptBase {
 	private Boolean pretokenized;
 	private Boolean parse;
 	private Boolean ner;

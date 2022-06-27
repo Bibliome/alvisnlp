@@ -7,7 +7,7 @@ import java.util.HashSet;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.python.PythonScript.PythonScriptResolvedObjects;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.python.PythonScriptBase.PythonScriptResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
@@ -34,7 +34,7 @@ import fr.inra.maiage.bibliome.util.files.WorkingDirectory;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule(beta=true)
-public abstract class PythonScript extends SectionModule<PythonScriptResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, RelationCreator, TupleCreator {
+public abstract class PythonScriptBase extends SectionModule<PythonScriptResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, RelationCreator, TupleCreator {
 	private ExecutableFile conda;
 	private String condaEnvironment;
 	private Boolean callPython;
@@ -53,7 +53,7 @@ public abstract class PythonScript extends SectionModule<PythonScriptResolvedObj
 		private final Collection<String> relationNames;
 		private final EvaluatorMapping scriptParams;
 		
-		PythonScriptResolvedObjects(ProcessingContext<Corpus> ctx, PythonScript module) throws ResolverException {
+		PythonScriptResolvedObjects(ProcessingContext<Corpus> ctx, PythonScriptBase module) throws ResolverException {
 			super(ctx, module);
 			this.layerNames = module.getLayerNames() == null ? null : new HashSet<String>(Arrays.asList(module.getLayerNames()));
 			this.relationNames = module.getRelationNames() == null ? null : new HashSet<String>(Arrays.asList(module.getRelationNames()));

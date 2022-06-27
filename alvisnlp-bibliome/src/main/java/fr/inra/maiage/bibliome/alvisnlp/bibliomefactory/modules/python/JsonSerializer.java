@@ -20,9 +20,9 @@ import fr.inra.maiage.bibliome.util.Iterators;
 
 public class JsonSerializer implements ElementVisitor<JSONObject,Void> {
 	private final EvaluationContext evalCtx;
-	private final PythonScript.PythonScriptResolvedObjects resObj;
+	private final PythonScriptBase.PythonScriptResolvedObjects resObj;
 
-	public JsonSerializer(EvaluationContext evalCtx, PythonScript.PythonScriptResolvedObjects resObj) {
+	public JsonSerializer(EvaluationContext evalCtx, PythonScriptBase.PythonScriptResolvedObjects resObj) {
 		super();
 		this.evalCtx = evalCtx;
 		this.resObj = resObj;

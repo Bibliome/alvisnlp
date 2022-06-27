@@ -37,10 +37,10 @@ import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonScript> {
+public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonScriptBase> {
 	private final EvaluationContext evalCtx;
 
-	public PythonScriptExternalHandler(ProcessingContext<Corpus> processingContext, PythonScript module, Corpus annotable) {
+	public PythonScriptExternalHandler(ProcessingContext<Corpus> processingContext, PythonScriptBase module, Corpus annotable) {
 		super(processingContext, module, annotable);
 		this.evalCtx = new EvaluationContext(getLogger());
 	}
@@ -161,7 +161,7 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 	private void handleCorpusEvents(JSONObject j) {
 		Corpus corpus = getAnnotable();
 		Map<String,Document> docMap = new HashMap<String,Document>();
-		PythonScript.PythonScriptResolvedObjects resObj = getModule().getResolvedObjects();
+		PythonScriptBase.PythonScriptResolvedObjects resObj = getModule().getResolvedObjects();
 		for (Document doc : Iterators.loop(corpus.documentIterator(evalCtx, resObj.getDocumentFilter()))) {
 			docMap.put(doc.getStringId(), doc);
 		}
@@ -205,7 +205,7 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 		Map<String,Element> eltMap = new HashMap<String,Element>();
 		eltMap.put(doc.getStringId(), doc);
 		Map<String,Section> secMap = new HashMap<String,Section>();
-		PythonScript.PythonScriptResolvedObjects resObj = getModule().getResolvedObjects();
+		PythonScriptBase.PythonScriptResolvedObjects resObj = getModule().getResolvedObjects();
 		for (Section sec : Iterators.loop(doc.sectionIterator(evalCtx, resObj.getSectionFilter()))) {
 			secMap.put(sec.getStringId(), sec);
 			eltMap.put(sec.getStringId(), sec);
@@ -254,7 +254,7 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 	}
 	
 	private void handleSectionEvents(Section sec, Collection<SetTupleArg> setTupleArgs, Map<String,Element> eltMap, JSONObject j) {
-		PythonScript.PythonScriptResolvedObjects resObj = getModule().getResolvedObjects();
+		PythonScriptBase.PythonScriptResolvedObjects resObj = getModule().getResolvedObjects();
 		Map<String,Annotation> annMap = new HashMap<String,Annotation>();
 		for (Annotation a : resObj.getAnnotations(sec)) {
 			annMap.put(a.getStringId(), a);
@@ -450,7 +450,7 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 	@Override
 	protected List<String> getCommandLine() {
 		List<String> result = new ArrayList<String>();
-		PythonScript owner = getModule();
+		PythonScriptBase owner = getModule();
 		if (owner.getConda() != null) {
 			result.add(owner.getConda().getAbsolutePath());
 			result.add("run");
@@ -478,7 +478,7 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 
 	@Override
 	protected void updateEnvironment(Map<String,String> env) {
-		PythonScript owner = getModule();
+		PythonScriptBase owner = getModule();
 		Mapping environment = owner.getEnvironment();
 		if (environment != null) {
 			env.putAll(environment);
