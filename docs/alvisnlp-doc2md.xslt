@@ -97,10 +97,11 @@ limitations under the License.
       <xsl:value-of select="concat('**This module is obsolete, superceded by ', /alvisnlp-doc/@use-instead, '**', $nl, $nl)"/>
     </xsl:if>
     <xsl:apply-templates select="description"/>
-    <xsl:value-of select="concat('## Parameters', $nl, $nl)"/>
+    <xsl:value-of select="concat('## Mandatory parameters', $nl, $nl)"/>
     <xsl:apply-templates select="param-doc[not(@default-value) and @mandatory = 'required']">
       <xsl:sort select="@name"/>
     </xsl:apply-templates>
+    <xsl:value-of select="concat('## Optional parameters', $nl, $nl)"/>
     <xsl:apply-templates select="param-doc[not(@default-value) and @mandatory = 'optional']">
       <xsl:sort select="@name"/>
     </xsl:apply-templates>
@@ -115,9 +116,7 @@ limitations under the License.
   </xsl:template>
   
   <xsl:template match="param-doc">
-    <!--<xsl:value-of select="concat('&lt;a name=&quot;', @name, '&quot;>', $nl, $nl)"/>
-    <xsl:value-of select="concat('### ', @name, $nl, $nl)"/>-->
-    <xsl:value-of select="concat('&lt;h3 name=&quot;', @name, '&quot; class=&quot;param&quot;>', @name, '&lt;/h3>', $nl, $nl)"/>
+    <xsl:value-of select="concat('&lt;h3 id=&quot;', @name, '&quot; class=&quot;param&quot;>', @name, '&lt;/h3>', $nl, $nl)"/>
     <xsl:choose>
       <xsl:when test="@default-value">
 	<xsl:text>&lt;div class="param-level param-level-default-value"></xsl:text>
@@ -125,7 +124,7 @@ limitations under the License.
 	<xsl:text>&lt;/div>
 </xsl:text>
       </xsl:when>
-      <xsl:when test="@mandatory = 'true'">
+      <xsl:when test="@mandatory = 'required'">
 	<xsl:text>&lt;div class="param-level param-level-mandatory"></xsl:text>
 	<xsl:value-of select="concat('Mandatory', $nl)"/>
 	<xsl:text>&lt;/div>
