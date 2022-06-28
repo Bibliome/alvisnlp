@@ -7,9 +7,9 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.types.ExpressionMapping;
 
 @AlvisNLPModule(beta = true)
 public abstract class Stanza extends InternalPythonScript {
-	private Boolean pretokenized;
-	private Boolean parse;
-	private Boolean ner;
+	private Boolean pretokenized = false;
+	private Boolean parse = false;
+	private Boolean ner = false;
 	private String language = "en";
 	
 	@Override
