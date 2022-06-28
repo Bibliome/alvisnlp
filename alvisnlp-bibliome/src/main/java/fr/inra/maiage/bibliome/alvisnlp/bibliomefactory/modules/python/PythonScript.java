@@ -8,8 +8,8 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule(beta=true)
 public abstract class PythonScript extends PythonScriptBase {
-	private String[] commandLine;
-	private Boolean callPython;
+	private String[] commandLine = new String[0];
+	private Boolean callPython = false;
 	private SourceStream script;
 	private String[] layerNames;
 	private String[] relationNames;

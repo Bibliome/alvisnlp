@@ -27,7 +27,7 @@ public abstract class Stanza extends InternalPythonScript {
 
 	@Override
 	public String[] getRelationNames() {
-		return null;
+		return new String[0];
 	}
 	
 	@Override
