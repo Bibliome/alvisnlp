@@ -10,15 +10,17 @@ synopsis
 
 synopsis
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="installDir" class="param">installDir</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
 </div>
 
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

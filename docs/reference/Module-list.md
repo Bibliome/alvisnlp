@@ -329,6 +329,14 @@
 </h2>
 
 <h2 class="no-toc">
+<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.python.PythonScript' | relative_url }}" class="module">PythonScript</a>
+</h2>
+
+<h2 class="no-toc">
+<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.python.Stanza' | relative_url }}" class="module">Stanza</a>
+</h2>
+
+<h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rdf.RDFExport' | relative_url }}" class="module">RDFExport</a>
 </h2>
 

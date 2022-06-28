@@ -10,11 +10,11 @@ synopsis
 
 synopsis
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="insert" class="param">insert</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -22,7 +22,7 @@ synopsis
 
 <h3 name="offset" class="param">offset</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -30,11 +30,13 @@ synopsis
 
 <h3 name="points" class="param">points</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

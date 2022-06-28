@@ -10,11 +10,11 @@ Removes duplicate elements.
 
 synopsis
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="equivalency" class="param">equivalency</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -22,11 +22,13 @@ synopsis
 
 <h3 name="target" class="param">target</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 
+
+## Optional parameters
 
 <h3 name="priority" class="param">priority</h3>
 

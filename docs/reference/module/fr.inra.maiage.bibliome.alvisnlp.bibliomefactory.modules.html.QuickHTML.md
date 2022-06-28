@@ -10,11 +10,11 @@ synopsis
 
 synopsis
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="classFeature" class="param">classFeature</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -22,11 +22,13 @@ synopsis
 
 <h3 name="outDir" class="param">outDir</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.OutputDirectory" class="converter">OutputDirectory</a>
 </div>
 
+
+## Optional parameters
 
 <h3 name="features" class="param">features</h3>
 

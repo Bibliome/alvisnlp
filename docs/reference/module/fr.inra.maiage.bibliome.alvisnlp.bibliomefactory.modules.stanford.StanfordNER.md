@@ -10,11 +10,11 @@ Applies the [Stanford NLP named-entity recognition](https://nlp.stanford.edu/sof
 
 Applies the [Stanford NLP named-entity recognition](https://nlp.stanford.edu/software/CRF-NER.shtml).
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="classifierFile" class="param">classifierFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputFile" class="converter">InputFile</a>
 </div>
@@ -22,7 +22,7 @@ Path to the CRF classifier.
 
 <h3 name="labelFeatureName" class="param">labelFeatureName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -30,11 +30,13 @@ Name of the feature where to store the named entity label.
 
 <h3 name="targetLayerName" class="param">targetLayerName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the layer where to store named-entity annotation.
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

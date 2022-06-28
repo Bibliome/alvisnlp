@@ -8,11 +8,11 @@ Writes files in [What's Wrong with my NLP]() format.
 
 synopsis
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="outFile" class="param">outFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
 </div>
@@ -20,7 +20,7 @@ Data sink where to write.
 
 <h3 name="relationName" class="param">relationName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -28,11 +28,13 @@ Name of the relation that contains tuples that will be represented as relations.
 
 <h3 name="sentences" class="param">sentences</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 Expression evaluated as a list of elements with the section as the context element. The result specifies the sentences in the section.
+
+## Optional parameters
 
 <h3 name="entities" class="param">entities</h3>
 

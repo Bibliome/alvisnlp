@@ -8,11 +8,11 @@ UNDOCUMENTED
 
 UNDOCUMENTED
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="targetLayerName" class="param">targetLayerName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -20,11 +20,13 @@ Name of the layer that contains the match annotations.
 
 <h3 name="termsFile" class="param">termsFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
 UNDOCUMENTED
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

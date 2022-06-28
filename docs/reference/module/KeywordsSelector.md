@@ -14,7 +14,9 @@ Selects most relevant keywords in documents.
 *KeywordsSelector* ranks the keywords according to the <a href="#scoreFunction" class="param">scoreFunction</a> function, then selects the <a href="#keywordCount" class="param">keywordCount</a> keywords with the highest value. The selected keywords are stored in the document feature <a href="#keywordFeature" class="param">keywordFeature</a>, and the corresponding scores in <a href="#scoreFeature" class="param">scoreFeature</a>. 
   
 
-## Parameters
+## Mandatory parameters
+
+## Optional parameters
 
 <h3 name="keywordFeature" class="param">keywordFeature</h3>
 

@@ -10,11 +10,11 @@ Computes word embeddings using the [CONTES/Gensis](https://github.com/ArnaudFerr
 
 Computes word embeddings using the [CONTES/Gensis](https://github.com/ArnaudFerre/CONTES) implementation.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="contesDir" class="param">contesDir</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
 </div>
@@ -22,7 +22,7 @@ Root directory of CONTES.
 
 <h3 name="python3Executable" class="param">python3Executable</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.ExecutableFile" class="converter">ExecutableFile</a>
 </div>
@@ -30,11 +30,13 @@ Path to the Python 3 executable.
 
 <h3 name="workers" class="param">workers</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Integer" class="converter">Integer</a>
 </div>
 Use this many worker threads to train the model (=faster training with multicore machines).
+
+## Optional parameters
 
 <h3 name="additionalArguments" class="param">additionalArguments</h3>
 

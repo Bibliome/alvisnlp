@@ -10,7 +10,9 @@ UNDOCUMENTED
 
 UNDOCUMENTED
 
-## Parameters
+## Mandatory parameters
+
+## Optional parameters
 
 <h3 name="resourceBaseDir" class="param">resourceBaseDir</h3>
 

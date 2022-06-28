@@ -20,11 +20,11 @@ By default the features are BOW but can be deactivated with <a href="#bagOfWords
 The classifier is stored in <a href="#classifier" class="param">classifier</a>. This file can be used by <a href="../module/OpenNLPDocumentCategorizer" class="module">OpenNLPDocumentCategorizer</a>. 
 			
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="categoryFeature" class="param">categoryFeature</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -32,7 +32,7 @@ Feature where the category is read.
 
 <h3 name="language" class="param">language</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -40,11 +40,13 @@ Language of the documents (ISO 639-1 two-letter code).
 
 <h3 name="model" class="param">model</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
 </div>
 File where to store the classifier.
+
+## Optional parameters
 
 <h3 name="classWeights" class="param">classWeights</h3>
 

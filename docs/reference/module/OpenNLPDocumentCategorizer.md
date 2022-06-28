@@ -13,11 +13,11 @@ Categorizes documents with a model trained with <a href="../module/OpenNLPDocume
 			The classifier algorithm uses the document content specified by <a href="#tokens" class="param">tokens</a> and <a href="#form" class="param">form</a>. 
 			
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="categoryFeature" class="param">categoryFeature</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -25,11 +25,13 @@ Feature where to store the predicted category.
 
 <h3 name="model" class="param">model</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
 Model file generated with <a href="../module/OpenNLPDocumentCategorizerTrain" class="module">OpenNLPDocumentCategorizerTrain</a>.
+
+## Optional parameters
 
 <h3 name="scoreFeature" class="param">scoreFeature</h3>
 

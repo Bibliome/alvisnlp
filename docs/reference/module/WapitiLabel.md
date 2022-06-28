@@ -12,11 +12,11 @@ Label tokens using a model trained with <a href="../module/WapitiTrain" class="m
 
 <a href="#features" class="param">features</a> must be the same as used in <a href="../module/WapitiTrain" class="module">WapitiTrain</a> but must not include the last one (that represents the label). The predicted label will be stored in the token feature <a href="#labelFeature" class="param">labelFeature</a>.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="features" class="param">features</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression%5B%5D" class="converter">Expression[]</a>
 </div>
@@ -24,7 +24,7 @@ A list of expressions evaluated as strings from the token annotation. The result
 
 <h3 name="labelFeature" class="param">labelFeature</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -32,7 +32,7 @@ Feature where to write the predicted label.
 
 <h3 name="modelFile" class="param">modelFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputFile" class="converter">InputFile</a>
 </div>
@@ -40,11 +40,13 @@ Path to the file trained with <a href="../module/WapitiTrain" class="module">Wap
 
 <h3 name="wapitiExecutable" class="param">wapitiExecutable</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.ExecutableFile" class="converter">ExecutableFile</a>
 </div>
 Path to the `wapiti` executable.
+
+## Optional parameters
 
 <h3 name="commandLineOptions" class="param">commandLineOptions</h3>
 

@@ -8,11 +8,11 @@ Deprecated alias for <a href="../module/AlvisAEWriter" class="module">AlvisAEWri
 
 ## Description
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="annotationSets" class="param">annotationSets</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisae.AnnotationSet%5B%5D" class="converter">AnnotationSet[]</a>
 </div>
@@ -20,7 +20,7 @@ UNDOCUMENTED
 
 <h3 name="documentDescription" class="param">documentDescription</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -28,11 +28,13 @@ UNDOCUMENTED
 
 <h3 name="outDir" class="param">outDir</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.OutputDirectory" class="converter">OutputDirectory</a>
 </div>
 UNDOCUMENTED
+
+## Optional parameters
 
 <h3 name="schemaFile" class="param">schemaFile</h3>
 

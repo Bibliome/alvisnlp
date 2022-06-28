@@ -10,15 +10,17 @@
 
 *I2B2Reader* reads documents in [I2B2 challenge]() including the text of documents, tokenization as annotations, concepts as annotations, assertions as annotation features and relations as tuples.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="textDir" class="param">textDir</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
 </div>
 Path to the directory containing I2B2 text files.
+
+## Optional parameters
 
 <h3 name="assertionsDir" class="param">assertionsDir</h3>
 

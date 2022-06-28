@@ -8,19 +8,19 @@ Deprecated alias for <a href="../module/AlvisAEReader" class="module">AlvisAERea
 
 ## Description
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="campaignId" class="param">campaignId</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.Integer" class="converter">Integer</a>
+<div class="param-type">Type: <a href="../converter/java.lang.Integer%5B%5D" class="converter">Integer[]</a>
 </div>
 Identifier of the AlvisAE campaign to import.
 
 <h3 name="password" class="param">password</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -28,7 +28,7 @@ User password for JDBC connection.
 
 <h3 name="schema" class="param">schema</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -36,7 +36,7 @@ PostgreSQL schema.
 
 <h3 name="url" class="param">url</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -44,11 +44,29 @@ PostgreSQL database URL.
 
 <h3 name="username" class="param">username</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 PostgreSQL user name.
+
+## Optional parameters
+
+<h3 name="campaignIdFeature" class="param">campaignIdFeature</h3>
+
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+UNDOCUMENTED
+
+<h3 name="campaignNameFeature" class="param">campaignNameFeature</h3>
+
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+UNDOCUMENTED
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

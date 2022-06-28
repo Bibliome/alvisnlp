@@ -17,11 +17,11 @@
 <a href="#conceptIdentifier" class="param">conceptIdentifier</a> is 
   
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="conceptIdentifier" class="param">conceptIdentifier</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -29,7 +29,7 @@ An expression evaluated as a string from the section or sentence that specifies 
 
 <h3 name="outFile" class="param">outFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
 </div>
@@ -37,7 +37,7 @@ Path to the file where to store the proxy syntactic structures and associated id
 
 <h3 name="rcFile" class="param">rcFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
@@ -45,11 +45,13 @@ Path to the YaTeA configuration file.
 
 <h3 name="yateaExecutable" class="param">yateaExecutable</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.ExecutableFile" class="converter">ExecutableFile</a>
 </div>
 Path to the YaTeA executable file.
+
+## Optional parameters
 
 <h3 name="configDir" class="param">configDir</h3>
 

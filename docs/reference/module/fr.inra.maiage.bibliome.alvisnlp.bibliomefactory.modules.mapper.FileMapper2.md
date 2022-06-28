@@ -8,11 +8,11 @@ Deprecated alias for <a href="../module/FileMapper" class="module">FileMapper</a
 
 ## Description
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="form" class="param">form</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -20,7 +20,7 @@ Expression evaluated as a string with the target element as context that specifi
 
 <h3 name="mappingFile" class="param">mappingFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
@@ -28,7 +28,7 @@ Tab-separated file containing the dictionary.
 
 <h3 name="target" class="param">target</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -36,11 +36,13 @@ Expression evaluated as a list of elements with the corpus as context that speci
 
 <h3 name="targetFeatures" class="param">targetFeatures</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
 Name of the features where to store the columns of matched lines.
+
+## Optional parameters
 
 <h3 name="ignoreCase" class="param">ignoreCase</h3>
 

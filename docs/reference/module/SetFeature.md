@@ -12,11 +12,11 @@ Set the value of a feature for a selection of elements.
 
 *SetFeature* is useful to build plans that select a particular feature to process.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="featureName" class="param">featureName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -24,7 +24,7 @@ UNDOCUMENTED
 
 <h3 name="featureValue" class="param">featureValue</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -32,9 +32,11 @@ UNDOCUMENTED
 
 <h3 name="target" class="param">target</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 UNDOCUMENTED
+
+## Optional parameters
 

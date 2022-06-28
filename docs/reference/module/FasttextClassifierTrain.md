@@ -12,11 +12,11 @@
 
 <a href="#modelFile" class="param">modelFile</a> specifies where to write the result: the classification model receives the `.bin` extension, and the word vectors `.vec`.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="attributes" class="param">attributes</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextAttribute%5B%5D" class="converter">FasttextAttribute[]</a>
 </div>
@@ -24,7 +24,7 @@ Attributes of each document. The set of attributes must be identical in training
 
 <h3 name="classFeature" class="param">classFeature</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -32,7 +32,7 @@ Feature that contains the category of the document.
 
 <h3 name="documents" class="param">documents</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -40,7 +40,7 @@ Documents to classify. This expression is evaluated as a list of elements from t
 
 <h3 name="fasttextExecutable" class="param">fasttextExecutable</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.ExecutableFile" class="converter">ExecutableFile</a>
 </div>
@@ -48,11 +48,13 @@ Path to the FastText executable (see the [GitHub](https://github.com/facebookres
 
 <h3 name="modelFile" class="param">modelFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.OutputFile" class="converter">OutputFile</a>
 </div>
 Prefix for the classifier model and the word vector files.
+
+## Optional parameters
 
 <h3 name="autotuneMetric" class="param">autotuneMetric</h3>
 

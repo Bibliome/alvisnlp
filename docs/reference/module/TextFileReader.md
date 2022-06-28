@@ -16,15 +16,17 @@ Files are read using the same encoding <a href="#charset" class="param">charset<
 
 The created documents will all have the features defined in <a href="#constantDocumentFeatures" class="param">constantDocumentFeatures</a>. The unique section will have the features defined in <a href="#constantSectionFeatures" class="param">constantSectionFeatures</a>.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="sourcePath" class="param">sourcePath</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
 Path to the source directory or source file.
+
+## Optional parameters
 
 <h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 

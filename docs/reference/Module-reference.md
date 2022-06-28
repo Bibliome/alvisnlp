@@ -23,6 +23,7 @@ Reader modules read files or streams as documents and sections.
 | {% include module class="TabularReader" %}        | Tab-separated text  | `source`                                            |              |
 | {% include module class="TextFileReader" %}       | Text                | `sourcePath`                                        |              |
 | {% include module class="TikaReader" %}           | DOC, DOCX, PDF      | `source`                                            | Uses <a href="https://tika.apache.org/">Apache Tika</a> |
+| {% include module class="TokenizedReader" %}      | one line per token  | `source`                                            |  |
 | {% include module class="TreeTaggerReader" %}     | tree-tagger         | `sourcePath`                                        | Also creates words, POS-tags and lemmas |
 | {% include module class="WebOfKnowledgeReader" %} | <a href="https://webofknowledge.com/">Web of Knowledge</a>    | `source`                                            |                  |
 | {% include module class="XMIImport" %}            | <a href="https://en.wikipedia.org/wiki/XML_Metadata_Interchange">XMI</a>                 | `source`                                        | Uses <a href="https://uima.apache.org/">Apache UIMA</a>, feature structures follow a custom typesystem |
@@ -46,10 +47,10 @@ The AlvisNLP/ML distribution contains pre-defined stylesheets.
 The AlvisNLP/ML distribution ships with a plan that can read documents in various formats:
 
 ```xml
-<import href="res://reader.plan">
+<read href="res://reader.plan">
   <select>...</select>
   <source>...</source>
-</import>
+</read>
 ```
 
 The `source` parameter is the location of the document(s), its type and conversion is like <a class="converter" href="{{ '/reference/converter/SourceStream' | relative_url }}">SourceStream</a>.
@@ -79,7 +80,6 @@ Export modules translate the contents of the data structure and write it into fi
 
 | **Module class**       | **Outut parameter** | **Format**            | **Comments** |
 |------------------------|---------------------|-----------------------|--------------|
-| {% include module class="AggregateValues" %}        | `outFile`               | Tab-separated text    | |
 | {% include module class="AggregateValues" %}        | `outFile`               | Tab-separated text    | |
 | {% include module class="AlvisAEWriter" %}          | `outDir`                | AlvisAE JSON          | Uses the json-simple library |
 | {% include module class="AlvisIRIndexer" %}         | `indexDir`              | AlvisIR index         | Uses the Lucene and alvisir-core libraries |
@@ -165,6 +165,7 @@ Named entity recognition modules.
 | {% include module class="GeniaTagger" %} | Gene, Protein |
 | {% include module class="Species" %}     | Taxon |
 | {% include module class="StanfordNER" %} | Person, Location, Organization |
+| {% include module class="Stanza" %} | Person, Location, Organization, Number, Currency |
 
 
 ## Segmentation
@@ -174,13 +175,14 @@ Named entity recognition modules.
 | {% include module class="OgmiosTokenizer" %}  | Tokens |
 | {% include module class="SeSMig" %}           | Sentences |
 | {% include module class="WoSMig" %}           | Words |
+| {% include module class="Stanza" %}           | Tokens, sentences |
 
 ### Word and sentence splitting
 
 The AlvisNLP/ML distribution ships with a ready-made complete word and sentence splitter plan that can be imported like this:
 
 ```xml
-<import>res://segmentation.plan</import>
+<seg href="res://segmentation.plan"/>
 ```
 
 This plan combines several modules that nadles correctly latin abbreviations, cesure hyphens, numbers, and dates.
@@ -192,15 +194,17 @@ If you want to force entities as tokens, this plan assumes they are annotations 
 | **Module class** | **Function** |
 |------------------|--------------|
 | {% include module class="LinguaLID" %}              | Language identification |
-| {% include module class="Ab" %}              | Abbreviation recognition |
+| {% include module class="Ab3P" %}              | Abbreviation recognition |
 | {% include module class="BioLG" %}           | Dependency parsing |
 | {% include module class="CCGParser" %}       | Dependency parsing |
 | {% include module class="CCGPosTagger" %}    | POS-tagging |
 | {% include module class="EnjuParser" %}      | Dependency parsing |
 | {% include module class="StanfordParser" %}      | Dependency parsing |
-| {% include module class="GeniaTagger" %}     | POS-tagging \& lemmatiation |
+| {% include module class="GeniaTagger" %}     | POS-tagging, lemmatiation |
+| {% include module class="LinguaLID" %}     | Language identification |
 | {% include module class="PorterStemmer" %}   | Stemming |
-| {% include module class="TreeTagger" %}      | POS-tagging \& lemmatiation |
+| {% include module class="Stanza" %}   | Tokenization, POS-tagging, lemmatization, dependency parsing |
+| {% include module class="TreeTagger" %}      | POS-tagging, lemmatiation |
 | {% include module class="YateaExtractor" %} | Term extraction |
 
 
@@ -210,15 +214,21 @@ If you want to force entities as tokens, this plan assumes they are annotations 
 | **Module class** | **Function** |
 |------------------|--------------|
 | {% include module class="Assert" %}           | Check assertions on selected elements |
+| {% include module class="ClearLayers" %}      | Empty layers of all annotations |
+| {% include module class="HttpServer" %}       | Halts processing and allows to browse the data structure |
 | {% include module class="InsertContents" %}   | Clone sections and insert contents |
+| {% include module class="KeywordsSelector" %} | Select keywords using the specified metric |
 | {% include module class="MergeLayers" %}      | Copy annotations from several layers to one target layer |
 | {% include module class="MergeSections" %}    | Merge several sections of each document into a single one |
 | {% include module class="NGrams" %}           | Create n-grams of annotations |
+| {% include module class="PythonScript" %}     | Runs a Python script |
 | {% include module class="RemoveContents" %}   | Clone sections and crop contents |
 | {% include module class="RemoveEquivalent" %} | Deduplicate elements using custom equality |
 | {% include module class="RemoveOverlaps" %}   | Remove overlapping annotations in a layer |
 | {% include module class="RunProlog" %}        | Run prolog programs using the AlvisNLP/ML data structure as a set of facts |
 | {% include module class="Script" %}           | Run a script written in a language supported by the <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/scripting/prog_guide/api.html">Java Scripting API</a> |
+| {% include module class="SetFeature" %}       | Set a feature on selected elements |
 | {% include module class="Shell" %}            | Enter interactive mode |
 | {% include module class="SplitOverlaps" %}    | Split overlapping annotations |
+| {% include module class="SplitSections" %}    | Split sections |
 

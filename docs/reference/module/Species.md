@@ -10,11 +10,11 @@ Calls the [Species]() taxon tagger.
 
 *Species* applies the [Species](XXX) taxon tagger on the contents of the sections. The *Species* software must be installed in the <a href="#speciesDir" class="param">speciesDir</a> directory. *Species* crerates an annotation for each taxon tagged by *Species*.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="speciesDir" class="param">speciesDir</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
 </div>
@@ -22,11 +22,13 @@ Directory where the *Species* software is installed.
 
 <h3 name="targetLayerName" class="param">targetLayerName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Layer where to store the tagged taxon names.
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

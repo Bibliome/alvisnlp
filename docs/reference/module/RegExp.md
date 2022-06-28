@@ -10,11 +10,11 @@ Matches a regular expression on sections contents and create an annotation for e
 
 The created annotations will automatically have all features defined in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a>.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="pattern" class="param">pattern</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.util.regex.Pattern" class="converter">Pattern</a>
 </div>
@@ -22,11 +22,13 @@ Regular expression to match.
 
 <h3 name="targetLayerName" class="param">targetLayerName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the layer where to store matches.
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

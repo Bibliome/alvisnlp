@@ -12,11 +12,11 @@ Copy the value of a feature in another feature for a selection of elements.
 
 *CopyFeature* is useful to build plans that select a particular feature to process.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="sourceFeatureName" class="param">sourceFeatureName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -24,7 +24,7 @@ UNDOCUMENTED
 
 <h3 name="target" class="param">target</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -32,9 +32,11 @@ UNDOCUMENTED
 
 <h3 name="targetFeatureName" class="param">targetFeatureName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 UNDOCUMENTED
+
+## Optional parameters
 

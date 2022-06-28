@@ -8,15 +8,17 @@ Completely remove layers from sections.
 
 *ClearLayers* removes the layers named after <a href="#layerNames" class="param">layerNames</a> from sections.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="layerNames" class="param">layerNames</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
 Names of layers to remove.
+
+## Optional parameters
 
 <h3 name="documentFilter" class="param">documentFilter</h3>
 

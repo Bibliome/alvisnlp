@@ -16,15 +16,17 @@ The script context will have a binding named *alvisnlp* to an object of type [fr
 
 Parameters <a href="#stdin" class="param">stdin</a> and <a href="#stdout" class="param">stdout</a> may not work on all systems.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="script" class="param">script</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 The script to run (the source is inside the plan, not a path to a file).
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

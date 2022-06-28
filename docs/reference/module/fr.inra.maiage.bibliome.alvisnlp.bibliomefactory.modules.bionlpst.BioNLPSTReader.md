@@ -8,15 +8,17 @@ Reads documents and annotations in the [BioNLP-ST 2013 a1/a2 format](XXX).
 
 *BioNLPSTReader* reads text files in the directory specified by <a href="#textDir" class="param">textDir</a> as documents, then imports annotations in the corresponding files in the directories specified by <a href="#a1Dir" class="param">a1Dir</a> and <a href="#a2Dir" class="param">a2Dir</a>.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="textDir" class="param">textDir</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
 </div>
 Path to the directory containing `.txt` files.
+
+## Optional parameters
 
 <h3 name="a1Dir" class="param">a1Dir</h3>
 

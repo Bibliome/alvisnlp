@@ -10,11 +10,11 @@ Matches a regular expression-like pattern on the sequence of annotations in a gi
 
 For each match, *PatternMatcher* applies all actions specified by <a href="#actions" class="param">actions</a>. Each action concerns a sub-group of the pattern, if no sub-group is specified then the action applies to the whole match.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="actions" class="param">actions</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pattern.action.MatchAction%5B%5D" class="converter">MatchAction[]</a>
 </div>
@@ -22,11 +22,13 @@ Actions to perform each time the pattern is matched on the annotation sequence. 
 
 <h3 name="pattern" class="param">pattern</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pattern.ElementPattern" class="converter">ElementPattern</a>
 </div>
 Pattern to match see <a href="../converter/ElementPattern" class="converter">ElementPattern</a> for pattern syntax.
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

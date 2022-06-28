@@ -31,11 +31,11 @@
       
 ```
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="entries" class="param">entries</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -43,7 +43,7 @@ Expression evaluated from the corpus as a list of elements.
 
 <h3 name="key" class="param">key</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -51,11 +51,13 @@ Value of each entry. This expression is evaluated as a string from the entry ele
 
 <h3 name="outFile" class="param">outFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
 </div>
 File where to write the result.
+
+## Optional parameters
 
 <h3 name="aggregators" class="param">aggregators</h3>
 

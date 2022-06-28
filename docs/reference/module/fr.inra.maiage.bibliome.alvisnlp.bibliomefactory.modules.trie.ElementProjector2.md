@@ -8,11 +8,11 @@ Deprecated alias for <a href="../module/ElementProjector" class="module">Element
 
 ## Description
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="action" class="param">action</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -20,7 +20,7 @@ Deprecated alias for <a href="../module/ElementProjector" class="module">Element
 
 <h3 name="entries" class="param">entries</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -28,7 +28,7 @@ Deprecated alias for <a href="../module/ElementProjector" class="module">Element
 
 <h3 name="key" class="param">key</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -36,11 +36,13 @@ Deprecated alias for <a href="../module/ElementProjector" class="module">Element
 
 <h3 name="targetLayerName" class="param">targetLayerName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

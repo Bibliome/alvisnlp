@@ -10,15 +10,17 @@ This module is an alias for <a href="../module/EnjuParser" class="module">EnjuPa
 
 synopsis
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="enjuExecutable" class="param">enjuExecutable</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.ExecutableFile" class="converter">ExecutableFile</a>
 </div>
 
+
+## Optional parameters
 
 <h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 

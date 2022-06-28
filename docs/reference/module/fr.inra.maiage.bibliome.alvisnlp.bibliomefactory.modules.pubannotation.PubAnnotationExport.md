@@ -10,15 +10,17 @@ UNDOCUMENTED
 
 UNDOCUMENTED
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="outFile" class="param">outFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.OutputFile" class="converter">OutputFile</a>
 </div>
 UNDOCUMENTED
+
+## Optional parameters
 
 <h3 name="divid" class="param">divid</h3>
 
@@ -46,7 +48,7 @@ UNDOCUMENTED
 
 <h3 name="denotations" class="param">denotations</h3>
 
-<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.DenotationSpecification@6771beb3`
+<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.DenotationSpecification@235834f2`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.DenotationSpecification%5B%5D" class="converter">DenotationSpecification[]</a>
 </div>
@@ -62,7 +64,7 @@ Only process document that satisfy this expression.
 
 <h3 name="relations" class="param">relations</h3>
 
-<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.RelationSpecification@411f53a0`
+<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.RelationSpecification@76505305`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.RelationSpecification%5B%5D" class="converter">RelationSpecification[]</a>
 </div>

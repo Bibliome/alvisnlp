@@ -10,11 +10,11 @@
 
 *TomapProjector* searches for the terms specified by <a href="#yateaFile" class="param">yateaFile</a> (in YaTeA XML output format) and classifies them using the [ToMap](https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md) classifier specified by <a href="#tomapClassifier" class="param">tomapClassifier</a>.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="conceptFeature" class="param">conceptFeature</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -24,7 +24,7 @@ If not set, the concept identifier will not be stored.
 
 <h3 name="targetLayerName" class="param">targetLayerName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -32,7 +32,7 @@ Name of the layer that contains the match annotations.
 
 <h3 name="tomapClassifier" class="param">tomapClassifier</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tomap.TomapClassifier" class="converter">TomapClassifier</a>
 </div>
@@ -40,11 +40,13 @@ Path to the file containing proxy terms, their associated identifiers and syntac
 
 <h3 name="yateaFile" class="param">yateaFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
 Path to the file containing extracted terms. This file may be generated with <a href="../module/YateaExtractor" class="module">YateaExtractor</a>.
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

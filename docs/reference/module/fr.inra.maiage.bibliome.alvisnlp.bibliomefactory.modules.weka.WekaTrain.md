@@ -10,11 +10,11 @@ Trains a Weka classifier where examples are elements.
 
 *WekaTrain* activates cross validation if one of the following parameters is set: <a href="#evaluationFile" class="param">evaluationFile</a>, <a href="#foldFeatureKey" class="param">foldFeatureKey</a>, <a href="#predictedClassFeatureKey" class="param">predictedClassFeatureKey</a>.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="algorithm" class="param">algorithm</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -22,7 +22,7 @@ Classifier algorithm, this must be the canonical name of a class that extends We
 
 <h3 name="classifierFile" class="param">classifierFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.io.File" class="converter">File</a>
 </div>
@@ -30,7 +30,7 @@ File where to write the trained classifier serialization.
 
 <h3 name="examples" class="param">examples</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -38,11 +38,13 @@ Training set examples. This expression is evaluated as a list of elements with t
 
 <h3 name="relationDefinition" class="param">relationDefinition</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.weka.RelationDefinition" class="converter">RelationDefinition</a>
 </div>
 Specification of example attributes and class.
+
+## Optional parameters
 
 <h3 name="arffFile" class="param">arffFile</h3>
 

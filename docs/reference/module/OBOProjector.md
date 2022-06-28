@@ -21,11 +21,11 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 
 If specified, then *OBOProjector* assumes that <a href="#trieSource" class="param">trieSource</a> contains a compiled version of the dictionary. <a href="#dictFile" class="param">dictFile</a> is not read. If specified, *OBOProjector* writes a compiled version of the dictionary in <a href="#trieSink" class="param">trieSink</a>. The use of compiled dictionaries may accelerate the processing for large dictionaries.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="oboFiles" class="param">oboFiles</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputFile%5B%5D" class="converter">InputFile[]</a>
 </div>
@@ -33,11 +33,13 @@ Path to the source OBO files.
 
 <h3 name="targetLayerName" class="param">targetLayerName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the layer that contains the match annotations.
+
+## Optional parameters
 
 <h3 name="altPathFeatures" class="param">altPathFeatures</h3>
 

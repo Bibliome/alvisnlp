@@ -10,15 +10,17 @@ Reads a tokenized corpus: one token per line, empty line separates sentence.
 
 Reads a tokenized corpus: one token per line, empty line separates sentence.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="source" class="param">source</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
 Path to the file or directory containing the tokenized text.
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

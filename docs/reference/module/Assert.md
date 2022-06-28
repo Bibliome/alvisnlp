@@ -8,11 +8,11 @@ Tests an assertion on specified elements.
 
 *Assert* evaluates <a href="#target" class="param">target</a> as a list of elements. Then, for each element, evaluates <a href="#assertion" class="param">assertion</a> as a boolean. *Assert* reports each element for which <a href="#assertion" class="param">assertion</a> is `false`. *Assert* aborts the processing of the corpus if <a href="#severe" class="param">severe</a> is `true`.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="assertion" class="param">assertion</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -20,11 +20,13 @@ Expression evaluated as a boolean with the target element as the context element
 
 <h3 name="target" class="param">target</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 Expression evaluated as a list of elements with the corpus as the context element. This parameter specifies the elements on which the assertion is checked.
+
+## Optional parameters
 
 <h3 name="message" class="param">message</h3>
 

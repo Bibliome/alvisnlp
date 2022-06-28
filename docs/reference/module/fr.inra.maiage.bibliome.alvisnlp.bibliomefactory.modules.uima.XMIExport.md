@@ -12,15 +12,17 @@ Writes the corpus in XMI format using the AlvisNLP/ML proxy typesystem.
 
 Files written by this module can be read by <a href="../module/XMIImport" class="module">XMIImport</a>
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="outDir" class="param">outDir</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.OutputDirectory" class="converter">OutputDirectory</a>
 </div>
 Directory where to write XMI files.
+
+## Optional parameters
 
 <h3 name="typeSystemFile" class="param">typeSystemFile</h3>
 

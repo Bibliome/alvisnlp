@@ -20,11 +20,11 @@ Runs a Prolog program with the corpus data structure encoded as facts.
 *RunProlog* will run generate facts and resolve goals for each element specified by <a href="#target" class="param">target</a>.
   
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="facts" class="param">facts</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.prolog.FactDefinition%5B%5D" class="converter">FactDefinition[]</a>
 </div>
@@ -32,7 +32,7 @@ Fact specifications.
 
 <h3 name="goals" class="param">goals</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.prolog.GoalDefinition%5B%5D" class="converter">GoalDefinition[]</a>
 </div>
@@ -40,7 +40,7 @@ Goal specifications.
 
 <h3 name="target" class="param">target</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -48,11 +48,13 @@ Top-level elements for which facts and goals are computed. This expression is ev
 
 <h3 name="theory" class="param">theory</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
 Source of the main Prolog program.
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

@@ -10,11 +10,11 @@ Reads a tabular file and applies actions for each line.
 
 *TabularReader* reads <a href="#source" class="param">source</a> as a tabular file and for each line evaluates each <a href="#lineActions" class="param">lineActions</a>.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="lineActions" class="param">lineActions</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression%5B%5D" class="converter">Expression[]</a>
 </div>
@@ -33,7 +33,7 @@ Action expressions to evaluate at each row. The expressions are evaluated from t
 
 <h3 name="source" class="param">source</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
@@ -41,11 +41,13 @@ Source of CSV. Maybe a path to a file or an URL
 
 <h3 name="sourceElement" class="param">sourceElement</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 For each source, this expression is evaluated as a single element from the corpus. <a href="#lineActions" class="param">lineActions</a> will be evaluated from this element.
+
+## Optional parameters
 
 <h3 name="checkNumColumns" class="param">checkNumColumns</h3>
 

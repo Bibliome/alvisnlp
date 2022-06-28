@@ -10,11 +10,11 @@ Stores the corpus into a SQL database.
 
 
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="password" class="param">password</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -22,7 +22,7 @@ Password for RDBMS access.
 
 <h3 name="schema" class="param">schema</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -30,7 +30,7 @@ Schema of the filled tables.
 
 <h3 name="url" class="param">url</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -38,11 +38,13 @@ URL of the database.
 
 <h3 name="username" class="param">username</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 User for RDBMS access.
+
+## Optional parameters
 
 <h3 name="documentFilter" class="param">documentFilter</h3>
 

@@ -8,7 +8,9 @@ Biotopes-specific module: chooses an antecedent.
 
 This module is project-specific and should be short-lived. It assumes a relation named *coreferences* containing tuples with at least one argument with role *Anaphora* and another with role *AntePreviousLowerTaxon*, a layer named *biAnaphora*.
 
-## Parameters
+## Mandatory parameters
+
+## Optional parameters
 
 <h3 name="documentFilter" class="param">documentFilter</h3>
 

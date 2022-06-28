@@ -10,15 +10,17 @@ Merge several sections into a single one.
 
 *MergeSections* creates a section named <a href="#targetSectionName" class="param">targetSectionName</a> that is a concatenation of all sections that satisfy <a href="#sectionFilter" class="param">sectionFilter</a>. Layers, annotations, relations and tuples of the source sections are copied to the new section. Additionally, *MergeSections* can select or strip contents from annotations from <a href="#fragmentLayerName" class="param">fragmentLayerName</a>.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="targetSectionName" class="param">targetSectionName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the section to create.
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

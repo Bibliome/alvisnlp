@@ -26,15 +26,17 @@ Removes overlapping annotations from a given layer.
 
 By default *RemoveOverlaps* removes all kinds of annotations, keeping the longest one.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="layerName" class="param">layerName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the layer to clear.
+
+## Optional parameters
 
 <h3 name="annotationComparator" class="param">annotationComparator</h3>
 

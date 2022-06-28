@@ -14,11 +14,11 @@ The trained model is written in <a href="#modelFile" class="param">modelFile</a>
 
 Wapiti requires a set of patterns that specify the dependencies of each token. The patterns are specified in the file <a href="#patternFile" class="param">patternFile</a> in the [CRF++ template language](https://taku910.github.io/crfpp/#templ).
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="features" class="param">features</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression%5B%5D" class="converter">Expression[]</a>
 </div>
@@ -26,7 +26,7 @@ A list of expressions evaluated as strings from the token annotation. The result
 
 <h3 name="modelFile" class="param">modelFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.OutputFile" class="converter">OutputFile</a>
 </div>
@@ -34,11 +34,13 @@ Path of the trained model file.
 
 <h3 name="wapitiExecutable" class="param">wapitiExecutable</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.ExecutableFile" class="converter">ExecutableFile</a>
 </div>
 Path to the `wapiti` executable.
+
+## Optional parameters
 
 <h3 name="commandLineOptions" class="param">commandLineOptions</h3>
 

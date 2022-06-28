@@ -17,11 +17,11 @@ Tokenizes the sections contents according to the [Ogmios]() tokenizer specificat
 
 If <a href="#separatorTokens" class="param">separatorTokens</a> is false, the *OgmiosTokenizer* does not create annotations corresponding to whitespace tokens.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="targetLayerName" class="param">targetLayerName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -29,11 +29,13 @@ Name of the layer where to store the tokens.
 
 <h3 name="tokenTypeFeature" class="param">tokenTypeFeature</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the token feature where to store the token type (alpha, num, sep, symb).
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

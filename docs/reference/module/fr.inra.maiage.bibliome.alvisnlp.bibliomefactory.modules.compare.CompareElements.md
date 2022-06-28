@@ -8,11 +8,11 @@ Compares two sets of elements.
 
 *CompareElements* evaluates <a href="#predicted" class="param">predicted</a> and <a href="#reference" class="param">reference</a> as element lists and compares them according to <a href="#similarity" class="param">similarity</a>. Detailed comparison, recall, precision and F-Score are written in <a href="#outFile" class="param">outFile</a>.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="face" class="param">face</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -20,7 +20,7 @@ Expression evaluated from a reference or predicted element as a string that will
 
 <h3 name="outFile" class="param">outFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
 </div>
@@ -28,7 +28,7 @@ File where to write results.
 
 <h3 name="predicted" class="param">predicted</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -36,7 +36,7 @@ Set of predicted elements.
 
 <h3 name="reference" class="param">reference</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -44,7 +44,7 @@ Set of reference elements.
 
 <h3 name="sections" class="param">sections</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -52,11 +52,13 @@ Elements from which <a href="#predicted" class="param">predicted</a> and <a href
 
 <h3 name="similarity" class="param">similarity</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.compare.ElementSimilarity" class="converter">ElementSimilarity</a>
 </div>
 Similarity function between two elements.
+
+## Optional parameters
 
 <h3 name="showFullMatches" class="param">showFullMatches</h3>
 

@@ -8,15 +8,17 @@ Writes the corpus in relp format.
 
 *RelpWriter* writes the corpus into <a href="#outFilet" class="param">outFilet</a> in relp format.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="outFile" class="param">outFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
 </div>
 File where to write the dependencies.
+
+## Optional parameters
 
 <h3 name="linkageNumberFeature" class="param">linkageNumberFeature</h3>
 

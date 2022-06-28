@@ -10,11 +10,11 @@ Train a term concept classifier using [CONTES](https://github.com/ArnaudFerre/CO
 
 *ContesTrain* trains a classifier using [CONTES](https://github.com/ArnaudFerre/CONTES) for classifying terms in a ontology hierarchy.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="contesDir" class="param">contesDir</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
 </div>
@@ -22,7 +22,7 @@ Root directory of CONTES.
 
 <h3 name="ontology" class="param">ontology</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputFile" class="converter">InputFile</a>
 </div>
@@ -30,7 +30,7 @@ Path to the ontology file in OBO or OWL format.
 
 <h3 name="python3Executable" class="param">python3Executable</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.ExecutableFile" class="converter">ExecutableFile</a>
 </div>
@@ -38,11 +38,13 @@ Path to the Python 3 executable.
 
 <h3 name="termClassifiers" class="param">termClassifiers</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.ContesTrainTermClassifier%5B%5D" class="converter">ContesTrainTermClassifier[]</a>
 </div>
 UNDOCUMENTED
+
+## Optional parameters
 
 <h3 name="additionalArguments" class="param">additionalArguments</h3>
 

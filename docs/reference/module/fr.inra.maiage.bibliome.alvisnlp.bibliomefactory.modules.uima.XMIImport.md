@@ -12,15 +12,17 @@ Reads files in XMI format using the AlvisNLP/ML proxy filesystem.
 
 See <a href="../module/XMIExport" class="module">XMIExport</a>.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="source" class="param">source</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
 Location where to read XMI file(s).
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

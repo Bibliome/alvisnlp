@@ -23,11 +23,11 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 
 *AttestedTermsProjector* creates an annotation for each matched term and adds these annotations to the layer named <a href="#targetLayerName" class="param">targetLayerName</a>. The created annotations will have the features <a href="#termFeatureName" class="param">termFeatureName</a>, <a href="#posFeatureName" class="param">posFeatureName</a> and <a href="#lemmaFeatureName" class="param">lemmaFeatureName</a> containing the concatenation of the corresponding term tokens surface form, POS tag and lemma respectively. In addition, the created annotations will have the feature keys and values defined in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a>.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="targetLayerName" class="param">targetLayerName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -35,11 +35,13 @@ Name of the layer where to put match annotations.
 
 <h3 name="termsFile" class="param">termsFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
 Attested terms file.
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
@@ -147,7 +149,7 @@ Process only sections that satisfy this filter.
 
 <h3 name="subject" class="param">subject</h3>
 
-<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.ContentsSubject@3c46e67a`
+<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.ContentsSubject@639c2c1d`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.Subject" class="converter">Subject</a>
 </div>

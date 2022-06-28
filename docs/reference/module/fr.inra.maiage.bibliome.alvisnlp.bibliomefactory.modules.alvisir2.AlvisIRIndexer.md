@@ -8,11 +8,11 @@ synopsis
 
 synopsis
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="documents" class="param">documents</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisir2.IndexedDocuments" class="converter">IndexedDocuments</a>
 </div>
@@ -20,7 +20,7 @@ synopsis
 
 <h3 name="fieldNames" class="param">fieldNames</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
@@ -28,11 +28,13 @@ synopsis
 
 <h3 name="indexDir" class="param">indexDir</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.OutputDirectory" class="converter">OutputDirectory</a>
 </div>
 
+
+## Optional parameters
 
 <h3 name="clearIndex" class="param">clearIndex</h3>
 

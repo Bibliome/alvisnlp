@@ -8,11 +8,11 @@ Writes the corpus in the infamous Alvis Enriched Document Format suitable for in
 
 Writes the corpus in the infamous Alvis Enriched Document Format suitable for indexation with Zebra-Alvis.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="idMetaFeature" class="param">idMetaFeature</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -20,7 +20,7 @@ Metadata key for the document id.
 
 <h3 name="metaTrans" class="param">metaTrans</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
@@ -28,7 +28,7 @@ Metadata key translation.
 
 <h3 name="neLayerName" class="param">neLayerName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -36,7 +36,7 @@ Name of the layer containing named entity annotations.
 
 <h3 name="outDir" class="param">outDir</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.OutputDirectory" class="converter">OutputDirectory</a>
 </div>
@@ -44,7 +44,7 @@ Path to the directory where to write files.
 
 <h3 name="outFilePrefix" class="param">outFilePrefix</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -52,7 +52,7 @@ Prefix of the name of generated files.
 
 <h3 name="termCanonicalFormFeature" class="param">termCanonicalFormFeature</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -60,7 +60,7 @@ Name of the feature containing the term canonical form.
 
 <h3 name="termLayerName" class="param">termLayerName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -68,7 +68,7 @@ Name of the layer containing the term annotations.
 
 <h3 name="tokenLayerName" class="param">tokenLayerName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -76,7 +76,7 @@ Name of the layer containing token annotations.
 
 <h3 name="tokenTypeFeature" class="param">tokenTypeFeature</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -84,11 +84,13 @@ Name of the feature in token annotations containing the token type.
 
 <h3 name="urlPrefix" class="param">urlPrefix</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Prefix for the document URL.
+
+## Optional parameters
 
 <h3 name="semanticFeature" class="param">semanticFeature</h3>
 

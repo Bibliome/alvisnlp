@@ -17,7 +17,9 @@ There may be more than one prediction if <a href="#languageCandidates" class="pa
 
 The set of predicted languages can be restricted with <a href="#includeLanguages" class="param">includeLanguages</a>.
 
-## Parameters
+## Mandatory parameters
+
+## Optional parameters
 
 <h3 name="includeLanguages" class="param">includeLanguages</h3>
 

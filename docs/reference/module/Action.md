@@ -12,11 +12,11 @@ Applies action expressions on selected elements.
 
 *Action* commits the changes on the data structure when each <a href="#commit" class="param">commit</a> element is done. When processing very large corpora, set <a href="#commit" class="param">commit</a> to reach documents or sections.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="action" class="param">action</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -24,11 +24,13 @@ Action to perform on each result of <a href="#target" class="param">target</a>.
 
 <h3 name="target" class="param">target</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 Elements on which to perform the action. The expression is evaluated as a list of elements with the commit element as the context element.
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

@@ -10,11 +10,11 @@ Extract terms from the corpus using the YaTeA term extractor.
 
 The YaTeA is called using the executable set in <a href="#yateaExecutable" class="param">yateaExecutable</a>, it will run as if it is called from directory <a href="#workingDir" class="param">workingDir</a>: the result will be written in the subdirectory named <a href="#corpusName" class="param">corpusName</a>.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="rcFile" class="param">rcFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
@@ -22,11 +22,13 @@ Path to the YaTeA configuration file.
 
 <h3 name="yateaExecutable" class="param">yateaExecutable</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.ExecutableFile" class="converter">ExecutableFile</a>
 </div>
 Path to the YaTeA executable file.
+
+## Optional parameters
 
 <h3 name="configDir" class="param">configDir</h3>
 

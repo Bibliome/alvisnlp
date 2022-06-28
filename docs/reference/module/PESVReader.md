@@ -12,11 +12,11 @@ Read documents and entities in the PESV format.
 
 *PESVReader* also reads CSV files in <a href="#entitiesStream" class="param">entitiesStream</a> and creates one entity annotation in the layer named <a href="#entityLayerName" class="param">entityLayerName</a> for each record. All properties are recorded in the corresponding feature, as well as in a single feature names <a href="#propertiesFeatureKey" class="param">propertiesFeatureKey</a>.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="docStream" class="param">docStream</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
@@ -24,11 +24,13 @@ Path to the file(s) or directory(ies) where to look for document files.
 
 <h3 name="entitiesStream" class="param">entitiesStream</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
 Path to the file(s) or directory(ies) where to look for entities files.
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

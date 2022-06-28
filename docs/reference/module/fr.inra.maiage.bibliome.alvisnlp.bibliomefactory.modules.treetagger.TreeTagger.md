@@ -16,11 +16,11 @@ Once *tree-tagger* has processed the corpus, *TreeTagger* adds the predicted POS
 
 If <a href="#recordDir" class="param">recordDir</a> and <a href="#recordFeatures" class="param">recordFeatures</a> are both defined, then *tree-tagger* predictions are written into files in one file per section in the <a href="#recordDir" class="param">recordDir</a> directory. <a href="#recordFeatures" class="param">recordFeatures</a> is an array of feature names to record. An additional feature *n* is recognized as the annotation ordinal in the section.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="parFile" class="param">parFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputFile" class="converter">InputFile</a>
 </div>
@@ -28,11 +28,13 @@ Path to the language model file.
 
 <h3 name="treeTaggerExecutable" class="param">treeTaggerExecutable</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.ExecutableFile" class="converter">ExecutableFile</a>
 </div>
 Path to the tree-tagger executable file.
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

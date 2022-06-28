@@ -8,11 +8,11 @@ Project-specific file reader.
 
 *AnimalReader* reads text files in the same way as <a href="../module/TextFileReader" class="module">TextFileReader</a>. Additionally, for each file read, it also reads metadata in a file with the same name with the *.xml* extension.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="sourcePath" class="param">sourcePath</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
@@ -20,11 +20,13 @@ Path to the source directory or source file.
 
 <h3 name="xmlDir" class="param">xmlDir</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
 </div>
 Directory where to find metadata files.
+
+## Optional parameters
 
 <h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 

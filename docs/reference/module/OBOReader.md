@@ -11,15 +11,17 @@ Reads terms in [OBO files](XXX) as documents.
   Each document contains a section (<a href="#nameSectionName" class="param">nameSectionName</a>) containing the term name, and one section for each term synonym (<a href="#synonymSectionName" class="param">synonymSectionName</a>).
   Optionally *OBOReader* also sets features on the document with the term path from the root (<a href="#pathFeature" class="param">pathFeature</a>), the identifier of the parent term (<a href="#parentFeature" class="param">parentFeature</a>), the identifiers of each ancestor (<a href="#ancestorsFeature" class="param">ancestorsFeature</a>), of the identifiers of each child term (<a href="#childrenFeature" class="param">childrenFeature</a>).
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="oboFiles" class="param">oboFiles</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputFile%5B%5D" class="converter">InputFile[]</a>
 </div>
 OBO files to read.
+
+## Optional parameters
 
 <h3 name="ancestorsFeature" class="param">ancestorsFeature</h3>
 

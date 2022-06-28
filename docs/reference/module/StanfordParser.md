@@ -14,7 +14,9 @@ The corpus must be sentence-split, tokenized and tokens must be POS-tagged.
 
 The root is represented as a tuple like dependencies but without a head argument, and labelled *root*.
 
-## Parameters
+## Mandatory parameters
+
+## Optional parameters
 
 <h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 

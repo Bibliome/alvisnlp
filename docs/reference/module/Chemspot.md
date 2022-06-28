@@ -12,15 +12,17 @@ Looks for mentions of chemicals and molecule names using [Chemspot](https://www.
 	Each annotation will have the feature <a href="#chemTypeFeatureName" class="param">chemTypeFeatureName</a> set to the chemical mention type, and one feature for each type of identifier.
   
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="chemspotDir" class="param">chemspotDir</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
 </div>
 Chemspot install directory.
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

@@ -13,15 +13,17 @@ Each document contains a single section named <a href="#sectionName" class="para
 
 The document identifier is the path of the corresponding file.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="sourcePath" class="param">sourcePath</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
 Path to the source directory or source file.
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

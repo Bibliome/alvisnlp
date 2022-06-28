@@ -19,17 +19,17 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 
 
 
-*TabularProjector* creates an annotation for each matched key and adds these annotations to the layer specified by <a href="#targetLayerName" class="param">targetLayerName</a>. The created annotations will have features that correspond to the entry columns. Feature keys are specified by <a href="#valueFeatures" class="param">valueFeatures</a>. For instance if <a href="#entryFeatureNames" class="param">entryFeatureNames</a> is *[a,b,c]*, then each annotation will have three features named *a*, *b* and *c* with the respective values of the entry's first, second and third columns. A feature name left blank in <a href="#entryFeatureNames" class="param">entryFeatureNames</a> will not create a feature. Thus, in order to drop the first column of the entry, <a href="#valueFeatures" class="param">valueFeatures</a> should be *[,b,c]*. In addition, the created annotations will have the constant features specified in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a>.
+*TabularProjector* creates an annotation for each matched key and adds these annotations to the layer specified by <a href="#targetLayerName" class="param">targetLayerName</a>. The created annotations will have features that correspond to the entry columns. Feature keys are specified by <a href="#valueFeatures" class="param">valueFeatures</a>. For instance if <a href="#valueFeatures" class="param">valueFeatures</a> is *[a,b,c]*, then each annotation will have three features named *a*, *b* and *c* with the respective values of the entry's first, second and third columns. A feature name left blank in <a href="#valueFeatures" class="param">valueFeatures</a> will not create a feature. Thus, in order to drop the first column of the entry, <a href="#valueFeatures" class="param">valueFeatures</a> should be *[,b,c]*. In addition, the created annotations will have the constant features specified in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a>.
 
 If <a href="#trieSource" class="param">trieSource</a> is specified, then *TabularProjector* assumes that the file contains a compiled version of the dictionary. In this case <a href="#dictFile" class="param">dictFile</a> is not read.
 
 If <a href="#trieSink" class="param">trieSink</a> is specified, *TabularProjector* writes a compiled version of the dictionary in the file. The use of compiled dictionaries may accelerate the processing for large dictionaries.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="dictFile" class="param">dictFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
@@ -37,7 +37,7 @@ The dictionary.
 
 <h3 name="targetLayerName" class="param">targetLayerName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -45,11 +45,13 @@ Name of the layer that contains the match annotations.
 
 <h3 name="valueFeatures" class="param">valueFeatures</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
 Target features in match annotations. The values are the columns in the entry.
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
@@ -201,7 +203,7 @@ If set to *true*, then allow arbitrary insertion of whitespace characters in the
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
-If set to true, then check that every line in <a href="#dictFile" class="param">dictFile</a> has the same number of columns as the number of features specified in <a href="#entryFeatureNames" class="param">entryFeatureNames</a>.
+If set to true, then check that every line in <a href="#dictFile" class="param">dictFile</a> has the same number of columns as the number of features specified in <a href="#valueFeatures" class="param">valueFeatures</a>.
 
 <h3 name="subject" class="param">subject</h3>
 

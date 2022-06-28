@@ -9,11 +9,11 @@ Disambiguate features that have multiple values.
 *DisambiguateAlternatives* evaluates <a href="#target" class="param">target</a> as a list of elements with the current document as the context element. Then it tries to keep a single value for the feature <a href="#ambiguousFeature" class="param">ambiguousFeature</a> in each item in the result. To achieve this, it keeps a set of unambiguous values found in the document. Unambiguous values are found in elements for which there is a single value for <a href="#ambiguousFeature" class="param">ambiguousFeature</a>.
   
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="ambiguousFeature" class="param">ambiguousFeature</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -21,11 +21,13 @@ Feature to disambiguate.
 
 <h3 name="target" class="param">target</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 Elements to disambiguate.
+
+## Optional parameters
 
 <h3 name="documentFilter" class="param">documentFilter</h3>
 

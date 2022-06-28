@@ -23,11 +23,11 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 
 <a href="#trieSource" class="param">trieSource</a> and <a href="#trieSink" class="param">trieSink</a> are not supported by *YateaTermsProjector*.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="targetLayerName" class="param">targetLayerName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -35,11 +35,13 @@ Name of the layer that contains the match annotations.
 
 <h3 name="yateaFile" class="param">yateaFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
 YaTeA output XML file, as produced by <a href="../module/YateaExtractor" class="module">YateaExtractor</a>.
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

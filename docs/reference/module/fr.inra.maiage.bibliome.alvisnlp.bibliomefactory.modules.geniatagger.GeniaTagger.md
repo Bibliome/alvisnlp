@@ -8,15 +8,17 @@ Runs Genia Tagger on annotations.
 
 *GeniaTagger* executes theGenia Tagger on annotations from the layer <a href="#words" class="param">words</a> and record the results in the features specified by <a href="#pos" class="param">pos</a>, <a href="#lemma" class="param">lemma</a>, <a href="#chunk" class="param">chunk</a> and <a href="#entity" class="param">entity</a>. *GeniaTagger* reinforces sentences specified by annotations in the <a href="#sentences" class="param">sentences</a> layer.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="geniaDir" class="param">geniaDir</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.io.File" class="converter">File</a>
 </div>
 Directory where geniatagger is installed.
+
+## Optional parameters
 
 <h3 name="chunkFeature" class="param">chunkFeature</h3>
 

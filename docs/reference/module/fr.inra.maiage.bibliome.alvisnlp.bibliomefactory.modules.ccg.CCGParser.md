@@ -16,11 +16,11 @@ Syntax parsing with [CCG Parser](http://svn.ask.it.usyd.edu.au/trac/candc/wiki).
 
 *CCGParser* adds to each dependency tuple a feature <a href="#linkageNumberFeature" class="param">linkageNumberFeature</a> with the linkage number to which begongs the tuple, and a feature <a href="#dependencyLabelFeature" class="param">dependencyLabelFeature</a> with the label of the dependency.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="executable" class="param">executable</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.ExecutableFile" class="converter">ExecutableFile</a>
 </div>
@@ -28,7 +28,7 @@ Path to the CCG Parser executable.
 
 <h3 name="parserModel" class="param">parserModel</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
 </div>
@@ -36,11 +36,13 @@ Path to the parser model file.
 
 <h3 name="superModel" class="param">superModel</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
 </div>
 Path to the CCG supertagger model file.
+
+## Optional parameters
 
 <h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 

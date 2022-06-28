@@ -8,11 +8,11 @@ Maps names and synonyms of terms defined in OBO files.
 
 *OBOMapper* maps names and synonyms of terms described in <a href="#oboFiles" class="param">oboFiles</a> on <a href="#target" class="param">target</a>.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="form" class="param">form</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -20,7 +20,7 @@ Expression evaluated as a string with the target element as context that specifi
 
 <h3 name="oboFiles" class="param">oboFiles</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputFile%5B%5D" class="converter">InputFile[]</a>
 </div>
@@ -28,11 +28,13 @@ Paths to the OBO files to map.
 
 <h3 name="target" class="param">target</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 Expression evaluated as a list of elements with the corpus as context that specify the elements to be mapped.
+
+## Optional parameters
 
 <h3 name="altPathFeatures" class="param">altPathFeatures</h3>
 

@@ -29,7 +29,9 @@ The created annotations have the feature <a href="#annotationTypeFeature" class=
 
 
 
-## Parameters
+## Mandatory parameters
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

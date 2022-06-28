@@ -24,11 +24,11 @@ Writes the corpus data structure in files in tabular format.
   	Each expression of <a href="#columns" class="param">columns</a> is evaluated as a string with the line element as the context element.
   
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="columns" class="param">columns</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression%5B%5D" class="converter">Expression[]</a>
 </div>
@@ -36,7 +36,7 @@ Expressions that specify the contents of each column.
 
 <h3 name="lines" class="param">lines</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -44,11 +44,13 @@ Expression that specifies which element corresponds to each line.
 
 <h3 name="outDir" class="param">outDir</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.OutputDirectory" class="converter">OutputDirectory</a>
 </div>
 Directory where files are written.
+
+## Optional parameters
 
 <h3 name="corpusFile" class="param">corpusFile</h3>
 

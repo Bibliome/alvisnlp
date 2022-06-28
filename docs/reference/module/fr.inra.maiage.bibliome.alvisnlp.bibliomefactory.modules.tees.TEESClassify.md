@@ -8,11 +8,11 @@
 
 *TEESClassify* executes the TEES classify from <a href="#Corpus" class="param">Corpus</a> and record the results in <a href="#Relation" class="param">Relation</a>. The param <a href="#relationName" class="param">relationName</a> sets the name of the binary rlation to predict. <a href="#relationRole1" class="param">relationRole1</a> and and <a href="#relationRole" class="param">relationRole</a> set the two roles of the relation.*TEESClassify*
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="namedEntityLayerName" class="param">namedEntityLayerName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -20,7 +20,7 @@ Name of the layer containing the named entities.
 
 <h3 name="python2Executable" class="param">python2Executable</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.ExecutableFile" class="converter">ExecutableFile</a>
 </div>
@@ -28,7 +28,7 @@ Path to the Python 2 executable, TEES will fail if run through Python 3.
 
 <h3 name="schema" class="param">schema</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.MultiMapping" class="converter">MultiMapping</a>
 </div>
@@ -48,7 +48,7 @@ Path to the Python 2 executable, TEES will fail if run through Python 3.
 
 <h3 name="teesHome" class="param">teesHome</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
 </div>
@@ -56,11 +56,13 @@ Path to the TEES home directory.
 
 <h3 name="teesModel" class="param">teesModel</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputFile" class="converter">InputFile</a>
 </div>
  Path to the trained model to use. Pre-trained models for BB16 and Seedev16 are available in [/alvisnlp-bibliome/src/main/resources/fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/resources/tees-models]()
+
+## Optional parameters
 
 <h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 

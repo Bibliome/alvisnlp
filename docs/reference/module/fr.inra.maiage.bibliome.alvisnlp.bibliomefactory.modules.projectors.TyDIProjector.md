@@ -23,11 +23,11 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 
 *TyDIProjector* creates an annotation for each matched entry and adds these annotations to the layer named <a href="#targetLayerName" class="param">targetLayerName</a>. The created annotations will have a feature named <a href="#canonicalFormFeature" class="param">canonicalFormFeature</a> containing the canonical form of the matched term. In addition, the created annotations will have the feature keys and values defined in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a>.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="lemmaFile" class="param">lemmaFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
@@ -35,7 +35,7 @@ Path to the file containing lemmas.
 
 <h3 name="mergeFile" class="param">mergeFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
@@ -43,7 +43,7 @@ Path to the merged terms file.
 
 <h3 name="quasiSynonymsFile" class="param">quasiSynonymsFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
@@ -51,7 +51,7 @@ Path to the quasi-synonyms file.
 
 <h3 name="synonymsFile" class="param">synonymsFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
@@ -59,11 +59,13 @@ Path to the synonyms file.
 
 <h3 name="targetLayerName" class="param">targetLayerName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the layer where to put match annotations.
+
+## Optional parameters
 
 <h3 name="acronymsFile" class="param">acronymsFile</h3>
 
@@ -171,7 +173,7 @@ Process only sections that satisfy this filter.
 
 <h3 name="subject" class="param">subject</h3>
 
-<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.ContentsSubject@702657cc`
+<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.ContentsSubject@411f53a0`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.Subject" class="converter">Subject</a>
 </div>

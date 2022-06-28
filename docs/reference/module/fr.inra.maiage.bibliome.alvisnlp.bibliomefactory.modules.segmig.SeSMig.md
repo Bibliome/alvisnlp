@@ -25,7 +25,9 @@ This module assumes WoSMig processed the same sections.
 
 If <a href="#noBreakLayerName" class="param">noBreakLayerName</a> is defined, then *SeSMig* will prevent sentence boundaries inside annotations in this layer.
 
-## Parameters
+## Mandatory parameters
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

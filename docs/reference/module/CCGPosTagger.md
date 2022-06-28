@@ -10,11 +10,11 @@ Applies the [CCG](http://svn.ask.it.usyd.edu.au/trac/candc/wiki) POS tagger on a
 
 If <a href="#keepPreviousPos" class="param">keepPreviousPos</a> is set to *true*, then the POS tag predicted by CCG will not be added to annotations that already have a POS tag.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="executable" class="param">executable</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.ExecutableFile" class="converter">ExecutableFile</a>
 </div>
@@ -22,11 +22,13 @@ Path to the CCG POS tagger executable.
 
 <h3 name="model" class="param">model</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
 </div>
 Path to the CCG POS model.
+
+## Optional parameters
 
 <h3 name="documentFilter" class="param">documentFilter</h3>
 

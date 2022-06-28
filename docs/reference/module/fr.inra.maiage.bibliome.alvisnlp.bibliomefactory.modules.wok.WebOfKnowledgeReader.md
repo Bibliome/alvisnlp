@@ -22,15 +22,17 @@ The following fields will be ignored: ER, EF, FN.
 
 The feature and section names are the 2-character field code. For an interpretation of field codes, see [WoK format documentation](http://images.webofknowledge.com/WOKRS510B3_1/help/WOS/hs_wos_fieldtags.html).
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="source" class="param">source</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
 Location of the WoK file(s).
+
+## Optional parameters
 
 <h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 

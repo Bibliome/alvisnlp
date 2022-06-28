@@ -20,11 +20,11 @@ The BioLG output is directly fed to *lp2lp* executable specified by <a href="#lp
 
 *BioLG* adds to each dependency tuple a feature <a href="#linkageNumberFeature" class="param">linkageNumberFeature</a> with the linkage number to which begongs the tuple, and a feature <a href="#dependencyLabelFeature" class="param">dependencyLabelFeature</a> with the label of the dependency.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="linkageNumberFeature" class="param">linkageNumberFeature</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -32,7 +32,7 @@ Name of the dependecy tuple feature containing the linkage number.
 
 <h3 name="lp2lpConf" class="param">lp2lpConf</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputFile" class="converter">InputFile</a>
 </div>
@@ -40,7 +40,7 @@ Path to the lp2lp configuration file.
 
 <h3 name="lp2lpExecutable" class="param">lp2lpExecutable</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.ExecutableFile" class="converter">ExecutableFile</a>
 </div>
@@ -48,11 +48,13 @@ Path to the lp2lp executable.
 
 <h3 name="parserPath" class="param">parserPath</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.WorkingDirectory" class="converter">WorkingDirectory</a>
 </div>
 Directory where BioLG is installed.
+
+## Optional parameters
 
 <h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 

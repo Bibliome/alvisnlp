@@ -15,11 +15,11 @@ Splits overlapping annotations.
 * Non-split annotations deep-copied?
 * Split embedded annotations?
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="checkedlayerNames" class="param">checkedlayerNames</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
@@ -27,11 +27,13 @@ Source layers.
 
 <h3 name="modifiedlayerName" class="param">modifiedlayerName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Target layer.
+
+## Optional parameters
 
 <h3 name="indexFeatureName" class="param">indexFeatureName</h3>
 

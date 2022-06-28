@@ -8,11 +8,11 @@ Searches for discrimminating attributes with Weka.
 
 *WekaSelectAttributes* applies Weka's attribute selection on a training set specified by <a href="#examples" class="param">examples</a> and writes the result in <a href="#evaluationFile" class="param">evaluationFile</a>.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="evaluationFile" class="param">evaluationFile</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.TargetStream" class="converter">TargetStream</a>
 </div>
@@ -20,7 +20,7 @@ File where to write evaluation results.
 
 <h3 name="evaluator" class="param">evaluator</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -28,7 +28,7 @@ Evaluation metrics, this should be the canonical name of a class that extends We
 
 <h3 name="examples" class="param">examples</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -36,11 +36,13 @@ Training set examples. This expression is evaluated as a list of elements with t
 
 <h3 name="relationDefinition" class="param">relationDefinition</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.weka.RelationDefinition" class="converter">RelationDefinition</a>
 </div>
 Specification of example attributes and class.
+
+## Optional parameters
 
 <h3 name="evaluatorOptions" class="param">evaluatorOptions</h3>
 

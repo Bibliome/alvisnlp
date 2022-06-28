@@ -21,11 +21,11 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 
 *RDFProjector* creates an annotation for each matched entry and adds these annotations to the layer named <a href="#targetLayerName" class="param">targetLayerName</a>. The created annotations will have the feature <a href="#uriFeatureName" class="param">uriFeatureName</a> containing the URI of the matched class or concept. *RDFProjector* may also map property object values into features specified by <a href="#labelFeatures" class="param">labelFeatures</a>.
 
-## Parameters
+## Mandatory parameters
 
 <h3 name="source" class="param">source</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
@@ -33,7 +33,7 @@ Path to the source SKOS/OWL files.
 
 <h3 name="targetLayerName" class="param">targetLayerName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -41,11 +41,13 @@ Name of the layer that contains the match annotations.
 
 <h3 name="uriFeatureName" class="param">uriFeatureName</h3>
 
-<div class="param-level param-level-optional">Optional
+<div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Feature where to store the entry URI.
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

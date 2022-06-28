@@ -59,7 +59,9 @@ Starts an interactive shell that allows to query the corpus data structure.
 	This command prints which action expressions are allowed in the current session, as well as all defined references.
   
 
-## Parameters
+## Mandatory parameters
+
+## Optional parameters
 
 <h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

@@ -10,7 +10,9 @@ synopsis
 
 synopsis
 
-## Parameters
+## Mandatory parameters
+
+## Optional parameters
 
 <h3 name="documentFilter" class="param">documentFilter</h3>
 
