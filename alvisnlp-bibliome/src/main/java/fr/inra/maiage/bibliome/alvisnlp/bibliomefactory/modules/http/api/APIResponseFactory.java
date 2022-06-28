@@ -16,7 +16,6 @@ import java.util.logging.Logger;
 
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.bouncycastle.util.Strings;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -133,7 +132,7 @@ public class APIResponseFactory extends ResponseFactory {
 			return TreeviewElementNode.elementsToJSONArray(Collections.singletonList(corpus));
 		}
 		String id = params.get(Constants.Parameters.NODE_ID).get(0);
-		String[] split = Strings.split(id, '-');
+		String[] split = id.split("-", 3);
 		String eltId = split[0];
 		Element elt = getElement(eltId);
 		String ftor = split[1];
