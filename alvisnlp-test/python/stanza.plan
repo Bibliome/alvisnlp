@@ -1,0 +1,15 @@
+<alvisnlp-plan id="stanza-test">
+  <read file="BioNLP-ST-2016_BB-event/read.plan"/>
+
+  <seg href="res://segmentation.plan"/>
+
+  <stanza class="Stanza">
+    <pretokenized/>
+    <parse/>
+    <ner/>
+  </stanza>
+
+  <features-update file="write-features.plan">
+    <file>features-stanza.txt</file>
+  </features-update>
+</alvisnlp-plan>

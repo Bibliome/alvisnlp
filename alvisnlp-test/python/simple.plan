@@ -6,8 +6,8 @@
   </features-before>
 
   <simple class="PythonScript">
-    <commandLine separator=" ">/home/rbossy/dist/anaconda3/bin/python /home/rbossy/code/alvisnlp/alvisnlp-test/python/simple.py</commandLine>
-    <environment>PYTHONPATH=/home/rbossy/code/alvisnlp/share</environment>
+    <script>simple.py</script>
+    <callPython/>
   </simple>
   
   <features-after file="write-features.plan">
@@ -15,8 +15,8 @@
   </features-after>
 
   <update class="PythonScript">
-    <commandLine separator=" ">/home/rbossy/dist/anaconda3/bin/python /home/rbossy/code/alvisnlp/alvisnlp-test/python/update.py</commandLine>
-    <environment>PYTHONPATH=/home/rbossy/code/alvisnlp/share</environment>
+    <script>update.py</script>
+    <callPython/>
     <documentFilter>@id == "BB-event-1016123" or @id == "BB-event-10658649"</documentFilter>
     <layerNames>Bacteria,Habitat</layerNames>
   </update>
