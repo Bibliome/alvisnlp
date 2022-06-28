@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-doc author="" beta="true" date="" short-target="Stanza" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.python.Stanza">
+  <synopsis>
+    <p>Applies a <a href="https://stanfordnlp.github.io/stanza/">Stanza</a> pipeline on the sections.</p>
+  </synopsis>
+
+  <module-doc>
+    <description>
+      <p><this/> applies a <a href="https://stanfordnlp.github.io/stanza/">Stanza</a> pipeline on the contents of sections.</p>
+      <p>By default the pipeline tokenizes and predicts POS-tags. <this/> also applies dependency parsing if <param>parse</param> is set, and named entity recognition if <param>ner</param> is set.</p>
+      <p>The tokenization can be inhibited for using the existing tokens and sentences by setting <param>pretokenized</param>.</p>
+    </description>
+    
+    <param-doc default-value="en" mandatory="default: en" name="language" short-type="String" type="java.lang.String">
+      <p>Language of the text.</p>
+    </param-doc>
+
+    <param-doc mandatory="required" name="ner" short-type="Boolean" type="java.lang.Boolean">
+      <p>Either to perform NER. Named entities will be stored in a layer named <em>entities</em>.</p>
+    </param-doc>
+
+    <param-doc mandatory="required" name="parse" short-type="Boolean" type="java.lang.Boolean">
+      <p>Either to predict dependency trees.</p>
+    </param-doc>
+
+    <param-doc mandatory="required" name="pretokenized" short-type="Boolean" type="java.lang.Boolean">
+      <p>Either to skip tokenization and use the existing tokens and sentences.</p>
+    </param-doc>
+    
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.python.PythonScriptBaseParamsDoc</include-doc>
+  </module-doc>
+</alvisnlp-doc>
