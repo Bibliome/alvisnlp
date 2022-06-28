@@ -16,30 +16,23 @@ Interprets the input string as a file or directory path using the current system
 <param value="PATH"/>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param file="PATH"/>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param path="PATH"/>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param>PATH</param>
 ```
 
-*PATH* is the path to the file or directory.
-  
+ *PATH* is the path to the file or directory.
 

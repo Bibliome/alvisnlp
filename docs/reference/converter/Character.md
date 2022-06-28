@@ -16,22 +16,17 @@ The character value is the first character of the given string, the following ch
 <param value="CHAR"/>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param char="CHAR"/>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param>CHAR</param>
 ```
 
-*CHAR* is converted into a character as specified by the string conversion.
-  
+ *CHAR* is converted into a character as specified by the string conversion.
 

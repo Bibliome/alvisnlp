@@ -12,7 +12,7 @@
 
 `id:enumerate:key:prefix(expr)`
 
-Evaluates *expr* as a list of elements, then adds a feature *key* to each element. The value of the feature is the index of the element in the list prepended with *prefix*.
+Evaluates *expr* as a list of elements, then adds a feature *key* to each element. The value of the feature is the index of the element in the list prepended with *prefix* .
 
 <a name="enumerate">
 
@@ -28,7 +28,7 @@ Evaluates *expr* as a list of elements, then adds a feature *key* to each elemen
 
 `id:enumerate:key:prefix(expr, start)`
 
-Evaluates *expr* as a list of elements, then adds a feature *key* to each element. The value of the feature is the index of the element in the list (starting at *start*) prepended with *prefix*.
+Evaluates *expr* as a list of elements, then adds a feature *key* to each element. The value of the feature is the index of the element in the list (starting at *start* ) prepended with *prefix* .
 
 <a name="enumerate">
 
@@ -36,7 +36,7 @@ Evaluates *expr* as a list of elements, then adds a feature *key* to each elemen
 
 `id:enumerate:key(expr, start)`
 
-Evaluates *expr* as a list of elements, then adds a feature *key* to each element. The value of the feature is the index of the element in the list (starting at *start*).
+Evaluates *expr* as a list of elements, then adds a feature *key* to each element. The value of the feature is the index of the element in the list (starting at *start* ).
 
 <a name="enumerate0">
 
@@ -44,7 +44,7 @@ Evaluates *expr* as a list of elements, then adds a feature *key* to each elemen
 
 `id:enumerate0:key:prefix(expr)`
 
-Evaluates *expr* as a list of elements, then adds a feature *key* to each element. The value of the feature is the index of the element in the list (starting at 0) prepended with *prefix*.
+Evaluates *expr* as a list of elements, then adds a feature *key* to each element. The value of the feature is the index of the element in the list (starting at 0) prepended with *prefix* .
 
 <a name="enumerate0">
 

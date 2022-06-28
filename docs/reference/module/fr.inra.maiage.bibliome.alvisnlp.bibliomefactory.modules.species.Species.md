@@ -8,11 +8,22 @@ Calls the [Species]() taxon tagger.
 
 ## Description
 
-*Species* applies the [Species](XXX) taxon tagger on the contents of the sections. The *Species* software must be installed in the <a href="#speciesDir" class="param">speciesDir</a> directory. *Species* crerates an annotation for each taxon tagged by *Species*.
+*Species*applies the [Species](XXX) taxon tagger on the contents of the sections. The *Species* software must be installed in the <a href="#speciesDir" class="param">speciesDir</a> directory.*Species*crerates an annotation for each taxon tagged by *Species* .
+
+## Snippet
+
+
+
+```xml
+<species class="Species>
+    <speciesDir></speciesDir>
+    <targetLayerName></targetLayerName>
+</species>
+```
 
 ## Mandatory parameters
 
-<h3 name="speciesDir" class="param">speciesDir</h3>
+<h3 id="speciesDir" class="param">speciesDir</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -20,7 +31,7 @@ Calls the [Species]() taxon tagger.
 </div>
 Directory where the *Species* software is installed.
 
-<h3 name="targetLayerName" class="param">targetLayerName</h3>
+<h3 id="targetLayerName" class="param">targetLayerName</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -30,7 +41,7 @@ Layer where to store the tagged taxon names.
 
 ## Optional parameters
 
-<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
+<h3 id="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -38,7 +49,7 @@ Layer where to store the tagged taxon names.
 </div>
 Constant features to add to each annotation created by this module.
 
-<h3 name="taxidFeature" class="param">taxidFeature</h3>
+<h3 id="taxidFeature" class="param">taxidFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -46,7 +57,7 @@ Constant features to add to each annotation created by this module.
 </div>
 Feature where to store the identifier of the tagged taxon.
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -54,7 +65,7 @@ Feature where to store the identifier of the tagged taxon.
 </div>
 Only process document that satisfy this expression.
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>

@@ -10,9 +10,19 @@ Reads a tokenized corpus: one token per line, empty line separates sentence.
 
 Reads a tokenized corpus: one token per line, empty line separates sentence.
 
+## Snippet
+
+
+
+```xml
+<tokenizedreader class="TokenizedReader>
+    <source></source>
+</tokenizedreader>
+```
+
 ## Mandatory parameters
 
-<h3 name="source" class="param">source</h3>
+<h3 id="source" class="param">source</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -22,7 +32,7 @@ Path to the file or directory containing the tokenized text.
 
 ## Optional parameters
 
-<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
+<h3 id="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,7 +40,7 @@ Path to the file or directory containing the tokenized text.
 </div>
 Constant features to add to each annotation created by this module.
 
-<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
+<h3 id="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -38,7 +48,7 @@ Constant features to add to each annotation created by this module.
 </div>
 Constant features to add to each document created by this module.
 
-<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
+<h3 id="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -46,7 +56,7 @@ Constant features to add to each document created by this module.
 </div>
 Constant features to add to each section created by this module.
 
-<h3 name="sectionName" class="param">sectionName</h3>
+<h3 id="sectionName" class="param">sectionName</h3>
 
 <div class="param-level param-level-default-value">Default value: `text`
 </div>
@@ -54,7 +64,7 @@ Constant features to add to each section created by this module.
 </div>
 Name of the section containing the tokenized text.
 
-<h3 name="sentenceLayerName" class="param">sentenceLayerName</h3>
+<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -62,7 +72,7 @@ Name of the section containing the tokenized text.
 </div>
 Name of the sentence layer.
 
-<h3 name="tokenLayerName" class="param">tokenLayerName</h3>
+<h3 id="tokenLayerName" class="param">tokenLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>

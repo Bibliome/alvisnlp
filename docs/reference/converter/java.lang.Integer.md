@@ -6,7 +6,7 @@ Converts into a 32-bit signed integer.
 
 ## String conversion
 
-This converter accepts integer values in Java syntax (see [Java int conversion](http://download.oracle.com/javase/7/docs/api/java/lang/Integer.html#parseInt(java.lang.String))).
+This converter accepts integer values in Java syntax (see [Java int conversion](http://download.oracle.com/javase/7/docs/api/java/lang/Integer.html#parseInt(java.lang.String)) ).
 
 ## XML conversion
 
@@ -16,14 +16,11 @@ This converter accepts integer values in Java syntax (see [Java int conversion](
 <param value="INT"/>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param>INT</param>
 ```
 
-*INT* is converted into an integer as specified by the string conversion.
-  
+ *INT* is converted into an integer as specified by the string conversion.
 

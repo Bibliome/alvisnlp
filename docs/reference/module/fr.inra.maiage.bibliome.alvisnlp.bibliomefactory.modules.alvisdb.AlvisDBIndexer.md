@@ -10,9 +10,20 @@ synopsis
 
 synopsis
 
+## Snippet
+
+
+
+```xml
+<alvisdbindexer class="AlvisDBIndexer>
+    <elements></elements>
+    <indexDir></indexDir>
+</alvisdbindexer>
+```
+
 ## Mandatory parameters
 
-<h3 name="elements" class="param">elements</h3>
+<h3 id="elements" class="param">elements</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -20,7 +31,7 @@ synopsis
 </div>
 
 
-<h3 name="indexDir" class="param">indexDir</h3>
+<h3 id="indexDir" class="param">indexDir</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -30,7 +41,7 @@ synopsis
 
 ## Optional parameters
 
-<h3 name="append" class="param">append</h3>
+<h3 id="append" class="param">append</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>

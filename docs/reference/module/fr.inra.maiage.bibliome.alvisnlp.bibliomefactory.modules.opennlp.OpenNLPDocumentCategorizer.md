@@ -2,20 +2,28 @@
 
 ## Synopsis
 
-Categorizes documents with a model trained with <a href="../module/OpenNLPDocumentCategorizerTrain" class="module">OpenNLPDocumentCategorizerTrain</a>.
+Categorizes documents with a model trained with <a href="../module/OpenNLPDocumentCategorizerTrain" class="module">OpenNLPDocumentCategorizerTrain</a> .
 
 **This module is experimental.**
 
 ## Description
 
-*OpenNLPDocumentCategorizer* uses a model trained with <a href="../module/OpenNLPDocumentCategorizerTrain" class="module">OpenNLPDocumentCategorizerTrain</a> to categorize unlabeled documents.
-			The documents are specified by <a href="#documents" class="param">documents</a>.
-			The classifier algorithm uses the document content specified by <a href="#tokens" class="param">tokens</a> and <a href="#form" class="param">form</a>. 
-			
+*OpenNLPDocumentCategorizer*uses a model trained with <a href="../module/OpenNLPDocumentCategorizerTrain" class="module">OpenNLPDocumentCategorizerTrain</a> to categorize unlabeled documents. The documents are specified by <a href="#documents" class="param">documents</a> . The classifier algorithm uses the document content specified by <a href="#tokens" class="param">tokens</a> and <a href="#form" class="param">form</a> .
+
+## Snippet
+
+
+
+```xml
+<opennlpdocumentcategorizer class="OpenNLPDocumentCategorizer>
+    <categoryFeature></categoryFeature>
+    <model></model>
+</opennlpdocumentcategorizer>
+```
 
 ## Mandatory parameters
 
-<h3 name="categoryFeature" class="param">categoryFeature</h3>
+<h3 id="categoryFeature" class="param">categoryFeature</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -23,17 +31,17 @@ Categorizes documents with a model trained with <a href="../module/OpenNLPDocume
 </div>
 Feature where to store the predicted category.
 
-<h3 name="model" class="param">model</h3>
+<h3 id="model" class="param">model</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
-Model file generated with <a href="../module/OpenNLPDocumentCategorizerTrain" class="module">OpenNLPDocumentCategorizerTrain</a>.
+Model file generated with <a href="../module/OpenNLPDocumentCategorizerTrain" class="module">OpenNLPDocumentCategorizerTrain</a> .
 
 ## Optional parameters
 
-<h3 name="scoreFeature" class="param">scoreFeature</h3>
+<h3 id="scoreFeature" class="param">scoreFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -41,7 +49,7 @@ Model file generated with <a href="../module/OpenNLPDocumentCategorizerTrain" cl
 </div>
 Feature where to store the score of the predicted category.
 
-<h3 name="scoresFeaturePrefix" class="param">scoresFeaturePrefix</h3>
+<h3 id="scoresFeaturePrefix" class="param">scoresFeaturePrefix</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -49,7 +57,7 @@ Feature where to store the score of the predicted category.
 </div>
 Prefix of feature names where to store the score of each category.
 
-<h3 name="documents" class="param">documents</h3>
+<h3 id="documents" class="param">documents</h3>
 
 <div class="param-level param-level-default-value">Default value: `nav:documents()`
 </div>
@@ -57,7 +65,7 @@ Prefix of feature names where to store the score of each category.
 </div>
 Elements to classify. This expression is evaluated from the corpus.
 
-<h3 name="form" class="param">form</h3>
+<h3 id="form" class="param">form</h3>
 
 <div class="param-level param-level-default-value">Default value: `properties:@:form()`
 </div>
@@ -65,7 +73,7 @@ Elements to classify. This expression is evaluated from the corpus.
 </div>
 Form of the token. This expression is evaluated as a string from the token.
 
-<h3 name="tokens" class="param">tokens</h3>
+<h3 id="tokens" class="param">tokens</h3>
 
 <div class="param-level param-level-default-value">Default value: `nav:.(nav:sections(), nav:layer:words())`
 </div>

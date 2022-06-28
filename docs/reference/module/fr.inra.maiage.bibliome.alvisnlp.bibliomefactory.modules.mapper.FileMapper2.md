@@ -2,15 +2,28 @@
 
 ## Synopsis
 
-Deprecated alias for <a href="../module/FileMapper" class="module">FileMapper</a>.
+Deprecated alias for <a href="../module/FileMapper" class="module">FileMapper</a> .
 
 **This module is obsolete, superceded by fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper.FileMapper**
 
 ## Description
 
+## Snippet
+
+
+
+```xml
+<filemapper2 class="FileMapper2>
+    <form></form>
+    <mappingFile></mappingFile>
+    <target></target>
+    <targetFeatures></targetFeatures>
+</filemapper2>
+```
+
 ## Mandatory parameters
 
-<h3 name="form" class="param">form</h3>
+<h3 id="form" class="param">form</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -18,7 +31,7 @@ Deprecated alias for <a href="../module/FileMapper" class="module">FileMapper</a
 </div>
 Expression evaluated as a string with the target element as context that specifies the target key.
 
-<h3 name="mappingFile" class="param">mappingFile</h3>
+<h3 id="mappingFile" class="param">mappingFile</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -26,7 +39,7 @@ Expression evaluated as a string with the target element as context that specifi
 </div>
 Tab-separated file containing the dictionary.
 
-<h3 name="target" class="param">target</h3>
+<h3 id="target" class="param">target</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -34,7 +47,7 @@ Tab-separated file containing the dictionary.
 </div>
 Expression evaluated as a list of elements with the corpus as context that specify the elements to be mapped.
 
-<h3 name="targetFeatures" class="param">targetFeatures</h3>
+<h3 id="targetFeatures" class="param">targetFeatures</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -44,7 +57,7 @@ Name of the features where to store the columns of matched lines.
 
 ## Optional parameters
 
-<h3 name="ignoreCase" class="param">ignoreCase</h3>
+<h3 id="ignoreCase" class="param">ignoreCase</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -52,15 +65,15 @@ Name of the features where to store the columns of matched lines.
 </div>
 Either to match ignoring the case.
 
-<h3 name="keyColumn" class="param">keyColumn</h3>
+<h3 id="keyColumn" class="param">keyColumn</h3>
 
 <div class="param-level param-level-default-value">Default value: `0`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Integer" class="converter">Integer</a>
 </div>
-Index of the line key in <a href="#mappingFile" class="param">mappingFile</a>.
+Index of the line key in <a href="#mappingFile" class="param">mappingFile</a> .
 
-<h3 name="operator" class="param">operator</h3>
+<h3 id="operator" class="param">operator</h3>
 
 <div class="param-level param-level-default-value">Default value: `exact`
 </div>
@@ -68,11 +81,11 @@ Index of the line key in <a href="#mappingFile" class="param">mappingFile</a>.
 </div>
 Matching operator.
 
-<h3 name="separator" class="param">separator</h3>
+<h3 id="separator" class="param">separator</h3>
 
 <div class="param-level param-level-default-value">Default value: `	`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Character" class="converter">Character</a>
 </div>
-Separator character between columns in <a href="#mappingFile" class="param">mappingFile</a>.
+Separator character between columns in <a href="#mappingFile" class="param">mappingFile</a> .
 

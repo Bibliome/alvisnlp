@@ -2,14 +2,13 @@
 
 ## Synopsis
 
-*type* provides functions to examine the type of the context element. Element types are coded as single character strings:
-		
-* **C**: the corpus element;
-* **D**: a document;
-* **S**: a section;
-* **A**: an annotation;
-* **R**: a relation;
-* **T**: a tuple.
+*type*provides functions to examine the type of the context element. Element types are coded as single character strings:
+*  **C** : the corpus element;
+*  **D** : a document;
+*  **S** : a section;
+*  **A** : an annotation;
+*  **R** : a relation;
+*  **T** : a tuple.
 
 
 
@@ -69,7 +68,7 @@ Returns true if the context element is a section.
 
 `type:test:t()`
 
-Tests that the context element has the type *t*. *t* must be a single character element type code.
+Tests that the context element has the type *t* . *t* must be a single character element type code.
 
 <a name="tuple">
 

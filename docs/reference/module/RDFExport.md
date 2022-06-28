@@ -10,9 +10,22 @@ synopsis
 
 synopsis
 
+## Snippet
+
+
+
+```xml
+<rdfexport class="RDFExport>
+    <fileName></fileName>
+    <files></files>
+    <outDir></outDir>
+    <statements></statements>
+</rdfexport>
+```
+
 ## Mandatory parameters
 
-<h3 name="fileName" class="param">fileName</h3>
+<h3 id="fileName" class="param">fileName</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -20,7 +33,7 @@ synopsis
 </div>
 
 
-<h3 name="files" class="param">files</h3>
+<h3 id="files" class="param">files</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -28,7 +41,7 @@ synopsis
 </div>
 
 
-<h3 name="outDir" class="param">outDir</h3>
+<h3 id="outDir" class="param">outDir</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -36,7 +49,7 @@ synopsis
 </div>
 
 
-<h3 name="statements" class="param">statements</h3>
+<h3 id="statements" class="param">statements</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -46,7 +59,7 @@ synopsis
 
 ## Optional parameters
 
-<h3 name="charset" class="param">charset</h3>
+<h3 id="charset" class="param">charset</h3>
 
 <div class="param-level param-level-default-value">Default value: `UTF-8`
 </div>
@@ -54,7 +67,7 @@ synopsis
 </div>
 
 
-<h3 name="format" class="param">format</h3>
+<h3 id="format" class="param">format</h3>
 
 <div class="param-level param-level-default-value">Default value: `RDF/XML/pretty`
 </div>
@@ -62,7 +75,7 @@ synopsis
 </div>
 
 
-<h3 name="prefixes" class="param">prefixes</h3>
+<h3 id="prefixes" class="param">prefixes</h3>
 
 <div class="param-level param-level-default-value">Default value: `{}`
 </div>

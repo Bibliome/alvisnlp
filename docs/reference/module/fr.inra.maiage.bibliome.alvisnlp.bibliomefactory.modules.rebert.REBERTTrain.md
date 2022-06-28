@@ -10,9 +10,22 @@ UNDOCUMENTED
 
 UNDOCUMENTED
 
+## Snippet
+
+
+
+```xml
+<reberttrain class="REBERTTrain>
+    <dataFile></dataFile>
+    <label></label>
+    <objects></objects>
+    <subjects></subjects>
+</reberttrain>
+```
+
 ## Mandatory parameters
 
-<h3 name="dataFile" class="param">dataFile</h3>
+<h3 id="dataFile" class="param">dataFile</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -20,7 +33,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="label" class="param">label</h3>
+<h3 id="label" class="param">label</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -28,7 +41,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="objects" class="param">objects</h3>
+<h3 id="objects" class="param">objects</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -36,7 +49,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="subjects" class="param">subjects</h3>
+<h3 id="subjects" class="param">subjects</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -46,7 +59,7 @@ UNDOCUMENTED
 
 ## Optional parameters
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -54,7 +67,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="end" class="param">end</h3>
+<h3 id="end" class="param">end</h3>
 
 <div class="param-level param-level-default-value">Default value: `properties:end()`
 </div>
@@ -62,7 +75,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:sentences())`
 </div>
@@ -70,7 +83,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="sentenceLayer" class="param">sentenceLayer</h3>
+<h3 id="sentenceLayer" class="param">sentenceLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -78,7 +91,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="start" class="param">start</h3>
+<h3 id="start" class="param">start</h3>
 
 <div class="param-level param-level-default-value">Default value: `properties:start()`
 </div>

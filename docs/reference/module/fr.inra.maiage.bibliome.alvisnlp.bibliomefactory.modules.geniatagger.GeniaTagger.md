@@ -6,11 +6,21 @@ Runs Genia Tagger on annotations.
 
 ## Description
 
-*GeniaTagger* executes theGenia Tagger on annotations from the layer <a href="#words" class="param">words</a> and record the results in the features specified by <a href="#pos" class="param">pos</a>, <a href="#lemma" class="param">lemma</a>, <a href="#chunk" class="param">chunk</a> and <a href="#entity" class="param">entity</a>. *GeniaTagger* reinforces sentences specified by annotations in the <a href="#sentences" class="param">sentences</a> layer.
+*GeniaTagger*executes theGenia Tagger on annotations from the layer <a href="#words" class="param">words</a> and record the results in the features specified by <a href="#pos" class="param">pos</a> , <a href="#lemma" class="param">lemma</a> , <a href="#chunk" class="param">chunk</a> and <a href="#entity" class="param">entity</a> .*GeniaTagger*reinforces sentences specified by annotations in the <a href="#sentences" class="param">sentences</a> layer.
+
+## Snippet
+
+
+
+```xml
+<geniatagger class="GeniaTagger>
+    <geniaDir></geniaDir>
+</geniatagger>
+```
 
 ## Mandatory parameters
 
-<h3 name="geniaDir" class="param">geniaDir</h3>
+<h3 id="geniaDir" class="param">geniaDir</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -20,7 +30,7 @@ Directory where geniatagger is installed.
 
 ## Optional parameters
 
-<h3 name="chunkFeature" class="param">chunkFeature</h3>
+<h3 id="chunkFeature" class="param">chunkFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -28,7 +38,7 @@ Directory where geniatagger is installed.
 </div>
 UNDOCUMENTED
 
-<h3 name="entityFeature" class="param">entityFeature</h3>
+<h3 id="entityFeature" class="param">entityFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -36,7 +46,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -44,7 +54,7 @@ UNDOCUMENTED
 </div>
 Only process document that satisfy this expression.
 
-<h3 name="geniaCharset" class="param">geniaCharset</h3>
+<h3 id="geniaCharset" class="param">geniaCharset</h3>
 
 <div class="param-level param-level-default-value">Default value: `UTF-8`
 </div>
@@ -52,7 +62,7 @@ Only process document that satisfy this expression.
 </div>
 Character encoding of geniatagger input and output.
 
-<h3 name="geniaTaggerExecutable" class="param">geniaTaggerExecutable</h3>
+<h3 id="geniaTaggerExecutable" class="param">geniaTaggerExecutable</h3>
 
 <div class="param-level param-level-default-value">Default value: `./geniatagger`
 </div>
@@ -60,7 +70,7 @@ Character encoding of geniatagger input and output.
 </div>
 Name of the geniatagger executable file.
 
-<h3 name="lemmaFeature" class="param">lemmaFeature</h3>
+<h3 id="lemmaFeature" class="param">lemmaFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `lemma`
 </div>
@@ -68,7 +78,7 @@ Name of the geniatagger executable file.
 </div>
 UNDOCUMENTED
 
-<h3 name="posFeature" class="param">posFeature</h3>
+<h3 id="posFeature" class="param">posFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `pos`
 </div>
@@ -76,7 +86,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, boolean:and(nav:layer:sentences(), nav:layer:words()))`
 </div>
@@ -84,15 +94,15 @@ UNDOCUMENTED
 </div>
 Process only sections that satisfy this expression.
 
-<h3 name="sentenceFilter" class="param">sentenceFilter</h3>
+<h3 id="sentenceFilter" class="param">sentenceFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Evaluated as a boolean with the sentence annotation as the context element. *GeniaTagger* only process the sentence if the result is true. To filter sentences that are too long for Genia Tagger, use "length < 1024".
+Evaluated as a boolean with the sentence annotation as the context element.*GeniaTagger*only process the sentence if the result is true. To filter sentences that are too long for Genia Tagger, use "length < 1024".
 
-<h3 name="sentenceLayerName" class="param">sentenceLayerName</h3>
+<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -100,7 +110,7 @@ Evaluated as a boolean with the sentence annotation as the context element. *Gen
 </div>
 UNDOCUMENTED
 
-<h3 name="treeTaggerTagset" class="param">treeTaggerTagset</h3>
+<h3 id="treeTaggerTagset" class="param">treeTaggerTagset</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -108,7 +118,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="wordFormFeature" class="param">wordFormFeature</h3>
+<h3 id="wordFormFeature" class="param">wordFormFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `form`
 </div>
@@ -116,7 +126,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="wordLayerName" class="param">wordLayerName</h3>
+<h3 id="wordLayerName" class="param">wordLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>

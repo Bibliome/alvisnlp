@@ -12,7 +12,7 @@
 
 `set:arg:role(arg)`
 
-Evaluates *arg* as a list of elements, then sets the context element argument with role *role* to the first element of *arg*. This function will not do anything if the context element is not a tuple.
+Evaluates *arg* as a list of elements, then sets the context element argument with role *role* to the first element of *arg* . This function will not do anything if the context element is not a tuple.
 
 <a name="arg">
 
@@ -20,7 +20,7 @@ Evaluates *arg* as a list of elements, then sets the context element argument wi
 
 `set:arg(role, arg)`
 
-Evaluates *role* as a string, and *arg* as a list of elements, then sets the context element argument with role *role* to the first element of *arg*. This function will not do anything if the context element is not a tuple.
+Evaluates *role* as a string, and *arg* as a list of elements, then sets the context element argument with role *role* to the first element of *arg* . This function will not do anything if the context element is not a tuple.
 
 <a name="feat">
 
@@ -28,7 +28,7 @@ Evaluates *role* as a string, and *arg* as a list of elements, then sets the con
 
 `set:feat:key(value)`
 
-Evaluates *value* as a string, then adds a feature to the context element with key *key* and value *value*.
+Evaluates *value* as a string, then adds a feature to the context element with key *key* and value *value* .
 
 <a name="feat">
 
@@ -36,7 +36,7 @@ Evaluates *value* as a string, then adds a feature to the context element with k
 
 `set:feat(key, value)`
 
-Evaluates *key* and *value* as strings, then adds a feature to the context element with key *key* and value *value*.
+Evaluates *key* and *value* as strings, then adds a feature to the context element with key *key* and value *value* .
 
 <a name="remove-arg">
 

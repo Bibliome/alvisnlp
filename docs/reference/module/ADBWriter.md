@@ -10,9 +10,24 @@ synopsis
 
 synopsis
 
+## Snippet
+
+
+
+```xml
+<adbwriter class="ADBWriter>
+    <aspectId></aspectId>
+    <documents></documents>
+    <password></password>
+    <sections></sections>
+    <url></url>
+    <username></username>
+</adbwriter>
+```
+
 ## Mandatory parameters
 
-<h3 name="aspectId" class="param">aspectId</h3>
+<h3 id="aspectId" class="param">aspectId</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -20,7 +35,7 @@ synopsis
 </div>
 
 
-<h3 name="documents" class="param">documents</h3>
+<h3 id="documents" class="param">documents</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -28,7 +43,7 @@ synopsis
 </div>
 
 
-<h3 name="password" class="param">password</h3>
+<h3 id="password" class="param">password</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -36,7 +51,7 @@ synopsis
 </div>
 
 
-<h3 name="sections" class="param">sections</h3>
+<h3 id="sections" class="param">sections</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -44,7 +59,7 @@ synopsis
 </div>
 
 
-<h3 name="url" class="param">url</h3>
+<h3 id="url" class="param">url</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -52,7 +67,7 @@ synopsis
 </div>
 
 
-<h3 name="username" class="param">username</h3>
+<h3 id="username" class="param">username</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -62,7 +77,7 @@ synopsis
 
 ## Optional parameters
 
-<h3 name="annotationType" class="param">annotationType</h3>
+<h3 id="annotationType" class="param">annotationType</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -70,7 +85,7 @@ synopsis
 </div>
 
 
-<h3 name="annotations" class="param">annotations</h3>
+<h3 id="annotations" class="param">annotations</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -78,7 +93,7 @@ synopsis
 </div>
 
 
-<h3 name="docScopeAnnType" class="param">docScopeAnnType</h3>
+<h3 id="docScopeAnnType" class="param">docScopeAnnType</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -86,7 +101,7 @@ synopsis
 </div>
 
 
-<h3 name="fragments" class="param">fragments</h3>
+<h3 id="fragments" class="param">fragments</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -94,7 +109,7 @@ synopsis
 </div>
 
 
-<h3 name="groups" class="param">groups</h3>
+<h3 id="groups" class="param">groups</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -102,7 +117,7 @@ synopsis
 </div>
 
 
-<h3 name="relations" class="param">relations</h3>
+<h3 id="relations" class="param">relations</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -110,7 +125,7 @@ synopsis
 </div>
 
 
-<h3 name="schema" class="param">schema</h3>
+<h3 id="schema" class="param">schema</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -118,7 +133,7 @@ synopsis
 </div>
 
 
-<h3 name="toDocScopeAnnotation" class="param">toDocScopeAnnotation</h3>
+<h3 id="toDocScopeAnnotation" class="param">toDocScopeAnnotation</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>

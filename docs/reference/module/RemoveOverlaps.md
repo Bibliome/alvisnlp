@@ -6,29 +6,34 @@ Removes overlapping annotations from a given layer.
 
 ## Description
 
-*RemoveOverlaps* removes overlapping annotations in the layer <a href="#layerName" class="param">layerName</a>.
+*RemoveOverlaps*removes overlapping annotations in the layer <a href="#layerName" class="param">layerName</a> .
 
-*RemoveOverlaps* scans each specified layer and finds clusters of overlapping annotations.
-	  	*RemoveOverlaps* distinguishes three overlapping situations:
-	  	
-1. *equal*: two annotations have exactly the same span;
-2. *included*: one annotation includes the other completely;
-3. *overlapping*: one annotation overlaps with the head or the tail of the other annotation.
+*RemoveOverlaps*scans each specified layer and finds clusters of overlapping annotations.*RemoveOverlaps*distinguishes three overlapping situations:
+1.  *equal* : two annotations have exactly the same span;
+2.  *included* : one annotation includes the other completely;
+3.  *overlapping* : one annotation overlaps with the head or the tail of the other annotation.
 
 
 
-<a href="#removeEqual" class="param">removeEqual</a>, <a href="#removeIncluded" class="param">removeIncluded</a> and <a href="#removeOverlapping" class="param">removeOverlapping</a> specify the behavior for each situation.
-	  If the parameter is `true`, then *RemoveOverlaps* will remove one of the annotations. 
-	  
+ <a href="#removeEqual" class="param">removeEqual</a> , <a href="#removeIncluded" class="param">removeIncluded</a> and <a href="#removeOverlapping" class="param">removeOverlapping</a> specify the behavior for each situation. If the parameter is `true` , then*RemoveOverlaps*will remove one of the annotations.
 
-<a href="#annotationComparator" class="param">annotationComparator</a> controls which annotation is removed.
-	  
+ <a href="#annotationComparator" class="param">annotationComparator</a> controls which annotation is removed.
 
-By default *RemoveOverlaps* removes all kinds of annotations, keeping the longest one.
+By default*RemoveOverlaps*removes all kinds of annotations, keeping the longest one.
+
+## Snippet
+
+
+
+```xml
+<removeoverlaps class="RemoveOverlaps>
+    <layerName></layerName>
+</removeoverlaps>
+```
 
 ## Mandatory parameters
 
-<h3 name="layerName" class="param">layerName</h3>
+<h3 id="layerName" class="param">layerName</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -38,7 +43,7 @@ Name of the layer to clear.
 
 ## Optional parameters
 
-<h3 name="annotationComparator" class="param">annotationComparator</h3>
+<h3 id="annotationComparator" class="param">annotationComparator</h3>
 
 <div class="param-level param-level-default-value">Default value: `length`
 </div>
@@ -46,7 +51,7 @@ Name of the layer to clear.
 </div>
 Comparator to use in order to choose between overlapping annotations.
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -54,7 +59,7 @@ Comparator to use in order to choose between overlapping annotations.
 </div>
 Only process document that satisfy this expression.
 
-<h3 name="removeEqual" class="param">removeEqual</h3>
+<h3 id="removeEqual" class="param">removeEqual</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -62,7 +67,7 @@ Only process document that satisfy this expression.
 </div>
 Either to remove annotations with equal spans.
 
-<h3 name="removeIncluded" class="param">removeIncluded</h3>
+<h3 id="removeIncluded" class="param">removeIncluded</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -70,7 +75,7 @@ Either to remove annotations with equal spans.
 </div>
 Either to remove annotations fully included in another annotation.
 
-<h3 name="removeOverlapping" class="param">removeOverlapping</h3>
+<h3 id="removeOverlapping" class="param">removeOverlapping</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -78,7 +83,7 @@ Either to remove annotations fully included in another annotation.
 </div>
 Either to remove strictly overlapping annotations.
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>

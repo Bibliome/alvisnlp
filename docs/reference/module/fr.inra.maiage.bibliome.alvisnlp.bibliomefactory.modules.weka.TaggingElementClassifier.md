@@ -2,15 +2,28 @@
 
 ## Synopsis
 
-Deprecated alias for <a href="../module/WekaPredict" class="module">WekaPredict</a>.
+Deprecated alias for <a href="../module/WekaPredict" class="module">WekaPredict</a> .
 
 **This module is obsolete, superceded by fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.weka.WekaPredict**
 
 ## Description
 
+## Snippet
+
+
+
+```xml
+<taggingelementclassifier class="TaggingElementClassifier>
+    <classifierFile></classifierFile>
+    <examples></examples>
+    <predictedClassFeatureKey></predictedClassFeatureKey>
+    <relationDefinition></relationDefinition>
+</taggingelementclassifier>
+```
+
 ## Mandatory parameters
 
-<h3 name="classifierFile" class="param">classifierFile</h3>
+<h3 id="classifierFile" class="param">classifierFile</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -18,7 +31,7 @@ Deprecated alias for <a href="../module/WekaPredict" class="module">WekaPredict<
 </div>
 UNDOCUMENTED
 
-<h3 name="examples" class="param">examples</h3>
+<h3 id="examples" class="param">examples</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -26,7 +39,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="predictedClassFeatureKey" class="param">predictedClassFeatureKey</h3>
+<h3 id="predictedClassFeatureKey" class="param">predictedClassFeatureKey</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -34,7 +47,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="relationDefinition" class="param">relationDefinition</h3>
+<h3 id="relationDefinition" class="param">relationDefinition</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -44,7 +57,7 @@ UNDOCUMENTED
 
 ## Optional parameters
 
-<h3 name="evaluationFile" class="param">evaluationFile</h3>
+<h3 id="evaluationFile" class="param">evaluationFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>

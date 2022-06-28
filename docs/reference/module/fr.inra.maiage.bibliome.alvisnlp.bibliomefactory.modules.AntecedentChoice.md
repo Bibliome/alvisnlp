@@ -6,13 +6,22 @@ Biotopes-specific module: chooses an antecedent.
 
 ## Description
 
-This module is project-specific and should be short-lived. It assumes a relation named *coreferences* containing tuples with at least one argument with role *Anaphora* and another with role *AntePreviousLowerTaxon*, a layer named *biAnaphora*.
+This module is project-specific and should be short-lived. It assumes a relation named *coreferences* containing tuples with at least one argument with role *Anaphora* and another with role *AntePreviousLowerTaxon* , a layer named *biAnaphora* .
+
+## Snippet
+
+
+
+```xml
+<antecedentchoice class="AntecedentChoice>
+</antecedentchoice>
+```
 
 ## Mandatory parameters
 
 ## Optional parameters
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -20,7 +29,7 @@ This module is project-specific and should be short-lived. It assumes a relation
 </div>
 Only process document that satisfy this expression.
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>

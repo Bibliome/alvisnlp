@@ -28,7 +28,7 @@ Returns the absolute value of *N* evaluated as a double.
 
 `m:ceil(value)`
 
-[java.lang.Math.ceil](file:///home/rbossy/dist/jdk1.7.0_71/docs/api/java/lang/Math.html#ceil(double))
+ [java.lang.Math.ceil](file:///home/rbossy/dist/jdk1.7.0_71/docs/api/java/lang/Math.html#ceil(double)) 
 
 <a name="exp">
 
@@ -44,7 +44,7 @@ Returns Euler's number *e* raised to the power of *N* evaluated as a double.
 
 `m:floor(value)`
 
-[java.lang.Math.floor](file:///home/rbossy/dist/jdk1.7.0_71/docs/api/java/lang/Math.html#ceil(double))
+ [java.lang.Math.floor](file:///home/rbossy/dist/jdk1.7.0_71/docs/api/java/lang/Math.html#ceil(double)) 
 
 <a name="hypot">
 
@@ -68,7 +68,7 @@ Returns the base 10 logarithm of *N* evaluated as a double.
 
 `m:logn(N)`
 
-Returns the natural logarithm (base *e*) of *N* evaluated as a double.
+Returns the natural logarithm (base *e* ) of *N* evaluated as a double.
 
 <a name="max">
 
@@ -164,7 +164,7 @@ Evaluates *ELTS* as a list of elements, and for each member, evaluates *VALUE* a
 
 `m:round(value)`
 
-[java.lang.Math.round](file:///home/rbossy/dist/jdk1.7.0_71/docs/api/java/lang/Math.html#ceil(double))
+ [java.lang.Math.round](file:///home/rbossy/dist/jdk1.7.0_71/docs/api/java/lang/Math.html#ceil(double)) 
 
 <a name="sqrt">
 

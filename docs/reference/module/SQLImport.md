@@ -10,9 +10,25 @@ synopsis
 
 synopsis
 
+## Snippet
+
+
+
+```xml
+<sqlimport class="SQLImport>
+    <action></action>
+    <parameters></parameters>
+    <password></password>
+    <query></query>
+    <target></target>
+    <url></url>
+    <username></username>
+</sqlimport>
+```
+
 ## Mandatory parameters
 
-<h3 name="action" class="param">action</h3>
+<h3 id="action" class="param">action</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -20,7 +36,7 @@ synopsis
 </div>
 
 
-<h3 name="parameters" class="param">parameters</h3>
+<h3 id="parameters" class="param">parameters</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -28,7 +44,7 @@ synopsis
 </div>
 
 
-<h3 name="password" class="param">password</h3>
+<h3 id="password" class="param">password</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -36,7 +52,7 @@ synopsis
 </div>
 
 
-<h3 name="query" class="param">query</h3>
+<h3 id="query" class="param">query</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -44,7 +60,7 @@ synopsis
 </div>
 
 
-<h3 name="target" class="param">target</h3>
+<h3 id="target" class="param">target</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -52,7 +68,7 @@ synopsis
 </div>
 
 
-<h3 name="url" class="param">url</h3>
+<h3 id="url" class="param">url</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -60,7 +76,7 @@ synopsis
 </div>
 
 
-<h3 name="username" class="param">username</h3>
+<h3 id="username" class="param">username</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -70,7 +86,7 @@ synopsis
 
 ## Optional parameters
 
-<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
+<h3 id="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -78,7 +94,7 @@ synopsis
 </div>
 Constant features to add to each annotation created by this module.
 
-<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
+<h3 id="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -86,7 +102,7 @@ Constant features to add to each annotation created by this module.
 </div>
 Constant features to add to each document created by this module.
 
-<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
+<h3 id="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -94,7 +110,7 @@ Constant features to add to each document created by this module.
 </div>
 Constant features to add to each relation created by this module.
 
-<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
+<h3 id="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -102,7 +118,7 @@ Constant features to add to each relation created by this module.
 </div>
 Constant features to add to each section created by this module.
 
-<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
+<h3 id="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -110,7 +126,7 @@ Constant features to add to each section created by this module.
 </div>
 Constant features to add to each tuple created by this module.
 
-<h3 name="addToLayer" class="param">addToLayer</h3>
+<h3 id="addToLayer" class="param">addToLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -118,7 +134,7 @@ Constant features to add to each tuple created by this module.
 </div>
 Allow to add annotations to layers.
 
-<h3 name="createAnnotations" class="param">createAnnotations</h3>
+<h3 id="createAnnotations" class="param">createAnnotations</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -126,7 +142,7 @@ Allow to add annotations to layers.
 </div>
 Allow the creation of annotations.
 
-<h3 name="createDocuments" class="param">createDocuments</h3>
+<h3 id="createDocuments" class="param">createDocuments</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -134,7 +150,7 @@ Allow the creation of annotations.
 </div>
 Allow the creation of documents.
 
-<h3 name="createRelations" class="param">createRelations</h3>
+<h3 id="createRelations" class="param">createRelations</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -142,7 +158,7 @@ Allow the creation of documents.
 </div>
 Allow the creation of relations.
 
-<h3 name="createSections" class="param">createSections</h3>
+<h3 id="createSections" class="param">createSections</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -150,7 +166,7 @@ Allow the creation of relations.
 </div>
 Allow the creation of sections.
 
-<h3 name="createTuples" class="param">createTuples</h3>
+<h3 id="createTuples" class="param">createTuples</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -158,7 +174,7 @@ Allow the creation of sections.
 </div>
 Allow to create tuples.
 
-<h3 name="deleteElements" class="param">deleteElements</h3>
+<h3 id="deleteElements" class="param">deleteElements</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -166,7 +182,7 @@ Allow to create tuples.
 </div>
 Allow to delete elements.
 
-<h3 name="removeFromLayer" class="param">removeFromLayer</h3>
+<h3 id="removeFromLayer" class="param">removeFromLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -174,7 +190,7 @@ Allow to delete elements.
 </div>
 Allow to remove annotations from layers.
 
-<h3 name="setArguments" class="param">setArguments</h3>
+<h3 id="setArguments" class="param">setArguments</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -182,7 +198,7 @@ Allow to remove annotations from layers.
 </div>
 Allow to set tuple arguments.
 
-<h3 name="setFeatures" class="param">setFeatures</h3>
+<h3 id="setFeatures" class="param">setFeatures</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>

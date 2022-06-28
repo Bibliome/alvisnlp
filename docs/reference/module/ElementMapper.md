@@ -8,11 +8,26 @@ Maps elements according to a collection of mapping elements.
 
 ## Description
 
-*ElementMapper* evaluates <a href="#entries" class="param">entries</a> as a list of elements with the corpus as the context element. These elements represent the entries from which target elements are matched. <a href="#key" class="param">key</a> specifies the key of each entry, and <a href="#values" class="param">values</a> specifies the values of the entries. <a href="#target" class="param">target</a> specifies the mapped elements; the <a href="#form" class="param">form</a> is matched against the key of entries. If the target element matches, *ElementMapper* adds the features <a href="#targetFeatures" class="param">targetFeatures</a> with the matched entry values.
+*ElementMapper*evaluates <a href="#entries" class="param">entries</a> as a list of elements with the corpus as the context element. These elements represent the entries from which target elements are matched. <a href="#key" class="param">key</a> specifies the key of each entry, and <a href="#values" class="param">values</a> specifies the values of the entries. <a href="#target" class="param">target</a> specifies the mapped elements; the <a href="#form" class="param">form</a> is matched against the key of entries. If the target element matches,*ElementMapper*adds the features <a href="#targetFeatures" class="param">targetFeatures</a> with the matched entry values.
+
+## Snippet
+
+
+
+```xml
+<elementmapper class="ElementMapper>
+    <entries></entries>
+    <form></form>
+    <key></key>
+    <target></target>
+    <targetFeatures></targetFeatures>
+    <values></values>
+</elementmapper>
+```
 
 ## Mandatory parameters
 
-<h3 name="entries" class="param">entries</h3>
+<h3 id="entries" class="param">entries</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -20,7 +35,7 @@ Maps elements according to a collection of mapping elements.
 </div>
 Expression evaluated as a list of elements with the corpus as the context element. Each element represents an entry.
 
-<h3 name="form" class="param">form</h3>
+<h3 id="form" class="param">form</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -28,7 +43,7 @@ Expression evaluated as a list of elements with the corpus as the context elemen
 </div>
 Expression evaluated as a string with the target element as context that specifies the target key.
 
-<h3 name="key" class="param">key</h3>
+<h3 id="key" class="param">key</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -36,7 +51,7 @@ Expression evaluated as a string with the target element as context that specifi
 </div>
 Expression evaluated as a string with the entry element as the context. The result determines the entry key.
 
-<h3 name="target" class="param">target</h3>
+<h3 id="target" class="param">target</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -44,7 +59,7 @@ Expression evaluated as a string with the entry element as the context. The resu
 </div>
 Expression evaluated as a list of elements with the corpus as context that specify the elements to be mapped.
 
-<h3 name="targetFeatures" class="param">targetFeatures</h3>
+<h3 id="targetFeatures" class="param">targetFeatures</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -52,7 +67,7 @@ Expression evaluated as a list of elements with the corpus as context that speci
 </div>
 Name of the features where to store the values of matched entries.
 
-<h3 name="values" class="param">values</h3>
+<h3 id="values" class="param">values</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -62,7 +77,7 @@ Expressions evaluated as strings with the entry element as the context. The resu
 
 ## Optional parameters
 
-<h3 name="ignoreCase" class="param">ignoreCase</h3>
+<h3 id="ignoreCase" class="param">ignoreCase</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -70,7 +85,7 @@ Expressions evaluated as strings with the entry element as the context. The resu
 </div>
 Either to match ignoring the case.
 
-<h3 name="operator" class="param">operator</h3>
+<h3 id="operator" class="param">operator</h3>
 
 <div class="param-level param-level-default-value">Default value: `exact`
 </div>

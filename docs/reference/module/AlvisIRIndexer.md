@@ -8,9 +8,21 @@ synopsis
 
 synopsis
 
+## Snippet
+
+
+
+```xml
+<alvisirindexer class="AlvisIRIndexer>
+    <documents></documents>
+    <fieldNames></fieldNames>
+    <indexDir></indexDir>
+</alvisirindexer>
+```
+
 ## Mandatory parameters
 
-<h3 name="documents" class="param">documents</h3>
+<h3 id="documents" class="param">documents</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -18,7 +30,7 @@ synopsis
 </div>
 
 
-<h3 name="fieldNames" class="param">fieldNames</h3>
+<h3 id="fieldNames" class="param">fieldNames</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -26,7 +38,7 @@ synopsis
 </div>
 
 
-<h3 name="indexDir" class="param">indexDir</h3>
+<h3 id="indexDir" class="param">indexDir</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -36,7 +48,7 @@ synopsis
 
 ## Optional parameters
 
-<h3 name="clearIndex" class="param">clearIndex</h3>
+<h3 id="clearIndex" class="param">clearIndex</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -44,7 +56,7 @@ synopsis
 </div>
 
 
-<h3 name="propertyKeys" class="param">propertyKeys</h3>
+<h3 id="propertyKeys" class="param">propertyKeys</h3>
 
 <div class="param-level param-level-default-value">Default value: ``
 </div>
@@ -52,7 +64,7 @@ synopsis
 </div>
 
 
-<h3 name="recordGlobalIndexAttributes" class="param">recordGlobalIndexAttributes</h3>
+<h3 id="recordGlobalIndexAttributes" class="param">recordGlobalIndexAttributes</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -60,7 +72,7 @@ synopsis
 </div>
 
 
-<h3 name="relations" class="param">relations</h3>
+<h3 id="relations" class="param">relations</h3>
 
 <div class="param-level param-level-default-value">Default value: `{}`
 </div>
@@ -68,7 +80,7 @@ synopsis
 </div>
 
 
-<h3 name="tokenPositionGap" class="param">tokenPositionGap</h3>
+<h3 id="tokenPositionGap" class="param">tokenPositionGap</h3>
 
 <div class="param-level param-level-default-value">Default value: `256`
 </div>

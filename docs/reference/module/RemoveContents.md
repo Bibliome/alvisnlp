@@ -10,9 +10,19 @@ synopsis
 
 synopsis
 
+## Snippet
+
+
+
+```xml
+<removecontents class="RemoveContents>
+    <stripLayerName></stripLayerName>
+</removecontents>
+```
+
 ## Mandatory parameters
 
-<h3 name="stripLayerName" class="param">stripLayerName</h3>
+<h3 id="stripLayerName" class="param">stripLayerName</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -22,7 +32,7 @@ synopsis
 
 ## Optional parameters
 
-<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
+<h3 id="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,7 +40,7 @@ synopsis
 </div>
 Constant features to add to each annotation created by this module.
 
-<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
+<h3 id="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -38,7 +48,7 @@ Constant features to add to each annotation created by this module.
 </div>
 Constant features to add to each relation created by this module.
 
-<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
+<h3 id="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -46,7 +56,7 @@ Constant features to add to each relation created by this module.
 </div>
 Constant features to add to each section created by this module.
 
-<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
+<h3 id="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -54,7 +64,7 @@ Constant features to add to each section created by this module.
 </div>
 Constant features to add to each tuple created by this module.
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -62,7 +72,7 @@ Constant features to add to each tuple created by this module.
 </div>
 Only process document that satisfy this expression.
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>

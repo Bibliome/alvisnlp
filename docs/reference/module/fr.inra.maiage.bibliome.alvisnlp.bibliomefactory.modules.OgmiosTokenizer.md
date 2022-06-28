@@ -6,20 +6,30 @@ Tokenizes the sections contents according to the [Ogmios]() tokenizer specificat
 
 ## Description
 
-*OgmiosTokenizer* creates an annotation for each token found in the section contents according to the [Ogmios]() tokenizer specifications and adds these annotations to the <a href="#targetLayerName" class="param">targetLayerName</a> layer. The created annotations have a the feature <a href="#tokenTypeFeature" class="param">tokenTypeFeature</a> with one of the values:
-  
-* *alpha*: for an alphabetic token;
-* *num*: for a numeric token;
-* *sep*: for a whitespace token;
-* *symb*: for all other tokens.
+*OgmiosTokenizer*creates an annotation for each token found in the section contents according to the [Ogmios]() tokenizer specifications and adds these annotations to the <a href="#targetLayerName" class="param">targetLayerName</a> layer. The created annotations have a the feature <a href="#tokenTypeFeature" class="param">tokenTypeFeature</a> with one of the values:
+*  *alpha* : for an alphabetic token;
+*  *num* : for a numeric token;
+*  *sep* : for a whitespace token;
+*  *symb* : for all other tokens.
 
 
 
-If <a href="#separatorTokens" class="param">separatorTokens</a> is false, the *OgmiosTokenizer* does not create annotations corresponding to whitespace tokens.
+If <a href="#separatorTokens" class="param">separatorTokens</a> is false, the*OgmiosTokenizer*does not create annotations corresponding to whitespace tokens.
+
+## Snippet
+
+
+
+```xml
+<ogmiostokenizer class="OgmiosTokenizer>
+    <targetLayerName></targetLayerName>
+    <tokenTypeFeature></tokenTypeFeature>
+</ogmiostokenizer>
+```
 
 ## Mandatory parameters
 
-<h3 name="targetLayerName" class="param">targetLayerName</h3>
+<h3 id="targetLayerName" class="param">targetLayerName</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -27,7 +37,7 @@ If <a href="#separatorTokens" class="param">separatorTokens</a> is false, the *O
 </div>
 Name of the layer where to store the tokens.
 
-<h3 name="tokenTypeFeature" class="param">tokenTypeFeature</h3>
+<h3 id="tokenTypeFeature" class="param">tokenTypeFeature</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -37,7 +47,7 @@ Name of the token feature where to store the token type (alpha, num, sep, symb).
 
 ## Optional parameters
 
-<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
+<h3 id="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -45,7 +55,7 @@ Name of the token feature where to store the token type (alpha, num, sep, symb).
 </div>
 Constant features to add to each annotation created by this module
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -53,7 +63,7 @@ Constant features to add to each annotation created by this module
 </div>
 Only process document that satisfy this filter.
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -61,7 +71,7 @@ Only process document that satisfy this filter.
 </div>
 Process only sections that satisfy this filter.
 
-<h3 name="separatorTokens" class="param">separatorTokens</h3>
+<h3 id="separatorTokens" class="param">separatorTokens</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>

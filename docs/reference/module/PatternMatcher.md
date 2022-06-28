@@ -6,13 +6,24 @@ Matches a regular expression-like pattern on the sequence of annotations in a gi
 
 ## Description
 
-*PatternMatcher* searches for <a href="#pattern" class="param">pattern</a> on the sequence of annotations in layer <a href="#layerName" class="param">layerName</a>. Note that in a layer, annotations are sorted in increasing order of start boundary, then decreasing order of end boundary; the order is undefined for annotations with the exact same span.
+*PatternMatcher*searches for <a href="#pattern" class="param">pattern</a> on the sequence of annotations in layer <a href="#layerName" class="param">layerName</a> . Note that in a layer, annotations are sorted in increasing order of start boundary, then decreasing order of end boundary; the order is undefined for annotations with the exact same span.
 
-For each match, *PatternMatcher* applies all actions specified by <a href="#actions" class="param">actions</a>. Each action concerns a sub-group of the pattern, if no sub-group is specified then the action applies to the whole match.
+For each match,*PatternMatcher*applies all actions specified by <a href="#actions" class="param">actions</a> . Each action concerns a sub-group of the pattern, if no sub-group is specified then the action applies to the whole match.
+
+## Snippet
+
+
+
+```xml
+<patternmatcher class="PatternMatcher>
+    <actions></actions>
+    <pattern></pattern>
+</patternmatcher>
+```
 
 ## Mandatory parameters
 
-<h3 name="actions" class="param">actions</h3>
+<h3 id="actions" class="param">actions</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -20,7 +31,7 @@ For each match, *PatternMatcher* applies all actions specified by <a href="#acti
 </div>
 Actions to perform each time the pattern is matched on the annotation sequence. See <a href="../converter/MatchActionArray" class="converter">MatchActionArray</a> for all available actions.
 
-<h3 name="pattern" class="param">pattern</h3>
+<h3 id="pattern" class="param">pattern</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -30,7 +41,7 @@ Pattern to match see <a href="../converter/ElementPattern" class="converter">Ele
 
 ## Optional parameters
 
-<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
+<h3 id="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -38,7 +49,7 @@ Pattern to match see <a href="../converter/ElementPattern" class="converter">Ele
 </div>
 Constant features to add to each annotation created by this module.
 
-<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
+<h3 id="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -46,7 +57,7 @@ Constant features to add to each annotation created by this module.
 </div>
 Constant features to add to each relation created by this module.
 
-<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
+<h3 id="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -54,7 +65,7 @@ Constant features to add to each relation created by this module.
 </div>
 Constant features to add to each tuple created by this module.
 
-<h3 name="annotationComparator" class="param">annotationComparator</h3>
+<h3 id="annotationComparator" class="param">annotationComparator</h3>
 
 <div class="param-level param-level-default-value">Default value: `length`
 </div>
@@ -62,7 +73,7 @@ Constant features to add to each tuple created by this module.
 </div>
 Comparator to use when removing overlaps.
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -70,7 +81,7 @@ Comparator to use when removing overlaps.
 </div>
 Only process document that satisfy this expression.
 
-<h3 name="layerName" class="param">layerName</h3>
+<h3 id="layerName" class="param">layerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
@@ -78,7 +89,7 @@ Only process document that satisfy this expression.
 </div>
 Match the pattern on the annotations contained in this layer.
 
-<h3 name="overlappingBehaviour" class="param">overlappingBehaviour</h3>
+<h3 id="overlappingBehaviour" class="param">overlappingBehaviour</h3>
 
 <div class="param-level param-level-default-value">Default value: `remove`
 </div>
@@ -86,7 +97,7 @@ Match the pattern on the annotations contained in this layer.
 </div>
 What to do if the layer contains overlapping annotations.
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
 </div>

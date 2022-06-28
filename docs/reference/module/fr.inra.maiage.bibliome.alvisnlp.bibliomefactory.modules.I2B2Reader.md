@@ -2,17 +2,27 @@
 
 ## Synopsis
 
-*I2B2Reader* reads files in the format of the [I2B2]() challenge.
+*I2B2Reader*reads files in the format of the [I2B2]() challenge.
 
 **This module is experimental.**
 
 ## Description
 
-*I2B2Reader* reads documents in [I2B2 challenge]() including the text of documents, tokenization as annotations, concepts as annotations, assertions as annotation features and relations as tuples.
+*I2B2Reader*reads documents in [I2B2 challenge]() including the text of documents, tokenization as annotations, concepts as annotations, assertions as annotation features and relations as tuples.
+
+## Snippet
+
+
+
+```xml
+<i2b2reader class="I2B2Reader>
+    <textDir></textDir>
+</i2b2reader>
+```
 
 ## Mandatory parameters
 
-<h3 name="textDir" class="param">textDir</h3>
+<h3 id="textDir" class="param">textDir</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -22,7 +32,7 @@ Path to the directory containing I2B2 text files.
 
 ## Optional parameters
 
-<h3 name="assertionsDir" class="param">assertionsDir</h3>
+<h3 id="assertionsDir" class="param">assertionsDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,7 +40,7 @@ Path to the directory containing I2B2 text files.
 </div>
 Path to the directory where assertion files can be found.
 
-<h3 name="conceptsDir" class="param">conceptsDir</h3>
+<h3 id="conceptsDir" class="param">conceptsDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -38,7 +48,7 @@ Path to the directory where assertion files can be found.
 </div>
 Path to the directory that contains concept annotations.
 
-<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
+<h3 id="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -46,7 +56,7 @@ Path to the directory that contains concept annotations.
 </div>
 Constant features to add to each annotation created by this module.
 
-<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
+<h3 id="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -54,7 +64,7 @@ Constant features to add to each annotation created by this module.
 </div>
 Constant features to add to each document created by this module.
 
-<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
+<h3 id="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -62,7 +72,7 @@ Constant features to add to each document created by this module.
 </div>
 Constant features to add to each relation created by this module.
 
-<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
+<h3 id="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -70,7 +80,7 @@ Constant features to add to each relation created by this module.
 </div>
 Constant features to add to each section created by this module.
 
-<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
+<h3 id="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -78,7 +88,7 @@ Constant features to add to each section created by this module.
 </div>
 Constant features to add to each tuple created by this module.
 
-<h3 name="relationsDir" class="param">relationsDir</h3>
+<h3 id="relationsDir" class="param">relationsDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -86,7 +96,7 @@ Constant features to add to each tuple created by this module.
 </div>
 Path to the directory where relation files can be found.
 
-<h3 name="assertionFeature" class="param">assertionFeature</h3>
+<h3 id="assertionFeature" class="param">assertionFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `assertion`
 </div>
@@ -94,7 +104,7 @@ Path to the directory where relation files can be found.
 </div>
 
 
-<h3 name="conceptTypeFeature" class="param">conceptTypeFeature</h3>
+<h3 id="conceptTypeFeature" class="param">conceptTypeFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `type`
 </div>
@@ -102,7 +112,7 @@ Path to the directory where relation files can be found.
 </div>
 Feature where to store the concept type.
 
-<h3 name="conceptsLayerName" class="param">conceptsLayerName</h3>
+<h3 id="conceptsLayerName" class="param">conceptsLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `concepts`
 </div>
@@ -110,7 +120,7 @@ Feature where to store the concept type.
 </div>
 Name of the layer where to store concepts annotations.
 
-<h3 name="leftRole" class="param">leftRole</h3>
+<h3 id="leftRole" class="param">leftRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `left`
 </div>
@@ -118,7 +128,7 @@ Name of the layer where to store concepts annotations.
 </div>
 Name of the left argument of relations.
 
-<h3 name="linenoFeature" class="param">linenoFeature</h3>
+<h3 id="linenoFeature" class="param">linenoFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `lineno`
 </div>
@@ -126,7 +136,7 @@ Name of the left argument of relations.
 </div>
 Name of the feature where to store the line number.
 
-<h3 name="linesLayerName" class="param">linesLayerName</h3>
+<h3 id="linesLayerName" class="param">linesLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `lines`
 </div>
@@ -134,7 +144,7 @@ Name of the feature where to store the line number.
 </div>
 Name of the layer where to store lines.
 
-<h3 name="rightRole" class="param">rightRole</h3>
+<h3 id="rightRole" class="param">rightRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `right`
 </div>
@@ -142,7 +152,7 @@ Name of the layer where to store lines.
 </div>
 
 
-<h3 name="sectionName" class="param">sectionName</h3>
+<h3 id="sectionName" class="param">sectionName</h3>
 
 <div class="param-level param-level-default-value">Default value: `text`
 </div>
@@ -150,7 +160,7 @@ Name of the layer where to store lines.
 </div>
 Name of the unique section of each document.
 
-<h3 name="tokenNumberFeature" class="param">tokenNumberFeature</h3>
+<h3 id="tokenNumberFeature" class="param">tokenNumberFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `tokenno`
 </div>
@@ -158,7 +168,7 @@ Name of the unique section of each document.
 </div>
 Feature where to store the token index.
 
-<h3 name="tokensLayerName" class="param">tokensLayerName</h3>
+<h3 id="tokensLayerName" class="param">tokensLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `tokens`
 </div>

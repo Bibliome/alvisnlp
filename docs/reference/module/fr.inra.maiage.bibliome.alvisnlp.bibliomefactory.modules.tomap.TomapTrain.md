@@ -2,24 +2,32 @@
 
 ## Synopsis
 
-*TomapTrain* analyzes terms in preparation of the classification of candidates with [ToMap](https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md).
+*TomapTrain*analyzes terms in preparation of the classification of candidates with [ToMap](https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md) .
 
 **This module is experimental.**
 
 ## Description
 
-*TomapTrain* assumes each sentence or section is a proxy term according to the [ToMap](https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md) method.
-  	*TomapTrain* analyzes the syntactic structure of sections and stores them in <a href="#outFile" class="param">outFile</a>.
-  	Use this file for classifying terms with <a href="../module/TomapProjector" class="module">TomapProjector</a>. 
-  	The identifier associated with the proxy is specified with <a href="#conceptIdentifier" class="param">conceptIdentifier</a>.
-  
+*TomapTrain*assumes each sentence or section is a proxy term according to the [ToMap](https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md) method.*TomapTrain*analyzes the syntactic structure of sections and stores them in <a href="#outFile" class="param">outFile</a> . Use this file for classifying terms with <a href="../module/TomapProjector" class="module">TomapProjector</a> . The identifier associated with the proxy is specified with <a href="#conceptIdentifier" class="param">conceptIdentifier</a> .
 
-<a href="#conceptIdentifier" class="param">conceptIdentifier</a> is 
-  
+ <a href="#conceptIdentifier" class="param">conceptIdentifier</a> is
+
+## Snippet
+
+
+
+```xml
+<tomaptrain class="TomapTrain>
+    <conceptIdentifier></conceptIdentifier>
+    <outFile></outFile>
+    <rcFile></rcFile>
+    <yateaExecutable></yateaExecutable>
+</tomaptrain>
+```
 
 ## Mandatory parameters
 
-<h3 name="conceptIdentifier" class="param">conceptIdentifier</h3>
+<h3 id="conceptIdentifier" class="param">conceptIdentifier</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -27,7 +35,7 @@
 </div>
 An expression evaluated as a string from the section or sentence that specifies the identifier associated with the proxy.
 
-<h3 name="outFile" class="param">outFile</h3>
+<h3 id="outFile" class="param">outFile</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -35,7 +43,7 @@ An expression evaluated as a string from the section or sentence that specifies 
 </div>
 Path to the file where to store the proxy syntactic structures and associated identifiers/
 
-<h3 name="rcFile" class="param">rcFile</h3>
+<h3 id="rcFile" class="param">rcFile</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -43,7 +51,7 @@ Path to the file where to store the proxy syntactic structures and associated id
 </div>
 Path to the YaTeA configuration file.
 
-<h3 name="yateaExecutable" class="param">yateaExecutable</h3>
+<h3 id="yateaExecutable" class="param">yateaExecutable</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -53,7 +61,7 @@ Path to the YaTeA executable file.
 
 ## Optional parameters
 
-<h3 name="configDir" class="param">configDir</h3>
+<h3 id="configDir" class="param">configDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -61,7 +69,7 @@ Path to the YaTeA executable file.
 </div>
 
 
-<h3 name="language" class="param">language</h3>
+<h3 id="language" class="param">language</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -69,7 +77,7 @@ Path to the YaTeA executable file.
 </div>
 
 
-<h3 name="localeDir" class="param">localeDir</h3>
+<h3 id="localeDir" class="param">localeDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -77,7 +85,7 @@ Path to the YaTeA executable file.
 </div>
 
 
-<h3 name="outputDir" class="param">outputDir</h3>
+<h3 id="outputDir" class="param">outputDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -85,7 +93,7 @@ Path to the YaTeA executable file.
 </div>
 
 
-<h3 name="perlLib" class="param">perlLib</h3>
+<h3 id="perlLib" class="param">perlLib</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -93,7 +101,7 @@ Path to the YaTeA executable file.
 </div>
 Contents of the PERLLIB in the environment of Yatea binary.
 
-<h3 name="postProcessingConfig" class="param">postProcessingConfig</h3>
+<h3 id="postProcessingConfig" class="param">postProcessingConfig</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -101,7 +109,7 @@ Contents of the PERLLIB in the environment of Yatea binary.
 </div>
 BioYaTeA option: path to the post-processing file option.
 
-<h3 name="postProcessingOutput" class="param">postProcessingOutput</h3>
+<h3 id="postProcessingOutput" class="param">postProcessingOutput</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -109,7 +117,7 @@ BioYaTeA option: path to the post-processing file option.
 </div>
 BioYaTeA option: path to the result file after post-processing.
 
-<h3 name="suffix" class="param">suffix</h3>
+<h3 id="suffix" class="param">suffix</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -117,7 +125,7 @@ BioYaTeA option: path to the result file after post-processing.
 </div>
 
 
-<h3 name="termListFile" class="param">termListFile</h3>
+<h3 id="termListFile" class="param">termListFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -125,15 +133,15 @@ BioYaTeA option: path to the result file after post-processing.
 </div>
 Path where to write the candidates list produced by YaTeA.
 
-<h3 name="workingDir" class="param">workingDir</h3>
+<h3 id="workingDir" class="param">workingDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.WorkingDirectory" class="converter">WorkingDirectory</a>
 </div>
-Path to the directory where YaTeA is launched. This parameter is **deprecated**, use <a href="#xmlTermsFile" class="param">xmlTermsFile</a> and <a href="#termListFile" class="param">termListFile</a> instead.
+Path to the directory where YaTeA is launched. This parameter is **deprecated** , use <a href="#xmlTermsFile" class="param">xmlTermsFile</a> and <a href="#termListFile" class="param">termListFile</a> instead.
 
-<h3 name="xmlTermsFile" class="param">xmlTermsFile</h3>
+<h3 id="xmlTermsFile" class="param">xmlTermsFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -141,7 +149,7 @@ Path to the directory where YaTeA is launched. This parameter is **deprecated**,
 </div>
 Path where to write the candidates XML file produced by YaTeA.
 
-<h3 name="bioYatea" class="param">bioYatea</h3>
+<h3 id="bioYatea" class="param">bioYatea</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -149,7 +157,7 @@ Path where to write the candidates XML file produced by YaTeA.
 </div>
 
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -157,7 +165,7 @@ Path where to write the candidates XML file produced by YaTeA.
 </div>
 UNDOCUMENTED
 
-<h3 name="formFeature" class="param">formFeature</h3>
+<h3 id="formFeature" class="param">formFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `form`
 </div>
@@ -165,7 +173,7 @@ UNDOCUMENTED
 </div>
 Feature containing the word form.
 
-<h3 name="lemmaFeature" class="param">lemmaFeature</h3>
+<h3 id="lemmaFeature" class="param">lemmaFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `lemma`
 </div>
@@ -173,7 +181,7 @@ Feature containing the word form.
 </div>
 Feature containing the word lemma.
 
-<h3 name="posFeature" class="param">posFeature</h3>
+<h3 id="posFeature" class="param">posFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `pos`
 </div>
@@ -181,7 +189,7 @@ Feature containing the word lemma.
 </div>
 Feature containing the word POS tag.
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
 </div>
@@ -189,7 +197,7 @@ Feature containing the word POS tag.
 </div>
 UNDOCUMENTED
 
-<h3 name="sentenceLayerName" class="param">sentenceLayerName</h3>
+<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -197,7 +205,7 @@ UNDOCUMENTED
 </div>
 Name of the layer containing sentence annotations, sentences are reinforced.
 
-<h3 name="wordLayerName" class="param">wordLayerName</h3>
+<h3 id="wordLayerName" class="param">wordLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
@@ -205,7 +213,7 @@ Name of the layer containing sentence annotations, sentences are reinforced.
 </div>
 Name of the layer containing the word annotations.
 
-<h3 name="yateaDefaultConfig" class="param">yateaDefaultConfig</h3>
+<h3 id="yateaDefaultConfig" class="param">yateaDefaultConfig</h3>
 
 <div class="param-level param-level-default-value">Default value: `{}`
 </div>
@@ -213,7 +221,7 @@ Name of the layer containing the word annotations.
 </div>
 
 
-<h3 name="yateaOptions" class="param">yateaOptions</h3>
+<h3 id="yateaOptions" class="param">yateaOptions</h3>
 
 <div class="param-level param-level-default-value">Default value: `{}`
 </div>

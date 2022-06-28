@@ -19,9 +19,7 @@ String conversion is not available for this type.
 	...</param>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param>
@@ -32,5 +30,5 @@ String conversion is not available for this type.
 
 
 
-*VALUEn* are converted as <a href="../converter/String%5B%5Darray of strings" class="converter">String[]array of strings</a>. The value separator can be set with the *separator* attribute.
+ *VALUEn* are converted as <a href="../converter/String%5B%5Darray of strings" class="converter">String[]array of strings</a> . The value separator can be set with the *separator* attribute.
 

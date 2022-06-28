@@ -7,11 +7,10 @@ Converts into a projection subject.
 ## String conversion
 
 In string conversion the subject is necessarily the section contents. The converter recognizes one of the following values:
-  
-* *plain*: searches for entries in the section contents without bounday check;
-* *words*: searches for entries in the section contents and checks the match starts and ends at word boundaries;
-* *prefix*: searches for entries in the section contents and checks the match starts at a word boundary;
-* *suffix*: searches for entries in the section contents and checks the match ends at a word boundary;
+*  *plain* : searches for entries in the section contents without bounday check;
+*  *words* : searches for entries in the section contents and checks the match starts and ends at word boundaries;
+*  *prefix* : searches for entries in the section contents and checks the match starts at a word boundary;
+*  *suffix* : searches for entries in the section contents and checks the match ends at a word boundary;
 
 
 
@@ -25,8 +24,7 @@ For matching the section contents:
 ```
 
 
-
-  or:
+or:
 
 
 ```xml
@@ -34,8 +32,7 @@ For matching the section contents:
 ```
 
 
-
-  or:
+or:
 
 
 ```xml
@@ -45,7 +42,6 @@ For matching the section contents:
 
 
 For matching annotation feature values:
-  
 
 ```xml
 <param feature="FEATUREKEY" layer="LAYERNAME"/>

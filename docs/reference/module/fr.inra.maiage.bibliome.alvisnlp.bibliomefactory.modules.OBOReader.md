@@ -6,14 +6,21 @@ Reads terms in [OBO files](XXX) as documents.
 
 ## Description
 
-*OBOReader* reads files specified by <a href="#oboFiles" class="param">oboFiles</a> in [OBO format](XXX).
-  Each term is loaded as a distinct document with the term identifier as the document identifier.
-  Each document contains a section (<a href="#nameSectionName" class="param">nameSectionName</a>) containing the term name, and one section for each term synonym (<a href="#synonymSectionName" class="param">synonymSectionName</a>).
-  Optionally *OBOReader* also sets features on the document with the term path from the root (<a href="#pathFeature" class="param">pathFeature</a>), the identifier of the parent term (<a href="#parentFeature" class="param">parentFeature</a>), the identifiers of each ancestor (<a href="#ancestorsFeature" class="param">ancestorsFeature</a>), of the identifiers of each child term (<a href="#childrenFeature" class="param">childrenFeature</a>).
+*OBOReader*reads files specified by <a href="#oboFiles" class="param">oboFiles</a> in [OBO format](XXX) . Each term is loaded as a distinct document with the term identifier as the document identifier. Each document contains a section ( <a href="#nameSectionName" class="param">nameSectionName</a> ) containing the term name, and one section for each term synonym ( <a href="#synonymSectionName" class="param">synonymSectionName</a> ). Optionally*OBOReader*also sets features on the document with the term path from the root ( <a href="#pathFeature" class="param">pathFeature</a> ), the identifier of the parent term ( <a href="#parentFeature" class="param">parentFeature</a> ), the identifiers of each ancestor ( <a href="#ancestorsFeature" class="param">ancestorsFeature</a> ), of the identifiers of each child term ( <a href="#childrenFeature" class="param">childrenFeature</a> ).
+
+## Snippet
+
+
+
+```xml
+<oboreader class="OBOReader>
+    <oboFiles></oboFiles>
+</oboreader>
+```
 
 ## Mandatory parameters
 
-<h3 name="oboFiles" class="param">oboFiles</h3>
+<h3 id="oboFiles" class="param">oboFiles</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -23,7 +30,7 @@ OBO files to read.
 
 ## Optional parameters
 
-<h3 name="ancestorsFeature" class="param">ancestorsFeature</h3>
+<h3 id="ancestorsFeature" class="param">ancestorsFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -31,7 +38,7 @@ OBO files to read.
 </div>
 Name of the feature that contains the term ancestors ids.
 
-<h3 name="childrenFeature" class="param">childrenFeature</h3>
+<h3 id="childrenFeature" class="param">childrenFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -39,7 +46,7 @@ Name of the feature that contains the term ancestors ids.
 </div>
 Name of the feature that contains the term children ids.
 
-<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
+<h3 id="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -47,7 +54,7 @@ Name of the feature that contains the term children ids.
 </div>
 Constant features to add to each document created by this module.
 
-<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
+<h3 id="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -55,7 +62,7 @@ Constant features to add to each document created by this module.
 </div>
 Constant features to add to each section created by this module.
 
-<h3 name="excludeOBOBuiltins" class="param">excludeOBOBuiltins</h3>
+<h3 id="excludeOBOBuiltins" class="param">excludeOBOBuiltins</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -63,7 +70,7 @@ Constant features to add to each section created by this module.
 </div>
 Either to exclude builtin OBO terms.
 
-<h3 name="idPrefix" class="param">idPrefix</h3>
+<h3 id="idPrefix" class="param">idPrefix</h3>
 
 <div class="param-level param-level-default-value">Default value: ``
 </div>
@@ -71,7 +78,7 @@ Either to exclude builtin OBO terms.
 </div>
 Prefix to prepend to each Term identifier.
 
-<h3 name="nameSectionName" class="param">nameSectionName</h3>
+<h3 id="nameSectionName" class="param">nameSectionName</h3>
 
 <div class="param-level param-level-default-value">Default value: `name`
 </div>
@@ -79,7 +86,7 @@ Prefix to prepend to each Term identifier.
 </div>
 Name of the section that contains the term name.
 
-<h3 name="parentFeature" class="param">parentFeature</h3>
+<h3 id="parentFeature" class="param">parentFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `is_a`
 </div>
@@ -87,7 +94,7 @@ Name of the section that contains the term name.
 </div>
 Name of the feature that contains the term parents.
 
-<h3 name="pathFeature" class="param">pathFeature</h3>
+<h3 id="pathFeature" class="param">pathFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `path`
 </div>
@@ -95,7 +102,7 @@ Name of the feature that contains the term parents.
 </div>
 Name of the feature that contains the term paths.
 
-<h3 name="synonymSectionName" class="param">synonymSectionName</h3>
+<h3 id="synonymSectionName" class="param">synonymSectionName</h3>
 
 <div class="param-level param-level-default-value">Default value: `synonym`
 </div>

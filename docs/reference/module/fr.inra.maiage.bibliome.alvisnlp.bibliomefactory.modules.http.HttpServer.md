@@ -10,11 +10,20 @@ UNDOCUMENTED
 
 UNDOCUMENTED
 
+## Snippet
+
+
+
+```xml
+<httpserver class="HttpServer>
+</httpserver>
+```
+
 ## Mandatory parameters
 
 ## Optional parameters
 
-<h3 name="resourceBaseDir" class="param">resourceBaseDir</h3>
+<h3 id="resourceBaseDir" class="param">resourceBaseDir</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -22,7 +31,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="port" class="param">port</h3>
+<h3 id="port" class="param">port</h3>
 
 <div class="param-level param-level-default-value">Default value: `8878`
 </div>

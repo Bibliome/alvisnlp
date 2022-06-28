@@ -2,15 +2,27 @@
 
 ## Synopsis
 
-Deprecated alias for <a href="../module/AlvisAEWriter" class="module">AlvisAEWriter</a>.
+Deprecated alias for <a href="../module/AlvisAEWriter" class="module">AlvisAEWriter</a> .
 
 **This module is obsolete, superceded by fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisae.AlvisAEWriter**
 
 ## Description
 
+## Snippet
+
+
+
+```xml
+<exportcadixejson class="ExportCadixeJSON>
+    <annotationSets></annotationSets>
+    <documentDescription></documentDescription>
+    <outDir></outDir>
+</exportcadixejson>
+```
+
 ## Mandatory parameters
 
-<h3 name="annotationSets" class="param">annotationSets</h3>
+<h3 id="annotationSets" class="param">annotationSets</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -18,7 +30,7 @@ Deprecated alias for <a href="../module/AlvisAEWriter" class="module">AlvisAEWri
 </div>
 UNDOCUMENTED
 
-<h3 name="documentDescription" class="param">documentDescription</h3>
+<h3 id="documentDescription" class="param">documentDescription</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -26,7 +38,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="outDir" class="param">outDir</h3>
+<h3 id="outDir" class="param">outDir</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -36,7 +48,7 @@ UNDOCUMENTED
 
 ## Optional parameters
 
-<h3 name="schemaFile" class="param">schemaFile</h3>
+<h3 id="schemaFile" class="param">schemaFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -44,7 +56,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -52,7 +64,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="documentProperties" class="param">documentProperties</h3>
+<h3 id="documentProperties" class="param">documentProperties</h3>
 
 <div class="param-level param-level-default-value">Default value: `{}`
 </div>
@@ -60,7 +72,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="fileName" class="param">fileName</h3>
+<h3 id="fileName" class="param">fileName</h3>
 
 <div class="param-level param-level-default-value">Default value: `str:concat(properties:@:id(), constant:string:.json())`
 </div>
@@ -68,7 +80,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="owner" class="param">owner</h3>
+<h3 id="owner" class="param">owner</h3>
 
 <div class="param-level param-level-default-value">Default value: `0`
 </div>
@@ -76,7 +88,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="publish" class="param">publish</h3>
+<h3 id="publish" class="param">publish</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -84,7 +96,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>

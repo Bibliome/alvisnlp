@@ -6,11 +6,22 @@ Project-specific file reader.
 
 ## Description
 
-*AnimalReader* reads text files in the same way as <a href="../module/TextFileReader" class="module">TextFileReader</a>. Additionally, for each file read, it also reads metadata in a file with the same name with the *.xml* extension.
+*AnimalReader*reads text files in the same way as <a href="../module/TextFileReader" class="module">TextFileReader</a> . Additionally, for each file read, it also reads metadata in a file with the same name with the *.xml* extension.
+
+## Snippet
+
+
+
+```xml
+<animalreader class="AnimalReader>
+    <sourcePath></sourcePath>
+    <xmlDir></xmlDir>
+</animalreader>
+```
 
 ## Mandatory parameters
 
-<h3 name="sourcePath" class="param">sourcePath</h3>
+<h3 id="sourcePath" class="param">sourcePath</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -18,7 +29,7 @@ Project-specific file reader.
 </div>
 Path to the source directory or source file.
 
-<h3 name="xmlDir" class="param">xmlDir</h3>
+<h3 id="xmlDir" class="param">xmlDir</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -28,7 +39,7 @@ Directory where to find metadata files.
 
 ## Optional parameters
 
-<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
+<h3 id="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -36,7 +47,7 @@ Directory where to find metadata files.
 </div>
 Constant features to add to each document created by this module.
 
-<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
+<h3 id="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -44,7 +55,7 @@ Constant features to add to each document created by this module.
 </div>
 Constant features to add to each section created by this module.
 
-<h3 name="linesLimit" class="param">linesLimit</h3>
+<h3 id="linesLimit" class="param">linesLimit</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -52,7 +63,7 @@ Constant features to add to each section created by this module.
 </div>
 Maximum number of lines per document.
 
-<h3 name="sizeLimit" class="param">sizeLimit</h3>
+<h3 id="sizeLimit" class="param">sizeLimit</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -60,7 +71,7 @@ Maximum number of lines per document.
 </div>
 Maximum number of characters per document. No limit if not set.
 
-<h3 name="bodySectionName" class="param">bodySectionName</h3>
+<h3 id="bodySectionName" class="param">bodySectionName</h3>
 
 <div class="param-level param-level-default-value">Default value: `body`
 </div>
@@ -68,7 +79,7 @@ Maximum number of characters per document. No limit if not set.
 </div>
 Name of the section for the text body.
 
-<h3 name="charset" class="param">charset</h3>
+<h3 id="charset" class="param">charset</h3>
 
 <div class="param-level param-level-default-value">Default value: `UTF-8`
 </div>
@@ -76,7 +87,7 @@ Name of the section for the text body.
 </div>
 Character encoding of input files.
 
-<h3 name="titleSectionName" class="param">titleSectionName</h3>
+<h3 id="titleSectionName" class="param">titleSectionName</h3>
 
 <div class="param-level param-level-default-value">Default value: `title`
 </div>

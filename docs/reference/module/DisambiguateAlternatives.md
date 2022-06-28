@@ -6,12 +6,22 @@ Disambiguate features that have multiple values.
 
 ## Description
 
-*DisambiguateAlternatives* evaluates <a href="#target" class="param">target</a> as a list of elements with the current document as the context element. Then it tries to keep a single value for the feature <a href="#ambiguousFeature" class="param">ambiguousFeature</a> in each item in the result. To achieve this, it keeps a set of unambiguous values found in the document. Unambiguous values are found in elements for which there is a single value for <a href="#ambiguousFeature" class="param">ambiguousFeature</a>.
-  
+*DisambiguateAlternatives*evaluates <a href="#target" class="param">target</a> as a list of elements with the current document as the context element. Then it tries to keep a single value for the feature <a href="#ambiguousFeature" class="param">ambiguousFeature</a> in each item in the result. To achieve this, it keeps a set of unambiguous values found in the document. Unambiguous values are found in elements for which there is a single value for <a href="#ambiguousFeature" class="param">ambiguousFeature</a> .
+
+## Snippet
+
+
+
+```xml
+<disambiguatealternatives class="DisambiguateAlternatives>
+    <ambiguousFeature></ambiguousFeature>
+    <target></target>
+</disambiguatealternatives>
+```
 
 ## Mandatory parameters
 
-<h3 name="ambiguousFeature" class="param">ambiguousFeature</h3>
+<h3 id="ambiguousFeature" class="param">ambiguousFeature</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -19,7 +29,7 @@ Disambiguate features that have multiple values.
 </div>
 Feature to disambiguate.
 
-<h3 name="target" class="param">target</h3>
+<h3 id="target" class="param">target</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -29,7 +39,7 @@ Elements to disambiguate.
 
 ## Optional parameters
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -37,7 +47,7 @@ Elements to disambiguate.
 </div>
 Only process document that satisfy this expression.
 
-<h3 name="warnIfAmbiguous" class="param">warnIfAmbiguous</h3>
+<h3 id="warnIfAmbiguous" class="param">warnIfAmbiguous</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>

@@ -10,9 +10,19 @@ UNDOCUMENTED
 
 UNDOCUMENTED
 
+## Snippet
+
+
+
+```xml
+<pubannotationexport class="PubAnnotationExport>
+    <outFile></outFile>
+</pubannotationexport>
+```
+
 ## Mandatory parameters
 
-<h3 name="outFile" class="param">outFile</h3>
+<h3 id="outFile" class="param">outFile</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -22,7 +32,7 @@ UNDOCUMENTED
 
 ## Optional parameters
 
-<h3 name="divid" class="param">divid</h3>
+<h3 id="divid" class="param">divid</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,7 +40,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="sourcedb" class="param">sourcedb</h3>
+<h3 id="sourcedb" class="param">sourcedb</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -38,7 +48,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="sourceid" class="param">sourceid</h3>
+<h3 id="sourceid" class="param">sourceid</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -46,7 +56,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="denotations" class="param">denotations</h3>
+<h3 id="denotations" class="param">denotations</h3>
 
 <div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.DenotationSpecification@235834f2`
 </div>
@@ -54,7 +64,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -62,7 +72,7 @@ UNDOCUMENTED
 </div>
 Only process document that satisfy this expression.
 
-<h3 name="relations" class="param">relations</h3>
+<h3 id="relations" class="param">relations</h3>
 
 <div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.RelationSpecification@76505305`
 </div>
@@ -70,7 +80,7 @@ Only process document that satisfy this expression.
 </div>
 UNDOCUMENTED
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>

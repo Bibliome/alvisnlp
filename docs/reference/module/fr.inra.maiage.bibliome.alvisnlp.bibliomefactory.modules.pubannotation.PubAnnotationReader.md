@@ -2,24 +2,33 @@
 
 ## Synopsis
 
-Read stream in [PubAnnotation JSON format](http://www.pubannotation.org/docs/annotation-format/).
+Read stream in [PubAnnotation JSON format](http://www.pubannotation.org/docs/annotation-format/) .
 
 **This module is experimental.**
 
 ## Description
 
-*PubAnnotationReader* reads the contents of <a href="#source" class="param">source</a> in [PubAnnotation JSON format](http://www.pubannotation.org/docs/annotation-format/). The following conversions are observed:
-			
+*PubAnnotationReader*reads the contents of <a href="#source" class="param">source</a> in [PubAnnotation JSON format](http://www.pubannotation.org/docs/annotation-format/) . The following conversions are observed:
 * single-span denotations are converted as annotations in a layer named as the denotation object;
-* multi-span denotations are converted as tuples, in a relation named as the denotation object, with one argument for each fragment with roles `fragN`;
+* multi-span denotations are converted as tuples, in a relation named as the denotation object, with one argument for each fragment with roles `fragN` ;
 * relations are converted as tuples, in a relation named as the relation predicate, with two arguments;
 * modifications are converted as additional features on the element representing the modification object.
 
 
 
+## Snippet
+
+
+
+```xml
+<pubannotationreader class="PubAnnotationReader>
+    <source></source>
+</pubannotationreader>
+```
+
 ## Mandatory parameters
 
-<h3 name="source" class="param">source</h3>
+<h3 id="source" class="param">source</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -29,7 +38,7 @@ Source stream in PubAnnotation JSON format.
 
 ## Optional parameters
 
-<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
+<h3 id="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -37,7 +46,7 @@ Source stream in PubAnnotation JSON format.
 </div>
 Constant features to add to each annotation created by this module.
 
-<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
+<h3 id="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -45,7 +54,7 @@ Constant features to add to each annotation created by this module.
 </div>
 Constant features to add to each document created by this module.
 
-<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
+<h3 id="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -53,7 +62,7 @@ Constant features to add to each document created by this module.
 </div>
 Constant features to add to each relation created by this module.
 
-<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
+<h3 id="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -61,7 +70,7 @@ Constant features to add to each relation created by this module.
 </div>
 Constant features to add to each section created by this module.
 
-<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
+<h3 id="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>

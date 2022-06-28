@@ -6,11 +6,11 @@ Reads [Web of Knowledge](http://apps.webofknowledge.com/UA_GeneralSearch_input.d
 
 ## Description
 
-**WARNING:** WoK delivers files with a wrong [Byte Order Mark](https://en.wikipedia.org/wiki/Byte_order_mark), it is advised you remove it using a text editor before feeding it to *WebOfKnowledgeReader*.
+ **WARNING:** WoK delivers files with a wrong [Byte Order Mark](https://en.wikipedia.org/wiki/Byte_order_mark) , it is advised you remove it using a text editor before feeding it to*WebOfKnowledgeReader*.
 
-The PT field (Publication Type) is used as a document marker, *WebOfKnowledgeReader* will create a document each time it reads a PT field.
+The PT field (Publication Type) is used as a document marker,*WebOfKnowledgeReader*will create a document each time it reads a PT field.
 
-The VR field will be read and, if its value is different from "1.0", then *WebOfKnowledgeReader* fails.
+The VR field will be read and, if its value is different from "1.0", then*WebOfKnowledgeReader*fails.
 
 The following fields will be read and stored as document features, one feature per line: AU, AF, BA, BF, CA, GP, BE, SO, SE, BS, LA, CT, CY, CL, SP, HO, C1, RP, EM, RI, OI, FU, CR, TC, Z9, PU, PI, PA, SN, BN, J9, JI, PD, PY, VL, IS, PN, SU, MA, BP, EP, AR, DI, D2, PG, P2, GA, UT, SI, NR.
 
@@ -20,11 +20,21 @@ The following fields will be read and stored as sections, all lines concatenated
 
 The following fields will be ignored: ER, EF, FN.
 
-The feature and section names are the 2-character field code. For an interpretation of field codes, see [WoK format documentation](http://images.webofknowledge.com/WOKRS510B3_1/help/WOS/hs_wos_fieldtags.html).
+The feature and section names are the 2-character field code. For an interpretation of field codes, see [WoK format documentation](http://images.webofknowledge.com/WOKRS510B3_1/help/WOS/hs_wos_fieldtags.html) .
+
+## Snippet
+
+
+
+```xml
+<webofknowledgereader class="WebOfKnowledgeReader>
+    <source></source>
+</webofknowledgereader>
+```
 
 ## Mandatory parameters
 
-<h3 name="source" class="param">source</h3>
+<h3 id="source" class="param">source</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -34,7 +44,7 @@ Location of the WoK file(s).
 
 ## Optional parameters
 
-<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
+<h3 id="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -42,7 +52,7 @@ Location of the WoK file(s).
 </div>
 Constant features to add to each document created by this module.
 
-<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
+<h3 id="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -50,7 +60,7 @@ Constant features to add to each document created by this module.
 </div>
 Constant features to add to each section created by this module.
 
-<h3 name="tabularFormat" class="param">tabularFormat</h3>
+<h3 id="tabularFormat" class="param">tabularFormat</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>

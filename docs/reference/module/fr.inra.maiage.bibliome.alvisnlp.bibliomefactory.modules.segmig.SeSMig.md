@@ -8,28 +8,35 @@ This module assumes WoSMig processed the same sections.
 
 ## Description
 
-*SeSMig* scans for annotations in <a href="#wordLayerName" class="param">wordLayerName</a> and detects a sentence boundaries defined as either:
-  
-* an annotation whose feature <a href="#eosStatusFeature" class="param">eosStatusFeature</a> equals *eos*;
+*SeSMig*scans for annotations in <a href="#wordLayerName" class="param">wordLayerName</a> and detects a sentence boundaries defined as either:
+* an annotation whose feature <a href="#eosStatusFeature" class="param">eosStatusFeature</a> equals *eos* ;
 * an annotation whose surface form contains only characaters of the value of <a href="#strongPunctuations" class="param">strongPunctuations</a> and which is followed by an uppercase character;
 * an annotation whose feature <a href="#eosStatusFeature" class="param">eosStatusFeature</a> equals *maybe-eos* and which is followed by an uppercase character.
 
 
 
-*SeSMig* creates an annotation for each sentence and adds it into the <a href="#targetLayerName" class="param">targetLayerName</a>. The <a href="#eosStatusFeature" class="param">eosStatusFeature</a> of word annotations are given a new value:
-  
-* **eos**: for the last word of each sentence;
-* **not-eos**: for all other words.
+*SeSMig*creates an annotation for each sentence and adds it into the <a href="#targetLayerName" class="param">targetLayerName</a> . The <a href="#eosStatusFeature" class="param">eosStatusFeature</a> of word annotations are given a new value:
+*  **eos** : for the last word of each sentence;
+*  **not-eos** : for all other words.
 
 
 
-If <a href="#noBreakLayerName" class="param">noBreakLayerName</a> is defined, then *SeSMig* will prevent sentence boundaries inside annotations in this layer.
+If <a href="#noBreakLayerName" class="param">noBreakLayerName</a> is defined, then*SeSMig*will prevent sentence boundaries inside annotations in this layer.
+
+## Snippet
+
+
+
+```xml
+<sesmig class="SeSMig>
+</sesmig>
+```
 
 ## Mandatory parameters
 
 ## Optional parameters
 
-<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
+<h3 id="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -37,7 +44,7 @@ If <a href="#noBreakLayerName" class="param">noBreakLayerName</a> is defined, th
 </div>
 Constant features to add to each annotation created by this module.
 
-<h3 name="noBreakLayerName" class="param">noBreakLayerName</h3>
+<h3 id="noBreakLayerName" class="param">noBreakLayerName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -45,7 +52,7 @@ Constant features to add to each annotation created by this module.
 </div>
 Name of the layer containing annotations within which there cannot be sentence boundaries.
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -53,7 +60,7 @@ Name of the layer containing annotations within which there cannot be sentence b
 </div>
 Only process document that satisfy this expression.
 
-<h3 name="eosStatusFeature" class="param">eosStatusFeature</h3>
+<h3 id="eosStatusFeature" class="param">eosStatusFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `eos`
 </div>
@@ -61,7 +68,7 @@ Only process document that satisfy this expression.
 </div>
 Name of the feature (in words) containing the end-of-sentence status (not-eos, maybe-eos).
 
-<h3 name="formFeature" class="param">formFeature</h3>
+<h3 id="formFeature" class="param">formFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `form`
 </div>
@@ -69,7 +76,7 @@ Name of the feature (in words) containing the end-of-sentence status (not-eos, m
 </div>
 Name of the feature containing the word surface form.
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
 </div>
@@ -77,7 +84,7 @@ Name of the feature containing the word surface form.
 </div>
 Process only sections that satisfy this expression.
 
-<h3 name="strongPunctuations" class="param">strongPunctuations</h3>
+<h3 id="strongPunctuations" class="param">strongPunctuations</h3>
 
 <div class="param-level param-level-default-value">Default value: `?.!`
 </div>
@@ -85,7 +92,7 @@ Process only sections that satisfy this expression.
 </div>
 List of strong punctuations.
 
-<h3 name="targetLayerName" class="param">targetLayerName</h3>
+<h3 id="targetLayerName" class="param">targetLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -93,7 +100,7 @@ List of strong punctuations.
 </div>
 Name of the layer where to store sentence annotations.
 
-<h3 name="typeFeature" class="param">typeFeature</h3>
+<h3 id="typeFeature" class="param">typeFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `wordType`
 </div>
@@ -101,7 +108,7 @@ Name of the layer where to store sentence annotations.
 </div>
 Name of the feature where to read word annotation type.
 
-<h3 name="wordLayerName" class="param">wordLayerName</h3>
+<h3 id="wordLayerName" class="param">wordLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>

@@ -10,9 +10,19 @@ UNDOCUMENTED
 
 UNDOCUMENTED
 
+## Snippet
+
+
+
+```xml
+<splitsections class="SplitSections>
+    <selectLayerName></selectLayerName>
+</splitsections>
+```
+
 ## Mandatory parameters
 
-<h3 name="selectLayerName" class="param">selectLayerName</h3>
+<h3 id="selectLayerName" class="param">selectLayerName</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -22,7 +32,7 @@ UNDOCUMENTED
 
 ## Optional parameters
 
-<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
+<h3 id="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,7 +40,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
+<h3 id="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -38,7 +48,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
+<h3 id="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -46,7 +56,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
+<h3 id="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -54,7 +64,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
+<h3 id="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -62,7 +72,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="croppedAnnotationFeatureName" class="param">croppedAnnotationFeatureName</h3>
+<h3 id="croppedAnnotationFeatureName" class="param">croppedAnnotationFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `cropped`
 </div>
@@ -70,7 +80,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="docId" class="param">docId</h3>
+<h3 id="docId" class="param">docId</h3>
 
 <div class="param-level param-level-default-value">Default value: `str(properties:@:id(), constant:string:__(), split:num())`
 </div>
@@ -78,7 +88,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -86,7 +96,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="mergeOverlapping" class="param">mergeOverlapping</h3>
+<h3 id="mergeOverlapping" class="param">mergeOverlapping</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -94,7 +104,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -102,7 +112,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="splitDocuments" class="param">splitDocuments</h3>
+<h3 id="splitDocuments" class="param">splitDocuments</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>

@@ -12,7 +12,7 @@ Functions to manipulate character strings.
 
 `str:before(target, sub)`
 
-Evaluates *target* and *sub* as strings, then returns the substring of *target* before the first occurrence of *sub*. If *sub* cannot be found, then this function returns *target*.
+Evaluates *target* and *sub* as strings, then returns the substring of *target* before the first occurrence of *sub* . If *sub* cannot be found, then this function returns *target* .
 
 <a name="after">
 
@@ -20,7 +20,7 @@ Evaluates *target* and *sub* as strings, then returns the substring of *target* 
 
 `str:after:sub(target)`
 
-Evaluates *target* as a string, then returns the substring of *target* after the first occurrence of *sub*. If *sub* cannot be found, then this function returns *target*.
+Evaluates *target* as a string, then returns the substring of *target* after the first occurrence of *sub* . If *sub* cannot be found, then this function returns *target* .
 
 <a name="basename">
 
@@ -28,7 +28,7 @@ Evaluates *target* as a string, then returns the substring of *target* after the
 
 `str:basename(path)`
 
-Treats *path* as a file path and returns the last element of *path*.
+Treats *path* as a file path and returns the last element of *path* .
 
 <a name="before">
 
@@ -36,7 +36,7 @@ Treats *path* as a file path and returns the last element of *path*.
 
 `str:after(target, sub)`
 
-Evaluates *target* and *sub* as strings, then returns the substring of *target* after the first occurrence of *sub*. If *sub* cannot be found, then this function returns *target*.
+Evaluates *target* and *sub* as strings, then returns the substring of *target* after the first occurrence of *sub* . If *sub* cannot be found, then this function returns *target* .
 
 <a name="before">
 
@@ -44,7 +44,7 @@ Evaluates *target* and *sub* as strings, then returns the substring of *target* 
 
 `str:before:sub(target)`
 
-Evaluates *target* as a string, then returns the substring of *target* before the first occurrence of *sub*. If *sub* cannot be found, then this function returns *target*.
+Evaluates *target* as a string, then returns the substring of *target* before the first occurrence of *sub* . If *sub* cannot be found, then this function returns *target* .
 
 <a name="cmp">
 
@@ -52,7 +52,7 @@ Evaluates *target* as a string, then returns the substring of *target* before th
 
 `str:cmp(a, b)`
 
-Evaluates *a* and *b* as strings, then compares the results. This function returns -1, 0 or 1 when *a* is lower, equal or greater than *b*.
+Evaluates *a* and *b* as strings, then compares the results. This function returns -1, 0 or 1 when *a* is lower, equal or greater than *b* .
 
 <a name="diacritics">
 
@@ -76,7 +76,7 @@ Evaluates *a* and *b* as strings, then returns either the two strings are equal 
 
 `str:hash(s)`
 
-Returns a hash code computed from *s*.
+Returns a hash code computed from *s* .
 
 <a name="index">
 
@@ -84,7 +84,7 @@ Returns a hash code computed from *s*.
 
 `str:index(s, target)`
 
-Evaluates *s* and *target* as strings, then returns the number of characters in *s* before the first occurrence of *target* in *s*. If there is no occurrence of *target* in *s*, then this function returns -1.
+Evaluates *s* and *target* as strings, then returns the number of characters in *s* before the first occurrence of *target* in *s* . If there is no occurrence of *target* in *s* , then this function returns -1.
 
 <a name="join">
 
@@ -92,7 +92,7 @@ Evaluates *s* and *target* as strings, then returns the number of characters in 
 
 `str:join(items, string, separator)`
 
-Evaluates *items* as a list of elements and *separator* as a string. Then for each element of *items*, this function evaluates *string* as a string and returns a concatenation of the results seperated with *separator*
+Evaluates *items* as a list of elements and *separator* as a string. Then for each element of *items* , this function evaluates *string* as a string and returns a concatenation of the results seperated with *separator* 
 
 <a name="join">
 
@@ -100,7 +100,7 @@ Evaluates *items* as a list of elements and *separator* as a string. Then for ea
 
 `str:join:separator(items, string)`
 
-Evaluates *items* as a list of elements, then for each element of *items*, this function evaluates *string* as a string and returns a concatenation of the results seperated with *separator*
+Evaluates *items* as a list of elements, then for each element of *items* , this function evaluates *string* as a string and returns a concatenation of the results seperated with *separator* 
 
 <a name="join">
 
@@ -108,7 +108,7 @@ Evaluates *items* as a list of elements, then for each element of *items*, this 
 
 `str:join(items, string)`
 
-Evaluates *items* as a list of elements, then for each element of *items*, this function evaluates *string* as a string and returns a concatenation of the results seperated with a single whitespace.
+Evaluates *items* as a list of elements, then for each element of *items* , this function evaluates *string* as a string and returns a concatenation of the results seperated with a single whitespace.
 
 <a name="len">
 
@@ -132,7 +132,7 @@ Evaluates *a* and *b* as strings, then returns the edit distance between the res
 
 `str:levenshteinSimilar(a, b, d)`
 
-Evaluates *a* and *b* as strings and *d* as a float, then returns either the edit distance between *a* and *b* is lower or equal than *d*. This function is useful for approximate string matching.
+Evaluates *a* and *b* as strings and *d* as a float, then returns either the edit distance between *a* and *b* is lower or equal than *d* . This function is useful for approximate string matching.
 
 <a name="lower">
 
@@ -156,7 +156,7 @@ Evaluates *s* as a string, then returns the result with leading and trailing whi
 
 `str:padl(s, n)`
 
-Forces *s* to length *n*. If shorter, then this function adds as many spaces necessary at the beginning. If longer, then this function truncates *s*.
+Forces *s* to length *n* . If shorter, then this function adds as many spaces necessary at the beginning. If longer, then this function truncates *s* .
 
 <a name="padl">
 
@@ -164,7 +164,7 @@ Forces *s* to length *n*. If shorter, then this function adds as many spaces nec
 
 `str:padl:filler(s, n)`
 
-Forces *s* to length *n*. If shorter, then this function adds as many *filler* necessary at the beginning. If longer, then this function truncates *s*.
+Forces *s* to length *n* . If shorter, then this function adds as many *filler* necessary at the beginning. If longer, then this function truncates *s* .
 
 <a name="padr">
 
@@ -172,7 +172,7 @@ Forces *s* to length *n*. If shorter, then this function adds as many *filler* n
 
 `str:padr(s, n)`
 
-Forces *s* to length *n*. If shorter, then this function adds as many spaces necessary at the end. If longer, then this function truncates *s*.
+Forces *s* to length *n* . If shorter, then this function adds as many spaces necessary at the end. If longer, then this function truncates *s* .
 
 <a name="padr">
 
@@ -180,7 +180,7 @@ Forces *s* to length *n*. If shorter, then this function adds as many spaces nec
 
 `str:padr:filler(s, n)`
 
-Forces *s* to length *n*. If shorter, then this function adds as many *filler* necessary at the end. If longer, then this function truncates *s*.
+Forces *s* to length *n* . If shorter, then this function adds as many *filler* necessary at the end. If longer, then this function truncates *s* .
 
 <a name="regrp">
 
@@ -188,7 +188,7 @@ Forces *s* to length *n*. If shorter, then this function adds as many *filler* n
 
 `str:regrp(s, re, n)`
 
-Compiles *re* as a regular expression and searches in *s*. This function returns the *n* capturing group of the regular expression.
+Compiles *re* as a regular expression and searches in *s* . This function returns the *n* capturing group of the regular expression.
 
 <a name="replace">
 
@@ -196,7 +196,7 @@ Compiles *re* as a regular expression and searches in *s*. This function returns
 
 `str:replace(target, search, replace)`
 
-Evaluates *target*, *search* and *replace* as strings, then returns *target* with all non-overlapping occurrences of *search* substituted with *replace*.
+Evaluates *target* , *search* and *replace* as strings, then returns *target* with all non-overlapping occurrences of *search* substituted with *replace* .
 
 <a name="rindex">
 
@@ -204,7 +204,7 @@ Evaluates *target*, *search* and *replace* as strings, then returns *target* wit
 
 `str:rindex(s, target)`
 
-Evaluates *s* and *target* as strings, then returns the number of characters in *s* after the last occurrence of *target* in *s*. If there is no occurrence of *target* in *s*, then this function returns -1.
+Evaluates *s* and *target* as strings, then returns the number of characters in *s* after the last occurrence of *target* in *s* . If there is no occurrence of *target* in *s* , then this function returns -1.
 
 <a name="seds">
 
@@ -212,7 +212,7 @@ Evaluates *s* and *target* as strings, then returns the number of characters in 
 
 `str:seds(target, pattern, replace)`
 
-Evaluates *target*, *pattern* and *replace* as strings, then interprets *pattern* as a [Java Regular Expression](http://download.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html). This function returns *target* with all non-overlapping matches of *pattern* substituted with *replace*.
+Evaluates *target* , *pattern* and *replace* as strings, then interprets *pattern* as a [Java Regular Expression](http://download.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) . This function returns *target* with all non-overlapping matches of *pattern* substituted with *replace* .
 
 <a name="split">
 
@@ -220,7 +220,7 @@ Evaluates *target*, *pattern* and *replace* as strings, then interprets *pattern
 
 `str:split:separator:feature(target)`
 
-Evaluate *target* as a string, then splits it by the first character of *separator*. The adds each string into the context feature named *feature*. Feature modification must be allowed.
+Evaluate *target* as a string, then splits it by the first character of *separator* . The adds each string into the context feature named *feature* . Feature modification must be allowed.
 
 <a name="sub">
 

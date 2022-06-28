@@ -8,13 +8,24 @@ Read documents and entities in the PESV format.
 
 ## Description
 
-*PESVReader* reads CSV files in <a href="#docStream" class="param">docStream</a> and creates one document for each record. The identifier of the document is the *id* column. The section content is created from the tokenization provided in the *processed_text* column. The tokenization itself is recorded in the layer named after <a href="#tokenLayerName" class="param">tokenLayerName</a>.
+*PESVReader*reads CSV files in <a href="#docStream" class="param">docStream</a> and creates one document for each record. The identifier of the document is the *id* column. The section content is created from the tokenization provided in the *processed_text* column. The tokenization itself is recorded in the layer named after <a href="#tokenLayerName" class="param">tokenLayerName</a> .
 
-*PESVReader* also reads CSV files in <a href="#entitiesStream" class="param">entitiesStream</a> and creates one entity annotation in the layer named <a href="#entityLayerName" class="param">entityLayerName</a> for each record. All properties are recorded in the corresponding feature, as well as in a single feature names <a href="#propertiesFeatureKey" class="param">propertiesFeatureKey</a>.
+*PESVReader*also reads CSV files in <a href="#entitiesStream" class="param">entitiesStream</a> and creates one entity annotation in the layer named <a href="#entityLayerName" class="param">entityLayerName</a> for each record. All properties are recorded in the corresponding feature, as well as in a single feature names <a href="#propertiesFeatureKey" class="param">propertiesFeatureKey</a> .
+
+## Snippet
+
+
+
+```xml
+<pesvreader class="PESVReader>
+    <docStream></docStream>
+    <entitiesStream></entitiesStream>
+</pesvreader>
+```
 
 ## Mandatory parameters
 
-<h3 name="docStream" class="param">docStream</h3>
+<h3 id="docStream" class="param">docStream</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -22,7 +33,7 @@ Read documents and entities in the PESV format.
 </div>
 Path to the file(s) or directory(ies) where to look for document files.
 
-<h3 name="entitiesStream" class="param">entitiesStream</h3>
+<h3 id="entitiesStream" class="param">entitiesStream</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -32,7 +43,7 @@ Path to the file(s) or directory(ies) where to look for entities files.
 
 ## Optional parameters
 
-<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
+<h3 id="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -40,7 +51,7 @@ Path to the file(s) or directory(ies) where to look for entities files.
 </div>
 Constant features to add to each annotation created by this module.
 
-<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
+<h3 id="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -48,7 +59,7 @@ Constant features to add to each annotation created by this module.
 </div>
 Constant features to add to each document created by this module.
 
-<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
+<h3 id="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -56,7 +67,7 @@ Constant features to add to each document created by this module.
 </div>
 Constant features to add to each section created by this module.
 
-<h3 name="entityLayerName" class="param">entityLayerName</h3>
+<h3 id="entityLayerName" class="param">entityLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `entities`
 </div>
@@ -64,7 +75,7 @@ Constant features to add to each section created by this module.
 </div>
 Name of the layer where to create entities.
 
-<h3 name="ordFeatureKey" class="param">ordFeatureKey</h3>
+<h3 id="ordFeatureKey" class="param">ordFeatureKey</h3>
 
 <div class="param-level param-level-default-value">Default value: `ord`
 </div>
@@ -72,15 +83,15 @@ Name of the layer where to create entities.
 </div>
 Name of the feature where to record the token ordinal.
 
-<h3 name="propertiesFeatureKey" class="param">propertiesFeatureKey</h3>
+<h3 id="propertiesFeatureKey" class="param">propertiesFeatureKey</h3>
 
 <div class="param-level param-level-default-value">Default value: `properties`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-Name of the feature where to record entities properties. *PESVReader* also records each property in a separate feature.
+Name of the feature where to record entities properties.*PESVReader*also records each property in a separate feature.
 
-<h3 name="sectionName" class="param">sectionName</h3>
+<h3 id="sectionName" class="param">sectionName</h3>
 
 <div class="param-level param-level-default-value">Default value: `text`
 </div>
@@ -88,7 +99,7 @@ Name of the feature where to record entities properties. *PESVReader* also recor
 </div>
 Name of the (unique) section.
 
-<h3 name="tokenLayerName" class="param">tokenLayerName</h3>
+<h3 id="tokenLayerName" class="param">tokenLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `tokens`
 </div>

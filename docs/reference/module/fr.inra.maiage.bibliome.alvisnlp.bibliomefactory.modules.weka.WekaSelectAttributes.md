@@ -6,11 +6,24 @@ Searches for discrimminating attributes with Weka.
 
 ## Description
 
-*WekaSelectAttributes* applies Weka's attribute selection on a training set specified by <a href="#examples" class="param">examples</a> and writes the result in <a href="#evaluationFile" class="param">evaluationFile</a>.
+*WekaSelectAttributes*applies Weka's attribute selection on a training set specified by <a href="#examples" class="param">examples</a> and writes the result in <a href="#evaluationFile" class="param">evaluationFile</a> .
+
+## Snippet
+
+
+
+```xml
+<wekaselectattributes class="WekaSelectAttributes>
+    <evaluationFile></evaluationFile>
+    <evaluator></evaluator>
+    <examples></examples>
+    <relationDefinition></relationDefinition>
+</wekaselectattributes>
+```
 
 ## Mandatory parameters
 
-<h3 name="evaluationFile" class="param">evaluationFile</h3>
+<h3 id="evaluationFile" class="param">evaluationFile</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -18,15 +31,15 @@ Searches for discrimminating attributes with Weka.
 </div>
 File where to write evaluation results.
 
-<h3 name="evaluator" class="param">evaluator</h3>
+<h3 id="evaluator" class="param">evaluator</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-Evaluation metrics, this should be the canonical name of a class that extends Weka's [ASEvaluation](http://weka.sourceforge.net/doc/weka/attributeSelection/ASEvaluation.html).
+Evaluation metrics, this should be the canonical name of a class that extends Weka's [ASEvaluation](http://weka.sourceforge.net/doc/weka/attributeSelection/ASEvaluation.html) .
 
-<h3 name="examples" class="param">examples</h3>
+<h3 id="examples" class="param">examples</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -34,7 +47,7 @@ Evaluation metrics, this should be the canonical name of a class that extends We
 </div>
 Training set examples. This expression is evaluated as a list of elements with the corpus as the context element.
 
-<h3 name="relationDefinition" class="param">relationDefinition</h3>
+<h3 id="relationDefinition" class="param">relationDefinition</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -44,7 +57,7 @@ Specification of example attributes and class.
 
 ## Optional parameters
 
-<h3 name="evaluatorOptions" class="param">evaluatorOptions</h3>
+<h3 id="evaluatorOptions" class="param">evaluatorOptions</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -52,15 +65,15 @@ Specification of example attributes and class.
 </div>
 Options to the evaluator.
 
-<h3 name="search" class="param">search</h3>
+<h3 id="search" class="param">search</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-Search heuristic, this should be the canonical name of a class that extends Weka's [ASSearch](http://weka.sourceforge.net/doc/weka/attributeSelection/ASSearch.html).
+Search heuristic, this should be the canonical name of a class that extends Weka's [ASSearch](http://weka.sourceforge.net/doc/weka/attributeSelection/ASSearch.html) .
 
-<h3 name="searchOptions" class="param">searchOptions</h3>
+<h3 id="searchOptions" class="param">searchOptions</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>

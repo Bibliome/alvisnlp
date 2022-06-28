@@ -8,13 +8,23 @@ Writes the corpus in XMI format using the AlvisNLP/ML proxy typesystem.
 
 ## Description
 
-*XMIExport* writes a file for each document in <a href="#outDir" class="param">outDir</a> in the XMI format using the AlvisNLP/ML proxy typesystem.
+*XMIExport*writes a file for each document in <a href="#outDir" class="param">outDir</a> in the XMI format using the AlvisNLP/ML proxy typesystem.
 
-Files written by this module can be read by <a href="../module/XMIImport" class="module">XMIImport</a>
+Files written by this module can be read by <a href="../module/XMIImport" class="module">XMIImport</a> 
+
+## Snippet
+
+
+
+```xml
+<xmiexport class="XMIExport>
+    <outDir></outDir>
+</xmiexport>
+```
 
 ## Mandatory parameters
 
-<h3 name="outDir" class="param">outDir</h3>
+<h3 id="outDir" class="param">outDir</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -24,7 +34,7 @@ Directory where to write XMI files.
 
 ## Optional parameters
 
-<h3 name="typeSystemFile" class="param">typeSystemFile</h3>
+<h3 id="typeSystemFile" class="param">typeSystemFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -32,7 +42,7 @@ Directory where to write XMI files.
 </div>
 If set write the AlvisNLP/ML proxy typesystem into the specified file.
 
-<h3 name="dkproCompatibility" class="param">dkproCompatibility</h3>
+<h3 id="dkproCompatibility" class="param">dkproCompatibility</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -40,7 +50,7 @@ If set write the AlvisNLP/ML proxy typesystem into the specified file.
 </div>
 UNDOCUMENTED
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -48,7 +58,7 @@ UNDOCUMENTED
 </div>
 Only process document that satisfy this expression.
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>

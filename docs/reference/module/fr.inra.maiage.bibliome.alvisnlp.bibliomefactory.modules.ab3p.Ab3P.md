@@ -10,9 +10,19 @@ synopsis
 
 synopsis
 
+## Snippet
+
+
+
+```xml
+<ab3p class="Ab3P>
+    <installDir></installDir>
+</ab3p>
+```
+
 ## Mandatory parameters
 
-<h3 name="installDir" class="param">installDir</h3>
+<h3 id="installDir" class="param">installDir</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -22,7 +32,7 @@ synopsis
 
 ## Optional parameters
 
-<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
+<h3 id="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,7 +40,7 @@ synopsis
 </div>
 Constant features to add to each annotation created by this module.
 
-<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
+<h3 id="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -38,7 +48,7 @@ Constant features to add to each annotation created by this module.
 </div>
 Constant features to add to each relation created by this module.
 
-<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
+<h3 id="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -46,7 +56,7 @@ Constant features to add to each relation created by this module.
 </div>
 Constant features to add to each tuple created by this module.
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -54,7 +64,7 @@ Constant features to add to each tuple created by this module.
 </div>
 Only process document that satisfy this expression.
 
-<h3 name="longFormFeature" class="param">longFormFeature</h3>
+<h3 id="longFormFeature" class="param">longFormFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `long-form`
 </div>
@@ -62,7 +72,7 @@ Only process document that satisfy this expression.
 </div>
 
 
-<h3 name="longFormRole" class="param">longFormRole</h3>
+<h3 id="longFormRole" class="param">longFormRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `long-form`
 </div>
@@ -70,7 +80,7 @@ Only process document that satisfy this expression.
 </div>
 
 
-<h3 name="longFormsLayerName" class="param">longFormsLayerName</h3>
+<h3 id="longFormsLayerName" class="param">longFormsLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `long-forms`
 </div>
@@ -78,7 +88,7 @@ Only process document that satisfy this expression.
 </div>
 
 
-<h3 name="relationName" class="param">relationName</h3>
+<h3 id="relationName" class="param">relationName</h3>
 
 <div class="param-level param-level-default-value">Default value: `abbreviations`
 </div>
@@ -86,7 +96,7 @@ Only process document that satisfy this expression.
 </div>
 
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -94,7 +104,7 @@ Only process document that satisfy this expression.
 </div>
 Process only sections that satisfy this expression.
 
-<h3 name="shortFormRole" class="param">shortFormRole</h3>
+<h3 id="shortFormRole" class="param">shortFormRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `short-form`
 </div>
@@ -102,7 +112,7 @@ Process only sections that satisfy this expression.
 </div>
 
 
-<h3 name="shortFormsLayerName" class="param">shortFormsLayerName</h3>
+<h3 id="shortFormsLayerName" class="param">shortFormsLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `short-forms`
 </div>

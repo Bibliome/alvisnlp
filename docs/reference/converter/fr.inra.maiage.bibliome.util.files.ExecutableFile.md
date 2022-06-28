@@ -16,30 +16,23 @@ The string value is interpreted as a path to a file. The value must be a valid f
 <param value="PATH"/>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param path="PATH"/>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param file="PATH"/>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param>PATH</param>
 ```
 
-*PATH* is converted into an *ExecutableFile* as specified by the string conversion.
-  
+ *PATH* is converted into an*ExecutableFile*as specified by the string conversion.
 

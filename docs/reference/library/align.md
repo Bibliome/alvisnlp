@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-*align* provides functions to align two list of elements using the [Needleman-Wunsch]() algorithm.
+*align*provides functions to align two list of elements using the [Needleman-Wunsch]() algorithm.
 
 ## Functons
 
@@ -14,9 +14,9 @@
 
 Evaluates *a* and *b* as lists of elements and aligns them using the [Needleman-Wunsch]() algorithm, then returns the optimal alignment probability.
 
-*gap* is evaluated as a number and specifies the gap penalty.
+ *gap* is evaluated as a number and specifies the gap penalty.
 
-*match* is evaluated as a number for each pair of elements. The context element is an item form *a* and the item from *b* can be retrieved with the function *other*.
+ *match* is evaluated as a number for each pair of elements. The context element is an item form *a* and the item from *b* can be retrieved with the function *other* .
 
 <a name="score">
 

@@ -14,9 +14,9 @@ All functions of this library require an argument that represent the vertices of
 
 `path:between(from, to, vert)`
 
-Evaluates *from* and to
+Evaluates *from* andto
 
- as lists of elements, then computes the shortest from the first element of the former to the first element of the latter.
+as lists of elements, then computes the shortest from the first element of the former to the first element of the latter.
 
 <a name="to">
 

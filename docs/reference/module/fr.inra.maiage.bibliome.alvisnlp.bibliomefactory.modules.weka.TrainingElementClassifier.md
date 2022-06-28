@@ -2,15 +2,28 @@
 
 ## Synopsis
 
-Deprecated alias for <a href="../module/WekaTrain" class="module">WekaTrain</a>.
+Deprecated alias for <a href="../module/WekaTrain" class="module">WekaTrain</a> .
 
 **This module is obsolete, superceded by fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.weka.WekaTrain**
 
 ## Description
 
+## Snippet
+
+
+
+```xml
+<trainingelementclassifier class="TrainingElementClassifier>
+    <algorithm></algorithm>
+    <classifierFile></classifierFile>
+    <examples></examples>
+    <relationDefinition></relationDefinition>
+</trainingelementclassifier>
+```
+
 ## Mandatory parameters
 
-<h3 name="algorithm" class="param">algorithm</h3>
+<h3 id="algorithm" class="param">algorithm</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -18,7 +31,7 @@ Deprecated alias for <a href="../module/WekaTrain" class="module">WekaTrain</a>.
 </div>
 UNDOCUMENTED
 
-<h3 name="classifierFile" class="param">classifierFile</h3>
+<h3 id="classifierFile" class="param">classifierFile</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -26,7 +39,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="examples" class="param">examples</h3>
+<h3 id="examples" class="param">examples</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -34,7 +47,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="relationDefinition" class="param">relationDefinition</h3>
+<h3 id="relationDefinition" class="param">relationDefinition</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -44,7 +57,7 @@ UNDOCUMENTED
 
 ## Optional parameters
 
-<h3 name="arffFile" class="param">arffFile</h3>
+<h3 id="arffFile" class="param">arffFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -52,7 +65,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="classifierInfoFile" class="param">classifierInfoFile</h3>
+<h3 id="classifierInfoFile" class="param">classifierInfoFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -60,7 +73,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="classifierOptions" class="param">classifierOptions</h3>
+<h3 id="classifierOptions" class="param">classifierOptions</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -68,7 +81,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="crossFolds" class="param">crossFolds</h3>
+<h3 id="crossFolds" class="param">crossFolds</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -76,7 +89,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="evaluationFile" class="param">evaluationFile</h3>
+<h3 id="evaluationFile" class="param">evaluationFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -84,7 +97,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="foldFeatureKey" class="param">foldFeatureKey</h3>
+<h3 id="foldFeatureKey" class="param">foldFeatureKey</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -92,7 +105,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="predictedClassFeatureKey" class="param">predictedClassFeatureKey</h3>
+<h3 id="predictedClassFeatureKey" class="param">predictedClassFeatureKey</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -100,7 +113,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="randomSeed" class="param">randomSeed</h3>
+<h3 id="randomSeed" class="param">randomSeed</h3>
 
 <div class="param-level param-level-default-value">Default value: `1`
 </div>

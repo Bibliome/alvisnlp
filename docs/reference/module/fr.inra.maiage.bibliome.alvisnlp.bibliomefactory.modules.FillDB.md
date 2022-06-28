@@ -10,9 +10,22 @@ Stores the corpus into a SQL database.
 
 
 
+## Snippet
+
+
+
+```xml
+<filldb class="FillDB>
+    <password></password>
+    <schema></schema>
+    <url></url>
+    <username></username>
+</filldb>
+```
+
 ## Mandatory parameters
 
-<h3 name="password" class="param">password</h3>
+<h3 id="password" class="param">password</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -20,7 +33,7 @@ Stores the corpus into a SQL database.
 </div>
 Password for RDBMS access.
 
-<h3 name="schema" class="param">schema</h3>
+<h3 id="schema" class="param">schema</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -28,7 +41,7 @@ Password for RDBMS access.
 </div>
 Schema of the filled tables.
 
-<h3 name="url" class="param">url</h3>
+<h3 id="url" class="param">url</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -36,7 +49,7 @@ Schema of the filled tables.
 </div>
 URL of the database.
 
-<h3 name="username" class="param">username</h3>
+<h3 id="username" class="param">username</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -46,7 +59,7 @@ User for RDBMS access.
 
 ## Optional parameters
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -54,7 +67,7 @@ User for RDBMS access.
 </div>
 Only process document that satisfy this filter.
 
-<h3 name="jdbcDriver" class="param">jdbcDriver</h3>
+<h3 id="jdbcDriver" class="param">jdbcDriver</h3>
 
 <div class="param-level param-level-default-value">Default value: `org.postgresql.Driver`
 </div>
@@ -62,7 +75,7 @@ Only process document that satisfy this filter.
 </div>
 JDBC driver for the RDBMS.
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>

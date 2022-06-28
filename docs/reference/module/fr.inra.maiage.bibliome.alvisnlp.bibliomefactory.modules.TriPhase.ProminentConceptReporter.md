@@ -10,9 +10,22 @@ synopsis
 
 synopsis
 
+## Snippet
+
+
+
+```xml
+<prominentconceptreporter class="ProminentConceptReporter>
+    <conceptAnnotations></conceptAnnotations>
+    <conceptId></conceptId>
+    <documents></documents>
+    <sectionName></sectionName>
+</prominentconceptreporter>
+```
+
 ## Mandatory parameters
 
-<h3 name="conceptAnnotations" class="param">conceptAnnotations</h3>
+<h3 id="conceptAnnotations" class="param">conceptAnnotations</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -20,7 +33,7 @@ synopsis
 </div>
 
 
-<h3 name="conceptId" class="param">conceptId</h3>
+<h3 id="conceptId" class="param">conceptId</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -28,7 +41,7 @@ synopsis
 </div>
 
 
-<h3 name="documents" class="param">documents</h3>
+<h3 id="documents" class="param">documents</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -36,7 +49,7 @@ synopsis
 </div>
 
 
-<h3 name="sectionName" class="param">sectionName</h3>
+<h3 id="sectionName" class="param">sectionName</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>

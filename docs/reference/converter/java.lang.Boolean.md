@@ -7,12 +7,10 @@ Converts into a true or false value.
 ## String conversion
 
 
-* True values: *true*, *yes*, empty string.
-* False values: *false*, *no*.
+* True values: *true* , *yes* , empty string.
+* False values: *false* , *no* .
 
-
-	Any other value than the ones listed above are considered an error.
-  
+Any other value than the ones listed above are considered an error.
 
 ## XML conversion
 
@@ -22,14 +20,11 @@ Converts into a true or false value.
 <param value="BOOL"/>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param>BOOL</param>
 ```
 
-*BOOL* is converted into a boolean as specified by the string conversion.
-  
+ *BOOL* is converted into a boolean as specified by the string conversion.
 

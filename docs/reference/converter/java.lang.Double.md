@@ -6,7 +6,7 @@ Converts into a double precision floating point number.
 
 ## String conversion
 
-This converter accepts double precision floating point values in Java syntax (see [Java double conversion](http://download.oracle.com/javase/7/docs/api/java/lang/Double.html#valueOf(java.lang.String))).
+This converter accepts double precision floating point values in Java syntax (see [Java double conversion](http://download.oracle.com/javase/7/docs/api/java/lang/Double.html#valueOf(java.lang.String)) ).
 
 ## XML conversion
 
@@ -16,14 +16,11 @@ This converter accepts double precision floating point values in Java syntax (se
 <param value="DOUBLE"/>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param>DOUBLE</param>
 ```
 
-*DOUBLE* is converted into a double precision floating point number as specified by the string conversion.
-  
+ *DOUBLE* is converted into a double precision floating point number as specified by the string conversion.
 

@@ -10,9 +10,20 @@ Removes duplicate elements.
 
 synopsis
 
+## Snippet
+
+
+
+```xml
+<removeequivalent class="RemoveEquivalent>
+    <equivalency></equivalency>
+    <target></target>
+</removeequivalent>
+```
+
 ## Mandatory parameters
 
-<h3 name="equivalency" class="param">equivalency</h3>
+<h3 id="equivalency" class="param">equivalency</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -20,7 +31,7 @@ synopsis
 </div>
 
 
-<h3 name="target" class="param">target</h3>
+<h3 id="target" class="param">target</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -30,7 +41,7 @@ synopsis
 
 ## Optional parameters
 
-<h3 name="priority" class="param">priority</h3>
+<h3 id="priority" class="param">priority</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>

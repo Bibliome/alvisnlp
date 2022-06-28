@@ -5,10 +5,9 @@
 Functions to sort lists of elements.
 
 The functions in this library come in three versions:
-  
-* *simple sort*: the list is sorted, duplicates and equivalent elements are kept;
-* *sort and remove duplicates*: the list is sorted and duplicates are removed, however equivalent elements are kept (modifier: "u");
-* *sort and remove equivalents*: the list is sorted and equivalent elements are removed (modifier: "n").
+*  *simple sort* : the list is sorted, duplicates and equivalent elements are kept;
+*  *sort and remove duplicates* : the list is sorted and duplicates are removed, however equivalent elements are kept (modifier: "u");
+*  *sort and remove equivalents* : the list is sorted and equivalent elements are removed (modifier: "n").
 
 
 
@@ -20,7 +19,7 @@ The functions in this library come in three versions:
 
 `sort:comp(list, comparator)`
 
-Evaluates *list* as a list of elements, then sorts the result according to the expression *comparator*. The *comparator* expression is evaluated as an integer and must return a number below zero (lower than), zero (equals) or above zero (greater than).
+Evaluates *list* as a list of elements, then sorts the result according to the expression *comparator* . The *comparator* expression is evaluated as an integer and must return a number below zero (lower than), zero (equals) or above zero (greater than).
 
 <a name="dval">
 
@@ -28,7 +27,7 @@ Evaluates *list* as a list of elements, then sorts the result according to the e
 
 `sort:dval(list, value)`
 
-Evaluates *list* as a list of elements, then evaluates *value* as a double for each element. Returns the list sorted by *value*.
+Evaluates *list* as a list of elements, then evaluates *value* as a double for each element. Returns the list sorted by *value* .
 
 <a name="ival">
 
@@ -36,7 +35,7 @@ Evaluates *list* as a list of elements, then evaluates *value* as a double for e
 
 `sort:ival(list, value)`
 
-Evaluates *list* as a list of elements, then evaluates *value* as an integer for each element. Returns the list sorted by *value*.
+Evaluates *list* as a list of elements, then evaluates *value* as an integer for each element. Returns the list sorted by *value* .
 
 <a name="ncomp">
 
@@ -44,7 +43,7 @@ Evaluates *list* as a list of elements, then evaluates *value* as an integer for
 
 `sort:ncomp(list, comparator)`
 
-Same as <a href="#comp" class="function">comp</a>, remove equivalents.
+Same as<a href="#comp" class="function">comp</a>, remove equivalents.
 
 <a name="ndval">
 
@@ -52,7 +51,7 @@ Same as <a href="#comp" class="function">comp</a>, remove equivalents.
 
 `sort:ndval(list, value)`
 
-Same as <a href="#dval" class="function">dval</a>, remove equivalents.
+Same as<a href="#dval" class="function">dval</a>, remove equivalents.
 
 <a name="nival">
 
@@ -60,7 +59,7 @@ Same as <a href="#dval" class="function">dval</a>, remove equivalents.
 
 `sort:nival(list, value)`
 
-Same as <a href="#ival" class="function">ival</a>, remove equivalents.
+Same as<a href="#ival" class="function">ival</a>, remove equivalents.
 
 <a name="nsval">
 
@@ -68,7 +67,7 @@ Same as <a href="#ival" class="function">ival</a>, remove equivalents.
 
 `sort:nsval(list, value)`
 
-Same as <a href="#sval" class="function">sval</a>, remove equivalents.
+Same as<a href="#sval" class="function">sval</a>, remove equivalents.
 
 <a name="reverse">
 
@@ -92,7 +91,7 @@ Evaluates *list* as a list of elements, then evaluates *value* as a string for e
 
 `sort:ucomp(list, comparator)`
 
-Same as <a href="#comp" class="function">comp</a>, remove duplicates.
+Same as<a href="#comp" class="function">comp</a>, remove duplicates.
 
 <a name="udval">
 
@@ -100,7 +99,7 @@ Same as <a href="#comp" class="function">comp</a>, remove duplicates.
 
 `sort:udval(list, value)`
 
-Same as <a href="#dval" class="function">dval</a>, remove duplicates.
+Same as<a href="#dval" class="function">dval</a>, remove duplicates.
 
 <a name="uival">
 
@@ -108,7 +107,7 @@ Same as <a href="#dval" class="function">dval</a>, remove duplicates.
 
 `sort:uival(list, value)`
 
-Same as <a href="#ival" class="function">ival</a>, remove duplicates.
+Same as<a href="#ival" class="function">ival</a>, remove duplicates.
 
 <a name="usval">
 
@@ -116,5 +115,5 @@ Same as <a href="#ival" class="function">ival</a>, remove duplicates.
 
 `sort:usval(list, value)`
 
-Same as <a href="#sval" class="function">sval</a>, remove duplicates.
+Same as<a href="#sval" class="function">sval</a>, remove duplicates.
 

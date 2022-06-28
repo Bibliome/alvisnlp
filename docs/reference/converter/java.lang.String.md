@@ -16,9 +16,7 @@ The input string is stripped from leading and trailing whitespace characters.
 <param value="STRING"/>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param>STRING</param>

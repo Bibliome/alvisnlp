@@ -6,11 +6,23 @@ Creates tuples for each element of a Cartesian product.
 
 ## Description
 
-*CartesianProductTuples* evaluates <a href="#anchor" class="param">anchor</a> as an element list with the corpus as the context element. Each item is hereby called the *anchor*. *CartesianProductTuples* evaluates all values of <a href="#arguments" class="param">arguments</a> as lists of elements with the anchor as the context element. Then it creates a tuple for each item of the cartesian product of the result of the evaluation of <a href="#arguments" class="param">arguments</a>. The tuple will have an argument for each item with the role specified by the keys of <a href="#arguments" class="param">arguments</a>.
+*CartesianProductTuples*evaluates <a href="#anchor" class="param">anchor</a> as an element list with the corpus as the context element. Each item is hereby called the *anchor* .*CartesianProductTuples*evaluates all values of <a href="#arguments" class="param">arguments</a> as lists of elements with the anchor as the context element. Then it creates a tuple for each item of the cartesian product of the result of the evaluation of <a href="#arguments" class="param">arguments</a> . The tuple will have an argument for each item with the role specified by the keys of <a href="#arguments" class="param">arguments</a> .
+
+## Snippet
+
+
+
+```xml
+<cartesianproducttuples class="CartesianProductTuples>
+    <anchor></anchor>
+    <arguments></arguments>
+    <relationName></relationName>
+</cartesianproducttuples>
+```
 
 ## Mandatory parameters
 
-<h3 name="anchor" class="param">anchor</h3>
+<h3 id="anchor" class="param">anchor</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -18,7 +30,7 @@ Creates tuples for each element of a Cartesian product.
 </div>
 Elements from which arguments are evaluated.
 
-<h3 name="arguments" class="param">arguments</h3>
+<h3 id="arguments" class="param">arguments</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -26,7 +38,7 @@ Elements from which arguments are evaluated.
 </div>
 Tuple role/argument pairs.
 
-<h3 name="relationName" class="param">relationName</h3>
+<h3 id="relationName" class="param">relationName</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -36,7 +48,7 @@ Name of the relation to which tuples are added.
 
 ## Optional parameters
 
-<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
+<h3 id="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -44,7 +56,7 @@ Name of the relation to which tuples are added.
 </div>
 Constant features to add to each relation created by this module.
 
-<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
+<h3 id="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -52,7 +64,7 @@ Constant features to add to each relation created by this module.
 </div>
 Constant features to add to each tuple created by this module.
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -60,7 +72,7 @@ Constant features to add to each tuple created by this module.
 </div>
 Only process document that satisfy this expression.
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>

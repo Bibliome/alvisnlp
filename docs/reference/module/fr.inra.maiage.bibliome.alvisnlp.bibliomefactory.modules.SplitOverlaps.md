@@ -8,16 +8,27 @@ Splits overlapping annotations.
 
 ## Description
 
-*SplitOverlaps* copies annotations from <a href="#checkedlayerNames" class="param">checkedlayerNames</a> into <a href="#modifiedlayerName" class="param">modifiedlayerName</a> and ensures that this layer does not contain overlaping annotations. If <a href="#checkedlayerNames" class="param">checkedlayerNames</a> contains overlaps, then *SplitOverlaps* splits annotations at the start or end positions of overlapping annotations.
+*SplitOverlaps*copies annotations from <a href="#checkedlayerNames" class="param">checkedlayerNames</a> into <a href="#modifiedlayerName" class="param">modifiedlayerName</a> and ensures that this layer does not contain overlaping annotations. If <a href="#checkedlayerNames" class="param">checkedlayerNames</a> contains overlaps, then*SplitOverlaps*splits annotations at the start or end positions of overlapping annotations.
 
 
 * Features copied?
 * Non-split annotations deep-copied?
 * Split embedded annotations?
 
+## Snippet
+
+
+
+```xml
+<splitoverlaps class="SplitOverlaps>
+    <checkedlayerNames></checkedlayerNames>
+    <modifiedlayerName></modifiedlayerName>
+</splitoverlaps>
+```
+
 ## Mandatory parameters
 
-<h3 name="checkedlayerNames" class="param">checkedlayerNames</h3>
+<h3 id="checkedlayerNames" class="param">checkedlayerNames</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -25,7 +36,7 @@ Splits overlapping annotations.
 </div>
 Source layers.
 
-<h3 name="modifiedlayerName" class="param">modifiedlayerName</h3>
+<h3 id="modifiedlayerName" class="param">modifiedlayerName</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -35,7 +46,7 @@ Target layer.
 
 ## Optional parameters
 
-<h3 name="indexFeatureName" class="param">indexFeatureName</h3>
+<h3 id="indexFeatureName" class="param">indexFeatureName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -43,7 +54,7 @@ Target layer.
 </div>
 Feature where to store the index of the split annotations.
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -51,7 +62,7 @@ Feature where to store the index of the split annotations.
 </div>
 Only process document that satisfy this expression.
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>

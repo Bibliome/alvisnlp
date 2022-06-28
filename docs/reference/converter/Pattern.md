@@ -6,7 +6,7 @@ Compiles a regular expression.
 
 ## String conversion
 
-Parses the value as a regular expression in Java Regular Expression Format (see [Java regexp](http://download.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html)).
+Parses the value as a regular expression in Java Regular Expression Format (see [Java regexp](http://download.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html) ).
 
 ## XML conversion
 
@@ -16,38 +16,29 @@ Parses the value as a regular expression in Java Regular Expression Format (see 
 <param value="PATTERN"/>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param pattern="PATTERN"/>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param regexp="PATTERN"/>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param regex="PATTERN"/>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param>PATTERN</param>
 ```
 
-*PATTERN* is converted into a regular expression pattern as specified by the string conversion.
-  
+ *PATTERN* is converted into a regular expression pattern as specified by the string conversion.
 

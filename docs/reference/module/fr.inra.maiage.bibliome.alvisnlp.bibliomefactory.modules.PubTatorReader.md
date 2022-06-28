@@ -10,9 +10,19 @@ synopsis
 
 synopsis
 
+## Snippet
+
+
+
+```xml
+<pubtatorreader class="PubTatorReader>
+    <sourcePath></sourcePath>
+</pubtatorreader>
+```
+
 ## Mandatory parameters
 
-<h3 name="sourcePath" class="param">sourcePath</h3>
+<h3 id="sourcePath" class="param">sourcePath</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -22,7 +32,7 @@ synopsis
 
 ## Optional parameters
 
-<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
+<h3 id="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,7 +40,7 @@ synopsis
 </div>
 Constant features to add to each annotation created by this module.
 
-<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
+<h3 id="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -38,7 +48,7 @@ Constant features to add to each annotation created by this module.
 </div>
 Constant features to add to each document created by this module.
 
-<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
+<h3 id="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -46,7 +56,7 @@ Constant features to add to each document created by this module.
 </div>
 Constant features to add to each section created by this module.
 
-<h3 name="classFeature" class="param">classFeature</h3>
+<h3 id="classFeature" class="param">classFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `class`
 </div>
@@ -54,7 +64,7 @@ Constant features to add to each section created by this module.
 </div>
 
 
-<h3 name="offsetFeature" class="param">offsetFeature</h3>
+<h3 id="offsetFeature" class="param">offsetFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `offset`
 </div>
@@ -62,7 +72,7 @@ Constant features to add to each section created by this module.
 </div>
 
 
-<h3 name="typeFeature" class="param">typeFeature</h3>
+<h3 id="typeFeature" class="param">typeFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `type`
 </div>

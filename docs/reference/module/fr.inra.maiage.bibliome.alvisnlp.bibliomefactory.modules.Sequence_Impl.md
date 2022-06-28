@@ -6,13 +6,22 @@ Sequence of documents.
 
 ## Description
 
-*Sequence_Impl* is not intended to be used directly. AlvisNLP/ML instanciates *Sequence_Impl* when the plan file specifies a `sequence`.
+*Sequence_Impl*is not intended to be used directly. AlvisNLP/ML instanciates*Sequence_Impl*when the plan file specifies a `sequence` .
+
+## Snippet
+
+
+
+```xml
+<sequence_impl class="Sequence_Impl>
+</sequence_impl>
+```
 
 ## Mandatory parameters
 
 ## Optional parameters
 
-<h3 name="select" class="param">select</h3>
+<h3 id="select" class="param">select</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>

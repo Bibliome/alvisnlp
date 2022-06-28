@@ -8,21 +8,27 @@ Train a document categorizer using the [OpenNLP](https://opennlp.apache.org/) li
 
 ## Description
 
-*OpenNLPDocumentCategorizerTrain* trains a document categorizer using the [OpenNLP](https://opennlp.apache.org/) library.
-			The documents and their class are specified by <a href="#documents" class="param">documents</a> and <a href="#categoryFeature" class="param">categoryFeature</a>.
-			The classifier algorithm uses the document content specified by <a href="#tokens" class="param">tokens</a> and <a href="#form" class="param">form</a>. 
-			
+*OpenNLPDocumentCategorizerTrain*trains a document categorizer using the [OpenNLP](https://opennlp.apache.org/) library. The documents and their class are specified by <a href="#documents" class="param">documents</a> and <a href="#categoryFeature" class="param">categoryFeature</a> . The classifier algorithm uses the document content specified by <a href="#tokens" class="param">tokens</a> and <a href="#form" class="param">form</a> .
 
-By default the features are BOW but can be deactivated with <a href="#bagOfWords" class="param">bagOfWords</a>.
-			Additionally <a href="#nGrams" class="param">nGrams</a> can be set to add n-gram features. 
-			
+By default the features are BOW but can be deactivated with <a href="#bagOfWords" class="param">bagOfWords</a> . Additionally <a href="#nGrams" class="param">nGrams</a> can be set to add n-gram features.
 
-The classifier is stored in <a href="#classifier" class="param">classifier</a>. This file can be used by <a href="../module/OpenNLPDocumentCategorizer" class="module">OpenNLPDocumentCategorizer</a>. 
-			
+The classifier is stored in <a href="#classifier" class="param">classifier</a> . This file can be used by <a href="../module/OpenNLPDocumentCategorizer" class="module">OpenNLPDocumentCategorizer</a> .
+
+## Snippet
+
+
+
+```xml
+<opennlpdocumentcategorizertrain class="OpenNLPDocumentCategorizerTrain>
+    <categoryFeature></categoryFeature>
+    <language></language>
+    <model></model>
+</opennlpdocumentcategorizertrain>
+```
 
 ## Mandatory parameters
 
-<h3 name="categoryFeature" class="param">categoryFeature</h3>
+<h3 id="categoryFeature" class="param">categoryFeature</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -30,7 +36,7 @@ The classifier is stored in <a href="#classifier" class="param">classifier</a>. 
 </div>
 Feature where the category is read.
 
-<h3 name="language" class="param">language</h3>
+<h3 id="language" class="param">language</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -38,7 +44,7 @@ Feature where the category is read.
 </div>
 Language of the documents (ISO 639-1 two-letter code).
 
-<h3 name="model" class="param">model</h3>
+<h3 id="model" class="param">model</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -48,7 +54,7 @@ File where to store the classifier.
 
 ## Optional parameters
 
-<h3 name="classWeights" class="param">classWeights</h3>
+<h3 id="classWeights" class="param">classWeights</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -56,7 +62,7 @@ File where to store the classifier.
 </div>
 Weight of samples of each class. This parameter is useful to compensate unbalanced training sets. The default weight is 1.
 
-<h3 name="nGrams" class="param">nGrams</h3>
+<h3 id="nGrams" class="param">nGrams</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -64,22 +70,21 @@ Weight of samples of each class. This parameter is useful to compensate unbalanc
 </div>
 Maximum size of n-gram features (minimum is 2). If not set, then do not use n-gram features.
 
-<h3 name="algorithm" class="param">algorithm</h3>
+<h3 id="algorithm" class="param">algorithm</h3>
 
 <div class="param-level param-level-default-value">Default value: `PERCEPTRON`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.opennlp.OpenNLPAlgorithm" class="converter">OpenNLPAlgorithm</a>
 </div>
 Categorization algorithm. Must be one of:
-			
-* *naive-bayes*, *nb*
-* *generalized-iterative-scaling*, *gis*
-* *perceptron*
-* *quasi-newton*, *qn*, *l-bfgs*, *lbfgs*, *bfgs*
+*  *naive-bayes* , *nb* 
+*  *generalized-iterative-scaling* , *gis* 
+*  *perceptron* 
+*  *quasi-newton* , *qn* , *l-bfgs* , *lbfgs* , *bfgs* 
 
 
 
-<h3 name="bagOfWords" class="param">bagOfWords</h3>
+<h3 id="bagOfWords" class="param">bagOfWords</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -87,7 +92,7 @@ Categorization algorithm. Must be one of:
 </div>
 Either to generate single-word features.
 
-<h3 name="documents" class="param">documents</h3>
+<h3 id="documents" class="param">documents</h3>
 
 <div class="param-level param-level-default-value">Default value: `nav:documents()`
 </div>
@@ -95,7 +100,7 @@ Either to generate single-word features.
 </div>
 Elements to classify. This expression is evaluated from the corpus.
 
-<h3 name="form" class="param">form</h3>
+<h3 id="form" class="param">form</h3>
 
 <div class="param-level param-level-default-value">Default value: `properties:@:form()`
 </div>
@@ -103,7 +108,7 @@ Elements to classify. This expression is evaluated from the corpus.
 </div>
 Form of the token. This expression is evaluated as a string from the token.
 
-<h3 name="iterations" class="param">iterations</h3>
+<h3 id="iterations" class="param">iterations</h3>
 
 <div class="param-level param-level-default-value">Default value: `100`
 </div>
@@ -111,7 +116,7 @@ Form of the token. This expression is evaluated as a string from the token.
 </div>
 Number of learning iterations.
 
-<h3 name="tokens" class="param">tokens</h3>
+<h3 id="tokens" class="param">tokens</h3>
 
 <div class="param-level param-level-default-value">Default value: `nav:.(nav:sections(), nav:layer:words())`
 </div>

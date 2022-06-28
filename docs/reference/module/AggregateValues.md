@@ -2,19 +2,15 @@
 
 ## Synopsis
 
-*AggregateValues* lists a set of values and computes aggregate values.
+*AggregateValues*lists a set of values and computes aggregate values.
 
 **This module is experimental.**
 
 ## Description
 
-*AggregateValues* lists a set of elements specified by <a href="#entries" class="param">entries</a>, and computes a string value for each specified by <a href="#key" class="param">key</a>.
-  	*AggregateValues* computes aggregates functions specified by <a href="#aggregators" class="param">aggregators</a> for each distinct value.
-  	The list of entry keys and their aggregate values are written into <a href="#outFile" class="param">outFile</a>
+*AggregateValues*lists a set of elements specified by <a href="#entries" class="param">entries</a> , and computes a string value for each specified by <a href="#key" class="param">key</a> .*AggregateValues*computes aggregates functions specified by <a href="#aggregators" class="param">aggregators</a> for each distinct value. The list of entry keys and their aggregate values are written into <a href="#outFile" class="param">outFile</a> 
 
-### Example
-  	Counting words in the corpus:
-  
+### ExampleCounting words in the corpus:
 
 
 
@@ -31,9 +27,21 @@
       
 ```
 
+## Snippet
+
+
+
+```xml
+<aggregatevalues class="AggregateValues>
+    <entries></entries>
+    <key></key>
+    <outFile></outFile>
+</aggregatevalues>
+```
+
 ## Mandatory parameters
 
-<h3 name="entries" class="param">entries</h3>
+<h3 id="entries" class="param">entries</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -41,7 +49,7 @@
 </div>
 Expression evaluated from the corpus as a list of elements.
 
-<h3 name="key" class="param">key</h3>
+<h3 id="key" class="param">key</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -49,7 +57,7 @@ Expression evaluated from the corpus as a list of elements.
 </div>
 Value of each entry. This expression is evaluated as a string from the entry element.
 
-<h3 name="outFile" class="param">outFile</h3>
+<h3 id="outFile" class="param">outFile</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -59,7 +67,7 @@ File where to write the result.
 
 ## Optional parameters
 
-<h3 name="aggregators" class="param">aggregators</h3>
+<h3 id="aggregators" class="param">aggregators</h3>
 
 <div class="param-level param-level-default-value">Default value: ``
 </div>
@@ -67,7 +75,7 @@ File where to write the result.
 </div>
 Aggregate functions to compute for each value.
 
-<h3 name="separator" class="param">separator</h3>
+<h3 id="separator" class="param">separator</h3>
 
 <div class="param-level param-level-default-value">Default value: `	`
 </div>

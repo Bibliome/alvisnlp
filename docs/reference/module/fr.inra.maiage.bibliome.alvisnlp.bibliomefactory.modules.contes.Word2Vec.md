@@ -10,9 +10,21 @@ Computes word embeddings using the [CONTES/Gensis](https://github.com/ArnaudFerr
 
 Computes word embeddings using the [CONTES/Gensis](https://github.com/ArnaudFerre/CONTES) implementation.
 
+## Snippet
+
+
+
+```xml
+<word2vec class="Word2Vec>
+    <contesDir></contesDir>
+    <python3Executable></python3Executable>
+    <workers></workers>
+</word2vec>
+```
+
 ## Mandatory parameters
 
-<h3 name="contesDir" class="param">contesDir</h3>
+<h3 id="contesDir" class="param">contesDir</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -20,7 +32,7 @@ Computes word embeddings using the [CONTES/Gensis](https://github.com/ArnaudFerr
 </div>
 Root directory of CONTES.
 
-<h3 name="python3Executable" class="param">python3Executable</h3>
+<h3 id="python3Executable" class="param">python3Executable</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -28,7 +40,7 @@ Root directory of CONTES.
 </div>
 Path to the Python 3 executable.
 
-<h3 name="workers" class="param">workers</h3>
+<h3 id="workers" class="param">workers</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -38,7 +50,7 @@ Use this many worker threads to train the model (=faster training with multicore
 
 ## Optional parameters
 
-<h3 name="additionalArguments" class="param">additionalArguments</h3>
+<h3 id="additionalArguments" class="param">additionalArguments</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -46,7 +58,7 @@ Use this many worker threads to train the model (=faster training with multicore
 </div>
 UNDOCUMENTED
 
-<h3 name="jsonFile" class="param">jsonFile</h3>
+<h3 id="jsonFile" class="param">jsonFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -54,7 +66,7 @@ UNDOCUMENTED
 </div>
 File where to write embeddings as a JSON object.
 
-<h3 name="modelFile" class="param">modelFile</h3>
+<h3 id="modelFile" class="param">modelFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -62,7 +74,7 @@ File where to write embeddings as a JSON object.
 </div>
 UNDOCUMENTED
 
-<h3 name="txtFile" class="param">txtFile</h3>
+<h3 id="txtFile" class="param">txtFile</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -70,7 +82,7 @@ UNDOCUMENTED
 </div>
 File where to write embeddings as a table.
 
-<h3 name="vectorFeatureName" class="param">vectorFeatureName</h3>
+<h3 id="vectorFeatureName" class="param">vectorFeatureName</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -78,7 +90,7 @@ File where to write embeddings as a table.
 </div>
 UNDOCUMENTED
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -86,7 +98,7 @@ UNDOCUMENTED
 </div>
 Only process document that satisfy this expression.
 
-<h3 name="formFeatureName" class="param">formFeatureName</h3>
+<h3 id="formFeatureName" class="param">formFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `form`
 </div>
@@ -94,7 +106,7 @@ Only process document that satisfy this expression.
 </div>
 UNDOCUMENTED
 
-<h3 name="minCount" class="param">minCount</h3>
+<h3 id="minCount" class="param">minCount</h3>
 
 <div class="param-level param-level-default-value">Default value: `0`
 </div>
@@ -102,7 +114,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, boolean:and(nav:layer:sentences(), nav:layer:words()))`
 </div>
@@ -110,7 +122,7 @@ UNDOCUMENTED
 </div>
 Process only sections that satisfy this expression.
 
-<h3 name="sentenceLayerName" class="param">sentenceLayerName</h3>
+<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -118,7 +130,7 @@ Process only sections that satisfy this expression.
 </div>
 UNDOCUMENTED
 
-<h3 name="tokenLayerName" class="param">tokenLayerName</h3>
+<h3 id="tokenLayerName" class="param">tokenLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
@@ -126,7 +138,7 @@ UNDOCUMENTED
 </div>
 UNDOCUMENTED
 
-<h3 name="vectorSize" class="param">vectorSize</h3>
+<h3 id="vectorSize" class="param">vectorSize</h3>
 
 <div class="param-level param-level-default-value">Default value: `200`
 </div>
@@ -134,7 +146,7 @@ UNDOCUMENTED
 </div>
 The dimensionality of the feature vectors. Often effective between 100 and 300.
 
-<h3 name="windowSize" class="param">windowSize</h3>
+<h3 id="windowSize" class="param">windowSize</h3>
 
 <div class="param-level param-level-default-value">Default value: `2`
 </div>

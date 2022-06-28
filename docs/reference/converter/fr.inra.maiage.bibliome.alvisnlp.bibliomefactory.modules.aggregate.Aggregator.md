@@ -2,11 +2,11 @@
 
 ## Synopsis
 
-Converts into aggregator functions (see <a href="../module/AggregateValues" class="module">AggregateValues</a>).
+Converts into aggregator functions (see <a href="../module/AggregateValues" class="module">AggregateValues</a> ).
 
 ## String conversion
 
-**String conversion is not available for this data type.**
+ **String conversion is not available for this data type.** 
 
 ## XML conversion
 

@@ -6,7 +6,7 @@ Converts into a mapping from character strings keys to character strings values.
 
 ## String conversion
 
-Entries are separated by commas. The entry key and value are separated by an equal (*=*) character. Keys and values are stripped from leading and trailing whitespace characters.
+Entries are separated by commas. The entry key and value are separated by an equal ( *=* ) character. Keys and values are stripped from leading and trailing whitespace characters.
 
 The entry separator can be modified with the *separator* attribute. The separator between keys and their respective value can be modified with the *qualifier* attribute.
 
@@ -18,17 +18,13 @@ The entry separator can be modified with the *separator* attribute. The separato
 <param value="MAPPING"/>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param>MAPPING</param>
 ```
 
-
-	where *MAPPING* will be converted according to the string conversion specifications.
-  
+where *MAPPING* will be converted according to the string conversion specifications.
 
 
 
@@ -39,9 +35,7 @@ The entry separator can be modified with the *separator* attribute. The separato
 	...</param>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param>

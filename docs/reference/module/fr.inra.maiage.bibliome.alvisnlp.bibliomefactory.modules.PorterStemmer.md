@@ -10,11 +10,20 @@ synopsis
 
 synopsis
 
+## Snippet
+
+
+
+```xml
+<porterstemmer class="PorterStemmer>
+</porterstemmer>
+```
+
 ## Mandatory parameters
 
 ## Optional parameters
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -22,7 +31,7 @@ synopsis
 </div>
 Only process document that satisfy this expression.
 
-<h3 name="formFeature" class="param">formFeature</h3>
+<h3 id="formFeature" class="param">formFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `form`
 </div>
@@ -30,7 +39,7 @@ Only process document that satisfy this expression.
 </div>
 
 
-<h3 name="language" class="param">language</h3>
+<h3 id="language" class="param">language</h3>
 
 <div class="param-level param-level-default-value">Default value: `english`
 </div>
@@ -38,7 +47,7 @@ Only process document that satisfy this expression.
 </div>
 
 
-<h3 name="layerName" class="param">layerName</h3>
+<h3 id="layerName" class="param">layerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
@@ -46,7 +55,7 @@ Only process document that satisfy this expression.
 </div>
 
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
 </div>
@@ -54,7 +63,7 @@ Only process document that satisfy this expression.
 </div>
 Process only sections that satisfy this expression.
 
-<h3 name="stemFeature" class="param">stemFeature</h3>
+<h3 id="stemFeature" class="param">stemFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `stem`
 </div>

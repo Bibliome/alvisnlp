@@ -10,9 +10,24 @@ synopsis
 
 synopsis
 
+## Snippet
+
+
+
+```xml
+<alvisrepreparecrossvalidation class="AlvisREPrepareCrossValidation>
+    <cParameter></cParameter>
+    <outDir></outDir>
+    <relations></relations>
+    <schema></schema>
+    <similarityFunction></similarityFunction>
+    <terms></terms>
+</alvisrepreparecrossvalidation>
+```
+
 ## Mandatory parameters
 
-<h3 name="cParameter" class="param">cParameter</h3>
+<h3 id="cParameter" class="param">cParameter</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -20,7 +35,7 @@ synopsis
 </div>
 
 
-<h3 name="outDir" class="param">outDir</h3>
+<h3 id="outDir" class="param">outDir</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -28,7 +43,7 @@ synopsis
 </div>
 
 
-<h3 name="relations" class="param">relations</h3>
+<h3 id="relations" class="param">relations</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -36,7 +51,7 @@ synopsis
 </div>
 
 
-<h3 name="schema" class="param">schema</h3>
+<h3 id="schema" class="param">schema</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -44,7 +59,7 @@ synopsis
 </div>
 
 
-<h3 name="similarityFunction" class="param">similarityFunction</h3>
+<h3 id="similarityFunction" class="param">similarityFunction</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -52,7 +67,7 @@ synopsis
 </div>
 
 
-<h3 name="terms" class="param">terms</h3>
+<h3 id="terms" class="param">terms</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -62,7 +77,7 @@ synopsis
 
 ## Optional parameters
 
-<h3 name="dependencies" class="param">dependencies</h3>
+<h3 id="dependencies" class="param">dependencies</h3>
 
 <div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRERelations@6f1de4c7`
 </div>
@@ -70,7 +85,7 @@ synopsis
 </div>
 
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -78,7 +93,7 @@ synopsis
 </div>
 Only process document that satisfy this filter.
 
-<h3 name="folds" class="param">folds</h3>
+<h3 id="folds" class="param">folds</h3>
 
 <div class="param-level param-level-default-value">Default value: `10`
 </div>
@@ -86,7 +101,7 @@ Only process document that satisfy this filter.
 </div>
 
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -94,7 +109,7 @@ Only process document that satisfy this filter.
 </div>
 Process only sections that satisfy this filter.
 
-<h3 name="sectionSeparator" class="param">sectionSeparator</h3>
+<h3 id="sectionSeparator" class="param">sectionSeparator</h3>
 
 <div class="param-level param-level-default-value">Default value: `
 `
@@ -103,7 +118,7 @@ Process only sections that satisfy this filter.
 </div>
 
 
-<h3 name="sentences" class="param">sentences</h3>
+<h3 id="sentences" class="param">sentences</h3>
 
 <div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRETokens@459e9125`
 </div>
@@ -111,7 +126,7 @@ Process only sections that satisfy this filter.
 </div>
 
 
-<h3 name="words" class="param">words</h3>
+<h3 id="words" class="param">words</h3>
 
 <div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisRETokens@7b2bbc3`
 </div>

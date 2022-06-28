@@ -18,25 +18,19 @@ The item separator can be set with the *separator* attribute.
 <param value="ARRAY"/>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param values="ARRAY"/>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param>ARRAY</param>
 ```
 
-
-	or
-	
+or
 
 ```xml
 <param><element value="VALUE1"/><element>VALUE2</element>...</param>

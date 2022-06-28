@@ -10,9 +10,20 @@ synopsis
 
 synopsis
 
+## Snippet
+
+
+
+```xml
+<quickhtml class="QuickHTML>
+    <classFeature></classFeature>
+    <outDir></outDir>
+</quickhtml>
+```
+
 ## Mandatory parameters
 
-<h3 name="classFeature" class="param">classFeature</h3>
+<h3 id="classFeature" class="param">classFeature</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -20,7 +31,7 @@ synopsis
 </div>
 
 
-<h3 name="outDir" class="param">outDir</h3>
+<h3 id="outDir" class="param">outDir</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -30,7 +41,7 @@ synopsis
 
 ## Optional parameters
 
-<h3 name="features" class="param">features</h3>
+<h3 id="features" class="param">features</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -38,7 +49,7 @@ synopsis
 </div>
 
 
-<h3 name="layers" class="param">layers</h3>
+<h3 id="layers" class="param">layers</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -46,7 +57,7 @@ synopsis
 </div>
 
 
-<h3 name="tagFeature" class="param">tagFeature</h3>
+<h3 id="tagFeature" class="param">tagFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -54,7 +65,7 @@ synopsis
 </div>
 
 
-<h3 name="colors" class="param">colors</h3>
+<h3 id="colors" class="param">colors</h3>
 
 <div class="param-level param-level-default-value">Default value: `#FFFFFF,#FFD3A5,#8BB3C1,#FC4B77,#996992,#AA9B8C`
 </div>
@@ -62,7 +73,7 @@ synopsis
 </div>
 
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -70,7 +81,7 @@ synopsis
 </div>
 Only process document that satisfy this expression.
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>

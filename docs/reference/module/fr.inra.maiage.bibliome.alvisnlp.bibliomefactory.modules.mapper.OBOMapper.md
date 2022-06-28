@@ -6,11 +6,23 @@ Maps names and synonyms of terms defined in OBO files.
 
 ## Description
 
-*OBOMapper* maps names and synonyms of terms described in <a href="#oboFiles" class="param">oboFiles</a> on <a href="#target" class="param">target</a>.
+*OBOMapper*maps names and synonyms of terms described in <a href="#oboFiles" class="param">oboFiles</a> on <a href="#target" class="param">target</a> .
+
+## Snippet
+
+
+
+```xml
+<obomapper class="OBOMapper>
+    <form></form>
+    <oboFiles></oboFiles>
+    <target></target>
+</obomapper>
+```
 
 ## Mandatory parameters
 
-<h3 name="form" class="param">form</h3>
+<h3 id="form" class="param">form</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -18,7 +30,7 @@ Maps names and synonyms of terms defined in OBO files.
 </div>
 Expression evaluated as a string with the target element as context that specifies the target key.
 
-<h3 name="oboFiles" class="param">oboFiles</h3>
+<h3 id="oboFiles" class="param">oboFiles</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -26,7 +38,7 @@ Expression evaluated as a string with the target element as context that specifi
 </div>
 Paths to the OBO files to map.
 
-<h3 name="target" class="param">target</h3>
+<h3 id="target" class="param">target</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -36,7 +48,7 @@ Expression evaluated as a list of elements with the corpus as context that speci
 
 ## Optional parameters
 
-<h3 name="altPathFeatures" class="param">altPathFeatures</h3>
+<h3 id="altPathFeatures" class="param">altPathFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -44,7 +56,7 @@ Expression evaluated as a list of elements with the corpus as context that speci
 </div>
 UNDOCUMENTED
 
-<h3 name="ancestorsFeature" class="param">ancestorsFeature</h3>
+<h3 id="ancestorsFeature" class="param">ancestorsFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -52,7 +64,7 @@ UNDOCUMENTED
 </div>
 Name of the feature where to store the term ancestors ids.
 
-<h3 name="childrenFeature" class="param">childrenFeature</h3>
+<h3 id="childrenFeature" class="param">childrenFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -60,7 +72,7 @@ Name of the feature where to store the term ancestors ids.
 </div>
 Name of the feature where to store the term children ids.
 
-<h3 name="idFeature" class="param">idFeature</h3>
+<h3 id="idFeature" class="param">idFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -68,7 +80,7 @@ Name of the feature where to store the term children ids.
 </div>
 Name of the feature where to store the term id.
 
-<h3 name="nameFeature" class="param">nameFeature</h3>
+<h3 id="nameFeature" class="param">nameFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -76,7 +88,7 @@ Name of the feature where to store the term id.
 </div>
 Name of the feature where to store the term name.
 
-<h3 name="parentsFeature" class="param">parentsFeature</h3>
+<h3 id="parentsFeature" class="param">parentsFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -84,7 +96,7 @@ Name of the feature where to store the term name.
 </div>
 Name of the feature where to store the term parents ids.
 
-<h3 name="pathFeature" class="param">pathFeature</h3>
+<h3 id="pathFeature" class="param">pathFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -92,7 +104,7 @@ Name of the feature where to store the term parents ids.
 </div>
 Name of the feature where to store the term id path from the root.
 
-<h3 name="synonymsFeature" class="param">synonymsFeature</h3>
+<h3 id="synonymsFeature" class="param">synonymsFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -100,7 +112,7 @@ Name of the feature where to store the term id path from the root.
 </div>
 Name of the feature where to store the term synonyms.
 
-<h3 name="versionFeature" class="param">versionFeature</h3>
+<h3 id="versionFeature" class="param">versionFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -108,7 +120,7 @@ Name of the feature where to store the term synonyms.
 </div>
 Name of the feature where to store the ontology version.
 
-<h3 name="idKeys" class="param">idKeys</h3>
+<h3 id="idKeys" class="param">idKeys</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -116,7 +128,7 @@ Name of the feature where to store the ontology version.
 </div>
 Map the term keys instead of name and synonyms
 
-<h3 name="ignoreCase" class="param">ignoreCase</h3>
+<h3 id="ignoreCase" class="param">ignoreCase</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -124,7 +136,7 @@ Map the term keys instead of name and synonyms
 </div>
 Either to match ignoring the case.
 
-<h3 name="keepDBXref" class="param">keepDBXref</h3>
+<h3 id="keepDBXref" class="param">keepDBXref</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -132,7 +144,7 @@ Either to match ignoring the case.
 </div>
 Either to store term dbxrefs. Dbxrefs are stored in features that match the database name.
 
-<h3 name="operator" class="param">operator</h3>
+<h3 id="operator" class="param">operator</h3>
 
 <div class="param-level param-level-default-value">Default value: `exact`
 </div>

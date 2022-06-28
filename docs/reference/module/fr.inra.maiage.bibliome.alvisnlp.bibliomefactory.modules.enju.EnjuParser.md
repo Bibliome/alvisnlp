@@ -8,9 +8,19 @@ synopsis
 
 synopsis
 
+## Snippet
+
+
+
+```xml
+<enjuparser class="EnjuParser>
+    <enjuExecutable></enjuExecutable>
+</enjuparser>
+```
+
 ## Mandatory parameters
 
-<h3 name="enjuExecutable" class="param">enjuExecutable</h3>
+<h3 id="enjuExecutable" class="param">enjuExecutable</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -20,7 +30,7 @@ synopsis
 
 ## Optional parameters
 
-<h3 name="constantRelationFeatures" class="param">constantRelationFeatures</h3>
+<h3 id="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -28,7 +38,7 @@ synopsis
 </div>
 Constant features to add to each relation created by this module.
 
-<h3 name="constantTupleFeatures" class="param">constantTupleFeatures</h3>
+<h3 id="constantTupleFeatures" class="param">constantTupleFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -36,7 +46,7 @@ Constant features to add to each relation created by this module.
 </div>
 Constant features to add to each tuple created by this module.
 
-<h3 name="biology" class="param">biology</h3>
+<h3 id="biology" class="param">biology</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`
 </div>
@@ -44,7 +54,7 @@ Constant features to add to each tuple created by this module.
 </div>
 
 
-<h3 name="dependenciesRelationName" class="param">dependenciesRelationName</h3>
+<h3 id="dependenciesRelationName" class="param">dependenciesRelationName</h3>
 
 <div class="param-level param-level-default-value">Default value: `dependencies`
 </div>
@@ -52,7 +62,7 @@ Constant features to add to each tuple created by this module.
 </div>
 
 
-<h3 name="dependencyDependentRole" class="param">dependencyDependentRole</h3>
+<h3 id="dependencyDependentRole" class="param">dependencyDependentRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `dependent`
 </div>
@@ -60,7 +70,7 @@ Constant features to add to each tuple created by this module.
 </div>
 
 
-<h3 name="dependencyHeadRole" class="param">dependencyHeadRole</h3>
+<h3 id="dependencyHeadRole" class="param">dependencyHeadRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `head`
 </div>
@@ -68,7 +78,7 @@ Constant features to add to each tuple created by this module.
 </div>
 
 
-<h3 name="dependencyLabelFeatureName" class="param">dependencyLabelFeatureName</h3>
+<h3 id="dependencyLabelFeatureName" class="param">dependencyLabelFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `label`
 </div>
@@ -76,7 +86,7 @@ Constant features to add to each tuple created by this module.
 </div>
 
 
-<h3 name="dependentTypeFeatureName" class="param">dependentTypeFeatureName</h3>
+<h3 id="dependentTypeFeatureName" class="param">dependentTypeFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `arg-type`
 </div>
@@ -84,7 +94,7 @@ Constant features to add to each tuple created by this module.
 </div>
 
 
-<h3 name="documentFilter" class="param">documentFilter</h3>
+<h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -92,7 +102,7 @@ Constant features to add to each tuple created by this module.
 </div>
 Only process document that satisfy this expression.
 
-<h3 name="enjuEncoding" class="param">enjuEncoding</h3>
+<h3 id="enjuEncoding" class="param">enjuEncoding</h3>
 
 <div class="param-level param-level-default-value">Default value: `UTF-8`
 </div>
@@ -100,7 +110,7 @@ Only process document that satisfy this expression.
 </div>
 
 
-<h3 name="lemmaFeatureName" class="param">lemmaFeatureName</h3>
+<h3 id="lemmaFeatureName" class="param">lemmaFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `lemma`
 </div>
@@ -108,7 +118,7 @@ Only process document that satisfy this expression.
 </div>
 UNDOCUMENTED
 
-<h3 name="nBest" class="param">nBest</h3>
+<h3 id="nBest" class="param">nBest</h3>
 
 <div class="param-level param-level-default-value">Default value: `1`
 </div>
@@ -116,7 +126,7 @@ UNDOCUMENTED
 </div>
 
 
-<h3 name="parseNumberFeatureName" class="param">parseNumberFeatureName</h3>
+<h3 id="parseNumberFeatureName" class="param">parseNumberFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `parse`
 </div>
@@ -124,7 +134,7 @@ UNDOCUMENTED
 </div>
 
 
-<h3 name="parseStatusFeatureName" class="param">parseStatusFeatureName</h3>
+<h3 id="parseStatusFeatureName" class="param">parseStatusFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `parse-status`
 </div>
@@ -132,7 +142,7 @@ UNDOCUMENTED
 </div>
 
 
-<h3 name="posFeatureName" class="param">posFeatureName</h3>
+<h3 id="posFeatureName" class="param">posFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `pos`
 </div>
@@ -140,7 +150,7 @@ UNDOCUMENTED
 </div>
 
 
-<h3 name="sectionFilter" class="param">sectionFilter</h3>
+<h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `boolean:and(true, boolean:and(nav:layer:sentences(), nav:layer:words()))`
 </div>
@@ -148,7 +158,7 @@ UNDOCUMENTED
 </div>
 Process only sections that satisfy this expression.
 
-<h3 name="sentenceFilter" class="param">sentenceFilter</h3>
+<h3 id="sentenceFilter" class="param">sentenceFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
@@ -156,7 +166,7 @@ Process only sections that satisfy this expression.
 </div>
 UNDOCUMENTED
 
-<h3 name="sentenceLayerName" class="param">sentenceLayerName</h3>
+<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -164,7 +174,7 @@ UNDOCUMENTED
 </div>
 
 
-<h3 name="sentenceRole" class="param">sentenceRole</h3>
+<h3 id="sentenceRole" class="param">sentenceRole</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentence`
 </div>
@@ -172,7 +182,7 @@ UNDOCUMENTED
 </div>
 
 
-<h3 name="wordFormFeatureName" class="param">wordFormFeatureName</h3>
+<h3 id="wordFormFeatureName" class="param">wordFormFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `form`
 </div>
@@ -180,7 +190,7 @@ UNDOCUMENTED
 </div>
 
 
-<h3 name="wordLayerName" class="param">wordLayerName</h3>
+<h3 id="wordLayerName" class="param">wordLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>

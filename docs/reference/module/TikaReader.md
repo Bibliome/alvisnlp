@@ -10,9 +10,19 @@ Reads PDF or DOC files and adds a document in the corpus for each file.
 
 
 
+## Snippet
+
+
+
+```xml
+<tikareader class="TikaReader>
+    <source></source>
+</tikareader>
+```
+
 ## Mandatory parameters
 
-<h3 name="source" class="param">source</h3>
+<h3 id="source" class="param">source</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -22,7 +32,7 @@ Path to the source directory or source file.
 
 ## Optional parameters
 
-<h3 name="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
+<h3 id="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -30,7 +40,7 @@ Path to the source directory or source file.
 </div>
 Constant features to add to each annotation created by this module.
 
-<h3 name="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
+<h3 id="constantDocumentFeatures" class="param">constantDocumentFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -38,7 +48,7 @@ Constant features to add to each annotation created by this module.
 </div>
 Constant features to add to each document created by this module.
 
-<h3 name="constantSectionFeatures" class="param">constantSectionFeatures</h3>
+<h3 id="constantSectionFeatures" class="param">constantSectionFeatures</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -46,7 +56,7 @@ Constant features to add to each document created by this module.
 </div>
 Constant features to add to each section created by this module.
 
-<h3 name="htmlLayerName" class="param">htmlLayerName</h3>
+<h3 id="htmlLayerName" class="param">htmlLayerName</h3>
 
 <div class="param-level param-level-default-value">Default value: `html`
 </div>
@@ -54,7 +64,7 @@ Constant features to add to each section created by this module.
 </div>
 
 
-<h3 name="sectionName" class="param">sectionName</h3>
+<h3 id="sectionName" class="param">sectionName</h3>
 
 <div class="param-level param-level-default-value">Default value: `text`
 </div>
@@ -62,7 +72,7 @@ Constant features to add to each section created by this module.
 </div>
 Name of the single section containing the whole contents of a file.
 
-<h3 name="tagFeatureName" class="param">tagFeatureName</h3>
+<h3 id="tagFeatureName" class="param">tagFeatureName</h3>
 
 <div class="param-level param-level-default-value">Default value: `tag`
 </div>

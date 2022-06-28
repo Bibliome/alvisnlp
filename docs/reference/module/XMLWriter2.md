@@ -2,15 +2,28 @@
 
 ## Synopsis
 
-Deprecated alias for <a href="../module/XMLWriter" class="module">XMLWriter</a>.
+Deprecated alias for <a href="../module/XMLWriter" class="module">XMLWriter</a> .
 
 **This module is obsolete, superceded by fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml.XMLWriter**
 
 ## Description
 
+## Snippet
+
+
+
+```xml
+<xmlwriter2 class="XMLWriter2>
+    <fileName></fileName>
+    <outDir></outDir>
+    <roots></roots>
+    <xslTransform></xslTransform>
+</xmlwriter2>
+```
+
 ## Mandatory parameters
 
-<h3 name="fileName" class="param">fileName</h3>
+<h3 id="fileName" class="param">fileName</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -18,7 +31,7 @@ Deprecated alias for <a href="../module/XMLWriter" class="module">XMLWriter</a>.
 </div>
 Expression evaluated as a string with the file root element as the context element. The result specifies the file where to write the result.
 
-<h3 name="outDir" class="param">outDir</h3>
+<h3 id="outDir" class="param">outDir</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -26,15 +39,15 @@ Expression evaluated as a string with the file root element as the context eleme
 </div>
 Base directory where all file are written.
 
-<h3 name="roots" class="param">roots</h3>
+<h3 id="roots" class="param">roots</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Expression evaluated as a list of elements with the corpus as the context element. *XMLWriter2* writes a file for each element in the result.
+Expression evaluated as a list of elements with the corpus as the context element.*XMLWriter2*writes a file for each element in the result.
 
-<h3 name="xslTransform" class="param">xslTransform</h3>
+<h3 id="xslTransform" class="param">xslTransform</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -44,7 +57,7 @@ XSLT stylesheet that specifies the output.
 
 ## Optional parameters
 
-<h3 name="indent" class="param">indent</h3>
+<h3 id="indent" class="param">indent</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
 </div>
