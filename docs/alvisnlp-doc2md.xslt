@@ -299,7 +299,7 @@ limitations under the License.
       <xsl:value-of select="normalize-space(.)"/>
     </xsl:variable>
     <xsl:if test="$clean != ''">
-      <xsl:value-of select="str:replace(., '&#x0A;    ', $nl)"/>
+      <xsl:value-of select="str:replace($clean, '&#x0A;    ', $nl)"/>
     </xsl:if>
   </xsl:template>
 
