@@ -2,13 +2,13 @@
 
 ## Synopsis
 
-Reads files in XMI format using the AlvisNLP/ML proxy filesystem.
+Reads files in XMI format using the AlvisNLP proxy filesystem.
 
 **This module is experimental.**
 
 ## Description
 
-*XMIImport*reads <a href="#source" class="param">source</a> streams in XMI format. The source must contain documents and annotations using the AlvisNLP/ML proxy filesystem.
+*XMIImport*reads <a href="#source" class="param">source</a> streams in XMI format. The source must contain documents and annotations using the AlvisNLP proxy filesystem.
 
 See <a href="../module/XMIExport" class="module">XMIExport</a> .
 
@@ -80,7 +80,7 @@ Constant features to add to each tuple created by this module.
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
-Use only the basename of source for documents created out of XMI files that do not use the AlvisNLP/ML Proxy typesystem (by default, use the absolute path).
+Use only the basename of source for documents created out of XMI files that do not use the AlvisNLP Proxy typesystem (by default, use the absolute path).
 
 <h3 id="defaultSectionName" class="param">defaultSectionName</h3>
 
@@ -88,7 +88,7 @@ Use only the basename of source for documents created out of XMI files that do n
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-Name of the section for documents created out of XMI files that do not use the AlvisNLP/ML Proxy typesystem.
+Name of the section for documents created out of XMI files that do not use the AlvisNLP Proxy typesystem.
 
 <h3 id="dkproCompatibility" class="param">dkproCompatibility</h3>
 

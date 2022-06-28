@@ -9,9 +9,9 @@ Converts into a data source.
 The data source takes either the form of a file/directory path, or an URL. The following protocols are recognized:
 *  *file* : the data is in the specified regular file path;
 *  *dir* : the data is in several files in the specified directory path, if the specified path is a regular file the it behaves like *file* ;
-*  *stream* : the data comes from the AlvisNLP/ML standard input, the host part of the URI must be "stdin" ( *stream://stdin* );
-*  *resource* : the data is embedded with the AlvisNLP/ML distribution, the host and directory part of the URL specifies the resource to be used: each module should document which suitable resources are available;
-*  *http* , *https* , *ftp* ...: the data is at the specified URL, AlvisNLP/ML will fetch the data across the net.
+*  *stream* : the data comes from the AlvisNLP standard input, the host part of the URI must be "stdin" ( *stream://stdin* );
+*  *resource* : the data is embedded with the AlvisNLP distribution, the host and directory part of the URL specifies the resource to be used: each module should document which suitable resources are available;
+*  *http* , *https* , *ftp* ...: the data is at the specified URL, AlvisNLP will fetch the data across the net.
 
 If an absolute or relative path is specified, then *dir* is assumed. Relative paths are relative to the current working directory.
 

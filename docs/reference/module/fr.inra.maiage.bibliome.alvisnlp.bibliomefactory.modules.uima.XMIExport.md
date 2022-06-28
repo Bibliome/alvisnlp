@@ -2,13 +2,13 @@
 
 ## Synopsis
 
-Writes the corpus in XMI format using the AlvisNLP/ML proxy typesystem.
+Writes the corpus in XMI format using the AlvisNLP proxy typesystem.
 
 **This module is experimental.**
 
 ## Description
 
-*XMIExport*writes a file for each document in <a href="#outDir" class="param">outDir</a> in the XMI format using the AlvisNLP/ML proxy typesystem.
+*XMIExport*writes a file for each document in <a href="#outDir" class="param">outDir</a> in the XMI format using the AlvisNLP proxy typesystem.
 
 Files written by this module can be read by <a href="../module/XMIImport" class="module">XMIImport</a> 
 
@@ -40,7 +40,7 @@ Directory where to write XMI files.
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.OutputFile" class="converter">OutputFile</a>
 </div>
-If set write the AlvisNLP/ML proxy typesystem into the specified file.
+If set write the AlvisNLP proxy typesystem into the specified file.
 
 <h3 id="dkproCompatibility" class="param">dkproCompatibility</h3>
 

@@ -23,7 +23,7 @@
 
 # Introduction
 
-[PatternMatcher](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/modules/PatternMatcher) is an AlvisNLP/ML module for searching sequences of
+[PatternMatcher](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/modules/PatternMatcher) is an AlvisNLP module for searching sequences of
 annotations. It features a language similar to regular expressions to
 specify annotation sequence queries. It is also capable of several
 actions on matched sequences like adding annotations, removing

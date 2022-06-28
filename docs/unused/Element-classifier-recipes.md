@@ -171,7 +171,7 @@ documents.sections.relations:genePairs.tuples(args:first != args:second)
 
 Here, *relation* is used in the [meaning of
 Weka](http://www.cs.waikato.ac.nz/ml/weka/arff.html), it does not mean
-AlvisNLP/ML's relations.
+AlvisNLP's relations.
 
 The relation definition is specified by the `relationDefinition`
 parameter in the three modules:
@@ -246,7 +246,7 @@ in the relation definition.
 
 -   `EXPR` is an expression that specifies the value of the attribute
 for a given example element. To compute the value of the attribute
-for a given element, AlvisNLP/ML evaluates `EXPR` with the element
+for a given element, AlvisNLP evaluates `EXPR` with the element
 as the context element. The type of the evaluation depends on the
 type of the attribute:
 
@@ -257,7 +257,7 @@ type of the attribute:
 | `nominal`          | string              |
 
 If a nominal value evaluates to a string different from all declared
-possible values then AlvisNLP/ML will issue an error.
+possible values then AlvisNLP will issue an error.
 
 
 <a name="Attribute-Examples-1" />
@@ -344,7 +344,7 @@ attributes:
 | `true`  |  number  |  count |
 
 -   `FILE` is the path to a file containing all forms of the bags, it is
-an UTF-8 encoded file with one value per line. AlvisNLP/ML generates
+an UTF-8 encoded file with one value per line. AlvisNLP generates
 one attribute for each entry.
 
 -   `EXPR` is an expression evaluated as a list of elements with the

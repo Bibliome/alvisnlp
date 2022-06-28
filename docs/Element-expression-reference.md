@@ -11,7 +11,7 @@ also useful:
 
 -   <a href="{{ '/Element-expression-examples' | relative_url }}">Expression Examples</a> contains several examples of
 expressions in increasing order of trickiness;
--   {% include module class="Shell" %} describes the AlvisNLP/ML Shell that you can use to
+-   {% include module class="Shell" %} describes the AlvisNLP Shell that you can use to
 train yourself to write expressions.
 
 

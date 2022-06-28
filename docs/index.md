@@ -6,7 +6,7 @@
 
 *AlvisNLP* is an ideal tool for information extraction and information retrieval experiments.
 
-* *AlvisNLP/ML* is open source, you can get it through the [Download](Download) page.
+* *AlvisNLP* is open source, you can get it through the [Download](Download) page.
 * Start with [Getting started](Getting-started) to learn about *AlvisNLP* command-line and basic concepts.
 * Learn how to [write a plan](Write-a-plan).
 * Always keep in mind the [data model](Data-model)

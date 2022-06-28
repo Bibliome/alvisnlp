@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alvisnlp-doc author="" beta="true" date="" short-target="XMIExport" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.XMIExport">
   <synopsis>
-    <p>Writes the corpus in XMI format using the AlvisNLP/ML proxy typesystem.</p>
+    <p>Writes the corpus in XMI format using the AlvisNLP proxy typesystem.</p>
   </synopsis>
   
   <module-doc>
     <description>
-      <p><this/> writes a file for each document in <param>outDir</param> in the XMI format using the AlvisNLP/ML proxy typesystem.</p>
+      <p><this/> writes a file for each document in <param>outDir</param> in the XMI format using the AlvisNLP proxy typesystem.</p>
       <p>Files written by this module can be read by <module>XMIImport</module></p>
     </description>
 
 	<param-doc mandatory="optional" name="typeSystemFile" short-type="OutputFile" type="fr.inra.maiage.bibliome.util.files.OutputFile">
-		<p>If set write the AlvisNLP/ML proxy typesystem into the specified file.</p>
+		<p>If set write the AlvisNLP proxy typesystem into the specified file.</p>
 	</param-doc>
 
     <param-doc mandatory="required" name="outDir" short-type="OutputDirectory" type="fr.inra.maiage.bibliome.util.files.OutputDirectory">

@@ -8,7 +8,7 @@ Converts into a data sink.
 
 The data source takes either the form of a file/directory path, or an URL. The following protocols are recognized:
 *  *file* : the data is written in the specified regular file path;
-*  *stream* : the data is written to the AlvisNLP/ML standard output or error, the host part of the URI must be either "stdout" or "stderr" ( *stream://stdout* );
+*  *stream* : the data is written to the AlvisNLP standard output or error, the host part of the URI must be either "stdout" or "stderr" ( *stream://stdout* );
 
 If an absolute or relative path is specified, then *file* is assumed. Relative paths are relative to the current working directory.
 

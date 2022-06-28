@@ -19,7 +19,7 @@
 
 # Introduction
 
-The AlvisNLP/ML Shell is an console that allows you to evaluate
+The AlvisNLP Shell is an console that allows you to evaluate
 [[Element expression]]s interactively. The Shell is useful to
 explore the corpus annotations and to debug your plans.
 
@@ -42,7 +42,7 @@ in your plan at the point where you want to explore the corpus.
 
 ## The `-shell` command line option
 
-If you launch AlvisNLP/ML with the `-shell` option, then it will open
+If you launch AlvisNLP with the `-shell` option, then it will open
 the shell after the corpus has been processed by the whole plan.
 
 
@@ -118,7 +118,7 @@ mandatory depending on the command.
 ## `@query`
 
 This command evaluates `expression` with the current context element and
-displays the result. AlvisNLP/ML tries its best to guess the most
+displays the result. AlvisNLP tries its best to guess the most
 sensible evaluation type.\
 The `expression` operand is mandatory.
 

@@ -1,4 +1,4 @@
-# AlvisNLP/ML architecture
+# AlvisNLP architecture
 
 Alvisnlp is composed of two principal level, alvisnlp-core and alvisnlp-bibliome.
 

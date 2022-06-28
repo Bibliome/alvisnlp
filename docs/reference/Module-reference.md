@@ -31,7 +31,7 @@ Reader modules read files or streams as documents and sections.
 
 ### Stylesheets for XMLReader
 
-The AlvisNLP/ML distribution contains pre-defined stylesheets.
+The AlvisNLP distribution contains pre-defined stylesheets.
 
 | **Stylesheet location**  | **Schema**        |
 |--------------------------|-------------------|
@@ -44,7 +44,7 @@ The AlvisNLP/ML distribution contains pre-defined stylesheets.
 
 ### Multi-purpose reader
 
-The AlvisNLP/ML distribution ships with a plan that can read documents in various formats:
+The AlvisNLP distribution ships with a plan that can read documents in various formats:
 
 ```xml
 <read href="res://reader.plan">
@@ -104,7 +104,7 @@ Each projector class accepts a different format for the lexicon.
 
 | **Module class**         | **Lexicon parameter**      | **Lexicon format**         | **Comments** |
 |--------------------------|----------------------------|----------------------------|--------------|
-| {% include module class="ElementProjector" %}         | `entries`                      | AlvisNLP/ML data structure | |
+| {% include module class="ElementProjector" %}         | `entries`                      | AlvisNLP data structure | |
 | {% include module class="OBOProjector" %}             | `oboFiles`                     | OBO                        | Uses the OBO library |
 | {% include module class="RDFProjector" %}             | `source`                       | RDF (OWL, SKOS)            | Uses the Jena library |
 | {% include module class="TabularProjector" %}         | `dictFile`                     | tab-separated text         | |
@@ -132,7 +132,7 @@ Each mapper class accepts a different format for the dictionary.
 
 | **Module class** | **Dictionary parameter** | **Format** |
 |------------------|--------------------------|------------|
-| {% include module class="ElementMapper" %}  | `entries`                  | AlvisNLP/ML data structure |
+| {% include module class="ElementMapper" %}  | `entries`                  | AlvisNLP data structure |
 | {% include module class="FileMapper" %}     | `mappingFile`              | tab-separated text |
 | {% include module class="OBOMapper" %}      | `oboFiles`                 | OBO |
 
@@ -179,7 +179,7 @@ Named entity recognition modules.
 
 ### Word and sentence splitting
 
-The AlvisNLP/ML distribution ships with a ready-made complete word and sentence splitter plan that can be imported like this:
+The AlvisNLP distribution ships with a ready-made complete word and sentence splitter plan that can be imported like this:
 
 ```xml
 <seg href="res://segmentation.plan"/>
@@ -225,7 +225,7 @@ If you want to force entities as tokens, this plan assumes they are annotations 
 | {% include module class="RemoveContents" %}   | Clone sections and crop contents |
 | {% include module class="RemoveEquivalent" %} | Deduplicate elements using custom equality |
 | {% include module class="RemoveOverlaps" %}   | Remove overlapping annotations in a layer |
-| {% include module class="RunProlog" %}        | Run prolog programs using the AlvisNLP/ML data structure as a set of facts |
+| {% include module class="RunProlog" %}        | Run prolog programs using the AlvisNLP data structure as a set of facts |
 | {% include module class="Script" %}           | Run a script written in a language supported by the <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/scripting/prog_guide/api.html">Java Scripting API</a> |
 | {% include module class="SetFeature" %}       | Set a feature on selected elements |
 | {% include module class="Shell" %}            | Enter interactive mode |

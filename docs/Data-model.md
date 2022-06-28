@@ -4,12 +4,12 @@ The data structure contains corpus contents and annotation. The data structure i
 <!--
 The data structure provides elements that hold the typical information on   (_Corpus_, _Document_ and _Section_). It also provides elements to contain annotations, events and features (_Annotations_, _Tuples_ and _Features_) and containers consisting of _Layers_ and _Relation_ allow to group information about the elements. 
 -->
-The following figure presents an UML-like specification of the AlvisNLP/ML data structure.
+The following figure presents an UML-like specification of the AlvisNLP data structure.
 
 
 ![Data model](assets/images/alvis_data_model.png)
 
-* **Corpus**: a `Corpus` object represents a collection of documents. In an AlvisNLP/ML run, the corpus is a unique object passed from module to module. A `Corpus` object has *features* and *documents*.
+* **Corpus**: a `Corpus` object represents a collection of documents. In an AlvisNLP run, the corpus is a unique object passed from module to module. A `Corpus` object has *features* and *documents*.
 
 * **Document**: a `Document` object represents a single document. Each document has an identifier which is unique in the corpus. A `Document` object has *features* and *sections*.
 

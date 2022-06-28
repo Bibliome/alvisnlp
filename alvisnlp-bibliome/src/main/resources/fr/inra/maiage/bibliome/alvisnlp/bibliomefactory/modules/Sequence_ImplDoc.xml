@@ -22,7 +22,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> is not intended to be used directly. AlvisNLP/ML instanciates <this/> when the plan file specifies a <code>sequence</code>.</p>
+      <p><this/> is not intended to be used directly. AlvisNLP instanciates <this/> when the plan file specifies a <code>sequence</code>.</p>
     </description>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
 </module-doc>

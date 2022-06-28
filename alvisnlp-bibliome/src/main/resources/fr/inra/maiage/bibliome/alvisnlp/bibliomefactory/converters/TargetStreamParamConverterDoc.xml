@@ -25,7 +25,7 @@ limitations under the License.
       <p>The data source takes either the form of a file/directory path, or an URL. The following protocols are recognized:
       <ul>
 	<li><em>file</em>: the data is written in the specified regular file path;</li>
-	<li><em>stream</em>: the data is written to the AlvisNLP/ML standard output or error, the host part of the URI must be either "stdout" or "stderr" (<em>stream://stdout</em>);</li>
+	<li><em>stream</em>: the data is written to the AlvisNLP standard output or error, the host part of the URI must be either "stdout" or "stderr" (<em>stream://stdout</em>);</li>
       </ul>
       If an absolute or relative path is specified, then <em>file</em> is assumed.
       Relative paths are relative to the current working directory.

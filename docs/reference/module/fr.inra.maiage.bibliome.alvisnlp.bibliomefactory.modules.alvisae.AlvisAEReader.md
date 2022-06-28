@@ -8,7 +8,7 @@
 
 *AlvisAEReader*reads an AlvisAE server database and imports documents and annotation sets from an annotation campaign. The database connection is specified with <a href="#url" class="param">url</a> , <a href="#username" class="param">username</a> , <a href="#password" class="param">password</a> and <a href="#schema" class="param">schema</a> . The <a href="#campaignId" class="param">campaignId</a> parameter specifies the campaign identifier in the AlvisAE database (the AlvisAE client displays this identifier).
 
-All AlvisAE annotations, including text-bound annotations, will be represented in AlvisNLP/ML as relation tuples, in a relation named after the annotation type.
+All AlvisAE annotations, including text-bound annotations, will be represented in AlvisNLP as relation tuples, in a relation named after the annotation type.
 * For *text-bound* annotations, each fragment is represented in an annotation stored in the layer <a href="#fragmentsLayerName" class="param">fragmentsLayerName</a> . The tuple references the fragments through its arguments; their role name is <a href="#fragmentRolePrefix" class="param">fragmentRolePrefix</a> with the fragment order appended (starting at zero). Thus a single-fragment annotation will have a single argument with role `frag0` . The type of the annotation is stored in the feature <a href="#typeFeature" class="param">typeFeature</a> of the tuple and of each fragment.
 * A *group* tuple references its items through its arguments; their role name is <a href="#itemRolePrefix" class="param">itemRolePrefix</a> with the item order appended (starting at zero).
 * A *relation* tuple hareferences its arguments in a straightforward way.

@@ -34,7 +34,7 @@ Then, the `alvisnlp-plan` contains several `module` tags:
 </alvisnlp>
 ```
 
-Each tag specifies an AlvisNLP/ML module that will process the
+Each tag specifies an AlvisNLP module that will process the
 corpus. The `class` attribute is mandatory, it specifies the class of the module, that is what it does on the
 corpus. The value must be a [supported module
 class](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/modules).
@@ -116,7 +116,7 @@ schemes.
 ### [File](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/converters/java.io.File), [InputFile](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/converters/org.bibliome.util.files.InputFile), [InputDirectory](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/converters/org.bibliome.util.files.InputDirectory), [OutputDirectory](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/converters/org.bibliome.util.files.OutputDirectory), [OutputFile](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/converters/org.bibliome.util.files.OutputFile), [ExecutableFile](http://bibliome.jouy.inra.fr/demo/alvisnlp/api/converters/org.bibliome.util.files.ExecutableFile)
 
 These types represent resources in the local filesystem, their value
-cannot be remote URLs. AlvisNLP/ML will check the values according to
+cannot be remote URLs. AlvisNLP will check the values according to
 the type:
 
 | **parameter type** | **file exists** | **file type**            | **permissions**
@@ -198,7 +198,7 @@ sequences):
 
 Sequences do not alter the order of processing, their purpose is the
 organization of modules in logical bundles. Note that sequences affect
-the logging and may help you to read the AlvisNLP/ML log.
+the logging and may help you to read the AlvisNLP log.
 
 ## Plan import
 
@@ -266,11 +266,11 @@ The parameter tag may have attributes that change the conversion:
 
 | **Option** | **Effect** |
 |-----------------------|------------------------------------------------------------------|
-| `inhibitCheck="true"` |  prevents AlvisNLP/ML from checking this parameter value, for instance it will not check for the existence of `InputFile` parameters. |
+| `inhibitCheck="true"` |  prevents AlvisNLP from checking this parameter value, for instance it will not check for the existence of `InputFile` parameters. |
 | `separator="C"`       |  sets the separator character between array elements or mapping entries (default: `,`). |
 | `qualifier="C"`       |  sets the separator character between the key and the value of a mapping entry (default: `=`). |
-| `trim="false"`        |  prevents AlvisNLP/ML from trimming leading and trailing whitespaces off the parameter value. |
-| `load="..."`          |  loads the specified file. This file must be an XML file, AlvisNLP/ML sets the parameter value as if the parameter tag was the root element of this file. This attribute is useful for complex parameter values. |
+| `trim="false"`        |  prevents AlvisNLP from trimming leading and trailing whitespaces off the parameter value. |
+| `load="..."`          |  loads the specified file. This file must be an XML file, AlvisNLP sets the parameter value as if the parameter tag was the root element of this file. This attribute is useful for complex parameter values. |
 
 More attributes may be supported for the conversion to specific types.
 
