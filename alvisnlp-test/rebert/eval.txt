@@ -1,0 +1,24 @@
+items = 6612.0
+true positives = 6188.0
+accuracy = 0.9358741681790683
+metrics for class 
+    reference = 0.0
+    prediction = 3.0
+    true positives = 0.0
+    recall = NaN
+    precision = 0.0
+    f-score = NaN
+metrics for class None
+    reference = 6132.0
+    prediction = 5869.0
+    true positives = 5790.0
+    recall = 0.9442270058708415
+    precision = 0.9865394445391038
+    f-score = 0.9649195900341639
+metrics for class Relation
+    reference = 480.0
+    prediction = 740.0
+    true positives = 398.0
+    recall = 0.8291666666666667
+    precision = 0.5378378378378378
+    f-score = 0.6524590163934426

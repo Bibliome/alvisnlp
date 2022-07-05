@@ -1,0 +1,72 @@
+<alvisnlp-plan id="test-rebert">
+  <read href="BioNLP-ST-2016_BB-event/read.plan"/>
+
+  <remove-test-set class="Action">
+    <target>documents[@set == "test"]</target>
+    <action>delete</action>
+    <deleteElements/>
+  </remove-test-set>
+
+  <remove-Lives_In-Geo class="Action">
+    <target>documents.sections.relations:Lives_In.tuples[args:Location.@type != "Habitat"]</target>
+    <action>delete</action>
+    <deleteElements/>
+  </remove-Lives_In-Geo>
+
+  <label-Lives_In class="Action">
+    <target>documents.sections.relations:Lives_In.tuples</target>
+    <action>set:feat:label("Relation")</action>
+    <setFeatures/>
+  </label-Lives_In>
+  
+  <seg>
+    <rigid class="MergeLayers">
+      <sourceLayerNames>Bacteria,Habitat</sourceLayerNames>
+      <targetLayerName>rigid-entities</targetLayerName>
+    </rigid>
+
+    <seg href="res://segmentation.plan"/>
+  </seg>
+
+  <predict class="REBERTPredict">
+    <assertedCandidates>documents.sections.relations:Lives_In.tuples</assertedCandidates>
+    <assertedSubject>args:Bacteria</assertedSubject>
+    <assertedObject>args:Location</assertedObject>
+    <candidateGenerationScope>documents.sections.(layer:Title|layer:Paragraph)</candidateGenerationScope>
+    <generatedSubjects>inside:Bacteria</generatedSubjects>
+    <generatedObjects>inside:Habitat | (if @type == "Title" then section.layer:Paragraph.inside:Habitat else false)</generatedObjects>
+    <relationName>Lives_In</relationName>
+    <createNegativeTuples/>
+    <subjectRole>Bacteria</subjectRole>
+    <objectRole>Location</objectRole>
+    <explainFeaturePrefix/>
+  </predict>
+
+  <label-negatives class="Action">
+    <target>documents.sections.relations:Lives_In.tuples[@label == ""]</target>
+    <action>set:feat:label("None")</action>
+    <setFeatures/>
+  </label-negatives>
+
+  <export class="TabularExport">
+    <outDir>.</outDir>
+    <corpusFile>lives-in.txt</corpusFile>
+    <lines>documents.sections.relations:Lives_In.tuples</lines>
+    <columns separator=";">
+      relation.section.document.@id;
+      relation.section.document.@set;
+      @label;
+      @predicted-label;
+      @mean-probability;
+      args:Bacteria;
+      args:Location
+    </columns>
+  </export>
+
+  <eval class="CompareFeatures">
+    <items>documents.sections.relations:Lives_In.tuples</items>
+    <outFile>eval.txt</outFile>
+    <predictedFeature>predicted-label</predictedFeature>
+    <referenceFeature>label</referenceFeature>
+  </eval>
+</alvisnlp-plan>
