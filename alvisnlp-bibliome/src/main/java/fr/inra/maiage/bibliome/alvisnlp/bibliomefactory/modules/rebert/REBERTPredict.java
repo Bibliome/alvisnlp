@@ -1,6 +1,13 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rebert;
 
 import java.io.IOException;
+import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.DefaultExpressions;
@@ -8,7 +15,11 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rebert.REBERTPredict.REBERTPredictResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.RelationCreator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
@@ -17,55 +28,64 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
+import fr.inra.maiage.bibliome.util.files.InputFile;
+import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule(beta = true)
-public class REBERTPredict extends CorpusModule<REBERTPredictResolvedObjects> {
+public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedObjects> implements RelationCreator, TupleCreator {
 	private ExecutableFile conda;
 	private String condaEnvironment;
 	private ExecutableFile python;
 	private InputDirectory rebertDir;
-	private Expression candidates;
-	private Expression subject;
-	private Expression object;
+	private Expression candidateScope;
+	private Expression subjects;
+	private Expression objects;
 	private Expression start = DefaultExpressions.ANNOTATION_START;
 	private Expression end = DefaultExpressions.ANNOTATION_END;
+	private String relationName;
+	private String subjectRole = "subject";
+	private String objectRole = "object";
+	private Boolean negativeTuples;
+	private Integer negativeCategory = 0;
 	private String sentenceLayer = DefaultNames.getSentenceLayer();
-	private String labelFeature;
+	private String labelFeature = "label";
 	private String explainFeaturePrefix;
 	private String modelType;
 	private InputDirectory finetunedModel;
-	private Integer ensembleNumber;
+	private Integer ensembleNumber = 1;
 	private Boolean useGPU = false;
 	private EnsembleAggregator aggregator = EnsembleAggregator.VOTE;
 
-	public static class REBERTPredictResolvedObjects extends ResolvedObjects {
-		private final Evaluator candidates;
-		private final Evaluator subject;
-		private final Evaluator object;
+	public class REBERTPredictResolvedObjects extends ResolvedObjects {
+		private final Evaluator candidateScope;
+		private final Evaluator subjects;
+		private final Evaluator objects;
 		private final Evaluator start;
 		private final Evaluator end;
 				
-		public REBERTPredictResolvedObjects(ProcessingContext<Corpus> ctx, REBERTPredict module) throws ResolverException {
-			super(ctx, module);
-			this.candidates = module.candidates.resolveExpressions(rootResolver);
-			this.subject = module.subject.resolveExpressions(rootResolver);
-			this.object = module.object.resolveExpressions(rootResolver);
-			this.start = module.start.resolveExpressions(rootResolver);
-			this.end = module.end.resolveExpressions(rootResolver);
+		public REBERTPredictResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+			super(ctx, REBERTPredict.this);
+			this.candidateScope = REBERTPredict.this.candidateScope.resolveExpressions(rootResolver);
+			this.subjects = REBERTPredict.this.subjects.resolveExpressions(rootResolver);
+			this.objects = REBERTPredict.this.objects.resolveExpressions(rootResolver);
+			this.start = REBERTPredict.this.start.resolveExpressions(rootResolver);
+			this.end = REBERTPredict.this.end.resolveExpressions(rootResolver);
 		}
 
-		public Evaluator getCandidates() {
-			return candidates;
+		public Evaluator getCandidateScope() {
+			return candidateScope;
 		}
 
-		public Evaluator getSubject() {
-			return subject;
+		public Evaluator getSubjects() {
+			return subjects;
 		}
 
-		public Evaluator getObject() {
-			return object;
+		public Evaluator getObjects() {
+			return objects;
 		}
 
 		public Evaluator getStart() {
@@ -74,6 +94,35 @@ public class REBERTPredict extends CorpusModule<REBERTPredictResolvedObjects> {
 
 		public Evaluator getEnd() {
 			return end;
+		}
+
+		public List<Candidate> createCandidates(EvaluationContext evalCtx, Corpus corpus) throws ModuleException {
+			List<Candidate> result = new ArrayList<Candidate>();
+			for (Element scope : Iterators.loop(getCandidateScope().evaluateElements(evalCtx, corpus))) {
+				for (Element subject : Iterators.loop(getSubjects().evaluateElements(evalCtx, scope))) {
+					for (Element object : Iterators.loop(getObjects().evaluateElements(evalCtx, scope))) {
+						Candidate cand = new Candidate(REBERTPredict.this, evalCtx, scope, subject, object, "");
+						result.add(cand);
+					}
+				}
+			}
+			return result;
+		}
+	}
+
+	String[] readLabels() throws ModuleException {
+		SourceStream source = new FileSourceStream("UTF-8", new InputFile(getFinetunedModel(), "id2label.json"));
+		try (Reader r = source.getReader()) {
+			JSONParser parser = new JSONParser();
+			JSONObject jLabels = (JSONObject) parser.parse(r);
+			String[] result = new String[jLabels.size()];
+			for (int cn = 0; cn < result.length; ++cn) {
+				result[cn] = (String) jLabels.get(Integer.toString(cn));
+			}
+			return result;
+		}
+		catch (ParseException | IOException e) {
+			throw new ModuleException(e);
 		}
 	}
 
@@ -90,7 +139,7 @@ public class REBERTPredict extends CorpusModule<REBERTPredictResolvedObjects> {
 
 	@Override
 	protected REBERTPredictResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
-		return new REBERTPredictResolvedObjects(ctx, this);
+		return new REBERTPredictResolvedObjects(ctx);
 	}
 
 	@Param
@@ -99,18 +148,18 @@ public class REBERTPredict extends CorpusModule<REBERTPredictResolvedObjects> {
 	}
 
 	@Param
-	public Expression getCandidates() {
-		return candidates;
+	public Expression getCandidateScope() {
+		return candidateScope;
 	}
 
 	@Param
-	public Expression getSubject() {
-		return subject;
+	public Expression getSubjects() {
+		return subjects;
 	}
 
 	@Param
-	public Expression getObject() {
-		return object;
+	public Expression getObjects() {
+		return objects;
 	}
 
 	@Param
@@ -178,6 +227,51 @@ public class REBERTPredict extends CorpusModule<REBERTPredictResolvedObjects> {
 		return explainFeaturePrefix;
 	}
 
+	@Param(mandatory = false, nameType = NameType.RELATION)
+	public String getRelationName() {
+		return relationName;
+	}
+
+	@Param
+	public Boolean getNegativeTuples() {
+		return negativeTuples;
+	}
+
+	@Param
+	public Integer getNegativeCategory() {
+		return negativeCategory;
+	}
+
+	@Param(nameType = NameType.ARGUMENT)
+	public String getSubjectRole() {
+		return subjectRole;
+	}
+
+	@Param(nameType = NameType.ARGUMENT)
+	public String getObjectRole() {
+		return objectRole;
+	}
+
+	public void setSubjectRole(String subjectRole) {
+		this.subjectRole = subjectRole;
+	}
+
+	public void setObjectRole(String objectRole) {
+		this.objectRole = objectRole;
+	}
+
+	public void setRelationName(String relationName) {
+		this.relationName = relationName;
+	}
+
+	public void setNegativeTuples(Boolean negativeTuples) {
+		this.negativeTuples = negativeTuples;
+	}
+
+	public void setNegativeCategory(Integer negativeCategory) {
+		this.negativeCategory = negativeCategory;
+	}
+
 	public void setExplainFeaturePrefix(String explainFeaturePrefix) {
 		this.explainFeaturePrefix = explainFeaturePrefix;
 	}
@@ -206,16 +300,16 @@ public class REBERTPredict extends CorpusModule<REBERTPredictResolvedObjects> {
 		this.rebertDir = rebertDir;
 	}
 
-	public void setCandidates(Expression candidates) {
-		this.candidates = candidates;
+	public void setCandidateScope(Expression candidateScope) {
+		this.candidateScope = candidateScope;
 	}
 
-	public void setSubject(Expression subject) {
-		this.subject = subject;
+	public void setSubjects(Expression subjects) {
+		this.subjects = subjects;
 	}
 
-	public void setObject(Expression object) {
-		this.object = object;
+	public void setObjects(Expression objects) {
+		this.objects = objects;
 	}
 
 	public void setStart(Expression start) {
