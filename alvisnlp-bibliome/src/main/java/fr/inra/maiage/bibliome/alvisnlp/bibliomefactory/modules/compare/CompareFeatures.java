@@ -67,6 +67,12 @@ public class CompareFeatures extends CorpusModule<CompareFeaturesResolvedObjects
 		for (Element elt : Iterators.loop(resObj.items.evaluateElements(evalCtx, corpus))) {
 			String refClass = elt.getLastFeature(referenceFeature);
 			String predClass = elt.getLastFeature(predictedFeature);
+			if (refClass == null) {
+				refClass = "";
+			}
+			if (predClass == null) {
+				predClass = "";
+			}
 			allClasses.add(refClass);
 			allClasses.add(predClass);
 			pairs.add(new Pair<String,String>(refClass, predClass));
