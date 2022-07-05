@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -32,7 +33,7 @@ import fr.inra.maiage.bibliome.util.Pair;
 public class REBERTPredictExternalHandler extends ExternalHandler<Corpus,REBERTPredict> {
 	private final String[] labels;
 	private final EvaluationContext evalCtx;
-	private final List<Candidate> candidates;
+	private final Collection<Candidate> candidates;
 
 	protected REBERTPredictExternalHandler(ProcessingContext<Corpus> processingContext, REBERTPredict module, Corpus annotable) throws ModuleException {
 		super(processingContext, module, annotable);
@@ -87,18 +88,27 @@ public class REBERTPredictExternalHandler extends ExternalHandler<Corpus,REBERTP
 	
 	private Element getLabelledElement(Candidate cand, int cat) {
 		REBERTPredict owner = getModule();
-		if (owner.getRelationName() != null) {
-			if ((cat == owner.getNegativeCategory()) && !owner.getNegativeTuples()) {
-				return null;
+		if (cand.isAsserted()) {
+			if (owner.getCreateAssertedTuples()) {
+				return createTuple(cand, cat);
 			}
+			return cand.getSupportElement();
+		}
+		return createTuple(cand, cat);
+	}
+	
+	private Tuple createTuple(Candidate cand, int cat) {
+		REBERTPredict owner = getModule();
+		if (owner.getCreateNegativeTuples() || (cat != owner.getNegativeCategory())) {
 			Relation rel = cand.getSubject().getSection().ensureRelation(owner, owner.getRelationName());
 			Tuple t = new Tuple(owner, rel);
 			t.setArgument(owner.getSubjectRole(), cand.getSubject().getElement());
 			t.setArgument(owner.getObjectRole(), cand.getObject().getElement());
-			return t;			
+			return t;
 		}
-		return cand.getScope();
+		return null;
 	}
+	
 	
 	private class ProbasReader implements Closeable, AutoCloseable, Iterator<double[][]> {
 		private final BufferedReader[] readers;

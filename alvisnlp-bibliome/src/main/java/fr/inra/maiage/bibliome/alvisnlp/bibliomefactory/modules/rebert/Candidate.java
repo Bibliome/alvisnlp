@@ -10,21 +10,58 @@ import fr.inra.maiage.bibliome.util.fragments.FragmentTag;
 import fr.inra.maiage.bibliome.util.fragments.FragmentTagIterator;
 
 public class Candidate {
-	private final Element scope;
+	private final boolean asserted;
+	private final Element supportElement;
 	private final Argument subject;
 	private final Argument object;
 	private final String label;
 	
-	public Candidate(REBERTPredict owner, EvaluationContext evalCtx, Element element, Element subject, Element object, String label) throws ModuleException {
+	public Candidate(boolean asserted, REBERTPredict owner, EvaluationContext evalCtx, Element supportElement, Element subject, Element object, String label) throws ModuleException {
 		super();
-		this.scope = element;
+		this.asserted = asserted;
+		this.supportElement = supportElement;
 		this.subject = new Argument(owner, evalCtx, Argument.SUBJECT_TAGS, subject);
 		this.object = new Argument(owner, evalCtx, Argument.OBJECT_TAGS, object);
 		this.label = label;
 	}
 
-	public Element getScope() {
-		return scope;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((object == null) ? 0 : object.hashCode());
+		result = prime * result + ((subject == null) ? 0 : subject.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Candidate other = (Candidate) obj;
+		if (object == null) {
+			if (other.object != null)
+				return false;
+		} else if (!object.equals(other.object))
+			return false;
+		if (subject == null) {
+			if (other.subject != null)
+				return false;
+		} else if (!subject.equals(other.subject))
+			return false;
+		return true;
+	}
+
+	public boolean isAsserted() {
+		return asserted;
+	}
+
+	public Element getSupportElement() {
+		return supportElement;
 	}
 
 	public Argument getSubject() {

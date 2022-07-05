@@ -2,8 +2,9 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rebert;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -41,18 +42,22 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 	private String condaEnvironment;
 	private ExecutableFile python;
 	private InputDirectory rebertDir;
-	private Expression candidateScope;
-	private Expression subjects;
-	private Expression objects;
+	private Expression assertedCandidates;
+	private Expression assertedSubject;
+	private Expression assertedObject;
+	private Expression candidateGenerationScope;
+	private Expression generatedSubjects;
+	private Expression generatedObjects;
 	private Expression start = DefaultExpressions.ANNOTATION_START;
 	private Expression end = DefaultExpressions.ANNOTATION_END;
+	private Boolean createAssertedTuples = false;
+	private Boolean createNegativeTuples = false;
+	private Integer negativeCategory = 0;
 	private String relationName;
 	private String subjectRole = "subject";
 	private String objectRole = "object";
-	private Boolean negativeTuples;
-	private Integer negativeCategory = 0;
 	private String sentenceLayer = DefaultNames.getSentenceLayer();
-	private String labelFeature = "label";
+	private String labelFeature = "predicted-label";
 	private String explainFeaturePrefix;
 	private String modelType;
 	private InputDirectory finetunedModel;
@@ -61,31 +66,49 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 	private EnsembleAggregator aggregator = EnsembleAggregator.VOTE;
 
 	public class REBERTPredictResolvedObjects extends ResolvedObjects {
-		private final Evaluator candidateScope;
-		private final Evaluator subjects;
-		private final Evaluator objects;
+		private final Evaluator assertedCandidates;
+		private final Evaluator assertedSubject;
+		private final Evaluator assertedObject;
+		private final Evaluator candidateGenerationScope;
+		private final Evaluator generatedSubjects;
+		private final Evaluator generatedObjects;
 		private final Evaluator start;
 		private final Evaluator end;
 				
 		public REBERTPredictResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 			super(ctx, REBERTPredict.this);
-			this.candidateScope = REBERTPredict.this.candidateScope.resolveExpressions(rootResolver);
-			this.subjects = REBERTPredict.this.subjects.resolveExpressions(rootResolver);
-			this.objects = REBERTPredict.this.objects.resolveExpressions(rootResolver);
+			this.assertedCandidates = rootResolver.resolveNullable(REBERTPredict.this.assertedCandidates);
+			this.assertedSubject = rootResolver.resolveNullable(REBERTPredict.this.assertedSubject);
+			this.assertedObject = rootResolver.resolveNullable(REBERTPredict.this.assertedObject);
+			this.candidateGenerationScope = REBERTPredict.this.candidateGenerationScope.resolveExpressions(rootResolver);
+			this.generatedSubjects = REBERTPredict.this.generatedSubjects.resolveExpressions(rootResolver);
+			this.generatedObjects = REBERTPredict.this.generatedObjects.resolveExpressions(rootResolver);
 			this.start = REBERTPredict.this.start.resolveExpressions(rootResolver);
 			this.end = REBERTPredict.this.end.resolveExpressions(rootResolver);
 		}
 
-		public Evaluator getCandidateScope() {
-			return candidateScope;
+		public Evaluator getAssertedCandidates() {
+			return assertedCandidates;
 		}
 
-		public Evaluator getSubjects() {
-			return subjects;
+		public Evaluator getAssertedSubject() {
+			return assertedSubject;
 		}
 
-		public Evaluator getObjects() {
-			return objects;
+		public Evaluator getAssertedObject() {
+			return assertedObject;
+		}
+
+		public Evaluator getCandidateGenerationScope() {
+			return candidateGenerationScope;
+		}
+
+		public Evaluator getGeneratedSubjects() {
+			return generatedSubjects;
+		}
+
+		public Evaluator getGeneratedObjects() {
+			return generatedObjects;
 		}
 
 		public Evaluator getStart() {
@@ -95,13 +118,32 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		public Evaluator getEnd() {
 			return end;
 		}
+		
+		private Element getSingleArgument(EvaluationContext evalCtx, Element example, Evaluator argEval) {
+			if (argEval == null) {
+				return null;
+			}
+			Iterator<Element> argIt = argEval.evaluateElements(evalCtx, example);
+			if (argIt.hasNext()) {
+				return argIt.next();
+			}
+			return null;
+		}
 
-		public List<Candidate> createCandidates(EvaluationContext evalCtx, Corpus corpus) throws ModuleException {
-			List<Candidate> result = new ArrayList<Candidate>();
-			for (Element scope : Iterators.loop(getCandidateScope().evaluateElements(evalCtx, corpus))) {
-				for (Element subject : Iterators.loop(getSubjects().evaluateElements(evalCtx, scope))) {
-					for (Element object : Iterators.loop(getObjects().evaluateElements(evalCtx, scope))) {
-						Candidate cand = new Candidate(REBERTPredict.this, evalCtx, scope, subject, object, "");
+		public Collection<Candidate> createCandidates(EvaluationContext evalCtx, Corpus corpus) throws ModuleException {
+			Collection<Candidate> result = new LinkedHashSet<Candidate>();
+			if (getAssertedCandidates() != null) {
+				for (Element xpl : Iterators.loop(getAssertedCandidates().evaluateElements(evalCtx, corpus))) {
+					Element subject = getSingleArgument(evalCtx, xpl, getAssertedSubject());
+					Element object = getSingleArgument(evalCtx, xpl, getAssertedObject());
+					Candidate cand = new Candidate(true, REBERTPredict.this, evalCtx, xpl, subject, object, "");
+					result.add(cand);
+				}
+			}
+			for (Element scope : Iterators.loop(getCandidateGenerationScope().evaluateElements(evalCtx, corpus))) {
+				for (Element subject : Iterators.loop(getGeneratedSubjects().evaluateElements(evalCtx, scope))) {
+					for (Element object : Iterators.loop(getGeneratedObjects().evaluateElements(evalCtx, scope))) {
+						Candidate cand = new Candidate(false, REBERTPredict.this, evalCtx, scope, subject, object, "");
 						result.add(cand);
 					}
 				}
@@ -148,18 +190,18 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 	}
 
 	@Param
-	public Expression getCandidateScope() {
-		return candidateScope;
+	public Expression getCandidateGenerationScope() {
+		return candidateGenerationScope;
 	}
 
 	@Param
-	public Expression getSubjects() {
-		return subjects;
+	public Expression getGeneratedSubjects() {
+		return generatedSubjects;
 	}
 
 	@Param
-	public Expression getObjects() {
-		return objects;
+	public Expression getGeneratedObjects() {
+		return generatedObjects;
 	}
 
 	@Param
@@ -233,8 +275,8 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 	}
 
 	@Param
-	public Boolean getNegativeTuples() {
-		return negativeTuples;
+	public Boolean getCreateNegativeTuples() {
+		return createNegativeTuples;
 	}
 
 	@Param
@@ -252,6 +294,42 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		return objectRole;
 	}
 
+	@Param(mandatory = false)
+	public Expression getAssertedCandidates() {
+		return assertedCandidates;
+	}
+
+	@Param(mandatory = false)
+	public Expression getAssertedSubject() {
+		return assertedSubject;
+	}
+
+	@Param(mandatory = false)
+	public Expression getAssertedObject() {
+		return assertedObject;
+	}
+
+	@Param
+	public Boolean getCreateAssertedTuples() {
+		return createAssertedTuples;
+	}
+
+	public void setAssertedCandidates(Expression assertedCandidates) {
+		this.assertedCandidates = assertedCandidates;
+	}
+
+	public void setAssertedSubject(Expression assertedSubject) {
+		this.assertedSubject = assertedSubject;
+	}
+
+	public void setAssertedObject(Expression assertedObject) {
+		this.assertedObject = assertedObject;
+	}
+
+	public void setCreateAssertedTuples(Boolean createAssertedTuples) {
+		this.createAssertedTuples = createAssertedTuples;
+	}
+
 	public void setSubjectRole(String subjectRole) {
 		this.subjectRole = subjectRole;
 	}
@@ -264,8 +342,8 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		this.relationName = relationName;
 	}
 
-	public void setNegativeTuples(Boolean negativeTuples) {
-		this.negativeTuples = negativeTuples;
+	public void setCreateNegativeTuples(Boolean createNegativeTuples) {
+		this.createNegativeTuples = createNegativeTuples;
 	}
 
 	public void setNegativeCategory(Integer negativeCategory) {
@@ -300,16 +378,16 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		this.rebertDir = rebertDir;
 	}
 
-	public void setCandidateScope(Expression candidateScope) {
-		this.candidateScope = candidateScope;
+	public void setCandidateGenerationScope(Expression candidateGenerationScope) {
+		this.candidateGenerationScope = candidateGenerationScope;
 	}
 
-	public void setSubjects(Expression subjects) {
-		this.subjects = subjects;
+	public void setGeneratedSubjects(Expression generatedSubjects) {
+		this.generatedSubjects = generatedSubjects;
 	}
 
-	public void setObjects(Expression objects) {
-		this.objects = objects;
+	public void setGeneratedObjects(Expression generatedObjects) {
+		this.generatedObjects = generatedObjects;
 	}
 
 	public void setStart(Expression start) {
