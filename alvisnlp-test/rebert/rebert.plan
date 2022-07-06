@@ -40,6 +40,7 @@
     <subjectRole>Bacteria</subjectRole>
     <objectRole>Location</objectRole>
     <explainFeaturePrefix/>
+    <ensembleNumber>3</ensembleNumber>
   </predict>
 
   <label-negatives class="Action">
@@ -63,10 +64,19 @@
     </columns>
   </export>
 
-  <eval class="CompareFeatures">
-    <items>documents.sections.relations:Lives_In.tuples</items>
-    <outFile>eval.txt</outFile>
-    <predictedFeature>predicted-label</predictedFeature>
-    <referenceFeature>label</referenceFeature>
+  <eval>
+    <train class="CompareFeatures">
+      <items>documents[@set == "train"].sections.relations:Lives_In.tuples</items>
+      <outFile>eval-train.txt</outFile>
+      <predictedFeature>predicted-label</predictedFeature>
+      <referenceFeature>label</referenceFeature>
+    </train>
+    
+    <dev class="CompareFeatures">
+      <items>documents[@set == "dev"].sections.relations:Lives_In.tuples</items>
+      <outFile>eval-dev.txt</outFile>
+      <predictedFeature>predicted-label</predictedFeature>
+      <referenceFeature>label</referenceFeature>
+    </dev>
   </eval>
 </alvisnlp-plan>
