@@ -46,6 +46,11 @@ public enum EnsembleAggregator {
 			}
 			return highest;
 		}
+
+		@Override
+		public String toString() {
+			return "vote";
+		}
 	};
 	
 	public abstract Pair<Integer,Mapping> aggregate(double[][] ensembleProbas);
