@@ -5,6 +5,7 @@ import java.io.Reader;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
+import java.util.logging.Logger;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -29,6 +30,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Checkable;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
@@ -37,7 +39,7 @@ import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule(beta = true)
-public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedObjects> implements RelationCreator, TupleCreator {
+public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedObjects> implements RelationCreator, TupleCreator, Checkable {
 	private ExecutableFile conda;
 	private String condaEnvironment;
 	private ExecutableFile python;
@@ -169,6 +171,77 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 	}
 
 	@Override
+	public boolean check(Logger logger) {
+		boolean result = true;
+		if (candidateGenerationScope == null) {
+			if (assertedCandidates == null) {
+				logger.severe("either candidateGenerationScope or assertedCandidates must be set");
+				result = false;
+			}
+			if (generatedSubjects != null) {
+				logger.warning("generatedSubjects will be ignored since candidateGenerationScope is not set");
+			}
+			if (generatedObjects != null) {
+				logger.warning("generatedObjects will be ignored since candidateGenerationScope is not set");
+			}
+		}
+		else {
+			if (generatedSubjects == null) {
+				logger.severe("generatedSubjects is mandatory when candidateGenerationScope is set");
+				result = false;
+			}
+			if (generatedObjects == null) {
+				logger.severe("generatedObjects is mandatory when candidateGenerationScope is set");
+				result = false;
+			}
+		}
+		if (assertedCandidates == null) {
+			if (assertedSubject != null) {
+				logger.warning("assertedSubject will be ignored since assertedCandidates is not set");
+			}
+			if (assertedObject != null) {
+				logger.warning("assertedObject will be ignored since assertedCandidates is not set");
+			}
+		}
+		else {
+			if (assertedSubject == null) {
+				logger.severe("assertedSubject is mandatory when assertedCandidates is set");
+				result = true;
+			}
+			if (assertedObject == null) {
+				logger.severe("assertedObject is mandatory when assertedCandidates is set");
+				result = true;
+			}
+		}
+		if (conda == null) {
+			if (condaEnvironment != null) {
+				logger.warning("condaEnvironment will be ignored since conda is not set");
+			}
+		}
+		else {
+			if (condaEnvironment == null) {
+				logger.severe("condaEnvironment is mandatory when conda is set");
+				result = false;
+			}
+		}
+		if ((candidateGenerationScope == null) && (!createAssertedTuples) && (relationName == null)) {
+			logger.warning("relationName will be ignored since candidateGenerationScope is not set and createAssertedTuples is false");
+		}
+		if ((candidateGenerationScope != null) && (relationName != null)) {
+			logger.severe("relationName is mandatory since candidateGenerationScope is set");
+			result = false;
+		}
+		if (createAssertedTuples && (relationName != null)) {
+			logger.severe("relationName is mandatory since createAssertedTuples is true");
+			result = false;
+		}
+		if (ensembleNumber < 1) {
+			logger.severe("ensembleNumber must be greater or equalt to 1");
+		}
+		return result;
+	}
+
+	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
 			REBERTPredictExternalHandler ext = new REBERTPredictExternalHandler(ctx, this, corpus);
@@ -189,17 +262,17 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		return rebertDir;
 	}
 
-	@Param
+	@Param(mandatory = false)
 	public Expression getCandidateGenerationScope() {
 		return candidateGenerationScope;
 	}
 
-	@Param
+	@Param(mandatory = false)
 	public Expression getGeneratedSubjects() {
 		return generatedSubjects;
 	}
 
-	@Param
+	@Param(mandatory = false)
 	public Expression getGeneratedObjects() {
 		return generatedObjects;
 	}
