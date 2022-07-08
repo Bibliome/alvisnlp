@@ -61,6 +61,7 @@ public abstract class TrieProjector<S extends SectionResolvedObjects,T> extends 
 	private Boolean skipConsecutiveWhitespaces = false;
 	private Boolean skipWhitespace = false;
 	private Boolean wordStartCaseInsensitive = false;
+	private Boolean substituteWhitespace = false;
 	private MultipleEntryBehaviour multipleEntryBehaviour = MultipleEntryBehaviour.ALL;
 
 	@Override
@@ -112,6 +113,7 @@ public abstract class TrieProjector<S extends SectionResolvedObjects,T> extends 
 		result.setSkipConsecutiveWhitespaces(skipConsecutiveWhitespaces);
 		result.setSkipWhitespace(skipWhitespace);
 		result.setWordStartCaseInsensitive(wordStartCaseInsensitive);
+		result.setSubstituteWhitespace(substituteWhitespace);
 		return result;
 	}
 
@@ -232,6 +234,15 @@ public abstract class TrieProjector<S extends SectionResolvedObjects,T> extends 
 	@Param
 	public MultipleEntryBehaviour getMultipleEntryBehaviour() {
 		return multipleEntryBehaviour;
+	}
+
+	@Param
+	public Boolean getSubstituteWhitespace() {
+		return substituteWhitespace;
+	}
+
+	public void setSubstituteWhitespace(Boolean substituteWhitespace) {
+		this.substituteWhitespace = substituteWhitespace;
 	}
 
 	public void setMultipleEntryBehaviour(MultipleEntryBehaviour multipleEntryBehaviour) {

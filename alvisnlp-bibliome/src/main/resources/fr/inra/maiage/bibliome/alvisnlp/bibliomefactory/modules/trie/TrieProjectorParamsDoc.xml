@@ -71,6 +71,10 @@ limitations under the License.
     <param-doc name="matchStartCaseInsensitive">
       <p>If set to <em>true</em>, then allow case folding on the first character of the entry key.</p>
     </param-doc>
+  
+    <param-doc name="substituteWhitespace">
+      <p>If set to <em>true</em>, then all whitespace characters match each other (including '\n', '\r', '\t', and non-breaking spaces).</p>
+    </param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreatorParamsDoc</include-doc>
