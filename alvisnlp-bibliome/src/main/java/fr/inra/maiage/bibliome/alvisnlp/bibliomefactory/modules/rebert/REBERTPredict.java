@@ -227,7 +227,7 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		if ((candidateGenerationScope == null) && (!createAssertedTuples) && (relationName == null)) {
 			logger.warning("relationName will be ignored since candidateGenerationScope is not set and createAssertedTuples is false");
 		}
-		if ((candidateGenerationScope != null) && (relationName != null)) {
+		if ((candidateGenerationScope != null) && (relationName == null)) {
 			logger.severe("relationName is mandatory since candidateGenerationScope is set");
 			result = false;
 		}
@@ -245,7 +245,12 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
 			REBERTPredictExternalHandler ext = new REBERTPredictExternalHandler(ctx, this, corpus);
-			ext.start();
+			if (ext.hasCandidates()) {
+				ext.start();
+			}
+			else {
+				getLogger(ctx).warning("no candidate");
+			}
 		}
 		catch (IOException | InterruptedException e) {
 			throw new ProcessingException(e);

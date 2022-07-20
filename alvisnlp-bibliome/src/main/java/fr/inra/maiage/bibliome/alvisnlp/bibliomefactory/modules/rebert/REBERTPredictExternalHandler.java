@@ -43,6 +43,10 @@ public class REBERTPredictExternalHandler extends ExternalHandler<Corpus,REBERTP
 		candidates = module.getResolvedObjects().createCandidates(evalCtx, annotable);
 	}
 	
+	protected boolean hasCandidates() {
+		return !candidates.isEmpty();
+	}
+	
 	@Override
 	protected void prepare() throws IOException, ModuleException {
 		CSVFormat format = CSVFormat.MYSQL.builder().setQuote('"').setDelimiter(',').build();
