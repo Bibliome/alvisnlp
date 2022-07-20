@@ -7,6 +7,7 @@
     <pretokenized/>
     <parse/>
     <ner/>
+    <constituency/>
   </stanza>
 
   <features-update file="write-features.plan">

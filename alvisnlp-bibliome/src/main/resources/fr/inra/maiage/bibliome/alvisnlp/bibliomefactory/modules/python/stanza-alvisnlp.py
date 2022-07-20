@@ -1,6 +1,7 @@
 import alvisnlp
 import sys
 import stanza
+from concurrent.futures import process
 
 
 class PretokenizedStub:
@@ -47,6 +48,7 @@ class StanzaApp:
         self.lang = self.corpus.params['lang']
         self.parse = self.b('parse')
         self.ner = self.b('ner')
+        self.constituency = self.b('constituency')
 
     def b(self, param):
         s = self.corpus.params[param]
@@ -56,6 +58,8 @@ class StanzaApp:
         processors = ['tokenize', 'mwt', 'pos', 'lemma']
         if self.parse:
             processors.append('depparse')
+        if self.constituency:
+            processors.append('constituency')
         if self.ner:
             processors.append('ner')
         return processors
@@ -93,6 +97,23 @@ class StanzaApp:
                 sec.create_tuple('dependencies', args=dict(head=ha, dependent=ta, sentence=anlp_sent), features=dict(label=label))
 
     @staticmethod
+    def _convert_tree_recursive(sec, const):
+        if not const.is_preterminal():
+            prets = list(const.yield_preterminals())
+            start = min(pret.anlp_token.start for pret in prets)
+            end = max(pret.anlp_token.end for pret in prets)
+            sec.create_annotation('constituents', start, end, features=dict(label=const.label))
+            for child in const.children:
+                StanzaApp._convert_tree_recursive(sec, child)
+
+    @staticmethod
+    def convert_constituencies(sec, anlp_sent, stanza_sent, token_map):
+        for pret, stanza_word in zip(stanza_sent.constituency.yield_preterminals(), stanza_sent.words):
+            anlp_token = token_map[stanza_word.parent.id]
+            pret.anlp_token = anlp_token
+        StanzaApp._convert_tree_recursive(sec, stanza_sent.constituency)
+            
+    @staticmethod
     def convert_entities(sec, stanza_sent, token_map):
         for ent in stanza_sent.ents:
             start = token_map[ent.tokens[0].id].start
@@ -109,6 +130,7 @@ class StanzaApp:
                     token_map = stub.get_token_map(sec, stanza_sent, anlp_sent)
                     StanzaApp.convert_token_info(stanza_sent, token_map)
                     StanzaApp.convert_dependencies(sec, anlp_sent, stanza_sent, token_map)
+                    StanzaApp.convert_constituencies(sec, anlp_sent, stanza_sent, token_map)
                     StanzaApp.convert_entities(sec, stanza_sent, token_map)
         self.corpus.write_events_json(sys.stdout)
 

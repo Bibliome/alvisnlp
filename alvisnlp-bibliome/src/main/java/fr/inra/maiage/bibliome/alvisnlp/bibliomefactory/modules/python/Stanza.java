@@ -10,6 +10,7 @@ public abstract class Stanza extends InternalPythonScript {
 	private Boolean pretokenized = false;
 	private Boolean parse = false;
 	private Boolean ner = false;
+	private Boolean constituency = false;
 	private String language = "en";
 	
 	@Override
@@ -35,6 +36,7 @@ public abstract class Stanza extends InternalPythonScript {
 		addScriptParam(mapping, "lang", language);
 		addScriptParam(mapping, "pretokenized", pretokenized);
 		addScriptParam(mapping, "parse", parse);
+		addScriptParam(mapping, "constituency", constituency);
 		addScriptParam(mapping, "ner", ner);
 	}
 
@@ -56,6 +58,15 @@ public abstract class Stanza extends InternalPythonScript {
 	@Param
 	public String getLanguage() {
 		return language;
+	}
+
+	@Param
+	public Boolean getConstituency() {
+		return constituency;
+	}
+
+	public void setConstituency(Boolean constituency) {
+		this.constituency = constituency;
 	}
 
 	public void setPretokenized(Boolean pretokenized) {
