@@ -92,8 +92,15 @@ fi
 
 LIB_FILES="alvisnlp-core/target/lib/*.jar alvisnlp-core/target/*.jar alvisnlp-bibliome/target/lib/*.jar alvisnlp-bibliome/target/*.jar"
 
+SOURCES_DIR="$(readlink -m $(dirname $0))"
+echo "Sources directory: $SOURCES_DIR"
 INSTALL_DIR="$(readlink -m $1)"
 echo "Install directory: $INSTALL_DIR"
+if [ "$SOURCES_DIR" = "$INSTALL_DIR" ]
+then
+    echo "Cannot install into the sources dir"
+    exit 1
+fi
 if [ -n "$DEFAULT_PARAM_VALUES" ]
 then
     echo "Default parameter values file: $DEFAULT_PARAM_VALUES"
