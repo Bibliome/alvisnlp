@@ -54,6 +54,24 @@ public enum MappingOperator {
 		public String toString() {
 			return "prefix";
 		}
+	},
+	
+	SUFFIX {
+		@Override
+		<T> List<T> getMatches(Map<String, List<T>> mapping, String key) {
+			List<T> result = new ArrayList<T>();
+			for (Map.Entry<String,List<T>> e : mapping.entrySet()) {
+				if (key.endsWith(e.getKey())) {
+					result.addAll(e.getValue());
+				}
+			}
+			return result;
+		}
+
+		@Override
+		public String toString() {
+			return "suffix";
+		}
 	}
 	;
 	
