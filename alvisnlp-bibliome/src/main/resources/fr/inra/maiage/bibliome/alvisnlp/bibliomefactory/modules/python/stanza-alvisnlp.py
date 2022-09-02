@@ -129,9 +129,12 @@ class StanzaApp:
                 for stanza_sent, anlp_sent in stub.get_sentences(stanza_doc, sec):
                     token_map = stub.get_token_map(sec, stanza_sent, anlp_sent)
                     StanzaApp.convert_token_info(stanza_sent, token_map)
-                    StanzaApp.convert_dependencies(sec, anlp_sent, stanza_sent, token_map)
-                    StanzaApp.convert_constituencies(sec, anlp_sent, stanza_sent, token_map)
-                    StanzaApp.convert_entities(sec, stanza_sent, token_map)
+                    if self.parse:
+                        StanzaApp.convert_dependencies(sec, anlp_sent, stanza_sent, token_map)
+                    if self.constituency:
+                        StanzaApp.convert_constituencies(sec, anlp_sent, stanza_sent, token_map)
+                    if self.ner:
+                        StanzaApp.convert_entities(sec, stanza_sent, token_map)
         self.corpus.write_events_json(sys.stdout)
 
 
