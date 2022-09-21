@@ -26,7 +26,11 @@ limitations under the License.
     </description>
   
     <param-doc name="targetFeatures">
-      <p>Name of the features where to store the columns of matched lines.</p>
+      <p>Name of the features where to store the columns of matched lines. Ignored if <param>headerLine</param> is set.</p>
+    </param-doc>
+    
+    <param-doc name="headerLine">
+    	<p>Assumes the first line of the dictionary is a header, target feature names will be the column names read from the header.</p>
     </param-doc>
   
     <param-doc name="mappingFile">

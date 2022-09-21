@@ -33,6 +33,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
+import fr.inra.maiage.bibliome.util.Checkable;
 import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
 import fr.inra.maiage.bibliome.util.filelines.FileLines;
 import fr.inra.maiage.bibliome.util.filelines.InvalidFileLineEntry;
@@ -43,24 +44,42 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
  */
 
 @AlvisNLPModule
-public class FileMapper extends Mapper<MapperResolvedObjects,List<String>> {
-    private SourceStream                            mappingFile            = null;
-    private Character                       separator              = '\t';
+public class FileMapper extends Mapper<MapperResolvedObjects,List<String>> implements Checkable {
+    private SourceStream mappingFile = null;
+    private Character separator = '\t';
     private Integer keyColumn = 0;
     private String[] targetFeatures;
+    private Boolean headerLine = false;
 
     private final FileLines<DefaultMap<String,List<List<String>>>> mapEntryLines = new FileLines<DefaultMap<String,List<List<String>>>>() {
         @Override
         public void processEntry(DefaultMap<String,List<List<String>>> data, int lineno, List<String> entry) throws InvalidFileLineEntry {
-            String key = ignoreCase ? entry.get(keyColumn).toLowerCase() : entry.get(keyColumn);
-            List<List<String>> values = data.safeGet(key);
-            values.add(entry);
+        	if (headerLine && (lineno == 1)) {
+        		targetFeatures = entry.toArray(new String[entry.size()]);
+        	}
+        	else {
+        		String key = ignoreCase ? entry.get(keyColumn).toLowerCase() : entry.get(keyColumn);
+        		List<List<String>> values = data.safeGet(key);
+        		values.add(entry);
+        	}
         }
     };
 
     @Override
 	protected MapperResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new MapperResolvedObjects(ctx, this);
+	}
+    
+	@Override
+	public boolean check(Logger logger) {
+		if (headerLine && (targetFeatures != null)) {
+			logger.warning("targetFeatures will be ignored since headerLine is set");
+		}
+		if ((!headerLine) && (targetFeatures == null)) {
+			logger.severe("either targetFeatures or headerLine must be set");
+			return false;
+		}
+		return true;
 	}
 
 	@Override
@@ -107,9 +126,18 @@ public class FileMapper extends Mapper<MapperResolvedObjects,List<String>> {
 		return keyColumn;
 	}
 
-    @Param(nameType=NameType.FEATURE)
+    @Param(mandatory = false, nameType=NameType.FEATURE)
 	public String[] getTargetFeatures() {
 		return targetFeatures;
+	}
+
+    @Param
+	public Boolean getHeaderLine() {
+		return headerLine;
+	}
+
+	public void setHeaderLine(Boolean headerLine) {
+		this.headerLine = headerLine;
 	}
 
 	public void setTargetFeatures(String[] targetFeatures) {
