@@ -60,6 +60,12 @@ public class LegacyFunctors {
 			case "outside":
 			case "overlapping":
 			case "span":
+			case "xafter":
+			case "xbefore":
+			case "xinside":
+			case "xoutside":
+			case "xoverlapping":
+			case "xspan":
 			case "layer":
 			case "relations":
 			case "documents":
