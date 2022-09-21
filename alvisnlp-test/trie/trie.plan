@@ -4,7 +4,7 @@
   <taxa1 class="TabularProjector">
     <dictFile base-dir="share">taxa+id_Bacteria.txt</dictFile>
     <targetLayerName>taxa1</targetLayerName>
-    <valueFeatures>,taxid</valueFeatures>
+    <headerLine/>
     <trieSink>taxa+id_Bacteria.trie</trieSink>
   </taxa1>
 

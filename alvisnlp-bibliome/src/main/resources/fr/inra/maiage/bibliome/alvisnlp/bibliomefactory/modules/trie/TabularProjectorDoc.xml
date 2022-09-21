@@ -61,7 +61,11 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="valueFeatures">
-      <p>Target features in match annotations. The values are the columns in the entry.</p>
+      <p>Target features in match annotations. The values are the columns in the entry. Ignored if <param>headerLine</param> is set (unless <param>trieSource</param> is set).</p>
+    </param-doc>
+  
+    <param-doc name="headerLine">
+      <p>Assume the first line of the dictionary is a header, the feature values will be taken from the header line. Ignored if <param>trieSource</param> is set.</p>
     </param-doc>
   
     <param-doc name="keyIndex">
