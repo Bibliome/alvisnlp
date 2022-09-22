@@ -6,7 +6,7 @@ Project-specific file reader.
 
 ## Description
 
-*AnimalReader*reads text files in the same way as <a href="../module/TextFileReader" class="module">TextFileReader</a> . Additionally, for each file read, it also reads metadata in a file with the same name with the *.xml* extension.
+ *AnimalReader* reads text files in the same way as <a href="../module/TextFileReader" class="module">TextFileReader</a> . Additionally, for each file read, it also reads metadata in a file with the same name with the *.xml* extension.
 
 ## Snippet
 

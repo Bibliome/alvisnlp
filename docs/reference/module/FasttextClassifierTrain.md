@@ -2,13 +2,13 @@
 
 ## Synopsis
 
-*FasttextClassifierTrain*trains a document classifier using [FastText](https://fasttext.cc/) .
+ *FasttextClassifierTrain* trains a document classifier using [FastText](https://fasttext.cc/) .
 
 **This module is experimental.**
 
 ## Description
 
-*FasttextClassifierTrain*evaluates <a href="#documents" class="param">documents</a> as a list of elements and trains FastText to classify them. The category of each document is specified by <a href="#classFeature" class="param">classFeature</a> . The attributes used to discriminate classes are specified by <a href="#attributes" class="param">attributes</a> .
+ *FasttextClassifierTrain* evaluates <a href="#documents" class="param">documents</a> as a list of elements and trains FastText to classify them. The category of each document is specified by <a href="#classFeature" class="param">classFeature</a> . The attributes used to discriminate classes are specified by <a href="#attributes" class="param">attributes</a> .
 
  <a href="#modelFile" class="param">modelFile</a> specifies where to write the result: the classification model receives the `.bin` extension, and the word vectors `.vec` .
 

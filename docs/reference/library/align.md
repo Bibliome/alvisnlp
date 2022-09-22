@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-*align*provides functions to align two list of elements using the [Needleman-Wunsch]() algorithm.
+ *align* provides functions to align two list of elements using the [Needleman-Wunsch]() algorithm.
 
 ## Functons
 

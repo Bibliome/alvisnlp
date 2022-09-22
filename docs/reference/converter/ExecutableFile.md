@@ -34,5 +34,5 @@ or
 <param>PATH</param>
 ```
 
- *PATH* is converted into an*ExecutableFile*as specified by the string conversion.
+ *PATH* is converted into an *ExecutableFile* as specified by the string conversion.
 

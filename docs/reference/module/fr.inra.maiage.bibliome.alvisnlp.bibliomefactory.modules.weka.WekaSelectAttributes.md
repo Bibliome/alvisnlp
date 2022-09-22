@@ -6,7 +6,7 @@ Searches for discrimminating attributes with Weka.
 
 ## Description
 
-*WekaSelectAttributes*applies Weka's attribute selection on a training set specified by <a href="#examples" class="param">examples</a> and writes the result in <a href="#evaluationFile" class="param">evaluationFile</a> .
+ *WekaSelectAttributes* applies Weka's attribute selection on a training set specified by <a href="#examples" class="param">examples</a> and writes the result in <a href="#evaluationFile" class="param">evaluationFile</a> .
 
 ## Snippet
 

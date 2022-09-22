@@ -6,11 +6,11 @@ Applies action expressions on selected elements.
 
 ## Description
 
-*Action*evaluates <a href="#commit" class="param">commit</a> as a list of elements, then <a href="#target" class="param">target</a> as a list of elements on each commit element, then <a href="#action" class="param">action</a> on each target element.
+ *Action* evaluates <a href="#commit" class="param">commit</a> as a list of elements, then <a href="#target" class="param">target</a> as a list of elements on each commit element, then <a href="#action" class="param">action</a> on each target element.
 
-*Action*is useful when <a href="#action" class="param">action</a> is a side-effect expression. The side-effect expressions allowed are controlled by: <a href="#createDocuments" class="param">createDocuments</a> , <a href="#createSections" class="param">createSections</a> , <a href="#createRelations" class="param">createRelations</a> , <a href="#createTuples" class="param">createTuples</a> , <a href="#createAnnotations" class="param">createAnnotations</a> , <a href="#setArguments" class="param">setArguments</a> , <a href="#setFeatures" class="param">setFeatures</a> and <a href="#deleteElements" class="param">deleteElements</a> . If these parameters are not set to true then*Action*will refuse to evaluate the corresponding side-effect expressions.
+ *Action* is useful when <a href="#action" class="param">action</a> is a side-effect expression. The side-effect expressions allowed are controlled by: <a href="#createDocuments" class="param">createDocuments</a> , <a href="#createSections" class="param">createSections</a> , <a href="#createRelations" class="param">createRelations</a> , <a href="#createTuples" class="param">createTuples</a> , <a href="#createAnnotations" class="param">createAnnotations</a> , <a href="#setArguments" class="param">setArguments</a> , <a href="#setFeatures" class="param">setFeatures</a> and <a href="#deleteElements" class="param">deleteElements</a> . If these parameters are not set to true then *Action* will refuse to evaluate the corresponding side-effect expressions.
 
-*Action*commits the changes on the data structure when each <a href="#commit" class="param">commit</a> element is done. When processing very large corpora, set <a href="#commit" class="param">commit</a> to reach documents or sections.
+ *Action* commits the changes on the data structure when each <a href="#commit" class="param">commit</a> element is done. When processing very large corpora, set <a href="#commit" class="param">commit</a> to reach documents or sections.
 
 ## Snippet
 
@@ -93,7 +93,7 @@ Allow to add annotations to layers.
 
 <h3 id="commit" class="param">commit</h3>
 
-<div class="param-level param-level-default-value">Default value: `nav:$()`
+<div class="param-level param-level-default-value">Default value: `$`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>

@@ -17,7 +17,6 @@ Deprecated alias for <a href="../module/FileMapper" class="module">FileMapper</a
     <form></form>
     <mappingFile></mappingFile>
     <target></target>
-    <targetFeatures></targetFeatures>
 </filemapper2>
 ```
 
@@ -47,15 +46,23 @@ Tab-separated file containing the dictionary.
 </div>
 Expression evaluated as a list of elements with the corpus as context that specify the elements to be mapped.
 
+## Optional parameters
+
 <h3 id="targetFeatures" class="param">targetFeatures</h3>
 
-<div class="param-level param-level-mandatory">Mandatory
+<div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
 Name of the features where to store the columns of matched lines.
 
-## Optional parameters
+<h3 id="headerLine" class="param">headerLine</h3>
+
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
+UNDOCUMENTED
 
 <h3 id="ignoreCase" class="param">ignoreCase</h3>
 

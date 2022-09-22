@@ -6,7 +6,7 @@ Sequence of documents.
 
 ## Description
 
-*Sequence_Impl*is not intended to be used directly. AlvisNLP instanciates*Sequence_Impl*when the plan file specifies a `sequence` .
+ *Sequence_Impl* is not intended to be used directly. AlvisNLP instanciates *Sequence_Impl* when the plan file specifies a `sequence` .
 
 ## Snippet
 

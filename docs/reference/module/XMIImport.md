@@ -8,7 +8,7 @@ Reads files in XMI format using the AlvisNLP proxy filesystem.
 
 ## Description
 
-*XMIImport*reads <a href="#source" class="param">source</a> streams in XMI format. The source must contain documents and annotations using the AlvisNLP proxy filesystem.
+ *XMIImport* reads <a href="#source" class="param">source</a> streams in XMI format. The source must contain documents and annotations using the AlvisNLP proxy filesystem.
 
 See <a href="../module/XMIExport" class="module">XMIExport</a> .
 

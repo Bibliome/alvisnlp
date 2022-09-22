@@ -98,7 +98,7 @@ Name of the tuple feature that specifies the relation label.
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 
-<div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
+<div class="param-level param-level-default-value">Default value: `true and layer:words`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>

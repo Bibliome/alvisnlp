@@ -8,7 +8,7 @@ Identifies the language of a content using [Lingua](https://github.com/pemistahl
 
 ## Description
 
-*LinguaLID*evaluates <a href="#target" class="param">target</a> as a list of elements, then evaluates <a href="#form" class="param">form</a> for each one as a string. The language of evaluated content is predicted using the [Lingua](https://github.com/pemistahl/lingua) library.
+ *LinguaLID* evaluates <a href="#target" class="param">target</a> as a list of elements, then evaluates <a href="#form" class="param">form</a> for each one as a string. The language of evaluated content is predicted using the [Lingua](https://github.com/pemistahl/lingua) library.
 
 The predicted language is stored in the feature specified by <a href="#languageFeature" class="param">languageFeature</a> using ISO 639-1 two-letter code. Optionally the confidence score is stored in <a href="#languageConfidenceFeature" class="param">languageConfidenceFeature</a> .
 
@@ -55,7 +55,7 @@ Minimum value of confidence.
 
 <h3 id="form" class="param">form</h3>
 
-<div class="param-level param-level-default-value">Default value: `properties:contents()`
+<div class="param-level param-level-default-value">Default value: `contents`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -79,7 +79,7 @@ Feature where to store the predicted language.
 
 <h3 id="target" class="param">target</h3>
 
-<div class="param-level param-level-default-value">Default value: `nav:.(nav:documents(), nav:sections())`
+<div class="param-level param-level-default-value">Default value: `documents.sections`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>

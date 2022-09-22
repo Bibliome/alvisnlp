@@ -8,7 +8,7 @@ Train a term concept classifier using [CONTES](https://github.com/ArnaudFerre/CO
 
 ## Description
 
-*ContesTrain*trains a classifier using [CONTES](https://github.com/ArnaudFerre/CONTES) for classifying terms in a ontology hierarchy.
+ *ContesTrain* trains a classifier using [CONTES](https://github.com/ArnaudFerre/CONTES) for classifying terms in a ontology hierarchy.
 
 ## Snippet
 

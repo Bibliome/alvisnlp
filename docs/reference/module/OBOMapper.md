@@ -6,7 +6,7 @@ Maps names and synonyms of terms defined in OBO files.
 
 ## Description
 
-*OBOMapper*maps names and synonyms of terms described in <a href="#oboFiles" class="param">oboFiles</a> on <a href="#target" class="param">target</a> .
+ *OBOMapper* maps names and synonyms of terms described in <a href="#oboFiles" class="param">oboFiles</a> on <a href="#target" class="param">target</a> .
 
 ## Snippet
 

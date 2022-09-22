@@ -2,13 +2,13 @@
 
 ## Synopsis
 
-*TomapTrain*analyzes terms in preparation of the classification of candidates with [ToMap](https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md) .
+ *TomapTrain* analyzes terms in preparation of the classification of candidates with [ToMap](https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md) .
 
 **This module is experimental.**
 
 ## Description
 
-*TomapTrain*assumes each sentence or section is a proxy term according to the [ToMap](https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md) method.*TomapTrain*analyzes the syntactic structure of sections and stores them in <a href="#outFile" class="param">outFile</a> . Use this file for classifying terms with <a href="../module/TomapProjector" class="module">TomapProjector</a> . The identifier associated with the proxy is specified with <a href="#conceptIdentifier" class="param">conceptIdentifier</a> .
+ *TomapTrain* assumes each sentence or section is a proxy term according to the [ToMap](https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md) method. *TomapTrain* analyzes the syntactic structure of sections and stores them in <a href="#outFile" class="param">outFile</a> . Use this file for classifying terms with <a href="../module/TomapProjector" class="module">TomapProjector</a> . The identifier associated with the proxy is specified with <a href="#conceptIdentifier" class="param">conceptIdentifier</a> .
 
  <a href="#conceptIdentifier" class="param">conceptIdentifier</a> is
 
@@ -191,7 +191,7 @@ Feature containing the word POS tag.
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 
-<div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
+<div class="param-level param-level-default-value">Default value: `true and layer:words`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>

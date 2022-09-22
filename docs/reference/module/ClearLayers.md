@@ -6,7 +6,7 @@ Completely remove layers from sections.
 
 ## Description
 
-*ClearLayers*removes the layers named after <a href="#layerNames" class="param">layerNames</a> from sections.
+ *ClearLayers* removes the layers named after <a href="#layerNames" class="param">layerNames</a> from sections.
 
 ## Snippet
 

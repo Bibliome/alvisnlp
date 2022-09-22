@@ -2,13 +2,13 @@
 
 ## Synopsis
 
-*AggregateValues*lists a set of values and computes aggregate values.
+ *AggregateValues* lists a set of values and computes aggregate values.
 
 **This module is experimental.**
 
 ## Description
 
-*AggregateValues*lists a set of elements specified by <a href="#entries" class="param">entries</a> , and computes a string value for each specified by <a href="#key" class="param">key</a> .*AggregateValues*computes aggregates functions specified by <a href="#aggregators" class="param">aggregators</a> for each distinct value. The list of entry keys and their aggregate values are written into <a href="#outFile" class="param">outFile</a> 
+ *AggregateValues* lists a set of elements specified by <a href="#entries" class="param">entries</a> , and computes a string value for each specified by <a href="#key" class="param">key</a> . *AggregateValues* computes aggregates functions specified by <a href="#aggregators" class="param">aggregators</a> for each distinct value. The list of entry keys and their aggregate values are written into <a href="#outFile" class="param">outFile</a> 
 
 ### ExampleCounting words in the corpus:
 

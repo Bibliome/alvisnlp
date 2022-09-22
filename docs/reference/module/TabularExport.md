@@ -6,7 +6,7 @@ Writes the corpus data structure in files in tabular format.
 
 ## Description
 
-*TabularExport*evaluates <a href="#files" class="param">files</a> as a list of elements with the corpus as the context element and creates a file for each result. The file is located in <a href="#outDir" class="param">outDir</a> and named after the result of <a href="#fileName" class="param">fileName</a> (evaluated as a string).
+ *TabularExport* evaluates <a href="#files" class="param">files</a> as a list of elements with the corpus as the context element and creates a file for each result. The file is located in <a href="#outDir" class="param">outDir</a> and named after the result of <a href="#fileName" class="param">fileName</a> (evaluated as a string).
 
 If <a href="#corpusFile" class="param">corpusFile</a> is set, then it overrides <a href="#files" class="param">files</a> and <a href="#fileName" class="param">fileName</a> . The whole corpus goes into a single file.
 

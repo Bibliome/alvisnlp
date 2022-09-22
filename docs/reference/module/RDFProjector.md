@@ -8,7 +8,7 @@ Projects OBO terms and synonyms on sections.
 
 ## Description
 
-*RDFProjector*reads <a href="#source" class="param">source</a> SKOS terminologies or OWL ontologies and searches for class and concept labels in sections.
+ *RDFProjector* reads <a href="#source" class="param">source</a> SKOS terminologies or OWL ontologies and searches for class and concept labels in sections.
 
 The parameters <a href="#allowJoined" class="param">allowJoined</a> , <a href="#allUpperCaseInsensitive" class="param">allUpperCaseInsensitive</a> , <a href="#caseInsensitive" class="param">caseInsensitive</a> , <a href="#ignoreDiacritics" class="param">ignoreDiacritics</a> , <a href="#joinDash" class="param">joinDash</a> , <a href="#matchStartCaseInsensitive" class="param">matchStartCaseInsensitive</a> , <a href="#skipConsecutiveWhitespaces" class="param">skipConsecutiveWhitespaces</a> , <a href="#skipWhitespace" class="param">skipWhitespace</a> and <a href="#wordStartCaseInsensitive" class="param">wordStartCaseInsensitive</a> control the matching between the section and the entry keys.
 
@@ -18,7 +18,7 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 
 
 
-*RDFProjector*creates an annotation for each matched entry and adds these annotations to the layer named <a href="#targetLayerName" class="param">targetLayerName</a> . The created annotations will have the feature <a href="#uriFeatureName" class="param">uriFeatureName</a> containing the URI of the matched class or concept.*RDFProjector*may also map property object values into features specified by <a href="#labelFeatures" class="param">labelFeatures</a> .
+ *RDFProjector* creates an annotation for each matched entry and adds these annotations to the layer named <a href="#targetLayerName" class="param">targetLayerName</a> . The created annotations will have the feature <a href="#uriFeatureName" class="param">uriFeatureName</a> containing the URI of the matched class or concept. *RDFProjector* may also map property object values into features specified by <a href="#labelFeatures" class="param">labelFeatures</a> .
 
 ## Snippet
 
@@ -82,7 +82,7 @@ Specify the language of labels to project. If this parameter is not set then lab
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.OutputFile" class="converter">OutputFile</a>
 </div>
-If set, then*RDFProjector*writes the compiled dictionary to the specified file.
+If set, then *RDFProjector* writes the compiled dictionary to the specified file.
 
 <h3 id="trieSource" class="param">trieSource</h3>
 
@@ -227,6 +227,14 @@ If set to *true* , then allow arbitrary insertion of whitespace characters in th
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.Subject" class="converter">Subject</a>
 </div>
 Specifies the contents to match.
+
+<h3 id="substituteWhitespace" class="param">substituteWhitespace</h3>
+
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
+If set to *true* , then all whitespace characters match each other (including '\n', '\r', '\t', and non-breaking spaces).
 
 <h3 id="wordStartCaseInsensitive" class="param">wordStartCaseInsensitive</h3>
 

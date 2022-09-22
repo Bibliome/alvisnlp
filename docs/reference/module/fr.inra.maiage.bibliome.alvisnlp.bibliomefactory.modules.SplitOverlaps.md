@@ -8,7 +8,7 @@ Splits overlapping annotations.
 
 ## Description
 
-*SplitOverlaps*copies annotations from <a href="#checkedlayerNames" class="param">checkedlayerNames</a> into <a href="#modifiedlayerName" class="param">modifiedlayerName</a> and ensures that this layer does not contain overlaping annotations. If <a href="#checkedlayerNames" class="param">checkedlayerNames</a> contains overlaps, then*SplitOverlaps*splits annotations at the start or end positions of overlapping annotations.
+ *SplitOverlaps* copies annotations from <a href="#checkedlayerNames" class="param">checkedlayerNames</a> into <a href="#modifiedlayerName" class="param">modifiedlayerName</a> and ensures that this layer does not contain overlaping annotations. If <a href="#checkedlayerNames" class="param">checkedlayerNames</a> contains overlaps, then *SplitOverlaps* splits annotations at the start or end positions of overlapping annotations.
 
 
 * Features copied?

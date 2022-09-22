@@ -8,7 +8,7 @@ Categorizes documents with a model trained with <a href="../module/OpenNLPDocume
 
 ## Description
 
-*OpenNLPDocumentCategorizer*uses a model trained with <a href="../module/OpenNLPDocumentCategorizerTrain" class="module">OpenNLPDocumentCategorizerTrain</a> to categorize unlabeled documents. The documents are specified by <a href="#documents" class="param">documents</a> . The classifier algorithm uses the document content specified by <a href="#tokens" class="param">tokens</a> and <a href="#form" class="param">form</a> .
+ *OpenNLPDocumentCategorizer* uses a model trained with <a href="../module/OpenNLPDocumentCategorizerTrain" class="module">OpenNLPDocumentCategorizerTrain</a> to categorize unlabeled documents. The documents are specified by <a href="#documents" class="param">documents</a> . The classifier algorithm uses the document content specified by <a href="#tokens" class="param">tokens</a> and <a href="#form" class="param">form</a> .
 
 ## Snippet
 
@@ -59,7 +59,7 @@ Prefix of feature names where to store the score of each category.
 
 <h3 id="documents" class="param">documents</h3>
 
-<div class="param-level param-level-default-value">Default value: `nav:documents()`
+<div class="param-level param-level-default-value">Default value: `documents`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -67,7 +67,7 @@ Elements to classify. This expression is evaluated from the corpus.
 
 <h3 id="form" class="param">form</h3>
 
-<div class="param-level param-level-default-value">Default value: `properties:@:form()`
+<div class="param-level param-level-default-value">Default value: `@form`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -75,7 +75,7 @@ Form of the token. This expression is evaluated as a string from the token.
 
 <h3 id="tokens" class="param">tokens</h3>
 
-<div class="param-level param-level-default-value">Default value: `nav:.(nav:sections(), nav:layer:words())`
+<div class="param-level param-level-default-value">Default value: `sections.layer:words`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>

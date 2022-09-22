@@ -6,7 +6,7 @@ Compares two sets of elements.
 
 ## Description
 
-*CompareElements*evaluates <a href="#predicted" class="param">predicted</a> and <a href="#reference" class="param">reference</a> as element lists and compares them according to <a href="#similarity" class="param">similarity</a> . Detailed comparison, recall, precision and F-Score are written in <a href="#outFile" class="param">outFile</a> .
+ *CompareElements* evaluates <a href="#predicted" class="param">predicted</a> and <a href="#reference" class="param">reference</a> as element lists and compares them according to <a href="#similarity" class="param">similarity</a> . Detailed comparison, recall, precision and F-Score are written in <a href="#outFile" class="param">outFile</a> .
 
 ## Snippet
 

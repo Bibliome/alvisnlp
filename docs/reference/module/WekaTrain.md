@@ -6,9 +6,9 @@ Trains a Weka classifier where examples are elements.
 
 ## Description
 
-*WekaTrain*builds a Weka training set where examples are elements, trains a classifier and writes it into <a href="#classifierFile" class="param">classifierFile</a> . The training set is specified by <a href="#examples" class="param">examples</a> . Example attributes are specified by <a href="#relationDefinition" class="param">relationDefinition</a> .
+ *WekaTrain* builds a Weka training set where examples are elements, trains a classifier and writes it into <a href="#classifierFile" class="param">classifierFile</a> . The training set is specified by <a href="#examples" class="param">examples</a> . Example attributes are specified by <a href="#relationDefinition" class="param">relationDefinition</a> .
 
-*WekaTrain*activates cross validation if one of the following parameters is set: <a href="#evaluationFile" class="param">evaluationFile</a> , <a href="#foldFeatureKey" class="param">foldFeatureKey</a> , <a href="#predictedClassFeatureKey" class="param">predictedClassFeatureKey</a> .
+ *WekaTrain* activates cross validation if one of the following parameters is set: <a href="#evaluationFile" class="param">evaluationFile</a> , <a href="#foldFeatureKey" class="param">foldFeatureKey</a> , <a href="#predictedClassFeatureKey" class="param">predictedClassFeatureKey</a> .
 
 ## Snippet
 

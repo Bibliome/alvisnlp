@@ -74,7 +74,7 @@ Document properties specification.
 
 <h3 id="fileName" class="param">fileName</h3>
 
-<div class="param-level param-level-default-value">Default value: `str:concat(properties:@:id(), constant:string:.json())`
+<div class="param-level param-level-default-value">Default value: `@id ^ ".json"`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>

@@ -8,7 +8,7 @@ Train a document categorizer using the [OpenNLP](https://opennlp.apache.org/) li
 
 ## Description
 
-*OpenNLPDocumentCategorizerTrain*trains a document categorizer using the [OpenNLP](https://opennlp.apache.org/) library. The documents and their class are specified by <a href="#documents" class="param">documents</a> and <a href="#categoryFeature" class="param">categoryFeature</a> . The classifier algorithm uses the document content specified by <a href="#tokens" class="param">tokens</a> and <a href="#form" class="param">form</a> .
+ *OpenNLPDocumentCategorizerTrain* trains a document categorizer using the [OpenNLP](https://opennlp.apache.org/) library. The documents and their class are specified by <a href="#documents" class="param">documents</a> and <a href="#categoryFeature" class="param">categoryFeature</a> . The classifier algorithm uses the document content specified by <a href="#tokens" class="param">tokens</a> and <a href="#form" class="param">form</a> .
 
 By default the features are BOW but can be deactivated with <a href="#bagOfWords" class="param">bagOfWords</a> . Additionally <a href="#nGrams" class="param">nGrams</a> can be set to add n-gram features.
 
@@ -94,7 +94,7 @@ Either to generate single-word features.
 
 <h3 id="documents" class="param">documents</h3>
 
-<div class="param-level param-level-default-value">Default value: `nav:documents()`
+<div class="param-level param-level-default-value">Default value: `documents`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -102,7 +102,7 @@ Elements to classify. This expression is evaluated from the corpus.
 
 <h3 id="form" class="param">form</h3>
 
-<div class="param-level param-level-default-value">Default value: `properties:@:form()`
+<div class="param-level param-level-default-value">Default value: `@form`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -118,7 +118,7 @@ Number of learning iterations.
 
 <h3 id="tokens" class="param">tokens</h3>
 
-<div class="param-level param-level-default-value">Default value: `nav:.(nav:sections(), nav:layer:words())`
+<div class="param-level param-level-default-value">Default value: `sections.layer:words`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>

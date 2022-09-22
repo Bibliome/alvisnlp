@@ -128,7 +128,7 @@ Constant features to add to each tuple created by this module
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
-If set,*AlvisAEReader2*imports only documents whose description is included in the value. If not set, then*AlvisAEReader2*imports all documents.
+If set, *AlvisAEReader2* imports only documents whose description is included in the value. If not set, then *AlvisAEReader2* imports all documents.
 
 <h3 id="docExternalIds" class="param">docExternalIds</h3>
 
@@ -136,7 +136,7 @@ If set,*AlvisAEReader2*imports only documents whose description is included in t
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
-If set,*AlvisAEReader2*imports only documents whose external id is included in the value. If not set, then*AlvisAEReader2*imports all documents.
+If set, *AlvisAEReader2* imports only documents whose external id is included in the value. If not set, then *AlvisAEReader2* imports all documents.
 
 <h3 id="docIds" class="param">docIds</h3>
 
@@ -144,7 +144,7 @@ If set,*AlvisAEReader2*imports only documents whose external id is included in t
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Integer%5B%5D" class="converter">Integer[]</a>
 </div>
-If set,*AlvisAEReader2*imports only documents whose external id is included in the value. If not set, then*AlvisAEReader2*imports all documents.
+If set, *AlvisAEReader2* imports only documents whose external id is included in the value. If not set, then *AlvisAEReader2* imports all documents.
 
 <h3 id="taskFeature" class="param">taskFeature</h3>
 
@@ -160,7 +160,7 @@ Name of the feature where to store the name task where the annotation belongs.
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Integer" class="converter">Integer</a>
 </div>
-If set,*AlvisAEReader2*imports only annotation sets of tasks whose id is included in the value. If this parameter and <a href="#taskName" class="param">taskName</a> are not set,*AlvisAEReader2*imports annotations of all tasks.
+If set, *AlvisAEReader2* imports only annotation sets of tasks whose id is included in the value. If this parameter and <a href="#taskName" class="param">taskName</a> are not set, *AlvisAEReader2* imports annotations of all tasks.
 
 <h3 id="taskIdFeature" class="param">taskIdFeature</h3>
 
@@ -176,7 +176,7 @@ Feature where to store the task identifier from which the annotation was importe
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-If set,*AlvisAEReader2*imports only annotation sets of tasks whose name is included in the value. If this parameter and <a href="#taskId" class="param">taskId</a> are not set,*AlvisAEReader2*imports annotations of all tasks.
+If set, *AlvisAEReader2* imports only annotation sets of tasks whose name is included in the value. If this parameter and <a href="#taskId" class="param">taskId</a> are not set, *AlvisAEReader2* imports annotations of all tasks.
 
 <h3 id="userFeature" class="param">userFeature</h3>
 
@@ -200,7 +200,7 @@ Feature where to store the user identifier from which the annotation was importe
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Integer%5B%5D" class="converter">Integer[]</a>
 </div>
-If set,*AlvisAEReader2*imports only annotation sets created by an user whose id is included in the value. If this parameter and <a href="#userNames" class="param">userNames</a> are not set,*AlvisAEReader2*imports annotations of all users.
+If set, *AlvisAEReader2* imports only annotation sets created by an user whose id is included in the value. If this parameter and <a href="#userNames" class="param">userNames</a> are not set, *AlvisAEReader2* imports annotations of all users.
 
 <h3 id="userNames" class="param">userNames</h3>
 
@@ -208,7 +208,7 @@ If set,*AlvisAEReader2*imports only annotation sets created by an user whose id 
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
-If set,*AlvisAEReader2*imports only annotation sets created by an user included in the value. If this parameter and <a href="#userIds" class="param">userIds</a> are not set,*AlvisAEReader2*imports annotations of all users.
+If set, *AlvisAEReader2* imports only annotation sets created by an user included in the value. If this parameter and <a href="#userIds" class="param">userIds</a> are not set, *AlvisAEReader2* imports annotations of all users.
 
 <h3 id="adjudicate" class="param">adjudicate</h3>
 
@@ -288,7 +288,7 @@ Name of the layer where to store text-bound annotation fragments.
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
-If `true` , then*AlvisAEReader2*imports the *head* annotation set. If `false` , then*AlvisAEReader2*imports the annotation set with version 1.
+If `true` , then *AlvisAEReader2* imports the *head* annotation set. If `false` , then *AlvisAEReader2* imports the annotation set with version 1.
 
 <h3 id="htmlLayerName" class="param">htmlLayerName</h3>
 

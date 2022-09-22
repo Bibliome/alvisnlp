@@ -8,7 +8,7 @@ Writes the corpus in XMI format using the AlvisNLP proxy typesystem.
 
 ## Description
 
-*XMIExport*writes a file for each document in <a href="#outDir" class="param">outDir</a> in the XMI format using the AlvisNLP proxy typesystem.
+ *XMIExport* writes a file for each document in <a href="#outDir" class="param">outDir</a> in the XMI format using the AlvisNLP proxy typesystem.
 
 Files written by this module can be read by <a href="../module/XMIImport" class="module">XMIImport</a> 
 

@@ -82,7 +82,7 @@ UNDOCUMENTED
 
 <h3 id="docId" class="param">docId</h3>
 
-<div class="param-level param-level-default-value">Default value: `str(properties:@:id(), constant:string:__(), split:num())`
+<div class="param-level param-level-default-value">Default value: `@id ^ "__" ^ split:num`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>

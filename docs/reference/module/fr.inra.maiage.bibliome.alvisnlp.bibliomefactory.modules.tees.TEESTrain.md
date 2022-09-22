@@ -6,7 +6,7 @@ Train a model that can be used to predict binary relations using TEES
 
 ## Description
 
-*TEESTrain*executes the TEES training on <a href="#Corpus" class="param">Corpus</a> and record the results in <a href="#Relation" class="param">Relation</a> . Param <a href="#relationName" class="param">relationName</a> sets the name of the binary relation to predict. <a href="#relationRole1" class="param">relationRole1</a> and <a href="#relationRole" class="param">relationRole</a> set the two roles of the relation. Params <a href="#trainSetFeature" class="param">trainSetFeature</a> , <a href="#devSetFeature" class="param">devSetFeature</a> and <a href="#testSetFeature" class="param">testSetFeature</a> give respectively the features key of the train, dev and test corpus.*TEESTrain*
+ *TEESTrain* executes the TEES training on <a href="#Corpus" class="param">Corpus</a> and record the results in <a href="#Relation" class="param">Relation</a> . Param <a href="#relationName" class="param">relationName</a> sets the name of the binary relation to predict. <a href="#relationRole1" class="param">relationRole1</a> and <a href="#relationRole" class="param">relationRole</a> set the two roles of the relation. Params <a href="#trainSetFeature" class="param">trainSetFeature</a> , <a href="#devSetFeature" class="param">devSetFeature</a> and <a href="#testSetFeature" class="param">testSetFeature</a> give respectively the features key of the train, dev and test corpus. *TEESTrain* 
 
 ## Snippet
 
@@ -150,7 +150,7 @@ Name of the feature containing the POS-tag.
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 
-<div class="param-level param-level-default-value">Default value: `boolean:and(true, boolean:and(nav:layer:words(), nav:layer:sentences()))`
+<div class="param-level param-level-default-value">Default value: `true and layer:words and layer:sentences`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>

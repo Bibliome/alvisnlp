@@ -8,20 +8,20 @@ This module assumes WoSMig processed the same sections.
 
 ## Description
 
-*SeSMig*scans for annotations in <a href="#wordLayerName" class="param">wordLayerName</a> and detects a sentence boundaries defined as either:
+ *SeSMig* scans for annotations in <a href="#wordLayerName" class="param">wordLayerName</a> and detects a sentence boundaries defined as either:
 * an annotation whose feature <a href="#eosStatusFeature" class="param">eosStatusFeature</a> equals *eos* ;
 * an annotation whose surface form contains only characaters of the value of <a href="#strongPunctuations" class="param">strongPunctuations</a> and which is followed by an uppercase character;
 * an annotation whose feature <a href="#eosStatusFeature" class="param">eosStatusFeature</a> equals *maybe-eos* and which is followed by an uppercase character.
 
 
 
-*SeSMig*creates an annotation for each sentence and adds it into the <a href="#targetLayerName" class="param">targetLayerName</a> . The <a href="#eosStatusFeature" class="param">eosStatusFeature</a> of word annotations are given a new value:
+ *SeSMig* creates an annotation for each sentence and adds it into the <a href="#targetLayerName" class="param">targetLayerName</a> . The <a href="#eosStatusFeature" class="param">eosStatusFeature</a> of word annotations are given a new value:
 *  **eos** : for the last word of each sentence;
 *  **not-eos** : for all other words.
 
 
 
-If <a href="#noBreakLayerName" class="param">noBreakLayerName</a> is defined, then*SeSMig*will prevent sentence boundaries inside annotations in this layer.
+If <a href="#noBreakLayerName" class="param">noBreakLayerName</a> is defined, then *SeSMig* will prevent sentence boundaries inside annotations in this layer.
 
 ## Snippet
 
@@ -78,7 +78,7 @@ Name of the feature containing the word surface form.
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 
-<div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
+<div class="param-level param-level-default-value">Default value: `true and layer:words`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>

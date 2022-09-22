@@ -6,13 +6,13 @@ Runs *tree-tagger* .
 
 ## Description
 
-*TreeTagger*applies *tree-tagger* on annotations in <a href="#wordLayerName" class="param">wordLayerName</a> by generating an appropriate input file. This file will contain one line for each annotation. The first column, the token surface form, is the value of the <a href="#formFeature" class="param">formFeature</a> feature. The second column, the token predefined POS tag, is the value <a href="#posFeature" class="param">posFeature</a> feature. The third column, the token predefined lemma, is the value of <a href="#lemmaFeature" class="param">lemmaFeature</a> feature. If <a href="#posFeature" class="param">posFeature</a> or <a href="#lemmaFeature" class="param">lemmaFeature</a> are not defined, then the second and third column are left blank.
+ *TreeTagger* applies *tree-tagger* on annotations in <a href="#wordLayerName" class="param">wordLayerName</a> by generating an appropriate input file. This file will contain one line for each annotation. The first column, the token surface form, is the value of the <a href="#formFeature" class="param">formFeature</a> feature. The second column, the token predefined POS tag, is the value <a href="#posFeature" class="param">posFeature</a> feature. The third column, the token predefined lemma, is the value of <a href="#lemmaFeature" class="param">lemmaFeature</a> feature. If <a href="#posFeature" class="param">posFeature</a> or <a href="#lemmaFeature" class="param">lemmaFeature</a> are not defined, then the second and third column are left blank.
 
 The *tree-tagger* binary is specified by <a href="#treeTaggerExecutable" class="param">treeTaggerExecutable</a> and the language model to use is specified by <a href="#parFile" class="param">parFile</a> . Additionally a lexicon file can be given through <a href="#lexiconFile" class="param">lexiconFile</a> .
 
-If <a href="#sentenceLayerName" class="param">sentenceLayerName</a> is defined, then*TreeTagger*considers annotations in this layer as sentences. Sentence boundaries are reinforced by providing *tree-tagger* an additional end-of-sentence marker.
+If <a href="#sentenceLayerName" class="param">sentenceLayerName</a> is defined, then *TreeTagger* considers annotations in this layer as sentences. Sentence boundaries are reinforced by providing *tree-tagger* an additional end-of-sentence marker.
 
-Once *tree-tagger* has processed the corpus,*TreeTagger*adds the predicted POS tag and lemma to the respective <a href="#posFeature" class="param">posFeature</a> and <a href="#lemmaFeature" class="param">lemmaFeature</a> features of the corresponding annotations.
+Once *tree-tagger* has processed the corpus, *TreeTagger* adds the predicted POS tag and lemma to the respective <a href="#posFeature" class="param">posFeature</a> and <a href="#lemmaFeature" class="param">lemmaFeature</a> features of the corresponding annotations.
 
 If <a href="#recordDir" class="param">recordDir</a> and <a href="#recordFeatures" class="param">recordFeatures</a> are both defined, then *tree-tagger* predictions are written into files in one file per section in the <a href="#recordDir" class="param">recordDir</a> directory. <a href="#recordFeatures" class="param">recordFeatures</a> is an array of feature names to record. An additional feature *n* is recognized as the annotation ordinal in the section.
 

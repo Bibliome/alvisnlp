@@ -105,7 +105,7 @@ Name of the role of the dependency tuple argument that references the head (gove
 </div>
 <div class="param-type">Type: <a href="../converter/com.github.pemistahl.lingua.api.Language" class="converter">Language</a>
 </div>
-Language of the text to parse.*StanfordParser*currently supports english (default), french, german, spanish and chinese.
+Language of the text to parse. *StanfordParser* currently supports english (default), french, german, spanish and chinese.
 
 <h3 id="omitRoot" class="param">omitRoot</h3>
 
@@ -125,7 +125,7 @@ Name of the feature containing the token POS tag.
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 
-<div class="param-level param-level-default-value">Default value: `boolean:and(true, boolean:and(nav:layer:sentences(), nav:layer:words()))`
+<div class="param-level param-level-default-value">Default value: `true and layer:sentences and layer:words`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>

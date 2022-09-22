@@ -6,7 +6,7 @@ Performs word segmentation on section contents.
 
 ## Description
 
-*WoSMig*searches for word boundaries in the section contents, creates an annotation for each word and adds it to the layer <a href="#targetLayerName" class="param">targetLayerName</a> . The following are considered as word boundaries:
+ *WoSMig* searches for word boundaries in the section contents, creates an annotation for each word and adds it to the layer <a href="#targetLayerName" class="param">targetLayerName</a> . The following are considered as word boundaries:
 * consecutive whitespace characters, including ' ', newline, carriage return and horizontal tabulation;
 * the positions before and after each punctuation character defined in <a href="#punctuation" class="param">punctuation</a> and <a href="#balancedPunctuations" class="param">balancedPunctuations</a> , thus a punctuation character always form a single-character word, a balanced punctuation breaks a word iff the corresponding punctuation is found.
 

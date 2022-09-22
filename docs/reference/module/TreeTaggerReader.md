@@ -8,7 +8,7 @@ Read files in tree-tagger output format and creates a document for each file rea
 
 Each document contains a single section named <a href="#sectionName" class="param">sectionName</a> ; its contents is constructed by concatenating the first column of each token separated with a space character.
 
-*TreeTaggerReader*keeps the tree-tagger tokenization in annotations added into the layer <a href="#wordLayerName" class="param">wordLayerName</a> . The POS tag and lemma are recorded in the annotation's <a href="#posFeatureKey" class="param">posFeatureKey</a> and <a href="#lemmaFeatureKey" class="param">lemmaFeatureKey</a> features respectively.
+ *TreeTaggerReader* keeps the tree-tagger tokenization in annotations added into the layer <a href="#wordLayerName" class="param">wordLayerName</a> . The POS tag and lemma are recorded in the annotation's <a href="#posFeatureKey" class="param">posFeatureKey</a> and <a href="#lemmaFeatureKey" class="param">lemmaFeatureKey</a> features respectively.
 
 The document identifier is the path of the corresponding file.
 

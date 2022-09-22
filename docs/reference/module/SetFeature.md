@@ -8,9 +8,9 @@ Set the value of a feature for a selection of elements.
 
 ## Description
 
-*SetFeature*evaluates <a href="#target" class="param">target</a> as a list of elements. For each element*SetFeature*set value of <a href="#featureName" class="param">featureName</a> to <a href="#featureValue" class="param">featureValue</a> .
+ *SetFeature* evaluates <a href="#target" class="param">target</a> as a list of elements. For each element *SetFeature* set value of <a href="#featureName" class="param">featureName</a> to <a href="#featureValue" class="param">featureValue</a> .
 
-*SetFeature*is useful to build plans that select a particular feature to process.
+ *SetFeature* is useful to build plans that select a particular feature to process.
 
 ## Snippet
 

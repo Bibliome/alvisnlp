@@ -8,7 +8,7 @@ Projects terms from a TiDI export.
 
 ## Description
 
-*TyDIProjector*reads different files from a [TyDI](https://migale.jouy.inra.fr/redmine/projects/tydi) text export, resolves all synonymies and projects the terms into sections.
+ *TyDIProjector* reads different files from a [TyDI](https://migale.jouy.inra.fr/redmine/projects/tydi) text export, resolves all synonymies and projects the terms into sections.
 
 The parameters <a href="#lemmaFile" class="param">lemmaFile</a> , <a href="#synonymsFile" class="param">synonymsFile</a> , <a href="#quasiSynonymsFile" class="param">quasiSynonymsFile</a> , <a href="#acronymsFile" class="param">acronymsFile</a> and <a href="#typographicVariationsFile" class="param">typographicVariationsFile</a> point to the paths to the corresponding TyDI file export.
 
@@ -20,7 +20,7 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 
 
 
-*TyDIProjector*creates an annotation for each matched entry and adds these annotations to the layer named <a href="#targetLayerName" class="param">targetLayerName</a> . The created annotations will have a feature named <a href="#canonicalFormFeature" class="param">canonicalFormFeature</a> containing the canonical form of the matched term. In addition, the created annotations will have the feature keys and values defined in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a> .
+ *TyDIProjector* creates an annotation for each matched entry and adds these annotations to the layer named <a href="#targetLayerName" class="param">targetLayerName</a> . The created annotations will have a feature named <a href="#canonicalFormFeature" class="param">canonicalFormFeature</a> containing the canonical form of the matched term. In addition, the created annotations will have the feature keys and values defined in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a> .
 
 ## Snippet
 
@@ -186,7 +186,7 @@ Process only sections that satisfy this filter.
 
 <h3 id="subject" class="param">subject</h3>
 
-<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.ContentsSubject@411f53a0`
+<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.ContentsSubject@74235045`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.Subject" class="converter">Subject</a>
 </div>

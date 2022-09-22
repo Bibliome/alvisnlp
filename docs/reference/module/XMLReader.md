@@ -6,9 +6,9 @@ Reads XML files and creates elements.
 
 ## Description
 
-*XMLReader*reads its input from <a href="#sourcePath" class="param">sourcePath</a> as XML and creates documents, sections, annotations, relations or tuples. The structure of the input XML is handled through the <a href="#xlsTransform" class="param">xlsTransform</a> XSLT stylesheet.
+ *XMLReader* reads its input from <a href="#sourcePath" class="param">sourcePath</a> as XML and creates documents, sections, annotations, relations or tuples. The structure of the input XML is handled through the <a href="#xlsTransform" class="param">xlsTransform</a> XSLT stylesheet.
 
-*XMLReader*also provides XSLT function and element extensions. The namespace for all extensions is `xalan://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml.XMLReader2` .
+ *XMLReader* also provides XSLT function and element extensions. The namespace for all extensions is `xalan://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml.XMLReader2` .
 
 ### Element extensions
 *  `document` : creates a document in the current corpus. The identifier is either a string specified by the attribute id, or an XPath expression specified by the xpath-id attribute. The expression is evaluated as a string.

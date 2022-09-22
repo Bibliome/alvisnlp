@@ -6,7 +6,7 @@ Extract terms from the corpus using the YaTeA term extractor.
 
 ## Description
 
-*YateaExtractor*hands the corpus to the [YaTeA](http://search.cpan.org/~thhamon/Lingua-YaTeA) extractor. The corpus is first written in a file in the YaTeA input format. Tokens are annotations in the layer <a href="#wordLayerName" class="param">wordLayerName</a> , their surface form, POS tag and lemma are taken from <a href="#formFeature" class="param">formFeature</a> , <a href="#posFeature" class="param">posFeature</a> and <a href="#lemmaFeature" class="param">lemmaFeature</a> features respectively. If <a href="#sentenceLayerName" class="param">sentenceLayerName</a> is set, then an additional *SENT* marker is added to reinforce sentence boundaries corresponding to annotations in this layer.
+ *YateaExtractor* hands the corpus to the [YaTeA](http://search.cpan.org/~thhamon/Lingua-YaTeA) extractor. The corpus is first written in a file in the YaTeA input format. Tokens are annotations in the layer <a href="#wordLayerName" class="param">wordLayerName</a> , their surface form, POS tag and lemma are taken from <a href="#formFeature" class="param">formFeature</a> , <a href="#posFeature" class="param">posFeature</a> and <a href="#lemmaFeature" class="param">lemmaFeature</a> features respectively. If <a href="#sentenceLayerName" class="param">sentenceLayerName</a> is set, then an additional *SENT* marker is added to reinforce sentence boundaries corresponding to annotations in this layer.
 
 The YaTeA is called using the executable set in <a href="#yateaExecutable" class="param">yateaExecutable</a> , it will run as if it is called from directory <a href="#workingDir" class="param">workingDir</a> : the result will be written in the subdirectory named <a href="#corpusName" class="param">corpusName</a> .
 
@@ -187,7 +187,7 @@ Feature containing the word POS tag.
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 
-<div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
+<div class="param-level param-level-default-value">Default value: `true and layer:words`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>

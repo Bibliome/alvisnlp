@@ -8,7 +8,7 @@ Calls the [Species]() taxon tagger.
 
 ## Description
 
-*Species*applies the [Species](XXX) taxon tagger on the contents of the sections. The *Species* software must be installed in the <a href="#speciesDir" class="param">speciesDir</a> directory.*Species*crerates an annotation for each taxon tagged by *Species* .
+ *Species* applies the [Species](XXX) taxon tagger on the contents of the sections. The *Species* software must be installed in the <a href="#speciesDir" class="param">speciesDir</a> directory. *Species* crerates an annotation for each taxon tagged by *Species* .
 
 ## Snippet
 

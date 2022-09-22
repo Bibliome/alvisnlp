@@ -45,7 +45,7 @@ Base directory where all file are written.
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Expression evaluated as a list of elements with the corpus as the context element.*XMLWriter2*writes a file for each element in the result.
+Expression evaluated as a list of elements with the corpus as the context element. *XMLWriter2* writes a file for each element in the result.
 
 <h3 id="xslTransform" class="param">xslTransform</h3>
 

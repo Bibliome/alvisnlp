@@ -6,7 +6,7 @@ Matches a regular expression on sections contents and create an annotation for e
 
 ## Description
 
-*RegExp*searches for <a href="#pattern" class="param">pattern</a> in the contents of sections, then creates an annotation for each match. The created annotations will span on the entire match. The created annotations will be added in the layer named <a href="#targetLayerName" class="param">targetLayerName</a> of the corresponding section. If <a href="#pattern" class="param">pattern</a> contains groups, then the pattern elements inside groups will be matched but the grouping will not be taken into account in the creation of the annotation.
+ *RegExp* searches for <a href="#pattern" class="param">pattern</a> in the contents of sections, then creates an annotation for each match. The created annotations will span on the entire match. The created annotations will be added in the layer named <a href="#targetLayerName" class="param">targetLayerName</a> of the corresponding section. If <a href="#pattern" class="param">pattern</a> contains groups, then the pattern elements inside groups will be matched but the grouping will not be taken into account in the creation of the annotation.
 
 The created annotations will automatically have all features defined in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a> .
 

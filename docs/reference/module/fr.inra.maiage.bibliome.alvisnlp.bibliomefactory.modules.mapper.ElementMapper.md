@@ -8,7 +8,7 @@ Maps elements according to a collection of mapping elements.
 
 ## Description
 
-*ElementMapper*evaluates <a href="#entries" class="param">entries</a> as a list of elements with the corpus as the context element. These elements represent the entries from which target elements are matched. <a href="#key" class="param">key</a> specifies the key of each entry, and <a href="#values" class="param">values</a> specifies the values of the entries. <a href="#target" class="param">target</a> specifies the mapped elements; the <a href="#form" class="param">form</a> is matched against the key of entries. If the target element matches,*ElementMapper*adds the features <a href="#targetFeatures" class="param">targetFeatures</a> with the matched entry values.
+ *ElementMapper* evaluates <a href="#entries" class="param">entries</a> as a list of elements with the corpus as the context element. These elements represent the entries from which target elements are matched. <a href="#key" class="param">key</a> specifies the key of each entry, and <a href="#values" class="param">values</a> specifies the values of the entries. <a href="#target" class="param">target</a> specifies the mapped elements; the <a href="#form" class="param">form</a> is matched against the key of entries. If the target element matches, *ElementMapper* adds the features <a href="#targetFeatures" class="param">targetFeatures</a> with the matched entry values.
 
 ## Snippet
 

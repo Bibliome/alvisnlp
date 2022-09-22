@@ -6,7 +6,7 @@ Computes annotation n-grams.
 
 ## Description
 
-*NGrams*computes the n-grams of annotations in <a href="#tokenLayerName" class="param">tokenLayerName</a> and creates an annotation for each n-gram. If <a href="#sentenceLayerName" class="param">sentenceLayerName</a> is set, then no n-gram will cross boundaries of annotations in this layer. If <a href="#keepAnnotations" class="param">keepAnnotations</a> is set, then*NGrams*will search for annotations with n-gram boundaries in these layers, if one annotation is found then it is recycled instead of creating a new annotation.
+ *NGrams* computes the n-grams of annotations in <a href="#tokenLayerName" class="param">tokenLayerName</a> and creates an annotation for each n-gram. If <a href="#sentenceLayerName" class="param">sentenceLayerName</a> is set, then no n-gram will cross boundaries of annotations in this layer. If <a href="#keepAnnotations" class="param">keepAnnotations</a> is set, then *NGrams* will search for annotations with n-gram boundaries in these layers, if one annotation is found then it is recycled instead of creating a new annotation.
 
 ## Snippet
 
@@ -65,7 +65,7 @@ Name of layers where to search for recycled annotations.
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 
-<div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
+<div class="param-level param-level-default-value">Default value: `true and layer:words`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>

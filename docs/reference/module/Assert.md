@@ -6,7 +6,7 @@ Tests an assertion on specified elements.
 
 ## Description
 
-*Assert*evaluates <a href="#target" class="param">target</a> as a list of elements. Then, for each element, evaluates <a href="#assertion" class="param">assertion</a> as a boolean.*Assert*reports each element for which <a href="#assertion" class="param">assertion</a> is `false` .*Assert*aborts the processing of the corpus if <a href="#severe" class="param">severe</a> is `true` .
+ *Assert* evaluates <a href="#target" class="param">target</a> as a list of elements. Then, for each element, evaluates <a href="#assertion" class="param">assertion</a> as a boolean. *Assert* reports each element for which <a href="#assertion" class="param">assertion</a> is `false` . *Assert* aborts the processing of the corpus if <a href="#severe" class="param">severe</a> is `true` .
 
 ## Snippet
 
@@ -61,7 +61,7 @@ Path to the file where to record assertion failures. If not set then assertion f
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Integer" class="converter">Integer</a>
 </div>
-Maximum number of assertion failures before*Assert*will stop checking.
+Maximum number of assertion failures before *Assert* will stop checking.
 
 <h3 id="severe" class="param">severe</h3>
 
@@ -69,5 +69,5 @@ Maximum number of assertion failures before*Assert*will stop checking.
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
-If `true` and there is at least one assertion failure, then*Assert*will abort the processing of the corpus.
+If `true` and there is at least one assertion failure, then *Assert* will abort the processing of the corpus.
 

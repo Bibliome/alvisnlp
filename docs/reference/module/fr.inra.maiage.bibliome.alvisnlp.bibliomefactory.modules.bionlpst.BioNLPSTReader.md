@@ -6,7 +6,7 @@ Reads documents and annotations in the [BioNLP-ST 2013 a1/a2 format](XXX) .
 
 ## Description
 
-*BioNLPSTReader*reads text files in the directory specified by <a href="#textDir" class="param">textDir</a> as documents, then imports annotations in the corresponding files in the directories specified by <a href="#a1Dir" class="param">a1Dir</a> and <a href="#a2Dir" class="param">a2Dir</a> .
+ *BioNLPSTReader* reads text files in the directory specified by <a href="#textDir" class="param">textDir</a> as documents, then imports annotations in the corresponding files in the directories specified by <a href="#a1Dir" class="param">a1Dir</a> and <a href="#a2Dir" class="param">a2Dir</a> .
 
 ## Snippet
 
@@ -36,7 +36,7 @@ Path to the directory containing `.txt` files.
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
 </div>
-Path to the directory containing `.a1` files. If this parameter is not set, then*BioNLPSTReader*does not read `a1` files. This directory must contain one `.a1` file for each `.txt` file found in <a href="#textDir" class="param">textDir</a> .
+Path to the directory containing `.a1` files. If this parameter is not set, then *BioNLPSTReader* does not read `a1` files. This directory must contain one `.a1` file for each `.txt` file found in <a href="#textDir" class="param">textDir</a> .
 
 <h3 id="a2Dir" class="param">a2Dir</h3>
 
@@ -44,7 +44,7 @@ Path to the directory containing `.a1` files. If this parameter is not set, then
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
 </div>
-Path to the directory containing `.a2` files. If this parameter is not set, then*BioNLPSTReader*does not read `a2` files. This directory must contain one `.a2` file for each `.txt` file found in <a href="#textDir" class="param">textDir</a> .
+Path to the directory containing `.a2` files. If this parameter is not set, then *BioNLPSTReader* does not read `a2` files. This directory must contain one `.a2` file for each `.txt` file found in <a href="#textDir" class="param">textDir</a> .
 
 <h3 id="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 
@@ -92,7 +92,7 @@ Constant features to add to each tuple created by this module.
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.bionlpst.schema.DocumentSchema" class="converter">DocumentSchema</a>
 </div>
-Annotation schema against which the annotations are checked.*BioNLPSTReader*aborts if the annotations do not check. If not set, the annotations are not checked.
+Annotation schema against which the annotations are checked. *BioNLPSTReader* aborts if the annotations do not check. If not set, the annotations are not checked.
 
 <h3 id="charset" class="param">charset</h3>
 
@@ -172,7 +172,7 @@ Name of the unique section contating all the text.
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
-If `true` ,*BioNLPSTReader*imports text-bound annotations as annotations instead of tuples. Multiple fragments text-bound annotations are merged.
+If `true` , *BioNLPSTReader* imports text-bound annotations as annotations instead of tuples. Multiple fragments text-bound annotations are merged.
 
 <h3 id="textBoundFragmentRolePrefix" class="param">textBoundFragmentRolePrefix</h3>
 

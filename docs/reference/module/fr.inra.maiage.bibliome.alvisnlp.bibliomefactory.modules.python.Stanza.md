@@ -8,9 +8,9 @@ Applies a [Stanza](https://stanfordnlp.github.io/stanza/) pipeline on the sectio
 
 ## Description
 
-*Stanza*applies a [Stanza](https://stanfordnlp.github.io/stanza/) pipeline on the contents of sections.
+ *Stanza* applies a [Stanza](https://stanfordnlp.github.io/stanza/) pipeline on the contents of sections.
 
-By default the pipeline tokenizes and predicts POS-tags.*Stanza*also applies dependency parsing if <a href="#parse" class="param">parse</a> is set, and named entity recognition if <a href="#ner" class="param">ner</a> is set.
+By default the pipeline tokenizes and predicts POS-tags. *Stanza* also applies dependency parsing if <a href="#parse" class="param">parse</a> is set, constituency parsing if <a href="#constituency" class="param">constituency</a> is set, and named entity recognition if <a href="#ner" class="param">ner</a> is set.
 
 The tokenization can be inhibited for using the existing tokens and sentences by setting <a href="#pretokenized" class="param">pretokenized</a> .
 
@@ -21,9 +21,6 @@ The tokenization can be inhibited for using the existing tokens and sentences by
 ```xml
 <stanza class="Stanza>
     <alvisnlpPythonDirectory></alvisnlpPythonDirectory>
-    <ner></ner>
-    <parse></parse>
-    <pretokenized></pretokenized>
 </stanza>
 ```
 
@@ -36,30 +33,6 @@ The tokenization can be inhibited for using the existing tokens and sentences by
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.InputDirectory" class="converter">InputDirectory</a>
 </div>
 Directory where the AlvisNLP Python library is found. In principle this parameter is set by default during AlvisNLP install.
-
-<h3 id="ner" class="param">ner</h3>
-
-<div class="param-level param-level-mandatory">Mandatory
-</div>
-<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
-</div>
-Either to perform NER. Named entities will be stored in a layer named *entities* .
-
-<h3 id="parse" class="param">parse</h3>
-
-<div class="param-level param-level-mandatory">Mandatory
-</div>
-<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
-</div>
-Either to predict dependency trees.
-
-<h3 id="pretokenized" class="param">pretokenized</h3>
-
-<div class="param-level param-level-mandatory">Mandatory
-</div>
-<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
-</div>
-Either to skip tokenization and use the existing tokens and sentences.
 
 ## Optional parameters
 
@@ -143,6 +116,14 @@ Path to the python executable. By default, let the `PATH` environment determine 
 </div>
 Directory where to run the script. By default the working directory of AlvisNLP.
 
+<h3 id="constituency" class="param">constituency</h3>
+
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
+Either to predict constituents.
+
 <h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
@@ -158,6 +139,30 @@ Only process document that satisfy this expression.
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Language of the text.
+
+<h3 id="ner" class="param">ner</h3>
+
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
+Either to perform NER. Named entities will be stored in a layer named *entities* .
+
+<h3 id="parse" class="param">parse</h3>
+
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
+Either to predict dependency trees.
+
+<h3 id="pretokenized" class="param">pretokenized</h3>
+
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
+Either to skip tokenization and use the existing tokens and sentences.
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 

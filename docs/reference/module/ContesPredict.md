@@ -8,9 +8,9 @@ Predict terms concepts using [CONTES](https://github.com/ArnaudFerre/CONTES) .
 
 ## Description
 
-*ContesPredict*predicts the concept in <a href="#ontology" class="param">ontology</a> associated to each term in <a href="#termLayer" class="param">termLayer</a> .
+ *ContesPredict* predicts the concept in <a href="#ontology" class="param">ontology</a> associated to each term in <a href="#termLayer" class="param">termLayer</a> .
 
-*ContesPredict*uses a classifier specified by <a href="#regressionMatrix" class="param">regressionMatrix</a> that must have been produced by <a href="../module/ContesTrain" class="module">ContesTrain</a> .
+ *ContesPredict* uses a classifier specified by <a href="#regressionMatrix" class="param">regressionMatrix</a> that must have been produced by <a href="../module/ContesTrain" class="module">ContesTrain</a> .
 
 ## Snippet
 

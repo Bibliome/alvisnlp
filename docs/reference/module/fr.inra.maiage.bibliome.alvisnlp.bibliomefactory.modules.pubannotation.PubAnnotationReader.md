@@ -8,7 +8,7 @@ Read stream in [PubAnnotation JSON format](http://www.pubannotation.org/docs/ann
 
 ## Description
 
-*PubAnnotationReader*reads the contents of <a href="#source" class="param">source</a> in [PubAnnotation JSON format](http://www.pubannotation.org/docs/annotation-format/) . The following conversions are observed:
+ *PubAnnotationReader* reads the contents of <a href="#source" class="param">source</a> in [PubAnnotation JSON format](http://www.pubannotation.org/docs/annotation-format/) . The following conversions are observed:
 * single-span denotations are converted as annotations in a layer named as the denotation object;
 * multi-span denotations are converted as tuples, in a relation named as the denotation object, with one argument for each fragment with roles `fragN` ;
 * relations are converted as tuples, in a relation named as the relation predicate, with two arguments;

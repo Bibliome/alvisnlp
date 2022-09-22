@@ -8,7 +8,7 @@ Looks for mentions of chemicals and molecule names using [Chemspot](https://www.
 
 ## Description
 
-*Chemspot*runs Chemspot on the sections content, then creates an annotation for each chemical mention in the layer <a href="#targetLayerName" class="param">targetLayerName</a> . Each annotation will have the feature <a href="#chemTypeFeatureName" class="param">chemTypeFeatureName</a> set to the chemical mention type, and one feature for each type of identifier.
+ *Chemspot* runs Chemspot on the sections content, then creates an annotation for each chemical mention in the layer <a href="#targetLayerName" class="param">targetLayerName</a> . Each annotation will have the feature <a href="#chemTypeFeatureName" class="param">chemTypeFeatureName</a> set to the chemical mention type, and one feature for each type of identifier.
 
 ## Snippet
 
@@ -190,5 +190,5 @@ Process only sections that satisfy this expression.
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-Name of the layer where to store annotations created by*Chemspot*.
+Name of the layer where to store annotations created by *Chemspot* .
 

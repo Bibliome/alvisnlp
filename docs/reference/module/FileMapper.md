@@ -6,7 +6,7 @@ Maps elements according to a tab-separated mapping file.
 
 ## Description
 
-*FileMapper*reads the tab-separated mapping file <a href="#mappingFile" class="param">mappingFile</a> and maps the elements specified by the expression <a href="#target" class="param">target</a> . The mapping key of the elements is specified by the expression <a href="#form" class="param">form</a> evaluated as a string with the element as the context. The key is mapped agains the column of <a href="#mappingFile" class="param">mappingFile</a> specified by <a href="#keyColumn" class="param">keyColumn</a> (starting at 0). Each feature in <a href="#targetFeatures" class="param">targetFeatures</a> is set with the value of the corresponding column in the matched line.
+ *FileMapper* reads the tab-separated mapping file <a href="#mappingFile" class="param">mappingFile</a> and maps the elements specified by the expression <a href="#target" class="param">target</a> . The mapping key of the elements is specified by the expression <a href="#form" class="param">form</a> evaluated as a string with the element as the context. The key is mapped agains the column of <a href="#mappingFile" class="param">mappingFile</a> specified by <a href="#keyColumn" class="param">keyColumn</a> (starting at 0). Each feature in <a href="#targetFeatures" class="param">targetFeatures</a> is set with the value of the corresponding column in the matched line.
 
 ## Snippet
 
@@ -17,7 +17,6 @@ Maps elements according to a tab-separated mapping file.
     <form></form>
     <mappingFile></mappingFile>
     <target></target>
-    <targetFeatures></targetFeatures>
 </filemapper>
 ```
 
@@ -47,15 +46,23 @@ Tab-separated file containing the dictionary.
 </div>
 Expression evaluated as a list of elements with the corpus as context that specify the elements to be mapped.
 
+## Optional parameters
+
 <h3 id="targetFeatures" class="param">targetFeatures</h3>
 
-<div class="param-level param-level-mandatory">Mandatory
+<div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
-Name of the features where to store the columns of matched lines.
+Name of the features where to store the columns of matched lines. Ignored if <a href="#headerLine" class="param">headerLine</a> is set.
 
-## Optional parameters
+<h3 id="headerLine" class="param">headerLine</h3>
+
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
+Assumes the first line of the dictionary is a header, target feature names will be the column names read from the header.
 
 <h3 id="ignoreCase" class="param">ignoreCase</h3>
 

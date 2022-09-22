@@ -8,7 +8,7 @@ Projects rows in XLS or XLSX files on sections.
 
 ## Description
 
-*XLSProjector*reads <a href="#xlsFile" class="param">xlsFile</a> in Microsoft Excel XLS or XLSX formats and searches for row entries in sections.
+ *XLSProjector* reads <a href="#xlsFile" class="param">xlsFile</a> in Microsoft Excel XLS or XLSX formats and searches for row entries in sections.
 
 The parameters <a href="#allowJoined" class="param">allowJoined</a> , <a href="#allUpperCaseInsensitive" class="param">allUpperCaseInsensitive</a> , <a href="#caseInsensitive" class="param">caseInsensitive</a> , <a href="#ignoreDiacritics" class="param">ignoreDiacritics</a> , <a href="#joinDash" class="param">joinDash</a> , <a href="#matchStartCaseInsensitive" class="param">matchStartCaseInsensitive</a> , <a href="#skipConsecutiveWhitespaces" class="param">skipConsecutiveWhitespaces</a> , <a href="#skipWhitespace" class="param">skipWhitespace</a> and <a href="#wordStartCaseInsensitive" class="param">wordStartCaseInsensitive</a> control the matching between the section and the entry keys.
 
@@ -18,9 +18,9 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 
 
 
-*XLSProjector*creates an annotation for each matched row and adds these annotations to the layer named <a href="#targetLayerName" class="param">targetLayerName</a> . The created annotations will have features whose keys correspond to <a href="#valueFeatures" class="param">valueFeatures</a> and values to the data associated to the matched entry (columns in the XLS file). For instance if <a href="#valueFeatures" class="param">valueFeatures</a> is *[a,b,c]* , then each annotation will have three features named *a* , *b* and *c* with the respective values of the entry's second, third and fourth columns. A feature name left blank in <a href="#entryFeatureNames" class="param">entryFeatureNames</a> will not create a feature. Thus, in order not to keep the entry in the *a* feature, <a href="#entryFeatureNames" class="param">entryFeatureNames</a> should be *[,b,c]* . In addition, the created annotations will have the feature keys and values defined in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a> .
+ *XLSProjector* creates an annotation for each matched row and adds these annotations to the layer named <a href="#targetLayerName" class="param">targetLayerName</a> . The created annotations will have features whose keys correspond to <a href="#valueFeatures" class="param">valueFeatures</a> and values to the data associated to the matched entry (columns in the XLS file). For instance if <a href="#valueFeatures" class="param">valueFeatures</a> is *[a,b,c]* , then each annotation will have three features named *a* , *b* and *c* with the respective values of the entry's second, third and fourth columns. A feature name left blank in <a href="#entryFeatureNames" class="param">entryFeatureNames</a> will not create a feature. Thus, in order not to keep the entry in the *a* feature, <a href="#entryFeatureNames" class="param">entryFeatureNames</a> should be *[,b,c]* . In addition, the created annotations will have the feature keys and values defined in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a> .
 
-If specified, then*XLSProjector*assumes that <a href="#trieSource" class="param">trieSource</a> contains a compiled version of the dictionary. <a href="#dictFile" class="param">dictFile</a> is not read. If specified,*XLSProjector*writes a compiled version of the dictionary in <a href="#trieSink" class="param">trieSink</a> . The use of compiled dictionaries may accelerate the processing for large dictionaries.
+If specified, then *XLSProjector* assumes that <a href="#trieSource" class="param">trieSource</a> contains a compiled version of the dictionary. <a href="#dictFile" class="param">dictFile</a> is not read. If specified, *XLSProjector* writes a compiled version of the dictionary in <a href="#trieSink" class="param">trieSink</a> . The use of compiled dictionaries may accelerate the processing for large dictionaries.
 
 ## Snippet
 
@@ -76,7 +76,7 @@ Constant features to add to each annotation created by this module.
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.OutputFile" class="converter">OutputFile</a>
 </div>
-If set, then*XLSProjector*writes the compiled dictionary to the specified file.
+If set, then *XLSProjector* writes the compiled dictionary to the specified file.
 
 <h3 id="trieSource" class="param">trieSource</h3>
 
@@ -205,6 +205,14 @@ If set to *true* , then allow arbitrary insertion of whitespace characters in th
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.Subject" class="converter">Subject</a>
 </div>
 Specifies the contents to match.
+
+<h3 id="substituteWhitespace" class="param">substituteWhitespace</h3>
+
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
+If set to *true* , then all whitespace characters match each other (including '\n', '\r', '\t', and non-breaking spaces).
 
 <h3 id="wordStartCaseInsensitive" class="param">wordStartCaseInsensitive</h3>
 

@@ -8,9 +8,9 @@ Projects a list of terms given in tree-tagger format.
 
 ## Description
 
-*AttestedTermsProjector*reads a list of terms from <a href="#termsFile" class="param">termsFile</a> and searches for these terms in sections. The terms must be in tree-tagger format: each line contains a token/POS/lemma and each term is terminated by a period/ *SENT* . The searched string for each term is the concatenation of token surface forms, or lemma if <a href="#lemmaKeys" class="param">lemmaKeys</a> is true, separated with a space character.
+ *AttestedTermsProjector* reads a list of terms from <a href="#termsFile" class="param">termsFile</a> and searches for these terms in sections. The terms must be in tree-tagger format: each line contains a token/POS/lemma and each term is terminated by a period/ *SENT* . The searched string for each term is the concatenation of token surface forms, or lemma if <a href="#lemmaKeys" class="param">lemmaKeys</a> is true, separated with a space character.
 
-The parameters <a href="#warnDuplicateValues" class="param">warnDuplicateValues</a> , <a href="#multipleValueAction" class="param">multipleValueAction</a> , <a href="#errorDuplicateValues" class="param">errorDuplicateValues</a> and <a href="#warnMultipleValues" class="param">warnMultipleValues</a> control who*AttestedTermsProjector*reacts when encountering duplicate terms.
+The parameters <a href="#warnDuplicateValues" class="param">warnDuplicateValues</a> , <a href="#multipleValueAction" class="param">multipleValueAction</a> , <a href="#errorDuplicateValues" class="param">errorDuplicateValues</a> and <a href="#warnMultipleValues" class="param">warnMultipleValues</a> control who *AttestedTermsProjector* reacts when encountering duplicate terms.
 
 The parameters <a href="#normalizeSpace" class="param">normalizeSpace</a> , <a href="#ignoreCase" class="param">ignoreCase</a> , <a href="#ignoreDiacritics" class="param">ignoreDiacritics</a> and <a href="#ignoreWhitespace" class="param">ignoreWhitespace</a> control the matching of entries on the sections.
 
@@ -20,7 +20,7 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 
 
 
-*AttestedTermsProjector*creates an annotation for each matched term and adds these annotations to the layer named <a href="#targetLayerName" class="param">targetLayerName</a> . The created annotations will have the features <a href="#termFeatureName" class="param">termFeatureName</a> , <a href="#posFeatureName" class="param">posFeatureName</a> and <a href="#lemmaFeatureName" class="param">lemmaFeatureName</a> containing the concatenation of the corresponding term tokens surface form, POS tag and lemma respectively. In addition, the created annotations will have the feature keys and values defined in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a> .
+ *AttestedTermsProjector* creates an annotation for each matched term and adds these annotations to the layer named <a href="#targetLayerName" class="param">targetLayerName</a> . The created annotations will have the features <a href="#termFeatureName" class="param">termFeatureName</a> , <a href="#posFeatureName" class="param">posFeatureName</a> and <a href="#lemmaFeatureName" class="param">lemmaFeatureName</a> containing the concatenation of the corresponding term tokens surface form, POS tag and lemma respectively. In addition, the created annotations will have the feature keys and values defined in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a> .
 
 ## Snippet
 
@@ -159,7 +159,7 @@ Process only sections that satisfy this filter.
 
 <h3 id="subject" class="param">subject</h3>
 
-<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.ContentsSubject@639c2c1d`
+<div class="param-level param-level-default-value">Default value: `fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.ContentsSubject@3e694b3f`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.Subject" class="converter">Subject</a>
 </div>

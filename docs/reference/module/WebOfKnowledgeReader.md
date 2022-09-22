@@ -6,11 +6,11 @@ Reads [Web of Knowledge](http://apps.webofknowledge.com/UA_GeneralSearch_input.d
 
 ## Description
 
- **WARNING:** WoK delivers files with a wrong [Byte Order Mark](https://en.wikipedia.org/wiki/Byte_order_mark) , it is advised you remove it using a text editor before feeding it to*WebOfKnowledgeReader*.
+ **WARNING:** WoK delivers files with a wrong [Byte Order Mark](https://en.wikipedia.org/wiki/Byte_order_mark) , it is advised you remove it using a text editor before feeding it to *WebOfKnowledgeReader* .
 
-The PT field (Publication Type) is used as a document marker,*WebOfKnowledgeReader*will create a document each time it reads a PT field.
+The PT field (Publication Type) is used as a document marker, *WebOfKnowledgeReader* will create a document each time it reads a PT field.
 
-The VR field will be read and, if its value is different from "1.0", then*WebOfKnowledgeReader*fails.
+The VR field will be read and, if its value is different from "1.0", then *WebOfKnowledgeReader* fails.
 
 The following fields will be read and stored as document features, one feature per line: AU, AF, BA, BF, CA, GP, BE, SO, SE, BS, LA, CT, CY, CL, SP, HO, C1, RP, EM, RI, OI, FU, CR, TC, Z9, PU, PI, PA, SN, BN, J9, JI, PD, PY, VL, IS, PN, SU, MA, BP, EP, AR, DI, D2, PG, P2, GA, UT, SI, NR.
 

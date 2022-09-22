@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-*type*provides functions to examine the type of the context element. Element types are coded as single character strings:
+ *type* provides functions to examine the type of the context element. Element types are coded as single character strings:
 *  **C** : the corpus element;
 *  **D** : a document;
 *  **S** : a section;

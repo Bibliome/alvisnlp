@@ -6,7 +6,7 @@ Creates tuples with a common argument.
 
 ## Description
 
-*AnchorTuples*evaluates <a href="#anchor" class="param">anchor</a> as an element list with the corpus as the context element (see <a href="../converter/alvisnlp.corpus.Expression" class="converter">alvisnlp.corpus.Expression</a> >). For each anchor,*AnchorTuples*creates a tuple in the relation named after <a href="#relationName" class="param">relationName</a> , with the anchor as an argument with role <a href="#anchorRole" class="param">anchorRole</a> and the first annotation in the result of each value of <a href="#arguments" class="param">arguments</a> with the role of the corresponding key. <a href="#arguments" class="param">arguments</a> values are evaluated as element lists with the anchor as the context element.
+ *AnchorTuples* evaluates <a href="#anchor" class="param">anchor</a> as an element list with the corpus as the context element (see <a href="../converter/alvisnlp.corpus.Expression" class="converter">alvisnlp.corpus.Expression</a> >). For each anchor, *AnchorTuples* creates a tuple in the relation named after <a href="#relationName" class="param">relationName</a> , with the anchor as an argument with role <a href="#anchorRole" class="param">anchorRole</a> and the first annotation in the result of each value of <a href="#arguments" class="param">arguments</a> with the role of the corresponding key. <a href="#arguments" class="param">arguments</a> values are evaluated as element lists with the anchor as the context element.
 
 ## Snippet
 

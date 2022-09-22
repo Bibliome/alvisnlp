@@ -7,8 +7,9 @@ Matching operator for <a href="../module/FileMapper" class="module">FileMapper</
 ## String conversion
 
 One of either:
-*  *exact* : matches the entry key exactly to the element key.
-*  *prefix* : matches the entry key to the beginning of the element key.
+*  *exact* : matches the entry key exactly to the element.
+*  *prefix* : matches the entry key to the beginning of the element.
+*  *suffix* : matches the entry key to the end of the element.
 
 
 

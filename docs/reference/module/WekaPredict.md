@@ -6,7 +6,7 @@ Classifies elements with a Weka classifier.
 
 ## Description
 
-*WekaPredict*applies the classifier loaded from <a href="#classifier" class="param">classifier</a> on elements specified by <a href="#examples" class="param">examples</a> .
+ *WekaPredict* applies the classifier loaded from <a href="#classifier" class="param">classifier</a> on elements specified by <a href="#examples" class="param">examples</a> .
 
 ## Snippet
 

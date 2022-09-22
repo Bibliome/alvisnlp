@@ -6,7 +6,7 @@ Read files and annotations in [LLL format](XXX) .
 
 ## Description
 
-*LLLReader*reads files in <a href="#source" class="param">source</a> in [LLL challenge](XXX) format.
+ *LLLReader* reads files in <a href="#source" class="param">source</a> in [LLL challenge](XXX) format.
 
 ## Snippet
 

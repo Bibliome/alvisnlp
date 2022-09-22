@@ -6,7 +6,7 @@ Runs Genia Tagger on annotations.
 
 ## Description
 
-*GeniaTagger*executes theGenia Tagger on annotations from the layer <a href="#words" class="param">words</a> and record the results in the features specified by <a href="#pos" class="param">pos</a> , <a href="#lemma" class="param">lemma</a> , <a href="#chunk" class="param">chunk</a> and <a href="#entity" class="param">entity</a> .*GeniaTagger*reinforces sentences specified by annotations in the <a href="#sentences" class="param">sentences</a> layer.
+ *GeniaTagger* executes theGenia Tagger on annotations from the layer <a href="#words" class="param">words</a> and record the results in the features specified by <a href="#pos" class="param">pos</a> , <a href="#lemma" class="param">lemma</a> , <a href="#chunk" class="param">chunk</a> and <a href="#entity" class="param">entity</a> . *GeniaTagger* reinforces sentences specified by annotations in the <a href="#sentences" class="param">sentences</a> layer.
 
 ## Snippet
 
@@ -88,7 +88,7 @@ UNDOCUMENTED
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 
-<div class="param-level param-level-default-value">Default value: `boolean:and(true, boolean:and(nav:layer:sentences(), nav:layer:words()))`
+<div class="param-level param-level-default-value">Default value: `true and layer:sentences and layer:words`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -100,7 +100,7 @@ Process only sections that satisfy this expression.
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Evaluated as a boolean with the sentence annotation as the context element.*GeniaTagger*only process the sentence if the result is true. To filter sentences that are too long for Genia Tagger, use "length < 1024".
+Evaluated as a boolean with the sentence annotation as the context element. *GeniaTagger* only process the sentence if the result is true. To filter sentences that are too long for Genia Tagger, use "length < 1024".
 
 <h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
 

@@ -6,20 +6,20 @@ Removes overlapping annotations from a given layer.
 
 ## Description
 
-*RemoveOverlaps*removes overlapping annotations in the layer <a href="#layerName" class="param">layerName</a> .
+ *RemoveOverlaps* removes overlapping annotations in the layer <a href="#layerName" class="param">layerName</a> .
 
-*RemoveOverlaps*scans each specified layer and finds clusters of overlapping annotations.*RemoveOverlaps*distinguishes three overlapping situations:
+ *RemoveOverlaps* scans each specified layer and finds clusters of overlapping annotations. *RemoveOverlaps* distinguishes three overlapping situations:
 1.  *equal* : two annotations have exactly the same span;
 2.  *included* : one annotation includes the other completely;
 3.  *overlapping* : one annotation overlaps with the head or the tail of the other annotation.
 
 
 
- <a href="#removeEqual" class="param">removeEqual</a> , <a href="#removeIncluded" class="param">removeIncluded</a> and <a href="#removeOverlapping" class="param">removeOverlapping</a> specify the behavior for each situation. If the parameter is `true` , then*RemoveOverlaps*will remove one of the annotations.
+ <a href="#removeEqual" class="param">removeEqual</a> , <a href="#removeIncluded" class="param">removeIncluded</a> and <a href="#removeOverlapping" class="param">removeOverlapping</a> specify the behavior for each situation. If the parameter is `true` , then *RemoveOverlaps* will remove one of the annotations.
 
  <a href="#annotationComparator" class="param">annotationComparator</a> controls which annotation is removed.
 
-By default*RemoveOverlaps*removes all kinds of annotations, keeping the longest one.
+By default *RemoveOverlaps* removes all kinds of annotations, keeping the longest one.
 
 ## Snippet
 

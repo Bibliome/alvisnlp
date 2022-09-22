@@ -6,9 +6,9 @@ Matches a regular expression-like pattern on the sequence of annotations in a gi
 
 ## Description
 
-*PatternMatcher*searches for <a href="#pattern" class="param">pattern</a> on the sequence of annotations in layer <a href="#layerName" class="param">layerName</a> . Note that in a layer, annotations are sorted in increasing order of start boundary, then decreasing order of end boundary; the order is undefined for annotations with the exact same span.
+ *PatternMatcher* searches for <a href="#pattern" class="param">pattern</a> on the sequence of annotations in layer <a href="#layerName" class="param">layerName</a> . Note that in a layer, annotations are sorted in increasing order of start boundary, then decreasing order of end boundary; the order is undefined for annotations with the exact same span.
 
-For each match,*PatternMatcher*applies all actions specified by <a href="#actions" class="param">actions</a> . Each action concerns a sub-group of the pattern, if no sub-group is specified then the action applies to the whole match.
+For each match, *PatternMatcher* applies all actions specified by <a href="#actions" class="param">actions</a> . Each action concerns a sub-group of the pattern, if no sub-group is specified then the action applies to the whole match.
 
 ## Snippet
 
@@ -99,7 +99,7 @@ What to do if the layer contains overlapping annotations.
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 
-<div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:words())`
+<div class="param-level param-level-default-value">Default value: `true and layer:words`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>

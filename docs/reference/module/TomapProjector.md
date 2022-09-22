@@ -2,13 +2,13 @@
 
 ## Synopsis
 
-*TomapProjector*searches for terms and associates a category identifier using [ToMap](https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md) .
+ *TomapProjector* searches for terms and associates a category identifier using [ToMap](https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md) .
 
 **This module is experimental.**
 
 ## Description
 
-*TomapProjector*searches for the terms specified by <a href="#yateaFile" class="param">yateaFile</a> (in YaTeA XML output format) and classifies them using the [ToMap](https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md) classifier specified by <a href="#tomapClassifier" class="param">tomapClassifier</a> .
+ *TomapProjector* searches for the terms specified by <a href="#yateaFile" class="param">yateaFile</a> (in YaTeA XML output format) and classifies them using the [ToMap](https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md) classifier specified by <a href="#tomapClassifier" class="param">tomapClassifier</a> .
 
 ## Snippet
 
@@ -95,7 +95,7 @@ If not set, the similarity will not be stored.
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.OutputFile" class="converter">OutputFile</a>
 </div>
-If set, then*TomapProjector*writes the compiled dictionary to the specified file.
+If set, then *TomapProjector* writes the compiled dictionary to the specified file.
 
 <h3 id="trieSource" class="param">trieSource</h3>
 
@@ -159,7 +159,7 @@ If set to *true* , then treat dash characters (-) as whitespace characters with 
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
-Compare candidate and proxy terms by their lemma. By default*TomapProjector*compares their surface forms.
+Compare candidate and proxy terms by their lemma. By default *TomapProjector* compares their surface forms.
 
 This parameter also affects how significant components and token heads are matched.
 
@@ -218,6 +218,14 @@ If set to *true* , then allow arbitrary insertion of whitespace characters in th
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.Subject" class="converter">Subject</a>
 </div>
 Specifies the contents to match.
+
+<h3 id="substituteWhitespace" class="param">substituteWhitespace</h3>
+
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
+If set to *true* , then all whitespace characters match each other (including '\n', '\r', '\t', and non-breaking spaces).
 
 <h3 id="wordStartCaseInsensitive" class="param">wordStartCaseInsensitive</h3>
 

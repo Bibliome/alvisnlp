@@ -6,7 +6,7 @@ Applies the [CCG](http://svn.ask.it.usyd.edu.au/trac/candc/wiki) POS tagger on a
 
 ## Description
 
-*CCGPosTagger*applies the [CCG](http://svn.ask.it.usyd.edu.au/trac/candc/wiki) POS tagger on annotations in the layer named <a href="#wordLayerName" class="param">wordLayerName</a> . Sentences are enforced if <a href="#sentenceLayerName" class="param">sentenceLayerName</a> is set.
+ *CCGPosTagger* applies the [CCG](http://svn.ask.it.usyd.edu.au/trac/candc/wiki) POS tagger on annotations in the layer named <a href="#wordLayerName" class="param">wordLayerName</a> . Sentences are enforced if <a href="#sentenceLayerName" class="param">sentenceLayerName</a> is set.
 
 If <a href="#keepPreviousPos" class="param">keepPreviousPos</a> is set to *true* , then the POS tag predicted by CCG will not be added to annotations that already have a POS tag.
 
@@ -91,7 +91,7 @@ Name of the feature in word annotations where to write POS tags. This feature is
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 
-<div class="param-level param-level-default-value">Default value: `boolean:and(true, boolean:and(nav:layer:sentences(), nav:layer:words()))`
+<div class="param-level param-level-default-value">Default value: `true and layer:sentences and layer:words`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>

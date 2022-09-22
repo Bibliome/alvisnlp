@@ -8,9 +8,9 @@ Read documents and entities in the PESV format.
 
 ## Description
 
-*PESVReader*reads CSV files in <a href="#docStream" class="param">docStream</a> and creates one document for each record. The identifier of the document is the *id* column. The section content is created from the tokenization provided in the *processed_text* column. The tokenization itself is recorded in the layer named after <a href="#tokenLayerName" class="param">tokenLayerName</a> .
+ *PESVReader* reads CSV files in <a href="#docStream" class="param">docStream</a> and creates one document for each record. The identifier of the document is the *id* column. The section content is created from the tokenization provided in the *processed_text* column. The tokenization itself is recorded in the layer named after <a href="#tokenLayerName" class="param">tokenLayerName</a> .
 
-*PESVReader*also reads CSV files in <a href="#entitiesStream" class="param">entitiesStream</a> and creates one entity annotation in the layer named <a href="#entityLayerName" class="param">entityLayerName</a> for each record. All properties are recorded in the corresponding feature, as well as in a single feature names <a href="#propertiesFeatureKey" class="param">propertiesFeatureKey</a> .
+ *PESVReader* also reads CSV files in <a href="#entitiesStream" class="param">entitiesStream</a> and creates one entity annotation in the layer named <a href="#entityLayerName" class="param">entityLayerName</a> for each record. All properties are recorded in the corresponding feature, as well as in a single feature names <a href="#propertiesFeatureKey" class="param">propertiesFeatureKey</a> .
 
 ## Snippet
 
@@ -89,7 +89,7 @@ Name of the feature where to record the token ordinal.
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-Name of the feature where to record entities properties.*PESVReader*also records each property in a separate feature.
+Name of the feature where to record entities properties. *PESVReader* also records each property in a separate feature.
 
 <h3 id="sectionName" class="param">sectionName</h3>
 

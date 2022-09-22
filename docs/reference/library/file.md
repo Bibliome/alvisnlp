@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-*file*provides function to check either a path exists, and check its type.
+ *file* provides function to check either a path exists, and check its type.
 
 ## Functons
 

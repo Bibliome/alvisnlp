@@ -6,18 +6,18 @@ Applies [BioLG](http://mars.cs.utu.fi/biolg/) and *lp2lp* to sentences.
 
 ## Description
 
-*BioLG*applies [BioLG](http://mars.cs.utu.fi/biolg/) and lp2lp to sentences specified as annotations from the <a href="#sentenceLayer" class="param">sentenceLayer</a> layer. Sentence words are specified by annotations in the <a href="#wordLayer" class="param">wordLayer</a> layer. For each sentence, only words entirely included in the sentence will be considered; <a href="../module/WoSMig" class="module">WoSMig</a> and <a href="../module/SeSMig" class="module">SeSMig</a> should create these layers with the appropriate annotations. Additionally BioLG can take advantage of word POS tag specified in the <a href="#posFeature" class="param">posFeature</a> feature.
+ *BioLG* applies [BioLG](http://mars.cs.utu.fi/biolg/) and lp2lp to sentences specified as annotations from the <a href="#sentenceLayer" class="param">sentenceLayer</a> layer. Sentence words are specified by annotations in the <a href="#wordLayer" class="param">wordLayer</a> layer. For each sentence, only words entirely included in the sentence will be considered; <a href="../module/WoSMig" class="module">WoSMig</a> and <a href="../module/SeSMig" class="module">SeSMig</a> should create these layers with the appropriate annotations. Additionally BioLG can take advantage of word POS tag specified in the <a href="#posFeature" class="param">posFeature</a> feature.
 
 The BioLG executable and all necessary resources (affix and worddictionaries) must be in the directory specified by <a href="#parserPath" class="param">parserPath</a> . Options to the executable are <a href="#maxLinkages" class="param">maxLinkages</a> and <a href="#timeout" class="param">timeout</a> .
 
 The BioLG output is directly fed to *lp2lp* executable specified by <a href="#lp2lpExecutable" class="param">lp2lpExecutable</a> , its configuration file is specified by <a href="#lp2lpConf" class="param">lp2lpConf</a> .
 
-*BioLG*creates a relation named <a href="#dependencyRelation" class="param">dependencyRelation</a> in each section and a tuple in this relation for each dependency. This relation is ternary:
+ *BioLG* creates a relation named <a href="#dependencyRelation" class="param">dependencyRelation</a> in each section and a tuple in this relation for each dependency. This relation is ternary:
 1.  <a href="#sentenceRole" class="param">sentenceRole</a> : the first argument is the sentence in which the dependency was found;
 2.  <a href="#headRole" class="param">headRole</a> : the second argument is the head word of the dependency;
 3.  <a href="#modifierRole" class="param">modifierRole</a> : the third argument is the modifier word of the dependency.
 
-*BioLG*adds to each dependency tuple a feature <a href="#linkageNumberFeature" class="param">linkageNumberFeature</a> with the linkage number to which begongs the tuple, and a feature <a href="#dependencyLabelFeature" class="param">dependencyLabelFeature</a> with the label of the dependency.
+ *BioLG* adds to each dependency tuple a feature <a href="#linkageNumberFeature" class="param">linkageNumberFeature</a> with the linkage number to which begongs the tuple, and a feature <a href="#dependencyLabelFeature" class="param">dependencyLabelFeature</a> with the label of the dependency.
 
 ## Snippet
 
@@ -142,7 +142,7 @@ Name of the feature in word annotations containing the POS tag.
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 
-<div class="param-level param-level-default-value">Default value: `boolean:and(true, boolean:and(nav:layer:sentences(), nav:layer:words()))`
+<div class="param-level param-level-default-value">Default value: `true and layer:sentences and layer:words`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -154,7 +154,7 @@ Process only sections that satisfy this filter.
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-Expression evaluated as a boolean for each sentence.*BioLG*only parses sentences for which the result is true.
+Expression evaluated as a boolean for each sentence. *BioLG* only parses sentences for which the result is true.
 
 <h3 id="sentenceLayer" class="param">sentenceLayer</h3>
 

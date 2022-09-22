@@ -8,9 +8,9 @@ Copy the value of a feature in another feature for a selection of elements.
 
 ## Description
 
-*CopyFeature*evaluates <a href="#target" class="param">target</a> as a list of elements. For each element*CopyFeature*copies the last value of <a href="#sourceFeatureName" class="param">sourceFeatureName</a> into <a href="#targetFeatureName" class="param">targetFeatureName</a> .
+ *CopyFeature* evaluates <a href="#target" class="param">target</a> as a list of elements. For each element *CopyFeature* copies the last value of <a href="#sourceFeatureName" class="param">sourceFeatureName</a> into <a href="#targetFeatureName" class="param">targetFeatureName</a> .
 
-*CopyFeature*is useful to build plans that select a particular feature to process.
+ *CopyFeature* is useful to build plans that select a particular feature to process.
 
 ## Snippet
 

@@ -8,7 +8,7 @@ Reads a tabular file and applies actions for each line.
 
 ## Description
 
-*TabularReader*reads <a href="#source" class="param">source</a> as a tabular file and for each line evaluates each <a href="#lineActions" class="param">lineActions</a> .
+ *TabularReader* reads <a href="#source" class="param">source</a> as a tabular file and for each line evaluates each <a href="#lineActions" class="param">lineActions</a> .
 
 ## Snippet
 

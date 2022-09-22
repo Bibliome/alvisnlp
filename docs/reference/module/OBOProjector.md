@@ -6,7 +6,7 @@ Projects OBO terms and synonyms on sections.
 
 ## Description
 
-*OBOProjector*reads <a href="#oboFiles" class="param">oboFiles</a> in [OBO format](XXX) and searches for term names and synonyms in sections.
+ *OBOProjector* reads <a href="#oboFiles" class="param">oboFiles</a> in [OBO format](XXX) and searches for term names and synonyms in sections.
 
 The parameters <a href="#allowJoined" class="param">allowJoined</a> , <a href="#allUpperCaseInsensitive" class="param">allUpperCaseInsensitive</a> , <a href="#caseInsensitive" class="param">caseInsensitive</a> , <a href="#ignoreDiacritics" class="param">ignoreDiacritics</a> , <a href="#joinDash" class="param">joinDash</a> , <a href="#matchStartCaseInsensitive" class="param">matchStartCaseInsensitive</a> , <a href="#skipConsecutiveWhitespaces" class="param">skipConsecutiveWhitespaces</a> , <a href="#skipWhitespace" class="param">skipWhitespace</a> and <a href="#wordStartCaseInsensitive" class="param">wordStartCaseInsensitive</a> control the matching between the section and the entry keys.
 
@@ -16,9 +16,9 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 
 
 
-*OBOProjector*creates an annotation for each matched entry and adds these annotations to the layer named <a href="#targetLayerName" class="param">targetLayerName</a> . The created annotations will have features <a href="#nameFeature" class="param">nameFeature</a> , <a href="#idFeature" class="param">idFeature</a> and <a href="#pathFeature" class="param">pathFeature</a> set to the matched term name, identifier and path.
+ *OBOProjector* creates an annotation for each matched entry and adds these annotations to the layer named <a href="#targetLayerName" class="param">targetLayerName</a> . The created annotations will have features <a href="#nameFeature" class="param">nameFeature</a> , <a href="#idFeature" class="param">idFeature</a> and <a href="#pathFeature" class="param">pathFeature</a> set to the matched term name, identifier and path.
 
-If specified, then*OBOProjector*assumes that <a href="#trieSource" class="param">trieSource</a> contains a compiled version of the dictionary. <a href="#dictFile" class="param">dictFile</a> is not read. If specified,*OBOProjector*writes a compiled version of the dictionary in <a href="#trieSink" class="param">trieSink</a> . The use of compiled dictionaries may accelerate the processing for large dictionaries.
+If specified, then *OBOProjector* assumes that <a href="#trieSource" class="param">trieSource</a> contains a compiled version of the dictionary. <a href="#dictFile" class="param">dictFile</a> is not read. If specified, *OBOProjector* writes a compiled version of the dictionary in <a href="#trieSink" class="param">trieSink</a> . The use of compiled dictionaries may accelerate the processing for large dictionaries.
 
 ## Snippet
 
@@ -121,7 +121,7 @@ Feature where to store the matched term path.
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.OutputFile" class="converter">OutputFile</a>
 </div>
-If set, then*OBOProjector*writes the compiled dictionary to the specified file.
+If set, then *OBOProjector* writes the compiled dictionary to the specified file.
 
 <h3 id="trieSource" class="param">trieSource</h3>
 
@@ -193,7 +193,7 @@ If set to *true* , then treat dash characters (-) as whitespace characters with 
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
-Add all database cross-references of the term.*OBOProjector*creates a feature key-value pair for each *dbxref* in the matching term.
+Add all database cross-references of the term. *OBOProjector* creates a feature key-value pair for each *dbxref* in the matching term.
 
 <h3 id="matchStartCaseInsensitive" class="param">matchStartCaseInsensitive</h3>
 
@@ -242,6 +242,14 @@ If set to *true* , then allow arbitrary insertion of whitespace characters in th
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.Subject" class="converter">Subject</a>
 </div>
 Specifies the contents to match.
+
+<h3 id="substituteWhitespace" class="param">substituteWhitespace</h3>
+
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
+If set to *true* , then all whitespace characters match each other (including '\n', '\r', '\t', and non-breaking spaces).
 
 <h3 id="wordStartCaseInsensitive" class="param">wordStartCaseInsensitive</h3>
 

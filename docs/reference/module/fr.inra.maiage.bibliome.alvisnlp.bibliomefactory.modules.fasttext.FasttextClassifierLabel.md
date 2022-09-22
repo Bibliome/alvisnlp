@@ -2,13 +2,13 @@
 
 ## Synopsis
 
-*FasttextClassifierLabel*classifies documents with a FastText classifier trained with <a href="../module/FasttextClassifierTrain" class="module">FasttextClassifierTrain</a> .
+ *FasttextClassifierLabel* classifies documents with a FastText classifier trained with <a href="../module/FasttextClassifierTrain" class="module">FasttextClassifierTrain</a> .
 
 **This module is experimental.**
 
 ## Description
 
-*FasttextClassifierLabel*evaluates <a href="#documents" class="param">documents</a> as a list of elements and classifies each item with the classifier specified by <a href="#modelFile" class="param">modelFile</a> . Documents are discriminated with <a href="#attributes" class="param">attributes</a> which must be the same as used for training. The predicted category is stored in <a href="#classFeature" class="param">classFeature</a> .
+ *FasttextClassifierLabel* evaluates <a href="#documents" class="param">documents</a> as a list of elements and classifies each item with the classifier specified by <a href="#modelFile" class="param">modelFile</a> . Documents are discriminated with <a href="#attributes" class="param">attributes</a> which must be the same as used for training. The predicted category is stored in <a href="#classFeature" class="param">classFeature</a> .
 
 ## Snippet
 

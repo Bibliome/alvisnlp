@@ -6,7 +6,7 @@ Creates tuples for each element of a Cartesian product.
 
 ## Description
 
-*CartesianProductTuples*evaluates <a href="#anchor" class="param">anchor</a> as an element list with the corpus as the context element. Each item is hereby called the *anchor* .*CartesianProductTuples*evaluates all values of <a href="#arguments" class="param">arguments</a> as lists of elements with the anchor as the context element. Then it creates a tuple for each item of the cartesian product of the result of the evaluation of <a href="#arguments" class="param">arguments</a> . The tuple will have an argument for each item with the role specified by the keys of <a href="#arguments" class="param">arguments</a> .
+ *CartesianProductTuples* evaluates <a href="#anchor" class="param">anchor</a> as an element list with the corpus as the context element. Each item is hereby called the *anchor* . *CartesianProductTuples* evaluates all values of <a href="#arguments" class="param">arguments</a> as lists of elements with the anchor as the context element. Then it creates a tuple for each item of the cartesian product of the result of the evaluation of <a href="#arguments" class="param">arguments</a> . The tuple will have an argument for each item with the role specified by the keys of <a href="#arguments" class="param">arguments</a> .
 
 ## Snippet
 

@@ -2,13 +2,13 @@
 
 ## Synopsis
 
-*I2B2Reader*reads files in the format of the [I2B2]() challenge.
+ *I2B2Reader* reads files in the format of the [I2B2]() challenge.
 
 **This module is experimental.**
 
 ## Description
 
-*I2B2Reader*reads documents in [I2B2 challenge]() including the text of documents, tokenization as annotations, concepts as annotations, assertions as annotation features and relations as tuples.
+ *I2B2Reader* reads documents in [I2B2 challenge]() including the text of documents, tokenization as annotations, concepts as annotations, assertions as annotation features and relations as tuples.
 
 ## Snippet
 

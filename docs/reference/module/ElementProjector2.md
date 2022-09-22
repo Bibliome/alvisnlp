@@ -289,6 +289,14 @@ Process only sections that satisfy this filter.
 </div>
 
 
+<h3 id="substituteWhitespace" class="param">substituteWhitespace</h3>
+
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
+UNDOCUMENTED
+
 <h3 id="wordStartCaseInsensitive" class="param">wordStartCaseInsensitive</h3>
 
 <div class="param-level param-level-default-value">Default value: `false`

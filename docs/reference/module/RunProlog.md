@@ -8,13 +8,13 @@ Runs a Prolog program with the corpus data structure encoded as facts.
 
 ## Description
 
-*RunProlog*runs a Prolog program specified in two parameters:
+ *RunProlog* runs a Prolog program specified in two parameters:
 1.  <a href="#theory" class="param">theory</a> is read as a regular Prolog program;
 2.  <a href="#facts" class="param">facts</a> generate a set of facts.
 
 Additionally <a href="#goals" class="param">goals</a> specifies the goals of the Prolog programs, and an associated action expression that will be evaluated for each solution.
 
-*RunProlog*will run generate facts and resolve goals for each element specified by <a href="#target" class="param">target</a> .
+ *RunProlog* will run generate facts and resolve goals for each element specified by <a href="#target" class="param">target</a> .
 
 ## Snippet
 

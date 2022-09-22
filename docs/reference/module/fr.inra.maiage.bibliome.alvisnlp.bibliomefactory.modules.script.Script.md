@@ -8,11 +8,11 @@ Runs a script.
 
 ## Description
 
-*Script*reads, parses and runs <a href="#script" class="param">script</a> , a script in the language indicated by <a href="#language" class="param">language</a> . AlcisNLP supports all languages supported by the Java Scripting Engine in your system.
+ *Script* reads, parses and runs <a href="#script" class="param">script</a> , a script in the language indicated by <a href="#language" class="param">language</a> . AlcisNLP supports all languages supported by the Java Scripting Engine in your system.
 
 The script context will have a binding named *alvisnlp* to an object of type [fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.script.HelperObject]() , the way this object fields and methods are accessed depends on the scripting language.
 
-*Script*gives access to the corpus elements methods, in particular creation methods. However, for creating elements we advise to use [HelperObject]() 's *create** methods. One of the reasons is that elements created with these methods will have the constant features defined by <a href="#constantDocumentFeatures" class="param">constantDocumentFeatures</a> , <a href="#constantSectionFeatures" class="param">constantSectionFeatures</a> , <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a> , <a href="#constantRelationFeatures" class="param">constantRelationFeatures</a> and <a href="#constantTupleFeatures" class="param">constantTupleFeatures</a> .
+ *Script* gives access to the corpus elements methods, in particular creation methods. However, for creating elements we advise to use [HelperObject]() 's *create** methods. One of the reasons is that elements created with these methods will have the constant features defined by <a href="#constantDocumentFeatures" class="param">constantDocumentFeatures</a> , <a href="#constantSectionFeatures" class="param">constantSectionFeatures</a> , <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a> , <a href="#constantRelationFeatures" class="param">constantRelationFeatures</a> and <a href="#constantTupleFeatures" class="param">constantTupleFeatures</a> .
 
 Parameters <a href="#stdin" class="param">stdin</a> and <a href="#stdout" class="param">stdout</a> may not work on all systems.
 

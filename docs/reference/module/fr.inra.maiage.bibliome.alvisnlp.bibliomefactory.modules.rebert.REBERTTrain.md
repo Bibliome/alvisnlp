@@ -69,7 +69,7 @@ UNDOCUMENTED
 
 <h3 id="end" class="param">end</h3>
 
-<div class="param-level param-level-default-value">Default value: `properties:end()`
+<div class="param-level param-level-default-value">Default value: `end`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -77,7 +77,7 @@ UNDOCUMENTED
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 
-<div class="param-level param-level-default-value">Default value: `boolean:and(true, nav:layer:sentences())`
+<div class="param-level param-level-default-value">Default value: `true and layer:sentences`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -93,7 +93,7 @@ UNDOCUMENTED
 
 <h3 id="start" class="param">start</h3>
 
-<div class="param-level param-level-default-value">Default value: `properties:start()`
+<div class="param-level param-level-default-value">Default value: `start`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>

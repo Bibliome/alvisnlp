@@ -6,7 +6,7 @@ Disambiguate features that have multiple values.
 
 ## Description
 
-*DisambiguateAlternatives*evaluates <a href="#target" class="param">target</a> as a list of elements with the current document as the context element. Then it tries to keep a single value for the feature <a href="#ambiguousFeature" class="param">ambiguousFeature</a> in each item in the result. To achieve this, it keeps a set of unambiguous values found in the document. Unambiguous values are found in elements for which there is a single value for <a href="#ambiguousFeature" class="param">ambiguousFeature</a> .
+ *DisambiguateAlternatives* evaluates <a href="#target" class="param">target</a> as a list of elements with the current document as the context element. Then it tries to keep a single value for the feature <a href="#ambiguousFeature" class="param">ambiguousFeature</a> in each item in the result. To achieve this, it keeps a set of unambiguous values found in the document. Unambiguous values are found in elements for which there is a single value for <a href="#ambiguousFeature" class="param">ambiguousFeature</a> .
 
 ## Snippet
 

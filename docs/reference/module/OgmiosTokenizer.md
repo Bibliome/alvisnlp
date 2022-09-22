@@ -6,7 +6,7 @@ Tokenizes the sections contents according to the [Ogmios]() tokenizer specificat
 
 ## Description
 
-*OgmiosTokenizer*creates an annotation for each token found in the section contents according to the [Ogmios]() tokenizer specifications and adds these annotations to the <a href="#targetLayerName" class="param">targetLayerName</a> layer. The created annotations have a the feature <a href="#tokenTypeFeature" class="param">tokenTypeFeature</a> with one of the values:
+ *OgmiosTokenizer* creates an annotation for each token found in the section contents according to the [Ogmios]() tokenizer specifications and adds these annotations to the <a href="#targetLayerName" class="param">targetLayerName</a> layer. The created annotations have a the feature <a href="#tokenTypeFeature" class="param">tokenTypeFeature</a> with one of the values:
 *  *alpha* : for an alphabetic token;
 *  *num* : for a numeric token;
 *  *sep* : for a whitespace token;
@@ -14,7 +14,7 @@ Tokenizes the sections contents according to the [Ogmios]() tokenizer specificat
 
 
 
-If <a href="#separatorTokens" class="param">separatorTokens</a> is false, the*OgmiosTokenizer*does not create annotations corresponding to whitespace tokens.
+If <a href="#separatorTokens" class="param">separatorTokens</a> is false, the *OgmiosTokenizer* does not create annotations corresponding to whitespace tokens.
 
 ## Snippet
 

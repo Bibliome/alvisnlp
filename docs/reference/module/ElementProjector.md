@@ -103,7 +103,7 @@ Constant features to add to each tuple created by this module.
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.OutputFile" class="converter">OutputFile</a>
 </div>
-If set, then*ElementProjector*writes the compiled dictionary to the specified file.
+If set, then *ElementProjector* writes the compiled dictionary to the specified file.
 
 <h3 id="trieSource" class="param">trieSource</h3>
 
@@ -288,6 +288,14 @@ If set to *true* , then allow arbitrary insertion of whitespace characters in th
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.Subject" class="converter">Subject</a>
 </div>
 Specifies the contents to match.
+
+<h3 id="substituteWhitespace" class="param">substituteWhitespace</h3>
+
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
+If set to *true* , then all whitespace characters match each other (including '\n', '\r', '\t', and non-breaking spaces).
 
 <h3 id="wordStartCaseInsensitive" class="param">wordStartCaseInsensitive</h3>
 

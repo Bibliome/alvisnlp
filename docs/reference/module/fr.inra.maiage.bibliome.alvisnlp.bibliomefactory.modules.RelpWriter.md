@@ -6,7 +6,7 @@ Writes the corpus in relp format.
 
 ## Description
 
-*RelpWriter*writes the corpus into <a href="#outFilet" class="param">outFilet</a> in relp format.
+ *RelpWriter* writes the corpus into <a href="#outFilet" class="param">outFilet</a> in relp format.
 
 ## Snippet
 
@@ -56,7 +56,7 @@ Name of the dependecy relation.
 
 <h3 id="dependentForm" class="param">dependentForm</h3>
 
-<div class="param-level param-level-default-value">Default value: `properties:@:form()`
+<div class="param-level param-level-default-value">Default value: `@form`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -80,7 +80,7 @@ Only process document that satisfy this expression.
 
 <h3 id="headForm" class="param">headForm</h3>
 
-<div class="param-level param-level-default-value">Default value: `properties:@:form()`
+<div class="param-level param-level-default-value">Default value: `@form`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -96,7 +96,7 @@ Name of the role of the head word.
 
 <h3 id="lemmaForm" class="param">lemmaForm</h3>
 
-<div class="param-level param-level-default-value">Default value: `properties:@:lemma()`
+<div class="param-level param-level-default-value">Default value: `@lemma`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -104,7 +104,7 @@ Expression evaluated as a string with the word element as context. The result is
 
 <h3 id="pmid" class="param">pmid</h3>
 
-<div class="param-level param-level-default-value">Default value: `properties:@:id()`
+<div class="param-level param-level-default-value">Default value: `@id`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -112,7 +112,7 @@ Expression evaluated as a string with the document as context. The result is the
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 
-<div class="param-level param-level-default-value">Default value: `boolean:and(true, boolean:and(nav:layer:sentences(), nav:layer:words()))`
+<div class="param-level param-level-default-value">Default value: `true and layer:sentences and layer:words`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
@@ -136,7 +136,7 @@ Name of the role of the parsed sentence in the dependency relation.
 
 <h3 id="wordForm" class="param">wordForm</h3>
 
-<div class="param-level param-level-default-value">Default value: `properties:@:form()`
+<div class="param-level param-level-default-value">Default value: `@form`
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
