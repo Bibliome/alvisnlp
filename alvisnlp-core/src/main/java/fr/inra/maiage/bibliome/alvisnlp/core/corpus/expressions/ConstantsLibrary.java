@@ -17,7 +17,6 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions;
 
-import java.io.IOException;
 import java.util.List;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
@@ -76,60 +75,17 @@ public class ConstantsLibrary extends FunctionLibrary {
         return new ResourceDocumentation(getClass().getCanonicalName() + "Doc");
 	}
 
-	public static final Expression TRUE = new Expression(NAME, "boolean", "true") {
-		@Override
-		public void toString(Appendable a) throws IOException {
-			a.append("true");
-		}
-
-		@Override
-		public String toString() {
-			return "true";
-		}
-		
-	};
-	
-	public static final Expression FALSE = new Expression(NAME, "boolean", "false") {
-		@Override
-		public void toString(Appendable a) throws IOException {
-			a.append("false");
-		}
-
-		@Override
-		public String toString() {
-			return "false";
-		}
-		
-	};
+	public static final Expression TRUE = new Expression(NAME, "boolean", "true");	
+	public static final Expression FALSE = new Expression(NAME, "boolean", "false");
 
 	public static Expression create(int i) {
 		final String s = Integer.toString(i);
-		return new Expression(NAME, "int", s) {
-			@Override
-			public void toString(Appendable a) throws IOException {
-				a.append(s);
-			}
-
-			@Override
-			public String toString() {
-				return s;
-			}
-		};
+		return new Expression(NAME, "int", s);
 	}
 
 	public static Expression create(double d) {
 		final String s = Double.toString(d);
-		return new Expression(NAME, "double", s) {
-			@Override
-			public void toString(Appendable a) throws IOException {
-				a.append(s);
-			}
-
-			@Override
-			public String toString() {
-				return s;
-			}
-		};
+		return new Expression(NAME, "double", s);
 	}
 
 	public static Expression create(String s) {

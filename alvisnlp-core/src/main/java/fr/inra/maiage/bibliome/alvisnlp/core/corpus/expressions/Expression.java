@@ -22,6 +22,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import fr.inra.maiage.bibliome.util.Strings;
+
 
 
 public class Expression implements Resolvable<Evaluator> {
@@ -74,18 +76,244 @@ public class Expression implements Resolvable<Evaluator> {
 		}		
 	}
 
-	public void toString(Appendable a) throws IOException {
+	public void defaultToString(Appendable a) throws IOException {
 		headToString(a);
-		a.append('(');
-		boolean notFirst = false;
-		for (Expression fc : args) {
-			if (notFirst)
-				a.append(", ");
-			else
-				notFirst = true;
-			fc.toString(a);
+		if (args.size() > 0) {
+			a.append('(');
+			boolean notFirst = false;
+			for (Expression arg : args) {
+				if (notFirst)
+					a.append(", ");
+				else
+					notFirst = true;
+				arg.toString(a);
+			}
+			a.append(')');
 		}
-		a.append(')');
+	}
+	
+	private void inop(Appendable a) throws IOException {
+		inop(a, " " + ftors.get(0) + " ");
+	}
+	
+	private void inop(Appendable a, String op) throws IOException {
+		boolean notFirst = false;
+		for (Expression arg : args) {
+			if (notFirst) {
+				a.append(op);
+			}
+			else {
+				notFirst = true;
+			}
+			arg.toString(a);
+		}
+	}
+	
+	private void preop(Appendable a) throws IOException {
+		a.append(ftors.get(0));
+		args.get(0).toString(a);
+	}
+	
+	private void constantToString(Appendable a) throws IOException {
+		String firstFtor = ftors.get(0);
+		String value = ftors.get(1);
+		if (firstFtor.equals("string")) {
+			a.append('"');
+			a.append(value);
+			a.append('"');
+			return;
+		}
+		a.append(value);
+	}
+	
+	private void booleanToString(Appendable a) throws IOException {
+		String op = ftors.get(0);
+		if (op.equals("not")) {
+			preop(a);
+			return;
+		}
+		inop(a);
+	}
+	
+	private void comparisonToString(Appendable a) throws IOException {
+		if (ftors.get(0).equals("any")) {
+			a.append("any ");
+			a.append(ftors.get(1));
+			a.append(" == ");
+			args.get(0).toString(a);
+			return;
+		}
+		inop(a);
+	}
+	
+	private void conditionalToString(Appendable a) throws IOException {
+		a.append("if ");
+		args.get(0).toString(a);
+		a.append(" then ");
+		args.get(1).toString(a);
+		a.append(" else ");
+		args.get(2).toString(a);
+	}
+	
+	private void libEllipsisToString(Appendable a) throws IOException {
+		String firstFtor = ftors.get(0);
+		Expression pretty = new Expression(firstFtor, ftors.subList(1, ftors.size()), args);
+		pretty.toString(a);
+	}
+	
+	private void navToString(Appendable a) throws IOException {
+		String firstFtor = ftors.get(0);
+		switch (firstFtor) {
+			case "after":
+			case "before":
+			case "inside":
+			case "outside":
+			case "overlapping":
+			case "span":
+			case "xafter":
+			case "xbefore":
+			case "xinside":
+			case "xoutside":
+			case "xoverlapping":
+			case "xspan":
+			case "layer":
+			case "relations":
+			case "documents":
+			case "args":
+			case "sections":
+			case "tuples":
+			case "relation":
+			case "corpus":
+			case "document":
+			case "section": {
+				libEllipsisToString(a);
+				break;
+			}
+			case ".": {
+				inop(a, ".");
+				break;
+			}
+			case "assign": {
+				args.get(0).toString(a);
+				a.append(" as ");
+				a.append(ftors.get(1));
+				break;
+			}
+			case "|": {
+				inop(a);
+				break;
+			}
+			case "$": {
+				a.append('$');
+				break;
+			}
+			default:
+				defaultToString(a);
+		}
+	}
+	
+	private void propertiesToString(Appendable a) throws IOException {
+		String firstFtor = ftors.get(0);
+		switch (firstFtor) {
+			case "start":
+			case "end":
+			case "length":
+			case "contents": {
+				a.append(firstFtor);
+				break;
+			}
+			case "@": {
+				a.append('@');
+				a.append(ftors.get(1));
+				break;
+			}
+			default:
+				defaultToString(a);
+		}
+	}
+	
+	private void selectorToString(Appendable a) throws IOException {
+		String firstFtor = ftors.get(0);
+		a.append(firstFtor.charAt(0));
+		args.get(0).toString(a);
+		if (args.size() == 2) {
+			a.append(',');
+			args.get(1).toString(a);
+		}
+		a.append(firstFtor.charAt(1));
+	}
+	
+	private void setlayerToString(Appendable a) throws IOException {
+		String firstFtor = ftors.get(0);
+		switch (firstFtor) {
+			case "add":
+			case "remove": {
+				Expression pretty = new Expression(firstFtor, ftors.subList(1, ftors.size()), args);
+				pretty.toString(a);
+				break;
+			}
+			default:
+				defaultToString(a);
+		}
+	}
+	
+	private void strToString(Appendable a) throws IOException {
+		if (ftors.get(0).equals("concat")) {
+			inop(a, " ^ ");
+			return;
+		}
+		defaultToString(a);
+	}
+	
+	public void toString(Appendable a) throws IOException {
+		switch (lib)  {
+			case "constant": {
+				constantToString(a);
+				break;
+			}
+			case "arithmetic": {
+				inop(a);
+				break;
+			}
+			case "boolean": {
+				booleanToString(a);
+				break;
+			}
+			case "comparison": {
+				comparisonToString(a);
+				break;
+			}
+			case "conditional": {
+				conditionalToString(a);
+				break;
+			}
+			case "convert": {
+				libEllipsisToString(a);
+				break;
+			}
+			case "nav": {
+				navToString(a);
+				break;
+			}
+			case "properties": {
+				propertiesToString(a);
+				break;
+			}
+			case "select": {
+				selectorToString(a);
+				break;
+			}
+			case "setlayer": {
+				setlayerToString(a);
+				break;
+			}
+			case "str": {
+				strToString(a);
+				break;
+			}
+			default:
+				defaultToString(a);
+		}
 	}
 	
 	@Override
@@ -93,6 +321,9 @@ public class Expression implements Resolvable<Evaluator> {
 		try {
 			StringBuilder sb = new StringBuilder();
 			toString(sb);
+			if (sb.length() == 0) {
+				return super.toString();
+			}
 			return sb.toString();
 		}
 		catch (IOException e) {

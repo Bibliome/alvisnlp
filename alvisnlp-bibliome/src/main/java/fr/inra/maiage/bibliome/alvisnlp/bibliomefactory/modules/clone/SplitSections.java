@@ -64,7 +64,11 @@ public abstract class SplitSections extends SectionModule<SplitSectionsResolvedO
 	private Boolean mergeOverlapping = false;
 	private Boolean splitDocuments = false;
 	private String croppedAnnotationFeatureName = "cropped";
-	private Expression docId = new Expression(StringLibrary.NAME, new Expression(PropertiesLibrary.NAME, "@", Document.ID_FEATURE_NAME), new Expression(ConstantsLibrary.NAME, "string", "__"), new Expression("split", "num"));
+	private Expression docId = new Expression(StringLibrary.NAME, "concat",
+			new Expression(PropertiesLibrary.NAME, "@", Document.ID_FEATURE_NAME),
+			new Expression(ConstantsLibrary.NAME, "string", "__"),
+			new Expression("split", "num")
+			);
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {

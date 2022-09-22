@@ -74,36 +74,36 @@ public abstract class SectionModule<T extends SectionResolvedObjects> extends Do
      */
     @Param(defaultDoc = "Process only sections that satisfy this filter.")
     public Expression getSectionFilter() {
-        Expression filter = null;
-        String[] layerNames = addLayersToSectionFilter();
-        if (layerNames != null)
-            for (String layerName : layerNames) {
-            	if (layerName == null)
-            		continue;
-            	Expression layerFilter = ExpressionParser.parseUnsafe("layer:" + layerName);
-           	if (filter == null) {
-            		filter = layerFilter;
-            	}
-            	else {
-            		filter = and(filter, layerFilter);
-            	}
-            }
+    	Expression filter = null;
+    	String[] layerNames = addLayersToSectionFilter();
+    	if (layerNames != null)
+    		for (String layerName : layerNames) {
+    			if (layerName == null)
+    				continue;
+    			Expression layerFilter = ExpressionParser.parseUnsafe("layer:" + layerName);
+    			if (filter == null) {
+    				filter = layerFilter;
+    			}
+    			else {
+    				filter = and(filter, layerFilter);
+    			}
+    		}
 
-        String[] features = addFeaturesToSectionFilter();
-        if (features != null)
-            for (String feat : features) {
-            	Expression featureFilter = ExpressionParser.parseUnsafe("@" + feat);
-            	if (filter == null) {
-            		filter = featureFilter;
-            	}
-            	else {
-            		filter = and(filter, featureFilter);
-            	}
-            }
-        
-        if (filter == null)
-        	return sectionFilter;
-        return and(sectionFilter, filter);
+    	String[] features = addFeaturesToSectionFilter();
+    	if (features != null)
+    		for (String feat : features) {
+    			Expression featureFilter = ExpressionParser.parseUnsafe("@" + feat);
+    			if (filter == null) {
+    				filter = featureFilter;
+    			}
+    			else {
+    				filter = and(filter, featureFilter);
+    			}
+    		}
+
+    	if (filter == null)
+    		return sectionFilter;
+    	return and(sectionFilter, filter);
     }
 
     /**
