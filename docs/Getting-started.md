@@ -2,9 +2,9 @@
 
 ## Using the command-line
 
-You will find instructions on the acquisition and installation of *AlvsNLP/ML* in the [Download](Download) page.
+In order to use *AlvisNLP* you need to [Download](Download) and install it.
 
-*AlvsNLP/ML* consists on a single command-line executable: `alvisnlp`.
+*AlvisNLP* consists on a single command-line executable: `alvisnlp`.
 In order to get a short help on the options:
 
 ```sh
@@ -72,25 +72,21 @@ Other options:
     -tmp       DIR    set root of temporary directories
     -cleanTmp         delete the temp directory after processing
     -noColors         do not use ANSI color escape codes for logging or documentation
-
 ```
 
-There are a *lot* of options, that's because
-
-1. *AlvsNLP/ML* is very versatile,
-2. the documentation is embedded to the binary.
-
+There are a *lot* of options because *AlvisNLP* is very versatile. The most important is the *PLANFILE*.
 
 ## Plan file
 
-*AlvsNLP/ML* is a corpus processing engine that allows you to apply a sequence of processing component modules on a collection of documents.
 You specify the sequence of modules with an XML file called the **plan file**.
 The plan file contains:
 
-* the sequence of processing steps, each step references a module from a library provided by the *AlvsNLP/ML* distribution;
-* the parameter values for each step, which allows you to specify resources (documents, lexicons, terminologies, ontologies) and to modulate the modules behaviour (*e.g.* case-sensitiveness).
+* the **sequence of processing steps** taken from a library of modules or from pre-made reusable sequences;
+* the **parameter values** for each step, which allows you customize the processing step and to specify resources (documents, lexicons, terminologies, ontologies).
 
-Here's an example of a simple plan file that tells *AlvsNLP/ML* to read text files, look for a specific regular expression pattern and writes the result as HTML so we can take a look at it.
+Here's an example of a simple plan file that tells *AlvisNLP* to read text files, look for a specific regular expression pattern and writes the result as HTML so we can take a look at it.
+
+`example.plan`
 
 ```xml
 <alvisnlp-plan id="example">
@@ -100,53 +96,32 @@ Here's an example of a simple plan file that tells *AlvsNLP/ML* to read text fil
 
     <regexp class="RegExp">
         <pattern>\b[A-Z]\S*\b</pattern>
-	<targetLayerName>capitalized</targetLayerName>
+    <targetLayerName>capitalized</targetLayerName>
     </regexp>
 
     <write class="QuickHTML">
         <outDir>/path/to/output/dir</outDir>
-	<classFeature>_dummy</classFeature>
+    <classFeature>_dummy</classFeature>
     </write>
 </alvisnlp-plan>
 ```
 
-In this example, we define a plan with three successive steps using the modules `TextFileReader`, `RegExp`, and `QuickHTML` respectively.
-We give to each step an identifier: `read`, `regexp`, and `write`.
-
-The module classes are taken from the library of modules, there are currently more than fifty different modules at your disposal.
-The module identifiers are arbitrary and their purpose is to give a meaningful label.
+In this example, we define a plan of three successive steps named *read*, *regexp*, and *write*. These steps use the modules *TextFileReader*, *RegExp*, and *QuickHTML* respectively.
 
 Within each step, we set some parameter values:
 
-1. For the step `read`, there's a single parameter `sourcePath` that specifies where to read text files. Usually such parameters accept a file name, a directory (all files in the directory are read), or even URLs.
-2. For `regexp`, there are two parameters. The first, `pattern` specifies the regular expression to search. This pattern looks for words that start with an uppercase letter. To understand the second one, `targetLayerName`, you have to be aware that `RegExp` modules create annotations: each match of the specified pattern is represented by an **annotation**. Annotations are sorted in **layers**. This parameter specifies that annotation created by this module are stored in a layer named `capitalized`.
-3. Finally the `outDir` parameter of the last module indicates in which directory HTML files are created.
+1. For the step *read*, there's a single parameter *sourcePath* that specifies where to read text files.
+2. For *regexp*, there are two parameters. *pattern* specifies the regular expression to search. *targetLayerName* is the name of the container where *regexp* will store matches. Here we call it *"capitalized"*.
 
-Running this plan requires the `alvisnlp` binary:
+Ready to run this plan:
 
 ```shell
 $ alvisnlp example.plan
 ```
 
-`example.plan` is the XML plan file.
-
-
 ### Further reading
 
-* [Write a plan](Write-a-plan) has a more detailed account on parameters and also plan reuse and import mechanisms. 
-* [Module Reference](reference/Module-list) contains the purpose and effect of each module, as well as the required and optional parameters and their types.
-
-## Shared data structure
-
-The library of modules includes tools with many different purposes.
-The modules understands a variety of file formats, conventions, and data types.
-In order to make modules in a plan work together, *AlvsNLP/ML* stores all the results in a single data structure.
-
-During the execution of a plan, this data structure is passed from a module to the next.
-You have to have a solid grasp on this data structure in order to understand the effect of each module and to write meaningful and efficient plans.
-
-### Further reading
-
-* [Data model](Data-model) details the shared data structure.
+* [Data model](Data-model) describes  the data structure. A good grasp of this data model is **very important** for optimal use of *AlvisNLP*.
+* [Write a plan](Write-a-plan) details parameters, plan reuse, etc.
+* [Module Reference](reference/Module-list) lists modules available in the library, and documents each one including purpose and available parameters.
 * [Element expression examples](Element-expression-examples) and [reference](Element-expression-reference) describe a path-like language used to navigate through the data structure.
-

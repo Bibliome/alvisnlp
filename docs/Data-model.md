@@ -1,11 +1,8 @@
-The data structure contains corpus contents and annotation. The data structure is passed from a module to the next one. Each module instance can access (read and write) it through a shared object.
+# AlvisNLP data structure
 
+The *AlvisNLP* data structure is an object shared by all processing steps. It is passed from one processing step to the next. The data structure contains the document structure and content, as well as annotations produced by successive steps. The understanding of the data structure is crucial to to use *AlvisNLP* since this object allows the steps to communicate with each other.
 
-<!--
-The data structure provides elements that hold the typical information on   (_Corpus_, _Document_ and _Section_). It also provides elements to contain annotations, events and features (_Annotations_, _Tuples_ and _Features_) and containers consisting of _Layers_ and _Relation_ allow to group information about the elements. 
--->
-The following figure presents an UML-like specification of the AlvisNLP data structure.
-
+The following figure presents an UML-like specification of the *AlvisNLP* data structure.
 
 ![Data model](assets/images/alvis_data_model.png)
 
@@ -24,5 +21,3 @@ The following figure presents an UML-like specification of the AlvisNLP data str
 * **Tuple**: a `Tuple` object represents a relation between several elements in the data structure. A `Tuple` object has several *arguments*, each argument is an element (`Corpus`, `Document`, `Section`, `Relation`, but most often `Annotation` or `Tuple`) accessible through a *role* name. A `Tuple` object also has *features*.
 
 * **Features** are key-value pairs that contain information on an element type, tag or property. Feature keys are not unique in an element, though when accessing a feature key, the last value is returned.
-
-

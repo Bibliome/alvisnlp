@@ -22,8 +22,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import fr.inra.maiage.bibliome.util.Strings;
-
 
 
 public class Expression implements Resolvable<Evaluator> {
