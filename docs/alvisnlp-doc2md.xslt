@@ -21,7 +21,7 @@ limitations under the License.
 		extension-element-prefixes="str"
 		>
 
-  <xsl:output method="text" />
+  <xsl:output method="text"/>
 
   <xsl:param name="nl"><xsl:text>
 </xsl:text></xsl:param>
@@ -106,7 +106,14 @@ limitations under the License.
     <xsl:value-of select="concat('&lt;', $lc, ' class=&quot;', /alvisnlp-doc/@short-target, '&gt;', $nl)"/>
     <xsl:for-each select="param-doc[not(@default-value) and @mandatory = 'required']">
       <xsl:sort select="@name"/>
-      <xsl:value-of select="concat('    &lt;', @name, '&gt;', @example, '&lt;/', @name, '&gt;', $nl)"/>
+      <xsl:for-each select="examples/*[name() = ../../@name]">
+	<xsl:text>    </xsl:text>
+	<xsl:apply-templates select="." mode="xverb"/>
+	<xsl:value-of select="$nl"/>
+      </xsl:for-each>
+      <xsl:if test="not(examples/*[name() = ../../@name])">
+	<xsl:value-of select="concat('    &lt;', @name, '&gt;', @example, '&lt;/', @name, '&gt;', $nl)"/>
+      </xsl:if>
     </xsl:for-each>
     <xsl:value-of select="concat('&lt;/', $lc, '&gt;')"/>
     <xsl:value-of select="concat($nl, '```', $nl, $nl)"/>
@@ -156,7 +163,15 @@ limitations under the License.
 	<xsl:text>&lt;/div>
 </xsl:text>
     <xsl:apply-templates/>
+    <xsl:if test="examples/*[name() = ../../@name]">
+      <xsl:text>&lt;div class="param-examples">Examples&lt;/div></xsl:text>
+      <xsl:value-of select="concat($nl, $nl, '```xml', $nl)"/>
+      <xsl:apply-templates select="examples/*[name() = ../../@name]" mode="xverb"/>
+      <xsl:value-of select="concat($nl, '```', $nl, $nl)"/>
+    </xsl:if> 
   </xsl:template>
+
+  <xsl:template match="examples"/>
   
   <xsl:template match="converter-doc">
     <xsl:apply-templates select="string-conversion"/>

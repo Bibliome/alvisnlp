@@ -41,6 +41,7 @@ header {
     background-color: var(--color-primary);
 }
 
+
 /* Table of contents */
 
 #toc {
@@ -188,8 +189,7 @@ pre.highlight {
     border-radius: 5px;
     border: solid #CCCCCC 1px;
     font-family: fixed;
-    font-size: 120%;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .nt {
@@ -312,6 +312,12 @@ a.param {
 }
 
 .param-type {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 80%;
+}
+
+.param-examples {
     font-family: sans-serif;
     font-weight: bold;
     font-size: 80%;
