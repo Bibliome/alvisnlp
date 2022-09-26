@@ -147,6 +147,7 @@ h2 {
     font-size: 150%;
     font-weight: bold;
     border-bottom: solid var(--color-secondary) 1px;
+    padding-top: 10mm;
 }
 
 h3 {
@@ -288,6 +289,10 @@ a.library {
 	color: DarkOrange !important;
 }
 
+h3.param {
+    padding-top: 5mm;
+}
+
 a.param {
     font-weight: bold;
     text-decoration: none;
@@ -317,10 +322,12 @@ a.param {
     font-size: 80%;
 }
 
-.param-examples {
+.param-examples-header {
     font-family: sans-serif;
     font-weight: bold;
     font-size: 80%;
+    color: #AA3026;
+    cursor: pointer;
 }
 
 

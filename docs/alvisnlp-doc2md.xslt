@@ -106,7 +106,7 @@ limitations under the License.
     <xsl:value-of select="concat('&lt;', $lc, ' class=&quot;', /alvisnlp-doc/@short-target, '&gt;', $nl)"/>
     <xsl:for-each select="param-doc[not(@default-value) and @mandatory = 'required']">
       <xsl:sort select="@name"/>
-      <xsl:for-each select="examples/*[name() = ../../@name]">
+      <xsl:for-each select="examples/*[name() = ../../@name and position() = 1]">
 	<xsl:text>    </xsl:text>
 	<xsl:apply-templates select="." mode="xverb"/>
 	<xsl:value-of select="$nl"/>
@@ -164,7 +164,10 @@ limitations under the License.
 </xsl:text>
     <xsl:apply-templates/>
     <xsl:if test="examples/*[name() = ../../@name]">
-      <xsl:text>&lt;div class="param-examples">Examples&lt;/div></xsl:text>
+      <xsl:text>&lt;div class="param-examples-header" onclick="toggle_examples(this)" id="examples-</xsl:text>
+      <xsl:value-of select="@name"/>
+      <xsl:text>">> Examples
+&lt;/div></xsl:text>
       <xsl:value-of select="concat($nl, $nl, '```xml', $nl)"/>
       <xsl:apply-templates select="examples/*[name() = ../../@name]" mode="xverb"/>
       <xsl:value-of select="concat($nl, '```', $nl, $nl)"/>

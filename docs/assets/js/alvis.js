@@ -7,7 +7,7 @@ function get_header_structure() {
 	children: []
     };
     var current = top;
-    $('h2 , h3 , h4 , h5').not('.no-toc').each(function() {
+    $('h2').not('.no-toc').each(function() {
 	var level = Number(this.nodeName.substring(1));
 	var p;
 	for (p = current; p.level >= level; p = p.parent);
@@ -18,7 +18,7 @@ function get_header_structure() {
 	    level: level,
 	    children: []
 	};
-	p.children.push(current)
+	p.children.push(current);
     });
     return top;
 }
@@ -56,13 +56,13 @@ function toc_scroll(top) {
 	if (currentScroll >= tocTop) {
             $('#toc').css({
 		position: 'fixed',
-		top: '0',
+		top: '0'
             });
 	}
 	else {
             $('#toc').css({
 		position: 'absolute',
-		top: '150px',
+		top: '150px'
             });
 	}
 	$('.toc-item').removeClass('toc-active');
@@ -73,9 +73,14 @@ function toc_scroll(top) {
     });
 }
 
+function toggle_examples(elt) {
+    var examples = $(elt).next();
+    examples.toggle(duration=800);
+}
+
 $(document).ready(function() {
     var top = get_header_structure();
     add_children_nodes(top, $('#toc ul'));
     toc_scroll(top);
-    
+    $('.param-examples-header').next().hide();
 });
