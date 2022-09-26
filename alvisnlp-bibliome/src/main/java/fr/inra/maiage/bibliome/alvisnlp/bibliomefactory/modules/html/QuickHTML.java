@@ -26,8 +26,8 @@ import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
-import java.util.LinkedHashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -37,20 +37,25 @@ import java.util.logging.Logger;
 import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.xpath.XPathExpressionException;
 
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.DefaultExpressions;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.html.QuickHTML.QuickHTMLResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
@@ -62,7 +67,7 @@ import fr.inra.maiage.bibliome.util.fragments.FragmentTag;
 import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 @AlvisNLPModule(beta=true)
-public class QuickHTML extends SectionModule<SectionResolvedObjects> {
+public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 	private static final String XPATH_DOMUMENT_TITLE = "/html/head/title";
 	private static final String XPATH_TITLE_HEADING = "/html/body/h1";
 	private static final String XPATH_PREVIOUS_DOCUMENT = "/html/body/div[@id = 'document-navigation']/div[@id = 'document-previous']";
@@ -86,6 +91,27 @@ public class QuickHTML extends SectionModule<SectionResolvedObjects> {
 			"#996992",
 			"#AA9B8C",
 	};
+	private Expression documentTitle = DefaultExpressions.DOCUMENT_ID;
+
+	public static class QuickHTMLResolvedObjects extends SectionResolvedObjects {
+		private final Evaluator documentTitle;
+		
+		public QuickHTMLResolvedObjects(ProcessingContext<Corpus> ctx, QuickHTML module) throws ResolverException {
+			super(ctx, module);
+			this.documentTitle = module.documentTitle.resolveExpressions(rootResolver);
+		}
+
+		@Override
+		public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
+			super.collectUsedNames(nameUsage, defaultType);
+			this.documentTitle.collectUsedNames(nameUsage, defaultType);
+		}
+	}
+	
+	@Override
+	protected QuickHTMLResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		return new QuickHTMLResolvedObjects(ctx, this);
+	}
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -126,9 +152,9 @@ public class QuickHTML extends SectionModule<SectionResolvedObjects> {
 		fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document next = docIt.hasNext() ? docIt.next() : null;
 		while (next != null) {
 			fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc = next;
-			addDocumentListItem(docList, docListUL, doc);
+			addDocumentListItem(docList, docListUL, evalCtx, doc);
 			next = docIt.hasNext() ? docIt.next() : null;
-			Document xmlDoc = createDocument(docSkel, doc, prev, next);
+			Document xmlDoc = createDocument(docSkel, evalCtx, doc, prev, next);
 			HTMLBuilderFragmentTagIterator frit = new HTMLBuilderFragmentTagIterator(this, classes);
 			for (Section sec : Iterators.loop(sectionIterator(evalCtx, doc))) {
 				createSection(xmlDoc, sec, frit);
@@ -138,15 +164,16 @@ public class QuickHTML extends SectionModule<SectionResolvedObjects> {
 		}
 	}
 	
-	private static void addDocumentListItem(Document docList, Element docListUL, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc) {
+	private void addDocumentListItem(Document docList, Element docListUL, EvaluationContext evalCtx, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc) {
 		Element li = XMLUtils.createElement(docList, docListUL, -1, "li");
 		addClass(li, "documet-list-item");
-		addLinkToDocument(li, doc);
+		addLinkToDocument(li, evalCtx, doc);
 	}
 	
-	private static void addLinkToDocument(Element parent, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc) {
+	private void addLinkToDocument(Element parent, EvaluationContext evalCtx, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc) {
 		String id = doc.getId();
-		Element a = XMLUtils.createElement(parent.getOwnerDocument(), parent, -1, "a", id);
+		String title = getDocumentLTitle(evalCtx, doc);
+		Element a = XMLUtils.createElement(parent.getOwnerDocument(), parent, -1, "a", title);
 		a.setAttribute("href", id + ".html");
 	}
 	
@@ -181,21 +208,26 @@ public class QuickHTML extends SectionModule<SectionResolvedObjects> {
 			}
 		}
 	}
+	
+	private String getDocumentLTitle(EvaluationContext evalCtx, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc) {
+		QuickHTMLResolvedObjects resObj = getResolvedObjects();
+		return resObj.documentTitle.evaluateString(evalCtx, doc);
+	}
 
-	private static Document createDocument(Document docSkel, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document prev, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document next) throws XPathExpressionException {
+	private Document createDocument(Document docSkel, EvaluationContext evalCtx, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document prev, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document next) throws XPathExpressionException {
 		Document result = (Document) docSkel.cloneNode(true);
-		String title = "Document: " + doc.getId();
+		String title = getDocumentLTitle(evalCtx, doc);
 		Element docTitle = XMLUtils.evaluateElement(XPATH_DOMUMENT_TITLE, result);
 		docTitle.setTextContent(title);
 		Element titleHeading = XMLUtils.evaluateElement(XPATH_TITLE_HEADING, result);
 		titleHeading.setTextContent(title);
 		if (prev != null) {
 			Element prevDiv = XMLUtils.evaluateElement(XPATH_PREVIOUS_DOCUMENT, result);
-			addLinkToDocument(prevDiv, prev);
+			addLinkToDocument(prevDiv, evalCtx, prev);
 		}
 		if (next != null) {
 			Element nextDiv = XMLUtils.evaluateElement(XPATH_NEXT_DOCUMENT, result);
-			addLinkToDocument(nextDiv, next);
+			addLinkToDocument(nextDiv, evalCtx, next);
 		}
 		return result;
 	}
@@ -349,11 +381,6 @@ public class QuickHTML extends SectionModule<SectionResolvedObjects> {
 		return null;
 	}
 
-	@Override
-	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
-		return new SectionResolvedObjects(ctx, this);
-	}
-
 	@Param
 	public OutputDirectory getOutDir() {
 		return outDir;
@@ -382,6 +409,15 @@ public class QuickHTML extends SectionModule<SectionResolvedObjects> {
 	@Param
 	public String[] getColors() {
 		return colors;
+	}
+
+	@Param
+	public Expression getDocumentTitle() {
+		return documentTitle;
+	}
+
+	public void setDocumentTitle(Expression documentTitle) {
+		this.documentTitle = documentTitle;
 	}
 
 	public void setColors(String[] colors) {
