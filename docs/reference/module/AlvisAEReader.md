@@ -21,7 +21,7 @@ All AlvisAE annotations, including text-bound annotations, will be represented i
 
 
 
-<button class="copy-code-button" alt="Copy to clipboard" onclick="copy_code(this)">📋</button>
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <alvisaereader class="AlvisAEReader>
     <campaignId>135</campaignId>
@@ -45,14 +45,14 @@ Identifiers of the AlvisAE campaigns to import.
 <div class="param-examples-header" onclick="toggle_examples(this)" id="examples-campaignId">> Examples
 </div>
 
-<button class="copy-code-button" alt="Copy to clipboard" onclick="copy_code(this)">📋</button>
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <campaignId>135</campaignId>
 ```
 
 
 
-<button class="copy-code-button" alt="Copy to clipboard" onclick="copy_code(this)">📋</button>
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <campaignId>1,2,3</campaignId>
 ```
@@ -68,7 +68,7 @@ User password for JDBC connection.
 <div class="param-examples-header" onclick="toggle_examples(this)" id="examples-password">> Examples
 </div>
 
-<button class="copy-code-button" alt="Copy to clipboard" onclick="copy_code(this)">📋</button>
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <password>***</password>
 ```
@@ -84,7 +84,7 @@ PostgreSQL schema.
 <div class="param-examples-header" onclick="toggle_examples(this)" id="examples-schema">> Examples
 </div>
 
-<button class="copy-code-button" alt="Copy to clipboard" onclick="copy_code(this)">📋</button>
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <schema>psql_schema_name</schema>
 ```
@@ -100,7 +100,7 @@ PostgreSQL database URL.
 <div class="param-examples-header" onclick="toggle_examples(this)" id="examples-url">> Examples
 </div>
 
-<button class="copy-code-button" alt="Copy to clipboard" onclick="copy_code(this)">📋</button>
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <url>postgresql://server.name[:port]/dbname</url>
 ```
@@ -116,7 +116,7 @@ PostgreSQL user name.
 <div class="param-examples-header" onclick="toggle_examples(this)" id="examples-username">> Examples
 </div>
 
-<button class="copy-code-button" alt="Copy to clipboard" onclick="copy_code(this)">📋</button>
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <username>psql_user</username>
 ```
