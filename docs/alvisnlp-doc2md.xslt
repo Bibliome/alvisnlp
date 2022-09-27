@@ -103,7 +103,7 @@ limitations under the License.
       <xsl:value-of select="translate(/alvisnlp-doc/@short-target, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')"/>
     </xsl:variable>
     <xsl:value-of select="concat($nl, $nl)"/>
-    <xsl:text>&lt;button class="copy-code-button" alt="Copy to clipboard" onclick="copy_code(this)">&#x1F4CB;&lt;/button></xsl:text>
+    <xsl:text>&lt;button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">&#x1F4CB;&lt;/button></xsl:text>
     <xsl:value-of select="concat($nl, '```xml', $nl)"/>
     <xsl:value-of select="concat('&lt;', $lc, ' class=&quot;', /alvisnlp-doc/@short-target, '&gt;', $nl)"/>
     <xsl:for-each select="param-doc[not(@default-value) and @mandatory = 'required']">
@@ -171,7 +171,7 @@ limitations under the License.
       <xsl:text>">> Examples&#x0A;&lt;/div></xsl:text>
       <xsl:for-each select="examples/*[name() = ../../@name]">
 	<xsl:value-of select="concat($nl, $nl)"/>
-	<xsl:text>&lt;button class="copy-code-button" alt="Copy to clipboard" onclick="copy_code(this)">&#x1F4CB;&lt;/button></xsl:text>
+	<xsl:text>&lt;button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">&#x1F4CB;&lt;/button></xsl:text>
 	<xsl:value-of select="concat($nl, '```xml', $nl)"/>
 	<xsl:apply-templates select="." mode="xverb"/>
 	<xsl:value-of select="concat($nl, '```', $nl, $nl)"/>
