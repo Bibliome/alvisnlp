@@ -74,13 +74,24 @@ function toc_scroll(top) {
 }
 
 function toggle_examples(elt) {
-    var examples = $(elt).next();
+    var examples = $(elt).nextUntil('h2 , h3');
     examples.toggle(duration=800);
 }
 
+function copy_code(elt) {
+    var snippet = $(elt).parent().next();
+    const code = snippet.text();
+    window.navigator.clipboard.writeText(code);
+    elt.classList.add('copied');
+    setTimeout(() => {
+		   elt.classList.remove('copied');
+	       }, 2000);
+}
+
 $(document).ready(function() {
-    var top = get_header_structure();
-    add_children_nodes(top, $('#toc ul'));
-    toc_scroll(top);
-    $('.param-examples-header').next().hide();
-});
+		      var top = get_header_structure();
+		      add_children_nodes(top, $('#toc ul'));
+		      toc_scroll(top);
+		      $('.param-examples-header').nextUntil('h2 , h3').hide();
+		      $('button').parent('p').addClass('button-p');
+		  });

@@ -102,7 +102,9 @@ limitations under the License.
     <xsl:variable name="lc">
       <xsl:value-of select="translate(/alvisnlp-doc/@short-target, 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz')"/>
     </xsl:variable>
-    <xsl:value-of select="concat($nl, $nl, '```xml', $nl)"/>
+    <xsl:value-of select="concat($nl, $nl)"/>
+    <xsl:text>&lt;button class="copy-code-button" alt="Copy to clipboard" onclick="copy_code(this)">&#x1F4CB;&lt;/button></xsl:text>
+    <xsl:value-of select="concat($nl, '```xml', $nl)"/>
     <xsl:value-of select="concat('&lt;', $lc, ' class=&quot;', /alvisnlp-doc/@short-target, '&gt;', $nl)"/>
     <xsl:for-each select="param-doc[not(@default-value) and @mandatory = 'required']">
       <xsl:sort select="@name"/>
@@ -166,11 +168,14 @@ limitations under the License.
     <xsl:if test="examples/*[name() = ../../@name]">
       <xsl:text>&lt;div class="param-examples-header" onclick="toggle_examples(this)" id="examples-</xsl:text>
       <xsl:value-of select="@name"/>
-      <xsl:text>">> Examples
-&lt;/div></xsl:text>
-      <xsl:value-of select="concat($nl, $nl, '```xml', $nl)"/>
-      <xsl:apply-templates select="examples/*[name() = ../../@name]" mode="xverb"/>
-      <xsl:value-of select="concat($nl, '```', $nl, $nl)"/>
+      <xsl:text>">> Examples&#x0A;&lt;/div></xsl:text>
+      <xsl:for-each select="examples/*[name() = ../../@name]">
+	<xsl:value-of select="concat($nl, $nl)"/>
+	<xsl:text>&lt;button class="copy-code-button" alt="Copy to clipboard" onclick="copy_code(this)">&#x1F4CB;&lt;/button></xsl:text>
+	<xsl:value-of select="concat($nl, '```xml', $nl)"/>
+	<xsl:apply-templates select="." mode="xverb"/>
+	<xsl:value-of select="concat($nl, '```', $nl, $nl)"/>
+      </xsl:for-each>
     </xsl:if> 
   </xsl:template>
 

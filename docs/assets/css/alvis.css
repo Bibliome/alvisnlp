@@ -326,10 +326,48 @@ a.param {
     font-family: sans-serif;
     font-weight: bold;
     font-size: 80%;
-    color: #AA3026;
+    color: darkred;
     cursor: pointer;
 }
 
+.button-p {
+  margin: unset;
+  margin-block: unset;
+  margin-inline: unset;
+}
+
+.copy-example-button {
+  display: block;
+  float: left;
+  margin-top: 2mm;
+  border: none;
+  border-radius: 1mm;
+  color: grey;
+  font-weight: bold;
+  transition: color 1s ease-in;
+}
+
+.copy-example-button:focus {
+  outline: none;
+}
+
+.copy-code-button {
+  display: block;
+  float: right;
+  border: none;
+  border-radius: 1mm;
+  color: grey;
+  font-weight: bold;
+  transition: color 1s ease-in;
+}
+
+.copy-code-button:focus {
+  outline: none;
+}
+
+.copied {
+  color: lightgrey;
+}
 
 
 /* Footer */
