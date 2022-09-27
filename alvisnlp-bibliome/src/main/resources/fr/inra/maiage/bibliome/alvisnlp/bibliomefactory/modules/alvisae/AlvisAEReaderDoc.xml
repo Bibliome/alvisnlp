@@ -47,10 +47,17 @@ limitations under the License.
   
     <param-doc name="password">
       <p>User password for JDBC connection.</p>
+      <examples>
+      	<password>***</password>
+      </examples>
     </param-doc>
   
     <param-doc name="campaignId">
       <p>Identifiers of the AlvisAE campaigns to import.</p>
+      <examples>
+      	<campaignId>135</campaignId>
+      	<campaignId>1,2,3</campaignId>
+      </examples>
     </param-doc>
     
     <param-doc name="campaignIdFeature">
@@ -91,6 +98,9 @@ limitations under the License.
   
     <param-doc name="username">
       <p>PostgreSQL user name.</p>
+      <examples>
+      	<username>psql_user</username>
+      </examples>
     </param-doc>
   
     <param-doc name="loadGroups">
@@ -107,6 +117,9 @@ limitations under the License.
   
     <param-doc name="schema">
       <p>PostgreSQL schema.</p>
+      <examples>
+      	<schema>psql_schema_name</schema>
+      </examples>
     </param-doc>
   
     <param-doc name="fragmentRolePrefix">
@@ -139,6 +152,9 @@ limitations under the License.
   
     <param-doc name="url">
       <p>PostgreSQL database URL.</p>
+      <examples>
+      	<url>postgresql://server.name[:port]/dbname</url>
+      </examples>
     </param-doc>
   
     <param-doc name="fragmentsLayerName">

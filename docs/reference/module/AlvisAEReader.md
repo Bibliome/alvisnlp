@@ -21,13 +21,14 @@ All AlvisAE annotations, including text-bound annotations, will be represented i
 
 
 
+<button class="copy-code-button" alt="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <alvisaereader class="AlvisAEReader>
-    <campaignId></campaignId>
-    <password></password>
-    <schema></schema>
-    <url></url>
-    <username></username>
+    <campaignId>135</campaignId>
+    <password>***</password>
+    <schema>psql_schema_name</schema>
+    <url>postgresql://server.name[:port]/dbname</url>
+    <username>psql_user</username>
 </alvisaereader>
 ```
 
@@ -41,6 +42,21 @@ All AlvisAE annotations, including text-bound annotations, will be represented i
 </div>
 Identifiers of the AlvisAE campaigns to import.
 
+<div class="param-examples-header" onclick="toggle_examples(this)" id="examples-campaignId">> Examples
+</div>
+
+<button class="copy-code-button" alt="Copy to clipboard" onclick="copy_code(this)">📋</button>
+```xml
+<campaignId>135</campaignId>
+```
+
+
+
+<button class="copy-code-button" alt="Copy to clipboard" onclick="copy_code(this)">📋</button>
+```xml
+<campaignId>1,2,3</campaignId>
+```
+
 <h3 id="password" class="param">password</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
@@ -48,6 +64,14 @@ Identifiers of the AlvisAE campaigns to import.
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 User password for JDBC connection.
+
+<div class="param-examples-header" onclick="toggle_examples(this)" id="examples-password">> Examples
+</div>
+
+<button class="copy-code-button" alt="Copy to clipboard" onclick="copy_code(this)">📋</button>
+```xml
+<password>***</password>
+```
 
 <h3 id="schema" class="param">schema</h3>
 
@@ -57,6 +81,14 @@ User password for JDBC connection.
 </div>
 PostgreSQL schema.
 
+<div class="param-examples-header" onclick="toggle_examples(this)" id="examples-schema">> Examples
+</div>
+
+<button class="copy-code-button" alt="Copy to clipboard" onclick="copy_code(this)">📋</button>
+```xml
+<schema>psql_schema_name</schema>
+```
+
 <h3 id="url" class="param">url</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
@@ -65,6 +97,14 @@ PostgreSQL schema.
 </div>
 PostgreSQL database URL.
 
+<div class="param-examples-header" onclick="toggle_examples(this)" id="examples-url">> Examples
+</div>
+
+<button class="copy-code-button" alt="Copy to clipboard" onclick="copy_code(this)">📋</button>
+```xml
+<url>postgresql://server.name[:port]/dbname</url>
+```
+
 <h3 id="username" class="param">username</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
@@ -72,6 +112,14 @@ PostgreSQL database URL.
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 PostgreSQL user name.
+
+<div class="param-examples-header" onclick="toggle_examples(this)" id="examples-username">> Examples
+</div>
+
+<button class="copy-code-button" alt="Copy to clipboard" onclick="copy_code(this)">📋</button>
+```xml
+<username>psql_user</username>
+```
 
 ## Optional parameters
 
