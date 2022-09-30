@@ -12,6 +12,7 @@ UNDOCUMENTED
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <tydiexportprojector class="TyDIExportProjector>
     <lemmaFile></lemmaFile>

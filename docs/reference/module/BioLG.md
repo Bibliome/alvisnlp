@@ -23,6 +23,7 @@ The BioLG output is directly fed to *lp2lp* executable specified by <a href="#lp
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <biolg class="BioLG>
     <linkageNumberFeature></linkageNumberFeature>

@@ -12,6 +12,7 @@ Deprecated alias for <a href="../module/WekaPredict" class="module">WekaPredict<
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <taggingelementclassifier class="TaggingElementClassifier>
     <classifierFile></classifierFile>

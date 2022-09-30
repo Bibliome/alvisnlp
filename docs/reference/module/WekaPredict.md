@@ -12,6 +12,7 @@ Classifies elements with a Weka classifier.
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <wekapredict class="WekaPredict>
     <classifierFile></classifierFile>

@@ -26,6 +26,7 @@ If specified, then *XLSProjector* assumes that <a href="#trieSource" class="para
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <xlsprojector class="XLSProjector>
     <targetLayerName></targetLayerName>

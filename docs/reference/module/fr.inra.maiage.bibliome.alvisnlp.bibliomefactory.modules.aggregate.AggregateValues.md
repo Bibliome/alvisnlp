@@ -31,6 +31,7 @@
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <aggregatevalues class="AggregateValues>
     <entries></entries>

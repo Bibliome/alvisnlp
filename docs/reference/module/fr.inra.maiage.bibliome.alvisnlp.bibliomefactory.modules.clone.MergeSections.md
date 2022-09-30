@@ -14,6 +14,7 @@ Merge several sections into a single one.
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <mergesections class="MergeSections>
     <targetSectionName></targetSectionName>

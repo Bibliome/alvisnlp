@@ -12,6 +12,7 @@ Deprecated alias for <a href="../module/WekaSelectAttributes" class="module">Wek
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <selectingelementclassifier class="SelectingElementClassifier>
     <evaluationFile></evaluationFile>

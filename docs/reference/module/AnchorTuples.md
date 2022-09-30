@@ -12,6 +12,7 @@ Creates tuples with a common argument.
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <anchortuples class="AnchorTuples>
     <anchor></anchor>

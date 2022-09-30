@@ -12,6 +12,7 @@ Classify binary relations with the TEES Classifier based on trained model
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <teesclassify class="TEESClassify>
     <namedEntityLayerName></namedEntityLayerName>

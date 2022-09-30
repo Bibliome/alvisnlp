@@ -12,6 +12,7 @@ Writes the corpus in the infamous Alvis Enriched Document Format suitable for in
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <enricheddocumentwriter class="EnrichedDocumentWriter>
     <idMetaFeature></idMetaFeature>

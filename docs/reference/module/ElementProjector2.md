@@ -12,6 +12,7 @@ Deprecated alias for <a href="../module/ElementProjector" class="module">Element
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <elementprojector2 class="ElementProjector2>
     <action></action>

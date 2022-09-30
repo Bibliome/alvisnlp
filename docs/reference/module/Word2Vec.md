@@ -14,6 +14,7 @@ Computes word embeddings using the [CONTES/Gensis](https://github.com/ArnaudFerr
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <word2vec class="Word2Vec>
     <contesDir></contesDir>

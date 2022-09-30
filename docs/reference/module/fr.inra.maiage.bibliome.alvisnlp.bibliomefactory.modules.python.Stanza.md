@@ -18,6 +18,7 @@ The tokenization can be inhibited for using the existing tokens and sentences by
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <stanza class="Stanza>
     <alvisnlpPythonDirectory></alvisnlpPythonDirectory>

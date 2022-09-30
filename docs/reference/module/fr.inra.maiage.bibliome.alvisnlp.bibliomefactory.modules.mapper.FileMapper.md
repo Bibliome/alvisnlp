@@ -12,6 +12,7 @@ Maps elements according to a tab-separated mapping file.
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <filemapper class="FileMapper>
     <form></form>

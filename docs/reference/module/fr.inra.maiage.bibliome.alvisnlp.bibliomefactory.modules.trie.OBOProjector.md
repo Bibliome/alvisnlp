@@ -24,6 +24,7 @@ If specified, then *OBOProjector* assumes that <a href="#trieSource" class="para
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <oboprojector class="OBOProjector>
     <oboFiles></oboFiles>

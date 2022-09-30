@@ -16,6 +16,7 @@ Read documents and entities in the PESV format.
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <pesvreader class="PESVReader>
     <docStream></docStream>

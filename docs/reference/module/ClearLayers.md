@@ -12,6 +12,7 @@ Completely remove layers from sections.
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <clearlayers class="ClearLayers>
     <layerNames></layerNames>

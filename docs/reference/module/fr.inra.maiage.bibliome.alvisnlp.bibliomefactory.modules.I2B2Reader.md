@@ -14,6 +14,7 @@
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <i2b2reader class="I2B2Reader>
     <textDir></textDir>

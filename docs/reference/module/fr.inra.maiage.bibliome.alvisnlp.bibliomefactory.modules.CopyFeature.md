@@ -16,6 +16,7 @@ Copy the value of a feature in another feature for a selection of elements.
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <copyfeature class="CopyFeature>
     <sourceFeatureName></sourceFeatureName>

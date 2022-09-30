@@ -12,6 +12,7 @@ Compares annotations in two different layers.
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <layercomparator class="LayerComparator>
     <outFile></outFile>

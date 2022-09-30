@@ -18,6 +18,7 @@ The script to run is specified with <a href="#script" class="param">script</a> .
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <pythonscript class="PythonScript>
     <alvisnlpPythonDirectory></alvisnlpPythonDirectory>

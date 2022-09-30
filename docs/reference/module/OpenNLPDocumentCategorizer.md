@@ -14,6 +14,7 @@ Categorizes documents with a model trained with <a href="../module/OpenNLPDocume
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <opennlpdocumentcategorizer class="OpenNLPDocumentCategorizer>
     <categoryFeature></categoryFeature>

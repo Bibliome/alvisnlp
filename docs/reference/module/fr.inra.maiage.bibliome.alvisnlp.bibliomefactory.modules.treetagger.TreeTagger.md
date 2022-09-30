@@ -20,6 +20,7 @@ If <a href="#recordDir" class="param">recordDir</a> and <a href="#recordFeatures
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <treetagger class="TreeTagger>
     <parFile></parFile>

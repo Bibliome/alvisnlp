@@ -12,6 +12,7 @@ Deprecated alias for <a href="../module/AlvisAEWriter" class="module">AlvisAEWri
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <exportcadixejson class="ExportCadixeJSON>
     <annotationSets></annotationSets>

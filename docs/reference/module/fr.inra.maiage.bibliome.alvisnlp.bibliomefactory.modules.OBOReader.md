@@ -12,6 +12,7 @@ Reads terms in [OBO files](XXX) as documents.
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <oboreader class="OBOReader>
     <oboFiles></oboFiles>

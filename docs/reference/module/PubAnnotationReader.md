@@ -20,6 +20,7 @@ Read stream in [PubAnnotation JSON format](http://www.pubannotation.org/docs/ann
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <pubannotationreader class="PubAnnotationReader>
     <source></source>

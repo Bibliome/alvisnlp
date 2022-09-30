@@ -14,6 +14,7 @@ Stores the corpus into a SQL database.
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <filldb class="FillDB>
     <password></password>

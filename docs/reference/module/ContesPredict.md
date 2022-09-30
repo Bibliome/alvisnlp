@@ -16,6 +16,7 @@ Predict terms concepts using [CONTES](https://github.com/ArnaudFerre/CONTES) .
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <contespredict class="ContesPredict>
     <contesDir></contesDir>

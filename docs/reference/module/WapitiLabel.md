@@ -16,6 +16,7 @@ Label tokens using a model trained with <a href="../module/WapitiTrain" class="m
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <wapitilabel class="WapitiLabel>
     <features></features>

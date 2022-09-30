@@ -12,6 +12,7 @@ Reads documents and annotations in the [BioNLP-ST 2013 a1/a2 format](XXX) .
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <bionlpstreader class="BioNLPSTReader>
     <textDir></textDir>

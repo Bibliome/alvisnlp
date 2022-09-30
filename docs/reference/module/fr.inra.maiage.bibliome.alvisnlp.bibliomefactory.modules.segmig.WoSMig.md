@@ -29,6 +29,7 @@ The <a href="#eosStatusFeature" class="param">eosStatusFeature</a> feature conta
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <wosmig class="WoSMig>
 </wosmig>

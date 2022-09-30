@@ -16,6 +16,7 @@ Files written by this module can be read by <a href="../module/XMIImport" class=
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <xmiexport class="XMIExport>
     <outDir></outDir>

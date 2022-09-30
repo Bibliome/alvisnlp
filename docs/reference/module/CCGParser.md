@@ -19,6 +19,7 @@ Syntax parsing with [CCG Parser](http://svn.ask.it.usyd.edu.au/trac/candc/wiki) 
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <ccgparser class="CCGParser>
     <executable></executable>

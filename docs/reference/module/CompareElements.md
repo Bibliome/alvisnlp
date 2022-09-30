@@ -12,6 +12,7 @@ Compares two sets of elements.
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <compareelements class="CompareElements>
     <face></face>

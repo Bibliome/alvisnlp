@@ -18,6 +18,7 @@ The classifier is stored in <a href="#classifier" class="param">classifier</a> .
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <opennlpdocumentcategorizertrain class="OpenNLPDocumentCategorizerTrain>
     <categoryFeature></categoryFeature>

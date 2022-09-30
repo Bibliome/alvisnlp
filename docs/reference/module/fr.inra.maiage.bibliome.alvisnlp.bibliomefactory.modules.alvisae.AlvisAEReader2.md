@@ -12,6 +12,7 @@ Deprecated alias for <a href="../module/AlvisAEReader" class="module">AlvisAERea
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <alvisaereader2 class="AlvisAEReader2>
     <campaignId></campaignId>

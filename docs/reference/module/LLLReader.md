@@ -12,6 +12,7 @@ Read files and annotations in [LLL format](XXX) .
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <lllreader class="LLLReader>
     <source></source>

@@ -18,6 +18,7 @@ The root is represented as a tuple like dependencies but without a head argument
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <stanfordparser class="StanfordParser>
 </stanfordparser>

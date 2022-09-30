@@ -14,6 +14,7 @@ synopsis
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <quickhtml class="QuickHTML>
     <classFeature></classFeature>
@@ -80,6 +81,14 @@ synopsis
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 Only process document that satisfy this expression.
+
+<h3 id="documentTitle" class="param">documentTitle</h3>
+
+<div class="param-level param-level-default-value">Default value: `@id`
+</div>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
+</div>
+UNDOCUMENTED
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 

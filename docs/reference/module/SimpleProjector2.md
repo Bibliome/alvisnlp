@@ -12,6 +12,7 @@ Deprecated alias for <a href="../module/SimpleProjector" class="module">SimplePr
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <simpleprojector2 class="SimpleProjector2>
     <dictFile></dictFile>

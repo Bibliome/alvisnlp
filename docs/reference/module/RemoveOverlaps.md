@@ -25,6 +25,7 @@ By default *RemoveOverlaps* removes all kinds of annotations, keeping the longes
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <removeoverlaps class="RemoveOverlaps>
     <layerName></layerName>

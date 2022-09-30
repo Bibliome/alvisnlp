@@ -12,6 +12,7 @@ Deprecated alias for <a href="../module/FileMapper" class="module">FileMapper</a
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <filemapper2 class="FileMapper2>
     <form></form>

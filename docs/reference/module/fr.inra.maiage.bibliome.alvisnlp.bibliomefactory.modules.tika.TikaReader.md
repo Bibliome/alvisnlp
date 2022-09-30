@@ -14,6 +14,7 @@ Reads PDF or DOC files and adds a document in the corpus for each file.
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <tikareader class="TikaReader>
     <source></source>

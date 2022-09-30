@@ -12,6 +12,7 @@ Deprecated alias for <a href="../module/XMLReader" class="module">XMLReader</a> 
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <xmlreader2 class="XMLReader2>
     <sourcePath></sourcePath>

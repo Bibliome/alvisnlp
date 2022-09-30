@@ -27,6 +27,7 @@ If <a href="#noBreakLayerName" class="param">noBreakLayerName</a> is defined, th
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <sesmig class="SeSMig>
 </sesmig>

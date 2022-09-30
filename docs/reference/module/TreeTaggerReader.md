@@ -16,6 +16,7 @@ The document identifier is the path of the corresponding file.
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <treetaggerreader class="TreeTaggerReader>
     <sourcePath></sourcePath>

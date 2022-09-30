@@ -12,6 +12,7 @@ Disambiguate features that have multiple values.
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <disambiguatealternatives class="DisambiguateAlternatives>
     <ambiguousFeature></ambiguousFeature>

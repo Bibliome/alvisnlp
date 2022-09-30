@@ -14,6 +14,7 @@ Reads a tokenized corpus: one token per line, empty line separates sentence.
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <tokenizedreader class="TokenizedReader>
     <source></source>

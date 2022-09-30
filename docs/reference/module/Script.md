@@ -20,6 +20,7 @@ Parameters <a href="#stdin" class="param">stdin</a> and <a href="#stdout" class=
 
 
 
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <script class="Script>
     <script></script>
