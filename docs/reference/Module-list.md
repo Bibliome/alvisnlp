@@ -29,15 +29,7 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CopyFeature' | relative_url }}" class="module">CopyFeature</a>
-</h2>
-
-<h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.DisambiguateAlternatives' | relative_url }}" class="module">DisambiguateAlternatives</a>
-</h2>
-
-<h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.EnrichedDocumentWriter' | relative_url }}" class="module">EnrichedDocumentWriter</a>
 </h2>
 
 <h2 class="no-toc">
@@ -45,15 +37,7 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.FillDB' | relative_url }}" class="module">FillDB</a>
-</h2>
-
-<h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.I2B2Reader' | relative_url }}" class="module">I2B2Reader</a>
-</h2>
-
-<h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.INIST.XMLWriter2ForINIST' | relative_url }}" class="module">XMLWriter2ForINIST</a>
 </h2>
 
 <h2 class="no-toc">
@@ -129,10 +113,6 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.TriPhase.ProminentConceptReporter' | relative_url }}" class="module">ProminentConceptReporter</a>
-</h2>
-
-<h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.WhatsWrongExport' | relative_url }}" class="module">WhatsWrongExport</a>
 </h2>
 
@@ -149,35 +129,11 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisae.AlvisAEReader2' | relative_url }}" class="module">AlvisAEReader2</a>
-</h2>
-
-<h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisae.AlvisAEWriter' | relative_url }}" class="module">AlvisAEWriter</a>
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisae.ExportCadixeJSON' | relative_url }}" class="module">ExportCadixeJSON</a>
-</h2>
-
-<h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisdb.AlvisDBIndexer' | relative_url }}" class="module">AlvisDBIndexer</a>
-</h2>
-
-<h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisir2.AlvisIRIndexer' | relative_url }}" class="module">AlvisIRIndexer</a>
-</h2>
-
-<h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisre.AlvisREPrepareCrossValidation' | relative_url }}" class="module">AlvisREPrepareCrossValidation</a>
-</h2>
-
-<h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ardb.ADBWriter' | relative_url }}" class="module">ADBWriter</a>
-</h2>
-
-<h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.biolg.BioLG' | relative_url }}" class="module">BioLG</a>
 </h2>
 
 <h2 class="no-toc">
@@ -241,10 +197,6 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.enju.EnjuParser2' | relative_url }}" class="module">EnjuParser2</a>
-</h2>
-
-<h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextClassifierLabel' | relative_url }}" class="module">FasttextClassifierLabel</a>
 </h2>
 
@@ -281,10 +233,6 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper.FileMapper2' | relative_url }}" class="module">FileMapper2</a>
-</h2>
-
-<h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper.OBOMapper' | relative_url }}" class="module">OBOMapper</a>
 </h2>
 
@@ -302,22 +250,6 @@
 
 <h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pesv.PESVReader' | relative_url }}" class="module">PESVReader</a>
-</h2>
-
-<h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.AttestedTermsProjector' | relative_url }}" class="module">AttestedTermsProjector</a>
-</h2>
-
-<h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.TyDIProjector' | relative_url }}" class="module">TyDIProjector</a>
-</h2>
-
-<h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.projectors.YateaProjector' | relative_url }}" class="module">YateaProjector</a>
-</h2>
-
-<h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.prolog.RunProlog' | relative_url }}" class="module">RunProlog</a>
 </h2>
 
 <h2 class="no-toc">
@@ -421,15 +353,7 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.ElementProjector2' | relative_url }}" class="module">ElementProjector2</a>
-</h2>
-
-<h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.OBOProjector' | relative_url }}" class="module">OBOProjector</a>
-</h2>
-
-<h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.SimpleProjector2' | relative_url }}" class="module">SimpleProjector2</a>
 </h2>
 
 <h2 class="no-toc">
@@ -445,31 +369,11 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.XMIExport' | relative_url }}" class="module">XMIExport</a>
-</h2>
-
-<h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.uima.XMIImport' | relative_url }}" class="module">XMIImport</a>
-</h2>
-
-<h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.wapiti.WapitiLabel' | relative_url }}" class="module">WapitiLabel</a>
 </h2>
 
 <h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.wapiti.WapitiTrain' | relative_url }}" class="module">WapitiTrain</a>
-</h2>
-
-<h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.weka.SelectingElementClassifier' | relative_url }}" class="module">SelectingElementClassifier</a>
-</h2>
-
-<h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.weka.TaggingElementClassifier' | relative_url }}" class="module">TaggingElementClassifier</a>
-</h2>
-
-<h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.weka.TrainingElementClassifier' | relative_url }}" class="module">TrainingElementClassifier</a>
 </h2>
 
 <h2 class="no-toc">

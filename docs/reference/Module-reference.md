@@ -26,7 +26,6 @@ Reader modules read files or streams as documents and sections.
 | {% include module class="TokenizedReader" %}      | one line per token  | `source`                                            |  |
 | {% include module class="TreeTaggerReader" %}     | tree-tagger         | `sourcePath`                                        | Also creates words, POS-tags and lemmas |
 | {% include module class="WebOfKnowledgeReader" %} | <a href="https://webofknowledge.com/">Web of Knowledge</a>    | `source`                                            |                  |
-| {% include module class="XMIImport" %}            | <a href="https://en.wikipedia.org/wiki/XML_Metadata_Interchange">XMI</a>                 | `source`                                        | Uses <a href="https://uima.apache.org/">Apache UIMA</a>, feature structures follow a custom typesystem |
 | {% include module class="XMLReader" %}            | XML, HTML           | `sourcePath`                                        | Requires an XSLT stylesheet |
 
 ### Stylesheets for XMLReader
@@ -85,7 +84,6 @@ Export modules translate the contents of the data structure and write it into fi
 | {% include module class="AlvisIRIndexer" %}         | `indexDir`              | AlvisIR index         | Uses the Lucene and alvisir-core libraries |
 | {% include module class="CompareElements" %}        | `outFile`               | Text                  | |
 | {% include module class="CompareFeatures" %}        | `outFile`               | Text                  | |
-| {% include module class="EnrichedDocumentWriter" %} | `outDir`                | Enriched document XML | |
 | {% include module class="LayerComparator" %}        | `outFile`               | Text                  | |
 | {% include module class="PubAnnotationExport" %}    | `outFile`               | PubAnnotation JSON    | Uses the json-simple library |
 | {% include module class="QuickHTML" %}              | `outDir`                | HTML                  | |
@@ -93,7 +91,6 @@ Export modules translate the contents of the data structure and write it into fi
 | {% include module class="RelpWriter" %}             | `outFile`               | Relp                  | |
 | {% include module class="TabularExport" %}          | `outDir`, `fileName`    | tab-separated text    | |
 | {% include module class="WhatsWrongExport" %}       | `outFile`               | WhatsWrongWithMyNLP   | |
-| {% include module class="XMIExport" %}              | `outDir`                | XMI                   | Suitable for {% include module class="XMIImport" %} |
 | {% include module class="XMLWriter" %}              | `outDir`, `fileName`    | XML                   | Requires an XSLT stylesheet |
 
 
@@ -172,7 +169,6 @@ Named entity recognition modules.
 
 | **Module class** | **Segments** |
 |------------------|--------------|
-| {% include module class="OgmiosTokenizer" %}  | Tokens |
 | {% include module class="SeSMig" %}           | Sentences |
 | {% include module class="WoSMig" %}           | Words |
 | {% include module class="Stanza" %}           | Tokens, sentences |
@@ -195,7 +191,6 @@ If you want to force entities as tokens, this plan assumes they are annotations 
 |------------------|--------------|
 | {% include module class="LinguaLID" %}              | Language identification |
 | {% include module class="Ab3P" %}              | Abbreviation recognition |
-| {% include module class="BioLG" %}           | Dependency parsing |
 | {% include module class="CCGParser" %}       | Dependency parsing |
 | {% include module class="CCGPosTagger" %}    | POS-tagging |
 | {% include module class="EnjuParser" %}      | Dependency parsing |
@@ -225,7 +220,6 @@ If you want to force entities as tokens, this plan assumes they are annotations 
 | {% include module class="RemoveContents" %}   | Clone sections and crop contents |
 | {% include module class="RemoveEquivalent" %} | Deduplicate elements using custom equality |
 | {% include module class="RemoveOverlaps" %}   | Remove overlapping annotations in a layer |
-| {% include module class="RunProlog" %}        | Run prolog programs using the AlvisNLP data structure as a set of facts |
 | {% include module class="Script" %}           | Run a script written in a language supported by the <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/scripting/prog_guide/api.html">Java Scripting API</a> |
 | {% include module class="SetFeature" %}       | Set a feature on selected elements |
 | {% include module class="Shell" %}            | Enter interactive mode |
