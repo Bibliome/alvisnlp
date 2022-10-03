@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.logging.Logger;
 
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
 import fr.inra.maiage.bibliome.util.Timer;
 
 /**
@@ -75,23 +74,6 @@ public interface ProcessingContext<T extends Annotable> {
      * @param mode
      */
     void setResumeMode(boolean mode);
-
-    /**
-     * Calls an external program.
-     * @param ext
-     * @throws ModuleException
-     */
-    @Deprecated
-    void callExternal(External<T> ext, String outCharset) throws ModuleException;
-
-    @Deprecated
-    void callExternal(External<T> ext, String outCharset, File saveCL) throws ModuleException;
-
-    @Deprecated
-    void callExternal(External<T> ext) throws ModuleException;
-
-    @Deprecated
-    void callExternal(External<T> ext, File saveCL) throws ModuleException;
 
     /**
      * Sets either to dump the corpus if a module requires it.

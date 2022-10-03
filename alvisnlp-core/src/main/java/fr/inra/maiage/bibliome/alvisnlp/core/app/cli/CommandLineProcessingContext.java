@@ -18,12 +18,7 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.core.app.cli;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintStream;
-import java.nio.charset.Charset;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -41,10 +36,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUser;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ParamHandler;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.External;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalFailureException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase;
 import fr.inra.maiage.bibliome.util.Files;
 import fr.inra.maiage.bibliome.util.Strings;
@@ -173,22 +165,6 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
     public void setResumeMode(boolean mode) {
         resumeMode = mode;
     }
-
-    private static void saveCommandLine(File file, String[] clArgs, String[] envp, File wd) throws ModuleException {
-    	if (file == null)
-    		return;
-    	try (PrintStream ps = new PrintStream(file)) {
-    		if (wd != null)
-    			ps.println("cd " + wd);
-    		if (envp != null)
-    			for (String e : envp)
-    				ps.println(e);
-    		Strings.join(ps, clArgs, ' ');
-    	}
-    	catch (IOException e) {
-    		throw new ModuleException("error while recording command-line", e);
-		}
-    }
     
     @Override
     public int getMaxMmapSize() {
@@ -198,51 +174,6 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
 	public void setMaxMmapSize(int maxMmapSize) {
 		this.maxMmapSize = maxMmapSize;
 	}
-
-	@Override
-    @Deprecated
-	public void callExternal(External<T> ext) throws ModuleException {
-    	callExternal(ext, Charset.defaultCharset().name());
-	}
-
-	@Override
-    @Deprecated
-	public void callExternal(External<T> ext, File saveCL) throws ModuleException {
-		callExternal(ext, Charset.defaultCharset().name(), saveCL);
-	}
-
-	@Override
-    @Deprecated
-    public void callExternal(External<T> ext, String outCharset) throws ModuleException {
-    	callExternal(ext, outCharset, null);
-    }
-    
-    @Override
-    @Deprecated
-    public void callExternal(External<T> ext, String outCharset, File saveCL) throws ModuleException {
-        try {
-            String[] clArgs = ext.getCommandLineArgs();
-            String[] envp = ext.getEnvironment();
-            File wd = ext.getWorkingDirectory();
-            saveCommandLine(saveCL, clArgs, envp, wd);
-            Process p = Runtime.getRuntime().exec(clArgs, envp, wd);
-            BufferedReader out = new BufferedReader(new InputStreamReader(p.getInputStream(), outCharset));
-            BufferedReader err = new BufferedReader(new InputStreamReader(p.getErrorStream(), outCharset));
-            ext.processOutput(out, err);
-            int retval = p.waitFor();
-            if (retval != 0) {
-            	throw new ExternalFailureException(ext.getOwner(), ext.getCommandLineArgs()[0], retval);
-            }
-            out.close();
-            err.close();
-        }
-        catch (IOException ioe) {
-        	throw new ProcessingException("system call failure", ioe);
-        }
-        catch (InterruptedException ie) {
-        	throw new ProcessingException(ie);
-        }
-    }
 
     @Override
     public void setDumps(boolean dumps) {

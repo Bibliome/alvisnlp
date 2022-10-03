@@ -241,46 +241,6 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
         return resourceBundleName;
     }
 
-    /**
-     * Calls an external program.
-     * @param ctx
-     * @param subTask
-     * @param external
-     * @throws ModuleException
-     */
-    @Deprecated
-    public void callExternal(ProcessingContext<T> ctx, String subTask, External<T> external) throws ModuleException {
-    	Timer<TimerCategory> timer = getTimer(ctx, subTask, TimerCategory.EXTERNAL, true);
-    	ctx.callExternal(external);
-    	timer.stop();
-    }
-    
-    @Deprecated
-    public void callExternal(ProcessingContext<T> ctx, String subTask, External<T> external, File saveCL) throws ModuleException {
-    	Timer<TimerCategory> timer = getTimer(ctx, subTask, TimerCategory.EXTERNAL, true);
-    	ctx.callExternal(external, saveCL);
-    	timer.stop();
-    }
-    
-    @Deprecated
-    public void callExternal(ProcessingContext<T> ctx, String subTask, External<T> external, String outCharset) throws ModuleException {
-    	Timer<TimerCategory> timer = getTimer(ctx, subTask, TimerCategory.EXTERNAL, true);
-    	ctx.callExternal(external, outCharset);
-    	timer.stop();
-    }
-    
-    @Deprecated
-    public void callExternal(ProcessingContext<T> ctx, String subTask, External<T> external, String outCharset, String saveCL) throws ModuleException {
-    	File saveCLFile = new File(getTempDir(ctx), saveCL);
-    	Timer<TimerCategory> timer = getTimer(ctx, subTask, TimerCategory.EXTERNAL, true);
-    	try {
-    		ctx.callExternal(external, outCharset, saveCLFile);
-    	}
-    	finally {
-    		timer.stop();
-    	}
-    }
-
     @Override
     public String toString() {
     	return getPath();
