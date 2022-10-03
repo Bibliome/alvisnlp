@@ -76,7 +76,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.CheckMandatoryParameters;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.CheckParamValueConstraints;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.CheckUniquePaths;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.CollectModules;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.CollectResources;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleAnalysis;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
@@ -1007,11 +1006,6 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
         	
         	if (CheckCheckableModules.visit(logger, result)) {
         		throw new PlanException("some module constraints are not met");
-        	}
-        	
-        	if (logger.isLoggable(Level.FINE)) {
-        		logger.fine("External resources");
-        		CollectResources.visit(ctx, logger, result);
         	}
         	
         	result.init(ctx);
