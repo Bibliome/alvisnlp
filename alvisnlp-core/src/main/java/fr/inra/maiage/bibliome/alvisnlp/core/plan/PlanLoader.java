@@ -145,7 +145,7 @@ public class PlanLoader<T extends Annotable> {
 	 * @param customEntities 
 	 * @throws PlanException 
 	 */
-	public PlanLoader(ModuleFactory<T> moduleFactory, ParamConverterFactory converterFactory, Document defaultParamValuesDoc, List<String> inputDirs, String outputDir, Map<String,String> baseDirs, List<String> resourceBases, DocumentBuilder docBuilder, String creatorNameFeature, Map<String,String> customEntities) throws PlanException {
+	public PlanLoader(ModuleFactory<T> moduleFactory, ParamConverterFactory converterFactory, Document defaultParamValuesDoc, List<String> inputDirs, String outputDir, Map<String,String> baseDirs, List<String> resourceBases, DocumentBuilder docBuilder, String creatorNameFeature) throws PlanException {
 		super();
 		this.moduleFactory = moduleFactory;
 		this.converterFactory = converterFactory;
@@ -156,8 +156,6 @@ public class PlanLoader<T extends Annotable> {
 		this.resourceBases = resourceBases;
 		this.docBuilder = docBuilder;
 		this.creatorNameFeature = creatorNameFeature;
-		AlvisNLPEntityResolver entityResolver = new AlvisNLPEntityResolver(customEntities);
-		docBuilder.setEntityResolver(entityResolver);
 	}
 
 	private static Map<String,List<Element>> buildDefaultParamValues(Document defaultParamValuesDoc) throws PlanException {

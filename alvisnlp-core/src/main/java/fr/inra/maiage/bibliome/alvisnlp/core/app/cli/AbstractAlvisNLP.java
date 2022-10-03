@@ -33,7 +33,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.ServiceLoader;
 import java.util.logging.Handler;
@@ -147,7 +146,6 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	private boolean writePlan = false;
 	protected int exitCode = 0;
 	private boolean cleanTmpDir = false;
-	private final Map<String,String> customEntities = new LinkedHashMap<String,String>();
 	private List<String> inputDirs;
 	private List<String> resourceBases;
 	private String outputDir;
@@ -309,11 +307,6 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 		this.creatorNameFeature = creatorNameFeature;
 	}
 	
-	@CLIOption("-entity")
-	public final void setCustomEntity(String name, String value) {
-		customEntities.put(name, value);
-	}
-	
 	@CLIOption("-inputDir")
 	public void addInputDir(String path) {
 		if (inputDirs == null) {
@@ -346,28 +339,6 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	@CLIOption("-analysisFile")
 	public void setAnalysisFile(File analysisFile) {
 		this.analysisFile = analysisFile;
-	}
-	
-	@CLIOption("-environmentEntities")
-	public final void setEnvironmentEntities() {
-		Map<String,String> env = System.getenv();
-		for (Map.Entry<String,String> e : env.entrySet()) {
-			String name = e.getKey();
-			if (name.matches("[A-Z_a-z][0-9A-Z_a-z]*")) {
-				customEntities.put(name, e.getValue());
-			}
-		}
-	}
-	
-	@CLIOption("-propEntities")
-	public final void setPropEntities(File f) throws IOException {
-		Properties props = new Properties();
-		try (InputStream is = new FileInputStream(f)) {
-			props.load(is);
-			for (Map.Entry<Object,Object> e : props.entrySet()) {
-				customEntities.put(e.getKey().toString(), e.getValue().toString());
-			}
-		}
 	}
 	
 	@CLIOption("-noProcess")
@@ -945,10 +916,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
         docBuilderFactory.setFeature("http://xml.org/sax/features/use-entity-resolver2", true);
         DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
         Document defaultParamValuesDoc = getDefaultParamValuesDoc(docBuilder);
-        if (!customEntities.isEmpty()) {
-        	logger.severe("custom XML entities is deprecated, support may be discontinued in a future version");
-        }
-		PlanLoader<A> planLoader = new PlanLoader<A>(moduleFactory, converterFactory, defaultParamValuesDoc, inputDirs, outputDir, baseDirs, buildResourceBases(), docBuilder, creatorNameFeature, customEntities);
+		PlanLoader<A> planLoader = new PlanLoader<A>(moduleFactory, converterFactory, defaultParamValuesDoc, inputDirs, outputDir, baseDirs, buildResourceBases(), docBuilder, creatorNameFeature);
 
 		Document doc = planLoader.parseDoc(planFile);
 		logger.config("loading plan from " + planFile);
