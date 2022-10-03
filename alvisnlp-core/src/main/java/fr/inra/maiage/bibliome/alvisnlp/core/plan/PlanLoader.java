@@ -50,7 +50,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ParamHandler;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ParameterException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Sequence;
-import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.service.ServiceException;
 import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;

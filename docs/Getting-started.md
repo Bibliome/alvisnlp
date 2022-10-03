@@ -52,26 +52,29 @@ Plan options:
     -defaultParamValuesFile FILE                  specifies the file containing default parameter values
     -module                 ID CLASS              append a module with the specified id and class at the end of the plan
     -shell                                        runs a shell after processing the corpus
+    -browser                                      runs a browser after processing the corpus
     -creator                FEAT                  set the name of the feature containing the module that created each element
     -feat                   KEY VALUE             set feature for the corpus
-    -entity                 NAME REPLACEMENT      define an XML entity replacement used in the plan file
-    -environmentEntities                          define an XML entity replacement for each environment variable used in the plan file
-    -propEntities           PROPFILE              define XML entity replacements from a properties file
     -inputDir               DIR                   add default input directory
     -outputDir              DIR                   set root output directory
+    -baseDir                NAME PATH             defines a base directory
+    -resourceBase           BASE                  add default resource address base
 
 Resume mode and dump options:
-    -resume     FILE           resume processing from a dumped corpus
-    -dumpModule MODULE FILE    set the dump file after the specified module
-    -nodumps                   ignore all corpus dumps
+    -resume      FILE           resume processing from a dumped corpus (BROKEN)
+    -dumpModule  MODULE FILE    set the dump file after the specified module (BROKEN)
+    -nodumps                    ignore all corpus dumps
+    -maxMmapSize SZ             maximum size of mmap blocks in bytes (if CONFIG_STRICT_DEVMEM is on, the set to 1048576)
 
 Other options:
-    -version          print version and exit
-    -noProcess        do not process the corpus
-    -writePlan        write the plan to standard output, adding type to the parameter aliases, using the XSLT provided by -docTransformer
-    -tmp       DIR    set root of temporary directories
-    -cleanTmp         delete the temp directory after processing
-    -noColors         do not use ANSI color escape codes for logging or documentation
+    -version              print version and exit
+    -analysisFile FILE    analyze plan resource usage and write a report
+    -noProcess            do not process the corpus
+    -writePlan            write the plan to standard output, adding type to the parameter aliases, using the XSLT provided by -docTransformer
+    -tmp          DIR     set root of temporary directories
+    -cleanTmp             delete the temp directory after processing
+    -noColors             do not use ANSI color escape codes for logging or documentation
+
 ```
 
 There are a *lot* of options because *AlvisNLP* is very versatile. The most important is the *PLANFILE*.
