@@ -220,7 +220,6 @@ If you want to force entities as tokens, this plan assumes they are annotations 
 | {% include module class="RemoveContents" %}   | Clone sections and crop contents |
 | {% include module class="RemoveEquivalent" %} | Deduplicate elements using custom equality |
 | {% include module class="RemoveOverlaps" %}   | Remove overlapping annotations in a layer |
-| {% include module class="Script" %}           | Run a script written in a language supported by the <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/scripting/prog_guide/api.html">Java Scripting API</a> |
 | {% include module class="SetFeature" %}       | Set a feature on selected elements |
 | {% include module class="Shell" %}            | Enter interactive mode |
 | {% include module class="SplitOverlaps" %}    | Split overlapping annotations |
