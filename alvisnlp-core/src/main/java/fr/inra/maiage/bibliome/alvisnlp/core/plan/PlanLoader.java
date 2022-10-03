@@ -242,14 +242,6 @@ public class PlanLoader<T extends Annotable> {
 			id = elt.getTagName();
 		}
 		module.setId(id);
-		if (elt.hasAttribute("dump")) {
-			String dumpPath = elt.getAttribute("dump");
-			logger.severe("setting dump file inside the plan is deprecated, use -dumpModule instead");
-			logger.severe("future versions might not support in-plan dump");
-			ParamConverter converter = getParamConverterInstance("<dump file>", OutputFile.class, false, null);
-			OutputFile dumpFile = (OutputFile) converter.convert(dumpPath);
-			module.setDumpFile(dumpFile);
-		}
 	}
 	
 	private static void setSequenceProperties(Sequence<?> sequence, Element elt) {
