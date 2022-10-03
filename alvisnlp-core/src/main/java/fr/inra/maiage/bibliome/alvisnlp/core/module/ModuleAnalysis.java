@@ -77,13 +77,17 @@ public class ModuleAnalysis {
 	public void toXML(Document doc, Element parent, boolean topLevel) {
 		Element elt = XMLUtils.createElement(doc, parent, 0, module.getId());
 		if (!isSourceInherited()) {
-			elt.setAttribute("source", module.getModuleSourceName());
+			elt.setAttribute("plan-source", module.getModuleSourceName());
 		}
 		if (topLevel) {
 			for (ParamHandler<?> ph : module.getAllParamHandlers()) {
 				Element pe = XMLUtils.createElement(doc, elt, 0, "param");
 				pe.setAttribute("name", ph.getName());
 				pe.setAttribute("type", ph.getType().getCanonicalName());
+				ResourceAnalysis ra = ResourceAnalysis.build(ph);
+				if (ra != null) {
+					pe.setAttribute("mode", ra.getMode().toString());
+				}
 			}
 		}
 		if (!topLevel) {
