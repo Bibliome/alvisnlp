@@ -78,6 +78,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.CheckUniquePaths;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.CollectModules;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.CollectResources;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleAnalysis;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ParamHandler;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ParameterException;
@@ -156,6 +157,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	private final Map<String,String> baseDirs = new LinkedHashMap<String,String>();
 	private boolean noColors = false;
 	private int maxMmapSize = Integer.MAX_VALUE;
+	private File analysisFile = null;
 	
 	/**
 	 * Creates anew CLI instance.
@@ -343,6 +345,12 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 		}
 		baseDirs.put(name, path);
 	}
+	
+	@CLIOption("-analysisFile")
+	public void setAnalysisFile(File analysisFile) {
+		this.analysisFile = analysisFile;
+	}
+	
 	
 	@CLIOption("--input")
 	public void OMTD_setInput(String value) {
@@ -982,7 +990,9 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
         if (CheckUniquePaths.visit(logger, result))
     		throw new PlanException("duplicate module paths");
         
-        for (ModuleParamSetter mps : params) {
+		writeAnalysis(result);
+
+		for (ModuleParamSetter mps : params) {
         	mps.set(logger, planLoader, result);
         }
         
@@ -1143,7 +1153,18 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 		}
     }
     
-    private void error(Logger logger, Exception e, String msg) {
+    private void writeAnalysis(Module<A> mainModule) {
+    	if (analysisFile == null) {
+    		return;
+    	}
+    	ModuleAnalysis ma = new ModuleAnalysis(mainModule);
+    	Document doc = XMLUtils.docBuilder.newDocument();
+    	Element root = XMLUtils.createRootElement(doc, "alvisnlp-plan-analysis");
+    	ma.toXML(doc, root, true);
+    	XMLUtils.writeDOMToFile(doc, null, analysisFile);
+	}
+
+	private void error(Logger logger, Exception e, String msg) {
     	if (logger.isLoggable(Level.FINEST)) {
     		logger.log(Level.SEVERE, msg, e);
     	}
