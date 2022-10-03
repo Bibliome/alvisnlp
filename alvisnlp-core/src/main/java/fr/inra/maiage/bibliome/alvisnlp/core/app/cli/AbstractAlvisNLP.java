@@ -350,23 +350,6 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 		this.analysisFile = analysisFile;
 	}
 	
-	
-	@CLIOption("--input")
-	public void OMTD_setInput(String value) {
-		setAlias("input", value);
-	}
-
-	@CLIOption("--output")
-	public void OMTD_setOutput(String path) {
-		setOutputDir(path);
-	}
-	
-	@CLIOption("--param")
-	public static void OMTD_setParam() throws CLIOException {
-		// this option should not be used actualy, this annotated method forces it to appear in the usage message
-		throw new CLIOException("unknown option --param");
-	}
-	
 	@CLIOption("-environmentEntities")
 	public final void setEnvironmentEntities() {
 		Map<String,String> env = System.getenv();
@@ -728,16 +711,9 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	public void browser() {
 		appendModule("annotation-browser", moduleFactory.getBrowserModule());
 	}
-	
-	private static final Pattern OMTD_PARAM_PATTERN = Pattern.compile("--param:(?<alias>[^=]+)=(?<value>.+)");
 
 	@Override
 	public final boolean processArgument(String arg) throws CLIOException {
-		Matcher m = OMTD_PARAM_PATTERN.matcher(arg);
-		if (m.matches()) {
-			setAlias(m.group("alias"), m.group("value"));
-			return false;
-		}
 		if (arg.charAt(0) == '-') {
 			throw new CLIOException("unknown option: " + arg);
 		}
