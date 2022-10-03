@@ -113,31 +113,6 @@
       </plugin>
 
       <plugin>
-	<groupId>org.apache.uima</groupId>
-	<artifactId>jcasgen-maven-plugin</artifactId>
-	<version>2.10.2</version>  <!-- change this to the latest version -->
-	<executions>
-	  <execution>
-	    <goals>
-	      <goal>generate</goal>
-	    </goals>
-	    <configuration>
-	      <typeSystemIncludes>
-		<typeSystemInclude>src/main/resources/fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/modules/uima/uima-document.xml</typeSystemInclude>
-	      </typeSystemIncludes>
-
-	      <!-- true or false, default = false -->
-	      <!-- if true, then although the complete merged type system will be 
-		   created internally, only those types whose definition is contained within 
-		   this maven project will be generated. The others will be presumed to be available 
-		   via other projects. -->
-	      <limitToProject>false</limitToProject>
-	    </configuration>
-	  </execution>
-	</executions>
-      </plugin>
-
-      <plugin>
 	<groupId>org.apache.maven.plugins</groupId>
 	<artifactId>maven-shade-plugin</artifactId>
 	<version>2.4.3</version>
@@ -299,12 +274,6 @@
     </dependency>
 
     <dependency>
-      <groupId>org.apache.uima</groupId>
-      <artifactId>uimafit-core</artifactId>
-      <version>2.4.0</version>
-    </dependency>
-
-    <dependency>
       <groupId>org.nanohttpd</groupId>
       <artifactId>nanohttpd</artifactId>
       <version>2.3.1</version>
@@ -326,42 +295,6 @@
       <groupId>com.github.pemistahl</groupId>
       <artifactId>lingua</artifactId>
       <version>1.1.0</version>
-    </dependency>
-
-    <dependency>
-      <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-      <artifactId>de.tudarmstadt.ukp.dkpro.core.opennlp-asl</artifactId>
-      <version>1.9.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-      <artifactId>de.tudarmstadt.ukp.dkpro.core.languagetool-asl</artifactId>
-      <version>1.9.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-      <artifactId>de.tudarmstadt.ukp.dkpro.core.maltparser-asl</artifactId>
-      <version>1.9.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-      <artifactId>de.tudarmstadt.ukp.dkpro.core.io.text-asl</artifactId>
-      <version>1.9.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-      <artifactId>de.tudarmstadt.ukp.dkpro.core.io.conll-asl</artifactId>
-      <version>1.9.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>de.tudarmstadt.ukp.dkpro.core</groupId>
-      <artifactId>de.tudarmstadt.ukp.dkpro.core.io.xmi-asl</artifactId>
-      <version>1.9.1</version>
     </dependency>
 
     <dependency>
