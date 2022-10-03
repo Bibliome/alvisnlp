@@ -50,7 +50,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ParamHandler;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ParameterException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Sequence;
-import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.service.ServiceException;
 import fr.inra.maiage.bibliome.util.service.UnsupportedServiceException;
@@ -68,14 +67,7 @@ public class PlanLoader<T extends Annotable> {
 	/** Tag name for plan (top-level). */
 	public static final String PLAN_ELEMENT_NAME = "alvisnlp-plan";
 	
-	/** Tag name for module instance. */
-	public static final String MODULE_ELEMENT_NAME = "module";
-	
-	/** Tag name for module sequence. */
-	public static final String SEQUENCE_ELEMENT_NAME = "sequence";
-	
-	/** Attribute name for sequence and module instance identifiers. */
-	public static final String ID_ATTRIBUTE_NAME = "id";
+	public static final String PLAN_ID_ATTRIBUTE = "id";
 	
 	/** Attribute name for module instance class. */
 	public static final String CLASS_ATTRIBUTE_NAME = "class";
@@ -89,15 +81,9 @@ public class PlanLoader<T extends Annotable> {
 	public static final String SHELL_ELEMENT_NAME = "shell";
 	
 	public static final String BROWSER_ELEMENT_NAME = "browser";
-	
-	/** Tag name for module parameter. */
-	public static final String PARAM_ELEMENT_NAME = "param";
-	
+		
 	/** Attribute name for module parameters and sequence parameter alias. */
 	public static final String NAME_ATTRIBUTE_NAME = "name";
-	
-	/** Attribute name for file check inhibition. */
-	public static final String INHIBIT_FILE_CHECK_ATTRIBUTE_NAME = "inhibitFileCheck";
 	
 	/** Tag name for alias target parameter. */
 	public static final String ALIAS_ELEMENT_NAME = "alias";
@@ -107,24 +93,22 @@ public class PlanLoader<T extends Annotable> {
 	
 	/** Attribute name for alias target parameter name. */
 	public static final String PARAM_ATTRIBUTE_NAME = "param";
-	
-	/** Tag name for external plan import. */
-	public static final String IMPORT_ELEMENT_NAME = "import";
-	
-	/** Attribute name for external plan import path. */
-	public static final String SOURCE_ATTRIBUTE_NAME = "file";
 
-	private static final String[] ALTERNATE_SOURCE_ATTRIBUTE_NAMES = { "source", "resource", "href" };
+	public static final String[] SOURCE_ATTRIBUTE_NAMES = { "href", "source", "resource", "file" };
 
 	public static final String LOAD_FILE_ATTRIBUTE_NAME = "load";
 
 	public static final String DOCUMENTATION_ELEMENT_NAME = "alvisnlp-doc";
 
-	private static final String LOCALE_ATTRIBUTE_NAME = "locale";
+	public static final String LOCALE_ATTRIBUTE_NAME = "locale";
 
 	public static final String BASE_DIR_ATTRIBUTE_NAME = "base-dir";
 	
 	public static final String OUTPUT_FEED_ATTRIBUTE_NAME = "output-feed";
+
+	public static final String DEFAULT_PARAMS_MODULE_ELEMENT_NAME = "module";
+
+	public static final String PLAN_PARAM_ELEMENT_NAME = "param";
 
 	private final ModuleFactory<T> moduleFactory;
 	private final ParamConverterFactory converterFactory;
@@ -167,7 +151,7 @@ public class PlanLoader<T extends Annotable> {
 		for (Element elt : XMLUtils.childrenElements(root)) {
 			String tag = elt.getTagName();
 			switch (tag) {
-				case MODULE_ELEMENT_NAME: {
+				case DEFAULT_PARAMS_MODULE_ELEMENT_NAME: {
 					if (!elt.hasAttribute(CLASS_ATTRIBUTE_NAME)) {
 						throw new PlanException("missing " + CLASS_ATTRIBUTE_NAME + " attribute in module defaults");
 					}
@@ -240,35 +224,22 @@ public class PlanLoader<T extends Annotable> {
 	 */
 	public Sequence<T> loadDocument(Logger logger, String source, Document doc) throws PlanException, ModuleException, ServiceException, ConverterException, SAXException, IOException, URISyntaxException {
 		Element elt = doc.getDocumentElement();
-		if (!PLAN_ELEMENT_NAME.equals(elt.getTagName()))
+		if (!PLAN_ELEMENT_NAME.equals(elt.getTagName())) {
 			throw new PlanException("expected element " + PLAN_ELEMENT_NAME + ", got " + elt.getTagName());
-		Sequence<T> result = loadSequence(logger, source, doc.getDocumentElement(), true);
+		}
+		if (!elt.hasAttribute(PLAN_ID_ATTRIBUTE)) {
+			throw new PlanException("missing " + PLAN_ID_ATTRIBUTE + " attribute");
+		}
+		String id = elt.getAttribute(PLAN_ID_ATTRIBUTE);
+		Sequence<T> result = loadSequence(logger, source, doc.getDocumentElement(), id, true);
 		result.setSequenceSourceName(source);
 		logger.fine("finished loading " + source);
 		return result;
 	}
 	
-	private void setModuleId(Logger logger, Module<T> module, Element elt) throws PlanException, UnsupportedServiceException, ConverterException {
-		String id;
-		String tag = elt.getTagName();
-		if (tag.equals(MODULE_ELEMENT_NAME) || elt.hasAttribute(ID_ATTRIBUTE_NAME)) {
-			id = getAttribute(elt, ID_ATTRIBUTE_NAME);
-		}
-		else {
-			if (tag.equals(IMPORT_ELEMENT_NAME)) {
-				if (elt.hasAttribute(ID_ATTRIBUTE_NAME)) {
-					id = getAttribute(elt, ID_ATTRIBUTE_NAME);
-				}
-				else {
-					id = module.getId();
-				}
-			}
-			else {
-				id = tag;
-			}
-		}
-		if (id.isEmpty()) {
-			throw new PlanException("missing id");
+	private void setModuleId(Logger logger, Module<T> module, Element elt, String id) throws PlanException, UnsupportedServiceException, ConverterException {
+		if (id == null) {
+			id = elt.getTagName();
 		}
 		module.setId(id);
 		if (elt.hasAttribute("dump")) {
@@ -291,13 +262,13 @@ public class PlanLoader<T extends Annotable> {
 		}
 	}
 
-	private Sequence<T> loadSequence(Logger logger, String source, Element elt, boolean plan) throws PlanException, ModuleException, ServiceException, ConverterException, SAXException, IOException, URISyntaxException {
+	private Sequence<T> loadSequence(Logger logger, String source, Element elt, String id, boolean plan) throws PlanException, ModuleException, ServiceException, ConverterException, SAXException, IOException, URISyntaxException {
 		Sequence<T> result = moduleFactory.newSequence();
 		if (result == null) {
 			throw new ModuleException("could not instanciate sequence");
 		}
 		ConstantDocumentation documentation = null;
-		setModuleId(logger, result, elt);
+		setModuleId(logger, result, elt, id);
 		if (plan) {
 			setSequenceProperties(result, elt);
 		}
@@ -310,27 +281,6 @@ public class PlanLoader<T extends Annotable> {
 			if (child instanceof Element) {
 				Element childElement = (Element) child;
 				String childName = childElement.getTagName();
-				if (MODULE_ELEMENT_NAME.equals(childName)) {
-					logger.severe("the tag " + MODULE_ELEMENT_NAME + " is deprecated, use tags names as module identifiers");
-					logger.severe("future versions might not support " + MODULE_ELEMENT_NAME);
-					Module<T> module = loadModule(logger, source, childElement);
-					result.appendModule(module);
-					continue;
-				}
-				if (SEQUENCE_ELEMENT_NAME.equals(childName)) {
-					logger.severe("the tag " + SEQUENCE_ELEMENT_NAME + " is deprecated, use tags names as sequence identifiers");
-					logger.severe("future versions might not support " + SEQUENCE_ELEMENT_NAME);
-					Sequence<T> sequence = loadSequence(logger, source, childElement, false);
-					result.appendModule(sequence);
-					continue;
-				}
-				if (IMPORT_ELEMENT_NAME.equals(childName)) {
-					logger.severe("the tag " +  IMPORT_ELEMENT_NAME + " is deprecated, use tag names to set the imported plan identifier, and specify location with attribute file or href");
-					logger.severe("future versions might not support the tag " + IMPORT_ELEMENT_NAME);
-					Module<T> module = importPlan(logger, childElement);
-					result.appendModule(module);
-					continue;
-				}
 				if (ACTIVE_PARAM_ELEMENT_NAME.equals(childName)) {
 					setParam(logger, source, childElement, result);
 					continue;
@@ -344,26 +294,22 @@ public class PlanLoader<T extends Annotable> {
 					continue;
 				}
 				if (SHELL_ELEMENT_NAME.equals(childName)) {
-					String id = "shell_" + (++nShells);
-					childElement.setAttribute(ID_ATTRIBUTE_NAME, id);
-					String shellModule;
-					shellModule = moduleFactory.getShellModule();
+					String shellId = "shell_" + (++nShells);
+					String shellModule = moduleFactory.getShellModule();
 					childElement.setAttribute(CLASS_ATTRIBUTE_NAME, shellModule);
-					Module<T> module = loadModule(logger, source, childElement);
+					Module<T> module = loadModule(logger, source, childElement, shellId);
 					result.appendModule(module);
 					continue;
 				}
 				if (BROWSER_ELEMENT_NAME.equals(childName)) {
-					String id = "browser_" + (++nShells);
-					childElement.setAttribute(ID_ATTRIBUTE_NAME, id);
-					String browserModule;
-					browserModule = moduleFactory.getBrowserModule();
+					String browserId = "browser_" + (++nShells);
+					String browserModule = moduleFactory.getBrowserModule();
 					childElement.setAttribute(CLASS_ATTRIBUTE_NAME, browserModule);
-					Module<T> module = loadModule(logger, source, childElement);
+					Module<T> module = loadModule(logger, source, childElement, browserId);
 					result.appendModule(module);
 					continue;
 				}
-				if (plan && PARAM_ELEMENT_NAME.equals(childName)) {
+				if (plan && PLAN_PARAM_ELEMENT_NAME.equals(childName)) {
 					aliasParams.add(childElement);
 					continue;
 				}
@@ -441,23 +387,20 @@ public class PlanLoader<T extends Annotable> {
 	
 	private Module<T> loadModuleOrSequence(Logger logger, String source, Element elt) throws PlanException, ConverterException, ServiceException, SAXException, IOException, URISyntaxException, ModuleException {
 		if (elt.hasAttribute(CLASS_ATTRIBUTE_NAME)) {
-			return loadModule(logger, source, elt);
+			return loadModule(logger, source, elt, null);
 		}
-		if (elt.hasAttribute(SOURCE_ATTRIBUTE_NAME)) {
-			return importPlan(logger, elt);
-		}
-		for (String key : ALTERNATE_SOURCE_ATTRIBUTE_NAMES) {
+		for (String key : SOURCE_ATTRIBUTE_NAMES) {
 			if (elt.hasAttribute(key)) {
 				return importPlan(logger, elt);
 			}
 		}
-		return loadSequence(logger, source, elt, false);
+		return loadSequence(logger, source, elt, null, false);
 	}
 
-	private Module<T> loadModule(Logger logger, String source, Element elt) throws PlanException, ParameterException, ConverterException, ServiceException, SAXException, IOException, URISyntaxException {
+	private Module<T> loadModule(Logger logger, String source, Element elt, String id) throws PlanException, ParameterException, ConverterException, ServiceException, SAXException, IOException, URISyntaxException {
 		String moduleClass = getAttribute(elt, CLASS_ATTRIBUTE_NAME);
 		Module<T> result = getModuleInstance(moduleClass);
-		setModuleId(logger, result, elt);
+		setModuleId(logger, result, elt, id);
 		result.setCreatorNameFeature(creatorNameFeature);
 		setDefaultParams(logger, source, result);
 		setModuleParams(logger, source, elt, result);
@@ -496,10 +439,10 @@ public class PlanLoader<T extends Annotable> {
 	}
 
 	private Module<T> importPlan(Logger logger, Element elt) throws PlanException, ModuleException, SAXException, IOException, ServiceException, ConverterException, URISyntaxException {
-		String sourceString = XMLUtils.attributeOrValue(elt, SOURCE_ATTRIBUTE_NAME, ALTERNATE_SOURCE_ATTRIBUTE_NAMES);
+		String sourceString = XMLUtils.attributeOrValue(elt, " ", SOURCE_ATTRIBUTE_NAMES);
 		String baseDir = getBaseDir(elt);
 		Module<T> result = loadSource(logger, sourceString, baseDir);
-		setModuleId(logger, result, elt);
+		setModuleId(logger, result, elt, null);
 		if (!XMLUtils.childrenElements(elt).isEmpty()) {
 			setModuleParams(logger, sourceString, elt, result);
 		}
@@ -558,29 +501,8 @@ public class PlanLoader<T extends Annotable> {
 	}
 	
 	public void setParam(Logger logger, String sourceName, Element elt, Module<T> module) throws PlanException, ParameterException, ConverterException, UnsupportedServiceException, SAXException, IOException, URISyntaxException {
-		String eltName = elt.getTagName();
-		String paramName;
-		if (eltName.equals(PARAM_ELEMENT_NAME)) {
-			paramName = getAttribute(elt, NAME_ATTRIBUTE_NAME);
-			logger.severe("the tag " + PARAM_ELEMENT_NAME + " is deprecated, use tag names to specify parameters");
-			logger.severe("future vresions might not support " + PARAM_ELEMENT_NAME);
-		}
-		else {
-			paramName = eltName;
-		}
+		String paramName = elt.getTagName();
 		ParamHandler<T> paramHandler = module.getParamHandler(paramName);
-		if (elt.hasAttribute("inhibitCheck")) {
-			boolean inhibitCheck = Strings.getBoolean(elt.getAttribute("inhibitCheck"));
-			paramHandler.setInhibitCheck(inhibitCheck);
-			logger.severe("attribute 'inhibitCheck' is deprecated, please use '" + OUTPUT_FEED_ATTRIBUTE_NAME + "'");
-			logger.severe("future versions may not support attribute 'inhibitCheck'");
-		}
-		if (elt.hasAttribute("inhibit-check")) {
-			boolean inhibitCheck = Strings.getBoolean(elt.getAttribute("inhibit-check"));
-			paramHandler.setInhibitCheck(inhibitCheck);
-			logger.severe("attribute 'inhibit-check' is deprecated, please use '" + OUTPUT_FEED_ATTRIBUTE_NAME + "'");
-			logger.severe("future versions may not support attribute 'inhibit-check'");
-		}
 		boolean outputFeed = XMLUtils.getBooleanAttribute(elt, OUTPUT_FEED_ATTRIBUTE_NAME, false);
 		if (outputFeed) {
 			paramHandler.setInhibitCheck(true);

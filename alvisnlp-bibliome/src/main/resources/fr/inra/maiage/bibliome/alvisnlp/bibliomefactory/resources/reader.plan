@@ -5,8 +5,8 @@
     </synopsis>
     <plan-doc>
       <description>
-	<p><this/> reads documents from the stream specified by <param name="source"/>.</p>
-	<p>The format of the stream is specified by <param name="select"/>. Available formats:</p>
+	<p><this/> reads documents from the stream specified by <param>source</param>.</p>
+	<p>The format of the stream is specified by <param>select</param>. Available formats:</p>
 	<ul>
 	  <li><code>pubannotation</code>: <a href="http://www.pubannotation.org/docs/annotation-format/">PubAnnotation</a>.</li>
 	  <li><code>lll</code>: <a href="http://genome.jouy.inra.fr/texte/LLLchallenge/">LLL challenge</a>.</li>

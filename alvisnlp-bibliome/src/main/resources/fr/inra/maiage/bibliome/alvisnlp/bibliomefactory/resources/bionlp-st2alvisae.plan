@@ -5,9 +5,9 @@
     </synopsis>
     <plan-doc>
       <description>
-        <p><this/> reads <code>.txt</code>, <code>.a1</code>code>, and <code>.a2</code> files from the stream specified by <param name="source"/> and writes AlvisAE JSON files in the directory specified by <param name="out"/>.</p>
-	<p>If <code>.a1</code> or <code>.a2</code> files are not in the same directory, then they can be specified with <param name="a1Dir"/> and <param name="a2Dir"/> respectively.</p>
-	<p><param name="doc-label"/> is an expression evaluated as a string that specifies the document description (how the document is displayed in AlvisAE).</p>
+        <p><this/> reads <code>.txt</code>, <code>.a1</code>code>, and <code>.a2</code> files from the stream specified by <param>source</param> and writes AlvisAE JSON files in the directory specified by <param>out</param>.</p>
+	<p>If <code>.a1</code> or <code>.a2</code> files are not in the same directory, then they can be specified with <param>a1Dir</param> and <param>a2Dir</param> respectively.</p>
+	<p><param>doc-label</param> is an expression evaluated as a string that specifies the document description (how the document is displayed in AlvisAE).</p>
       </description>
     </plan-doc>
   </alvisnlp-doc>
