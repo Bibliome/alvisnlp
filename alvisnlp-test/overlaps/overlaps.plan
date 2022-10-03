@@ -11,10 +11,10 @@
     <constantAnnotationFeatures>ne-type=taxon</constantAnnotationFeatures>
   </taxa>
 
-  <rename-form class="CopyFeature">
+  <rename-form class="Action">
     <target>documents.sections.(layer:taxaO|layer:Bacteria)</target>
-    <sourceFeatureName>form</sourceFeatureName>
-    <targetFeatureName>copy</targetFeatureName>
+    <action>set:feat:copy(@form)</action>
+    <setFeatures/>
   </rename-form>
   
   <copy class="Action">

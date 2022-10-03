@@ -1787,11 +1787,13 @@ text of BB-cat+ner-8347510
         [1.0000] ATCC 49307
                  ATCC 49307
 
-    Predicted matches (10) :
+    Predicted matches (11) :
         [1.0000] Arhodomonas aquaeolei
                  Arhodomonas aquaeolei
         [1.0000] Arhodomonas aquaeolei
                  Arhodomonas aquaeolei
+        [0.0000] name
+                 FAIL
         [1.0000] Arhodomonas
                  Arhodomonas
         [1.0000] Proteobacteria
@@ -1810,8 +1812,8 @@ text of BB-cat+ner-8347510
                  ATCC 49307
 
     Recall   : 1.0
-    Precision: 1.0
-    F-Score  : 1.0
+    Precision: 0.9090909090909091
+    F-Score  : 0.9523809523809523
 
 
 text of BB-cat+ner-8358765
@@ -4075,7 +4077,7 @@ text of BB-cat+ner-22537874
 text of BB-cat+ner-23645023
     Reference matches (0) :
 
-    Predicted matches (9) :
+    Predicted matches (10) :
         [0.0000] Taibaiella smilacinae
                  FAIL
         [0.0000] Chitinophagaceae
@@ -4087,6 +4089,8 @@ text of BB-cat+ner-23645023
         [0.0000] Lacibacter cauensis
                  FAIL
         [0.0000] Chitinophagaceae
+                 FAIL
+        [0.0000] name
                  FAIL
         [0.0000] Taibaiella smilacinae
                  FAIL
@@ -4612,5 +4616,5 @@ text of BB-cat+ner-9666962
 
 Global results
     Recall   : 0.72
-    Precision: 0.5136986301369864
-    F-Score  : 0.5996002664890073
+    Precision: 0.5125284738041003
+    F-Score  : 0.5988023952095809
