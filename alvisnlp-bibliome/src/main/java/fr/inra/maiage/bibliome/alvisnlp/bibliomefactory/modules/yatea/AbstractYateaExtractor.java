@@ -35,6 +35,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.Checkable;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.InputFile;
@@ -46,7 +47,7 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 /**
  * Uses YaTeA to extract terms from the corpus.
  */
-public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> extends SectionModule<S> {
+public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> extends SectionModule<S> implements Checkable {
     private String wordLayerName = DefaultNames.getWordLayer();
     private String formFeature = Annotation.FORM_FEATURE_NAME;
     private String posFeature = DefaultNames.getPosTagFeature();
@@ -401,22 +402,16 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
     }
     
     @Override
-    public void init(ProcessingContext<Corpus> ctx) throws ModuleException {
-    	super.init(ctx);
-    	Logger logger = getLogger(ctx);
-    	if (workingDir != null) {
-    		logger.severe("workingDir is deprecated, use xmlTermsFile and termListFile to specify yatea output file");
-    		logger.severe("future versions may not support workingDir");
-    		return;
-    	}
-    	if ((xmlTermsFile == null) && (termListFile == null)) {
+	public boolean check(Logger logger) {
+    	if ((workingDir == null) && (xmlTermsFile == null) && (termListFile == null)) {
     		logger.severe("neither workingDir, xmlTermsFile or termListFile is set, set xmlTermsFile and termListFile to specify yatea output file");
     		logger.severe("workingDir is deprecated, future versions may not support workingDir");
-    		return;
+    		return false;
     	}
-    }
+    	return true;
+	}
 
-    protected WorkingDirectory getWorkingDirectory(ProcessingContext<Corpus> ctx) {
+	protected WorkingDirectory getWorkingDirectory(ProcessingContext<Corpus> ctx) {
     	if (workingDir != null) {
     		return workingDir;
     	}

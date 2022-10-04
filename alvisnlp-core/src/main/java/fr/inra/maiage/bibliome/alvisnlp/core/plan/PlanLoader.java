@@ -494,6 +494,12 @@ public class PlanLoader<T extends Annotable> {
 	public void setParam(Logger logger, String sourceName, Element elt, Module<T> module) throws PlanException, ParameterException, ConverterException, UnsupportedServiceException, SAXException, IOException, URISyntaxException {
 		String paramName = elt.getTagName();
 		ParamHandler<T> paramHandler = module.getParamHandler(paramName);
+		if (paramHandler.isDeprecated()) {
+			String moduleClass = module.getModuleClass();
+			String shortModuleClass = moduleClass.substring(moduleClass.lastIndexOf('.') + 1);
+			logger.severe("parameter " + paramName + " in " + module.getPath() + " (" + shortModuleClass + ") is DEPRECATED");
+			logger.severe("this parameter might not be supported in future versions");
+		}
 		boolean outputFeed = XMLUtils.getBooleanAttribute(elt, OUTPUT_FEED_ATTRIBUTE_NAME, false);
 		if (outputFeed) {
 			paramHandler.setInhibitCheck(true);

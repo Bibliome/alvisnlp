@@ -210,6 +210,11 @@ public interface Sequence<T extends Annotable> extends Module<T> {
 		public void setParamSourceName(String sourceName) {
 			paramSourceName = sourceName;
 		}
+
+		@Override
+		public boolean isDeprecated() {
+			return false;
+		}
 	}
 
 	void setDocumentation(Documentation documentation);

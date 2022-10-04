@@ -120,6 +120,12 @@ public class ParamHandlerBase<A extends Annotable> implements ParamHandler<A> {
 	public void setInhibitCheck(boolean inhibitCheck) {
 		this.inhibitCheck = inhibitCheck;
 	}
+    
+    @Override
+    public boolean isDeprecated() {
+    	Deprecated depr = getter.getAnnotation(Deprecated.class);
+    	return depr != null;
+    }
 
 	@Override
 	public <P> void accept(ModuleVisitor<A,P> visitor, P param) throws ModuleException {
