@@ -441,6 +441,9 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     		try {
 				ParamHandler<A> ph = mod.getParamHandler(p.getAttribute("name"));
 				p.setAttribute("mandatory", getParamStatus(ph));
+				if (ph.isDeprecated()) {
+					p.setAttribute("deprecated", "yes");
+				}
         		Class<?> type = ph.getType();
         		p.setAttribute(TYPE_ATTRIBUTE_NAME, type.getCanonicalName());
         		p.setAttribute(SHORT_TYPE_ATTRIBUTE_NAME, type.getSimpleName());
