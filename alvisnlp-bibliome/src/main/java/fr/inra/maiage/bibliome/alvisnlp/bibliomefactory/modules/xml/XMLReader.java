@@ -103,7 +103,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
     private SourceStream xslTransform;
     private Mapping stringParams;
     private Boolean html = false;
-    private SourceStream sourcePath;
+    private SourceStream source;
     private Boolean rawTagNames = false;
 
     @Override
@@ -134,7 +134,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 	        parser.setFeature("http://xml.org/sax/features/namespaces", false);
 	        parser.setFeature("http://cyberneko.org/html/features/scanner/cdata-sections", true);
 	        parser.setFeature("http://cyberneko.org/html/features/parse-noscript-content", false);
-	        parser.setProperty("http://cyberneko.org/html/properties/default-encoding", sourcePath.getCharset());
+	        parser.setProperty("http://cyberneko.org/html/properties/default-encoding", source.getCharset());
 	        if (rawTagNames) {
 	        	parser.setProperty("http://cyberneko.org/html/properties/names/elems", "match");
 	        }
@@ -164,7 +164,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		try {
 			Transformer transformer = getTransformer(ctx);
 			Logger logger = getLogger(ctx);
-			for (InputStream is : Iterators.loop(sourcePath.getInputStreams())) {
+			for (InputStream is : Iterators.loop(source.getInputStreams())) {
 				processFile(ctx, logger, corpus, is, transformer);
 				is.close();
 			}
@@ -175,7 +175,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 	}
 
 	private void processFile(ProcessingContext<Corpus> ctx, Logger logger, Corpus corpus, InputStream file, Transformer transformer) throws IOException, SAXException, ParserConfigurationException, TransformerException {
-		String name = sourcePath.getStreamName(file);
+		String name = source.getStreamName(file);
 		logger.finer("reading: " + name);
 		transformer.reset();
 		transformer.setParameter(SOURCE_PATH_PARAMETER, name);
@@ -207,9 +207,10 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		return html;
 	}
 
+	@Deprecated
 	@Param
 	public SourceStream getSourcePath() {
-		return sourcePath;
+		return source;
 	}
 
 	@Param
@@ -217,12 +218,21 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		return rawTagNames;
 	}
 
+	@Param
+	public SourceStream getSource() {
+		return source;
+	}
+
+	public void setSource(SourceStream source) {
+		this.source = source;
+	}
+
 	public void setRawTagNames(Boolean rawTagNames) {
 		this.rawTagNames = rawTagNames;
 	}
 
 	public void setSourcePath(SourceStream sourcePath) {
-		this.sourcePath = sourcePath;
+		this.source = sourcePath;
 	}
 
 	public void setHtml(Boolean html) {

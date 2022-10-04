@@ -48,7 +48,7 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 public abstract class PubTatorReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator {
 	private static final Pattern CONTENTS_LINE = Pattern.compile("(\\d+)\\|(\\w+)\\|(.*)");
 	
-	private SourceStream sourcePath;
+	private SourceStream source;
 	private String typeFeature = "type";
 	private String classFeature = "class";
 	private String offsetFeature = "offset";
@@ -57,7 +57,7 @@ public abstract class PubTatorReader extends CorpusModule<ResolvedObjects> imple
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		try {
-			for (BufferedReader reader : Iterators.loop(sourcePath.getBufferedReaders())) {
+			for (BufferedReader reader : Iterators.loop(source.getBufferedReaders())) {
 				read(logger, corpus, reader);
 			}
 		}
@@ -138,9 +138,10 @@ public abstract class PubTatorReader extends CorpusModule<ResolvedObjects> imple
 		return new ResolvedObjects(ctx, this);
 	}
 
+	@Deprecated
 	@Param
 	public SourceStream getSourcePath() {
-		return sourcePath;
+		return source;
 	}
 
 	@Param(nameType=NameType.FEATURE)
@@ -158,12 +159,21 @@ public abstract class PubTatorReader extends CorpusModule<ResolvedObjects> imple
 		return offsetFeature;
 	}
 
+	@Param
+	public SourceStream getSource() {
+		return source;
+	}
+
+	public void setSource(SourceStream source) {
+		this.source = source;
+	}
+
 	public void setOffsetFeature(String offsetFeature) {
 		this.offsetFeature = offsetFeature;
 	}
 
 	public void setSourcePath(SourceStream sourcePath) {
-		this.sourcePath = sourcePath;
+		this.source = sourcePath;
 	}
 
 	public void setTypeFeature(String typeFeature) {

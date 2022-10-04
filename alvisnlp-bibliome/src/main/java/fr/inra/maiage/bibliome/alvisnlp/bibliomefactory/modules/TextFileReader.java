@@ -48,7 +48,7 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
     private Integer sizeLimit = null;
     private Integer linesLimit = null;
     private String  charset   = "UTF-8";
-    private SourceStream sourcePath;
+    private SourceStream source;
     private Boolean baseNameId = false;
 
 	/**
@@ -126,9 +126,10 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
         return linesLimit;
     }
 
+    @Deprecated
     @Param
 	public SourceStream getSourcePath() {
-		return sourcePath;
+		return source;
 	}
 
     @Param
@@ -136,12 +137,21 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
 		return baseNameId;
 	}
 
+    @Param
+	public SourceStream getSource() {
+		return source;
+	}
+
+	public void setSource(SourceStream source) {
+		this.source = source;
+	}
+
 	public void setBaseNameId(Boolean baseNameId) {
 		this.baseNameId = baseNameId;
 	}
 
 	public void setSourcePath(SourceStream sourcePath) {
-		this.sourcePath = sourcePath;
+		this.source = sourcePath;
 	}
 
 	@Override
@@ -152,7 +162,7 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
-			for (BufferedReader r : Iterators.loop(sourcePath.getBufferedReaders())) {
+			for (BufferedReader r : Iterators.loop(source.getBufferedReaders())) {
 				processFile(corpus, r);
 				r.close();
 			}
@@ -163,7 +173,7 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
 	}
 
 	private void processFile(Corpus corpus, BufferedReader r) throws IOException {
-		String name = sourcePath.getStreamName(r);
+		String name = source.getStreamName(r);
 		if (baseNameId) {
 			int slash = name.lastIndexOf(File.separatorChar) + 1;
 			int dot = name.lastIndexOf('.');

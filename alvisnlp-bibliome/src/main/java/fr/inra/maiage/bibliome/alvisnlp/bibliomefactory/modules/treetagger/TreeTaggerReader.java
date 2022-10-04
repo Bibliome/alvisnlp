@@ -56,7 +56,7 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 	private String posFeatureKey = null;
 	private String lemmaFeatureKey = null;
 	private String charset = "UTF-8";
-	private SourceStream sourcePath;
+	private SourceStream source;
 	
 	private static final RecordFileLines recordFileLines = new RecordFileLines();
 
@@ -103,7 +103,7 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		try {
-			for (BufferedReader r : Iterators.loop(sourcePath.getBufferedReaders())) {
+			for (BufferedReader r : Iterators.loop(source.getBufferedReaders())) {
 				processFile(logger, corpus, r);
 				r.close();
 			}
@@ -114,7 +114,7 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 	}
 
 	private void processFile(Logger logger, Corpus corpus, BufferedReader reader) throws ModuleException, IOException, InvalidFileLineEntry {
-		String name = sourcePath.getStreamName(reader);
+		String name = source.getStreamName(reader);
 		logger.fine("reading: " + name);
 
 		List<List<String>> tokens = new ArrayList<List<String>>();
@@ -156,13 +156,23 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 		return charset;
 	}
 
+	@Deprecated
 	@Param
 	public SourceStream getSourcePath() {
-		return sourcePath;
+		return source;
+	}
+
+	@Param
+	public SourceStream getSource() {
+		return source;
+	}
+
+	public void setSource(SourceStream source) {
+		this.source = source;
 	}
 
 	public void setSourcePath(SourceStream sourcePath) {
-		this.sourcePath = sourcePath;
+		this.source = sourcePath;
 	}
 
 	public void setCharset(String charset) {

@@ -48,8 +48,12 @@ limitations under the License.
       <p>Character set of input files.</p>
     </param-doc>
   
-    <param-doc name="sourcePath">
+    <param-doc name="source">
       <p>Path to the source directory or source file.</p>
+    </param-doc>
+  
+    <param-doc name="sourcePath">
+      <p>Alias for <param>source</param>. Use <param>source</param> instead.</p>
     </param-doc>
   
     <param-doc name="sectionName">

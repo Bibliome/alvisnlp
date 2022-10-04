@@ -54,8 +54,12 @@ Note: the inline() function also process comment and processing instruction node
       <p>Parameters to pass to the XSLT Stylesheet specified by <param name="xslTransform"/>.</p>
     </param-doc>
   
-    <param-doc name="sourcePath">
+    <param-doc name="source">
       <p>Path to the source directory or source file.</p>
+    </param-doc>
+  
+    <param-doc name="sourcePath">
+      <p>Alias for <param>source</param>. Use <param>source</param> instead.</p>
     </param-doc>
   
     <param-doc name="html">
