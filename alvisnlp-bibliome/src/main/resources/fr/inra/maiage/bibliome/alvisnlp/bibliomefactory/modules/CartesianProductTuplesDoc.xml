@@ -26,6 +26,10 @@ limitations under the License.
     </description>
   
     <param-doc name="relationName">
+      <p>Deprecate alias for <param>relation</param>.</p>
+    </param-doc>
+  
+    <param-doc name="relation">
       <p>Name of the relation to which tuples are added.</p>
     </param-doc>
   

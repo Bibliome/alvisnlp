@@ -53,7 +53,7 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	private Boolean biology = false;
 	private Integer nBest = 1;
 
-	private String dependenciesRelationName = DefaultNames.getDependencyRelationName();
+	private String dependenciesRelation = DefaultNames.getDependencyRelationName();
 	private String parseNumberFeature = DefaultNames.getParseNumberFeatureName();
 	private String dependencyLabelFeature = DefaultNames.getDependencyLabelFeatureName();
 	private String sentenceRole = DefaultNames.getDependencySentenceRole();
@@ -154,9 +154,10 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 		return nBest;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.RELATION)
 	public String getDependenciesRelationName() {
-		return dependenciesRelationName;
+		return dependenciesRelation;
 	}
 
 	@Deprecated
@@ -239,6 +240,15 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 		return dependentTypeFeature;
 	}
 
+	@Param(nameType=NameType.RELATION)
+	public String getDependenciesRelation() {
+		return dependenciesRelation;
+	}
+
+	public void setDependenciesRelation(String dependenciesRelation) {
+		this.dependenciesRelation = dependenciesRelation;
+	}
+
 	public void setWordFormFeature(String wordFormFeature) {
 		this.wordFormFeature = wordFormFeature;
 	}
@@ -316,7 +326,7 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	}
 
 	public void setDependenciesRelationName(String dependenciesRelationName) {
-		this.dependenciesRelationName = dependenciesRelationName;
+		this.dependenciesRelation = dependenciesRelationName;
 	}
 
 	public void setParseNumberFeatureName(String parseNumberFeatureName) {

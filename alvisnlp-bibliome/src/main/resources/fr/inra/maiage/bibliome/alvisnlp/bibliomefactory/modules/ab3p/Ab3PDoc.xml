@@ -45,6 +45,10 @@ limitations under the License.
       <p/>
     </param-doc>
   
+    <param-doc name="abbreviationRelation">
+      <p/>
+    </param-doc>
+  
     <param-doc name="relationName">
       <p/>
     </param-doc>

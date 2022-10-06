@@ -84,7 +84,7 @@ import fr.inra.maiage.bibliome.util.streams.PatternFileFilter;
 
 @AlvisNLPModule
 public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, TupleCreator {
-	private String equivalenceRelationName = "equiv";
+	private String equivalenceRelation = "equiv";
 	private String equivalenceItemPrefix = "item";
 	private String typeFeature = "type";
 	private String idFeature = "id";
@@ -157,7 +157,7 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 					}
 				}
 
-				Relation equivRel = section.ensureRelation(this, equivalenceRelationName);
+				Relation equivRel = section.ensureRelation(this, equivalenceRelation);
 				for (Equivalence equiv : doc.getEquivalences()) {
 					Tuple t = new Tuple(this, equivRel);
 					List<String> items = new ArrayList<String>(equiv.getAnnotationIds());
@@ -352,9 +352,10 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 		}
 	};
 
+	@Deprecated
 	@Param(nameType=NameType.RELATION)
 	public String getEquivalenceRelationName() {
-		return equivalenceRelationName;
+		return equivalenceRelation;
 	}
 
 	@Param
@@ -466,6 +467,15 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 		return kindFeature;
 	}
 
+	@Param(nameType=NameType.RELATION)
+	public String getEquivalenceRelation() {
+		return equivalenceRelation;
+	}
+
+	public void setEquivalenceRelation(String equivalenceRelation) {
+		this.equivalenceRelation = equivalenceRelation;
+	}
+
 	public void setTypeFeature(String typeFeature) {
 		this.typeFeature = typeFeature;
 	}
@@ -503,7 +513,7 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 	}
 
 	public void setEquivalenceRelationName(String equivalenceRelationName) {
-		this.equivalenceRelationName = equivalenceRelationName;
+		this.equivalenceRelation = equivalenceRelationName;
 	}
 
 	public void setEquivalenceItemPrefix(String equivalenceItemPrefix) {

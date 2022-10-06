@@ -60,7 +60,7 @@ public class WhatsWrongExport extends SectionModule<WhatsWrongExportResolvedObje
 	private String wordForm = Annotation.FORM_FEATURE_NAME;
 	private String[] entities;
 	private String entityType;
-	private String relationName;
+	private String relation;
 	private String sentence = DefaultNames.getDependencySentenceRole();
 	private String head = DefaultNames.getDependencyHeadRole();
 	private String dependent = DefaultNames.getDependencyDependentRole();
@@ -173,8 +173,8 @@ public class WhatsWrongExport extends SectionModule<WhatsWrongExportResolvedObje
 
 	private DefaultMap<Annotation,List<Tuple>> getDependencies(Section sec) {
 		DefaultMap<Annotation,List<Tuple>> result = new DefaultArrayListHashMap<Annotation,Tuple>();
-		if (sec.hasRelation(relationName)) {
-			Relation rel = sec.getRelation(relationName);
+		if (sec.hasRelation(relation)) {
+			Relation rel = sec.getRelation(relation);
 			for (Tuple t : rel.getTuples())
 				if (t.hasArgument(sentence))
 					result.safeGet(DownCastElement.toAnnotation(t.getArgument(sentence))).add(t);
@@ -207,9 +207,10 @@ public class WhatsWrongExport extends SectionModule<WhatsWrongExportResolvedObje
 		return wordForm;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.RELATION)
 	public String getRelationName() {
-		return relationName;
+		return relation;
 	}
 
 	@Param(nameType=NameType.RELATION)
@@ -247,6 +248,15 @@ public class WhatsWrongExport extends SectionModule<WhatsWrongExportResolvedObje
 		return entities;
 	}
 
+	@Param(nameType=NameType.RELATION)
+	public String getRelation() {
+		return relation;
+	}
+
+	public void setRelation(String relation) {
+		this.relation = relation;
+	}
+
 	public void setEntities(String[] entities) {
 		this.entities = entities;
 	}
@@ -268,7 +278,7 @@ public class WhatsWrongExport extends SectionModule<WhatsWrongExportResolvedObje
 	}
 
 	public void setRelationName(String relationName) {
-		this.relationName = relationName;
+		this.relation = relationName;
 	}
 
 	public void setSentence(String sentence) {

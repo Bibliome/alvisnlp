@@ -44,7 +44,7 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	private Expression sentenceFilter = ConstantsLibrary.TRUE;
 	private String formFeature = Annotation.FORM_FEATURE_NAME;
 	private String posTagFeature = DefaultNames.getPosTagFeature();
-	private String dependencyRelationName = DefaultNames.getDependencyRelationName();
+	private String dependencyRelation = DefaultNames.getDependencyRelationName();
 	private String headRole = DefaultNames.getDependencyHeadRole();
 	private String dependentRole = DefaultNames.getDependencyDependentRole();
 	private String dependencyLabelFeature = DefaultNames.getDependencyLabelFeatureName();
@@ -64,7 +64,7 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
 			Layer sentences = sec.getLayer(sentenceLayerName);
 			Layer tokens = sec.getLayer(tokenLayerName);
-			Relation dependencies = sec.ensureRelation(this, dependencyRelationName);
+			Relation dependencies = sec.ensureRelation(this, dependencyRelation);
 			for (Annotation sentence : sentences) {
 				if (resObj.sentenceFilter.evaluateBoolean(evalCtx, sentence)) {
 					parseSentence(parser, dependencies, tokens, sentence);
@@ -196,9 +196,10 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		return posTagFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.RELATION)
 	public String getDependencyRelationName() {
-		return dependencyRelationName;
+		return dependencyRelation;
 	}
 
 	@Param(nameType=NameType.ARGUMENT)
@@ -247,6 +248,15 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		return dependencyLabelFeature;
 	}
 
+	@Param(nameType=NameType.RELATION)
+	public String getDependencyRelation() {
+		return dependencyRelation;
+	}
+
+	public void setDependencyRelation(String dependencyRelation) {
+		this.dependencyRelation = dependencyRelation;
+	}
+
 	public void setFormFeature(String formFeature) {
 		this.formFeature = formFeature;
 	}
@@ -288,7 +298,7 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	}
 
 	public void setDependencyRelationName(String dependencyRelationName) {
-		this.dependencyRelationName = dependencyRelationName;
+		this.dependencyRelation = dependencyRelationName;
 	}
 
 	public void setHeadRole(String headRole) {

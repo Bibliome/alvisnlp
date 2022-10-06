@@ -53,8 +53,12 @@ limitations under the License.
       <p>Prefix of the role of arguments that represent text-bound fragments.</p>
     </param-doc>
   
-    <param-doc name="equivalenceRelationName">
+    <param-doc name="equivalenceRelation">
       <p>Name of the relation whose tuples represent equivalences.</p>
+    </param-doc>
+  
+    <param-doc name="equivalenceRelationName">
+      <p>Deprecated alias for <param>equivalenceRelation</param>.</p>
     </param-doc>
   
     <param-doc name="fragmentCountFeature">

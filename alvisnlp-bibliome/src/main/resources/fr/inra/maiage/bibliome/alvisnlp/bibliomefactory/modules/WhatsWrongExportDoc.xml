@@ -34,8 +34,12 @@ limitations under the License.
       <p>Expression evaluated as a list of elements with the section as the context element. The result specifies the sentences in the section.</p>
     </param-doc>
   
-    <param-doc name="relationName">
+    <param-doc name="relation">
       <p>Name of the relation that contains tuples that will be represented as relations.</p>
+    </param-doc>
+  
+    <param-doc name="relationName">
+      <p>Deprecated alias for <param>relation</param>.</p>
     </param-doc>
       
     <param-doc name="outFile">

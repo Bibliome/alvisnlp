@@ -75,27 +75,27 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="dependencyLabelFeatureName">
-      <p>Deprecated alias for <param>dependencyLabelFeature</param></p>
+      <p>Deprecated alias for <param>dependencyLabelFeature</param>.</p>
     </param-doc>
   
     <param-doc name="posFeatureName">
-      <p>Deprecated alias for <param>posFeature</param></p>
+      <p>Deprecated alias for <param>posFeature</param>.</p>
     </param-doc>
   
     <param-doc name="parseStatusFeatureName">
-      <p>Deprecated alias for <param>parseStatusFeature</param></p>
+      <p>Deprecated alias for <param>parseStatusFeature</param>.</p>
     </param-doc>
   
     <param-doc name="wordFormFeatureName">
-      <p>Deprecated alias for <param>wordFormFeature</param></p>
+      <p>Deprecated alias for <param>wordFormFeature</param>.</p>
     </param-doc>
   
     <param-doc name="dependentTypeFeatureName">
-      <p>Deprecated alias for <param>dependentTypeFeature</param></p>
+      <p>Deprecated alias for <param>dependentTypeFeature</param>.</p>
     </param-doc>
   
     <param-doc name="parseNumberFeatureName">
-      <p>Deprecated alias for <param>parseNumberFeatureName</param></p>
+      <p>Deprecated alias for <param>parseNumberFeatureName</param>.</p>
     </param-doc>
   
     <param-doc name="enjuEncoding">
@@ -106,8 +106,12 @@ limitations under the License.
       <p>Role of the head (governor) token in tuples representing dependencies.</p>
     </param-doc>
   
-    <param-doc name="dependenciesRelationName">
+    <param-doc name="dependenciesRelation">
       <p>Relation where to store dependencies.</p>
+    </param-doc>
+  
+    <param-doc name="dependenciesRelationName">
+      <p>Deprecated alias for <param>dependenciesRelation</param>.</p>
     </param-doc>
   
     <param-doc name="enjuExecutable">

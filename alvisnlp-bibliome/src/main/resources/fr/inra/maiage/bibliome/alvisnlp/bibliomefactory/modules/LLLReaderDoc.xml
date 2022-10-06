@@ -26,10 +26,6 @@ limitations under the License.
       <p><this/> reads files in <param name="source"/> in <a href="http://genome.jouy.inra.fr/texte/LLLchallenge/">LLL challenge</a> format.</p>
     </description>
   
-    <param-doc name="genicInteractionRelationName">
-      <p>Name of the relation whose tuples represent genic interactions.</p>
-    </param-doc>
-  
     <param-doc name="genicTargetRole">
       <p>Role of the argument that represent the genic interaction target.</p>
     </param-doc>
@@ -42,10 +38,6 @@ limitations under the License.
       <p>Name of the layer where to store word annotations.</p>
     </param-doc>
   
-    <param-doc name="dependencyLabelFeatureName">
-      <p>Feature where to store the dependency label.</p>
-    </param-doc>
-  
     <param-doc name="dependentRole">
       <p>Name of the role of the argument that represent the dependency dependent.</p>
     </param-doc>
@@ -54,8 +46,20 @@ limitations under the License.
       <p>Path of the file or directory, or URL, containg the files to import.</p>
     </param-doc>
   
-    <param-doc name="dependenciesRelationName">
+    <param-doc name="dependenciesRelation">
       <p>Name of the relation whose tuples represent dependencies.</p>
+    </param-doc>
+  
+    <param-doc name="genicInteractionRelation">
+      <p>Name of the relation whose tuples represent genic interactions.</p>
+    </param-doc>
+  
+    <param-doc name="dependenciesRelationName">
+      <p>Deprecated parameter alias for <param>dependenciesRelation</param>.</p>
+    </param-doc>
+  
+    <param-doc name="genicInteractionRelationName">
+      <p>Deprecated parameter alias for <param>genicInteractionRelation</param>.</p>
     </param-doc>
   
     <param-doc name="headRole">
@@ -72,6 +76,10 @@ limitations under the License.
   
     <param-doc name="lemmaFeature">
       <p>Feature where to store the word lemma.</p>
+    </param-doc>
+  
+    <param-doc name="dependencyLabelFeature">
+      <p>Feature where to store the dependency label.</p>
     </param-doc>
   
     <param-doc name="agentFeature">
@@ -100,6 +108,10 @@ limitations under the License.
 
     <param-doc name="sentenceLayerName">
       <p>Name of the layer where to store sentence annotations.</p>
+    </param-doc>
+  
+    <param-doc name="dependencyLabelFeatureName">
+      <p>Deprecated parameter alias for <param>dependencyLabelFeature</param>.</p>
     </param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>

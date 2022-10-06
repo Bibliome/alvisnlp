@@ -23,7 +23,7 @@ import fr.inra.maiage.bibliome.util.files.InputFile;
 
 @AlvisNLPModule
 public abstract class TEESClassify extends TEESMapper {	
-	private String dependencyRelationName = DefaultNames.getDependencyRelationName();
+	private String dependencyRelation = DefaultNames.getDependencyRelationName();
 	private String dependencyLabelFeature = DefaultNames.getDependencyLabelFeatureName();
 	private String sentenceRole = DefaultNames.getDependencySentenceRole();
 	private String headRole = DefaultNames.getDependencyHeadRole();
@@ -84,9 +84,10 @@ public abstract class TEESClassify extends TEESMapper {
 		return dependentRole;
 	}
 
+	@Deprecated
 	@Param(nameType = NameType.RELATION)
 	public String getDependencyRelationName() {
-		return dependencyRelationName;
+		return dependencyRelation;
 	}
 
 	@Param(nameType = NameType.FEATURE)
@@ -94,12 +95,21 @@ public abstract class TEESClassify extends TEESMapper {
 		return dependencyLabelFeature;
 	}
 
+	@Param(nameType = NameType.RELATION)
+	public String getDependencyRelation() {
+		return dependencyRelation;
+	}
+
+	public void setDependencyRelation(String dependencyRelation) {
+		this.dependencyRelation = dependencyRelation;
+	}
+
 	public void setDependencyLabelFeature(String dependencyLabelFeature) {
 		this.dependencyLabelFeature = dependencyLabelFeature;
 	}
 
 	public void setDependencyRelationName(String dependencyRelationName) {
-		this.dependencyRelationName = dependencyRelationName;
+		this.dependencyRelation = dependencyRelationName;
 	}
 
 	public void setDependencyLabelFeatureName(String dependencyLabelFeatureName) {

@@ -44,8 +44,12 @@ limitations under the License.
       <p>Maximum number of supercats before the parse explodes (cited from CCG documentation).</p>
     </param-doc>
   
-    <param-doc name="relationName">
+    <param-doc name="dependencyRelation">
       <p>Name of the relation containing dependencies.</p>
+    </param-doc>
+  
+    <param-doc name="relationName">
+      <p>Deprecated alias for <param>dependencyRelation</param>.</p>
     </param-doc>
   
     <param-doc name="stanfordScript">

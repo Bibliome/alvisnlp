@@ -38,7 +38,7 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 	private InputDirectory installDir;
 	private String shortFormsLayerName = "short-forms";
 	private String longFormsLayerName = "long-forms";
-	private String relationName = "abbreviations";
+	private String abbreviationRelation = "abbreviations";
 	private String shortFormRole = "short-form";
 	private String longFormRole = "long-form";
 	private String longFormFeature = "long-form";
@@ -84,9 +84,10 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 		return longFormsLayerName;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.RELATION)
 	public String getRelationName() {
-		return relationName;
+		return abbreviationRelation;
 	}
 
 	@Param(nameType=NameType.ARGUMENT)
@@ -102,6 +103,15 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 	@Param(nameType=NameType.FEATURE)
 	public String getLongFormFeature() {
 		return longFormFeature;
+	}
+
+	@Param(nameType=NameType.RELATION)
+	public String getAbbreviationRelation() {
+		return abbreviationRelation;
+	}
+
+	public void setAbbreviationRelation(String abbreviationRelation) {
+		this.abbreviationRelation = abbreviationRelation;
 	}
 
 	public void setLongFormFeature(String longFormFeature) {
@@ -121,7 +131,7 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 	}
 
 	public void setRelationName(String relationName) {
-		this.relationName = relationName;
+		this.abbreviationRelation = relationName;
 	}
 
 	public void setShortFormRole(String shortFormRole) {

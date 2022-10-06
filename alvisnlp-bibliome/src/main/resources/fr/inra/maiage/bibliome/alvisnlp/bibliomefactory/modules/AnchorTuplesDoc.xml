@@ -25,8 +25,12 @@ limitations under the License.
       <p><this/> evaluates <param name="anchor"/> as an element list with the corpus as the context element (see <converter name="alvisnlp.corpus.Expression"/>&gt;). For each anchor, <this/> creates a tuple in the relation named after <param name="relationName"/>, with the anchor as an argument with role <param name="anchorRole"/> and the first annotation in the result of each value of <param name="arguments"/> with the role of the corresponding key. <param name="arguments"/> values are evaluated as element lists with the anchor as the context element.</p>
     </description>
   
-    <param-doc name="relationName">
+    <param-doc name="relation">
       <p>Name of the relation in which tuples must be created.</p>
+    </param-doc>
+  
+    <param-doc name="relationName">
+      <p>Deprecated alias for <param>relation</param>.</p>
     </param-doc>
   
     <param-doc name="anchorRole">

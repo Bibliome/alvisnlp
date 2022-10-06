@@ -65,13 +65,13 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
 	private String idFeature = "id";
 	private String lemmaFeature = "lemma";
-	private String dependenciesRelationName = DefaultNames.getDependencyRelationName();
-	private String dependencyLabelFeatureName = DefaultNames.getDependencyLabelFeatureName();
+	private String dependenciesRelation = DefaultNames.getDependencyRelationName();
+	private String dependencyLabelFeature = DefaultNames.getDependencyLabelFeatureName();
 	private String headRole = DefaultNames.getDependencyHeadRole();
 	private String dependentRole = DefaultNames.getDependencyDependentRole();
 	private String agentFeature = "agent";
 	private String targetFeature = "target";
-	private String genicInteractionRelationName = "genicInteraction";
+	private String genicInteractionRelation = "genicInteraction";
 	private String genicAgentRole = "agent";
 	private String genicTargetRole = "target";
 
@@ -170,7 +170,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 									error(r, lineno, "missed sentence text");
 								if (words.isEmpty())
 									error(r, lineno, "missed word segmentation");
-								Relation rel = sec.ensureRelation(this, dependenciesRelationName);
+								Relation rel = sec.ensureRelation(this, dependenciesRelation);
 								for (int i = 1; i < cols.size(); ++i) {
 									Matcher m = SYNTACTIC_RELATION_PATTERN.matcher(cols.get(i));
 									if (!m.matches())
@@ -183,7 +183,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 										error(r, lineno, "no word with id: " + dependentId);
 									String label = m.group(1);
 									Tuple t = new Tuple(this, rel);
-									t.addFeature(dependencyLabelFeatureName, label);
+									t.addFeature(dependencyLabelFeature, label);
 									t.setArgument(headRole, words.get(headId));
 									t.setArgument(dependentRole, words.get(dependentId));
 								}
@@ -225,7 +225,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 									error(r, lineno, "missed sentence text");
 								if (words.isEmpty())
 									error(r, lineno, "missed word segmentation");
-								rel = sec.ensureRelation(this, genicInteractionRelationName);
+								rel = sec.ensureRelation(this, genicInteractionRelation);
 								for (int i = 1; i < cols.size(); ++i) {
 									Matcher m = GENIC_INTERACTION_PATTERN.matcher(cols.get(i));
 									if (!m.matches())
@@ -281,15 +281,16 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 		return lemmaFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.RELATION)
 	public String getDependenciesRelationName() {
-		return dependenciesRelationName;
+		return dependenciesRelation;
 	}
 
 	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getDependencyLabelFeatureName() {
-		return dependencyLabelFeatureName;
+		return dependencyLabelFeature;
 	}
 
 	@Param(nameType=NameType.ARGUMENT)
@@ -313,9 +314,10 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 		return targetFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.RELATION)
 	public String getGenicInteractionRelationName() {
-		return genicInteractionRelationName;
+		return genicInteractionRelation;
 	}
 
 	@Param(nameType=NameType.ARGUMENT)
@@ -351,6 +353,33 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 	@Param(nameType=NameType.FEATURE)
 	public String getTargetFeature() {
 		return targetFeature;
+	}
+
+	@Param(nameType=NameType.RELATION)
+	public String getDependenciesRelation() {
+		return dependenciesRelation;
+	}
+
+	@Param(nameType=NameType.RELATION)
+	public String getGenicInteractionRelation() {
+		return genicInteractionRelation;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getDependencyLabelFeature() {
+		return dependencyLabelFeature;
+	}
+
+	public void setDependencyLabelFeature(String dependencyLabelFeature) {
+		this.dependencyLabelFeature = dependencyLabelFeature;
+	}
+
+	public void setDependenciesRelation(String dependenciesRelation) {
+		this.dependenciesRelation = dependenciesRelation;
+	}
+
+	public void setGenicInteractionRelation(String genicInteractionRelation) {
+		this.genicInteractionRelation = genicInteractionRelation;
 	}
 
 	public void setIdFeature(String idFeature) {
@@ -394,11 +423,11 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 	}
 
 	public void setDependenciesRelationName(String dependenciesRelationName) {
-		this.dependenciesRelationName = dependenciesRelationName;
+		this.dependenciesRelation = dependenciesRelationName;
 	}
 
 	public void setDependencyLabelFeatureName(String dependencyLabelFeatureName) {
-		this.dependencyLabelFeatureName = dependencyLabelFeatureName;
+		this.dependencyLabelFeature = dependencyLabelFeatureName;
 	}
 
 	public void setHeadRole(String headRole) {
@@ -418,7 +447,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 	}
 
 	public void setGenicInteractionRelationName(String genicInteractionRelationName) {
-		this.genicInteractionRelationName = genicInteractionRelationName;
+		this.genicInteractionRelation = genicInteractionRelationName;
 	}
 
 	public void setGenicAgentRole(String genicAgentRole) {

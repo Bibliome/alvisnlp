@@ -23,8 +23,12 @@
       <p>Names of layers to serialize. Layers not mentioned in this parameter will not be serialized. Use this to limit the amount of serialized data. By default <this/> serializes all annotations in all layers.</p>
     </param-doc>
     
-    <param-doc mandatory="optional" name="relationNames" name-type="relation" short-type="String[]" type="java.lang.String[]">
+    <param-doc mandatory="optional" name="relations" name-type="relation" short-type="String[]" type="java.lang.String[]">
       <p>Names of relations to serialize. Relations not mentioned in this parameter will not be serialized. Use this to limit the amount of serialized data. By default <this/> serializes all tuples in all relations.</p>
+    </param-doc>
+    
+    <param-doc mandatory="optional" name="relationNames" name-type="relation" short-type="String[]" type="java.lang.String[]">
+      <p>Deprecated alias for <param>relations</param>.</p>
     </param-doc>
     
     <param-doc mandatory="required" name="script" short-type="SourceStream" type="fr.inra.maiage.bibliome.util.streams.SourceStream">

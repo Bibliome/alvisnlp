@@ -46,7 +46,7 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 	private InputFile stanfordMarkedUpScript;
 	private ExecutableFile stanfordScript;
 	private Integer maxSuperCats = 500000;
-	private String relationName = DefaultNames.getDependencyRelationName();
+	private String dependencyRelation = DefaultNames.getDependencyRelationName();
 	private String labelFeature = DefaultNames.getDependencyLabelFeatureName();
 	private String sentenceRole = DefaultNames.getDependencySentenceRole();
 	private String headRole = DefaultNames.getDependencyHeadRole();
@@ -116,9 +116,10 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 		return maxSuperCats;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.RELATION)
 	public String getRelationName() {
-		return relationName;
+		return dependencyRelation;
 	}
 
 	@Deprecated
@@ -163,6 +164,15 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 		return supertagFeature;
 	}
 
+	@Param(nameType=NameType.RELATION)
+	public String getDependencyRelation() {
+		return dependencyRelation;
+	}
+
+	public void setDependencyRelation(String dependencyRelation) {
+		this.dependencyRelation = dependencyRelation;
+	}
+
 	public void setLabelFeature(String labelFeature) {
 		this.labelFeature = labelFeature;
 	}
@@ -204,7 +214,7 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 	}
 
 	public void setRelationName(String relationName) {
-		this.relationName = relationName;
+		this.dependencyRelation = relationName;
 	}
 
 	public void setLabelFeatureName(String labelFeatureName) {

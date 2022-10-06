@@ -52,7 +52,7 @@ import fr.inra.maiage.bibliome.util.mappers.Mappers;
 
 @AlvisNLPModule
 public abstract class CartesianProductTuples extends SectionModule<CartesianProductTuplesResolvedObjects> implements TupleCreator {
-	private String relationName;
+	private String relation;
 	private Expression anchor;
 	private ExpressionMapping arguments;
 		
@@ -90,7 +90,7 @@ public abstract class CartesianProductTuples extends SectionModule<CartesianProd
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		ExpressionToAnnotationMapper mapper = new ExpressionToAnnotationMapper(evalCtx);
 		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-			Relation rel = sec.ensureRelation(this, relationName);
+			Relation rel = sec.ensureRelation(this, relation);
 			for (Element anchorAnnotation : Iterators.loop(resObj.anchor.evaluateElements(evalCtx, sec))) {
 				mapper.anchor = anchorAnnotation;
 				List<Collection<Annotation>> generators = new ArrayList<Collection<Annotation>>(argExprs.size());
@@ -138,9 +138,10 @@ public abstract class CartesianProductTuples extends SectionModule<CartesianProd
 		return null;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.RELATION)
 	public String getRelationName() {
-		return relationName;
+		return relation;
 	}
 
 	@Param
@@ -153,8 +154,17 @@ public abstract class CartesianProductTuples extends SectionModule<CartesianProd
 		return arguments;
 	}
 
+	@Param(nameType=NameType.RELATION)
+	public String getRelation() {
+		return relation;
+	}
+
+	public void setRelation(String relation) {
+		this.relation = relation;
+	}
+
 	public void setRelationName(String relationName) {
-		this.relationName = relationName;
+		this.relation = relationName;
 	}
 
 	public void setAnchor(Expression anchor) {

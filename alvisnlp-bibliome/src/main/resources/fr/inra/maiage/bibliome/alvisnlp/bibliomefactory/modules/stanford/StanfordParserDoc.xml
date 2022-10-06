@@ -18,9 +18,15 @@
 		</param-doc>
 
 		<param-doc default-value="dependencies"
-			mandatory="default: dependencies" name="dependencyRelationName"
+			mandatory="default: dependencies" name="dependencyRelation"
 			name-type="relation" short-type="String" type="java.lang.String">
 			<p>Name of the relation where to store dependency tuples.</p>
+		</param-doc>
+
+		<param-doc default-value="dependencies"
+			mandatory="default: dependencies" name="dependencyRelationName"
+			name-type="relation" short-type="String" type="java.lang.String">
+			<p>Deprecated alias for <param>dependencyRelation</param>.</p>
 		</param-doc>
 
 		<param-doc default-value="sentence"

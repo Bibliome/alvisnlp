@@ -51,7 +51,7 @@ import fr.inra.maiage.bibliome.util.Iterators;
 
 @AlvisNLPModule
 public abstract class AnchorTuples extends SectionModule<AnchorTuplesResolvedObjects> implements TupleCreator {
-	private String relationName;
+	private String relation;
 	private Expression anchor;
 	private String anchorRole;
 	private ExpressionMapping arguments;
@@ -92,7 +92,7 @@ public abstract class AnchorTuples extends SectionModule<AnchorTuplesResolvedObj
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		int n = 0;
 		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-			Relation rel = sec.ensureRelation(this, relationName);
+			Relation rel = sec.ensureRelation(this, relation);
 			for (Element elt : Iterators.loop(resObj.anchor.evaluateElements(evalCtx, sec))) {
 				Annotation anchorAnnotation = DownCastElement.toAnnotation(elt);
 				resObj.anchorVariable.set(anchorAnnotation);
@@ -138,9 +138,10 @@ public abstract class AnchorTuples extends SectionModule<AnchorTuplesResolvedObj
 		return null;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.RELATION)
 	public String getRelationName() {
-		return relationName;
+		return relation;
 	}
 
 	@Param
@@ -158,8 +159,17 @@ public abstract class AnchorTuples extends SectionModule<AnchorTuplesResolvedObj
 		return arguments;
 	}
 
+	@Param(nameType=NameType.RELATION)
+	public String getRelation() {
+		return relation;
+	}
+
+	public void setRelation(String relation) {
+		this.relation = relation;
+	}
+
 	public void setRelationName(String relationName) {
-		this.relationName = relationName;
+		this.relation = relationName;
 	}
 
 	public void setAnchor(Expression anchor) {

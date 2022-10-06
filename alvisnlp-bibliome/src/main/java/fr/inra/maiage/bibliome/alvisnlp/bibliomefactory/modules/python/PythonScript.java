@@ -12,7 +12,7 @@ public abstract class PythonScript extends PythonScriptBase {
 	private Boolean callPython = false;
 	private SourceStream script;
 	private String[] layerNames;
-	private String[] relationNames;
+	private String[] relations;
 	private ExpressionMapping scriptParams = new ExpressionMapping();
 
 	@Override
@@ -28,8 +28,8 @@ public abstract class PythonScript extends PythonScriptBase {
 
 	@Override
 	@Param(mandatory = false, nameType = NameType.RELATION)
-	public String[] getRelationNames() {
-		return relationNames;
+	public String[] getRelations() {
+		return relations;
 	}
 
 	@Override
@@ -56,12 +56,22 @@ public abstract class PythonScript extends PythonScriptBase {
 		return scriptParams;
 	}
 
-	public void setLayerNames(String[] layerNames) {
-		this.layerNames = layerNames;
+	@Deprecated
+	@Param(mandatory = false, nameType = NameType.RELATION)
+	public String[] getRelationNames() {
+		return relations;
 	}
 
-	public void setRelationNames(String[] relationNames) {
-		this.relationNames = relationNames;
+	public void setRelationNames(String[] relations) {
+		this.relations = relations;
+	}
+
+	public void setRelations(String[] relations) {
+		this.relations = relations;
+	}
+
+	public void setLayerNames(String[] layerNames) {
+		this.layerNames = layerNames;
 	}
 
 	public void setCommandLine(String[] commandLine) {
