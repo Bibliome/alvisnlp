@@ -56,9 +56,9 @@ public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> 
 	private Boolean searchInContents = false;
 	private String wordLayerName = DefaultNames.getWordLayer();
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
-	private String formFeatureName = Annotation.FORM_FEATURE_NAME;
+	private String formFeature = Annotation.FORM_FEATURE_NAME;
 	private String targetLayerName;
-	private String labelFeatureName;
+	private String labelFeature;
 	
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
@@ -111,7 +111,7 @@ public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> 
 		@Override
 		public CoreLabel map(Annotation x) {
 			CoreLabel result = new CoreLabel();
-			result.setWord(x.getLastFeature(formFeatureName));
+			result.setWord(x.getLastFeature(formFeature));
 			return result;
 		}
 	};
@@ -154,7 +154,7 @@ public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> 
 	private void createAnnotation(Layer targetLayer, int start, int end, String label, AtomicInteger n) {
 		if (!label.equals("O")) {
 			Annotation a = new Annotation(this, targetLayer, start, end);
-			a.addFeature(labelFeatureName, label);
+			a.addFeature(labelFeature, label);
 			n.incrementAndGet();
 		}
 	}
@@ -187,9 +187,10 @@ public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> 
 		return sentenceLayerName;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getFormFeatureName() {
-		return formFeatureName;
+		return formFeature;
 	}
 
 	@Param(nameType=NameType.LAYER)
@@ -197,14 +198,33 @@ public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> 
 		return targetLayerName;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getLabelFeatureName() {
-		return labelFeatureName;
+		return labelFeature;
 	}
 
 	@Param
 	public Boolean getSearchInContents() {
 		return searchInContents;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getFormFeature() {
+		return formFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getLabelFeature() {
+		return labelFeature;
+	}
+
+	public void setFormFeature(String formFeature) {
+		this.formFeature = formFeature;
+	}
+
+	public void setLabelFeature(String labelFeature) {
+		this.labelFeature = labelFeature;
 	}
 
 	public void setSearchInContents(Boolean searchInContents) {
@@ -216,7 +236,7 @@ public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> 
 	}
 
 	public void setLabelFeatureName(String labelFeatureName) {
-		this.labelFeatureName = labelFeatureName;
+		this.labelFeature = labelFeatureName;
 	}
 
 	public void setClassifierFile(InputFile classifierFile) {
@@ -232,6 +252,6 @@ public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> 
 	}
 
 	public void setFormFeatureName(String formFeatureName) {
-		this.formFeatureName = formFeatureName;
+		this.formFeature = formFeatureName;
 	}
 }

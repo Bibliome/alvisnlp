@@ -40,10 +40,10 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 	private SourceStream docStream;
 	private SourceStream entitiesStream;
 	private String tokenLayerName = "tokens";
-	private String ordFeatureKey = "ord";
+	private String ordFeature = "ord";
 	private String sectionName = "text";
 	private String entityLayerName = "entities";
-	private String propertiesFeatureKey = "properties";
+	private String propertiesFeature = "properties";
 	
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -83,7 +83,7 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 		for (String col : record.getParser().getHeaderNames()) {
 			String value = record.get(col);
 			a.addFeature(col, value);
-			a.addFeature(propertiesFeatureKey, value);
+			a.addFeature(propertiesFeature, value);
 		}
 	}
 	
@@ -108,7 +108,7 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 
 	private Annotation lookupToken(Layer tokens, String tokenIndexStr) {
 		for (Annotation t : tokens) {
-			if (tokenIndexStr.equals(t.getLastFeature(ordFeatureKey))) {
+			if (tokenIndexStr.equals(t.getLastFeature(ordFeature))) {
 				return t;
 			}
 		}
@@ -157,7 +157,7 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 		for (int i = 0; i < frags.size(); ++i) {
 			Fragment f = frags.get(i);
 			Annotation a = new Annotation(this, layer, f.getStart(), f.getEnd());
-			a.addFeature(ordFeatureKey, Integer.toString(i));
+			a.addFeature(ordFeature, Integer.toString(i));
 		}
 	}
 	
@@ -196,9 +196,10 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 		return tokenLayerName;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getOrdFeatureKey() {
-		return ordFeatureKey;
+		return ordFeature;
 	}
 
 	@Param(nameType=NameType.SECTION)
@@ -211,9 +212,28 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 		return entityLayerName;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getPropertiesFeatureKey() {
-		return propertiesFeatureKey;
+		return propertiesFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getOrdFeature() {
+		return ordFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getPropertiesFeature() {
+		return propertiesFeature;
+	}
+
+	public void setOrdFeature(String ordFeature) {
+		this.ordFeature = ordFeature;
+	}
+
+	public void setPropertiesFeature(String propertiesFeature) {
+		this.propertiesFeature = propertiesFeature;
 	}
 
 	public void setEntitiesStream(SourceStream entitiesStream) {
@@ -225,7 +245,7 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 	}
 
 	public void setOrdFeatureKey(String ordFeatureKey) {
-		this.ordFeatureKey = ordFeatureKey;
+		this.ordFeature = ordFeatureKey;
 	}
 
 	public void setSectionName(String sectionName) {
@@ -237,7 +257,7 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 	}
 
 	public void setPropertiesFeatureKey(String propertiesFeatureKey) {
-		this.propertiesFeatureKey = propertiesFeatureKey;
+		this.propertiesFeature = propertiesFeatureKey;
 	}
 
 	public void setDocStream(SourceStream docStream) {

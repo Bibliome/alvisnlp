@@ -22,12 +22,20 @@
 <p>Name of the layer where to create entities.</p>
 </param-doc>
 
-<param-doc default-value="ord" mandatory="default: ord" name="ordFeatureKey" name-type="feature" short-type="String" type="java.lang.String">
+<param-doc default-value="ord" mandatory="default: ord" name="ordFeature" name-type="feature" short-type="String" type="java.lang.String">
 <p>Name of the feature where to record the token ordinal.</p>
 </param-doc>
 
-<param-doc default-value="properties" mandatory="default: properties" name="propertiesFeatureKey" name-type="feature" short-type="String" type="java.lang.String">
+<param-doc default-value="properties" mandatory="default: properties" name="propertiesFeature" name-type="feature" short-type="String" type="java.lang.String">
 <p>Name of the feature where to record entities properties. <this/> also records each property in a separate feature.</p>
+</param-doc>
+
+<param-doc default-value="ord" mandatory="default: ord" name="ordFeatureKey" name-type="feature" short-type="String" type="java.lang.String">
+<p>Deprecated alias for <param>ordFeature</param>.</p>
+</param-doc>
+
+<param-doc default-value="properties" mandatory="default: properties" name="propertiesFeatureKey" name-type="feature" short-type="String" type="java.lang.String">
+<p>Deprecated alias for <param>propertiesFeature</param>.</p>
 </param-doc>
 
 <param-doc default-value="text" mandatory="default: text" name="sectionName" name-type="section" short-type="String" type="java.lang.String">

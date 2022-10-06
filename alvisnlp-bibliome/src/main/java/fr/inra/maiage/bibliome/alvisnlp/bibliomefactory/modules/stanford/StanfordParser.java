@@ -42,12 +42,12 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
 	private String tokenLayerName = DefaultNames.getWordLayer();
 	private Expression sentenceFilter = ConstantsLibrary.TRUE;
-	private String formFeatureName = Annotation.FORM_FEATURE_NAME;
-	private String posTagFeatureName = DefaultNames.getPosTagFeature();
+	private String formFeature = Annotation.FORM_FEATURE_NAME;
+	private String posTagFeature = DefaultNames.getPosTagFeature();
 	private String dependencyRelationName = DefaultNames.getDependencyRelationName();
 	private String headRole = DefaultNames.getDependencyHeadRole();
 	private String dependentRole = DefaultNames.getDependencyDependentRole();
-	private String dependencyLabelFeatureName = DefaultNames.getDependencyLabelFeatureName();
+	private String dependencyLabelFeature = DefaultNames.getDependencyLabelFeatureName();
 	private String dependencySentenceRole = DefaultNames.getDependencySentenceRole();
 	private Boolean omitRoot = false;
 	private Language language = Language.ENGLISH;
@@ -105,8 +105,8 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	private List<TaggedWord> convertSentenceTokens(Layer sentenceTokens) {
 		List<TaggedWord> result = new ArrayList<TaggedWord>(sentenceTokens.size());
 		for (Annotation t : sentenceTokens) {
-			String form = t.getLastFeature(formFeatureName);
-			String pos = t.getLastFeature(posTagFeatureName);
+			String form = t.getLastFeature(formFeature);
+			String pos = t.getLastFeature(posTagFeature);
 			TaggedWord tw = new TaggedWord(form, pos);
 			result.add(tw);
 		}
@@ -132,7 +132,7 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		t.setArgument(dependencySentenceRole, sentence);
 		t.setArgument(headRole, head);
 		t.setArgument(dependentRole, mod);
-		t.addFeature(dependencyLabelFeatureName, label);
+		t.addFeature(dependencyLabelFeature, label);
 	}
 
 	@Override
@@ -184,14 +184,16 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		return sentenceFilter;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getFormFeatureName() {
-		return formFeatureName;
+		return formFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getPosTagFeatureName() {
-		return posTagFeatureName;
+		return posTagFeature;
 	}
 
 	@Param(nameType=NameType.RELATION)
@@ -209,9 +211,10 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		return dependentRole;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getDependencyLabelFeatureName() {
-		return dependencyLabelFeatureName;
+		return dependencyLabelFeature;
 	}
 
 	@Param(nameType=NameType.ARGUMENT)
@@ -227,6 +230,33 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	@Param
 	public Language getLanguage() {
 		return language;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getFormFeature() {
+		return formFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getPosTagFeature() {
+		return posTagFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getDependencyLabelFeature() {
+		return dependencyLabelFeature;
+	}
+
+	public void setFormFeature(String formFeature) {
+		this.formFeature = formFeature;
+	}
+
+	public void setPosTagFeature(String posTagFeature) {
+		this.posTagFeature = posTagFeature;
+	}
+
+	public void setDependencyLabelFeature(String dependencyLabelFeature) {
+		this.dependencyLabelFeature = dependencyLabelFeature;
 	}
 
 	public void setLanguage(Language language) {
@@ -250,11 +280,11 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	}
 
 	public void setFormFeatureName(String formFeatureName) {
-		this.formFeatureName = formFeatureName;
+		this.formFeature = formFeatureName;
 	}
 
 	public void setPosTagFeatureName(String posTagFeatureName) {
-		this.posTagFeatureName = posTagFeatureName;
+		this.posTagFeature = posTagFeatureName;
 	}
 
 	public void setDependencyRelationName(String dependencyRelationName) {
@@ -270,7 +300,7 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	}
 
 	public void setDependencyLabelFeatureName(String dependencyLabelFeatureName) {
-		this.dependencyLabelFeatureName = dependencyLabelFeatureName;
+		this.dependencyLabelFeature = dependencyLabelFeatureName;
 	}
 
 	public void setDependencySentenceRole(String dependencySentenceRole) {

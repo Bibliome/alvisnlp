@@ -28,16 +28,24 @@ limitations under the License.
       <p>The document identifier is the path of the corresponding file.</p>
     </description>
   
-    <param-doc name="lemmaFeatureKey">
+    <param-doc name="lemmaFeature">
       <p>Name of the feature where to store word lemmas.</p>
+    </param-doc>
+      
+    <param-doc name="posFeature">
+      <p>Name of the feature where to store word POS tags.</p>
+    </param-doc>
+  
+    <param-doc name="lemmaFeatureKey">
+      <p>Deprecated alias for <param>lemmaFeature</param>.</p>
+    </param-doc>
+      
+    <param-doc name="posFeatureKey">
+      <p>Deprecated alias for <param>posFeature</param>.</p>
     </param-doc>
   
     <param-doc name="sentenceLayerName">
       <p>Name of the layer where to store sentence annotations.</p>
-    </param-doc>
-      
-    <param-doc name="posFeatureKey">
-      <p>Name of the feature where to store word POS tags.</p>
     </param-doc>
   
     <param-doc name="wordLayerName">

@@ -47,12 +47,12 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 	private ExecutableFile stanfordScript;
 	private Integer maxSuperCats = 500000;
 	private String relationName = DefaultNames.getDependencyRelationName();
-	private String labelFeatureName = DefaultNames.getDependencyLabelFeatureName();
+	private String labelFeature = DefaultNames.getDependencyLabelFeatureName();
 	private String sentenceRole = DefaultNames.getDependencySentenceRole();
 	private String headRole = DefaultNames.getDependencyHeadRole();
 	private String dependentRole = DefaultNames.getDependencyDependentRole();
 	private Boolean lpTransformation = false;
-	private String supertagFeatureName = "supertag";
+	private String supertagFeature = "supertag";
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -121,9 +121,10 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 		return relationName;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getLabelFeatureName() {
-		return labelFeatureName;
+		return labelFeature;
 	}
 
 	@Param(nameType=NameType.ARGUMENT)
@@ -146,13 +147,32 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 		return lpTransformation;
 	}
 
+	@Deprecated
 	@Param
 	public String getSupertagFeatureName() {
-		return supertagFeatureName;
+		return supertagFeature;
+	}
+
+	@Param(nameType = NameType.FEATURE)
+	public String getLabelFeature() {
+		return labelFeature;
+	}
+
+	@Param(nameType = NameType.FEATURE)
+	public String getSupertagFeature() {
+		return supertagFeature;
+	}
+
+	public void setLabelFeature(String labelFeature) {
+		this.labelFeature = labelFeature;
+	}
+
+	public void setSupertagFeature(String supertagFeature) {
+		this.supertagFeature = supertagFeature;
 	}
 
 	public void setSupertagFeatureName(String supertagFeatureName) {
-		this.supertagFeatureName = supertagFeatureName;
+		this.supertagFeature = supertagFeatureName;
 	}
 
 	public void setLpTransformation(Boolean lpTransformation) {
@@ -188,7 +208,7 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 	}
 
 	public void setLabelFeatureName(String labelFeatureName) {
-		this.labelFeatureName = labelFeatureName;
+		this.labelFeature = labelFeatureName;
 	}
 
 	public void setSentenceRole(String sentenceRole) {

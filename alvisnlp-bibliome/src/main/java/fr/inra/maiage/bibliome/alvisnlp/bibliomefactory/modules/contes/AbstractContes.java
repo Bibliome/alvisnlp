@@ -12,9 +12,13 @@ public interface AbstractContes {
 	@Param(nameType=NameType.LAYER)
 	String getTokenLayerName();
 	
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	String getFormFeatureName();
 	
+	@Param(nameType=NameType.FEATURE)
+	String getFormFeature();
+
 	@Param
 	ExecutableFile getPython3Executable();
 
@@ -27,7 +31,10 @@ public interface AbstractContes {
 
 	void setTokenLayerName(String tokenLayer);
 
+	@Deprecated
 	void setFormFeatureName(String formFeature);
-	
+
+	void setFormFeature(String formFeature);
+
 	void setPython3Executable(ExecutableFile python3Executable);
 }

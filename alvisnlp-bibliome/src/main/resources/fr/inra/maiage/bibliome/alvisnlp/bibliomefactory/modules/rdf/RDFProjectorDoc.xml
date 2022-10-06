@@ -50,8 +50,12 @@ limitations under the License.
       <p>Type of RDF resources that represent an entry.</p>
     </param-doc>
 
-    <param-doc name="uriFeatureName">
+    <param-doc name="uriFeature">
       <p>Feature where to store the entry URI.</p>
+    </param-doc>
+
+    <param-doc name="uriFeatureName">
+      <p>Deprecated alias for <param>uriFeature</param>.</p>
     </param-doc>
     
     <param-doc name="prefixes">

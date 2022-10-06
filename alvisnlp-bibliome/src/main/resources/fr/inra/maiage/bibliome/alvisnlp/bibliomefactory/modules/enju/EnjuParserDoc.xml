@@ -18,77 +18,102 @@ limitations under the License.
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.enju.EnjuParser2">
 
   <synopsis>
-    <p>synopsis</p>
+    <p>Dependency parsing using <a href="https://mynlp.is.s.u-tokyo.ac.jp/enju/">Enju parser</a>.</p>
   </synopsis>
 
   <module-doc>
     <description>
-      <p>synopsis</p>
+      <p><this/> parses sentences using <a href="https://mynlp.is.s.u-tokyo.ac.jp/enju/">Enju parser</a>.</p>
     </description>
   
-    <param-doc name="wordFormFeatureName">
-      <p/>
-    </param-doc>
-  
     <param-doc name="sentenceRole">
-      <p/>
+      <p>Role of the sentence in tuples representing dependencies.</p>
     </param-doc>
   
     <param-doc name="sentenceLayerName">
-      <p/>
-    </param-doc>
-  
-    <param-doc name="parseStatusFeatureName">
-      <p/>
+      <p>Layer containing sentences.</p>
     </param-doc>
   
     <param-doc name="nBest">
-      <p/>
+      <p>Number of parses to obtain in each sentence.</p>
     </param-doc>
   
     <param-doc name="biology">
-      <p/>
+      <p>Use the parsing model adapted to biomedical texts.</p>
     </param-doc>
   
     <param-doc name="dependencyDependentRole">
-      <p/>
+      <p>Role of the dependent token in tuples representing dependencies.</p>
     </param-doc>
   
     <param-doc name="wordLayerName">
-      <p/>
+      <p>Layer containing tokens.</p>
+    </param-doc>
+  
+    <param-doc name="dependencyLabelFeature">
+      <p>Feature where to store the dependency label.</p>
+    </param-doc>
+  
+    <param-doc name="posFeature">
+      <p>POS feature of the token.</p>
+    </param-doc>
+  
+    <param-doc name="parseStatusFeature">
+      <p>Feature where to store the parse status.</p>
+    </param-doc>
+  
+    <param-doc name="wordFormFeature">
+      <p>Surface form feature of the token.</p>
+    </param-doc>
+  
+    <param-doc name="dependentTypeFeature">
+      <p>Feature where to store the dependent type.</p>
+    </param-doc>
+  
+    <param-doc name="parseNumberFeature">
+      <p>Feature where to store the parse tree number.</p>
     </param-doc>
   
     <param-doc name="dependencyLabelFeatureName">
-      <p/>
-    </param-doc>
-  
-    <param-doc name="enjuEncoding">
-      <p/>
+      <p>Deprecated alias for <param>dependencyLabelFeature</param></p>
     </param-doc>
   
     <param-doc name="posFeatureName">
-      <p/>
+      <p>Deprecated alias for <param>posFeature</param></p>
     </param-doc>
   
-    <param-doc name="dependencyHeadRole">
-      <p/>
+    <param-doc name="parseStatusFeatureName">
+      <p>Deprecated alias for <param>parseStatusFeature</param></p>
     </param-doc>
   
-    <param-doc name="dependenciesRelationName">
-      <p/>
-    </param-doc>
-  
-    <param-doc name="enjuExecutable">
-      <p/>
+    <param-doc name="wordFormFeatureName">
+      <p>Deprecated alias for <param>wordFormFeature</param></p>
     </param-doc>
   
     <param-doc name="dependentTypeFeatureName">
-      <p/>
+      <p>Deprecated alias for <param>dependentTypeFeature</param></p>
     </param-doc>
   
     <param-doc name="parseNumberFeatureName">
-      <p/>
+      <p>Deprecated alias for <param>parseNumberFeatureName</param></p>
     </param-doc>
+  
+    <param-doc name="enjuEncoding">
+      <p>Character encoding used by Enju input and output files.</p>
+    </param-doc>
+  
+    <param-doc name="dependencyHeadRole">
+      <p>Role of the head (governor) token in tuples representing dependencies.</p>
+    </param-doc>
+  
+    <param-doc name="dependenciesRelationName">
+      <p>Relation where to store dependencies.</p>
+    </param-doc>
+  
+    <param-doc name="enjuExecutable">
+      <p>Path to the Enju executable file.</p>
+    </param-doc>
+
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreatorParamsDoc</include-doc>
 </module-doc>

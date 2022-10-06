@@ -32,12 +32,20 @@ limitations under the License.
       <p>Name of the layer containing word annotations.</p>
     </param-doc>
   
-    <param-doc name="posFeatureName">
+    <param-doc name="posFeature">
       <p>Name of the feature in word annotations where to write POS tags. This feature is read for previous POS tags if <param name="keepPreviousPos"/> is set to <em>true</em>.</p>
     </param-doc>
   
-    <param-doc name="formFeatureName">
+    <param-doc name="formFeature">
       <p>Name of the feature in word annotations that contains the surface form.</p>
+    </param-doc>
+  
+    <param-doc name="posFeatureName">
+      <p>Deprecated alias for <param>posFeature</param>.</p>
+    </param-doc>
+  
+    <param-doc name="formFeatureName">
+      <p>Deprecated alias for <param>formFeature</param>.</p>
     </param-doc>
   
     <param-doc name="internalEncoding">

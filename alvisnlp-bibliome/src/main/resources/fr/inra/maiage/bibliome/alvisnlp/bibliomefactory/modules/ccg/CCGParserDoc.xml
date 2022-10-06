@@ -64,8 +64,20 @@ limitations under the License.
       <p>Name of the role that denote the head word in the dependency tuple.</p>
     </param-doc>
   
-    <param-doc name="labelFeatureName">
+    <param-doc name="labelFeature">
       <p>Name of the feature containing the dependency label.</p>
+    </param-doc>
+  
+    <param-doc name="labelFeatureName">
+      <p>Deprecated alias for <param>labelFeature</param>.</p>
+    </param-doc>
+  
+    <param-doc name="supertagFeature">
+      <p>Name of the feature containing the supertag label.</p>
+    </param-doc>
+  
+    <param-doc name="supertagFeatureName">
+      <p>Deprecated alias for <param>supertagFeature</param>.</p>
     </param-doc>
   
     <param-doc name="executable">

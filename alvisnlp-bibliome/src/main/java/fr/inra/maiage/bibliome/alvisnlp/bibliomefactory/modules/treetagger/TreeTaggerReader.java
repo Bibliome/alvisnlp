@@ -53,8 +53,8 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 	private String sectionName = DefaultNames.getDefaultSectionName();
 	private String wordLayerName = DefaultNames.getWordLayer();
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
-	private String posFeatureKey = null;
-	private String lemmaFeatureKey = null;
+	private String posFeature = null;
+	private String lemmaFeature = null;
 	private String charset = "UTF-8";
 	private SourceStream source;
 	
@@ -85,10 +85,10 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 				sentenceStart = end + 1;
 			}
 			Annotation a = new Annotation(this, wordLayer, wordStart, end);
-			if (posFeatureKey != null)
-				a.addFeature(posFeatureKey, pos);
-			if (lemmaFeatureKey != null)
-				a.addFeature(lemmaFeatureKey, t.get(2));
+			if (posFeature != null)
+				a.addFeature(posFeature, pos);
+			if (lemmaFeature != null)
+				a.addFeature(lemmaFeature, t.get(2));
 			wordStart = end + 1;
 			tokens.set(i, null);
 		}	
@@ -141,14 +141,16 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 		return sentenceLayerName;
 	}
 
+	@Deprecated
 	@Param(mandatory=false, defaultDoc = "Name of the feature where to store word POS tags.")
 	public String getPosFeatureKey() {
-		return posFeatureKey;
+		return posFeature;
 	}
 
+	@Deprecated
 	@Param(mandatory=false, defaultDoc = "Name of the feature where to store word lemmas.")
 	public String getLemmaFeatureKey() {
-		return lemmaFeatureKey;
+		return lemmaFeature;
 	}
 	
 	@Param(defaultDoc = "Character set of input files.")
@@ -167,6 +169,24 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 		return source;
 	}
 
+	@Param(mandatory = false, nameType = NameType.FEATURE)
+	public String getPosFeature() {
+		return posFeature;
+	}
+
+	@Param(mandatory = false, nameType = NameType.FEATURE)
+	public String getLemmaFeature() {
+		return lemmaFeature;
+	}
+
+	public void setPosFeature(String posFeature) {
+		this.posFeature = posFeature;
+	}
+
+	public void setLemmaFeature(String lemmaFeature) {
+		this.lemmaFeature = lemmaFeature;
+	}
+
 	public void setSource(SourceStream source) {
 		this.source = source;
 	}
@@ -180,11 +200,11 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 	}
 
 	public void setPosFeatureKey(String posFeatureKey) {
-		this.posFeatureKey = posFeatureKey;
+		this.posFeature = posFeatureKey;
 	}
 
 	public void setLemmaFeatureKey(String lemmaFeatureKey) {
-		this.lemmaFeatureKey = lemmaFeatureKey;
+		this.lemmaFeature = lemmaFeatureKey;
 	}
 
 	public void setSectionName(String sectionName) {

@@ -31,6 +31,10 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="predictedClassFeatureKey">
+      <p>Deprecated alias for <param>predictedClassFeature</param>.</p>
+    </param-doc>
+  
+    <param-doc name="predictedClassFeature">
       <p>Feature where to write the class prediction if cross validation is activated.</p>
     </param-doc>
   

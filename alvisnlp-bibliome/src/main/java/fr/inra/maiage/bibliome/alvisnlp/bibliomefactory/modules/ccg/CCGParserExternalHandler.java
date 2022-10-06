@@ -187,11 +187,11 @@ class CCGParserExternalHandler extends AbstractCCGExternalHandler<CCGResolvedObj
 		}
 
 		public String getPOS1() {
-			return a1.getLastFeature(getModule().getPosFeatureName());
+			return a1.getLastFeature(getModule().getPosFeature());
 		}
 
 		public String getPOS2() {
-			return a2.getLastFeature(getModule().getPosFeatureName());
+			return a2.getLastFeature(getModule().getPosFeature());
 		}
 
 		public String getSTag1() {

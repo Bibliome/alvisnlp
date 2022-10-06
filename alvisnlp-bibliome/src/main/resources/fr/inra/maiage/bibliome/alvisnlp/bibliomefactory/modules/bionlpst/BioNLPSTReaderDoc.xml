@@ -53,20 +53,40 @@ limitations under the License.
       <p>Prefix of the role of arguments that represent text-bound fragments.</p>
     </param-doc>
   
-    <param-doc name="idFeatureName">
-      <p>Feature where to store the annotation identifier.</p>
-    </param-doc>
-  
-    <param-doc name="typeFeatureName">
-      <p>Feature where to store the type of the annotation.</p>
-    </param-doc>
-  
     <param-doc name="equivalenceRelationName">
       <p>Name of the relation whose tuples represent equivalences.</p>
     </param-doc>
   
-    <param-doc name="fragmentCountFeatureName">
+    <param-doc name="fragmentCountFeature">
       <p>Feature where to store the number of merged fragments. This feature is only set if <param name="textBoundAsAnnotations"/> is <code>true</code>.</p>
+    </param-doc>
+  
+    <param-doc name="idFeature">
+      <p>Feature where to store the annotation identifier.</p>
+    </param-doc>
+  
+    <param-doc name="typeFeature">
+      <p>Feature where to store the type of the annotation.</p>
+    </param-doc>
+  
+    <param-doc name="kindFeature">
+      <p>Feature of relations contatining the annotation kind.</p>
+    </param-doc>
+  
+    <param-doc name="fragmentCountFeatureName">
+      <p>Deprecated alias for <param>fragmentCountFeature</param>.</p>
+    </param-doc>
+  
+    <param-doc name="idFeatureName">
+      <p>Deprecated alias for <param>idFeature</param>.</p>
+    </param-doc>
+  
+    <param-doc name="typeFeatureName">
+      <p>Deprecated alias for <param>typeFeature</param>.</p>
+    </param-doc>
+  
+    <param-doc name="kindFeatureName">
+      <p>Deprecated alias for <param>kindFeature</param>.</p>
     </param-doc>
   
     <param-doc name="triggerRole">
@@ -91,10 +111,6 @@ limitations under the License.
   
     <param-doc name="eventKind">
       <p>Kind value for event annotations.</p>
-    </param-doc>
-  
-    <param-doc name="kindFeatureName">
-      <p>Feature of relations contatining the annotation kind.</p>
     </param-doc>
     
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>

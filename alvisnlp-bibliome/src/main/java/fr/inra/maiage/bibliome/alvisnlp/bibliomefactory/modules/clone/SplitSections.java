@@ -63,7 +63,7 @@ public abstract class SplitSections extends SectionModule<SplitSectionsResolvedO
 	private String selectLayerName;
 	private Boolean mergeOverlapping = false;
 	private Boolean splitDocuments = false;
-	private String croppedAnnotationFeatureName = "cropped";
+	private String croppedAnnotationFeature = "cropped";
 	private Expression docId = new Expression(StringLibrary.NAME, "concat",
 			new Expression(PropertiesLibrary.NAME, "@", Document.ID_FEATURE_NAME),
 			new Expression(ConstantsLibrary.NAME, "string", "__"),
@@ -187,7 +187,7 @@ public abstract class SplitSections extends SectionModule<SplitSectionsResolvedO
 			Annotation newA = new Annotation(this, target, newStart, newEnd);
 			map.put(newDoc, a, newA);
 			if ((start < selectStart) || (end > selectEnd)) {
-				newA.addFeature(croppedAnnotationFeatureName, "true");
+				newA.addFeature(croppedAnnotationFeature, "true");
 			}
 		}
 	}
@@ -262,9 +262,10 @@ public abstract class SplitSections extends SectionModule<SplitSectionsResolvedO
 		return mergeOverlapping;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getCroppedAnnotationFeatureName() {
-		return croppedAnnotationFeatureName;
+		return croppedAnnotationFeature;
 	}
 
 	@Param
@@ -272,12 +273,21 @@ public abstract class SplitSections extends SectionModule<SplitSectionsResolvedO
 		return docId;
 	}
 
+	@Param(nameType=NameType.FEATURE)
+	public String getCroppedAnnotationFeature() {
+		return croppedAnnotationFeature;
+	}
+
+	public void setCroppedAnnotationFeature(String croppedAnnotationFeature) {
+		this.croppedAnnotationFeature = croppedAnnotationFeature;
+	}
+
 	public void setDocId(Expression docId) {
 		this.docId = docId;
 	}
 
 	public void setCroppedAnnotationFeatureName(String croppedAnnotationFeatureName) {
-		this.croppedAnnotationFeatureName = croppedAnnotationFeatureName;
+		this.croppedAnnotationFeature = croppedAnnotationFeatureName;
 	}
 
 	public void setMergeOverlapping(Boolean mergeOverlapping) {

@@ -25,7 +25,7 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 	
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
 	private String tokenLayerName = DefaultNames.getWordLayer();
-	private String formFeatureName = Annotation.FORM_FEATURE_NAME;
+	private String formFeature = Annotation.FORM_FEATURE_NAME;
 	private String vectorFeatureName = null;
 	
 	private Integer vectorSize = 200;
@@ -99,15 +99,27 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 	}
 
 	@Override
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getFormFeatureName() {
-		return formFeatureName;
+		return formFeature;
 	}
 
 	@Override
 	@Param
 	public InputDirectory getContesDir() {
 		return contesDir;
+	}
+
+	@Override
+	@Param(nameType=NameType.FEATURE)
+	public String getFormFeature() {
+		return formFeature;
+	}
+
+	@Override
+	public void setFormFeature(String formFeature) {
+		this.formFeature = formFeature;
 	}
 
 	public void setModelFile(OutputFile binFile) {
@@ -126,7 +138,7 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 
 	@Override
 	public void setFormFeatureName(String formFeature) {
-		this.formFeatureName = formFeature;
+		this.formFeature = formFeature;
 	}
 
 	public void setSentenceLayerName(String sentenceLayer) {

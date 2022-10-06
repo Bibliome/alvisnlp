@@ -180,10 +180,16 @@ public class WekaTrain extends PredictionElementClassifier {
         }
 	}
 
-	@Override
+	@Deprecated
 	@Param(mandatory=false, nameType=NameType.FEATURE)
 	public String getPredictedClassFeatureKey() {
-		return super.getPredictedClassFeatureKey();
+		return super.getPredictedClassFeature();
+	}
+
+	@Override
+	@Param(mandatory=false, nameType=NameType.FEATURE)
+	public String getPredictedClassFeature() {
+		return super.getPredictedClassFeature();
 	}
 
 	@Override
@@ -226,7 +232,11 @@ public class WekaTrain extends PredictionElementClassifier {
 	public TargetStream getArffFile() {
 		return arffFile;
 	}
-	
+
+	public void setPredictedClassFeatureKey(String predictedClassFeature) {
+		super.setPredictedClassFeature(predictedClassFeature);
+	}
+
 	public void setAlgorithm(String algorithm) {
 		this.algorithm = algorithm;
 	}

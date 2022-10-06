@@ -53,7 +53,7 @@ public abstract class TikaReader extends CorpusModule<ResolvedObjects> implement
 	private SourceStream source;
 	private String sectionName = DefaultNames.getDefaultSectionName();
 	private String htmlLayerName = "html";
-	private String tagFeatureName = "tag";
+	private String tagFeature = "tag";
 	
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -95,7 +95,7 @@ public abstract class TikaReader extends CorpusModule<ResolvedObjects> implement
 		Layer html = new Layer(sec, htmlLayerName);
 		for (ElementFragment frag : handler.getElements()) {
 			Annotation a = new Annotation(this, html, frag.getStart(), frag.getEnd());
-			a.addFeature(tagFeatureName, frag.getName());
+			a.addFeature(tagFeature, frag.getName());
 		}
 	}
 	
@@ -119,9 +119,19 @@ public abstract class TikaReader extends CorpusModule<ResolvedObjects> implement
 		return htmlLayerName;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getTagFeatureName() {
-		return tagFeatureName;
+		return tagFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getTagFeature() {
+		return tagFeature;
+	}
+
+	public void setTagFeature(String tagFeature) {
+		this.tagFeature = tagFeature;
 	}
 
 	public void setSource(SourceStream source) {
@@ -137,6 +147,6 @@ public abstract class TikaReader extends CorpusModule<ResolvedObjects> implement
 	}
 
 	public void setTagFeatureName(String tagFeatureName) {
-		this.tagFeatureName = tagFeatureName;
+		this.tagFeature = tagFeatureName;
 	}
 }

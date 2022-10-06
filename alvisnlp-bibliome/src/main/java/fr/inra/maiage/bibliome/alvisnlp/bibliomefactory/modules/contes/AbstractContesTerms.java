@@ -22,7 +22,7 @@ import fr.inra.maiage.bibliome.util.files.InputFile;
 public abstract class AbstractContesTerms<F extends AbstractFile,T extends ContesTermClassifier<F>> extends CorpusModule<ContesTermsResolvedObject> implements AbstractContes, Checkable {
 	private InputDirectory contesDir;
 	private String tokenLayerName = DefaultNames.getWordLayer();
-	private String formFeatureName = Annotation.FORM_FEATURE_NAME;
+	private String formFeature = Annotation.FORM_FEATURE_NAME;
 	private InputFile ontology;
 	private InputFile wordEmbeddings;
 	private InputFile wordEmbeddingsModel;
@@ -36,9 +36,10 @@ public abstract class AbstractContesTerms<F extends AbstractFile,T extends Conte
 	}
 
 	@Override
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getFormFeatureName() {
-		return formFeatureName;
+		return formFeature;
 	}
 
 	@Param(mandatory=false)
@@ -65,6 +66,17 @@ public abstract class AbstractContesTerms<F extends AbstractFile,T extends Conte
 	@Param
 	public Double getDefaultFactor() {
 		return defaultFactor;
+	}
+
+	@Override
+	@Param(nameType=NameType.FEATURE)
+	public String getFormFeature() {
+		return formFeature;
+	}
+
+	@Override
+	public void setFormFeature(String formFeature) {
+		this.formFeature = formFeature;
 	}
 
 	public void setDefaultFactor(Double defaultFactor) {
@@ -98,8 +110,9 @@ public abstract class AbstractContesTerms<F extends AbstractFile,T extends Conte
 	}
 
 	@Override
+	@Deprecated
 	public void setFormFeatureName(String formFeature) {
-		this.formFeatureName = formFeature;
+		this.formFeature = formFeature;
 	}
 
 	public void setWordEmbeddings(InputFile wordEmbeddings) {

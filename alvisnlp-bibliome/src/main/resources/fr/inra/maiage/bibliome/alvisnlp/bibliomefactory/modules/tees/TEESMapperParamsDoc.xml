@@ -27,6 +27,14 @@ limitations under the License.
 	<param-doc name="posFeature">
 		<p>Name of the feature containing the POS-tag.</p>
 	</param-doc>
+	
+	<param-doc name="dependencyLabelFeature">
+	  <p>Feature where to store the dependency label.</p>
+	</param-doc>
+	
+	<param-doc name="dependencyLabelFeatureName">
+	  <p>Deprecated alias for <param>dependencyLabelFeature</param>.</p>
+	</param-doc>
     
     <param-doc name="namedEntityLayerName">
       <p>Name of the layer containing the named entities.</p>

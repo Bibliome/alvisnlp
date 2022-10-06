@@ -50,7 +50,7 @@ public class SplitOverlaps extends SectionModule<SectionResolvedObjects> impleme
     //only Annotations from this Layer will be splitted to remove overlaps
     private String modifiedlayerName;
     //optional feature name used to store the index of splitted annotation parts
-    private String indexFeatureName = null;
+    private String indexFeature = null;
 	
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
@@ -160,21 +160,21 @@ public class SplitOverlaps extends SectionModule<SectionResolvedObjects> impleme
                             newRightAnn.addMultiFeatures(toSplit.getFeatures());
 
                             //optionnaly store the index of the split annotation in the specified feature
-                            if (indexFeatureName != null) {
+                            if (indexFeature != null) {
                                 int index = 0;
                                 //retrieve index already stored in the annotation to split
-                                String strPreviousIndex = toSplit.getFirstFeature(indexFeatureName);
+                                String strPreviousIndex = toSplit.getFirstFeature(indexFeature);
                                 if (strPreviousIndex == null) {
                                     //splitted annotations indexes start from 1
-                                    newLeftAnn.addFeature(indexFeatureName, String.valueOf(++index));
+                                    newLeftAnn.addFeature(indexFeature, String.valueOf(++index));
                                 } else {
                                     try {
                                         index = Integer.valueOf(strPreviousIndex);
                                     } catch (NumberFormatException ex) {
-                                        newLeftAnn.addFeature(indexFeatureName, String.valueOf(++index));
+                                        newLeftAnn.addFeature(indexFeature, String.valueOf(++index));
                                     }
                                 }
-                                newRightAnn.addFeature(indexFeatureName, String.valueOf(++index));
+                                newRightAnn.addFeature(indexFeature, String.valueOf(++index));
                             }
 
                             //remove split annotation from modified layer
@@ -229,13 +229,23 @@ public class SplitOverlaps extends SectionModule<SectionResolvedObjects> impleme
         this.modifiedlayerName = modifiedlayerName;
     }
 
+    @Deprecated
     @Param(nameType=NameType.FEATURE, mandatory = false)
     public String getIndexFeatureName() {
-        return indexFeatureName;
+        return indexFeature;
     }
 
-    public void setIndexFeatureName(String indexFeatureName) {
-        this.indexFeatureName = indexFeatureName;
+    @Param(nameType=NameType.FEATURE, mandatory = false)
+    public String getIndexFeature() {
+		return indexFeature;
+	}
+
+	public void setIndexFeature(String indexFeature) {
+		this.indexFeature = indexFeature;
+	}
+
+	public void setIndexFeatureName(String indexFeatureName) {
+        this.indexFeature = indexFeatureName;
     }
 
     @Override

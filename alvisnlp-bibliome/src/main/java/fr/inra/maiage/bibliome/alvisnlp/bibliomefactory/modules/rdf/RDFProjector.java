@@ -56,7 +56,7 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 			"oboInOwl:hasRelatedSynonym",
 			"oboInOwl:hasSynonym"
 	};
-	private String uriFeatureName;
+	private String uriFeature;
 	private Mapping labelFeatures = new Mapping(
 			"rdfs-label", "rdfs:label",
 			"skos-prefLabel", "skos:prefLabel"
@@ -156,7 +156,7 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 
 	@Override
 	protected void handleMatch(Resource value, Annotation a) {
-		a.addFeature(uriFeatureName, value.getURI());
+		a.addFeature(uriFeature, value.getURI());
 		Model model = value.getModel();
 		for (Map.Entry<String,String> e : labelFeatures.entrySet()) {
 			String propURI = e.getValue();
@@ -189,9 +189,10 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 
 	@Param(nameType=NameType.FEATURE)
 	public String getUriFeatureName() {
-		return uriFeatureName;
+		return uriFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public Mapping getLabelFeatures() {
 		return labelFeatures;
@@ -210,6 +211,15 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 	@Param(mandatory=false)
 	public String getLanguage() {
 		return language;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getUriFeature() {
+		return uriFeature;
+	}
+
+	public void setUriFeature(String uriFeature) {
+		this.uriFeature = uriFeature;
 	}
 
 	public void setLanguage(String language) {
@@ -237,7 +247,7 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 	}
 
 	public void setUriFeatureName(String uriFeatureName) {
-		this.uriFeatureName = uriFeatureName;
+		this.uriFeature = uriFeatureName;
 	}
 
 	public void setLabelFeatures(Mapping labelFeatures) {

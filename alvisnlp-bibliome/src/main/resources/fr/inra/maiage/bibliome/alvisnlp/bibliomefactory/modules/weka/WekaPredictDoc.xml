@@ -25,8 +25,12 @@ limitations under the License.
       <p><this/> applies the classifier loaded from <param name="classifier"/> on elements specified by <param name="examples"/>.</p>
     </description>
   
-    <param-doc name="predictedClassFeatureKey">
+    <param-doc name="predictedClassFeature">
       <p>Feature where to write the class prediction.</p>
+    </param-doc>
+  
+    <param-doc name="predictedClassFeatureKey">
+      <p>Deprecated alias for <param>predictedClassFeature</param>.</p>
     </param-doc>
   
     <param-doc name="classifierFile">

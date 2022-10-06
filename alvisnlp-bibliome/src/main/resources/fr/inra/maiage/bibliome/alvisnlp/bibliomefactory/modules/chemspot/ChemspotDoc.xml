@@ -44,27 +44,44 @@ limitations under the License.
       <p>Name of the layer where to store annotations created by <this/>.</p>
     </param-doc>
 
-    <param-doc name="chemTypeFeatureName">
+    <param-doc name="chemTypeFeature">
       <p>Feature where to store the chemical type (SYSTEMATIC, IDENTIFIER, FORMULA, TRIVIAL, ABBREVIATION, FAMILY, MULTIPLE, UNKNOWN).</p>
     </param-doc>
 
-    <param-doc name="chidFeatureName"><p>Feature where to store the CHID identifier.</p></param-doc>
-    <param-doc name="chebFeatureName"><p>Feature where to store the CHEB identifier.</p></param-doc>
-    <param-doc name="casFeatureName"><p>Feature where to store the CAS identifier.</p></param-doc>
-    <param-doc name="pubcFeatureName"><p>Feature where to store the PUBC identifier.</p></param-doc>
-    <param-doc name="pubsFeatureName"><p>Feature where to store the PUBS identifier.</p></param-doc>
-    <param-doc name="inchFeatureName"><p>Feature where to store the INCH identifier.</p></param-doc>
-    <param-doc name="drugFeatureName"><p>Feature where to store the DRUG identifier.</p></param-doc>
-    <param-doc name="hmdbFeatureName"><p>Feature where to store the HMBD identifier.</p></param-doc>
-    <param-doc name="keggFeatureName"><p>Feature where to store the KEGG identifier.</p></param-doc>
-    <param-doc name="kegdFeatureName"><p>Feature where to store the KEGD identifier.</p></param-doc>
-    <param-doc name="meshFeatureName"><p>Feature where to store the MESH identifier.</p></param-doc>
-    <param-doc name="fdaFeatureName">
-      <p>Feature where to store the FDA identifier.</p>
+    <param-doc name="chemTypeFeatureName">
+	  <p>Deprecated alias for <param>chemTypeFeature</param>.</p>
     </param-doc>
-    <param-doc name="fdaDateFeatureName">
-      <p>Feature where to store the FDA_DATE identifier.</p>
-    </param-doc>
+
+    <param-doc name="chidFeature"><p>Feature where to store the CHID identifier.</p></param-doc>
+    <param-doc name="chebFeature"><p>Feature where to store the CHEB identifier.</p></param-doc>
+    <param-doc name="casFeature"><p>Feature where to store the CAS identifier.</p></param-doc>
+    <param-doc name="pubcFeature"><p>Feature where to store the PUBC identifier.</p></param-doc>
+    <param-doc name="pubsFeature"><p>Feature where to store the PUBS identifier.</p></param-doc>
+    <param-doc name="inchFeature"><p>Feature where to store the INCH identifier.</p></param-doc>
+    <param-doc name="drugFeature"><p>Feature where to store the DRUG identifier.</p></param-doc>
+    <param-doc name="hmdbFeature"><p>Feature where to store the HMBD identifier.</p></param-doc>
+    <param-doc name="keggFeature"><p>Feature where to store the KEGG identifier.</p></param-doc>
+    <param-doc name="kegdFeature"><p>Feature where to store the KEGD identifier.</p></param-doc>
+    <param-doc name="meshFeature"><p>Feature where to store the MESH identifier.</p></param-doc>
+    <param-doc name="fdaFeature"><p>Feature where to store the FDA identifier.</p></param-doc>
+    <param-doc name="fdaDateFeature"><p>Feature where to store the FDA_DATE identifier.</p></param-doc>
+    
+
+    <param-doc name="chidFeatureName"><p>Deprecated alias for <param>chidFeature</param>.</p></param-doc>
+    <param-doc name="chebFeatureName"><p>Deprecated alias for <param>chebFeature</param>.</p></param-doc>
+    <param-doc name="casFeatureName"><p>Deprecated alias for <param>casFeature</param>.</p></param-doc>
+    <param-doc name="pubcFeatureName"><p>Deprecated alias for <param>pubcFeature</param>.</p></param-doc>
+    <param-doc name="pubsFeatureName"><p>Deprecated alias for <param>pubsFeature</param>.</p></param-doc>
+    <param-doc name="inchFeatureName"><p>Deprecated alias for <param>inchFeature</param>.</p></param-doc>
+    <param-doc name="drugFeatureName"><p>Deprecated alias for <param>drugFeature</param>.</p></param-doc>
+    <param-doc name="hmdbFeatureName"><p>Deprecated alias for <param>hmdbFeature</param>.</p></param-doc>
+    <param-doc name="keggFeatureName"><p>Deprecated alias for <param>keggFeature</param>.</p></param-doc>
+    <param-doc name="kegdFeatureName"><p>Deprecated alias for <param>kegdFeature</param>.</p></param-doc>
+    <param-doc name="meshFeatureName"><p>Deprecated alias for <param>meshFeature</param>.</p></param-doc>
+    <param-doc name="fdaFeatureName"><p>Deprecated alias for <param>fdaFeature</param>.</p></param-doc>
+    <param-doc name="fdaDateFeatureName"><p>Deprecated alias for <param>fdaDateFeature</param>.</p></param-doc>
+    
+    
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreatorParamsDoc</include-doc>
   </module-doc>

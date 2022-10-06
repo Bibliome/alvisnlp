@@ -44,9 +44,9 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
 	private Expression sentenceFilter = ConstantsLibrary.TRUE;
 	private String wordLayerName = DefaultNames.getWordLayer();
-	private String wordFormFeatureName = Annotation.FORM_FEATURE_NAME;
-	private String posFeatureName = DefaultNames.getPosTagFeature();
-	private String lemmaFeatureName = DefaultNames.getCanonicalFormFeature();
+	private String wordFormFeature = Annotation.FORM_FEATURE_NAME;
+	private String posFeature = DefaultNames.getPosTagFeature();
+	private String lemmaFeature = DefaultNames.getCanonicalFormFeature();
 	
 	private ExecutableFile enjuExecutable;
 	private String enjuEncoding = "UTF-8";
@@ -54,13 +54,13 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	private Integer nBest = 1;
 
 	private String dependenciesRelationName = DefaultNames.getDependencyRelationName();
-	private String parseNumberFeatureName = DefaultNames.getParseNumberFeatureName();
-	private String dependencyLabelFeatureName = DefaultNames.getDependencyLabelFeatureName();
+	private String parseNumberFeature = DefaultNames.getParseNumberFeatureName();
+	private String dependencyLabelFeature = DefaultNames.getDependencyLabelFeatureName();
 	private String sentenceRole = DefaultNames.getDependencySentenceRole();
 	private String dependencyHeadRole = DefaultNames.getDependencyHeadRole();
 	private String dependencyDependentRole = DefaultNames.getDependencyDependentRole();
-	private String parseStatusFeatureName = "parse-status";
-	private String dependentTypeFeatureName = "arg-type";
+	private String parseStatusFeature = "parse-status";
+	private String dependentTypeFeature = "arg-type";
 	
 	class EnjuParserResolvedObjects extends SectionResolvedObjects {
 		@SuppressWarnings("hiding")
@@ -122,14 +122,16 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 		return wordLayerName;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getWordFormFeatureName() {
-		return wordFormFeatureName;
+		return wordFormFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getPosFeatureName() {
-		return posFeatureName;
+		return posFeature;
 	}
 
 	@Param
@@ -157,14 +159,16 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 		return dependenciesRelationName;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getParseNumberFeatureName() {
-		return parseNumberFeatureName;
+		return parseNumberFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getDependencyLabelFeatureName() {
-		return dependencyLabelFeatureName;
+		return dependencyLabelFeature;
 	}
 
 	@Param(nameType=NameType.ARGUMENT)
@@ -177,9 +181,10 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 		return dependencyHeadRole;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getParseStatusFeatureName() {
-		return parseStatusFeatureName;
+		return parseStatusFeature;
 	}
 
 	@Param(nameType=NameType.ARGUMENT)
@@ -187,22 +192,87 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 		return dependencyDependentRole;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getDependentTypeFeatureName() {
-		return dependentTypeFeatureName;
+		return dependentTypeFeature;
+	}
+
+	@Deprecated
+	@Param(nameType=NameType.FEATURE)
+	public String getLemmaFeatureName() {
+		return lemmaFeature;
 	}
 
 	@Param(nameType=NameType.FEATURE)
-	public String getLemmaFeatureName() {
-		return lemmaFeatureName;
+	public String getWordFormFeature() {
+		return wordFormFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getPosFeature() {
+		return posFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getLemmaFeature() {
+		return lemmaFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getParseNumberFeature() {
+		return parseNumberFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getDependencyLabelFeature() {
+		return dependencyLabelFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getParseStatusFeature() {
+		return parseStatusFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getDependentTypeFeature() {
+		return dependentTypeFeature;
+	}
+
+	public void setWordFormFeature(String wordFormFeature) {
+		this.wordFormFeature = wordFormFeature;
+	}
+
+	public void setPosFeature(String posFeature) {
+		this.posFeature = posFeature;
+	}
+
+	public void setLemmaFeature(String lemmaFeature) {
+		this.lemmaFeature = lemmaFeature;
+	}
+
+	public void setParseNumberFeature(String parseNumberFeature) {
+		this.parseNumberFeature = parseNumberFeature;
+	}
+
+	public void setDependencyLabelFeature(String dependencyLabelFeature) {
+		this.dependencyLabelFeature = dependencyLabelFeature;
+	}
+
+	public void setParseStatusFeature(String parseStatusFeature) {
+		this.parseStatusFeature = parseStatusFeature;
+	}
+
+	public void setDependentTypeFeature(String dependentTypeFeature) {
+		this.dependentTypeFeature = dependentTypeFeature;
 	}
 
 	public void setLemmaFeatureName(String lemmaFeatureName) {
-		this.lemmaFeatureName = lemmaFeatureName;
+		this.lemmaFeature = lemmaFeatureName;
 	}
 
 	public void setDependentTypeFeatureName(String dependentTypeFeatureName) {
-		this.dependentTypeFeatureName = dependentTypeFeatureName;
+		this.dependentTypeFeature = dependentTypeFeatureName;
 	}
 
 	public void setDependencyDependentRole(String dependencyDependentRole) {
@@ -222,11 +292,11 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	}
 
 	public void setWordFormFeatureName(String wordFormFeatureName) {
-		this.wordFormFeatureName = wordFormFeatureName;
+		this.wordFormFeature = wordFormFeatureName;
 	}
 
 	public void setPosFeatureName(String posFeatureName) {
-		this.posFeatureName = posFeatureName;
+		this.posFeature = posFeatureName;
 	}
 
 	public void setEnjuExecutable(ExecutableFile enjuExecutable) {
@@ -250,11 +320,11 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	}
 
 	public void setParseNumberFeatureName(String parseNumberFeatureName) {
-		this.parseNumberFeatureName = parseNumberFeatureName;
+		this.parseNumberFeature = parseNumberFeatureName;
 	}
 
 	public void setDependencyLabelFeatureName(String dependencyLabelFeatureName) {
-		this.dependencyLabelFeatureName = dependencyLabelFeatureName;
+		this.dependencyLabelFeature = dependencyLabelFeatureName;
 	}
 
 	public void setSentenceRole(String sentenceRole) {
@@ -266,6 +336,6 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	}
 
 	public void setParseStatusFeatureName(String parseStatusFeatureName) {
-		this.parseStatusFeatureName = parseStatusFeatureName;
+		this.parseStatusFeature = parseStatusFeatureName;
 	}
 }

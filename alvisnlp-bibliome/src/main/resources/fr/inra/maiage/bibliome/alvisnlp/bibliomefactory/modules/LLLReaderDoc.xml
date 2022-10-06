@@ -18,12 +18,12 @@ limitations under the License.
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.LLLReader">
 
   <synopsis>
-    <p>Read files and annotations in <a href="XXX">LLL format</a>.</p>
+    <p>Read files and annotations in <a href="http://genome.jouy.inra.fr/texte/LLLchallenge/">LLL format</a>.</p>
   </synopsis>
 
   <module-doc>
     <description>
-      <p><this/> reads files in <param name="source"/> in <a href="XXX">LLL challenge</a> format.</p>
+      <p><this/> reads files in <param name="source"/> in <a href="http://genome.jouy.inra.fr/texte/LLLchallenge/">LLL challenge</a> format.</p>
     </description>
   
     <param-doc name="genicInteractionRelationName">
@@ -62,24 +62,40 @@ limitations under the License.
       <p>Name of the role of the argument that represent the dependency head.</p>
     </param-doc>
   
-    <param-doc name="targetFeatureName">
-      <p>Feature that has the value <code>yes</code> for entities that represent a target.</p>
-    </param-doc>
-  
-    <param-doc name="idFeatureName">
-      <p>Feature where to store annotations and tuples identifiers.</p>
-    </param-doc>
-  
-    <param-doc name="lemmaFeatureName">
-      <p>Feature where to store the word lemma.</p>
-    </param-doc>
-  
     <param-doc name="sectionName">
       <p>Name of the unique section created.</p>
     </param-doc>
   
-    <param-doc name="agentFeatureName">
+    <param-doc name="idFeature">
+      <p>Feature where to store annotations and tuples identifiers.</p>
+    </param-doc>
+  
+    <param-doc name="lemmaFeature">
+      <p>Feature where to store the word lemma.</p>
+    </param-doc>
+  
+    <param-doc name="agentFeature">
       <p>Feature that has the value <code>yes</code> for entities that represent an agent.</p>
+    </param-doc>
+  
+    <param-doc name="targetFeature">
+      <p>Feature that has the value <code>yes</code> for entities that represent a target.</p>
+    </param-doc>
+  
+    <param-doc name="idFeatureName">
+      <p>Deprecated parameter alias for <param>idFeature</param>.</p>
+    </param-doc>
+  
+    <param-doc name="lemmaFeatureName">
+      <p>Deprecated parameter alias for <param>lemmaFeature</param>.</p>
+    </param-doc>
+  
+    <param-doc name="agentFeatureName">
+      <p>Deprecated parameter alias for <param>agentFeature</param>.</p>
+    </param-doc>
+  
+    <param-doc name="targetFeatureName">
+      <p>Deprecated parameter alias for <param>targetFeature</param>.</p>
     </param-doc>
 
     <param-doc name="sentenceLayerName">
