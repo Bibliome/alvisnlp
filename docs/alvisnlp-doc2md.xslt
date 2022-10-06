@@ -121,14 +121,18 @@ limitations under the License.
     <xsl:value-of select="concat($nl, '```', $nl, $nl)"/>
 
     <xsl:value-of select="concat('## Mandatory parameters', $nl, $nl)"/>
-    <xsl:apply-templates select="param-doc[not(@default-value) and @mandatory = 'required']">
+    <xsl:apply-templates select="param-doc[not(@deprecated) and not(@default-value) and @mandatory = 'required']">
       <xsl:sort select="@name"/>
     </xsl:apply-templates>
     <xsl:value-of select="concat('## Optional parameters', $nl, $nl)"/>
-    <xsl:apply-templates select="param-doc[not(@default-value) and @mandatory = 'optional']">
+    <xsl:apply-templates select="param-doc[not(@deprecated) and not(@default-value) and @mandatory = 'optional']">
       <xsl:sort select="@name"/>
     </xsl:apply-templates>
-    <xsl:apply-templates select="param-doc[@default-value and @name != 'active' and @name != 'userFunctions']">
+    <xsl:apply-templates select="param-doc[not(@deprecated) and @default-value and @name != 'active' and @name != 'userFunctions']">
+      <xsl:sort select="@name"/>
+    </xsl:apply-templates>
+    <xsl:value-of select="concat('## Deprecated parameters', $nl, $nl)"/>
+    <xsl:apply-templates select="param-doc[@deprecated = 'yes']">
       <xsl:sort select="@name"/>
     </xsl:apply-templates>
   </xsl:template>
@@ -141,6 +145,12 @@ limitations under the License.
   <xsl:template match="param-doc">
     <xsl:value-of select="concat('&lt;h3 id=&quot;', @name, '&quot; class=&quot;param&quot;>', @name, '&lt;/h3>', $nl, $nl)"/>
     <xsl:choose>
+      <xsl:when test="@deprecated = 'yes'">
+	<xsl:text>&lt;div class="param-level param-level-deprecated"></xsl:text>
+	<xsl:value-of select="concat('Deprecated', $nl)"/>
+	<xsl:text>&lt;/div>
+</xsl:text>
+      </xsl:when>
       <xsl:when test="@default-value">
 	<xsl:text>&lt;div class="param-level param-level-default-value"></xsl:text>
 	<xsl:value-of select="concat('Default value: `', @default-value, '`', $nl)"/>
