@@ -18,39 +18,9 @@
 		</param-doc>
 
 		<param-doc default-value="dependencies"
-			mandatory="default: dependencies" name="dependencyRelation"
-			name-type="relation" short-type="String" type="java.lang.String">
-			<p>Name of the relation where to store dependency tuples.</p>
-		</param-doc>
-
-		<param-doc default-value="dependencies"
 			mandatory="default: dependencies" name="dependencyRelationName"
 			name-type="relation" short-type="String" type="java.lang.String">
 			<p>Deprecated alias for <param>dependencyRelation</param>.</p>
-		</param-doc>
-
-		<param-doc default-value="sentence"
-			mandatory="default: sentence" name="dependencySentenceRole"
-			name-type="argument" short-type="String" type="java.lang.String">
-			<p>Name of the role of the dependency tuple argument that references the parsed sentence.</p>
-		</param-doc>
-
-		<param-doc default-value="dependent"
-			mandatory="default: dependent" name="dependentRole"
-			name-type="argument" short-type="String" type="java.lang.String">
-			<p>Name of the role of the dependency tuple argument that references the modifier (dependent) token.</p>
-		</param-doc>
-
-		<param-doc default-value="head" mandatory="default: head"
-			name="headRole" name-type="argument" short-type="String"
-			type="java.lang.String">
-			<p>Name of the role of the dependency tuple argument that references the head (governor) token.</p>
-		</param-doc>
-
-		<param-doc default-value="label" mandatory="default: label"
-			name="dependencyLabelFeature" name-type="feature"
-			short-type="String" type="java.lang.String">
-			<p>Name of the feature where to store the dependency label.</p>
 		</param-doc>
 
 		<param-doc default-value="form" mandatory="default: form"
@@ -108,6 +78,6 @@
 		</param-doc>
 
 	    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
-    	<include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreatorParamsDoc</include-doc>
+	    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.DependencyParserModuleParamsDoc</include-doc>
 	</module-doc>
 </alvisnlp-doc>

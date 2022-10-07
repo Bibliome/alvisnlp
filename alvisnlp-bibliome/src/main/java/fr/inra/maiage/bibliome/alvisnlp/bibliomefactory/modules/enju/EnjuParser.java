@@ -19,6 +19,7 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.enju;
 
 import java.io.IOException;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.DependencyParserModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.enju.EnjuParser.EnjuParserResolvedObjects;
@@ -26,7 +27,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ConstantsLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
@@ -40,7 +40,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 
 @AlvisNLPModule
-public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects> implements TupleCreator {
+public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects> implements DependencyParserModule {
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
 	private Expression sentenceFilter = ConstantsLibrary.TRUE;
 	private String wordLayerName = DefaultNames.getWordLayer();
@@ -53,12 +53,12 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	private Boolean biology = false;
 	private Integer nBest = 1;
 
-	private String dependenciesRelation = DefaultNames.getDependencyRelationName();
+//	private String dependenciesRelation = DefaultNames.getDependencyRelationName();
 	private String parseNumberFeature = DefaultNames.getParseNumberFeatureName();
-	private String dependencyLabelFeature = DefaultNames.getDependencyLabelFeatureName();
-	private String sentenceRole = DefaultNames.getDependencySentenceRole();
-	private String dependencyHeadRole = DefaultNames.getDependencyHeadRole();
-	private String dependencyDependentRole = DefaultNames.getDependencyDependentRole();
+//	private String dependencyLabelFeature = DefaultNames.getDependencyLabelFeatureName();
+//	private String sentenceRole = DefaultNames.getDependencySentenceRole();
+//	private String dependencyHeadRole = DefaultNames.getDependencyHeadRole();
+//	private String dependencyDependentRole = DefaultNames.getDependencyDependentRole();
 	private String parseStatusFeature = "parse-status";
 	private String dependentTypeFeature = "arg-type";
 	
@@ -157,7 +157,7 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	@Deprecated
 	@Param(nameType=NameType.RELATION)
 	public String getDependenciesRelationName() {
-		return dependenciesRelation;
+		return getDependencyRelation();
 	}
 
 	@Deprecated
@@ -169,28 +169,13 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getDependencyLabelFeatureName() {
-		return dependencyLabelFeature;
-	}
-
-	@Param(nameType=NameType.ARGUMENT)
-	public String getSentenceRole() {
-		return sentenceRole;
-	}
-
-	@Param(nameType=NameType.ARGUMENT)
-	public String getDependencyHeadRole() {
-		return dependencyHeadRole;
+		return getDependencyLabelFeature();
 	}
 
 	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getParseStatusFeatureName() {
 		return parseStatusFeature;
-	}
-
-	@Param(nameType=NameType.ARGUMENT)
-	public String getDependencyDependentRole() {
-		return dependencyDependentRole;
 	}
 
 	@Deprecated
@@ -226,11 +211,6 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	}
 
 	@Param(nameType=NameType.FEATURE)
-	public String getDependencyLabelFeature() {
-		return dependencyLabelFeature;
-	}
-
-	@Param(nameType=NameType.FEATURE)
 	public String getParseStatusFeature() {
 		return parseStatusFeature;
 	}
@@ -238,15 +218,6 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	@Param(nameType=NameType.FEATURE)
 	public String getDependentTypeFeature() {
 		return dependentTypeFeature;
-	}
-
-	@Param(nameType=NameType.RELATION)
-	public String getDependenciesRelation() {
-		return dependenciesRelation;
-	}
-
-	public void setDependenciesRelation(String dependenciesRelation) {
-		this.dependenciesRelation = dependenciesRelation;
 	}
 
 	public void setWordFormFeature(String wordFormFeature) {
@@ -265,10 +236,6 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 		this.parseNumberFeature = parseNumberFeature;
 	}
 
-	public void setDependencyLabelFeature(String dependencyLabelFeature) {
-		this.dependencyLabelFeature = dependencyLabelFeature;
-	}
-
 	public void setParseStatusFeature(String parseStatusFeature) {
 		this.parseStatusFeature = parseStatusFeature;
 	}
@@ -283,10 +250,6 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 
 	public void setDependentTypeFeatureName(String dependentTypeFeatureName) {
 		this.dependentTypeFeature = dependentTypeFeatureName;
-	}
-
-	public void setDependencyDependentRole(String dependencyDependentRole) {
-		this.dependencyDependentRole = dependencyDependentRole;
 	}
 
 	public void setSentenceLayerName(String sentenceLayerName) {
@@ -326,7 +289,7 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	}
 
 	public void setDependenciesRelationName(String dependenciesRelationName) {
-		this.dependenciesRelation = dependenciesRelationName;
+		setDependencyRelation(dependenciesRelationName);
 	}
 
 	public void setParseNumberFeatureName(String parseNumberFeatureName) {
@@ -334,15 +297,7 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	}
 
 	public void setDependencyLabelFeatureName(String dependencyLabelFeatureName) {
-		this.dependencyLabelFeature = dependencyLabelFeatureName;
-	}
-
-	public void setSentenceRole(String sentenceRole) {
-		this.sentenceRole = sentenceRole;
-	}
-
-	public void setDependencyHeadRole(String dependencyHeadRole) {
-		this.dependencyHeadRole = dependencyHeadRole;
+		setDependencyLabelFeature(dependencyLabelFeatureName);
 	}
 
 	public void setParseStatusFeatureName(String parseStatusFeatureName) {

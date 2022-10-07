@@ -25,11 +25,7 @@ limitations under the License.
     <description>
       <p><this/> parses sentences using <a href="https://mynlp.is.s.u-tokyo.ac.jp/enju/">Enju parser</a>.</p>
     </description>
-  
-    <param-doc name="sentenceRole">
-      <p>Role of the sentence in tuples representing dependencies.</p>
-    </param-doc>
-  
+   
     <param-doc name="sentenceLayerName">
       <p>Layer containing sentences.</p>
     </param-doc>
@@ -42,16 +38,8 @@ limitations under the License.
       <p>Use the parsing model adapted to biomedical texts.</p>
     </param-doc>
   
-    <param-doc name="dependencyDependentRole">
-      <p>Role of the dependent token in tuples representing dependencies.</p>
-    </param-doc>
-  
     <param-doc name="wordLayerName">
       <p>Layer containing tokens.</p>
-    </param-doc>
-  
-    <param-doc name="dependencyLabelFeature">
-      <p>Feature where to store the dependency label.</p>
     </param-doc>
   
     <param-doc name="posFeature">
@@ -102,14 +90,6 @@ limitations under the License.
       <p>Character encoding used by Enju input and output files.</p>
     </param-doc>
   
-    <param-doc name="dependencyHeadRole">
-      <p>Role of the head (governor) token in tuples representing dependencies.</p>
-    </param-doc>
-  
-    <param-doc name="dependenciesRelation">
-      <p>Relation where to store dependencies.</p>
-    </param-doc>
-  
     <param-doc name="dependenciesRelationName">
       <p>Deprecated alias for <param>dependenciesRelation</param>.</p>
     </param-doc>
@@ -119,6 +99,6 @@ limitations under the License.
     </param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
-    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreatorParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.DependencyParserModuleParamsDoc</include-doc>
 </module-doc>
 </alvisnlp-doc>

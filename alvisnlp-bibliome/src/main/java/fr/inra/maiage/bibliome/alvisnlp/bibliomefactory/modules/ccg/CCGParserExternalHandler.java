@@ -20,7 +20,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.util.Strings;
@@ -87,7 +86,7 @@ class CCGParserExternalHandler extends AbstractCCGExternalHandler<CCGResolvedObj
 					else
 						originalDependencies.add(dep);
 				}
-				Relation rel = sentence.getSection().ensureRelation(owner, owner.getRelationName());
+				Relation rel = sentence.getSection().ensureRelation(owner, owner.getDependencyRelation());
 				Annotation sentenceAnnotation = sentence.getSentenceAnnotation();
 				List<Dependency> dependencies = owner.getLpTransformation() ? convertSentenceDependencies(originalDependencies) : originalDependencies;
 				for (Dependency dep : dependencies)
@@ -117,7 +116,7 @@ class CCGParserExternalHandler extends AbstractCCGExternalHandler<CCGResolvedObj
 				return false;
 			}
 		}
-		String supertagFeatureName = getModule().getSupertagFeatureName();
+		String supertagFeatureName = getModule().getSupertagFeature();
 		for (int i = 0; i < tags.length; ++i) {
 			sentence.get(i).addFeature(supertagFeatureName, tags[i].get(2));
 		}
@@ -152,11 +151,7 @@ class CCGParserExternalHandler extends AbstractCCGExternalHandler<CCGResolvedObj
 
 		void addTuple(Relation rel, Annotation sentence) {
 			CCGParser owner = getModule();
-			Tuple t = new Tuple(owner, rel);
-			t.setArgument(owner.getHeadRole(), a1);
-			t.setArgument(owner.getDependentRole(), a2);
-			t.setArgument(owner.getSentenceRole(), sentence);
-			t.addFeature(owner.getLabelFeatureName(), dep);
+			owner.createDependency(rel, sentence, a1, a2, dep);
 		}
 
 		@Override
@@ -195,11 +190,11 @@ class CCGParserExternalHandler extends AbstractCCGExternalHandler<CCGResolvedObj
 		}
 
 		public String getSTag1() {
-			return a1.getLastFeature(getModule().getSupertagFeatureName());
+			return a1.getLastFeature(getModule().getSupertagFeature());
 		}
 
 		public String getSTag2() {
-			return a2.getLastFeature(getModule().getSupertagFeatureName());
+			return a2.getLastFeature(getModule().getSupertagFeature());
 		}
 	}
 

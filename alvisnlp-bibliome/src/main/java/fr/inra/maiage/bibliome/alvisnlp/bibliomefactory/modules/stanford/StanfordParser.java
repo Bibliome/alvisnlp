@@ -12,6 +12,7 @@ import edu.stanford.nlp.ling.TaggedWord;
 import edu.stanford.nlp.parser.nndep.DependencyParser;
 import edu.stanford.nlp.trees.GrammaticalStructure;
 import edu.stanford.nlp.trees.TypedDependency;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.DependencyParserModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.stanford.StanfordParser.StanfordParserResolvedObjects;
@@ -22,8 +23,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ConstantsLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
@@ -38,17 +37,12 @@ import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.LoggingUtils;
 
 @AlvisNLPModule(beta=true)
-public abstract class StanfordParser extends SectionModule<StanfordParserResolvedObjects> implements TupleCreator, Checkable {
+public abstract class StanfordParser extends SectionModule<StanfordParserResolvedObjects> implements DependencyParserModule, Checkable {
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
 	private String tokenLayerName = DefaultNames.getWordLayer();
 	private Expression sentenceFilter = ConstantsLibrary.TRUE;
 	private String formFeature = Annotation.FORM_FEATURE_NAME;
 	private String posTagFeature = DefaultNames.getPosTagFeature();
-	private String dependencyRelation = DefaultNames.getDependencyRelationName();
-	private String headRole = DefaultNames.getDependencyHeadRole();
-	private String dependentRole = DefaultNames.getDependencyDependentRole();
-	private String dependencyLabelFeature = DefaultNames.getDependencyLabelFeatureName();
-	private String dependencySentenceRole = DefaultNames.getDependencySentenceRole();
 	private Boolean omitRoot = false;
 	private Language language = Language.ENGLISH;
 	
@@ -64,7 +58,7 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
 			Layer sentences = sec.getLayer(sentenceLayerName);
 			Layer tokens = sec.getLayer(tokenLayerName);
-			Relation dependencies = sec.ensureRelation(this, dependencyRelation);
+			Relation dependencies = ensureRelation(sec);
 			for (Annotation sentence : sentences) {
 				if (resObj.sentenceFilter.evaluateBoolean(evalCtx, sentence)) {
 					parseSentence(parser, dependencies, tokens, sentence);
@@ -128,11 +122,7 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 			head = sentenceTokens.get(headIndex);
 		}
 		Annotation mod = sentenceTokens.get(modIndex);
-		Tuple t = new Tuple(this, dependencies);
-		t.setArgument(dependencySentenceRole, sentence);
-		t.setArgument(headRole, head);
-		t.setArgument(dependentRole, mod);
-		t.addFeature(dependencyLabelFeature, label);
+		createDependency(dependencies, sentence, head, mod, label);
 	}
 
 	@Override
@@ -199,28 +189,13 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	@Deprecated
 	@Param(nameType=NameType.RELATION)
 	public String getDependencyRelationName() {
-		return dependencyRelation;
-	}
-
-	@Param(nameType=NameType.ARGUMENT)
-	public String getHeadRole() {
-		return headRole;
-	}
-
-	@Param(nameType=NameType.ARGUMENT)
-	public String getDependentRole() {
-		return dependentRole;
+		return getDependencyRelation();
 	}
 
 	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getDependencyLabelFeatureName() {
-		return dependencyLabelFeature;
-	}
-
-	@Param(nameType=NameType.ARGUMENT)
-	public String getDependencySentenceRole() {
-		return dependencySentenceRole;
+		return getDependencyLabelFeature();
 	}
 
 	@Param
@@ -243,30 +218,12 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		return posTagFeature;
 	}
 
-	@Param(nameType=NameType.FEATURE)
-	public String getDependencyLabelFeature() {
-		return dependencyLabelFeature;
-	}
-
-	@Param(nameType=NameType.RELATION)
-	public String getDependencyRelation() {
-		return dependencyRelation;
-	}
-
-	public void setDependencyRelation(String dependencyRelation) {
-		this.dependencyRelation = dependencyRelation;
-	}
-
 	public void setFormFeature(String formFeature) {
 		this.formFeature = formFeature;
 	}
 
 	public void setPosTagFeature(String posTagFeature) {
 		this.posTagFeature = posTagFeature;
-	}
-
-	public void setDependencyLabelFeature(String dependencyLabelFeature) {
-		this.dependencyLabelFeature = dependencyLabelFeature;
 	}
 
 	public void setLanguage(Language language) {
@@ -298,23 +255,10 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	}
 
 	public void setDependencyRelationName(String dependencyRelationName) {
-		this.dependencyRelation = dependencyRelationName;
-	}
-
-	public void setHeadRole(String headRole) {
-		this.headRole = headRole;
-	}
-
-	public void setDependentRole(String dependentRole) {
-		this.dependentRole = dependentRole;
+		setDependencyRelation(dependencyRelationName);
 	}
 
 	public void setDependencyLabelFeatureName(String dependencyLabelFeatureName) {
-		this.dependencyLabelFeature = dependencyLabelFeatureName;
+		setDependencyLabelFeature(dependencyLabelFeatureName);
 	}
-
-	public void setDependencySentenceRole(String dependencySentenceRole) {
-		this.dependencySentenceRole = dependencySentenceRole;
-	}
-
 }
