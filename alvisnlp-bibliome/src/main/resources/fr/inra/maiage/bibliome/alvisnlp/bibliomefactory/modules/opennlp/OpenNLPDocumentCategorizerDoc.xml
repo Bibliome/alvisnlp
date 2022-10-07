@@ -24,7 +24,7 @@
 			<p>Feature where to store the score of the predicted category.</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="scoresFeaturePrefix" name-type="feature" short-type="String" type="java.lang.String">
+		<param-doc mandatory="optional" name="scoresFeaturePrefix" short-type="String" type="java.lang.String">
 			<p>Prefix of feature names where to store the score of each category.</p>
 		</param-doc>
 

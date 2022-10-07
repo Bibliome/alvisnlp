@@ -35,8 +35,23 @@
   </xsl:template>
 
   <xsl:template match="param-doc">
-    <xsl:if test="@deprecated = 'yes' and not(.//param)">
-      <xsl:message>### Documentation for deprecated param '<xsl:value-of select="@name"/>' does not reference an alternative parameter</xsl:message>
-    </xsl:if>
+    <xsl:choose>
+      <xsl:when test="@deprecated = 'yes'">
+	<xsl:if test="not(.//param)">
+	  <xsl:message>### Documentation for deprecated param '<xsl:value-of select="@name"/>' does not reference an alternative parameter</xsl:message>
+	</xsl:if>
+      </xsl:when>
+      <xsl:otherwise>
+	<xsl:variable name="len">
+	  <xsl:value-of select="string-length(@name)"/>
+	</xsl:variable>
+	<xsl:if test="@name-type = 'feature' and not((@name = 'feature') or (@name = 'features') or (substring(@name, $len - 6) = 'Feature') or (substring(@name, $len - 7) = 'Features'))">
+	  <xsl:message>### Parameter '<xsl:value-of select="@name"/>' specifies a feature but does not end with 'Feature'</xsl:message>
+	</xsl:if>
+	<xsl:if test="@name-type = 'relation' and not((@name = 'relation') or (@name = 'relations') or (substring(@name, $len - 7) = 'Relation') or (substring(@name, $len - 8) = 'Relations'))">
+	  <xsl:message>### Parameter '<xsl:value-of select="@name"/>' specifies a relation but does not end with 'Relation'</xsl:message>
+	</xsl:if>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 </xsl:stylesheet>

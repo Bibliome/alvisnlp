@@ -187,6 +187,7 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 		return labelURIs;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getUriFeatureName() {
 		return uriFeature;

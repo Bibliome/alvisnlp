@@ -303,6 +303,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 		return dependentRole;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getAgentFeatureName() {
 		return agentFeature;
