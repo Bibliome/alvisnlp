@@ -438,7 +438,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 		return loadDependencies;
 	}
 	
-	@Param(nameType=NameType.ARGUMENT)
+	@Param
 	public String getSourceRolePrefix() {
 		return sourceRolePrefix;
 	}
