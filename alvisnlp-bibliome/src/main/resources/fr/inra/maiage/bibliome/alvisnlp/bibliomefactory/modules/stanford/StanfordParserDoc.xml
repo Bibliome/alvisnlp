@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<alvisnlp-doc author="" beta="true" date=""
-	short-target="StanfordParser"
-	target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.stanford.StanfordParser">
+<alvisnlp-doc author="" beta="true" date="" short-target="StanfordParser" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.stanford.StanfordParser">
 	<synopsis>
 		<p>Applies the <a href="https://nlp.stanford.edu/software/lex-parser.shtml">Stanford dependency parser</a>.</p>
 	</synopsis>
@@ -17,63 +15,43 @@
 		  <p>Language of the text to parse. <this/> currently supports english (default), french, german, spanish and chinese.</p>
 		</param-doc>
 
-		<param-doc default-value="dependencies"
-			mandatory="default: dependencies" name="dependencyRelationName"
-			name-type="relation" short-type="String" type="java.lang.String">
+		<param-doc default-value="dependencies" mandatory="default: dependencies" name="dependencyRelationName" name-type="relation" short-type="String" type="java.lang.String">
 			<p>Deprecated alias for <param>dependencyRelation</param>.</p>
 		</param-doc>
 
-		<param-doc default-value="form" mandatory="default: form"
-			name="formFeature" name-type="feature" short-type="String"
-			type="java.lang.String">
+		<param-doc default-value="form" mandatory="default: form" name="formFeature" name-type="feature" short-type="String" type="java.lang.String">
 			<p>Name of the feature containing the token surface form.</p>
 		</param-doc>
 
-		<param-doc default-value="pos" mandatory="default: pos"
-			name="posTagFeature" name-type="feature" short-type="String"
-			type="java.lang.String">
+		<param-doc default-value="pos" mandatory="default: pos" name="posTagFeature" name-type="feature" short-type="String" type="java.lang.String">
 			<p>Name of the feature containing the token POS tag.</p>
 		</param-doc>
 
-		<param-doc default-value="label" mandatory="default: label"
-			name="dependencyLabelFeatureName" name-type="feature"
-			short-type="String" type="java.lang.String">
+		<param-doc default-value="label" mandatory="default: label" name="dependencyLabelFeatureName" name-type="feature" short-type="String" type="java.lang.String">
 			<p>Deprecated alias for <param>dependencyLabelFeature</param>.</p>
 		</param-doc>
 
-		<param-doc default-value="form" mandatory="default: form"
-			name="formFeatureName" name-type="feature" short-type="String"
-			type="java.lang.String">
+		<param-doc default-value="form" mandatory="default: form" name="formFeatureName" name-type="feature" short-type="String" type="java.lang.String">
 			<p>Deprecated alias for <param>formFeature</param>.</p>
 		</param-doc>
 
-		<param-doc default-value="pos" mandatory="default: pos"
-			name="posTagFeatureName" name-type="feature" short-type="String"
-			type="java.lang.String">
+		<param-doc default-value="pos" mandatory="default: pos" name="posTagFeatureName" name-type="feature" short-type="String" type="java.lang.String">
 			<p>Deprecated alias for <param>posTagFeature</param>.</p>
 		</param-doc>
 
-		<param-doc default-value="true" mandatory="default: true"
-			name="sentenceFilter" short-type="Expression"
-			type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
+		<param-doc default-value="true" mandatory="default: true" name="sentenceFilter" short-type="Expression" type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
 			<p>Expression evaluated on each sentence annotation, the sentence is parsed if this expression evaluates as true.</p>
 		</param-doc>
 
-		<param-doc default-value="sentences"
-			mandatory="default: sentences" name="sentenceLayerName"
-			name-type="layer" short-type="String" type="java.lang.String">
+		<param-doc default-value="sentences" mandatory="default: sentences" name="sentenceLayerName" name-type="layer" short-type="String" type="java.lang.String">
 			<p>Name of the layer containing sentence annotations.</p>
 		</param-doc>
 
-		<param-doc default-value="words" mandatory="default: words"
-			name="tokenLayerName" name-type="layer" short-type="String"
-			type="java.lang.String">
+		<param-doc default-value="words" mandatory="default: words" name="tokenLayerName" name-type="layer" short-type="String" type="java.lang.String">
 			<p>Name of the layer containing token annotations.</p>
 		</param-doc>
 
-		<param-doc default-value="false" mandatory="default: false"
-			name="omitRoot" short-type="Boolean"
-			type="java.lang.Boolean">
+		<param-doc default-value="false" mandatory="default: false" name="omitRoot" short-type="Boolean" type="java.lang.Boolean">
 			<p>If set, do not create the root tuple.</p>
 		</param-doc>
 

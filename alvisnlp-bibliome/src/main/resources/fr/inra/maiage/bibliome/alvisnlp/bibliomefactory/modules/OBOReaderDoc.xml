@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.OBOReader">
   <synopsis>
     <p>Reads terms in <a href="XXX">OBO files</a> as documents.</p>
@@ -23,10 +22,10 @@ limitations under the License.
   <module-doc>
     <description>
       <p>
-      <this/> reads files specified by <param name="oboFiles"/> in <a href="XXX">OBO format</a>.
+      <this/> reads files specified by <param>oboFiles</param> in <a href="XXX">OBO format</a>.
       Each term is loaded as a distinct document with the term identifier as the document identifier.
-      Each document contains a section (<param name="nameSectionName"/>) containing the term name, and one section for each term synonym (<param name="synonymSectionName"/>).
-      Optionally <this/> also sets features on the document with the term path from the root (<param name="pathFeature"/>), the identifier of the parent term (<param name="parentFeature"/>), the identifiers of each ancestor (<param name="ancestorsFeature"/>), of the identifiers of each child term (<param name="childrenFeature"/>).</p>
+      Each document contains a section (<param>nameSectionName</param>) containing the term name, and one section for each term synonym (<param>synonymSectionName</param>).
+      Optionally <this/> also sets features on the document with the term path from the root (<param>pathFeature</param>), the identifier of the parent term (<param>parentFeature</param>), the identifiers of each ancestor (<param>ancestorsFeature</param>), of the identifiers of each child term (<param>childrenFeature</param>).</p>
     </description>
   
     <param-doc name="excludeOBOBuiltins">

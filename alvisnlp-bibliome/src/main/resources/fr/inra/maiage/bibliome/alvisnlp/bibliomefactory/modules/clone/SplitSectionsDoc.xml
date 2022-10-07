@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<alvisnlp-doc author="" beta="true" date=""
-	short-target="SplitSections"
-	target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.clone.SplitSections">
+<alvisnlp-doc author="" beta="true" date="" short-target="SplitSections" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.clone.SplitSections">
 	<synopsis>
 		<p>Split sections into several sections according to annotations boundaries.</p>
 	</synopsis>
@@ -13,37 +11,27 @@
 			<p><this/> optionally creates a new document for each created section if <param>splitDocuments</param> is set.</p>
 		</description>
 
-		<param-doc default-value="cropped"
-			mandatory="default: cropped" name="croppedAnnotationFeature"
-			name-type="feature" short-type="String" type="java.lang.String">
+		<param-doc default-value="cropped" mandatory="default: cropped" name="croppedAnnotationFeature" name-type="feature" short-type="String" type="java.lang.String">
 			<p>If an annotation is cropped in the process of cloning, then this feature is set to <em>true</em>.</p>
 		</param-doc>
 
-		<param-doc default-value="cropped" deprecated="yes"
-			mandatory="default: cropped" name="croppedAnnotationFeatureName"
-			name-type="feature" short-type="String" type="java.lang.String">
-			<p>Deprecated alias for <param>croppedFeature</param>.</p>
+		<param-doc default-value="cropped" deprecated="yes" mandatory="default: cropped" name="croppedAnnotationFeatureName" name-type="feature" short-type="String" type="java.lang.String">
+			<p>Deprecated alias for <param>croppedAnnotationFeature</param>.</p>
 		</param-doc>
 
-		<param-doc default-value="@id ^ &quot;__&quot; ^ split:num"
-			mandatory="default: @id ^ &quot;__&quot; ^ split:num" name="docId"
-			short-type="Expression"
-			type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
+		<param-doc default-value="@id ^ &quot;__&quot; ^ split:num" mandatory="default: @id ^ &quot;__&quot; ^ split:num" name="docId" short-type="Expression" type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
 			<p>Identifier of created documents if <param>splitDocuments</param> is set.</p>
 		</param-doc>
 
-		<param-doc default-value="false" mandatory="default: false"
-			name="mergeOverlapping" short-type="Boolean" type="java.lang.Boolean">
+		<param-doc default-value="false" mandatory="default: false" name="mergeOverlapping" short-type="Boolean" type="java.lang.Boolean">
 			<p>Merge overlapping annotations in <param>selectLayerName</param> before creating sections.</p>
 		</param-doc>
 
-		<param-doc mandatory="required" name="selectLayerName"
-			name-type="layer" short-type="String" type="java.lang.String">
+		<param-doc mandatory="required" name="selectLayerName" name-type="layer" short-type="String" type="java.lang.String">
 			<p>Layer where to find annotations that specify the created sections contents.</p>
 		</param-doc>
 
-		<param-doc default-value="false" mandatory="default: false"
-			name="splitDocuments" short-type="Boolean" type="java.lang.Boolean">
+		<param-doc default-value="false" mandatory="default: false" name="splitDocuments" short-type="Boolean" type="java.lang.Boolean">
 			<p>If set, the <this/> creates a new document for each created section.</p>
 		</param-doc>
 

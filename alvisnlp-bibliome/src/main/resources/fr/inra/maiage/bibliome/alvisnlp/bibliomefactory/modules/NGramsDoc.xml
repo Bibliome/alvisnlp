@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2012-04-30" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.NGrams">
   <synopsis>
     <p>Computes annotation n-grams.</p>
@@ -22,7 +21,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> computes the n-grams of annotations in <param name="tokenLayerName"/> and creates an annotation for each n-gram. If <param name="sentenceLayerName"/> is set, then no n-gram will cross boundaries of annotations in this layer. If <param name="keepAnnotations"/> is set, then <this/> will search for annotations with n-gram boundaries in these layers, if one annotation is found then it is recycled instead of creating a new annotation.</p>
+      <p><this/> computes the n-grams of annotations in <param>tokenLayerName</param> and creates an annotation for each n-gram. If <param>sentenceLayerName</param> is set, then no n-gram will cross boundaries of annotations in this layer. If <param>keepAnnotations</param> is set, then <this/> will search for annotations with n-gram boundaries in these layers, if one annotation is found then it is recycled instead of creating a new annotation.</p>
     </description>
   
     <param-doc name="maxNGramSize">

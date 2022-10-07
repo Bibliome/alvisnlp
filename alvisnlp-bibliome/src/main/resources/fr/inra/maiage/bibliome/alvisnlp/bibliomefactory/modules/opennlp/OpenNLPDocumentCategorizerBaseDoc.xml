@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alvisnlp-doc author="Robert Bossy" date="2021-06-30">
-	<param-doc default-value="nav:documents()"
-		mandatory="default: nav:documents()" name="documents"
-		short-type="Expression"
-		type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
+	<param-doc default-value="nav:documents()" mandatory="default: nav:documents()" name="documents" short-type="Expression" type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
 		<p>Elements to classify. This expression is evaluated from the corpus.</p>
 	</param-doc>
 
-	<param-doc default-value="properties:@:form()"
-		mandatory="default: properties:@:form()" name="form"
-		short-type="Expression"
-		type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
+	<param-doc default-value="properties:@:form()" mandatory="default: properties:@:form()" name="form" short-type="Expression" type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
 		<p>Form of the token. This expression is evaluated as a string from the token.</p>
 	</param-doc>
 
-	<param-doc
-		default-value="nav:.(nav:sections(), nav:layer:words())"
-		mandatory="default: nav:.(nav:sections(), nav:layer:words())"
-		name="tokens" short-type="Expression"
-		type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
+	<param-doc default-value="nav:.(nav:sections(), nav:layer:words())" mandatory="default: nav:.(nav:sections(), nav:layer:words())" name="tokens" short-type="Expression" type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
 		<p>Tokens of the elements to classify. This expression is evaluated as a list of elements from the element to classify.</p>
 	</param-doc>
 	

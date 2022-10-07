@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,15 +14,14 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2010-10-28">
   <synopsis>
     <p>Matches a regular expression-like pattern on the sequence of annotations in a given layer.</p>
   </synopsis>
   <module-doc>
     <description>
-      <p><this/> searches for <param name="pattern"/> on the sequence of annotations in layer <param name="layerName"/>. Note that in a layer, annotations are sorted in increasing order of start boundary, then decreasing order of end boundary; the order is undefined for annotations with the exact same span.</p>
-      <p>For each match, <this/> applies all actions specified by <param name="actions"/>. Each action concerns a sub-group of the pattern, if no sub-group is specified then the action applies to the whole match.</p>
+      <p><this/> searches for <param>pattern</param> on the sequence of annotations in layer <param>layerName</param>. Note that in a layer, annotations are sorted in increasing order of start boundary, then decreasing order of end boundary; the order is undefined for annotations with the exact same span.</p>
+      <p>For each match, <this/> applies all actions specified by <param>actions</param>. Each action concerns a sub-group of the pattern, if no sub-group is specified then the action applies to the whole match.</p>
     </description>
 
     <param-doc name="pattern">

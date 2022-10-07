@@ -100,7 +100,6 @@ public abstract class ElementClassifier extends CorpusModule<ElementClassifierRe
 		return resolvedExamples.evaluateElements(ctx, corpus);
 	}
 	
-	@Deprecated
 	@Param
 	public RelationDefinition getRelationDefinition() {
 		return relationDefinition;

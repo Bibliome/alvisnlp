@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2012-04-30" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml.XMLWriter2">
   <synopsis>
     <p>Writes the corpus data structure into a file via an XSLT stylesheet.</p>
@@ -22,7 +21,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> evaluates <param name="roots"/> as a list of elements. The for each element, it writes a file using the <param name="xslTransform"/> stylesheet. The file name is specified by the evaluation of <param name="fileName"/> as a string with the root element as he context element. Relative file names are relative to <param name="outDir"/>.</p>
+      <p><this/> evaluates <param>roots</param> as a list of elements. The for each element, it writes a file using the <param>xslTransform</param> stylesheet. The file name is specified by the evaluation of <param>fileName</param> as a string with the root element as he context element. Relative file names are relative to <param>outDir</param>.</p>
       <p>The stylesheet operates on an empty XML document bound to the root element, however <this/> provides XSLT element and function extensions in order to retrieve elements as a DOM structure. All extensions are defined in the namespace <code>xalan://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml.XMLWriter2</code>.</p>
       <h3>Extension functions</h3>
       <p>

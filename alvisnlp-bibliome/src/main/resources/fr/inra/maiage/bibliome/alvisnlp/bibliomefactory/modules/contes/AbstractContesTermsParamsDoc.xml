@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<alvisnlp-doc author="" beta="true" date="" short-target="Word2Vec"
-	target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.Word2Vec">
+<alvisnlp-doc author="" beta="true" date="" short-target="Word2Vec" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.Word2Vec">
 
 
-		<param-doc mandatory="required" name="ontology" short-type="InputFile"
-			type="fr.inra.maiage.bibliome.util.files.InputFile">
+		<param-doc mandatory="required" name="ontology" short-type="InputFile" type="fr.inra.maiage.bibliome.util.files.InputFile">
 			<p>Path to the ontology file in OBO or OWL format.</p>
 		</param-doc>
 
 
-		<param-doc mandatory="required" name="wordEmbeddings"
-			short-type="InputFile" type="fr.inra.maiage.bibliome.util.files.InputFile">
+		<param-doc mandatory="required" name="wordEmbeddings" short-type="InputFile" type="fr.inra.maiage.bibliome.util.files.InputFile">
 			<p>Path to the file containing word embeddings, as produced by <module>Word2Vec</module>.</p>
 		</param-doc>
 		

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<alvisnlp-doc author="" beta="true" date=""
-	short-target="SetFeature"
-	target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SetFeature">
+<alvisnlp-doc author="" beta="true" date="" short-target="SetFeature" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SetFeature">
 	<synopsis>
 		<p>Set the value of a feature for a selection of elements.</p>
 	</synopsis>
@@ -12,19 +10,15 @@
 			<p><this/> is useful to build plans that select a particular feature to process.</p>
 		</description>
 
-		<param-doc mandatory="required" name="featureName"
-			name-type="feature" short-type="String" type="java.lang.String">
+		<param-doc mandatory="required" name="featureName" name-type="feature" short-type="String" type="java.lang.String">
 			<p>UNDOCUMENTED</p>
 		</param-doc>
 
-		<param-doc mandatory="required" name="target"
-			short-type="Expression"
-			type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
+		<param-doc mandatory="required" name="target" short-type="Expression" type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
 			<p>UNDOCUMENTED</p>
 		</param-doc>
 
-		<param-doc mandatory="required" name="featureValue"
-			short-type="String" type="java.lang.String">
+		<param-doc mandatory="required" name="featureValue" short-type="String" type="java.lang.String">
 			<p>UNDOCUMENTED</p>
 		</param-doc>
 		

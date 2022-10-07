@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<alvisnlp-doc author="" beta="false" date="" short-target="ClearLayers"
-	target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ClearLayers">
+<alvisnlp-doc author="" beta="false" date="" short-target="ClearLayers" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ClearLayers">
 	<synopsis>
 		<p>Completely remove layers from sections.</p>
 	</synopsis>
 
 	<module-doc>
 		<description>
-			<p><this /> removes the layers named after <param>layerNames</param> from sections.</p>
+			<p><this/> removes the layers named after <param>layerNames</param> from sections.</p>
 		</description>
 
-		<param-doc mandatory="required" name="layerNames" name-type="layer"
-			short-type="String[]" type="java.lang.String[]">
+		<param-doc mandatory="required" name="layerNames" name-type="layer" short-type="String[]" type="java.lang.String[]">
 			<p>Names of layers to remove.</p>
 		</param-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>

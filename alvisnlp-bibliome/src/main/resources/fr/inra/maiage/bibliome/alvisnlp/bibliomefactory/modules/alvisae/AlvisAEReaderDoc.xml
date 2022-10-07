@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.cadixe.AlvisAEReader2">
   <synopsis>
     <p><this/> reads documents and annotations from an AlvisAE campaign.</p>
@@ -22,13 +21,13 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> reads an AlvisAE server database and imports documents and annotation sets from an annotation campaign. The database connection is specified with <param name="url"/>, <param name="username"/>, <param name="password"/> and <param name="schema"/>. The <param name="campaignId"/> parameter specifies the campaign identifier in the AlvisAE database (the AlvisAE client displays this identifier).</p>
+      <p><this/> reads an AlvisAE server database and imports documents and annotation sets from an annotation campaign. The database connection is specified with <param>url</param>, <param>username</param>, <param>password</param> and <param>schema</param>. The <param>campaignId</param> parameter specifies the campaign identifier in the AlvisAE database (the AlvisAE client displays this identifier).</p>
 
       <p>
 	All AlvisAE annotations, including text-bound annotations, will be represented in AlvisNLP as relation tuples, in a relation named after the annotation type.
 	<ul>
-	  <li>For <em>text-bound</em> annotations, each fragment is represented in an annotation stored in the layer <param name="fragmentsLayerName"/>. The tuple references the fragments through its arguments; their role name is <param name="fragmentRolePrefix"/> with the fragment order appended (starting at zero). Thus a single-fragment annotation will have a single argument with role <code>frag0</code>. The type of the annotation is stored in the feature <param name="typeFeature"/> of the tuple and of each fragment.</li>
-	  <li>A <em>group</em> tuple references its items through its arguments; their role name is <param name="itemRolePrefix"/> with the item order appended (starting at zero).</li>
+	  <li>For <em>text-bound</em> annotations, each fragment is represented in an annotation stored in the layer <param>fragmentsLayerName</param>. The tuple references the fragments through its arguments; their role name is <param>fragmentRolePrefix</param> with the fragment order appended (starting at zero). Thus a single-fragment annotation will have a single argument with role <code>frag0</code>. The type of the annotation is stored in the feature <param>typeFeature</param> of the tuple and of each fragment.</li>
+	  <li>A <em>group</em> tuple references its items through its arguments; their role name is <param>itemRolePrefix</param> with the item order appended (starting at zero).</li>
 	  <li>A <em>relation</em> tuple hareferences its arguments in a straightforward way.</li>
 	</ul>
       </p>
@@ -73,7 +72,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="userNames">
-      <p>If set, <this/> imports only annotation sets created by an user included in the value. If this parameter and <param name="userIds"/> are not set, <this/> imports annotations of all users.</p>
+      <p>If set, <this/> imports only annotation sets created by an user included in the value. If this parameter and <param>userIds</param> are not set, <this/> imports annotations of all users.</p>
     </param-doc>
   
     <param-doc name="loadTextBound">
@@ -81,7 +80,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="taskName">
-      <p>If set, <this/> imports only annotation sets of tasks whose name is included in the value. If this parameter and <param name="taskId"/> are not set, <this/> imports annotations of all tasks.</p>
+      <p>If set, <this/> imports only annotation sets of tasks whose name is included in the value. If this parameter and <param>taskId</param> are not set, <this/> imports annotations of all tasks.</p>
     </param-doc>
   
     <param-doc name="itemRolePrefix">
@@ -108,11 +107,11 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="taskId">
-      <p>If set, <this/> imports only annotation sets of tasks whose id is included in the value. If this parameter and <param name="taskName"/> are not set, <this/> imports annotations of all tasks.</p>
+      <p>If set, <this/> imports only annotation sets of tasks whose id is included in the value. If this parameter and <param>taskName</param> are not set, <this/> imports annotations of all tasks.</p>
     </param-doc>
   
     <param-doc name="userIds">
-      <p>If set, <this/> imports only annotation sets created by an user whose id is included in the value. If this parameter and <param name="userNames"/> are not set, <this/> imports annotations of all users.</p>
+      <p>If set, <this/> imports only annotation sets created by an user whose id is included in the value. If this parameter and <param>userNames</param> are not set, <this/> imports annotations of all users.</p>
     </param-doc>
   
     <param-doc name="schema">
@@ -178,7 +177,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="sourceRolePrefix">
-      <p>Prefix for the roles for source annotations, will only be used if <param name="loadDependencies"/> is true.</p>
+      <p>Prefix for the roles for source annotations, will only be used if <param>loadDependencies</param> is true.</p>
     </param-doc>
   
     <param-doc name="loadDependencies">
@@ -186,7 +185,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="adjudicate">
-      <p>Either to automatically adjudicate identical source annotations, implies <param name="loadDependencies"/>.</p>
+      <p>Either to automatically adjudicate identical source annotations, implies <param>loadDependencies</param>.</p>
     </param-doc>
   
     <param-doc name="referentFeature">

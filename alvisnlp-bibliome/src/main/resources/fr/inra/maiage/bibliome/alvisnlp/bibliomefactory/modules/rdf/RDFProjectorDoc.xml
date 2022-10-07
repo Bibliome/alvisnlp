@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.OBOProjector">
 
   <synopsis>
@@ -23,15 +22,15 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> reads <param name="source"/> SKOS terminologies or OWL ontologies and searches for class and concept labels in sections.</p>
-      <p>The parameters <param name="allowJoined"/>, <param name="allUpperCaseInsensitive"/>, <param name="caseInsensitive"/>, <param name="ignoreDiacritics"/>, <param name="joinDash"/>, <param name="matchStartCaseInsensitive"/>, <param name="skipConsecutiveWhitespaces"/>, <param name="skipWhitespace"/> and <param name="wordStartCaseInsensitive"/> control the matching between the section and the entry keys.</p>
-      <p>The <param name="subject"/> parameter specifies which text of the section should be matched. There are two options:
+      <p><this/> reads <param>source</param> SKOS terminologies or OWL ontologies and searches for class and concept labels in sections.</p>
+      <p>The parameters <param>allowJoined</param>, <param>allUpperCaseInsensitive</param>, <param>caseInsensitive</param>, <param>ignoreDiacritics</param>, <param>joinDash</param>, <param>matchStartCaseInsensitive</param>, <param>skipConsecutiveWhitespaces</param>, <param>skipWhitespace</param> and <param>wordStartCaseInsensitive</param> control the matching between the section and the entry keys.</p>
+      <p>The <param>subject</param> parameter specifies which text of the section should be matched. There are two options:
       <ul>
-	<li>the entries are matched on the contents of the section, <param name="subject"/> can also control if matches boundaries coincide with word delimiters;</li>
+	<li>the entries are matched on the contents of the section, <param>subject</param> can also control if matches boundaries coincide with word delimiters;</li>
 	<li>the entries are matched on the feature value of annotations of a given layer separated by a whitespace, in this way entries can be searched against word lemmas for instance.</li>
       </ul>
       </p>
-      <p><this/> creates an annotation for each matched entry and adds these annotations to the layer named <param name="targetLayerName"/>. The created annotations will have the feature <param name="uriFeatureName"/> containing the URI of the matched class or concept. <this/> may also map property object values into features specified by <param name="labelFeatures"/>.</p>
+      <p><this/> creates an annotation for each matched entry and adds these annotations to the layer named <param>targetLayerName</param>. The created annotations will have the feature <param>uriFeatureName</param> containing the URI of the matched class or concept. <this/> may also map property object values into features specified by <param>labelFeatures</param>.</p>
     </description>
 
     <param-doc name="source">
@@ -59,7 +58,7 @@ limitations under the License.
     </param-doc>
     
     <param-doc name="prefixes">
-      <p>Specify URI prefixes to be used in <param name="resourceTypeURIs"/>, <param name="labelURIs"/>, and <param name="labelFeatures"/></p>
+      <p>Specify URI prefixes to be used in <param>resourceTypeURIs</param>, <param>labelURIs</param>, and <param>labelFeatures</param></p>
     </param-doc>
     
     <param-doc name="rdfFormat">

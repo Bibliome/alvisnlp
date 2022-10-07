@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper.FileMapper">
   <synopsis>
     <p>Maps elements according to a tab-separated mapping file.</p>
@@ -22,7 +21,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> reads the tab-separated mapping file <param name="mappingFile"/> and maps the elements specified by the expression <param name="target"/>. The mapping key of the elements is specified by the expression <param name="form"/> evaluated as a string with the element as the context. The key is mapped agains the column of <param name="mappingFile"/> specified by <param name="keyColumn"/> (starting at 0). Each feature in <param name="targetFeatures"/> is set with the value of the corresponding column in the matched line.</p>
+      <p><this/> reads the tab-separated mapping file <param>mappingFile</param> and maps the elements specified by the expression <param>target</param>. The mapping key of the elements is specified by the expression <param>form</param> evaluated as a string with the element as the context. The key is mapped agains the column of <param>mappingFile</param> specified by <param>keyColumn</param> (starting at 0). Each feature in <param>targetFeatures</param> is set with the value of the corresponding column in the matched line.</p>
     </description>
   
     <param-doc name="targetFeatures">
@@ -38,11 +37,11 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="keyColumn">
-      <p>Index of the line key in <param name="mappingFile"/>.</p>
+      <p>Index of the line key in <param>mappingFile</param>.</p>
     </param-doc>
   
     <param-doc name="separator">
-      <p>Separator character between columns in <param name="mappingFile"/>.</p>
+      <p>Separator character between columns in <param>mappingFile</param>.</p>
     </param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.mapper.MapperParamsDoc</include-doc>

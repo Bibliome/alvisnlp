@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2012-04-30" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CartesianProductTuples">
   <synopsis>
     <p>Creates tuples for each element of a Cartesian product.</p>
@@ -22,7 +21,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> evaluates <param name="anchor"/> as an element list with the corpus as the context element. Each item is hereby called the <em>anchor</em>. <this/> evaluates all values of <param name="arguments"/> as lists of elements with the anchor as the context element. Then it creates a tuple for each item of the cartesian product of the result of the evaluation of <param name="arguments"/>. The tuple will have an argument for each item with the role specified by the keys of <param name="arguments"/>.</p>
+      <p><this/> evaluates <param>anchor</param> as an element list with the corpus as the context element. Each item is hereby called the <em>anchor</em>. <this/> evaluates all values of <param>arguments</param> as lists of elements with the anchor as the context element. Then it creates a tuple for each item of the cartesian product of the result of the evaluation of <param>arguments</param>. The tuple will have an argument for each item with the role specified by the keys of <param>arguments</param>.</p>
     </description>
   
     <param-doc name="relationName">

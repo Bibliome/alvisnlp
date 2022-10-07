@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.bionlpst.BioNLPSTReader">
   <synopsis>
     <p>Reads documents and annotations in the <a href="XXX">BioNLP-ST 2013 a1/a2 format</a>.</p>
@@ -22,11 +21,11 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> reads text files in the directory specified by <param name="textDir"/> as documents, then imports annotations in the corresponding files in the directories specified by <param name="a1Dir"/> and <param name="a2Dir"/>.</p>
+      <p><this/> reads text files in the directory specified by <param>textDir</param> as documents, then imports annotations in the corresponding files in the directories specified by <param>a1Dir</param> and <param>a2Dir</param>.</p>
     </description>
   
     <param-doc name="a1Dir">
-      <p>Path to the directory containing <code>.a1</code> files. If this parameter is not set, then <this/> does not read <code>a1</code> files. This directory must contain one <code>.a1</code> file for each <code>.txt</code> file found in <param name="textDir"/>.</p>
+      <p>Path to the directory containing <code>.a1</code> files. If this parameter is not set, then <this/> does not read <code>a1</code> files. This directory must contain one <code>.a1</code> file for each <code>.txt</code> file found in <param>textDir</param>.</p>
     </param-doc>
   
     <param-doc name="textDir">
@@ -38,7 +37,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="a2Dir">
-      <p>Path to the directory containing <code>.a2</code> files. If this parameter is not set, then <this/> does not read <code>a2</code> files. This directory must contain one <code>.a2</code> file for each <code>.txt</code> file found in <param name="textDir"/>.</p>
+      <p>Path to the directory containing <code>.a2</code> files. If this parameter is not set, then <this/> does not read <code>a2</code> files. This directory must contain one <code>.a2</code> file for each <code>.txt</code> file found in <param>textDir</param>.</p>
     </param-doc>
   
     <param-doc name="schema">
@@ -62,7 +61,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="fragmentCountFeature">
-      <p>Feature where to store the number of merged fragments. This feature is only set if <param name="textBoundAsAnnotations"/> is <code>true</code>.</p>
+      <p>Feature where to store the number of merged fragments. This feature is only set if <param>textBoundAsAnnotations</param> is <code>true</code>.</p>
     </param-doc>
   
     <param-doc name="idFeature">

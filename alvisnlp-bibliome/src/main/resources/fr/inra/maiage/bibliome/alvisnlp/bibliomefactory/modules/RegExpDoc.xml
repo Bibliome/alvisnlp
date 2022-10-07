@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,15 +14,14 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2010-09-27">
   <synopsis>
     <p>Matches a regular expression on sections contents and create an annotation for each match.</p>
   </synopsis>
   <module-doc>
     <description>
-      <p><this/> searches for <param name="pattern"/> in the contents of sections, then creates an annotation for each match. The created annotations will span on the entire match. The created annotations will be added in the layer named <param name="targetLayerName"/> of the corresponding section. If <param name="pattern"/> contains groups, then the pattern elements inside groups will be matched but the grouping will not be taken into account in the creation of the annotation.</p>
-      <p>The created annotations will automatically have all features defined in <param name="constantAnnotationFeatures"/>.</p>
+      <p><this/> searches for <param>pattern</param> in the contents of sections, then creates an annotation for each match. The created annotations will span on the entire match. The created annotations will be added in the layer named <param>targetLayerName</param> of the corresponding section. If <param>pattern</param> contains groups, then the pattern elements inside groups will be matched but the grouping will not be taken into account in the creation of the annotation.</p>
+      <p>The created annotations will automatically have all features defined in <param>constantAnnotationFeatures</param>.</p>
     </description>
     <param-doc name="pattern">
       <p>Regular expression to match.</p>

@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><alvisnlp-doc author="" beta="true" date="" short-target="TokenizedReader" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.TokenizedReader">
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-doc author="" beta="true" date="" short-target="TokenizedReader" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.TokenizedReader">
 <synopsis>
   <p>Reads a tokenized corpus: one token per line, empty line separates sentence.</p>
 </synopsis>

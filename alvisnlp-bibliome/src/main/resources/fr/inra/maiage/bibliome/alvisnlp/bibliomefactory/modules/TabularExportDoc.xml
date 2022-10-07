@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2012-04-30" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.TabularExport">
   <synopsis>
     <p>Writes the corpus data structure in files in tabular format.</p>
@@ -23,19 +22,19 @@ limitations under the License.
   <module-doc>
     <description>
       <p>
-      	<this/> evaluates <param name="files"/> as a list of elements with the corpus as the context element and creates a file for each result.
-      	The file is located in <param name="outDir"/> and named after the result of <param name="fileName"/> (evaluated as a string).
+      	<this/> evaluates <param>files</param> as a list of elements with the corpus as the context element and creates a file for each result.
+      	The file is located in <param>outDir</param> and named after the result of <param>fileName</param> (evaluated as a string).
       </p>
       <p>
 	If <param>corpusFile</param> is set, then it overrides <param>files</param> and <param>fileName</param>.
 	The whole corpus goes into a single file.
       </p>
       <p>
-      	The file is a table where each line is the result of the evaluation of <param name="lines"/> as a list of element with the file element as the context element.
-      	Each line will have as many columns as the size of the <param name="columns"/> array.
+      	The file is a table where each line is the result of the evaluation of <param>lines</param> as a list of element with the file element as the context element.
+      	Each line will have as many columns as the size of the <param>columns</param> array.
       </p>
       <p>
-      	Each expression of <param name="columns"/> is evaluated as a string with the line element as the context element.
+      	Each expression of <param>columns</param> is evaluated as a string with the line element as the context element.
       </p>
     </description>
   
@@ -80,7 +79,7 @@ limitations under the License.
     </param-doc>
 
     <param-doc name="corpusFile">
-      <p>Path to a single file for the whole corpus. This parameter will override both <param>files</param> and <param>fileNames</param>.</p>
+      <p>Path to a single file for the whole corpus. This parameter will override both <param>files</param> and <param>fileName</param>.</p>
     </param-doc>
   
     <param-doc name="trim">

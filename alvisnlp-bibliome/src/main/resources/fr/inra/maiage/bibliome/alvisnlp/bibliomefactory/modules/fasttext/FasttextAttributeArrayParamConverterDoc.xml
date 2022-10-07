@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><alvisnlp-doc short-target="FasttextAttribute[]" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextAttribute[]">
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-doc short-target="FasttextAttribute[]" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextAttribute[]">
 	<synopsis>
 		<p>Converts an array of <converter>FasttextAttribute</converter> used to describe documents in <module>FasttextClassifierTrain</module> and <module>FasttextClassifierLabel</module>.</p>
 	</synopsis>

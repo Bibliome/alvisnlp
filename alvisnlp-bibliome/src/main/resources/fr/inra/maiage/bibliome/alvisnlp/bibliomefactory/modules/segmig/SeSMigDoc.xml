@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2010-10-28">
   <synopsis>
     <p>Detects sentence boundaries and creates one annotation for each sentence.</p>
@@ -23,20 +22,20 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> scans for annotations in <param name="wordLayerName"/> and detects a sentence boundaries defined as either:
+      <p><this/> scans for annotations in <param>wordLayerName</param> and detects a sentence boundaries defined as either:
       <ul>
-	<li>an annotation whose feature <param name="eosStatusFeature"/> equals <em>eos</em>;</li>
-	<li>an annotation whose surface form contains only characaters of the value of <param name="strongPunctuations"/> and which is followed by an uppercase character;</li>
-	<li>an annotation whose feature <param name="eosStatusFeature"/> equals <em>maybe-eos</em> and which is followed by an uppercase character.</li>
+	<li>an annotation whose feature <param>eosStatusFeature</param> equals <em>eos</em>;</li>
+	<li>an annotation whose surface form contains only characaters of the value of <param>strongPunctuations</param> and which is followed by an uppercase character;</li>
+	<li>an annotation whose feature <param>eosStatusFeature</param> equals <em>maybe-eos</em> and which is followed by an uppercase character.</li>
       </ul>
       </p>
-      <p><this/> creates an annotation for each sentence and adds it into the <param name="targetLayerName"/>. The <param name="eosStatusFeature"/> of word annotations are given a new value:
+      <p><this/> creates an annotation for each sentence and adds it into the <param>targetLayerName</param>. The <param>eosStatusFeature</param> of word annotations are given a new value:
       <ul>
 	<li><strong>eos</strong>: for the last word of each sentence;</li>
 	<li><strong>not-eos</strong>: for all other words.</li>
       </ul>
       </p>
-      <p>If <param name="noBreakLayerName"/> is defined, then <this/> will prevent sentence boundaries inside annotations in this layer.</p>
+      <p>If <param>noBreakLayerName</param> is defined, then <this/> will prevent sentence boundaries inside annotations in this layer.</p>
     </description>
   
     <param-doc name="strongPunctuations">

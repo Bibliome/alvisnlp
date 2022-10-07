@@ -192,7 +192,6 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 		return uriFeature;
 	}
 
-	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public Mapping getLabelFeatures() {
 		return labelFeatures;

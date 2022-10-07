@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.chemspot.Chemspot" author="" date="">
   <synopsis>
     <p>Looks for mentions of chemicals and molecule names using <a href="https://www.informatik.hu-berlin.de/de/forschung/gebiete/wbi/resources/chemspot/chemspot">Chemspot</a>.</p>
@@ -24,7 +23,7 @@ limitations under the License.
     <description>
       <p>
 	<this/> runs Chemspot on the sections content, then creates an annotation for each chemical mention in the layer <param>targetLayerName</param>.
-	Each annotation will have the feature <param>chemTypeFeatureName</param> set to the chemical mention type, and one feature for each type of identifier.
+	Each annotation will have the feature <param>chemTypeFeature</param> set to the chemical mention type, and one feature for each type of identifier.
       </p>
     </description>
     

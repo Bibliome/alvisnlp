@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,10 +14,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2012-04-30" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.compare.ElementSimilarityParamConverter">
   <synopsis>
-    <p>Converts into a similarity metrics for <module name="CompareElements"/>.</p>
+    <p>Converts into a similarity metrics for <module>CompareElements</module>.</p>
   </synopsis>
 
   <converter-doc>

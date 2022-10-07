@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2010-10-28">
   <synopsis>
     <p>Read files in tree-tagger output format and creates a document for each file read.</p>
@@ -22,9 +21,9 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p>Each document contains a single section named <param name="sectionName"/>; its contents is constructed by concatenating the first column of each token separated with a space character.</p>
-      <p><this/> keeps the tree-tagger tokenization in annotations added into the layer <param name="wordLayerName"/>.
-      The POS tag and lemma are recorded in the annotation's <param name="posFeatureKey"/> and <param name="lemmaFeatureKey"/> features respectively.</p>
+      <p>Each document contains a single section named <param>sectionName</param>; its contents is constructed by concatenating the first column of each token separated with a space character.</p>
+      <p><this/> keeps the tree-tagger tokenization in annotations added into the layer <param>wordLayerName</param>.
+      The POS tag and lemma are recorded in the annotation's <param>posFeature</param> and <param>lemmaFeature</param> features respectively.</p>
       <p>The document identifier is the path of the corresponding file.</p>
     </description>
   

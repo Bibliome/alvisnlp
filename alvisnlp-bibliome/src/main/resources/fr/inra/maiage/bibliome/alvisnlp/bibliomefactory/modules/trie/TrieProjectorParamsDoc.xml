@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.SimpleProjector2" author="" date="">
     <param-doc name="skipWhitespace">
       <p>If set to <em>true</em>, then allow arbitrary insertion of whitespace characters in the subject. For instance, the contents <em>amino acid</em> matches the key <em>aminoacid</em>.</p>
@@ -53,11 +52,11 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="joinDash">
-      <p>If set to <em>true</em>, then treat dash characters (-) as whitespace characters with regard to <param name="allowJoined"/>. For instance, the contents <em>aminoacid</em> matches the entry <em>amino-acid</em>.</p>
+      <p>If set to <em>true</em>, then treat dash characters (-) as whitespace characters with regard to <param>allowJoined</param>. For instance, the contents <em>aminoacid</em> matches the entry <em>amino-acid</em>.</p>
     </param-doc>
   
     <param-doc name="multipleEntryBehaviour">
-      <p>Specifies the behavior if <param name="dictFile"/> contains several entries with the same key.</p>
+      <p>Specifies the behavior if the lexicon contains several entries with the same key.</p>
     </param-doc>
   
     <param-doc name="allUpperCaseInsensitive">

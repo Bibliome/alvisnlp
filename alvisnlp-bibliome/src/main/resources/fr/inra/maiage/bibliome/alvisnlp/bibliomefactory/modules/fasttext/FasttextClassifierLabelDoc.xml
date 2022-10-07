@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<alvisnlp-doc author="" beta="true" date=""
-	short-target="FasttextClassifierLabel"
-	target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextClassifierLabel">
+<alvisnlp-doc author="" beta="true" date="" short-target="FasttextClassifierLabel" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextClassifierLabel">
 	<synopsis>
 		<p><this/> classifies documents with a FastText classifier trained with <module>FasttextClassifierTrain</module>.</p>
 	</synopsis>
@@ -11,19 +9,15 @@
 			<p><this/> evaluates <param>documents</param> as a list of elements and classifies each item with the classifier specified by <param>modelFile</param>. Documents are discriminated with <param>attributes</param> which must be the same as used for training. The predicted category is stored in <param>classFeature</param>.</p>
 		</description>
 
-		<param-doc mandatory="required" name="classFeature"
-			name-type="feature" short-type="String" type="java.lang.String">
+		<param-doc mandatory="required" name="classFeature" name-type="feature" short-type="String" type="java.lang.String">
 			<p>Feature where to store the predicted category.</p>
 		</param-doc>
 
-		<param-doc mandatory="required" name="modelFile"
-			short-type="InputFile"
-			type="fr.inra.maiage.bibliome.util.files.InputFile">
+		<param-doc mandatory="required" name="modelFile" short-type="InputFile" type="fr.inra.maiage.bibliome.util.files.InputFile">
 			<p>Model trained with <module>FasttextClassifierTrain</module>.</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="probabilityFeature"
-			name-type="feature" short-type="String" type="java.lang.String">
+		<param-doc mandatory="optional" name="probabilityFeature" name-type="feature" short-type="String" type="java.lang.String">
 			<p>Feature where to store the probability of the predicted category.</p>
 		</param-doc>
 

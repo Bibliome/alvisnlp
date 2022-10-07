@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<alvisnlp-doc author="" beta="true" date="" short-target="Word2Vec"
-	target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.Word2Vec">
+<alvisnlp-doc author="" beta="true" date="" short-target="Word2Vec" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.Word2Vec">
 	<synopsis>
 		<p>Computes word embeddings using the <a href="https://github.com/ArnaudFerre/CONTES">CONTES/Gensis</a> implementation.</p>
 	</synopsis>
@@ -10,38 +9,31 @@
 			<p>Computes word embeddings using the <a href="https://github.com/ArnaudFerre/CONTES">CONTES/Gensis</a> implementation.</p>
 		</description>
 
-		<param-doc mandatory="required" name="jsonFile" short-type="OutputFile"
-			type="fr.inra.maiage.bibliome.util.files.OutputFile">
+		<param-doc mandatory="required" name="jsonFile" short-type="OutputFile" type="fr.inra.maiage.bibliome.util.files.OutputFile">
 			<p>File where to write embeddings as a JSON object.</p>
 		</param-doc>
 
-		<param-doc default-value="sentences" mandatory="default: sentences"
-			name="sentenceLayer" name-type="layer" short-type="String" type="java.lang.String">
+		<param-doc default-value="sentences" mandatory="default: sentences" name="sentenceLayer" name-type="layer" short-type="String" type="java.lang.String">
 			<p>Name of the layer containing sentence annotations.</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="txtFile" short-type="OutputFile"
-			type="fr.inra.maiage.bibliome.util.files.OutputFile">
+		<param-doc mandatory="optional" name="txtFile" short-type="OutputFile" type="fr.inra.maiage.bibliome.util.files.OutputFile">
 			<p>File where to write embeddings as a table.</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="vectorFeature"
-			name-type="layer" short-type="String" type="java.lang.String">
+		<param-doc mandatory="optional" name="vectorFeature" name-type="layer" short-type="String" type="java.lang.String">
 			<p>Name of the feature where to store embeddings of each token. If this parameter is not set, then embeddings are not stored in any feature.</p>
 		</param-doc>
 
-		<param-doc default-value="200" mandatory="default: 200"
-			name="vectorSize" short-type="Integer" type="java.lang.Integer">
+		<param-doc default-value="200" mandatory="default: 200" name="vectorSize" short-type="Integer" type="java.lang.Integer">
 			<p>The dimensionality of the feature vectors. Often effective between 100 and 300.</p>
 		</param-doc>
 
-		<param-doc default-value="2" mandatory="default: 2" name="windowSize"
-			short-type="Integer" type="java.lang.Integer">
+		<param-doc default-value="2" mandatory="default: 2" name="windowSize" short-type="Integer" type="java.lang.Integer">
 			<p>The maximum distance between the current and predicted word within a sentence.</p>
 		</param-doc>
 
-		<param-doc mandatory="required" name="workers" short-type="Integer"
-			type="java.lang.Integer">
+		<param-doc mandatory="required" name="workers" short-type="Integer" type="java.lang.Integer">
 			<p>Use this many worker threads to train the model (=faster training with multicore machines).</p>
 		</param-doc>
 

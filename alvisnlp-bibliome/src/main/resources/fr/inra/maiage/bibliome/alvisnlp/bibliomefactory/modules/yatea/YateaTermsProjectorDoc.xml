@@ -6,15 +6,14 @@
   <module-doc>
     <description>
       <p><this/> reads terms in a YaTeA XML output file produced by <module>YateaExtractor</module> and searches for terms in section contents, or whatever specified by <param>subject</param>.</p>
-      <p>The parameters <param name="skipBlank"/>, <param name="skipEmpty"/>, <param name="strictColumnNumber"/>, <param name="trimColumns"/>, <param name="separator"/>, <param name="multipleEntryBehaviour"/> control how the dictionary file is read by <this/>.</p>
-      <p>The parameters <param name="allowJoined"/>, <param name="allUpperCaseInsensitive"/>, <param name="caseInsensitive"/>, <param name="ignoreDiacritics"/>, <param name="joinDash"/>, <param name="matchStartCaseInsensitive"/>, <param name="skipConsecutiveWhitespaces"/>, <param name="skipWhitespace"/> and <param name="wordStartCaseInsensitive"/> control how the keys can match the sections content.</p>
-      <p>The <param name="subject"/> parameter specifies which text of the section should be matched. There are two alternatives:
+      <p>The parameters <param>allowJoined</param>, <param>allUpperCaseInsensitive</param>, <param>caseInsensitive</param>, <param>ignoreDiacritics</param>, <param>joinDash</param>, <param>matchStartCaseInsensitive</param>, <param>skipConsecutiveWhitespaces</param>, <param>skipWhitespace</param> and <param>wordStartCaseInsensitive</param> control how the keys can match the sections content.</p>
+      <p>The <param>subject</param> parameter specifies which text of the section should be matched. There are two alternatives:
       <ul>
-	<li>the entries are matched on the contents of the section (the default), <param name="subject"/> can also control if matches boundaries coincide with word delimiters;</li>
+	<li>the entries are matched on the contents of the section (the default), <param>subject</param> can also control if matches boundaries coincide with word delimiters;</li>
 	<li>the entries are matched on the value of a specified feature of annotations in a given layer separated by a whitespace, in this way entries can be searched against word lemmas, for instance.</li>
       </ul>
       </p>
-      <p><this/> creates an annotation for each matched key and adds these annotations to the layer specified by <param name="targetLayerName"/>. Term structure information can be recorded in the features specified by <param>term-id</param>, <param>head</param>, <param>monoHeadId</param>, <param>modifier</param>, and <param>pos</param>. In addition, the created annotations will have the constant features specified in <param name="constantAnnotationFeatures"/>.</p>
+      <p><this/> creates an annotation for each matched key and adds these annotations to the layer specified by <param>targetLayerName</param>. Term structure information can be recorded in the features specified by <param>termId</param>, <param>head</param>, <param>monoHeadId</param>, <param>modifier</param>, and <param>termPOS</param>. In addition, the created annotations will have the constant features specified in <param>constantAnnotationFeatures</param>.</p>
       <p><param>trieSource</param> and <param>trieSink</param> are not supported by <this/>.</p>
     </description>
     

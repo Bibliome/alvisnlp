@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2010-10-28">
   <synopsis>
     <p>Reads files and adds a document in the corpus for each file.</p>
@@ -22,11 +21,11 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> reads file(s) from <param name="sourcePath"/> and creates a document in the corpus for each file. The identifier of the created document is the absolute path of the corresponding file. The created document has a single section named <param name="section"/> whose contents is the contents of the corresponding file.</p>
-      <p>If <param name="sourcePath"/> is a path to a file, then <this/> will read this file. If <param name="sourcePath"/> is a path to a directory, then <this/> will read the files in this directory. If <param name="recursive"/> is set to true, then the files in sub-directories will be read recursively. <this/> only reads files whose name match <param name="acceptPattern"/>. If <param name="acceptPattern"/> is not set, then <this/> reads all files.</p>
-      <p>If <param name="linesLimit"/> is set, then <this/> creates a new document for each set of lines. For instance, if <param name="linesLimit"/> is set to 10 and a file contains 25 lines, then 3 documents are created: two containing 10 lines and one containing the las 5 lines.</p>
-      <p>Files are read using the same encoding <param name="charset"/>.</p>
-      <p>The created documents will all have the features defined in <param name="constantDocumentFeatures"/>. The unique section will have the features defined in <param name="constantSectionFeatures"/>.</p>
+      <p><this/> reads file(s) from <param>source</param> and creates a document in the corpus for each file. The identifier of the created document is the absolute path of the corresponding file. The created document has a single section named <param>sectionName</param> whose contents is the contents of the corresponding file.</p>
+      <p>If <param>source</param> is a path to a file, then <this/> will read this file. If <param>source</param> is a path to a directory, then <this/> will read the files in this directory.</p>
+      <p>If <param>linesLimit</param> is set, then <this/> creates a new document for each set of lines. For instance, if <param>linesLimit</param> is set to 10 and a file contains 25 lines, then 3 documents are created: two containing 10 lines and one containing the las 5 lines.</p>
+      <p>Files are read using the same encoding <param>charset</param>.</p>
+      <p>The created documents will all have the features defined in <param>constantDocumentFeatures</param>. The unique section will have the features defined in <param>constantSectionFeatures</param>.</p>
     </description>
       
     <param-doc name="charset">

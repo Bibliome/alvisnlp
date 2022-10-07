@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <alvisnlp-doc author="Robert Bossy" date="2021-07-15">
 
-	<param-doc mandatory="required" name="documents"
-		short-type="Expression"
-		type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
+	<param-doc mandatory="required" name="documents" short-type="Expression" type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
 		<p>Documents to classify. This expression is evaluated as a list of elements from the corpus.</p>
 	</param-doc>
 
-	<param-doc mandatory="required" name="attributes"
-		short-type="FasttextAttribute[]"
-		type="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextAttribute[]">
+	<param-doc mandatory="required" name="attributes" short-type="FasttextAttribute[]" type="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextAttribute[]">
 		<p>Attributes of each document. The set of attributes must be identical in training with <module>FasttextClassifierTrain</module> and in labeling with <module>FasttextClassifierLabel</module>.</p>
 	</param-doc>
 
-	<param-doc mandatory="required" name="fasttextExecutable"
-		short-type="ExecutableFile"
-		type="fr.inra.maiage.bibliome.util.files.ExecutableFile">
+	<param-doc mandatory="required" name="fasttextExecutable" short-type="ExecutableFile" type="fr.inra.maiage.bibliome.util.files.ExecutableFile">
 		<p>Path to the FastText executable (see the <a href="https://github.com/facebookresearch/fastText">GitHub</a> page for installation instructions).</p>
 	</param-doc>
 

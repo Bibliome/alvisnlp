@@ -49,7 +49,7 @@ public class WekaTrain extends PredictionElementClassifier {
 	private String[] classifierOptions;
 	private Integer crossFolds;
 	private Long randomSeed = 1L;
-	private String foldFeatureKey;
+	private String foldFeature;
 	private TargetStream classifierInfoFile;
 	private TargetStream arffFile;
 
@@ -59,7 +59,7 @@ public class WekaTrain extends PredictionElementClassifier {
 	    	Logger logger = getLogger(ctx);
 	        EvaluationContext evalCtx = new EvaluationContext(logger);
 			Classifier classifier = createClassifier();
-			boolean withId = (foldFeatureKey != null) || (getPredictedClassFeatureKey() != null);
+			boolean withId = (foldFeature != null) || (getPredictedClassFeatureKey() != null);
 			IdentifiedInstances<Element> trainingSet = getTrainingSet(ctx, corpus, evalCtx, withId);
 			writeArff(ctx, trainingSet);
 			trainClassifier(ctx, classifier, trainingSet);
@@ -152,7 +152,7 @@ public class WekaTrain extends PredictionElementClassifier {
     				int predictedClass = (int)predictions[j];
     				int elementId = (int) crossTestSet.instance(j).value(0);
     				Element elt = instances.getElement(elementId);
-    				elt.addFeature(foldFeatureKey, s);
+    				elt.addFeature(foldFeature, s);
     				elt.addFeature(getPredictedClassFeatureKey(), classes[predictedClass]);
     			}
     		}
@@ -218,9 +218,10 @@ public class WekaTrain extends PredictionElementClassifier {
 		return randomSeed;
 	}
 	
+	@Deprecated
 	@Param(mandatory=false, nameType=NameType.FEATURE)
 	public String getFoldFeatureKey() {
-		return foldFeatureKey;
+		return foldFeature;
 	}
 	
 	@Param(mandatory=false)
@@ -231,6 +232,15 @@ public class WekaTrain extends PredictionElementClassifier {
 	@Param(mandatory=false)
 	public TargetStream getArffFile() {
 		return arffFile;
+	}
+
+	@Param(mandatory=false, nameType=NameType.FEATURE)
+	public String getFoldFeature() {
+		return foldFeature;
+	}
+
+	public void setFoldFeature(String foldFeature) {
+		this.foldFeature = foldFeature;
 	}
 
 	public void setPredictedClassFeatureKey(String predictedClassFeature) {
@@ -254,7 +264,7 @@ public class WekaTrain extends PredictionElementClassifier {
 	}
 	
 	public void setFoldFeatureKey(String foldFeatureKey) {
-		this.foldFeatureKey = foldFeatureKey;
+		this.foldFeature = foldFeatureKey;
 	}
 	
 	public void setClassifierInfoFile(TargetStream classifierInfoFile) {

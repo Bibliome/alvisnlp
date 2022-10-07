@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.Species">
   <synopsis>
     <p>Calls the <a href="">Species</a> taxon tagger.</p>
@@ -22,7 +21,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> applies the <a href="XXX">Species</a> taxon tagger on the contents of the sections. The <em>Species</em> software must be installed in the <param name="speciesDir"/> directory. <this/> crerates an annotation for each taxon tagged by <em>Species</em>.</p>
+      <p><this/> applies the <a href="XXX">Species</a> taxon tagger on the contents of the sections. The <em>Species</em> software must be installed in the <param>speciesDir</param> directory. <this/> crerates an annotation for each taxon tagged by <em>Species</em>.</p>
     </description>
   
     <param-doc name="speciesDir">

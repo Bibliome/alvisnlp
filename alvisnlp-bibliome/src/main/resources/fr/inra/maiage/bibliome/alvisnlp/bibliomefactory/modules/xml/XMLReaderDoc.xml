@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2012-04-30" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml.XMLReader2">
   <synopsis>
     <p>Reads XML files and creates elements.</p>
@@ -22,7 +21,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> reads its input from <param name="sourcePath"/> as XML and creates documents, sections, annotations, relations or tuples. The structure of the input XML is handled through the <param name="xlsTransform"/> XSLT stylesheet.</p>
+      <p><this/> reads its input from <param>source</param> as XML and creates documents, sections, annotations, relations or tuples. The structure of the input XML is handled through the <param>xslTransform</param> XSLT stylesheet.</p>
       <p><this/> also provides XSLT function and element extensions. The namespace for all extensions is <code>xalan://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml.XMLReader2</code>.</p>
       <h3>Element extensions</h3>
       <p>
@@ -51,7 +50,7 @@ Note: the inline() function also process comment and processing instruction node
     </param-doc>
   
     <param-doc name="stringParams">
-      <p>Parameters to pass to the XSLT Stylesheet specified by <param name="xslTransform"/>.</p>
+      <p>Parameters to pass to the XSLT Stylesheet specified by <param>xslTransform</param>.</p>
     </param-doc>
   
     <param-doc name="source">

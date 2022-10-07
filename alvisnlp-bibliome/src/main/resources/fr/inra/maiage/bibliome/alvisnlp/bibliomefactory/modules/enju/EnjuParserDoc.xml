@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.enju.EnjuParser2">
 
   <synopsis>
@@ -83,7 +82,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="parseNumberFeatureName">
-      <p>Deprecated alias for <param>parseNumberFeatureName</param>.</p>
+      <p>Deprecated alias for <param>parseNumberFeature</param>.</p>
     </param-doc>
   
     <param-doc name="enjuEncoding">
@@ -91,12 +90,24 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="dependenciesRelationName">
-      <p>Deprecated alias for <param>dependenciesRelation</param>.</p>
+      <p>Deprecated alias for <param>dependencyRelation</param>.</p>
     </param-doc>
   
     <param-doc name="enjuExecutable">
       <p>Path to the Enju executable file.</p>
     </param-doc>
+    
+	<param-doc name="lemmaFeature">
+	  <p>Lemma feature of the token.</p>
+	</param-doc>
+    
+	<param-doc name="lemmaFeatureName">
+	  <p>Deprecated alias for <param>lemmaFeature</param>.</p>
+	</param-doc>
+
+	<param-doc name="sentenceFilter">
+	  <p>Expression evaluated from the sentence annotation as a boolean. Only parse sentences for which this expression evaluates to *true*.</p>
+	</param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.DependencyParserModuleParamsDoc</include-doc>

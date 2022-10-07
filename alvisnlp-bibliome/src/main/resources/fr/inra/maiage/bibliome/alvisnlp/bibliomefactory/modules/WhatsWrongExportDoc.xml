@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2012-04-30" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.WhatsWrongExport">
   <synopsis>
     <p>Writes files in <a href="">What's Wrong with my NLP</a> format.</p>
@@ -27,7 +26,7 @@ limitations under the License.
     
   
     <param-doc name="dependent">
-      <p>Name of the tuple role that references the dependent. The dependent must be in the <param name="words"/> layer.</p>
+      <p>Name of the tuple role that references the dependent. The dependent must be in the <param>words</param> layer.</p>
     </param-doc>
   
     <param-doc name="sentences">
@@ -59,7 +58,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="head">
-      <p>Name of the tuple role that references the head. The head must be in the <param name="words"/> layer.</p>
+      <p>Name of the tuple role that references the head. The head must be in the <param>words</param> layer.</p>
     </param-doc>
   
     <param-doc name="sentence">

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,10 +14,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2010-10-28">
   <synopsis>
-    <p>Converts into an annotation pattern to be used by <module name="PatternMatcher"/>.</p>
+    <p>Converts into an annotation pattern to be used by <module>PatternMatcher</module>.</p>
   </synopsis>
 
   <converter-doc>
@@ -59,7 +58,7 @@ limitations under the License.
      <ul>
        <li><em>posTag =~ /^N/ +</em>: matches a single annotation or an unlimited number of consecutive annotations whose feature <em>posTag</em> starts with a <em>N</em>;</li>
        <li><em>posTag =~ /^J/ * posTag =~ /^N/ +</em>: matches nothing or an unlimited number of consecutive annotations whose feature <em>posTag</em> starts with a <em>J</em>, then followed by a single annotation or an unlimited number of consecutive annotations whose feature <em>posTag</em> starts with a <em>N</em>;</li>
-       <li><em>posTag =~ /^J/ * posTag =~ /^N/ * [head: posTag =~ /^N/ ]</em>: like the preceding one, but captures the last annotation of the match in a sub-pattern named <em>head</em>, this name can be referenced in <param module="PatternMatcher" name="actions"/>.</li>
+       <li><em>posTag =~ /^J/ * posTag =~ /^N/ * [head: posTag =~ /^N/ ]</em>: like the preceding one, but captures the last annotation of the match in a sub-pattern named <em>head</em>, this name can be referenced in <param>actions</param>.</li>
      </ul>
      </p>
     </string-conversion>

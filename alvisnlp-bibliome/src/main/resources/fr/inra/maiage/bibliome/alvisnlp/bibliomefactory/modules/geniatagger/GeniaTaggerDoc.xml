@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2012-04-30" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.geniatagger.GeniaTagger">
   <synopsis>
     <p>Runs Genia Tagger on annotations.</p>
@@ -22,30 +21,30 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> executes theGenia Tagger on annotations from the layer <param name="words"/> and record the results in the features specified by <param name="pos"/>, <param name="lemma"/>, <param name="chunk"/> and <param name="entity"/>. <this/> reinforces sentences specified by annotations in the <param name="sentences"/> layer.</p>
+      <p><this/> executes theGenia Tagger on annotations from the layer <param>wordLayerName</param> and record the results in the features specified by <param>posFeature</param>, <param>lemmaFeature</param>, <param>chunkFeature</param> and <param>entityFeature</param>. <this/> reinforces sentences specified by annotations in the <param>sentenceLayerName</param> layer.</p>
     </description>
   
     <param-doc name="geniaCharset">
       <p>Character encoding of geniatagger input and output.</p>
     </param-doc>
   
-    <param-doc name="pos">
+    <param-doc name="posFeature">
       <p>Feature where to put the POS tag.</p>
     </param-doc>
   
-    <param-doc name="sentences">
+    <param-doc name="sentenceLayerName">
       <p>Name of the layer containing sentence annotations.</p>
     </param-doc>
   
-    <param-doc name="entity">
+    <param-doc name="entityFeature">
       <p>Feature where to put the entity status.</p>
     </param-doc>
   
-    <param-doc name="chunk">
+    <param-doc name="chunkFeature">
       <p>Feature where to put the chunk status.</p>
     </param-doc>
   
-    <param-doc name="words">
+    <param-doc name="wordLayerName">
       <p>Name of the layer containing word annotations.</p>
     </param-doc>
   
@@ -53,11 +52,11 @@ limitations under the License.
       <p>Directory where geniatagger is installed.</p>
     </param-doc>
   
-    <param-doc name="wordForm">
+    <param-doc name="wordFormFeature">
       <p>Feature containing the word surface form.</p>
     </param-doc>
   
-    <param-doc name="lemma">
+    <param-doc name="lemmaFeature">
       <p>Feature where to put the word lemma.</p>
     </param-doc>
   

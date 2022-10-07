@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.clone.MergeSections">
   <synopsis>
     <p>Merge several sections into a single one.</p>
@@ -22,7 +21,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> creates a section named <param name="targetSectionName"/> that is a concatenation of all sections that satisfy <param name="sectionFilter"/>. Layers, annotations, relations and tuples of the source sections are copied to the new section. Additionally, <this/> can select or strip contents from annotations from <param name="fragmentLayerName"/>.</p>
+      <p><this/> creates a section named <param>targetSectionName</param> that is a concatenation of all sections that satisfy <param>sectionFilter</param>. Layers, annotations, relations and tuples of the source sections are copied to the new section. Additionally, <this/> can select or strip contents from annotations from <param>fragmentLayerName</param>.</p>
     </description>
 
     <param-doc name="sectionSeparator">
@@ -46,11 +45,11 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="fragmentSelection">
-      <p>If this parameter equals <code>include</code>, then <this/> only concatenates contents that is included in annotations in the layer <param name="fragmentLayerName"/>. If this parameter equals <code>exclude</code>, then <this/> only concatenates contents that is <em>not</em> included in annotations in the layer <param name="fragmentLayerName"/>. If <param name="fragmentLayerName"/> is not set, then this parameter is ignored.</p>
+      <p>If this parameter equals <code>include</code>, then <this/> only concatenates contents that is included in annotations in the layer <param>fragmentLayerName</param>. If this parameter equals <code>exclude</code>, then <this/> only concatenates contents that is <em>not</em> included in annotations in the layer <param>fragmentLayerName</param>. If <param>fragmentLayerName</param> is not set, then this parameter is ignored.</p>
     </param-doc>
   
     <param-doc name="fragmentSeparator">
-      <p>Text to insert between the contents of concatenated fragments. If <param name="fragmentLayerName"/> is not set, then this parameter is ignored.</p>
+      <p>Text to insert between the contents of concatenated fragments. If <param>fragmentLayerName</param> is not set, then this parameter is ignored.</p>
     </param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>

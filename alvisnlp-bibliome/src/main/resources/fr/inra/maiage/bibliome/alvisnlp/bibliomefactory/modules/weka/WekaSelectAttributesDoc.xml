@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2012-04-30" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.newclassifiers.SelectingElementClassifier">
   <synopsis>
     <p>Searches for discrimminating attributes with Weka.</p>
@@ -22,7 +21,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> applies Weka's attribute selection on a training set specified by <param name="examples"/> and writes the result in <param name="evaluationFile"/>.</p>
+      <p><this/> applies Weka's attribute selection on a training set specified by <param>examples</param> and writes the result in <param>evaluationFile</param>.</p>
     </description>
   
     <param-doc name="evaluator">
