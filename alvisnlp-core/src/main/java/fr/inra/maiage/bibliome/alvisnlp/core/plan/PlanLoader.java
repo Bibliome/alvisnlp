@@ -332,11 +332,11 @@ public class PlanLoader<T extends Annotable> {
 			throw new PlanException("unexpected node: " + child);
 		}
 		for (Element aliasElt : aliasParams)
-			setAliasParam(aliasElt, result);
+			setAliasParam(logger, aliasElt, result);
 		return result;
 	}
 
-	private void setAliasParam(Element elt, Sequence<T> sequence) throws PlanException, ParameterException {
+	private void setAliasParam(Logger logger, Element elt, Sequence<T> sequence) throws PlanException, ParameterException {
 		String name = getAttribute(elt, NAME_ATTRIBUTE_NAME);
 		Sequence.CompositeParamHandler<T> ph = sequence.createAliasParam(name);
 		for (Node child : XMLUtils.childrenNodes(elt)) {
@@ -354,6 +354,15 @@ public class PlanLoader<T extends Annotable> {
 				throw new PlanException("unexpected element: " + childName);				
 			}
 			throw new PlanException("unexpected node: " + child);
+		}
+		for (ParamHandler<T> c : ph.getAllParamHandlers()) {
+			if (c.isDeprecated()) {
+				Module<T> module = c.getModule();
+				String moduleClass = module.getModuleClass();
+				String shortModuleClass = moduleClass.substring(moduleClass.lastIndexOf('.') + 1);
+				logger.severe("parameter " + c.getName() + " in " + module.getPath() + " (" + shortModuleClass + ") is DEPRECATED (alias " + ph.getName() + ")");
+				logger.severe("this parameter might not be supported in future versions");
+			}
 		}
 	}
 	

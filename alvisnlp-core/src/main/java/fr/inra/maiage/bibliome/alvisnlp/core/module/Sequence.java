@@ -20,6 +20,7 @@ package fr.inra.maiage.bibliome.alvisnlp.core.module;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.documentation.Documentation;
@@ -130,6 +131,10 @@ public interface Sequence<T extends Annotable> extends Module<T> {
 
 		public final ParamHandler<T> firstHandler() {
 			return paramHandlers.get(0);
+		}
+		
+		public List<ParamHandler<T>> getAllParamHandlers() {
+			return Collections.unmodifiableList(paramHandlers);
 		}
 		
 		@Override
