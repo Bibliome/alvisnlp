@@ -21,7 +21,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> creates a section named <param>targetSectionName</param> that is a concatenation of all sections that satisfy <param>sectionFilter</param>. Layers, annotations, relations and tuples of the source sections are copied to the new section. Additionally, <this/> can select or strip contents from annotations from <param>fragmentLayerName</param>.</p>
+      <p><this/> creates a section named <param>targetSection</param> that is a concatenation of all sections that satisfy <param>sectionFilter</param>. Layers, annotations, relations and tuples of the source sections are copied to the new section. Additionally, <this/> can select or strip contents from annotations from <param>fragmentLayerName</param>.</p>
     </description>
 
     <param-doc name="sectionSeparator">
@@ -32,8 +32,12 @@ limitations under the License.
       <p>Name of the layer that contains annotations to include/exclude in/from the new section contents. If this parameter is not set, then <this/> concatenates the whole contents of the sections.</p>
     </param-doc>
   
-    <param-doc name="targetSectionName">
+    <param-doc name="targetSection">
       <p>Name of the section to create.</p>
+    </param-doc>
+  
+    <param-doc name="targetSectionName">
+      <p>Deprecated alias for <param>targetSection</param>.</p>
     </param-doc>
   
     <param-doc name="removeSections">

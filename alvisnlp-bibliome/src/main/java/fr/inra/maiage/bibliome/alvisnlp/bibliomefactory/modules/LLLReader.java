@@ -60,7 +60,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 	private static final Pattern GENIC_INTERACTION_PATTERN = Pattern.compile("genic_interaction\\((\\d+),(\\d+)\\)");
 
 	private SourceStream source;
-	private String sectionName = DefaultNames.getDefaultSectionName();
+	private String section = DefaultNames.getDefaultSectionName();
 	private String wordLayerName = DefaultNames.getWordLayer();
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
 	private String idFeature = "id";
@@ -122,7 +122,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 								if (sec != null)
 									error(r, lineno, "duplicate sentence");
 								String contents = cols.get(1);
-								sec = new Section(this, doc, sectionName, contents);
+								sec = new Section(this, doc, section, contents);
 								Layer sentenceLayer = sec.ensureLayer(sentenceLayerName);
 								new Annotation(this, sentenceLayer, 0, contents.length());
 								doc = null;
@@ -259,9 +259,10 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 		return source;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.SECTION)
 	public String getSectionName() {
-		return sectionName;
+		return section;
 	}
 
 	@Param(nameType=NameType.LAYER)
@@ -371,6 +372,15 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 		return dependencyLabelFeature;
 	}
 
+	@Param(nameType=NameType.SECTION)
+	public String getSection() {
+		return section;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
+	}
+
 	public void setDependencyLabelFeature(String dependencyLabelFeature) {
 		this.dependencyLabelFeature = dependencyLabelFeature;
 	}
@@ -408,7 +418,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 	}
 
 	public void setSectionName(String sectionName) {
-		this.sectionName = sectionName;
+		this.section = sectionName;
 	}
 
 	public void setWordLayerName(String wordLayerName) {

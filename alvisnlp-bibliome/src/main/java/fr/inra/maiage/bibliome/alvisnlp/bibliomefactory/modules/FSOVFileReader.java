@@ -56,15 +56,33 @@ import fr.inra.maiage.bibliome.util.xml.XMLUtils;
  */
 @AlvisNLPModule
 public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator {
-	private String titleSectionName = "title";
-    private String  bodySectionName = "body";
+	private String titleSection = "title";
+    private String  bodySection = "body";
     private Integer sizeLimit = null;
     private Integer linesLimit = null;
     private String  charset   = "UTF-8";
     private InputDirectory xmlDir = null;
     private SourceStream sourcePath;
     
-    @Param
+    @Param(nameType = NameType.SECTION)
+    public String getTitleSection() {
+		return titleSection;
+	}
+
+    @Param(nameType = NameType.SECTION)
+	public String getBodySection() {
+		return bodySection;
+	}
+
+	public void setTitleSection(String titleSection) {
+		this.titleSection = titleSection;
+	}
+
+	public void setBodySection(String bodySection) {
+		this.bodySection = bodySection;
+	}
+
+	@Param
     public SourceStream getSourcePath() {
 		return sourcePath;
 	}
@@ -78,9 +96,10 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
      * 
      * @return the section name
      */
+	@Deprecated
     @Param(nameType=NameType.SECTION, defaultDoc = "Name of the single section containing the whole contents of a file.")
     public String getBodySectionName() {
-        return bodySectionName;
+        return bodySection;
     }
 
     /**
@@ -90,7 +109,7 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
      *            the new section name
      */
     public void setBodySectionName(String sectionName) {
-        this.bodySectionName = sectionName;
+        this.bodySection = sectionName;
     }
 
     /**
@@ -132,13 +151,14 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
 		this.xmlDir = xmlDir;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.SECTION)
 	public String getTitleSectionName() {
-		return titleSectionName;
+		return titleSection;
 	}
 
 	public void setTitleSectionName(String titleSectionName) {
-		this.titleSectionName = titleSectionName;
+		this.titleSection = titleSectionName;
 	}
 
 	/**
@@ -275,8 +295,8 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
     private Document createDocument(Corpus corpus, String id, Map<String,List<String>> metadata, String contents) {
         Document result = Document.getDocument(this, corpus, id);
         if (metadata.containsKey("title"))
-        	new Section(this, result, titleSectionName, metadata.get("title").get(0));
-        new Section(this, result, bodySectionName, contents);
+        	new Section(this, result, titleSection, metadata.get("title").get(0));
+        new Section(this, result, bodySection, contents);
         result.addMultiFeatures(metadata);
         return result;
     }

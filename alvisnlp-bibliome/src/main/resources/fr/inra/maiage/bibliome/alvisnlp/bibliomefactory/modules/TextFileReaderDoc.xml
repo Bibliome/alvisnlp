@@ -21,7 +21,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> reads file(s) from <param>source</param> and creates a document in the corpus for each file. The identifier of the created document is the absolute path of the corresponding file. The created document has a single section named <param>sectionName</param> whose contents is the contents of the corresponding file.</p>
+      <p><this/> reads file(s) from <param>source</param> and creates a document in the corpus for each file. The identifier of the created document is the absolute path of the corresponding file. The created document has a single section named <param>section</param> whose contents is the contents of the corresponding file.</p>
       <p>If <param>source</param> is a path to a file, then <this/> will read this file. If <param>source</param> is a path to a directory, then <this/> will read the files in this directory.</p>
       <p>If <param>linesLimit</param> is set, then <this/> creates a new document for each set of lines. For instance, if <param>linesLimit</param> is set to 10 and a file contains 25 lines, then 3 documents are created: two containing 10 lines and one containing the las 5 lines.</p>
       <p>Files are read using the same encoding <param>charset</param>.</p>
@@ -44,8 +44,12 @@ limitations under the License.
       <p>Alias for <param>source</param>. Use <param>source</param> instead.</p>
     </param-doc>
   
-    <param-doc name="sectionName">
+    <param-doc name="section">
       <p>Name of the single section containing the whole contents of a file.</p>
+    </param-doc>
+  
+    <param-doc name="sectionName">
+      <p>Deprecated alias for <param>section</param>.</p>
     </param-doc>
   
     <param-doc name="sizeLimit">

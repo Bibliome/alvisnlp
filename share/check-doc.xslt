@@ -1,7 +1,7 @@
 <xsl:stylesheet version = "1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:bibliome="xalan://org.bibliome.util.xml.Functions"
-                >
+                xmlns:re="http://exslt.org/regular-expressions"
+		extension-element-prefixes="re">
   
   <xsl:output method="text" encoding="UTF-8"/>
 
@@ -41,7 +41,7 @@
 	  <xsl:message>### Documentation for deprecated param '<xsl:value-of select="@name"/>' does not reference an alternative parameter</xsl:message>
 	</xsl:if>
       </xsl:when>
-      <xsl:otherwise>
+      <xsl:when test="@type = 'java.lang.String'">
 	<xsl:variable name="len">
 	  <xsl:value-of select="string-length(@name)"/>
 	</xsl:variable>
@@ -51,7 +51,16 @@
 	<xsl:if test="@name-type = 'relation' and not((@name = 'relation') or (@name = 'relations') or (substring(@name, $len - 7) = 'Relation') or (substring(@name, $len - 8) = 'Relations'))">
 	  <xsl:message>### Parameter '<xsl:value-of select="@name"/>' specifies a relation but does not end with 'Relation'</xsl:message>
 	</xsl:if>
-      </xsl:otherwise>
+	<xsl:if test="@name-type = 'argument' and not((@name = 'role') or (@name = 'roles') or (substring(@name, $len - 3) = 'Role') or (substring(@name, $len - 4) = 'Roles'))">
+	  <xsl:message>### Parameter '<xsl:value-of select="@name"/>' specifies a role but does not end with 'Role'</xsl:message>
+	</xsl:if>
+	<xsl:if test="@name-type = 'section' and not((@name = 'section') or (substring(@name, $len - 6) = 'Section') or (substring(@name, $len - 7) = 'Sections'))">
+	  <xsl:message>### Parameter '<xsl:value-of select="@name"/>' specifies a section but does not end with 'Section'</xsl:message>
+	</xsl:if>
+	<xsl:if test="@name-type = 'layer' and not((substring(@name, $len - 4) = 'Layer') or (substring(@name, $len - 5) = 'Layers'))">
+	  <xsl:message>### Parameter '<xsl:value-of select="@name"/>' specifies a layer but does not end with 'Layer'</xsl:message>
+	</xsl:if>
+      </xsl:when>
     </xsl:choose>
   </xsl:template>
 </xsl:stylesheet>

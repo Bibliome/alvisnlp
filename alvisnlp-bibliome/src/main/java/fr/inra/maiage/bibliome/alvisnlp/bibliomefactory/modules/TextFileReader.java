@@ -44,7 +44,7 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
  */
 @AlvisNLPModule
 public abstract class TextFileReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator {
-    private String  sectionName = DefaultNames.getDefaultSectionName();
+    private String  section = DefaultNames.getDefaultSectionName();
     private Integer sizeLimit = null;
     private Integer linesLimit = null;
     private String  charset   = "UTF-8";
@@ -56,9 +56,10 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
      * 
      * @return the section name
      */
+    @Deprecated
     @Param(nameType=NameType.SECTION, defaultDoc = "Name of the single section containing the whole contents of a file.")
     public String getSectionName() {
-        return sectionName;
+        return section;
     }
 
     /**
@@ -68,10 +69,19 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
      *            the new section name
      */
     public void setSectionName(String sectionName) {
-        this.sectionName = sectionName;
+        this.section = sectionName;
     }
 
-    /**
+    @Param(nameType=NameType.SECTION)
+    public String getSection() {
+		return section;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
+	}
+
+	/**
      * Gets the size limit.
      * 
      * @return the size limit
@@ -212,7 +222,7 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
      */
     private Document createDocument(Corpus corpus, String id, String contents) {
         Document result = Document.getDocument(this, corpus, id);
-        new Section(this, result, sectionName, contents);
+        new Section(this, result, section, contents);
         return result;
     }
 }

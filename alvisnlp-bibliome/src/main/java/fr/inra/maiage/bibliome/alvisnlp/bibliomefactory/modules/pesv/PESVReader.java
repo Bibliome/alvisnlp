@@ -17,6 +17,7 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
@@ -41,7 +42,7 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 	private SourceStream entitiesStream;
 	private String tokenLayerName = "tokens";
 	private String ordFeature = "ord";
-	private String sectionName = "text";
+	private String section = DefaultNames.getDefaultSectionName();
 	private String entityLayerName = "entities";
 	private String propertiesFeature = "properties";
 	
@@ -78,7 +79,7 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 			return;
 		}
 		Document doc = corpus.getDocument(docId);
-		Section sec = doc.sectionIterator(sectionName).next();
+		Section sec = doc.sectionIterator(section).next();
 		Annotation a = createAnnotation(sec, record);
 		for (String col : record.getParser().getHeaderNames()) {
 			String value = record.get(col);
@@ -152,7 +153,7 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 			Fragment f = new SimpleFragment(start, end);
 			frags.add(f);
 		}
-		Section sec = new Section(this, doc, sectionName , content.toString());
+		Section sec = new Section(this, doc, section , content.toString());
 		Layer layer = sec.ensureLayer(tokenLayerName);
 		for (int i = 0; i < frags.size(); ++i) {
 			Fragment f = frags.get(i);
@@ -202,9 +203,10 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 		return ordFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.SECTION)
 	public String getSectionName() {
-		return sectionName;
+		return section;
 	}
 
 	@Param(nameType=NameType.LAYER)
@@ -228,6 +230,15 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 		return propertiesFeature;
 	}
 
+	@Param(nameType=NameType.SECTION)
+	public String getSection() {
+		return section;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
+	}
+
 	public void setOrdFeature(String ordFeature) {
 		this.ordFeature = ordFeature;
 	}
@@ -249,7 +260,7 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 	}
 
 	public void setSectionName(String sectionName) {
-		this.sectionName = sectionName;
+		this.section = sectionName;
 	}
 
 	public void setEntityLayerName(String entityLayerName) {

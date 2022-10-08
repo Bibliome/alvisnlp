@@ -67,7 +67,7 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 	private InputDirectory conceptsDir;
 	private InputDirectory assertionsDir;
 	private InputDirectory relationsDir;
-	private String sectionName = DefaultNames.getDefaultSectionName();
+	private String section = DefaultNames.getDefaultSectionName();
 	private String linesLayerName = "lines";
 	private String linenoFeature = "lineno";
 	private String tokensLayerName = "tokens";
@@ -158,7 +158,7 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 	private void readRelations(Corpus corpus, File f, Map<TokenRef,Annotation> tokens) throws IOException, ProcessingException {
 		String docId = f.getName();
 		Document doc = corpus.getDocument(docId);
-		Section sec = doc.sectionIterator(sectionName).next();
+		Section sec = doc.sectionIterator(section).next();
 		Layer conceptLayer = sec.ensureLayer(conceptsLayerName);
 		String source = docId.replace(".txt", ".rel");
 		InputFile file = new InputFile(relationsDir, source);
@@ -189,7 +189,7 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 	private void readAssertions(Corpus corpus, File f, Map<TokenRef,Annotation> tokens) throws IOException, ProcessingException {
 		String docId = f.getName();
 		Document doc = corpus.getDocument(docId);
-		Section sec = doc.sectionIterator(sectionName).next();
+		Section sec = doc.sectionIterator(section).next();
 		Layer conceptLayer = sec.ensureLayer(conceptsLayerName);
 		String source = docId.replace(".txt", ".ast");
 		InputFile file = new InputFile(assertionsDir, source);
@@ -250,7 +250,7 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 	private void readConcepts(Corpus corpus, File f, Map<TokenRef,Annotation> tokens) throws ProcessingException, IOException {
 		String docId = f.getName();
 		Document doc = corpus.getDocument(docId);
-		Section sec = doc.sectionIterator(sectionName).next();
+		Section sec = doc.sectionIterator(section).next();
 		Layer conceptLayer = sec.ensureLayer(conceptsLayerName);
 		String source = docId.replace(".txt", ".con");
 		InputFile file = new InputFile(conceptsDir, source);
@@ -314,7 +314,7 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 	
 	private Section createSection(Document doc, List<String> lines) {
 		String contents = Strings.join(lines, '\n');
-		return new Section(this, doc, sectionName , contents);
+		return new Section(this, doc, section , contents);
 	}
 	
 	private static List<String> readTextLines(File f) throws IOException {
@@ -352,9 +352,10 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 		return relationsDir;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.SECTION)
 	public String getSectionName() {
-		return sectionName;
+		return section;
 	}
 
 	@Param(nameType=NameType.LAYER)
@@ -402,6 +403,15 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 		return rightRole;
 	}
 
+	@Param(nameType = NameType.SECTION)
+	public String getSection() {
+		return section;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
+	}
+
 	public void setTextDir(InputDirectory textDir) {
 		this.textDir = textDir;
 	}
@@ -419,7 +429,7 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 	}
 
 	public void setSectionName(String sectionName) {
-		this.sectionName = sectionName;
+		this.section = sectionName;
 	}
 
 	public void setLinesLayerName(String linesLayerName) {

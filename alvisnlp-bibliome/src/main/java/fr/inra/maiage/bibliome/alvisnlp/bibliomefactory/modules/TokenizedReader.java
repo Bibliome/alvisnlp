@@ -25,7 +25,7 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule(beta=true)
 public abstract class TokenizedReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator {
-	private String sectionName = DefaultNames.getDefaultSectionName();
+	private String section = DefaultNames.getDefaultSectionName();
 	private String tokenLayerName = DefaultNames.getWordLayer();
 	private String sentenceLayerName = DefaultNames.getSentenceLayer();
 	private SourceStream source;
@@ -39,7 +39,7 @@ public abstract class TokenizedReader extends CorpusModule<ResolvedObjects> impl
 				logger.fine("reading: " + name);
 				Document doc = Document.getDocument(this, corpus, name);
 				String contents = readContents(reader);
-				Section sec = new Section(this, doc, sectionName, contents);
+				Section sec = new Section(this, doc, section, contents);
 				Layer tokens = sec.ensureLayer(tokenLayerName);
 				Layer sentences = sec.ensureLayer(sentenceLayerName);
 				int startOfToken = 0;
@@ -80,9 +80,10 @@ public abstract class TokenizedReader extends CorpusModule<ResolvedObjects> impl
 		return new ResolvedObjects(ctx, this);
 	}
 	
+	@Deprecated
 	@Param(nameType=NameType.SECTION)
 	public String getSectionName() {
-		return sectionName;
+		return section;
 	}
 
 	@Param(nameType=NameType.LAYER)
@@ -100,8 +101,17 @@ public abstract class TokenizedReader extends CorpusModule<ResolvedObjects> impl
 		return source;
 	}
 
+	@Param(nameType=NameType.SECTION)
+	public String getSection() {
+		return section;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
+	}
+
 	public void setSectionName(String sectionName) {
-		this.sectionName = sectionName;
+		this.section = sectionName;
 	}
 
 	public void setTokenLayerName(String tokenLayerName) {

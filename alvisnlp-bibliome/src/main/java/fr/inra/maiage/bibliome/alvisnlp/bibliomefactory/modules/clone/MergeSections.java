@@ -52,7 +52,7 @@ import fr.inra.maiage.bibliome.util.mappers.Mappers;
 public abstract class MergeSections extends SectionModule<SectionResolvedObjects> implements SectionCreator, AnnotationCreator, TupleCreator {
 	private String sectionSeparator = "";
 	private String fragmentSeparator = "";
-	private String targetSectionName;
+	private String targetSection;
 	private Boolean removeSections = true;
 	private String sectionsLayerName;
 	private FragmentSelection fragmentSelection = FragmentSelection.EXLUDE;
@@ -72,7 +72,7 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 			List<Layer> keepLayers = Mappers.apply(fragmentSelection, fragmentLayerName, sections, new ArrayList<Layer>());
 			String newContents = getContents(keepLayers);
 			Map<Annotation,Integer> offsets = computeOffsets(keepLayers);
-			Section newSection = new Section(this, doc, targetSectionName, newContents);
+			Section newSection = new Section(this, doc, targetSection, newContents);
 
 			Map<Element,Element> mapping = new LinkedHashMap<Element,Element>();
 			for (int i = 0; i < sections.size(); ++i)
@@ -210,9 +210,10 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 		return fragmentSeparator;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.SECTION)
 	public String getTargetSectionName() {
-		return targetSectionName;
+		return targetSection;
 	}
 
 	@Param
@@ -235,6 +236,15 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 		return fragmentLayerName;
 	}
 
+	@Param(nameType=NameType.SECTION)
+	public String getTargetSection() {
+		return targetSection;
+	}
+
+	public void setTargetSection(String targetSection) {
+		this.targetSection = targetSection;
+	}
+
 	public void setFragmentLayerName(String fragmentLayerName) {
 		this.fragmentLayerName = fragmentLayerName;
 	}
@@ -248,7 +258,7 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 	}
 
 	public void setTargetSectionName(String targetSectionName) {
-		this.targetSectionName = targetSectionName;
+		this.targetSection = targetSectionName;
 	}
 
 	public void setRemoveSections(Boolean removeSections) {

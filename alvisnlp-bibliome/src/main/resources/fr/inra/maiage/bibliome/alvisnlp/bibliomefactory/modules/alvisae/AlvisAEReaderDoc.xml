@@ -125,8 +125,12 @@ limitations under the License.
       <p>For tuples that represent text-bound annotations, prefix of the role of fragment arguments.</p>
     </param-doc>
   
-    <param-doc name="sectionName">
+    <param-doc name="section">
       <p>Name of the unique section created in each document.</p>
+    </param-doc>
+  
+    <param-doc name="sectionName">
+      <p>Deprecated alias for <param>section</param>.</p>
     </param-doc>
   
     <param-doc name="docDescriptions">

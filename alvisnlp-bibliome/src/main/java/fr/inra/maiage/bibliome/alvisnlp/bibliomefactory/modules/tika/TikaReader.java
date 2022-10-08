@@ -51,7 +51,7 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 @AlvisNLPModule(beta=true)
 public abstract class TikaReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator {
 	private SourceStream source;
-	private String sectionName = DefaultNames.getDefaultSectionName();
+	private String section = DefaultNames.getDefaultSectionName();
 	private String htmlLayerName = "html";
 	private String tagFeature = "tag";
 	
@@ -91,7 +91,7 @@ public abstract class TikaReader extends CorpusModule<ResolvedObjects> implement
 	}
 	
 	private void createTagAnnotations(Document doc, TikaReaderHandler handler) {
-		Section sec = new Section(this, doc, sectionName, handler.getContents());
+		Section sec = new Section(this, doc, section, handler.getContents());
 		Layer html = new Layer(sec, htmlLayerName);
 		for (ElementFragment frag : handler.getElements()) {
 			Annotation a = new Annotation(this, html, frag.getStart(), frag.getEnd());
@@ -109,9 +109,10 @@ public abstract class TikaReader extends CorpusModule<ResolvedObjects> implement
 		return source;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.SECTION)
 	public String getSectionName() {
-		return sectionName;
+		return section;
 	}
 
 	@Param(nameType=NameType.LAYER)
@@ -130,6 +131,15 @@ public abstract class TikaReader extends CorpusModule<ResolvedObjects> implement
 		return tagFeature;
 	}
 
+	@Param(nameType=NameType.SECTION)
+	public String getSection() {
+		return section;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
+	}
+
 	public void setTagFeature(String tagFeature) {
 		this.tagFeature = tagFeature;
 	}
@@ -139,7 +149,7 @@ public abstract class TikaReader extends CorpusModule<ResolvedObjects> implement
 	}
 
 	public void setSectionName(String sectionName) {
-		this.sectionName = sectionName;
+		this.section = sectionName;
 	}
 
 	public void setHtmlLayerName(String htmlLayerName) {

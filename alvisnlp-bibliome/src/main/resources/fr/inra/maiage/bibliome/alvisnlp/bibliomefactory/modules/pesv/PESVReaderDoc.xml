@@ -38,8 +38,12 @@
 <p>Deprecated alias for <param>propertiesFeature</param>.</p>
 </param-doc>
 
-<param-doc default-value="text" mandatory="default: text" name="sectionName" name-type="section" short-type="String" type="java.lang.String">
+<param-doc default-value="text" mandatory="default: text" name="section" name-type="section" short-type="String" type="java.lang.String">
 <p>Name of the (unique) section.</p>
+</param-doc>
+
+<param-doc default-value="text" mandatory="default: text" name="sectionName" name-type="section" short-type="String" type="java.lang.String">
+<p>Deprecated alias for <param>section</param>.</p>
 </param-doc>
 
 <param-doc default-value="tokens" mandatory="default: tokens" name="tokenLayerName" name-type="layer" short-type="String" type="java.lang.String">

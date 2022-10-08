@@ -100,8 +100,12 @@ limitations under the License.
       <p>If <code>true</code>, <this/> imports text-bound annotations as annotations instead of tuples. Multiple fragments text-bound annotations are merged.</p>
     </param-doc>
   
-    <param-doc name="sectionName">
+    <param-doc name="section">
       <p>Name of the unique section contating all the text.</p>
+    </param-doc>
+  
+    <param-doc name="sectionName">
+      <p>Deprecated alias for <param>section</param>.</p>
     </param-doc>
   
     <param-doc name="relationKind">

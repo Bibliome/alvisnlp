@@ -24,7 +24,7 @@ limitations under the License.
       <p>
       <this/> reads files specified by <param>oboFiles</param> in <a href="XXX">OBO format</a>.
       Each term is loaded as a distinct document with the term identifier as the document identifier.
-      Each document contains a section (<param>nameSectionName</param>) containing the term name, and one section for each term synonym (<param>synonymSectionName</param>).
+      Each document contains a section (<param>nameSection</param>) containing the term name, and one section for each term synonym (<param>synonymSection</param>).
       Optionally <this/> also sets features on the document with the term path from the root (<param>pathFeature</param>), the identifier of the parent term (<param>parentFeature</param>), the identifiers of each ancestor (<param>ancestorsFeature</param>), of the identifiers of each child term (<param>childrenFeature</param>).</p>
     </description>
   
@@ -36,12 +36,20 @@ limitations under the License.
       <p>OBO files to read.</p>
     </param-doc>
   
-    <param-doc name="nameSectionName">
+    <param-doc name="nameSection">
       <p>Name of the section that contains the term name.</p>
     </param-doc>
   
-    <param-doc name="synonymSectionName">
+    <param-doc name="synonymSection">
       <p>Name of the sections that contains the term synonyms.</p>
+    </param-doc>
+  
+    <param-doc name="nameSectionName">
+      <p>Deprecated alias for <param>nameSection</param>.</p>
+    </param-doc>
+  
+    <param-doc name="synonymSectionName">
+      <p>Deprecated alias for <param>synonymSection</param>.</p>
     </param-doc>
   
     <param-doc name="parentFeature">

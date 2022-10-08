@@ -100,7 +100,7 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 	private InputDirectory a1Dir;
 	private InputDirectory a2Dir;
 	private String charset = "UTF-8";
-	private String sectionName = DefaultNames.getDefaultSectionName();
+	private String section = DefaultNames.getDefaultSectionName();
 	private DocumentSchema schema;
 	
 	@Override
@@ -186,12 +186,12 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 	}
 	
 	private Section getSection(Document alvisnlpDoc, String text) {
-		for (Section sec : Iterators.loop(alvisnlpDoc.sectionIterator(sectionName))) {
+		for (Section sec : Iterators.loop(alvisnlpDoc.sectionIterator(section))) {
 			if (text.equals(sec.getContents())) {
 				return sec;
 			}
 		}
-		return new Section(this, alvisnlpDoc, sectionName, text);
+		return new Section(this, alvisnlpDoc, section, text);
 	}
 	
 	@Override
@@ -416,9 +416,10 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 		return charset;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.SECTION)
 	public String getSectionName() {
-		return sectionName;
+		return section;
 	}
 
 	@Param(mandatory=false)
@@ -470,6 +471,15 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 	@Param(nameType=NameType.RELATION)
 	public String getEquivalenceRelation() {
 		return equivalenceRelation;
+	}
+
+	@Param(nameType=NameType.SECTION)
+	public String getSection() {
+		return section;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
 	}
 
 	public void setEquivalenceRelation(String equivalenceRelation) {
@@ -561,6 +571,6 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 	}
 
 	public void setSectionName(String sectionName) {
-		this.sectionName = sectionName;
+		this.section = sectionName;
 	}
 }

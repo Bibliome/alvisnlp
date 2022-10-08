@@ -77,8 +77,12 @@ limitations under the License.
       <p>Feature where to store the concept type.</p>
     </param-doc>
   
-    <param-doc name="sectionName">
+    <param-doc name="section">
       <p>Name of the unique section of each document.</p>
+    </param-doc>
+  
+    <param-doc name="sectionName">
+      <p>Deprecated alias for <param>section</param>.</p>
     </param-doc>
   
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>

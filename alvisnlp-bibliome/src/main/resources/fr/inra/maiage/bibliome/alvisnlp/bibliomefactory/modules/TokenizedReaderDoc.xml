@@ -9,8 +9,12 @@
     <p>Reads a tokenized corpus: one token per line, empty line separates sentence.</p>
   </description>
 
-  <param-doc default-value="text" mandatory="default: text" name="sectionName" name-type="section" short-type="String" type="java.lang.String">
+  <param-doc default-value="text" mandatory="default: text" name="section" name-type="section" short-type="String" type="java.lang.String">
     <p>Name of the section containing the tokenized text.</p>
+  </param-doc>
+
+  <param-doc default-value="text" mandatory="default: text" name="sectionName" name-type="section" short-type="String" type="java.lang.String">
+    <p>Deprecated alias for <param>section</param>.</p>
   </param-doc>
 
   <param-doc default-value="sentences" mandatory="default: sentences" name="sentenceLayerName" name-type="layer" short-type="String" type="java.lang.String">

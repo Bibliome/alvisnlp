@@ -80,7 +80,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	private Boolean loadTextBound = true;
 	private Boolean loadGroups = true;
 	private Boolean loadRelations = true;
-	private String sectionName = DefaultNames.getDefaultSectionName();
+	private String section = DefaultNames.getDefaultSectionName();
 	private String fragmentsLayerName = "alvisae";
 	private String fragmentRolePrefix = "frag";
 	private String itemRolePrefix = "item";
@@ -283,9 +283,9 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	}
 
 	private Section getSection(AlvisAEDocument doc, Document aDoc) {
-		for (Section sec : Iterators.loop(aDoc.sectionIterator(sectionName)))
+		for (Section sec : Iterators.loop(aDoc.sectionIterator(section)))
 			return sec;
-		return new Section(this, aDoc, sectionName, doc.getContents());
+		return new Section(this, aDoc, section, doc.getContents());
 	}
 
 	@Param
@@ -368,9 +368,10 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 		return loadRelations;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.SECTION)
 	public String getSectionName() {
-		return sectionName;
+		return section;
 	}
 
 	@Param(nameType=NameType.LAYER)
@@ -496,6 +497,15 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	@Param(mandatory=false, nameType=NameType.FEATURE)
 	public String getCampaignNameFeature() {
 		return campaignNameFeature;
+	}
+
+	@Param(nameType=NameType.SECTION)
+	public String getSection() {
+		return section;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
 	}
 
 	public void setCampaignIdFeature(String campaignIdFeature) {
@@ -643,7 +653,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	}
 
 	public void setSectionName(String sectionName) {
-		this.sectionName = sectionName;
+		this.section = sectionName;
 	}
 
 	public void setFragmentsLayerName(String fragmentsLayerName) {
