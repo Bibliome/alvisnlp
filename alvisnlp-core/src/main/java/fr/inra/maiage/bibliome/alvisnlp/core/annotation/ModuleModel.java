@@ -68,7 +68,7 @@ class ModuleModel {
 		fullName = moduleElement.getQualifiedName().toString();
 		packageName = fullName.substring(0, fullName.lastIndexOf('.'));
 		annotation = moduleElement.getAnnotation(AlvisNLPModule.class);
-		bundleName = annotation.docResourceBundle().isEmpty() ? fullName + "Doc" : annotation.docResourceBundle();
+		bundleName = fullName + "Doc";
 		Map<String,ExecutableElement> methods = ctx.getMethodsByName(moduleElement);
 		for (ExecutableElement method : methods.values()) {
 			Param paramAnnotation = method.getAnnotation(Param.class);

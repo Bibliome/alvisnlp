@@ -32,11 +32,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 public @interface AlvisNLPModule {
     /**
-     * Documentation resource bundle.
-     */
-    String docResourceBundle() default "";
-
-    /**
      * True if this module class is beta.
      */
     boolean beta() default false;

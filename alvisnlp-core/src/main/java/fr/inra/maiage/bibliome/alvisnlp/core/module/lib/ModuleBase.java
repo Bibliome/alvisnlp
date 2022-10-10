@@ -107,11 +107,7 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
     	if (klass == null) {
 			throw new RuntimeException("class " + getClass().getCanonicalName() + " does not extend a module class");
 		}
-    	String docResourceBundle = klass.getAnnotation(AlvisNLPModule.class).docResourceBundle();
-    	if (docResourceBundle.isEmpty()) {
-			return klass.getCanonicalName() + "Doc";
-		}
-    	return docResourceBundle;
+		return klass.getCanonicalName() + "Doc";
     }
 
     private void searchParams(Class<?> klass) throws NoSuchMethodException {
