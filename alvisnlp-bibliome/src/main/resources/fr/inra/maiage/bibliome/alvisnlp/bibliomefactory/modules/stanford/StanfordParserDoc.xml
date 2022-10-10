@@ -15,31 +15,31 @@
 		  <p>Language of the text to parse. <this/> currently supports english (default), french, german, spanish and chinese.</p>
 		</param-doc>
 
-		<param-doc default-value="dependencies" mandatory="default: dependencies" name="dependencyRelationName" name-type="relation" short-type="String" type="java.lang.String">
+		<param-doc name="dependencyRelationName">
 			<p>Deprecated alias for <param>dependencyRelation</param>.</p>
 		</param-doc>
 
-		<param-doc default-value="form" mandatory="default: form" name="formFeature" name-type="feature" short-type="String" type="java.lang.String">
+		<param-doc name="formFeature">
 			<p>Name of the feature containing the token surface form.</p>
 		</param-doc>
 
-		<param-doc default-value="pos" mandatory="default: pos" name="posTagFeature" name-type="feature" short-type="String" type="java.lang.String">
+		<param-doc name="posTagFeature">
 			<p>Name of the feature containing the token POS tag.</p>
 		</param-doc>
 
-		<param-doc default-value="label" mandatory="default: label" name="dependencyLabelFeatureName" name-type="feature" short-type="String" type="java.lang.String">
+		<param-doc name="dependencyLabelFeatureName">
 			<p>Deprecated alias for <param>dependencyLabelFeature</param>.</p>
 		</param-doc>
 
-		<param-doc default-value="form" mandatory="default: form" name="formFeatureName" name-type="feature" short-type="String" type="java.lang.String">
+		<param-doc name="formFeatureName">
 			<p>Deprecated alias for <param>formFeature</param>.</p>
 		</param-doc>
 
-		<param-doc default-value="pos" mandatory="default: pos" name="posTagFeatureName" name-type="feature" short-type="String" type="java.lang.String">
+		<param-doc name="posTagFeatureName">
 			<p>Deprecated alias for <param>posTagFeature</param>.</p>
 		</param-doc>
 
-		<param-doc default-value="true" mandatory="default: true" name="sentenceFilter" short-type="Expression" type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
+		<param-doc name="sentenceFilter">
 			<p>Expression evaluated on each sentence annotation, the sentence is parsed if this expression evaluates as true.</p>
 		</param-doc>
 
@@ -53,7 +53,7 @@
 		</param-doc>
 <param-doc name="tokenLayerName"><p>Deprecated alias for <param>tokenLayer</param>.</p></param-doc>
 
-		<param-doc default-value="false" mandatory="default: false" name="omitRoot" short-type="Boolean" type="java.lang.Boolean">
+		<param-doc name="omitRoot">
 			<p>If set, do not create the root tuple.</p>
 		</param-doc>
 

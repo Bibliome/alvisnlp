@@ -9,11 +9,11 @@
     <p>Reads a tokenized corpus: one token per line, empty line separates sentence.</p>
   </description>
 
-  <param-doc default-value="text" mandatory="default: text" name="section" name-type="section" short-type="String" type="java.lang.String">
+  <param-doc name="section">
     <p>Name of the section containing the tokenized text.</p>
   </param-doc>
 
-  <param-doc default-value="text" mandatory="default: text" name="sectionName" name-type="section" short-type="String" type="java.lang.String">
+  <param-doc name="sectionName">
     <p>Deprecated alias for <param>section</param>.</p>
   </param-doc>
 
@@ -22,7 +22,7 @@
   </param-doc>
 <param-doc name="sentenceLayerName"><p>Deprecated alias for <param>sentenceLayer</param>.</p></param-doc>
 
-  <param-doc mandatory="required" name="source" short-type="SourceStream" type="fr.inra.maiage.bibliome.util.streams.SourceStream">
+  <param-doc name="source">
     <p>Path to the file or directory containing the tokenized text.</p>
   </param-doc>
 

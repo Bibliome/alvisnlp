@@ -17,7 +17,7 @@
 			</p>
 		</description>
 
-		<param-doc default-value="PERCEPTRON" mandatory="default: PERCEPTRON" name="algorithm" short-type="OpenNLPAlgorithm" type="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.opennlp.OpenNLPAlgorithm">
+		<param-doc name="algorithm">
 			<p>Categorization algorithm. Must be one of:
 			<ul>
 			<li><em>naive-bayes</em>, <em>nb</em></li>
@@ -28,31 +28,31 @@
 			</p>
 		</param-doc>
 
-		<param-doc default-value="true" mandatory="default: true" name="bagOfWords" short-type="Boolean" type="java.lang.Boolean">
+		<param-doc name="bagOfWords">
 			<p>Either to generate single-word features.</p>
 		</param-doc>
 
-		<param-doc mandatory="required" name="categoryFeature" name-type="feature" short-type="String" type="java.lang.String">
+		<param-doc name="categoryFeature">
 			<p>Feature where the category is read.</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="classWeights" short-type="IntegerMapping" type="fr.inra.maiage.bibliome.alvisnlp.core.module.types.IntegerMapping">
+		<param-doc name="classWeights">
 			<p>Weight of samples of each class. This parameter is useful to compensate unbalanced training sets. The default weight is 1.</p>
 		</param-doc>
 
-		<param-doc default-value="100" mandatory="default: 100" name="iterations" short-type="Integer" type="java.lang.Integer">
+		<param-doc name="iterations">
 			<p>Number of learning iterations.</p>
 		</param-doc>
 
-		<param-doc mandatory="required" name="language" short-type="String" type="java.lang.String">
+		<param-doc name="language">
 			<p>Language of the documents (ISO 639-1 two-letter code).</p>
 		</param-doc>
 
-		<param-doc mandatory="required" name="model" short-type="TargetStream" type="fr.inra.maiage.bibliome.util.streams.TargetStream">
+		<param-doc name="model">
 			<p>File where to store the classifier.</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="nGrams" short-type="Integer" type="java.lang.Integer">
+		<param-doc name="nGrams">
 			<p>Maximum size of n-gram features (minimum is 2). If not set, then do not use n-gram features.</p>
 		</param-doc>
 		

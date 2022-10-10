@@ -17,31 +17,31 @@
 		<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc
 		</include-doc>
 
-		<param-doc default-value="0.0" mandatory="default: 0.0" name="confidenceThreshold" short-type="Double" type="java.lang.Double">
+		<param-doc name="confidenceThreshold">
 			<p>Minimum value of confidence.</p>
 		</param-doc>
 
-		<param-doc default-value="properties:contents()" mandatory="default: properties:contents()" name="form" short-type="Expression" type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
+		<param-doc name="form">
 			<p>String content of the target (section <code>contents</code> by default).</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="includeLanguages" short-type="Language[]" type="com.github.pemistahl.lingua.api.Language[]">
+		<param-doc name="includeLanguages">
 			<p>Languages to consider in the prediction. Languages can be specified using either ISO 639-1 two-letter codes, 639-3 three-letter codes, or full language name.</p>
 		</param-doc>
 
-		<param-doc default-value="1" mandatory="default: 1" name="languageCandidates" short-type="Integer" type="java.lang.Integer">
+		<param-doc name="languageCandidates">
 			<p>Number of languages to predict.</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="languageConfidenceFeature" name-type="feature" short-type="String" type="java.lang.String">
+		<param-doc name="languageConfidenceFeature">
 			<p>Feature where to keep the predicition confidence score.</p>
 		</param-doc>
 
-		<param-doc default-value="language" mandatory="default: language" name="languageFeature" name-type="feature" short-type="String" type="java.lang.String">
+		<param-doc name="languageFeature">
 			<p>Feature where to store the predicted language.</p>
 		</param-doc>
 
-		<param-doc default-value="nav:.(nav:documents(), nav:sections())" mandatory="default: nav:.(nav:documents(), nav:sections())" name="target" short-type="Expression" type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
+		<param-doc name="target">
 			<p>Elements to predict the language, by default <code>document.contents</code>.</p>
 		</param-doc>
 	</module-doc>

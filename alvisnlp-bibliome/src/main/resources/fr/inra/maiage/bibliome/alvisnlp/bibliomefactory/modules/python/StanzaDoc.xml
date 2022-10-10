@@ -11,23 +11,23 @@
       <p>The tokenization can be inhibited for using the existing tokens and sentences by setting <param>pretokenized</param>.</p>
     </description>
     
-    <param-doc default-value="en" mandatory="default: en" name="language" short-type="String" type="java.lang.String">
+    <param-doc name="language">
       <p>Language of the text.</p>
     </param-doc>
 
-    <param-doc mandatory="required" name="ner" short-type="Boolean" type="java.lang.Boolean">
+    <param-doc name="ner">
       <p>Either to perform NER. Named entities will be stored in a layer named <em>entities</em>.</p>
     </param-doc>
 
-    <param-doc mandatory="required" name="parse" short-type="Boolean" type="java.lang.Boolean">
+    <param-doc name="parse">
       <p>Either to predict dependency trees.</p>
     </param-doc>
 
-    <param-doc mandatory="required" name="constituency" short-type="Boolean" type="java.lang.Boolean">
+    <param-doc name="constituency">
       <p>Either to predict constituents.</p>
     </param-doc>
 
-    <param-doc mandatory="required" name="pretokenized" short-type="Boolean" type="java.lang.Boolean">
+    <param-doc name="pretokenized">
       <p>Either to skip tokenization and use the existing tokens and sentences.</p>
     </param-doc>
     

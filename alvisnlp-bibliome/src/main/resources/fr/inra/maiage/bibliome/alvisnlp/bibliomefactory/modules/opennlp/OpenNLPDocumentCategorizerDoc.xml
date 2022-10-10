@@ -12,19 +12,19 @@
 			</p>
 		</description>
 
-		<param-doc mandatory="required" name="categoryFeature" name-type="feature" short-type="String" type="java.lang.String">
+		<param-doc name="categoryFeature">
 			<p>Feature where to store the predicted category.</p>
 		</param-doc>
 
-		<param-doc mandatory="required" name="model" short-type="SourceStream" type="fr.inra.maiage.bibliome.util.streams.SourceStream">
+		<param-doc name="model">
 			<p>Model file generated with <module>OpenNLPDocumentCategorizerTrain</module>.</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="scoreFeature" name-type="feature" short-type="String" type="java.lang.String">
+		<param-doc name="scoreFeature">
 			<p>Feature where to store the score of the predicted category.</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="scoresFeaturePrefix" short-type="String" type="java.lang.String">
+		<param-doc name="scoresFeaturePrefix">
 			<p>Prefix of feature names where to store the score of each category.</p>
 		</param-doc>
 
