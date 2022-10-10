@@ -165,8 +165,8 @@ public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects
 		TomapTrainResolvedObjects resObj = getResolvedObjects();
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
-		String wordLN = getWordLayerName();
-		String sentLN = getSentenceLayerName();
+		String wordLN = getWordLayer();
+		String sentLN = getSentenceLayer();
 		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
 			// get word annotations if any
 			Layer words = null;

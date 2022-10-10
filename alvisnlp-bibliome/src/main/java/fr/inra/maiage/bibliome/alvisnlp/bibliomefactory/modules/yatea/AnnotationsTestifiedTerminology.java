@@ -58,7 +58,7 @@ public class AnnotationsTestifiedTerminology implements TestifiedTerminology {
 		InputFile result = new InputFile(tmpDir, "attested-terms.ttg");
 		TargetStream ts = new FileTargetStream("ISO-8859-1", result.getAbsolutePath());
 		try (PrintStream out = ts.getPrintStream()) {
-			String wordLayerName = module.getWordLayerName();
+			String wordLayerName = module.getWordLayer();
 			String formFeature = module.getFormFeature();
 			String posFeature = module.getPosFeature();
 			String lemmaFeature = module.getLemmaFeature();

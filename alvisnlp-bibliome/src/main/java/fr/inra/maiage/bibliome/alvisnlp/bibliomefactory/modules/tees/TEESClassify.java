@@ -53,8 +53,8 @@ public abstract class TEESClassify extends TEESMapper {
 	@Override
 	protected String[] addLayersToSectionFilter() {
 		return new String[] {
-				getTokenLayerName(),
-				getSentenceLayerName()
+				getTokenLayer(),
+				getSentenceLayer()
 		};
 	}
 

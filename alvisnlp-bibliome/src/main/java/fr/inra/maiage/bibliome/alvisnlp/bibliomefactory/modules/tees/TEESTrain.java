@@ -54,9 +54,9 @@ public abstract class TEESTrain extends TEESMapper {
 	@Override
 	protected String[] addLayersToSectionFilter() {
 		return new String[] {
-				getTokenLayerName(),
-				getSentenceLayerName(),
-				getNamedEntityLayerName()
+				getTokenLayer(),
+				getSentenceLayer(),
+				getNamedEntityLayer()
 		};
 	}
 
