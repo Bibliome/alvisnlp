@@ -68,8 +68,7 @@ class ParamModel {
         javaName = getter.substring(3, 4).toLowerCase() + getter.substring(4);
         generate = ModelContext.isAbstract(getterElement);
         setter = getSetter(moduleMethods, getter, generate, getterElement.getReturnType());
-        String paramName = annotation.publicName();
-        name = paramName.isEmpty() ? javaName : paramName;
+        name = javaName;
         type = getType(getterElement);
 	}
 	

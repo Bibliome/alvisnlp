@@ -30,17 +30,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(java.lang.annotation.ElementType.METHOD)
 public @interface Param {
-
-    /**
-     * Name of the parameter to which the annotated field is bound.
-     * If the value is empty, the the parameter has the same name as the getter (without "get", first character uncapitalized).
-     */
-    String publicName() default "";
-
-    /**
-     * Either if the parameter is mandatory.
-     * @return true, if mandatory
-     */
     boolean mandatory() default true;
 
     String nameType() default "";

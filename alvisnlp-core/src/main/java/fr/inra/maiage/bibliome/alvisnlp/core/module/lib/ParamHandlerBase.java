@@ -55,7 +55,7 @@ public class ParamHandlerBase<A extends Annotable> implements ParamHandler<A> {
         String getterName = getter.getName();
         String setterName = "set" + getterName.substring(3);
         this.setter = owner.getClass().getMethod(setterName, getter.getReturnType());
-        this.name = "".equals(annot.publicName()) ? getterName.substring(3, 4).toLowerCase() + getterName.substring(4) : annot.publicName();
+        this.name = getterName.substring(3, 4).toLowerCase() + getterName.substring(4);
         this.nameType = annot.nameType().equals("") ? null : annot.nameType();
     }
 
