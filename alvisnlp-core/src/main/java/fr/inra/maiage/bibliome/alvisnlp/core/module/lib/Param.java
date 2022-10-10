@@ -45,10 +45,5 @@ public @interface Param {
 
     String nameType() default "";
     
-    /**
-     * Default documentation.
-     */
-    String defaultDoc() default "";
-    
     String defaultValue() default "null";
 }

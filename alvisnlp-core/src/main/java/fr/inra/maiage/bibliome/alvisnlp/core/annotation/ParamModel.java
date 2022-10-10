@@ -164,13 +164,6 @@ class ParamModel {
 		return annotation.mandatory();
 	}
 
-	/**
-	 * Returns the default documentation for the parameter.
-	 */
-	public String getDefaultDoc() {
-		return annotation.defaultDoc();
-	}
-
 	public String getDefaultValue() {
 		return annotation.defaultValue();
 	}
@@ -264,7 +257,6 @@ class ParamModel {
         result.setAttribute("setter", setter);
         result.setAttribute("public", name);
         result.setAttribute("mandatory", Boolean.toString(isMandatory()));
-        result.setAttribute("defaultDoc", getDefaultDoc());
         result.setAttribute("name-type", getNameType());
         result.setAttribute("defaultValue", getDefaultValue());
         return result;

@@ -169,7 +169,6 @@ class ModuleModel {
 		for (ParamModel param : params) {
 			Element paramDoc = XMLUtils.createElement(result, module, 2, "param-doc");
 			paramDoc.setAttribute("name", param.getName());
-			XMLUtils.createElement(result, paramDoc, 3, "p", param.getDefaultDoc());
 		}
 		
 		return result;

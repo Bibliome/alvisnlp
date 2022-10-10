@@ -234,47 +234,47 @@ public class RelpWriter extends SectionModule<RelpWriterResolvedObjects> {
 		out.println();
 	}
 
-	@Param(defaultDoc = "File where to write the dependencies.")
+	@Param
 	public TargetStream getOutFile() {
 		return outFile;
 	}
 
-	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing sentence annotations.")
+	@Param(nameType=NameType.LAYER)
 	public String getSentenceLayer() {
 		return sentenceLayer;
 	}
 
-	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing word annotations.")
+	@Param(nameType=NameType.LAYER)
 	public String getWordLayer() {
 		return wordLayer;
 	}
 
-	@Param(nameType=NameType.RELATION, defaultDoc = "Name of the dependecy relation.")
+	@Param(nameType=NameType.RELATION)
 	public String getDependencyRelation() {
 		return dependencyRelation;
 	}
 
-	@Param(nameType=NameType.FEATURE, defaultDoc = "Feature containing the linkage number to which a dependency belongs.", mandatory=false)
+	@Param(nameType=NameType.FEATURE, mandatory=false)
 	public String getLinkageNumberFeature() {
 		return linkageNumberFeature;
 	}
 
-	@Param(nameType=NameType.ARGUMENT, defaultDoc = "Name of the role of the parsed sentence in the dependency relation.")
+	@Param(nameType=NameType.ARGUMENT)
 	public String getSentenceRole() {
 		return sentenceRole;
 	}
 
-	@Param(nameType=NameType.FEATURE, defaultDoc = "Feature containing the dependency label.")
+	@Param(nameType=NameType.FEATURE)
 	public String getDependencyLabelFeature() {
 		return dependencyLabelFeature;
 	}
 
-	@Param(nameType=NameType.ARGUMENT, defaultDoc = "Name of the role of the head word.")
+	@Param(nameType=NameType.ARGUMENT)
 	public String getHeadRole() {
 		return headRole;
 	}
 
-	@Param(nameType=NameType.ARGUMENT, defaultDoc = "Name of the role of the modifier word.")
+	@Param(nameType=NameType.ARGUMENT)
 	public String getDependentRole() {
 		return dependentRole;
 	}

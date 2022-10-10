@@ -91,7 +91,7 @@ public class MergeLayers extends SectionModule<SectionResolvedObjects> {
      *
      * @return the sourceLayers
      */
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layers where to get annotations.")
+    @Param(nameType=NameType.LAYER)
     public String[] getSourceLayers() {
         return this.sourceLayers;
     };
@@ -101,7 +101,7 @@ public class MergeLayers extends SectionModule<SectionResolvedObjects> {
     };
 
     @Deprecated
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layers where to get annotations.")
+    @Param(nameType=NameType.LAYER)
     public String[] getSourceLayerNames() {
         return sourceLayers;
     }
@@ -121,7 +121,7 @@ public class MergeLayers extends SectionModule<SectionResolvedObjects> {
      *
      * @return the targetLayer
      */
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer to create.")
+    @Param(nameType=NameType.LAYER)
     public String getTargetLayer() {
         return this.targetLayer;
     };
@@ -131,7 +131,7 @@ public class MergeLayers extends SectionModule<SectionResolvedObjects> {
     };
 
     @Deprecated
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer to create.")
+    @Param(nameType=NameType.LAYER)
     public String getTargetLayerName() {
         return targetLayer;
     }

@@ -104,7 +104,7 @@ public abstract class OgmiosTokenizer extends SectionModule<SectionResolvedObjec
         }
     }
 
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store the tokens.")
+    @Param(nameType=NameType.LAYER)
     public String getTargetLayer() {
         return this.targetLayer;
     };
@@ -114,7 +114,7 @@ public abstract class OgmiosTokenizer extends SectionModule<SectionResolvedObjec
     };
 
     @Deprecated
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store the tokens.")
+    @Param(nameType=NameType.LAYER)
     public String getTargetLayerName() {
         return targetLayer;
     }
@@ -123,7 +123,7 @@ public abstract class OgmiosTokenizer extends SectionModule<SectionResolvedObjec
         this.targetLayer = targetLayer;
     }
 
-    @Param(nameType=NameType.FEATURE, defaultDoc = "Name of the token feature where to store the token type (alpha, num, sep, symb).")
+    @Param(nameType=NameType.FEATURE)
     public String getTokenTypeFeature() {
         return tokenTypeFeature;
     }
@@ -132,7 +132,7 @@ public abstract class OgmiosTokenizer extends SectionModule<SectionResolvedObjec
         this.tokenTypeFeature = tokenTypeFeature;
     }
 
-    @Param(defaultDoc = "Either if separator tokens should be added.")
+    @Param
     public Boolean getSeparatorTokens() {
         return separatorTokens;
     }

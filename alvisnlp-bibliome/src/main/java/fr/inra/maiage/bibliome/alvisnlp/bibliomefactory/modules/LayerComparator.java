@@ -227,7 +227,7 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
      *
      * @return the referenceLayer
      */
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the reference layer.")
+    @Param(nameType=NameType.LAYER)
     public String[] getReferenceLayer() {
         return this.referenceLayer;
     };
@@ -237,7 +237,7 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
     };
 
     @Deprecated
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the reference layer.")
+    @Param(nameType=NameType.LAYER)
     public String[] getReferenceLayerName() {
         return referenceLayer;
     }
@@ -257,7 +257,7 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
      *
      * @return the predictedLayer
      */
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the source layer.")
+    @Param(nameType=NameType.LAYER)
     public String[] getPredictedLayer() {
         return this.predictedLayer;
     };
@@ -267,7 +267,7 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
     };
 
     @Deprecated
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the source layer.")
+    @Param(nameType=NameType.LAYER)
     public String[] getPredictedLayerName() {
         return predictedLayer;
     }
@@ -287,7 +287,7 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
      *
      * @return the outFile
      */
-    @Param(defaultDoc = "Path to the file where to store results.")
+    @Param
     public TargetStream getOutFile() {
         return outFile;
     }

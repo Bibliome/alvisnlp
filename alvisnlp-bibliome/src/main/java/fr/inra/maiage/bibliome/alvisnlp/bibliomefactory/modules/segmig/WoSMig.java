@@ -188,7 +188,7 @@ public abstract class WoSMig extends SectionModule<SectionResolvedObjects> imple
 			a.addFeature(annotationTypeFeature, type);
 	}
 
-	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer in which to add word and punctuation annotations.")
+	@Param(nameType=NameType.LAYER)
 	public String getTargetLayer() {
 	    return this.targetLayer;
 	};
@@ -198,12 +198,12 @@ public abstract class WoSMig extends SectionModule<SectionResolvedObjects> imple
 	};
 
 	@Deprecated
-	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer in which to add word and punctuation annotations.")
+	@Param(nameType=NameType.LAYER)
 	public String getTargetLayerName() {
 		return targetLayer;
 	}
 
-	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing fixed forms.", mandatory = false)
+	@Param(nameType=NameType.LAYER, mandatory = false)
 	public String getFixedFormLayer() {
 	    return this.fixedFormLayer;
 	};
@@ -213,37 +213,37 @@ public abstract class WoSMig extends SectionModule<SectionResolvedObjects> imple
 	};
 
 	@Deprecated
-	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing fixed forms.", mandatory = false)
+	@Param(nameType=NameType.LAYER, mandatory = false)
 	public String getFixedFormLayerName() {
 		return fixedFormLayer;
 	}
 
-	@Param(defaultDoc = "Simple punctuations (weak and strong).")
+	@Param
 	public String getPunctuations() {
 		return punctuations;
 	}
 
-	@Param(defaultDoc = "Balanced punctuations, each opening character must be followed by the corresponding closing character.")
+	@Param
 	public String getBalancedPunctuations() {
 		return balancedPunctuations;
 	}
 
-	@Param(nameType=NameType.FEATURE, defaultDoc = "Name of the feature containing the annotation type (word, punctuation or fixed)")
+	@Param(nameType=NameType.FEATURE)
 	public String getAnnotationTypeFeature() {
 		return annotationTypeFeature;
 	}
 
-	@Param(defaultDoc = "Value of the type feature for punctuation annotations.")
+	@Param
 	public String getPunctuationType() {
 		return punctuationType;
 	}
 
-	@Param(defaultDoc = "Value of the type feature for regular word annotations.")
+	@Param
 	public String getWordType() {
 		return wordType;
 	}
 
-	@Param(defaultDoc = "Value of the type feature for annotations copied from fixed forms.")
+	@Param
 	public String getFixedType() {
 		return fixedType;
 	}

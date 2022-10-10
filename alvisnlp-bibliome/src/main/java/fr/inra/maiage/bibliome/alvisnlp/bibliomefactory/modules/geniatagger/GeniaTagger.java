@@ -93,7 +93,7 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 		return null;
 	}
 
-	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing sentence annotations.")
+	@Param(nameType=NameType.LAYER)
 	public String getSentenceLayer() {
 	    return this.sentenceLayer;
 	};
@@ -103,12 +103,12 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 	};
 
 	@Deprecated
-	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing sentence annotations.")
+	@Param(nameType=NameType.LAYER)
 	public String getSentenceLayerName() {
 		return sentenceLayer;
 	}
 
-	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing word annotations.")
+	@Param(nameType=NameType.LAYER)
 	public String getWordLayer() {
 	    return this.wordLayer;
 	};
@@ -118,47 +118,47 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 	};
 
 	@Deprecated
-	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing word annotations.")
+	@Param(nameType=NameType.LAYER)
 	public String getWordLayerName() {
 		return wordLayer;
 	}
 
-	@Param(nameType=NameType.FEATURE, defaultDoc = "Feature containing the word surface form.")
+	@Param(nameType=NameType.FEATURE)
 	public String getWordFormFeature() {
 		return wordFormFeature;
 	}
 
-	@Param(nameType=NameType.FEATURE, defaultDoc = "Feature where to put the POS tag.")
+	@Param(nameType=NameType.FEATURE)
 	public String getPosFeature() {
 		return posFeature;
 	}
 
-	@Param(nameType=NameType.FEATURE, defaultDoc = "Feature where to put the word lemma.")
+	@Param(nameType=NameType.FEATURE)
 	public String getLemmaFeature() {
 		return lemmaFeature;
 	}
 
-	@Param(nameType=NameType.FEATURE, defaultDoc = "Feature where to put the chunk status.", mandatory = false)
+	@Param(nameType=NameType.FEATURE)
 	public String getChunkFeature() {
 		return chunkFeature;
 	}
 
-	@Param(nameType=NameType.FEATURE, defaultDoc = "Feature where to put the entity status.", mandatory = false)
+	@Param(nameType=NameType.FEATURE)
 	public String getEntityFeature() {
 		return entityFeature;
 	}
 
-	@Param(defaultDoc = "Directory where geniatagger is installed.")
+	@Param
 	public File getGeniaDir() {
 		return geniaDir;
 	}
 
-	@Param(defaultDoc = "Name of the geniatagger executable file.")
+	@Param
 	public File getGeniaTaggerExecutable() {
 		return geniaTaggerExecutable;
 	}
 
-	@Param(defaultDoc = "Character encoding of geniatagger input and output.")
+	@Param
 	public String getGeniaCharset() {
 		return geniaCharset;
 	}

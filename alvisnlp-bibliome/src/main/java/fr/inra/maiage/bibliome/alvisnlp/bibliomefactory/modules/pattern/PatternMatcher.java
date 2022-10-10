@@ -138,17 +138,17 @@ public abstract class PatternMatcher extends SectionModule<PatternMatcherResolve
 	}
 
 	@Deprecated
-	@Param(nameType=NameType.LAYER, defaultDoc="Layer where to find tokens.")
+	@Param(nameType=NameType.LAYER)
 	public String getLayerName() {
 		return layer;
 	}
 
-	@Param(defaultDoc="Annotation pattern.")
+	@Param
 	public ElementPattern getPattern() {
 		return pattern;
 	}
 
-	@Param(defaultDoc="Actions.")
+	@Param
 	public MatchAction[] getActions() {
 		return actions;
 	}
@@ -163,7 +163,7 @@ public abstract class PatternMatcher extends SectionModule<PatternMatcherResolve
 		return annotationComparator;
 	}
 
-	@Param(nameType=NameType.LAYER, defaultDoc="Layer where to find tokens.")
+	@Param(nameType=NameType.LAYER)
 	public String getLayer() {
 		return layer;
 	}

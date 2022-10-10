@@ -116,7 +116,7 @@ public class FileMapper extends Mapper<MapperResolvedObjects,List<String>> imple
         return mappingFile;
     }
 
-    @Param(defaultDoc = "Separator character between map key and map values.")
+    @Param
     public Character getSeparator() {
         return separator;
     }

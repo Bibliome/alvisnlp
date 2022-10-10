@@ -207,7 +207,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
      *
      * @return the sentenceLayer
      */
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing sentence annotations, sentences are reinforced.")
+    @Param(nameType=NameType.LAYER)
     public String getSentenceLayer() {
         return this.sentenceLayer;
     };
@@ -217,7 +217,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
     };
 
     @Deprecated
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing sentence annotations, sentences are reinforced.")
+    @Param(nameType=NameType.LAYER)
     public String getSentenceLayerName() {
         return sentenceLayer;
     }
@@ -227,7 +227,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
      *
      * @return the wordLayer
      */
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing the word annotations.")
+    @Param(nameType=NameType.LAYER)
     public String getWordLayer() {
         return this.wordLayer;
     };
@@ -237,7 +237,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
     };
 
     @Deprecated
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing the word annotations.")
+    @Param(nameType=NameType.LAYER)
     public String getWordLayerName() {
         return wordLayer;
     }
@@ -247,7 +247,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
      *
      * @return the formFeature
      */
-    @Param(nameType=NameType.FEATURE, defaultDoc = "Name of the feature denoting the token surface form.")
+    @Param(nameType=NameType.FEATURE)
     public String getFormFeature() {
         return formFeature;
     }
@@ -257,7 +257,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
      *
      * @return the posFeature
      */
-    @Param(nameType=NameType.FEATURE, defaultDoc = "Name of the feature to set with the POS tag.")
+    @Param(nameType=NameType.FEATURE)
     public String getPosFeature() {
         return posFeature;
     }
@@ -267,7 +267,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
      *
      * @return the lemmaFeature
      */
-    @Param(nameType=NameType.FEATURE, defaultDoc = "Name of the feature to set with the lemma.")
+    @Param(nameType=NameType.FEATURE)
     public String getLemmaFeature() {
         return lemmaFeature;
     }
@@ -277,7 +277,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
      *
      * @return the noUnknownLemma
      */
-    @Param(defaultDoc = "Either to replace unknown lemmas with the surface form.")
+    @Param
     public Boolean getNoUnknownLemma() {
         return noUnknownLemma;
     }
@@ -297,7 +297,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
      *
      * @return the recordFeatures
      */
-    @Param(mandatory = false, nameType=NameType.FEATURE, defaultDoc = "List of attributes to display in result files.")
+    @Param(mandatory = false, nameType=NameType.FEATURE)
     public String[] getRecordFeatures() {
         return recordFeatures;
     }
@@ -317,7 +317,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
      *
      * @return the inputCharset
      */
-    @Param(defaultDoc = "Tree-tagger input corpus character set.")
+    @Param
     public String getInputCharset() {
         return inputCharset;
     }
@@ -327,7 +327,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
      *
      * @return the outputCharset
      */
-    @Param(defaultDoc = "Tree-tagger output character set.")
+    @Param
     public String getOutputCharset() {
         return outputCharset;
     }

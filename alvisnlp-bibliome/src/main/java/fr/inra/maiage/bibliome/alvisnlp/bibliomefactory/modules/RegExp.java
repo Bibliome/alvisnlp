@@ -38,7 +38,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 
-// TODO: Auto-generated Javadoc
 /**
  * Matches a regular expression on section contents.
  */
@@ -51,7 +50,7 @@ public abstract class RegExp extends SectionModule<SectionResolvedObjects> imple
      *
      * @return the pattern
      */
-    @Param(defaultDoc = "Regular expression to match.")
+    @Param
     public abstract Pattern getPattern();
 
     /**
@@ -67,7 +66,7 @@ public abstract class RegExp extends SectionModule<SectionResolvedObjects> imple
      *
      * @return the target layer name
      */
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store matches.")
+    @Param(nameType=NameType.LAYER)
     public String getTargetLayer() {
     	return targetLayer;
     }
@@ -77,7 +76,7 @@ public abstract class RegExp extends SectionModule<SectionResolvedObjects> imple
     }
 
     @Deprecated
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store matches.")
+    @Param(nameType=NameType.LAYER)
     public String getTargetLayerName() {
     	return targetLayer;
     }

@@ -32,7 +32,7 @@ public interface AnnotationCreator extends ElementCreator {
      * Returns the constant annotation features.
      * @return the constant annotation features
      */
-    @Param(mandatory=false, nameType=NameType.FEATURE, defaultDoc = "Constant features to add to each annotation created by this module")
+    @Param(mandatory=false, nameType=NameType.FEATURE)
     public Mapping getConstantAnnotationFeatures();
 
     /**

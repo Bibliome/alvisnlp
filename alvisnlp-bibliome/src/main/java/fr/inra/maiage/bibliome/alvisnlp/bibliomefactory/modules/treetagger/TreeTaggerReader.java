@@ -126,12 +126,12 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 		fillLayers(sec.ensureLayer(wordLayer), sec.ensureLayer(sentenceLayer), tokens);
 	}
 
-	@Param(defaultDoc = "Name of the section of each document.")
+	@Param
 	public String getSectionName() {
 		return sectionName;
 	}
 
-	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store word annotations.")
+	@Param(nameType=NameType.LAYER)
 	public String getWordLayer() {
 	    return this.wordLayer;
 	};
@@ -141,12 +141,12 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 	};
 
 	@Deprecated
-	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store word annotations.")
+	@Param(nameType=NameType.LAYER)
 	public String getWordLayerName() {
 		return wordLayer;
 	}
 
-	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store sentence annotations.")
+	@Param(nameType=NameType.LAYER)
 	public String getSentenceLayer() {
 	    return this.sentenceLayer;
 	};
@@ -156,24 +156,24 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 	};
 
 	@Deprecated
-	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store sentence annotations.")
+	@Param(nameType=NameType.LAYER)
 	public String getSentenceLayerName() {
 		return sentenceLayer;
 	}
 
 	@Deprecated
-	@Param(mandatory=false, defaultDoc = "Name of the feature where to store word POS tags.")
+	@Param(mandatory=false)
 	public String getPosFeatureKey() {
 		return posFeature;
 	}
 
 	@Deprecated
-	@Param(mandatory=false, defaultDoc = "Name of the feature where to store word lemmas.")
+	@Param(mandatory=false)
 	public String getLemmaFeatureKey() {
 		return lemmaFeature;
 	}
 
-	@Param(defaultDoc = "Character set of input files.")
+	@Param
 	public String getCharset() {
 		return charset;
 	}

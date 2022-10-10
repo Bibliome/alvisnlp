@@ -41,7 +41,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class SeSMig.
  */
@@ -207,7 +206,7 @@ public abstract class SeSMig extends SectionModule<SectionResolvedObjects> imple
      *
      * @return the wordLayer
      */
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing word annotations.")
+    @Param(nameType=NameType.LAYER)
     public String getWordLayer() {
         return this.wordLayer;
     };
@@ -217,7 +216,7 @@ public abstract class SeSMig extends SectionModule<SectionResolvedObjects> imple
     };
 
     @Deprecated
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing word annotations.")
+    @Param(nameType=NameType.LAYER)
     public String getWordLayerName() {
         return wordLayer;
     }
@@ -227,7 +226,7 @@ public abstract class SeSMig extends SectionModule<SectionResolvedObjects> imple
      *
      * @return the targetLayer
      */
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store sentence annotations.")
+    @Param(nameType=NameType.LAYER)
     public String getTargetLayer() {
         return this.targetLayer;
     };
@@ -237,7 +236,7 @@ public abstract class SeSMig extends SectionModule<SectionResolvedObjects> imple
     };
 
     @Deprecated
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store sentence annotations.")
+    @Param(nameType=NameType.LAYER)
     public String getTargetLayerName() {
         return targetLayer;
     }
@@ -247,7 +246,7 @@ public abstract class SeSMig extends SectionModule<SectionResolvedObjects> imple
      *
      * @return the eosStatusFeature
      */
-    @Param(nameType=NameType.FEATURE, defaultDoc = "Name of the feature (in words) containing the end-of-sentence status (not-eos, maybe-eos).")
+    @Param(nameType=NameType.FEATURE)
     public String getEosStatusFeature() {
         return eosStatusFeature;
     }
@@ -257,7 +256,7 @@ public abstract class SeSMig extends SectionModule<SectionResolvedObjects> imple
      *
      * @return the strongPunctuations
      */
-    @Param(defaultDoc = "List of strong punctuations.")
+    @Param
     public String getStrongPunctuations() {
         return strongPunctuations;
     }
@@ -267,7 +266,7 @@ public abstract class SeSMig extends SectionModule<SectionResolvedObjects> imple
      *
      * @return the formFeature
      */
-    @Param(nameType=NameType.FEATURE, defaultDoc = "Name of the feature containing the word surface form.")
+    @Param(nameType=NameType.FEATURE)
     public String getFormFeature() {
         return formFeature;
     }
@@ -277,12 +276,12 @@ public abstract class SeSMig extends SectionModule<SectionResolvedObjects> imple
      *
      * @return the typeFeature
      */
-    @Param(nameType=NameType.FEATURE, defaultDoc = "Name of the feature where to read word annotation type.")
+    @Param(nameType=NameType.FEATURE)
     public String getTypeFeature() {
         return typeFeature;
     }
 
-    @Param(nameType=NameType.LAYER, mandatory=false, defaultDoc = "Name of the layer containing annotations within which there cannot be sentence boundaries.")
+    @Param(nameType=NameType.LAYER, mandatory=false)
     public String getNoBreakLayer() {
         return this.noBreakLayer;
     };
@@ -292,7 +291,7 @@ public abstract class SeSMig extends SectionModule<SectionResolvedObjects> imple
     };
 
     @Deprecated
-    @Param(nameType=NameType.LAYER, mandatory=false, defaultDoc = "Name of the layer containing annotations within which there cannot be sentence boundaries.")
+    @Param(nameType=NameType.LAYER, mandatory=false)
     public String getNoBreakLayerName() {
 		return noBreakLayer;
 	}

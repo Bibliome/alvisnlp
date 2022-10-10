@@ -97,7 +97,7 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
      * @return the section name
      */
 	@Deprecated
-    @Param(nameType=NameType.SECTION, defaultDoc = "Name of the single section containing the whole contents of a file.")
+    @Param(nameType=NameType.SECTION)
     public String getBodySectionName() {
         return bodySection;
     }
@@ -137,7 +137,7 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
      *
      * @return the charset
      */
-    @Param(defaultDoc = "Character set of the input files.")
+    @Param
     public String getCharset() {
         return charset;
     }

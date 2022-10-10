@@ -99,7 +99,7 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
      * @return the wordLayerName
      */
     @Deprecated
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing the word annotations.")
+    @Param(nameType=NameType.LAYER)
     public String getWordLayerName() {
         return wordLayer;
     }
@@ -109,7 +109,7 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
      * 
      * @return the formFeature
      */
-    @Param(nameType=NameType.FEATURE, defaultDoc = "Feature containing the word form.")
+    @Param(nameType=NameType.FEATURE)
     public String getFormFeature() {
         return formFeature;
     }
@@ -119,7 +119,7 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
      * 
      * @return the posFeature
      */
-    @Param(nameType=NameType.FEATURE, defaultDoc = "Feature containing the word POS tag.")
+    @Param(nameType=NameType.FEATURE)
     public String getPosFeature() {
         return posFeature;
     }
@@ -129,7 +129,7 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
      * 
      * @return the lemmaFeature
      */
-    @Param(nameType=NameType.FEATURE, defaultDoc = "Feature containing the word lemma.")
+    @Param(nameType=NameType.FEATURE)
     public String getLemmaFeature() {
         return lemmaFeature;
     }
@@ -140,7 +140,7 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
      * @return the sentenceLayerName
      */
     @Deprecated
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing sentence annotations, sentences are reinforced.")
+    @Param(nameType=NameType.LAYER)
     public String getSentenceLayerName() {
         return sentenceLayer;
     }
@@ -181,7 +181,7 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
      * 
      * @return the perlLib
      */
-    @Param(mandatory=false, defaultDoc = "Contents of the PERLLIB in the environment of Yatea binary.")
+    @Param(mandatory=false)
     public String getPerlLib() {
         return perlLib;
     }
