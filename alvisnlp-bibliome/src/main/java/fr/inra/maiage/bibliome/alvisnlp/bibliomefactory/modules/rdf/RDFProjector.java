@@ -35,7 +35,7 @@ import fr.inra.maiage.bibliome.util.marshall.Encoder;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 import fr.inra.maiage.bibliome.util.trie.Trie;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,Resource> {
 	private SourceStream source;
 	private Lang rdfFormat = Lang.RDFXML;

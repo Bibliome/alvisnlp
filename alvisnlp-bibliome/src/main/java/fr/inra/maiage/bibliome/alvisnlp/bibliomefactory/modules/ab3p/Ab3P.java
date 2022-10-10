@@ -33,7 +33,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class Ab3P extends SectionModule<SectionResolvedObjects> implements AnnotationCreator, TupleCreator {
 	private InputDirectory installDir;
 	private String shortFormsLayer = "short-forms";

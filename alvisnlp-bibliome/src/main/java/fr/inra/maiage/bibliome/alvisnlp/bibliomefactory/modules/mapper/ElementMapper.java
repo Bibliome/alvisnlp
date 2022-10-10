@@ -40,7 +40,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class ElementMapper extends Mapper<ElementMapperResolvedObjects,List<String>> {
 	private Expression entries;
 	private Expression key;

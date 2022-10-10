@@ -65,7 +65,7 @@ import fr.inra.maiage.bibliome.util.filelines.InvalidFileLineEntry;
 import fr.inra.maiage.bibliome.util.filelines.TabularFormat;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class TabularReader extends CorpusModule<TabularReaderResolvedObjects> implements ActionInterface {
 	private SourceStream source;
 	private Expression sourceElement;

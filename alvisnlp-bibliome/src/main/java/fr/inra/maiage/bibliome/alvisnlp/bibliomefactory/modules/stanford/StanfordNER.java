@@ -50,7 +50,7 @@ import fr.inra.maiage.bibliome.util.files.InputFile;
 import fr.inra.maiage.bibliome.util.mappers.Mapper;
 import fr.inra.maiage.bibliome.util.mappers.Mappers;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> implements AnnotationCreator {
 	private InputFile classifierFile;
 	private Boolean searchInContents = false;

@@ -48,7 +48,7 @@ import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.StringCat;
 import fr.inra.maiage.bibliome.util.mappers.Mappers;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class MergeSections extends SectionModule<SectionResolvedObjects> implements SectionCreator, AnnotationCreator, TupleCreator {
 	private String sectionSeparator = "";
 	private String fragmentSeparator = "";

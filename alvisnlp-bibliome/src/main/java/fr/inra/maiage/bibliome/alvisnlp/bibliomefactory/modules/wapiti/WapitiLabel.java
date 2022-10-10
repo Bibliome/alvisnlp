@@ -29,7 +29,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class WapitiLabel extends AbstractWapiti {
 	private String labelFeature;
 	private InputFile modelFile;

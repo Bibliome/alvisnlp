@@ -15,7 +15,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class HttpServer extends CorpusModule<ResolvedObjects> {
 	private Integer port = 8878;
 	private InputDirectory resourceBaseDir;

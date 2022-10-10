@@ -36,7 +36,7 @@ import fr.inra.maiage.bibliome.util.Checkable;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.LoggingUtils;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class StanfordParser extends SectionModule<StanfordParserResolvedObjects> implements DependencyParserModule, Checkable {
 	private String sentenceLayer = DefaultNames.getSentenceLayer();
 	private String tokenLayer = DefaultNames.getWordLayer();

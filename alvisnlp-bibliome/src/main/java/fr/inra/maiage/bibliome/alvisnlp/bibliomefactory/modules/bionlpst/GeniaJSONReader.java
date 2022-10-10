@@ -52,7 +52,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class GeniaJSONReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, TupleCreator {
 	private SourceStream source;
 	private String annotationsLayer = "annotations";

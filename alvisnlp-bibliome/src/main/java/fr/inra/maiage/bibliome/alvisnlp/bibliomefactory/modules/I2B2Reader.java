@@ -54,7 +54,7 @@ import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 import fr.inra.maiage.bibliome.util.streams.PatternFileFilter;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, TupleCreator {
 	private static class Patterns {
 		private static final Pattern NON_SPACE = Pattern.compile("\\S+");

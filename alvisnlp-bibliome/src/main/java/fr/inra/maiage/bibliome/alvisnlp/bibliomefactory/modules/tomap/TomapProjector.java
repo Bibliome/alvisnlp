@@ -53,7 +53,7 @@ import fr.inra.maiage.bibliome.util.tomap.readers.YateaCandidateReader;
 import fr.inra.maiage.bibliome.util.tomap.readers.YateaCandidateReader.YateaResult;
 import fr.inra.maiage.bibliome.util.trie.Trie;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class TomapProjector extends TrieProjector<SectionResolvedObjects,Attribution> {
 	private SourceStream yateaFile;
 	private Boolean lemmaKeys = false;

@@ -54,7 +54,7 @@ import fr.inra.maiage.bibliome.util.count.CountStats;
 import fr.inra.maiage.bibliome.util.count.Stats;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class KeywordsSelector extends CorpusModule<KeywordSelectorResolvedObjects> {
 	private Expression documents = DefaultExpressions.CORPUS_DOCUMENTS;
 	private Expression documentId = DefaultExpressions.DOCUMENT_ID;

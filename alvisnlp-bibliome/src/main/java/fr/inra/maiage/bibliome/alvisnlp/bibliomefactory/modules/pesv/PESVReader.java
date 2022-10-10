@@ -36,7 +36,7 @@ import fr.inra.maiage.bibliome.util.fragments.Fragment;
 import fr.inra.maiage.bibliome.util.fragments.SimpleFragment;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class PESVReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator {
 	private SourceStream docStream;
 	private SourceStream entitiesStream;

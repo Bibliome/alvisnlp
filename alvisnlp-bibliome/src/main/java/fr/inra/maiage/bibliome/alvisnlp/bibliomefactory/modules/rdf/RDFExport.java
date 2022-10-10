@@ -57,7 +57,7 @@ import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class RDFExport extends CorpusModule<RDFExportResolvedObjects> {
 	private OutputDirectory outDir;
 	private Expression files;

@@ -44,7 +44,7 @@ import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class PubTatorReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator {
 	private static final Pattern CONTENTS_LINE = Pattern.compile("(\\d+)\\|(\\w+)\\|(.*)");
 

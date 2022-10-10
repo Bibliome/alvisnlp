@@ -38,7 +38,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class PorterStemmer extends SectionModule<SectionResolvedObjects> {
 	private String wordLayer = DefaultNames.getWordLayer();
 	private String formFeature = Annotation.FORM_FEATURE_NAME;

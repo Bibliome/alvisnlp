@@ -45,7 +45,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class RemoveContents extends SectionModule<SectionResolvedObjects> implements AnnotationCreator, SectionCreator, TupleCreator {
 	private String stripLayer;
 

@@ -66,7 +66,7 @@ import fr.inra.maiage.bibliome.util.tomap.readers.YateaCandidateReader;
 import fr.inra.maiage.bibliome.util.tomap.readers.YateaCandidateReader.YateaResult;
 import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects> {
 	private Expression conceptIdentifier;
 	private TargetStream outFile;

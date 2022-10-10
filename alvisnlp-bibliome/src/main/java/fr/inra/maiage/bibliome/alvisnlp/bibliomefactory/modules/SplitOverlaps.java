@@ -42,7 +42,7 @@ import fr.inra.maiage.bibliome.util.Iterators;
  *
  * @author fpapazian
  */
-@AlvisNLPModule(beta = true)
+@AlvisNLPModule
 public class SplitOverlaps extends SectionModule<SectionResolvedObjects> implements AnnotationCreator {
 
     //all Annotations from these Layers will be compared to find overlaps

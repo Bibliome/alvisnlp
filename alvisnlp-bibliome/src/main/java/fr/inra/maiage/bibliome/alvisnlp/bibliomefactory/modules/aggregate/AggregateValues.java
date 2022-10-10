@@ -45,7 +45,7 @@ import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class AggregateValues extends CorpusModule<AggregateValuesResolvedObjects> {
 	private Expression entries;
 	private Expression key;

@@ -42,7 +42,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class RemoveEquivalent extends CorpusModule<RemoveEquivalentResolvedObjects> {
 	private Expression target;
 	private Expression equivalency;

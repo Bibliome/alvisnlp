@@ -29,7 +29,7 @@ import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Pair;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class CompareFeatures extends CorpusModule<CompareFeaturesResolvedObjects> {
 	private Expression items;
 	private String referenceFeature;

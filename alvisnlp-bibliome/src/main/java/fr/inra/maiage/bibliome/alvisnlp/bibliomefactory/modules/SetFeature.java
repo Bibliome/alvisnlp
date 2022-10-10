@@ -18,7 +18,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
 import fr.inra.maiage.bibliome.util.Iterators;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class SetFeature extends CorpusModule<SetFeatureResolvedObjects> {
 	private Expression target;
 	private String feature;

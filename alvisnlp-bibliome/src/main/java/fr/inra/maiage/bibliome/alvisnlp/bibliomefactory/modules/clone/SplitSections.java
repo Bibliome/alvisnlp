@@ -58,7 +58,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Pair;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class SplitSections extends SectionModule<SplitSectionsResolvedObjects> implements AnnotationCreator, DocumentCreator, SectionCreator, TupleCreator {
 	private String selectLayer;
 	private Boolean mergeOverlapping = false;

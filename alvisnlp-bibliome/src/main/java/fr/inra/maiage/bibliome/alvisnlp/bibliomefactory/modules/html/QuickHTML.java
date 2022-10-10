@@ -66,7 +66,7 @@ import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.fragments.FragmentTag;
 import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 	private static final String XPATH_DOMUMENT_TITLE = "/html/head/title";
 	private static final String XPATH_TITLE_HEADING = "/html/body/h1";
