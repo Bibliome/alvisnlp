@@ -69,7 +69,7 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> im
 	private Boolean trim = false;
 	private File corpusFile = null;
 	private Boolean trueCSV = false;
-	
+
 	static class TabularExportResolvedObjects extends ResolvedObjects {
 		private final Variable lineVar;
 		private final Evaluator files;
@@ -113,19 +113,19 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> im
 			nameUsage.collectUsedNamesArray(columns, defaultType);
 		}
 	}
-	
+
 	private static final String[] evaluateArray(Evaluator[] evaluators, EvaluationContext ctx, Element elt) {
 		String[] result = new String[evaluators.length];
 		for (int i = 0; i < result.length; ++i)
 			result[i] = evaluators[i].evaluateString(ctx, elt);
 		return result;
 	}
-	
+
 	@Override
 	protected TabularExportResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new TabularExportResolvedObjects(ctx, this);
 	}
-	
+
 	private void printLine(Timer<TimerCategory> writeTimer, PrintStream ps, Evaluator[] valuesEvaluators, EvaluationContext evalCtx, Element elt) {
 		String[] values = evaluateArray(valuesEvaluators, evalCtx, elt);
 		writeTimer.start();
@@ -136,7 +136,7 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> im
 		ps.println(line);
 		writeTimer.stop();
 	}
-	
+
 	private static void printCSVLine(Timer<TimerCategory> writeTimer, CSVPrinter printer, Evaluator[] valuesEvaluators, EvaluationContext evalCtx, Element elt) throws IOException {
 		String[] values = evaluateArray(valuesEvaluators, evalCtx, elt);
 		writeTimer.start();
@@ -166,7 +166,7 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> im
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	private void writeRegular(Timer<TimerCategory> writeTimer, EvaluationContext evalCtx, Element fileElement, String fileNameString) throws IOException {
 		TabularExportResolvedObjects resObj = getResolvedObjects();
 		OutputFile outputFile = new OutputFile(outDir, fileNameString);
@@ -184,7 +184,7 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> im
 			}
 		}
 	}
-	
+
 	private void writeCSV(Timer<TimerCategory> writeTimer, EvaluationContext evalCtx, Element fileElement, String fileNameString) throws IOException {
 		TabularExportResolvedObjects resObj = getResolvedObjects();
 		OutputFile outputFile = new OutputFile(outDir, fileNameString);
@@ -205,7 +205,7 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> im
 			}
 		}
 	}
-	
+
 	@Override
 	public boolean check(Logger logger) {
 		if (corpusFile == null) {

@@ -3,14 +3,14 @@
 
   <taxa1 class="TabularProjector">
     <dictFile base-dir="share">taxa+id_Bacteria.txt</dictFile>
-    <targetLayerName>taxa1</targetLayerName>
+    <targetLayer>taxa1</targetLayer>
     <headerLine/>
     <trieSink>taxa+id_Bacteria.trie</trieSink>
   </taxa1>
 
   <taxa2 class="TabularProjector">
     <dictFile base-dir="share">taxa+id_Bacteria.txt</dictFile>
-    <targetLayerName>taxa2</targetLayerName>
+    <targetLayer>taxa2</targetLayer>
     <valueFeatures>,taxid</valueFeatures>
     <trieSource output-feed="true">taxa+id_Bacteria.trie</trieSource>
   </taxa2>

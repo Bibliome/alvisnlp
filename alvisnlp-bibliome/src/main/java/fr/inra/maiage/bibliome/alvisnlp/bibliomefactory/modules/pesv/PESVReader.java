@@ -40,12 +40,12 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 public abstract class PESVReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator {
 	private SourceStream docStream;
 	private SourceStream entitiesStream;
-	private String tokenLayerName = "tokens";
+	private String tokenLayer = "tokens";
 	private String ordFeature = "ord";
 	private String section = DefaultNames.getDefaultSectionName();
-	private String entityLayerName = "entities";
+	private String entityLayer = "entities";
 	private String propertiesFeature = "properties";
-	
+
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
@@ -57,7 +57,7 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	private void loadEntities(Logger logger, Corpus corpus) throws IOException {
 		Iterator<Reader> readers = entitiesStream.getReaders();
 		for (Reader r : Iterators.loop(readers)) {
@@ -68,7 +68,7 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 			}
 		}
 	}
-	
+
 	private void loadEntities(Logger logger, Corpus corpus, CSVRecord record) {
 		if (!record.isConsistent()) {
 			logger.warning("line " + record.getRecordNumber() + " has wrong number of columns");
@@ -87,19 +87,19 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 			a.addFeature(propertiesFeature, value);
 		}
 	}
-	
+
 	private Annotation createAnnotation(Section sec, CSVRecord record) {
-		Layer tokens = sec.ensureLayer(tokenLayerName);
+		Layer tokens = sec.ensureLayer(tokenLayer);
 		String firstTokenIndexStr = record.get("token_index");
 		String lastTokenIndexStr = getLastTokenIndexStr(firstTokenIndexStr, record);
 		Annotation firstToken = lookupToken(tokens, firstTokenIndexStr);
 		Annotation lastToken = lookupToken(tokens, lastTokenIndexStr);
 		int start = firstToken.getStart();
 		int end = lastToken.getEnd();
-		Layer entities = sec.ensureLayer(entityLayerName);
+		Layer entities = sec.ensureLayer(entityLayer);
 		return new Annotation(this, entities, start, end);
 	}
-	
+
 	private static String getLastTokenIndexStr(String firstTokenIndexStr, CSVRecord record) {
 		int firstTokenIndex = Integer.parseInt(firstTokenIndexStr);
 		int entityLength = Integer.parseInt(record.get("length"));
@@ -126,7 +126,7 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 			}
 		}
 	}
-		
+
 	private void loadDocument(Logger logger, Corpus corpus, CSVRecord record) {
 		if (!record.isConsistent()) {
 			logger.warning("line " + record.getRecordNumber() + " has wrong number of columns");
@@ -154,14 +154,14 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 			frags.add(f);
 		}
 		Section sec = new Section(this, doc, section , content.toString());
-		Layer layer = sec.ensureLayer(tokenLayerName);
+		Layer layer = sec.ensureLayer(tokenLayer);
 		for (int i = 0; i < frags.size(); ++i) {
 			Fragment f = frags.get(i);
 			Annotation a = new Annotation(this, layer, f.getStart(), f.getEnd());
 			a.addFeature(ordFeature, Integer.toString(i));
 		}
 	}
-	
+
 	private static final Pattern TOKEN_PATTERN = Pattern.compile("<t>(.+?)</t>");
 	private static List<String> getTokens(CSVRecord record) {
 		List<String> result = new ArrayList<String>();
@@ -193,8 +193,18 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getTokenLayer() {
+	    return this.tokenLayer;
+	};
+
+	public void setTokenLayer(String tokenLayer) {
+	    this.tokenLayer = tokenLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getTokenLayerName() {
-		return tokenLayerName;
+		return tokenLayer;
 	}
 
 	@Deprecated
@@ -210,8 +220,18 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getEntityLayer() {
+	    return this.entityLayer;
+	};
+
+	public void setEntityLayer(String entityLayer) {
+	    this.entityLayer = entityLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getEntityLayerName() {
-		return entityLayerName;
+		return entityLayer;
 	}
 
 	@Deprecated
@@ -251,8 +271,8 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 		this.entitiesStream = entitiesStream;
 	}
 
-	public void setTokenLayerName(String tokenLayerName) {
-		this.tokenLayerName = tokenLayerName;
+	public void setTokenLayerName(String tokenLayer) {
+		this.tokenLayer = tokenLayer;
 	}
 
 	public void setOrdFeatureKey(String ordFeatureKey) {
@@ -263,8 +283,8 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 		this.section = sectionName;
 	}
 
-	public void setEntityLayerName(String entityLayerName) {
-		this.entityLayerName = entityLayerName;
+	public void setEntityLayerName(String entityLayer) {
+		this.entityLayer = entityLayer;
 	}
 
 	public void setPropertiesFeatureKey(String propertiesFeatureKey) {

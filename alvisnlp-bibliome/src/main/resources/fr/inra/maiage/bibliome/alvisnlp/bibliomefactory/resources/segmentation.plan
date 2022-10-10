@@ -19,7 +19,7 @@ limitations under the License.
 	<preprocessing>
 		<latin class="TabularProjector">
 			<dictFile>res://latin_multi-word-expressions.txt</dictFile>
-			<targetLayerName>seg__latin</targetLayerName>
+			<targetLayer>seg__latin</targetLayer>
 			<constantAnnotationFeatures>type=latin,eos=not-eos,pos=FW</constantAnnotationFeatures>
 			<valueFeatures>seg__latin</valueFeatures>
       		<skipConsecutiveWhitespaces/>
@@ -29,14 +29,14 @@ limitations under the License.
 
 		<hanging-hyphens class="RegExp">
 			<pattern>(?&lt;=[A-Za-z])-(?= )</pattern>
-			<targetLayerName>seg__hanging-hyphens</targetLayerName>
+			<targetLayer>seg__hanging-hyphens</targetLayer>
 			<constantAnnotationFeatures>seg__hanging-hyphen=yes</constantAnnotationFeatures>
 		</hanging-hyphens>
 
 		<pre-segmentation>
 			<fixed class="MergeLayers">
-				<sourceLayerNames>rigid-entities,seg__latin,numbers,dates,seg__hanging-hyphens</sourceLayerNames>
-				<targetLayerName>seg__pre-fixed</targetLayerName>
+				<sourceLayers>rigid-entities,seg__latin,numbers,dates,seg__hanging-hyphens</sourceLayers>
+				<targetLayer>seg__pre-fixed</targetLayer>
 			</fixed>
 			
 			<clear class="ClearLayers">
@@ -44,7 +44,7 @@ limitations under the License.
 			</clear>
 
 			<remove-fixed-overlaps class="RemoveOverlaps">
-				<layerName>seg__pre-fixed</layerName>
+				<layer>seg__pre-fixed</layer>
 			</remove-fixed-overlaps>
 
 			<tag-fixed class="Action">
@@ -57,8 +57,8 @@ limitations under the License.
 			<words class="WoSMig">
 				<balancedPunctuations>()[]{}""</balancedPunctuations>
 				<punctuations>?.!;,:-/</punctuations>
-				<fixedFormLayerName>seg__pre-fixed</fixedFormLayerName>
-				<targetLayerName>seg__pre-words</targetLayerName>
+				<fixedFormLayer>seg__pre-fixed</fixedFormLayer>
+				<targetLayer>seg__pre-words</targetLayer>
 			</words>
 			
 			<clear2 class="ClearLayers">
@@ -98,12 +98,12 @@ limitations under the License.
 
 		<create-fixed>
 			<merge class="MergeLayers">
-				<sourceLayerNames>rigid-entities,seg__latin,numbers,dates,seg__hyphenated</sourceLayerNames>
-				<targetLayerName>seg__fixed</targetLayerName>
+				<sourceLayers>rigid-entities,seg__latin,numbers,dates,seg__hyphenated</sourceLayers>
+				<targetLayer>seg__fixed</targetLayer>
 			</merge>
 
 			<remove-overlaps class="RemoveOverlaps">
-				<layerName>seg__fixed</layerName>
+				<layer>seg__fixed</layer>
 			</remove-overlaps>
 			
 			<clear class="ClearLayers">
@@ -113,7 +113,7 @@ limitations under the License.
 	</preprocessing>
 
 	<words class="WoSMig">
-		<fixedFormLayerName>seg__fixed</fixedFormLayerName>
+		<fixedFormLayer>seg__fixed</fixedFormLayer>
 		<balancedPunctuations>()[]{}""</balancedPunctuations>
 		<punctuations>?.!;,:-/</punctuations>
 	</words>

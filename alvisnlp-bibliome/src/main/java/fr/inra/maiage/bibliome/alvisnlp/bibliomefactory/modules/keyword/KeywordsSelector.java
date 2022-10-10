@@ -68,13 +68,13 @@ public class KeywordsSelector extends CorpusModule<KeywordSelectorResolvedObject
 	private String keywordFeature;
 	private String scoreFeature;
 	private KeywordScoreFunction scoreFunction = Frequency.ABSOLUTE;
-	
+
 	static class KeywordSelectorResolvedObjects extends ResolvedObjects {
 		private final Evaluator documents;
 		private final Evaluator documentId;
 		private final Evaluator keywords;
 		private final Evaluator keywordForm;
-		
+
 		private KeywordSelectorResolvedObjects(ProcessingContext<Corpus> ctx, KeywordsSelector module) throws ResolverException {
 			super(ctx, module);
 			documents = module.documents.resolveExpressions(rootResolver);
@@ -92,7 +92,7 @@ public class KeywordsSelector extends CorpusModule<KeywordSelectorResolvedObject
 			documentId.collectUsedNames(nameUsage, defaultType);
 		}
 	}
-	
+
 	@Override
 	protected KeywordSelectorResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new KeywordSelectorResolvedObjects(ctx, this);
@@ -103,7 +103,7 @@ public class KeywordsSelector extends CorpusModule<KeywordSelectorResolvedObject
 		try (PrintStream out = getPrintStream()) {
 			Logger logger = getLogger(ctx);
 			EvaluationContext evalCtx = new EvaluationContext(logger);
-			
+
 			Stats<String,Count> docFreq = getDocumentFrequencies(evalCtx, corpus);
 			long numDocs = getNumberOfDocuments(evalCtx, corpus);
 			long corpusLength = getCorpusLength(evalCtx, corpus);
@@ -120,14 +120,14 @@ public class KeywordsSelector extends CorpusModule<KeywordSelectorResolvedObject
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	private PrintStream getPrintStream() throws IOException {
 		if (outFile == null) {
 			return null;
 		}
 		return outFile.getPrintStream();
 	}
-	
+
 	private void handleKeywords(ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, PrintStream out, Element doc, List<KeywordScore> keywordRank) {
 		if (out != null) {
 			writeKeywords(ctx, evalCtx, out, doc, keywordRank);
@@ -136,7 +136,7 @@ public class KeywordsSelector extends CorpusModule<KeywordSelectorResolvedObject
 			selectKeywords(doc, keywordRank);
 		}
 	}
-	
+
 	@TimeThis(category=TimerCategory.EXPORT, task="write-keywords")
 	protected void writeKeywords(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, PrintStream out, Element doc, List<KeywordScore> keywordRank) {
 		KeywordSelectorResolvedObjects resObj = getResolvedObjects();
@@ -196,7 +196,7 @@ public class KeywordsSelector extends CorpusModule<KeywordSelectorResolvedObject
 		Collections.sort(selectScore, KeywordScore.SCORE_COMPARATOR);
 		return selectScore;
 	}
-	
+
 	private long getMaxFrequency(Stats<String,Count> freq) {
 		long result = 0;
 		if (scoreFunction.requiresMaxFrequency()) {
@@ -206,7 +206,7 @@ public class KeywordsSelector extends CorpusModule<KeywordSelectorResolvedObject
 		}
 		return result;
 	}
-	
+
 	private Stats<String,Count> getFrequencies(EvaluationContext evalCtx, Element doc) {
 		Stats<String,Count> result = new CountStats<String>(new LinkedHashMap<String,Count>());
 		KeywordSelectorResolvedObjects resObj = getResolvedObjects();
@@ -216,7 +216,7 @@ public class KeywordsSelector extends CorpusModule<KeywordSelectorResolvedObject
 		}
 		return result;
 	}
-	
+
 	private Stats<String,Count> getDocumentFrequencies(EvaluationContext evalCtx, Corpus corpus) {
 		Stats<String,Count> result = new CountStats<String>(new LinkedHashMap<String,Count>());
 		KeywordSelectorResolvedObjects resObj = getResolvedObjects();

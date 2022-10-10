@@ -6,7 +6,6 @@
     <genia class="GeniaTagger" />
   
     <yatea class="YateaExtractor">
-      <workingDir>yatea</workingDir>
       <termListFile>terms.txt</termListFile>
     </yatea>
 </alvisnlp-plan>

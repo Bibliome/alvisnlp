@@ -53,7 +53,7 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
 
 	/**
      * Gets the section name.
-     * 
+     *
      * @return the section name
      */
     @Deprecated
@@ -64,7 +64,7 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
 
     /**
      * Sets the section name.
-     * 
+     *
      * @param sectionName
      *            the new section name
      */
@@ -83,7 +83,7 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
 
 	/**
      * Gets the size limit.
-     * 
+     *
      * @return the size limit
      */
     @Param(mandatory = false)
@@ -93,7 +93,7 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
 
     /**
      * Sets the size limit.
-     * 
+     *
      * @param sizeLimit
      *            the new size limit
      */
@@ -103,7 +103,7 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
 
     /**
      * Gets the charset.
-     * 
+     *
      * @return the charset
      */
     @Param(defaultDoc = "Character set of the input files.")
@@ -113,7 +113,7 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
 
     /**
      * Sets the charset.
-     * 
+     *
      * @param charset
      *            the new charset
      */
@@ -209,7 +209,7 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
     	else
     		createDocument(corpus, name + Integer.toString(n), sb.toString());
     }
-   
+
     /**
      * Creates the document.
      * @param corpus

@@ -51,13 +51,13 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 @AlvisNLPModule
 public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator {
 	private String sectionName = DefaultNames.getDefaultSectionName();
-	private String wordLayerName = DefaultNames.getWordLayer();
-	private String sentenceLayerName = DefaultNames.getSentenceLayer();
+	private String wordLayer = DefaultNames.getWordLayer();
+	private String sentenceLayer = DefaultNames.getSentenceLayer();
 	private String posFeature = null;
 	private String lemmaFeature = null;
 	private String charset = "UTF-8";
 	private SourceStream source;
-	
+
 	private static final RecordFileLines recordFileLines = new RecordFileLines();
 
 	private static final String getSectionContents(List<List<String>> tokens) {
@@ -69,7 +69,7 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 		}
 		return sb.toString();
 	}
-	
+
 	private void fillLayers(Layer wordLayer, Layer sentenceLayer, List<List<String>> tokens) throws ProcessingException {
 		int wordStart = 0;
 		int sentenceStart = 0;
@@ -91,7 +91,7 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 				a.addFeature(lemmaFeature, t.get(2));
 			wordStart = end + 1;
 			tokens.set(i, null);
-		}	
+		}
 	}
 
 	@Override
@@ -123,7 +123,7 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 
 		Document doc = Document.getDocument(this, corpus, name);
 		Section sec = new Section(this, doc, sectionName, getSectionContents(tokens));
-		fillLayers(sec.ensureLayer(wordLayerName), sec.ensureLayer(sentenceLayerName), tokens);
+		fillLayers(sec.ensureLayer(wordLayer), sec.ensureLayer(sentenceLayer), tokens);
 	}
 
 	@Param(defaultDoc = "Name of the section of each document.")
@@ -132,13 +132,33 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 	}
 
 	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store word annotations.")
+	public String getWordLayer() {
+	    return this.wordLayer;
+	};
+
+	public void setWordLayer(String wordLayer) {
+	    this.wordLayer = wordLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store word annotations.")
 	public String getWordLayerName() {
-		return wordLayerName;
+		return wordLayer;
 	}
 
 	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store sentence annotations.")
+	public String getSentenceLayer() {
+	    return this.sentenceLayer;
+	};
+
+	public void setSentenceLayer(String sentenceLayer) {
+	    this.sentenceLayer = sentenceLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store sentence annotations.")
 	public String getSentenceLayerName() {
-		return sentenceLayerName;
+		return sentenceLayer;
 	}
 
 	@Deprecated
@@ -152,7 +172,7 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 	public String getLemmaFeatureKey() {
 		return lemmaFeature;
 	}
-	
+
 	@Param(defaultDoc = "Character set of input files.")
 	public String getCharset() {
 		return charset;
@@ -211,11 +231,11 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 		this.sectionName = sectionName;
 	}
 
-	public void setWordLayerName(String wordLayerName) {
-		this.wordLayerName = wordLayerName;
+	public void setWordLayerName(String wordLayer) {
+		this.wordLayer = wordLayer;
 	}
 
-	public void setSentenceLayerName(String sentenceLayerName) {
-		this.sentenceLayerName = sentenceLayerName;
+	public void setSentenceLayerName(String sentenceLayer) {
+		this.sentenceLayer = sentenceLayer;
 	}
 }

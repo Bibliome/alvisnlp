@@ -51,14 +51,14 @@ public abstract class ElementProjector extends TrieProjector<ElementProjectorRes
 	private Expression entries;
 	private Expression key;
 	private Expression action;
-	
+
 	static class ElementProjectorResolvedObjects extends SectionResolvedObjects {
 		private final Evaluator entries;
 		private final Evaluator key;
 		private final Variable entryVar;
 		private final Evaluator action;
 		private final EvaluationContext actionEvalCtx;
-		
+
 		ElementProjectorResolvedObjects(ElementProjector module, ProcessingContext<Corpus> ctx) throws ResolverException {
 			super(ctx, module);
 			LibraryResolver rootResolver = module.getLibraryResolver(ctx);

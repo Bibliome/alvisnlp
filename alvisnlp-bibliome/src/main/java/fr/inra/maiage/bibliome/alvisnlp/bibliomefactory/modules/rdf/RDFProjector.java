@@ -93,7 +93,7 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 		}
 		logger.info("Entries: " + nEntries);
 	}
-	
+
 	private static Property[] getProperties(Model model, String[] uris) {
 		Property[] result = new Property[uris.length];
 		for (int i = 0; i < result.length; ++i) {
@@ -101,7 +101,7 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 		}
 		return result;
 	}
-	
+
 	private String getNodeValue(RDFNode node) {
 		if (node.isLiteral()) {
 			Literal lit = node.asLiteral();

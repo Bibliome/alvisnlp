@@ -38,14 +38,14 @@ import fr.inra.maiage.bibliome.util.LoggingUtils;
 
 @AlvisNLPModule(beta=true)
 public abstract class StanfordParser extends SectionModule<StanfordParserResolvedObjects> implements DependencyParserModule, Checkable {
-	private String sentenceLayerName = DefaultNames.getSentenceLayer();
-	private String tokenLayerName = DefaultNames.getWordLayer();
+	private String sentenceLayer = DefaultNames.getSentenceLayer();
+	private String tokenLayer = DefaultNames.getWordLayer();
 	private Expression sentenceFilter = ConstantsLibrary.TRUE;
 	private String formFeature = Annotation.FORM_FEATURE_NAME;
 	private String posTagFeature = DefaultNames.getPosTagFeature();
 	private Boolean omitRoot = false;
 	private Language language = Language.ENGLISH;
-	
+
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
         LoggingUtils.configureSilentLog4J();
@@ -56,8 +56,8 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		DependencyParser parser = loadParser();
 		logger.info("parsing sentences");
 		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-			Layer sentences = sec.getLayer(sentenceLayerName);
-			Layer tokens = sec.getLayer(tokenLayerName);
+			Layer sentences = sec.getLayer(sentenceLayer);
+			Layer tokens = sec.getLayer(tokenLayer);
 			Relation dependencies = ensureRelation(sec);
 			for (Annotation sentence : sentences) {
 				if (resObj.sentenceFilter.evaluateBoolean(evalCtx, sentence)) {
@@ -66,7 +66,7 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 			}
 		}
 	}
-	
+
 	private String getParserPath() {
 		switch (language) {
 			case ENGLISH: return "edu/stanford/nlp/models/parser/nndep/english_UD.gz";
@@ -78,7 +78,7 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 				return null;
 		}
 	}
-	
+
 	private DependencyParser loadParser() {
 		String parserPath = getParserPath();
 		if (parserPath == null) {
@@ -86,7 +86,7 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		}
 		return DependencyParser.loadFromModelFile(getParserPath());
 	}
-	
+
 	private void parseSentence(DependencyParser parser, Relation dependencies, Layer tokens, Annotation sentence) {
 		Layer sentenceTokens = tokens.between(sentence);
 		List<TaggedWord> taggedSentence = convertSentenceTokens(sentenceTokens);
@@ -95,7 +95,7 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 			createDependencyTuple(dependencies, sentenceTokens, sentence, dep);
 		}
 	}
-	
+
 	private List<TaggedWord> convertSentenceTokens(Layer sentenceTokens) {
 		List<TaggedWord> result = new ArrayList<TaggedWord>(sentenceTokens.size());
 		for (Annotation t : sentenceTokens) {
@@ -106,7 +106,7 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		}
 		return result;
 	}
-	
+
 	private void createDependencyTuple(Relation dependencies, Layer sentenceTokens, Annotation sentence, TypedDependency dep) {
 		int headIndex = dep.gov().index() - 1;
 		int modIndex = dep.dep().index() - 1;
@@ -127,7 +127,7 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 
 	@Override
 	protected String[] addLayersToSectionFilter() {
-		return new String[] { sentenceLayerName, tokenLayerName };
+		return new String[] { sentenceLayer, tokenLayer };
 	}
 
 	@Override
@@ -139,16 +139,16 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	protected StanfordParserResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new StanfordParserResolvedObjects(ctx, this);
 	}
-	
+
 	public static class StanfordParserResolvedObjects extends SectionResolvedObjects {
 		private final Evaluator sentenceFilter;
-		
+
 		public StanfordParserResolvedObjects(ProcessingContext<Corpus> ctx, StanfordParser module) throws ResolverException {
 			super(ctx, module);
 			this.sentenceFilter = module.sentenceFilter.resolveExpressions(rootResolver);
 		}
 	}
-	
+
 	@Override
 	public boolean check(Logger logger) {
 		String parserPath = getParserPath();
@@ -160,13 +160,33 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getSentenceLayer() {
+	    return this.sentenceLayer;
+	};
+
+	public void setSentenceLayer(String sentenceLayer) {
+	    this.sentenceLayer = sentenceLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getSentenceLayerName() {
-		return sentenceLayerName;
+		return sentenceLayer;
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getTokenLayer() {
+	    return this.tokenLayer;
+	};
+
+	public void setTokenLayer(String tokenLayer) {
+	    this.tokenLayer = tokenLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getTokenLayerName() {
-		return tokenLayerName;
+		return tokenLayer;
 	}
 
 	@Param
@@ -234,12 +254,12 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		this.omitRoot = omitRoot;
 	}
 
-	public void setSentenceLayerName(String sentenceLayerName) {
-		this.sentenceLayerName = sentenceLayerName;
+	public void setSentenceLayerName(String sentenceLayer) {
+		this.sentenceLayer = sentenceLayer;
 	}
 
-	public void setTokenLayerName(String tokenLayerName) {
-		this.tokenLayerName = tokenLayerName;
+	public void setTokenLayerName(String tokenLayer) {
+		this.tokenLayer = tokenLayer;
 	}
 
 	public void setSentenceFilter(Expression sentenceFilter) {

@@ -40,7 +40,7 @@ public abstract class TreeTaggerTermsProjector extends TrieProjector<SectionReso
 		private final StringCat termPosBuilder = new StringCat();
 		private final StringCat termLemmaBuilder = new StringCat();
 		private final boolean lemmaKeys;
-		
+
 		private AttestedTermsFileLines(boolean lemmaKeys) {
 			super();
 			this.lemmaKeys = lemmaKeys;
@@ -51,7 +51,7 @@ public abstract class TreeTaggerTermsProjector extends TrieProjector<SectionReso
 		private void init() {
 			termFormBuilder.clear();
 			termPosBuilder.clear();
-			termLemmaBuilder.clear();			
+			termLemmaBuilder.clear();
 		}
 
 		@Override

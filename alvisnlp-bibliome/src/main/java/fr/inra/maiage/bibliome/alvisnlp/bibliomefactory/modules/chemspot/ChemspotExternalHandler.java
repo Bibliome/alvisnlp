@@ -51,7 +51,7 @@ class ChemspotExternalHandler extends ExternalHandler<Corpus,Chemspot> {
 		ChemspotFileLines<Layer,Annotation> chemspotFileLines = new CorpusChemspotFileLines(getLogger());
 		for (Section sec : Iterators.loop(getModule().sectionIterator(evalCtx, getAnnotable()))) {
 			String name = sec.getFileName();
-			Layer layer = sec.ensureLayer(getModule().getTargetLayerName());
+			Layer layer = sec.ensureLayer(getModule().getTargetLayer());
 			readOutput(chemspotFileLines, layer, name);
 		}
 	}
@@ -71,72 +71,72 @@ class ChemspotExternalHandler extends ExternalHandler<Corpus,Chemspot> {
 
 		@Override
 		protected void setFDA_DATE(Annotation annotation, String string) {
-			annotation.addFeature(getModule().getFdaDateFeatureName(), string);
+			annotation.addFeature(getModule().getFdaDateFeature(), string);
 		}
 
 		@Override
 		protected void setFDA(Annotation annotation, String string) {
-			annotation.addFeature(getModule().getFdaFeatureName(), string);
+			annotation.addFeature(getModule().getFdaFeature(), string);
 		}
 
 		@Override
 		protected void setMESH(Annotation annotation, String string) {
-			annotation.addFeature(getModule().getMeshFeatureName(), string);
+			annotation.addFeature(getModule().getMeshFeature(), string);
 		}
 
 		@Override
 		protected void setKEGD(Annotation annotation, String string) {
-			annotation.addFeature(getModule().getKegdFeatureName(), string);
+			annotation.addFeature(getModule().getKegdFeature(), string);
 		}
 
 		@Override
 		protected void setKEGG(Annotation annotation, String string) {
-			annotation.addFeature(getModule().getKeggFeatureName(), string);
+			annotation.addFeature(getModule().getKeggFeature(), string);
 		}
 
 		@Override
 		protected void setHMBD(Annotation annotation, String string) {
-			annotation.addFeature(getModule().getHmdbFeatureName(), string);
+			annotation.addFeature(getModule().getHmdbFeature(), string);
 		}
 
 		@Override
 		protected void setDRUG(Annotation annotation, String string) {
-			annotation.addFeature(getModule().getDrugFeatureName(), string);
+			annotation.addFeature(getModule().getDrugFeature(), string);
 		}
 
 		@Override
 		protected void setINCH(Annotation annotation, String string) {
-			annotation.addFeature(getModule().getInchFeatureName(), string);
+			annotation.addFeature(getModule().getInchFeature(), string);
 		}
 
 		@Override
 		protected void setPUBS(Annotation annotation, String string) {
-			annotation.addFeature(getModule().getPubsFeatureName(), string);
+			annotation.addFeature(getModule().getPubsFeature(), string);
 		}
 
 		@Override
 		protected void setPUBC(Annotation annotation, String string) {
-			annotation.addFeature(getModule().getPubcFeatureName(), string);
+			annotation.addFeature(getModule().getPubcFeature(), string);
 		}
 
 		@Override
 		protected void setCAS(Annotation annotation, String string) {
-			annotation.addFeature(getModule().getCasFeatureName(), string);
+			annotation.addFeature(getModule().getCasFeature(), string);
 		}
 
 		@Override
 		protected void setCHEB(Annotation annotation, String string) {
-			annotation.addFeature(getModule().getChebFeatureName(), string);
+			annotation.addFeature(getModule().getChebFeature(), string);
 		}
 
 		@Override
 		protected void setCHID(Annotation annotation, String string) {
-			annotation.addFeature(getModule().getChidFeatureName(), string);
+			annotation.addFeature(getModule().getChidFeature(), string);
 		}
 
 		@Override
 		protected void setType(Annotation annotation, String string) {
-			annotation.addFeature(getModule().getChemTypeFeatureName(), string);
+			annotation.addFeature(getModule().getChemTypeFeature(), string);
 		}
 
 		@Override

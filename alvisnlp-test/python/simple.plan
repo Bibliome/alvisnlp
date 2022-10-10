@@ -18,7 +18,7 @@
     <script>update.py</script>
     <callPython/>
     <documentFilter>@id == "BB-event-1016123" or @id == "BB-event-10658649"</documentFilter>
-    <layerNames>Bacteria,Habitat</layerNames>
+    <layers>Bacteria,Habitat</layers>
   </update>
   
   <features-update file="write-features.plan">

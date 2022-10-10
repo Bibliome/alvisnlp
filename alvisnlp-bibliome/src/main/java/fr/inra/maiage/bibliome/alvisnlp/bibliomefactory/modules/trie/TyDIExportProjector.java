@@ -206,7 +206,7 @@ public abstract class TyDIExportProjector extends TrieProjector<SectionResolvedO
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
 	}
-	
+
     private void saturateMerged(Logger logger, Map<String,String> map) throws FileNotFoundException, UnsupportedEncodingException, IOException, InvalidFileLineEntry {
         EquivalenceSets<String> merged = loadEquivalenceFile(logger, mergeFile, null);
         Map<String,String> toAdd = new LinkedHashMap<String,String>();
@@ -220,7 +220,7 @@ public abstract class TyDIExportProjector extends TrieProjector<SectionResolvedO
         }
         map.putAll(toAdd);
     }
-    
+
     private static final TabularFormat equivalenceSetsTabularFormat = new TabularFormat();
     static {
     	equivalenceSetsTabularFormat.setMinColumns(2);
@@ -228,7 +228,7 @@ public abstract class TyDIExportProjector extends TrieProjector<SectionResolvedO
     	equivalenceSetsTabularFormat.setSkipBlank(true);
     	equivalenceSetsTabularFormat.setSkipEmpty(true);
     }
-    
+
     private static EquivalenceSets<String> loadEquivalenceFile(Logger logger, SourceStream source, EquivalenceSets<String> eqSets) throws FileNotFoundException, UnsupportedEncodingException, IOException, InvalidFileLineEntry {
         if (eqSets == null)
             eqSets = new EquivalenceHashSets<String>();
@@ -238,7 +238,7 @@ public abstract class TyDIExportProjector extends TrieProjector<SectionResolvedO
         r.close();
         return eqSets;
     }
-    
+
     private static final List<Match<Set<String>>> searchVariants(Matcher<Set<String>> variantMatcher, String lemma) {
     	variantMatcher.reset();
 //      variantMatcher.getDictionary().match(variantMatcher, lemma);
@@ -257,8 +257,8 @@ public abstract class TyDIExportProjector extends TrieProjector<SectionResolvedO
 
         /**
          * Instantiates a new lemma lines.
-         * @param ctx 
-         * 
+         * @param ctx
+         *
          * @throws FileNotFoundException
          *             the file not found exception
          * @throws UnsupportedEncodingException
@@ -273,7 +273,7 @@ public abstract class TyDIExportProjector extends TrieProjector<SectionResolvedO
 
         /*
          * (non-Javadoc)
-         * 
+         *
          * @see org.bibliome.filelines.FileLines#processArray(int,
          * java.lang.String[])
          */
@@ -299,7 +299,7 @@ public abstract class TyDIExportProjector extends TrieProjector<SectionResolvedO
             termToLemma.put(term, lemma);
         }
     }
-    
+
     private final FileLines<Map<String,String>> synonymLines = new FileLines<Map<String,String>>() {
         @Override
         public void processEntry(Map<String,String> lemmaToTerm, int lineno, List<String> entry) {

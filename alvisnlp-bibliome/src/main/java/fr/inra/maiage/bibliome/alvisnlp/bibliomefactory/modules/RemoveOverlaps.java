@@ -36,12 +36,12 @@ import fr.inra.maiage.bibliome.util.Iterators;
 
 @AlvisNLPModule
 public class RemoveOverlaps extends SectionModule<SectionResolvedObjects> {
-	private String layerName;
+	private String layer;
 	private AnnotationComparator annotationComparator = AnnotationComparator.byLength;
 	private Boolean removeEqual = true;
 	private Boolean removeIncluded = true;
 	private Boolean removeOverlapping = true;
-	
+
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
@@ -53,7 +53,7 @@ public class RemoveOverlaps extends SectionModule<SectionResolvedObjects> {
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		int removed = 0;
 		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-			Layer layer = sec.getLayer(layerName);
+			Layer layer = sec.getLayer(this.layer);
 			int n = layer.size();
 			layer.removeOverlaps(annotationComparator, removeEqual, removeIncluded, removeOverlapping);
 			removed += n - layer.size();
@@ -63,7 +63,7 @@ public class RemoveOverlaps extends SectionModule<SectionResolvedObjects> {
 
 	@Override
 	protected String[] addLayersToSectionFilter() {
-		return new String[] { layerName };
+		return new String[] { layer };
 	}
 
 	@Override
@@ -71,9 +71,10 @@ public class RemoveOverlaps extends SectionModule<SectionResolvedObjects> {
 		return null;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.LAYER)
 	public String getLayerName() {
-		return layerName;
+		return layer;
 	}
 
 	@Param
@@ -96,6 +97,15 @@ public class RemoveOverlaps extends SectionModule<SectionResolvedObjects> {
 		return removeOverlapping;
 	}
 
+	@Param(nameType=NameType.LAYER)
+	public String getLayer() {
+		return layer;
+	}
+
+	public void setLayer(String layer) {
+		this.layer = layer;
+	}
+
 	public void setRemoveEqual(Boolean removeEqual) {
 		this.removeEqual = removeEqual;
 	}
@@ -109,7 +119,7 @@ public class RemoveOverlaps extends SectionModule<SectionResolvedObjects> {
 	}
 
 	public void setLayerName(String layerName) {
-		this.layerName = layerName;
+		this.layer = layerName;
 	}
 
 	public void setAnnotationComparator(AnnotationComparator annotationComparator) {

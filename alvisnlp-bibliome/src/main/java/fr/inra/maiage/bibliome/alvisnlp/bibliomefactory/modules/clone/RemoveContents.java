@@ -47,7 +47,7 @@ import fr.inra.maiage.bibliome.util.Iterators;
 
 @AlvisNLPModule(beta=true)
 public abstract class RemoveContents extends SectionModule<SectionResolvedObjects> implements AnnotationCreator, SectionCreator, TupleCreator {
-	private String stripLayerName;
+	private String stripLayer;
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -66,16 +66,16 @@ public abstract class RemoveContents extends SectionModule<SectionResolvedObject
 		String newContents = correctContents(stripLayer, sec.getContents());
 		Section newSec = new Section(this, sec.getDocument(), sec.getName(), newContents);
 		putMapping(map, sec, newSec);
-		
+
 		for (Layer layer : sec.getAllLayers()) {
 			cloneLayer(map, stripLayer, newSec, layer);
 		}
-		
+
 		for (Relation rel : sec.getAllRelations()) {
 			cloneRelation(map, newSec, rel);
 		}
 	}
-	
+
 	private static void cloneArgs(Map<Element,Element> map) {
 		for (Map.Entry<Element,Element> e : map.entrySet()) {
 			Tuple oldT = DownCastElement.toTuple(e.getKey());
@@ -88,7 +88,7 @@ public abstract class RemoveContents extends SectionModule<SectionResolvedObject
 			}
 		}
 	}
-	
+
 	private static void removeOldSections(Logger logger, Map<Element,Element> map) {
 		int n = 0;
 		for (Map.Entry<Element,Element> e : map.entrySet()) {
@@ -138,16 +138,16 @@ public abstract class RemoveContents extends SectionModule<SectionResolvedObject
 		}
 		return result;
 	}
-	
+
 	private Layer getStripLayer(Logger logger, Section sec) {
-		Layer stripLayer = sec.getLayer(stripLayerName);
+		Layer stripLayer = sec.getLayer(this.stripLayer);
 		if (stripLayer.hasOverlaps()) {
 			logger.warning("overlapping annotations, merging");
 			return stripLayer.mergeOverlaps(this);
 		}
 		return stripLayer;
 	}
-	
+
 	private static String correctContents(Layer stripLayer, String contents) {
 		StringBuilder sb = new StringBuilder(contents.length());
 		int reach = 0;
@@ -161,7 +161,7 @@ public abstract class RemoveContents extends SectionModule<SectionResolvedObject
 
 	@Override
 	protected String[] addLayersToSectionFilter() {
-		return new String[] { stripLayerName };
+		return new String[] { stripLayer };
 	}
 
 	@Override
@@ -175,11 +175,21 @@ public abstract class RemoveContents extends SectionModule<SectionResolvedObject
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getStripLayer() {
+	    return this.stripLayer;
+	};
+
+	public void setStripLayer(String stripLayer) {
+	    this.stripLayer = stripLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getStripLayerName() {
-		return stripLayerName;
+		return stripLayer;
 	}
 
-	public void setStripLayerName(String stripLayerName) {
-		this.stripLayerName = stripLayerName;
+	public void setStripLayerName(String stripLayer) {
+		this.stripLayer = stripLayer;
 	}
 }

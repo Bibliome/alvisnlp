@@ -22,21 +22,21 @@ import fr.inra.maiage.bibliome.util.files.OutputFile;
 @AlvisNLPModule(beta=true)
 public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> implements AbstractContes, Checkable {
 	private InputDirectory contesDir;
-	
-	private String sentenceLayerName = DefaultNames.getSentenceLayer();
-	private String tokenLayerName = DefaultNames.getWordLayer();
+
+	private String sentenceLayer = DefaultNames.getSentenceLayer();
+	private String tokenLayer = DefaultNames.getWordLayer();
 	private String formFeature = Annotation.FORM_FEATURE_NAME;
 	private String vectorFeatureName = null;
-	
+
 	private Integer vectorSize = 200;
 	private Integer windowSize = 2;
 	private Integer minCount = 0;
-	
+
 	private OutputFile jsonFile;
 	private OutputFile txtFile;
 	private OutputFile modelFile;
 	private Integer workers;
-	
+
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
@@ -48,8 +48,18 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getSentenceLayer() {
+	    return this.sentenceLayer;
+	};
+
+	public void setSentenceLayer(String sentenceLayer) {
+	    this.sentenceLayer = sentenceLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getSentenceLayerName() {
-		return sentenceLayerName;
+		return sentenceLayer;
 	}
 
 	@Param(nameType=NameType.LAYER, mandatory=false)
@@ -94,8 +104,18 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 
 	@Override
 	@Param(nameType=NameType.LAYER)
+	public String getTokenLayer() {
+	    return this.tokenLayer;
+	};
+
+	public void setTokenLayer(String tokenLayer) {
+	    this.tokenLayer = tokenLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getTokenLayerName() {
-		return tokenLayerName;
+		return tokenLayer;
 	}
 
 	@Override
@@ -133,7 +153,7 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 
 	@Override
 	public void setTokenLayerName(String tokenLayer) {
-		this.tokenLayerName = tokenLayer;
+		this.tokenLayer = tokenLayer;
 	}
 
 	@Override
@@ -142,7 +162,7 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 	}
 
 	public void setSentenceLayerName(String sentenceLayer) {
-		this.sentenceLayerName = sentenceLayer;
+		this.sentenceLayer = sentenceLayer;
 	}
 
 	public void setVectorFeatureName(String vectorFeature) {
@@ -175,7 +195,7 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 
 	@Override
 	protected String[] addLayersToSectionFilter() {
-		return new String[] { sentenceLayerName , tokenLayerName };
+		return new String[] { sentenceLayer , tokenLayer };
 	}
 
 	@Override

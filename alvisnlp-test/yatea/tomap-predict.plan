@@ -11,7 +11,7 @@
 
   <classify class="TomapProjector">
     <tomapClassifier>tomap.xml</tomapClassifier>
-    <targetLayerName>PredictedHabitat</targetLayerName>
+    <targetLayer>PredictedHabitat</targetLayer>
     <yateaFile output-feed="true">tomap-yatea/corpus/default/xml/candidates.xml</yateaFile>
     <conceptFeature>OBT</conceptFeature>
   </classify>

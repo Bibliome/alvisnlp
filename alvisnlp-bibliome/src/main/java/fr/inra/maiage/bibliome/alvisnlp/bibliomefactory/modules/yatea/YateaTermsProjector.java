@@ -46,7 +46,7 @@ public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedO
 	private String termPosFeature = DefaultNames.getPosTagFeature();
 	private String headFeature = "head";
 	private String modifierFeature = "modifier";
-	
+
 	public static final class Term {
 		private String id;
 		private String form;
@@ -55,7 +55,7 @@ public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedO
 		private String monoHead;
 		private String head;
 		private String modifier;
-		
+
 		@Override
 		public String toString() {
 			return "Term [id=" + id + ", form=" + form + "]";
@@ -69,7 +69,7 @@ public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedO
 		private boolean syntacticAnalysis;
 		private boolean dismissed;
 		private boolean mnp;
-		
+
 		private YateaHandler(Trie<Term> dict) {
 			super();
 			this.dict = dict;
@@ -88,7 +88,7 @@ public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedO
 			dismissed = false;
 			mnp = false;
 		}
-		
+
 		@Override
 		public void characters(char[] ch, int start, int length) throws SAXException {
 			chars.append(ch, start, length);
@@ -136,7 +136,7 @@ public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedO
 				break;
 			}
 		}
-		
+
 		private String getTermId() {
 			return chars.toString().trim();
 		}

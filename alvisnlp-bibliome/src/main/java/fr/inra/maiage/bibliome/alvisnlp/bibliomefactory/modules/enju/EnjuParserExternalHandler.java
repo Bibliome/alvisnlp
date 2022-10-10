@@ -55,7 +55,7 @@ class EnjuParserExternalHandler extends ExternalHandler<Corpus,EnjuParser> {
 		Evaluator sentenceFilter = resObj.getSentenceFilter();
 		EvaluationContext evalCtx = new EvaluationContext(getLogger());
 		for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getAnnotable())))
-			for (Layer sent : sec.getSentences(owner.getWordLayerName(), owner.getSentenceLayerName()))
+			for (Layer sent : sec.getSentences(owner.getWordLayer(), owner.getSentenceLayer()))
 				if (sentenceFilter.evaluateBoolean(evalCtx, sent.getSentenceAnnotation()))
 					sentences.add(sent);
 	}

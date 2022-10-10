@@ -81,7 +81,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	private Boolean loadGroups = true;
 	private Boolean loadRelations = true;
 	private String section = DefaultNames.getDefaultSectionName();
-	private String fragmentsLayerName = "alvisae";
+	private String fragmentsLayer = "alvisae";
 	private String fragmentRolePrefix = "frag";
 	private String itemRolePrefix = "item";
 	private String campaignIdFeature;
@@ -104,9 +104,9 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	private String annotationIdFeature = "id";
 	private String referentFeature = "referent";
 	private String unmatchedFeature = "unmatched";
-	private String htmlLayerName = "html";
+	private String htmlLayer = "html";
 	private String htmlTagFeature = "tag";
-	
+
 	@Override
 	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
@@ -125,7 +125,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	@TimeThis(task="load-sql", category=TimerCategory.LOAD_RESOURCE)
 	protected Campaign loadCampaign(ProcessingContext<Corpus> ctx, LoadOptions options, Connection connection, int cid) throws SQLException, ParseException {
 		Campaign campaign = new Campaign(oldModel, schema, cid);
@@ -158,7 +158,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 		result.setAdjudicate(adjudicate);
 		return result;
 	}
-	
+
 	private static <T> Collection<T> asCollection(T[] a) {
 		if (a == null)
 			return null;
@@ -172,7 +172,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 			convertDocument(logger, corpus, doc);
 		}
 	}
-	
+
 	private void convertDocument(Logger logger, Corpus corpus, AlvisAEDocument doc) {
 		Document aDoc = Document.getDocument(this, corpus, Integer.toString(doc.getId()));
 		logger.finer("converting document " + doc.getId() + " [" + doc.getExternalId() + "] (" + doc.getDescription() + ")");
@@ -187,7 +187,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 				convertAnnotationSet(mapping, aset, sec);
 			}
 		}
-		Layer html = sec.ensureLayer(htmlLayerName);
+		Layer html = sec.ensureLayer(htmlLayer);
 		for (TextBound tag : doc.getHTML()) {
 			for (Fragment frag : tag.getFragments()) {
 				Annotation a = new Annotation(this, html, frag.getStart(), frag.getEnd());
@@ -246,7 +246,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 		for (fr.inra.maiage.bibliome.util.alvisae.Relation rel : aset.getRelations())
 			convertRelation(rel, mapping);
 	}
-	
+
 	private void setKind(Tuple t, String kind) {
 		Relation rel = t.getRelation();
 		if (!rel.hasFeature(kindFeature)) {
@@ -270,7 +270,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	}
 
 	private void convertTextBound(TextBound txt, Tuple t, Section sec) {
-		Layer layer = sec.ensureLayer(fragmentsLayerName);
+		Layer layer = sec.ensureLayer(fragmentsLayer);
 		int n = 0;
 		for (Fragment f : txt.getFragments()) {
 			Annotation a = new Annotation(this, layer, f.getStart(), f.getEnd());
@@ -375,8 +375,18 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getFragmentsLayer() {
+	    return this.fragmentsLayer;
+	};
+
+	public void setFragmentsLayer(String fragmentsLayer) {
+	    this.fragmentsLayer = fragmentsLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getFragmentsLayerName() {
-		return fragmentsLayerName;
+		return fragmentsLayer;
 	}
 
 	@Param
@@ -438,7 +448,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	public Boolean getLoadDependencies() {
 		return loadDependencies;
 	}
-	
+
 	@Param
 	public String getSourceRolePrefix() {
 		return sourceRolePrefix;
@@ -470,8 +480,18 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getHtmlLayer() {
+	    return this.htmlLayer;
+	};
+
+	public void setHtmlLayer(String htmlLayer) {
+	    this.htmlLayer = htmlLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getHtmlLayerName() {
-		return htmlLayerName;
+		return htmlLayer;
 	}
 
 	@Param(nameType=NameType.FEATURE)
@@ -528,8 +548,8 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 		this.unmatchedFeature = unmatchedFeature;
 	}
 
-	public void setHtmlLayerName(String htmlLayerName) {
-		this.htmlLayerName = htmlLayerName;
+	public void setHtmlLayerName(String htmlLayer) {
+		this.htmlLayer = htmlLayer;
 	}
 
 	public void setHtmlTagFeature(String htmlTagFeature) {
@@ -656,8 +676,8 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 		this.section = sectionName;
 	}
 
-	public void setFragmentsLayerName(String fragmentsLayerName) {
-		this.fragmentsLayerName = fragmentsLayerName;
+	public void setFragmentsLayerName(String fragmentsLayer) {
+		this.fragmentsLayer = fragmentsLayer;
 	}
 
 	public void setFragmentRolePrefix(String fragmentRolePrefix) {

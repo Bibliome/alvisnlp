@@ -83,7 +83,7 @@ class SpeciesExternalHandler extends ExternalHandler<Corpus,Species> {
 				return;
 			}
 			Species owner = getModule();
-			Layer layer = sec.ensureLayer(owner.getTargetLayerName());
+			Layer layer = sec.ensureLayer(owner.getTargetLayer());
 			int start = Integer.parseInt(entry.get(1));
 			int end = Integer.parseInt(entry.get(2)) + 1;
 			Annotation a = new Annotation(owner, layer, start, end);

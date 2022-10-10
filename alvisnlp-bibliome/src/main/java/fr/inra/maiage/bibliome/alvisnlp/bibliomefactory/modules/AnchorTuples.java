@@ -55,14 +55,14 @@ public abstract class AnchorTuples extends SectionModule<AnchorTuplesResolvedObj
 	private Expression anchor;
 	private String anchorRole;
 	private ExpressionMapping arguments;
-	
+
 	class AnchorTuplesResolvedObjects extends SectionResolvedObjects {
 		@SuppressWarnings("hiding")
 		private final Evaluator anchor;
 		@SuppressWarnings("hiding")
 		private final EvaluatorMapping arguments;
 		private final Variable anchorVariable;
-		
+
 		private AnchorTuplesResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 			super(ctx, AnchorTuples.this);
 			VariableLibrary anchorLibrary = new VariableLibrary("anchor");
@@ -79,7 +79,7 @@ public abstract class AnchorTuples extends SectionModule<AnchorTuplesResolvedObj
 			arguments.collectUsedNames(nameUsage, defaultType);
 		}
 	}
-	
+
 	@Override
 	protected AnchorTuplesResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new AnchorTuplesResolvedObjects(ctx);
@@ -127,7 +127,7 @@ public abstract class AnchorTuples extends SectionModule<AnchorTuplesResolvedObj
 			logger.info("created " + n + " tuples");
 		}
 	}
-	
+
 	@Override
 	protected String[] addLayersToSectionFilter() {
 		return null;

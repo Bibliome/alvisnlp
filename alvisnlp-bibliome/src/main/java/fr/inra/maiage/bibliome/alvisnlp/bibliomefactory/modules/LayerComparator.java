@@ -52,10 +52,10 @@ import fr.inra.maiage.bibliome.util.streams.TargetStream;
 public class LayerComparator extends SectionModule<SectionResolvedObjects> {
 
     /** Layer containing reference annotations. */
-    private String[] referenceLayerName = null;
+    private String[] referenceLayer = null;
 
     /** Layer containing predicted annotations. */
-    private String[] predictedLayerName = null;
+    private String[] predictedLayer = null;
 
     /** Path to the file where to write the results. */
     private TargetStream   outFile            = null;
@@ -65,7 +65,7 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.SectionModule#addFeaturesToSectionFilter()
      */
     @Override
@@ -75,7 +75,7 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.SectionModule#addLayersToSectionFilter()
      */
     @Override
@@ -87,7 +87,7 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
 	}
-    
+
     private static Layer fillLayer(Section sec, String[] names) {
     	Layer result = new Layer(sec);
     	for (String name : names) {
@@ -100,7 +100,7 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
 
 	/*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase#process(fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext,
      * fr.inra.maiage.bibliome.alvisnlp.core.document.Corpus)
@@ -224,47 +224,67 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
 
     /**
      * Gets the reference layer name.
-     * 
-     * @return the referenceLayerName
+     *
+     * @return the referenceLayer
      */
     @Param(nameType=NameType.LAYER, defaultDoc = "Name of the reference layer.")
+    public String[] getReferenceLayer() {
+        return this.referenceLayer;
+    };
+
+    public void setReferenceLayer(String[] referenceLayer) {
+        this.referenceLayer = referenceLayer;
+    };
+
+    @Deprecated
+    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the reference layer.")
     public String[] getReferenceLayerName() {
-        return referenceLayerName;
+        return referenceLayer;
     }
 
     /**
      * Sets the reference layer name.
-     * 
-     * @param referenceLayerName
-     *            the referenceLayerName to set
+     *
+     * @param referenceLayer
+     *            the referenceLayer to set
      */
-    public void setReferenceLayerName(String[] referenceLayerName) {
-        this.referenceLayerName = referenceLayerName;
+    public void setReferenceLayerName(String[] referenceLayer) {
+        this.referenceLayer = referenceLayer;
     }
 
     /**
      * Gets the predicted layer name.
-     * 
-     * @return the predictedLayerName
+     *
+     * @return the predictedLayer
      */
     @Param(nameType=NameType.LAYER, defaultDoc = "Name of the source layer.")
+    public String[] getPredictedLayer() {
+        return this.predictedLayer;
+    };
+
+    public void setPredictedLayer(String[] predictedLayer) {
+        this.predictedLayer = predictedLayer;
+    };
+
+    @Deprecated
+    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the source layer.")
     public String[] getPredictedLayerName() {
-        return predictedLayerName;
+        return predictedLayer;
     }
 
     /**
      * Sets the predicted layer name.
-     * 
-     * @param predictedLayerName
-     *            the predictedLayerName to set
+     *
+     * @param predictedLayer
+     *            the predictedLayer to set
      */
-    public void setPredictedLayerName(String[] predictedLayerName) {
-        this.predictedLayerName = predictedLayerName;
+    public void setPredictedLayerName(String[] predictedLayer) {
+        this.predictedLayer = predictedLayer;
     }
 
     /**
      * Gets the out file.
-     * 
+     *
      * @return the outFile
      */
     @Param(defaultDoc = "Path to the file where to store results.")
@@ -274,7 +294,7 @@ public class LayerComparator extends SectionModule<SectionResolvedObjects> {
 
     /**
      * Sets the out file.
-     * 
+     *
      * @param outFile
      *            the outFile to set
      */

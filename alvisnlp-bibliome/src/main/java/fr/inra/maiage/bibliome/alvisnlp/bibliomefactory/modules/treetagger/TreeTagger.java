@@ -52,7 +52,7 @@ import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 /**
  * The Class NewTreeTagger.
- * 
+ *
  * @author rbossy
  */
 @AlvisNLPModule
@@ -65,10 +65,10 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
     private InputFile                                     parFile                = null;
 
     /** Sentence annotations. */
-    private String sentenceLayerName      = DefaultNames.getSentenceLayer();
+    private String sentenceLayer      = DefaultNames.getSentenceLayer();
 
     /** Word annotations. */
-    private String wordLayerName          = DefaultNames.getWordLayer();
+    private String wordLayer          = DefaultNames.getWordLayer();
 
     /** Word annotation form feature. */
     private String                                   formFeature            = Annotation.FORM_FEATURE_NAME;
@@ -108,7 +108,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
         lexiconTabularFormat.setSkipEmpty(true);
         lexiconTabularFormat.setTrimColumns(true);
     }
-    
+
     /**
      * Instantiates a new new tree tagger.
      */
@@ -118,7 +118,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.SectionModule#addFeaturesToSectionFilter()
      */
     @Override
@@ -128,14 +128,14 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.SectionModule#addLayersToSectionFilter()
      */
     @Override
     public String[] addLayersToSectionFilter() {
         return null;
     }
-	
+
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
@@ -153,7 +153,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
                 	TargetStream target = new FileTargetStream(recordCharset, recordFile);
                     PrintStream ps = target.getPrintStream();
                     int n = 0;
-                    for (Layer sent : sec.getSentences(wordLayerName, sentenceLayerName)) {
+                    for (Layer sent : sec.getSentences(wordLayer, sentenceLayer)) {
                         for (Annotation word : sent) {
 							writeTTOutput(ps, word, ++n);
 						}
@@ -184,7 +184,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Gets the tree tagger executable.
-     * 
+     *
      * @return the treeTaggerExecutable
      */
     @Param
@@ -194,7 +194,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Gets the par file.
-     * 
+     *
      * @return the parFile
      */
     @Param
@@ -204,27 +204,47 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Gets the sentence layer name.
-     * 
-     * @return the sentenceLayerName
+     *
+     * @return the sentenceLayer
      */
     @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing sentence annotations, sentences are reinforced.")
+    public String getSentenceLayer() {
+        return this.sentenceLayer;
+    };
+
+    public void setSentenceLayer(String sentenceLayer) {
+        this.sentenceLayer = sentenceLayer;
+    };
+
+    @Deprecated
+    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing sentence annotations, sentences are reinforced.")
     public String getSentenceLayerName() {
-        return sentenceLayerName;
+        return sentenceLayer;
     }
 
     /**
      * Gets the word layer name.
-     * 
-     * @return the wordLayerName
+     *
+     * @return the wordLayer
      */
     @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing the word annotations.")
+    public String getWordLayer() {
+        return this.wordLayer;
+    };
+
+    public void setWordLayer(String wordLayer) {
+        this.wordLayer = wordLayer;
+    };
+
+    @Deprecated
+    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing the word annotations.")
     public String getWordLayerName() {
-        return wordLayerName;
+        return wordLayer;
     }
 
     /**
      * Gets the form feature.
-     * 
+     *
      * @return the formFeature
      */
     @Param(nameType=NameType.FEATURE, defaultDoc = "Name of the feature denoting the token surface form.")
@@ -234,7 +254,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Gets the pos feature.
-     * 
+     *
      * @return the posFeature
      */
     @Param(nameType=NameType.FEATURE, defaultDoc = "Name of the feature to set with the POS tag.")
@@ -244,7 +264,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Gets the lemma feature.
-     * 
+     *
      * @return the lemmaFeature
      */
     @Param(nameType=NameType.FEATURE, defaultDoc = "Name of the feature to set with the lemma.")
@@ -254,7 +274,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Gets the no unknown lemma.
-     * 
+     *
      * @return the noUnknownLemma
      */
     @Param(defaultDoc = "Either to replace unknown lemmas with the surface form.")
@@ -264,7 +284,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Gets the record dir.
-     * 
+     *
      * @return the recordDir
      */
     @Param(mandatory = false)
@@ -274,7 +294,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Gets the record features.
-     * 
+     *
      * @return the recordFeatures
      */
     @Param(mandatory = false, nameType=NameType.FEATURE, defaultDoc = "List of attributes to display in result files.")
@@ -284,7 +304,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Gets the lexicon file.
-     * 
+     *
      * @return the lexiconFile
      */
     @Param(mandatory=false)
@@ -294,7 +314,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Gets the input charset.
-     * 
+     *
      * @return the inputCharset
      */
     @Param(defaultDoc = "Tree-tagger input corpus character set.")
@@ -304,7 +324,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Gets the output charset.
-     * 
+     *
      * @return the outputCharset
      */
     @Param(defaultDoc = "Tree-tagger output character set.")
@@ -323,7 +343,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
 	/**
      * Sets the tree tagger executable.
-     * 
+     *
      * @param treeTaggerExecutable
      *            the treeTaggerExecutable to set
      */
@@ -333,7 +353,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Sets the par file.
-     * 
+     *
      * @param parFile
      *            the parFile to set
      */
@@ -343,27 +363,27 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Sets the sentence layer name.
-     * 
-     * @param sentenceLayerName
-     *            the sentenceLayerName to set
+     *
+     * @param sentenceLayer
+     *            the sentenceLayer to set
      */
-    public void setSentenceLayerName(String sentenceLayerName) {
-        this.sentenceLayerName = sentenceLayerName;
+    public void setSentenceLayerName(String sentenceLayer) {
+        this.sentenceLayer = sentenceLayer;
     }
 
     /**
      * Sets the word layer name.
-     * 
-     * @param wordLayerName
-     *            the wordLayerName to set
+     *
+     * @param wordLayer
+     *            the wordLayer to set
      */
-    public void setWordLayerName(String wordLayerName) {
-        this.wordLayerName = wordLayerName;
+    public void setWordLayerName(String wordLayer) {
+        this.wordLayer = wordLayer;
     }
 
     /**
      * Sets the form feature.
-     * 
+     *
      * @param formFeature
      *            the formFeature to set
      */
@@ -373,7 +393,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Sets the pos feature.
-     * 
+     *
      * @param posFeature
      *            the posFeature to set
      */
@@ -383,7 +403,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Sets the lemma feature.
-     * 
+     *
      * @param lemmaFeature
      *            the lemmaFeature to set
      */
@@ -393,7 +413,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Sets the no unknown lemma.
-     * 
+     *
      * @param noUnknownLemma
      *            the noUnknownLemma to set
      */
@@ -403,7 +423,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Sets the record dir.
-     * 
+     *
      * @param recordDir
      *            the recordDir to set
      */
@@ -413,7 +433,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Sets the record features.
-     * 
+     *
      * @param recordFeatures
      *            the recordFeatures to set
      */
@@ -423,7 +443,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Sets the lexicon file.
-     * 
+     *
      * @param lexiconFile
      *            the lexiconFile to set
      */
@@ -433,7 +453,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Sets the input charset.
-     * 
+     *
      * @param inputCharset
      *            the inputCharset to set
      */
@@ -443,7 +463,7 @@ public abstract class TreeTagger extends SectionModule<SectionResolvedObjects> i
 
     /**
      * Sets the output charset.
-     * 
+     *
      * @param outputCharset
      *            the outputCharset to set
      */

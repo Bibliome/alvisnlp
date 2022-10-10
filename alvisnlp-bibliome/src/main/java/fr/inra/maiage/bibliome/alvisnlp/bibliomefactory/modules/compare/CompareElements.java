@@ -53,7 +53,7 @@ public class CompareElements extends CorpusModule<CompareElementsResolvedObjects
 	private Boolean showRecall = true;
 	private Boolean showPrecision = true;
 	private Boolean showFullMatches = true;
-	
+
 	static class CompareElementsResolvedObjects extends ResolvedObjects {
 		private final Evaluator sections;
 		private final Evaluator reference;
@@ -77,7 +77,7 @@ public class CompareElements extends CorpusModule<CompareElementsResolvedObjects
 			face.collectUsedNames(nameUsage, defaultType);
 		}
 	}
-	
+
 	@Override
 	protected CompareElementsResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new CompareElementsResolvedObjects(ctx, this);
@@ -166,14 +166,14 @@ public class CompareElements extends CorpusModule<CompareElementsResolvedObjects
 		}
 		return result;
 	}
-	
+
 	private static double sum(List<ElementMatch> l) {
 		double result = 0;
 		for (ElementMatch m : l)
 			result += m.getScore();
 		return result;
 	}
-	
+
 	private static double fScore(double recall, double precision) {
 		return 2 * recall * precision / (recall + precision);
 	}
@@ -213,7 +213,7 @@ public class CompareElements extends CorpusModule<CompareElementsResolvedObjects
 		return showRecall;
 	}
 
-	@Param	
+	@Param
 	public Boolean getShowPrecision() {
 		return showPrecision;
 	}

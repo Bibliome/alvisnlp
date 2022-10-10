@@ -62,7 +62,7 @@ public abstract class OBOProjector extends TrieProjector<SectionResolvedObjects,
 	private String ancestorsFeature;
 	private String versionFeature;
 	private Boolean keepDBXref = false;
-	
+
 	private String ontologyVersion;
 
 	@Override

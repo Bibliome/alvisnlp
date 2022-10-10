@@ -29,7 +29,9 @@ public class CheckMandatoryParameters<A extends Annotable> extends AbstractParam
 	@Override
 	public void visitParam(ParamHandler<A> paramHandler, Logger logger) {
 		if ((!paramHandler.isDeprecated()) && paramHandler.isMandatory() && (!paramHandler.isSet())) {
-			logger.severe("unset mandatory parameter: " + paramHandler.getModule().getId() + " " + paramHandler.getName());
+			Module<A> module = paramHandler.getModule();
+			String moduleClass = module.getModuleClass();
+			logger.severe("unset mandatory parameter: " + module.getPath() + " (" + moduleClass.substring(moduleClass.lastIndexOf('.')) + ") " + paramHandler.getName());
 			hasUnsetMandatoryParam = true;
 		}
 	}

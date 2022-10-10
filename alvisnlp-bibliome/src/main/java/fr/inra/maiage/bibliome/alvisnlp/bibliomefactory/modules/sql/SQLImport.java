@@ -61,7 +61,7 @@ public abstract class SQLImport extends CorpusModule<SQLImportResolvedObjects> i
 		private final Evaluator target;
 		private final SQLParameterEvaluator[] parameters;
 		private final Evaluator action;
-		
+
 		private SQLImportResolvedObjects(ProcessingContext<Corpus> ctx, SQLImport module) throws ResolverException {
 			super(ctx, module);
 			resultSetLibrary = new ResultSetLibrary();
@@ -79,7 +79,7 @@ public abstract class SQLImport extends CorpusModule<SQLImportResolvedObjects> i
 			action.collectUsedNames(nameUsage, defaultType);
 		}
 	}
-	
+
 	@Override
 	protected SQLImportResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SQLImportResolvedObjects(ctx, this);

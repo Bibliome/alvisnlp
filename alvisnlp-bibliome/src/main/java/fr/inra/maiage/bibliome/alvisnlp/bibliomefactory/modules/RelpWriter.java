@@ -79,7 +79,7 @@ public class RelpWriter extends SectionModule<RelpWriterResolvedObjects> {
 		private final Evaluator lemmaForm;
 		private final Evaluator headForm;
 		private final Evaluator dependentForm;
-		
+
 		private RelpWriterResolvedObjects(ProcessingContext<Corpus> ctx, RelpWriter module) throws ResolverException {
 			super(ctx, module);
 			pmid = module.pmid.resolveExpressions(rootResolver);
@@ -99,7 +99,7 @@ public class RelpWriter extends SectionModule<RelpWriterResolvedObjects> {
 			dependentForm.collectUsedNames(nameUsage, defaultType);
 		}
 	}
-	
+
 	@Override
 	protected RelpWriterResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new RelpWriterResolvedObjects(ctx, this);
@@ -114,7 +114,7 @@ public class RelpWriter extends SectionModule<RelpWriterResolvedObjects> {
 	protected String[] addLayersToSectionFilter() {
 		return new String[] { sentenceLayer, wordLayer };
 	}
-	
+
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
@@ -154,7 +154,7 @@ public class RelpWriter extends SectionModule<RelpWriterResolvedObjects> {
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	private final class RelationIndex extends DefaultMap<Annotation,LinkageIndex> {
 		private RelationIndex(Relation rel) {
 			super(true, new LinkedHashMap<Annotation,LinkageIndex>());
@@ -171,7 +171,7 @@ public class RelpWriter extends SectionModule<RelpWriterResolvedObjects> {
 			return new LinkageIndex();
 		}
 	}
-	
+
 	private static final class LinkageIndex extends DefaultMap<Integer,Collection<Tuple>> {
 		private LinkageIndex() {
 			super(true, new TreeMap<Integer,Collection<Tuple>>());
@@ -182,7 +182,7 @@ public class RelpWriter extends SectionModule<RelpWriterResolvedObjects> {
 			return new ArrayList<Tuple>();
 		}
 	}
-	
+
 	private static Map<Annotation,Integer> getWordIndex(Layer sentence) {
 		Map<Annotation,Integer> result = new LinkedHashMap<Annotation,Integer>();
 		for (int i = 0; i < sentence.size(); ++i)
@@ -212,7 +212,7 @@ public class RelpWriter extends SectionModule<RelpWriterResolvedObjects> {
     	out.println();
     	out.println();
 	}
-	
+
 	@TimeThis(task="write-relp", category=TimerCategory.EXPORT)
 	protected void printLinkage(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, PrintStream out, Map<Annotation,Integer> wordIndex, int linkNum, Collection<Tuple> tuples, EvaluationContext evalCtx) {
 		RelpWriterResolvedObjects resObj = getResolvedObjects();

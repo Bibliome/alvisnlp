@@ -47,7 +47,7 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 @AlvisNLPModule(beta=true)
 public abstract class PubTatorReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator {
 	private static final Pattern CONTENTS_LINE = Pattern.compile("(\\d+)\\|(\\w+)\\|(.*)");
-	
+
 	private SourceStream source;
 	private String typeFeature = "type";
 	private String classFeature = "class";
@@ -65,7 +65,7 @@ public abstract class PubTatorReader extends CorpusModule<ResolvedObjects> imple
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	private void read(Logger logger, Corpus corpus, BufferedReader reader) throws IOException, ProcessingException {
 		String currentDocId = null;
 		int offset = 0;

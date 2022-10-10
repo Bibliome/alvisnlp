@@ -12,7 +12,7 @@ public abstract class Stanza extends InternalPythonScript {
 	private Boolean ner = false;
 	private Boolean constituency = false;
 	private String language = "en";
-	
+
 	@Override
 	protected String getScriptName() {
 		return "stanza-alvisnlp.py";
@@ -27,10 +27,18 @@ public abstract class Stanza extends InternalPythonScript {
 	}
 
 	@Override
+	public String[] getLayers() {
+		if (pretokenized) {
+			return new String[] { DefaultNames.getSentenceLayer(), DefaultNames.getWordLayer() };
+		}
+		return new String[0];
+	}
+
+	@Override
 	public String[] getRelations() {
 		return new String[0];
 	}
-	
+
 	@Override
 	public void fillScriptParams(ExpressionMapping mapping) {
 		addScriptParam(mapping, "lang", language);

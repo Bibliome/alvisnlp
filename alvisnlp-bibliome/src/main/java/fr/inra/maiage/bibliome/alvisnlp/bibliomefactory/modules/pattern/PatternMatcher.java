@@ -81,7 +81,7 @@ public abstract class PatternMatcher extends SectionModule<PatternMatcherResolve
 			}
 		}
 	}
-	
+
 	@Override
 	protected PatternMatcherResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new PatternMatcherResolvedObjects(ctx, this);
@@ -120,7 +120,7 @@ public abstract class PatternMatcher extends SectionModule<PatternMatcherResolve
 			logger.info("found " + nMatches + " matches");
 		}
 	}
-	
+
 	@Override
 	protected String[] addLayersToSectionFilter() {
 		return new String[] { layerName };
@@ -136,7 +136,7 @@ public abstract class PatternMatcher extends SectionModule<PatternMatcherResolve
 			return overlappingBehaviour.getSequences(getLogger(ctx), layer, annotationComparator);
 		return Collections.singleton(layer.asElementList());
 	}
-	
+
 	@Param(nameType=NameType.LAYER, defaultDoc="Layer where to find tokens.")
 	public String getLayerName() {
 		return layerName;

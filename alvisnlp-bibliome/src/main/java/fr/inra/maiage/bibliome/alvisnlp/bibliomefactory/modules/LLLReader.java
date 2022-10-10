@@ -61,8 +61,8 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 
 	private SourceStream source;
 	private String section = DefaultNames.getDefaultSectionName();
-	private String wordLayerName = DefaultNames.getWordLayer();
-	private String sentenceLayerName = DefaultNames.getSentenceLayer();
+	private String wordLayer = DefaultNames.getWordLayer();
+	private String sentenceLayer = DefaultNames.getSentenceLayer();
 	private String idFeature = "id";
 	private String lemmaFeature = "lemma";
 	private String dependenciesRelation = DefaultNames.getDependencyRelationName();
@@ -78,7 +78,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 	private void error(BufferedReader r, int lineno, String msg) throws ProcessingException {
 		String src = source.getStreamName(r);
 		throw new ProcessingException("in '" + src + "', line " + lineno + ": " + msg);
-	} 
+	}
 
 	@Override
 	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
@@ -123,7 +123,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 									error(r, lineno, "duplicate sentence");
 								String contents = cols.get(1);
 								sec = new Section(this, doc, section, contents);
-								Layer sentenceLayer = sec.ensureLayer(sentenceLayerName);
+								Layer sentenceLayer = sec.ensureLayer(this.sentenceLayer);
 								new Annotation(this, sentenceLayer, 0, contents.length());
 								doc = null;
 								break;
@@ -133,7 +133,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 								if (sec == null)
 									error(r, lineno, "missed sentence text");
 								words.clear();
-								Layer wordLayer = sec.ensureLayer(wordLayerName);
+								Layer wordLayer = sec.ensureLayer(this.wordLayer);
 								for (int i = 1; i < cols.size(); ++i) {
 									Matcher m = WORD_PATTERN.matcher(cols.get(i));
 									if (!m.matches())
@@ -266,8 +266,18 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getWordLayer() {
+	    return this.wordLayer;
+	};
+
+	public void setWordLayer(String wordLayer) {
+	    this.wordLayer = wordLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getWordLayerName() {
-		return wordLayerName;
+		return wordLayer;
 	}
 
 	@Deprecated
@@ -333,8 +343,18 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getSentenceLayer() {
+	    return this.sentenceLayer;
+	};
+
+	public void setSentenceLayer(String sentenceLayer) {
+	    this.sentenceLayer = sentenceLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getSentenceLayerName() {
-		return sentenceLayerName;
+		return sentenceLayer;
 	}
 
 	@Param(nameType=NameType.FEATURE)
@@ -409,8 +429,8 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 		this.targetFeature = targetFeature;
 	}
 
-	public void setSentenceLayerName(String sentenceLayerName) {
-		this.sentenceLayerName = sentenceLayerName;
+	public void setSentenceLayerName(String sentenceLayer) {
+		this.sentenceLayer = sentenceLayer;
 	}
 
 	public void setSource(SourceStream source) {
@@ -421,8 +441,8 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 		this.section = sectionName;
 	}
 
-	public void setWordLayerName(String wordLayerName) {
-		this.wordLayerName = wordLayerName;
+	public void setWordLayerName(String wordLayer) {
+		this.wordLayer = wordLayer;
 	}
 
 	public void setIdFeatureName(String idFeatureName) {

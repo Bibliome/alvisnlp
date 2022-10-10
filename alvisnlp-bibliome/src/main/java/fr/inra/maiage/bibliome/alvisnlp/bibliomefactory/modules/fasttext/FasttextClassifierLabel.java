@@ -16,7 +16,7 @@ import fr.inra.maiage.bibliome.util.files.InputFile;
 public class FasttextClassifierLabel extends FasttextClassifierBase<FasttextClassifierBaseResolvedObjects> {
 	private InputFile modelFile;
 	private String probabilityFeature;
-	
+
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {

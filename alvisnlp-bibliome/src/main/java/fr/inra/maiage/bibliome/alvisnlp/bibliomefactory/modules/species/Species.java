@@ -35,9 +35,9 @@ import fr.inra.maiage.bibliome.util.files.InputDirectory;
 @AlvisNLPModule(beta=true)
 public abstract class Species extends SectionModule<SectionResolvedObjects> implements AnnotationCreator {
 	private InputDirectory speciesDir;
-	private String targetLayerName;
+	private String targetLayer;
 	private String taxidFeature;
-	
+
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
@@ -52,7 +52,7 @@ public abstract class Species extends SectionModule<SectionResolvedObjects> impl
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	@Override
 	protected String[] addLayersToSectionFilter() {
 		return null;
@@ -62,15 +62,25 @@ public abstract class Species extends SectionModule<SectionResolvedObjects> impl
 	protected String[] addFeaturesToSectionFilter() {
 		return null;
 	}
-		
+
 	@Param
 	public InputDirectory getSpeciesDir() {
 		return speciesDir;
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getTargetLayer() {
+	    return this.targetLayer;
+	};
+
+	public void setTargetLayer(String targetLayer) {
+	    this.targetLayer = targetLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getTargetLayerName() {
-		return targetLayerName;
+		return targetLayer;
 	}
 
 	@Param(nameType=NameType.FEATURE, mandatory=false)
@@ -82,8 +92,8 @@ public abstract class Species extends SectionModule<SectionResolvedObjects> impl
 		this.speciesDir = speciesDir;
 	}
 
-	public void setTargetLayerName(String targetLayerName) {
-		this.targetLayerName = targetLayerName;
+	public void setTargetLayerName(String targetLayer) {
+		this.targetLayer = targetLayer;
 	}
 
 	public void setTaxidFeature(String taxidFeature) {

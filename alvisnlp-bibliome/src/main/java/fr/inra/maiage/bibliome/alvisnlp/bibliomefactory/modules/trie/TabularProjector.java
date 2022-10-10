@@ -58,7 +58,7 @@ public abstract class TabularProjector extends TrieProjector<SectionResolvedObje
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
 	}
-	
+
 	@Override
 	public boolean check(Logger logger) {
 		boolean result = true;
@@ -124,7 +124,7 @@ public abstract class TabularProjector extends TrieProjector<SectionResolvedObje
 		private final Integer[] keyIndex;
 		private boolean headerLine;
 		private String[] headers = null;
-		
+
 		private EntryFileLines(TabularFormat format, Integer[] keyIndex, boolean headerLine) {
 			super(format);
 			this.keyIndex = keyIndex;

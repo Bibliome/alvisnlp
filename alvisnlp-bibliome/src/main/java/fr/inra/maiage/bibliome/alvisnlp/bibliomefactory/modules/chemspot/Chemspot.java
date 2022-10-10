@@ -20,7 +20,7 @@ public abstract class Chemspot extends SectionModule<SectionResolvedObjects> imp
 	private InputDirectory javaHome = new InputDirectory(System.getenv("JAVA_HOME"));
 	private InputDirectory chemspotDir;
 	private Boolean noDict = false;
-	private String targetLayerName = "chemspot";
+	private String targetLayer = "chemspot";
 	private String fdaDateFeature = "FDA";
 	private String fdaFeature = "FDA_DATE";
 	private String meshFeature = "MESH";
@@ -45,7 +45,7 @@ public abstract class Chemspot extends SectionModule<SectionResolvedObjects> imp
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	@Override
 	protected String[] addLayersToSectionFilter() {
 		return null;
@@ -72,8 +72,18 @@ public abstract class Chemspot extends SectionModule<SectionResolvedObjects> imp
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getTargetLayer() {
+	    return this.targetLayer;
+	};
+
+	public void setTargetLayer(String targetLayer) {
+	    this.targetLayer = targetLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getTargetLayerName() {
-		return targetLayerName;
+		return targetLayer;
 	}
 
 	@Deprecated
@@ -303,8 +313,8 @@ public abstract class Chemspot extends SectionModule<SectionResolvedObjects> imp
 		this.chemspotDir = chemspotDir;
 	}
 
-	public void setTargetLayerName(String targetLayerName) {
-		this.targetLayerName = targetLayerName;
+	public void setTargetLayerName(String targetLayer) {
+		this.targetLayer = targetLayer;
 	}
 
 	public void setFdaDateFeatureName(String fdaDateFeatureName) {

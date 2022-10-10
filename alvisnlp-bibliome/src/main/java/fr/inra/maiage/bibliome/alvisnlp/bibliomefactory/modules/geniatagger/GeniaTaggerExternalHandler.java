@@ -51,7 +51,7 @@ public class GeniaTaggerExternalHandler extends ExternalHandler<Corpus,GeniaTagg
 	
 	private void writeSentence(Annotation sent, PrintStream ps) {
 		GeniaTagger owner = getModule();
-		Layer wordLayer = sent.getSection().getLayer(owner.getWordLayerName());
+		Layer wordLayer = sent.getSection().getLayer(owner.getWordLayer());
 		StringBuilder sb = new StringBuilder();
 		boolean notFirst = false;
 		for (Annotation w : wordLayer.between(sent)) {
@@ -108,7 +108,7 @@ public class GeniaTaggerExternalHandler extends ExternalHandler<Corpus,GeniaTagg
 	}
 
 	private Iterator<Annotation> getSentenceIterator(Evaluator resolvedDocumentFilter, Evaluator resolvedSectionFilter, Evaluator resolvedSentenceFilter) {
-        return Iterators.flatten(Mappers.apply(new AnnotationCollector(evalCtx, getModule().getSentenceLayerName(), resolvedSentenceFilter), getAnnotable().sectionIterator(evalCtx, resolvedDocumentFilter, resolvedSectionFilter)));
+        return Iterators.flatten(Mappers.apply(new AnnotationCollector(evalCtx, getModule().getSentenceLayer(), resolvedSentenceFilter), getAnnotable().sectionIterator(evalCtx, resolvedDocumentFilter, resolvedSectionFilter)));
 	}
     
     private static class AnnotationCollector implements Mapper<Section,Iterator<Annotation>> {
@@ -140,7 +140,7 @@ public class GeniaTaggerExternalHandler extends ExternalHandler<Corpus,GeniaTagg
 
 	private void readSentence(Annotation sent, BufferedReader r) throws ProcessingException, IOException {
 		GeniaTagger owner = getModule();
-		Layer wordLayer = sent.getSection().getLayer(owner.getWordLayerName());
+		Layer wordLayer = sent.getSection().getLayer(owner.getWordLayer());
 		for (Annotation w : wordLayer.between(sent)) {
 			String line = r.readLine();
 			if (line == null)

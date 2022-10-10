@@ -71,13 +71,13 @@ public class WekaTrain extends PredictionElementClassifier {
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	@TimeThis(task="train", category=TimerCategory.EXTERNAL)
 	protected void trainClassifier(ProcessingContext<Corpus> ctx, Classifier classifier, IdentifiedInstances<Element> trainingSet) throws Exception {
 		getLogger(ctx).info("training classifier");
 		classifier.buildClassifier(trainingSet);
 	}
-	
+
 	@TimeThis(task="write-arff", category=TimerCategory.EXPORT)
 	protected void writeArff(ProcessingContext<Corpus> ctx, Instances instances) throws IOException {
 		if (arffFile == null)
@@ -87,7 +87,7 @@ public class WekaTrain extends PredictionElementClassifier {
     	out.write(instances.toString());
     	out.close();
 	}
-	
+
 	@TimeThis(task="save-classifier", category=TimerCategory.EXPORT)
 	protected void writeClassifier(ProcessingContext<Corpus> ctx, Classifier classifier) throws IOException {
         getLogger(ctx).info("writing classifier");
@@ -96,7 +96,7 @@ public class WekaTrain extends PredictionElementClassifier {
         oos.flush();
         oos.close();
 	}
-	
+
 	@TimeThis(task="classifier-info", category=TimerCategory.EXPORT)
 	protected void writeClassifierInfo(ProcessingContext<Corpus> ctx, Classifier classifier) throws IOException {
 		if (classifierInfoFile == null)
@@ -128,7 +128,7 @@ public class WekaTrain extends PredictionElementClassifier {
     	Evaluation evaluation = crossValidate(ctx, classifier, instances, classes, withId);
     	writeCrossValidationResults(ctx, evaluationFile, evaluation, classes);
 	}
-	
+
 	@TimeThis(task="cross-validation")
 	protected Evaluation crossValidate(ProcessingContext<Corpus> ctx, Classifier classifier, IdentifiedInstances<Element> instances, String[] classes, boolean withId) throws Exception {
 		Logger logger = getLogger(ctx);
@@ -159,7 +159,7 @@ public class WekaTrain extends PredictionElementClassifier {
     	}
     	return evaluation;
 	}
-	
+
 	@TimeThis(task="write-results", category=TimerCategory.EXPORT)
 	protected void writeCrossValidationResults(ProcessingContext<Corpus> ctx, TargetStream evaluationFile, Evaluation evaluation, String[] classes) throws Exception {
 		Logger logger = getLogger(ctx);
@@ -202,33 +202,33 @@ public class WekaTrain extends PredictionElementClassifier {
 	public String getAlgorithm() {
 		return algorithm;
 	}
-	
+
 	@Param(mandatory=false)
 	public String[] getClassifierOptions() {
 		return classifierOptions;
 	}
-	
+
 	@Param(mandatory=false)
 	public Integer getCrossFolds() {
 		return crossFolds;
 	}
-	
+
 	@Param
 	public Long getRandomSeed() {
 		return randomSeed;
 	}
-	
+
 	@Deprecated
 	@Param(mandatory=false, nameType=NameType.FEATURE)
 	public String getFoldFeatureKey() {
 		return foldFeature;
 	}
-	
+
 	@Param(mandatory=false)
 	public TargetStream getClassifierInfoFile() {
 		return classifierInfoFile;
 	}
-	
+
 	@Param(mandatory=false)
 	public TargetStream getArffFile() {
 		return arffFile;
@@ -250,27 +250,27 @@ public class WekaTrain extends PredictionElementClassifier {
 	public void setAlgorithm(String algorithm) {
 		this.algorithm = algorithm;
 	}
-	
+
 	public void setClassifierOptions(String[] classifierOptions) {
 		this.classifierOptions = classifierOptions;
 	}
-	
+
 	public void setCrossFolds(Integer crossFolds) {
 		this.crossFolds = crossFolds;
 	}
-	
+
 	public void setRandomSeed(Long randomSeed) {
 		this.randomSeed = randomSeed;
 	}
-	
+
 	public void setFoldFeatureKey(String foldFeatureKey) {
 		this.foldFeature = foldFeatureKey;
 	}
-	
+
 	public void setClassifierInfoFile(TargetStream classifierInfoFile) {
 		this.classifierInfoFile = classifierInfoFile;
 	}
-	
+
 	public void setArffFile(TargetStream arffFile) {
 		this.arffFile = arffFile;
 	}

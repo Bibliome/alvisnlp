@@ -41,7 +41,7 @@ import fr.inra.maiage.bibliome.util.Iterators;
  */
 @AlvisNLPModule
 public abstract class OgmiosTokenizer extends SectionModule<SectionResolvedObjects> implements AnnotationCreator {
-    private String   targetLayerName  = null;
+    private String   targetLayer  = null;
     private String  tokenTypeFeature = null;
     private Boolean separatorTokens  = true;
 
@@ -71,7 +71,7 @@ public abstract class OgmiosTokenizer extends SectionModule<SectionResolvedObjec
     public String[] addLayersToSectionFilter() {
         return null;
     }
-	
+
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
@@ -82,7 +82,7 @@ public abstract class OgmiosTokenizer extends SectionModule<SectionResolvedObjec
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
         for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-            Layer layer = sec.ensureLayer(targetLayerName);
+            Layer layer = sec.ensureLayer(targetLayer);
             TokenType lastTokenType = TokenType.symb;
             String contents = sec.getContents();
             int lastPos = 0;
@@ -105,12 +105,22 @@ public abstract class OgmiosTokenizer extends SectionModule<SectionResolvedObjec
     }
 
     @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store the tokens.")
+    public String getTargetLayer() {
+        return this.targetLayer;
+    };
+
+    public void setTargetLayer(String targetLayer) {
+        this.targetLayer = targetLayer;
+    };
+
+    @Deprecated
+    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store the tokens.")
     public String getTargetLayerName() {
-        return targetLayerName;
+        return targetLayer;
     }
 
-    public void setTargetLayerName(String targetLayerName) {
-        this.targetLayerName = targetLayerName;
+    public void setTargetLayerName(String targetLayer) {
+        this.targetLayer = targetLayer;
     }
 
     @Param(nameType=NameType.FEATURE, defaultDoc = "Name of the token feature where to store the token type (alpha, num, sep, symb).")

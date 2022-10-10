@@ -46,9 +46,9 @@ class Word2VecExternalHandler extends AbstractContesExternalHandler<SectionResol
 		try (PrintStream ps = new PrintStream(getWord2VecInputFile(), "UTF-8")) {
 			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(ps, "UTF-8"));
 			for (Section sec : Iterators.loop(owner.sectionIterator(ctx, getAnnotable()))) {
-				for (Layer sent : sec.getSentences(owner.getTokenLayerName(), owner.getSentenceLayerName())) {
+				for (Layer sent : sec.getSentences(owner.getTokenLayer(), owner.getSentenceLayer())) {
 					for (Annotation tok : sent) {
-						String form = StringLibrary.normalizeSpace(tok.getLastFeature(owner.getFormFeatureName()));
+						String form = StringLibrary.normalizeSpace(tok.getLastFeature(owner.getFormFeature()));
 						bw.write(form);
 						bw.newLine();
 					}
@@ -75,9 +75,9 @@ class Word2VecExternalHandler extends AbstractContesExternalHandler<SectionResol
 		EvaluationContext ctx = new EvaluationContext(getLogger());
 		Map<String,String> wordVectors = readWordVectors();
 		for (Section sec : Iterators.loop(owner.sectionIterator(ctx, getAnnotable()))) {
-			for (Layer sent : sec.getSentences(owner.getTokenLayerName(), owner.getSentenceLayerName())) {
+			for (Layer sent : sec.getSentences(owner.getTokenLayer(), owner.getSentenceLayer())) {
 				for (Annotation tok : sent) {
-					String form = StringLibrary.normalizeSpace(tok.getLastFeature(owner.getFormFeatureName()));
+					String form = StringLibrary.normalizeSpace(tok.getLastFeature(owner.getFormFeature()));
 					if (wordVectors.containsKey(form)) {
 						String vector = wordVectors.get(form);
 						tok.addFeature(owner.getVectorFeatureName(), vector);

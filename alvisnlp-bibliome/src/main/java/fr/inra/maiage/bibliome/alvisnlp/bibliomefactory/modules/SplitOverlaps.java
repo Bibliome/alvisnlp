@@ -51,7 +51,7 @@ public class SplitOverlaps extends SectionModule<SectionResolvedObjects> impleme
     private String modifiedlayerName;
     //optional feature name used to store the index of splitted annotation parts
     private String indexFeature = null;
-	
+
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
@@ -185,7 +185,7 @@ public class SplitOverlaps extends SectionModule<SectionResolvedObjects> impleme
                             allAnnLayer.add(newLeftAnn);
                             allAnnLayer.add(newRightAnn);
 
-                            //because the splitting action caused order change from the current outer annotation onward, 
+                            //because the splitting action caused order change from the current outer annotation onward,
                             //so the processing need to resume with annotation preceeding the current outer one
                             startFrom = i >= 0 ? i - 1 : i;
                             checkAgain = true;

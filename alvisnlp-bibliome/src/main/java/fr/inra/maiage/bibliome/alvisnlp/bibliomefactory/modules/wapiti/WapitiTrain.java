@@ -45,7 +45,7 @@ public class WapitiTrain extends AbstractWapiti {
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	@Override
 	protected WapitiResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new WapitiResolvedObjects(ctx, this);

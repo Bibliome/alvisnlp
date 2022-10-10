@@ -4,7 +4,7 @@
   
   <taxa class="TabularProjector">
     <dictFile base-dir="share">taxa+id_Bacteria.txt</dictFile>
-    <targetLayerName>taxaO</targetLayerName>
+    <targetLayer>taxaO</targetLayer>
     <valueFeatures>,taxid</valueFeatures>
     <caseInsensitive/>
     <skipWhitespace/>
@@ -25,14 +25,14 @@
 
   <remove>
     <A class="RemoveOverlaps">
-      <layerName>taxaA</layerName>
+      <layer>taxaA</layer>
       <removeEqual/>
       <removeIncluded/>
       <removeOverlapping/>
     </A>
     
     <B class="RemoveOverlaps">
-      <layerName>taxaB</layerName>
+      <layer>taxaB</layer>
       <removeEqual>no</removeEqual>
       <removeIncluded/>
       <removeOverlapping>no</removeOverlapping>

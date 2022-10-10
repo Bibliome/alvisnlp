@@ -23,7 +23,7 @@ public class SetFeature extends CorpusModule<SetFeatureResolvedObjects> {
 	private Expression target;
 	private String feature;
 	private String value;
-	
+
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		SetFeatureResolvedObjects res = new SetFeatureResolvedObjects(ctx);
@@ -52,13 +52,13 @@ public class SetFeature extends CorpusModule<SetFeatureResolvedObjects> {
 	class SetFeatureResolvedObjects extends ResolvedObjects {
 		@SuppressWarnings("hiding")
 		private final Evaluator target;
-		
+
 		private SetFeatureResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 			super(ctx, SetFeature.this);
 			target = rootResolver.resolveNullable(SetFeature.this.target);
 		}
 	}
-	
+
 	@Param
 	public Expression getTarget() {
 		return target;

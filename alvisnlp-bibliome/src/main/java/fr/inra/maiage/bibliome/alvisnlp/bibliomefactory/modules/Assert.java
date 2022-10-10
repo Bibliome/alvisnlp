@@ -49,7 +49,7 @@ public class Assert extends CorpusModule<AssertResolvedObjects> {
 	private Integer stopAt;
 	private Expression message;
 	private TargetStream outFile;
-	
+
 	class AssertResolvedObjects extends ResolvedObjects {
 		@SuppressWarnings("hiding")
 		private final Evaluator target;
@@ -58,7 +58,7 @@ public class Assert extends CorpusModule<AssertResolvedObjects> {
 		private final Variable targetVariable;
 		@SuppressWarnings("hiding")
 		private final Evaluator message;
-		
+
 		private AssertResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 			super(ctx, Assert.this);
 			VariableLibrary targetLib = new VariableLibrary("target");
@@ -76,7 +76,7 @@ public class Assert extends CorpusModule<AssertResolvedObjects> {
 			assertion.collectUsedNames(nameUsage, defaultType);
 			nameUsage.collectUsedNamesNullable(message, defaultType);
 		}
-		
+
 		private String getMessage(EvaluationContext evalCtx, Element elt) {
 			if (message == null) {
 				return "assertion failed for " + elt;
@@ -84,12 +84,12 @@ public class Assert extends CorpusModule<AssertResolvedObjects> {
 			return message.evaluateString(evalCtx, elt);
 		}
 	}
-	
+
 	@Override
 	protected AssertResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new AssertResolvedObjects(ctx);
 	}
-	
+
 	private PrintStream openStream() throws IOException {
 		if (outFile == null) {
 			return null;

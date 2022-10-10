@@ -102,7 +102,7 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 	private String charset = "UTF-8";
 	private String section = DefaultNames.getDefaultSectionName();
 	private DocumentSchema schema;
-	
+
 	@Override
 	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
@@ -166,7 +166,7 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 						t.setArgument(equivalenceItemPrefix + i, map.get(id));
 					}
 				}
-				
+
 				for (BioNLPSTAnnotation a : doc.getAnnotations()) {
 					a.accept(pass2, map);
 				}
@@ -178,13 +178,13 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	private void ensureKindFeature(Relation relation, String kind) {
 		if (!relation.hasFeature(kindFeature)) {
 			relation.addFeature(kindFeature, kind);
 		}
 	}
-	
+
 	private Section getSection(Document alvisnlpDoc, String text) {
 		for (Section sec : Iterators.loop(alvisnlpDoc.sectionIterator(section))) {
 			if (text.equals(sec.getContents())) {
@@ -193,7 +193,7 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 		}
 		return new Section(this, alvisnlpDoc, section, text);
 	}
-	
+
 	@Override
 	public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
 		if (schema == null) {
@@ -204,7 +204,7 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 			as.accept(NAME_USAGE_SCHEMA_VISITOR, nameUsage);
 		}
 	}
-	
+
 	private static final AnnotationSchemaVisitor<Void,NameUsage> NAME_USAGE_SCHEMA_VISITOR = new AnnotationSchemaVisitor<Void,NameUsage>() {
 		@Override
 		public Void visit(EventSchema event, NameUsage param) {
@@ -286,7 +286,7 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 			return null;
 		}
 	};
-	
+
 	private final BioNLPSTAnnotationVisitor<Void,Map<String,Element>> pass2 = new BioNLPSTAnnotationVisitor<Void,Map<String,Element>>() {
 		@Override
 		public Void visit(TextBound textBound, Map<String,Element> param) {
@@ -298,26 +298,26 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 				return param.get(id);
 			throw new RuntimeException();
 		}
-		
+
 		@Override
 		public Void visit(BioNLPSTRelation relation, Map<String,Element> param) {
 			Tuple t = getTuple(relation, param);
 			setArguments(relation, t, param);
 			return null;
 		}
-		
+
 		private void setArguments(AnnotationWithArgs annotation, Tuple t, Map<String,Element> param) {
 			Map<String,String> args = annotation.getArgumentIds();
 			for (Map.Entry<String,String> e : args.entrySet()) {
 				setArgument(t, e.getKey(), e.getValue(), param);
-			}			
+			}
 		}
-		
+
 		private void setArgument(Tuple t, String role, String id, Map<String,Element> param) {
 			Element elt = getElement(id, param);
-			t.setArgument(role, elt);			
+			t.setArgument(role, elt);
 		}
-		
+
 		private Tuple getTuple(BioNLPSTAnnotation annotation, Map<String,Element> param) {
 			String id = annotation.getId();
 			Element elt = getElement(id, param);

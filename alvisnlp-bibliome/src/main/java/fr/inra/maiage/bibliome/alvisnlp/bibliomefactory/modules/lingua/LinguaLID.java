@@ -37,11 +37,11 @@ public class LinguaLID extends CorpusModule<LinguaLIDResolvedObjects> {
 	private Integer languageCandidates = 1;
 	private Double confidenceThreshold = 0.0;
 	private Language[] includeLanguages = null;
-	
+
 	static class LinguaLIDResolvedObjects extends ResolvedObjects {
 		private final Evaluator target;
 		private final Evaluator form;
-		
+
 		private LinguaLIDResolvedObjects(ProcessingContext<Corpus> ctx, LinguaLID module) throws ResolverException {
 			super(ctx, module);
 			this.target = module.target.resolveExpressions(rootResolver);
@@ -55,7 +55,7 @@ public class LinguaLID extends CorpusModule<LinguaLIDResolvedObjects> {
 			this.form.collectUsedNames(nameUsage, defaultType);
 		}
 	}
-	
+
 	private LanguageDetectorBuilder getLanguageDetectorBuilder() {
 		if (includeLanguages == null) {
 			return LanguageDetectorBuilder.fromAllSpokenLanguages();

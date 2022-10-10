@@ -63,7 +63,7 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
     private String  charset   = "UTF-8";
     private InputDirectory xmlDir = null;
     private SourceStream sourcePath;
-    
+
     @Param(nameType = NameType.SECTION)
     public String getTitleSection() {
 		return titleSection;
@@ -93,7 +93,7 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
 
 	/**
      * Gets the section name.
-     * 
+     *
      * @return the section name
      */
 	@Deprecated
@@ -104,7 +104,7 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
 
     /**
      * Sets the section name.
-     * 
+     *
      * @param sectionName
      *            the new section name
      */
@@ -114,7 +114,7 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
 
     /**
      * Gets the size limit.
-     * 
+     *
      * @return the size limit
      */
     @Param(mandatory = false)
@@ -124,7 +124,7 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
 
     /**
      * Sets the size limit.
-     * 
+     *
      * @param sizeLimit
      *            the new size limit
      */
@@ -134,7 +134,7 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
 
     /**
      * Gets the charset.
-     * 
+     *
      * @return the charset
      */
     @Param(defaultDoc = "Character set of the input files.")
@@ -163,7 +163,7 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
 
 	/**
      * Sets the charset.
-     * 
+     *
      * @param charset
      *            the new charset
      */
@@ -210,7 +210,7 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
 			return name;
 		return name.substring(slash + 1);
 	}
-	
+
 	private void processFile(ProcessingContext<Corpus> ctx, Corpus corpus, BufferedReader r) throws IOException {
 		Logger logger = getLogger(ctx);
 		String streamName = sourcePath.getStreamName(r);
@@ -240,32 +240,32 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
     	else
     		createDocument(corpus, name + Integer.toString(n), metadata, sb.toString());
     }
-    
+
     private Map<String,List<String>> getMetadata(ProcessingContext<Corpus> ctx, String file) {
     	Map<String,List<String>> result = new LinkedHashMap<String,List<String>>();
     	File xmlFile = new File(xmlDir, file.replace(".txt", ".xml"));
 		try {
 			Element root = XMLUtils.docBuilder.parse(xmlFile).getDocumentElement();
-			
+
 			String title = XMLUtils.evaluateString("title", root);
 			result.put("title", Collections.singletonList(title));
-			
+
 			List<String> authors = new ArrayList<String>();
 			result.put("author", authors);
 			for (Element elt : XMLUtils.evaluateElements("authors/value", root)) {
 				String author = XMLUtils.evaluateString(XMLUtils.CONTENTS, elt);
 				authors.add(author);
 			}
-			
+
 			String year = XMLUtils.evaluateString("publisheddate/year", root);
 			result.put("year", Collections.singletonList(year));
-			
+
 			String journal = XMLUtils.evaluateString("sourcetitle", root);
 			result.put("journal", Collections.singletonList(journal));
-			
+
 			String pdfPath = file.replace(".txt", ".pdf");
 			result.put("pdf", Collections.singletonList(pdfPath));
-			
+
 			String pdfLink = XMLUtils.evaluateString("pdflink", root);
 			result.put("pdflink", Collections.singletonList(pdfLink));
 		}
@@ -287,7 +287,7 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
      *            the corpus
 	 * @param id
      *            the id
-	 * @param metadata 
+	 * @param metadata
 	 * @param contents
      *            the contents
 	 * @return the document

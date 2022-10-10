@@ -4,8 +4,8 @@
   </tt>
   
   <layer class="MergeLayers">
-    <sourceLayerNames>words</sourceLayerNames>
-    <targetLayerName>norm</targetLayerName>
+    <sourceLayers>words</sourceLayers>
+    <targetLayer>norm</targetLayer>
   </layer>
   
   <remove-useless class="Action">

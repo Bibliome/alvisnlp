@@ -60,7 +60,7 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements D
 			EvaluationContext evalCtx = new EvaluationContext(logger);
 			List<List<Layer>> sentenceRuns = getSentences(logger, evalCtx, corpus);
 			for (int run = 0; run < sentenceRuns.size(); ++run) {
-				logger.info(String.format("run %d/%d", run+1, sentenceRuns.size())); 
+				logger.info(String.format("run %d/%d", run+1, sentenceRuns.size()));
 				List<Layer> sentences = sentenceRuns.get(run);
 				CCGParserExternalHandler ext = new CCGParserExternalHandler(ctx, this, corpus, run, sentences);
 				try {
@@ -84,7 +84,7 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements D
 	protected CCGResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new CCGResolvedObjects(ctx, this);
 	}
-	
+
 	@Param
 	public ExecutableFile getExecutable() {
 		return executable;

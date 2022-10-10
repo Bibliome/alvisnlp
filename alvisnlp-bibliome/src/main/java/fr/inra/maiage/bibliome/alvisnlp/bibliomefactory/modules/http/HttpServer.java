@@ -19,7 +19,7 @@ import fr.inra.maiage.bibliome.util.files.InputDirectory;
 public class HttpServer extends CorpusModule<ResolvedObjects> {
 	private Integer port = 8878;
 	private InputDirectory resourceBaseDir;
-	
+
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {

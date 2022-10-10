@@ -8,12 +8,12 @@
 
   <tees>
     <merge-ne-layers class="MergeLayers">
-      <sourceLayerNames>Bacteria,Habitat,Geographical</sourceLayerNames>
-      <targetLayerName>NamedEntities</targetLayerName>
+      <sourceLayer>Bacteria,Habitat,Geographical</sourceLayer>
+      <targetLayer>NamedEntities</targetLayer>
     </merge-ne-layers>
     
     <train class="TEESTrain">
-      <namedEntityLayerName>NamedEntities</namedEntityLayerName>
+      <namedEntityLayer>NamedEntities</namedEntityLayer>
       <namedEntityTypeFeature>type</namedEntityTypeFeature>
 
       <schema>

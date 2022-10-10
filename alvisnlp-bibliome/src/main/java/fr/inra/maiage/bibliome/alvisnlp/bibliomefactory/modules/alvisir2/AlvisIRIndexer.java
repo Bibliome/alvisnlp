@@ -63,7 +63,7 @@ public class AlvisIRIndexer extends CorpusModule<AlvisIRIndexerResolvedObjects> 
 
 	static class AlvisIRIndexerResolvedObjects extends ResolvedObjects {
 		private final IndexedDocumentsEvaluator documents;
-	
+
 		private AlvisIRIndexerResolvedObjects(ProcessingContext<Corpus> ctx, AlvisIRIndexer module) throws ResolverException {
 			super(ctx, module);
 			documents = module.documents.resolveExpressions(rootResolver);
@@ -75,7 +75,7 @@ public class AlvisIRIndexer extends CorpusModule<AlvisIRIndexerResolvedObjects> 
 			documents.collectUsedNames(nameUsage, defaultType);
 		}
 	}
-	
+
 	@Override
 	protected AlvisIRIndexerResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new AlvisIRIndexerResolvedObjects(ctx, this);
@@ -131,7 +131,7 @@ public class AlvisIRIndexer extends CorpusModule<AlvisIRIndexerResolvedObjects> 
 				result.put(s, result.size());
 			}
 		}
-		return result;		
+		return result;
 	}
 
 	@Param

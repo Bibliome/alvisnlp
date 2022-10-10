@@ -36,8 +36,8 @@ import fr.inra.maiage.bibliome.util.files.InputDirectory;
 @AlvisNLPModule(beta=true)
 public abstract class Ab3P extends SectionModule<SectionResolvedObjects> implements AnnotationCreator, TupleCreator {
 	private InputDirectory installDir;
-	private String shortFormsLayerName = "short-forms";
-	private String longFormsLayerName = "long-forms";
+	private String shortFormsLayer = "short-forms";
+	private String longFormsLayer = "long-forms";
 	private String abbreviationRelation = "abbreviations";
 	private String shortFormRole = "short-form";
 	private String longFormRole = "long-form";
@@ -75,13 +75,33 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getShortFormsLayer() {
+	    return this.shortFormsLayer;
+	};
+
+	public void setShortFormsLayer(String shortFormsLayer) {
+	    this.shortFormsLayer = shortFormsLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getShortFormsLayerName() {
-		return shortFormsLayerName;
+		return shortFormsLayer;
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getLongFormsLayer() {
+	    return this.longFormsLayer;
+	};
+
+	public void setLongFormsLayer(String longFormsLayer) {
+	    this.longFormsLayer = longFormsLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getLongFormsLayerName() {
-		return longFormsLayerName;
+		return longFormsLayer;
 	}
 
 	@Deprecated
@@ -122,12 +142,12 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 		this.installDir = installDir;
 	}
 
-	public void setShortFormsLayerName(String shortFormsLayerName) {
-		this.shortFormsLayerName = shortFormsLayerName;
+	public void setShortFormsLayerName(String shortFormsLayer) {
+		this.shortFormsLayer = shortFormsLayer;
 	}
 
-	public void setLongFormsLayerName(String longFormsLayerName) {
-		this.longFormsLayerName = longFormsLayerName;
+	public void setLongFormsLayerName(String longFormsLayer) {
+		this.longFormsLayer = longFormsLayer;
 	}
 
 	public void setRelationName(String relationName) {

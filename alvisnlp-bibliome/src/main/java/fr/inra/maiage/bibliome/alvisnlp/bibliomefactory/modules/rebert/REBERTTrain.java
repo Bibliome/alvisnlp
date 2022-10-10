@@ -14,7 +14,6 @@ import javax.ws.rs.ProcessingException;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.converters.expression.parser.ExpressionParser;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.DefaultExpressions;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
@@ -93,7 +92,7 @@ public class REBERTTrain extends SectionModule<REBERTTrainResolvedObjects> {
 			this.label.collectUsedNames(nameUsage, defaultType);
 		}
 	}
-	
+
 	private Map<Annotation,Integer> getSentencesOrder(Document doc, EvaluationContext ctx) {
 		Map<Annotation,Integer> result = new HashMap<>();
 		int order = 0;
@@ -106,7 +105,7 @@ public class REBERTTrain extends SectionModule<REBERTTrainResolvedObjects> {
 		}
 		return result;
 	}
-	
+
 	private Collection<Element> evaluateArguments(Document doc, EvaluationContext ctx, Evaluator args) {
 		Collection<Element> result = new ArrayList<>();
 		for (Section sec : Iterators.loop(sectionIterator(ctx, doc))) {
@@ -114,7 +113,7 @@ public class REBERTTrain extends SectionModule<REBERTTrainResolvedObjects> {
 		}
 		return result;
 	}
-	
+
 	private static final ElementVisitor<Section,Void> ELEMENT_SECTION = new ElementVisitor<Section,Void>() {
 		@Override
 		public Section visit(Annotation a, Void param) {
@@ -164,7 +163,7 @@ public class REBERTTrain extends SectionModule<REBERTTrainResolvedObjects> {
 		}
 		return includingSentences.first();
 	}
-	
+
 	private static class ArgumentInfo implements Fragment {
 		private final String opening;
 		private final String closing;
@@ -195,7 +194,7 @@ public class REBERTTrain extends SectionModule<REBERTTrainResolvedObjects> {
 			return end;
 		}
 	}
-	
+
 	private static class TextBuilder implements FragmentTagIterator<String,ArgumentInfo> {
 		private final StringBuilder result = new StringBuilder();
 
@@ -231,15 +230,15 @@ public class REBERTTrain extends SectionModule<REBERTTrainResolvedObjects> {
 		public void handleTail(String text, int from) {
 			result.append(text.substring(from));
 		}
-		
+
 		public void space() {
 			result.append(' ');
 		}
-		
+
 		public String getText() {
 			return result.toString();
 		}
-		
+
 		private static String buildText(ArgumentInfo... argsInfo) {
 			TextBuilder textBuilder = new TextBuilder();
 			Annotation sentence = argsInfo[0].sentence;
@@ -247,7 +246,7 @@ public class REBERTTrain extends SectionModule<REBERTTrainResolvedObjects> {
 			return textBuilder.getText();
 		}
 	}
-	
+
 	private ArgumentInfo getArgumentInfo(Map<Annotation,Integer> sentencesOrd, EvaluationContext evalCtx, Element element, boolean is_subject) {
 		REBERTTrainResolvedObjects resObj = getResolvedObjects();
 		int start = resObj.start.evaluateInt(evalCtx, element);
@@ -263,25 +262,25 @@ public class REBERTTrain extends SectionModule<REBERTTrainResolvedObjects> {
 		String[] tags = is_subject ? SUBJECT_TAGS : OBJECT_TAGS;
 		return new ArgumentInfo(tags[0], tags[1], element, start, end, sentence, sentenceOrd);
 	}
-	
+
 	private static class CandidateText {
 		private final String text;
 		private final String sentence_1;
 		private final String sentence_2;
-		
+
 		private CandidateText(String text) {
 			this.text = text;
 			this.sentence_1 = text;
 			this.sentence_2 = "";
 		}
-		
+
 		private CandidateText(String sentence_1, String sentence_2) {
 			this.sentence_1 = sentence_1;
 			this.sentence_2 = sentence_2;
 			this.text = sentence_1 + " " + sentence_2;
 		}
 	}
-	
+
 	private CandidateText getCandidateText(ArgumentInfo subjectInfo, ArgumentInfo objectInfo) {
 		if (subjectInfo.sentence == objectInfo.sentence) {
 			return new CandidateText(TextBuilder.buildText(subjectInfo, objectInfo));

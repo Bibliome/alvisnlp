@@ -55,13 +55,13 @@ public abstract class CartesianProductTuples extends SectionModule<CartesianProd
 	private String relation;
 	private Expression anchor;
 	private ExpressionMapping arguments;
-		
+
 	class CartesianProductTuplesResolvedObjects extends SectionResolvedObjects {
 		@SuppressWarnings("hiding")
 		private final Evaluator anchor;
 		@SuppressWarnings("hiding")
 		private final EvaluatorMapping arguments;
-		
+
 		private CartesianProductTuplesResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 			super(ctx, CartesianProductTuples.this);
 			anchor = rootResolver.resolveNullable(CartesianProductTuples.this.anchor);
@@ -75,7 +75,7 @@ public abstract class CartesianProductTuples extends SectionModule<CartesianProd
 			arguments.collectUsedNames(nameUsage, defaultType);
 		}
 	}
-	
+
 	@Override
 	protected CartesianProductTuplesResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new CartesianProductTuplesResolvedObjects(ctx);
@@ -106,7 +106,7 @@ public abstract class CartesianProductTuples extends SectionModule<CartesianProd
 			}
 		}
 	}
-	
+
 	private static final class ExpressionToAnnotationMapper implements Mapper<Evaluator,Collection<Annotation>> {
 		private final EvaluationContext ctx;
 		private Element anchor;

@@ -43,8 +43,8 @@ import fr.inra.maiage.bibliome.util.Iterators;
 @AlvisNLPModule
 public abstract class WoSMig extends SectionModule<SectionResolvedObjects> implements AnnotationCreator {
 	private static final Pattern WORD_PATTERN = Pattern.compile("\\S+");
-	private String targetLayerName = DefaultNames.getWordLayer();
-	private String fixedFormLayerName = null;
+	private String targetLayer = DefaultNames.getWordLayer();
+	private String fixedFormLayer = null;
 	private String punctuations = "?.!;,:-";
 	private String balancedPunctuations = "()[]{}\"\"";
 	private String annotationTypeFeature = DefaultNames.getWordTypeFeature();
@@ -62,7 +62,7 @@ public abstract class WoSMig extends SectionModule<SectionResolvedObjects> imple
 	protected String[] addLayersToSectionFilter() {
 		return null;
 	}
-	
+
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
@@ -80,10 +80,10 @@ public abstract class WoSMig extends SectionModule<SectionResolvedObjects> imple
 		int n = 0;
 		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
 			String contents = sec.getContents();
-			Layer layer = sec.ensureLayer(targetLayerName);
+			Layer layer = sec.ensureLayer(targetLayer);
 			int start = 0;
-			if ((fixedFormLayerName != null) && sec.hasLayer(fixedFormLayerName)) {
-				Layer fixedLayer = sec.getLayer(fixedFormLayerName);
+			if ((fixedFormLayer != null) && sec.hasLayer(fixedFormLayer)) {
+				Layer fixedLayer = sec.getLayer(fixedFormLayer);
 				if (fixedLayer.hasOverlaps()) {
 					getLogger(ctx).warning("fixed layer has overlapping annotations");
 					fixedLayer = fixedLayer.getAnonymousCopy();
@@ -123,7 +123,7 @@ public abstract class WoSMig extends SectionModule<SectionResolvedObjects> imple
 			result += processWord(layer, s.substring(m.start(), m.end()), offset + m.start(), offset + m.end());
 		return result;
 	}
-	
+
 	private int processWord(Layer layer, String s, int start, int end) {
 		int len = end - start;
 		if (len <= 0)
@@ -189,13 +189,33 @@ public abstract class WoSMig extends SectionModule<SectionResolvedObjects> imple
 	}
 
 	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer in which to add word and punctuation annotations.")
+	public String getTargetLayer() {
+	    return this.targetLayer;
+	};
+
+	public void setTargetLayer(String targetLayer) {
+	    this.targetLayer = targetLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer in which to add word and punctuation annotations.")
 	public String getTargetLayerName() {
-		return targetLayerName;
+		return targetLayer;
 	}
 
 	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing fixed forms.", mandatory = false)
+	public String getFixedFormLayer() {
+	    return this.fixedFormLayer;
+	};
+
+	public void setFixedFormLayer(String fixedFormLayer) {
+	    this.fixedFormLayer = fixedFormLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing fixed forms.", mandatory = false)
 	public String getFixedFormLayerName() {
-		return fixedFormLayerName;
+		return fixedFormLayer;
 	}
 
 	@Param(defaultDoc = "Simple punctuations (weak and strong).")
@@ -238,11 +258,11 @@ public abstract class WoSMig extends SectionModule<SectionResolvedObjects> imple
 	}
 
 	public void setTargetLayerName(String targetLayer) {
-		this.targetLayerName = targetLayer;
+		this.targetLayer = targetLayer;
 	}
 
 	public void setFixedFormLayerName(String fixedFormsLayer) {
-		this.fixedFormLayerName = fixedFormsLayer;
+		this.fixedFormLayer = fixedFormsLayer;
 	}
 
 	public void setPunctuations(String punctuations) {

@@ -100,7 +100,10 @@ public abstract class PythonScriptBase extends SectionModule<PythonScriptResolve
 
 	public abstract String[] getCommandLine();
 
+	@Deprecated
 	public abstract String[] getLayerNames();
+
+	public abstract String[] getLayers();
 
 	public abstract String[] getRelations();
 

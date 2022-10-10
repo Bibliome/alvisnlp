@@ -56,7 +56,7 @@ public abstract class InsertContents extends SectionModule<InsertContentsResolve
 	private Expression points;
 	private Expression offset;
 	private Expression insert;
-	
+
 	public static class InsertContentsResolvedObjects extends SectionResolvedObjects {
 		private final Evaluator points;
 		private final Evaluator offset;
@@ -69,7 +69,7 @@ public abstract class InsertContents extends SectionModule<InsertContentsResolve
 			this.insert = module.insert.resolveExpressions(rootResolver);
 		}
 	}
-	
+
 	@Override
 	protected InsertContentsResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new InsertContentsResolvedObjects(ctx, this);
@@ -96,7 +96,7 @@ public abstract class InsertContents extends SectionModule<InsertContentsResolve
 		cloneArgs(map);
 		removeOldSections(logger, map);
 	}
-	
+
 	private void cloneSection(Logger logger, Section oldSec, Map<Element,Element> map) {
 		InsertPoint[] points = getInsertPoints(logger, oldSec);
 		String newContents = getNewContents(points, oldSec);
@@ -107,17 +107,17 @@ public abstract class InsertContents extends SectionModule<InsertContentsResolve
 		for (Layer layer : oldSec.getAllLayers()) {
 			cloneLayer(newSec, points, layer, map);
 		}
-		
+
 		for (Relation oldRel : oldSec.getAllRelations()) {
 			cloneRelation(newSec, oldRel, map);
 		}
 	}
-	
+
 	private static class InsertPoint implements Comparable<InsertPoint> {
 		private final int offset;
 		private final String insert;
 		private int cumulativeOffset;
-		
+
 		private InsertPoint(int offset, String insert) {
 			super();
 			this.offset = offset;
@@ -129,7 +129,7 @@ public abstract class InsertContents extends SectionModule<InsertContentsResolve
 			return Integer.compare(offset, o.offset);
 		}
 	}
-	
+
 	private InsertPoint[] getInsertPoints(Logger logger, Section sec) {
 		List<InsertPoint> list = createInsertPoints(logger, sec);
 		Collections.sort(list);
@@ -162,7 +162,7 @@ public abstract class InsertContents extends SectionModule<InsertContentsResolve
 			prevPoint = point;
 		}
 		Collections.reverse(list);
-		return list.toArray(new InsertPoint[list.size()]);		
+		return list.toArray(new InsertPoint[list.size()]);
 	}
 
 	private List<InsertPoint> createInsertPoints(Logger logger, Section sec) {
@@ -177,7 +177,7 @@ public abstract class InsertContents extends SectionModule<InsertContentsResolve
 		}
 		return result;
 	}
-	
+
 	private static String getNewContents(InsertPoint[] points, Section sec) {
 		String oldContents = sec.getContents();
 		StringBuilder sb = new StringBuilder();
@@ -191,7 +191,7 @@ public abstract class InsertContents extends SectionModule<InsertContentsResolve
 		sb.append(oldContents.substring(last));
 		return sb.toString();
 	}
-	
+
 	private static void putMapping(Map<Element,Element> map, Element oldElt, Element newElt) {
 		map.put(oldElt, newElt);
 		newElt.addMultiFeatures(oldElt.getFeatures());
@@ -215,7 +215,7 @@ public abstract class InsertContents extends SectionModule<InsertContentsResolve
 		}
 		return offset;
 	}
-	
+
 	private void cloneRelation(Section newSec, Relation oldRel, Map<Element,Element> map) {
 		Relation newRel = new Relation(this, newSec, oldRel.getName());
 		putMapping(map, oldRel, newRel);
@@ -224,7 +224,7 @@ public abstract class InsertContents extends SectionModule<InsertContentsResolve
 			putMapping(map, oldT, newT);
 		}
 	}
-	
+
 	private static void cloneArgs(Map<Element,Element> map) {
 		for (Map.Entry<Element,Element> e : map.entrySet()) {
 			Tuple oldT = DownCastElement.toTuple(e.getKey());
@@ -237,7 +237,7 @@ public abstract class InsertContents extends SectionModule<InsertContentsResolve
 			}
 		}
 	}
-	
+
 	private static void removeOldSections(Logger logger, Map<Element,Element> map) {
 		int n = 0;
 		for (Map.Entry<Element,Element> e : map.entrySet()) {

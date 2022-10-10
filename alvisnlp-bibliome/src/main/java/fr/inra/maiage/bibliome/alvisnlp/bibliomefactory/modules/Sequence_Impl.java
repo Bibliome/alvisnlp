@@ -126,7 +126,7 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
     public String getResourceBundleName() {
         return "alvisnlp.app.Sequence_ImplDoc";
     }
-    
+
 	@Override
 	public boolean hasModule(String id) {
     	for (Module<Corpus> m : moduleSequence) {
@@ -146,7 +146,7 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
 		}
     	return null;
     }
-	
+
     @Override
     public Collection<ParamHandler<Corpus>> getAllParamHandlers() {
     	Collection<ParamHandler<Corpus>> result = new ArrayList<ParamHandler<Corpus>>(super.getAllParamHandlers());
@@ -160,7 +160,7 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
     		return params.get(name);
     	return super.getParamHandler(name);
     }
-    
+
     @Override
     public void init(ProcessingContext<Corpus> ctx) throws ModuleException {
     	super.init(ctx);
@@ -202,7 +202,7 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
 			return null;
 		return subModule.getModuleByPath(modulePath.substring(dot + 1));
 	}
-	
+
 	@Override
 	public CompositeParamHandler<Corpus> createAliasParam(String name) throws ParameterException {
 		if (params.containsKey(name))
@@ -221,7 +221,7 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
 	public List<Module<Corpus>> getSubModules() {
 		return Collections.unmodifiableList(moduleSequence);
 	}
-    
+
     @Override
 	public List<Module<Corpus>> getActiveSubModules() {
     	if (select == null) {

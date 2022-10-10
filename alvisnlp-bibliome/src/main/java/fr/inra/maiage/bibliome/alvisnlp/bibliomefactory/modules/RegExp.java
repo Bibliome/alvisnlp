@@ -44,9 +44,11 @@ import fr.inra.maiage.bibliome.util.Iterators;
  */
 @AlvisNLPModule
 public abstract class RegExp extends SectionModule<SectionResolvedObjects> implements AnnotationCreator {
+	private String targetLayer;
+	
     /**
      * Gets the pattern.
-     * 
+     *
      * @return the pattern
      */
     @Param(defaultDoc = "Regular expression to match.")
@@ -54,7 +56,7 @@ public abstract class RegExp extends SectionModule<SectionResolvedObjects> imple
 
     /**
      * Sets the pattern.
-     * 
+     *
      * @param pattern
      *            the new pattern
      */
@@ -62,20 +64,34 @@ public abstract class RegExp extends SectionModule<SectionResolvedObjects> imple
 
     /**
      * Gets the target layer name.
-     * 
+     *
      * @return the target layer name
      */
     @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store matches.")
-    public abstract String getTargetLayerName();
-    
+    public String getTargetLayer() {
+    	return targetLayer;
+    }
+
+    public void setTargetLayer(String targetLayer) {
+    	this.targetLayer = targetLayer;
+    }
+
+    @Deprecated
+    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store matches.")
+    public String getTargetLayerName() {
+    	return targetLayer;
+    }
+
     /**
      * Sets the target layer name.
-     * 
-     * @param targetLayerName
+     *
+     * @param targetLayer
      *            the new target layer name
      */
-    public abstract void setTargetLayerName(String targetLayerName);
-    
+    public void setTargetLayerName(String targetLayer) {
+    	this.targetLayer = targetLayer;
+    }
+
     @Override
     public String[] addFeaturesToSectionFilter() {
         return new String[] {};

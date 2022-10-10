@@ -44,7 +44,7 @@ public class PorterStemmer extends SectionModule<SectionResolvedObjects> {
 	private String formFeature = Annotation.FORM_FEATURE_NAME;
 	private String stemFeature = DefaultNames.getStemFeature();
 	private String language = "english";
-	
+
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
@@ -63,7 +63,7 @@ public class PorterStemmer extends SectionModule<SectionResolvedObjects> {
 			}
 		}
 	}
-	
+
 	private SnowballProgram getStemmer() throws ProcessingException {
 		switch (language.toLowerCase()) {
 			case "en":
@@ -75,17 +75,17 @@ public class PorterStemmer extends SectionModule<SectionResolvedObjects> {
 		}
 		throw new ProcessingException("unknown language " + language);
 	}
-	
+
 	@Override
 	protected String[] addLayersToSectionFilter() {
 		return new String[] { layerName };
 	}
-	
+
 	@Override
 	protected String[] addFeaturesToSectionFilter() {
 		return null;
 	}
-	
+
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);

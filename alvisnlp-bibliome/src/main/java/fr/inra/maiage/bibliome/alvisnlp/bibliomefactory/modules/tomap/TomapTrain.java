@@ -79,7 +79,7 @@ public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects
 
 	public static class TomapTrainResolvedObjects extends SectionResolvedObjects {
 		private final Evaluator conceptIdentifier;
-		
+
 		private TomapTrainResolvedObjects(ProcessingContext<Corpus> ctx, TomapTrain module) throws ResolverException {
 			super(ctx, module);
 			conceptIdentifier = module.conceptIdentifier.resolveExpressions(rootResolver);
@@ -91,7 +91,7 @@ public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects
 			conceptIdentifier.collectUsedNames(nameUsage, defaultType);
 		}
 	}
-	
+
 	@Override
 	protected TomapTrainResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new TomapTrainResolvedObjects(ctx, this);
@@ -116,25 +116,25 @@ public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects
 		public boolean check(Logger logger) {
 			return true;
 		}
-		
+
 		@Override
 		public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
 		}
-		
+
 		@Override
 		public <S extends SectionResolvedObjects> InputFile ensureFile(AbstractYateaExtractor<S> module, ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException, IOException {
 			File tmpDir = module.getTempDir(ctx);
 			return new InputFile(tmpDir, "corpus.ttg"); // the same file as yatea input
 		}
 	};
-	
+
 	private void writeOutput(Logger logger, Map<String,List<String>> conceptMap, YateaExtractorExternalHandler<TomapTrainResolvedObjects> ext) throws IOException, SAXException, ParserConfigurationException {
 		try (Writer writer = outFile.getBufferedWriter()) {
 			Document doc = buildOutputDocument(logger, conceptMap, ext);
 			XMLUtils.writeDOMToFile(doc, null, writer);
 		}
 	}
-	
+
 	private static Document buildOutputDocument(Logger logger, Map<String,List<String>> conceptMap, YateaExtractorExternalHandler<TomapTrainResolvedObjects> ext) throws IOException, SAXException, ParserConfigurationException {
 		Document result = XMLUtils.docBuilder.newDocument();
 		YateaCandidateReader yateaReader = new YateaCandidateReader(logger, TokenNormalization.FORM, StringNormalization.NONE);
@@ -159,7 +159,7 @@ public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects
 		SourceStream stream = new FileSourceStream("UTF-8", candFile);
 		return stream.getInputStream();
 	}
-	
+
 	private Map<String,List<String>> getConceptMap(ProcessingContext<Corpus> ctx, Corpus corpus) {
 		DefaultMap<String,List<String>> result = new DefaultArrayListHashMap<String,String>();
 		TomapTrainResolvedObjects resObj = getResolvedObjects();
@@ -205,7 +205,7 @@ public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects
 		}
 		return result;
 	}
-	
+
 	@Override
 	public Boolean getDocumentTokens() {
 		return super.getDocumentTokens();

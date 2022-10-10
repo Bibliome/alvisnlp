@@ -16,21 +16,21 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 
 /**
- * 
+ *
  * @author mba
  *
  */
 
 @AlvisNLPModule
-public abstract class TEESClassify extends TEESMapper {	
+public abstract class TEESClassify extends TEESMapper {
 	private String dependencyRelation = DefaultNames.getDependencyRelationName();
 	private String dependencyLabelFeature = DefaultNames.getDependencyLabelFeatureName();
 	private String sentenceRole = DefaultNames.getDependencySentenceRole();
 	private String headRole = DefaultNames.getDependencyHeadRole();
 	private String dependentRole = DefaultNames.getDependencyDependentRole();
-	
+
 	private InputFile teesModel;
-	
+
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -53,7 +53,7 @@ public abstract class TEESClassify extends TEESMapper {
 	@Override
 	protected String[] addLayersToSectionFilter() {
 		return new String[] {
-				getTokenLayerName(), 
+				getTokenLayerName(),
 				getSentenceLayerName()
 		};
 	}
