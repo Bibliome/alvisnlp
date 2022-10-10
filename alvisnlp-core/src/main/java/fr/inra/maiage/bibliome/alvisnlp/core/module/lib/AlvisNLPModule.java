@@ -35,11 +35,6 @@ public @interface AlvisNLPModule {
      * Documentation resource bundle.
      */
     String docResourceBundle() default "";
-    
-    /**
-     * If the module class is obsolete, indicate classes that must be used instead.
-     */
-    Class<?>[] obsoleteUseInstead() default {};
 
     /**
      * True if this module class is beta.

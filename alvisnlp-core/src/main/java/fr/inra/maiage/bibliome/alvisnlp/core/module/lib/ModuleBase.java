@@ -20,7 +20,6 @@ package fr.inra.maiage.bibliome.alvisnlp.core.module.lib;
 import java.io.File;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
@@ -67,7 +66,7 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
     private final String resourceBundleName;
     private Documentation documentation;
     private boolean beta;
-    private Class<?>[] useInstead;
+    private boolean deprecated = false;
     private OutputFile dumpFile = null;
     private String id = null;
     private Sequence<T> sequence = null;
@@ -93,7 +92,10 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
             AlvisNLPModule annot = klass.getAnnotation(AlvisNLPModule.class);
             if (annot != null) {
             	beta = annot.beta();
-            	useInstead = annot.obsoleteUseInstead();
+                Deprecated depr = klass.getAnnotation(Deprecated.class);
+                if (depr != null) {
+                	deprecated = true;
+                }
 				return klass;
 			}
         }
@@ -254,12 +256,11 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
     	AlvisNLPModule annot = klass.getAnnotation(AlvisNLPModule.class);
     	if (annot.beta())
     		getLogger(ctx).warning("this module is EXPERIMENTAL");
-    	Class<?>[] better = annot.obsoleteUseInstead();
-    	if (better.length == 0)
-    		return;
-    	Logger logger = getLogger(ctx);
-    	logger.severe("this module class is DEPRECATED, use instead: " + Strings.joinStrings(Arrays.asList(better), ", "));
-    	logger.severe("support for this module class may be DSCONTINUED WITHOUT NOTICE");
+    	if (deprecated) {
+    		Logger logger = getLogger(ctx);
+    		logger.severe("this module class is DEPRECATED");
+    		logger.severe("support for this module class may be DSCONTINUED WITHOUT NOTICE");
+    	}
     }
 
 	private static final XPathExpression alvisnlpDocExpression;
@@ -295,8 +296,8 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
     		ensureAttribute(alvisnlpDocElt, "target", klass);
     		ensureAttribute(alvisnlpDocElt, "short-target", klass.substring(klass.lastIndexOf('.') + 1));
     		alvisnlpDocElt.setAttribute("beta", Boolean.toString(beta));
-    		if (useInstead.length > 0) {
-    			alvisnlpDocElt.setAttribute("use-instead", useInstead[0].getCanonicalName());
+    		if (deprecated) {
+    			alvisnlpDocElt.setAttribute("deprecated", "yes");
     		}
     		supplementSynopsisElement(alvisnlpDocElt);
     		supplementModuleDocElement(alvisnlpDocElt);
@@ -461,10 +462,10 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
 	}
 
 	@Override
-	public Class<?>[] getUseInstead() {
-		return useInstead;
+	public boolean isDeprecated() {
+		return deprecated;
 	}
-	
+
 	@Override
 	public String getCreatorNameFeature() {
 		return creatorNameFeature;

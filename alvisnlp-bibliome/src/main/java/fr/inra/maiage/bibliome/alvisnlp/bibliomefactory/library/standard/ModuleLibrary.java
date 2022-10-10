@@ -89,8 +89,8 @@ public abstract class ModuleLibrary extends FunctionLibrary {
 	}
 	
 	@Function
-	public boolean obsolete() {
-		return module.getUseInstead().length > 0;
+	public boolean deprecated() {
+		return module.isDeprecated();
 	}
 	
 	@Function
