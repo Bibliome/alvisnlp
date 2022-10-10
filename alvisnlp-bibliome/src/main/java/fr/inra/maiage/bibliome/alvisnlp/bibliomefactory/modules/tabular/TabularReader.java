@@ -133,7 +133,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 	@TimeThis(task="read", category=TimerCategory.LOAD_RESOURCE)
 	protected void readLinesCSV(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, Corpus corpus, TabularReaderFileLines trfl) throws ProcessingException {
 		TabularReaderResolvedObjects resObj = getResolvedObjects();
-		CSVFormat format = CSVFormat.DEFAULT.withDelimiter(separator).withIgnoreEmptyLines(skipBlank);
+		CSVFormat format = CSVFormat.DEFAULT.builder().setDelimiter(separator).setIgnoreEmptyLines(skipBlank).build();
 		try {
 			for (BufferedReader r : Iterators.loop(source.getBufferedReaders())) {
 				resObj.entryLib.startSource(source.getStreamName(r));

@@ -63,7 +63,7 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 		for (Reader r : Iterators.loop(readers)) {
 			String name = entitiesStream.getStreamName(r);
 			logger.info("reading " + name);
-			for (CSVRecord record : CSVFormat.MYSQL.withQuote('"').withFirstRecordAsHeader().parse(r)) {
+			for (CSVRecord record : CSVFormat.MYSQL.builder().setQuote('"').setHeader().setSkipHeaderRecord(true).build().parse(r)) {
 				loadEntities(logger, corpus, record);
 			}
 		}
@@ -121,7 +121,7 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 		for (Reader r : Iterators.loop(readers)) {
 			String name = docStream.getStreamName(r);
 			logger.info("reading " + name);
-			for (CSVRecord record : CSVFormat.MYSQL.withQuote('"').withFirstRecordAsHeader().parse(r)) {
+			for (CSVRecord record : CSVFormat.MYSQL.builder().setQuote('"').setHeader().setSkipHeaderRecord(true).build().parse(r)) {
 				loadDocument(logger, corpus, record);
 			}
 		}
