@@ -22,20 +22,20 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> scans for annotations in <param>wordLayerName</param> and detects a sentence boundaries defined as either:
+      <p><this/> scans for annotations in <param>wordLayer</param> and detects a sentence boundaries defined as either:
       <ul>
 	<li>an annotation whose feature <param>eosStatusFeature</param> equals <em>eos</em>;</li>
 	<li>an annotation whose surface form contains only characaters of the value of <param>strongPunctuations</param> and which is followed by an uppercase character;</li>
 	<li>an annotation whose feature <param>eosStatusFeature</param> equals <em>maybe-eos</em> and which is followed by an uppercase character.</li>
       </ul>
       </p>
-      <p><this/> creates an annotation for each sentence and adds it into the <param>targetLayerName</param>. The <param>eosStatusFeature</param> of word annotations are given a new value:
+      <p><this/> creates an annotation for each sentence and adds it into the <param>targetLayer</param>. The <param>eosStatusFeature</param> of word annotations are given a new value:
       <ul>
 	<li><strong>eos</strong>: for the last word of each sentence;</li>
 	<li><strong>not-eos</strong>: for all other words.</li>
       </ul>
       </p>
-      <p>If <param>noBreakLayerName</param> is defined, then <this/> will prevent sentence boundaries inside annotations in this layer.</p>
+      <p>If <param>noBreakLayer</param> is defined, then <this/> will prevent sentence boundaries inside annotations in this layer.</p>
     </description>
   
     <param-doc name="strongPunctuations">
@@ -46,9 +46,10 @@ limitations under the License.
       <p>Name of the feature where to read word annotation type.</p>
     </param-doc>
       
-    <param-doc name="wordLayerName">
+    <param-doc name="wordLayer">
       <p>Name of the layer containing word annotations.</p>
     </param-doc>
+<param-doc name="wordLayerName"><p>Deprecated alias for <param>wordLayer</param>.</p></param-doc>
   
     <param-doc name="eosStatusFeature">
       <p>Name of the feature (in words) containing the end-of-sentence status (not-eos, maybe-eos).</p>
@@ -58,13 +59,15 @@ limitations under the License.
       <p>Name of the feature containing the word surface form.</p>
     </param-doc>
   
-    <param-doc name="noBreakLayerName">
+    <param-doc name="noBreakLayer">
       <p>Name of the layer containing annotations within which there cannot be sentence boundaries.</p>
     </param-doc>
+<param-doc name="noBreakLayerName"><p>Deprecated alias for <param>noBreakLayer</param>.</p></param-doc>
   
-    <param-doc name="targetLayerName">
+    <param-doc name="targetLayer">
       <p>Name of the layer where to store sentence annotations.</p>
     </param-doc>
+<param-doc name="targetLayerName"><p>Deprecated alias for <param>targetLayer</param>.</p></param-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreatorParamsDoc</include-doc>
 </module-doc>

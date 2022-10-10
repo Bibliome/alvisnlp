@@ -21,7 +21,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> computes the n-grams of annotations in <param>tokenLayerName</param> and creates an annotation for each n-gram. If <param>sentenceLayerName</param> is set, then no n-gram will cross boundaries of annotations in this layer. If <param>keepAnnotations</param> is set, then <this/> will search for annotations with n-gram boundaries in these layers, if one annotation is found then it is recycled instead of creating a new annotation.</p>
+      <p><this/> computes the n-grams of annotations in <param>tokenLayer</param> and creates an annotation for each n-gram. If <param>sentenceLayer</param> is set, then no n-gram will cross boundaries of annotations in this layer. If <param>keepAnnotations</param> is set, then <this/> will search for annotations with n-gram boundaries in these layers, if one annotation is found then it is recycled instead of creating a new annotation.</p>
     </description>
   
     <param-doc name="maxNGramSize">
@@ -32,17 +32,20 @@ limitations under the License.
       <p>Name of layers where to search for recycled annotations.</p>
     </param-doc>
   
-    <param-doc name="targetLayerName">
+    <param-doc name="targetLayer">
       <p>Name of the layer where to add n-gram annotations, recycled annotations will also be added in this layer.</p>
     </param-doc>
+<param-doc name="targetLayerName"><p>Deprecated alias for <param>targetLayer</param>.</p></param-doc>
    
-    <param-doc name="sentenceLayerName">
+    <param-doc name="sentenceLayer">
       <p>Name of the sentence layer.</p>
     </param-doc>
+<param-doc name="sentenceLayerName"><p>Deprecated alias for <param>sentenceLayer</param>.</p></param-doc>
   
-    <param-doc name="tokenLayerName">
+    <param-doc name="tokenLayer">
       <p>Name of the token layer.</p>
     </param-doc>
+<param-doc name="tokenLayerName"><p>Deprecated alias for <param>tokenLayer</param>.</p></param-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreatorParamsDoc</include-doc>
 </module-doc>

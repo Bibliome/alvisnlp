@@ -26,7 +26,7 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 	private String sentenceLayer = DefaultNames.getSentenceLayer();
 	private String tokenLayer = DefaultNames.getWordLayer();
 	private String formFeature = Annotation.FORM_FEATURE_NAME;
-	private String vectorFeatureName = null;
+	private String vectorFeature = null;
 
 	private Integer vectorSize = 200;
 	private Integer windowSize = 2;
@@ -62,9 +62,10 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 		return sentenceLayer;
 	}
 
-	@Param(nameType=NameType.LAYER, mandatory=false)
+	@Deprecated
+	@Param(nameType=NameType.FEATURE, mandatory=false)
 	public String getVectorFeatureName() {
-		return vectorFeatureName;
+		return vectorFeature;
 	}
 
 	@Param
@@ -161,12 +162,21 @@ public abstract class Word2Vec extends SectionModule<SectionResolvedObjects> imp
 		this.formFeature = formFeature;
 	}
 
+	@Param(nameType=NameType.FEATURE, mandatory=false)
+	public String getVectorFeature() {
+		return vectorFeature;
+	}
+
+	public void setVectorFeature(String vectorFeature) {
+		this.vectorFeature = vectorFeature;
+	}
+
 	public void setSentenceLayerName(String sentenceLayer) {
 		this.sentenceLayer = sentenceLayer;
 	}
 
 	public void setVectorFeatureName(String vectorFeature) {
-		this.vectorFeatureName = vectorFeature;
+		this.vectorFeature = vectorFeature;
 	}
 
 	public void setVectorSize(Integer vectorSize) {

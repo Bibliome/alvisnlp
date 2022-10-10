@@ -24,9 +24,10 @@ limitations under the License.
       <p>synopsis</p>
     </description>
   
-    <param-doc name="stripLayerName">
+    <param-doc name="stripLayer">
       <p/>
     </param-doc>
+<param-doc name="stripLayerName"><p>Deprecated alias for <param>stripLayer</param>.</p></param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.SectionCreatorParamsDoc</include-doc>

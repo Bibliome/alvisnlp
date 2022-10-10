@@ -18,20 +18,22 @@
 			<p>
 				<this/>
 				adds annotations in the layers
-				<param>sourceLayerNames</param>
+				<param>sourceLayers</param>
 				into the layer
-				<param>targetLayerName</param>
+				<param>targetLayer</param>
 				.
 			</p>
 		</description>
 
-		<param-doc name="sourceLayerNames">
+		<param-doc name="sourceLayers">
 			<p>Name of the layers where to get annotations.</p>
 		</param-doc>
+<param-doc name="sourceLayerNames"><p>Deprecated alias for <param>sourceLayers</param>.</p></param-doc>
 
-		<param-doc name="targetLayerName">
+		<param-doc name="targetLayer">
 			<p>Name of the layer to create.</p>
 		</param-doc>
+<param-doc name="targetLayerName"><p>Deprecated alias for <param>targetLayer</param>.</p></param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
 	</module-doc>

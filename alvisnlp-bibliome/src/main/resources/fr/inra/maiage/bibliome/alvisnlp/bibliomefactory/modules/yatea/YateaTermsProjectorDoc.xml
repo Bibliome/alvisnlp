@@ -13,7 +13,7 @@
 	<li>the entries are matched on the value of a specified feature of annotations in a given layer separated by a whitespace, in this way entries can be searched against word lemmas, for instance.</li>
       </ul>
       </p>
-      <p><this/> creates an annotation for each matched key and adds these annotations to the layer specified by <param>targetLayerName</param>. Term structure information can be recorded in the features specified by <param>termIdFeature</param>, <param>headFeature</param>, <param>monoHeadIdFeature</param>, <param>modifierFeature</param>, and <param>termPosFeature</param>. In addition, the created annotations will have the constant features specified in <param>constantAnnotationFeatures</param>.</p>
+      <p><this/> creates an annotation for each matched key and adds these annotations to the layer specified by <param>targetLayer</param>. Term structure information can be recorded in the features specified by <param>termIdFeature</param>, <param>headFeature</param>, <param>monoHeadIdFeature</param>, <param>modifierFeature</param>, and <param>termPosFeature</param>. In addition, the created annotations will have the constant features specified in <param>constantAnnotationFeatures</param>.</p>
       <p><param>trieSource</param> and <param>trieSink</param> are not supported by <this/>.</p>
     </description>
     

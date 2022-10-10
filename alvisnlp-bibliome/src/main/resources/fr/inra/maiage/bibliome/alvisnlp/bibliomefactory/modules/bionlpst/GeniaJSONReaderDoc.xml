@@ -29,9 +29,10 @@ limitations under the License.
       <p/>
     </param-doc>
   
-    <param-doc name="annotationsLayerName">
+    <param-doc name="annotationsLayer">
       <p/>
     </param-doc>
+<param-doc name="annotationsLayerName"><p>Deprecated alias for <param>annotationsLayer</param>.</p></param-doc>
   
     <param-doc name="instanceIdFeature">
       <p/>

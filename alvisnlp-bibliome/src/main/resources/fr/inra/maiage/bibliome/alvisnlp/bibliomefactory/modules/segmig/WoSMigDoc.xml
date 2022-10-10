@@ -21,13 +21,13 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> searches for word boundaries in the section contents, creates an annotation for each word and adds it to the layer <param>targetLayerName</param>. The following are considered as word boundaries:
+      <p><this/> searches for word boundaries in the section contents, creates an annotation for each word and adds it to the layer <param>targetLayer</param>. The following are considered as word boundaries:
       <ul>
 	<li>consecutive whitespace characters, including ' ', newline, carriage return and horizontal tabulation;</li>
 	<li>the positions before and after each punctuation character defined in <param>punctuations</param> and <param>balancedPunctuations</param>, thus a punctuation character always form a single-character word, a balanced punctuation breaks a word iff the corresponding punctuation is found.</li>
       </ul>
       </p>
-      <p>If <param>fixedFormLayerName</param> is defined then non-overlapping annotations in this layer will be added as is in <param>targetLayerName</param>, the start and end positions of these annotations are considered as word boundaries and no word boundary is searched inside.</p>
+      <p>If <param>fixedFormLayer</param> is defined then non-overlapping annotations in this layer will be added as is in <param>targetLayer</param>, the start and end positions of these annotations are considered as word boundaries and no word boundary is searched inside.</p>
       <p>The created annotations have the feature <param>annotationTypeFeature</param> with a value corresponding to the word type:
       <ul>
 	<li><strong>punctuation</strong>: if the word is a single-character punctuation;</li>
@@ -36,9 +36,10 @@ limitations under the License.
       </p>
     </description>
   
-    <param-doc name="fixedFormLayerName">
+    <param-doc name="fixedFormLayer">
       <p>Name of the layer containing annotations that should not be split into several words.</p>
     </param-doc>
+<param-doc name="fixedFormLayerName"><p>Deprecated alias for <param>fixedFormLayer</param>.</p></param-doc>
   
     <param-doc name="punctuations">
       <p>List of punctuations, be them weak or strong.</p>
@@ -52,9 +53,10 @@ limitations under the License.
       <p>Balanced punctuation characters. The opening punctuation must be immediately followed by the corresponding closing punctuation. If this parameter value has an odd length, then a warning will be issued and the last character will be ignored.</p>
     </param-doc>
   
-    <param-doc name="targetLayerName">
+    <param-doc name="targetLayer">
       <p>Layer where to store word annotations.</p>
     </param-doc>
+<param-doc name="targetLayerName"><p>Deprecated alias for <param>targetLayer</param>.</p></param-doc>
 
     <param-doc name="fixedType">
       <p>Value of the type feature for annotations copied from fixed forms.</p>

@@ -21,7 +21,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> copies annotations from <param>checkedlayerNames</param> into <param>modifiedlayerName</param> and ensures that this layer does not contain overlapping annotations. If <param>checkedlayerNames</param> contains overlaps, then <this/> splits annotations at the start or end positions of overlapping annotations.</p>
+      <p><this/> copies annotations from <param>checkedLayers</param> into <param>modifiedLayer</param> and ensures that this layer does not contain overlapping annotations. If <param>checkedLayers</param> contains overlaps, then <this/> splits annotations at the start or end positions of overlapping annotations.</p>
       <ul>
 	<li>Features copied?</li>
 	<li>Non-split annotations deep-copied?</li>
@@ -29,7 +29,7 @@ limitations under the License.
       </ul>
     </description>
   
-    <param-doc name="modifiedlayerName">
+    <param-doc name="modifiedLayer">
       <p>Target layer.</p>
     </param-doc>
   

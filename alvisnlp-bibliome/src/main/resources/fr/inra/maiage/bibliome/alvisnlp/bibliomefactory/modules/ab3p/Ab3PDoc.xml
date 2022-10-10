@@ -24,17 +24,19 @@ limitations under the License.
       <p>synopsis</p>
     </description>
   
-    <param-doc name="shortFormsLayerName">
+    <param-doc name="shortFormsLayer">
       <p/>
     </param-doc>
+<param-doc name="shortFormsLayerName"><p>Deprecated alias for <param>shortFormsLayer</param>.</p></param-doc>
   
     <param-doc name="shortFormRole">
       <p/>
     </param-doc>
   
-    <param-doc name="longFormsLayerName">
+    <param-doc name="longFormsLayer">
       <p/>
     </param-doc>
+<param-doc name="longFormsLayerName"><p>Deprecated alias for <param>longFormsLayer</param>.</p></param-doc>
   
     <param-doc name="longFormRole">
       <p/>

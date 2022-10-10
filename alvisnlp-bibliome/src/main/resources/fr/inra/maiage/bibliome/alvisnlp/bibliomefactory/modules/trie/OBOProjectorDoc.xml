@@ -30,7 +30,7 @@ limitations under the License.
 	<li>the entries are matched on the feature value of annotations of a given layer separated by a whitespace, in this way entries can be searched against word lemmas for instance.</li>
       </ul>
       </p>
-      <p><this/> creates an annotation for each matched entry and adds these annotations to the layer named <param>targetLayerName</param>. The created annotations will have features <param>nameFeature</param>, <param>idFeature</param> and <param>pathFeature</param> set to the matched term name, identifier and path.</p>
+      <p><this/> creates an annotation for each matched entry and adds these annotations to the layer named <param>targetLayer</param>. The created annotations will have features <param>nameFeature</param>, <param>idFeature</param> and <param>pathFeature</param> set to the matched term name, identifier and path.</p>
       <p>If specified, then <this/> assumes that <param>trieSource</param> contains a compiled version of the dictionary. <param>oboFiles</param> is not read. If specified, <this/> writes a compiled version of the dictionary in <param>trieSink</param>. The use of compiled dictionaries may accelerate the processing for large dictionaries.</p>
     </description>
   

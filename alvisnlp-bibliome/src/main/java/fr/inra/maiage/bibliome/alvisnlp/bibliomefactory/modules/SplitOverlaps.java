@@ -46,9 +46,9 @@ import fr.inra.maiage.bibliome.util.Iterators;
 public class SplitOverlaps extends SectionModule<SectionResolvedObjects> implements AnnotationCreator {
 
     //all Annotations from these Layers will be compared to find overlaps
-    private String[] checkedlayerNames;
+    private String[] checkedLayers;
     //only Annotations from this Layer will be splitted to remove overlaps
-    private String modifiedlayerName;
+    private String modifiedLayer;
     //optional feature name used to store the index of splitted annotation parts
     private String indexFeature = null;
 
@@ -68,7 +68,7 @@ public class SplitOverlaps extends SectionModule<SectionResolvedObjects> impleme
             int nbSplit = 0;
 
             //layer containing annotation that can be splitted
-            Layer layerToModify = sec.getLayer(modifiedlayerName);
+            Layer layerToModify = sec.getLayer(modifiedLayer);
             if (layerToModify == null) {
 //                logger.warning("Missing layer to modify '" + modifiedlayerName + "' in Section '" + sec.getName() + "' - skipping...");
                 continue;
@@ -78,7 +78,7 @@ public class SplitOverlaps extends SectionModule<SectionResolvedObjects> impleme
             Layer readOnlyAnnLayer = new Layer(sec);
 
             Set<Layer> checkedLayers = new LinkedHashSet<Layer>();
-            for (String checked : checkedlayerNames) {
+            for (String checked : this.checkedLayers) {
                 Layer layer = sec.getLayer(checked);
                 if (layer != null) {
                     checkedLayers.add(layer);
@@ -212,21 +212,21 @@ public class SplitOverlaps extends SectionModule<SectionResolvedObjects> impleme
     }
 
     @Param(nameType=NameType.LAYER)
-    public String[] getCheckedlayerNames() {
-        return checkedlayerNames;
+    public String[] getCheckedLayers() {
+        return checkedLayers;
     }
 
-    public void setCheckedlayerNames(String[] checkedlayerNames) {
-        this.checkedlayerNames = checkedlayerNames;
+    public void setCheckedLayers(String[] checkedlayerNames) {
+        this.checkedLayers = checkedlayerNames;
     }
 
     @Param(nameType=NameType.LAYER)
-    public String getModifiedlayerName() {
-        return modifiedlayerName;
+    public String getModifiedLayer() {
+        return modifiedLayer;
     }
 
-    public void setModifiedlayerName(String modifiedlayerName) {
-        this.modifiedlayerName = modifiedlayerName;
+    public void setModifiedLayer(String modifiedlayerName) {
+        this.modifiedLayer = modifiedlayerName;
     }
 
     @Deprecated

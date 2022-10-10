@@ -25,9 +25,10 @@ limitations under the License.
       <p><this/> parses sentences using <a href="https://mynlp.is.s.u-tokyo.ac.jp/enju/">Enju parser</a>.</p>
     </description>
    
-    <param-doc name="sentenceLayerName">
+    <param-doc name="sentenceLayer">
       <p>Layer containing sentences.</p>
     </param-doc>
+<param-doc name="sentenceLayerName"><p>Deprecated alias for <param>sentenceLayer</param>.</p></param-doc>
   
     <param-doc name="nBest">
       <p>Number of parses to obtain in each sentence.</p>
@@ -37,9 +38,10 @@ limitations under the License.
       <p>Use the parsing model adapted to biomedical texts.</p>
     </param-doc>
   
-    <param-doc name="wordLayerName">
+    <param-doc name="wordLayer">
       <p>Layer containing tokens.</p>
     </param-doc>
+<param-doc name="wordLayerName"><p>Deprecated alias for <param>wordLayer</param>.</p></param-doc>
   
     <param-doc name="posFeature">
       <p>POS feature of the token.</p>

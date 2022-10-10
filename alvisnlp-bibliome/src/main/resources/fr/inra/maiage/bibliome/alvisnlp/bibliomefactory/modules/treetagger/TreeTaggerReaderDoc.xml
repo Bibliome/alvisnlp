@@ -22,7 +22,7 @@ limitations under the License.
   <module-doc>
     <description>
       <p>Each document contains a single section named <param>sectionName</param>; its contents is constructed by concatenating the first column of each token separated with a space character.</p>
-      <p><this/> keeps the tree-tagger tokenization in annotations added into the layer <param>wordLayerName</param>.
+      <p><this/> keeps the tree-tagger tokenization in annotations added into the layer <param>wordLayer</param>.
       The POS tag and lemma are recorded in the annotation's <param>posFeature</param> and <param>lemmaFeature</param> features respectively.</p>
       <p>The document identifier is the path of the corresponding file.</p>
     </description>
@@ -43,13 +43,15 @@ limitations under the License.
       <p>Deprecated alias for <param>posFeature</param>.</p>
     </param-doc>
   
-    <param-doc name="sentenceLayerName">
+    <param-doc name="sentenceLayer">
       <p>Name of the layer where to store sentence annotations.</p>
     </param-doc>
+<param-doc name="sentenceLayerName"><p>Deprecated alias for <param>sentenceLayer</param>.</p></param-doc>
   
-    <param-doc name="wordLayerName">
+    <param-doc name="wordLayer">
       <p>Name of the layer where to store word annotations.</p>
     </param-doc>
+<param-doc name="wordLayerName"><p>Deprecated alias for <param>wordLayer</param>.</p></param-doc>
   
     <param-doc name="charset">
       <p>Character set of input files.</p>

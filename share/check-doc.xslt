@@ -57,7 +57,7 @@
 	<xsl:if test="@name-type = 'section' and not((@name = 'section') or (substring(@name, $len - 6) = 'Section') or (substring(@name, $len - 7) = 'Sections'))">
 	  <xsl:message>### Parameter '<xsl:value-of select="@name"/>' specifies a section but does not end with 'Section'</xsl:message>
 	</xsl:if>
-	<xsl:if test="@name-type = 'layer' and not((substring(@name, $len - 4) = 'Layer') or (substring(@name, $len - 5) = 'Layers'))">
+	<xsl:if test="@name-type = 'layer' and not((@name = 'layer') or (substring(@name, $len - 4) = 'Layer') or (substring(@name, $len - 5) = 'Layers'))">
 	  <xsl:message>### Parameter '<xsl:value-of select="@name"/>' specifies a layer but does not end with 'Layer'</xsl:message>
 	</xsl:if>
       </xsl:when>

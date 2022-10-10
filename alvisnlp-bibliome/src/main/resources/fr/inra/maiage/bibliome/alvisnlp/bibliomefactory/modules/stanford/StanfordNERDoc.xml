@@ -25,17 +25,19 @@ limitations under the License.
       <p>Applies the <a href="https://nlp.stanford.edu/software/CRF-NER.shtml">Stanford NLP named-entity recognition</a>.</p>
     </description>
   
-    <param-doc name="sentenceLayerName">
+    <param-doc name="sentenceLayer">
       <p>Name of the layer containing sentence annotations (ignored if <param>searchInContents</param> is set).</p>
     </param-doc>
+<param-doc name="sentenceLayerName"><p>Deprecated alias for <param>sentenceLayer</param>.</p></param-doc>
   
     <param-doc name="searchInContents">
       <p>If true, then search named entities in the section contents.</p>
     </param-doc>
   
-    <param-doc name="wordLayerName">
+    <param-doc name="wordLayer">
       <p>Name of the layer containing token annotations (ignored if <param>searchInContents</param> is set).</p>
     </param-doc>
+<param-doc name="wordLayerName"><p>Deprecated alias for <param>wordLayer</param>.</p></param-doc>
   
     <param-doc name="classifierFile">
       <p>Path to the CRF classifier.</p>
@@ -57,9 +59,10 @@ limitations under the License.
       <p>Deprecated alias for <param>labelFeature</param>.</p>
     </param-doc>
   
-    <param-doc name="targetLayerName">
+    <param-doc name="targetLayer">
       <p>Name of the layer where to store named-entity annotation.</p>
     </param-doc>
+<param-doc name="targetLayerName"><p>Deprecated alias for <param>targetLayer</param>.</p></param-doc>
     
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreatorParamsDoc</include-doc>

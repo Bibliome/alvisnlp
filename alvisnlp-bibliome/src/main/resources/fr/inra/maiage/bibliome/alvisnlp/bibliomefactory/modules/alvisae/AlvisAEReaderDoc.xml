@@ -26,7 +26,7 @@ limitations under the License.
       <p>
 	All AlvisAE annotations, including text-bound annotations, will be represented in AlvisNLP as relation tuples, in a relation named after the annotation type.
 	<ul>
-	  <li>For <em>text-bound</em> annotations, each fragment is represented in an annotation stored in the layer <param>fragmentsLayerName</param>. The tuple references the fragments through its arguments; their role name is <param>fragmentRolePrefix</param> with the fragment order appended (starting at zero). Thus a single-fragment annotation will have a single argument with role <code>frag0</code>. The type of the annotation is stored in the feature <param>typeFeature</param> of the tuple and of each fragment.</li>
+	  <li>For <em>text-bound</em> annotations, each fragment is represented in an annotation stored in the layer <param>fragmentsLayer</param>. The tuple references the fragments through its arguments; their role name is <param>fragmentRolePrefix</param> with the fragment order appended (starting at zero). Thus a single-fragment annotation will have a single argument with role <code>frag0</code>. The type of the annotation is stored in the feature <param>typeFeature</param> of the tuple and of each fragment.</li>
 	  <li>A <em>group</em> tuple references its items through its arguments; their role name is <param>itemRolePrefix</param> with the item order appended (starting at zero).</li>
 	  <li>A <em>relation</em> tuple hareferences its arguments in a straightforward way.</li>
 	</ul>
@@ -160,9 +160,10 @@ limitations under the License.
       </examples>
     </param-doc>
   
-    <param-doc name="fragmentsLayerName">
+    <param-doc name="fragmentsLayer">
       <p>Name of the layer where to store text-bound annotation fragments.</p>
     </param-doc>
+<param-doc name="fragmentsLayerName"><p>Deprecated alias for <param>fragmentsLayer</param>.</p></param-doc>
   
     <param-doc name="descriptionFeature">
       <p>Feature containing the document description.</p>
@@ -220,9 +221,10 @@ limitations under the License.
       <p>Feature where to store the AlvisAE identifiers of unmatched annotations (for review annotation sets).</p>
     </param-doc>
 
-    <param-doc name="htmlLayerName">
+    <param-doc name="htmlLayer">
       <p>Name of the layer where to store annotations that represent HTML tags.</p>
     </param-doc>
+<param-doc name="htmlLayerName"><p>Deprecated alias for <param>htmlLayer</param>.</p></param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.DocumentCreatorParamsDoc</include-doc>

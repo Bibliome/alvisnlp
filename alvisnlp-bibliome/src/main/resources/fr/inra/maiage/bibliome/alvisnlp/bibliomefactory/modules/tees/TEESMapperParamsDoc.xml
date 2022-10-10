@@ -15,13 +15,15 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 <alvisnlp-doc author="Mouhamadou Ba" date="2012-03-21" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tees.TEESClassify">
-	<param-doc name="tokenLayerName">
+	<param-doc name="tokenLayer">
 		<p>Name of the layer that contains tokens.</p>
 	</param-doc>
+<param-doc name="tokenLayerName"><p>Deprecated alias for <param>tokenLayer</param>.</p></param-doc>
     
-	<param-doc name="sentenceLayerName">
+	<param-doc name="sentenceLayer">
 		<p>Name of the layer that contains sentence annotations.</p>
 	</param-doc>
+<param-doc name="sentenceLayerName"><p>Deprecated alias for <param>sentenceLayer</param>.</p></param-doc>
     
 	<param-doc name="posFeature">
 		<p>Name of the feature containing the POS-tag.</p>
@@ -35,9 +37,10 @@ limitations under the License.
 	  <p>Deprecated alias for <param>dependencyLabelFeature</param>.</p>
 	</param-doc>
     
-    <param-doc name="namedEntityLayerName">
+    <param-doc name="namedEntityLayer">
       <p>Name of the layer containing the named entities.</p>
     </param-doc>
+<param-doc name="namedEntityLayerName"><p>Deprecated alias for <param>namedEntityLayer</param>.</p></param-doc>
   
     <param-doc name="namedEntityTypeFeature">
       <p>Name of the feature to access the type of the named entities.</p>

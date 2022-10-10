@@ -18,7 +18,7 @@
   
     <xml-conversion>
       <p>
-	<xverb><param value="ALGO"/></xverb>
+	<xverb><param/></xverb>
 	or
 	<xverb><param>ALGO</param></xverb>
 	<em>ALGO</em> is converted into the algorithm as specified by the string conversion.

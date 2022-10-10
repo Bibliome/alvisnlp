@@ -22,7 +22,7 @@ limitations under the License.
   <module-doc>
     <description>
       <p>
-	<this/> runs Chemspot on the sections content, then creates an annotation for each chemical mention in the layer <param>targetLayerName</param>.
+	<this/> runs Chemspot on the sections content, then creates an annotation for each chemical mention in the layer <param>targetLayer</param>.
 	Each annotation will have the feature <param>chemTypeFeature</param> set to the chemical mention type, and one feature for each type of identifier.
       </p>
     </description>
@@ -39,9 +39,10 @@ limitations under the License.
       <p>Do not use lexicons, only the CRF classifier. Uses less memory.</p>
     </param-doc>
 
-    <param-doc name="targetLayerName">
+    <param-doc name="targetLayer">
       <p>Name of the layer where to store annotations created by <this/>.</p>
     </param-doc>
+<param-doc name="targetLayerName"><p>Deprecated alias for <param>targetLayer</param>.</p></param-doc>
 
     <param-doc name="chemTypeFeature">
       <p>Feature where to store the chemical type (SYSTEMATIC, IDENTIFIER, FORMULA, TRIVIAL, ABBREVIATION, FAMILY, MULTIPLE, UNKNOWN).</p>

@@ -35,13 +35,13 @@ import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 public abstract class AbstractWapiti extends SectionModule<WapitiResolvedObjects> {
 	private ExecutableFile wapitiExecutable;
 	private String[] commandLineOptions;
-	private String sentenceLayerName = DefaultNames.getSentenceLayer();
-	private String tokenLayerName = DefaultNames.getWordLayer();
+	private String sentenceLayer = DefaultNames.getSentenceLayer();
+	private String tokenLayer = DefaultNames.getWordLayer();
 	private Expression[] features;
 	
 	@Override
 	protected String[] addLayersToSectionFilter() {
-		return new String[] { tokenLayerName };
+		return new String[] { tokenLayer };
 	}
 
 	@Override
@@ -64,22 +64,42 @@ public abstract class AbstractWapiti extends SectionModule<WapitiResolvedObjects
 		return commandLineOptions;
 	}
 
+	@Deprecated
 	@Param(mandatory=false, nameType=NameType.LAYER)
 	public String getSentenceLayerName() {
-		return sentenceLayerName;
+		return sentenceLayer;
+	}
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
+	public String getTokenLayerName() {
+		return tokenLayer;
+	}
+
+	@Param(mandatory=false, nameType=NameType.LAYER)
+	public String getSentenceLayer() {
+		return sentenceLayer;
 	}
 
 	@Param(nameType=NameType.LAYER)
-	public String getTokenLayerName() {
-		return tokenLayerName;
+	public String getTokenLayer() {
+		return tokenLayer;
+	}
+
+	public void setSentenceLayer(String sentenceLayer) {
+		this.sentenceLayer = sentenceLayer;
+	}
+
+	public void setTokenLayer(String tokenLayer) {
+		this.tokenLayer = tokenLayer;
 	}
 
 	public void setSentenceLayerName(String sentenceLayerName) {
-		this.sentenceLayerName = sentenceLayerName;
+		this.sentenceLayer = sentenceLayerName;
 	}
 
 	public void setTokenLayerName(String tokenLayerName) {
-		this.tokenLayerName = tokenLayerName;
+		this.tokenLayer = tokenLayerName;
 	}
 
 	public void setCommandLineOptions(String[] commandLineOptions) {

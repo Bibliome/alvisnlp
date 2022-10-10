@@ -20,6 +20,10 @@
     </param-doc>
     
     <param-doc mandatory="optional" name="layerNames" name-type="layer" short-type="String[]" type="java.lang.String[]">
+      <p>Deprecated alias for <param>layers</param>.</p>
+    </param-doc>
+        
+    <param-doc mandatory="optional" name="layers" name-type="layer" short-type="String[]" type="java.lang.String[]">
       <p>Names of layers to serialize. Layers not mentioned in this parameter will not be serialized. Use this to limit the amount of serialized data. By default <this/> serializes all annotations in all layers.</p>
     </param-doc>
     

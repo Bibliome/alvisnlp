@@ -43,13 +43,15 @@
 			<p>Expression evaluated on each sentence annotation, the sentence is parsed if this expression evaluates as true.</p>
 		</param-doc>
 
-		<param-doc default-value="sentences" mandatory="default: sentences" name="sentenceLayerName" name-type="layer" short-type="String" type="java.lang.String">
+		<param-doc name="sentenceLayer">
 			<p>Name of the layer containing sentence annotations.</p>
 		</param-doc>
+<param-doc name="sentenceLayerName"><p>Deprecated alias for <param>sentenceLayer</param>.</p></param-doc>
 
-		<param-doc default-value="words" mandatory="default: words" name="tokenLayerName" name-type="layer" short-type="String" type="java.lang.String">
+		<param-doc name="tokenLayer">
 			<p>Name of the layer containing token annotations.</p>
 		</param-doc>
+<param-doc name="tokenLayerName"><p>Deprecated alias for <param>tokenLayer</param>.</p></param-doc>
 
 		<param-doc default-value="false" mandatory="default: false" name="omitRoot" short-type="Boolean" type="java.lang.Boolean">
 			<p>If set, do not create the root tuple.</p>

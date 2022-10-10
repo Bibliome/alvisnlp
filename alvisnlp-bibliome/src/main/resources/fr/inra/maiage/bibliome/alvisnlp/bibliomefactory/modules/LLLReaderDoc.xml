@@ -33,9 +33,10 @@ limitations under the License.
       <p>Role of the argument that represent the genic interaction target.</p>
     </param-doc>
   
-    <param-doc name="wordLayerName">
+    <param-doc name="wordLayer">
       <p>Name of the layer where to store word annotations.</p>
     </param-doc>
+<param-doc name="wordLayerName"><p>Deprecated alias for <param>wordLayer</param>.</p></param-doc>
   
     <param-doc name="dependentRole">
       <p>Name of the role of the argument that represent the dependency dependent.</p>
@@ -109,9 +110,10 @@ limitations under the License.
       <p>Deprecated parameter alias for <param>targetFeature</param>.</p>
     </param-doc>
 
-    <param-doc name="sentenceLayerName">
+    <param-doc name="sentenceLayer">
       <p>Name of the layer where to store sentence annotations.</p>
     </param-doc>
+<param-doc name="sentenceLayerName"><p>Deprecated alias for <param>sentenceLayer</param>.</p></param-doc>
   
     <param-doc name="dependencyLabelFeatureName">
       <p>Deprecated parameter alias for <param>dependencyLabelFeature</param>.</p>

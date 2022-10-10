@@ -27,9 +27,9 @@ limitations under the License.
     <xml-conversion>
       <p>
 	<xverb><param>
-	  <annotationSet description="DESCRIPTION" revision="REVISION" type="TYPE" owner="OWNER" id="ID" task_id="TASKID">
+	  
 	    ...
-	  </annotationSet>
+	  
 	  ...
 	</param></xverb>
       </p>

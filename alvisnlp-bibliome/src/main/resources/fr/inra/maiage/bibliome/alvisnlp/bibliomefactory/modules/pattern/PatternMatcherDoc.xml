@@ -20,7 +20,7 @@ limitations under the License.
   </synopsis>
   <module-doc>
     <description>
-      <p><this/> searches for <param>pattern</param> on the sequence of annotations in layer <param>layerName</param>. Note that in a layer, annotations are sorted in increasing order of start boundary, then decreasing order of end boundary; the order is undefined for annotations with the exact same span.</p>
+      <p><this/> searches for <param>pattern</param> on the sequence of annotations in layer <param>layer</param>. Note that in a layer, annotations are sorted in increasing order of start boundary, then decreasing order of end boundary; the order is undefined for annotations with the exact same span.</p>
       <p>For each match, <this/> applies all actions specified by <param>actions</param>. Each action concerns a sub-group of the pattern, if no sub-group is specified then the action applies to the whole match.</p>
     </description>
 
@@ -33,6 +33,10 @@ limitations under the License.
     </param-doc>
 
     <param-doc name="layerName">
+      <p>Deprecated alias for <param>layer</param>.</p>
+    </param-doc>
+
+    <param-doc name="layer">
       <p>Match the pattern on the annotations contained in this layer.</p>
     </param-doc>
 

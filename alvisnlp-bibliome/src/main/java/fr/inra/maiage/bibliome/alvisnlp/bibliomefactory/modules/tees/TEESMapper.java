@@ -19,11 +19,11 @@ import fr.inra.maiage.bibliome.util.files.InputDirectory;
 public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> implements TupleCreator {
 	protected static final String INTERNAL_ENCODING = "UTF-8";
 
-	private String tokenLayerName = DefaultNames.getWordLayer();
-	private String sentenceLayerName = DefaultNames.getSentenceLayer();
+	private String tokenLayer = DefaultNames.getWordLayer();
+	private String sentenceLayer = DefaultNames.getSentenceLayer();
 	private String posFeature = DefaultNames.getPosTagFeature();
 	private String namedEntityTypeFeature = DefaultNames.getNamedEntityTypeFeature();
-	private String namedEntityLayerName = null;
+	private String namedEntityLayer = null;
 	
 	private MultiMapping schema;
 	
@@ -36,30 +36,64 @@ public abstract class TEESMapper extends SectionModule<SectionResolvedObjects> i
 	private String detector = "Detectors.EdgeDetector";
 
 	@Param(nameType = NameType.LAYER)
+	public String getTokenLayer() {
+		return tokenLayer;
+	}
+
+	@Param(nameType = NameType.LAYER)
+	public String getSentenceLayer() {
+		return sentenceLayer;
+	}
+
+	@Param(nameType = NameType.LAYER)
+	public String getNamedEntityLayer() {
+		return namedEntityLayer;
+	}
+
+	public void setTokenLayer(String tokenLayer) {
+		this.tokenLayer = tokenLayer;
+	}
+
+	public void setSentenceLayer(String sentenceLayer) {
+		this.sentenceLayer = sentenceLayer;
+	}
+
+	public void setNamedEntityLayer(String namedEntityLayer) {
+		this.namedEntityLayer = namedEntityLayer;
+	}
+
+	
+	
+	
+	
+	@Deprecated
+	@Param(nameType = NameType.LAYER)
 	public String getTokenLayerName() {
-		return tokenLayerName;
+		return tokenLayer;
 	}
 	
 	public void setTokenLayerName(String tokenLayerName) {
-		this.tokenLayerName = tokenLayerName;
+		this.tokenLayer = tokenLayerName;
 	}
 
+	@Deprecated
 	@Param(nameType = NameType.LAYER)
 	public String getSentenceLayerName() {
-		return sentenceLayerName;
+		return sentenceLayer;
 	}
 
 	public void setSentenceLayerName(String sentenceLayerName) {
-		this.sentenceLayerName = sentenceLayerName;
+		this.sentenceLayer = sentenceLayerName;
 	}
 	
+	@Deprecated
 	@Param(nameType = NameType.LAYER)
 	public String getNamedEntityLayerName() {
-		return namedEntityLayerName;
+		return namedEntityLayer;
 	}
 
 	public void setNamedEntityLayerName(String namedEntityLayerName) {
-		this.namedEntityLayerName = namedEntityLayerName;
+		this.namedEntityLayer = namedEntityLayerName;
 	}
 	
 	@Param(nameType = NameType.FEATURE)

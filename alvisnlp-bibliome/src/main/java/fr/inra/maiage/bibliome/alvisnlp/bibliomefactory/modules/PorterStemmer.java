@@ -40,7 +40,7 @@ import fr.inra.maiage.bibliome.util.Iterators;
 
 @AlvisNLPModule(beta=true)
 public class PorterStemmer extends SectionModule<SectionResolvedObjects> {
-	private String layerName = DefaultNames.getWordLayer();
+	private String wordLayer = DefaultNames.getWordLayer();
 	private String formFeature = Annotation.FORM_FEATURE_NAME;
 	private String stemFeature = DefaultNames.getStemFeature();
 	private String language = "english";
@@ -51,10 +51,10 @@ public class PorterStemmer extends SectionModule<SectionResolvedObjects> {
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		SnowballProgram stemmer = getStemmer();
 		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-			if (!sec.hasLayer(layerName)) {
+			if (!sec.hasLayer(wordLayer)) {
 				continue;
 			}
-			for (Annotation a : sec.getLayer(layerName)) {
+			for (Annotation a : sec.getLayer(wordLayer)) {
 				String form = a.getLastFeature(formFeature);
 				stemmer.setCurrent(form.toLowerCase());
 				stemmer.stem();
@@ -78,7 +78,7 @@ public class PorterStemmer extends SectionModule<SectionResolvedObjects> {
 
 	@Override
 	protected String[] addLayersToSectionFilter() {
-		return new String[] { layerName };
+		return new String[] { wordLayer };
 	}
 
 	@Override
@@ -91,9 +91,10 @@ public class PorterStemmer extends SectionModule<SectionResolvedObjects> {
 		return new SectionResolvedObjects(ctx, this);
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.LAYER)
 	public String getLayerName() {
-		return layerName;
+		return wordLayer;
 	}
 
 	@Param(nameType=NameType.FEATURE)
@@ -111,8 +112,17 @@ public class PorterStemmer extends SectionModule<SectionResolvedObjects> {
 		return language;
 	}
 
+	@Param(nameType=NameType.LAYER)
+	public String getWordLayer() {
+		return wordLayer;
+	}
+
+	public void setWordLayer(String wordLayer) {
+		this.wordLayer = wordLayer;
+	}
+
 	public void setLayerName(String layerName) {
-		this.layerName = layerName;
+		this.wordLayer = layerName;
 	}
 
 	public void setFormFeature(String formFeature) {

@@ -47,11 +47,11 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
  * Uses YaTeA to extract terms from the corpus.
  */
 public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> extends SectionModule<S> implements Checkable {
-    private String wordLayerName = DefaultNames.getWordLayer();
+    private String wordLayer = DefaultNames.getWordLayer();
     private String formFeature = Annotation.FORM_FEATURE_NAME;
     private String posFeature = DefaultNames.getPosTagFeature();
     private String lemmaFeature = DefaultNames.getCanonicalFormFeature();
-    private String sentenceLayerName = DefaultNames.getSentenceLayer();
+    private String sentenceLayer = DefaultNames.getSentenceLayer();
     private ExecutableFile yateaExecutable;
     private SourceStream rcFile;
     private WorkingDirectory workingDir;
@@ -85,7 +85,7 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
     @Override
     public String[] addLayersToSectionFilter() {
         return new String[] {
-            wordLayerName
+            wordLayer
         };
     }
 
@@ -98,9 +98,10 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
      * 
      * @return the wordLayerName
      */
+    @Deprecated
     @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing the word annotations.")
     public String getWordLayerName() {
-        return wordLayerName;
+        return wordLayer;
     }
 
     /**
@@ -138,9 +139,10 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
      * 
      * @return the sentenceLayerName
      */
+    @Deprecated
     @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing sentence annotations, sentences are reinforced.")
     public String getSentenceLayerName() {
-        return sentenceLayerName;
+        return sentenceLayer;
     }
 
     /**
@@ -254,6 +256,24 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
 		return termListFile;
 	}
 
+    @Param(nameType=NameType.LAYER)
+	public String getWordLayer() {
+		return wordLayer;
+	}
+
+    @Param(nameType=NameType.LAYER)
+	public String getSentenceLayer() {
+		return sentenceLayer;
+	}
+
+	public void setWordLayer(String wordLayer) {
+		this.wordLayer = wordLayer;
+	}
+
+	public void setSentenceLayer(String sentenceLayer) {
+		this.sentenceLayer = sentenceLayer;
+	}
+
 	public void setTermListFile(OutputFile termListFile) {
 		this.termListFile = termListFile;
 	}
@@ -317,7 +337,7 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
      *            the wordLayerName to set
      */
     public void setWordLayerName(String wordLayerName) {
-        this.wordLayerName = wordLayerName;
+        this.wordLayer = wordLayerName;
     }
 
     /**
@@ -357,7 +377,7 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
      *            the sentenceLayerName to set
      */
     public void setSentenceLayerName(String sentenceLayerName) {
-        this.sentenceLayerName = sentenceLayerName;
+        this.sentenceLayer = sentenceLayerName;
     }
 
     /**

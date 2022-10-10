@@ -13,6 +13,10 @@
 			<p>Name of the layer containing token annotations.</p>
 		</param-doc>
 
+		<param-doc default-value="words" mandatory="default: words" name="tokenLayerName" name-type="layer" short-type="String" type="java.lang.String">
+			<p>Deprecated alias for <param>tokenLayer</param>.</p>
+		</param-doc>
+
 		<param-doc mandatory="required" name="contesDir" short-type="InputDirectory" type="fr.inra.maiage.bibliome.util.files.InputDirectory">
 			<p>Root directory of CONTES.</p>
 		</param-doc>

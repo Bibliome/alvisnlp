@@ -25,17 +25,19 @@ limitations under the License.
       <p><this/> reads documents in <a href="">I2B2 challenge</a> including the text of documents, tokenization as annotations, concepts as annotations, assertions as annotation features and relations as tuples.</p>
     </description>
   
-    <param-doc name="conceptsLayerName">
+    <param-doc name="conceptsLayer">
       <p>Name of the layer where to store concepts annotations.</p>
     </param-doc>
+<param-doc name="conceptsLayerName"><p>Deprecated alias for <param>conceptsLayer</param>.</p></param-doc>
   
     <param-doc name="tokenNumberFeature">
       <p>Feature where to store the token index.</p>
     </param-doc>
   
-    <param-doc name="linesLayerName">
+    <param-doc name="linesLayer">
       <p>Name of the layer where to store lines.</p>
     </param-doc>
+<param-doc name="linesLayerName"><p>Deprecated alias for <param>linesLayer</param>.</p></param-doc>
   
     <param-doc name="textDir">
       <p>Path to the directory containing I2B2 text files.</p>
@@ -45,9 +47,10 @@ limitations under the License.
       <p>Name of the left argument of relations.</p>
     </param-doc>
   
-    <param-doc name="tokensLayerName">
+    <param-doc name="tokensLayer">
       <p>Name of the layer where to store tokens.</p>
     </param-doc>
+<param-doc name="tokensLayerName"><p>Deprecated alias for <param>tokensLayer</param>.</p></param-doc>
   
     <param-doc name="conceptsDir">
       <p>Path to the directory that contains concept annotations.</p>

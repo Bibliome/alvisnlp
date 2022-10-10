@@ -69,7 +69,7 @@ class Word2VecExternalHandler extends AbstractContesExternalHandler<SectionResol
 	
 	private void collectTokenVectors() throws IOException {
 		Word2Vec owner = getModule();
-		if (owner.getVectorFeatureName() == null) {
+		if (owner.getVectorFeature() == null) {
 			return;
 		}
 		EvaluationContext ctx = new EvaluationContext(getLogger());
@@ -80,7 +80,7 @@ class Word2VecExternalHandler extends AbstractContesExternalHandler<SectionResol
 					String form = StringLibrary.normalizeSpace(tok.getLastFeature(owner.getFormFeature()));
 					if (wordVectors.containsKey(form)) {
 						String vector = wordVectors.get(form);
-						tok.addFeature(owner.getVectorFeatureName(), vector);
+						tok.addFeature(owner.getVectorFeature(), vector);
 					}
 					else {
 						getLogger().warning("could not find vector for " + form);
@@ -140,7 +140,7 @@ class Word2VecExternalHandler extends AbstractContesExternalHandler<SectionResol
 		Word2Vec owner = getModule();
 		OutputFile txtFile = owner.getTxtFile();
 		if (txtFile == null) {
-			if (owner.getVectorFeatureName() == null) {
+			if (owner.getVectorFeature() == null) {
 				return null;
 			}
 			return getTempFile("output.txt");

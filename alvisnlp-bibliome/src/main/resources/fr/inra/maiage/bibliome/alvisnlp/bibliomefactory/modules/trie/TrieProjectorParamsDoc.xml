@@ -39,9 +39,10 @@ limitations under the License.
       <p>If set to <em>true</em>, then allow arbitrary suppression of whitespace characters in the subject. For instance, the contents <em>aminoacid</em> matches the key <em>amino acid</em>.</p>
     </param-doc>
   
-    <param-doc name="targetLayerName">
+    <param-doc name="targetLayer">
       <p>Name of the layer that contains the match annotations.</p>
     </param-doc>
+<param-doc name="targetLayerName"><p>Deprecated alias for <param>targetLayer</param>.</p></param-doc>
   
     <param-doc name="trieSource">
       <p>If set, read the compiled dictionary from the specified file. Compiled dictionaries are usually faster for large dictionaries.</p>

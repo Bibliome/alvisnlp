@@ -17,12 +17,20 @@
 			<p>Name of the layer containing sentence annotations.</p>
 		</param-doc>
 
+		<param-doc default-value="sentences" mandatory="default: sentences" name="sentenceLayerName" name-type="layer" short-type="String" type="java.lang.String">
+			<p>Deprecated alias for <param>sentenceLayer</param>.</p>
+		</param-doc>
+
 		<param-doc mandatory="optional" name="txtFile" short-type="OutputFile" type="fr.inra.maiage.bibliome.util.files.OutputFile">
 			<p>File where to write embeddings as a table.</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="vectorFeature" name-type="layer" short-type="String" type="java.lang.String">
+		<param-doc mandatory="optional" name="vectorFeature" short-type="String" type="java.lang.String">
 			<p>Name of the feature where to store embeddings of each token. If this parameter is not set, then embeddings are not stored in any feature.</p>
+		</param-doc>
+
+		<param-doc mandatory="optional" name="vectorFeatureName" short-type="String" type="java.lang.String">
+			<p>Deprecated alias for <param>vectorFeature</param>.</p>
 		</param-doc>
 
 		<param-doc default-value="200" mandatory="default: 200" name="vectorSize" short-type="Integer" type="java.lang.Integer">

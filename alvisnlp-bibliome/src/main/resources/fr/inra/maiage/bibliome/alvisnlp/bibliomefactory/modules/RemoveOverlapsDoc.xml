@@ -21,7 +21,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> removes overlapping annotations in the layer <param>layerName</param>.</p>
+      <p><this/> removes overlapping annotations in the layer <param>layer</param>.</p>
 	  <p>
 	  	<this/> scans each specified layer and finds clusters of overlapping annotations.
 	  	<this/> distinguishes three overlapping situations:
@@ -41,8 +41,12 @@ limitations under the License.
 	  <p>By default <this/> removes all kinds of annotations, keeping the longest one.</p>
     </description>
   
-    <param-doc name="layerName">
+    <param-doc name="layer">
       <p>Name of the layer to clear.</p>
+    </param-doc>
+  
+    <param-doc name="layerName">
+      <p>Deprecated alias for <param>layer</param>.</p>
     </param-doc>
       
     <param-doc name="annotationComparator">

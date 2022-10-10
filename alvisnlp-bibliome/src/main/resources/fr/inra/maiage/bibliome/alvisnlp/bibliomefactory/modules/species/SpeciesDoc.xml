@@ -32,9 +32,10 @@ limitations under the License.
       <p>Feature where to store the identifier of the tagged taxon.</p>
     </param-doc>
   
-    <param-doc name="targetLayerName">
+    <param-doc name="targetLayer">
       <p>Layer where to store the tagged taxon names.</p>
     </param-doc>
+<param-doc name="targetLayerName"><p>Deprecated alias for <param>targetLayer</param>.</p></param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreatorParamsDoc</include-doc>

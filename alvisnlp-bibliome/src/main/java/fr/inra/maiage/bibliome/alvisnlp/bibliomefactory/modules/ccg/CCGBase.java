@@ -43,8 +43,8 @@ import fr.inra.maiage.bibliome.util.Iterators;
 
 public abstract class CCGBase<T extends CCGResolvedObjects> extends SectionModule<T> {
 	private String internalEncoding = "UTF-8";
-	private String sentenceLayerName = DefaultNames.getSentenceLayer();
-	private String wordLayerName = DefaultNames.getWordLayer();
+	private String sentenceLayer = DefaultNames.getSentenceLayer();
+	private String wordLayer = DefaultNames.getWordLayer();
 	private String formFeature = Annotation.FORM_FEATURE_NAME;
 	private String posFeature = DefaultNames.getPosTagFeature();
 	private Expression sentenceFilter = DefaultExpressions.TRUE;
@@ -69,8 +69,8 @@ public abstract class CCGBase<T extends CCGResolvedObjects> extends SectionModul
 		CCGResolvedObjects resObj = getResolvedObjects();
 		List<Layer> sentences = new ArrayList<Layer>();
 		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-			Layer words = sec.getLayer(wordLayerName);
-			for (Annotation sent : sec.getLayer(sentenceLayerName)) {
+			Layer words = sec.getLayer(wordLayer);
+			for (Annotation sent : sec.getLayer(sentenceLayer)) {
 				if (resObj.sentenceFilter.evaluateBoolean(evalCtx, sent)) {
 					Layer sentLayer = words.between(sent);
 					sentLayer.setSentenceAnnotation(sent);
@@ -97,7 +97,7 @@ public abstract class CCGBase<T extends CCGResolvedObjects> extends SectionModul
 	
 	@Override
 	protected String[] addLayersToSectionFilter() {
-		return new String[] { sentenceLayerName , wordLayerName };
+		return new String[] { sentenceLayer , wordLayer };
 	}
 
 	@Override
@@ -105,14 +105,16 @@ public abstract class CCGBase<T extends CCGResolvedObjects> extends SectionModul
 		return null;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.LAYER)
 	public String getSentenceLayerName() {
-		return sentenceLayerName;
+		return sentenceLayer;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.LAYER)
 	public String getWordLayerName() {
-		return wordLayerName;
+		return wordLayer;
 	}
 
 	@Deprecated
@@ -152,6 +154,24 @@ public abstract class CCGBase<T extends CCGResolvedObjects> extends SectionModul
 		return posFeature;
 	}
 
+	@Param(nameType=NameType.LAYER)
+	public String getSentenceLayer() {
+		return sentenceLayer;
+	}
+
+	@Param(nameType=NameType.LAYER)
+	public String getWordLayer() {
+		return wordLayer;
+	}
+
+	public void setSentenceLayer(String sentenceLayer) {
+		this.sentenceLayer = sentenceLayer;
+	}
+
+	public void setWordLayer(String wordLayer) {
+		this.wordLayer = wordLayer;
+	}
+
 	public void setFormFeature(String formFeature) {
 		this.formFeature = formFeature;
 	}
@@ -173,11 +193,11 @@ public abstract class CCGBase<T extends CCGResolvedObjects> extends SectionModul
 	}
 
 	public void setSentenceLayerName(String sentenceLayerName) {
-		this.sentenceLayerName = sentenceLayerName;
+		this.sentenceLayer = sentenceLayerName;
 	}
 
 	public void setWordLayerName(String wordLayerName) {
-		this.wordLayerName = wordLayerName;
+		this.wordLayer = wordLayerName;
 	}
 
 	public void setFormFeatureName(String formFeatureName) {
