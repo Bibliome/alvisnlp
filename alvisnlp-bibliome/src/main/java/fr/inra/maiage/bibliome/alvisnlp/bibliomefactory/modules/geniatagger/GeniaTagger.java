@@ -138,12 +138,12 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 		return lemmaFeature;
 	}
 
-	@Param(nameType=NameType.FEATURE)
+	@Param(mandatory = false, nameType=NameType.FEATURE)
 	public String getChunkFeature() {
 		return chunkFeature;
 	}
 
-	@Param(nameType=NameType.FEATURE)
+	@Param(mandatory = false, nameType=NameType.FEATURE)
 	public String getEntityFeature() {
 		return entityFeature;
 	}
