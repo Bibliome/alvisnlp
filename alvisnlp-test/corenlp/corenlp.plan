@@ -2,7 +2,13 @@
 <alvisnlp-plan id="corenlp-test">
   <read file="BioNLP-ST-2016_BB-event/read.plan"/>
 
-  <corenlp class="StanfordCoreNLP"/>
+  <seg href="res://segmentation.plan"/>
+  
+  <corenlp class="StanfordCoreNLP">
+    <pretokenized/>
+    <ner/>
+    <parse/>
+  </corenlp>
 
   <browser/>
 </alvisnlp-plan>
