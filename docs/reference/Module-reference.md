@@ -163,6 +163,7 @@ Named entity recognition modules.
 | {% include module class="Species" %}     | Taxon |
 | {% include module class="StanfordNER" %} | Person, Location, Organization |
 | {% include module class="Stanza" %} | Person, Location, Organization, Number, Currency |
+| {% include module class="StanfordCoreNLP" %} | 24 types | 
 
 
 ## Segmentation
@@ -172,6 +173,7 @@ Named entity recognition modules.
 | {% include module class="SeSMig" %}           | Sentences |
 | {% include module class="WoSMig" %}           | Words |
 | {% include module class="Stanza" %}           | Tokens, sentences |
+| {% include module class="StanfordCoreNLP" %}           | Tokens, sentences |
 
 ### Word and sentence splitting
 
@@ -199,6 +201,7 @@ If you want to force entities as tokens, this plan assumes they are annotations 
 | {% include module class="LinguaLID" %}     | Language identification |
 | {% include module class="PorterStemmer" %}   | Stemming |
 | {% include module class="Stanza" %}   | Tokenization, POS-tagging, lemmatization, dependency parsing |
+| {% include module class="StanfordCoreNLP" %}   | Tokenization, POS-tagging, lemmatization, dependency parsing |
 | {% include module class="TreeTagger" %}      | POS-tagging, lemmatiation |
 | {% include module class="YateaExtractor" %} | Term extraction |
 
