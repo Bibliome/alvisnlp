@@ -48,7 +48,7 @@ public abstract class StanfordCoreNLP extends SectionModule<SectionResolvedObjec
 	private String namedEntityLayer = DefaultNames.getNamedEntityLayer();
 	private String namedEntityTypeFeature = DefaultNames.getNamedEntityTypeFeature();
 	private String dependencyRelation= DefaultNames.getDependencyRelationName();
-	private String sentenceRole = DefaultNames.getDependencySentenceRole();
+	private String dependencySentenceRole = DefaultNames.getDependencySentenceRole();
 	private String headRole = DefaultNames.getDependencyHeadRole();
 	private String dependentRole = DefaultNames.getDependencyDependentRole();
 	private String dependencyLabelFeature = DefaultNames.getDependencyLabelFeatureName();
@@ -246,7 +246,7 @@ public abstract class StanfordCoreNLP extends SectionModule<SectionResolvedObjec
 		}
 		for (SemanticGraphEdge edge : graph.edgeIterable()) {
 			Tuple t = new Tuple(this, rel);
-			t.setArgument(sentenceRole, aSent);
+			t.setArgument(dependencySentenceRole, aSent);
 			t.setArgument(headRole, tokenMap.get(edge.getGovernor().backingLabel()));
 			t.setArgument(dependentRole, tokenMap.get(edge.getDependent().backingLabel()));
 			t.addFeature(dependencyLabelFeature, edge.getRelation().getShortName());
@@ -289,8 +289,8 @@ public abstract class StanfordCoreNLP extends SectionModule<SectionResolvedObjec
 	}
 
 	@Param(nameType = NameType.ARGUMENT)
-	public String getSentenceRole() {
-		return sentenceRole;
+	public String getDependencySentenceRole() {
+		return dependencySentenceRole;
 	}
 
 	@Param(nameType = NameType.ARGUMENT)
@@ -356,8 +356,8 @@ public abstract class StanfordCoreNLP extends SectionModule<SectionResolvedObjec
 		this.dependencyRelation = dependencyRelation;
 	}
 
-	public void setSentenceRole(String sentenceRole) {
-		this.sentenceRole = sentenceRole;
+	public void setDependencySentenceRole(String sentenceRole) {
+		this.dependencySentenceRole = sentenceRole;
 	}
 
 	public void setHeadRole(String headRole) {
