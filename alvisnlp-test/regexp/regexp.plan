@@ -1,0 +1,12 @@
+<alvisnlp-plan id="regexp">
+  <read file="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
+
+  <re class="MultiRegExp">
+    <patternsFile>re.tsv</patternsFile>
+    <targetLayer>re</targetLayer>
+    <valueFeatures>,type</valueFeatures>
+    <baseFormat>tab</baseFormat>
+  </re>
+
+  <browser/>
+</alvisnlp-plan>

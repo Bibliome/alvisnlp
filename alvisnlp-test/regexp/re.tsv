@@ -1,0 +1,2 @@
+[A-Z][a-z]+ [a-z]+	species
+[A-Z]+[ -]?\d+	strain
