@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-doc author="" beta="true" date="" short-target="MultiRegExp" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.MultiRegExp">
+  <synopsis>
+    <p>Search for several regular expressions in sections contents.</p>
+  </synopsis>
+
+  <module-doc>
+    <description>
+      <p><this/> attempts to match regular expression patterns read from <param>patternsFile</param> on section contents. The patterns file is a CSV file where one column contains patterns. The patterns must follow the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html">Java Pattern syntax</a>.</p>
+      <p><this/> creates an annotation in <param>targetLayer</param> for each match. Additionally <this/> adds to the annotation a feature for each column corresponding to the matched pattern.</p>
+      <p>The matches for each individual pattern will not overlap, however matches of different patterns may overlap.</p>
+    </description>
+
+    <param-doc name="caseInsensitive">
+      <p>Either the match is insensitive to case.</p>
+    </param-doc>
+
+    <param-doc name="keyColumn">
+      <p>Column index that contains patterns. First column is <code>0</code>.</p>
+    </param-doc>
+
+    <param-doc name="matchWordBoundaries">
+      <p>Only create annotations for matches that fit exactly between word boundaries.</p>
+    </param-doc>
+
+    <param-doc name="patternsFile">
+      <p>CSV file containing patterns.</p>
+    </param-doc>
+
+    <param-doc name="targetLayer">
+      <p>Layer where to place annotations.</p>
+    </param-doc>
+
+    <param-doc name="valueFeatures">
+      <p>Name of the features created for each annotation, corresponding to the columns of <param>patternsFile</param> including the patterns column.</p>
+    </param-doc>
+
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreatorParamsDoc</include-doc>
+    <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.csv.CSVReaderModuleParamsDoc</include-doc>
+  </module-doc>
+</alvisnlp-doc>

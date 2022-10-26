@@ -121,6 +121,7 @@ Pattern-matching modules matches user-defined patterns on section contents of an
 | {% include module class="CartesianProductTuples" %} | Expressions          | Tuples |
 | {% include module class="PatternMatcher" %}         | Hearst-like patterns | Annotations and tuples |
 | {% include module class="RegExp" %}                 | Regular expressions  | Annotations
+| {% include module class="MultiRegExp" %}                 | Regular expressions  | Annotations
 
 ## Mappers
 

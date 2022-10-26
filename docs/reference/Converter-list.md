@@ -25,6 +25,10 @@
 </h2>
 
 <h2 class="no-toc">
+<a href="{{ '/reference/converter/org.apache.commons.csv.CSVFormat' | relative_url }}" class="converter">CSVFormat</a>
+</h2>
+
+<h2 class="no-toc">
 <a href="{{ '/reference/converter/java.lang.Character' | relative_url }}" class="converter">Character</a>
 </h2>
 

@@ -53,6 +53,10 @@
 </h2>
 
 <h2 class="no-toc">
+<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.MultiRegExp' | relative_url }}" class="module">MultiRegExp</a>
+</h2>
+
+<h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.NGrams' | relative_url }}" class="module">NGrams</a>
 </h2>
 
@@ -278,10 +282,6 @@
 
 <h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rebert.REBERTTrain' | relative_url }}" class="module">REBERTTrain</a>
-</h2>
-
-<h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.script.Script' | relative_url }}" class="module">Script</a>
 </h2>
 
 <h2 class="no-toc">

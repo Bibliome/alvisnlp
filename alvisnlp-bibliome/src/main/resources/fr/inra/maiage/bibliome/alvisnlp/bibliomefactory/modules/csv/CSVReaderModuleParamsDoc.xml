@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+Copyright 2016, 2017 Institut National de la Recherche Agronomique
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<alvisnlp-doc author="Robert Bossy" date="2018-09-20">
+  <param-doc name="baseFormat">
+    <p>Base format of CSV file. Must be either: deault, excel, mysql, rfc4180, oracle, postgresql_csv, postgresql_text, tdf, tab.</p>
+  </param-doc>
+  
+  <param-doc name="delimiter">
+    <p>Column delimiter of CSV file.</p>
+  </param-doc>
+
+  <param-doc name="escape">
+    <p>Character used to escape characters in column values.</p>
+  </param-doc>
+
+  <param-doc name="headerLine">
+    <p>Either to skip the first row.</p>
+  </param-doc>
+
+  <param-doc name="quote">
+    <p>Character used to quote the column values.</p>
+  </param-doc>
+
+  <param-doc name="trimValues">
+    <p>Either to trim leading and trailing whitespaces from column values.</p>
+  </param-doc>
+</alvisnlp-doc>
