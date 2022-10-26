@@ -54,7 +54,7 @@ public class CSVFormatParamConverter extends SimpleParamConverter<CSVFormat> {
 				return builder.build();
 			}
 		}
-		cannotConvertString(stringValue, "must be one of: deault, excel, mysql, rfc4180, oracle, postgresql_csv, postgresql_text, tdf, taxa+id");
+		cannotConvertString(stringValue, "must be one of: deault, excel, mysql, rfc4180, oracle, postgresql_csv, postgresql_text, tdf, tab");
 		return null;
 	}
 }

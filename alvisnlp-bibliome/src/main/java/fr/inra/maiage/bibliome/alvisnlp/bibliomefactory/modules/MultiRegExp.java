@@ -36,7 +36,6 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 public abstract class MultiRegExp extends SectionModule<SectionResolvedObjects> implements AnnotationCreator, CSVReaderModule {
 	private Integer keyColumn = 0;
 	private String[] valueFeatures;
-	private Character separator = '\t';
 	private SourceStream patternsFile;
 	private String targetLayer;
 	private Boolean caseInsensitive = false;
@@ -134,11 +133,6 @@ public abstract class MultiRegExp extends SectionModule<SectionResolvedObjects> 
 	}
 
 	@Param
-	public Character getSeparator() {
-		return separator;
-	}
-
-	@Param
 	public SourceStream getPatternsFile() {
 		return patternsFile;
 	}
@@ -172,10 +166,6 @@ public abstract class MultiRegExp extends SectionModule<SectionResolvedObjects> 
 
 	public void setValueFeatures(String[] valueFeatures) {
 		this.valueFeatures = valueFeatures;
-	}
-
-	public void setSeparator(Character separator) {
-		this.separator = separator;
 	}
 
 	public void setPatternsFile(SourceStream patternsFile) {
