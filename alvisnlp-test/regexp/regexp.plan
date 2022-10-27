@@ -8,5 +8,16 @@
     <baseFormat>tab</baseFormat>
   </re>
 
-  <browser/>
+  <export class="TabularExport">
+    <outDir>.</outDir>
+    <corpusFile>re-output.txt</corpusFile>
+    <lines>documents.sections.layer:re</lines>
+    <columns separator=";">
+      section.document.@id;
+      @form;
+      @pattern;
+      start ^ "-" ^ end
+    </columns>
+    <headers>"DOC","FORM","PATTERN","OFFSET"</headers>
+  </export>
 </alvisnlp-plan>

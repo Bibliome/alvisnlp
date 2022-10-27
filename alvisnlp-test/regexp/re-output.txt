@@ -1,0 +1,2206 @@
+DOC	FORM	PATTERN	OFFSET
+BB-cat+ner-1016123	An evaluation		0-13
+BB-cat+ner-1016123	Salmonellae detection		103-124
+BB-cat+ner-1016123	Of the		142-148
+BB-cat+ner-1016123	Salmonella sp		167-180
+BB-cat+ner-1016123	The results		320-331
+BB-cat+ner-10492485	Application of		0-14
+BB-cat+ner-10492485	O3		101-103
+BB-cat+ner-10492485	High reactivity		196-211
+BB-cat+ner-10492485	O2		287-289
+BB-cat+ner-10492485	Ozone has		382-391
+BB-cat+ner-10492485	Relatively low		676-690
+BB-cat+ner-10492485	Susceptibility of		949-966
+BB-cat+ner-10492485	Ozone applications		1155-1173
+BB-cat+ner-10492485	Ozone has		1273-1282
+BB-cat+ner-10492485	The gas		1414-1421
+BB-cat+ner-10492485	Excessive use		1541-1554
+BB-cat+ner-10492485	This usually		1631-1643
+BB-cat+ner-10492485	Additional research		1703-1722
+BB-cat+ner-10658649	Identification of		0-17
+BB-cat+ner-10658649	Streptococcus pyogenes		59-81
+BB-cat+ner-10658649	The interaction		109-124
+BB-cat+ner-10658649	Streptococcus pyogenes		133-155
+BB-cat+ner-10658649	Characterization of		212-231
+BB-cat+ner-10658649	The presence		366-378
+BB-cat+ner-10658649	An activity		460-471
+BB-cat+ner-10658649	The glycoprotein		754-770
+BB-cat+ner-10658649	The activity		953-965
+BB-cat+ner-10738994	Genotyping by		0-13
+BB-cat+ner-10738994	Staphylococcus aureus		120-141
+BB-cat+ner-10738994	To assist		189-198
+BB-cat+ner-10738994	Staphylococcus aureus		245-266
+BB-cat+ner-10738994	Prospective screening		546-567
+BB-cat+ner-10738994	Nares and		633-642
+BB-cat+ner-10738994	Antibiograms were		787-804
+BB-cat+ner-10738994	It was		878-884
+BB-cat+ner-10738994	Our study		1160-1169
+BB-cat+ner-10738994	The discriminatory		1462-1480
+BB-cat+ner-11162736	Proteolysisis a		87-102
+BB-cat+ner-11162736	We developed		182-194
+BB-cat+ner-11162736	When we		318-325
+BB-cat+ner-11162736	Salmonella typhimurium		369-391
+BB-cat+ner-11162736	Escherichia coli		415-431
+BB-cat+ner-11162736	After cell		728-738
+BB-cat+ner-11162736	Proteases were		894-908
+BB-cat+ner-11162736	This gave		1027-1036
+BB-cat+ner-11162736	The key		1103-1110
+BB-cat+ner-11162736	This fast		1250-1259
+BB-cat+ner-11410343	Effects of		0-10
+BB-cat+ner-11410343	Ralstonia eutropha		75-93
+BB-cat+ner-11410343	H850		94-98
+BB-cat+ner-11410343	The effects		100-111
+BB-cat+ner-11410343	Ralstonia eutropha		214-232
+BB-cat+ner-11410343	H850		233-237
+BB-cat+ner-11410343	H850		461-465
+BB-cat+ner-11410343	In contrast		535-546
+BB-cat+ner-11410343	An increase		697-708
+BB-cat+ner-11410343	When biphenyl		870-883
+BB-cat+ner-11410343	The re		1103-1109
+BB-cat+ner-11410343	These results		1200-1213
+BB-cat+ner-11437594	Optimization of		0-15
+BB-cat+ner-11437594	Chondrus crispus		34-50
+BB-cat+ner-11437594	Pichia pastoris		69-84
+BB-cat+ner-11437594	Hexose oxidase		86-100
+BB-cat+ner-11437594	EC 1		132-136
+BB-cat+ner-11437594	Chondrus crispus		180-196
+BB-cat+ner-11437594	Escherichia coli		296-312
+BB-cat+ner-11437594	In contrast		353-364
+BB-cat+ner-11437594	Pichia pastoris		423-438
+BB-cat+ner-11437594	Several growth		440-454
+BB-cat+ner-11437594	Our results		572-583
+BB-cat+ner-11437594	Attempts to		857-868
+BB-cat+ner-11437594	Saccharomyces cerevisiae		958-982
+BB-cat+ner-12728302	Anabaena sp		98-109
+BB-cat+ner-12728302	L-31		118-122
+BB-cat+ner-12728302	Compared to		124-135
+BB-cat+ner-12728302	Escherichia coli		136-152
+BB-cat+ner-12728302	Anabaena sp		194-205
+BB-cat+ner-12728302	L-31		214-218
+BB-cat+ner-12728302	Temperature upshift		333-352
+BB-cat+ner-12728302	Anabaena sp		457-468
+BB-cat+ner-12728302	L-31		477-481
+BB-cat+ner-12728302	In contrast		645-656
+BB-cat+ner-12728302	Nitrogenase activity		767-787
+BB-cat+ner-12728302	Anabaena cells		791-805
+BB-cat+ner-12728302	L-31		820-824
+BB-cat+ner-12728302	Exposure of		949-960
+BB-cat+ner-12728302	Marked differences		1069-1087
+BB-cat+ner-12781527	Two recent		167-177
+BB-cat+ner-12781527	Campylobacter jejuni		312-332
+BB-cat+ner-12781527	In addition		334-345
+BB-cat+ner-12781527	Campylobacter coli		456-474
+BB-cat+ner-12781527	Both pathways		476-489
+BB-cat+ner-12781527	In bacteria		579-590
+BB-cat+ner-12781527	Campylobacter provides		815-837
+BB-cat+ner-12970344	The three		0-9
+BB-cat+ner-12970344	Agars are		55-64
+BB-cat+ner-12970344	To cleave		135-144
+BB-cat+ner-12970344	Zobellia galactanivorans		377-401
+BB-cat+ner-12970344	Dsij have		402-411
+BB-cat+ner-12970344	Here we		455-462
+BB-cat+ner-12970344	The two		526-533
+BB-cat+ner-12970344	Escherichia coli		564-580
+BB-cat+ner-12970344	The structure		701-714
+BB-cat+ner-12970344	Their structures		882-898
+BB-cat+ner-12970344	The structures		1131-1145
+BB-cat+ner-12970344	The relationship		1388-1404
+BB-cat+ner-12970344	Dsij was		1495-1503
+BB-cat+ner-12970344	The combination		1594-1609
+BB-cat+ner-14645268	Xanthomonas campestris		57-79
+BB-cat+ner-14645268	Pathogenicity of		97-113
+BB-cat+ner-14645268	Xanthomonas campestris		147-169
+BB-cat+ner-14645268	Previous transcriptome		299-321
+BB-cat+ner-14645268	In this		434-441
+BB-cat+ner-14645268	Both genes		501-511
+BB-cat+ner-14645268	Xanthomonas outer		519-536
+BB-cat+ner-14645268	In addition		603-614
+BB-cat+ner-14645268	By contrast		854-865
+BB-cat+ner-14645268	Sequence analysis		937-954
+BB-cat+ner-14645268	Xanthomonas avr		1170-1185
+BB-cat+ner-14645268	Besides xop		1206-1217
+BB-cat+ner-14645268	Pseudomonas syringae		1385-1405
+BB-cat+ner-14645268	Sec signal		1578-1588
+BB-cat+ner-15358511	Attachment of		0-13
+BB-cat+ner-15358511	Escherichia coli		14-30
+BB-cat+ner-15358511	O157		31-35
+BB-cat+ner-15358511	H7		36-38
+BB-cat+ner-15358511	This study		190-200
+BB-cat+ner-15358511	Escherichia coli		301-317
+BB-cat+ner-15358511	O157		318-322
+BB-cat+ner-15358511	H7		323-325
+BB-cat+ner-15358511	In addition		367-378
+BB-cat+ner-15358511	Cells grown		486-497
+BB-cat+ner-15358511	O157		634-638
+BB-cat+ner-15358511	H7		639-641
+BB-cat+ner-15358511	Cells grown		643-654
+BB-cat+ner-15358511	No difference		708-721
+BB-cat+ner-15358511	Electrostatic and		796-813
+BB-cat+ner-15358511	O157		930-934
+BB-cat+ner-15358511	H7		935-937
+BB-cat+ner-15358511	Of the		957-963
+BB-cat+ner-16263187	Ability of		0-10
+BB-cat+ner-16263187	Lactobacillus gasseri		11-32
+BB-cat+ner-16263187	K 7		33-36
+BB-cat+ner-16263187	Escherichia coli		48-64
+BB-cat+ner-16263187	The ability		136-147
+BB-cat+ner-16263187	K 7		179-182
+BB-cat+ner-16263187	Escherichia coli		206-222
+BB-cat+ner-16263187	O8		223-225
+BB-cat+ner-16263187	K88		226-229
+BB-cat+ner-16263187	Lactobacilli were		334-351
+BB-cat+ner-16263187	The concentration		472-489
+BB-cat+ner-16263187	The number		659-669
+BB-cat+ner-16263187	In the		792-798
+BB-cat+ner-16263187	K 7		871-874
+BB-cat+ner-16263187	The binding		910-921
+BB-cat+ner-16263187	When adhesion		1148-1161
+BB-cat+ner-16263187	K 7		1317-1320
+BB-cat+ner-16263187	The adhesion		1406-1418
+BB-cat+ner-16263187	K 7		1446-1449
+BB-cat+ner-16263187	No significant		1627-1641
+BB-cat+ner-16263187	In conclusion		1740-1753
+BB-cat+ner-16263187	K 7		1767-1770
+BB-cat+ner-16432479	Challenges in		0-13
+BB-cat+ner-16432479	America and		48-59
+BB-cat+ner-16432479	The objective		134-147
+BB-cat+ner-16432479	Neisseria gonorrhoeae		215-236
+BB-cat+ner-16432479	American and		259-271
+BB-cat+ner-16432479	Caribbean countries		275-294
+BB-cat+ner-16432479	Americas and		441-453
+BB-cat+ner-16432479	Caribbean during		458-474
+BB-cat+ner-16432479	Standardized methods		486-506
+BB-cat+ner-16432479	Two countries		686-699
+BB-cat+ner-16432479	Argentina and		701-714
+BB-cat+ner-16432479	Some countries		784-798
+BB-cat+ner-16432479	The percentage		930-944
+BB-cat+ner-16432479	For tetracycline		1202-1218
+BB-cat+ner-16432479	There were		1326-1336
+BB-cat+ner-16436701	Antibacterial properties		0-24
+BB-cat+ner-16436701	S4		40-42
+BB-cat+ner-16436701	Antibacterial properties		92-116
+BB-cat+ner-16436701	S4		157-159
+BB-cat+ner-16436701	Escherichia coli		224-240
+BB-cat+ner-16436701	O157		241-245
+BB-cat+ner-16436701	H7		246-248
+BB-cat+ner-16436701	K4		322-324
+BB-cat+ner-16436701	K20		324-327
+BB-cat+ner-16436701	S4		327-329
+BB-cat+ner-16436701	P28		331-334
+BB-cat+ner-16436701	Potent bactericidal		432-451
+BB-cat+ner-16436701	P14		603-606
+BB-cat+ner-16436701	P28		761-764
+BB-cat+ner-16436701	The potency		766-777
+BB-cat+ner-16436701	P14		843-846
+BB-cat+ner-16436701	The resulting		848-861
+BB-cat+ner-16436701	The mechanistic		1018-1033
+BB-cat+ner-16990433	An extensive		0-12
+BB-cat+ner-16990433	Escherichia coli		59-75
+BB-cat+ner-16990433	O157		76-80
+BB-cat+ner-16990433	Several pathogenic		137-155
+BB-cat+ner-16990433	Escherichia coli		167-183
+BB-cat+ner-16990433	We have		332-339
+BB-cat+ner-16990433	Sakai strain		442-454
+BB-cat+ner-16990433	O157		491-495
+BB-cat+ner-16990433	H7		496-498
+BB-cat+ner-16990433	Homology searches		539-556
+BB-cat+ner-16990433	Thirteen of		615-626
+BB-cat+ner-16990433	In total		724-732
+BB-cat+ner-16990433	At the		849-855
+BB-cat+ner-16990433	The largest		923-934
+BB-cat+ner-16990433	Sakai strain		987-999
+BB-cat+ner-16990433	Genes encoding		1190-1204
+BB-cat+ner-17237163	Serratia marcescens		41-60
+BB-cat+ner-17237163	MG1		61-64
+BB-cat+ner-17237163	Serratia marcescens		87-106
+BB-cat+ner-17237163	In previous		176-187
+BB-cat+ner-17237163	MG1		213-216
+BB-cat+ner-17237163	Because of		343-353
+BB-cat+ner-17237163	Our results		680-691
+BB-cat+ner-17237163	While we		988-996
+BB-cat+ner-17237163	We also		1488-1495
+BB-cat+ner-17237163	We concluded		1641-1653
+BB-cat+ner-17237163	MG1		1673-1676
+BB-cat+ner-17687514	Unveiling molecular		0-19
+BB-cat+ner-17687514	Streptococcus pneumoniae		62-86
+BB-cat+ner-17687514	Bacteria present		131-147
+BB-cat+ner-17687514	These molecules		219-234
+BB-cat+ner-17687514	These molecules		342-357
+BB-cat+ner-17687514	This review		488-499
+BB-cat+ner-17687514	Streptococcus pneumoniae		535-559
+BB-cat+ner-17687514	Selected surface		603-619
+BB-cat+ner-17687514	Such mechanisms		760-775
+BB-cat+ner-17687514	Elucidation of		908-922
+BB-cat+ner-17687514	Structural biology		1045-1063
+BB-cat+ner-18687046	Impact of		0-9
+BB-cat+ner-18687046	Routine intracranial		126-146
+BB-cat+ner-18687046	We tested		361-370
+BB-cat+ner-18687046	Patients admitted		587-604
+BB-cat+ner-18687046	Those receiving		855-870
+BB-cat+ner-18687046	Groups were		1032-1043
+BB-cat+ner-18687046	The study		1266-1275
+BB-cat+ner-18687046	In all		1418-1424
+BB-cat+ner-18687046	All patients		1527-1539
+BB-cat+ner-18687046	Only two		1635-1643
+BB-cat+ner-18687046	Both infectious		1702-1717
+BB-cat+ner-18687046	The routine		2120-2131
+BB-cat+ner-18687046	This practice		2208-2221
+BB-cat+ner-18845825	High genetic		0-12
+BB-cat+ner-18845825	Haemophilus influenzae		38-60
+BB-cat+ner-18845825	Haemophilus influenzae		140-162
+BB-cat+ner-18845825	Nine unique		266-277
+BB-cat+ner-18845825	Ts were		323-330
+BB-cat+ner-18845825	Hi diversity		430-442
+BB-cat+ner-19049879	Molecular cloning		0-17
+BB-cat+ner-19049879	D88		38-41
+BB-cat+ner-19049879	Pseudosciaena crocea		67-87
+BB-cat+ner-19049879	Myeloid differentiation		89-112
+BB-cat+ner-19049879	D88		126-129
+BB-cat+ner-19049879	In this		272-279
+BB-cat+ner-19049879	D88		314-317
+BB-cat+ner-19049879	Pseudosciaena crocea		360-380
+BB-cat+ner-19049879	It was		382-388
+BB-cat+ner-19049879	It contained		573-585
+BB-cat+ner-19049879	IL-1		651-655
+BB-cat+ner-19049879	The quantitative		699-715
+BB-cat+ner-19049879	D88		794-797
+BB-cat+ner-19049879	The expression		882-896
+BB-cat+ner-19049879	D88		902-905
+BB-cat+ner-19049879	Vibrio parahaemolyticus		972-995
+BB-cat+ner-19049879	It suggested		1035-1047
+BB-cat+ner-19049879	D88		1190-1193
+BB-cat+ner-19049879	These results		1268-1281
+BB-cat+ner-19049879	D88		1372-1375
+BB-cat+ner-19075662	Prevention and		0-14
+BB-cat+ner-19075662	Staphylococcus biofilms		28-51
+BB-cat+ner-19075662	Staphylococcus growth		53-74
+BB-cat+ner-19075662	Staphylococcus epidermidis		220-246
+BB-cat+ner-19075662	Staphylococcus aureus		251-272
+BB-cat+ner-19075662	In this		442-449
+BB-cat+ner-19075662	On the		648-654
+BB-cat+ner-19099664	Changes of		1-11
+BB-cat+ner-19099664	The purpose		101-112
+BB-cat+ner-19099664	The pathogens		260-273
+BB-cat+ner-19099664	The susceptibility		412-430
+BB-cat+ner-19099664	The results		476-487
+BB-cat+ner-19099664	Pseudomonas aeruginosa		609-631
+BB-cat+ner-19099664	Enterobacter cloacae		633-653
+BB-cat+ner-19099664	Gram negative		687-700
+BB-cat+ner-19099664	Acinetobacter baumannii		770-793
+BB-cat+ner-19099664	The ratios		822-832
+BB-cat+ner-19099664	Enterococcus and		902-918
+BB-cat+ner-19099664	Enterococcus is		928-943
+BB-cat+ner-19099664	Vancomycin resistance		1004-1025
+BB-cat+ner-19099664	It is		1041-1046
+BB-cat+ner-19099664	Gram positive		1169-1182
+BB-cat+ner-19099664	Strains resistant		1226-1243
+BB-cat+ner-19175621	Occurrence of		0-13
+BB-cat+ner-19175621	Salmonella enterica		57-76
+BB-cat+ner-19175621	Spain with		89-99
+BB-cat+ner-19175621	M-9		116-119
+BB-cat+ner-19175621	Among the		160-169
+BB-cat+ner-19175621	Salmonella enterica		175-194
+BB-cat+ner-19175621	Spanish hospitals		220-237
+BB-cat+ner-19175621	The genetic		378-389
+BB-cat+ner-19175621	Livingstone revealed		434-454
+BB-cat+ner-19175621	SHV-2		461-466
+BB-cat+ner-19175621	The bla		474-481
+BB-cat+ner-19175621	M-10		486-490
+BB-cat+ner-19175621	Virchow isolate		565-580
+BB-cat+ner-19175621	M-9		598-601
+BB-cat+ner-19175621	Virchow isolates		666-682
+BB-cat+ner-19175621	These three		684-695
+BB-cat+ner-19175621	M-9		859-862
+BB-cat+ner-19396518	Rapid detection		0-15
+BB-cat+ner-19396518	We aimed		105-113
+BB-cat+ner-19396518	In addition		279-290
+BB-cat+ner-19396518	Streptococcus pneumoniae		294-318
+BB-cat+ner-19396518	Haemophilus influenzae		320-342
+BB-cat+ner-19396518	Mycoplasma pneumoniae		348-369
+BB-cat+ner-19396518	Neisseria meningitidis		414-436
+BB-cat+ner-19396518	Escherichia coli		438-454
+BB-cat+ner-19396518	Streptococcus agalactiae		456-480
+BB-cat+ner-19396518	Staphylococcus aureus		482-503
+BB-cat+ner-19396518	Listeria monocytogenes		509-531
+BB-cat+ner-19396518	Results in		594-604
+BB-cat+ner-19396518	The total		775-784
+BB-cat+ner-19396518	The limit		846-855
+BB-cat+ner-19396518	Nonspecific positive		933-953
+BB-cat+ner-19396518	The pathogens		1050-1063
+BB-cat+ner-19396518	With the		1206-1214
+BB-cat+ner-19396518	The detection		1419-1432
+BB-cat+ner-19396518	In conclusion		1565-1578
+BB-cat+ner-19501788	Construction of		0-15
+BB-cat+ner-19501788	Pseudomonas fluorescens		30-53
+BB-cat+ner-19501788	Ferric uptake		124-137
+BB-cat+ner-19501788	As a		382-386
+BB-cat+ner-19501788	Fur plays		425-434
+BB-cat+ner-19501788	In this		502-509
+BB-cat+ner-19501788	Pseudomonas fluorescens		559-582
+BB-cat+ner-19501788	Japanese flounder		619-636
+BB-cat+ner-19501788	Fur can		667-674
+BB-cat+ner-19501788	Escherichia coli		726-742
+BB-cat+ner-19501788	Compared to		800-811
+BB-cat+ner-19501788	Japanese flounder		1084-1101
+BB-cat+ner-19501788	When used		1119-1128
+BB-cat+ner-19501788	Japanese flounder		1250-1267
+BB-cat+ner-19501788	Aeromonas hydrophila		1319-1339
+BB-cat+ner-19501788	Vibrio harveyi		1440-1454
+BB-cat+ner-19501788	Vaccination of		1545-1559
+BB-cat+ner-19501788	Japanese flounder		1560-1577
+BB-cat+ner-19622846	Detection of		0-12
+BB-cat+ner-19622846	Staphylococcus aureus		13-34
+BB-cat+ner-19622846	We examined		95-106
+BB-cat+ner-19622846	Staphylococcus aureus		217-238
+BB-cat+ner-19622846	We swabbed		247-257
+BB-cat+ner-19622846	We recovered		460-472
+BB-cat+ner-19622846	We ran		541-547
+BB-cat+ner-20005916	Usage of		0-8
+BB-cat+ner-20005916	Multiple signaling		99-117
+BB-cat+ner-20005916	Schwann cells		279-292
+BB-cat+ner-20005916	B2		435-437
+BB-cat+ner-20005916	B3		441-443
+BB-cat+ner-20005916	Schwann cells		533-546
+BB-cat+ner-20005916	One of		643-649
+BB-cat+ner-20005916	ERK1		722-726
+BB-cat+ner-20005916	B2		792-794
+BB-cat+ner-20005916	B3		798-800
+BB-cat+ner-20005916	Schwann cell		855-867
+BB-cat+ner-20005916	Recent studies		938-952
+BB-cat+ner-20005916	Mycobacterium leprae		1022-1042
+BB-cat+ner-20005916	Schwann cells		1080-1093
+BB-cat+ner-20005916	B2		1139-1141
+BB-cat+ner-20005916	B3		1145-1147
+BB-cat+ner-20005916	B2		1235-1237
+BB-cat+ner-20005916	Schwann cells		1252-1265
+BB-cat+ner-20005916	B2		1368-1370
+BB-cat+ner-20005916	B3		1374-1376
+BB-cat+ner-20005916	This initial		1522-1534
+BB-cat+ner-20005916	Once invaded		1735-1747
+BB-cat+ner-20005916	Ks and		1978-1984
+BB-cat+ner-20005916	Schwann cells		2013-2026
+BB-cat+ner-20005916	These studies		2115-2128
+BB-cat+ner-20073421	The effect		0-10
+BB-cat+ner-20073421	Francisella tularensis		71-93
+BB-cat+ner-20073421	J774		134-138
+BB-cat+ner-20073421	Francisella tularensis		140-162
+BB-cat+ner-20073421	To evaluate		264-275
+BB-cat+ner-20073421	J774		354-358
+BB-cat+ner-20073421	Stimulation of		441-455
+BB-cat+ner-20073421	J774		456-460
+BB-cat+ner-20073421	Higher concentrations		613-634
+BB-cat+ner-20073421	Stimulation of		713-727
+BB-cat+ner-20073421	J774		728-732
+BB-cat+ner-20148898	The presence		0-12
+BB-cat+ner-20148898	Yop translocation		87-104
+BB-cat+ner-20148898	Yersinia pseudotuberculosis		321-348
+BB-cat+ner-20148898	Yops to		509-516
+BB-cat+ner-20148898	Yops was		756-764
+BB-cat+ner-20148898	Yops to		896-903
+BB-cat+ner-20148898	Using isolated		925-939
+BB-cat+ner-20148898	In isolated		1167-1178
+BB-cat+ner-20148898	Invasin increased		1201-1218
+BB-cat+ner-20148898	Yops in		1345-1352
+BB-cat+ner-20148898	Together these		1384-1398
+BB-cat+ner-20148898	Yops to		1525-1532
+BB-cat+ner-21498521	The lipid		0-9
+BB-cat+ner-21498521	Vibrio fischeri		17-32
+BB-cat+ner-21498521	Vibrio fischeri		106-121
+BB-cat+ner-21498521	Hawaiian bobtail		213-229
+BB-cat+ner-21498521	Euprymna scolopes		237-254
+BB-cat+ner-21498521	To investigate		483-497
+BB-cat+ner-21498521	ES114		598-603
+BB-cat+ner-21498521	All lipid		857-866
+BB-cat+ner-21498521	C14		962-965
+BB-cat+ner-21498521	C14		1013-1016
+BB-cat+ner-21498521	C12		1062-1065
+BB-cat+ner-21498521	The fatty		1114-1123
+BB-cat+ner-21498521	C12		1206-1209
+BB-cat+ner-21498521	C16		1215-1218
+BB-cat+ner-21498521	C14		1240-1243
+BB-cat+ner-21498521	C14		1249-1252
+BB-cat+ner-21498521	C12		1285-1288
+BB-cat+ner-21498521	Most surprising		1329-1344
+BB-cat+ner-21498521	C12		1521-1524
+BB-cat+ner-21498521	C16		1528-1531
+BB-cat+ner-21498521	C16		1538-1541
+BB-cat+ner-21498521	C16		1588-1591
+BB-cat+ner-21498521	C12		1596-1599
+BB-cat+ner-21498521	C16		1605-1608
+BB-cat+ner-21498521	C16		1613-1616
+BB-cat+ner-21498521	Given their		1621-1632
+BB-cat+ner-21917915	Structural basis		0-16
+BB-cat+ner-21917915	Staphylococcus aureus		43-64
+BB-cat+ner-21917915	Pathogens must		93-107
+BB-cat+ner-21917915	In mammals		160-170
+BB-cat+ner-21917915	Staphylococcus aureus		372-393
+BB-cat+ner-21917915	Hb as		404-409
+BB-cat+ner-21917915	The x		456-461
+BB-cat+ner-21917915	Hb bound		487-495
+BB-cat+ner-21917915	Hb capture		601-611
+BB-cat+ner-21917915	Surface mutations		638-655
+BB-cat+ner-21917915	Hb that		659-666
+BB-cat+ner-21917915	Hb as		744-749
+BB-cat+ner-21917915	Hb sequence		782-793
+BB-cat+ner-21917915	The demonstration		843-860
+BB-cat+ner-21917915	Hb raises		924-933
+BB-cat+ner-21917915	Hb binding		978-988
+BB-cat+ner-21924022	Value of		1-9
+BB-cat+ner-21924022	Helicobactor pylori		44-63
+BB-cat+ner-21924022	To study		88-96
+BB-cat+ner-21924022	Helicobacter pylori		119-138
+BB-cat+ner-21924022	Biopsy specimens		238-254
+BB-cat+ner-21924022	Giemsa staining		382-397
+BB-cat+ner-21924022	Positivity in		399-412
+BB-cat+ner-21924022	Giemsa staining		426-441
+BB-cat+ner-21924022	Serum samples		490-503
+BB-cat+ner-21924022	Compared with		825-838
+BB-cat+ner-21924022	Ure antibody		1054-1066
+BB-cat+ner-21924022	Ure antibody		1079-1091
+BB-cat+ner-21924022	Ure antibody		1131-1143
+BB-cat+ner-21924022	Ure antibody		1186-1198
+BB-cat+ner-21924022	The sensitivity		1247-1262
+BB-cat+ner-21924022	Ure antibody		1314-1326
+BB-cat+ner-21924022	The antibody		1443-1455
+BB-cat+ner-21924022	The antibody		1560-1572
+BB-cat+ner-21924022	Ure antibody		1634-1646
+BB-cat+ner-22834551	The effect		0-10
+BB-cat+ner-22834551	Artemisia annua		14-29
+BB-cat+ner-22834551	Clostridium perfringens		102-125
+BB-cat+ner-22834551	The aerial		181-191
+BB-cat+ner-22834551	Artemisia annua		211-226
+BB-cat+ner-22834551	Clostridium perfringens		290-313
+BB-cat+ner-22834551	In two		375-381
+BB-cat+ner-22834551	Dried plant		611-622
+BB-cat+ner-22834551	The n		767-772
+BB-cat+ner-22834551	The feed		895-903
+BB-cat+ner-22834551	In a		995-999
+BB-cat+ner-22834551	The addition		1245-1257
+BB-cat+ner-22834551	Over the		1390-1398
+BB-cat+ner-22834551	The results		1584-1595
+BB-cat+ner-23702192	Clinical factors		0-16
+BB-cat+ner-23702192	Clostridium difficile		67-88
+BB-cat+ner-23702192	Clostridium difficile		100-121
+BB-cat+ner-23702192	We created		292-302
+BB-cat+ner-23702192	We analyzed		380-391
+BB-cat+ner-23702192	Clinic from		505-516
+BB-cat+ner-23702192	Patients with		550-563
+BB-cat+ner-23702192	Logistic regression		728-747
+BB-cat+ner-23702192	One cohort		882-892
+BB-cat+ner-23702192	Minnesota to		1017-1029
+BB-cat+ner-23702192	The linear		1159-1169
+BB-cat+ner-23702192	In a		1317-1321
+BB-cat+ner-23702192	In the		1599-1605
+BB-cat+ner-23702192	Older age		1759-1768
+BB-cat+ner-23702192	Early aggressive		2012-2028
+BB-cat+ner-23704121	Is fidaxomicin		0-14
+BB-cat+ner-23704121	An economic		31-42
+BB-cat+ner-23704121	Food and		70-78
+BB-cat+ner-23704121	Administration approved		84-107
+BB-cat+ner-23704121	Clostridium difficile		141-162
+BB-cat+ner-23704121	It has		180-186
+BB-cat+ner-23704121	We developed		310-322
+BB-cat+ner-23704121	We looked		465-474
+BB-cat+ner-23704121	The incremental		604-619
+BB-cat+ner-23704121	The fidaxomicin		879-894
+BB-cat+ner-23704121	With approximately		953-971
+BB-cat+ner-23704121	NAP1		994-998
+BB-cat+ner-23704121	NAP1		1186-1190
+BB-cat+ner-23704121	Given the		1245-1254
+BB-cat+ner-23704121	NAP1		1272-1276
+BB-cat+ner-23855904	Widespread acquisition		0-22
+BB-cat+ner-23855904	Campylobacter isolates		57-79
+BB-cat+ner-23855904	Antimicrobial resistance		160-184
+BB-cat+ner-23855904	Campylobacter cases		214-233
+BB-cat+ner-23855904	In this		348-355
+BB-cat+ner-23855904	Campylobacter in		432-448
+BB-cat+ner-23855904	The occurrence		501-515
+BB-cat+ner-23855904	This was		670-678
+BB-cat+ner-23855904	Antimicrobial resistance		838-862
+BB-cat+ner-23855904	Erythromycin resistance		958-981
+BB-cat+ner-23855904	Campylobacter coli		1002-1020
+BB-cat+ner-23855904	For all		1022-1029
+BB-cat+ner-23855904	There was		1161-1170
+BB-cat+ner-23855904	These results		1293-1306
+BB-cat+ner-23855904	Campylobacter isolates		1407-1429
+BB-cat+ner-23855904	Campylobacter are		1558-1575
+BB-cat+ner-23908036	CA3		70-73
+BB-cat+ner-23908036	Pseudomonas aeruginosa		79-101
+BB-cat+ner-23908036	Pseudomonas aeruginosa		103-125
+BB-cat+ner-23908036	Genomic and		284-295
+BB-cat+ner-23908036	PAO1		387-391
+BB-cat+ner-23908036	CA1		451-454
+BB-cat+ner-23908036	CA2		458-461
+BB-cat+ner-23908036	CA3		468-471
+BB-cat+ner-23908036	As could		496-504
+BB-cat+ner-23908036	This communication		690-708
+BB-cat+ner-23908036	CA3		775-778
+BB-cat+ner-23908036	P212121		851-858
+BB-cat+ner-23908036	Matthews coefficient		940-960
+BB-cat+ner-23908036	P21212		1113-1119
+BB-cat+ner-23908036	Matthews coefficient		1200-1220
+BB-cat+ner-23908036	Preliminary molecular		1301-1322
+BB-cat+ner-24198224	Israeli travelers		273-290
+BB-cat+ner-24198224	An outbreak		313-324
+BB-cat+ner-24198224	Isolates were		442-455
+BB-cat+ner-24198224	Israeli travelers		584-601
+BB-cat+ner-24198224	Nepal were		617-627
+BB-cat+ner-24198224	All patients		899-911
+BB-cat+ner-24198224	Time to		945-952
+BB-cat+ner-24198224	Israeli travelers		1244-1261
+BB-cat+ner-24198224	Azithromycin therapy		1296-1316
+BB-cat+ner-24251551	Structure of		0-12
+BB-cat+ner-24251551	Haemophilus influenzae		54-76
+BB-cat+ner-24251551	The breakdown		101-114
+BB-cat+ner-24251551	This enzyme		388-399
+BB-cat+ner-24251551	Open chain		541-551
+BB-cat+ner-24251551	Escherichia coli		731-747
+BB-cat+ner-24251551	To identify		759-770
+BB-cat+ner-24251551	Haemophilus influenzae		915-937
+BB-cat+ner-24251551	The cocrystal		995-1008
+BB-cat+ner-24251551	C2		1117-1119
+BB-cat+ner-24251551	C3		1147-1149
+BB-cat+ner-24251551	The conserved		1300-1313
+BB-cat+ner-24251551	C5		1392-1394
+BB-cat+ner-24251551	C6		1414-1416
+BB-cat+ner-24251551	Combining these		1506-1521
+BB-cat+ner-24251551	C2		1656-1658
+BB-cat+ner-24251551	C3		1723-1725
+BB-cat+ner-24251551	This same		1736-1745
+BB-cat+ner-24361838	Evaluation of		0-13
+BB-cat+ner-24361838	Salmonella enterica		62-81
+BB-cat+ner-24361838	Typhimurium in		90-104
+BB-cat+ner-24361838	In this		115-122
+BB-cat+ner-24361838	Typhimurium lytic		143-160
+BB-cat+ner-24361838	Salmonella in		279-292
+BB-cat+ner-24361838	The morphology		303-317
+BB-cat+ner-24361838	Siphoviridae family		371-390
+BB-cat+ner-24361838	It was		471-477
+BB-cat+ner-24361838	Typhimurium and		508-523
+BB-cat+ner-24361838	Subsequent characterisation		585-612
+BB-cat+ner-24361838	Typhimurium showed		633-651
+BB-cat+ner-24361838	At the		857-863
+BB-cat+ner-24361838	H7		1087-1089
+BB-cat+ner-24361838	H9		1163-1165
+BB-cat+ner-24361838	The in		1308-1314
+BB-cat+ner-24361838	Typhimurium was		1455-1470
+BB-cat+ner-24361838	Typhimurium more		1502-1518
+BB-cat+ner-24361838	Salmonella count		1557-1573
+BB-cat+ner-24361838	Typhimurium was		1637-1652
+BB-cat+ner-24361838	Reduction of		1702-1714
+BB-cat+ner-24361838	Salmonella count		1715-1731
+BB-cat+ner-24361838	The present		1908-1919
+BB-cat+ner-24361838	Salmonella count		2003-2019
+BB-cat+ner-24678646	Natural history		0-15
+BB-cat+ner-24678646	Staphylococcus aureus		59-80
+BB-cat+ner-24678646	No published		154-166
+BB-cat+ner-24678646	Staphylococcus aureus		263-284
+BB-cat+ner-24678646	Time to		336-343
+BB-cat+ner-24678646	We performed		444-456
+BB-cat+ner-24678646	Medline for		483-494
+BB-cat+ner-24678646	Studies reported		1004-1020
+BB-cat+ner-24678646	Studies varied		1119-1133
+BB-cat+ner-24678646	The median		1212-1222
+BB-cat+ner-24678646	Based on		1295-1303
+BB-cat+ner-24678646	In a		1478-1482
+BB-cat+ner-24678646	With this		1675-1684
+BB-cat+ner-24678646	Few available		1898-1911
+BB-cat+ner-24678646	Lack of		1977-1984
+BB-cat+ner-24678646	The heterogeneity		2252-2269
+BB-cat+ner-24831788	Evaluation of		0-13
+BB-cat+ner-24831788	Interpretation of		145-162
+BB-cat+ner-24831788	In the		726-732
+BB-cat+ner-24831788	As proof		875-883
+BB-cat+ner-24831788	Legionella pneumophila		1020-1042
+BB-cat+ner-24831788	Green exclusion		1089-1104
+BB-cat+ner-24831788	Incorporation of		1147-1163
+BB-cat+ner-24874563	Nature describes		66-82
+BB-cat+ner-24874563	Methylocella silvestris		98-121
+BB-cat+ner-24874563	It adds		238-245
+BB-cat+ner-24874563	Methylocella from		308-325
+BB-cat+ner-25098305	Surveillance for		0-16
+BB-cat+ner-25098305	Mycoplasma in		53-66
+BB-cat+ner-25098305	Gopherus polyphemus		98-117
+BB-cat+ner-25098305	Upper respiratory		145-162
+BB-cat+ner-25098305	Gopherus polyphemus		208-227
+BB-cat+ner-25098305	With the		328-336
+BB-cat+ner-25098305	We found		450-458
+BB-cat+ner-25098305	Mycoplasma agassizii		476-496
+BB-cat+ner-25098305	Mycoplasma testudineum		501-523
+BB-cat+ner-25098305	Georgia tortoise		578-594
+BB-cat+ner-25098305	The prevalence		608-622
+BB-cat+ner-25098305	Five sites		910-920
+BB-cat+ner-25098305	We did		1070-1076
+BB-cat+ner-25098305	Georgia populations		1376-1395
+BB-cat+ner-25098305	Additional research		1503-1522
+BB-cat+ner-25562320	Mycobacterium tuberculosis		66-92
+BB-cat+ner-25562320	The phagocytosis		104-120
+BB-cat+ner-25562320	Cs is		184-189
+BB-cat+ner-25562320	Although some		255-268
+BB-cat+ner-25562320	Mycobacterium tuberculosis		459-485
+BB-cat+ner-25562320	Cs and		617-623
+BB-cat+ner-25562320	Mtb infection		751-764
+BB-cat+ner-25562320	Mtb antigen		788-799
+BB-cat+ner-25562320	CD8		809-812
+BB-cat+ner-25562320	Mtb infection		1105-1118
+BB-cat+ner-25634638	Pseudomonas aeruginosa		76-98
+BB-cat+ner-25634638	We present		100-110
+BB-cat+ner-25634638	Pseudomonas aeruginosa		178-200
+BB-cat+ner-25634638	NH3		324-327
+BB-cat+ner-25634638	Both reference		453-467
+BB-cat+ner-25634638	Hydrogen cyanide		614-630
+BB-cat+ner-25634638	Different strains		828-845
+BB-cat+ner-25634638	Burkholderia cepacia		984-1004
+BB-cat+ner-25634638	Aspergillus fumigatus		1088-1109
+BB-cat+ner-25634638	Stenotrophomonas maltophilia		1111-1139
+BB-cat+ner-25634638	Mycobacterium abscessus		1141-1164
+BB-cat+ner-25634638	Our study		1201-1210
+BB-cat+ner-2696427	Presence of		0-11
+BB-cat+ner-2696427	Vibrio salmonicida		30-48
+BB-cat+ner-2696427	The persistence		73-88
+BB-cat+ner-2696427	Vibrio salmonicida		110-128
+BB-cat+ner-2696427	The specificities		207-224
+BB-cat+ner-2696427	Vibrio strains		332-346
+BB-cat+ner-2696427	The bacterium		557-570
+BB-cat+ner-2696427	The number		722-732
+BB-cat+ner-3074181	Experimental and		1-17
+BB-cat+ner-3074181	Members of		115-125
+BB-cat+ner-3074181	Team for		139-147
+BB-cat+ner-3074181	Infections in		148-161
+BB-cat+ner-3074181	Field of		166-174
+BB-cat+ner-3074181	Obstetrics and		175-189
+BB-cat+ner-3074181	Staphylococcus aureus		357-378
+BB-cat+ner-3074181	In our		457-463
+BB-cat+ner-3074181	From the		753-761
+BB-cat+ner-3074181	Our study		867-876
+BB-cat+ner-3074181	Indeed a		1189-1197
+BB-cat+ner-3074181	Administration of		1319-1336
+BB-cat+ner-3074181	It was		1408-1414
+BB-cat+ner-3074181	In evaluation		1541-1554
+BB-cat+ner-3074181	In conclusion		1659-1672
+BB-cat+ner-4105033	Interactions of		0-15
+BB-cat+ner-4105033	Pseudomonas aeruginosa		58-80
+BB-cat+ner-4105033	Spheroplasts prepared		82-103
+BB-cat+ner-4105033	Pseudomonas aeruginosa		138-160
+BB-cat+ner-4105033	Preparation of		230-244
+BB-cat+ner-4105033	Biochemical characterizations		496-525
+BB-cat+ner-4105033	In addition		663-674
+BB-cat+ner-4105033	Electron microscopic		854-874
+BB-cat+ner-4328756	Biochemistry of		0-15
+BB-cat+ner-4328756	Coxiella burnetii		16-33
+BB-cat+ner-4328756	Meyerhof pathway		42-58
+BB-cat+ner-4328756	Purified preparations		60-81
+BB-cat+ner-4328756	Coxiella burnetii		85-102
+BB-cat+ner-4328756	Aldolase was		433-445
+BB-cat+ner-4328756	The host		578-586
+BB-cat+ner-4328756	When cellulose		675-689
+BB-cat+ner-4329237	The in		0-6
+BB-cat+ner-4329237	Macaca mulatta		53-67
+BB-cat+ner-4329237	Guerin cell		101-112
+BB-cat+ner-4329237	Mycobacterium tuberculosis		156-182
+BB-cat+ner-448557	The etiologic		0-13
+BB-cat+ner-448557	To develop		81-91
+BB-cat+ner-448557	Although half		301-314
+BB-cat+ner-448557	Males experienced		490-507
+BB-cat+ner-448557	LRI 1		508-513
+BB-cat+ner-448557	Mycoplasma pneumoniae		750-771
+BB-cat+ner-448557	Patient age		807-818
+BB-cat+ner-448557	The most		871-879
+BB-cat+ner-448557	Mycoplasma pneumoniae		950-971
+BB-cat+ner-448557	The data		1050-1058
+BB-cat+ner-607884	The infections		1-15
+BB-cat+ner-607884	Lellis of		62-71
+BB-cat+ner-6107735	Recurrence of		0-13
+BB-cat+ner-6107735	Sardinian province		103-121
+BB-cat+ner-6107735	Cagliari had		125-137
+BB-cat+ner-6107735	Two symptom		184-195
+BB-cat+ner-6107735	Vibrio cholerae		214-229
+BB-cat+ner-6107735	There were		287-297
+BB-cat+ner-6107735	All but		309-316
+BB-cat+ner-6107735	Triplicate matched		462-480
+BB-cat+ner-6107735	Arselle had		736-747
+BB-cat+ner-6107735	It seems		853-861
+BB-cat+ner-6143890	Rapid detection		0-15
+BB-cat+ner-6143890	Chlamydia trachomatis		46-67
+BB-cat+ner-6631408	Amino acid		0-10
+BB-cat+ner-6631408	Chlamydia trachomatis		38-59
+BB-cat+ner-6631408	Coy cells		89-98
+BB-cat+ner-6631408	The effects		153-164
+BB-cat+ner-6631408	Chlamydia trachomatis		258-279
+BB-cat+ner-6631408	Coy cells		331-340
+BB-cat+ner-6631408	Differences in		361-375
+BB-cat+ner-6631408	Among the		667-676
+BB-cat+ner-6631408	Of the		1071-1077
+BB-cat+ner-6631408	All chlamydiae		1184-1198
+BB-cat+ner-8347510	Arhodomonas aquaeolei		0-21
+BB-cat+ner-8347510	Arhodomonas aquaeolei		112-133
+BB-cat+ner-8347510	The single		223-233
+BB-cat+ner-8347510	It was		385-391
+BB-cat+ner-8347510	The isolate		423-434
+BB-cat+ner-8347510	Cl concentrations		493-510
+BB-cat+ner-8347510	This species		587-599
+BB-cat+ner-8347510	The name		668-676
+BB-cat+ner-8347510	Arhodomonas is		677-691
+BB-cat+ner-8347510	Proteobacteria on		766-783
+BB-cat+ner-8347510	Ectothiorhodospira and		926-948
+BB-cat+ner-8347510	The major		1074-1083
+BB-cat+ner-8347510	C16		1128-1131
+BB-cat+ner-8347510	C18		1135-1138
+BB-cat+ner-8347510	C19		1142-1145
+BB-cat+ner-8347510	C16		1149-1152
+BB-cat+ner-8347510	C18		1160-1163
+BB-cat+ner-8347510	The type		1233-1241
+BB-cat+ner-8347510	HA-1		1268-1272
+BB-cat+ner-8347510	ATCC 49307		1276-1286
+BB-cat+ner-8358765	The effect		1-11
+BB-cat+ner-8358765	Helicobacter pylori		57-76
+BB-cat+ner-8358765	It inhibits		176-187
+BB-cat+ner-8358765	Cl secretion		210-222
+BB-cat+ner-8358765	It is		224-229
+BB-cat+ner-8358765	In a		329-333
+BB-cat+ner-8358765	Helicobacter pylori		520-539
+BB-cat+ner-8358765	After two		591-600
+BB-cat+ner-8358765	In subjects		829-840
+BB-cat+ner-8358765	Chronic gastritis		1070-1087
+BB-cat+ner-8358765	Treatment reduced		1135-1152
+BB-cat+ner-8532424	Respiratory carriage		0-20
+BB-cat+ner-8532424	Kingella kingae		24-39
+BB-cat+ner-8532424	The role		64-72
+BB-cat+ner-8532424	Kingella kingae		76-91
+BB-cat+ner-8532424	To investigate		290-304
+BB-cat+ner-8532424	To determine		499-511
+BB-cat+ner-8532424	During an		825-834
+BB-cat+ner-8532424	The monthly		988-999
+BB-cat+ner-8532424	December and		1054-1066
+BB-cat+ner-8532424	April peaks		1067-1078
+BB-cat+ner-8532424	Among the		1166-1175
+BB-cat+ner-8532424	None of		1288-1295
+BB-cat+ner-8532424	The prevalence		1364-1378
+BB-cat+ner-8607503	O1		4-6
+BB-cat+ner-8607503	Vibrio cholerae		7-22
+BB-cat+ner-8607503	To assess		108-117
+BB-cat+ner-8607503	O1		188-190
+BB-cat+ner-8607503	Vibrio cholerae		191-206
+BB-cat+ner-8607503	O1		344-346
+BB-cat+ner-8607503	Patients with		448-461
+BB-cat+ner-8607503	Bacteremic episodes		712-731
+BB-cat+ner-8607503	March to		757-765
+BB-cat+ner-8607503	Seafood ingestion		777-794
+BB-cat+ner-8607503	Presenting symptoms		918-937
+BB-cat+ner-8607503	Concurrent spontaneous		1073-1095
+BB-cat+ner-8607503	Antibiotic therapy		1184-1202
+BB-cat+ner-8607503	The overall		1300-1311
+BB-cat+ner-8607503	Patients with		1415-1428
+BB-cat+ner-8607503	O1		1476-1478
+BB-cat+ner-8703935	Dynamic studies		69-84
+BB-cat+ner-8703935	The binding		175-186
+BB-cat+ner-8703935	In the		381-387
+BB-cat+ner-8703935	Three different		545-560
+BB-cat+ner-8703935	This information		878-894
+BB-cat+ner-8703935	Quantitative analysis		1017-1038
+BB-cat+ner-8703935	For comparison		1126-1140
+BB-cat+ner-8703935	For such		1245-1253
+BB-cat+ner-8703935	The data		1373-1381
+BB-cat+ner-8703935	The technique		1589-1602
+BB-cat+ner-8997164	Recent studies		60-74
+BB-cat+ner-8997164	Although the		263-275
+BB-cat+ner-8997164	To address		414-424
+BB-cat+ner-8997164	Fairly large		662-674
+BB-cat+ner-8997164	CD8		807-810
+BB-cat+ner-8997164	With these		946-956
+BB-cat+ner-8997164	CD8		998-1001
+BB-cat+ner-9255900	Isolation of		0-12
+BB-cat+ner-9255900	Helicobacter pullorum		13-34
+BB-cat+ner-9255900	Helicobacter pullorum		65-86
+BB-cat+ner-9255900	Two cases		168-177
+BB-cat+ner-9255900	Problems in		285-296
+BB-cat+ner-9255900	Helicobacter pullorum		438-459
+BB-cat+ner-9526514	Agrobacterium rhizogenes		38-62
+BB-cat+ner-9526514	Agrobacterium rhizogenes		129-153
+BB-cat+ner-9526514	The rol		256-263
+BB-cat+ner-9526514	We have		429-436
+BB-cat+ner-9526514	Unlike rol		599-609
+BB-cat+ner-9526514	Tobacco plants		677-691
+BB-cat+ner-9526514	The characteristic		942-960
+BB-cat+ner-9526514	CX5		1001-1004
+BB-cat+ner-9526514	For rol		1039-1046
+BB-cat+ner-9526514	We conclude		1094-1105
+BB-cat+ner-9535771	Order of		0-8
+BB-cat+ner-9535771	Escherichia coli		86-102
+BB-cat+ner-9535771	We made		104-111
+BB-cat+ner-9535771	Escherichia coli		128-144
+BB-cat+ner-9535771	When the		313-321
+BB-cat+ner-9535771	The data		389-397
+BB-cat+ner-9535771	The soluble		571-582
+BB-cat+ner-9564489	Gingivomandibular infection		0-27
+BB-cat+ner-9564489	Mycobacterium kansasii		35-57
+BB-cat+ner-9643457	Flow cytometric		0-15
+BB-cat+ner-9643457	Escherichia coli		106-122
+BB-cat+ner-9643457	Escherichia coli		285-301
+BB-cat+ner-9643457	Percentage of		389-402
+BB-cat+ner-9643457	Preinfection percentage		492-515
+BB-cat+ner-9643457	After induction		641-656
+BB-cat+ner-9643457	This increase		886-899
+BB-cat+ner-9643457	From this		986-995
+BB-cat+ner-9643457	The post		1122-1130
+BB-cat+ner-9643457	There was		1443-1452
+BB-cat+ner-9693738	Maintenance energy		0-18
+BB-cat+ner-9693738	Escherichia coli		72-88
+BB-cat+ner-9693738	Little is		90-99
+BB-cat+ner-9693738	Escherichia coli		319-335
+BB-cat+ner-9693738	Recent findings		503-518
+BB-cat+ner-9798026	Previous infection		0-18
+BB-cat+ner-9798026	Helicobacter pylori		24-43
+BB-cat+ner-9798026	To investigate		160-174
+BB-cat+ner-9798026	Heidelberg capsule		371-389
+BB-cat+ner-9798026	Gastric hypoacidity		392-411
+BB-cat+ner-9798026	Demographic characteristics		476-503
+BB-cat+ner-9798026	CD4		505-508
+BB-cat+ner-9798026	Helicobacter pylori		526-545
+BB-cat+ner-9798026	Subjects with		616-629
+BB-cat+ner-9798026	Multivariate analysis		783-804
+BB-cat+ner-9798026	CD4		1083-1086
+BB-cat+ner-9798026	Hispanic populations		1228-1248
+BB-cat+ner-9864452	Isolation and		0-13
+BB-cat+ner-9864452	Bacillus intermedius		68-88
+BB-cat+ner-9864452	Alkaline phosphatase		90-110
+BB-cat+ner-9864452	Bacillus intermedius		196-216
+BB-cat+ner-9864452	S3		217-219
+BB-cat+ner-9864452	Electrophoresis and		306-325
+BB-cat+ner-9864452	The enzyme		421-431
+BB-cat+ner-9864452	H 9		519-522
+BB-cat+ner-9864452	H 8		578-581
+BB-cat+ner-9864452	The isolated		590-602
+BB-cat+ner-9864452	Pase exhibits		604-617
+BB-cat+ner-9864452	The effect		676-686
+BB-cat+ner-9864452	It was		770-776
+BB-cat+ner-9864452	Bacillus species		891-907
+BB-cat+ner-10496597	The differential		0-16
+BB-cat+ner-10496597	The distinction		138-153
+BB-cat+ner-10496597	The presence		290-302
+BB-cat+ner-10496597	Helicobacter pylori		328-347
+BB-cat+ner-10496597	We investigated		460-475
+BB-cat+ner-10496597	We studied		567-577
+BB-cat+ner-10496597	Helicobacter pylori		738-757
+BB-cat+ner-10496597	Paraffin sections		784-801
+BB-cat+ner-10496597	CD20		849-853
+BB-cat+ner-10496597	CD3		855-858
+BB-cat+ner-10496597	AE1		860-863
+BB-cat+ner-10496597	AE3		864-867
+BB-cat+ner-10496597	FR3		950-953
+BB-cat+ner-10496597	Using histopathology		960-980
+BB-cat+ner-10496597	An immunophenotype		1162-1180
+BB-cat+ner-10496597	CD20		1210-1214
+BB-cat+ner-10496597	The presence		1308-1320
+BB-cat+ner-10496597	An equal		1409-1417
+BB-cat+ner-10496597	Immunostaining of		1539-1556
+BB-cat+ner-10496597	Lymphoepithelial lesions		1671-1695
+BB-cat+ner-10496597	Because monoclonal		1788-1806
+BB-cat+ner-10496597	Helicobacter pylori		1831-1850
+BB-cat+ner-10496597	Paraffin section		1937-1953
+BB-cat+ner-10496597	CD20		1964-1968
+BB-cat+ner-10496597	CD3		1973-1976
+BB-cat+ner-11989773	Evaluation of		0-13
+BB-cat+ner-11989773	Listeria sp		58-69
+BB-cat+ner-11989773	Listeria monocytogenes		75-97
+BB-cat+ner-11989773	This study		136-146
+BB-cat+ner-11989773	Clearview and		230-243
+BB-cat+ner-11989773	Bax system		244-254
+BB-cat+ner-11989773	Listeria sp		277-288
+BB-cat+ner-11989773	Listeria monocytogenes		294-316
+BB-cat+ner-11989773	Clearview and		780-793
+BB-cat+ner-11989773	Clearview presenting		820-840
+BB-cat+ner-11989773	Bax showed		863-873
+BB-cat+ner-11989773	The type		950-958
+BB-cat+ner-11989773	Bax it		1119-1125
+BB-cat+ner-11989773	Efficiency of		1150-1163
+BB-cat+ner-11989773	Bax varied		1164-1174
+BB-cat+ner-12109661	Helicobacter pylori		10-29
+BB-cat+ner-12109661	The incidence		111-124
+BB-cat+ner-12109661	Helicobacter pylori		165-184
+BB-cat+ner-12109661	We have		359-366
+BB-cat+ner-12109661	It has		481-487
+BB-cat+ner-12109661	Japanese gastric		1067-1083
+BB-cat+ner-12109661	These data		1152-1162
+BB-cat+ner-12109661	Japanese people		1255-1270
+BB-cat+ner-12109661	There is		1272-1280
+BB-cat+ner-12109661	To clarify		1428-1438
+BB-cat+ner-12109661	Trial of		1543-1551
+BB-cat+ner-1214327	Serotypes of		0-12
+BB-cat+ner-1214327	Vibrio parahaemolyticus		13-36
+BB-cat+ner-1214327	Serological analysis		100-120
+BB-cat+ner-1214327	Vibro parahaemolyticus		173-195
+BB-cat+ner-1214327	Only two		254-262
+BB-cat+ner-1214327	Thirteen serotypes		504-522
+BB-cat+ner-1214327	Togo are		537-545
+BB-cat+ner-1214327	Japanese antigenic		568-586
+BB-cat+ner-1214327	The suitability		595-610
+BB-cat+ner-1214327	Japanese typing		618-633
+BB-cat+ner-1214327	Japan is		673-681
+BB-cat+ner-1356998	Human and		0-9
+BB-cat+ner-1356998	Rickettsia isolates		35-54
+BB-cat+ner-1356998	The genomes		90-101
+BB-cat+ner-1356998	The human		383-392
+BB-cat+ner-1356998	Da polypeptide		607-621
+BB-cat+ner-1356998	Da polypeptide		651-665
+BB-cat+ner-1356998	Israeli isolates		738-754
+BB-cat+ner-1356998	Rickettsia conorii		769-787
+BB-cat+ner-1356998	Subtle differences		798-816
+BB-cat+ner-1356998	Israeli isolates		850-866
+BB-cat+ner-1356998	Moroccan and		909-921
+BB-cat+ner-1356998	Da gene		983-990
+BB-cat+ner-1356998	All of		1026-1032
+BB-cat+ner-1356998	Israeli isolates		1037-1053
+BB-cat+ner-1356998	This study		1116-1126
+BB-cat+ner-1356998	Israeli spotted		1143-1158
+BB-cat+ner-14633026	Characterization of		0-19
+BB-cat+ner-14633026	Bacillus thuringiensis		36-58
+BB-cat+ner-14633026	To characterize		110-125
+BB-cat+ner-14633026	Bacillus thuringiensis		185-207
+BB-cat+ner-14633026	OK-85		232-237
+BB-cat+ner-14633026	The strain		308-318
+BB-cat+ner-14633026	OK-85		322-327
+BB-cat+ner-14633026	Culex pipiens		459-472
+BB-cat+ner-14633026	It is		629-634
+BB-cat+ner-14633026	OK-85		677-682
+BB-cat+ner-14633026	Cry protein		720-731
+BB-cat+ner-14633026	This is		765-772
+BB-cat+ner-15293611	Clonal strains		0-14
+BB-cat+ner-15293611	Pseudomonas aeruginosa		18-40
+BB-cat+ner-15293611	Despite recent		88-102
+BB-cat+ner-15293611	Pseudomonas aeruginosa		132-154
+BB-cat+ner-15293611	Sputum was		257-267
+BB-cat+ner-15293611	The first		565-574
+BB-cat+ner-15293611	Eight patients		833-847
+BB-cat+ner-15293611	Australian transmissible		899-923
+BB-cat+ner-15293611	Compared with		946-959
+BB-cat+ner-15293611	Treatment requirements		1060-1082
+BB-cat+ner-15293611	In conclusion		1155-1168
+BB-cat+ner-15293611	In contrast		1275-1286
+BB-cat+ner-15293611	The clinical		1457-1469
+BB-cat+ner-15618837	Recurrence of		0-13
+BB-cat+ner-15618837	Helicobacter pylori		14-33
+BB-cat+ner-15618837	Republic of		111-122
+BB-cat+ner-15618837	To investigate		130-144
+BB-cat+ner-15618837	Helicobacter pylori		163-182
+BB-cat+ner-15618837	Republic of		222-233
+BB-cat+ner-15618837	Yemen and		234-243
+BB-cat+ner-15618837	Gastric biopsies		393-409
+BB-cat+ner-15618837	Patients with		504-517
+BB-cat+ner-15618837	Six weeks		610-619
+BB-cat+ner-15618837	Those who		694-703
+BB-cat+ner-15618837	The prevalence		799-813
+BB-cat+ner-15618837	The overall		908-919
+BB-cat+ner-15618837	CI 42		976-981
+BB-cat+ner-15618837	CI 53		1036-1041
+BB-cat+ner-15618837	Recurrence rate		1073-1088
+BB-cat+ner-15618837	CI 14		1135-1140
+BB-cat+ner-15618837	CI 1		1335-1339
+BB-cat+ner-15618837	The prevalence		1361-1375
+BB-cat+ner-15618837	Yemen is		1424-1432
+BB-cat+ner-15618837	The recurrence		1601-1615
+BB-cat+ner-16273411	Early pregnancy		0-15
+BB-cat+ner-16273411	Klebsiella pneumonia		57-77
+BB-cat+ner-16273411	Recurrent pregnancy		141-160
+BB-cat+ner-16273411	The etiology		224-236
+BB-cat+ner-16273411	Klebsiella pneumonia		321-341
+BB-cat+ner-16273411	We present		533-543
+BB-cat+ner-16273411	Klebsiella pneumonia		608-628
+BB-cat+ner-16458564	Etiology and		0-12
+BB-cat+ner-16458564	This paper		69-79
+BB-cat+ner-16458564	The study		273-282
+BB-cat+ner-16458564	The identification		368-386
+BB-cat+ner-16458564	The antibiotic		498-512
+BB-cat+ner-16458564	Of those		587-595
+BB-cat+ner-16458564	They were		757-766
+BB-cat+ner-16458564	Escherichia coli		800-816
+BB-cat+ner-16458564	Shigella spp		818-830
+BB-cat+ner-16458564	Bacteroides fragilis		852-872
+BB-cat+ner-16458564	Salmonella spp		941-955
+BB-cat+ner-16458564	Vibrio cholerae		959-974
+BB-cat+ner-16458564	Rotavirus and		990-1003
+BB-cat+ner-16458564	Shigella spp		1089-1101
+BB-cat+ner-16458564	Shigella spp		1201-1213
+BB-cat+ner-16458564	Children attending		1321-1339
+BB-cat+ner-16458564	Watery stool		1416-1428
+BB-cat+ner-16458564	The mean		1507-1515
+BB-cat+ner-16458564	Before attending		1587-1603
+BB-cat+ner-16458564	Escherichia coli		2058-2074
+BB-cat+ner-16458564	Shigella spp		2076-2088
+BB-cat+ner-16458564	Bacteroides fragilis		2110-2130
+BB-cat+ner-16458564	Epidemiological factors		2205-2228
+BB-cat+ner-16514151	To study		186-194
+BB-cat+ner-16514151	Here the		393-401
+BB-cat+ner-16514151	Escherichia coli		674-690
+BB-cat+ner-16514151	Cells expressing		769-785
+BB-cat+ner-16514151	Although in		880-891
+BB-cat+ner-16514151	Deinococcus radiodurans		1387-1410
+BB-cat+ner-18094887	Rickettsia infection		0-20
+BB-cat+ner-18094887	This study		70-80
+BB-cat+ner-18094887	Eight flea		204-214
+BB-cat+ner-18094887	Adoratopsylla antiquorum		224-248
+BB-cat+ner-18094887	Ctenocephalides felis		261-282
+BB-cat+ner-18094887	Polygenis atopus		290-306
+BB-cat+ner-18094887	Polygenis rimatus		308-325
+BB-cat+ner-18094887	Polygenis roberti		327-344
+BB-cat+ner-18094887	Polygenis tripus		354-370
+BB-cat+ner-18094887	Rhopalopsyllus lugubris		372-395
+BB-cat+ner-18094887	Rhopalopsyllus lutzi		401-421
+BB-cat+ner-18094887	Amblyomma aureolatum		453-473
+BB-cat+ner-18094887	Amblyomma cajennense		475-495
+BB-cat+ner-18094887	Amblyomma dubitatum		497-516
+BB-cat+ner-18094887	Ixodes loricatus		518-534
+BB-cat+ner-18094887	Rhipicephalus sanguineus		540-564
+BB-cat+ner-18094887	Rickettsia felis		612-628
+BB-cat+ner-18094887	Rickettsia bellii		684-701
+BB-cat+ner-18094887	Testing animal		805-819
+BB-cat+ner-18094887	These sera		1109-1119
+BB-cat+ner-18094887	Using the		1194-1203
+BB-cat+ner-18094887	Our serological		1335-1350
+BB-cat+ner-18694716	Quantitative metabolome		0-23
+BB-cat+ner-18694716	In this		96-103
+BB-cat+ner-18694716	Orbitrap high		226-239
+BB-cat+ner-18694716	Analytes were		270-283
+BB-cat+ner-18694716	At a		346-350
+BB-cat+ner-18694716	In terms		474-482
+BB-cat+ner-18694716	To determine		595-607
+BB-cat+ner-18694716	With the		778-786
+BB-cat+ner-18694716	As a		946-950
+BB-cat+ner-18694716	Methylobacterium extorquens		1035-1062
+BB-cat+ner-18694716	AM1		1063-1066
+BB-cat+ner-18694716	Reproducible results		1138-1158
+BB-cat+ner-18694716	Obitrap offers		1332-1346
+BB-cat+ner-18789156	Francisella tularensis		47-69
+BB-cat+ner-18789156	THP-1		87-92
+BB-cat+ner-18789156	Francisella tularensis		174-196
+BB-cat+ner-18789156	It is		289-294
+BB-cat+ner-18789156	The precise		360-371
+BB-cat+ner-18789156	Participation of		444-460
+BB-cat+ner-18789156	C3		461-463
+BB-cat+ner-18789156	CR3		465-468
+BB-cat+ner-18789156	We show		690-697
+BB-cat+ner-18789156	Francisella tularensis		759-781
+BB-cat+ner-18789156	THP-1		870-875
+BB-cat+ner-18789156	HB-19		887-892
+BB-cat+ner-18789156	THP-1		1024-1029
+BB-cat+ner-18789156	In a		1037-1041
+BB-cat+ner-18789156	By fluorescence		1338-1353
+BB-cat+ner-18789156	Tu could		1422-1430
+BB-cat+ner-18789156	Tu antibodies		1477-1490
+BB-cat+ner-18789156	THP-1		1528-1533
+BB-cat+ner-18789156	Interaction between		1620-1639
+BB-cat+ner-18789156	Tu and		1643-1649
+BB-cat+ner-18789156	Tu proteins		1731-1742
+BB-cat+ner-18789156	Tu plays		1920-1928
+BB-cat+ner-18789156	Francisella tularensis		1950-1972
+BB-cat+ner-18789156	Since phagosomal		2055-2071
+BB-cat+ner-18789156	THP-1		2261-2266
+BB-cat+ner-18789156	Tu and		2307-2313
+BB-cat+ner-18789156	HB-19		2422-2427
+BB-cat+ner-18789156	Tu could		2446-2454
+BB-cat+ner-19004249	Evaluation of		0-13
+BB-cat+ner-19004249	The antibacterial		92-109
+BB-cat+ner-19004249	Staphylococcus aureus		221-242
+BB-cat+ner-19004249	Escherichia coli		247-263
+BB-cat+ner-19004249	The active		265-275
+BB-cat+ner-19004249	The most		319-327
+BB-cat+ner-19004249	Gs with		417-424
+BB-cat+ner-19004249	The introduction		477-493
+BB-cat+ner-19339076	Bile resistance		0-15
+BB-cat+ner-19339076	Lactococcus lactis		19-37
+BB-cat+ner-19339076	Bile resistance		133-148
+BB-cat+ner-19339076	The aim		208-215
+BB-cat+ner-19339076	We determined		432-445
+BB-cat+ner-19339076	M17		496-499
+BB-cat+ner-19339076	GM17		546-550
+BB-cat+ner-19339076	LM17		569-573
+BB-cat+ner-19339076	Gas chromatographic		576-595
+BB-cat+ner-19339076	C-19		998-1002
+BB-cat+ner-19339076	It is		1028-1033
+BB-cat+ner-19339076	GM17		1196-1200
+BB-cat+ner-19339076	LM17		1313-1317
+BB-cat+ner-19339076	C-19		1413-1417
+BB-cat+ner-19339076	Some strains		1589-1601
+BB-cat+ner-19339076	GM17		1628-1632
+BB-cat+ner-19339076	LM17		1665-1669
+BB-cat+ner-19339076	Some strains		1678-1690
+BB-cat+ner-19339076	The strains		1728-1739
+BB-cat+ner-19339076	GM17		1749-1753
+BB-cat+ner-19339076	C-19		1893-1897
+BB-cat+ner-19339076	LM17		1948-1952
+BB-cat+ner-19339076	In conclusion		1961-1974
+BB-cat+ner-19339076	More importantly		2085-2101
+BB-cat+ner-19339076	C-19		2255-2259
+BB-cat+ner-19552770	Prevalence of		0-13
+BB-cat+ner-19552770	Campylobacter in		29-45
+BB-cat+ner-19552770	Perdix perdix		58-71
+BB-cat+ner-19552770	To estimate		74-85
+BB-cat+ner-19552770	Campylobacter spp		119-136
+BB-cat+ner-19552770	Perdix perdix		173-186
+BB-cat+ner-19552770	Cloacal swabs		207-220
+BB-cat+ner-19552770	Italy were		343-353
+BB-cat+ner-19552770	Campylobacter spp		400-417
+BB-cat+ner-19552770	The samples		419-430
+BB-cat+ner-19552770	Campylobacter spp		480-497
+BB-cat+ner-19552770	The positive		519-531
+BB-cat+ner-19552770	Campylobacter spp		615-632
+BB-cat+ner-19552770	As proved		700-709
+BB-cat+ner-19552770	Campylobacter coli		757-775
+BB-cat+ner-19552770	Campylobacter jejuni		857-877
+BB-cat+ner-19552770	In contrast		879-890
+BB-cat+ner-19552770	Campylobacter lari		892-910
+BB-cat+ner-19552770	Adult partridges		931-947
+BB-cat+ner-19552770	These results		1019-1032
+BB-cat+ner-19552770	Campylobacter spp		1117-1134
+BB-cat+ner-19552770	Although an		1178-1189
+BB-cat+ner-19552770	Campylobacter coli		1243-1261
+BB-cat+ner-19552770	Campylobacter using		1348-1367
+BB-cat+ner-19621381	XL-1		84-88
+BB-cat+ner-19621381	Biophysical studies		100-119
+BB-cat+ner-19621381	Recombinant expression		325-347
+BB-cat+ner-19621381	We present		661-671
+BB-cat+ner-19621381	Escherichia coli		746-762
+BB-cat+ner-19621381	This scheme		871-882
+BB-cat+ner-19621381	Immobilized metal		1007-1024
+BB-cat+ner-19621381	We demonstrate		1232-1246
+BB-cat+ner-19621381	XL-1		1315-1319
+BB-cat+ner-20174624	Neutrophils are		0-15
+BB-cat+ner-20174624	The human		144-153
+BB-cat+ner-20174624	Yersinia spp		321-333
+BB-cat+ner-20174624	In particular		398-411
+BB-cat+ner-20174624	Yersinia outer		417-431
+BB-cat+ner-20174624	In this		665-672
+BB-cat+ner-20174624	Yersinia to		724-735
+BB-cat+ner-20174624	Yersinia did		990-1002
+BB-cat+ner-20174624	In contrast		1114-1125
+BB-cat+ner-20174624	Ns with		1150-1157
+BB-cat+ner-20174624	KIM6		1207-1211
+BB-cat+ner-20174624	Following phagocytic		1420-1440
+BB-cat+ner-20174624	KIM6		1475-1479
+BB-cat+ner-20174624	KIM5		1667-1671
+BB-cat+ner-20174624	Our findings		1673-1685
+BB-cat+ner-20174624	Yersinia was		1864-1876
+BB-cat+ner-20174624	Yersinia inhibition		1935-1954
+BB-cat+ner-20580604	Effects of		0-10
+BB-cat+ner-20580604	Lactobacillus casei		58-77
+BB-cat+ner-20580604	Shirota on		85-95
+BB-cat+ner-20580604	The effects		213-224
+BB-cat+ner-20580604	Lactobacillus casei		277-296
+BB-cat+ner-20580604	Defecation frequency		752-772
+BB-cat+ner-20580604	The stool		874-883
+BB-cat+ner-20580604	The number		1186-1196
+BB-cat+ner-20580604	The organic		1314-1325
+BB-cat+ner-20580604	These results		1574-1587
+BB-cat+ner-21270066	Lymphogranuloma venereum		0-24
+BB-cat+ner-21270066	An outbreak		95-106
+BB-cat+ner-21270066	Patients typically		263-281
+BB-cat+ner-21270066	The prevalence		315-329
+BB-cat+ner-21270066	London is		403-412
+BB-cat+ner-21270066	Agency surveillance		448-467
+BB-cat+ner-21270066	Two cases		552-561
+BB-cat+ner-21270066	Both cases		654-664
+BB-cat+ner-21270066	Chlamydia trachomatis		695-716
+BB-cat+ner-21270066	As presentations		760-776
+BB-cat+ner-21543877	Mycobacterium tuberculosis		102-128
+BB-cat+ner-21543877	H37		129-132
+BB-cat+ner-21543877	Tuberculosis is		136-151
+BB-cat+ner-21543877	Aminoglycoside antibiotics		259-285
+BB-cat+ner-21543877	The gene		435-443
+BB-cat+ner-21543877	Mycobacterium tuberculosis		517-543
+BB-cat+ner-21543877	Cl p		662-666
+BB-cat+ner-21543877	H 7		666-669
+BB-cat+ner-21543877	PEG 3000		680-688
+BB-cat+ner-21543877	The crystal		798-809
+BB-cat+ner-21543877	P2		834-836
+BB-cat+ner-21543877	With one		911-919
+BB-cat+ner-21543877	The structure		1021-1034
+BB-cat+ner-21695078	Enhanced virulence		0-18
+BB-cat+ner-21695078	Chlamydia muridarum		22-41
+BB-cat+ner-21695078	TLR2		83-87
+BB-cat+ner-21695078	Chlamydia trachomatis		100-121
+BB-cat+ner-21695078	Data from		205-214
+BB-cat+ner-21695078	TLR2		302-306
+BB-cat+ner-21695078	We hypothesized		383-398
+BB-cat+ner-21695078	TLR2		416-420
+BB-cat+ner-21695078	In order		474-482
+BB-cat+ner-21695078	TLR2		600-604
+BB-cat+ner-21695078	This could		745-755
+BB-cat+ner-21695078	TLR2		808-812
+BB-cat+ner-21695078	These data		871-881
+BB-cat+ner-21695078	TLR2		895-899
+BB-cat+ner-21695078	Chlamydia infection		953-972
+BB-cat+ner-21695078	TLR2		995-999
+BB-cat+ner-21894542	Iron transport		0-14
+BB-cat+ner-21894542	Marinobacter belong		42-61
+BB-cat+ner-21894542	Gammaproteobacteria and		78-101
+BB-cat+ner-21894542	They have		270-279
+BB-cat+ner-21894542	Our analysis		630-642
+BB-cat+ner-21894542	They all		1007-1015
+BB-cat+ner-21894542	Siderophore production		1198-1220
+BB-cat+ner-23902156	Penicillium crustosum		68-89
+BB-cat+ner-23902156	P1		103-105
+BB-cat+ner-23902156	Pen b		115-120
+BB-cat+ner-23902156	Penicillium brevicompactum		129-155
+BB-cat+ner-23902156	Penicillium crustosum		258-279
+BB-cat+ner-23902156	Pen b		425-430
+BB-cat+ner-23902156	Escherichia coli		479-495
+BB-cat+ner-23902156	Pen b		582-587
+BB-cat+ner-23902156	It was		592-598
+BB-cat+ner-23902156	Pen cr		613-619
+BB-cat+ner-23902156	Pen cr		698-704
+BB-cat+ner-23902156	Pen b		740-745
+BB-cat+ner-23902156	The level		876-885
+BB-cat+ner-23902156	Pen cr		903-909
+BB-cat+ner-23902156	Pen b		941-946
+BB-cat+ner-23902156	Both proteins		981-994
+BB-cat+ner-23902156	Pen cr		1066-1072
+BB-cat+ner-23902156	Pen b		1228-1233
+BB-cat+ner-23902156	Pen cr		1270-1276
+BB-cat+ner-23902156	The allergenicity		1281-1298
+BB-cat+ner-23902156	Pen cr		1302-1308
+BB-cat+ner-23902156	Pen b		1384-1389
+BB-cat+ner-25114119	Characterization of		0-19
+BB-cat+ner-25114119	Coxiella burnetii		181-198
+BB-cat+ner-25114119	Our previous		200-212
+BB-cat+ner-25114119	Coxiella burnetii		250-267
+BB-cat+ner-25114119	E4		349-351
+BB-cat+ner-25114119	E4		424-426
+BB-cat+ner-25114119	To determine		448-460
+BB-cat+ner-25114119	E4		604-606
+BB-cat+ner-25114119	The results		670-681
+BB-cat+ner-25114119	E4		698-700
+BB-cat+ner-25114119	E4		784-786
+BB-cat+ner-25114119	To further		847-857
+BB-cat+ner-25114119	E4		888-890
+BB-cat+ner-25114119	E4		959-961
+BB-cat+ner-25114119	Fab fragment		1020-1032
+BB-cat+ner-25114119	E4		1037-1039
+BB-cat+ner-25114119	E4		1045-1047
+BB-cat+ner-25114119	E4		1110-1112
+BB-cat+ner-25114119	E4		1170-1172
+BB-cat+ner-25114119	E4		1199-1201
+BB-cat+ner-25114119	The results		1236-1247
+BB-cat+ner-25114119	E4		1267-1269
+BB-cat+ner-25114119	E4		1278-1280
+BB-cat+ner-25114119	E4		1293-1295
+BB-cat+ner-25114119	E4		1427-1429
+BB-cat+ner-25114119	In addition		1431-1442
+BB-cat+ner-25114119	E4		1478-1480
+BB-cat+ner-25114119	E4		1489-1491
+BB-cat+ner-25114119	E4		1503-1505
+BB-cat+ner-25114119	E4		1606-1608
+BB-cat+ner-25114119	This report		1680-1691
+BB-cat+ner-25114119	Ab can		1793-1799
+BB-cat+ner-25114119	Ab as		1909-1914
+BB-cat+ner-25204345	Association of		0-14
+BB-cat+ner-25204345	The quinolone		114-127
+BB-cat+ner-25204345	Enterococcus and		199-215
+BB-cat+ner-25204345	Lactobacillus isolated		216-238
+BB-cat+ner-25204345	The objective		305-318
+BB-cat+ner-25204345	Food and		517-525
+BB-cat+ner-25204345	Committee in		590-602
+BB-cat+ner-25204345	Guidelines for		603-617
+BB-cat+ner-25204345	Evaluation of		618-631
+BB-cat+ner-25204345	Probiotics in		632-645
+BB-cat+ner-25204345	Food for		646-654
+BB-cat+ner-25204345	Cup method		722-732
+BB-cat+ner-25204345	Oxford cup		943-953
+BB-cat+ner-25204345	M100		1109-1113
+BB-cat+ner-25204345	S23		1114-1117
+BB-cat+ner-25204345	The genetic		1239-1250
+BB-cat+ner-25204345	Enterococcus durans		1470-1489
+BB-cat+ner-25204345	HZ28		1490-1494
+BB-cat+ner-351567	M-13		56-60
+BB-cat+ner-351567	M-13		97-101
+BB-cat+ner-351567	Escherichia coli		115-131
+BB-cat+ner-351567	M-13		230-234
+BB-cat+ner-351567	If the		247-253
+BB-cat+ner-351567	Rifampicin blocks		672-689
+BB-cat+ner-351567	M-13		838-842
+BB-cat+ner-351567	In contrast		859-870
+BB-cat+ner-3544198	Methods for		0-11
+BB-cat+ner-3544198	Mycobacterium leprae		40-60
+BB-cat+ner-3544198	Two methods		103-114
+BB-cat+ner-3544198	PGL-1		154-159
+BB-cat+ner-3544198	Mycobacterium leprae		163-183
+BB-cat+ner-3544198	Both methods		251-263
+BB-cat+ner-3544198	The equivalent		386-400
+BB-cat+ner-3544198	PGL-1		436-441
+BB-cat+ner-3544198	The second		512-522
+BB-cat+ner-3544198	As little		617-626
+BB-cat+ner-3544198	PGL-1		686-691
+BB-cat+ner-460951	Atypical mycobacteria		0-21
+BB-cat+ner-460951	During the		67-77
+BB-cat+ner-460951	Laboratory in		121-134
+BB-cat+ner-460951	Queensland dealt		135-151
+BB-cat+ner-460951	Twelve isolates		385-400
+BB-cat+ner-460951	Five cases		486-496
+BB-cat+ner-47483	Haemophilus influenzae		21-43
+BB-cat+ner-47483	Haemophilus influenzae		156-178
+BB-cat+ner-47483	Five clinical		232-245
+BB-cat+ner-47483	Germany all		273-284
+BB-cat+ner-47483	Unlike those		392-404
+BB-cat+ner-47483	This greater		495-507
+BB-cat+ner-47483	Escherichia coli		789-805
+BB-cat+ner-47483	Large inocula		807-820
+BB-cat+ner-47483	The unusually		866-879
+BB-cat+ner-5526468	Vibrio fetus		0-12
+BB-cat+ner-8559802	Construction of		0-15
+BB-cat+ner-8559802	Salmonella typhimurium		71-93
+BB-cat+ner-8559802	Salmonella typhimurium		166-188
+BB-cat+ner-8559802	The strain		283-293
+BB-cat+ner-8559802	The smaller		332-343
+BB-cat+ner-8559802	Physical mapping		441-457
+BB-cat+ner-8559802	This plasmid		541-553
+BB-cat+ner-8559802	It exhibited		681-693
+BB-cat+ner-8559802	BR322		773-778
+BB-cat+ner-8559802	The vector		880-890
+BB-cat+ner-8559802	BR322		911-916
+BB-cat+ner-9521147	Lipopolysaccharide from		0-23
+BB-cat+ner-9521147	Burkholderia pseudomallei		41-66
+BB-cat+ner-9521147	Different lines		175-190
+BB-cat+ner-9521147	Two antigenically		476-493
+BB-cat+ner-9521147	In this		582-589
+BB-cat+ner-9521147	With the		849-857
+BB-cat+ner-9521147	Ss from		1005-1012
+BB-cat+ner-9521147	Ss from		1094-1101
+BB-cat+ner-9521147	Collection strains		1261-1279
+BB-cat+ner-9521147	Concordant findings		1403-1422
+BB-cat+ner-9521147	Ss to		1505-1510
+BB-cat+ner-9521147	Ss of		1545-1550
+BB-cat+ner-9521147	It is		1630-1635
+BB-cat+ner-9553794	Evaluation of		0-13
+BB-cat+ner-9553794	Carnobacterium piscicola		26-50
+BB-cat+ner-9553794	The microflora		147-161
+BB-cat+ner-9553794	To elucidate		278-290
+BB-cat+ner-9553794	CO2		376-379
+BB-cat+ner-9553794	The shelf		448-457
+BB-cat+ner-9553794	The addition		698-710
+BB-cat+ner-9553794	CO2		729-732
+BB-cat+ner-9553794	CO2		890-893
+BB-cat+ner-9553794	Vibrio sp		1087-1096
+BB-cat+ner-9553794	Enterobacter agglomerans		1142-1166
+BB-cat+ner-9553794	Serratia liquefaciens		1168-1189
+BB-cat+ner-9553794	Rahnella aquatilis		1194-1212
+BB-cat+ner-9553794	Aeromonas hydrophila		1231-1251
+BB-cat+ner-9553794	Irrespective of		1253-1268
+BB-cat+ner-9553794	CO2		1298-1301
+BB-cat+ner-9553794	Carnobacterium piscicola		1350-1374
+BB-cat+ner-9553794	Carnobacterium species		1513-1535
+BB-cat+ner-9553794	The spoilage		1552-1564
+BB-cat+ner-9553794	The salmon		1703-1713
+BB-cat+ner-9553794	CO2		1768-1771
+BB-cat+ner-9553794	This was		1913-1921
+BB-cat+ner-9745160	New one		0-7
+BB-cat+ner-9745160	Helicobacter pylori		79-98
+BB-cat+ner-9745160	Antimicrobial therapy		110-131
+BB-cat+ner-9745160	Helicobacter pylori		196-215
+BB-cat+ner-9745160	The eradication		227-242
+BB-cat+ner-9745160	This study		497-507
+BB-cat+ner-9745160	Ninety patients		657-672
+BB-cat+ner-9745160	Two months		1304-1314
+BB-cat+ner-9745160	Drug tolerance		1456-1470
+BB-cat+ner-9745160	The ulcer		1772-1781
+BB-cat+ner-9745160	Symptom relief		1956-1970
+BB-cat+ner-9745160	The cost		2117-2125
+BB-cat+ner-9745160	There were		2185-2195
+BB-cat+ner-10618167	Listeria monocytogenes		0-22
+BB-cat+ner-10618167	Listeria monocytogenes		128-150
+BB-cat+ner-10618167	Previous data		269-282
+BB-cat+ner-10618167	We tested		352-361
+BB-cat+ner-10618167	In contrast		539-550
+BB-cat+ner-10618167	Gel filtration		642-656
+BB-cat+ner-10618167	Phosphoinositide binding		853-877
+BB-cat+ner-10645449	Genotypic characterization		0-26
+BB-cat+ner-10645449	Mycobacterium tuberculosis		45-71
+BB-cat+ner-10645449	Mycobacterium tuberculosis		161-187
+BB-cat+ner-10645449	Peruvian patients		210-227
+BB-cat+ner-10645449	To investigate		229-243
+BB-cat+ner-10645449	American country		306-322
+BB-cat+ner-10645449	Antimicrobial agent		324-343
+BB-cat+ner-10645449	IS6110		401-407
+BB-cat+ner-10645449	Nineteen isolates		600-617
+BB-cat+ner-10645449	IS6110		682-688
+BB-cat+ner-10645449	Thr amino		865-874
+BB-cat+ner-10645449	Six of		1030-1036
+BB-cat+ner-10645449	Eleven pyrazinamide		1091-1110
+BB-cat+ner-10645449	Virtually all		1161-1174
+BB-cat+ner-10645449	The types		1224-1233
+BB-cat+ner-10645449	Nucleotide sequence		1367-1386
+BB-cat+ner-10656819	Display of		0-10
+BB-cat+ner-10656819	Many attempts		199-212
+BB-cat+ner-10656819	One general		276-287
+BB-cat+ner-10656819	Phage display		424-437
+BB-cat+ner-10656819	Selection of		612-624
+BB-cat+ner-10656819	The aim		699-706
+BB-cat+ner-10656819	Bacillus lentus		787-802
+BB-cat+ner-10656819	Subtilisins are		977-992
+BB-cat+ner-10656819	They have		1075-1084
+BB-cat+ner-10656819	P4		1236-1238
+BB-cat+ner-10656819	CI2		1370-1373
+BB-cat+ner-10656819	The free		1375-1383
+BB-cat+ner-10656819	CI2		1425-1428
+BB-cat+ner-10656819	The phage		1473-1482
+BB-cat+ner-10656819	Reactions of		1655-1667
+BB-cat+ner-10656819	S4		1729-1731
+BB-cat+ner-10656819	P4		1967-1969
+BB-cat+ner-10656819	Parameters influencing		1971-1993
+BB-cat+ner-10665543	Evaluation of		0-13
+BB-cat+ner-10665543	Brucella soluble		20-36
+BB-cat+ner-10665543	Elisa to		66-74
+BB-cat+ner-10665543	S19		88-91
+BB-cat+ner-10665543	Brucella abortus		231-247
+BB-cat+ner-10665543	The sera		400-408
+BB-cat+ner-10665543	S19		627-630
+BB-cat+ner-10665543	Se was		762-768
+BB-cat+ner-10665543	Sp was		782-788
+BB-cat+ner-10665543	Sp was		814-820
+BB-cat+ner-10665543	For the		861-868
+BB-cat+ner-10665543	Se was		881-887
+BB-cat+ner-10665543	Sp was		902-908
+BB-cat+ner-10665543	Statistical analysis		969-989
+BB-cat+ner-10665543	The agreement		1065-1078
+BB-cat+ner-10770276	Immune response		0-15
+BB-cat+ner-10770276	Salmonella typhimurium		34-56
+BB-cat+ner-10770276	Infection of		66-78
+BB-cat+ner-10770276	Salmonella typhimurium		89-111
+BB-cat+ner-10770276	The innate		218-228
+BB-cat+ner-10770276	Salmonella infection		394-414
+BB-cat+ner-10770276	CD4		450-453
+BB-cat+ner-10770276	CD8		459-462
+BB-cat+ner-10770276	Infection with		667-681
+BB-cat+ner-10770276	Salmonella antigens		743-762
+BB-cat+ner-10770276	In summary		869-879
+BB-cat+ner-10792385	The role		0-8
+BB-cat+ner-10792385	Fcgamma receptor		12-28
+BB-cat+ner-10792385	C3		47-49
+BB-cat+ner-10792385	Neisseria meningitidis		80-102
+BB-cat+ner-10792385	Individuals with		140-156
+BB-cat+ner-10792385	C5		172-174
+BB-cat+ner-10792385	W135		321-325
+BB-cat+ner-10792385	Three types		481-492
+BB-cat+ner-10792385	These represent		577-592
+BB-cat+ner-10792385	CD32		622-626
+BB-cat+ner-10792385	CD16		646-650
+BB-cat+ner-10792385	C3		672-674
+BB-cat+ner-10792385	CR3		684-687
+BB-cat+ner-10792385	CD11		689-693
+BB-cat+ner-10792385	CD18		695-699
+BB-cat+ner-10792385	When the		702-710
+BB-cat+ner-10792385	Ia and		736-742
+BB-cat+ner-10792385	Ib allotypes		753-765
+BB-cat+ner-10792385	R131		916-920
+BB-cat+ner-10792385	NA2		939-942
+BB-cat+ner-10792385	NA2		943-946
+BB-cat+ner-10792385	No such		1054-1061
+BB-cat+ner-10792385	The importance		1121-1135
+BB-cat+ner-10792385	Ia allotypes		1148-1160
+BB-cat+ner-10792385	R131		1242-1246
+BB-cat+ner-10792385	G2		1280-1282
+BB-cat+ner-10792385	W135		1306-1310
+BB-cat+ner-10792385	H131		1369-1373
+BB-cat+ner-10792385	When properdin		1382-1396
+BB-cat+ner-10792385	W135		1521-1525
+BB-cat+ner-10792385	This enhanced		1552-1565
+BB-cat+ner-10792385	C3		1613-1615
+BB-cat+ner-10792385	W135		1659-1663
+BB-cat+ner-10792385	We conclude		1689-1700
+BB-cat+ner-10792385	C3		1910-1912
+BB-cat+ner-10796014	Symbiotic induction		0-19
+BB-cat+ner-10796014	Sinorhizobium meliloti		57-79
+BB-cat+ner-10796014	Genes coding		81-93
+BB-cat+ner-10796014	Sinorhizobium meliloti		177-199
+BB-cat+ner-10796014	Elp component		307-320
+BB-cat+ner-10796014	Rickettsia prowazekii		450-471
+BB-cat+ner-10796014	Zymomonas mobilis		476-493
+BB-cat+ner-10796014	Aalpha and		560-570
+BB-cat+ner-10796014	Abeta precede		574-587
+BB-cat+ner-10796014	E2		623-625
+BB-cat+ner-10796014	No gene		687-694
+BB-cat+ner-10796014	E3		708-710
+BB-cat+ner-10796014	Abeta and		821-830
+BB-cat+ner-10796014	We demonstrate		985-999
+BB-cat+ner-10796014	Induction of		1186-1198
+BB-cat+ner-10796014	Induction by		1315-1327
+BB-cat+ner-11551069	Cloning and		0-11
+BB-cat+ner-11551069	Phytoplasma protein		35-54
+BB-cat+ner-11551069	Genes encoding		76-90
+BB-cat+ner-11551069	Sec protein		143-154
+BB-cat+ner-11551069	The sec		265-272
+BB-cat+ner-11551069	Bacillus subtilis		401-418
+BB-cat+ner-11551069	Escherichia coli		531-547
+BB-cat+ner-11551069	Western blot		549-561
+BB-cat+ner-11551069	Immunohistochemical thin		666-690
+BB-cat+ner-11551069	The sec		829-836
+BB-cat+ner-11551069	These results		977-990
+BB-cat+ner-11551069	Sec system		1028-1038
+BB-cat+ner-11551069	Because phytoplasmas		1056-1076
+BB-cat+ner-11551069	This study		1202-1212
+BB-cat+ner-12417169	Emergence of		0-12
+BB-cat+ner-12417169	Enterococcus faecium		48-68
+BB-cat+ner-12417169	Enterococcus faecium		211-231
+BB-cat+ner-12417169	A 26		311-315
+BB-cat+ner-12417169	Because chloramphenicol		480-503
+BB-cat+ner-12417169	Given these		676-687
+BB-cat+ner-12417169	Kirby zone		1131-1141
+BB-cat+ner-12417169	Chloramphenicol was		1156-1175
+BB-cat+ner-12417169	Our indigenous		1244-1258
+BB-cat+ner-12438382	Pathological and		0-16
+BB-cat+ner-12438382	Proteus mirabilis		66-83
+BB-cat+ner-12438382	Proteus mirabilis		131-148
+BB-cat+ner-12438382	We evaluated		191-203
+BB-cat+ner-12438382	Five intestinal		381-396
+BB-cat+ner-12438382	HT29		406-410
+BB-cat+ner-12438382	HT29		412-416
+BB-cat+ner-12438382	N2		419-421
+BB-cat+ner-12438382	HT29		423-427
+BB-cat+ner-12438382	HT29		436-440
+BB-cat+ner-12438382	HUC-1		475-480
+BB-cat+ner-12438382	Proteus mirabilis		527-544
+BB-cat+ner-12438382	MUC2		769-773
+BB-cat+ner-12438382	MUC5		778-782
+BB-cat+ner-12438382	Infected cells		901-915
+BB-cat+ner-12438382	All cell		1083-1091
+BB-cat+ner-12438382	MUC2		1168-1172
+BB-cat+ner-12438382	MUC5		1205-1209
+BB-cat+ner-12438382	The correlation		1214-1229
+BB-cat+ner-12438382	HUC-1		1313-1318
+BB-cat+ner-12438382	HT29		1323-1327
+BB-cat+ner-12438382	Double membranes		1448-1464
+BB-cat+ner-12438382	Relative resistance		1506-1525
+BB-cat+ner-12438382	Ciprofloxacin and		1604-1621
+BB-cat+ner-12438382	Membrane mucin		1653-1667
+BB-cat+ner-12438382	Cell invasion		1731-1744
+BB-cat+ner-12438382	Bacterial invasion		1912-1930
+BB-cat+ner-12934822	Detection of		0-12
+BB-cat+ner-12934822	Cryptosporidium parvum		13-35
+BB-cat+ner-12934822	Polymerase chain		121-137
+BB-cat+ner-12934822	Cryptosporidium parvum		172-194
+BB-cat+ner-12934822	Serial dilutions		277-293
+BB-cat+ner-12934822	Poisson distribution		434-454
+BB-cat+ner-12934822	The degree		489-499
+BB-cat+ner-12934822	The sensitivity		568-583
+BB-cat+ner-12934822	The detection		630-643
+BB-cat+ner-12934822	The recovery		951-963
+BB-cat+ner-12934822	Oocysts were		1029-1041
+BB-cat+ner-12934822	The oocysts		1158-1169
+BB-cat+ner-12934822	Association of		1270-1284
+BB-cat+ner-14638480	Efficacies of		0-13
+BB-cat+ner-14638480	Staphylococcus aureus		106-127
+BB-cat+ner-14638480	We adopted		173-183
+BB-cat+ner-14638480	Using two		341-350
+BB-cat+ner-14638480	Staphylococcus aureus		404-425
+BB-cat+ner-14638480	GS171		448-453
+BB-cat+ner-14638480	GR153		478-483
+BB-cat+ner-14638480	Antibiotics were		541-557
+BB-cat+ner-14638480	For combination		691-706
+BB-cat+ner-14638480	Fibrin clots		780-792
+BB-cat+ner-14638480	The number		898-908
+BB-cat+ner-14638480	GS171		1124-1129
+BB-cat+ner-14638480	GR153		1138-1143
+BB-cat+ner-14638480	GS171		1199-1204
+BB-cat+ner-14638480	GR153		1367-1372
+BB-cat+ner-14638480	Our data		1467-1475
+BB-cat+ner-14638480	An additive		1578-1589
+BB-cat+ner-14657131	Mesonia algae		0-13
+BB-cat+ner-14657131	Flavobacteriaceae isolated		74-100
+BB-cat+ner-14657131	Acrosiphonia sonderi		121-141
+BB-cat+ner-14657131	The taxonomic		156-169
+BB-cat+ner-14657131	Acrosiphonia sonderi		309-329
+BB-cat+ner-14657131	On the		507-513
+BB-cat+ner-14657131	Mesonia algae		622-635
+BB-cat+ner-14657131	The type		656-664
+BB-cat+ner-14657131	KMM 3909		675-683
+BB-cat+ner-14657131	KCTC 12089		689-699
+BB-cat+ner-14657131	CCUG 47092		703-713
+BB-cat+ner-15273106	Modulation of		0-13
+BB-cat+ner-15273106	Staphylococcus aureus		126-147
+BB-cat+ner-15273106	The impact		149-159
+BB-cat+ner-15273106	Staphylococcus aureus		218-239
+BB-cat+ner-15273106	We compared		303-314
+BB-cat+ner-15273106	MRGR3		448-453
+BB-cat+ner-15273106	The levels		552-562
+BB-cat+ner-15273106	Quantitative reverse		853-873
+BB-cat+ner-15273106	Analysis of		1063-1074
+BB-cat+ner-15273106	In contrast		1283-1294
+BB-cat+ner-15273106	MRGR3		1367-1372
+BB-cat+ner-15273106	P3		1671-1673
+BB-cat+ner-15273106	Northern blotting		1736-1753
+BB-cat+ner-15273106	These data		1769-1779
+BB-cat+ner-15273106	These molecular		2008-2023
+BB-cat+ner-15460321	Mycoplasma otitis		0-17
+BB-cat+ner-15460321	California calves		21-38
+BB-cat+ner-15460321	Mycoplasma otitis		65-82
+BB-cat+ner-15460321	California calves		86-103
+BB-cat+ner-15460321	Mycoplasma otitis		303-320
+BB-cat+ner-15460321	All affected		369-381
+BB-cat+ner-15460321	Mycoplasma otitis		574-591
+BB-cat+ner-15460321	The proportion		633-647
+BB-cat+ner-15460321	Mycoplasma otitis		666-683
+BB-cat+ner-15460321	Infections involved		854-873
+BB-cat+ner-15460321	Three species		999-1012
+BB-cat+ner-15460321	Mycoplasma were		1016-1031
+BB-cat+ner-15460321	Concurrent pneumonia		1101-1121
+BB-cat+ner-15460321	Mycoplasma was		1154-1168
+BB-cat+ner-15460321	The increasing		1215-1229
+BB-cat+ner-15460321	Mycoplasma otitis		1244-1261
+BB-cat+ner-15612668	Diagnosis of		0-12
+BB-cat+ner-15612668	Chinese patients		40-56
+BB-cat+ner-15612668	Atrophic body		88-101
+BB-cat+ner-15612668	Although histology		138-156
+BB-cat+ner-15612668	The study		439-448
+BB-cat+ner-15612668	At least		585-593
+BB-cat+ner-15612668	Blood samples		728-741
+BB-cat+ner-15612668	Helicobacter pylori		836-855
+BB-cat+ner-15612668	There was		963-972
+BB-cat+ner-15612668	The mean		1039-1047
+BB-cat+ner-15612668	The mean		1220-1228
+BB-cat+ner-15612668	There was		1351-1360
+BB-cat+ner-15612668	For diagnosing		1465-1479
+BB-cat+ner-15612668	The maximum		1617-1628
+BB-cat+ner-15612668	The best		1721-1729
+BB-cat+ner-15612668	The serum		1907-1916
+BB-cat+ner-15626953	Haemophilus influenzae		0-22
+BB-cat+ner-15626953	Haemophilus influenzae		70-92
+BB-cat+ner-15626953	Streptococcus pneumoniae		216-240
+BB-cat+ner-15626953	Antibiotics differ		335-353
+BB-cat+ner-15626953	In the		425-431
+BB-cat+ner-1649682	The use		1-8
+BB-cat+ner-1649682	Staphylococcus aureus		58-79
+BB-cat+ner-1649682	Infection due		82-95
+BB-cat+ner-1649682	Staphylococcus aureus		99-120
+BB-cat+ner-1649682	Apart from		292-302
+BB-cat+ner-1649682	Sabath and		417-427
+BB-cat+ner-1649682	The mechanism		599-612
+BB-cat+ner-1649682	These strains		800-813
+BB-cat+ner-1649682	Because of		939-949
+BB-cat+ner-1649682	We present		1165-1175
+BB-cat+ner-1649682	Culture of		1407-1417
+BB-cat+ner-1649682	Blood culture		1690-1703
+BB-cat+ner-1649682	Neither of		1799-1809
+BB-cat+ner-1649682	Clinical cure		1907-1920
+BB-cat+ner-1649682	These results		1982-1995
+BB-cat+ner-16510930	Results of		1-11
+BB-cat+ner-16510930	Serotyping of		148-161
+BB-cat+ner-16510930	Serotyping was		421-435
+BB-cat+ner-16510930	As a		557-561
+BB-cat+ner-16510930	Such violations		817-832
+BB-cat+ner-16510930	Serotyping of		916-929
+BB-cat+ner-16728960	Swarming differentiation		0-24
+BB-cat+ner-16728960	Swarming has		139-151
+BB-cat+ner-16728960	In this		447-454
+BB-cat+ner-16728960	The insertional		659-674
+BB-cat+ner-16728960	The reduced		959-970
+BB-cat+ner-16728960	These results		1117-1130
+BB-cat+ner-17261513	Use of		0-6
+BB-cat+ner-17261513	Methylomonas sp		99-114
+BB-cat+ner-17261513	C40		140-143
+BB-cat+ner-17261513	The recent		166-176
+BB-cat+ner-17261513	We have		344-351
+BB-cat+ner-17261513	Methylomonas sp		442-457
+BB-cat+ner-17261513	Total carotenoid		735-751
+BB-cat+ner-17261513	Methylomonas genome		1213-1232
+BB-cat+ner-17261513	The genetic		1362-1373
+BB-cat+ner-19494280	Involvement of		0-14
+BB-cat+ner-19494280	CD252		15-20
+BB-cat+ner-19494280	CD134		22-27
+BB-cat+ner-19494280	IL-2		34-38
+BB-cat+ner-19494280	Regulation of		127-140
+BB-cat+ner-19494280	Ls after		191-199
+BB-cat+ner-19494280	By using		252-260
+BB-cat+ner-19494280	HSV-1		378-383
+BB-cat+ner-19494280	Listeria innocua		437-453
+BB-cat+ner-19494280	Listeria monocytogenes		455-477
+BB-cat+ner-19494280	Mycobacterium tuberculosis		479-505
+BB-cat+ner-19494280	Chlamydophila pneumoniae		507-531
+BB-cat+ner-19494280	In contrast		549-560
+BB-cat+ner-19494280	Cs infected		759-770
+BB-cat+ner-19494280	HSV-1		776-781
+BB-cat+ner-19494280	CD252		847-852
+BB-cat+ner-19494280	CD134		854-859
+BB-cat+ner-19494280	IL-2		931-935
+BB-cat+ner-19494280	Adding blocking		937-952
+BB-cat+ner-19494280	CD134		953-958
+BB-cat+ner-19494280	IL-2		975-979
+BB-cat+ner-19494280	Abs during		980-990
+BB-cat+ner-19494280	These data		1062-1072
+BB-cat+ner-19494280	IL-2		1189-1193
+BB-cat+ner-19494280	CD252		1232-1237
+BB-cat+ner-19656787	Protection of		0-13
+BB-cat+ner-19656787	Salmonella by		14-27
+BB-cat+ner-19656787	Escherichia coli		49-65
+BB-cat+ner-19656787	Microbial systems		123-140
+BB-cat+ner-19656787	This work		266-275
+BB-cat+ner-19656787	We examined		668-679
+BB-cat+ner-19656787	Escherichia coli		713-729
+BB-cat+ner-19656787	Both beta		844-853
+BB-cat+ner-19656787	Salmonella enterica		1006-1025
+BB-cat+ner-19656787	Salmonella survivors		1100-1120
+BB-cat+ner-19656787	Salmonella survival		1241-1260
+BB-cat+ner-19656787	The observed		1334-1346
+BB-cat+ner-19656787	Salmonella can		1648-1662
+BB-cat+ner-19656787	As a		1770-1774
+BB-cat+ner-20400104	Microbiota in		0-13
+BB-cat+ner-20400104	To test		52-59
+BB-cat+ner-20400104	Children and		237-249
+BB-cat+ner-20400104	The disease		379-390
+BB-cat+ner-20400104	Index or		470-478
+BB-cat+ner-20400104	Cell counts		523-534
+BB-cat+ner-20400104	Although no		657-668
+BB-cat+ner-20400104	Faecalibacterium prausnitzii		878-906
+BB-cat+ner-20400104	Escherichia coli		986-1002
+BB-cat+ner-20400104	The microbiota		1013-1027
+BB-cat+ner-20672296	Chronic airway		113-127
+BB-cat+ner-20672296	Pseudomonas aeruginosa		143-165
+BB-cat+ner-20672296	Additional anti		241-256
+BB-cat+ner-20672296	CF3		346-349
+BB-cat+ner-20672296	CF1		639-642
+BB-cat+ner-20672296	CF2		650-653
+BB-cat+ner-20672296	Patients received		655-672
+BB-cat+ner-20672296	Mean treatment		884-898
+BB-cat+ner-20672296	Hospitalization rates		954-975
+BB-cat+ner-20672296	With each		1029-1038
+BB-cat+ner-20672296	Symptom scale		1130-1143
+BB-cat+ner-20672296	Benefits waned		1198-1212
+BB-cat+ner-20672296	There were		1291-1301
+BB-cat+ner-20672296	Repeated intermittent		1495-1516
+BB-cat+ner-20672296	Clinical benefits		1571-1588
+BB-cat+ner-21148810	TLR2		0-4
+BB-cat+ner-21148810	During innate		124-137
+BB-cat+ner-21148810	CCR1		196-200
+BB-cat+ner-21148810	CCR2		202-206
+BB-cat+ner-21148810	CCR5		212-216
+BB-cat+ner-21148810	CCL2		334-338
+BB-cat+ner-21148810	TLR2		497-501
+BB-cat+ner-21148810	Staphylococcus aureus		547-568
+BB-cat+ner-21148810	CCR1		605-609
+BB-cat+ner-21148810	CCR2		611-615
+BB-cat+ner-21148810	CCR5		621-625
+BB-cat+ner-21148810	We found		809-817
+BB-cat+ner-21148810	TLR2		827-831
+BB-cat+ner-21148810	Activation of		1050-1063
+BB-cat+ner-21148810	CCR5		1149-1153
+BB-cat+ner-21148810	CCL5		1188-1192
+BB-cat+ner-21148810	CCR5		1244-1248
+BB-cat+ner-21148810	TLR2		1387-1391
+BB-cat+ner-21148810	CCR1		1413-1417
+BB-cat+ner-21148810	CCR2		1419-1423
+BB-cat+ner-21148810	CCR5		1429-1433
+BB-cat+ner-21476570	Absorption linear		0-17
+BB-cat+ner-21476570	Chlorosomes are		153-168
+BB-cat+ner-21476570	They have		304-313
+BB-cat+ner-21476570	Chl molecules		541-554
+BB-cat+ner-21476570	One of		605-611
+BB-cat+ner-21476570	In this		736-743
+BB-cat+ner-21476570	Together with		861-874
+BB-cat+ner-21476570	Chlorobaculum tepidum		1089-1110
+BB-cat+ner-21476570	Fluorescence spectral		1113-1134
+BB-cat+ner-21476570	These parameters		1238-1254
+BB-cat+ner-21476570	The excitonic		1450-1463
+BB-cat+ner-21476570	Limiting values		1537-1552
+BB-cat+ner-21476570	Chl molecules		1791-1804
+BB-cat+ner-21476570	Experiments on		1806-1820
+BB-cat+ner-21476570	Chlorobaculum tepidum		1855-1876
+BB-cat+ner-21476570	Different values		2043-2059
+BB-cat+ner-21511409	Molecular epidemiology		0-22
+BB-cat+ner-21511409	Pasteurella multocida		26-47
+BB-cat+ner-21511409	The molecular		74-87
+BB-cat+ner-21511409	Pasteurella multocida		104-125
+BB-cat+ner-21511409	The aim		179-186
+BB-cat+ner-21511409	Molecular characterisation		297-323
+BB-cat+ner-21511409	Mayenne region		511-525
+BB-cat+ner-21511409	In addition		773-784
+BB-cat+ner-21511409	Scottish isolates		907-924
+BB-cat+ner-21511409	The majority		963-975
+BB-cat+ner-21511409	Five farms		1049-1059
+BB-cat+ner-21511409	French isolates		1088-1103
+BB-cat+ner-21511409	More within		1142-1153
+BB-cat+ner-21511409	E4		1229-1231
+BB-cat+ner-21511409	E4		1260-1262
+BB-cat+ner-21511409	French isolates		1293-1308
+BB-cat+ner-21511409	As in		1512-1517
+BB-cat+ner-21989983	Insights into		0-13
+BB-cat+ner-21989983	Acinetobacter baumannii		14-37
+BB-cat+ner-21989983	Acinetobacter spp		53-70
+BB-cat+ner-21989983	Over recent		174-185
+BB-cat+ner-21989983	Acinetobacter baumannii		221-244
+BB-cat+ner-21989983	This characteristic		394-413
+BB-cat+ner-21989983	Acinetobacter can		687-704
+BB-cat+ner-21989983	This review		852-863
+BB-cat+ner-22203552	Characterization and		0-20
+BB-cat+ner-22203552	Many seeds		119-129
+BB-cat+ner-22203552	In this		200-207
+BB-cat+ner-22203552	CT6919		375-381
+BB-cat+ner-22203552	IRGA 417		407-415
+BB-cat+ner-22203552	CT6919		604-610
+BB-cat+ner-22203552	In fact		774-781
+BB-cat+ner-22203552	Curvularia sp		851-864
+BB-cat+ner-22203552	The root		877-885
+BB-cat+ner-22203552	Pantoea isolates		912-928
+BB-cat+ner-22203552	Both isolates		1024-1037
+BB-cat+ner-22203552	These findings		1177-1191
+BB-cat+ner-22537874	Mutational analysis		0-19
+BB-cat+ner-22537874	Escherichia coli		124-140
+BB-cat+ner-22537874	Previous work		432-445
+BB-cat+ner-22537874	In this		799-806
+BB-cat+ner-22537874	We hypothesize		1247-1261
+BB-cat+ner-22537874	Dominant negative		1390-1407
+BB-cat+ner-23645023	Taibaiella smilacinae		0-21
+BB-cat+ner-23645023	Chitinophagaceae isolated		78-103
+BB-cat+ner-23645023	Smilacina japonica		121-139
+BB-cat+ner-23645023	Flavihumibacter petaseus		168-192
+BB-cat+ner-23645023	PTJT-5		247-253
+BB-cat+ner-23645023	Smilacina japonica		288-306
+BB-cat+ner-23645023	Gray collected		310-324
+BB-cat+ner-23645023	Mountain in		337-348
+BB-cat+ner-23645023	The novel		456-465
+BB-cat+ner-23645023	H 6		506-509
+BB-cat+ner-23645023	Cells were		557-567
+BB-cat+ner-23645023	Phylogenetic analysis		637-658
+BB-cat+ner-23645023	PTJT-5		711-717
+BB-cat+ner-23645023	Lacibacter cauensis		809-828
+BB-cat+ner-23645023	NJ-8		829-833
+BB-cat+ner-23645023	The major		847-856
+BB-cat+ner-23645023	C15		887-890
+BB-cat+ner-23645023	C15		900-903
+BB-cat+ner-23645023	C17		915-918
+BB-cat+ner-23645023	C17		931-934
+BB-cat+ner-23645023	The only		945-953
+BB-cat+ner-23645023	The only		1039-1047
+BB-cat+ner-23645023	MK-7		1072-1076
+BB-cat+ner-23645023	Based on		1116-1124
+BB-cat+ner-23645023	PTJT-5		1181-1187
+BB-cat+ner-23645023	Taibaiella smilacinae		1300-1321
+BB-cat+ner-23645023	The type		1355-1363
+BB-cat+ner-23645023	Taibaiella smilacinae		1374-1395
+BB-cat+ner-23645023	PTJT-5		1399-1405
+BB-cat+ner-23645023	AB 2013017		1419-1429
+BB-cat+ner-23645023	KCTC 32316		1435-1445
+BB-cat+ner-23645023	An emended		1451-1461
+BB-cat+ner-23645023	Flavihumibacter petaseus		1477-1501
+BB-cat+ner-24389148	Molecular determinants		0-22
+BB-cat+ner-24389148	Bacillus anthracis		65-83
+BB-cat+ner-24389148	As blocking		226-237
+BB-cat+ner-24389148	The anthrax		346-357
+BB-cat+ner-24389148	These studies		788-801
+BB-cat+ner-24389148	This review		998-1009
+BB-cat+ner-24584903	On destabilization		0-18
+BB-cat+ner-24584903	Olson complex		41-54
+BB-cat+ner-24584903	Chlorobaculum tepidum		58-79
+BB-cat+ner-24584903	Chlorobaculum tepidum		152-173
+BB-cat+ner-24584903	We provide		217-227
+BB-cat+ner-24584903	Observed correlated		509-528
+BB-cat+ner-24584903	It is		613-618
+BB-cat+ner-24584903	Kreisbeck and		780-793
+BB-cat+ner-24584903	We demonstrate		905-919
+BB-cat+ner-24739626	Comparative transcriptomics		0-27
+BB-cat+ner-24739626	Prochlorococcus is		118-136
+BB-cat+ner-24739626	Prochlorococcus strains		312-335
+BB-cat+ner-24739626	We present		440-450
+BB-cat+ner-24739626	Our data		669-677
+BB-cat+ner-24739626	We discovered		809-822
+BB-cat+ner-24739626	MIT9313		916-923
+BB-cat+ner-24739626	We detected		1065-1076
+BB-cat+ner-24739626	MED4		1163-1167
+BB-cat+ner-24739626	MIT9313		1172-1179
+BB-cat+ner-24739626	These findings		1304-1318
+BB-cat+ner-24739626	Dalgarno motif		1355-1369
+BB-cat+ner-24739626	S1		1428-1430
+BB-cat+ner-24739626	We conclude		1534-1545
+BB-cat+ner-24794581	The warm		0-8
+BB-cat+ner-24794581	Scophthalmus maximus		111-131
+BB-cat+ner-24794581	Its primary		275-286
+BB-cat+ner-24794581	It has		411-417
+BB-cat+ner-24794581	There are		575-584
+BB-cat+ner-24794581	Most teleost		659-671
+BB-cat+ner-24794581	In the		887-893
+BB-cat+ner-24794581	Scophthalmus maximus		1000-1020
+BB-cat+ner-24794581	Their constitutive		1023-1041
+BB-cat+ner-24794581	Both genes		1202-1212
+BB-cat+ner-24794581	The effect		1597-1607
+BB-cat+ner-24865686	Mycobacterium tuberculosis		0-26
+BB-cat+ner-24865686	City exhibit		76-88
+BB-cat+ner-24865686	Mycobacterium tuberculosis		127-153
+BB-cat+ner-24865686	This short		225-235
+BB-cat+ner-24865686	Four isolates		660-673
+BB-cat+ner-24865686	Gaston discriminatory		734-755
+BB-cat+ner-24865686	Spoligotyping analysis		781-803
+BB-cat+ner-24865686	These findings		903-917
+BB-cat+ner-24865686	Canal expansion		1129-1144
+BB-cat+ner-25046729	Wolbachia endosymbionts		0-23
+BB-cat+ner-25046729	Most human		51-61
+BB-cat+ner-25046729	In filaria		156-166
+BB-cat+ner-25046729	Wolbachia are		168-181
+BB-cat+ner-25046729	Due to		387-393
+BB-cat+ner-25046729	Wolbachia have		439-453
+BB-cat+ner-25046729	In vitro		605-613
+BB-cat+ner-25046729	Wolbachia antibiotic		631-651
+BB-cat+ner-25046729	In mosquitoes		765-778
+BB-cat+ner-25046729	Wolbachia can		819-832
+BB-cat+ner-25046729	Plasmodium and		993-1007
+BB-cat+ner-25046729	Wolbachia can		1041-1054
+BB-cat+ner-25179651	Emergence and		0-13
+BB-cat+ner-25179651	Pseudomonas aeruginosa		58-80
+BB-cat+ner-25179651	To evaluate		160-171
+BB-cat+ner-25179651	Pseudomonas aeruginosa		216-238
+BB-cat+ner-25179651	Unit of		352-359
+BB-cat+ner-25179651	We defined		432-442
+BB-cat+ner-25179651	We had		502-508
+BB-cat+ner-25179651	We assessed		711-722
+BB-cat+ner-25179651	We concluded		1013-1025
+BB-cat+ner-25179651	The isolated		1081-1093
+BB-cat+ner-25179651	We experienced		1380-1394
+BB-cat+ner-25179651	Our preventive		1494-1508
+BB-cat+ner-25607366	Biocontainment of		0-17
+BB-cat+ner-25607366	Genetically modified		78-98
+BB-cat+ner-25607366	Genetic biocontainment		184-206
+BB-cat+ner-25607366	Os in		270-275
+BB-cat+ner-25607366	Existing biocontainment		296-319
+BB-cat+ner-25607366	Here we		558-565
+BB-cat+ner-25607366	Escherichia coli		667-683
+BB-cat+ner-25607366	C321		691-695
+BB-cat+ner-25607366	The resulting		773-786
+BB-cat+ner-25607366	Os cannot		789-798
+BB-cat+ner-25607366	This work		1004-1013
+BB-cat+ner-25607366	Os that		1048-1055
+BB-cat+ner-25644009	Comparative genome		0-18
+BB-cat+ner-25644009	Rickettsia rickettsii		33-54
+BB-cat+ner-25644009	Rickettsia rickettsii		89-110
+BB-cat+ner-25644009	Mountain spotted		186-202
+BB-cat+ner-25644009	Strains of		210-220
+BB-cat+ner-25644009	In a		269-273
+BB-cat+ner-25644009	To identify		436-447
+BB-cat+ner-25644009	Morgan and		642-652
+BB-cat+ner-25644009	Iowa and		708-716
+BB-cat+ner-25644009	Smith strains		747-760
+BB-cat+ner-25644009	Montana strains		766-781
+BB-cat+ner-25644009	Smith and		789-798
+BB-cat+ner-25644009	Iowa and		859-867
+BB-cat+ner-25644009	Morgan were		868-879
+BB-cat+ner-25644009	Iowa strain		1008-1019
+BB-cat+ner-25644009	The region		1021-1031
+BB-cat+ner-25644009	Morgan strains		1148-1162
+BB-cat+ner-25644009	Ps identified		1213-1226
+BB-cat+ner-25644009	Another major		1238-1251
+BB-cat+ner-25644009	Iowa strain		1335-1346
+BB-cat+ner-25644009	Sequence analysis		1391-1408
+BB-cat+ner-25644009	Iowa and		1453-1461
+BB-cat+ner-25644009	Morgan strains		1462-1476
+BB-cat+ner-25644009	Smith strains		1506-1519
+BB-cat+ner-25644009	The number		1521-1531
+BB-cat+ner-25644009	Ps and		1537-1543
+BB-cat+ner-25644009	Montana strains		1594-1609
+BB-cat+ner-26155675	Production of		0-13
+BB-cat+ner-26155675	Bacillus pumilus		54-70
+BB-cat+ner-26155675	MTCC 5015		71-80
+BB-cat+ner-26155675	Bacillus pumilus		221-237
+BB-cat+ner-26155675	MTCC 5015		238-247
+BB-cat+ner-26155675	Various process		311-326
+BB-cat+ner-26155675	Burman design		420-433
+BB-cat+ner-26155675	Response surface		451-467
+BB-cat+ner-26155675	These statistical		487-504
+BB-cat+ner-26155675	Maximum production		609-627
+BB-cat+ner-26155675	H 9		758-761
+BB-cat+ner-26155675	Under optimized		765-780
+BB-cat+ner-26155675	Media engineering		830-847
+BB-cat+ner-26155675	Scanning electron		901-918
+BB-cat+ner-26155675	Increased roughness		1037-1056
+BB-cat+ner-26155675	The untreated		1204-1217
+BB-cat+ner-26155675	These results		1253-1266
+BB-cat+ner-26155675	MTCC 5015		1300-1309
+BB-cat+ner-2617654	Carriage of		0-11
+BB-cat+ner-2617654	Haemophilus influenzae		12-34
+BB-cat+ner-2617654	Gambian children		46-62
+BB-cat+ner-2617654	The carriage		181-193
+BB-cat+ner-2617654	Haemophilus influenzae		203-225
+BB-cat+ner-2617654	The duration		342-354
+BB-cat+ner-2617654	Children less		510-523
+BB-cat+ner-2617654	The carriage		727-739
+BB-cat+ner-2617654	Children in		820-831
+BB-cat+ner-2617654	The carriage		905-917
+BB-cat+ner-2617654	Encapsulated strains		1116-1136
+BB-cat+ner-2617654	All capsule		1229-1240
+BB-cat+ner-2617654	No meningitis		1265-1278
+BB-cat+ner-2617654	We conclude		1321-1332
+BB-cat+ner-2617654	Gambian communities		1380-1399
+BB-cat+ner-2617654	Gambian children		1553-1569
+BB-cat+ner-3015879	Construction of		0-15
+BB-cat+ner-3015879	Candida maltosa		40-55
+BB-cat+ner-3015879	To construct		103-115
+BB-cat+ner-3015879	Candida maltosa		172-187
+BB-cat+ner-3015879	LEU2		382-386
+BB-cat+ner-3015879	CS1		477-480
+BB-cat+ner-3015879	CS1		521-524
+BB-cat+ner-3015879	TRA1		710-714
+BB-cat+ner-3015879	TRA11		720-725
+BB-cat+ner-3015879	J288		742-746
+BB-cat+ner-3015879	BR322		802-807
+BB-cat+ner-3015879	LEU2		817-821
+BB-cat+ner-3015879	Saccharomyces cerevisiae		830-854
+BB-cat+ner-3015879	Transformation of		856-873
+BB-cat+ner-3015879	J288		885-889
+BB-cat+ner-3015879	Southern blot		974-987
+BB-cat+ner-3015879	TRA1		1032-1036
+BB-cat+ner-3015879	It was		1159-1165
+BB-cat+ner-3015879	LEU2		1235-1239
+BB-cat+ner-3516874	Identification of		0-17
+BB-cat+ner-3516874	Escherichia coli		70-86
+BB-cat+ner-3516874	An enterotoxigenic		95-113
+BB-cat+ner-3516874	Escherichia coli		114-130
+BB-cat+ner-3516874	This strain		291-302
+BB-cat+ner-3516874	The adhesion		379-391
+BB-cat+ner-3516874	This surface		567-579
+BB-cat+ner-3516874	This adhesive		736-749
+BB-cat+ner-7867953	Aeromonas hydrophila		67-87
+BB-cat+ner-7867953	The lex		89-96
+BB-cat+ner-7867953	Aeromonas hydrophila		106-126
+BB-cat+ner-7867953	Escherichia coli		234-250
+BB-cat+ner-7867953	Ah lex		378-384
+BB-cat+ner-7867953	Ah lex		540-546
+BB-cat+ner-7867953	Ec lex		617-623
+BB-cat+ner-7867953	The structure		634-647
+BB-cat+ner-7867953	Expression of		971-984
+BB-cat+ner-7867953	Ah lex		985-991
+BB-cat+ner-7867953	Ah and		1029-1035
+BB-cat+ner-7867953	Ec genetic		1036-1046
+BB-cat+ner-7867953	In contrast		1079-1090
+BB-cat+ner-7867953	Ec lex		1092-1098
+BB-cat+ner-7867953	Ah cells		1133-1141
+BB-cat+ner-7876637	The spread		0-10
+BB-cat+ner-7876637	Vibrio cholerae		14-29
+BB-cat+ner-7876637	O139		30-34
+BB-cat+ner-817056	Tissue dispersion		0-17
+BB-cat+ner-817056	Bacterial neutral		103-120
+BB-cat+ner-817056	Bacillus polymyxa		133-150
+BB-cat+ner-817056	Primary cell		202-214
+BB-cat+ner-817056	Kunitz unit		294-305
+BB-cat+ner-817056	Monolayer cultures		446-464
+BB-cat+ner-817056	L-929		661-666
+BB-cat+ner-817056	In contrast		737-748
+BB-cat+ner-8406892	Virulence determinants		0-22
+BB-cat+ner-8406892	Escherichia coli		41-57
+BB-cat+ner-8406892	O157		58-62
+BB-cat+ner-8406892	Ten sorbitol		102-114
+BB-cat+ner-8406892	Escherichia coli		126-142
+BB-cat+ner-8406892	O157		143-147
+BB-cat+ner-8406892	We amplified		308-320
+BB-cat+ner-8406892	O157		400-404
+BB-cat+ner-8406892	The data		533-541
+BB-cat+ner-8406892	O157		607-611
+BB-cat+ner-8406892	E2348		674-679
+BB-cat+ner-8406892	O157		716-720
+BB-cat+ner-8406892	EDL 933		774-781
+BB-cat+ner-8406892	O157		812-816
+BB-cat+ner-8406892	O157		974-978
+BB-cat+ner-8406892	O157		1147-1151
+BB-cat+ner-8698477	Macrophages exposed		0-19
+BB-cat+ner-8698477	Borrelia burgdorferi		23-43
+BB-cat+ner-8698477	Lyme arthritis		51-65
+BB-cat+ner-8698477	The mechanism		79-92
+BB-cat+ner-8698477	Lyme arthritis		105-119
+BB-cat+ner-8698477	In this		156-163
+BB-cat+ner-8698477	Lyme arthritis		250-264
+BB-cat+ner-8698477	Severe destructive		266-284
+BB-cat+ner-8698477	Borrelia burgdorferi		350-370
+BB-cat+ner-8698477	Lyme spirochete		494-509
+BB-cat+ner-8698477	Swelling of		511-522
+BB-cat+ner-8698477	This initial		614-626
+BB-cat+ner-8698477	Severe swelling		695-710
+BB-cat+ner-8698477	Histopathologic examination		827-854
+BB-cat+ner-8698477	Lyme arthritis		954-968
+BB-cat+ner-8698477	The onset		970-979
+BB-cat+ner-8698477	By contrast		1086-1097
+BB-cat+ner-8698477	Our results		1386-1397
+BB-cat+ner-8698477	These findings		1574-1588
+BB-cat+ner-8698477	Lyme arthritis		1686-1700
+BB-cat+ner-9231420	Haemophilus parasuis		38-58
+BB-cat+ner-9231420	Haemophilus parasuis		149-169
+BB-cat+ner-9231420	Pasteurellaceae family		238-260
+BB-cat+ner-9231420	Actinobacillus pleuropneumoniae		310-341
+BB-cat+ner-9231420	Similar to		483-493
+BB-cat+ner-9231420	Pasteurella multocida		515-536
+BB-cat+ner-9231420	Exogenous sialic		635-651
+BB-cat+ner-9231420	The role		879-887
+BB-cat+ner-9562874	Enterobacteriaceae found		0-24
+BB-cat+ner-9562874	Enterobacteriaceae were		134-157
+BB-cat+ner-9562874	Seventy two		332-343
+BB-cat+ner-9562874	One hundred		421-432
+BB-cat+ner-9562874	Tryptone glucose		484-500
+BB-cat+ner-9562874	Violet red		545-555
+BB-cat+ner-9562874	In minced		604-613
+BB-cat+ner-9562874	Serratia liquefaciens		620-641
+BB-cat+ner-9562874	Hafnia alvei		643-655
+BB-cat+ner-9562874	Rahnella aquatilis		657-675
+BB-cat+ner-9562874	On fish		705-712
+BB-cat+ner-9562874	One to		852-858
+BB-cat+ner-9562874	Citrobacter freundii		877-897
+BB-cat+ner-9562874	Using a		939-946
+BB-cat+ner-9562874	Escherichia coli		1002-1018
+BB-cat+ner-9562874	One of		1429-1435
+BB-cat+ner-9575437	Comparative studies		1-20
+BB-cat+ner-9575437	Susceptibility distribution		151-178
+BB-cat+ner-9575437	The frequencies		181-196
+BB-cat+ner-9575437	Of the		418-424
+BB-cat+ner-9575437	Enterococcus faecalis		522-543
+BB-cat+ner-9575437	Escherichia coli		610-626
+BB-cat+ner-9575437	Susceptabilities of		628-647
+BB-cat+ner-9575437	Enterococcus faecalis		719-740
+BB-cat+ner-9575437	MIC90		845-850
+BB-cat+ner-9575437	MIC90		933-938
+BB-cat+ner-9575437	The others		960-970
+BB-cat+ner-9575437	MIC90		999-1004
+BB-cat+ner-9575437	Staphylococcus aureus		1039-1060
+BB-cat+ner-9575437	MIC90		1200-1205
+BB-cat+ner-9575437	The others		1242-1252
+BB-cat+ner-9575437	MIC90		1307-1312
+BB-cat+ner-9575437	Staphylococcus epidermidis		1347-1373
+BB-cat+ner-9575437	Cs for		1479-1485
+BB-cat+ner-9575437	MIC90		1623-1628
+BB-cat+ner-9575437	Compared with		1650-1663
+BB-cat+ner-9575437	MIC90		1713-1718
+BB-cat+ner-9575437	They ranged		1761-1772
+BB-cat+ner-9575437	Streptococcus agalactiae		1823-1847
+BB-cat+ner-9575437	All drugs		1848-1857
+BB-cat+ner-9575437	Cs for		1984-1990
+BB-cat+ner-9575437	MIC90		2108-2113
+BB-cat+ner-9575437	Citrobacter freundii		2142-2162
+BB-cat+ner-9575437	MIC90		2265-2270
+BB-cat+ner-9575437	MIC90		2343-2348
+BB-cat+ner-9575437	MIC90		2454-2459
+BB-cat+ner-9575437	MIC90		2485-2490
+BB-cat+ner-9575437	Enterobacter cloacae		2541-2561
+BB-cat+ner-9575437	Cs for		2620-2626
+BB-cat+ner-9575437	MIC90		2689-2694
+BB-cat+ner-9575437	MIC90		2754-2759
+BB-cat+ner-9575437	MIC90		2792-2797
+BB-cat+ner-9575437	MIC50		2858-2863
+BB-cat+ner-9575437	Escherichia coli		2998-3014
+BB-cat+ner-9575437	All drugs		3015-3024
+BB-cat+ner-9575437	MIC90		3164-3169
+BB-cat+ner-9575437	Klebsiella pneumoniae		3392-3413
+BB-cat+ner-9575437	MIC90		3486-3491
+BB-cat+ner-9575437	Cs for		3560-3566
+BB-cat+ner-9575437	MIC90		3712-3717
+BB-cat+ner-9575437	Pseudomonas aeruginosa		3754-3776
+BB-cat+ner-9575437	All drugs		3777-3786
+BB-cat+ner-9575437	MIC90		3855-3860
+BB-cat+ner-9575437	Quinolones were		3894-3909
+BB-cat+ner-9575437	MIC90		3945-3950
+BB-cat+ner-9575437	MIC50		4018-4023
+BB-cat+ner-9575437	Serratia marcescens		4086-4105
+BB-cat+ner-9575437	MIC90		4164-4169
+BB-cat+ner-9666962	Effect of		0-9
+BB-cat+ner-9666962	Experimental murine		99-118
+BB-cat+ner-9666962	To evaluate		133-144
+BB-cat+ner-9666962	Mice infected		298-311
+BB-cat+ner-9666962	Mycobacterium tuberculosis		357-383
+BB-cat+ner-9666962	Erdman were		384-395
+BB-cat+ner-9666962	The bacillary		488-501
+BB-cat+ner-9666962	The infection		781-794
+BB-cat+ner-9666962	Thalidomide treatment		845-866
+BB-cat+ner-9666962	IL-6		950-954
+BB-cat+ner-9666962	IL-10		960-965
+BB-cat+ner-9666962	IL-12		1018-1023
+BB-cat+ner-9666962	The lungs		1062-1071
+BB-cat+ner-9666962	Thalidomide treatment		1162-1183
+BB-cat+ner-9666962	Thalidomide immunomodulation		1219-1247
