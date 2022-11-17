@@ -90,6 +90,8 @@ if ! [ -d "$1" ]; then
     usage "$1 does not exist"
 fi
 
+VERSION=$(sed -n -e '/^version/s,version = ,,p' ./alvisnlp-core/target/classes/fr/inra/maiage/bibliome/alvisnlp/core/app/AlvisNLPVersion.properties)
+
 LIB_FILES="alvisnlp-core/target/lib/*.jar alvisnlp-core/target/*.jar alvisnlp-bibliome/target/lib/*.jar alvisnlp-bibliome/target/*.jar"
 
 SOURCES_DIR="$(readlink -m $(dirname $0))"
@@ -115,9 +117,9 @@ else
 fi
 
 BIN_DIR="$INSTALL_DIR/bin"
-DOC_DIR="$INSTALL_DIR/doc"
-LIB_DIR="$INSTALL_DIR/lib"
-SHARE_DIR="$INSTALL_DIR/share"
+DOC_DIR="$INSTALL_DIR/doc/alvisnlp-$VERSION"
+LIB_DIR="$INSTALL_DIR/lib/alvisnlp-$VERSION"
+SHARE_DIR="$INSTALL_DIR/share/alvisnlp-$VERSION"
 
 mkdir -p "$INSTALL_DIR"
 mkdir -p "$BIN_DIR"
@@ -169,7 +171,7 @@ read -r -d '' TEMPLATE <<'EOF'
 
 ulimit -c 0
 
-export CLASSPATH="__INSTALL_DIR__/lib/*:$CLASSPATH"
+export CLASSPATH="__LIB_DIR__/*:$CLASSPATH"
 
 JVMOPTS=
 OPTERR=0
@@ -182,19 +184,19 @@ done
 shift $(($OPTIND-1))
 
 OPTS=""
-if [ -f "__INSTALL_DIR__/share/default-param-values.xml" ]
+if [ -f "__SHARE_DIR__/default-param-values.xml" ]
 then
-    OPTS="$OPTS ""-defaultParamValuesFile __INSTALL_DIR__/share/default-param-values.xml"
+    OPTS="$OPTS ""-defaultParamValuesFile __SHARE_DIR__/default-param-values.xml"
 fi
-if [ -f "__INSTALL_DIR__/share/default-options.txt" ]
+if [ -f "__SHARE_DIR__/default-options.txt" ]
 then
-    OPTS="$OPTS "$(cat __INSTALL_DIR__/share/default-options.txt)
+    OPTS="$OPTS "$(cat __SHARE_DIR__/default-options.txt)
 fi
 
 java $JVMOPTS fr.inra.maiage.bibliome.alvisnlp.core.app.cli.AlvisNLP $OPTS "$@"
 EOF
 
-BIN_FILE="$BIN_DIR/alvisnlp"
-sed -e "s,__INSTALL_DIR__,$INSTALL_DIR," <<<"$TEMPLATE" >"$BIN_FILE"
+BIN_FILE="$BIN_DIR/alvisnlp-$VERSION"
+sed -e "s,__LIB_DIR__,$LIB_DIR," -e "s,__SHARE_DIR__,$SHARE_DIR," <<<"$TEMPLATE" >"$BIN_FILE"
 chmod +x "$BIN_FILE"
-
+ln -s -f "$BIN_FILE" "$BIN_DIR/alvisnlp"
