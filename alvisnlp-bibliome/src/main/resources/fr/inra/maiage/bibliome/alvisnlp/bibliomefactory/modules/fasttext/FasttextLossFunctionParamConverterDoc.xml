@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><alvisnlp-doc short-target="FasttextLossFunction" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextLossFunction">
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-doc short-target="FasttextLossFunction" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextLossFunction">
 	<synopsis>
 		<p>Converts a <converter>FasttextLossFunction</converter> used to specify optimization function in <module>FasttextClassifierTrain</module>.</p>
 	</synopsis>

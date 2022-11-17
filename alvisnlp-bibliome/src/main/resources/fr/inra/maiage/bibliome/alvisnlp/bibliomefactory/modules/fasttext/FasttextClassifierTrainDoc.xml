@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<alvisnlp-doc author="" beta="true" date=""
-	short-target="FasttextClassifierTrain"
-	target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextClassifierTrain">
+<alvisnlp-doc author="" beta="true" date="" short-target="FasttextClassifierTrain" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextClassifierTrain">
 	<synopsis>
 		<p><this/> trains a document classifier using <a href="https://fasttext.cc/">FastText</a>.</p>
 	</synopsis>
@@ -13,131 +11,99 @@
 		</description>
 
 
-		<param-doc default-value="false" mandatory="default: false"
-			name="autotune" short-type="Boolean" type="java.lang.Boolean">
+		<param-doc name="autotune">
 			<p>Either to autotune hyperparameters that are not set. If <em>true</em>, the <param>validationDocuments</param> must be set.</p>
 		</param-doc>
 
-		<param-doc default-value="300" mandatory="default: 300"
-			name="autotuneDuration" short-type="Integer" type="java.lang.Integer">
+		<param-doc name="autotuneDuration">
 			<p>Duration of autotune in seconds.</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="buckets"
-			short-type="Integer" type="java.lang.Integer">
+		<param-doc name="buckets">
 			<p>Number of buckets [2000000].</p>
 		</param-doc>
 
-		<param-doc mandatory="required" name="classFeature"
-			name-type="feature" short-type="String" type="java.lang.String">
+		<param-doc name="classFeature">
 			<p>Feature that contains the category of the document.</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="classWeights"
-			short-type="IntegerMapping"
-			type="fr.inra.maiage.bibliome.alvisnlp.core.module.types.IntegerMapping">
+		<param-doc name="classWeights">
 			<p>Weight to apply to documents of each category. The mapping keys are the different categories, the values are weights. The default weight is 1.</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="commandlineOptions"
-			short-type="String[]" type="java.lang.String[]">
+		<param-doc name="commandlineOptions">
 			<p>Additional <a href="https://fasttext.cc/docs/en/options.html">command lines</a> options passed to FastText.</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="epochs"
-			short-type="Integer" type="java.lang.Integer">
+		<param-doc name="epochs">
 			<p>Number of epochs [5]</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="learningRate"
-			short-type="Double" type="java.lang.Double">
+		<param-doc name="learningRate">
 			<p>Learning rate [0.1].</p>
 		</param-doc>
 
-		<param-doc default-value="100" mandatory="default: 100"
-			name="learningRateUpdateRate" short-type="Integer"
-			type="java.lang.Integer">
+		<param-doc name="learningRateUpdateRate">
 			<p>Change the rate of updates for the learning rate [100].</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="lossFunction"
-			short-type="FasttextLossFunction"
-			type="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextLossFunction">
+		<param-doc name="lossFunction">
 			<p>Loss function [softmax].</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="maxCharGrams"
-			short-type="Integer" type="java.lang.Integer">
+		<param-doc name="maxCharGrams">
 			<p>Max length of char ngram [0].</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="minCharGrams"
-			short-type="Integer" type="java.lang.Integer">
+		<param-doc name="minCharGrams">
 			<p>Min length of char ngram [0].</p>
 		</param-doc>
 
-		<param-doc default-value="1" mandatory="default: 1"
-			name="minCount" short-type="Integer" type="java.lang.Integer">
+		<param-doc name="minCount">
 			<p>UNDOCUMENTED</p>
 		</param-doc>
 
-		<param-doc default-value="0" mandatory="default: 0"
-			name="minCountLabel" short-type="Integer" type="java.lang.Integer">
+		<param-doc name="minCountLabel">
 			<p>Minimal number of word occurrences [1].</p>
 		</param-doc>
 
-		<param-doc mandatory="required" name="modelFile"
-			short-type="OutputFile"
-			type="fr.inra.maiage.bibliome.util.files.OutputFile">
+		<param-doc name="modelFile">
 			<p>Prefix for the classifier model and the word vector files.</p>
 		</param-doc>
 
-		<param-doc default-value="5" mandatory="default: 5"
-			name="negativeSampling" short-type="Integer" type="java.lang.Integer">
+		<param-doc name="negativeSampling">
 			<p>Number of negatives sampled [5].</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="pretrainedVectors"
-			short-type="InputFile"
-			type="fr.inra.maiage.bibliome.util.files.InputFile">
+		<param-doc name="pretrainedVectors">
 			<p>Pre-trained word vectors. Pre-trained vectors are publicly available on the <a href="https://fasttext.cc/docs/en/english-vectors.html">FastText site</a>.</p>
 		</param-doc>
 
-		<param-doc default-value="1.0E-4"
-			mandatory="default: 1.0E-4" name="samplingThreshold"
-			short-type="Double" type="java.lang.Double">
+		<param-doc name="samplingThreshold">
 			<p>Sampling threshold [0.0001].</p>
 		</param-doc>
 
-		<param-doc default-value="12" mandatory="default: 12"
-			name="threads" short-type="Integer" type="java.lang.Integer">
+		<param-doc name="threads">
 			<p>Number of threads.</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="validationAttributes"
-			short-type="FasttextAttribute[]"
-			type="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext.FasttextAttribute[]">
+		<param-doc name="validationAttributes">
 			<p>Attributes of validation documents. By default the same value as <param>attributes</param>.</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="validationDocuments"
-			short-type="Expression"
-			type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
+		<param-doc name="validationDocuments">
 			<p>Validation documents used for autotuning.</p>
 		</param-doc>
 
-		<param-doc default-value="5" mandatory="default: 5"
-			name="windowSize" short-type="Integer" type="java.lang.Integer">
+		<param-doc name="windowSize">
 			<p>Size of the context window [5].</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="wordGrams"
-			short-type="Integer" type="java.lang.Integer">
+		<param-doc name="wordGrams">
 			<p>Max length of word ngram [1].</p>
 		</param-doc>
 
-		<param-doc mandatory="optional" name="wordVectorSize"
-			short-type="Integer" type="java.lang.Integer">
+		<param-doc name="wordVectorSize">
 			<p>Size of word vectors [100].</p>
 		</param-doc>
 

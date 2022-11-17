@@ -66,7 +66,7 @@ public abstract class PubAnnotationReader extends CorpusModule<ResolvedObjects> 
 					}
 					if (json instanceof JSONArray) {
 						for (Object jsonDoc: (JSONArray) json) {
-							convertDocument(logger, corpus, (JSONObject) jsonDoc); 
+							convertDocument(logger, corpus, (JSONObject) jsonDoc);
 						}
 					}
 				}
@@ -154,7 +154,7 @@ public abstract class PubAnnotationReader extends CorpusModule<ResolvedObjects> 
 		int begin = (int) span.get("begin");
 		int end = (int) span.get("end");
 		Layer layer = sec.ensureLayer(obj);
-		Annotation result = new Annotation(this, layer, begin, end); 
+		Annotation result = new Annotation(this, layer, begin, end);
 		result.addFeature("obj", obj);
 		result.addFeature("project", project);
 		result.addFeature("id", id);

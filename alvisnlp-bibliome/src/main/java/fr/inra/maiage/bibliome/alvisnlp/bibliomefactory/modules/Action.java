@@ -44,7 +44,7 @@ public abstract class Action extends CorpusModule<ActionResolvedObjects> impleme
 	private Expression commit = DefaultExpressions.SELF;
 	private Expression target;
 	private Expression action;
-	
+
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		ActionResolvedObjects res = new ActionResolvedObjects(ctx);
@@ -68,7 +68,7 @@ public abstract class Action extends CorpusModule<ActionResolvedObjects> impleme
 			logger.info("targets visited: " + n);
 		}
 	}
-	
+
 	class ActionResolvedObjects extends ResolvedObjects {
 		@SuppressWarnings("hiding")
 		private final Evaluator commit;
@@ -77,7 +77,7 @@ public abstract class Action extends CorpusModule<ActionResolvedObjects> impleme
 		@SuppressWarnings("hiding")
 		private final Evaluator action;
 		private final Variable targetVariable;
-		
+
 		private ActionResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 			super(ctx, Action.this);
 			VariableLibrary targetLib = new VariableLibrary("target");
@@ -96,7 +96,7 @@ public abstract class Action extends CorpusModule<ActionResolvedObjects> impleme
 			action.collectUsedNames(nameUsage, defaultType);
 		}
 	}
-	
+
 	@Override
 	protected ActionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new ActionResolvedObjects(ctx);

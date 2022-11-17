@@ -29,7 +29,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class WapitiTrain extends AbstractWapiti {
 	private OutputFile modelFile;
 	private String modelType;
@@ -45,7 +45,7 @@ public class WapitiTrain extends AbstractWapiti {
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	@Override
 	protected WapitiResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new WapitiResolvedObjects(ctx, this);

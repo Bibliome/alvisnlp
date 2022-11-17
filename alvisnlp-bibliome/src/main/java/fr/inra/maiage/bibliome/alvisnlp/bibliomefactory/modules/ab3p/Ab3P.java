@@ -33,12 +33,12 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class Ab3P extends SectionModule<SectionResolvedObjects> implements AnnotationCreator, TupleCreator {
 	private InputDirectory installDir;
-	private String shortFormsLayerName = "short-forms";
-	private String longFormsLayerName = "long-forms";
-	private String relationName = "abbreviations";
+	private String shortFormsLayer = "short-forms";
+	private String longFormsLayer = "long-forms";
+	private String abbreviationRelation = "abbreviations";
 	private String shortFormRole = "short-form";
 	private String longFormRole = "long-form";
 	private String longFormFeature = "long-form";
@@ -75,18 +75,39 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getShortFormsLayer() {
+	    return this.shortFormsLayer;
+	};
+
+	public void setShortFormsLayer(String shortFormsLayer) {
+	    this.shortFormsLayer = shortFormsLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getShortFormsLayerName() {
-		return shortFormsLayerName;
+		return shortFormsLayer;
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getLongFormsLayer() {
+	    return this.longFormsLayer;
+	};
+
+	public void setLongFormsLayer(String longFormsLayer) {
+	    this.longFormsLayer = longFormsLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getLongFormsLayerName() {
-		return longFormsLayerName;
+		return longFormsLayer;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.RELATION)
 	public String getRelationName() {
-		return relationName;
+		return abbreviationRelation;
 	}
 
 	@Param(nameType=NameType.ARGUMENT)
@@ -104,6 +125,15 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 		return longFormFeature;
 	}
 
+	@Param(nameType=NameType.RELATION)
+	public String getAbbreviationRelation() {
+		return abbreviationRelation;
+	}
+
+	public void setAbbreviationRelation(String abbreviationRelation) {
+		this.abbreviationRelation = abbreviationRelation;
+	}
+
 	public void setLongFormFeature(String longFormFeature) {
 		this.longFormFeature = longFormFeature;
 	}
@@ -112,16 +142,16 @@ public abstract class Ab3P extends SectionModule<SectionResolvedObjects> impleme
 		this.installDir = installDir;
 	}
 
-	public void setShortFormsLayerName(String shortFormsLayerName) {
-		this.shortFormsLayerName = shortFormsLayerName;
+	public void setShortFormsLayerName(String shortFormsLayer) {
+		this.shortFormsLayer = shortFormsLayer;
 	}
 
-	public void setLongFormsLayerName(String longFormsLayerName) {
-		this.longFormsLayerName = longFormsLayerName;
+	public void setLongFormsLayerName(String longFormsLayer) {
+		this.longFormsLayer = longFormsLayer;
 	}
 
 	public void setRelationName(String relationName) {
-		this.relationName = relationName;
+		this.abbreviationRelation = relationName;
 	}
 
 	public void setShortFormRole(String shortFormRole) {

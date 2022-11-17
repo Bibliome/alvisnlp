@@ -21,12 +21,11 @@ import java.io.IOException;
 import java.util.List;
 import java.util.logging.Logger;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.DependencyParserModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ccg.CCGBase.CCGResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
@@ -39,20 +38,20 @@ import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 
 @AlvisNLPModule
-public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements TupleCreator {
+public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements DependencyParserModule {
 	private ExecutableFile executable;
 	private InputDirectory parserModel;
 	private InputDirectory superModel;
 	private InputFile stanfordMarkedUpScript;
 	private ExecutableFile stanfordScript;
 	private Integer maxSuperCats = 500000;
-	private String relationName = DefaultNames.getDependencyRelationName();
-	private String labelFeatureName = DefaultNames.getDependencyLabelFeatureName();
-	private String sentenceRole = DefaultNames.getDependencySentenceRole();
-	private String headRole = DefaultNames.getDependencyHeadRole();
-	private String dependentRole = DefaultNames.getDependencyDependentRole();
+//	private String dependencyRelation = DefaultNames.getDependencyRelationName();
+//	private String labelFeature = DefaultNames.getDependencyLabelFeatureName();
+//	private String sentenceRole = DefaultNames.getDependencySentenceRole();
+//	private String headRole = DefaultNames.getDependencyHeadRole();
+//	private String dependentRole = DefaultNames.getDependencyDependentRole();
 	private Boolean lpTransformation = false;
-	private String supertagFeatureName = "supertag";
+	private String supertagFeature = "supertag";
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -61,7 +60,7 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 			EvaluationContext evalCtx = new EvaluationContext(logger);
 			List<List<Layer>> sentenceRuns = getSentences(logger, evalCtx, corpus);
 			for (int run = 0; run < sentenceRuns.size(); ++run) {
-				logger.info(String.format("run %d/%d", run+1, sentenceRuns.size())); 
+				logger.info(String.format("run %d/%d", run+1, sentenceRuns.size()));
 				List<Layer> sentences = sentenceRuns.get(run);
 				CCGParserExternalHandler ext = new CCGParserExternalHandler(ctx, this, corpus, run, sentences);
 				try {
@@ -85,7 +84,7 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 	protected CCGResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new CCGResolvedObjects(ctx, this);
 	}
-	
+
 	@Param
 	public ExecutableFile getExecutable() {
 		return executable;
@@ -116,29 +115,16 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 		return maxSuperCats;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.RELATION)
 	public String getRelationName() {
-		return relationName;
+		return getDependencyRelation();
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getLabelFeatureName() {
-		return labelFeatureName;
-	}
-
-	@Param(nameType=NameType.ARGUMENT)
-	public String getSentenceRole() {
-		return sentenceRole;
-	}
-
-	@Param(nameType=NameType.ARGUMENT)
-	public String getHeadRole() {
-		return headRole;
-	}
-
-	@Param(nameType=NameType.ARGUMENT)
-	public String getDependentRole() {
-		return dependentRole;
+		return getDependencyLabelFeature();
 	}
 
 	@Param
@@ -146,13 +132,23 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 		return lpTransformation;
 	}
 
+	@Deprecated
 	@Param
 	public String getSupertagFeatureName() {
-		return supertagFeatureName;
+		return supertagFeature;
+	}
+
+	@Param(nameType = NameType.FEATURE)
+	public String getSupertagFeature() {
+		return supertagFeature;
+	}
+
+	public void setSupertagFeature(String supertagFeature) {
+		this.supertagFeature = supertagFeature;
 	}
 
 	public void setSupertagFeatureName(String supertagFeatureName) {
-		this.supertagFeatureName = supertagFeatureName;
+		this.supertagFeature = supertagFeatureName;
 	}
 
 	public void setLpTransformation(Boolean lpTransformation) {
@@ -184,22 +180,10 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements T
 	}
 
 	public void setRelationName(String relationName) {
-		this.relationName = relationName;
+		setDependencyRelation(relationName);
 	}
 
 	public void setLabelFeatureName(String labelFeatureName) {
-		this.labelFeatureName = labelFeatureName;
-	}
-
-	public void setSentenceRole(String sentenceRole) {
-		this.sentenceRole = sentenceRole;
-	}
-
-	public void setHeadRole(String headRole) {
-		this.headRole = headRole;
-	}
-
-	public void setDependentRole(String modifierRole) {
-		this.dependentRole = modifierRole;
+		setDependencyLabelFeature(labelFeatureName);
 	}
 }

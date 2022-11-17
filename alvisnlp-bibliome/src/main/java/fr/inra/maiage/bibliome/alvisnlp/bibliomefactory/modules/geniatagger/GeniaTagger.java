@@ -40,8 +40,8 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 
 @AlvisNLPModule
 public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
-	private String sentenceLayerName = DefaultNames.getSentenceLayer();
-	private String wordLayerName = DefaultNames.getWordLayer();
+	private String sentenceLayer = DefaultNames.getSentenceLayer();
+	private String wordLayer = DefaultNames.getWordLayer();
 	private String wordFormFeature = Annotation.FORM_FEATURE_NAME;
 	private String posFeature = DefaultNames.getPosTagFeature();
 	private String lemmaFeature = DefaultNames.getCanonicalFormFeature();
@@ -52,10 +52,10 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 	private String geniaCharset = "UTF-8";
 	private Expression sentenceFilter = ConstantsLibrary.TRUE;
 	private Boolean treeTaggerTagset = false;
-	
+
 	static class GeniaTaggerResolvedObjects extends SectionResolvedObjects {
 		final Evaluator sentenceFilter;
-		
+
 		private GeniaTaggerResolvedObjects(ProcessingContext<Corpus> ctx, GeniaTagger module) throws ResolverException {
 			super(ctx, module);
 			sentenceFilter = module.sentenceFilter.resolveExpressions(rootResolver);
@@ -67,7 +67,7 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 			sentenceFilter.collectUsedNames(nameUsage, defaultType);
 		}
 	}
-	
+
 	@Override
 	protected GeniaTaggerResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new GeniaTaggerResolvedObjects(ctx, this);
@@ -82,63 +82,83 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	@Override
 	protected String[] addLayersToSectionFilter() {
-		return new String[] { sentenceLayerName, wordLayerName };
+		return new String[] { sentenceLayer, wordLayer };
 	}
-	
+
 	@Override
 	protected String[] addFeaturesToSectionFilter() {
 		return null;
 	}
-    
-	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing sentence annotations.")
+
+	@Param(nameType=NameType.LAYER)
+	public String getSentenceLayer() {
+	    return this.sentenceLayer;
+	};
+
+	public void setSentenceLayer(String sentenceLayer) {
+	    this.sentenceLayer = sentenceLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getSentenceLayerName() {
-		return sentenceLayerName;
+		return sentenceLayer;
 	}
 
-	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing word annotations.")
+	@Param(nameType=NameType.LAYER)
+	public String getWordLayer() {
+	    return this.wordLayer;
+	};
+
+	public void setWordLayer(String wordLayer) {
+	    this.wordLayer = wordLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getWordLayerName() {
-		return wordLayerName;
+		return wordLayer;
 	}
 
-	@Param(nameType=NameType.FEATURE, defaultDoc = "Feature containing the word surface form.")
+	@Param(nameType=NameType.FEATURE)
 	public String getWordFormFeature() {
 		return wordFormFeature;
 	}
 
-	@Param(nameType=NameType.FEATURE, defaultDoc = "Feature where to put the POS tag.")
+	@Param(nameType=NameType.FEATURE)
 	public String getPosFeature() {
 		return posFeature;
 	}
 
-	@Param(nameType=NameType.FEATURE, defaultDoc = "Feature where to put the word lemma.")
+	@Param(nameType=NameType.FEATURE)
 	public String getLemmaFeature() {
 		return lemmaFeature;
 	}
 
-	@Param(nameType=NameType.FEATURE, defaultDoc = "Feature where to put the chunk status.", mandatory = false)
+	@Param(mandatory = false, nameType=NameType.FEATURE)
 	public String getChunkFeature() {
 		return chunkFeature;
 	}
 
-	@Param(nameType=NameType.FEATURE, defaultDoc = "Feature where to put the entity status.", mandatory = false)
+	@Param(mandatory = false, nameType=NameType.FEATURE)
 	public String getEntityFeature() {
 		return entityFeature;
 	}
 
-	@Param(defaultDoc = "Directory where geniatagger is installed.")
+	@Param
 	public File getGeniaDir() {
 		return geniaDir;
 	}
 
-	@Param(defaultDoc = "Name of the geniatagger executable file.")
+	@Param
 	public File getGeniaTaggerExecutable() {
 		return geniaTaggerExecutable;
 	}
 
-	@Param(defaultDoc = "Character encoding of geniatagger input and output.")
+	@Param
 	public String getGeniaCharset() {
 		return geniaCharset;
 	}
@@ -162,11 +182,11 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 	}
 
 	public void setSentenceLayerName(String sentences) {
-		this.sentenceLayerName = sentences;
+		this.sentenceLayer = sentences;
 	}
 
 	public void setWordLayerName(String words) {
-		this.wordLayerName = words;
+		this.wordLayer = words;
 	}
 
 	public void setWordFormFeature(String wordForm) {

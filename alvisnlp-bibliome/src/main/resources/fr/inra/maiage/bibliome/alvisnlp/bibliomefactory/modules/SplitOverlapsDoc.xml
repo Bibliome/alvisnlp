@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SplitOverlaps">
   <synopsis>
     <p>Splits overlapping annotations.</p>
@@ -22,7 +21,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> copies annotations from <param name="checkedlayerNames"/> into <param name="modifiedlayerName"/> and ensures that this layer does not contain overlaping annotations. If <param name="checkedlayerNames"/> contains overlaps, then <this/> splits annotations at the start or end positions of overlapping annotations.</p>
+      <p><this/> copies annotations from <param>checkedLayers</param> into <param>modifiedLayer</param> and ensures that this layer does not contain overlapping annotations. If <param>checkedLayers</param> contains overlaps, then <this/> splits annotations at the start or end positions of overlapping annotations.</p>
       <ul>
 	<li>Features copied?</li>
 	<li>Non-split annotations deep-copied?</li>
@@ -30,12 +29,16 @@ limitations under the License.
       </ul>
     </description>
   
-    <param-doc name="modifiedlayerName">
+    <param-doc name="modifiedLayer">
       <p>Target layer.</p>
     </param-doc>
   
-    <param-doc name="indexFeatureName">
+    <param-doc name="indexFeature">
       <p>Feature where to store the index of the split annotations.</p>
+    </param-doc>
+  
+    <param-doc name="indexFeatureName">
+      <p>Deprecated alias for <param>indexFeature</param>.</p>
     </param-doc>
   
     <param-doc name="checkedlayerNames">

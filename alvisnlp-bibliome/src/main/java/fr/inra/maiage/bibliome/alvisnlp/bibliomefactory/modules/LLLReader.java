@@ -60,25 +60,25 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 	private static final Pattern GENIC_INTERACTION_PATTERN = Pattern.compile("genic_interaction\\((\\d+),(\\d+)\\)");
 
 	private SourceStream source;
-	private String sectionName = DefaultNames.getDefaultSectionName();
-	private String wordLayerName = DefaultNames.getWordLayer();
-	private String sentenceLayerName = DefaultNames.getSentenceLayer();
-	private String idFeatureName = "id";
-	private String lemmaFeatureName = "lemma";
-	private String dependenciesRelationName = DefaultNames.getDependencyRelationName();
-	private String dependencyLabelFeatureName = DefaultNames.getDependencyLabelFeatureName();
+	private String section = DefaultNames.getDefaultSectionName();
+	private String wordLayer = DefaultNames.getWordLayer();
+	private String sentenceLayer = DefaultNames.getSentenceLayer();
+	private String idFeature = "id";
+	private String lemmaFeature = "lemma";
+	private String dependenciesRelation = DefaultNames.getDependencyRelationName();
+	private String dependencyLabelFeature = DefaultNames.getDependencyLabelFeatureName();
 	private String headRole = DefaultNames.getDependencyHeadRole();
 	private String dependentRole = DefaultNames.getDependencyDependentRole();
-	private String agentFeatureName = "agent";
-	private String targetFeatureName = "target";
-	private String genicInteractionRelationName = "genicInteraction";
+	private String agentFeature = "agent";
+	private String targetFeature = "target";
+	private String genicInteractionRelation = "genicInteraction";
 	private String genicAgentRole = "agent";
 	private String genicTargetRole = "target";
 
 	private void error(BufferedReader r, int lineno, String msg) throws ProcessingException {
 		String src = source.getStreamName(r);
 		throw new ProcessingException("in '" + src + "', line " + lineno + ": " + msg);
-	} 
+	}
 
 	@Override
 	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
@@ -122,8 +122,8 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 								if (sec != null)
 									error(r, lineno, "duplicate sentence");
 								String contents = cols.get(1);
-								sec = new Section(this, doc, sectionName, contents);
-								Layer sentenceLayer = sec.ensureLayer(sentenceLayerName);
+								sec = new Section(this, doc, section, contents);
+								Layer sentenceLayer = sec.ensureLayer(this.sentenceLayer);
 								new Annotation(this, sentenceLayer, 0, contents.length());
 								doc = null;
 								break;
@@ -133,7 +133,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 								if (sec == null)
 									error(r, lineno, "missed sentence text");
 								words.clear();
-								Layer wordLayer = sec.ensureLayer(wordLayerName);
+								Layer wordLayer = sec.ensureLayer(this.wordLayer);
 								for (int i = 1; i < cols.size(); ++i) {
 									Matcher m = WORD_PATTERN.matcher(cols.get(i));
 									if (!m.matches())
@@ -142,7 +142,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 									int start = Integer.parseInt(m.group(2));
 									int end = Integer.parseInt(m.group(3)) + 1;
 									Annotation w = new Annotation(this, wordLayer, start, end);
-									w.addFeature(idFeatureName, id);
+									w.addFeature(idFeature, id);
 									words.put(id, w);
 								}
 								break;
@@ -160,7 +160,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 										error(r, lineno, "no word with id: " + id);
 									Annotation w = words.get(id);
 									String lemma = m.group(2);
-									w.addFeature(lemmaFeatureName, lemma);
+									w.addFeature(lemmaFeature, lemma);
 								}
 								break;
 							case "syntactic_relations":
@@ -170,7 +170,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 									error(r, lineno, "missed sentence text");
 								if (words.isEmpty())
 									error(r, lineno, "missed word segmentation");
-								Relation rel = sec.ensureRelation(this, dependenciesRelationName);
+								Relation rel = sec.ensureRelation(this, dependenciesRelation);
 								for (int i = 1; i < cols.size(); ++i) {
 									Matcher m = SYNTACTIC_RELATION_PATTERN.matcher(cols.get(i));
 									if (!m.matches())
@@ -183,7 +183,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 										error(r, lineno, "no word with id: " + dependentId);
 									String label = m.group(1);
 									Tuple t = new Tuple(this, rel);
-									t.addFeature(dependencyLabelFeatureName, label);
+									t.addFeature(dependencyLabelFeature, label);
 									t.setArgument(headRole, words.get(headId));
 									t.setArgument(dependentRole, words.get(dependentId));
 								}
@@ -201,7 +201,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 									if (!words.containsKey(id))
 										error(r, lineno, "no word with id: " + id);
 									Annotation w = words.get(id);
-									w.addFeature(agentFeatureName, "yes");
+									w.addFeature(agentFeature, "yes");
 								}
 								break;
 							case "targets":
@@ -217,7 +217,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 									if (!words.containsKey(id))
 										error(r, lineno, "no word with id: " + id);
 									Annotation w = words.get(id);
-									w.addFeature(targetFeatureName, "yes");
+									w.addFeature(targetFeature, "yes");
 								}
 								break;
 							case "genic_interactions":
@@ -225,7 +225,7 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 									error(r, lineno, "missed sentence text");
 								if (words.isEmpty())
 									error(r, lineno, "missed word segmentation");
-								rel = sec.ensureRelation(this, genicInteractionRelationName);
+								rel = sec.ensureRelation(this, genicInteractionRelation);
 								for (int i = 1; i < cols.size(); ++i) {
 									Matcher m = GENIC_INTERACTION_PATTERN.matcher(cols.get(i));
 									if (!m.matches())
@@ -259,34 +259,49 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 		return source;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.SECTION)
 	public String getSectionName() {
-		return sectionName;
+		return section;
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getWordLayer() {
+	    return this.wordLayer;
+	};
+
+	public void setWordLayer(String wordLayer) {
+	    this.wordLayer = wordLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getWordLayerName() {
-		return wordLayerName;
+		return wordLayer;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getIdFeatureName() {
-		return idFeatureName;
+		return idFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getLemmaFeatureName() {
-		return lemmaFeatureName;
+		return lemmaFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.RELATION)
 	public String getDependenciesRelationName() {
-		return dependenciesRelationName;
+		return dependenciesRelation;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getDependencyLabelFeatureName() {
-		return dependencyLabelFeatureName;
+		return dependencyLabelFeature;
 	}
 
 	@Param(nameType=NameType.ARGUMENT)
@@ -299,19 +314,22 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 		return dependentRole;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getAgentFeatureName() {
-		return agentFeatureName;
+		return agentFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getTargetFeatureName() {
-		return targetFeatureName;
+		return targetFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.RELATION)
 	public String getGenicInteractionRelationName() {
-		return genicInteractionRelationName;
+		return genicInteractionRelation;
 	}
 
 	@Param(nameType=NameType.ARGUMENT)
@@ -325,12 +343,94 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getSentenceLayer() {
+	    return this.sentenceLayer;
+	};
+
+	public void setSentenceLayer(String sentenceLayer) {
+	    this.sentenceLayer = sentenceLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getSentenceLayerName() {
-		return sentenceLayerName;
+		return sentenceLayer;
 	}
 
-	public void setSentenceLayerName(String sentenceLayerName) {
-		this.sentenceLayerName = sentenceLayerName;
+	@Param(nameType=NameType.FEATURE)
+	public String getIdFeature() {
+		return idFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getLemmaFeature() {
+		return lemmaFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getAgentFeature() {
+		return agentFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getTargetFeature() {
+		return targetFeature;
+	}
+
+	@Param(nameType=NameType.RELATION)
+	public String getDependenciesRelation() {
+		return dependenciesRelation;
+	}
+
+	@Param(nameType=NameType.RELATION)
+	public String getGenicInteractionRelation() {
+		return genicInteractionRelation;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getDependencyLabelFeature() {
+		return dependencyLabelFeature;
+	}
+
+	@Param(nameType=NameType.SECTION)
+	public String getSection() {
+		return section;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
+	}
+
+	public void setDependencyLabelFeature(String dependencyLabelFeature) {
+		this.dependencyLabelFeature = dependencyLabelFeature;
+	}
+
+	public void setDependenciesRelation(String dependenciesRelation) {
+		this.dependenciesRelation = dependenciesRelation;
+	}
+
+	public void setGenicInteractionRelation(String genicInteractionRelation) {
+		this.genicInteractionRelation = genicInteractionRelation;
+	}
+
+	public void setIdFeature(String idFeature) {
+		this.idFeature = idFeature;
+	}
+
+	public void setLemmaFeature(String lemmaFeature) {
+		this.lemmaFeature = lemmaFeature;
+	}
+
+	public void setAgentFeature(String agentFeature) {
+		this.agentFeature = agentFeature;
+	}
+
+	public void setTargetFeature(String targetFeature) {
+		this.targetFeature = targetFeature;
+	}
+
+	public void setSentenceLayerName(String sentenceLayer) {
+		this.sentenceLayer = sentenceLayer;
 	}
 
 	public void setSource(SourceStream source) {
@@ -338,27 +438,27 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 	}
 
 	public void setSectionName(String sectionName) {
-		this.sectionName = sectionName;
+		this.section = sectionName;
 	}
 
-	public void setWordLayerName(String wordLayerName) {
-		this.wordLayerName = wordLayerName;
+	public void setWordLayerName(String wordLayer) {
+		this.wordLayer = wordLayer;
 	}
 
 	public void setIdFeatureName(String idFeatureName) {
-		this.idFeatureName = idFeatureName;
+		this.idFeature = idFeatureName;
 	}
 
 	public void setLemmaFeatureName(String lemmaFeatureName) {
-		this.lemmaFeatureName = lemmaFeatureName;
+		this.lemmaFeature = lemmaFeatureName;
 	}
 
 	public void setDependenciesRelationName(String dependenciesRelationName) {
-		this.dependenciesRelationName = dependenciesRelationName;
+		this.dependenciesRelation = dependenciesRelationName;
 	}
 
 	public void setDependencyLabelFeatureName(String dependencyLabelFeatureName) {
-		this.dependencyLabelFeatureName = dependencyLabelFeatureName;
+		this.dependencyLabelFeature = dependencyLabelFeatureName;
 	}
 
 	public void setHeadRole(String headRole) {
@@ -370,15 +470,15 @@ public abstract class LLLReader extends CorpusModule<ResolvedObjects> implements
 	}
 
 	public void setAgentFeatureName(String agentFeatureName) {
-		this.agentFeatureName = agentFeatureName;
+		this.agentFeature = agentFeatureName;
 	}
 
 	public void setTargetFeatureName(String targetFeatureName) {
-		this.targetFeatureName = targetFeatureName;
+		this.targetFeature = targetFeatureName;
 	}
 
 	public void setGenicInteractionRelationName(String genicInteractionRelationName) {
-		this.genicInteractionRelationName = genicInteractionRelationName;
+		this.genicInteractionRelation = genicInteractionRelationName;
 	}
 
 	public void setGenicAgentRole(String genicAgentRole) {

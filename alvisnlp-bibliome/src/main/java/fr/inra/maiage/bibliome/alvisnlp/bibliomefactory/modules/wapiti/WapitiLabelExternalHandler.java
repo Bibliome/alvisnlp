@@ -43,7 +43,7 @@ class WapitiLabelExternalHandler extends AbstractWapitiExternalHandler<WapitiLab
 			WapitiLabel owner = getModule();
 			EvaluationContext evalCtx = new EvaluationContext(getLogger());
 			for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getAnnotable()))) {
-				for (Layer sentence : sec.getSentences(owner.getTokenLayerName(), owner.getSentenceLayerName())) {
+				for (Layer sentence : sec.getSentences(owner.getTokenLayer(), owner.getSentenceLayer())) {
 					for (Annotation a : sentence) {
 						String line = reader.readLine();
 						if (line == null) {

@@ -74,7 +74,7 @@ public abstract class WebOfKnowledgeReader extends CorpusModule<ResolvedObjects>
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	@TimeThis(task="read", category=TimerCategory.LOAD_RESOURCE)
 	protected void read(@SuppressWarnings("unused") ProcessingContext<Corpus> corpus, WoKReaderStatus status, String line) throws ProcessingException {
 		if (tabularFormat) {
@@ -84,7 +84,7 @@ public abstract class WebOfKnowledgeReader extends CorpusModule<ResolvedObjects>
 			status.readLine(line);
 		}
 	}
-	
+
 	@Override
 	public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
 		nameUsage.addNames(NameType.SECTION, "TI", "AB", "FX");

@@ -48,8 +48,8 @@ import fr.inra.maiage.bibliome.util.obo.OBOUtils;
 @AlvisNLPModule
 public abstract class OBOReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator {
 	private InputFile[] oboFiles;
-	private String nameSectionName = "name";
-	private String synonymSectionName = "synonym";
+	private String nameSection = "name";
+	private String synonymSection = "synonym";
 	private String pathFeature = "path";
 	private String parentFeature = "is_a";
 	private String ancestorsFeature = null;
@@ -91,9 +91,9 @@ public abstract class OBOReader extends CorpusModule<ResolvedObjects> implements
 						doc.addFeature(ancestorsFeature, anc.getID());
 					}
 				}
-				new Section(this, doc, nameSectionName, term.getName());
+				new Section(this, doc, nameSection, term.getName());
 				for (Synonym syn : term.getSynonyms()) {
-					new Section(this, doc, synonymSectionName, syn.getText());
+					new Section(this, doc, synonymSection, syn.getText());
 				}
 			}
 		}
@@ -107,14 +107,16 @@ public abstract class OBOReader extends CorpusModule<ResolvedObjects> implements
 		return oboFiles;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.SECTION)
 	public String getNameSectionName() {
-		return nameSectionName;
+		return nameSection;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.SECTION)
 	public String getSynonymSectionName() {
-		return synonymSectionName;
+		return synonymSection;
 	}
 
 	@Param(nameType=NameType.FEATURE)
@@ -147,6 +149,24 @@ public abstract class OBOReader extends CorpusModule<ResolvedObjects> implements
 		return childrenFeature;
 	}
 
+	@Param(nameType=NameType.SECTION)
+	public String getNameSection() {
+		return nameSection;
+	}
+
+	@Param(nameType=NameType.SECTION)
+	public String getSynonymSection() {
+		return synonymSection;
+	}
+
+	public void setNameSection(String nameSection) {
+		this.nameSection = nameSection;
+	}
+
+	public void setSynonymSection(String synonymSection) {
+		this.synonymSection = synonymSection;
+	}
+
 	public void setAncestorsFeature(String ancestorsFeature) {
 		this.ancestorsFeature = ancestorsFeature;
 	}
@@ -172,11 +192,11 @@ public abstract class OBOReader extends CorpusModule<ResolvedObjects> implements
 	}
 
 	public void setNameSectionName(String nameSectionName) {
-		this.nameSectionName = nameSectionName;
+		this.nameSection = nameSectionName;
 	}
 
 	public void setSynonymSectionName(String synonymSectionName) {
-		this.synonymSectionName = synonymSectionName;
+		this.synonymSection = synonymSectionName;
 	}
 
 	public void setPathFeature(String pathFeature) {

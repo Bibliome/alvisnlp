@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2010-10-28">
   <synopsis>
     <p>Performs word segmentation on section contents.</p>
@@ -22,30 +21,25 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> searches for word boundaries in the section contents, creates an annotation for each word and adds it to the layer <param name="targetLayerName"/>. The following are considered as word boundaries:
+      <p><this/> searches for word boundaries in the section contents, creates an annotation for each word and adds it to the layer <param>targetLayer</param>. The following are considered as word boundaries:
       <ul>
 	<li>consecutive whitespace characters, including ' ', newline, carriage return and horizontal tabulation;</li>
-	<li>the positions before and after each punctuation character defined in <param name="punctuation"/> and <param name="balancedPunctuations"/>, thus a punctuation character always form a single-character word, a balanced punctuation breaks a word iff the corresponding punctuation is found.</li>
+	<li>the positions before and after each punctuation character defined in <param>punctuations</param> and <param>balancedPunctuations</param>, thus a punctuation character always form a single-character word, a balanced punctuation breaks a word iff the corresponding punctuation is found.</li>
       </ul>
       </p>
-      <p>If <param name="fixedFormLayerName"/> is defined then non-overlapping annotations in this layer will be added as is in <param name="targetLayerName"/>, the start and end positions of these annotations are considered as word boundaries and no word boundary is searched inside.</p>
-      <p>The created annotations have the feature <param name="annotationTypeFeature"/> with a value corresponding to the word type:
+      <p>If <param>fixedFormLayer</param> is defined then non-overlapping annotations in this layer will be added as is in <param>targetLayer</param>, the start and end positions of these annotations are considered as word boundaries and no word boundary is searched inside.</p>
+      <p>The created annotations have the feature <param>annotationTypeFeature</param> with a value corresponding to the word type:
       <ul>
 	<li><strong>punctuation</strong>: if the word is a single-character punctuation;</li>
 	<li><strong>word</strong>: if the word is a plain non-punctuation word.</li>
       </ul>
-      The <param name="eosStatusFeature"/> feature contains the end-of-sentence status of the word:
-      <ul>
-	<li><strong>not-eos</strong>: if the word cannot be an end of sentence;</li>
-	<li><strong>maybe-eos</strong>: if the word may be an end of sentence;</li>
-	<li><strong>eos</strong>: if the word is definitely an end of sentence.</li>
-      </ul>
       </p>
     </description>
   
-    <param-doc name="fixedFormLayerName">
+    <param-doc name="fixedFormLayer">
       <p>Name of the layer containing annotations that should not be split into several words.</p>
     </param-doc>
+<param-doc name="fixedFormLayerName"><p>Deprecated alias for <param>fixedFormLayer</param>.</p></param-doc>
   
     <param-doc name="punctuations">
       <p>List of punctuations, be them weak or strong.</p>
@@ -59,9 +53,10 @@ limitations under the License.
       <p>Balanced punctuation characters. The opening punctuation must be immediately followed by the corresponding closing punctuation. If this parameter value has an odd length, then a warning will be issued and the last character will be ignored.</p>
     </param-doc>
   
-    <param-doc name="targetLayerName">
+    <param-doc name="targetLayer">
       <p>Layer where to store word annotations.</p>
     </param-doc>
+<param-doc name="targetLayerName"><p>Deprecated alias for <param>targetLayer</param>.</p></param-doc>
 
     <param-doc name="fixedType">
       <p>Value of the type feature for annotations copied from fixed forms.</p>

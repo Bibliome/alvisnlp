@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-doc author="" beta="true" date="" short-target="SplitSections" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.clone.SplitSections">
+	<synopsis>
+		<p>Split sections into several sections according to annotations boundaries.</p>
+	</synopsis>
+
+	<module-doc>
+		<description>
+			<p><this/> creates a new section for each annotation in <param>selectLayer</param>. The created sections will have the same name as the section to which the annotation belongs.</p>
+			<p>Creates a copy of annotations in other layers in the new section. Relation and tuples are also cloned.</p>
+			<p><this/> optionally creates a new document for each created section if <param>splitDocuments</param> is set.</p>
+		</description>
+
+		<param-doc name="croppedAnnotationFeature">
+			<p>If an annotation is cropped in the process of cloning, then this feature is set to <em>true</em>.</p>
+		</param-doc>
+
+		<param-doc name="croppedAnnotationFeatureName">
+			<p>Deprecated alias for <param>croppedAnnotationFeature</param>.</p>
+		</param-doc>
+
+		<param-doc name="docId">
+			<p>Identifier of created documents if <param>splitDocuments</param> is set.</p>
+		</param-doc>
+
+		<param-doc name="mergeOverlapping">
+			<p>Merge overlapping annotations in <param>selectLayer</param> before creating sections.</p>
+		</param-doc>
+
+		<param-doc name="selectLayer">
+			<p>Layer where to find annotations that specify the created sections contents.</p>
+		</param-doc>
+<param-doc name="selectLayerName"><p>Deprecated alias for <param>selectLayer</param>.</p></param-doc>
+
+		<param-doc name="splitDocuments">
+			<p>If set, the <this/> creates a new document for each created section.</p>
+		</param-doc>
+
+	<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
+	<include-doc>fr.inra.maiage.bibliome.alvisnlp.core.module.ActionInterfaceParamsDoc</include-doc>
+	</module-doc>
+</alvisnlp-doc>

@@ -32,7 +32,7 @@ public interface DocumentCreator extends ElementCreator {
      * Gets the constant document features.
      * @return the constant document features
      */
-    @Param(mandatory=false, nameType=NameType.FEATURE, defaultDoc = "Constant features to add to each document created by this module")
+    @Param(mandatory=false, nameType=NameType.FEATURE)
     public Mapping getConstantDocumentFeatures();
 
     /**

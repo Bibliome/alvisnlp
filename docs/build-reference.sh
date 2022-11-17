@@ -4,7 +4,10 @@ ALVISNLP=$1
 ALVISNLPDOC2MD=alvisnlp-doc2md.xslt
 
 function build() {
-    $ALVISNLP $@ | xsltproc $ALVISNLPDOC2MD -     
+    $ALVISNLP $@ >.module-doc.xml
+    xsltproc $ALVISNLPDOC2MD .module-doc.xml
+    xsltproc ../share/check-doc.xslt .module-doc.xml
+    rm -f .module-doc.xml
 }
 
 echo Creating reference directory tree

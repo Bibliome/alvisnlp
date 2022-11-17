@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,10 +14,9 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2012-04-30" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml.XMLReader2">
   <synopsis>
-    <p>Deprecated alias for <module name="XMLReader"/>.</p>
+    <p>Deprecated alias for <module>XMLReader</module>.</p>
   </synopsis>
 
   <module-doc>
@@ -44,15 +43,15 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="stringParams">
-      <p>Parameters to pass to the XSLT Stylesheet specified by <param name="xslTransform"/>.</p>
+      <p>Parameters to pass to the XSLT Stylesheet specified by <param>xslTransform</param>.</p>
     </param-doc>
   
     <param-doc name="constantSectionFeatures">
       <p>Constant features to add to each section created by this module</p>
     </param-doc>
-  
+   
     <param-doc name="sourcePath">
-      <p>Path to the source directory or source file.</p>
+      <p>Alias for <param>source</param>. Use <param>source</param> instead.</p>
     </param-doc>
   
     <param-doc name="constantTupleFeatures">

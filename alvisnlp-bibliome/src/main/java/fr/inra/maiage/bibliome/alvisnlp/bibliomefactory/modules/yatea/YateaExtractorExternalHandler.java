@@ -171,7 +171,7 @@ public class YateaExtractorExternalHandler<S extends SectionResolvedObjects> ext
                 String s = Strings.normalizeSpace(sec.getDocument().getId() + "/" + sec.getName());
             	ttgOut.printf("%s\tDOCUMENT\t%s\n", s, s);
             }
-            for (Layer sent : sec.getSentences(owner.getWordLayerName(), owner.getSentenceLayerName())) {
+            for (Layer sent : sec.getSentences(owner.getWordLayer(), owner.getSentenceLayer())) {
                 for (Annotation word : sent) {
                 	String token = Strings.normalizeSpace(word.getLastFeature(owner.getFormFeature()));
                 	if (token.isEmpty())

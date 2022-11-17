@@ -23,7 +23,7 @@ import weka.core.Attribute;
 import weka.core.Instances;
 
 public abstract class PredictionElementClassifier extends ElementClassifier {
-	private String predictedClassFeatureKey;
+	private String predictedClassFeature;
 	private File classifierFile;
 
 	protected static String[] getClasses(Instances instances) {
@@ -34,16 +34,16 @@ public abstract class PredictionElementClassifier extends ElementClassifier {
 		return result;
 	}
 
-	public String getPredictedClassFeatureKey() {
-		return predictedClassFeatureKey;
+	public String getPredictedClassFeature() {
+		return predictedClassFeature;
+	}
+
+	public void setPredictedClassFeature(String predictedClassFeature) {
+		this.predictedClassFeature = predictedClassFeature;
 	}
 	
 	public File getClassifierFile() {
 		return classifierFile;
-	}
-	
-	public void setPredictedClassFeatureKey(String predictedClassFeatureKey) {
-		this.predictedClassFeatureKey = predictedClassFeatureKey;
 	}
 	
 	public void setClassifierFile(File classifierFile) {

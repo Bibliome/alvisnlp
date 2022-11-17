@@ -83,10 +83,20 @@ public class WekaPredict extends PredictionElementClassifier {
         return result;
 	}
 
-	@Override
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getPredictedClassFeatureKey() {
-		return super.getPredictedClassFeatureKey();
+		return super.getPredictedClassFeature();
+	}
+
+	public void setPredictedClassFeatureKey(String predictedClassFeature) {
+		super.setPredictedClassFeature(predictedClassFeature);
+	}
+
+	@Override
+	@Param(nameType=NameType.FEATURE)
+	public String getPredictedClassFeature() {
+		return super.getPredictedClassFeature();
 	}
 
 	@Override

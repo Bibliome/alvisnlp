@@ -50,16 +50,16 @@ import fr.inra.maiage.bibliome.util.files.InputFile;
 import fr.inra.maiage.bibliome.util.mappers.Mapper;
 import fr.inra.maiage.bibliome.util.mappers.Mappers;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> implements AnnotationCreator {
 	private InputFile classifierFile;
 	private Boolean searchInContents = false;
-	private String wordLayerName = DefaultNames.getWordLayer();
-	private String sentenceLayerName = DefaultNames.getSentenceLayer();
-	private String formFeatureName = Annotation.FORM_FEATURE_NAME;
-	private String targetLayerName;
-	private String labelFeatureName;
-	
+	private String wordLayer = DefaultNames.getWordLayer();
+	private String sentenceLayer = DefaultNames.getSentenceLayer();
+	private String formFeature = Annotation.FORM_FEATURE_NAME;
+	private String targetLayer;
+	private String labelFeature;
+
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
@@ -74,7 +74,7 @@ public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> 
 			AbstractSequenceClassifier<CoreLabel> classifier = createClassifier();
 			AtomicInteger n = new AtomicInteger();
 			for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-				Layer targetLayer = sec.ensureLayer(targetLayerName);
+				Layer targetLayer = sec.ensureLayer(this.targetLayer);
 				if (searchInContents) {
 					String contents = sec.getContents();
 					List<List<CoreLabel>> sentenceList = classifier.classify(contents);
@@ -83,7 +83,7 @@ public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> 
 					}
 				}
 				else {
-					for (Layer sentence : sec.getSentences(wordLayerName, sentenceLayerName)) {
+					for (Layer sentence : sec.getSentences(wordLayer, sentenceLayer)) {
 						List<CoreLabel> tokenList = createTokenList(sentence);
 						classifier.classify(tokenList);
 						readResultInSentence(targetLayer, sentence, tokenList, n);
@@ -101,21 +101,21 @@ public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> 
 		String classifierPath = classifierFile.getAbsolutePath();
 		return CRFClassifier.getClassifier(classifierPath);
 	}
-	
+
 	private List<CoreLabel> createTokenList(Layer sentence) {
 		List<CoreLabel> tokenList = new ArrayList<CoreLabel>(sentence.size());
 		return Mappers.apply(ANNOTATION_TO_CORE_LABEL, sentence, tokenList);
 	}
-	
+
 	private final Mapper<Annotation,CoreLabel> ANNOTATION_TO_CORE_LABEL = new Mapper<Annotation,CoreLabel>() {
 		@Override
 		public CoreLabel map(Annotation x) {
 			CoreLabel result = new CoreLabel();
-			result.setWord(x.getLastFeature(formFeatureName));
+			result.setWord(x.getLastFeature(formFeature));
 			return result;
 		}
 	};
-	
+
 	private void readResultInContents(Layer targetLayer, List<CoreLabel> tokenList, AtomicInteger n) {
 		int start = 0;
 		int end = 0;
@@ -132,7 +132,7 @@ public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> 
 		}
 		createAnnotation(targetLayer, start, end, prevLabel, n);
 	}
-	
+
 	private void readResultInSentence(Layer targetLayer, Layer sentence, List<CoreLabel> tokenList, AtomicInteger n) {
 		int start = 0;
 		int end = 0;
@@ -150,11 +150,11 @@ public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> 
 		}
 		createAnnotation(targetLayer, start, end, prevLabel, n);
 	}
-	
+
 	private void createAnnotation(Layer targetLayer, int start, int end, String label, AtomicInteger n) {
 		if (!label.equals("O")) {
 			Annotation a = new Annotation(this, targetLayer, start, end);
-			a.addFeature(labelFeatureName, label);
+			a.addFeature(labelFeature, label);
 			n.incrementAndGet();
 		}
 	}
@@ -164,7 +164,7 @@ public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> 
 		if (searchInContents) {
 			return null;
 		}
-		return new String[] { wordLayerName, sentenceLayerName };
+		return new String[] { wordLayer, sentenceLayer };
 	}
 
 	@Override
@@ -178,28 +178,60 @@ public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> 
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getWordLayer() {
+	    return this.wordLayer;
+	};
+
+	public void setWordLayer(String wordLayer) {
+	    this.wordLayer = wordLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getWordLayerName() {
-		return wordLayerName;
+		return wordLayer;
 	}
 
+	@Param(nameType=NameType.LAYER)
+	public String getSentenceLayer() {
+	    return this.sentenceLayer;
+	};
+
+	public void setSentenceLayer(String sentenceLayer) {
+	    this.sentenceLayer = sentenceLayer;
+	};
+
+	@Deprecated
 	@Param(nameType=NameType.LAYER)
 	public String getSentenceLayerName() {
-		return sentenceLayerName;
+		return sentenceLayer;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getFormFeatureName() {
-		return formFeatureName;
+		return formFeature;
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getTargetLayer() {
+	    return this.targetLayer;
+	};
+
+	public void setTargetLayer(String targetLayer) {
+	    this.targetLayer = targetLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getTargetLayerName() {
-		return targetLayerName;
+		return targetLayer;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getLabelFeatureName() {
-		return labelFeatureName;
+		return labelFeature;
 	}
 
 	@Param
@@ -207,31 +239,49 @@ public abstract class StanfordNER extends SectionModule<SectionResolvedObjects> 
 		return searchInContents;
 	}
 
+	@Param(nameType=NameType.FEATURE)
+	public String getFormFeature() {
+		return formFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getLabelFeature() {
+		return labelFeature;
+	}
+
+	public void setFormFeature(String formFeature) {
+		this.formFeature = formFeature;
+	}
+
+	public void setLabelFeature(String labelFeature) {
+		this.labelFeature = labelFeature;
+	}
+
 	public void setSearchInContents(Boolean searchInContents) {
 		this.searchInContents = searchInContents;
 	}
 
-	public void setTargetLayerName(String targetLayerName) {
-		this.targetLayerName = targetLayerName;
+	public void setTargetLayerName(String targetLayer) {
+		this.targetLayer = targetLayer;
 	}
 
 	public void setLabelFeatureName(String labelFeatureName) {
-		this.labelFeatureName = labelFeatureName;
+		this.labelFeature = labelFeatureName;
 	}
 
 	public void setClassifierFile(InputFile classifierFile) {
 		this.classifierFile = classifierFile;
 	}
 
-	public void setWordLayerName(String wordLayerName) {
-		this.wordLayerName = wordLayerName;
+	public void setWordLayerName(String wordLayer) {
+		this.wordLayer = wordLayer;
 	}
 
-	public void setSentenceLayerName(String sentenceLayerName) {
-		this.sentenceLayerName = sentenceLayerName;
+	public void setSentenceLayerName(String sentenceLayer) {
+		this.sentenceLayer = sentenceLayer;
 	}
 
 	public void setFormFeatureName(String formFeatureName) {
-		this.formFeatureName = formFeatureName;
+		this.formFeature = formFeatureName;
 	}
 }

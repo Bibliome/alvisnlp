@@ -68,8 +68,7 @@ class ParamModel {
         javaName = getter.substring(3, 4).toLowerCase() + getter.substring(4);
         generate = ModelContext.isAbstract(getterElement);
         setter = getSetter(moduleMethods, getter, generate, getterElement.getReturnType());
-        String paramName = annotation.publicName();
-        name = paramName.isEmpty() ? javaName : paramName;
+        name = javaName;
         type = getType(getterElement);
 	}
 	
@@ -162,13 +161,6 @@ class ParamModel {
 	 */
 	public boolean isMandatory() {
 		return annotation.mandatory();
-	}
-
-	/**
-	 * Returns the default documentation for the parameter.
-	 */
-	public String getDefaultDoc() {
-		return annotation.defaultDoc();
 	}
 
 	public String getDefaultValue() {
@@ -264,7 +256,6 @@ class ParamModel {
         result.setAttribute("setter", setter);
         result.setAttribute("public", name);
         result.setAttribute("mandatory", Boolean.toString(isMandatory()));
-        result.setAttribute("defaultDoc", getDefaultDoc());
         result.setAttribute("name-type", getNameType());
         result.setAttribute("defaultValue", getDefaultValue());
         return result;

@@ -38,12 +38,12 @@ import fr.inra.maiage.bibliome.util.Iterators;
 
 @AlvisNLPModule
 public abstract class NGrams extends SectionModule<SectionResolvedObjects> implements AnnotationCreator {
-	private String tokenLayerName = DefaultNames.getWordLayer();
-	private String sentenceLayerName = DefaultNames.getSentenceLayer();
-	private String targetLayerName;
+	private String tokenLayer = DefaultNames.getWordLayer();
+	private String sentenceLayer = DefaultNames.getSentenceLayer();
+	private String targetLayer;
 	private Integer maxNGramSize;
 	private String[] keepAnnotations = new String[] {};
-	
+
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
@@ -55,8 +55,8 @@ public abstract class NGrams extends SectionModule<SectionResolvedObjects> imple
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		int n = 0;
 		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-			Layer target = sec.ensureLayer(targetLayerName);
-			for (Layer sentence : sec.getSentences(tokenLayerName, sentenceLayerName)) {
+			Layer target = sec.ensureLayer(targetLayer);
+			for (Layer sentence : sec.getSentences(tokenLayer, sentenceLayer)) {
 				int len = sentence.size();
 				for (int start = 0; start < len; ++start) {
 					int maxEnd = start + maxNGramSize - 1;
@@ -72,7 +72,7 @@ public abstract class NGrams extends SectionModule<SectionResolvedObjects> imple
 		}
 		getLogger(ctx).info("ngrams: " + n);
 	}
-	
+
 	private Annotation getNGram(Section sec, int startPosition, int endPosition) {
 		for (String ln : keepAnnotations) {
 			if (!sec.hasLayer(ln))
@@ -87,22 +87,42 @@ public abstract class NGrams extends SectionModule<SectionResolvedObjects> imple
 
 	@Override
 	protected String[] addLayersToSectionFilter() {
-		return new String[] { tokenLayerName };
+		return new String[] { tokenLayer };
 	}
-	
+
 	@Override
 	protected String[] addFeaturesToSectionFilter() {
 		return null;
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getTokenLayer() {
+	    return this.tokenLayer;
+	};
+
+	public void setTokenLayer(String tokenLayer) {
+	    this.tokenLayer = tokenLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getTokenLayerName() {
-		return tokenLayerName;
+		return tokenLayer;
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getTargetLayer() {
+	    return this.targetLayer;
+	};
+
+	public void setTargetLayer(String targetLayer) {
+	    this.targetLayer = targetLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getTargetLayerName() {
-		return targetLayerName;
+		return targetLayer;
 	}
 
 	@Param
@@ -116,20 +136,30 @@ public abstract class NGrams extends SectionModule<SectionResolvedObjects> imple
 	}
 
 	@Param(nameType=NameType.LAYER, mandatory=false)
+	public String getSentenceLayer() {
+	    return this.sentenceLayer;
+	};
+
+	public void setSentenceLayer(String sentenceLayer) {
+	    this.sentenceLayer = sentenceLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER, mandatory=false)
 	public String getSentenceLayerName() {
-		return sentenceLayerName;
+		return sentenceLayer;
 	}
 
-	public void setSentenceLayerName(String sentenceLayerName) {
-		this.sentenceLayerName = sentenceLayerName;
+	public void setSentenceLayerName(String sentenceLayer) {
+		this.sentenceLayer = sentenceLayer;
 	}
 
-	public void setTokenLayerName(String tokenLayerName) {
-		this.tokenLayerName = tokenLayerName;
+	public void setTokenLayerName(String tokenLayer) {
+		this.tokenLayer = tokenLayer;
 	}
 
-	public void setTargetLayerName(String targetLayerName) {
-		this.targetLayerName = targetLayerName;
+	public void setTargetLayerName(String targetLayer) {
+		this.targetLayer = targetLayer;
 	}
 
 	public void setMaxNGramSize(Integer maxNGramSize) {

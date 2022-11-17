@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ab3p.Ab3P">
   <synopsis>
     <p>synopsis</p>
@@ -25,17 +24,19 @@ limitations under the License.
       <p>synopsis</p>
     </description>
   
-    <param-doc name="shortFormsLayerName">
+    <param-doc name="shortFormsLayer">
       <p/>
     </param-doc>
+<param-doc name="shortFormsLayerName"><p>Deprecated alias for <param>shortFormsLayer</param>.</p></param-doc>
   
     <param-doc name="shortFormRole">
       <p/>
     </param-doc>
   
-    <param-doc name="longFormsLayerName">
+    <param-doc name="longFormsLayer">
       <p/>
     </param-doc>
+<param-doc name="longFormsLayerName"><p>Deprecated alias for <param>longFormsLayer</param>.</p></param-doc>
   
     <param-doc name="longFormRole">
       <p/>
@@ -45,8 +46,12 @@ limitations under the License.
       <p/>
     </param-doc>
   
-    <param-doc name="relationName">
+    <param-doc name="abbreviationRelation">
       <p/>
+    </param-doc>
+  
+    <param-doc name="relationName">
+      <p>Deprecated alias for <param>abbreviationRelation</param>.</p>
     </param-doc>
   
     <param-doc name="installDir">

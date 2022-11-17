@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<alvisnlp-doc author="" beta="true" date="" short-target="Word2Vec"
-	target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.Word2Vec">
+<alvisnlp-doc author="" beta="true" date="" short-target="Word2Vec" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.Word2Vec">
 
-		<param-doc default-value="form" mandatory="default: form"
-			name="formFeature" name-type="feature" short-type="String" type="java.lang.String">
+		<param-doc name="formFeature">
 			<p>Feature to use as word form.</p>
 		</param-doc>
 
-		<param-doc default-value="words" mandatory="default: words"
-			name="tokenLayer" name-type="layer" short-type="String" type="java.lang.String">
+		<param-doc name="formFeatureName">
+			<p>Deprecated alias for <param>formFeature</param>.</p>
+		</param-doc>
+
+		<param-doc name="tokenLayer">
 			<p>Name of the layer containing token annotations.</p>
 		</param-doc>
 
-		<param-doc mandatory="required" name="contesDir" short-type="InputDirectory"
-			type="fr.inra.maiage.bibliome.util.files.InputDirectory">
+		<param-doc name="tokenLayerName">
+			<p>Deprecated alias for <param>tokenLayer</param>.</p>
+		</param-doc>
+
+		<param-doc name="contesDir">
 			<p>Root directory of CONTES.</p>
 		</param-doc>
 		

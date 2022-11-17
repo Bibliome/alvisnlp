@@ -49,8 +49,8 @@ abstract class AbstractCCGExternalHandler<T extends CCGResolvedObjects,M extends
 	}
 	
 	private void printSentence(PrintStream out, StringBuilder sb, Layer sentence) {
-		String formFeatureName = getModule().getFormFeatureName();
-		String posFeatureName = getModule().getPosFeatureName();
+		String formFeatureName = getModule().getFormFeature();
+		String posFeatureName = getModule().getPosFeature();
 		boolean notFirst = false;
 		for (Annotation word : sentence) {
 			String form = word.getLastFeature(formFeatureName);

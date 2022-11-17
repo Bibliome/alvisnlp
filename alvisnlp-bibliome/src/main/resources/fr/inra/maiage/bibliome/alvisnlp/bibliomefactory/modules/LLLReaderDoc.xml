@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,21 +14,16 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.LLLReader">
 
   <synopsis>
-    <p>Read files and annotations in <a href="XXX">LLL format</a>.</p>
+    <p>Read files and annotations in <a href="http://genome.jouy.inra.fr/texte/LLLchallenge/">LLL format</a>.</p>
   </synopsis>
 
   <module-doc>
     <description>
-      <p><this/> reads files in <param name="source"/> in <a href="XXX">LLL challenge</a> format.</p>
+      <p><this/> reads files in <param>source</param> in <a href="http://genome.jouy.inra.fr/texte/LLLchallenge/">LLL challenge</a> format.</p>
     </description>
-  
-    <param-doc name="genicInteractionRelationName">
-      <p>Name of the relation whose tuples represent genic interactions.</p>
-    </param-doc>
   
     <param-doc name="genicTargetRole">
       <p>Role of the argument that represent the genic interaction target.</p>
@@ -38,13 +33,10 @@ limitations under the License.
       <p>Role of the argument that represent the genic interaction target.</p>
     </param-doc>
   
-    <param-doc name="wordLayerName">
+    <param-doc name="wordLayer">
       <p>Name of the layer where to store word annotations.</p>
     </param-doc>
-  
-    <param-doc name="dependencyLabelFeatureName">
-      <p>Feature where to store the dependency label.</p>
-    </param-doc>
+<param-doc name="wordLayerName"><p>Deprecated alias for <param>wordLayer</param>.</p></param-doc>
   
     <param-doc name="dependentRole">
       <p>Name of the role of the argument that represent the dependency dependent.</p>
@@ -54,36 +46,77 @@ limitations under the License.
       <p>Path of the file or directory, or URL, containg the files to import.</p>
     </param-doc>
   
-    <param-doc name="dependenciesRelationName">
+    <param-doc name="dependenciesRelation">
       <p>Name of the relation whose tuples represent dependencies.</p>
+    </param-doc>
+  
+    <param-doc name="genicInteractionRelation">
+      <p>Name of the relation whose tuples represent genic interactions.</p>
+    </param-doc>
+  
+    <param-doc name="dependenciesRelationName">
+      <p>Deprecated parameter alias for <param>dependenciesRelation</param>.</p>
+    </param-doc>
+  
+    <param-doc name="genicInteractionRelationName">
+      <p>Deprecated parameter alias for <param>genicInteractionRelation</param>.</p>
     </param-doc>
   
     <param-doc name="headRole">
       <p>Name of the role of the argument that represent the dependency head.</p>
     </param-doc>
   
-    <param-doc name="targetFeatureName">
+    <param-doc name="section">
+      <p>Name of the unique section created.</p>
+    </param-doc>
+  
+    <param-doc name="sectionName">
+      <p>Deprecated parameter alias for <param>section</param>.</p>
+    </param-doc>
+  
+    <param-doc name="idFeature">
+      <p>Feature where to store annotations and tuples identifiers.</p>
+    </param-doc>
+  
+    <param-doc name="lemmaFeature">
+      <p>Feature where to store the word lemma.</p>
+    </param-doc>
+  
+    <param-doc name="dependencyLabelFeature">
+      <p>Feature where to store the dependency label.</p>
+    </param-doc>
+  
+    <param-doc name="agentFeature">
+      <p>Feature that has the value <code>yes</code> for entities that represent an agent.</p>
+    </param-doc>
+  
+    <param-doc name="targetFeature">
       <p>Feature that has the value <code>yes</code> for entities that represent a target.</p>
     </param-doc>
   
     <param-doc name="idFeatureName">
-      <p>Feature where to store annotations and tuples identifiers.</p>
+      <p>Deprecated parameter alias for <param>idFeature</param>.</p>
     </param-doc>
   
     <param-doc name="lemmaFeatureName">
-      <p>Feature where to store the word lemma.</p>
-    </param-doc>
-  
-    <param-doc name="sectionName">
-      <p>Name of the unique section created.</p>
+      <p>Deprecated parameter alias for <param>lemmaFeature</param>.</p>
     </param-doc>
   
     <param-doc name="agentFeatureName">
-      <p>Feature that has the value <code>yes</code> for entities that represent an agent.</p>
+      <p>Deprecated parameter alias for <param>agentFeature</param>.</p>
+    </param-doc>
+  
+    <param-doc name="targetFeatureName">
+      <p>Deprecated parameter alias for <param>targetFeature</param>.</p>
     </param-doc>
 
-    <param-doc name="sentenceLayerName">
+    <param-doc name="sentenceLayer">
       <p>Name of the layer where to store sentence annotations.</p>
+    </param-doc>
+<param-doc name="sentenceLayerName"><p>Deprecated alias for <param>sentenceLayer</param>.</p></param-doc>
+  
+    <param-doc name="dependencyLabelFeatureName">
+      <p>Deprecated parameter alias for <param>dependencyLabelFeature</param>.</p>
     </param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>

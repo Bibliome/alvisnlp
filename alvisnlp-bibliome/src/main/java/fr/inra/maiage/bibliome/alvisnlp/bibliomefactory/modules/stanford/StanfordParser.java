@@ -12,6 +12,7 @@ import edu.stanford.nlp.ling.TaggedWord;
 import edu.stanford.nlp.parser.nndep.DependencyParser;
 import edu.stanford.nlp.trees.GrammaticalStructure;
 import edu.stanford.nlp.trees.TypedDependency;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.DependencyParserModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.stanford.StanfordParser.StanfordParserResolvedObjects;
@@ -22,8 +23,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ConstantsLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
@@ -37,21 +36,16 @@ import fr.inra.maiage.bibliome.util.Checkable;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.LoggingUtils;
 
-@AlvisNLPModule(beta=true)
-public abstract class StanfordParser extends SectionModule<StanfordParserResolvedObjects> implements TupleCreator, Checkable {
-	private String sentenceLayerName = DefaultNames.getSentenceLayer();
-	private String tokenLayerName = DefaultNames.getWordLayer();
+@AlvisNLPModule
+public abstract class StanfordParser extends SectionModule<StanfordParserResolvedObjects> implements DependencyParserModule, Checkable {
+	private String sentenceLayer = DefaultNames.getSentenceLayer();
+	private String tokenLayer = DefaultNames.getWordLayer();
 	private Expression sentenceFilter = ConstantsLibrary.TRUE;
-	private String formFeatureName = Annotation.FORM_FEATURE_NAME;
-	private String posTagFeatureName = DefaultNames.getPosTagFeature();
-	private String dependencyRelationName = DefaultNames.getDependencyRelationName();
-	private String headRole = DefaultNames.getDependencyHeadRole();
-	private String dependentRole = DefaultNames.getDependencyDependentRole();
-	private String dependencyLabelFeatureName = DefaultNames.getDependencyLabelFeatureName();
-	private String dependencySentenceRole = DefaultNames.getDependencySentenceRole();
+	private String formFeature = Annotation.FORM_FEATURE_NAME;
+	private String posTagFeature = DefaultNames.getPosTagFeature();
 	private Boolean omitRoot = false;
 	private Language language = Language.ENGLISH;
-	
+
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
         LoggingUtils.configureSilentLog4J();
@@ -62,9 +56,9 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		DependencyParser parser = loadParser();
 		logger.info("parsing sentences");
 		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-			Layer sentences = sec.getLayer(sentenceLayerName);
-			Layer tokens = sec.getLayer(tokenLayerName);
-			Relation dependencies = sec.ensureRelation(this, dependencyRelationName);
+			Layer sentences = sec.getLayer(sentenceLayer);
+			Layer tokens = sec.getLayer(tokenLayer);
+			Relation dependencies = ensureRelation(sec);
 			for (Annotation sentence : sentences) {
 				if (resObj.sentenceFilter.evaluateBoolean(evalCtx, sentence)) {
 					parseSentence(parser, dependencies, tokens, sentence);
@@ -72,7 +66,7 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 			}
 		}
 	}
-	
+
 	private String getParserPath() {
 		switch (language) {
 			case ENGLISH: return "edu/stanford/nlp/models/parser/nndep/english_UD.gz";
@@ -84,7 +78,7 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 				return null;
 		}
 	}
-	
+
 	private DependencyParser loadParser() {
 		String parserPath = getParserPath();
 		if (parserPath == null) {
@@ -92,7 +86,7 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		}
 		return DependencyParser.loadFromModelFile(getParserPath());
 	}
-	
+
 	private void parseSentence(DependencyParser parser, Relation dependencies, Layer tokens, Annotation sentence) {
 		Layer sentenceTokens = tokens.between(sentence);
 		List<TaggedWord> taggedSentence = convertSentenceTokens(sentenceTokens);
@@ -101,18 +95,18 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 			createDependencyTuple(dependencies, sentenceTokens, sentence, dep);
 		}
 	}
-	
+
 	private List<TaggedWord> convertSentenceTokens(Layer sentenceTokens) {
 		List<TaggedWord> result = new ArrayList<TaggedWord>(sentenceTokens.size());
 		for (Annotation t : sentenceTokens) {
-			String form = t.getLastFeature(formFeatureName);
-			String pos = t.getLastFeature(posTagFeatureName);
+			String form = t.getLastFeature(formFeature);
+			String pos = t.getLastFeature(posTagFeature);
 			TaggedWord tw = new TaggedWord(form, pos);
 			result.add(tw);
 		}
 		return result;
 	}
-	
+
 	private void createDependencyTuple(Relation dependencies, Layer sentenceTokens, Annotation sentence, TypedDependency dep) {
 		int headIndex = dep.gov().index() - 1;
 		int modIndex = dep.dep().index() - 1;
@@ -128,16 +122,12 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 			head = sentenceTokens.get(headIndex);
 		}
 		Annotation mod = sentenceTokens.get(modIndex);
-		Tuple t = new Tuple(this, dependencies);
-		t.setArgument(dependencySentenceRole, sentence);
-		t.setArgument(headRole, head);
-		t.setArgument(dependentRole, mod);
-		t.addFeature(dependencyLabelFeatureName, label);
+		createDependency(dependencies, sentence, head, mod, label);
 	}
 
 	@Override
 	protected String[] addLayersToSectionFilter() {
-		return new String[] { sentenceLayerName, tokenLayerName };
+		return new String[] { sentenceLayer, tokenLayer };
 	}
 
 	@Override
@@ -149,16 +139,16 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	protected StanfordParserResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new StanfordParserResolvedObjects(ctx, this);
 	}
-	
+
 	public static class StanfordParserResolvedObjects extends SectionResolvedObjects {
 		private final Evaluator sentenceFilter;
-		
+
 		public StanfordParserResolvedObjects(ProcessingContext<Corpus> ctx, StanfordParser module) throws ResolverException {
 			super(ctx, module);
 			this.sentenceFilter = module.sentenceFilter.resolveExpressions(rootResolver);
 		}
 	}
-	
+
 	@Override
 	public boolean check(Logger logger) {
 		String parserPath = getParserPath();
@@ -170,13 +160,33 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getSentenceLayer() {
+	    return this.sentenceLayer;
+	};
+
+	public void setSentenceLayer(String sentenceLayer) {
+	    this.sentenceLayer = sentenceLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getSentenceLayerName() {
-		return sentenceLayerName;
+		return sentenceLayer;
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getTokenLayer() {
+	    return this.tokenLayer;
+	};
+
+	public void setTokenLayer(String tokenLayer) {
+	    this.tokenLayer = tokenLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getTokenLayerName() {
-		return tokenLayerName;
+		return tokenLayer;
 	}
 
 	@Param
@@ -184,39 +194,28 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		return sentenceFilter;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getFormFeatureName() {
-		return formFeatureName;
+		return formFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getPosTagFeatureName() {
-		return posTagFeatureName;
+		return posTagFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.RELATION)
 	public String getDependencyRelationName() {
-		return dependencyRelationName;
+		return getDependencyRelation();
 	}
 
-	@Param(nameType=NameType.ARGUMENT)
-	public String getHeadRole() {
-		return headRole;
-	}
-
-	@Param(nameType=NameType.ARGUMENT)
-	public String getDependentRole() {
-		return dependentRole;
-	}
-
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getDependencyLabelFeatureName() {
-		return dependencyLabelFeatureName;
-	}
-
-	@Param(nameType=NameType.ARGUMENT)
-	public String getDependencySentenceRole() {
-		return dependencySentenceRole;
+		return getDependencyLabelFeature();
 	}
 
 	@Param
@@ -229,6 +228,24 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		return language;
 	}
 
+	@Param(nameType=NameType.FEATURE)
+	public String getFormFeature() {
+		return formFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getPosTagFeature() {
+		return posTagFeature;
+	}
+
+	public void setFormFeature(String formFeature) {
+		this.formFeature = formFeature;
+	}
+
+	public void setPosTagFeature(String posTagFeature) {
+		this.posTagFeature = posTagFeature;
+	}
+
 	public void setLanguage(Language language) {
 		this.language = language;
 	}
@@ -237,12 +254,12 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 		this.omitRoot = omitRoot;
 	}
 
-	public void setSentenceLayerName(String sentenceLayerName) {
-		this.sentenceLayerName = sentenceLayerName;
+	public void setSentenceLayerName(String sentenceLayer) {
+		this.sentenceLayer = sentenceLayer;
 	}
 
-	public void setTokenLayerName(String tokenLayerName) {
-		this.tokenLayerName = tokenLayerName;
+	public void setTokenLayerName(String tokenLayer) {
+		this.tokenLayer = tokenLayer;
 	}
 
 	public void setSentenceFilter(Expression sentenceFilter) {
@@ -250,31 +267,18 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	}
 
 	public void setFormFeatureName(String formFeatureName) {
-		this.formFeatureName = formFeatureName;
+		this.formFeature = formFeatureName;
 	}
 
 	public void setPosTagFeatureName(String posTagFeatureName) {
-		this.posTagFeatureName = posTagFeatureName;
+		this.posTagFeature = posTagFeatureName;
 	}
 
 	public void setDependencyRelationName(String dependencyRelationName) {
-		this.dependencyRelationName = dependencyRelationName;
-	}
-
-	public void setHeadRole(String headRole) {
-		this.headRole = headRole;
-	}
-
-	public void setDependentRole(String dependentRole) {
-		this.dependentRole = dependentRole;
+		setDependencyRelation(dependencyRelationName);
 	}
 
 	public void setDependencyLabelFeatureName(String dependencyLabelFeatureName) {
-		this.dependencyLabelFeatureName = dependencyLabelFeatureName;
+		setDependencyLabelFeature(dependencyLabelFeatureName);
 	}
-
-	public void setDependencySentenceRole(String dependencySentenceRole) {
-		this.dependencySentenceRole = dependencySentenceRole;
-	}
-
 }

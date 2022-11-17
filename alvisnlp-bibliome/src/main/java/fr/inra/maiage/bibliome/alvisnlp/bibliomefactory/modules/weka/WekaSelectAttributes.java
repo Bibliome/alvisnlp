@@ -60,14 +60,14 @@ public class WekaSelectAttributes extends ElementClassifier {
 		ASEvaluation eval = ASEvaluation.forName(evaluator, evaluatorOptions);
 		return AttributeSelection.SelectAttributes(eval, getEvalOptions(), trainingSet);
 	}
-	
+
 	@TimeThis(task="write-selection", category=TimerCategory.EXPORT)
 	protected void printResult(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, String selection) throws IOException {
 		try (PrintStream ps = getEvaluationFile().getPrintStream()) {
 			ps.print(selection);
 		}
 	}
-	
+
     private String[] getEvalOptions() {
         if (search == null)
             return null;
@@ -90,34 +90,34 @@ public class WekaSelectAttributes extends ElementClassifier {
 	public String getEvaluator() {
 		return evaluator;
 	}
-	
+
 	@Param(mandatory=false)
 	public String[] getEvaluatorOptions() {
 		return evaluatorOptions;
 	}
-	
+
 	@Param(mandatory=false)
 	public String getSearch() {
 		return search;
 	}
-	
+
 	@Param(mandatory=false)
 	public String[] getSearchOptions() {
 		return searchOptions;
 	}
-	
+
 	public void setEvaluator(String evaluator) {
 		this.evaluator = evaluator;
 	}
-	
+
 	public void setEvaluatorOptions(String[] evaluatorOptions) {
 		this.evaluatorOptions = evaluatorOptions;
 	}
-	
+
 	public void setSearch(String search) {
 		this.search = search;
 	}
-	
+
 	public void setSearchOptions(String[] searchOptions) {
 		this.searchOptions = searchOptions;
 	}

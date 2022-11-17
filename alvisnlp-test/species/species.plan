@@ -3,13 +3,13 @@
   <read href="BioNLP-ST-2016_BB-cat+ner/read.plan"/>
 
   <species class="Species">
-    <targetLayerName>species</targetLayerName>
+    <targetLayer>species</targetLayer>
     <taxidFeature>taxid</taxidFeature>
   </species>
   
   <taxa class="TabularProjector">
     <dictFile>taxa+id_Bacteria.txt</dictFile>
-    <targetLayerName>projected</targetLayerName>
+    <targetLayer>projected</targetLayer>
     <valueFeatures>,taxid</valueFeatures>
     <caseInsensitive/>
     <skipWhitespace/>

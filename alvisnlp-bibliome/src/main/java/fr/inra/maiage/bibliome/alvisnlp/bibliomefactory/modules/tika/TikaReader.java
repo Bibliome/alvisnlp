@@ -48,13 +48,13 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class TikaReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator {
 	private SourceStream source;
-	private String sectionName = DefaultNames.getDefaultSectionName();
-	private String htmlLayerName = "html";
-	private String tagFeatureName = "tag";
-	
+	private String section = DefaultNames.getDefaultSectionName();
+	private String htmlLayer = "html";
+	private String tagFeature = "tag";
+
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		Logger.getLogger("org.apache.pdfbox").setLevel(Level.OFF);
@@ -71,7 +71,7 @@ public abstract class TikaReader extends CorpusModule<ResolvedObjects> implement
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	private TikaReaderHandler parse(AutoDetectParser parser, ParseContext parseContext, InputStream is) throws IOException, SAXException, TikaException {
 		String name = source.getStreamName(is);
 		TikaReaderHandler result = new TikaReaderHandler(name);
@@ -89,16 +89,16 @@ public abstract class TikaReader extends CorpusModule<ResolvedObjects> implement
 		}
 		return result;
 	}
-	
+
 	private void createTagAnnotations(Document doc, TikaReaderHandler handler) {
-		Section sec = new Section(this, doc, sectionName, handler.getContents());
-		Layer html = new Layer(sec, htmlLayerName);
+		Section sec = new Section(this, doc, section, handler.getContents());
+		Layer html = new Layer(sec, htmlLayer);
 		for (ElementFragment frag : handler.getElements()) {
 			Annotation a = new Annotation(this, html, frag.getStart(), frag.getEnd());
-			a.addFeature(tagFeatureName, frag.getName());
+			a.addFeature(tagFeature, frag.getName());
 		}
 	}
-	
+
 	@Override
 	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
@@ -109,19 +109,49 @@ public abstract class TikaReader extends CorpusModule<ResolvedObjects> implement
 		return source;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.SECTION)
 	public String getSectionName() {
-		return sectionName;
+		return section;
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getHtmlLayer() {
+	    return this.htmlLayer;
+	};
+
+	public void setHtmlLayer(String htmlLayer) {
+	    this.htmlLayer = htmlLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getHtmlLayerName() {
-		return htmlLayerName;
+		return htmlLayer;
+	}
+
+	@Deprecated
+	@Param(nameType=NameType.FEATURE)
+	public String getTagFeatureName() {
+		return tagFeature;
 	}
 
 	@Param(nameType=NameType.FEATURE)
-	public String getTagFeatureName() {
-		return tagFeatureName;
+	public String getTagFeature() {
+		return tagFeature;
+	}
+
+	@Param(nameType=NameType.SECTION)
+	public String getSection() {
+		return section;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
+	}
+
+	public void setTagFeature(String tagFeature) {
+		this.tagFeature = tagFeature;
 	}
 
 	public void setSource(SourceStream source) {
@@ -129,14 +159,14 @@ public abstract class TikaReader extends CorpusModule<ResolvedObjects> implement
 	}
 
 	public void setSectionName(String sectionName) {
-		this.sectionName = sectionName;
+		this.section = sectionName;
 	}
 
-	public void setHtmlLayerName(String htmlLayerName) {
-		this.htmlLayerName = htmlLayerName;
+	public void setHtmlLayerName(String htmlLayer) {
+		this.htmlLayer = htmlLayer;
 	}
 
 	public void setTagFeatureName(String tagFeatureName) {
-		this.tagFeatureName = tagFeatureName;
+		this.tagFeature = tagFeatureName;
 	}
 }

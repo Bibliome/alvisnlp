@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.clone.RemoveContents">
   <synopsis>
     <p>synopsis</p>
@@ -25,9 +24,10 @@ limitations under the License.
       <p>synopsis</p>
     </description>
   
-    <param-doc name="stripLayerName">
+    <param-doc name="stripLayer">
       <p/>
     </param-doc>
+<param-doc name="stripLayerName"><p>Deprecated alias for <param>stripLayer</param>.</p></param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.SectionCreatorParamsDoc</include-doc>

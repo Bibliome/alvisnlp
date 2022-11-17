@@ -23,13 +23,13 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class TokenizedReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator {
-	private String sectionName = DefaultNames.getDefaultSectionName();
-	private String tokenLayerName = DefaultNames.getWordLayer();
-	private String sentenceLayerName = DefaultNames.getSentenceLayer();
+	private String section = DefaultNames.getDefaultSectionName();
+	private String tokenLayer = DefaultNames.getWordLayer();
+	private String sentenceLayer = DefaultNames.getSentenceLayer();
 	private SourceStream source;
-	
+
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
@@ -39,9 +39,9 @@ public abstract class TokenizedReader extends CorpusModule<ResolvedObjects> impl
 				logger.fine("reading: " + name);
 				Document doc = Document.getDocument(this, corpus, name);
 				String contents = readContents(reader);
-				Section sec = new Section(this, doc, sectionName, contents);
-				Layer tokens = sec.ensureLayer(tokenLayerName);
-				Layer sentences = sec.ensureLayer(sentenceLayerName);
+				Section sec = new Section(this, doc, section, contents);
+				Layer tokens = sec.ensureLayer(tokenLayer);
+				Layer sentences = sec.ensureLayer(sentenceLayer);
 				int startOfToken = 0;
 				int startOfSentence = 0;
 				for (int i = 0; i < contents.length(); ++i) {
@@ -64,7 +64,7 @@ public abstract class TokenizedReader extends CorpusModule<ResolvedObjects> impl
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	private static String readContents(BufferedReader reader) throws IOException {
 		StringBuilder sb = new StringBuilder(2097152);
 		char[] buf = new char[2097152];
@@ -74,25 +74,46 @@ public abstract class TokenizedReader extends CorpusModule<ResolvedObjects> impl
 		}
 		return sb.toString();
 	}
-	
+
 	@Override
 	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
 	}
-	
+
+	@Deprecated
 	@Param(nameType=NameType.SECTION)
 	public String getSectionName() {
-		return sectionName;
+		return section;
 	}
 
+	@Param(nameType=NameType.LAYER)
+	public String getTokenLayer() {
+	    return this.tokenLayer;
+	};
+
+	public void setTokenLayer(String tokenLayer) {
+	    this.tokenLayer = tokenLayer;
+	};
+
+	@Deprecated
 	@Param(nameType=NameType.LAYER)
 	public String getTokenLayerName() {
-		return tokenLayerName;
+		return tokenLayer;
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getSentenceLayer() {
+	    return this.sentenceLayer;
+	};
+
+	public void setSentenceLayer(String sentenceLayer) {
+	    this.sentenceLayer = sentenceLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getSentenceLayerName() {
-		return sentenceLayerName;
+		return sentenceLayer;
 	}
 
 	@Param
@@ -100,16 +121,25 @@ public abstract class TokenizedReader extends CorpusModule<ResolvedObjects> impl
 		return source;
 	}
 
+	@Param(nameType=NameType.SECTION)
+	public String getSection() {
+		return section;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
+	}
+
 	public void setSectionName(String sectionName) {
-		this.sectionName = sectionName;
+		this.section = sectionName;
 	}
 
-	public void setTokenLayerName(String tokenLayerName) {
-		this.tokenLayerName = tokenLayerName;
+	public void setTokenLayerName(String tokenLayer) {
+		this.tokenLayer = tokenLayer;
 	}
 
-	public void setSentenceLayerName(String sentenceLayerName) {
-		this.sentenceLayerName = sentenceLayerName;
+	public void setSentenceLayerName(String sentenceLayer) {
+		this.sentenceLayer = sentenceLayer;
 	}
 
 	public void setSource(SourceStream source) {

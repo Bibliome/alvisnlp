@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.prolog.RunProlog">
 <!--
 Copyright 2016 Institut National de la Recherche Agronomique
@@ -41,13 +40,13 @@ limitations under the License.
       <p>
 	<this/> runs a Prolog program specified in two parameters:
 	<ol>
-	  <li><param name="theory"/> is read as a regular Prolog program;</li>
-	  <li><param name="facts"/> generate a set of facts.</li>
+	  <li><param>theory</param> is read as a regular Prolog program;</li>
+	  <li><param>facts</param> generate a set of facts.</li>
 	</ol>
-	Additionally <param name="goals"/> specifies the goals of the Prolog programs, and an associated action expression that will be evaluated for each solution.
+	Additionally <param>goals</param> specifies the goals of the Prolog programs, and an associated action expression that will be evaluated for each solution.
       </p>
       <p>
-	<this/> will run generate facts and resolve goals for each element specified by <param name="target"/>.
+	<this/> will run generate facts and resolve goals for each element specified by <param>target</param>.
       </p>
     </description>
   

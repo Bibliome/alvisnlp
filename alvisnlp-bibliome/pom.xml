@@ -25,6 +25,13 @@
 	<enabled>true</enabled> <!-- or set to true if desired, default is false -->
       </snapshots>
     </repository>
+
+    <!--
+    <repository>
+      <id>aksw</id>
+      <url>https://maven.aksw.org/repository/internal/</url>
+    </repository>
+    -->
   </repositories>
 
   <pluginRepositories>
@@ -239,7 +246,14 @@
     <dependency>
       <groupId>edu.stanford.nlp</groupId>
       <artifactId>stanford-corenlp</artifactId>
-      <version>4.4.0</version>
+      <version>4.5.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>edu.stanford.nlp</groupId>
+      <artifactId>stanford-corenlp</artifactId>
+      <version>4.5.1</version>
+      <classifier>models</classifier>
     </dependency>
 
     <dependency>

@@ -18,50 +18,50 @@ limitations under the License.
 	<regexp>
 		<signed-decimals class="RegExp">
 			<pattern>(-?[0-9]+\.[0-9]+)|(-[0-9]+)</pattern>
-			<targetLayerName>numbers__signed-decimals</targetLayerName>
+			<targetLayer>numbers__signed-decimals</targetLayer>
 			<constantAnnotationFeatures>type=num,value=fix</constantAnnotationFeatures>
 		</signed-decimals>
 
 		<fractions class="RegExp">
 			<pattern>-?[0-9]+/[0-9]+</pattern>
-			<targetLayerName>numbers__fractions</targetLayerName>
+			<targetLayer>numbers__fractions</targetLayer>
 			<constantAnnotationFeatures>type=num,value=fix</constantAnnotationFeatures>
 		</fractions>
 
 		<ranges class="RegExp">
 			<pattern>[0-9]+(\.[0-9]+)?-[0-9]+(\.[0-9]+)?|[0-9]+(\.[0-9]+)? -[0-9]+(\.[0-9]+)?</pattern>
-			<targetLayerName>numbers__ranges</targetLayerName>
+			<targetLayer>numbers__ranges</targetLayer>
 			<constantAnnotationFeatures>type=num,value=fix</constantAnnotationFeatures>
 		</ranges>
 
 		<iso-dates class="RegExp">
 			<pattern>[0-2]?[0-9]\.[0-2]?\.([0-9]{2}|[0-1][0-9]{3})</pattern>
-			<targetLayerName>dates__iso</targetLayerName>
+			<targetLayer>dates__iso</targetLayer>
 			<constantAnnotationFeatures>type=num,value=fix</constantAnnotationFeatures>
 		</iso-dates>
 
 		<dates-1 class="RegExp">
 			<pattern>((J|j)an(\.|unary)?|(F|f)eb(\.|ruary)?|(M|m)ar(\.|ch)?|(A|a)pr(\.|il)?|(M|m)ay|(J|j)une|(J|j)uly|(A|a)ug(\.|ust)?|(S|s)ept(\.|ember)?|(O|o)ct(\.|ober)?|(N|n)ov(\.|ember)?|(D|d)ec(\.|ember)?)[0-2]?[0-9](st|nd|rd|th)?,? [1-2][0-9]{3}</pattern>
-			<targetLayerName>dates__american</targetLayerName>
+			<targetLayer>dates__american</targetLayer>
 			<constantAnnotationFeatures>type=num,value=fix</constantAnnotationFeatures>
 		</dates-1>
 
 		<dates-2 class="RegExp">
 			<pattern>[0-2][0-9](st|nd|rd|th)? of ((J|j)an(\.|unary)?|(F|f)eb(\.|ruary)?|(M|m)ar(\.|ch)?|(A|a)pr(\.|il)?|(M|m)ay|(J|j)une|(J|j)uly|(A|a)ug(\.|ust)?|(S|s)ept(\.|ember)?|(O|o)ct(\.|ober)?|(N|n)ov(\.|ember)?|(D|d)ec(\.|ember)?)</pattern>
-			<targetLayerName>dates__british</targetLayerName>
+			<targetLayer>dates__british</targetLayer>
 			<constantAnnotationFeatures>type=num,value=fix</constantAnnotationFeatures>
 		</dates-2>
 	</regexp>
 
 	<merge>
 		<numbers class="MergeLayers">
-			<sourceLayerNames>numbers__signed-decimals, numbers__fractions,numbers__ranges</sourceLayerNames>
-			<targetLayerName>numbers</targetLayerName>
+			<sourceLayers>numbers__signed-decimals, numbers__fractions,numbers__ranges</sourceLayers>
+			<targetLayer>numbers</targetLayer>
 		</numbers>
 
 		<dates class="MergeLayers">
-			<sourceLayerNames>dates__iso, dates__american, dates__british</sourceLayerNames>
-			<targetLayerName>dates</targetLayerName>
+			<sourceLayers>dates__iso, dates__american, dates__british</sourceLayers>
+			<targetLayer>dates</targetLayer>
 		</dates>
 		
 		<clear class="ClearLayers">

@@ -15,7 +15,7 @@ import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 
 /**
- * 
+ *
  * @author mba
  *
  */
@@ -54,9 +54,9 @@ public abstract class TEESTrain extends TEESMapper {
 	@Override
 	protected String[] addLayersToSectionFilter() {
 		return new String[] {
-				getTokenLayerName(),
-				getSentenceLayerName(),
-				getNamedEntityLayerName()
+				getTokenLayer(),
+				getSentenceLayer(),
+				getNamedEntityLayer()
 		};
 	}
 
@@ -82,7 +82,7 @@ public abstract class TEESTrain extends TEESMapper {
 	public void setCorpusSetFeature(String corpusSetFeature) {
 		this.corpusSetFeature = corpusSetFeature;
 	}
-	
+
 	@Param
 	public String getTrainSetValue() {
 		return trainSetValue;
@@ -110,7 +110,7 @@ public abstract class TEESTrain extends TEESMapper {
 		this.testSetValue = testSetValue;
 	}
 
-	
+
 	@Param(mandatory=false)
 	public String getModelName() {
 		return modelName;
@@ -119,8 +119,8 @@ public abstract class TEESTrain extends TEESMapper {
 	public void setModelName(String modelName) {
 		this.modelName = modelName;
 	}
-	
-	
+
+
 	public String getTask() {
 		return task;
 	}

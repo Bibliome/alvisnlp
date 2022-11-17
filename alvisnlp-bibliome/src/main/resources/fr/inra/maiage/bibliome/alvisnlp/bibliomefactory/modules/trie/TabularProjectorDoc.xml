@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.SimpleProjector2" author="" date="">
   <synopsis>
     <p>Search in the sections content for entries specified in a tabular text file.</p>
@@ -22,30 +21,30 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> reads a list of entries from <param name="dictFile"/> and searches for each entry key in sections contents. The format of the dictionary is one entry per line. Each line is split into columns separated by tab characters. The column specified by <param name="keyIndex"/> will be the entry key to be searched and the other columns are data associated to the entry.</p>
-      <p>The parameters <param name="skipBlank"/>, <param name="skipEmpty"/>, <param name="strictColumnNumber"/>, <param name="trimColumns"/>, <param name="separator"/>, <param name="multipleEntryBehaviour"/> control how the dictionary file is read by <this/>.</p>
-      <p>The parameters <param name="allowJoined"/>, <param name="allUpperCaseInsensitive"/>, <param name="caseInsensitive"/>, <param name="ignoreDiacritics"/>, <param name="joinDash"/>, <param name="matchStartCaseInsensitive"/>, <param name="skipConsecutiveWhitespaces"/>, <param name="skipWhitespace"/> and <param name="wordStartCaseInsensitive"/> control how the keys can match the sections content.</p>
-      <p>The <param name="subject"/> parameter specifies which text of the section should be matched. There are two alternatives:
+      <p><this/> reads a list of entries from <param>dictFile</param> and searches for each entry key in sections contents. The format of the dictionary is one entry per line. Each line is split into columns separated by tab characters. The column specified by <param>keyIndex</param> will be the entry key to be searched and the other columns are data associated to the entry.</p>
+      <p>The parameters <param>skipBlank</param>, <param>skipEmpty</param>, <param>strictColumnNumber</param>, <param>trimColumns</param>, <param>separator</param>, <param>multipleEntryBehaviour</param> control how the dictionary file is read by <this/>.</p>
+      <p>The parameters <param>allowJoined</param>, <param>allUpperCaseInsensitive</param>, <param>caseInsensitive</param>, <param>ignoreDiacritics</param>, <param>joinDash</param>, <param>matchStartCaseInsensitive</param>, <param>skipConsecutiveWhitespaces</param>, <param>skipWhitespace</param> and <param>wordStartCaseInsensitive</param> control how the keys can match the sections content.</p>
+      <p>The <param>subject</param> parameter specifies which text of the section should be matched. There are two alternatives:
       <ul>
-	<li>the entries are matched on the contents of the section (the default), <param name="subject"/> can also control if matches boundaries coincide with word delimiters;</li>
+	<li>the entries are matched on the contents of the section (the default), <param>subject</param> can also control if matches boundaries coincide with word delimiters;</li>
 	<li>the entries are matched on the value of a specified feature of annotations in a given layer separated by a whitespace, in this way entries can be searched against word lemmas, for instance.</li>
       </ul>
       </p>
-      <p><this/> creates an annotation for each matched key and adds these annotations to the layer specified by <param name="targetLayerName"/>. The created annotations will have features that correspond to the entry columns. Feature keys are specified by <param name="valueFeatures"/>. For instance if <param>valueFeatures</param> is <em>[a,b,c]</em>, then each annotation will have three features named <em>a</em>, <em>b</em> and <em>c</em> with the respective values of the entry's first, second and third columns. A feature name left blank in <param>valueFeatures</param> will not create a feature. Thus, in order to drop the first column of the entry, <param name="valueFeatures"/> should be <em>[,b,c]</em>. In addition, the created annotations will have the constant features specified in <param name="constantAnnotationFeatures"/>.</p>
-      <p>If <param name="trieSource"/> is specified, then <this/> assumes that the file contains a compiled version of the dictionary. In this case <param name="dictFile"/> is not read.</p>
-      <p>If <param name="trieSink"/> is specified, <this/> writes a compiled version of the dictionary in the file. The use of compiled dictionaries may accelerate the processing for large dictionaries.</p>
+      <p><this/> creates an annotation for each matched key and adds these annotations to the layer specified by <param>targetLayer</param>. The created annotations will have features that correspond to the entry columns. Feature keys are specified by <param>valueFeatures</param>. For instance if <param>valueFeatures</param> is <em>[a,b,c]</em>, then each annotation will have three features named <em>a</em>, <em>b</em> and <em>c</em> with the respective values of the entry's first, second and third columns. A feature name left blank in <param>valueFeatures</param> will not create a feature. Thus, in order to drop the first column of the entry, <param>valueFeatures</param> should be <em>[,b,c]</em>. In addition, the created annotations will have the constant features specified in <param>constantAnnotationFeatures</param>.</p>
+      <p>If <param>trieSource</param> is specified, then <this/> assumes that the file contains a compiled version of the dictionary. In this case <param>dictFile</param> is not read.</p>
+      <p>If <param>trieSink</param> is specified, <this/> writes a compiled version of the dictionary in the file. The use of compiled dictionaries may accelerate the processing for large dictionaries.</p>
     </description>
   
     <param-doc name="strictColumnNumber">
-      <p>If set to true, then check that every line in <param name="dictFile"/> has the same number of columns as the number of features specified in <param>valueFeatures</param>.</p>
+      <p>If set to true, then check that every line in <param>dictFile</param> has the same number of columns as the number of features specified in <param>valueFeatures</param>.</p>
     </param-doc>
   
     <param-doc name="skipBlank">
-      <p>In <param name="dictFile"/>, skip lines that contain only whitespace characters.</p>
+      <p>In <param>dictFile</param>, skip lines that contain only whitespace characters.</p>
     </param-doc>
   
     <param-doc name="trimColumns">
-      <p>If set to <em>true</em>, then trim leading and trailing whitespace character from column values in <param name="dictFile"/>.</p>
+      <p>If set to <em>true</em>, then trim leading and trailing whitespace character from column values in <param>dictFile</param>.</p>
     </param-doc>
   
     <param-doc name="dictFile">
@@ -53,11 +52,11 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="skipEmpty">
-      <p>In <param name="dictFile"/>, skip empty lines.</p>
+      <p>In <param>dictFile</param>, skip empty lines.</p>
     </param-doc>
   
     <param-doc name="separator">
-      <p>Specifies the character that separates columns in <param name="dictFile"/>.</p>
+      <p>Specifies the character that separates columns in <param>dictFile</param>.</p>
     </param-doc>
   
     <param-doc name="valueFeatures">

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,15 +14,15 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.wapiti.WapitiLabel">
     <param-doc name="features">
       <p>A list of expressions evaluated as strings from the token annotation. The result represents the set of features of each token. For the training phase, the last feature is the label.</p>
     </param-doc>
   
-    <param-doc name="sentenceLayerName">
+    <param-doc name="sentenceLayer">
       <p>Layer containing sentence annotations.</p>
     </param-doc>
+<param-doc name="sentenceLayerName"><p>Deprecated alias for <param>sentenceLayer</param>.</p></param-doc>
   
     <param-doc name="commandLineOptions">
       <p>Additional command line options to pass to <code>wapiti</code>. See the <a href="https://wapiti.limsi.fr/manual.html">Wapiti manual</a> for the list of options. Note that options <code>mode</code>, <code>-T</code>, <code>-a</code>, <code>-p</code>, <code>-m</code> are set automatically by <this/>.</p>
@@ -32,9 +32,10 @@ limitations under the License.
       <p>Path to the <code>wapiti</code> executable.</p>
     </param-doc>
   
-    <param-doc name="tokenLayerName">
+    <param-doc name="tokenLayer">
       <p>Layer containing token annotations.</p>
     </param-doc>
+<param-doc name="tokenLayerName"><p>Deprecated alias for <param>tokenLayer</param>.</p></param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
 </alvisnlp-doc>

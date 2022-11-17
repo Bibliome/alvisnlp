@@ -29,7 +29,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class WapitiLabel extends AbstractWapiti {
 	private String labelFeature;
 	private InputFile modelFile;
@@ -48,7 +48,7 @@ public class WapitiLabel extends AbstractWapiti {
 	protected WapitiResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new WapitiResolvedObjects(ctx, this);
 	}
-	
+
 	@Param(nameType=NameType.FEATURE)
 	public String getLabelFeature() {
 		return labelFeature;

@@ -58,12 +58,12 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Pair;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class SplitSections extends SectionModule<SplitSectionsResolvedObjects> implements AnnotationCreator, DocumentCreator, SectionCreator, TupleCreator {
-	private String selectLayerName;
+	private String selectLayer;
 	private Boolean mergeOverlapping = false;
 	private Boolean splitDocuments = false;
-	private String croppedAnnotationFeatureName = "cropped";
+	private String croppedAnnotationFeature = "cropped";
 	private Expression docId = new Expression(StringLibrary.NAME, "concat",
 			new Expression(PropertiesLibrary.NAME, "@", Document.ID_FEATURE_NAME),
 			new Expression(ConstantsLibrary.NAME, "string", "__"),
@@ -89,11 +89,11 @@ public abstract class SplitSections extends SectionModule<SplitSectionsResolvedO
 		}
 		cloneArgs(map);
 	}
-	
+
 	public static class SplitSectionsResolvedObjects extends SectionResolvedObjects {
 		private final Evaluator docId;
 		private final Variable numVariable;
-		
+
 		public SplitSectionsResolvedObjects(ProcessingContext<Corpus> ctx, SplitSections module) throws ResolverException {
 			super(ctx, module);
 			VariableLibrary splitLib = new VariableLibrary("split");
@@ -108,7 +108,7 @@ public abstract class SplitSections extends SectionModule<SplitSectionsResolvedO
 			docId.collectUsedNames(nameUsage, defaultType);
 		}
 	}
-	
+
 	@SuppressWarnings("serial")
 	private static class ElementMapping extends LinkedHashMap<Pair<Document,Element>,Element> {
 		private ElementMapping() {
@@ -121,18 +121,18 @@ public abstract class SplitSections extends SectionModule<SplitSectionsResolvedO
 				newElt.addMultiFeatures(oldElt.getFeatures());
 			}
 		}
-		
+
 		private void put(Document newDoc, Element oldElt, Element newElt) {
 			put(newDoc, oldElt, newElt, true);
 		}
-		
+
 		private Element get(Document newDoc, Element oldElt) {
 			return get(new Pair<Document,Element>(newDoc, oldElt));
 		}
 	}
 
 	private Layer getSelectLayer(Logger logger, Section sec) {
-		Layer selectLayer = sec.getLayer(selectLayerName);
+		Layer selectLayer = sec.getLayer(this.selectLayer);
 		if (mergeOverlapping && selectLayer.hasOverlaps()) {
 			logger.warning("overlapping annotations, merging");
 			return selectLayer.mergeOverlaps(this);
@@ -158,11 +158,11 @@ public abstract class SplitSections extends SectionModule<SplitSectionsResolvedO
 		String newContents = selectAnnotation.getForm();
 		Section newSec = new Section(this, newDoc, sec.getName(), newContents);
 		map.put(newDoc, sec, newSec);
-		
+
 		for (Layer layer : sec.getAllLayers()) {
 			cloneLayer(map, selectAnnotation, newSec, layer);
 		}
-		
+
 		for (Relation rel : sec.getAllRelations()) {
 			cloneRelation(map, newSec, rel);
 		}
@@ -187,7 +187,7 @@ public abstract class SplitSections extends SectionModule<SplitSectionsResolvedO
 			Annotation newA = new Annotation(this, target, newStart, newEnd);
 			map.put(newDoc, a, newA);
 			if ((start < selectStart) || (end > selectEnd)) {
-				newA.addFeature(croppedAnnotationFeatureName, "true");
+				newA.addFeature(croppedAnnotationFeature, "true");
 			}
 		}
 	}
@@ -201,7 +201,7 @@ public abstract class SplitSections extends SectionModule<SplitSectionsResolvedO
 			map.put(newDoc, t, newT);
 		}
 	}
-	
+
 	private static void cloneArgs(ElementMapping map) {
 		for (Map.Entry<Pair<Document,Element>,Element> e : map.entrySet()) {
 			Tuple oldT = DownCastElement.toTuple(e.getKey().second);
@@ -234,7 +234,7 @@ public abstract class SplitSections extends SectionModule<SplitSectionsResolvedO
 
 	@Override
 	protected String[] addLayersToSectionFilter() {
-		return new String[] { selectLayerName };
+		return new String[] { selectLayer };
 	}
 
 	@Override
@@ -248,8 +248,18 @@ public abstract class SplitSections extends SectionModule<SplitSectionsResolvedO
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getSelectLayer() {
+	    return this.selectLayer;
+	};
+
+	public void setSelectLayer(String selectLayer) {
+	    this.selectLayer = selectLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getSelectLayerName() {
-		return selectLayerName;
+		return selectLayer;
 	}
 
 	@Param
@@ -262,9 +272,10 @@ public abstract class SplitSections extends SectionModule<SplitSectionsResolvedO
 		return mergeOverlapping;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getCroppedAnnotationFeatureName() {
-		return croppedAnnotationFeatureName;
+		return croppedAnnotationFeature;
 	}
 
 	@Param
@@ -272,20 +283,29 @@ public abstract class SplitSections extends SectionModule<SplitSectionsResolvedO
 		return docId;
 	}
 
+	@Param(nameType=NameType.FEATURE)
+	public String getCroppedAnnotationFeature() {
+		return croppedAnnotationFeature;
+	}
+
+	public void setCroppedAnnotationFeature(String croppedAnnotationFeature) {
+		this.croppedAnnotationFeature = croppedAnnotationFeature;
+	}
+
 	public void setDocId(Expression docId) {
 		this.docId = docId;
 	}
 
 	public void setCroppedAnnotationFeatureName(String croppedAnnotationFeatureName) {
-		this.croppedAnnotationFeatureName = croppedAnnotationFeatureName;
+		this.croppedAnnotationFeature = croppedAnnotationFeatureName;
 	}
 
 	public void setMergeOverlapping(Boolean mergeOverlapping) {
 		this.mergeOverlapping = mergeOverlapping;
 	}
 
-	public void setSelectLayerName(String selectLayerName) {
-		this.selectLayerName = selectLayerName;
+	public void setSelectLayerName(String selectLayer) {
+		this.selectLayer = selectLayer;
 	}
 
 	public void setSplitDocuments(Boolean splitDocuments) {

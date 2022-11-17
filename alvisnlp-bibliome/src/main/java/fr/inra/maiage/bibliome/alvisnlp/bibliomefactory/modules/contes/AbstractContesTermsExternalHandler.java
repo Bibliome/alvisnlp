@@ -51,7 +51,7 @@ abstract class AbstractContesTermsExternalHandler<F extends AbstractFile,T exten
 					String id = term.getStringId();
 					JSONArray termTokens = new JSONArray();
 					for (Annotation t : tokens.between(term)) {
-						String form = t.getLastFeature(owner.getFormFeatureName());
+						String form = t.getLastFeature(owner.getFormFeature());
 						termTokens.add(form);
 					}
 					result.put(id, termTokens);

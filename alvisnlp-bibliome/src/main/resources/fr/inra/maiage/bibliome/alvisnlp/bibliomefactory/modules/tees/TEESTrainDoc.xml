@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Mouhamadou Ba" date="2012-03-21" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tees.TEESTrain">
   <synopsis>
     <p>Train a model that can be used to predict binary relations using TEES </p>
@@ -22,7 +21,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> executes the TEES training on <param name="Corpus"/> and record the results in <param name="Relation"/>. Param <param name="relationName"/> sets the name of the binary relation to predict. <param name="relationRole1"/> and <param name="relationRole"/> set the two roles of the relation. Params <param name="trainSetFeature"/>, <param name="devSetFeature"/> and <param name="testSetFeature"/> give respectively the features key of the train, dev and test corpus. <this/></p>
+    <p/>
     </description>
 
     

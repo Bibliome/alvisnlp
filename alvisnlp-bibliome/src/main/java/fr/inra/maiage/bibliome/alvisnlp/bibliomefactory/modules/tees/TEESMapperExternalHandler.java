@@ -68,7 +68,7 @@ abstract class TEESMapperExternalHandler<T extends TEESMapper> extends ExternalH
 		int sentId = 0;
 		TEESMapper owner = getModule();
 		for (Section sectionAlvis : Iterators.loop(alvisSectionsIterator)) {
-			for (Layer sentLayer : sectionAlvis.getSentences(owner.getTokenLayerName(), owner.getSentenceLayerName())) {
+			for (Layer sentLayer : sectionAlvis.getSentences(owner.getTokenLayer(), owner.getSentenceLayer())) {
 				Annotation sentenceAlvis = sentLayer.getSentenceAnnotation();
 				if(sentenceAlvis == null) {
 					continue;
@@ -82,7 +82,7 @@ abstract class TEESMapperExternalHandler<T extends TEESMapper> extends ExternalH
 				
 				// add the TEES entities
 //				logger.info("creating the TEES entities");
-				Layer alvisEntitiesLayer = sectionAlvis.ensureLayer(owner.getNamedEntityLayerName());
+				Layer alvisEntitiesLayer = sectionAlvis.ensureLayer(owner.getNamedEntityLayer());
 				createTheTeesEntities(sentenceTees, sentenceTees.getId(), sentenceAlvis, alvisEntitiesLayer);
 
 				// add the TEES interactions

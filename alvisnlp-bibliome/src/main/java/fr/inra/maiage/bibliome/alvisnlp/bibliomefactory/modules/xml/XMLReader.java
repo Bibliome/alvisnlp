@@ -103,14 +103,14 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
     private SourceStream xslTransform;
     private Mapping stringParams;
     private Boolean html = false;
-    private SourceStream sourcePath;
+    private SourceStream source;
     private Boolean rawTagNames = false;
 
     @Override
 	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
 	}
-    
+
     @TimeThis(task="read-xslt", category=TimerCategory.LOAD_RESOURCE)
 	protected Transformer getTransformer(ProcessingContext<Corpus> ctx) throws IOException, TransformerConfigurationException {
     	Transformer result = null;
@@ -134,7 +134,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 	        parser.setFeature("http://xml.org/sax/features/namespaces", false);
 	        parser.setFeature("http://cyberneko.org/html/features/scanner/cdata-sections", true);
 	        parser.setFeature("http://cyberneko.org/html/features/parse-noscript-content", false);
-	        parser.setProperty("http://cyberneko.org/html/properties/default-encoding", sourcePath.getCharset());
+	        parser.setProperty("http://cyberneko.org/html/properties/default-encoding", source.getCharset());
 	        if (rawTagNames) {
 	        	parser.setProperty("http://cyberneko.org/html/properties/names/elems", "match");
 	        }
@@ -158,13 +158,13 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 	    });
 	    return new SAXSource(xmlReader, new InputSource(file));
 	}
-	
+
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
 			Transformer transformer = getTransformer(ctx);
 			Logger logger = getLogger(ctx);
-			for (InputStream is : Iterators.loop(sourcePath.getInputStreams())) {
+			for (InputStream is : Iterators.loop(source.getInputStreams())) {
 				processFile(ctx, logger, corpus, is, transformer);
 				is.close();
 			}
@@ -175,7 +175,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 	}
 
 	private void processFile(ProcessingContext<Corpus> ctx, Logger logger, Corpus corpus, InputStream file, Transformer transformer) throws IOException, SAXException, ParserConfigurationException, TransformerException {
-		String name = sourcePath.getStreamName(file);
+		String name = source.getStreamName(file);
 		logger.finer("reading: " + name);
 		transformer.reset();
 		transformer.setParameter(SOURCE_PATH_PARAMETER, name);
@@ -184,7 +184,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		Source source = getSource(ctx, file);
 		doTransform(ctx, transformer, source);
 	}
-	
+
 	@SuppressWarnings("static-method")
 	@TimeThis(task="transform")
 	protected void doTransform(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, Transformer transformer, Source source) throws TransformerException {
@@ -207,9 +207,10 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		return html;
 	}
 
+	@Deprecated
 	@Param
 	public SourceStream getSourcePath() {
-		return sourcePath;
+		return source;
 	}
 
 	@Param
@@ -217,12 +218,21 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		return rawTagNames;
 	}
 
+	@Param
+	public SourceStream getSource() {
+		return source;
+	}
+
+	public void setSource(SourceStream source) {
+		this.source = source;
+	}
+
 	public void setRawTagNames(Boolean rawTagNames) {
 		this.rawTagNames = rawTagNames;
 	}
 
 	public void setSourcePath(SourceStream sourcePath) {
-		this.sourcePath = sourcePath;
+		this.source = sourcePath;
 	}
 
 	public void setHtml(Boolean html) {
@@ -237,7 +247,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		this.stringParams = stringParams;
 	}
 
-    
+
 
 
 	public static final String concat(NodeList nodes) {
@@ -246,7 +256,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 			strcat.append(node.getTextContent());
 		return strcat.toString();
 	}
-	
+
 	public static final NodeList inline(ExpressionContext ctx) {
 		NodeSet nodeSet = new NodeSet();
 		Node node = ctx.getContextNode();
@@ -261,7 +271,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 			position = inline(result, position, node, 0);
 		return result;
 	}
-	
+
 	private static final Element copyAncestors(Node node) {
 		org.w3c.dom.Element result = document.createElement(node.getNodeName());
 		Node parent = node.getParentNode();
@@ -271,7 +281,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		}
 		return result;
 	}
-	
+
 	private static final org.w3c.dom.Element copyNodeAndAttributes(Node node) {
 		org.w3c.dom.Element result = copyAncestors(node);
 		NamedNodeMap attributes = node.getAttributes();
@@ -283,27 +293,27 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		}
 		return result;
 	}
-        
+
         private static final org.w3c.dom.Element wrapCPICopy(int position, Node node, int level) {
-            
+
             org.w3c.dom.Node embedded;
             String nodeType;
             switch (node.getNodeType()) {
 
-                case Node.PROCESSING_INSTRUCTION_NODE:                
+                case Node.PROCESSING_INSTRUCTION_NODE:
                     embedded = document.createProcessingInstruction(node.getNodeName(), node.getNodeValue());
                     nodeType = "processing-instruction";
                     break;
-                    
+
                 case Node.COMMENT_NODE:
                     embedded = document.createComment(node.getNodeValue());
                     nodeType = "comment";
                     break;
-                    
+
                 default:
                     return null;
             }
-            
+
             org.w3c.dom.Element wrapper = document.createElementNS(INLINE_NAMESPACE, WRAPPER_ELMTNAME);
             wrapper.appendChild(embedded);
             wrapper.setAttributeNS(INLINE_NAMESPACE, "embedded-node-type", nodeType);
@@ -351,7 +361,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		}
 		return position;
 	}
-	
+
 	private static final String getAttributeStringValue(XSLProcessorContext ctx, ElemExtensionCall call, String exprAttr, String valueAttr) throws TransformerException {
 		Node node = ctx.getContextNode();
 		String expr = call.getAttribute(exprAttr);
@@ -363,7 +373,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		XObject xobj = xp.execute(xpctx, node, call);
 		return xobj.str();
 	}
-	
+
 	private static final int getAttributeIntValue(XSLProcessorContext ctx, ElemExtensionCall call, String attr) throws TransformerException {
 		Node node = ctx.getContextNode();
 		String expr = call.getAttribute(attr);
@@ -372,7 +382,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		XObject xobj = xp.execute(xpctx, node, call);
 		return (int) xobj.num();
 	}
-	
+
 	private static final boolean getAttributeBooleanValue(XSLProcessorContext ctx, ElemExtensionCall call, String attr, boolean defaultValue) throws TransformerException {
 		Node node = ctx.getContextNode();
 		String expr = call.getAttribute(attr);
@@ -394,7 +404,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 			return false;
 		return defaultValue;
 	}
-	
+
 	public static void document(XSLProcessorContext ctx, ElemExtensionCall call) throws TransformerException {
 		TransformerImpl transformer = ctx.getTransformer();
 		XMLReaderContext xrctx = (XMLReaderContext) transformer.getParameter(XML_READER_CONTEXT_PARAMETER);
@@ -403,7 +413,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		transformer.executeChildTemplates(call, false);
 		xrctx.endDocument();
 	}
-	
+
 	public static void section(XSLProcessorContext ctx, ElemExtensionCall call) throws TransformerException {
 		TransformerImpl transformer = ctx.getTransformer();
 		XMLReaderContext xrctx = (XMLReaderContext) transformer.getParameter(XML_READER_CONTEXT_PARAMETER);
@@ -418,9 +428,9 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 			xrctx.endRefScope();
 		xrctx.endSection();
 	}
-	
+
 	private static final Pattern WHITESPACE = Pattern.compile("\\s+");
-	
+
 	public static void annotation(XSLProcessorContext ctx, ElemExtensionCall call) throws TransformerException {
 		TransformerImpl transformer = ctx.getTransformer();
 		XMLReaderContext xrctx = (XMLReaderContext) transformer.getParameter(XML_READER_CONTEXT_PARAMETER);
@@ -439,7 +449,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		transformer.executeChildTemplates(call, false);
 		xrctx.endAnnotation();
 	}
-	
+
 	public static final void relation(XSLProcessorContext ctx, ElemExtensionCall call) throws TransformerException {
 		TransformerImpl transformer = ctx.getTransformer();
 		XMLReaderContext xrctx = (XMLReaderContext) transformer.getParameter(XML_READER_CONTEXT_PARAMETER);
@@ -448,7 +458,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		transformer.executeChildTemplates(call, false);
 		xrctx.endRelation();
 	}
-	
+
 	public static final void tuple(XSLProcessorContext ctx, ElemExtensionCall call) throws TransformerException {
 		TransformerImpl transformer = ctx.getTransformer();
 		XMLReaderContext xrctx = (XMLReaderContext) transformer.getParameter(XML_READER_CONTEXT_PARAMETER);
@@ -456,7 +466,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		transformer.executeChildTemplates(call, false);
 		xrctx.endTuple();
 	}
-	
+
 	public static final void arg(XSLProcessorContext ctx, ElemExtensionCall call) throws TransformerException {
 		TransformerImpl transformer = ctx.getTransformer();
 		XMLReaderContext xrctx = (XMLReaderContext) transformer.getParameter(XML_READER_CONTEXT_PARAMETER);
@@ -464,7 +474,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		String ref = getAttributeStringValue(ctx, call, "xpath-ref", "ref");
 		xrctx.setArgument(role, ref);
 	}
-	
+
 	public static void feature(XSLProcessorContext ctx, ElemExtensionCall call) throws TransformerException {
 		TransformerImpl transformer = ctx.getTransformer();
 		XMLReaderContext xrctx = (XMLReaderContext) transformer.getParameter(XML_READER_CONTEXT_PARAMETER);
@@ -473,7 +483,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		xrctx.setFeature(name, value);
 		transformer.executeChildTemplates(call, false);
 	}
-	
+
 	public static void references(XSLProcessorContext ctx, ElemExtensionCall call) throws TransformerException {
 		TransformerImpl transformer = ctx.getTransformer();
 		XMLReaderContext xrctx = (XMLReaderContext) transformer.getParameter(XML_READER_CONTEXT_PARAMETER);

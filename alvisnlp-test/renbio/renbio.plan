@@ -4,7 +4,7 @@
 
   <taxa class="TabularProjector">
     <dictFile>taxa+id_Bacteria.txt</dictFile>
-    <targetLayerName>ProjectedBacteria</targetLayerName>
+    <targetLayer>ProjectedBacteria</targetLayer>
     <valueFeatures>,taxid</valueFeatures>
     <caseInsensitive/>
     <skipWhitespace/>
@@ -20,15 +20,15 @@
     -->
 
   <tokenizer class="OgmiosTokenizer">
-    <targetLayerName>tokens</targetLayerName>
+    <targetLayer>tokens</targetLayer>
     <tokenTypeFeature>type</tokenTypeFeature>
     <separatorTokens>false</separatorTokens>
   </tokenizer>
 
   <ngrams class="NGrams">
-    <tokenLayerName>tokens</tokenLayerName>
-    <targetLayerName>PredictedBacteria</targetLayerName>
-    <sentenceLayerName>sentences</sentenceLayerName>
+    <tokenLayer>tokens</tokenLayer>
+    <targetLayer>PredictedBacteria</targetLayer>
+    <sentenceLayer>sentences</sentenceLayer>
     <maxNGramSize>5</maxNGramSize>
     <documentFilter>@set == "train" or @set == "dev"</documentFilter>
   </ngrams>
@@ -45,7 +45,7 @@
     <tag class="WekaPredict">
       <relationDefinition load="attributes.xml"/>
       <classifierFile output-feed="yes">classifier.model</classifierFile>
-      <predictedClassFeatureKey>predictedClass</predictedClassFeatureKey>
+      <predictedClassFeature>predictedClass</predictedClassFeature>
       <examples>documents[@set=="dev"].sections.layer:PredictedBacteria</examples>
     </tag>
 
@@ -58,15 +58,15 @@
 
   <evaluate>
     <projection class="LayerComparator">
-      <referenceLayerName>Bacteria</referenceLayerName>
-      <predictedLayerName>ProjectedBacteria</predictedLayerName>
+      <referenceLayer>Bacteria</referenceLayer>
+      <predictedLayer>ProjectedBacteria</predictedLayer>
       <outFile>projected.txt</outFile>
       <documentFilter>@set == "dev"</documentFilter>
     </projection>
 
     <weka class="LayerComparator">
-      <referenceLayerName>Bacteria</referenceLayerName>
-      <predictedLayerName>PredictedBacteria</predictedLayerName>
+      <referenceLayer>Bacteria</referenceLayer>
+      <predictedLayer>PredictedBacteria</predictedLayer>
       <outFile>weka.txt</outFile>
       <documentFilter>@set == "dev"</documentFilter>
     </weka>

@@ -12,8 +12,8 @@
   </move-concept>
   
   <train class="ContesTrain">
-    <tokenLayerName>norm</tokenLayerName>
-    <formFeatureName>norm</formFeatureName>
+    <tokenLayer>norm</tokenLayer>
+    <formFeature>norm</formFeature>
     <wordEmbeddings>vectors.json</wordEmbeddings>
     <ontology>OntoBiotope_BioNLP-ST-2016.obo</ontology>
     <defaultFactor>0.65</defaultFactor>

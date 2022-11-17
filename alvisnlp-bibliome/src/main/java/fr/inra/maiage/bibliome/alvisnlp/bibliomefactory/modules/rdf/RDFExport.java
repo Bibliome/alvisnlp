@@ -57,7 +57,7 @@ import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class RDFExport extends CorpusModule<RDFExportResolvedObjects> {
 	private OutputDirectory outDir;
 	private Expression files;
@@ -73,7 +73,7 @@ public class RDFExport extends CorpusModule<RDFExportResolvedObjects> {
 		private final Evaluator fileName;
 		private final Model model;
 		private final Evaluator[] statements;
-		
+
 		private RDFExportResolvedObjects(ProcessingContext<Corpus> ctx, RDFExport module) throws ResolverException {
 			super(ctx, module);
 			files = module.files.resolveExpressions(rootResolver);
@@ -108,7 +108,7 @@ public class RDFExport extends CorpusModule<RDFExportResolvedObjects> {
 			}
 			return result;
 		}
-		
+
 		@Override
 		public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
 			super.collectUsedNames(nameUsage, defaultType);
@@ -117,7 +117,7 @@ public class RDFExport extends CorpusModule<RDFExportResolvedObjects> {
 			nameUsage.collectUsedNamesArray(statements, defaultType);
 		}
 	}
-	
+
 	@Override
 	protected RDFExportResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new RDFExportResolvedObjects(ctx, this);
@@ -152,7 +152,7 @@ public class RDFExport extends CorpusModule<RDFExportResolvedObjects> {
 			server.start();
 		}
 	}
-	
+
 	@TimeThis(task="write-rdf", category=TimerCategory.EXPORT)
 	protected void writeModel(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, OutputStream out, Model model) {
 		RDFDataMgr.write(out, model, format);

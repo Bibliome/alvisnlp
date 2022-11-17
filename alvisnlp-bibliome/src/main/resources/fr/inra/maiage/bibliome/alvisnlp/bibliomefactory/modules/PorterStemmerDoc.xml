@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.PorterStemmer">
   <synopsis>
     <p>synopsis</p>
@@ -38,6 +37,10 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="layerName">
+      <p>Deprecated alias for <param>wordLayer</param>/</p>
+    </param-doc>
+  
+    <param-doc name="wordLayer">
       <p/>
     </param-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>

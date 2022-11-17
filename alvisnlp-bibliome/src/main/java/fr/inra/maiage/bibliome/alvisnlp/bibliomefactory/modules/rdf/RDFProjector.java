@@ -35,7 +35,7 @@ import fr.inra.maiage.bibliome.util.marshall.Encoder;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 import fr.inra.maiage.bibliome.util.trie.Trie;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,Resource> {
 	private SourceStream source;
 	private Lang rdfFormat = Lang.RDFXML;
@@ -56,7 +56,7 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 			"oboInOwl:hasRelatedSynonym",
 			"oboInOwl:hasSynonym"
 	};
-	private String uriFeatureName;
+	private String uriFeature;
 	private Mapping labelFeatures = new Mapping(
 			"rdfs-label", "rdfs:label",
 			"skos-prefLabel", "skos:prefLabel"
@@ -93,7 +93,7 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 		}
 		logger.info("Entries: " + nEntries);
 	}
-	
+
 	private static Property[] getProperties(Model model, String[] uris) {
 		Property[] result = new Property[uris.length];
 		for (int i = 0; i < result.length; ++i) {
@@ -101,7 +101,7 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 		}
 		return result;
 	}
-	
+
 	private String getNodeValue(RDFNode node) {
 		if (node.isLiteral()) {
 			Literal lit = node.asLiteral();
@@ -156,7 +156,7 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 
 	@Override
 	protected void handleMatch(Resource value, Annotation a) {
-		a.addFeature(uriFeatureName, value.getURI());
+		a.addFeature(uriFeature, value.getURI());
 		Model model = value.getModel();
 		for (Map.Entry<String,String> e : labelFeatures.entrySet()) {
 			String propURI = e.getValue();
@@ -187,9 +187,10 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 		return labelURIs;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getUriFeatureName() {
-		return uriFeatureName;
+		return uriFeature;
 	}
 
 	@Param(nameType=NameType.FEATURE)
@@ -210,6 +211,15 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 	@Param(mandatory=false)
 	public String getLanguage() {
 		return language;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getUriFeature() {
+		return uriFeature;
+	}
+
+	public void setUriFeature(String uriFeature) {
+		this.uriFeature = uriFeature;
 	}
 
 	public void setLanguage(String language) {
@@ -237,7 +247,7 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 	}
 
 	public void setUriFeatureName(String uriFeatureName) {
-		this.uriFeatureName = uriFeatureName;
+		this.uriFeature = uriFeatureName;
 	}
 
 	public void setLabelFeatures(Mapping labelFeatures) {

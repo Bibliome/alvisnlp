@@ -48,16 +48,16 @@ import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.StringCat;
 import fr.inra.maiage.bibliome.util.mappers.Mappers;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class MergeSections extends SectionModule<SectionResolvedObjects> implements SectionCreator, AnnotationCreator, TupleCreator {
 	private String sectionSeparator = "";
 	private String fragmentSeparator = "";
-	private String targetSectionName;
+	private String targetSection;
 	private Boolean removeSections = true;
-	private String sectionsLayerName;
+	private String sectionsLayer;
 	private FragmentSelection fragmentSelection = FragmentSelection.EXLUDE;
-	private String fragmentLayerName;
-	
+	private String fragmentLayer;
+
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
@@ -69,24 +69,24 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		for (Document doc : Iterators.loop(documentIterator(evalCtx, corpus))) {
 			List<Section> sections = getSections(evalCtx, doc);
-			List<Layer> keepLayers = Mappers.apply(fragmentSelection, fragmentLayerName, sections, new ArrayList<Layer>());
+			List<Layer> keepLayers = Mappers.apply(fragmentSelection, fragmentLayer, sections, new ArrayList<Layer>());
 			String newContents = getContents(keepLayers);
 			Map<Annotation,Integer> offsets = computeOffsets(keepLayers);
-			Section newSection = new Section(this, doc, targetSectionName, newContents);
+			Section newSection = new Section(this, doc, targetSection, newContents);
 
 			Map<Element,Element> mapping = new LinkedHashMap<Element,Element>();
 			for (int i = 0; i < sections.size(); ++i)
 				cloneSection(mapping, sections.get(i), keepLayers.get(i), newSection, offsets);
-			
+
 			for (Section sec : sections)
 				cloneTupleArgs(mapping, sec);
-			
+
 			if (removeSections)
 				for (Section sec : sections)
 					doc.removeSection(sec);
 		}
 	}
-	
+
 	private Map<Annotation,Integer> computeOffsets(List<Layer> keepLayers) {
 		Map<Annotation,Integer> result = new LinkedHashMap<Annotation,Integer>();
 		int offset = 0;
@@ -108,7 +108,7 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 		}
 		return result;
 	}
-	
+
 	private void createSectionAnnotation(Map<Element,Element> mapping, Section sec, Layer keepLayer, Section newSection, Map<Annotation,Integer> offsets) {
 //		System.err.println("offsets = " + offsets);
 //		System.err.println("keepLayer = " + keepLayer);
@@ -116,13 +116,13 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 		int start = offsets.get(keepLayer.first());
 		Annotation last = keepLayer.last();
 		int end = offsets.get(last) + last.getLength();
-		Annotation a = new Annotation(this, newSection.ensureLayer(sectionsLayerName), start, end);
+		Annotation a = new Annotation(this, newSection.ensureLayer(sectionsLayer), start, end);
 		clone(mapping, sec, a);
 	}
-	
+
 	private void cloneSection(Map<Element,Element> mapping, Section sec, Layer keepLayer, Section newSection, Map<Annotation,Integer> offsets) {
 		createSectionAnnotation(mapping, sec, keepLayer, newSection, offsets);
-		
+
 		for (Layer layer : sec.getAllLayers()) {
 			Layer newLayer = newSection.ensureLayer(layer.getName());
 			for (Annotation a : layer) {
@@ -136,14 +136,14 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 				clone(mapping, a, new Annotation(this, newLayer, offset + a.getStart(), offset + a.getEnd()));
 			}
 		}
-		
+
 		for (Relation rel : sec.getAllRelations()) {
 			Relation newRelation = clone(mapping, rel, newSection.ensureRelation(this, rel.getName()));
 			for (Tuple t : rel.getTuples())
 				clone(mapping, t, new Tuple(this, newRelation));
 		}
 	}
-	
+
 	private static void cloneTupleArgs(Map<Element,Element> mapping, Section sec) {
 		for (Relation rel : sec.getAllRelations()) {
 			for (Tuple t : rel.getTuples()) {
@@ -157,13 +157,13 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 			}
 		}
 	}
-	
+
 	private static <E extends Element> E clone(Map<Element,Element> mapping, Element old, E newElement) {
 		newElement.addMultiFeatures(old.getFeatures());
 		mapping.put(old, newElement);
 		return newElement;
 	}
-	
+
 	private String getContents(List<Layer> keepLayers) {
 		StringCat strcat = new StringCat();
 		boolean notFirstSection = false;
@@ -183,7 +183,7 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 		}
 		return strcat.toString();
 	}
-		
+
 	private List<Section> getSections(EvaluationContext evalCtx, Document doc) {
 		List<Section> result = new ArrayList<Section>();
 		Iterators.fill(sectionIterator(evalCtx, doc), result);
@@ -210,9 +210,10 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 		return fragmentSeparator;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.SECTION)
 	public String getTargetSectionName() {
-		return targetSectionName;
+		return targetSection;
 	}
 
 	@Param
@@ -221,8 +222,18 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 	}
 
 	@Param(nameType=NameType.LAYER, mandatory=false)
+	public String getSectionsLayer() {
+	    return this.sectionsLayer;
+	};
+
+	public void setSectionsLayer(String sectionsLayer) {
+	    this.sectionsLayer = sectionsLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER, mandatory=false)
 	public String getSectionsLayerName() {
-		return sectionsLayerName;
+		return sectionsLayer;
 	}
 
 	@Param
@@ -231,12 +242,31 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 	}
 
 	@Param(nameType=NameType.LAYER, mandatory=false)
+	public String getFragmentLayer() {
+	    return this.fragmentLayer;
+	};
+
+	public void setFragmentLayer(String fragmentLayer) {
+	    this.fragmentLayer = fragmentLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER, mandatory=false)
 	public String getFragmentLayerName() {
-		return fragmentLayerName;
+		return fragmentLayer;
 	}
 
-	public void setFragmentLayerName(String fragmentLayerName) {
-		this.fragmentLayerName = fragmentLayerName;
+	@Param(nameType=NameType.SECTION)
+	public String getTargetSection() {
+		return targetSection;
+	}
+
+	public void setTargetSection(String targetSection) {
+		this.targetSection = targetSection;
+	}
+
+	public void setFragmentLayerName(String fragmentLayer) {
+		this.fragmentLayer = fragmentLayer;
 	}
 
 	public void setSectionSeparator(String sectionSeparator) {
@@ -248,15 +278,15 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 	}
 
 	public void setTargetSectionName(String targetSectionName) {
-		this.targetSectionName = targetSectionName;
+		this.targetSection = targetSectionName;
 	}
 
 	public void setRemoveSections(Boolean removeSections) {
 		this.removeSections = removeSections;
 	}
 
-	public void setSectionsLayerName(String sectionsLayerName) {
-		this.sectionsLayerName = sectionsLayerName;
+	public void setSectionsLayerName(String sectionsLayer) {
+		this.sectionsLayer = sectionsLayer;
 	}
 
 	public void setFragmentSelection(FragmentSelection fragmentSelection) {

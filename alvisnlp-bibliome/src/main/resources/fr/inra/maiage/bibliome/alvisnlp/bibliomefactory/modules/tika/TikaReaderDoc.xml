@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2016-10-19">
   <synopsis>
     <p>Reads PDF or DOC files and adds a document in the corpus for each file.</p>
@@ -33,16 +32,25 @@ limitations under the License.
       <p>Path to the source directory or source file.</p>
     </param-doc>
   
-    <param-doc name="sectionName">
+    <param-doc name="section">
       <p>Name of the single section containing the whole contents of a file.</p>
     </param-doc>
   
-    <param-doc name="htmlLayerName">
+    <param-doc name="sectionName">
+      <p>Deprecated alias for <param>section</param>/</p>
+    </param-doc>
+  
+    <param-doc name="htmlLayer">
+      <p/>
+    </param-doc>
+<param-doc name="htmlLayerName"><p>Deprecated alias for <param>htmlLayer</param>.</p></param-doc>
+  
+    <param-doc name="tagFeature">
       <p/>
     </param-doc>
   
     <param-doc name="tagFeatureName">
-      <p/>
+      <p>Deprecated alias for <param>tagFeature</param>/</p>
     </param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>

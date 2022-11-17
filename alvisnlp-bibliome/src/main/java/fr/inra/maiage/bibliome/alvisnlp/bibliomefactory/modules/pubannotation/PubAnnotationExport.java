@@ -79,14 +79,14 @@ public class PubAnnotationExport extends SectionModule<PubAnnotationExportResolv
 	protected PubAnnotationExportResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new PubAnnotationExportResolvedObjects(ctx, this);
 	}
-	
+
 	public static class PubAnnotationExportResolvedObjects extends SectionResolvedObjects {
 		private final DenotationSpecification.Resolved[] denotations;
 		private final RelationSpecification.Resolved[] relations;
 		private final Evaluator sourcedb;
 		private final Evaluator sourceid;
 		private final Evaluator divid;
-		
+
 		private PubAnnotationExportResolvedObjects(ProcessingContext<Corpus> ctx, PubAnnotationExport module) throws ResolverException {
 			super(ctx, module);
 			LibraryResolver resolver = module.getLibraryResolver(ctx);
@@ -106,7 +106,7 @@ public class PubAnnotationExport extends SectionModule<PubAnnotationExportResolv
 			nameUsage.collectUsedNamesNullable(sourceid, defaultType);
 			nameUsage.collectUsedNamesNullable(divid, defaultType);
 		}
-		
+
 		@SuppressWarnings("unchecked")
 		JSONObject convert(EvaluationContext ctx, Section sec) {
 			JSONObject result = new JSONObject();
@@ -124,7 +124,7 @@ public class PubAnnotationExport extends SectionModule<PubAnnotationExportResolv
 			}
 			return result;
 		}
-		
+
 		private JSONArray getDenotations(EvaluationContext ctx, Section sec) {
 			JSONArray result = new JSONArray();
 			for (DenotationSpecification.Resolved ds : denotations) {
@@ -132,7 +132,7 @@ public class PubAnnotationExport extends SectionModule<PubAnnotationExportResolv
 			}
 			return result;
 		}
-		
+
 		private JSONArray getRelations(EvaluationContext ctx, Section sec) {
 			JSONArray result = new JSONArray();
 			for (RelationSpecification.Resolved rs : relations) {

@@ -34,8 +34,8 @@
   </decodeBIO>
 
   <projection class="LayerComparator">
-    <referenceLayerName>Habitat</referenceLayerName>
-    <predictedLayerName>PredictedHabitat</predictedLayerName>
+    <referenceLayer>Habitat</referenceLayer>
+    <predictedLayer>PredictedHabitat</predictedLayer>
     <outFile>comparison.txt</outFile>
     <documentFilter>@set == "dev"</documentFilter>
   </projection>

@@ -93,9 +93,9 @@ class Ab3PExternalHandler extends ExternalHandler<Corpus,Ab3P> {
 
 	private void createAbbreviations(Section sec, String shortForm, String longForm) {
 		Ab3P owner = getModule();
-		Collection<Annotation> shortForms = lookup(sec, owner.getShortFormsLayerName(), shortForm);
-		Collection<Annotation> longForms = lookup(sec, owner.getLongFormsLayerName(), longForm);
-		Relation rel = sec.ensureRelation(owner, owner.getRelationName());
+		Collection<Annotation> shortForms = lookup(sec, owner.getShortFormsLayer(), shortForm);
+		Collection<Annotation> longForms = lookup(sec, owner.getLongFormsLayer(), longForm);
+		Relation rel = sec.ensureRelation(owner, owner.getAbbreviationRelation());
 		for (Annotation shortA : shortForms) {
 			shortA.addFeature(owner.getLongFormFeature(), longForm);
 			for (Annotation longA : longForms) {

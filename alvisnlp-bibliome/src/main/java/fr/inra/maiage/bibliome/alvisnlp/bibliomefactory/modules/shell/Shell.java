@@ -70,7 +70,7 @@ public abstract class Shell extends CorpusModule<ResolvedObjects> implements Doc
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	@SuppressWarnings("static-method")
 	@TimeThis(task="prompt")
 	protected String readCommand(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, ConsoleReader console) throws IOException {
@@ -79,7 +79,7 @@ public abstract class Shell extends CorpusModule<ResolvedObjects> implements Doc
 		System.out.print("\u001B[0m");
 		return result;
 	}
-	
+
 	@SuppressWarnings("static-method")
 	@TimeThis(task="execute")
 	protected void execCommand(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, ShellEnvironment env, String cmdStr) {

@@ -84,15 +84,15 @@ import fr.inra.maiage.bibliome.util.streams.PatternFileFilter;
 
 @AlvisNLPModule
 public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, TupleCreator {
-	private String equivalenceRelationName = "equiv";
+	private String equivalenceRelation = "equiv";
 	private String equivalenceItemPrefix = "item";
-	private String typeFeatureName = "type";
-	private String idFeatureName = "id";
+	private String typeFeature = "type";
+	private String idFeature = "id";
 	private Boolean textBoundAsAnnotations = false;
-	private String fragmentCountFeatureName = "fragments";
+	private String fragmentCountFeature = "fragments";
 	private String textBoundFragmentRolePrefix = "frag";
 	private String triggerRole = "trigger";
-	private String kindFeatureName = "kind";
+	private String kindFeature = "kind";
 	private String textKind = "text";
 	private String eventKind = "event";
 	private String relationKind = "relation";
@@ -100,9 +100,9 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 	private InputDirectory a1Dir;
 	private InputDirectory a2Dir;
 	private String charset = "UTF-8";
-	private String sectionName = DefaultNames.getDefaultSectionName();
+	private String section = DefaultNames.getDefaultSectionName();
 	private DocumentSchema schema;
-	
+
 	@Override
 	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
@@ -151,13 +151,13 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 				for (BioNLPSTAnnotation a : doc.getAnnotations()) {
 					Element e = a.accept(pass1, section);
 					if (e != null) {
-						e.addFeature(idFeatureName, a.getId());
-						e.addFeature(typeFeatureName, a.getType());
+						e.addFeature(idFeature, a.getId());
+						e.addFeature(typeFeature, a.getType());
 						map.put(a.getId(), e);
 					}
 				}
 
-				Relation equivRel = section.ensureRelation(this, equivalenceRelationName);
+				Relation equivRel = section.ensureRelation(this, equivalenceRelation);
 				for (Equivalence equiv : doc.getEquivalences()) {
 					Tuple t = new Tuple(this, equivRel);
 					List<String> items = new ArrayList<String>(equiv.getAnnotationIds());
@@ -166,7 +166,7 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 						t.setArgument(equivalenceItemPrefix + i, map.get(id));
 					}
 				}
-				
+
 				for (BioNLPSTAnnotation a : doc.getAnnotations()) {
 					a.accept(pass2, map);
 				}
@@ -178,22 +178,22 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	private void ensureKindFeature(Relation relation, String kind) {
-		if (!relation.hasFeature(kindFeatureName)) {
-			relation.addFeature(kindFeatureName, kind);
+		if (!relation.hasFeature(kindFeature)) {
+			relation.addFeature(kindFeature, kind);
 		}
 	}
-	
+
 	private Section getSection(Document alvisnlpDoc, String text) {
-		for (Section sec : Iterators.loop(alvisnlpDoc.sectionIterator(sectionName))) {
+		for (Section sec : Iterators.loop(alvisnlpDoc.sectionIterator(section))) {
 			if (text.equals(sec.getContents())) {
 				return sec;
 			}
 		}
-		return new Section(this, alvisnlpDoc, sectionName, text);
+		return new Section(this, alvisnlpDoc, section, text);
 	}
-	
+
 	@Override
 	public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
 		if (schema == null) {
@@ -204,7 +204,7 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 			as.accept(NAME_USAGE_SCHEMA_VISITOR, nameUsage);
 		}
 	}
-	
+
 	private static final AnnotationSchemaVisitor<Void,NameUsage> NAME_USAGE_SCHEMA_VISITOR = new AnnotationSchemaVisitor<Void,NameUsage>() {
 		@Override
 		public Void visit(EventSchema event, NameUsage param) {
@@ -248,7 +248,7 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 					end = Math.max(end, f.getEnd());
 				}
 				Annotation result = new Annotation(BioNLPSTReader.this, layer, start, end);
-				result.addFeature(fragmentCountFeatureName, Integer.toString(fragments.size()));
+				result.addFeature(fragmentCountFeature, Integer.toString(fragments.size()));
 				return result;
 			}
 			Relation rel = param.ensureRelation(BioNLPSTReader.this, textBound.getType());
@@ -286,7 +286,7 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 			return null;
 		}
 	};
-	
+
 	private final BioNLPSTAnnotationVisitor<Void,Map<String,Element>> pass2 = new BioNLPSTAnnotationVisitor<Void,Map<String,Element>>() {
 		@Override
 		public Void visit(TextBound textBound, Map<String,Element> param) {
@@ -298,26 +298,26 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 				return param.get(id);
 			throw new RuntimeException();
 		}
-		
+
 		@Override
 		public Void visit(BioNLPSTRelation relation, Map<String,Element> param) {
 			Tuple t = getTuple(relation, param);
 			setArguments(relation, t, param);
 			return null;
 		}
-		
+
 		private void setArguments(AnnotationWithArgs annotation, Tuple t, Map<String,Element> param) {
 			Map<String,String> args = annotation.getArgumentIds();
 			for (Map.Entry<String,String> e : args.entrySet()) {
 				setArgument(t, e.getKey(), e.getValue(), param);
-			}			
+			}
 		}
-		
+
 		private void setArgument(Tuple t, String role, String id, Map<String,Element> param) {
 			Element elt = getElement(id, param);
-			t.setArgument(role, elt);			
+			t.setArgument(role, elt);
 		}
-		
+
 		private Tuple getTuple(BioNLPSTAnnotation annotation, Map<String,Element> param) {
 			String id = annotation.getId();
 			Element elt = getElement(id, param);
@@ -352,9 +352,10 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 		}
 	};
 
+	@Deprecated
 	@Param(nameType=NameType.RELATION)
 	public String getEquivalenceRelationName() {
-		return equivalenceRelationName;
+		return equivalenceRelation;
 	}
 
 	@Param
@@ -362,14 +363,16 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 		return equivalenceItemPrefix;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getTypeFeatureName() {
-		return typeFeatureName;
+		return typeFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getIdFeatureName() {
-		return idFeatureName;
+		return idFeature;
 	}
 
 	@Param
@@ -377,9 +380,10 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 		return textBoundAsAnnotations;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getFragmentCountFeatureName() {
-		return fragmentCountFeatureName;
+		return fragmentCountFeature;
 	}
 
 	@Param
@@ -412,9 +416,10 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 		return charset;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.SECTION)
 	public String getSectionName() {
-		return sectionName;
+		return section;
 	}
 
 	@Param(mandatory=false)
@@ -422,9 +427,10 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 		return schema;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getKindFeatureName() {
-		return kindFeatureName;
+		return kindFeature;
 	}
 
 	@Param
@@ -442,8 +448,62 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 		return relationKind;
 	}
 
+	@Param(nameType=NameType.FEATURE)
+	public String getTypeFeature() {
+		return typeFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getIdFeature() {
+		return idFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getFragmentCountFeature() {
+		return fragmentCountFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getKindFeature() {
+		return kindFeature;
+	}
+
+	@Param(nameType=NameType.RELATION)
+	public String getEquivalenceRelation() {
+		return equivalenceRelation;
+	}
+
+	@Param(nameType=NameType.SECTION)
+	public String getSection() {
+		return section;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
+	}
+
+	public void setEquivalenceRelation(String equivalenceRelation) {
+		this.equivalenceRelation = equivalenceRelation;
+	}
+
+	public void setTypeFeature(String typeFeature) {
+		this.typeFeature = typeFeature;
+	}
+
+	public void setIdFeature(String idFeature) {
+		this.idFeature = idFeature;
+	}
+
+	public void setFragmentCountFeature(String fragmentCountFeature) {
+		this.fragmentCountFeature = fragmentCountFeature;
+	}
+
+	public void setKindFeature(String kindFeature) {
+		this.kindFeature = kindFeature;
+	}
+
 	public void setKindFeatureName(String kindFeatureName) {
-		this.kindFeatureName = kindFeatureName;
+		this.kindFeature = kindFeatureName;
 	}
 
 	public void setTextKind(String textKind) {
@@ -463,7 +523,7 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 	}
 
 	public void setEquivalenceRelationName(String equivalenceRelationName) {
-		this.equivalenceRelationName = equivalenceRelationName;
+		this.equivalenceRelation = equivalenceRelationName;
 	}
 
 	public void setEquivalenceItemPrefix(String equivalenceItemPrefix) {
@@ -471,11 +531,11 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 	}
 
 	public void setTypeFeatureName(String typeFeatureName) {
-		this.typeFeatureName = typeFeatureName;
+		this.typeFeature = typeFeatureName;
 	}
 
 	public void setIdFeatureName(String idFeatureName) {
-		this.idFeatureName = idFeatureName;
+		this.idFeature = idFeatureName;
 	}
 
 	public void setTextBoundAsAnnotations(Boolean textBoundAsAnnotations) {
@@ -483,7 +543,7 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 	}
 
 	public void setFragmentCountFeatureName(String fragmentCountFeatureName) {
-		this.fragmentCountFeatureName = fragmentCountFeatureName;
+		this.fragmentCountFeature = fragmentCountFeatureName;
 	}
 
 	public void setTextBoundFragmentRolePrefix(String textBoundFragmentRolePrefix) {
@@ -511,6 +571,6 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 	}
 
 	public void setSectionName(String sectionName) {
-		this.sectionName = sectionName;
+		this.section = sectionName;
 	}
 }

@@ -31,16 +31,16 @@ import fr.inra.maiage.bibliome.util.trie.Trie;
 public abstract class TreeTaggerTermsProjector extends TrieProjector<SectionResolvedObjects,String[]> {
 	private Boolean lemmaKeys = false;
 	private SourceStream termsFile;
-	private String termFeatureName = "term";
-	private String posFeatureName = DefaultNames.getPosTagFeature();
-	private String lemmaFeatureName = DefaultNames.getCanonicalFormFeature();
+	private String termFeature = "term";
+	private String posFeature = DefaultNames.getPosTagFeature();
+	private String lemmaFeature = DefaultNames.getCanonicalFormFeature();
 
 	private static final class AttestedTermsFileLines extends FileLines<Trie<String[]>> {
 		private final StringCat termFormBuilder = new StringCat();
 		private final StringCat termPosBuilder = new StringCat();
 		private final StringCat termLemmaBuilder = new StringCat();
 		private final boolean lemmaKeys;
-		
+
 		private AttestedTermsFileLines(boolean lemmaKeys) {
 			super();
 			this.lemmaKeys = lemmaKeys;
@@ -51,7 +51,7 @@ public abstract class TreeTaggerTermsProjector extends TrieProjector<SectionReso
 		private void init() {
 			termFormBuilder.clear();
 			termPosBuilder.clear();
-			termLemmaBuilder.clear();			
+			termLemmaBuilder.clear();
 		}
 
 		@Override
@@ -114,10 +114,10 @@ public abstract class TreeTaggerTermsProjector extends TrieProjector<SectionReso
 
 	@Override
 	protected void handleMatch(String[] entry, Annotation a) {
-		if (termFeatureName != null)
-			a.addFeature(termFeatureName, entry[0]);
-		a.addFeature(posFeatureName, entry[1]);
-		a.addFeature(lemmaFeatureName, entry[2]);
+		if (termFeature != null)
+			a.addFeature(termFeature, entry[0]);
+		a.addFeature(posFeature, entry[1]);
+		a.addFeature(lemmaFeature, entry[2]);
 	}
 
 	@Override
@@ -135,19 +135,49 @@ public abstract class TreeTaggerTermsProjector extends TrieProjector<SectionReso
 		return termsFile;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getTermFeatureName() {
-		return termFeatureName;
+		return termFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getPosFeatureName() {
-		return posFeatureName;
+		return posFeature;
+	}
+
+	@Deprecated
+	@Param(nameType=NameType.FEATURE)
+	public String getLemmaFeatureName() {
+		return lemmaFeature;
 	}
 
 	@Param(nameType=NameType.FEATURE)
-	public String getLemmaFeatureName() {
-		return lemmaFeatureName;
+	public String getTermFeature() {
+		return termFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getPosFeature() {
+		return posFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getLemmaFeature() {
+		return lemmaFeature;
+	}
+
+	public void setTermFeature(String termFeature) {
+		this.termFeature = termFeature;
+	}
+
+	public void setPosFeature(String posFeature) {
+		this.posFeature = posFeature;
+	}
+
+	public void setLemmaFeature(String lemmaFeature) {
+		this.lemmaFeature = lemmaFeature;
 	}
 
 	public void setLemmaKeys(Boolean lemmaKeys) {
@@ -159,14 +189,14 @@ public abstract class TreeTaggerTermsProjector extends TrieProjector<SectionReso
 	}
 
 	public void setTermFeatureName(String termFeatureName) {
-		this.termFeatureName = termFeatureName;
+		this.termFeature = termFeatureName;
 	}
 
 	public void setPosFeatureName(String posFeatureName) {
-		this.posFeatureName = posFeatureName;
+		this.posFeature = posFeatureName;
 	}
 
 	public void setLemmaFeatureName(String lemmaFeatureName) {
-		this.lemmaFeatureName = lemmaFeatureName;
+		this.lemmaFeature = lemmaFeatureName;
 	}
 }

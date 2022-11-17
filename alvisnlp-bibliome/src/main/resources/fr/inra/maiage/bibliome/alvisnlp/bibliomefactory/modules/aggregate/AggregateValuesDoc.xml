@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.aggregate.AggregateValues">
 
   <synopsis>
@@ -24,9 +23,9 @@ limitations under the License.
   <module-doc>
     <description>
       <p>
-      	<this/> lists a set of elements specified by <param name="entries"/>, and computes a string value for each specified by <param name="key"/>.
-      	<this/> computes aggregates functions specified by <param name="aggregators"/> for each distinct value.
-      	The list of entry keys and their aggregate values are written into <param name="outFile"/>
+      	<this/> lists a set of elements specified by <param>entries</param>, and computes a string value for each specified by <param>key</param>.
+      	<this/> computes aggregates functions specified by <param>aggregators</param> for each distinct value.
+      	The list of entry keys and their aggregate values are written into <param>outFile</param>
       </p>
 	  <h3>Example</h3>
       <p>

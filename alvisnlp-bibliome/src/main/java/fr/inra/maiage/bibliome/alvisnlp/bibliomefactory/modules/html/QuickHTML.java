@@ -66,7 +66,7 @@ import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.fragments.FragmentTag;
 import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 	private static final String XPATH_DOMUMENT_TITLE = "/html/head/title";
 	private static final String XPATH_TITLE_HEADING = "/html/body/h1";
@@ -75,9 +75,9 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 	private static final String XPATH_DOCUMENT_DIV = "/html/body/div[@id = 'alvisnlp-document']";
 	private static final String XPATH_FRAGMENTS = "//span[@alvisnlp-id != '']";
 	private static final String XPATH_DOCUMENT_LIST = "/html/body/ul[@id = 'document-list']";
-	private static final String DEFAULT_ANNOTATION_CLASS = "-default"; 
-	
-	
+	private static final String DEFAULT_ANNOTATION_CLASS = "-default";
+
+
 	private OutputDirectory outDir;
 	private String[] layers;
 	private String tagFeature;
@@ -95,7 +95,7 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 
 	public static class QuickHTMLResolvedObjects extends SectionResolvedObjects {
 		private final Evaluator documentTitle;
-		
+
 		public QuickHTMLResolvedObjects(ProcessingContext<Corpus> ctx, QuickHTML module) throws ResolverException {
 			super(ctx, module);
 			this.documentTitle = module.documentTitle.resolveExpressions(rootResolver);
@@ -107,7 +107,7 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 			this.documentTitle.collectUsedNames(nameUsage, defaultType);
 		}
 	}
-	
+
 	@Override
 	protected QuickHTMLResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new QuickHTMLResolvedObjects(ctx, this);
@@ -135,14 +135,14 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	private static Document createDocumentList() throws SAXException, IOException {
 		// same ClassLoader as this class
 		try (InputStream is = QuickHTML.class.getResourceAsStream("index.html")) {
 			return XMLUtils.docBuilder.parse(is);
 		}
 	}
-	
+
 	private void generateDocuments(Logger logger, EvaluationContext evalCtx, Corpus corpus, Set<String> classes, Document docList) throws XPathExpressionException, IOException, SAXException, TransformerFactoryConfigurationError {
 		logger.info("generating HTML documents");
 		Element docListUL = XMLUtils.evaluateElement(XPATH_DOCUMENT_LIST, docList);
@@ -163,27 +163,27 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 			prev = doc;
 		}
 	}
-	
+
 	private void addDocumentListItem(Document docList, Element docListUL, EvaluationContext evalCtx, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc) {
 		Element li = XMLUtils.createElement(docList, docListUL, -1, "li");
 		addClass(li, "documet-list-item");
 		addLinkToDocument(li, evalCtx, doc);
 	}
-	
+
 	private void addLinkToDocument(Element parent, EvaluationContext evalCtx, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc) {
 		String id = doc.getId();
 		String title = getDocumentLTitle(evalCtx, doc);
 		Element a = XMLUtils.createElement(parent.getOwnerDocument(), parent, -1, "a", title);
 		a.setAttribute("href", id + ".html");
 	}
-	
+
 	private static Document createDocumentSkeleton() throws IOException, SAXException {
 		// same ClassLoader as this class
 		try (InputStream is = QuickHTML.class.getResourceAsStream("document.html")) {
 			return XMLUtils.docBuilder.parse(is);
 		}
 	}
-	
+
 	private OutputStream copyResource(Logger logger, String name) throws IOException {
 		logger.info("copying " + name);
 		try (InputStream is = QuickHTML.class.getResourceAsStream(name)) {
@@ -208,7 +208,7 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 			}
 		}
 	}
-	
+
 	private String getDocumentLTitle(EvaluationContext evalCtx, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc) {
 		QuickHTMLResolvedObjects resObj = getResolvedObjects();
 		return resObj.documentTitle.evaluateString(evalCtx, doc);
@@ -231,7 +231,7 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 		}
 		return result;
 	}
-	
+
 	private void createSection(Document xmlDoc, Section sec, HTMLBuilderFragmentTagIterator frit) throws XPathExpressionException {
 		Element docDiv = XMLUtils.evaluateElement(XPATH_DOCUMENT_DIV, xmlDoc);
 		Element secDiv = XMLUtils.createElement(xmlDoc, docDiv, 0, "div");
@@ -244,7 +244,7 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 		FragmentTag.iterateFragments(frit, sec.getContents(), STABLE_COMPARATOR, annotations, 0);
 		stratify(xmlDoc);
 	}
-	
+
 	private final Comparator<Annotation> STABLE_COMPARATOR = new Comparator<Annotation>() {
 		@Override
 		public int compare(Annotation o1, Annotation o2) {
@@ -256,21 +256,21 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 			return class1.hashCode() - o2.hashCode();
 		}
 	};
-	
+
 	String getAnnotationClass(Annotation a) {
 		if (a.hasFeature(classFeature)) {
 			return a.getLastFeature(classFeature);
 		}
 		return DEFAULT_ANNOTATION_CLASS;
 	}
-	
+
 	String getAnnotationTag(Annotation a) {
 		if (tagFeature != null && a.hasFeature(tagFeature)) {
 			return a.getLastFeature(tagFeature);
 		}
 		return "span";
 	}
-	
+
 	Collection<String> getFeatureKeys(Annotation a) {
 		if (features == null) {
 			return a.getFeatureKeys();
@@ -298,7 +298,7 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 			addClass(frag, "strate-" + strate);
 		}
 	}
-	
+
 	static void addClass(Element elt, String klass) {
 		klass = klass.trim();
 		if (klass.isEmpty()) {
@@ -339,7 +339,7 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 		}
 		return result;
 	}
-	
+
 	private void writeXHTMLDocument(Document xmlDoc, String name) throws TransformerFactoryConfigurationError {
 		OutputFile file = new OutputFile(outDir, name + ".html");
 		File dir = file.getParentFile();
@@ -360,7 +360,7 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 				String col = colorIt.next();
 				out.format(".%s {\n\tbackground-color: %s;\n}\n\n", klass, col);
 			}
-			
+
 			for (int strate = 0; strate < 10; ++strate) {
 				int vPad = 1 + strate * 2;
 				int hPad = 1 + strate * 1;
@@ -370,12 +370,12 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 			}
 		}
 	}
-	
+
 	@Override
 	protected String[] addLayersToSectionFilter() {
 		return null;
 	}
-	
+
 	@Override
 	protected String[] addFeaturesToSectionFilter() {
 		return null;

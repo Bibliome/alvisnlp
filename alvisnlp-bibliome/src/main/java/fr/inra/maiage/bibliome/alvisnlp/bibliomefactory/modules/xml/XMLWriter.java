@@ -81,15 +81,15 @@ import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 @AlvisNLPModule
 public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 	public static final String ALVISNLP_PROXY_NAMESPACE_URI = "http://bilbiome.jouy.inra.fr/alvisnlp/XMLReader2";
-	
+
 	private static final String ELEMENT_USER_DATA = "element";
-	
+
 	private OutputDirectory outDir;
 	private Expression roots;
 	private Expression fileName;
 	private SourceStream xslTransform;
 	private Boolean indent = true;
-	
+
 	static class XMLWriterResolvedObjects extends ResolvedObjects {
 		private final Evaluator roots;
 		private final Evaluator fileName;
@@ -108,7 +108,7 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 			fileName.collectUsedNames(nameUsage, defaultType);
 		}
 	}
-	
+
 	@Override
 	protected XMLWriterResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new XMLWriterResolvedObjects(ctx, this);
@@ -123,17 +123,17 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 
 			XMLWriterResolvedObjects resObj = getResolvedObjects();
 	        EvaluationContext evalCtx = new EvaluationContext(logger);
-	        
+
 	        outDir.mkdirs();
 			for (Element root : Iterators.loop(getRoots(evalCtx, corpus))) {
 				transformer.reset();
-				
+
 				Document doc = XMLUtils.docBuilder.newDocument();
 				doc.setUserData(ELEMENT_USER_DATA, root, null);
 //				org.w3c.dom.Element elt = getElementProxy(doc, root);
 //				doc.appendChild(elt);
 				Source source = new DOMSource(doc);
-				
+
 				String fileNameString = resObj.fileName.evaluateString(evalCtx, root);
 				File outFile = new File(outDir, fileNameString);
 				Result result = new StreamResult(outFile);
@@ -145,13 +145,13 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	@SuppressWarnings("static-method")
 	@TimeThis(task="transform", category=TimerCategory.EXPORT)
 	protected void doTransform(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, Transformer transformer, Source source, Result result) throws TransformerException {
 		transformer.transform(source, result);
 	}
-	
+
 	@TimeThis(task="read-xslt", category=TimerCategory.LOAD_RESOURCE)
 	protected Transformer getTransformer(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx) throws IOException, TransformerConfigurationException {
 		TransformerFactory factory = TransformerFactory.newInstance();
@@ -166,7 +166,7 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 			return result;
 		}
 	}
-	
+
 	private Iterator<Element> getRoots(EvaluationContext evalCtx, Corpus corpus) {
 		if (roots == null)
 			return Iterators.singletonIterator(corpus);
@@ -230,7 +230,7 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 		result.setUserData(ELEMENT_USER_DATA, element, null);
 		return result;
 	}
-	
+
 	private static LibraryResolver libraryResolver = null;
 	private static final DefaultMap<String,Evaluator> expressionCache = new DefaultMap<String,Evaluator>(true, new WeakHashMap<String,Evaluator>()) {
 		@Override
@@ -245,7 +245,7 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 			}
 		}
 	};
-	
+
 	private static EvaluationContext EVALUATION_CONTEXT = null;
 
 	private static final Element getElement(Node node) {
@@ -256,7 +256,7 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 		}
 		return null;
 	}
-	
+
 	public static final NodeList elements(ExpressionContext ctx, String exprStr) {
 		Evaluator expr = expressionCache.safeGet(exprStr);
 		NodeSet result = new NodeSet();
@@ -269,7 +269,7 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 				result.addElement(getElementProxy(doc, e));
 		return result;
 	}
-	
+
 	public static final String string(ExpressionContext ctx, String exprStr) {
 		Evaluator expr = expressionCache.safeGet(exprStr);
 		Node node = ctx.getContextNode();
@@ -278,7 +278,7 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 			return "";
 		return expr.evaluateString(EVALUATION_CONTEXT, elt);
 	}
-	
+
 	public static final int integer(ExpressionContext ctx, String exprStr) {
 		Evaluator expr = expressionCache.safeGet(exprStr);
 		Node node = ctx.getContextNode();
@@ -287,7 +287,7 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 			return Integer.MIN_VALUE;
 		return expr.evaluateInt(EVALUATION_CONTEXT, elt);
 	}
-	
+
 	public static final double number(ExpressionContext ctx, String exprStr) {
 		Evaluator expr = expressionCache.safeGet(exprStr);
 		Node node = ctx.getContextNode();
@@ -296,7 +296,7 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 			return Double.MIN_VALUE;
 		return expr.evaluateDouble(EVALUATION_CONTEXT, elt);
 	}
-	
+
 	public static final NodeList features(ExpressionContext ctx) {
 		NodeSet result = new NodeSet();
 		Node node = ctx.getContextNode();
@@ -314,12 +314,12 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 		}
 		return result;
 	}
-	
+
 	private static final class InnerTag {
 		private final Node node;
 		private final Annotation annotation;
 		private final InnerTag parent;
-		
+
 		private InnerTag(Node node, Annotation annotation, InnerTag parent) {
 			super();
 			this.node = node;
@@ -327,7 +327,7 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 			this.parent = parent;
 		}
 	}
-	
+
 	public static final class InlineContext {
 		private static final Document document = XMLUtils.docBuilder.newDocument();
 		private final Evaluator expression;
@@ -335,7 +335,7 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 		private String contents;
 		private int pos;
 		private Layer layer;
-		
+
 		private InlineContext(Evaluator expression) {
 			super();
 			this.expression = expression;
@@ -363,7 +363,7 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 			layer.removeOverlaps(AnnotationComparator.byLength, false, false, true);
 			return true;
 		}
-		
+
 		private void makeText(Node parent, int pos) {
 			if (pos <= this.pos)
 				return;
@@ -371,7 +371,7 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 			parent.appendChild(text);
 			this.pos = pos;
 		}
-		
+
 		private InnerTag proceed(InnerTag inner, Annotation a) {
 			makeText(inner.node, a.getStart());
 			Node n = getElementProxy(document, a);
@@ -411,7 +411,7 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 			return inner.parent;
 		}
 	}
-	
+
 	private static final DefaultMap<String,InlineContext> inlineCache = new DefaultMap<String,InlineContext>(true, new WeakHashMap<String,InlineContext>()) {
 		@Override
 		protected InlineContext defaultValue(String key) {

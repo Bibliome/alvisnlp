@@ -55,7 +55,7 @@ class EnjuParserExternalHandler extends ExternalHandler<Corpus,EnjuParser> {
 		Evaluator sentenceFilter = resObj.getSentenceFilter();
 		EvaluationContext evalCtx = new EvaluationContext(getLogger());
 		for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getAnnotable())))
-			for (Layer sent : sec.getSentences(owner.getWordLayerName(), owner.getSentenceLayerName()))
+			for (Layer sent : sec.getSentences(owner.getWordLayer(), owner.getSentenceLayer()))
 				if (sentenceFilter.evaluateBoolean(evalCtx, sent.getSentenceAnnotation()))
 					sentences.add(sent);
 	}
@@ -82,10 +82,10 @@ class EnjuParserExternalHandler extends ExternalHandler<Corpus,EnjuParser> {
 			else {
 				notFirst = true;
 			}
-			writeToken(ps, word.getLastFeature(enjuParser.getWordFormFeatureName()));
-			if (word.hasFeature(enjuParser.getPosFeatureName())) {
+			writeToken(ps, word.getLastFeature(enjuParser.getWordFormFeature()));
+			if (word.hasFeature(enjuParser.getPosFeature())) {
 				ps.print('/');
-				writeToken(ps, word.getLastFeature(enjuParser.getPosFeatureName()));
+				writeToken(ps, word.getLastFeature(enjuParser.getPosFeature()));
 			}
 		}
 		ps.println();
@@ -190,7 +190,7 @@ class EnjuParserExternalHandler extends ExternalHandler<Corpus,EnjuParser> {
 		for (EnjuClause clause : clauseMap.values()) {
 			if (clause.kind.equals("tok")) {
 				Section sec = clause.head.getSection();
-				Relation rel = sec.ensureRelation(owner, owner.getDependenciesRelationName());
+				Relation rel = sec.ensureRelation(owner, owner.getDependencyRelation());
 				createDependencies(rel, sentence, Integer.toString(currentParse), clauseMap, clause);
 			}
 		}
@@ -210,19 +210,16 @@ class EnjuParserExternalHandler extends ExternalHandler<Corpus,EnjuParser> {
 			for (int i = 0; i < argsString.length(); ++i) {
 				int argn = argsString.charAt(i) - 48;
 				String key = "arg" + argn;
-				Tuple t = new Tuple(owner, rel);
-				t.addFeature(owner.getDependencyLabelFeatureName(), label);
-				t.addFeature(owner.getDependentTypeFeatureName(), key);
-				t.addFeature(owner.getParseNumberFeatureName(), parseNumber);
-				t.setArgument(owner.getSentenceRole(), sentence);
-				t.setArgument(owner.getDependencyHeadRole(), tok.head);
+				Tuple t = owner.createDependency(rel, sentence, tok.head, null, label);
+				t.addFeature(owner.getDependentTypeFeature(), key);
+				t.addFeature(owner.getParseNumberFeature(), parseNumber);
 				String dependentId = tok.checkAttribute(key);
 				if (!dependentId.equals("unk")) {
 					if (!clauseMap.containsKey(dependentId)) {
 						enjuOutError(tok.line, "unknown argument " + dependentId);
 					}
 					EnjuClause dependent = clauseMap.get(dependentId);
-					t.setArgument(owner.getDependencyDependentRole(), dependent.head);
+					t.setArgument(owner.getDependentRole(), dependent.head);
 				}
 			}
 		}

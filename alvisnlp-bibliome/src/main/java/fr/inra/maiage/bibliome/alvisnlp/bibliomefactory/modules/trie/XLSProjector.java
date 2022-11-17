@@ -61,7 +61,7 @@ public abstract class XLSProjector extends TrieProjector<SectionResolvedObjects,
 			}
 		}
 	}
-	
+
 	private void fillSheetEntries(Trie<List<String>> trie, Sheet sheet) {
 		boolean headerRow = this.headerRow;
 		for (Row row : sheet) {
@@ -75,7 +75,7 @@ public abstract class XLSProjector extends TrieProjector<SectionResolvedObjects,
 			}
 		}
 	}
-	
+
 	private List<String> createRowValue(Row row) {
 		List<String> result = new ArrayList<String>(valueFeatures.length);
 		for (int i = 0; i < valueFeatures.length; ++i) {
@@ -85,7 +85,7 @@ public abstract class XLSProjector extends TrieProjector<SectionResolvedObjects,
 		}
 		return result;
 	}
-	
+
 	private static String getCellText(Cell cell) {
 		switch (cell.getCellTypeEnum()) {
 			case STRING: return cell.getStringCellValue();

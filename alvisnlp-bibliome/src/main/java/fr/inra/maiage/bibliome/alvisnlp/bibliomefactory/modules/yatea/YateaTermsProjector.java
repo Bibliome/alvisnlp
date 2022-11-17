@@ -40,13 +40,13 @@ public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedO
 	private Boolean mnpOnly = false;
 	private Boolean projectLemmas = false;
 	private SourceStream yateaFile;
-	private String termId = "term-id";
-	private String monoHeadId = "mono-head";
-	private String termLemma = DefaultNames.getCanonicalFormFeature();
-	private String termPOS = DefaultNames.getPosTagFeature();
-	private String head = "head";
-	private String modifier = "modifier";
-	
+	private String termIdFeature = "term-id";
+	private String monoHeadIdFeature = "mono-head";
+	private String termLemmaFeature = DefaultNames.getCanonicalFormFeature();
+	private String termPosFeature = DefaultNames.getPosTagFeature();
+	private String headFeature = "head";
+	private String modifierFeature = "modifier";
+
 	public static final class Term {
 		private String id;
 		private String form;
@@ -55,7 +55,7 @@ public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedO
 		private String monoHead;
 		private String head;
 		private String modifier;
-		
+
 		@Override
 		public String toString() {
 			return "Term [id=" + id + ", form=" + form + "]";
@@ -69,7 +69,7 @@ public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedO
 		private boolean syntacticAnalysis;
 		private boolean dismissed;
 		private boolean mnp;
-		
+
 		private YateaHandler(Trie<Term> dict) {
 			super();
 			this.dict = dict;
@@ -88,7 +88,7 @@ public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedO
 			dismissed = false;
 			mnp = false;
 		}
-		
+
 		@Override
 		public void characters(char[] ch, int start, int length) throws SAXException {
 			chars.append(ch, start, length);
@@ -136,7 +136,7 @@ public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedO
 				break;
 			}
 		}
-		
+
 		private String getTermId() {
 			return chars.toString().trim();
 		}
@@ -193,14 +193,14 @@ public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedO
 
 	@Override
 	protected void handleMatch(Term entry, Annotation a) {
-		a.addFeature(termId, entry.id);
-		a.addFeature(monoHeadId, entry.monoHead);
-		a.addFeature(termLemma, entry.lemma);
-		a.addFeature(termPOS, entry.pos);
+		a.addFeature(termIdFeature, entry.id);
+		a.addFeature(monoHeadIdFeature, entry.monoHead);
+		a.addFeature(termLemmaFeature, entry.lemma);
+		a.addFeature(termPosFeature, entry.pos);
 		if (entry.head != null)
-			a.addFeature(head, entry.head);
+			a.addFeature(headFeature, entry.head);
 		if (entry.modifier != null)
-			a.addFeature(modifier, entry.modifier);
+			a.addFeature(modifierFeature, entry.modifier);
 	}
 
 	@Override
@@ -229,38 +229,98 @@ public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedO
 		return yateaFile;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getTermId() {
-		return termId;
+		return termIdFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getMonoHeadId() {
-		return monoHeadId;
+		return monoHeadIdFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getTermLemma() {
-		return termLemma;
+		return termLemmaFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getTermPOS() {
-		return termPOS;
+		return termPosFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getHead() {
-		return head;
+		return headFeature;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getModifier() {
-		return modifier;
+		return modifierFeature;
 	}
 
 	public void setMnpOnly(Boolean mnpOnly) {
 		this.mnpOnly = mnpOnly;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getTermIdFeature() {
+		return termIdFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getMonoHeadIdFeature() {
+		return monoHeadIdFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getTermLemmaFeature() {
+		return termLemmaFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getTermPosFeature() {
+		return termPosFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getHeadFeature() {
+		return headFeature;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getModifierFeature() {
+		return modifierFeature;
+	}
+
+	public void setTermIdFeature(String termIdFeature) {
+		this.termIdFeature = termIdFeature;
+	}
+
+	public void setMonoHeadIdFeature(String monoHeadIdFeature) {
+		this.monoHeadIdFeature = monoHeadIdFeature;
+	}
+
+	public void setTermLemmaFeature(String termLemmaFeature) {
+		this.termLemmaFeature = termLemmaFeature;
+	}
+
+	public void setTermPosFeature(String termPosFeature) {
+		this.termPosFeature = termPosFeature;
+	}
+
+	public void setHeadFeature(String headFeature) {
+		this.headFeature = headFeature;
+	}
+
+	public void setModifierFeature(String modifierFeature) {
+		this.modifierFeature = modifierFeature;
 	}
 
 	public void setProjectLemmas(Boolean projectLemmas) {
@@ -272,26 +332,26 @@ public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedO
 	}
 
 	public void setTermId(String termId) {
-		this.termId = termId;
+		this.termIdFeature = termId;
 	}
 
 	public void setMonoHeadId(String monoHeadId) {
-		this.monoHeadId = monoHeadId;
+		this.monoHeadIdFeature = monoHeadId;
 	}
 
 	public void setTermLemma(String termLemma) {
-		this.termLemma = termLemma;
+		this.termLemmaFeature = termLemma;
 	}
 
 	public void setTermPOS(String termPOS) {
-		this.termPOS = termPOS;
+		this.termPosFeature = termPOS;
 	}
 
 	public void setHead(String head) {
-		this.head = head;
+		this.headFeature = head;
 	}
 
 	public void setModifier(String modifier) {
-		this.modifier = modifier;
+		this.modifierFeature = modifier;
 	}
 }

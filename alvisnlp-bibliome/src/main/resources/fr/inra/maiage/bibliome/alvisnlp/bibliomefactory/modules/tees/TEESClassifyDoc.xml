@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,19 +14,22 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Mouhamadou Ba" date="2012-03-21" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tees.TEESClassify">
   <synopsis>
-    <p> Classify binary relations with the TEES Classifier based on trained model</p>
+    <p> Classify binary relations with the TEES Classifier based on trained model.</p>
   </synopsis>
 
   <module-doc>
     <description>
-      <p><this/> executes the TEES classify from <param name="Corpus"/> and record the results in <param name="Relation"/>. The param <param name="relationName"/> sets the name of the binary rlation to predict. <param name="relationRole1"/> and and <param name="relationRole"/> set the two roles of the relation.<this/></p>
+      <p/>
     </description>
   
     <param-doc name="teesModel">
       <p> Path to the trained model to use. Pre-trained models for BB16 and Seedev16 are available in <a>/alvisnlp-bibliome/src/main/resources/fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/resources/tees-models</a></p>
+    </param-doc>
+  
+    <param-doc name="dependencyRelationName">
+      <p>Deprecated alias for <param>dependencyRelation</param>.</p>
     </param-doc>
 
 	<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tees.TEESMapperParamsDoc</include-doc>  

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2012-04-30" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.FSOVFileReader">
   <synopsis>
     <p>Project-specific text file reader.</p>
@@ -22,7 +21,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> reads text files in the same way as <module name="TextFileReader"/>. Additionally, for each file read, it also reads metadata in a file with the same name with the <em>.xml</em> extension.</p>
+      <p><this/> reads text files in the same way as <module>TextFileReader</module>. Additionally, for each file read, it also reads metadata in a file with the same name with the <em>.xml</em> extension.</p>
     </description>
   
     <param-doc name="xmlDir">
@@ -53,12 +52,20 @@ limitations under the License.
       <p>Path to the source directory or source file.</p>
     </param-doc>
   
-    <param-doc name="titleSectionName">
+    <param-doc name="titleSection">
       <p>Name of the section containing the title of the document.</p>
     </param-doc>
   
-    <param-doc name="bodySectionName">
+    <param-doc name="bodySection">
       <p>Name of the section containing the contents of the document.</p>
+    </param-doc>
+  
+    <param-doc name="titleSectionName">
+      <p>Deprecated alias for <param>titleSection</param>.</p>
+    </param-doc>
+  
+    <param-doc name="bodySectionName">
+      <p>Deprecated alias for <param>bodySection</param>.</p>
     </param-doc>
 
     <param-doc name="sizeLimit">

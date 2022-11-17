@@ -44,36 +44,46 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
  */
 @AlvisNLPModule
 public abstract class TextFileReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator {
-    private String  sectionName = DefaultNames.getDefaultSectionName();
+    private String  section = DefaultNames.getDefaultSectionName();
     private Integer sizeLimit = null;
     private Integer linesLimit = null;
     private String  charset   = "UTF-8";
-    private SourceStream sourcePath;
+    private SourceStream source;
     private Boolean baseNameId = false;
 
 	/**
      * Gets the section name.
-     * 
+     *
      * @return the section name
      */
-    @Param(nameType=NameType.SECTION, defaultDoc = "Name of the single section containing the whole contents of a file.")
+    @Deprecated
+    @Param(nameType=NameType.SECTION)
     public String getSectionName() {
-        return sectionName;
+        return section;
     }
 
     /**
      * Sets the section name.
-     * 
+     *
      * @param sectionName
      *            the new section name
      */
     public void setSectionName(String sectionName) {
-        this.sectionName = sectionName;
+        this.section = sectionName;
     }
 
-    /**
+    @Param(nameType=NameType.SECTION)
+    public String getSection() {
+		return section;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
+	}
+
+	/**
      * Gets the size limit.
-     * 
+     *
      * @return the size limit
      */
     @Param(mandatory = false)
@@ -83,7 +93,7 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
 
     /**
      * Sets the size limit.
-     * 
+     *
      * @param sizeLimit
      *            the new size limit
      */
@@ -93,17 +103,17 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
 
     /**
      * Gets the charset.
-     * 
+     *
      * @return the charset
      */
-    @Param(defaultDoc = "Character set of the input files.")
+    @Param
     public String getCharset() {
         return charset;
     }
 
     /**
      * Sets the charset.
-     * 
+     *
      * @param charset
      *            the new charset
      */
@@ -126,9 +136,10 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
         return linesLimit;
     }
 
+    @Deprecated
     @Param
 	public SourceStream getSourcePath() {
-		return sourcePath;
+		return source;
 	}
 
     @Param
@@ -136,12 +147,21 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
 		return baseNameId;
 	}
 
+    @Param
+	public SourceStream getSource() {
+		return source;
+	}
+
+	public void setSource(SourceStream source) {
+		this.source = source;
+	}
+
 	public void setBaseNameId(Boolean baseNameId) {
 		this.baseNameId = baseNameId;
 	}
 
 	public void setSourcePath(SourceStream sourcePath) {
-		this.sourcePath = sourcePath;
+		this.source = sourcePath;
 	}
 
 	@Override
@@ -152,7 +172,7 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
-			for (BufferedReader r : Iterators.loop(sourcePath.getBufferedReaders())) {
+			for (BufferedReader r : Iterators.loop(source.getBufferedReaders())) {
 				processFile(corpus, r);
 				r.close();
 			}
@@ -163,7 +183,7 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
 	}
 
 	private void processFile(Corpus corpus, BufferedReader r) throws IOException {
-		String name = sourcePath.getStreamName(r);
+		String name = source.getStreamName(r);
 		if (baseNameId) {
 			int slash = name.lastIndexOf(File.separatorChar) + 1;
 			int dot = name.lastIndexOf('.');
@@ -189,7 +209,7 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
     	else
     		createDocument(corpus, name + Integer.toString(n), sb.toString());
     }
-   
+
     /**
      * Creates the document.
      * @param corpus
@@ -202,7 +222,7 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
      */
     private Document createDocument(Corpus corpus, String id, String contents) {
         Document result = Document.getDocument(this, corpus, id);
-        new Section(this, result, sectionName, contents);
+        new Section(this, result, section, contents);
         return result;
     }
 }

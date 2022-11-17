@@ -43,8 +43,8 @@ import fr.inra.maiage.bibliome.util.Iterators;
  */
 @AlvisNLPModule
 public class MergeLayers extends SectionModule<SectionResolvedObjects> {
-    private String[]             sourceLayerNames     = null;
-    private String               targetLayerName      = null;
+    private String[]             sourceLayers     = null;
+    private String               targetLayer      = null;
 
     @Override
     public String[] addFeaturesToSectionFilter() {
@@ -68,13 +68,13 @@ public class MergeLayers extends SectionModule<SectionResolvedObjects> {
         int n = 0;
         for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
         	Collection<Annotation> toAdd = new ArrayList<Annotation>();
-            for (String sln : sourceLayerNames) {
+            for (String sln : sourceLayers) {
                 if (!sec.hasLayer(sln))
                     continue;
                 Layer sl = sec.getLayer(sln);
                 toAdd.addAll(sl);
             }
-            Layer layer = sec.ensureLayer(targetLayerName);
+            Layer layer = sec.ensureLayer(targetLayer);
             layer.addAll(toAdd);
             n += toAdd.size();
         }
@@ -88,41 +88,61 @@ public class MergeLayers extends SectionModule<SectionResolvedObjects> {
 
     /**
      * Gets the source layer names.
-     * 
-     * @return the sourceLayerNames
+     *
+     * @return the sourceLayers
      */
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layers where to get annotations.")
+    @Param(nameType=NameType.LAYER)
+    public String[] getSourceLayers() {
+        return this.sourceLayers;
+    };
+
+    public void setSourceLayers(String[] sourceLayers) {
+        this.sourceLayers = sourceLayers;
+    };
+
+    @Deprecated
+    @Param(nameType=NameType.LAYER)
     public String[] getSourceLayerNames() {
-        return sourceLayerNames;
+        return sourceLayers;
     }
 
     /**
      * Sets the source layer names.
-     * 
-     * @param sourceLayerNames
-     *            the sourceLayerNames to set
+     *
+     * @param sourceLayers
+     *            the sourceLayers to set
      */
-    public void setSourceLayerNames(String[] sourceLayerNames) {
-        this.sourceLayerNames = sourceLayerNames;
+    public void setSourceLayerNames(String[] sourceLayers) {
+        this.sourceLayers = sourceLayers;
     }
 
     /**
      * Gets the target layer name.
-     * 
-     * @return the targetLayerName
+     *
+     * @return the targetLayer
      */
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer to create.")
+    @Param(nameType=NameType.LAYER)
+    public String getTargetLayer() {
+        return this.targetLayer;
+    };
+
+    public void setTargetLayer(String targetLayer) {
+        this.targetLayer = targetLayer;
+    };
+
+    @Deprecated
+    @Param(nameType=NameType.LAYER)
     public String getTargetLayerName() {
-        return targetLayerName;
+        return targetLayer;
     }
 
     /**
      * Sets the target layer name.
-     * 
-     * @param targetLayerName
-     *            the targetLayerName to set
+     *
+     * @param targetLayer
+     *            the targetLayer to set
      */
-    public void setTargetLayerName(String targetLayerName) {
-        this.targetLayerName = targetLayerName;
+    public void setTargetLayerName(String targetLayer) {
+        this.targetLayer = targetLayer;
     }
 }

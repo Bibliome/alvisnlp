@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2012-04-30" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.newclassifiers.TrainingElementClassifier">
   <synopsis>
     <p>Trains a Weka classifier where examples are elements.</p>
@@ -22,8 +21,8 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> builds a Weka training set where examples are elements, trains a classifier and writes it into <param name="classifierFile"/>. The training set is specified by <param name="examples"/>. Example attributes are specified by <param name="relationDefinition"/>.</p>
-      <p><this/> activates cross validation if one of the following parameters is set: <param name="evaluationFile"/>, <param name="foldFeatureKey"/>, <param name="predictedClassFeatureKey"/>.</p>
+      <p><this/> builds a Weka training set where examples are elements, trains a classifier and writes it into <param>classifierFile</param>. The training set is specified by <param>examples</param>. Example attributes are specified by <param>relationDefinition</param>.</p>
+      <p><this/> activates cross validation if one of the following parameters is set: <param>evaluationFile</param>, <param>foldFeature</param>, <param>predictedClassFeature</param>.</p>
     </description>
   
     <param-doc name="classifierInfoFile">
@@ -31,6 +30,10 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="predictedClassFeatureKey">
+      <p>Deprecated alias for <param>predictedClassFeature</param>.</p>
+    </param-doc>
+  
+    <param-doc name="predictedClassFeature">
       <p>Feature where to write the class prediction if cross validation is activated.</p>
     </param-doc>
   
@@ -38,8 +41,12 @@ limitations under the License.
       <p>File where to write the training set in <a href="http://www.cs.waikato.ac.nz/ml/weka/arff.html">ARFF</a> format.</p>
     </param-doc>
       
-    <param-doc name="foldFeatureKey">
+    <param-doc name="foldFeature">
       <p>Feature where to write the fold number in which the training element was in the test set if cross validation is activated.</p>
+    </param-doc>
+        
+    <param-doc name="foldFeatureKey">
+      <p>Deprecated alias for <param>foldFeature</param>.</p>
     </param-doc>
   
     <param-doc name="algorithm">

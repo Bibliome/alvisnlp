@@ -74,7 +74,7 @@ public abstract class DocumentModule<T extends DocumentResolvedObjects> extends 
      * Returns the document filter.
      * @return the documentFilter
      */
-    @Param(defaultDoc = "Only process document that satisfy this filter.")
+    @Param
     public Expression getDocumentFilter() {
         return documentFilter;
     }

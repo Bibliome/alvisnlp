@@ -45,19 +45,19 @@ import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class AggregateValues extends CorpusModule<AggregateValuesResolvedObjects> {
 	private Expression entries;
 	private Expression key;
 	private Aggregator[] aggregators = new Aggregator[] {};
 	private Character separator = '\t';
 	private TargetStream outFile;
-	
+
 	static class AggregateValuesResolvedObjects extends ResolvedObjects {
 		private final Evaluator entries;
 		private final Evaluator key;
 		private final Aggregator.Resolved[] aggregators;
-		
+
 		private AggregateValuesResolvedObjects(ProcessingContext<Corpus> ctx, AggregateValues module) throws ResolverException {
 			super(ctx, module);
 			entries = module.entries.resolveExpressions(rootResolver);
@@ -73,7 +73,7 @@ public class AggregateValues extends CorpusModule<AggregateValuesResolvedObjects
 			nameUsage.collectUsedNamesArray(aggregators, defaultType);
 		}
 	}
-	
+
 	@Override
 	protected AggregateValuesResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new AggregateValuesResolvedObjects(ctx, this);
@@ -120,7 +120,7 @@ public class AggregateValues extends CorpusModule<AggregateValuesResolvedObjects
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	protected static class EntryMap extends DefaultMap<String,Object[]> {
 		private final Aggregator.Resolved[] aggregators;
 

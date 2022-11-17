@@ -38,23 +38,23 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class PorterStemmer extends SectionModule<SectionResolvedObjects> {
-	private String layerName = DefaultNames.getWordLayer();
+	private String wordLayer = DefaultNames.getWordLayer();
 	private String formFeature = Annotation.FORM_FEATURE_NAME;
 	private String stemFeature = DefaultNames.getStemFeature();
 	private String language = "english";
-	
+
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		SnowballProgram stemmer = getStemmer();
 		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-			if (!sec.hasLayer(layerName)) {
+			if (!sec.hasLayer(wordLayer)) {
 				continue;
 			}
-			for (Annotation a : sec.getLayer(layerName)) {
+			for (Annotation a : sec.getLayer(wordLayer)) {
 				String form = a.getLastFeature(formFeature);
 				stemmer.setCurrent(form.toLowerCase());
 				stemmer.stem();
@@ -63,7 +63,7 @@ public class PorterStemmer extends SectionModule<SectionResolvedObjects> {
 			}
 		}
 	}
-	
+
 	private SnowballProgram getStemmer() throws ProcessingException {
 		switch (language.toLowerCase()) {
 			case "en":
@@ -75,25 +75,26 @@ public class PorterStemmer extends SectionModule<SectionResolvedObjects> {
 		}
 		throw new ProcessingException("unknown language " + language);
 	}
-	
+
 	@Override
 	protected String[] addLayersToSectionFilter() {
-		return new String[] { layerName };
+		return new String[] { wordLayer };
 	}
-	
+
 	@Override
 	protected String[] addFeaturesToSectionFilter() {
 		return null;
 	}
-	
+
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.LAYER)
 	public String getLayerName() {
-		return layerName;
+		return wordLayer;
 	}
 
 	@Param(nameType=NameType.FEATURE)
@@ -111,8 +112,17 @@ public class PorterStemmer extends SectionModule<SectionResolvedObjects> {
 		return language;
 	}
 
+	@Param(nameType=NameType.LAYER)
+	public String getWordLayer() {
+		return wordLayer;
+	}
+
+	public void setWordLayer(String wordLayer) {
+		this.wordLayer = wordLayer;
+	}
+
 	public void setLayerName(String layerName) {
-		this.layerName = layerName;
+		this.wordLayer = layerName;
 	}
 
 	public void setFormFeature(String formFeature) {

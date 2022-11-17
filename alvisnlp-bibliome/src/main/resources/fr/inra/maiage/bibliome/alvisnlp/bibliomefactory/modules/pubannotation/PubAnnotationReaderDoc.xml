@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<alvisnlp-doc author="" beta="true" date=""
-	short-target="PubAnnotationReader"
-	target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.PubAnnotationReader">
+<alvisnlp-doc author="" beta="true" date="" short-target="PubAnnotationReader" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.pubannotation.PubAnnotationReader">
 	<synopsis>
 		<p>Read stream in <a href="http://www.pubannotation.org/docs/annotation-format/">PubAnnotation JSON format</a>.</p>
 	</synopsis>
@@ -18,9 +16,7 @@
 			</p>
 		</description>
 
-		<param-doc mandatory="required" name="source"
-			short-type="SourceStream"
-			type="fr.inra.maiage.bibliome.util.streams.SourceStream">
+		<param-doc name="source">
 			<p>Source stream in PubAnnotation JSON format.</p>
 		</param-doc>
 

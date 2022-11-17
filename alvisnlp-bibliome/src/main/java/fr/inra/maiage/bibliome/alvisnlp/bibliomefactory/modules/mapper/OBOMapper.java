@@ -88,7 +88,7 @@ public class OBOMapper extends Mapper<MapperResolvedObjects,OBOClass> {
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	private void addEntry(DefaultMap<String,List<OBOClass>> mapping, String key, OBOClass term) {
 		if (getIgnoreCase()) {
 			key = key.toLowerCase();
@@ -96,7 +96,7 @@ public class OBOMapper extends Mapper<MapperResolvedObjects,OBOClass> {
 		List<OBOClass> value = mapping.safeGet(key);
 		value.add(term);
 	}
-	
+
 	@Override
 	protected void handleMatch(Element target, OBOClass value) {
 		if (nameFeature != null)

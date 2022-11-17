@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2010-10-28">
   <synopsis>
     <p>Tokenizes the sections contents according to the <a href="">Ogmios</a> tokenizer specifications.</p>
@@ -22,7 +21,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> creates an annotation for each token found in the section contents according to the <a href="">Ogmios</a> tokenizer specifications and adds these annotations to the <param name="targetLayerName"/> layer. The created annotations have a the feature <param name="tokenTypeFeature"/> with one of the values:
+      <p><this/> creates an annotation for each token found in the section contents according to the <a href="">Ogmios</a> tokenizer specifications and adds these annotations to the <param>targetLayer</param> layer. The created annotations have a the feature <param>tokenTypeFeature</param> with one of the values:
       <ul>
 	<li><em>alpha</em>: for an alphabetic token;</li>
 	<li><em>num</em>: for a numeric token;</li>
@@ -30,7 +29,7 @@ limitations under the License.
 	<li><em>symb</em>: for all other tokens.</li>
       </ul>
       </p>
-      <p>If <param name="separatorTokens"/> is false, the <this/> does not create annotations corresponding to whitespace tokens.</p>
+      <p>If <param>separatorTokens</param> is false, the <this/> does not create annotations corresponding to whitespace tokens.</p>
     </description>
   
     <param-doc name="tokenTypeFeature">
@@ -57,8 +56,9 @@ limitations under the License.
       <p>Process only sections that satisfy this filter.</p>
     </param-doc>
   
-    <param-doc name="targetLayerName">
+    <param-doc name="targetLayer">
       <p>Name of the layer where to store the tokens.</p>
     </param-doc>
+<param-doc name="targetLayerName"><p>Deprecated alias for <param>targetLayer</param>.</p></param-doc>
   <param-doc name="userFunctions"><p>Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.</p></param-doc></module-doc>
 </alvisnlp-doc>

@@ -54,7 +54,7 @@ import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 import fr.inra.maiage.bibliome.util.streams.PatternFileFilter;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, TupleCreator {
 	private static class Patterns {
 		private static final Pattern NON_SPACE = Pattern.compile("\\S+");
@@ -67,17 +67,17 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 	private InputDirectory conceptsDir;
 	private InputDirectory assertionsDir;
 	private InputDirectory relationsDir;
-	private String sectionName = DefaultNames.getDefaultSectionName();
-	private String linesLayerName = "lines";
+	private String section = DefaultNames.getDefaultSectionName();
+	private String linesLayer = "lines";
 	private String linenoFeature = "lineno";
-	private String tokensLayerName = "tokens";
+	private String tokensLayer = "tokens";
 	private String tokenNumberFeature = "tokenno";
-	private String conceptsLayerName = "concepts";
+	private String conceptsLayer = "concepts";
 	private String conceptTypeFeature = "type";
 	private String assertionFeature = "assertion";
 	private String leftRole = "left";
 	private String rightRole = "right";
-	
+
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
@@ -100,16 +100,16 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	@Override
 	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
 	}
-	
+
 	private static class TokenRef implements Comparable<TokenRef> {
 		private final int lineno;
 		private final int tokenno;
-		
+
 		private TokenRef(int lineno, int tokenno) {
 			super();
 			this.lineno = lineno;
@@ -154,12 +154,12 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 			return true;
 		}
 	}
-	
+
 	private void readRelations(Corpus corpus, File f, Map<TokenRef,Annotation> tokens) throws IOException, ProcessingException {
 		String docId = f.getName();
 		Document doc = corpus.getDocument(docId);
-		Section sec = doc.sectionIterator(sectionName).next();
-		Layer conceptLayer = sec.ensureLayer(conceptsLayerName);
+		Section sec = doc.sectionIterator(section).next();
+		Layer conceptLayer = sec.ensureLayer(conceptsLayer);
 		String source = docId.replace(".txt", ".rel");
 		InputFile file = new InputFile(relationsDir, source);
 		SourceStream sourceStream = new FileSourceStream("UTF-8", file);
@@ -185,12 +185,12 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 			}
 		}
 	}
-	
+
 	private void readAssertions(Corpus corpus, File f, Map<TokenRef,Annotation> tokens) throws IOException, ProcessingException {
 		String docId = f.getName();
 		Document doc = corpus.getDocument(docId);
-		Section sec = doc.sectionIterator(sectionName).next();
-		Layer conceptLayer = sec.ensureLayer(conceptsLayerName);
+		Section sec = doc.sectionIterator(section).next();
+		Layer conceptLayer = sec.ensureLayer(conceptsLayer);
 		String source = docId.replace(".txt", ".ast");
 		InputFile file = new InputFile(assertionsDir, source);
 		SourceStream sourceStream = new FileSourceStream("UTF-8", file);
@@ -216,7 +216,7 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 			}
 		}
 	}
-	
+
 	private static Annotation getToken(Map<TokenRef,Annotation> tokens, Matcher m, String groupPrefix, String source) throws ProcessingException {
 		int lineno = Integer.parseInt(m.group(groupPrefix + "lineno"));
 		int tokenno = Integer.parseInt(m.group(groupPrefix + "tokenno"));
@@ -227,11 +227,11 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 		}
 		return tokens.get(tr);
 	}
-	
+
 	private String tokenToString(Annotation t) {
 		return t.getLastFeature(linenoFeature) + ":" + t.getLastFeature(tokenNumberFeature);
 	}
-	
+
 	private Annotation getConcept(Map<TokenRef,Annotation> tokens, Matcher m, String groupPrefix, String source, Layer conceptLayer) throws ProcessingException {
 		Annotation startToken = getToken(tokens, m, groupPrefix + "start", source);
 		Annotation endToken = getToken(tokens, m, groupPrefix + "end", source);
@@ -250,8 +250,8 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 	private void readConcepts(Corpus corpus, File f, Map<TokenRef,Annotation> tokens) throws ProcessingException, IOException {
 		String docId = f.getName();
 		Document doc = corpus.getDocument(docId);
-		Section sec = doc.sectionIterator(sectionName).next();
-		Layer conceptLayer = sec.ensureLayer(conceptsLayerName);
+		Section sec = doc.sectionIterator(section).next();
+		Layer conceptLayer = sec.ensureLayer(conceptsLayer);
 		String source = docId.replace(".txt", ".con");
 		InputFile file = new InputFile(conceptsDir, source);
 		SourceStream sourceStream = new FileSourceStream("UTF-8", file);
@@ -283,20 +283,20 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 		Section sec = createSection(doc, lines);
 		return createBasicAnnotations(sec, lines);
 	}
-	
+
 	private Map<TokenRef,Annotation> createBasicAnnotations(Section sec, List<String> lines) {
 		Map<TokenRef,Annotation> result = new TreeMap<TokenRef,Annotation>();
-		Layer linesLayer = sec.ensureLayer(linesLayerName);
-		Layer tokensLayer = sec.ensureLayer(tokensLayerName);
+		Layer linesLayer = sec.ensureLayer(this.linesLayer);
+		Layer tokensLayer = sec.ensureLayer(this.tokensLayer);
 		int start = 0;
 		for (int lineno = 1; lineno <= lines.size(); ++lineno) {
 			String line = lines.get(lineno-1);
 			String linenoString = Integer.toString(lineno);
-			
+
 			int end = start + line.length() + (lineno == lines.size() ? 0 : 1);
 			Annotation la = new Annotation(this, linesLayer, start, end);
 			la.addFeature(linenoFeature, linenoString);
-			
+
 			int tokenno = 0;
 			Matcher m = Patterns.NON_SPACE.matcher(line);
 			while (m.find()) {
@@ -311,12 +311,12 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 		}
 		return result;
 	}
-	
+
 	private Section createSection(Document doc, List<String> lines) {
 		String contents = Strings.join(lines, '\n');
-		return new Section(this, doc, sectionName , contents);
+		return new Section(this, doc, section , contents);
 	}
-	
+
 	private static List<String> readTextLines(File f) throws IOException {
 		List<String> result = new ArrayList<String>();
 		SourceStream source = new FileSourceStream("UTF-8", f.getPath());
@@ -352,14 +352,25 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 		return relationsDir;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.SECTION)
 	public String getSectionName() {
-		return sectionName;
+		return section;
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getLinesLayer() {
+	    return this.linesLayer;
+	};
+
+	public void setLinesLayer(String linesLayer) {
+	    this.linesLayer = linesLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getLinesLayerName() {
-		return linesLayerName;
+		return linesLayer;
 	}
 
 	@Param(nameType=NameType.FEATURE)
@@ -368,8 +379,18 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getTokensLayer() {
+	    return this.tokensLayer;
+	};
+
+	public void setTokensLayer(String tokensLayer) {
+	    this.tokensLayer = tokensLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getTokensLayerName() {
-		return tokensLayerName;
+		return tokensLayer;
 	}
 
 	@Param(nameType=NameType.FEATURE)
@@ -378,8 +399,18 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getConceptsLayer() {
+	    return this.conceptsLayer;
+	};
+
+	public void setConceptsLayer(String conceptsLayer) {
+	    this.conceptsLayer = conceptsLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getConceptsLayerName() {
-		return conceptsLayerName;
+		return conceptsLayer;
 	}
 
 	@Param(nameType=NameType.FEATURE)
@@ -402,6 +433,15 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 		return rightRole;
 	}
 
+	@Param(nameType = NameType.SECTION)
+	public String getSection() {
+		return section;
+	}
+
+	public void setSection(String section) {
+		this.section = section;
+	}
+
 	public void setTextDir(InputDirectory textDir) {
 		this.textDir = textDir;
 	}
@@ -419,27 +459,27 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 	}
 
 	public void setSectionName(String sectionName) {
-		this.sectionName = sectionName;
+		this.section = sectionName;
 	}
 
-	public void setLinesLayerName(String linesLayerName) {
-		this.linesLayerName = linesLayerName;
+	public void setLinesLayerName(String linesLayer) {
+		this.linesLayer = linesLayer;
 	}
 
 	public void setLinenoFeature(String linenoFeature) {
 		this.linenoFeature = linenoFeature;
 	}
 
-	public void setTokensLayerName(String tokensLayerName) {
-		this.tokensLayerName = tokensLayerName;
+	public void setTokensLayerName(String tokensLayer) {
+		this.tokensLayer = tokensLayer;
 	}
 
 	public void setTokenNumberFeature(String tokenNumberFeature) {
 		this.tokenNumberFeature = tokenNumberFeature;
 	}
 
-	public void setConceptsLayerName(String conceptsLayerName) {
-		this.conceptsLayerName = conceptsLayerName;
+	public void setConceptsLayerName(String conceptsLayer) {
+		this.conceptsLayer = conceptsLayer;
 	}
 
 	public void setConceptTypeFeature(String conceptTypeFeature) {

@@ -10,7 +10,7 @@
     <txtFile>vectors.txt</txtFile>
     <workers>1</workers> <!-- this is necessary for a deterministic result -->
     <vectorSize>5</vectorSize>
-    <tokenLayerName>norm</tokenLayerName>
-    <formFeatureName>norm</formFeatureName>
+    <tokenLayer>norm</tokenLayer>
+    <formFeature>norm</formFeature>
   </word2vec>
 </alvisnlp-plan>

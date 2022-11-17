@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<alvisnlp-doc author="" beta="true" date="" short-target="ContesPredict"
-	target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.ContesPredict">
+<alvisnlp-doc author="" beta="true" date="" short-target="ContesPredict" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.ContesPredict">
 	<synopsis>
 		<p>Predict terms concepts using <a href="https://github.com/ArnaudFerre/CONTES">CONTES</a>.</p>
 	</synopsis>
 
 	<module-doc>
 		<description>
-			<p><this/> predicts the concept in <param>ontology</param> associated to each term in <param>termLayer</param>.</p>
-			<p><this/> uses a classifier specified by <param>regressionMatrix</param> that must have been produced by <module>ContesTrain</module>.</p>
+			<p><this/> predicts the concept in <param>ontology</param> associated to each term in <param>termClassifiers</param>.</p>
+			<p><this/> uses a classifier specified by <param>termClassifiers</param> that must have been produced by <module>ContesTrain</module>.</p>
 		</description>
-
-		<param-doc mandatory="required" name="termLayer" name-type="layer"
-			short-type="String" type="java.lang.String">
-			<p>Name of the layer that contain terms.</p>
-		</param-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.AbstractContesTermsParamsDoc</include-doc>
 	</module-doc>
 </alvisnlp-doc>

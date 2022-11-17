@@ -56,15 +56,33 @@ import fr.inra.maiage.bibliome.util.xml.XMLUtils;
  */
 @AlvisNLPModule
 public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator {
-	private String titleSectionName = "title";
-    private String  bodySectionName = "body";
+	private String titleSection = "title";
+    private String  bodySection = "body";
     private Integer sizeLimit = null;
     private Integer linesLimit = null;
     private String  charset   = "UTF-8";
     private InputDirectory xmlDir = null;
     private SourceStream sourcePath;
-    
-    @Param
+
+    @Param(nameType = NameType.SECTION)
+    public String getTitleSection() {
+		return titleSection;
+	}
+
+    @Param(nameType = NameType.SECTION)
+	public String getBodySection() {
+		return bodySection;
+	}
+
+	public void setTitleSection(String titleSection) {
+		this.titleSection = titleSection;
+	}
+
+	public void setBodySection(String bodySection) {
+		this.bodySection = bodySection;
+	}
+
+	@Param
     public SourceStream getSourcePath() {
 		return sourcePath;
 	}
@@ -75,27 +93,28 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
 
 	/**
      * Gets the section name.
-     * 
+     *
      * @return the section name
      */
-    @Param(nameType=NameType.SECTION, defaultDoc = "Name of the single section containing the whole contents of a file.")
+	@Deprecated
+    @Param(nameType=NameType.SECTION)
     public String getBodySectionName() {
-        return bodySectionName;
+        return bodySection;
     }
 
     /**
      * Sets the section name.
-     * 
+     *
      * @param sectionName
      *            the new section name
      */
     public void setBodySectionName(String sectionName) {
-        this.bodySectionName = sectionName;
+        this.bodySection = sectionName;
     }
 
     /**
      * Gets the size limit.
-     * 
+     *
      * @return the size limit
      */
     @Param(mandatory = false)
@@ -105,7 +124,7 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
 
     /**
      * Sets the size limit.
-     * 
+     *
      * @param sizeLimit
      *            the new size limit
      */
@@ -115,10 +134,10 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
 
     /**
      * Gets the charset.
-     * 
+     *
      * @return the charset
      */
-    @Param(defaultDoc = "Character set of the input files.")
+    @Param
     public String getCharset() {
         return charset;
     }
@@ -132,18 +151,19 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
 		this.xmlDir = xmlDir;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.SECTION)
 	public String getTitleSectionName() {
-		return titleSectionName;
+		return titleSection;
 	}
 
 	public void setTitleSectionName(String titleSectionName) {
-		this.titleSectionName = titleSectionName;
+		this.titleSection = titleSectionName;
 	}
 
 	/**
      * Sets the charset.
-     * 
+     *
      * @param charset
      *            the new charset
      */
@@ -190,7 +210,7 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
 			return name;
 		return name.substring(slash + 1);
 	}
-	
+
 	private void processFile(ProcessingContext<Corpus> ctx, Corpus corpus, BufferedReader r) throws IOException {
 		Logger logger = getLogger(ctx);
 		String streamName = sourcePath.getStreamName(r);
@@ -220,32 +240,32 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
     	else
     		createDocument(corpus, name + Integer.toString(n), metadata, sb.toString());
     }
-    
+
     private Map<String,List<String>> getMetadata(ProcessingContext<Corpus> ctx, String file) {
     	Map<String,List<String>> result = new LinkedHashMap<String,List<String>>();
     	File xmlFile = new File(xmlDir, file.replace(".txt", ".xml"));
 		try {
 			Element root = XMLUtils.docBuilder.parse(xmlFile).getDocumentElement();
-			
+
 			String title = XMLUtils.evaluateString("title", root);
 			result.put("title", Collections.singletonList(title));
-			
+
 			List<String> authors = new ArrayList<String>();
 			result.put("author", authors);
 			for (Element elt : XMLUtils.evaluateElements("authors/value", root)) {
 				String author = XMLUtils.evaluateString(XMLUtils.CONTENTS, elt);
 				authors.add(author);
 			}
-			
+
 			String year = XMLUtils.evaluateString("publisheddate/year", root);
 			result.put("year", Collections.singletonList(year));
-			
+
 			String journal = XMLUtils.evaluateString("sourcetitle", root);
 			result.put("journal", Collections.singletonList(journal));
-			
+
 			String pdfPath = file.replace(".txt", ".pdf");
 			result.put("pdf", Collections.singletonList(pdfPath));
-			
+
 			String pdfLink = XMLUtils.evaluateString("pdflink", root);
 			result.put("pdflink", Collections.singletonList(pdfLink));
 		}
@@ -267,7 +287,7 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
      *            the corpus
 	 * @param id
      *            the id
-	 * @param metadata 
+	 * @param metadata
 	 * @param contents
      *            the contents
 	 * @return the document
@@ -275,8 +295,8 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
     private Document createDocument(Corpus corpus, String id, Map<String,List<String>> metadata, String contents) {
         Document result = Document.getDocument(this, corpus, id);
         if (metadata.containsKey("title"))
-        	new Section(this, result, titleSectionName, metadata.get("title").get(0));
-        new Section(this, result, bodySectionName, contents);
+        	new Section(this, result, titleSection, metadata.get("title").get(0));
+        new Section(this, result, bodySection, contents);
         result.addMultiFeatures(metadata);
         return result;
     }

@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<alvisnlp-doc author="" beta="true" date=""
-	short-target="CompareFeatures"
-	target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.compare.CompareFeatures">
+<alvisnlp-doc author="" beta="true" date="" short-target="CompareFeatures" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.compare.CompareFeatures">
 	<synopsis>
 		<p>Compare two features in a set of elements.</p>
 	</synopsis>
@@ -16,30 +14,23 @@
 			<p>By default the metrics are computed for each distinct value of <param>referenceFeature</param> and <param>predictedFeature</param>. If <param>classesOfInterest</param> is set, then <this/> will only compute metrics for the specified values.</p>
 		</description>
 
-		<param-doc mandatory="optional" name="classesOfInterest"
-			short-type="String[]" type="java.lang.String[]">
+		<param-doc name="classesOfInterest">
 			<p>Values for which metrics are computed. All values if not set.</p>
 		</param-doc>
 
-		<param-doc mandatory="required" name="items"
-			short-type="Expression"
-			type="fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression">
+		<param-doc name="items">
 			<p>Elements for which to compare both features. <param>items</param> is evaluated from the corpus.</p>
 		</param-doc>
 
-		<param-doc mandatory="required" name="outFile"
-			short-type="TargetStream"
-			type="fr.inra.maiage.bibliome.util.streams.TargetStream">
+		<param-doc name="outFile">
 			<p>File where to write results.</p>
 		</param-doc>
 
-		<param-doc mandatory="required" name="predictedFeature"
-			name-type="feature" short-type="String" type="java.lang.String">
+		<param-doc name="predictedFeature">
 			<p>Feature containing the predicted value.</p>
 		</param-doc>
 
-		<param-doc mandatory="required" name="referenceFeature"
-			name-type="feature" short-type="String" type="java.lang.String">
+		<param-doc name="referenceFeature">
 			<p>Feature containing the reference value.</p>
 		</param-doc>
 		<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>

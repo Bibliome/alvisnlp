@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2012-04-30" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.Action">
   <synopsis>
     <p>Applies action expressions on selected elements.</p>
@@ -22,8 +21,8 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> evaluates <param>commit</param> as a list of elements, then <param name="target"/> as a list of elements on each commit element, then <param name="action"/> on each target element.</p>
-      <p><this/> is useful when <param name="action"/> is a side-effect expression. The side-effect expressions allowed are controlled by: <param name="createDocuments"/>, <param name="createSections"/>, <param name="createRelations"/>, <param name="createTuples"/>, <param name="createAnnotations"/>, <param name="setArguments"/>, <param name="setFeatures"/> and <param name="deleteElements"/>. If these parameters are not set to true then <this/> will refuse to evaluate the corresponding side-effect expressions.</p>
+      <p><this/> evaluates <param>commit</param> as a list of elements, then <param>target</param> as a list of elements on each commit element, then <param>action</param> on each target element.</p>
+      <p><this/> is useful when <param>action</param> is a side-effect expression. The side-effect expressions allowed are controlled by: <param>createDocuments</param>, <param>createSections</param>, <param>createRelations</param>, <param>createTuples</param>, <param>createAnnotations</param>, <param>setArguments</param>, <param>setFeatures</param> and <param>deleteElements</param>. If these parameters are not set to true then <this/> will refuse to evaluate the corresponding side-effect expressions.</p>
       <p><this/> commits the changes on the data structure when each <param>commit</param> element is done. When processing very large corpora, set <param>commit</param> to reach documents or sections.</p>
     </description>
   
@@ -36,7 +35,7 @@ limitations under the License.
     </param-doc>
 
     <param-doc name="action">
-      <p>Action to perform on each result of <param name="target"/>.</p>
+      <p>Action to perform on each result of <param>target</param>.</p>
     </param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>

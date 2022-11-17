@@ -11,8 +11,8 @@
 
     <form-feature class="SetFeature">
       <target>$</target>
-      <featureName>train-form-feature</featureName>
-      <featureValue>form</featureValue>
+      <feature>train-form-feature</feature>
+      <value>form</value>
     </form-feature>
 
     <form class="Action">

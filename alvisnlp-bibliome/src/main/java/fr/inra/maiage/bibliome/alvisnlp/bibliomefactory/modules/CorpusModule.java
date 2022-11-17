@@ -47,12 +47,12 @@ public abstract class CorpusModule<T extends ResolvedObjects> extends ModuleBase
 	
 	private T resolvedObjects;
 
-	@Param(defaultDoc = "Expression evaluated as a boolean with the corpus as context element. If the result is false, then the module does not process the module.")
+	@Param
 	public Expression getActive() {
 		return active;
 	}
 
-	@Param(defaultDoc = "Set user functions available for this module. If this module is a sequence, then all compounds inherit its functions.")
+	@Param
 	public UserFunction[] getUserFunctions() {
 		return userFunctions;
 	}

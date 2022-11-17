@@ -11,8 +11,8 @@ public abstract class PythonScript extends PythonScriptBase {
 	private String[] commandLine = new String[0];
 	private Boolean callPython = false;
 	private SourceStream script;
-	private String[] layerNames;
-	private String[] relationNames;
+	private String[] layers;
+	private String[] relations;
 	private ExpressionMapping scriptParams = new ExpressionMapping();
 
 	@Override
@@ -22,14 +22,15 @@ public abstract class PythonScript extends PythonScriptBase {
 
 	@Override
 	@Param(mandatory = false, nameType = NameType.LAYER)
+	@Deprecated
 	public String[] getLayerNames() {
-		return layerNames;
+		return layers;
 	}
 
 	@Override
 	@Param(mandatory = false, nameType = NameType.RELATION)
-	public String[] getRelationNames() {
-		return relationNames;
+	public String[] getRelations() {
+		return relations;
 	}
 
 	@Override
@@ -56,12 +57,31 @@ public abstract class PythonScript extends PythonScriptBase {
 		return scriptParams;
 	}
 
-	public void setLayerNames(String[] layerNames) {
-		this.layerNames = layerNames;
+	@Deprecated
+	@Param(mandatory = false, nameType = NameType.RELATION)
+	public String[] getRelationNames() {
+		return relations;
 	}
 
-	public void setRelationNames(String[] relationNames) {
-		this.relationNames = relationNames;
+	@Param(mandatory = false, nameType = NameType.LAYER)
+	public String[] getLayers() {
+		return layers;
+	}
+
+	public void setLayers(String[] layers) {
+		this.layers = layers;
+	}
+
+	public void setRelationNames(String[] relations) {
+		this.relations = relations;
+	}
+
+	public void setRelations(String[] relations) {
+		this.relations = relations;
+	}
+
+	public void setLayerNames(String[] layerNames) {
+		this.layers = layerNames;
 	}
 
 	public void setCommandLine(String[] commandLine) {

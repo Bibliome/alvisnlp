@@ -41,20 +41,19 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class SeSMig.
  */
 @AlvisNLPModule
 public abstract class SeSMig extends SectionModule<SectionResolvedObjects> implements AnnotationCreator {
     /** The word annotations. */
-    private String                       wordLayerName      = DefaultNames.getWordLayer();
+    private String                       wordLayer      = DefaultNames.getWordLayer();
 
     /** The target layer name. */
-    private String targetLayerName    = DefaultNames.getSentenceLayer();
+    private String targetLayer    = DefaultNames.getSentenceLayer();
 
-    private String noBreakLayerName = null;
-    
+    private String noBreakLayer = null;
+
     /** The eos status feature. */
     private String                       eosStatusFeature   = DefaultNames.getEndOfSentenceStatusFeature();
 
@@ -75,26 +74,26 @@ public abstract class SeSMig extends SectionModule<SectionResolvedObjects> imple
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.SectionModule#addLayersToSectionFilter()
      */
     @Override
     public String[] addLayersToSectionFilter() {
         return new String[] {
-            wordLayerName
+            wordLayer
         };
     }
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see fr.inra.maiage.bibliome.alvisnlp.core.module.lib.SectionModule#addFeaturesToSectionFilter()
      */
     @Override
     public String[] addFeaturesToSectionFilter() {
         return new String[] {};
     }
-	
+
 	@Override
 	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
@@ -102,7 +101,7 @@ public abstract class SeSMig extends SectionModule<SectionResolvedObjects> imple
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see
      * fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase#process(alvisnlp.module.ProcessingContext,
      * fr.inra.maiage.bibliome.alvisnlp.core.document.Corpus)
@@ -114,16 +113,16 @@ public abstract class SeSMig extends SectionModule<SectionResolvedObjects> imple
     	int n = 0;
         for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
 //        	Logger logger = getLogger(ctx);
-            sentenceLayer = sec.ensureLayer(targetLayerName);
+            sentenceLayer = sec.ensureLayer(targetLayer);
             sentenceWords.clear();
             Iterator<Annotation> noBreakIt;
-            if ((noBreakLayerName != null) && sec.hasLayer(noBreakLayerName))
-            	noBreakIt = sec.getLayer(noBreakLayerName).iterator();
+            if ((noBreakLayer != null) && sec.hasLayer(noBreakLayer))
+            	noBreakIt = sec.getLayer(noBreakLayer).iterator();
             else
             	noBreakIt = Iterators.emptyIterator();
             Annotation noBreak = noBreakIt.hasNext() ? noBreakIt.next() : null;
             Annotation pending = null;
-            for (Annotation w : sec.getLayer(wordLayerName)) {
+            for (Annotation w : sec.getLayer(wordLayer)) {
 //            	logger.finer(w.toString());
                 if (pending != null) {
 //                	logger.fine("pending = " + pending);
@@ -190,7 +189,7 @@ public abstract class SeSMig extends SectionModule<SectionResolvedObjects> imple
 
     /**
      * New sentence.
-     * 
+     *
      * @param lastWord
      *            the last word
      */
@@ -204,96 +203,126 @@ public abstract class SeSMig extends SectionModule<SectionResolvedObjects> imple
 
     /**
      * Gets the word layer name.
-     * 
-     * @return the wordLayerName
+     *
+     * @return the wordLayer
      */
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer containing word annotations.")
+    @Param(nameType=NameType.LAYER)
+    public String getWordLayer() {
+        return this.wordLayer;
+    };
+
+    public void setWordLayer(String wordLayer) {
+        this.wordLayer = wordLayer;
+    };
+
+    @Deprecated
+    @Param(nameType=NameType.LAYER)
     public String getWordLayerName() {
-        return wordLayerName;
+        return wordLayer;
     }
 
     /**
      * Gets the target layer name.
-     * 
-     * @return the targetLayerName
+     *
+     * @return the targetLayer
      */
-    @Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store sentence annotations.")
+    @Param(nameType=NameType.LAYER)
+    public String getTargetLayer() {
+        return this.targetLayer;
+    };
+
+    public void setTargetLayer(String targetLayer) {
+        this.targetLayer = targetLayer;
+    };
+
+    @Deprecated
+    @Param(nameType=NameType.LAYER)
     public String getTargetLayerName() {
-        return targetLayerName;
+        return targetLayer;
     }
 
     /**
      * Gets the eos status feature.
-     * 
+     *
      * @return the eosStatusFeature
      */
-    @Param(nameType=NameType.FEATURE, defaultDoc = "Name of the feature (in words) containing the end-of-sentence status (not-eos, maybe-eos).")
+    @Param(nameType=NameType.FEATURE)
     public String getEosStatusFeature() {
         return eosStatusFeature;
     }
 
     /**
      * Gets the strong punctuations.
-     * 
+     *
      * @return the strongPunctuations
      */
-    @Param(defaultDoc = "List of strong punctuations.")
+    @Param
     public String getStrongPunctuations() {
         return strongPunctuations;
     }
 
     /**
      * Gets the form feature.
-     * 
+     *
      * @return the formFeature
      */
-    @Param(nameType=NameType.FEATURE, defaultDoc = "Name of the feature containing the word surface form.")
+    @Param(nameType=NameType.FEATURE)
     public String getFormFeature() {
         return formFeature;
     }
 
     /**
      * Gets the type feature.
-     * 
+     *
      * @return the typeFeature
      */
-    @Param(nameType=NameType.FEATURE, defaultDoc = "Name of the feature where to read word annotation type.")
+    @Param(nameType=NameType.FEATURE)
     public String getTypeFeature() {
         return typeFeature;
     }
 
-    @Param(nameType=NameType.LAYER, mandatory=false, defaultDoc = "Name of the layer containing annotations within which there cannot be sentence boundaries.")
+    @Param(nameType=NameType.LAYER, mandatory=false)
+    public String getNoBreakLayer() {
+        return this.noBreakLayer;
+    };
+
+    public void setNoBreakLayer(String noBreakLayer) {
+        this.noBreakLayer = noBreakLayer;
+    };
+
+    @Deprecated
+    @Param(nameType=NameType.LAYER, mandatory=false)
     public String getNoBreakLayerName() {
-		return noBreakLayerName;
+		return noBreakLayer;
 	}
 
-	public void setNoBreakLayerName(String noBreakLayerName) {
-		this.noBreakLayerName = noBreakLayerName;
+	public void setNoBreakLayerName(String noBreakLayer) {
+		this.noBreakLayer = noBreakLayer;
 	}
 
 	/**
      * Sets the word layer name.
-     * 
-     * @param wordLayerName
-     *            the wordLayerName to set
+     *
+     * @param wordLayer
+     *            the wordLayer to set
      */
-    public void setWordLayerName(String wordLayerName) {
-        this.wordLayerName = wordLayerName;
+    public void setWordLayerName(String wordLayer) {
+        this.wordLayer = wordLayer;
     }
 
     /**
      * Sets the target layer name.
-     * 
-     * @param targetLayerName
-     *            the targetLayerName to set
+     *
+     * @param targetLayer
+     *            the targetLayer to set
      */
-    public void setTargetLayerName(String targetLayerName) {
-        this.targetLayerName = targetLayerName;
+    public void setTargetLayerName(String targetLayer) {
+        this.targetLayer = targetLayer;
     }
 
     /**
      * Sets the eos status feature.
-     * 
+     *
      * @param eosStatusFeature
      *            the eosStatusFeature to set
      */
@@ -303,7 +332,7 @@ public abstract class SeSMig extends SectionModule<SectionResolvedObjects> imple
 
     /**
      * Sets the strong punctuations.
-     * 
+     *
      * @param strongPunctuations
      *            the strongPunctuations to set
      */
@@ -313,7 +342,7 @@ public abstract class SeSMig extends SectionModule<SectionResolvedObjects> imple
 
     /**
      * Sets the form feature.
-     * 
+     *
      * @param formFeature
      *            the formFeature to set
      */
@@ -323,7 +352,7 @@ public abstract class SeSMig extends SectionModule<SectionResolvedObjects> imple
 
     /**
      * Sets the type feature.
-     * 
+     *
      * @param typeFeature
      *            the typeFeature to set
      */

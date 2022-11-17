@@ -16,21 +16,21 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 
 /**
- * 
+ *
  * @author mba
  *
  */
 
 @AlvisNLPModule
-public abstract class TEESClassify extends TEESMapper {	
-	private String dependencyRelationName = DefaultNames.getDependencyRelationName();
-	private String dependencyLabelFeatureName = DefaultNames.getDependencyLabelFeatureName();
+public abstract class TEESClassify extends TEESMapper {
+	private String dependencyRelation = DefaultNames.getDependencyRelationName();
+	private String dependencyLabelFeature = DefaultNames.getDependencyLabelFeatureName();
 	private String sentenceRole = DefaultNames.getDependencySentenceRole();
 	private String headRole = DefaultNames.getDependencyHeadRole();
 	private String dependentRole = DefaultNames.getDependencyDependentRole();
-	
+
 	private InputFile teesModel;
-	
+
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -53,8 +53,8 @@ public abstract class TEESClassify extends TEESMapper {
 	@Override
 	protected String[] addLayersToSectionFilter() {
 		return new String[] {
-				getTokenLayerName(), 
-				getSentenceLayerName()
+				getTokenLayer(),
+				getSentenceLayer()
 		};
 	}
 
@@ -63,9 +63,10 @@ public abstract class TEESClassify extends TEESMapper {
 		return null;
 	}
 
+	@Deprecated
 	@Param(nameType = NameType.FEATURE)
 	public String getDependencyLabelFeatureName() {
-		return dependencyLabelFeatureName;
+		return dependencyLabelFeature;
 	}
 
 	@Param(nameType = NameType.ARGUMENT)
@@ -83,17 +84,36 @@ public abstract class TEESClassify extends TEESMapper {
 		return dependentRole;
 	}
 
+	@Deprecated
 	@Param(nameType = NameType.RELATION)
 	public String getDependencyRelationName() {
-		return dependencyRelationName;
+		return dependencyRelation;
+	}
+
+	@Param(nameType = NameType.FEATURE)
+	public String getDependencyLabelFeature() {
+		return dependencyLabelFeature;
+	}
+
+	@Param(nameType = NameType.RELATION)
+	public String getDependencyRelation() {
+		return dependencyRelation;
+	}
+
+	public void setDependencyRelation(String dependencyRelation) {
+		this.dependencyRelation = dependencyRelation;
+	}
+
+	public void setDependencyLabelFeature(String dependencyLabelFeature) {
+		this.dependencyLabelFeature = dependencyLabelFeature;
 	}
 
 	public void setDependencyRelationName(String dependencyRelationName) {
-		this.dependencyRelationName = dependencyRelationName;
+		this.dependencyRelation = dependencyRelationName;
 	}
 
 	public void setDependencyLabelFeatureName(String dependencyLabelFeatureName) {
-		this.dependencyLabelFeatureName = dependencyLabelFeatureName;
+		this.dependencyLabelFeature = dependencyLabelFeatureName;
 	}
 
 	public void setSentenceRole(String sentenceRole) {

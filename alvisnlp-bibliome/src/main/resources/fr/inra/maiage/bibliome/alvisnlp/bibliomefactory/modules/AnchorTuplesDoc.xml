@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2012-04-30" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.AnchorTuples">
   <synopsis>
     <p>Creates tuples with a common argument.</p>
@@ -22,11 +21,15 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> evaluates <param name="anchor"/> as an element list with the corpus as the context element (see <converter name="alvisnlp.corpus.Expression"/>&gt;). For each anchor, <this/> creates a tuple in the relation named after <param name="relationName"/>, with the anchor as an argument with role <param name="anchorRole"/> and the first annotation in the result of each value of <param name="arguments"/> with the role of the corresponding key. <param name="arguments"/> values are evaluated as element lists with the anchor as the context element.</p>
+      <p><this/> evaluates <param>anchor</param> as an element list with the corpus as the context element (see <converter name="alvisnlp.corpus.Expression"/>&gt;). For each anchor, <this/> creates a tuple in the relation named after <param>relation</param>, with the anchor as an argument with role <param>anchorRole</param> and the first annotation in the result of each value of <param>arguments</param> with the role of the corresponding key. <param>arguments</param> values are evaluated as element lists with the anchor as the context element.</p>
     </description>
   
-    <param-doc name="relationName">
+    <param-doc name="relation">
       <p>Name of the relation in which tuples must be created.</p>
+    </param-doc>
+  
+    <param-doc name="relationName">
+      <p>Deprecated alias for <param>relation</param>.</p>
     </param-doc>
   
     <param-doc name="anchorRole">

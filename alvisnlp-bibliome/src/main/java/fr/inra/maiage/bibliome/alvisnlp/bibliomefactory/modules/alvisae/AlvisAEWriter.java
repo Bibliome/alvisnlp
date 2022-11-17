@@ -80,7 +80,7 @@ public class AlvisAEWriter extends SectionModule<AlvisAEExportResolvedObjects> {
 		private final Evaluator documentDescription;
 		@SuppressWarnings("hiding")
 		private final EvaluatorMapping documentProperties;
-		
+
 		private AlvisAEExportResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 			super(ctx, AlvisAEWriter.this);
 			annotationSets = rootResolver.resolveArray(AlvisAEWriter.this.annotationSets, AnnotationSet.Resolved.class);
@@ -98,7 +98,7 @@ public class AlvisAEWriter extends SectionModule<AlvisAEExportResolvedObjects> {
 			nameUsage.collectUsedNamesNullable(documentProperties, defaultType);
 		}
 	}
-	
+
 	@Override
 	protected AlvisAEExportResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new AlvisAEExportResolvedObjects(ctx);
@@ -129,7 +129,7 @@ public class AlvisAEWriter extends SectionModule<AlvisAEExportResolvedObjects> {
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	private JSONObject documentToJSON(Document doc, CadixeExportContext ctx) {
 		AlvisAEExportResolvedObjects resObj = getResolvedObjects();
@@ -177,15 +177,15 @@ public class AlvisAEWriter extends SectionModule<AlvisAEExportResolvedObjects> {
 				getLogger(ctx).warning("duplicate export: " + elt);
 			ref.setAnnotationSet(annotationSet);
 		}
-		
+
 		AnnotationReference getAnnotationReference(Element elt) {
 			return annotations.safeGet(elt);
 		}
-		
+
 		boolean publish() {
 			return getPublish();
 		}
-		
+
 		@SuppressWarnings("unchecked")
 		private JSONObject newDocument(Document doc) {
 			AlvisAEExportResolvedObjects resObj = getResolvedObjects();
@@ -213,7 +213,7 @@ public class AlvisAEWriter extends SectionModule<AlvisAEExportResolvedObjects> {
 			result.put("owner", owner);
 			return result;
 		}
-	
+
 		private void checkUnsoundReferences() {
 			Logger logger = getLogger(ctx);
 			for (Map.Entry<Element,AnnotationReference> e : annotations.entrySet()) {

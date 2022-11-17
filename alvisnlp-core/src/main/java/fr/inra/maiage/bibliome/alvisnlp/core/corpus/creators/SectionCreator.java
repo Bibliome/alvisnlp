@@ -31,7 +31,7 @@ public interface SectionCreator extends ElementCreator {
      * Gets the constant section features.
      * @return the constant section features
      */
-    @Param(mandatory=false, nameType=NameType.FEATURE, defaultDoc = "Constant features to add to each section created by this module")
+    @Param(mandatory=false, nameType=NameType.FEATURE)
     public Mapping getConstantSectionFeatures();
 
     /**

@@ -8,35 +8,35 @@
       <p>UNDOCUMENTED</p>
     </description>
 
-    <param-doc mandatory="optional" name="acronymsFile" short-type="SourceStream" type="fr.inra.maiage.bibliome.util.streams.SourceStream">
+    <param-doc name="acronymsFile">
       <p>UNDOCUMENTED</p>
     </param-doc>
 
-    <param-doc default-value="lemma" mandatory="default: lemma" name="canonicalFormFeature" name-type="feature" short-type="String" type="java.lang.String">
+    <param-doc name="canonicalFormFeature">
       <p>UNDOCUMENTED</p>
     </param-doc>
 
-    <param-doc mandatory="required" name="lemmaFile" short-type="SourceStream" type="fr.inra.maiage.bibliome.util.streams.SourceStream">
+    <param-doc name="lemmaFile">
       <p>UNDOCUMENTED</p>
     </param-doc>
 
-    <param-doc mandatory="required" name="mergeFile" short-type="SourceStream" type="fr.inra.maiage.bibliome.util.streams.SourceStream">
+    <param-doc name="mergeFile">
       <p>UNDOCUMENTED</p>
     </param-doc>
 
-    <param-doc mandatory="required" name="quasiSynonymsFile" short-type="SourceStream" type="fr.inra.maiage.bibliome.util.streams.SourceStream">
+    <param-doc name="quasiSynonymsFile">
       <p>UNDOCUMENTED</p>
     </param-doc>
 
-    <param-doc mandatory="optional" name="saveDictFile" short-type="TargetStream" type="fr.inra.maiage.bibliome.util.streams.TargetStream">
+    <param-doc name="saveDictFile">
       <p>UNDOCUMENTED</p>
     </param-doc>
 
-    <param-doc mandatory="required" name="synonymsFile" short-type="SourceStream" type="fr.inra.maiage.bibliome.util.streams.SourceStream">
+    <param-doc name="synonymsFile">
       <p>UNDOCUMENTED</p>
     </param-doc>
 
-    <param-doc mandatory="optional" name="typographicVariationsFile" short-type="SourceStream" type="fr.inra.maiage.bibliome.util.streams.SourceStream">
+    <param-doc name="typographicVariationsFile">
       <p>UNDOCUMENTED</p>
     </param-doc>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.clone.MergeSections">
   <synopsis>
     <p>Merge several sections into a single one.</p>
@@ -22,35 +21,41 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> creates a section named <param name="targetSectionName"/> that is a concatenation of all sections that satisfy <param name="sectionFilter"/>. Layers, annotations, relations and tuples of the source sections are copied to the new section. Additionally, <this/> can select or strip contents from annotations from <param name="fragmentLayerName"/>.</p>
+      <p><this/> creates a section named <param>targetSection</param> that is a concatenation of all sections that satisfy <param>sectionFilter</param>. Layers, annotations, relations and tuples of the source sections are copied to the new section. Additionally, <this/> can select or strip contents from annotations from <param>fragmentLayer</param>.</p>
     </description>
 
     <param-doc name="sectionSeparator">
       <p>Text to insert between the contents of the concatenated sections.</p>
     </param-doc>
   
-    <param-doc name="fragmentLayerName">
+    <param-doc name="fragmentLayer">
       <p>Name of the layer that contains annotations to include/exclude in/from the new section contents. If this parameter is not set, then <this/> concatenates the whole contents of the sections.</p>
+    </param-doc>
+<param-doc name="fragmentLayerName"><p>Deprecated alias for <param>fragmentLayer</param>.</p></param-doc>
+  
+    <param-doc name="targetSection">
+      <p>Name of the section to create.</p>
     </param-doc>
   
     <param-doc name="targetSectionName">
-      <p>Name of the section to create.</p>
+      <p>Deprecated alias for <param>targetSection</param>.</p>
     </param-doc>
   
     <param-doc name="removeSections">
       <p>Either to remove the sections that have been concatenated after the new section has been created.</p>
     </param-doc>
   
-    <param-doc name="sectionsLayerName">
+    <param-doc name="sectionsLayer">
       <p>Name of the layer in the new section that contains annotations that have the span of the contents of the source sections. Each source section is represented by a distinct annotation. This annotations have the same features as the corresponding section (including <code>name</code>). If this parameter is not set, then <this/> does not create thses annotations.</p>
     </param-doc>
+<param-doc name="sectionsLayerName"><p>Deprecated alias for <param>sectionsLayer</param>.</p></param-doc>
   
     <param-doc name="fragmentSelection">
-      <p>If this parameter equals <code>include</code>, then <this/> only concatenates contents that is included in annotations in the layer <param name="fragmentLayerName"/>. If this parameter equals <code>exclude</code>, then <this/> only concatenates contents that is <em>not</em> included in annotations in the layer <param name="fragmentLayerName"/>. If <param name="fragmentLayerName"/> is not set, then this parameter is ignored.</p>
+      <p>If this parameter equals <code>include</code>, then <this/> only concatenates contents that is included in annotations in the layer <param>fragmentLayer</param>. If this parameter equals <code>exclude</code>, then <this/> only concatenates contents that is <em>not</em> included in annotations in the layer <param>fragmentLayer</param>. If <param>fragmentLayer</param> is not set, then this parameter is ignored.</p>
     </param-doc>
   
     <param-doc name="fragmentSeparator">
-      <p>Text to insert between the contents of concatenated fragments. If <param name="fragmentLayerName"/> is not set, then this parameter is ignored.</p>
+      <p>Text to insert between the contents of concatenated fragments. If <param>fragmentLayer</param> is not set, then this parameter is ignored.</p>
     </param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>

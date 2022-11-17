@@ -65,7 +65,7 @@ import fr.inra.maiage.bibliome.util.filelines.InvalidFileLineEntry;
 import fr.inra.maiage.bibliome.util.filelines.TabularFormat;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class TabularReader extends CorpusModule<TabularReaderResolvedObjects> implements ActionInterface {
 	private SourceStream source;
 	private Expression sourceElement;
@@ -119,7 +119,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 		format.setSkipEmpty(skipBlank);
 		format.setTrimColumns(trimColumns);
 		format.setSeparator(separator);
-		
+
 		TabularReaderFileLines trfl = new TabularReaderFileLines(format, getLogger(ctx), resObj.lineActions, evalCtx, commitLines, header);
 		if (trueCSV) {
 			readLinesCSV(ctx, evalCtx, corpus, trfl);
@@ -129,11 +129,11 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 		}
 		commit(ctx, evalCtx);
 	}
-	
+
 	@TimeThis(task="read", category=TimerCategory.LOAD_RESOURCE)
 	protected void readLinesCSV(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, Corpus corpus, TabularReaderFileLines trfl) throws ProcessingException {
 		TabularReaderResolvedObjects resObj = getResolvedObjects();
-		CSVFormat format = CSVFormat.DEFAULT.withDelimiter(separator).withIgnoreEmptyLines(skipBlank);
+		CSVFormat format = CSVFormat.DEFAULT.builder().setDelimiter(separator).setIgnoreEmptyLines(skipBlank).build();
 		try {
 			for (BufferedReader r : Iterators.loop(source.getBufferedReaders())) {
 				resObj.entryLib.startSource(source.getStreamName(r));
@@ -154,7 +154,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	@TimeThis(task="read", category=TimerCategory.LOAD_RESOURCE)
 	protected void readLines(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, Corpus corpus, TabularReaderFileLines trfl) throws ProcessingException {
 		TabularReaderResolvedObjects resObj = getResolvedObjects();
@@ -173,7 +173,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	protected static final class TabularReaderFileLines extends FileLines<EntryLibrary> {
 		private final Evaluator[] actions;
 		private final EvaluationContext evalCtx;
@@ -181,7 +181,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 		private List<String> fieldNames = Collections.emptyList();
 		private Element element;
 		private boolean header;
-		
+
 		private TabularReaderFileLines(TabularFormat format, Logger logger, Evaluator[] actions, EvaluationContext evalCtx, boolean commitLines, boolean header) {
 			super(format, logger);
 			this.actions = actions;
@@ -217,7 +217,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 			return result;
 		}
 	}
-	
+
 	protected static final class EntryLibrary extends FunctionLibrary {
 		private String source = "";
 		private List<String> entry = Collections.emptyList();
@@ -231,13 +231,13 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 			fields = Collections.emptyMap();
 			line = 0;
 		}
-		
+
 		private void startLine(int line, List<String> entry, Map<String,String> fields) {
 			this.line = line;
 			this.entry = entry;
 			this.fields = fields;
 		}
-		
+
 		@Override
 		public String getName() {
 			return "tab";
@@ -287,10 +287,10 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 		public Documentation getDocumentation() {
 			return null;
 		}
-		
+
 		private final class ColumnEvaluator extends AbstractStringEvaluator {
 			private final Evaluator column;
-			
+
 			private ColumnEvaluator(Evaluator column) {
 				super();
 				this.column = column;
@@ -305,7 +305,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 				}
 				return entry.get(index);
 			}
-			
+
 			@Override
 			public void evaluateString(EvaluationContext ctx, Element elt, StringCat strcat) {
 				int index = column.evaluateInt(ctx, elt);
@@ -319,7 +319,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 				column.collectUsedNames(nameUsage, defaultType);
 			}
 		}
-		
+
 		private final class ConstantFieldEvaluator extends AbstractStringEvaluator {
 			private final String fieldName;
 
@@ -381,7 +381,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 		private final class ColumnRangeEvaluator extends AbstractListEvaluator {
 			private final Evaluator from;
 			private final Evaluator to;
-			
+
 			private ColumnRangeEvaluator(Evaluator from, Evaluator to) {
 				super();
 				this.from = from;
@@ -405,7 +405,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 				to.collectUsedNames(nameUsage, defaultType);
 			}
 		}
-		
+
 		@SuppressWarnings("serial")
 		private static final class ColumnElement extends AbstractElement {
 			private final Element parent;
@@ -442,13 +442,13 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 				return parent;
 			}
 		}
-		
+
 		private final Evaluator SOURCE = new AbstractStringEvaluator() {
 			@Override
 			public String evaluateString(EvaluationContext ctx, Element elt) {
 				return source;
 			}
-			
+
 			@Override
 			public void evaluateString(EvaluationContext ctx, Element elt, StringCat strcat) {
 				strcat.append(source);
@@ -458,7 +458,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 			public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
 			}
 		};
-		
+
 		private final Evaluator LINE = new AbstractIntEvaluator() {
 			@Override
 			public int evaluateInt(EvaluationContext ctx, Element elt) {
@@ -469,7 +469,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 			public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
 			}
 		};
-		
+
 		private final Evaluator WIDTH = new AbstractIntEvaluator() {
 			@Override
 			public int evaluateInt(EvaluationContext ctx, Element elt) {

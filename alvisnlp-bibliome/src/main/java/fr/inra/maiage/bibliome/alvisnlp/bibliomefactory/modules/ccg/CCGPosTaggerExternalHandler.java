@@ -39,7 +39,7 @@ class CCGPosTaggerExternalHandler extends AbstractCCGExternalHandler<CCGResolved
 		CCGPosTagger owner = getModule();
 		boolean reachedEOS = false;
 		for (Annotation word : sentence) {
-			if (word.getLastFeature(owner.getFormFeatureName()).isEmpty())
+			if (word.getLastFeature(owner.getFormFeature()).isEmpty())
 				continue;
 			if (reachedEOS)
 				throw new ProcessingException("CCG sentence was too short");
@@ -50,9 +50,9 @@ class CCGPosTaggerExternalHandler extends AbstractCCGExternalHandler<CCGResolved
 				reachedEOS = true;
 				pos = pos.substring(0, pos.length() - 4);
 			}
-			if (owner.getKeepPreviousPos() && word.hasFeature(owner.getPosFeatureName()))
+			if (owner.getKeepPreviousPos() && word.hasFeature(owner.getPosFeature()))
 				continue;
-			word.addFeature(owner.getPosFeatureName(), pos.intern());
+			word.addFeature(owner.getPosFeature(), pos.intern());
 		}
 		if (!reachedEOS)
 			throw new ProcessingException("CCG sentence was too long: " + sentence.getSentenceAnnotation());

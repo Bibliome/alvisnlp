@@ -80,4 +80,6 @@ public interface ParamHandler<A extends Annotable> {
     String getParamSourceName();
     
     void setParamSourceName(String sourceName);
+
+	boolean isDeprecated();
 }

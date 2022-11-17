@@ -32,7 +32,7 @@ public interface RelationCreator extends ElementCreator {
      * Gets the constant relation features.
      * @return the constant relation features
      */
-    @Param(mandatory=false, nameType=NameType.FEATURE, defaultDoc = "Constant features to add to each relation created by this module")
+    @Param(mandatory=false, nameType=NameType.FEATURE)
     public Mapping getConstantRelationFeatures();
 
     /**

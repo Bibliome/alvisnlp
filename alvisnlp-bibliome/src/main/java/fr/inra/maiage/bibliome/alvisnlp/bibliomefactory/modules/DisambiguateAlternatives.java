@@ -46,11 +46,11 @@ public class DisambiguateAlternatives extends DocumentModule<DisambiguateAlterna
 	private Expression target;
 	private String ambiguousFeature;
 	private Boolean warnIfAmbiguous = false;
-	
+
 	class DisambiguateAlternativesResolvedObjects extends DocumentResolvedObjects {
 		@SuppressWarnings("hiding")
 		private final Evaluator target;
-		
+
 		private DisambiguateAlternativesResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 			super(ctx, DisambiguateAlternatives.this);
 			target = rootResolver.resolveNullable(DisambiguateAlternatives.this.target);
@@ -62,7 +62,7 @@ public class DisambiguateAlternatives extends DocumentModule<DisambiguateAlterna
 			target.collectUsedNames(nameUsage, defaultType);
 		}
 	}
-	
+
 	@Override
 	protected DisambiguateAlternativesResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new DisambiguateAlternativesResolvedObjects(ctx);

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2010-10-28">
   <synopsis>
     <p>Compares annotations in two different layers.</p>
@@ -22,20 +21,22 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> traverses the annotations in the layers <param name="predictedLayerName"/> and <param name="referenceLayerName"/> in each section. This is useful when analyzing the result of named entity recognition systems. The result of the comparison is written for each section in terms of recall and precision into the file <param name="outFile"/>. This file will also point boundary mismatches.</p>
+      <p><this/> traverses the annotations in the layers <param>predictedLayer</param> and <param>referenceLayer</param> in each section. This is useful when analyzing the result of named entity recognition systems. The result of the comparison is written for each section in terms of recall and precision into the file <param>outFile</param>. This file will also point boundary mismatches.</p>
     </description>
   
     <param-doc name="outFile">
       <p>Path to the file where to store results.</p>
     </param-doc>
   
-    <param-doc name="predictedLayerName">
+    <param-doc name="predictedLayer">
       <p>Name of the source layer.</p>
     </param-doc>
+<param-doc name="predictedLayerName"><p>Deprecated alias for <param>predictedLayer</param>.</p></param-doc>
       
-    <param-doc name="referenceLayerName">
+    <param-doc name="referenceLayer">
       <p>Name of the reference layer.</p>
     </param-doc>
+<param-doc name="referenceLayerName"><p>Deprecated alias for <param>referenceLayer</param>.</p></param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
 </module-doc>

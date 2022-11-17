@@ -48,7 +48,7 @@ import fr.inra.maiage.bibliome.util.trie.StandardMatchControl;
 import fr.inra.maiage.bibliome.util.trie.Trie;
 
 public abstract class TrieProjector<S extends SectionResolvedObjects,T> extends SectionModule<S> implements AnnotationCreator {
-	private String targetLayerName;
+	private String targetLayer;
 	private Subject subject = ContentsSubject.WORD;
 	private InputFile trieSource;
 	private OutputFile trieSink;
@@ -78,7 +78,7 @@ public abstract class TrieProjector<S extends SectionResolvedObjects,T> extends 
 				matcher.init();
 				List<Match<T>> matches = subject.search(matcher, sec);
 				nMatches += matches.size();
-				Layer targetLayer = sec.ensureLayer(targetLayerName);
+				Layer targetLayer = sec.ensureLayer(this.targetLayer);
 				for (Match<T> match : matches)
 					multipleEntryBehaviour.handle(this, targetLayer, match);
 			}
@@ -166,9 +166,10 @@ public abstract class TrieProjector<S extends SectionResolvedObjects,T> extends 
 		return null;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.LAYER)
 	public String getTargetLayerName() {
-		return targetLayerName;
+		return this.targetLayer;
 	}
 
 	@Param
@@ -241,6 +242,15 @@ public abstract class TrieProjector<S extends SectionResolvedObjects,T> extends 
 		return substituteWhitespace;
 	}
 
+	@Param(nameType=NameType.LAYER)
+	public String getTargetLayer() {
+		return targetLayer;
+	}
+
+	public void setTargetLayer(String targetLayer) {
+		this.targetLayer = targetLayer;
+	}
+
 	public void setSubstituteWhitespace(Boolean substituteWhitespace) {
 		this.substituteWhitespace = substituteWhitespace;
 	}
@@ -250,7 +260,7 @@ public abstract class TrieProjector<S extends SectionResolvedObjects,T> extends 
 	}
 
 	public void setTargetLayerName(String targetLayerName) {
-		this.targetLayerName = targetLayerName;
+		this.targetLayer = targetLayerName;
 	}
 
 	public void setSubject(Subject subject) {

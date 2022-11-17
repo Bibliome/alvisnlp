@@ -29,14 +29,14 @@ import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Pair;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class CompareFeatures extends CorpusModule<CompareFeaturesResolvedObjects> {
 	private Expression items;
 	private String referenceFeature;
 	private String predictedFeature;
 	private String[] classesOfInterest;
 	private TargetStream outFile;
-	
+
 	static class CompareFeaturesResolvedObjects extends ResolvedObjects {
 		private final Evaluator items;
 
@@ -86,14 +86,14 @@ public class CompareFeatures extends CorpusModule<CompareFeaturesResolvedObjects
 				Metric.TRUE_POSITIVES.message(out, logger, indent, theClass, pairs);
 				Metric.RECALL.message(out, logger, indent, theClass, pairs);
 				Metric.PRECISION.message(out, logger, indent, theClass, pairs);
-				Metric.F_SCORE.message(out, logger, indent, theClass, pairs);				
+				Metric.F_SCORE.message(out, logger, indent, theClass, pairs);
 			}
 		}
 		catch (IOException e) {
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	private static enum Metric {
 		COUNT_ITEMS("items") {
 			@Override
@@ -101,14 +101,14 @@ public class CompareFeatures extends CorpusModule<CompareFeaturesResolvedObjects
 				return pairs.size();
 			}
 		},
-		
+
 		ACCURACY("accuracy") {
 			@Override
 			double compute(String theClass, Collection<Pair<String, String>> pairs) {
 				return TRUE_POSITIVES.compute(null, pairs) / COUNT_ITEMS.compute(null, pairs);
 			}
 		},
-		
+
 		COUNT_CLASS_REFERENCE("reference") {
 			@Override
 			double compute(String theClass, Collection<Pair<String, String>> pairs) {
@@ -121,7 +121,7 @@ public class CompareFeatures extends CorpusModule<CompareFeaturesResolvedObjects
 				return result;
 			}
 		},
-		
+
 		COUNT_CLASS_PREDICTION("prediction") {
 			@Override
 			double compute(String theClass, Collection<Pair<String, String>> pairs) {
@@ -134,7 +134,7 @@ public class CompareFeatures extends CorpusModule<CompareFeaturesResolvedObjects
 				return result;
 			}
 		},
-		
+
 		TRUE_POSITIVES("true positives") {
 			@Override
 			double compute(String theClass, Collection<Pair<String, String>> pairs) {
@@ -147,21 +147,21 @@ public class CompareFeatures extends CorpusModule<CompareFeaturesResolvedObjects
 				return result;
 			}
 		},
-		
+
 		RECALL("recall") {
 			@Override
 			double compute(String theClass, Collection<Pair<String, String>> pairs) {
 				return TRUE_POSITIVES.compute(theClass, pairs) / COUNT_CLASS_REFERENCE.compute(theClass, pairs);
 			}
 		},
-		
+
 		PRECISION("precision") {
 			@Override
 			double compute(String theClass, Collection<Pair<String, String>> pairs) {
 				return TRUE_POSITIVES.compute(theClass, pairs) / COUNT_CLASS_PREDICTION.compute(theClass, pairs);
 			}
 		},
-		
+
 		F_SCORE("f-score") {
 			@Override
 			double compute(String theClass, Collection<Pair<String, String>> pairs) {
@@ -170,7 +170,7 @@ public class CompareFeatures extends CorpusModule<CompareFeaturesResolvedObjects
 				return 2 * recall * precision / (recall + precision);
 			}
 		};
-		
+
 		private final String name;
 		private Metric(String name) {
 			this.name = name;
@@ -179,13 +179,13 @@ public class CompareFeatures extends CorpusModule<CompareFeaturesResolvedObjects
 		private String getMessage(String indent, String theClass, Collection<Pair<String, String>> pairs) {
 			return indent + name + " = " + compute(theClass, pairs);
 		}
-		
+
 		private void message(PrintStream out, Logger logger, String indent, String theClass, Collection<Pair<String, String>> pairs) {
 			String msg = getMessage(indent, theClass, pairs);
 			out.println(msg);
 			logger.info(msg);
 		}
-				
+
 		abstract double compute(String theClass, Collection<Pair<String,String>> pairs);
 	}
 

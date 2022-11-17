@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2012-04-30" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.compare.CompareElements">
   <synopsis>
     <p>Compares two sets of elements.</p>
@@ -22,7 +21,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> evaluates <param name="predicted"/> and <param name="reference"/> as element lists and compares them according to <param name="similarity"/>. Detailed comparison, recall, precision and F-Score are written in <param name="outFile"/>.</p>
+      <p><this/> evaluates <param>predicted</param> and <param>reference</param> as element lists and compares them according to <param>similarity</param>. Detailed comparison, recall, precision and F-Score are written in <param>outFile</param>.</p>
     </description>
   
     <param-doc name="predicted">
@@ -30,7 +29,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="sections">
-      <p>Elements from which <param name="predicted"/> and <param name="reference"/> are evaluated.</p>
+      <p>Elements from which <param>predicted</param> and <param>reference</param> are evaluated.</p>
     </param-doc>
   
     <param-doc name="outFile">
@@ -58,7 +57,7 @@ limitations under the License.
     </param-doc>
     
     <param-doc name="face">
-      <p>Expression evaluated from a reference or predicted element as a string that will be written in <param name="outFile"/>.</p>
+      <p>Expression evaluated from a reference or predicted element as a string that will be written in <param>outFile</param>.</p>
     </param-doc>
 
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>

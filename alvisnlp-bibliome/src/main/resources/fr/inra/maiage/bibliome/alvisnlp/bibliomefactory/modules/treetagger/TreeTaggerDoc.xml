@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2010-10-28">
   <synopsis>
     <p>Runs <em>tree-tagger</em>.</p>
@@ -22,20 +21,21 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> applies <em>tree-tagger</em> on annotations in <param name="wordLayerName"/> by generating an appropriate input file. This file will contain one line for each annotation. The first column, the token surface form, is the value of the <param name="formFeature"/> feature. The second column, the token predefined POS tag, is the value <param name="posFeature"/> feature. The third column, the token predefined lemma, is the value of <param name="lemmaFeature"/> feature. If <param name="posFeature"/> or <param name="lemmaFeature"/> are not defined, then the second and third column are left blank.</p>
-      <p>The <em>tree-tagger</em> binary is specified by <param name="treeTaggerExecutable"/> and the language model to use is specified by <param name="parFile"/>. Additionally a lexicon file can be given through <param name="lexiconFile"/>.</p>
-      <p>If <param name="sentenceLayerName"/> is defined, then <this/> considers annotations in this layer as sentences. Sentence boundaries are reinforced by providing <em>tree-tagger</em> an additional end-of-sentence marker.</p>
-      <p>Once <em>tree-tagger</em> has processed the corpus, <this/> adds the predicted POS tag and lemma to the respective <param name="posFeature"/> and <param name="lemmaFeature"/> features of the corresponding annotations.</p>
-      <p>If <param name="recordDir"/> and <param name="recordFeatures"/> are both defined, then <em>tree-tagger</em> predictions are written into files in one file per section in the <param name="recordDir"/> directory. <param name="recordFeatures"/> is an array of feature names to record. An additional feature <em>n</em> is recognized as the annotation ordinal in the section.</p>
+      <p><this/> applies <em>tree-tagger</em> on annotations in <param>wordLayer</param> by generating an appropriate input file. This file will contain one line for each annotation. The first column, the token surface form, is the value of the <param>formFeature</param> feature. The second column, the token predefined POS tag, is the value <param>posFeature</param> feature. The third column, the token predefined lemma, is the value of <param>lemmaFeature</param> feature. If <param>posFeature</param> or <param>lemmaFeature</param> are not defined, then the second and third column are left blank.</p>
+      <p>The <em>tree-tagger</em> binary is specified by <param>treeTaggerExecutable</param> and the language model to use is specified by <param>parFile</param>. Additionally a lexicon file can be given through <param>lexiconFile</param>.</p>
+      <p>If <param>sentenceLayer</param> is defined, then <this/> considers annotations in this layer as sentences. Sentence boundaries are reinforced by providing <em>tree-tagger</em> an additional end-of-sentence marker.</p>
+      <p>Once <em>tree-tagger</em> has processed the corpus, <this/> adds the predicted POS tag and lemma to the respective <param>posFeature</param> and <param>lemmaFeature</param> features of the corresponding annotations.</p>
+      <p>If <param>recordDir</param> and <param>recordFeatures</param> are both defined, then <em>tree-tagger</em> predictions are written into files in one file per section in the <param>recordDir</param> directory. <param>recordFeatures</param> is an array of feature names to record. An additional feature <em>n</em> is recognized as the annotation ordinal in the section.</p>
     </description>
   
     <param-doc name="recordDir">
       <p>Path to the directory where to write tree-tagger result files (one file per section).</p>
     </param-doc>
   
-    <param-doc name="sentenceLayerName">
+    <param-doc name="sentenceLayer">
       <p>Name of the layer containing sentence annotations, sentences are reinforced.</p>
     </param-doc>
+<param-doc name="sentenceLayerName"><p>Deprecated alias for <param>sentenceLayer</param>.</p></param-doc>
       
     <param-doc name="inputCharset">
       <p>Tree-tagger input corpus character set.</p>
@@ -61,9 +61,10 @@ limitations under the License.
       <p>Either to replace unknown lemmas with the surface form.</p>
     </param-doc>
   
-    <param-doc name="wordLayerName">
+    <param-doc name="wordLayer">
       <p>Name of the layer containing the word annotations.</p>
     </param-doc>
+<param-doc name="wordLayerName"><p>Deprecated alias for <param>wordLayer</param>.</p></param-doc>
   
     <param-doc name="lemmaFeature">
       <p>Name of the feature to set with the lemma.</p>

@@ -53,7 +53,7 @@ import fr.inra.maiage.bibliome.util.tomap.readers.YateaCandidateReader;
 import fr.inra.maiage.bibliome.util.tomap.readers.YateaCandidateReader.YateaResult;
 import fr.inra.maiage.bibliome.util.trie.Trie;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class TomapProjector extends TrieProjector<SectionResolvedObjects,Attribution> {
 	private SourceStream yateaFile;
 	private Boolean lemmaKeys = false;
@@ -92,7 +92,7 @@ public abstract class TomapProjector extends TrieProjector<SectionResolvedObject
 	@Override
 	protected void finish() {
 	}
-	
+
 	private CharSequence getCandidateKey(Candidate cand) {
 		StringBuilder result = new StringBuilder();
 		boolean notFirst = false;
@@ -107,7 +107,7 @@ public abstract class TomapProjector extends TrieProjector<SectionResolvedObject
 		}
 		return result;
 	}
-	
+
 	private Collection<Candidate> readCandidates(Logger logger) throws SAXException, ParserConfigurationException, IOException {
 		YateaCandidateReader yateaReader = new YateaCandidateReader(logger, getTokenNormalization(), getStringNormalization());
 		try (InputStream is = yateaFile.getInputStream()) {
@@ -118,14 +118,14 @@ public abstract class TomapProjector extends TrieProjector<SectionResolvedObject
 			return yateaResult.getCandidates();
 		}
 	}
-	
+
 	TokenNormalization getTokenNormalization() {
 		if (getLemmaKeys()) {
 			return TokenNormalization.LEMMA;
 		}
 		return TokenNormalization.FORM;
 	}
-	
+
 	StringNormalization getStringNormalization() {
 		return StringNormalization.get(getCaseInsensitive(), getIgnoreDiacritics());
 	}
@@ -139,12 +139,12 @@ public abstract class TomapProjector extends TrieProjector<SectionResolvedObject
 	protected Decoder<Attribution> getDecoder() {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	@Override
 	protected Encoder<Attribution> getEncoder() {
 		throw new UnsupportedOperationException();
 	}
-	
+
 	@Override
 	protected void handleMatch(Attribution value, Annotation a) {
 		a.addFeature(conceptFeature, value.getConceptID());

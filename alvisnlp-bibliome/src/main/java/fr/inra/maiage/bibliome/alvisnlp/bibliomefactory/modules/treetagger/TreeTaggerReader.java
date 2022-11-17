@@ -51,13 +51,13 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 @AlvisNLPModule
 public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator {
 	private String sectionName = DefaultNames.getDefaultSectionName();
-	private String wordLayerName = DefaultNames.getWordLayer();
-	private String sentenceLayerName = DefaultNames.getSentenceLayer();
-	private String posFeatureKey = null;
-	private String lemmaFeatureKey = null;
+	private String wordLayer = DefaultNames.getWordLayer();
+	private String sentenceLayer = DefaultNames.getSentenceLayer();
+	private String posFeature = null;
+	private String lemmaFeature = null;
 	private String charset = "UTF-8";
-	private SourceStream sourcePath;
-	
+	private SourceStream source;
+
 	private static final RecordFileLines recordFileLines = new RecordFileLines();
 
 	private static final String getSectionContents(List<List<String>> tokens) {
@@ -69,7 +69,7 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 		}
 		return sb.toString();
 	}
-	
+
 	private void fillLayers(Layer wordLayer, Layer sentenceLayer, List<List<String>> tokens) throws ProcessingException {
 		int wordStart = 0;
 		int sentenceStart = 0;
@@ -85,13 +85,13 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 				sentenceStart = end + 1;
 			}
 			Annotation a = new Annotation(this, wordLayer, wordStart, end);
-			if (posFeatureKey != null)
-				a.addFeature(posFeatureKey, pos);
-			if (lemmaFeatureKey != null)
-				a.addFeature(lemmaFeatureKey, t.get(2));
+			if (posFeature != null)
+				a.addFeature(posFeature, pos);
+			if (lemmaFeature != null)
+				a.addFeature(lemmaFeature, t.get(2));
 			wordStart = end + 1;
 			tokens.set(i, null);
-		}	
+		}
 	}
 
 	@Override
@@ -103,7 +103,7 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		try {
-			for (BufferedReader r : Iterators.loop(sourcePath.getBufferedReaders())) {
+			for (BufferedReader r : Iterators.loop(source.getBufferedReaders())) {
 				processFile(logger, corpus, r);
 				r.close();
 			}
@@ -114,7 +114,7 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 	}
 
 	private void processFile(Logger logger, Corpus corpus, BufferedReader reader) throws ModuleException, IOException, InvalidFileLineEntry {
-		String name = sourcePath.getStreamName(reader);
+		String name = source.getStreamName(reader);
 		logger.fine("reading: " + name);
 
 		List<List<String>> tokens = new ArrayList<List<String>>();
@@ -123,46 +123,96 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 
 		Document doc = Document.getDocument(this, corpus, name);
 		Section sec = new Section(this, doc, sectionName, getSectionContents(tokens));
-		fillLayers(sec.ensureLayer(wordLayerName), sec.ensureLayer(sentenceLayerName), tokens);
+		fillLayers(sec.ensureLayer(wordLayer), sec.ensureLayer(sentenceLayer), tokens);
 	}
 
-	@Param(defaultDoc = "Name of the section of each document.")
+	@Param
 	public String getSectionName() {
 		return sectionName;
 	}
 
-	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store word annotations.")
+	@Param(nameType=NameType.LAYER)
+	public String getWordLayer() {
+	    return this.wordLayer;
+	};
+
+	public void setWordLayer(String wordLayer) {
+	    this.wordLayer = wordLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getWordLayerName() {
-		return wordLayerName;
+		return wordLayer;
 	}
 
-	@Param(nameType=NameType.LAYER, defaultDoc = "Name of the layer where to store sentence annotations.")
+	@Param(nameType=NameType.LAYER)
+	public String getSentenceLayer() {
+	    return this.sentenceLayer;
+	};
+
+	public void setSentenceLayer(String sentenceLayer) {
+	    this.sentenceLayer = sentenceLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getSentenceLayerName() {
-		return sentenceLayerName;
+		return sentenceLayer;
 	}
 
-	@Param(mandatory=false, defaultDoc = "Name of the feature where to store word POS tags.")
+	@Deprecated
+	@Param(mandatory=false)
 	public String getPosFeatureKey() {
-		return posFeatureKey;
+		return posFeature;
 	}
 
-	@Param(mandatory=false, defaultDoc = "Name of the feature where to store word lemmas.")
+	@Deprecated
+	@Param(mandatory=false)
 	public String getLemmaFeatureKey() {
-		return lemmaFeatureKey;
+		return lemmaFeature;
 	}
-	
-	@Param(defaultDoc = "Character set of input files.")
+
+	@Param
 	public String getCharset() {
 		return charset;
 	}
 
+	@Deprecated
 	@Param
 	public SourceStream getSourcePath() {
-		return sourcePath;
+		return source;
+	}
+
+	@Param
+	public SourceStream getSource() {
+		return source;
+	}
+
+	@Param(mandatory = false, nameType = NameType.FEATURE)
+	public String getPosFeature() {
+		return posFeature;
+	}
+
+	@Param(mandatory = false, nameType = NameType.FEATURE)
+	public String getLemmaFeature() {
+		return lemmaFeature;
+	}
+
+	public void setPosFeature(String posFeature) {
+		this.posFeature = posFeature;
+	}
+
+	public void setLemmaFeature(String lemmaFeature) {
+		this.lemmaFeature = lemmaFeature;
+	}
+
+	public void setSource(SourceStream source) {
+		this.source = source;
 	}
 
 	public void setSourcePath(SourceStream sourcePath) {
-		this.sourcePath = sourcePath;
+		this.source = sourcePath;
 	}
 
 	public void setCharset(String charset) {
@@ -170,22 +220,22 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 	}
 
 	public void setPosFeatureKey(String posFeatureKey) {
-		this.posFeatureKey = posFeatureKey;
+		this.posFeature = posFeatureKey;
 	}
 
 	public void setLemmaFeatureKey(String lemmaFeatureKey) {
-		this.lemmaFeatureKey = lemmaFeatureKey;
+		this.lemmaFeature = lemmaFeatureKey;
 	}
 
 	public void setSectionName(String sectionName) {
 		this.sectionName = sectionName;
 	}
 
-	public void setWordLayerName(String wordLayerName) {
-		this.wordLayerName = wordLayerName;
+	public void setWordLayerName(String wordLayer) {
+		this.wordLayer = wordLayer;
 	}
 
-	public void setSentenceLayerName(String sentenceLayerName) {
-		this.sentenceLayerName = sentenceLayerName;
+	public void setSentenceLayerName(String sentenceLayer) {
+		this.sentenceLayer = sentenceLayer;
 	}
 }

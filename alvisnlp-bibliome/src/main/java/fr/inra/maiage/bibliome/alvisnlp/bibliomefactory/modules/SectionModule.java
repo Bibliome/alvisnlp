@@ -72,7 +72,7 @@ public abstract class SectionModule<T extends SectionResolvedObjects> extends Do
      * Returns the section filter.
      * @return the section filter
      */
-    @Param(defaultDoc = "Process only sections that satisfy this filter.")
+    @Param
     public Expression getSectionFilter() {
     	Expression filter = null;
     	String[] layerNames = addLayersToSectionFilter();

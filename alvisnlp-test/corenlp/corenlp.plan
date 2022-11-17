@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-plan id="corenlp-test">
+  <read file="BioNLP-ST-2016_BB-event/read.plan"/>
+  
+  <corenlp class="StanfordCoreNLP">
+    <ner/>
+    <parse/>
+  </corenlp>
+
+  <export file="write-features.plan">
+    <file>corenlp-features.txt</file>
+  </export>
+</alvisnlp-plan>

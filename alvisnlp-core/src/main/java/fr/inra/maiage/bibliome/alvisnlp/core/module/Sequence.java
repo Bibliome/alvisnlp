@@ -20,6 +20,7 @@ package fr.inra.maiage.bibliome.alvisnlp.core.module;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.documentation.Documentation;
@@ -132,6 +133,10 @@ public interface Sequence<T extends Annotable> extends Module<T> {
 			return paramHandlers.get(0);
 		}
 		
+		public List<ParamHandler<T>> getAllParamHandlers() {
+			return Collections.unmodifiableList(paramHandlers);
+		}
+		
 		@Override
 		public Class<?> getType() {
 			return firstHandler().getType();
@@ -209,6 +214,11 @@ public interface Sequence<T extends Annotable> extends Module<T> {
 		@Override
 		public void setParamSourceName(String sourceName) {
 			paramSourceName = sourceName;
+		}
+
+		@Override
+		public boolean isDeprecated() {
+			return false;
 		}
 	}
 

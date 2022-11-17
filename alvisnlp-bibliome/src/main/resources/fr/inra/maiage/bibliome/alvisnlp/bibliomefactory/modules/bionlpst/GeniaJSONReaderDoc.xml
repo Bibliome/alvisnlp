@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.bionlpst.GeniaJSONReader">
 
   <synopsis>
@@ -30,9 +29,10 @@ limitations under the License.
       <p/>
     </param-doc>
   
-    <param-doc name="annotationsLayerName">
+    <param-doc name="annotationsLayer">
       <p/>
     </param-doc>
+<param-doc name="annotationsLayerName"><p>Deprecated alias for <param>annotationsLayer</param>.</p></param-doc>
   
     <param-doc name="instanceIdFeature">
       <p/>

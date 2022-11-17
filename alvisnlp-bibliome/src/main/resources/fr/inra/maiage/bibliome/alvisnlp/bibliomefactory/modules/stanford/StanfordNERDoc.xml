@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.stanford.StanfordNER">
 
   <synopsis>
@@ -26,33 +25,44 @@ limitations under the License.
       <p>Applies the <a href="https://nlp.stanford.edu/software/CRF-NER.shtml">Stanford NLP named-entity recognition</a>.</p>
     </description>
   
-    <param-doc name="sentenceLayerName">
+    <param-doc name="sentenceLayer">
       <p>Name of the layer containing sentence annotations (ignored if <param>searchInContents</param> is set).</p>
     </param-doc>
+<param-doc name="sentenceLayerName"><p>Deprecated alias for <param>sentenceLayer</param>.</p></param-doc>
   
     <param-doc name="searchInContents">
       <p>If true, then search named entities in the section contents.</p>
     </param-doc>
   
-    <param-doc name="wordLayerName">
+    <param-doc name="wordLayer">
       <p>Name of the layer containing token annotations (ignored if <param>searchInContents</param> is set).</p>
     </param-doc>
-  
-    <param-doc name="formFeatureName">
-      <p>Name of the feature containing the token surface form (ignored if <param>searchInContents</param> is set).</p>
-    </param-doc>
+<param-doc name="wordLayerName"><p>Deprecated alias for <param>wordLayer</param>.</p></param-doc>
   
     <param-doc name="classifierFile">
       <p>Path to the CRF classifier.</p>
     </param-doc>
   
-    <param-doc name="labelFeatureName">
+    <param-doc name="formFeature">
+      <p>Name of the feature containing the token surface form (ignored if <param>searchInContents</param> is set).</p>
+    </param-doc>
+  
+    <param-doc name="labelFeature">
       <p>Name of the feature where to store the named entity label.</p>
     </param-doc>
   
-    <param-doc name="targetLayerName">
+    <param-doc name="formFeatureName">
+      <p>Deprecated alias for <param>formFeature</param>.</p>
+    </param-doc>
+  
+    <param-doc name="labelFeatureName">
+      <p>Deprecated alias for <param>labelFeature</param>.</p>
+    </param-doc>
+  
+    <param-doc name="targetLayer">
       <p>Name of the layer where to store named-entity annotation.</p>
     </param-doc>
+<param-doc name="targetLayerName"><p>Deprecated alias for <param>targetLayer</param>.</p></param-doc>
     
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreatorParamsDoc</include-doc>

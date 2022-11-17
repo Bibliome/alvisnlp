@@ -53,7 +53,7 @@ import fr.inra.maiage.bibliome.util.pattern.SequencePattern;
 
 @AlvisNLPModule
 public abstract class PatternMatcher extends SectionModule<PatternMatcherResolvedObjects> implements AnnotationCreator, TupleCreator {
-	private String layerName = DefaultNames.getWordLayer();
+	private String layer = DefaultNames.getWordLayer();
 	private ElementPattern pattern;
 	private MatchAction[] actions;
 	private OverlappingBehaviour overlappingBehaviour = OverlappingBehaviour.REMOVE_OVERLAPS;
@@ -67,7 +67,7 @@ public abstract class PatternMatcher extends SectionModule<PatternMatcherResolve
 		private PatternMatcherResolvedObjects(ProcessingContext<Corpus> ctx, PatternMatcher module) throws ResolverException {
 			super(ctx, module);
 			pattern = module.pattern.resolveExpressions(rootResolver);
-			matchCtx = new MatchActionContext(module, pattern, module.layerName);
+			matchCtx = new MatchActionContext(module, pattern, module.layer);
 			LibraryResolver actionResolver = matchCtx.getGroupLibraryResolver(module.getLibraryResolver(ctx));
 			actions = actionResolver.resolveArray(module.actions, MatchAction.class);
 		}
@@ -81,7 +81,7 @@ public abstract class PatternMatcher extends SectionModule<PatternMatcherResolve
 			}
 		}
 	}
-	
+
 	@Override
 	protected PatternMatcherResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new PatternMatcherResolvedObjects(ctx, this);
@@ -97,7 +97,7 @@ public abstract class PatternMatcher extends SectionModule<PatternMatcherResolve
 		Timer<TimerCategory> matchTimer = getTimer(ctx, "match", TimerCategory.MODULE, false);
 		Timer<TimerCategory> commitTimer = getTimer(ctx, "commit", TimerCategory.MODULE, false);
 		for (Section sec : Iterators.loop(sectionIterator(evalCtx, corpus))) {
-			Layer layer = sec.getLayer(layerName);
+			Layer layer = sec.getLayer(this.layer);
 			for (List<Element> sequence : getSequences(ctx, layer)) {
 				matchTimer.start();
 				SequenceMatcher<Element> matcher = resObj.pattern.getMatcher(sequence, evalCtx);
@@ -120,10 +120,10 @@ public abstract class PatternMatcher extends SectionModule<PatternMatcherResolve
 			logger.info("found " + nMatches + " matches");
 		}
 	}
-	
+
 	@Override
 	protected String[] addLayersToSectionFilter() {
-		return new String[] { layerName };
+		return new String[] { layer };
 	}
 
 	@Override
@@ -136,18 +136,19 @@ public abstract class PatternMatcher extends SectionModule<PatternMatcherResolve
 			return overlappingBehaviour.getSequences(getLogger(ctx), layer, annotationComparator);
 		return Collections.singleton(layer.asElementList());
 	}
-	
-	@Param(nameType=NameType.LAYER, defaultDoc="Layer where to find tokens.")
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getLayerName() {
-		return layerName;
+		return layer;
 	}
 
-	@Param(defaultDoc="Annotation pattern.")
+	@Param
 	public ElementPattern getPattern() {
 		return pattern;
 	}
 
-	@Param(defaultDoc="Actions.")
+	@Param
 	public MatchAction[] getActions() {
 		return actions;
 	}
@@ -160,6 +161,15 @@ public abstract class PatternMatcher extends SectionModule<PatternMatcherResolve
 	@Param
 	public AnnotationComparator getAnnotationComparator() {
 		return annotationComparator;
+	}
+
+	@Param(nameType=NameType.LAYER)
+	public String getLayer() {
+		return layer;
+	}
+
+	public void setLayer(String layer) {
+		this.layer = layer;
 	}
 
 	public void setOverlappingBehaviour(OverlappingBehaviour overlappingBehaviour) {
@@ -175,7 +185,7 @@ public abstract class PatternMatcher extends SectionModule<PatternMatcherResolve
 	}
 
 	public void setLayerName(String layerName) {
-		this.layerName = layerName;
+		this.layer = layerName;
 	}
 
 	public void setPattern(ElementPattern pattern) {

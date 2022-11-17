@@ -42,7 +42,7 @@ public class OpenNLPDocumentCategorizerTrain extends OpenNLPDocumentCategorizerB
 	private Integer nGrams = null;
 	private IntegerMapping classWeights;
 	private Integer iterations = 100;
-	
+
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
@@ -61,7 +61,7 @@ public class OpenNLPDocumentCategorizerTrain extends OpenNLPDocumentCategorizerB
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	private FeatureGenerator[] getFeatureGenerators() throws InvalidFormatException, ProcessingException {
 		List<FeatureGenerator> result = new ArrayList<FeatureGenerator>(2);
 		if (bagOfWords) {
@@ -75,7 +75,7 @@ public class OpenNLPDocumentCategorizerTrain extends OpenNLPDocumentCategorizerB
 		}
 		return result.toArray(new FeatureGenerator[result.size()]);
 	}
-	
+
 	private int getWeight(DocumentSample ds) {
 		if (ds.getText().length == 0) {
 			return 0;
@@ -89,14 +89,14 @@ public class OpenNLPDocumentCategorizerTrain extends OpenNLPDocumentCategorizerB
 		}
 		return 1;
 	}
-	
+
 	private DocumentSample getDocumentSample(EvaluationContext evalCtx, Element doc) {
 		OpenNLPDocumentCategorizerResolvedObjects resObj = getResolvedObjects();
 		String[] tokens = resObj.getDocumentTokens(evalCtx, doc);
 		String category = doc.getLastFeature(getCategoryFeature());
 		return new DocumentSample(category, tokens);
 	}
-	
+
 	private ObjectStream<DocumentSample> getTrainingSet(Logger logger, EvaluationContext evalCtx, Corpus corpus) {
 		Collection<DocumentSample> result = new ArrayList<DocumentSample>();
 		OpenNLPDocumentCategorizerResolvedObjects resObj = getResolvedObjects();

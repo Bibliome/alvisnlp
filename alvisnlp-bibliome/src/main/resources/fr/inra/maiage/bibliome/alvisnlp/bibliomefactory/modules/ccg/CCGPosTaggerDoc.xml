@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2012-04-30" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ccg.CCGPosTagger">
   <synopsis>
     <p>Applies the <a href="http://svn.ask.it.usyd.edu.au/trac/candc/wiki">CCG</a> POS tagger on annotations.</p>
@@ -22,8 +21,8 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> applies the <a href="http://svn.ask.it.usyd.edu.au/trac/candc/wiki">CCG</a> POS tagger on annotations in the layer named <param name="wordLayerName"/>. Sentences are enforced if <param name="sentenceLayerName"/> is set.</p>
-      <p>If <param name="keepPreviousPos"/> is set to <em>true</em>, then the POS tag predicted by CCG will not be added to annotations that already have a POS tag.</p>
+      <p><this/> applies the <a href="http://svn.ask.it.usyd.edu.au/trac/candc/wiki">CCG</a> POS tagger on annotations in the layer named <param>wordLayer</param>. Sentences are enforced if <param>sentenceLayer</param> is set.</p>
+      <p>If <param>keepPreviousPos</param> is set to <em>true</em>, then the POS tag predicted by CCG will not be added to annotations that already have a POS tag.</p>
     </description>
       
     <param-doc name="keepPreviousPos">

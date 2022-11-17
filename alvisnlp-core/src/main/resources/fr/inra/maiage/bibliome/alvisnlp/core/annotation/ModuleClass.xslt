@@ -47,7 +47,7 @@ public final class <xsl:value-of select="$class-name"/> extends <xsl:value-of se
     private <xsl:value-of select="concat(@type,' ',@java)"/> = <xsl:value-of select="@defaultValue"/>;
     
     @Override
-    @fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param(publicName="<xsl:value-of select="@public"/>", nameType="<xsl:value-of select="@name-type"/>", mandatory=<xsl:value-of select="@mandatory"/>, defaultDoc="<xsl:value-of select="@defaultDoc"/>")
+    @fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param(nameType="<xsl:value-of select="@name-type"/>", mandatory=<xsl:value-of select="@mandatory"/>)
     public <xsl:value-of select="concat(@type,' ',@getter)"/>() {
         return <xsl:value-of select="@java"/>;
     }

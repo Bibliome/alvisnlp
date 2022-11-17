@@ -18,12 +18,12 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
 import fr.inra.maiage.bibliome.util.Iterators;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class SetFeature extends CorpusModule<SetFeatureResolvedObjects> {
 	private Expression target;
-	private String featureName;
-	private String featureValue;
-	
+	private String feature;
+	private String value;
+
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		SetFeatureResolvedObjects res = new SetFeatureResolvedObjects(ctx);
@@ -32,7 +32,7 @@ public class SetFeature extends CorpusModule<SetFeatureResolvedObjects> {
 		EvaluationContext actionCtx = new EvaluationContext(logger, DummyAction.INSTANCE);
 		int n = 0;
 		for (Element t : Iterators.loop(res.target.evaluateElements(evalCtx, corpus))) {
-			actionCtx.registerSetFeature(t, featureName, featureValue);
+			actionCtx.registerSetFeature(t, feature, value);
 			n++;
 		}
 		commit(ctx, actionCtx);
@@ -52,30 +52,50 @@ public class SetFeature extends CorpusModule<SetFeatureResolvedObjects> {
 	class SetFeatureResolvedObjects extends ResolvedObjects {
 		@SuppressWarnings("hiding")
 		private final Evaluator target;
-		
+
 		private SetFeatureResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 			super(ctx, SetFeature.this);
 			target = rootResolver.resolveNullable(SetFeature.this.target);
 		}
 	}
-	
+
 	@Param
 	public Expression getTarget() {
 		return target;
 	}
 
+	@Deprecated
 	@Param(nameType=NameType.FEATURE)
 	public String getFeatureName() {
-		return featureName;
+		return feature;
+	}
+
+	@Deprecated
+	@Param
+	public String getFeatureValue() {
+		return value;
+	}
+
+	@Param(nameType=NameType.FEATURE)
+	public String getFeature() {
+		return feature;
 	}
 
 	@Param
-	public String getFeatureValue() {
-		return featureValue;
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+	public void setFeature(String feature) {
+		this.feature = feature;
 	}
 
 	public void setFeatureValue(String featureValue) {
-		this.featureValue = featureValue;
+		this.value = featureValue;
 	}
 
 	public void setTarget(Expression target) {
@@ -83,7 +103,7 @@ public class SetFeature extends CorpusModule<SetFeatureResolvedObjects> {
 	}
 
 	public void setFeatureName(String featureName) {
-		this.featureName = featureName;
+		this.feature = featureName;
 	}
 
 	private static enum DummyAction implements ActionInterface {

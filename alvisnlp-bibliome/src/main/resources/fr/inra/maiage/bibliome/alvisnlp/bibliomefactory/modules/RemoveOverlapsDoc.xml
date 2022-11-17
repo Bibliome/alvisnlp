@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="Robert Bossy" date="2010-10-28">
   <synopsis>
     <p>Removes overlapping annotations from a given layer.</p>
@@ -22,7 +21,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> removes overlapping annotations in the layer <param name="layerName"/>.</p>
+      <p><this/> removes overlapping annotations in the layer <param>layer</param>.</p>
 	  <p>
 	  	<this/> scans each specified layer and finds clusters of overlapping annotations.
 	  	<this/> distinguishes three overlapping situations:
@@ -33,17 +32,21 @@ limitations under the License.
 	  	</ol>
 	  </p>
 	  <p>
-	  <param name="removeEqual"/>, <param name="removeIncluded"/> and <param name="removeOverlapping"/> specify the behavior for each situation.
+	  <param>removeEqual</param>, <param>removeIncluded</param> and <param>removeOverlapping</param> specify the behavior for each situation.
 	  If the parameter is <code>true</code>, then <this/> will remove one of the annotations. 
 	  </p>
 	  <p>
-	  <param name="annotationComparator"/> controls which annotation is removed.
+	  <param>annotationComparator</param> controls which annotation is removed.
 	  </p>
 	  <p>By default <this/> removes all kinds of annotations, keeping the longest one.</p>
     </description>
   
-    <param-doc name="layerName">
+    <param-doc name="layer">
       <p>Name of the layer to clear.</p>
+    </param-doc>
+  
+    <param-doc name="layerName">
+      <p>Deprecated alias for <param>layer</param>.</p>
     </param-doc>
       
     <param-doc name="annotationComparator">

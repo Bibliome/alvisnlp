@@ -52,10 +52,10 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public abstract class GeniaJSONReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, TupleCreator {
 	private SourceStream source;
-	private String annotationsLayerName = "annotations";
+	private String annotationsLayer = "annotations";
 	private String instanceIdFeature = "instance-id";
 
 	@Override
@@ -81,7 +81,7 @@ public abstract class GeniaJSONReader extends CorpusModule<ResolvedObjects> impl
 			throw new ProcessingException(e);
 		}
 	}
-	
+
 	private void fillectionRelations(Logger logger, Section sec, JSONObject json, Map<String, Element> eltMap) {
 		JSONArray relanns = (JSONArray) json.get("relanns");
 		if (relanns == null) {
@@ -146,7 +146,7 @@ public abstract class GeniaJSONReader extends CorpusModule<ResolvedObjects> impl
 		if (catanns == null) {
 			return;
 		}
-		Layer annotations = sec.ensureLayer(annotationsLayerName);
+		Layer annotations = sec.ensureLayer(annotationsLayer);
 		for (Object o : catanns) {
 			JSONObject ca = (JSONObject) o;
 			String id = (String) ca.get("id");
@@ -191,8 +191,18 @@ public abstract class GeniaJSONReader extends CorpusModule<ResolvedObjects> impl
 	}
 
 	@Param(nameType=NameType.LAYER)
+	public String getAnnotationsLayer() {
+	    return this.annotationsLayer;
+	};
+
+	public void setAnnotationsLayer(String annotationsLayer) {
+	    this.annotationsLayer = annotationsLayer;
+	};
+
+	@Deprecated
+	@Param(nameType=NameType.LAYER)
 	public String getAnnotationsLayerName() {
-		return annotationsLayerName;
+		return annotationsLayer;
 	}
 
 	@Param(nameType=NameType.FEATURE)
@@ -204,8 +214,8 @@ public abstract class GeniaJSONReader extends CorpusModule<ResolvedObjects> impl
 		this.source = source;
 	}
 
-	public void setAnnotationsLayerName(String annotationsLayerName) {
-		this.annotationsLayerName = annotationsLayerName;
+	public void setAnnotationsLayerName(String annotationsLayer) {
+		this.annotationsLayer = annotationsLayer;
 	}
 
 	public void setInstanceIdFeature(String instanceIdFeature) {

@@ -32,7 +32,7 @@ abstract class AbstractWapitiExternalHandler<T extends AbstractWapiti> extends E
 		WapitiResolvedObjects resObj = owner.getResolvedObjects();
 		try (PrintStream ps = new PrintStream(getWapitiInputFile())) {
 			for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getAnnotable()))) {
-				for (Layer sentence : sec.getSentences(owner.getTokenLayerName(), owner.getSentenceLayerName())) {
+				for (Layer sentence : sec.getSentences(owner.getTokenLayer(), owner.getSentenceLayer())) {
 					for (Annotation a : sentence) {
 						boolean notFirst = false;
 						for (Evaluator feat : resObj.getFeatures()) {

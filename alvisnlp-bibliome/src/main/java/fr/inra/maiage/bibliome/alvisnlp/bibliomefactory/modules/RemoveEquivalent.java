@@ -42,12 +42,12 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Iterators;
 
-@AlvisNLPModule(beta=true)
+@AlvisNLPModule
 public class RemoveEquivalent extends CorpusModule<RemoveEquivalentResolvedObjects> {
 	private Expression target;
 	private Expression equivalency;
 	private Expression priority;
-	
+
 	public RemoveEquivalent() {
 		super();
 	}
@@ -80,7 +80,7 @@ public class RemoveEquivalent extends CorpusModule<RemoveEquivalentResolvedObjec
 		}
 		evalCtx.commit();
 	}
-	
+
 	private static int purgeSingletons(Collection<List<Element>> equivalenceSets) {
 		int result = 0;
 		Iterator<List<Element>> it = equivalenceSets.iterator();
@@ -95,7 +95,7 @@ public class RemoveEquivalent extends CorpusModule<RemoveEquivalentResolvedObjec
 		}
 		return result;
 	}
-	
+
 	private List<Element> lookupEquivalenceSet(Collection<List<Element>> equivalenceSets, EvaluationContext evalCtx, Element elt) {
 		RemoveEquivalentResolvedObjects resObj = getResolvedObjects();
 		resObj.other.set(elt);
@@ -124,7 +124,7 @@ public class RemoveEquivalent extends CorpusModule<RemoveEquivalentResolvedObjec
 		private final Evaluator equivalency;
 		@SuppressWarnings("hiding")
 		private final Comparator<Element> priority;
-		
+
 		private RemoveEquivalentResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 			super(ctx, RemoveEquivalent.this);
 			this.target = RemoveEquivalent.this.target.resolveExpressions(rootResolver);
@@ -175,6 +175,6 @@ public class RemoveEquivalent extends CorpusModule<RemoveEquivalentResolvedObjec
 	public void setPriority(Expression priority) {
 		this.priority = priority;
 	}
-	
-	
+
+
 }

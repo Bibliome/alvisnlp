@@ -69,7 +69,7 @@ public class FileMapper extends Mapper<MapperResolvedObjects,List<String>> imple
 	protected MapperResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
 		return new MapperResolvedObjects(ctx, this);
 	}
-    
+
 	@Override
 	public boolean check(Logger logger) {
 		if (headerLine && (targetFeatures != null)) {
@@ -116,7 +116,7 @@ public class FileMapper extends Mapper<MapperResolvedObjects,List<String>> imple
         return mappingFile;
     }
 
-    @Param(defaultDoc = "Separator character between map key and map values.")
+    @Param
     public Character getSeparator() {
         return separator;
     }

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Copyright 2016, 2017 Institut National de la Recherche Agronomique
 
@@ -14,7 +14,6 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -->
-
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.keyword.SelectKeywords">
 
   <synopsis>
@@ -24,10 +23,10 @@ limitations under the License.
   <module-doc>
     <description>
       <p>
-	<this/> selects the most relevant keywords in documents. The candidate keywords are specified with <param name="keywords"/> evaluated as a list of elements with the document as the context element. The keyword text is specified by <param name="keywordForm"/>.
+	<this/> selects the most relevant keywords in documents. The candidate keywords are specified with <param>keywords</param> evaluated as a list of elements with the document as the context element. The keyword text is specified by <param>keywordForm</param>.
       </p>
       <p>
-	<this/> ranks the keywords according to the <param name="scoreFunction"/> function, then selects the <param name="keywordCount"/> keywords with the highest value. The selected keywords are stored in the document feature <param name="keywordFeature"/>, and the corresponding scores in <param name="scoreFeature"/>. 
+	<this/> ranks the keywords according to the <param>scoreFunction</param> function, then selects the <param>keywordCount</param> keywords with the highest value. The selected keywords are stored in the document feature <param>keywordFeature</param>, and the corresponding scores in <param>scoreFeature</param>. 
       </p>
     </description>
   
@@ -40,7 +39,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="scoreFeature">
-      <p>Document feature where to store the score of selected keywords computed by <param name="scoreFunction"/>.</p>
+      <p>Document feature where to store the score of selected keywords computed by <param>scoreFunction</param>.</p>
     </param-doc>
   
     <param-doc name="keywordForm">
