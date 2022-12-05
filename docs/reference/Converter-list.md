@@ -73,6 +73,10 @@
 </h2>
 
 <h2 class="no-toc">
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rebert.EnsembleAggregator' | relative_url }}" class="converter">EnsembleAggregator</a>
+</h2>
+
+<h2 class="no-toc">
 <a href="{{ '/reference/converter/fr.inra.maiage.bibliome.util.files.ExecutableFile' | relative_url }}" class="converter">ExecutableFile</a>
 </h2>
 
@@ -142,6 +146,10 @@
 
 <h2 class="no-toc">
 <a href="{{ '/reference/converter/java.lang.Integer%5B%5D' | relative_url }}" class="converter">Integer[]</a>
+</h2>
+
+<h2 class="no-toc">
+<a href="{{ '/reference/converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.json.JsonValue' | relative_url }}" class="converter">JsonValue</a>
 </h2>
 
 <h2 class="no-toc">

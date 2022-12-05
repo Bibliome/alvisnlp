@@ -6,7 +6,7 @@ Writes the corpus in relp format.
 
 ## Description
 
- *RelpWriter* writes the corpus into <a href="#outFilet" class="param">outFilet</a> in relp format.
+ *RelpWriter* writes the corpus into <a href="#outFile" class="param">outFile</a> in relp format.
 
 ## Snippet
 
@@ -150,4 +150,6 @@ Expression evaluated as a string with the word element as context. The result is
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the layer containing word annotations.
+
+## Deprecated parameters
 

@@ -9,10 +9,6 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.AnimalReader' | relative_url }}" class="module">AnimalReader</a>
-</h2>
-
-<h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.AntecedentChoice' | relative_url }}" class="module">AntecedentChoice</a>
 </h2>
 
@@ -117,10 +113,6 @@
 </h2>
 
 <h2 class="no-toc">
-<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.WhatsWrongExport' | relative_url }}" class="module">WhatsWrongExport</a>
-</h2>
-
-<h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ab3p.Ab3P' | relative_url }}" class="module">Ab3P</a>
 </h2>
 
@@ -221,6 +213,10 @@
 </h2>
 
 <h2 class="no-toc">
+<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.json.JsonExport' | relative_url }}" class="module">JsonExport</a>
+</h2>
+
+<h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.keyword.KeywordsSelector' | relative_url }}" class="module">KeywordsSelector</a>
 </h2>
 
@@ -281,6 +277,10 @@
 </h2>
 
 <h2 class="no-toc">
+<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rebert.REBERTPredict' | relative_url }}" class="module">REBERTPredict</a>
+</h2>
+
+<h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rebert.REBERTTrain' | relative_url }}" class="module">REBERTTrain</a>
 </h2>
 
@@ -302,6 +302,10 @@
 
 <h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.sql.SQLImport' | relative_url }}" class="module">SQLImport</a>
+</h2>
+
+<h2 class="no-toc">
+<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.stanford.StanfordCoreNLP' | relative_url }}" class="module">StanfordCoreNLP</a>
 </h2>
 
 <h2 class="no-toc">

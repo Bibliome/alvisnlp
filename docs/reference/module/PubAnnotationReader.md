@@ -79,3 +79,5 @@ Constant features to add to each section created by this module.
 </div>
 Constant features to add to each tuple created by this module.
 
+## Deprecated parameters
+

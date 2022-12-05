@@ -86,3 +86,5 @@ Feature where to store the predicted language.
 </div>
 Elements to predict the language, by default `document.contents` .
 
+## Deprecated parameters
+

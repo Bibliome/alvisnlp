@@ -6,9 +6,9 @@ Reads files and adds a document in the corpus for each file.
 
 ## Description
 
- *TextFileReader* reads file(s) from <a href="#sourcePath" class="param">sourcePath</a> and creates a document in the corpus for each file. The identifier of the created document is the absolute path of the corresponding file. The created document has a single section named <a href="#section" class="param">section</a> whose contents is the contents of the corresponding file.
+ *TextFileReader* reads file(s) from <a href="#source" class="param">source</a> and creates a document in the corpus for each file. The identifier of the created document is the absolute path of the corresponding file. The created document has a single section named <a href="#section" class="param">section</a> whose contents is the contents of the corresponding file.
 
-If <a href="#sourcePath" class="param">sourcePath</a> is a path to a file, then *TextFileReader* will read this file. If <a href="#sourcePath" class="param">sourcePath</a> is a path to a directory, then *TextFileReader* will read the files in this directory. If <a href="#recursive" class="param">recursive</a> is set to true, then the files in sub-directories will be read recursively. *TextFileReader* only reads files whose name match <a href="#acceptPattern" class="param">acceptPattern</a> . If <a href="#acceptPattern" class="param">acceptPattern</a> is not set, then *TextFileReader* reads all files.
+If <a href="#source" class="param">source</a> is a path to a file, then *TextFileReader* will read this file. If <a href="#source" class="param">source</a> is a path to a directory, then *TextFileReader* will read the files in this directory.
 
 If <a href="#linesLimit" class="param">linesLimit</a> is set, then *TextFileReader* creates a new document for each set of lines. For instance, if <a href="#linesLimit" class="param">linesLimit</a> is set to 10 and a file contains 25 lines, then 3 documents are created: two containing 10 lines and one containing the las 5 lines.
 
@@ -23,13 +23,14 @@ The created documents will all have the features defined in <a href="#constantDo
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <textfilereader class="TextFileReader>
+    <source></source>
     <sourcePath></sourcePath>
 </textfilereader>
 ```
 
 ## Mandatory parameters
 
-<h3 id="sourcePath" class="param">sourcePath</h3>
+<h3 id="source" class="param">source</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -87,11 +88,29 @@ Use the filename base name instead of the full path as document identifier.
 </div>
 Character set of the input files.
 
-<h3 id="sectionName" class="param">sectionName</h3>
+<h3 id="section" class="param">section</h3>
 
 <div class="param-level param-level-default-value">Default value: `text`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the single section containing the whole contents of a file.
+
+## Deprecated parameters
+
+<h3 id="sectionName" class="param">sectionName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#section" class="param">section</a> .
+
+<h3 id="sourcePath" class="param">sourcePath</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
+</div>
+Alias for <a href="#source" class="param">source</a> . Use <a href="#source" class="param">source</a> instead.
 

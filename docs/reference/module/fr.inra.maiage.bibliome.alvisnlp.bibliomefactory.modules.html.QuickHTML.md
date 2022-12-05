@@ -4,8 +4,6 @@
 
 synopsis
 
-**This module is experimental.**
-
 ## Description
 
 synopsis
@@ -97,4 +95,6 @@ UNDOCUMENTED
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 Process only sections that satisfy this expression.
+
+## Deprecated parameters
 

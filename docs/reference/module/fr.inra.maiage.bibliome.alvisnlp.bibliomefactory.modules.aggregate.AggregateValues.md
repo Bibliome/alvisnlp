@@ -4,8 +4,6 @@
 
  *AggregateValues* lists a set of values and computes aggregate values.
 
-**This module is experimental.**
-
 ## Description
 
  *AggregateValues* lists a set of elements specified by <a href="#entries" class="param">entries</a> , and computes a string value for each specified by <a href="#key" class="param">key</a> . *AggregateValues* computes aggregates functions specified by <a href="#aggregators" class="param">aggregators</a> for each distinct value. The list of entry keys and their aggregate values are written into <a href="#outFile" class="param">outFile</a> 
@@ -83,4 +81,6 @@ Aggregate functions to compute for each value.
 <div class="param-type">Type: <a href="../converter/java.lang.Character" class="converter">Character</a>
 </div>
 Character that separates columns in the result file.
+
+## Deprecated parameters
 

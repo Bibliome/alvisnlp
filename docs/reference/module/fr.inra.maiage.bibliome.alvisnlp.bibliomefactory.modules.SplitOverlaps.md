@@ -4,11 +4,9 @@
 
 Splits overlapping annotations.
 
-**This module is experimental.**
-
 ## Description
 
- *SplitOverlaps* copies annotations from <a href="#checkedlayerNames" class="param">checkedlayerNames</a> into <a href="#modifiedlayerName" class="param">modifiedlayerName</a> and ensures that this layer does not contain overlaping annotations. If <a href="#checkedlayerNames" class="param">checkedlayerNames</a> contains overlaps, then *SplitOverlaps* splits annotations at the start or end positions of overlapping annotations.
+ *SplitOverlaps* copies annotations from <a href="#checkedLayers" class="param">checkedLayers</a> into <a href="#modifiedLayer" class="param">modifiedLayer</a> and ensures that this layer does not contain overlapping annotations. If <a href="#checkedLayers" class="param">checkedLayers</a> contains overlaps, then *SplitOverlaps* splits annotations at the start or end positions of overlapping annotations.
 
 
 * Features copied?
@@ -22,22 +20,22 @@ Splits overlapping annotations.
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <splitoverlaps class="SplitOverlaps>
-    <checkedlayerNames></checkedlayerNames>
-    <modifiedlayerName></modifiedlayerName>
+    <checkedLayers></checkedLayers>
+    <modifiedLayer></modifiedLayer>
 </splitoverlaps>
 ```
 
 ## Mandatory parameters
 
-<h3 id="checkedlayerNames" class="param">checkedlayerNames</h3>
+<h3 id="checkedLayers" class="param">checkedLayers</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
-Source layers.
+UNDOCUMENTED
 
-<h3 id="modifiedlayerName" class="param">modifiedlayerName</h3>
+<h3 id="modifiedLayer" class="param">modifiedLayer</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -47,7 +45,7 @@ Target layer.
 
 ## Optional parameters
 
-<h3 id="indexFeatureName" class="param">indexFeatureName</h3>
+<h3 id="indexFeature" class="param">indexFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -70,4 +68,14 @@ Only process document that satisfy this expression.
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 Process only sections that satisfy this expression.
+
+## Deprecated parameters
+
+<h3 id="indexFeatureName" class="param">indexFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#indexFeature" class="param">indexFeature</a> .
 

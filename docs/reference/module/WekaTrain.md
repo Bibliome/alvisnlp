@@ -8,7 +8,7 @@ Trains a Weka classifier where examples are elements.
 
  *WekaTrain* builds a Weka training set where examples are elements, trains a classifier and writes it into <a href="#classifierFile" class="param">classifierFile</a> . The training set is specified by <a href="#examples" class="param">examples</a> . Example attributes are specified by <a href="#relationDefinition" class="param">relationDefinition</a> .
 
- *WekaTrain* activates cross validation if one of the following parameters is set: <a href="#evaluationFile" class="param">evaluationFile</a> , <a href="#foldFeatureKey" class="param">foldFeatureKey</a> , <a href="#predictedClassFeatureKey" class="param">predictedClassFeatureKey</a> .
+ *WekaTrain* activates cross validation if one of the following parameters is set: <a href="#evaluationFile" class="param">evaluationFile</a> , <a href="#foldFeature" class="param">foldFeature</a> , <a href="#predictedClassFeature" class="param">predictedClassFeature</a> .
 
 ## Snippet
 
@@ -100,7 +100,7 @@ Number of segments for cross validation.
 </div>
 File where to write evaluation results.
 
-<h3 id="foldFeatureKey" class="param">foldFeatureKey</h3>
+<h3 id="foldFeature" class="param">foldFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -108,7 +108,7 @@ File where to write evaluation results.
 </div>
 Feature where to write the fold number in which the training element was in the test set if cross validation is activated.
 
-<h3 id="predictedClassFeatureKey" class="param">predictedClassFeatureKey</h3>
+<h3 id="predictedClassFeature" class="param">predictedClassFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -123,4 +123,22 @@ Feature where to write the class prediction if cross validation is activated.
 <div class="param-type">Type: <a href="../converter/java.lang.Long" class="converter">Long</a>
 </div>
 Random seed used by some algorithms and cross validation.
+
+## Deprecated parameters
+
+<h3 id="foldFeatureKey" class="param">foldFeatureKey</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#foldFeature" class="param">foldFeature</a> .
+
+<h3 id="predictedClassFeatureKey" class="param">predictedClassFeatureKey</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#predictedClassFeature" class="param">predictedClassFeature</a> .
 

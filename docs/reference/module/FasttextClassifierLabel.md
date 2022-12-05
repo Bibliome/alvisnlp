@@ -77,3 +77,5 @@ Model trained with <a href="../module/FasttextClassifierTrain" class="module">Fa
 </div>
 Feature where to store the probability of the predicted category.
 
+## Deprecated parameters
+

@@ -6,7 +6,7 @@ Tokenizes the sections contents according to the [Ogmios]() tokenizer specificat
 
 ## Description
 
- *OgmiosTokenizer* creates an annotation for each token found in the section contents according to the [Ogmios]() tokenizer specifications and adds these annotations to the <a href="#targetLayerName" class="param">targetLayerName</a> layer. The created annotations have a the feature <a href="#tokenTypeFeature" class="param">tokenTypeFeature</a> with one of the values:
+ *OgmiosTokenizer* creates an annotation for each token found in the section contents according to the [Ogmios]() tokenizer specifications and adds these annotations to the <a href="#targetLayer" class="param">targetLayer</a> layer. The created annotations have a the feature <a href="#tokenTypeFeature" class="param">tokenTypeFeature</a> with one of the values:
 *  *alpha* : for an alphabetic token;
 *  *num* : for a numeric token;
 *  *sep* : for a whitespace token;
@@ -23,6 +23,7 @@ If <a href="#separatorTokens" class="param">separatorTokens</a> is false, the *O
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <ogmiostokenizer class="OgmiosTokenizer>
+    <targetLayer></targetLayer>
     <targetLayerName></targetLayerName>
     <tokenTypeFeature></tokenTypeFeature>
 </ogmiostokenizer>
@@ -30,7 +31,7 @@ If <a href="#separatorTokens" class="param">separatorTokens</a> is false, the *O
 
 ## Mandatory parameters
 
-<h3 id="targetLayerName" class="param">targetLayerName</h3>
+<h3 id="targetLayer" class="param">targetLayer</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -79,4 +80,14 @@ Process only sections that satisfy this filter.
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
 Either if separator tokens should be added.
+
+## Deprecated parameters
+
+<h3 id="targetLayerName" class="param">targetLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#targetLayer" class="param">targetLayer</a> .
 

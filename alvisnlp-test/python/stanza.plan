@@ -13,4 +13,31 @@
   <features-update file="write-features.plan">
     <file>features-stanza.txt</file>
   </features-update>
+
+  <json class="JsonExport">
+    <outDir>.</outDir>
+    <corpusFile>stanza.json</corpusFile>
+    <json type="object">
+      <tokens type="array">
+	<items>documents.sections.layer:words</items>
+	<value type="object">
+	  <_id>id:unique</_id>
+	  <form>@form</form>
+	  <pos>@pos</pos>
+	  <lemma>@lemma</lemma>
+	  <offset>
+	    <offset/>
+	  </offset>
+	</value>
+      </tokens>
+      <deps type="array">
+	<items>documents.sections.relations:dependencies.tuples</items>
+	<value type="object">
+	  <head>args:head.id:unique</head>
+	  <dependent>args:dependent.id:unique</dependent>
+	  <label>@label</label>
+	</value>
+      </deps>
+    </json>
+  </json>
 </alvisnlp-plan>

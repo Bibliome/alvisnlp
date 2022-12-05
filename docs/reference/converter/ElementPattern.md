@@ -43,7 +43,7 @@ Predicate sequences may be grouped between square brackets. This allows the quan
 Examples:
 *  *posTag =~ /^N/ +* : matches a single annotation or an unlimited number of consecutive annotations whose feature *posTag* starts with a *N* ;
 *  *posTag =~ /^J/ * posTag =~ /^N/ +* : matches nothing or an unlimited number of consecutive annotations whose feature *posTag* starts with a *J* , then followed by a single annotation or an unlimited number of consecutive annotations whose feature *posTag* starts with a *N* ;
-*  *posTag =~ /^J/ * posTag =~ /^N/ * [head: posTag =~ /^N/ ]* : like the preceding one, but captures the last annotation of the match in a sub-pattern named *head* , this name can be referenced in <a href="../module/PatternMatcher#actions" class="param">PatternMatcher#actions</a> .
+*  *posTag =~ /^J/ * posTag =~ /^N/ * [head: posTag =~ /^N/ ]* : like the preceding one, but captures the last annotation of the match in a sub-pattern named *head* , this name can be referenced in <a href="#actions" class="param">actions</a> .
 
 
 
@@ -52,13 +52,13 @@ Examples:
 
 
 ```xml
-<param value="PATTERN"/>
+<param/>
 ```
 
 or
 
 ```xml
-<param pattern="PATTERN"/>
+<param/>
 ```
 
 or

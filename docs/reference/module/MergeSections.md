@@ -4,11 +4,9 @@
 
 Merge several sections into a single one.
 
-**This module is experimental.**
-
 ## Description
 
- *MergeSections* creates a section named <a href="#targetSectionName" class="param">targetSectionName</a> that is a concatenation of all sections that satisfy <a href="#sectionFilter" class="param">sectionFilter</a> . Layers, annotations, relations and tuples of the source sections are copied to the new section. Additionally, *MergeSections* can select or strip contents from annotations from <a href="#fragmentLayerName" class="param">fragmentLayerName</a> .
+ *MergeSections* creates a section named <a href="#targetSection" class="param">targetSection</a> that is a concatenation of all sections that satisfy <a href="#sectionFilter" class="param">sectionFilter</a> . Layers, annotations, relations and tuples of the source sections are copied to the new section. Additionally, *MergeSections* can select or strip contents from annotations from <a href="#fragmentLayer" class="param">fragmentLayer</a> .
 
 ## Snippet
 
@@ -17,13 +15,14 @@ Merge several sections into a single one.
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <mergesections class="MergeSections>
+    <targetSection></targetSection>
     <targetSectionName></targetSectionName>
 </mergesections>
 ```
 
 ## Mandatory parameters
 
-<h3 id="targetSectionName" class="param">targetSectionName</h3>
+<h3 id="targetSection" class="param">targetSection</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -65,7 +64,7 @@ Constant features to add to each section created by this module.
 </div>
 Constant features to add to each tuple created by this module.
 
-<h3 id="fragmentLayerName" class="param">fragmentLayerName</h3>
+<h3 id="fragmentLayer" class="param">fragmentLayer</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -73,7 +72,7 @@ Constant features to add to each tuple created by this module.
 </div>
 Name of the layer that contains annotations to include/exclude in/from the new section contents. If this parameter is not set, then *MergeSections* concatenates the whole contents of the sections.
 
-<h3 id="sectionsLayerName" class="param">sectionsLayerName</h3>
+<h3 id="sectionsLayer" class="param">sectionsLayer</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -95,7 +94,7 @@ Only process document that satisfy this expression.
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.clone.FragmentSelection" class="converter">FragmentSelection</a>
 </div>
-If this parameter equals `include` , then *MergeSections* only concatenates contents that is included in annotations in the layer <a href="#fragmentLayerName" class="param">fragmentLayerName</a> . If this parameter equals `exclude` , then *MergeSections* only concatenates contents that is *not* included in annotations in the layer <a href="#fragmentLayerName" class="param">fragmentLayerName</a> . If <a href="#fragmentLayerName" class="param">fragmentLayerName</a> is not set, then this parameter is ignored.
+If this parameter equals `include` , then *MergeSections* only concatenates contents that is included in annotations in the layer <a href="#fragmentLayer" class="param">fragmentLayer</a> . If this parameter equals `exclude` , then *MergeSections* only concatenates contents that is *not* included in annotations in the layer <a href="#fragmentLayer" class="param">fragmentLayer</a> . If <a href="#fragmentLayer" class="param">fragmentLayer</a> is not set, then this parameter is ignored.
 
 <h3 id="fragmentSeparator" class="param">fragmentSeparator</h3>
 
@@ -103,7 +102,7 @@ If this parameter equals `include` , then *MergeSections* only concatenates cont
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-Text to insert between the contents of concatenated fragments. If <a href="#fragmentLayerName" class="param">fragmentLayerName</a> is not set, then this parameter is ignored.
+Text to insert between the contents of concatenated fragments. If <a href="#fragmentLayer" class="param">fragmentLayer</a> is not set, then this parameter is ignored.
 
 <h3 id="removeSections" class="param">removeSections</h3>
 
@@ -128,4 +127,30 @@ Process only sections that satisfy this expression.
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Text to insert between the contents of the concatenated sections.
+
+## Deprecated parameters
+
+<h3 id="fragmentLayerName" class="param">fragmentLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#fragmentLayer" class="param">fragmentLayer</a> .
+
+<h3 id="sectionsLayerName" class="param">sectionsLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#sectionsLayer" class="param">sectionsLayer</a> .
+
+<h3 id="targetSectionName" class="param">targetSectionName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#targetSection" class="param">targetSection</a> .
 

@@ -6,7 +6,7 @@ Reads XML files and creates elements.
 
 ## Description
 
- *XMLReader* reads its input from <a href="#sourcePath" class="param">sourcePath</a> as XML and creates documents, sections, annotations, relations or tuples. The structure of the input XML is handled through the <a href="#xlsTransform" class="param">xlsTransform</a> XSLT stylesheet.
+ *XMLReader* reads its input from <a href="#source" class="param">source</a> as XML and creates documents, sections, annotations, relations or tuples. The structure of the input XML is handled through the <a href="#xslTransform" class="param">xslTransform</a> XSLT stylesheet.
 
  *XMLReader* also provides XSLT function and element extensions. The namespace for all extensions is `xalan://fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml.XMLReader2` .
 
@@ -33,6 +33,7 @@ Reads XML files and creates elements.
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <xmlreader class="XMLReader>
+    <source></source>
     <sourcePath></sourcePath>
     <xslTransform></xslTransform>
 </xmlreader>
@@ -40,7 +41,7 @@ Reads XML files and creates elements.
 
 ## Mandatory parameters
 
-<h3 id="sourcePath" class="param">sourcePath</h3>
+<h3 id="source" class="param">source</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -121,4 +122,14 @@ Set to true if the input is HTML rather than XML.
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
 If true, do not convert tag names to upper case.
+
+## Deprecated parameters
+
+<h3 id="sourcePath" class="param">sourcePath</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
+</div>
+Alias for <a href="#source" class="param">source</a> . Use <a href="#source" class="param">source</a> instead.
 

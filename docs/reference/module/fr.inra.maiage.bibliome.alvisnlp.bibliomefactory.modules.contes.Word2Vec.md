@@ -83,13 +83,13 @@ UNDOCUMENTED
 </div>
 File where to write embeddings as a table.
 
-<h3 id="vectorFeatureName" class="param">vectorFeatureName</h3>
+<h3 id="vectorFeature" class="param">vectorFeature</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Name of the feature where to store embeddings of each token. If this parameter is not set, then embeddings are not stored in any feature.
 
 <h3 id="documentFilter" class="param">documentFilter</h3>
 
@@ -99,13 +99,13 @@ UNDOCUMENTED
 </div>
 Only process document that satisfy this expression.
 
-<h3 id="formFeatureName" class="param">formFeatureName</h3>
+<h3 id="formFeature" class="param">formFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `form`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Feature to use as word form.
 
 <h3 id="minCount" class="param">minCount</h3>
 
@@ -123,21 +123,21 @@ UNDOCUMENTED
 </div>
 Process only sections that satisfy this expression.
 
-<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+<h3 id="sentenceLayer" class="param">sentenceLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Name of the layer containing sentence annotations.
 
-<h3 id="tokenLayerName" class="param">tokenLayerName</h3>
+<h3 id="tokenLayer" class="param">tokenLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Name of the layer containing token annotations.
 
 <h3 id="vectorSize" class="param">vectorSize</h3>
 
@@ -154,4 +154,38 @@ The dimensionality of the feature vectors. Often effective between 100 and 300.
 <div class="param-type">Type: <a href="../converter/java.lang.Integer" class="converter">Integer</a>
 </div>
 The maximum distance between the current and predicted word within a sentence.
+
+## Deprecated parameters
+
+<h3 id="formFeatureName" class="param">formFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#formFeature" class="param">formFeature</a> .
+
+<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#sentenceLayer" class="param">sentenceLayer</a> .
+
+<h3 id="tokenLayerName" class="param">tokenLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#tokenLayer" class="param">tokenLayer</a> .
+
+<h3 id="vectorFeatureName" class="param">vectorFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#vectorFeature" class="param">vectorFeature</a> .
 

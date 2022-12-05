@@ -12,7 +12,7 @@ Train a document categorizer using the [OpenNLP](https://opennlp.apache.org/) li
 
 By default the features are BOW but can be deactivated with <a href="#bagOfWords" class="param">bagOfWords</a> . Additionally <a href="#nGrams" class="param">nGrams</a> can be set to add n-gram features.
 
-The classifier is stored in <a href="#classifier" class="param">classifier</a> . This file can be used by <a href="../module/OpenNLPDocumentCategorizer" class="module">OpenNLPDocumentCategorizer</a> .
+The classifier is stored in <a href="#model" class="param">model</a> . This file can be used by <a href="../module/OpenNLPDocumentCategorizer" class="module">OpenNLPDocumentCategorizer</a> .
 
 ## Snippet
 
@@ -124,4 +124,6 @@ Number of learning iterations.
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 Tokens of the elements to classify. This expression is evaluated as a list of elements from the element to classify.
+
+## Deprecated parameters
 

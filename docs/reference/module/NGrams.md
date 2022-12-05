@@ -6,7 +6,7 @@ Computes annotation n-grams.
 
 ## Description
 
- *NGrams* computes the n-grams of annotations in <a href="#tokenLayerName" class="param">tokenLayerName</a> and creates an annotation for each n-gram. If <a href="#sentenceLayerName" class="param">sentenceLayerName</a> is set, then no n-gram will cross boundaries of annotations in this layer. If <a href="#keepAnnotations" class="param">keepAnnotations</a> is set, then *NGrams* will search for annotations with n-gram boundaries in these layers, if one annotation is found then it is recycled instead of creating a new annotation.
+ *NGrams* computes the n-grams of annotations in <a href="#tokenLayer" class="param">tokenLayer</a> and creates an annotation for each n-gram. If <a href="#sentenceLayer" class="param">sentenceLayer</a> is set, then no n-gram will cross boundaries of annotations in this layer. If <a href="#keepAnnotations" class="param">keepAnnotations</a> is set, then *NGrams* will search for annotations with n-gram boundaries in these layers, if one annotation is found then it is recycled instead of creating a new annotation.
 
 ## Snippet
 
@@ -16,6 +16,7 @@ Computes annotation n-grams.
 ```xml
 <ngrams class="NGrams>
     <maxNGramSize></maxNGramSize>
+    <targetLayer></targetLayer>
     <targetLayerName></targetLayerName>
 </ngrams>
 ```
@@ -30,7 +31,7 @@ Computes annotation n-grams.
 </div>
 Maximum number of tokens in n-grams.
 
-<h3 id="targetLayerName" class="param">targetLayerName</h3>
+<h3 id="targetLayer" class="param">targetLayer</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -72,7 +73,7 @@ Name of layers where to search for recycled annotations.
 </div>
 Process only sections that satisfy this expression.
 
-<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+<h3 id="sentenceLayer" class="param">sentenceLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -80,11 +81,37 @@ Process only sections that satisfy this expression.
 </div>
 Name of the sentence layer.
 
-<h3 id="tokenLayerName" class="param">tokenLayerName</h3>
+<h3 id="tokenLayer" class="param">tokenLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the token layer.
+
+## Deprecated parameters
+
+<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#sentenceLayer" class="param">sentenceLayer</a> .
+
+<h3 id="targetLayerName" class="param">targetLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#targetLayer" class="param">targetLayer</a> .
+
+<h3 id="tokenLayerName" class="param">tokenLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#tokenLayer" class="param">tokenLayer</a> .
 

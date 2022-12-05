@@ -152,3 +152,5 @@ Only create annotations for matches that fit exactly between word boundaries.
 </div>
 Process only sections that satisfy this expression.
 
+## Deprecated parameters
+

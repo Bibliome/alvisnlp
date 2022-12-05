@@ -6,9 +6,9 @@ Extract terms from the corpus using the YaTeA term extractor.
 
 ## Description
 
- *YateaExtractor* hands the corpus to the [YaTeA](http://search.cpan.org/~thhamon/Lingua-YaTeA) extractor. The corpus is first written in a file in the YaTeA input format. Tokens are annotations in the layer <a href="#wordLayerName" class="param">wordLayerName</a> , their surface form, POS tag and lemma are taken from <a href="#formFeature" class="param">formFeature</a> , <a href="#posFeature" class="param">posFeature</a> and <a href="#lemmaFeature" class="param">lemmaFeature</a> features respectively. If <a href="#sentenceLayerName" class="param">sentenceLayerName</a> is set, then an additional *SENT* marker is added to reinforce sentence boundaries corresponding to annotations in this layer.
+ *YateaExtractor* hands the corpus to the [YaTeA](http://search.cpan.org/~thhamon/Lingua-YaTeA) extractor. The corpus is first written in a file in the YaTeA input format. Tokens are annotations in the layer <a href="#wordLayer" class="param">wordLayer</a> , their surface form, POS tag and lemma are taken from <a href="#formFeature" class="param">formFeature</a> , <a href="#posFeature" class="param">posFeature</a> and <a href="#lemmaFeature" class="param">lemmaFeature</a> features respectively. If <a href="#sentenceLayer" class="param">sentenceLayer</a> is set, then an additional *SENT* marker is added to reinforce sentence boundaries corresponding to annotations in this layer.
 
-The YaTeA is called using the executable set in <a href="#yateaExecutable" class="param">yateaExecutable</a> , it will run as if it is called from directory <a href="#workingDir" class="param">workingDir</a> : the result will be written in the subdirectory named <a href="#corpusName" class="param">corpusName</a> .
+The YaTeA is called using the executable set in <a href="#yateaExecutable" class="param">yateaExecutable</a> : the result will be written in <a href="#xmlTermsFile" class="param">xmlTermsFile</a> and/or <a href="#termListFile" class="param">termListFile</a> .
 
 ## Snippet
 
@@ -122,14 +122,6 @@ Path where to write the candidates list produced by YaTeA.
 </div>
 
 
-<h3 id="workingDir" class="param">workingDir</h3>
-
-<div class="param-level param-level-optional">Optional
-</div>
-<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.WorkingDirectory" class="converter">WorkingDirectory</a>
-</div>
-Path to the directory where YaTeA is launched. This parameter is **deprecated** , use <a href="#xmlTermsFile" class="param">xmlTermsFile</a> and <a href="#termListFile" class="param">termListFile</a> instead.
-
 <h3 id="xmlTermsFile" class="param">xmlTermsFile</h3>
 
 <div class="param-level param-level-optional">Optional
@@ -194,7 +186,7 @@ Feature containing the word POS tag.
 </div>
 UNDOCUMENTED
 
-<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+<h3 id="sentenceLayer" class="param">sentenceLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -202,7 +194,7 @@ UNDOCUMENTED
 </div>
 Name of the layer containing sentence annotations, sentences are reinforced.
 
-<h3 id="wordLayerName" class="param">wordLayerName</h3>
+<h3 id="wordLayer" class="param">wordLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
@@ -225,4 +217,30 @@ Name of the layer containing the word annotations.
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
 
+
+## Deprecated parameters
+
+<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#sentenceLayer" class="param">sentenceLayer</a> .
+
+<h3 id="wordLayerName" class="param">wordLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#wordLayer" class="param">wordLayer</a> .
+
+<h3 id="workingDir" class="param">workingDir</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.WorkingDirectory" class="converter">WorkingDirectory</a>
+</div>
+Path to the directory where YaTeA is launched. This parameter is **deprecated** , use <a href="#xmlTermsFile" class="param">xmlTermsFile</a> and <a href="#termListFile" class="param">termListFile</a> instead.
 

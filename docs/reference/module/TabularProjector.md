@@ -18,7 +18,7 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 
 
 
- *TabularProjector* creates an annotation for each matched key and adds these annotations to the layer specified by <a href="#targetLayerName" class="param">targetLayerName</a> . The created annotations will have features that correspond to the entry columns. Feature keys are specified by <a href="#valueFeatures" class="param">valueFeatures</a> . For instance if <a href="#valueFeatures" class="param">valueFeatures</a> is *[a,b,c]* , then each annotation will have three features named *a* , *b* and *c* with the respective values of the entry's first, second and third columns. A feature name left blank in <a href="#valueFeatures" class="param">valueFeatures</a> will not create a feature. Thus, in order to drop the first column of the entry, <a href="#valueFeatures" class="param">valueFeatures</a> should be *[,b,c]* . In addition, the created annotations will have the constant features specified in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a> .
+ *TabularProjector* creates an annotation for each matched key and adds these annotations to the layer specified by <a href="#targetLayer" class="param">targetLayer</a> . The created annotations will have features that correspond to the entry columns. Feature keys are specified by <a href="#valueFeatures" class="param">valueFeatures</a> . For instance if <a href="#valueFeatures" class="param">valueFeatures</a> is *[a,b,c]* , then each annotation will have three features named *a* , *b* and *c* with the respective values of the entry's first, second and third columns. A feature name left blank in <a href="#valueFeatures" class="param">valueFeatures</a> will not create a feature. Thus, in order to drop the first column of the entry, <a href="#valueFeatures" class="param">valueFeatures</a> should be *[,b,c]* . In addition, the created annotations will have the constant features specified in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a> .
 
 If <a href="#trieSource" class="param">trieSource</a> is specified, then *TabularProjector* assumes that the file contains a compiled version of the dictionary. In this case <a href="#dictFile" class="param">dictFile</a> is not read.
 
@@ -32,6 +32,7 @@ If <a href="#trieSink" class="param">trieSink</a> is specified, *TabularProjecto
 ```xml
 <tabularprojector class="TabularProjector>
     <dictFile></dictFile>
+    <targetLayer></targetLayer>
     <targetLayerName></targetLayerName>
 </tabularprojector>
 ```
@@ -46,7 +47,7 @@ If <a href="#trieSink" class="param">trieSink</a> is specified, *TabularProjecto
 </div>
 The dictionary.
 
-<h3 id="targetLayerName" class="param">targetLayerName</h3>
+<h3 id="targetLayer" class="param">targetLayer</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -166,7 +167,7 @@ If set to *true* , then allow case folding on the first character of the entry k
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.MultipleEntryBehaviour" class="converter">MultipleEntryBehaviour</a>
 </div>
-Specifies the behavior if <a href="#dictFile" class="param">dictFile</a> contains several entries with the same key.
+Specifies the behavior if the lexicon contains several entries with the same key.
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 
@@ -255,4 +256,14 @@ If set to *true* , then trim leading and trailing whitespace character from colu
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
 If set to *true* , then allow case folding on the first character of each word.
+
+## Deprecated parameters
+
+<h3 id="targetLayerName" class="param">targetLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#targetLayer" class="param">targetLayer</a> .
 

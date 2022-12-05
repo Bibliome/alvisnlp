@@ -4,8 +4,6 @@
 
 Applies the [Stanford dependency parser](https://nlp.stanford.edu/software/lex-parser.shtml) .
 
-**This module is experimental.**
-
 ## Description
 
 Applies the [Stanford dependency parser](https://nlp.stanford.edu/software/lex-parser.shtml) .
@@ -44,7 +42,7 @@ Constant features to add to each relation created by this module.
 </div>
 Constant features to add to each tuple created by this module.
 
-<h3 id="dependencyLabelFeatureName" class="param">dependencyLabelFeatureName</h3>
+<h3 id="dependencyLabelFeature" class="param">dependencyLabelFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `label`
 </div>
@@ -52,7 +50,7 @@ Constant features to add to each tuple created by this module.
 </div>
 Name of the feature where to store the dependency label.
 
-<h3 id="dependencyRelationName" class="param">dependencyRelationName</h3>
+<h3 id="dependencyRelation" class="param">dependencyRelation</h3>
 
 <div class="param-level param-level-default-value">Default value: `dependencies`
 </div>
@@ -84,7 +82,7 @@ Name of the role of the dependency tuple argument that references the modifier (
 </div>
 Only process document that satisfy this expression.
 
-<h3 id="formFeatureName" class="param">formFeatureName</h3>
+<h3 id="formFeature" class="param">formFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `form`
 </div>
@@ -116,7 +114,7 @@ Language of the text to parse. *StanfordParser* currently supports english (defa
 </div>
 If set, do not create the root tuple.
 
-<h3 id="posTagFeatureName" class="param">posTagFeatureName</h3>
+<h3 id="posTagFeature" class="param">posTagFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `pos`
 </div>
@@ -140,7 +138,7 @@ Process only sections that satisfy this expression.
 </div>
 Expression evaluated on each sentence annotation, the sentence is parsed if this expression evaluates as true.
 
-<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+<h3 id="sentenceLayer" class="param">sentenceLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -148,11 +146,61 @@ Expression evaluated on each sentence annotation, the sentence is parsed if this
 </div>
 Name of the layer containing sentence annotations.
 
-<h3 id="tokenLayerName" class="param">tokenLayerName</h3>
+<h3 id="tokenLayer" class="param">tokenLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the layer containing token annotations.
+
+## Deprecated parameters
+
+<h3 id="dependencyLabelFeatureName" class="param">dependencyLabelFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#dependencyLabelFeature" class="param">dependencyLabelFeature</a> .
+
+<h3 id="dependencyRelationName" class="param">dependencyRelationName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#dependencyRelation" class="param">dependencyRelation</a> .
+
+<h3 id="formFeatureName" class="param">formFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#formFeature" class="param">formFeature</a> .
+
+<h3 id="posTagFeatureName" class="param">posTagFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#posTagFeature" class="param">posTagFeature</a> .
+
+<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#sentenceLayer" class="param">sentenceLayer</a> .
+
+<h3 id="tokenLayerName" class="param">tokenLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#tokenLayer" class="param">tokenLayer</a> .
 

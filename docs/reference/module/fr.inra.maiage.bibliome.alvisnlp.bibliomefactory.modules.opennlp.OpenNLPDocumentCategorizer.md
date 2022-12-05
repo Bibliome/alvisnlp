@@ -82,3 +82,5 @@ Form of the token. This expression is evaluated as a string from the token.
 </div>
 Tokens of the elements to classify. This expression is evaluated as a list of elements from the element to classify.
 
+## Deprecated parameters
+

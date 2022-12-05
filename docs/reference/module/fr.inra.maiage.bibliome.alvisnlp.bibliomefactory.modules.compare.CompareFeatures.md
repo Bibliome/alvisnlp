@@ -4,8 +4,6 @@
 
 Compare two features in a set of elements.
 
-**This module is experimental.**
-
 ## Description
 
  *CompareFeatures* compares the value of <a href="#referenceFeature" class="param">referenceFeature</a> and <a href="#predictedFeature" class="param">predictedFeature</a> in the elements specified by <a href="#items" class="param">items</a> . The comparison is aggregated using standard metrics (accuracy, recall, precision and F-score). *CompareFeatures* is useful to evaluate classification predictions against a reference.
@@ -71,4 +69,6 @@ Feature containing the reference value.
 <div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
 Values for which metrics are computed. All values if not set.
+
+## Deprecated parameters
 

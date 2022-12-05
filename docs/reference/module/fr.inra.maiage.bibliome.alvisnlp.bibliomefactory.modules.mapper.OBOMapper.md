@@ -153,3 +153,5 @@ Either to store term dbxrefs. Dbxrefs are stored in features that match the data
 </div>
 Matching operator: either *exact* (default) or *prefix*.
 
+## Deprecated parameters
+

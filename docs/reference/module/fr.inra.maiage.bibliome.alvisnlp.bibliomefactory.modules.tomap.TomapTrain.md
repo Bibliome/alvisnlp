@@ -4,8 +4,6 @@
 
  *TomapTrain* analyzes terms in preparation of the classification of candidates with [ToMap](https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md) .
 
-**This module is experimental.**
-
 ## Description
 
  *TomapTrain* assumes each sentence or section is a proxy term according to the [ToMap](https://github.com/Bibliome/bibliome-java-utils/blob/master/src/main/java/fr/inra/maiage/bibliome/util/tomap/ToMap.md) method. *TomapTrain* analyzes the syntactic structure of sections and stores them in <a href="#outFile" class="param">outFile</a> . Use this file for classifying terms with <a href="../module/TomapProjector" class="module">TomapProjector</a> . The identifier associated with the proxy is specified with <a href="#conceptIdentifier" class="param">conceptIdentifier</a> .
@@ -134,14 +132,6 @@ BioYaTeA option: path to the result file after post-processing.
 </div>
 Path where to write the candidates list produced by YaTeA.
 
-<h3 id="workingDir" class="param">workingDir</h3>
-
-<div class="param-level param-level-optional">Optional
-</div>
-<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.WorkingDirectory" class="converter">WorkingDirectory</a>
-</div>
-Path to the directory where YaTeA is launched. This parameter is **deprecated** , use <a href="#xmlTermsFile" class="param">xmlTermsFile</a> and <a href="#termListFile" class="param">termListFile</a> instead.
-
 <h3 id="xmlTermsFile" class="param">xmlTermsFile</h3>
 
 <div class="param-level param-level-optional">Optional
@@ -198,7 +188,7 @@ Feature containing the word POS tag.
 </div>
 UNDOCUMENTED
 
-<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+<h3 id="sentenceLayer" class="param">sentenceLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -206,7 +196,7 @@ UNDOCUMENTED
 </div>
 Name of the layer containing sentence annotations, sentences are reinforced.
 
-<h3 id="wordLayerName" class="param">wordLayerName</h3>
+<h3 id="wordLayer" class="param">wordLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
@@ -229,4 +219,30 @@ Name of the layer containing the word annotations.
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
 
+
+## Deprecated parameters
+
+<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#sentenceLayer" class="param">sentenceLayer</a> .
+
+<h3 id="wordLayerName" class="param">wordLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#wordLayer" class="param">wordLayer</a> .
+
+<h3 id="workingDir" class="param">workingDir</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.WorkingDirectory" class="converter">WorkingDirectory</a>
+</div>
+Path to the directory where YaTeA is launched. This parameter is **deprecated** , use <a href="#xmlTermsFile" class="param">xmlTermsFile</a> and <a href="#termListFile" class="param">termListFile</a> instead.
 

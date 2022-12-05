@@ -6,7 +6,7 @@ Train a model that can be used to predict binary relations using TEES
 
 ## Description
 
- *TEESTrain* executes the TEES training on <a href="#Corpus" class="param">Corpus</a> and record the results in <a href="#Relation" class="param">Relation</a> . Param <a href="#relationName" class="param">relationName</a> sets the name of the binary relation to predict. <a href="#relationRole1" class="param">relationRole1</a> and <a href="#relationRole" class="param">relationRole</a> set the two roles of the relation. Params <a href="#trainSetFeature" class="param">trainSetFeature</a> , <a href="#devSetFeature" class="param">devSetFeature</a> and <a href="#testSetFeature" class="param">testSetFeature</a> give respectively the features key of the train, dev and test corpus. *TEESTrain* 
+
 
 ## Snippet
 
@@ -16,6 +16,7 @@ Train a model that can be used to predict binary relations using TEES
 ```xml
 <teestrain class="TEESTrain>
     <modelTargetDir></modelTargetDir>
+    <namedEntityLayer></namedEntityLayer>
     <namedEntityLayerName></namedEntityLayerName>
     <python2Executable></python2Executable>
     <schema></schema>
@@ -33,7 +34,7 @@ Train a model that can be used to predict binary relations using TEES
 </div>
 Path to the directory where put the trained model
 
-<h3 id="namedEntityLayerName" class="param">namedEntityLayerName</h3>
+<h3 id="namedEntityLayer" class="param">namedEntityLayer</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -157,7 +158,7 @@ Name of the feature containing the POS-tag.
 </div>
 Process only sections that satisfy this expression.
 
-<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+<h3 id="sentenceLayer" class="param">sentenceLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -173,7 +174,7 @@ Name of the layer that contains sentence annotations.
 </div>
 Feature key of the test set corpus.
 
-<h3 id="tokenLayerName" class="param">tokenLayerName</h3>
+<h3 id="tokenLayer" class="param">tokenLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
@@ -188,4 +189,30 @@ Name of the layer that contains tokens.
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Feature key of the train set corpus.
+
+## Deprecated parameters
+
+<h3 id="namedEntityLayerName" class="param">namedEntityLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#namedEntityLayer" class="param">namedEntityLayer</a> .
+
+<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#sentenceLayer" class="param">sentenceLayer</a> .
+
+<h3 id="tokenLayerName" class="param">tokenLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#tokenLayer" class="param">tokenLayer</a> .
 

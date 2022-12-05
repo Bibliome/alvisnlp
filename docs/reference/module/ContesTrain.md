@@ -21,6 +21,8 @@ Train a term concept classifier using [CONTES](https://github.com/ArnaudFerre/CO
     <ontology></ontology>
     <python3Executable></python3Executable>
     <termClassifiers></termClassifiers>
+    <tokenLayer></tokenLayer>
+    <tokenLayerName></tokenLayerName>
 </contestrain>
 ```
 
@@ -58,6 +60,14 @@ Path to the Python 3 executable.
 </div>
 UNDOCUMENTED
 
+<h3 id="tokenLayer" class="param">tokenLayer</h3>
+
+<div class="param-level param-level-mandatory">Mandatory
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Name of the layer containing token annotations.
+
 ## Optional parameters
 
 <h3 id="additionalArguments" class="param">additionalArguments</h3>
@@ -92,19 +102,29 @@ UNDOCUMENTED
 </div>
 Default value for the decay factor.
 
-<h3 id="formFeatureName" class="param">formFeatureName</h3>
+<h3 id="formFeature" class="param">formFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `form`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Feature to use as word form.
 
-<h3 id="tokenLayerName" class="param">tokenLayerName</h3>
+## Deprecated parameters
 
-<div class="param-level param-level-default-value">Default value: `words`
+<h3 id="formFeatureName" class="param">formFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Deprecated alias for <a href="#formFeature" class="param">formFeature</a> .
+
+<h3 id="tokenLayerName" class="param">tokenLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#tokenLayer" class="param">tokenLayer</a> .
 

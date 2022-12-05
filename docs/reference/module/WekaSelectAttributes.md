@@ -82,3 +82,5 @@ Search heuristic, this should be the canonical name of a class that extends Weka
 </div>
 Options to the search heuristic.
 
+## Deprecated parameters
+

@@ -4,8 +4,6 @@
 
 synopsis
 
-**This module is experimental.**
-
 ## Description
 
 synopsis
@@ -73,7 +71,7 @@ Constant features to add to each section created by this module.
 </div>
 Constant features to add to each tuple created by this module.
 
-<h3 id="annotationsLayerName" class="param">annotationsLayerName</h3>
+<h3 id="annotationsLayer" class="param">annotationsLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `annotations`
 </div>
@@ -88,4 +86,14 @@ Constant features to add to each tuple created by this module.
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 
+
+## Deprecated parameters
+
+<h3 id="annotationsLayerName" class="param">annotationsLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#annotationsLayer" class="param">annotationsLayer</a> .
 

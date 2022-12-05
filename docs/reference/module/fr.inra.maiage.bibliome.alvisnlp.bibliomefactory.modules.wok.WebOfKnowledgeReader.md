@@ -69,3 +69,5 @@ Constant features to add to each section created by this module.
 </div>
 Read files in tabular export format.
 
+## Deprecated parameters
+

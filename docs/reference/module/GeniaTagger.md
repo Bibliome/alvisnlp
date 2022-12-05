@@ -6,7 +6,7 @@ Runs Genia Tagger on annotations.
 
 ## Description
 
- *GeniaTagger* executes theGenia Tagger on annotations from the layer <a href="#words" class="param">words</a> and record the results in the features specified by <a href="#pos" class="param">pos</a> , <a href="#lemma" class="param">lemma</a> , <a href="#chunk" class="param">chunk</a> and <a href="#entity" class="param">entity</a> . *GeniaTagger* reinforces sentences specified by annotations in the <a href="#sentences" class="param">sentences</a> layer.
+ *GeniaTagger* executes theGenia Tagger on annotations from the layer <a href="#wordLayer" class="param">wordLayer</a> and record the results in the features specified by <a href="#posFeature" class="param">posFeature</a> , <a href="#lemmaFeature" class="param">lemmaFeature</a> , <a href="#chunkFeature" class="param">chunkFeature</a> and <a href="#entityFeature" class="param">entityFeature</a> . *GeniaTagger* reinforces sentences specified by annotations in the <a href="#sentenceLayer" class="param">sentenceLayer</a> layer.
 
 ## Snippet
 
@@ -37,7 +37,7 @@ Directory where geniatagger is installed.
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Feature where to put the chunk status.
 
 <h3 id="entityFeature" class="param">entityFeature</h3>
 
@@ -45,7 +45,7 @@ UNDOCUMENTED
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Feature where to put the entity status.
 
 <h3 id="documentFilter" class="param">documentFilter</h3>
 
@@ -77,7 +77,7 @@ Name of the geniatagger executable file.
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Feature where to put the word lemma.
 
 <h3 id="posFeature" class="param">posFeature</h3>
 
@@ -85,7 +85,7 @@ UNDOCUMENTED
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Feature where to put the POS tag.
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 
@@ -103,13 +103,13 @@ Process only sections that satisfy this expression.
 </div>
 Evaluated as a boolean with the sentence annotation as the context element. *GeniaTagger* only process the sentence if the result is true. To filter sentences that are too long for Genia Tagger, use "length < 1024".
 
-<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+<h3 id="sentenceLayer" class="param">sentenceLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Name of the layer containing sentence annotations.
 
 <h3 id="treeTaggerTagset" class="param">treeTaggerTagset</h3>
 
@@ -125,13 +125,31 @@ UNDOCUMENTED
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Feature containing the word surface form.
 
-<h3 id="wordLayerName" class="param">wordLayerName</h3>
+<h3 id="wordLayer" class="param">wordLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Name of the layer containing word annotations.
+
+## Deprecated parameters
+
+<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#sentenceLayer" class="param">sentenceLayer</a> .
+
+<h3 id="wordLayerName" class="param">wordLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#wordLayer" class="param">wordLayer</a> .
 

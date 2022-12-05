@@ -111,7 +111,7 @@ Character encoding of all imported files.
 </div>
 Prefix of the role of arguments that represent group elements.
 
-<h3 id="equivalenceRelationName" class="param">equivalenceRelationName</h3>
+<h3 id="equivalenceRelation" class="param">equivalenceRelation</h3>
 
 <div class="param-level param-level-default-value">Default value: `equiv`
 </div>
@@ -127,7 +127,7 @@ Name of the relation whose tuples represent equivalences.
 </div>
 Kind value for event annotations.
 
-<h3 id="fragmentCountFeatureName" class="param">fragmentCountFeatureName</h3>
+<h3 id="fragmentCountFeature" class="param">fragmentCountFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `fragments`
 </div>
@@ -135,7 +135,7 @@ Kind value for event annotations.
 </div>
 Feature where to store the number of merged fragments. This feature is only set if <a href="#textBoundAsAnnotations" class="param">textBoundAsAnnotations</a> is `true` .
 
-<h3 id="idFeatureName" class="param">idFeatureName</h3>
+<h3 id="idFeature" class="param">idFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `id`
 </div>
@@ -143,7 +143,7 @@ Feature where to store the number of merged fragments. This feature is only set 
 </div>
 Feature where to store the annotation identifier.
 
-<h3 id="kindFeatureName" class="param">kindFeatureName</h3>
+<h3 id="kindFeature" class="param">kindFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `kind`
 </div>
@@ -159,7 +159,7 @@ Feature of relations contatining the annotation kind.
 </div>
 Kind value for relation annotations.
 
-<h3 id="sectionName" class="param">sectionName</h3>
+<h3 id="section" class="param">section</h3>
 
 <div class="param-level param-level-default-value">Default value: `text`
 </div>
@@ -199,11 +199,61 @@ Kind value for text annotations.
 </div>
 Role of the argument that represent an event trigger.
 
-<h3 id="typeFeatureName" class="param">typeFeatureName</h3>
+<h3 id="typeFeature" class="param">typeFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `type`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Feature where to store the type of the annotation.
+
+## Deprecated parameters
+
+<h3 id="equivalenceRelationName" class="param">equivalenceRelationName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#equivalenceRelation" class="param">equivalenceRelation</a> .
+
+<h3 id="fragmentCountFeatureName" class="param">fragmentCountFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#fragmentCountFeature" class="param">fragmentCountFeature</a> .
+
+<h3 id="idFeatureName" class="param">idFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#idFeature" class="param">idFeature</a> .
+
+<h3 id="kindFeatureName" class="param">kindFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#kindFeature" class="param">kindFeature</a> .
+
+<h3 id="sectionName" class="param">sectionName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#section" class="param">section</a> .
+
+<h3 id="typeFeatureName" class="param">typeFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#typeFeature" class="param">typeFeature</a> .
 

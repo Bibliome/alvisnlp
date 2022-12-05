@@ -4,8 +4,6 @@
 
 Reads a tokenized corpus: one token per line, empty line separates sentence.
 
-**This module is experimental.**
-
 ## Description
 
 Reads a tokenized corpus: one token per line, empty line separates sentence.
@@ -57,7 +55,7 @@ Constant features to add to each document created by this module.
 </div>
 Constant features to add to each section created by this module.
 
-<h3 id="sectionName" class="param">sectionName</h3>
+<h3 id="section" class="param">section</h3>
 
 <div class="param-level param-level-default-value">Default value: `text`
 </div>
@@ -65,7 +63,7 @@ Constant features to add to each section created by this module.
 </div>
 Name of the section containing the tokenized text.
 
-<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+<h3 id="sentenceLayer" class="param">sentenceLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -73,11 +71,37 @@ Name of the section containing the tokenized text.
 </div>
 Name of the sentence layer.
 
-<h3 id="tokenLayerName" class="param">tokenLayerName</h3>
+<h3 id="tokenLayer" class="param">tokenLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the token layer.
+
+## Deprecated parameters
+
+<h3 id="sectionName" class="param">sectionName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#section" class="param">section</a> .
+
+<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#sentenceLayer" class="param">sentenceLayer</a> .
+
+<h3 id="tokenLayerName" class="param">tokenLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#tokenLayer" class="param">tokenLayer</a> .
 

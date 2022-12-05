@@ -6,22 +6,17 @@ Performs word segmentation on section contents.
 
 ## Description
 
- *WoSMig* searches for word boundaries in the section contents, creates an annotation for each word and adds it to the layer <a href="#targetLayerName" class="param">targetLayerName</a> . The following are considered as word boundaries:
+ *WoSMig* searches for word boundaries in the section contents, creates an annotation for each word and adds it to the layer <a href="#targetLayer" class="param">targetLayer</a> . The following are considered as word boundaries:
 * consecutive whitespace characters, including ' ', newline, carriage return and horizontal tabulation;
-* the positions before and after each punctuation character defined in <a href="#punctuation" class="param">punctuation</a> and <a href="#balancedPunctuations" class="param">balancedPunctuations</a> , thus a punctuation character always form a single-character word, a balanced punctuation breaks a word iff the corresponding punctuation is found.
+* the positions before and after each punctuation character defined in <a href="#punctuations" class="param">punctuations</a> and <a href="#balancedPunctuations" class="param">balancedPunctuations</a> , thus a punctuation character always form a single-character word, a balanced punctuation breaks a word iff the corresponding punctuation is found.
 
 
 
-If <a href="#fixedFormLayerName" class="param">fixedFormLayerName</a> is defined then non-overlapping annotations in this layer will be added as is in <a href="#targetLayerName" class="param">targetLayerName</a> , the start and end positions of these annotations are considered as word boundaries and no word boundary is searched inside.
+If <a href="#fixedFormLayer" class="param">fixedFormLayer</a> is defined then non-overlapping annotations in this layer will be added as is in <a href="#targetLayer" class="param">targetLayer</a> , the start and end positions of these annotations are considered as word boundaries and no word boundary is searched inside.
 
 The created annotations have the feature <a href="#annotationTypeFeature" class="param">annotationTypeFeature</a> with a value corresponding to the word type:
 *  **punctuation** : if the word is a single-character punctuation;
 *  **word** : if the word is a plain non-punctuation word.
-
-The <a href="#eosStatusFeature" class="param">eosStatusFeature</a> feature contains the end-of-sentence status of the word:
-*  **not-eos** : if the word cannot be an end of sentence;
-*  **maybe-eos** : if the word may be an end of sentence;
-*  **eos** : if the word is definitely an end of sentence.
 
 
 
@@ -47,7 +42,7 @@ The <a href="#eosStatusFeature" class="param">eosStatusFeature</a> feature conta
 </div>
 Constant features to add to each annotation created by this module.
 
-<h3 id="fixedFormLayerName" class="param">fixedFormLayerName</h3>
+<h3 id="fixedFormLayer" class="param">fixedFormLayer</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -119,7 +114,7 @@ List of punctuations, be them weak or strong.
 </div>
 Process only sections that satisfy this expression.
 
-<h3 id="targetLayerName" class="param">targetLayerName</h3>
+<h3 id="targetLayer" class="param">targetLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
@@ -134,4 +129,22 @@ Layer where to store word annotations.
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Value of the type feature for regular word annotations.
+
+## Deprecated parameters
+
+<h3 id="fixedFormLayerName" class="param">fixedFormLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#fixedFormLayer" class="param">fixedFormLayer</a> .
+
+<h3 id="targetLayerName" class="param">targetLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#targetLayer" class="param">targetLayer</a> .
 

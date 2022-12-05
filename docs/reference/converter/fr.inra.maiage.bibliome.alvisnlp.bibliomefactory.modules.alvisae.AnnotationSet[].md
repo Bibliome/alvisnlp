@@ -14,9 +14,9 @@ String conversion is not available for this type.
 
 ```xml
 <param>
-	  <annotationSet description="DESCRIPTION" id="ID" owner="OWNER" revision="REVISION" task_id="TASKID" type="TYPE">
+	  
 	    ...
-	  </annotationSet>
+	  
 	  ...
 	</param>
 ```

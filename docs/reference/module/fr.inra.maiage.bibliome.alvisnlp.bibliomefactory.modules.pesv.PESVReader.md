@@ -4,13 +4,11 @@
 
 Read documents and entities in the PESV format.
 
-**This module is experimental.**
-
 ## Description
 
- *PESVReader* reads CSV files in <a href="#docStream" class="param">docStream</a> and creates one document for each record. The identifier of the document is the *id* column. The section content is created from the tokenization provided in the *processed_text* column. The tokenization itself is recorded in the layer named after <a href="#tokenLayerName" class="param">tokenLayerName</a> .
+ *PESVReader* reads CSV files in <a href="#docStream" class="param">docStream</a> and creates one document for each record. The identifier of the document is the *id* column. The section content is created from the tokenization provided in the *processed_text* column. The tokenization itself is recorded in the layer named after <a href="#tokenLayer" class="param">tokenLayer</a> .
 
- *PESVReader* also reads CSV files in <a href="#entitiesStream" class="param">entitiesStream</a> and creates one entity annotation in the layer named <a href="#entityLayerName" class="param">entityLayerName</a> for each record. All properties are recorded in the corresponding feature, as well as in a single feature names <a href="#propertiesFeatureKey" class="param">propertiesFeatureKey</a> .
+ *PESVReader* also reads CSV files in <a href="#entitiesStream" class="param">entitiesStream</a> and creates one entity annotation in the layer named <a href="#entityLayer" class="param">entityLayer</a> for each record. All properties are recorded in the corresponding feature, as well as in a single feature names <a href="#propertiesFeature" class="param">propertiesFeature</a> .
 
 ## Snippet
 
@@ -68,7 +66,7 @@ Constant features to add to each document created by this module.
 </div>
 Constant features to add to each section created by this module.
 
-<h3 id="entityLayerName" class="param">entityLayerName</h3>
+<h3 id="entityLayer" class="param">entityLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `entities`
 </div>
@@ -76,7 +74,7 @@ Constant features to add to each section created by this module.
 </div>
 Name of the layer where to create entities.
 
-<h3 id="ordFeatureKey" class="param">ordFeatureKey</h3>
+<h3 id="ordFeature" class="param">ordFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `ord`
 </div>
@@ -84,7 +82,7 @@ Name of the layer where to create entities.
 </div>
 Name of the feature where to record the token ordinal.
 
-<h3 id="propertiesFeatureKey" class="param">propertiesFeatureKey</h3>
+<h3 id="propertiesFeature" class="param">propertiesFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `properties`
 </div>
@@ -92,7 +90,7 @@ Name of the feature where to record the token ordinal.
 </div>
 Name of the feature where to record entities properties. *PESVReader* also records each property in a separate feature.
 
-<h3 id="sectionName" class="param">sectionName</h3>
+<h3 id="section" class="param">section</h3>
 
 <div class="param-level param-level-default-value">Default value: `text`
 </div>
@@ -100,11 +98,53 @@ Name of the feature where to record entities properties. *PESVReader* also recor
 </div>
 Name of the (unique) section.
 
-<h3 id="tokenLayerName" class="param">tokenLayerName</h3>
+<h3 id="tokenLayer" class="param">tokenLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `tokens`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the layer where to create tokens.
+
+## Deprecated parameters
+
+<h3 id="entityLayerName" class="param">entityLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#entityLayer" class="param">entityLayer</a> .
+
+<h3 id="ordFeatureKey" class="param">ordFeatureKey</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#ordFeature" class="param">ordFeature</a> .
+
+<h3 id="propertiesFeatureKey" class="param">propertiesFeatureKey</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#propertiesFeature" class="param">propertiesFeature</a> .
+
+<h3 id="sectionName" class="param">sectionName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#section" class="param">section</a> .
+
+<h3 id="tokenLayerName" class="param">tokenLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#tokenLayer" class="param">tokenLayer</a> .
 

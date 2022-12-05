@@ -100,3 +100,5 @@ Either to write the precision.
 </div>
 Either to write the recall.
 
+## Deprecated parameters
+

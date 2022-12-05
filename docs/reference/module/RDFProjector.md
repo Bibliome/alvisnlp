@@ -4,8 +4,6 @@
 
 Projects OBO terms and synonyms on sections.
 
-**This module is experimental.**
-
 ## Description
 
  *RDFProjector* reads <a href="#source" class="param">source</a> SKOS terminologies or OWL ontologies and searches for class and concept labels in sections.
@@ -18,7 +16,7 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 
 
 
- *RDFProjector* creates an annotation for each matched entry and adds these annotations to the layer named <a href="#targetLayerName" class="param">targetLayerName</a> . The created annotations will have the feature <a href="#uriFeatureName" class="param">uriFeatureName</a> containing the URI of the matched class or concept. *RDFProjector* may also map property object values into features specified by <a href="#labelFeatures" class="param">labelFeatures</a> .
+ *RDFProjector* creates an annotation for each matched entry and adds these annotations to the layer named <a href="#targetLayer" class="param">targetLayer</a> . The created annotations will have the feature <a href="#uriFeature" class="param">uriFeature</a> containing the URI of the matched class or concept. *RDFProjector* may also map property object values into features specified by <a href="#labelFeatures" class="param">labelFeatures</a> .
 
 ## Snippet
 
@@ -28,7 +26,9 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 ```xml
 <rdfprojector class="RDFProjector>
     <source></source>
+    <targetLayer></targetLayer>
     <targetLayerName></targetLayerName>
+    <uriFeature></uriFeature>
     <uriFeatureName></uriFeatureName>
 </rdfprojector>
 ```
@@ -43,7 +43,7 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 </div>
 Path to the source SKOS/OWL files.
 
-<h3 id="targetLayerName" class="param">targetLayerName</h3>
+<h3 id="targetLayer" class="param">targetLayer</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -51,7 +51,7 @@ Path to the source SKOS/OWL files.
 </div>
 Name of the layer that contains the match annotations.
 
-<h3 id="uriFeatureName" class="param">uriFeatureName</h3>
+<h3 id="uriFeature" class="param">uriFeature</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -171,7 +171,7 @@ If set to *true* , then allow case folding on the first character of the entry k
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.MultipleEntryBehaviour" class="converter">MultipleEntryBehaviour</a>
 </div>
-Specifies the behavior if <a href="#dictFile" class="param">dictFile</a> contains several entries with the same key.
+Specifies the behavior if the lexicon contains several entries with the same key.
 
 <h3 id="prefixes" class="param">prefixes</h3>
 
@@ -244,4 +244,22 @@ If set to *true* , then all whitespace characters match each other (including '\
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
 If set to *true* , then allow case folding on the first character of each word.
+
+## Deprecated parameters
+
+<h3 id="targetLayerName" class="param">targetLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#targetLayer" class="param">targetLayer</a> .
+
+<h3 id="uriFeatureName" class="param">uriFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#uriFeature" class="param">uriFeature</a> .
 

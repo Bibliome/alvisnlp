@@ -6,7 +6,7 @@ Matches a regular expression-like pattern on the sequence of annotations in a gi
 
 ## Description
 
- *PatternMatcher* searches for <a href="#pattern" class="param">pattern</a> on the sequence of annotations in layer <a href="#layerName" class="param">layerName</a> . Note that in a layer, annotations are sorted in increasing order of start boundary, then decreasing order of end boundary; the order is undefined for annotations with the exact same span.
+ *PatternMatcher* searches for <a href="#pattern" class="param">pattern</a> on the sequence of annotations in layer <a href="#layer" class="param">layer</a> . Note that in a layer, annotations are sorted in increasing order of start boundary, then decreasing order of end boundary; the order is undefined for annotations with the exact same span.
 
 For each match, *PatternMatcher* applies all actions specified by <a href="#actions" class="param">actions</a> . Each action concerns a sub-group of the pattern, if no sub-group is specified then the action applies to the whole match.
 
@@ -82,7 +82,7 @@ Comparator to use when removing overlaps.
 </div>
 Only process document that satisfy this expression.
 
-<h3 id="layerName" class="param">layerName</h3>
+<h3 id="layer" class="param">layer</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
@@ -105,4 +105,14 @@ What to do if the layer contains overlapping annotations.
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 Process only sections that satisfy this expression.
+
+## Deprecated parameters
+
+<h3 id="layerName" class="param">layerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#layer" class="param">layer</a> .
 

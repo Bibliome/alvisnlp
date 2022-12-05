@@ -6,7 +6,7 @@ Applies the [CCG](http://svn.ask.it.usyd.edu.au/trac/candc/wiki) POS tagger on a
 
 ## Description
 
- *CCGPosTagger* applies the [CCG](http://svn.ask.it.usyd.edu.au/trac/candc/wiki) POS tagger on annotations in the layer named <a href="#wordLayerName" class="param">wordLayerName</a> . Sentences are enforced if <a href="#sentenceLayerName" class="param">sentenceLayerName</a> is set.
+ *CCGPosTagger* applies the [CCG](http://svn.ask.it.usyd.edu.au/trac/candc/wiki) POS tagger on annotations in the layer named <a href="#wordLayer" class="param">wordLayer</a> . Sentences are enforced if <a href="#sentenceLayer" class="param">sentenceLayer</a> is set.
 
 If <a href="#keepPreviousPos" class="param">keepPreviousPos</a> is set to *true* , then the POS tag predicted by CCG will not be added to annotations that already have a POS tag.
 
@@ -50,7 +50,7 @@ Path to the CCG POS model.
 </div>
 Only process document that satisfy this expression.
 
-<h3 id="formFeatureName" class="param">formFeatureName</h3>
+<h3 id="formFeature" class="param">formFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `form`
 </div>
@@ -82,13 +82,13 @@ Either to keep previous POS tags.
 </div>
 Maximal number of CCG runs.
 
-<h3 id="posFeatureName" class="param">posFeatureName</h3>
+<h3 id="posFeature" class="param">posFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `pos`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-Name of the feature in word annotations where to write POS tags. This feature is read for previous POS tags if <a href="#keepPreviousPos" class="param">keepPreviousPos</a> is set to *true* .
+Name of the feature in word annotations where to write POS tags.
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 
@@ -106,7 +106,7 @@ Process only sections that satisfy this expression.
 </div>
 Process only sentences that satisfy this filter.
 
-<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+<h3 id="sentenceLayer" class="param">sentenceLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -122,11 +122,45 @@ Name of the layer containing sentence annotations.
 </div>
 Either to shut the CCG output (CCG can be quite verbose).
 
-<h3 id="wordLayerName" class="param">wordLayerName</h3>
+<h3 id="wordLayer" class="param">wordLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the layer containing word annotations.
+
+## Deprecated parameters
+
+<h3 id="formFeatureName" class="param">formFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#formFeature" class="param">formFeature</a> .
+
+<h3 id="posFeatureName" class="param">posFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#posFeature" class="param">posFeature</a> .
+
+<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#sentenceLayer" class="param">sentenceLayer</a> .
+
+<h3 id="wordLayerName" class="param">wordLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#wordLayer" class="param">wordLayer</a> .
 

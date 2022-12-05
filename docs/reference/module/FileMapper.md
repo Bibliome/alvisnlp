@@ -97,3 +97,5 @@ Matching operator: either *exact* (default) or *prefix*.
 </div>
 Separator character between columns in <a href="#mappingFile" class="param">mappingFile</a> .
 
+## Deprecated parameters
+

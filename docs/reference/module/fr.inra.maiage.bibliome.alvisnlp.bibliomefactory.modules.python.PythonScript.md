@@ -110,7 +110,7 @@ Constant features to add to each tuple created by this module.
 </div>
 Additional variable values to pass to the script's environment.
 
-<h3 id="layerNames" class="param">layerNames</h3>
+<h3 id="layers" class="param">layers</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -126,7 +126,7 @@ Names of layers to serialize. Layers not mentioned in this parameter will not be
 </div>
 Path to the python executable. By default, let the `PATH` environment determine the location of the Python executable.
 
-<h3 id="relationNames" class="param">relationNames</h3>
+<h3 id="relations" class="param">relations</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -181,4 +181,22 @@ Parameters to pass through the the serialized data structure. Expressions are ev
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 Process only sections that satisfy this expression.
+
+## Deprecated parameters
+
+<h3 id="layerNames" class="param">layerNames</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
+</div>
+Deprecated alias for <a href="#layers" class="param">layers</a> .
+
+<h3 id="relationNames" class="param">relationNames</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
+</div>
+Deprecated alias for <a href="#relations" class="param">relations</a> .
 

@@ -6,7 +6,7 @@ Removes overlapping annotations from a given layer.
 
 ## Description
 
- *RemoveOverlaps* removes overlapping annotations in the layer <a href="#layerName" class="param">layerName</a> .
+ *RemoveOverlaps* removes overlapping annotations in the layer <a href="#layer" class="param">layer</a> .
 
  *RemoveOverlaps* scans each specified layer and finds clusters of overlapping annotations. *RemoveOverlaps* distinguishes three overlapping situations:
 1.  *equal* : two annotations have exactly the same span;
@@ -28,13 +28,14 @@ By default *RemoveOverlaps* removes all kinds of annotations, keeping the longes
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <removeoverlaps class="RemoveOverlaps>
+    <layer></layer>
     <layerName></layerName>
 </removeoverlaps>
 ```
 
 ## Mandatory parameters
 
-<h3 id="layerName" class="param">layerName</h3>
+<h3 id="layer" class="param">layer</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -91,4 +92,14 @@ Either to remove strictly overlapping annotations.
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 Process only sections that satisfy this expression.
+
+## Deprecated parameters
+
+<h3 id="layerName" class="param">layerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#layer" class="param">layer</a> .
 

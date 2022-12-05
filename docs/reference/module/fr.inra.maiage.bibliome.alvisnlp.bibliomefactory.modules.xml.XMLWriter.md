@@ -78,3 +78,5 @@ XSLT stylesheet that specifies the output.
 </div>
 Either to indent the resulting XML.
 
+## Deprecated parameters
+

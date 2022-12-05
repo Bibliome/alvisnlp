@@ -4,8 +4,6 @@
 
 Reads a tabular file and applies actions for each line.
 
-**This module is experimental.**
-
 ## Description
 
  *TabularReader* reads <a href="#source" class="param">source</a> as a tabular file and for each line evaluates each <a href="#lineActions" class="param">lineActions</a> .
@@ -235,4 +233,6 @@ Either to trim values from leading and trailing whitespace
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
 Use CSV Commons library (handles quoted values).
+
+## Deprecated parameters
 

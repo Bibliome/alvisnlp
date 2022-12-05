@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-doc author="rbossy" beta="true" date="2022-12-05"
+	short-target="JsonExport"
+	target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.json.JsonExport">
+	<synopsis>
+		<p>Writes the corpus data structure as a JSON file.</p>
+	</synopsis>
+
+	<module-doc>
+		<description>
+      <p>
+      	<this/> evaluates <param>files</param> as a list of elements with the corpus as the context element and creates a file for each result.
+      	The file is located in <param>outDir</param> and named after the result of <param>fileName</param> (evaluated as a string).
+      </p>
+      <p>
+	If <param>corpusFile</param> is set, then it overrides <param>files</param> and <param>fileName</param>.
+	The whole corpus goes into a single file.
+      </p>
+      <p>Each file is a JSON file with a structure specified by <param>json</param>.</p>
+		</description>
+
+		<param-doc name="files">
+			<p>Expression that specifies which element corresponds to each file.</p>
+		</param-doc>
+
+		<param-doc name="outDir">
+			<p>Directory where files are written.</p>
+		</param-doc>
+
+		<param-doc name="fileName">
+			<p>Name of the file.</p>
+		</param-doc>
+
+		<param-doc name="corpusFile">
+			<p>Path to a single file for the whole corpus. This parameter will override both <param>files</param> and <param>fileName</param>.</p>
+		</param-doc>
+
+		<param-doc name="json">
+			<p>JSON value specification.</p>
+		</param-doc>
+
+		<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc
+		</include-doc>
+	</module-doc>
+</alvisnlp-doc>

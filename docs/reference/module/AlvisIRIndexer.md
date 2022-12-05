@@ -89,3 +89,5 @@ synopsis
 </div>
 
 
+## Deprecated parameters
+

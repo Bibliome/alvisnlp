@@ -72,7 +72,7 @@ Maximum number of lines per document.
 </div>
 Maximum number of characters per document. No limit if not set.
 
-<h3 id="bodySectionName" class="param">bodySectionName</h3>
+<h3 id="bodySection" class="param">bodySection</h3>
 
 <div class="param-level param-level-default-value">Default value: `body`
 </div>
@@ -88,11 +88,29 @@ Name of the section containing the contents of the document.
 </div>
 Character set of the input files.
 
-<h3 id="titleSectionName" class="param">titleSectionName</h3>
+<h3 id="titleSection" class="param">titleSection</h3>
 
 <div class="param-level param-level-default-value">Default value: `title`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the section containing the title of the document.
+
+## Deprecated parameters
+
+<h3 id="bodySectionName" class="param">bodySectionName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#bodySection" class="param">bodySection</a> .
+
+<h3 id="titleSectionName" class="param">titleSectionName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#titleSection" class="param">titleSection</a> .
 

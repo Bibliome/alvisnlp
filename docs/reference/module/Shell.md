@@ -109,3 +109,5 @@ Path to the command history file.
 </div>
 Specifies the shell prompt.
 
+## Deprecated parameters
+

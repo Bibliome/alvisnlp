@@ -9,7 +9,7 @@
  *AlvisAEReader* reads an AlvisAE server database and imports documents and annotation sets from an annotation campaign. The database connection is specified with <a href="#url" class="param">url</a> , <a href="#username" class="param">username</a> , <a href="#password" class="param">password</a> and <a href="#schema" class="param">schema</a> . The <a href="#campaignId" class="param">campaignId</a> parameter specifies the campaign identifier in the AlvisAE database (the AlvisAE client displays this identifier).
 
 All AlvisAE annotations, including text-bound annotations, will be represented in AlvisNLP as relation tuples, in a relation named after the annotation type.
-* For *text-bound* annotations, each fragment is represented in an annotation stored in the layer <a href="#fragmentsLayerName" class="param">fragmentsLayerName</a> . The tuple references the fragments through its arguments; their role name is <a href="#fragmentRolePrefix" class="param">fragmentRolePrefix</a> with the fragment order appended (starting at zero). Thus a single-fragment annotation will have a single argument with role `frag0` . The type of the annotation is stored in the feature <a href="#typeFeature" class="param">typeFeature</a> of the tuple and of each fragment.
+* For *text-bound* annotations, each fragment is represented in an annotation stored in the layer <a href="#fragmentsLayer" class="param">fragmentsLayer</a> . The tuple references the fragments through its arguments; their role name is <a href="#fragmentRolePrefix" class="param">fragmentRolePrefix</a> with the fragment order appended (starting at zero). Thus a single-fragment annotation will have a single argument with role `frag0` . The type of the annotation is stored in the feature <a href="#typeFeature" class="param">typeFeature</a> of the tuple and of each fragment.
 * A *group* tuple references its items through its arguments; their role name is <a href="#itemRolePrefix" class="param">itemRolePrefix</a> with the item order appended (starting at zero).
 * A *relation* tuple hareferences its arguments in a straightforward way.
 
@@ -331,7 +331,7 @@ For tuples that represent text-bound annotations, prefix of the role of fragment
 </div>
 In annotations that represent text-bound fragments, name of the feature where to store the type of the annotation.
 
-<h3 id="fragmentsLayerName" class="param">fragmentsLayerName</h3>
+<h3 id="fragmentsLayer" class="param">fragmentsLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `alvisae`
 </div>
@@ -347,7 +347,7 @@ Name of the layer where to store text-bound annotation fragments.
 </div>
 If `true` , then *AlvisAEReader* imports the *head* annotation set. If `false` , then *AlvisAEReader* imports the annotation set with version 1.
 
-<h3 id="htmlLayerName" class="param">htmlLayerName</h3>
+<h3 id="htmlLayer" class="param">htmlLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `html`
 </div>
@@ -427,7 +427,7 @@ Support database model for AlvisAE v0.3.
 </div>
 Name of the feature where to store back-reference of sources.
 
-<h3 id="sectionName" class="param">sectionName</h3>
+<h3 id="section" class="param">section</h3>
 
 <div class="param-level param-level-default-value">Default value: `text`
 </div>
@@ -458,4 +458,30 @@ Feature that contains the type of the annotation.
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Feature where to store the AlvisAE identifiers of unmatched annotations (for review annotation sets).
+
+## Deprecated parameters
+
+<h3 id="fragmentsLayerName" class="param">fragmentsLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#fragmentsLayer" class="param">fragmentsLayer</a> .
+
+<h3 id="htmlLayerName" class="param">htmlLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#htmlLayer" class="param">htmlLayer</a> .
+
+<h3 id="sectionName" class="param">sectionName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#section" class="param">section</a> .
 

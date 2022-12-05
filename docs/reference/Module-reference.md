@@ -84,6 +84,7 @@ Export modules translate the contents of the data structure and write it into fi
 | {% include module class="AlvisIRIndexer" %}         | `indexDir`              | AlvisIR index         | Uses the Lucene and alvisir-core libraries |
 | {% include module class="CompareElements" %}        | `outFile`               | Text                  | |
 | {% include module class="CompareFeatures" %}        | `outFile`               | Text                  | |
+| {% include module class="JsonExport" %}             | `outDir`, `fileName`    | JSON                  | Uses the json-simple library |
 | {% include module class="LayerComparator" %}        | `outFile`               | Text                  | |
 | {% include module class="PubAnnotationExport" %}    | `outFile`               | PubAnnotation JSON    | Uses the json-simple library |
 | {% include module class="QuickHTML" %}              | `outDir`                | HTML                  | |

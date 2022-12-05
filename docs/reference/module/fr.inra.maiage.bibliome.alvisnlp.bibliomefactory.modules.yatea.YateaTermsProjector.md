@@ -8,8 +8,6 @@ Search in the sections content for terms extracted by YaTeA (see <a href="../mod
 
  *YateaTermsProjector* reads terms in a YaTeA XML output file produced by <a href="../module/YateaExtractor" class="module">YateaExtractor</a> and searches for terms in section contents, or whatever specified by <a href="#subject" class="param">subject</a> .
 
-The parameters <a href="#skipBlank" class="param">skipBlank</a> , <a href="#skipEmpty" class="param">skipEmpty</a> , <a href="#strictColumnNumber" class="param">strictColumnNumber</a> , <a href="#trimColumns" class="param">trimColumns</a> , <a href="#separator" class="param">separator</a> , <a href="#multipleEntryBehaviour" class="param">multipleEntryBehaviour</a> control how the dictionary file is read by *YateaTermsProjector* .
-
 The parameters <a href="#allowJoined" class="param">allowJoined</a> , <a href="#allUpperCaseInsensitive" class="param">allUpperCaseInsensitive</a> , <a href="#caseInsensitive" class="param">caseInsensitive</a> , <a href="#ignoreDiacritics" class="param">ignoreDiacritics</a> , <a href="#joinDash" class="param">joinDash</a> , <a href="#matchStartCaseInsensitive" class="param">matchStartCaseInsensitive</a> , <a href="#skipConsecutiveWhitespaces" class="param">skipConsecutiveWhitespaces</a> , <a href="#skipWhitespace" class="param">skipWhitespace</a> and <a href="#wordStartCaseInsensitive" class="param">wordStartCaseInsensitive</a> control how the keys can match the sections content.
 
 The <a href="#subject" class="param">subject</a> parameter specifies which text of the section should be matched. There are two alternatives:
@@ -18,7 +16,7 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 
 
 
- *YateaTermsProjector* creates an annotation for each matched key and adds these annotations to the layer specified by <a href="#targetLayerName" class="param">targetLayerName</a> . Term structure information can be recorded in the features specified by <a href="#term-id" class="param">term-id</a> , <a href="#head" class="param">head</a> , <a href="#monoHeadId" class="param">monoHeadId</a> , <a href="#modifier" class="param">modifier</a> , and <a href="#pos" class="param">pos</a> . In addition, the created annotations will have the constant features specified in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a> .
+ *YateaTermsProjector* creates an annotation for each matched key and adds these annotations to the layer specified by <a href="#targetLayer" class="param">targetLayer</a> . Term structure information can be recorded in the features specified by <a href="#termIdFeature" class="param">termIdFeature</a> , <a href="#headFeature" class="param">headFeature</a> , <a href="#monoHeadIdFeature" class="param">monoHeadIdFeature</a> , <a href="#modifierFeature" class="param">modifierFeature</a> , and <a href="#termPosFeature" class="param">termPosFeature</a> . In addition, the created annotations will have the constant features specified in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a> .
 
  <a href="#trieSource" class="param">trieSource</a> and <a href="#trieSink" class="param">trieSink</a> are not supported by *YateaTermsProjector* .
 
@@ -29,6 +27,7 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <yateatermsprojector class="YateaTermsProjector>
+    <targetLayer></targetLayer>
     <targetLayerName></targetLayerName>
     <yateaFile></yateaFile>
 </yateatermsprojector>
@@ -36,7 +35,7 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 
 ## Mandatory parameters
 
-<h3 id="targetLayerName" class="param">targetLayerName</h3>
+<h3 id="targetLayer" class="param">targetLayer</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -110,7 +109,7 @@ If set to *true* , then allows case folding on all characters.
 </div>
 Only process document that satisfy this expression.
 
-<h3 id="head" class="param">head</h3>
+<h3 id="headFeature" class="param">headFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `head`
 </div>
@@ -150,7 +149,7 @@ If set to *true* , then allow case folding on the first character of the entry k
 </div>
 If *true* , then *YateaTermsProjector* only searches for MNP terms.
 
-<h3 id="modifier" class="param">modifier</h3>
+<h3 id="modifierFeature" class="param">modifierFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `modifier`
 </div>
@@ -158,7 +157,7 @@ If *true* , then *YateaTermsProjector* only searches for MNP terms.
 </div>
 Feature where to record the matched term's modifier identifier.
 
-<h3 id="monoHeadId" class="param">monoHeadId</h3>
+<h3 id="monoHeadIdFeature" class="param">monoHeadIdFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `mono-head`
 </div>
@@ -172,7 +171,7 @@ Feature where to record the matched term's mono-head (or superhead, or single-to
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.MultipleEntryBehaviour" class="converter">MultipleEntryBehaviour</a>
 </div>
-Specifies the behavior if <a href="#dictFile" class="param">dictFile</a> contains several entries with the same key.
+Specifies the behavior if the lexicon contains several entries with the same key.
 
 <h3 id="projectLemmas" class="param">projectLemmas</h3>
 
@@ -222,7 +221,7 @@ Specifies the contents to match.
 </div>
 If set to *true* , then all whitespace characters match each other (including '\n', '\r', '\t', and non-breaking spaces).
 
-<h3 id="termId" class="param">termId</h3>
+<h3 id="termIdFeature" class="param">termIdFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `term-id`
 </div>
@@ -230,7 +229,7 @@ If set to *true* , then all whitespace characters match each other (including '\
 </div>
 Feature where to record the matched term's identifier.
 
-<h3 id="termLemma" class="param">termLemma</h3>
+<h3 id="termLemmaFeature" class="param">termLemmaFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `lemma`
 </div>
@@ -238,7 +237,7 @@ Feature where to record the matched term's identifier.
 </div>
 Feature where to record the matched term's lemma string.
 
-<h3 id="termPOS" class="param">termPOS</h3>
+<h3 id="termPosFeature" class="param">termPosFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `pos`
 </div>
@@ -253,4 +252,62 @@ Feature where to record the matched term's components POS tags.
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
 If set to *true* , then allow case folding on the first character of each word.
+
+## Deprecated parameters
+
+<h3 id="head" class="param">head</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#headFeature" class="param">headFeature</a> .
+
+<h3 id="modifier" class="param">modifier</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#modifierFeature" class="param">modifierFeature</a> .
+
+<h3 id="monoHeadId" class="param">monoHeadId</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#monoHeadIdFeature" class="param">monoHeadIdFeature</a> .
+
+<h3 id="targetLayerName" class="param">targetLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#targetLayer" class="param">targetLayer</a> .
+
+<h3 id="termId" class="param">termId</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#termIdFeature" class="param">termIdFeature</a> .
+
+<h3 id="termLemma" class="param">termLemma</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#termLemmaFeature" class="param">termLemmaFeature</a> .
+
+<h3 id="termPOS" class="param">termPOS</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#termPosFeature" class="param">termPosFeature</a> .
 

@@ -4,8 +4,6 @@
 
  *I2B2Reader* reads files in the format of the [I2B2]() challenge.
 
-**This module is experimental.**
-
 ## Description
 
  *I2B2Reader* reads documents in [I2B2 challenge]() including the text of documents, tokenization as annotations, concepts as annotations, assertions as annotation features and relations as tuples.
@@ -113,7 +111,7 @@ Path to the directory where relation files can be found.
 </div>
 Feature where to store the concept type.
 
-<h3 id="conceptsLayerName" class="param">conceptsLayerName</h3>
+<h3 id="conceptsLayer" class="param">conceptsLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `concepts`
 </div>
@@ -137,7 +135,7 @@ Name of the left argument of relations.
 </div>
 Name of the feature where to store the line number.
 
-<h3 id="linesLayerName" class="param">linesLayerName</h3>
+<h3 id="linesLayer" class="param">linesLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `lines`
 </div>
@@ -153,7 +151,7 @@ Name of the layer where to store lines.
 </div>
 
 
-<h3 id="sectionName" class="param">sectionName</h3>
+<h3 id="section" class="param">section</h3>
 
 <div class="param-level param-level-default-value">Default value: `text`
 </div>
@@ -169,11 +167,45 @@ Name of the unique section of each document.
 </div>
 Feature where to store the token index.
 
-<h3 id="tokensLayerName" class="param">tokensLayerName</h3>
+<h3 id="tokensLayer" class="param">tokensLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `tokens`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the layer where to store tokens.
+
+## Deprecated parameters
+
+<h3 id="conceptsLayerName" class="param">conceptsLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#conceptsLayer" class="param">conceptsLayer</a> .
+
+<h3 id="linesLayerName" class="param">linesLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#linesLayer" class="param">linesLayer</a> .
+
+<h3 id="sectionName" class="param">sectionName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#section" class="param">section</a> .
+
+<h3 id="tokensLayerName" class="param">tokensLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#tokensLayer" class="param">tokensLayer</a> .
 

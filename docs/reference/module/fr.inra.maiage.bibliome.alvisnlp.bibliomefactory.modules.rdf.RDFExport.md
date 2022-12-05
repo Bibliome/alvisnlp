@@ -4,8 +4,6 @@
 
 synopsis
 
-**This module is experimental.**
-
 ## Description
 
 synopsis
@@ -83,4 +81,6 @@ synopsis
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
 
+
+## Deprecated parameters
 

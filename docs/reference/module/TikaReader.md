@@ -4,8 +4,6 @@
 
 Reads PDF or DOC files and adds a document in the corpus for each file.
 
-**This module is experimental.**
-
 ## Description
 
 
@@ -57,7 +55,7 @@ Constant features to add to each document created by this module.
 </div>
 Constant features to add to each section created by this module.
 
-<h3 id="htmlLayerName" class="param">htmlLayerName</h3>
+<h3 id="htmlLayer" class="param">htmlLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `html`
 </div>
@@ -65,7 +63,7 @@ Constant features to add to each section created by this module.
 </div>
 
 
-<h3 id="sectionName" class="param">sectionName</h3>
+<h3 id="section" class="param">section</h3>
 
 <div class="param-level param-level-default-value">Default value: `text`
 </div>
@@ -73,11 +71,37 @@ Constant features to add to each section created by this module.
 </div>
 Name of the single section containing the whole contents of a file.
 
-<h3 id="tagFeatureName" class="param">tagFeatureName</h3>
+<h3 id="tagFeature" class="param">tagFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `tag`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 
+
+## Deprecated parameters
+
+<h3 id="htmlLayerName" class="param">htmlLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#htmlLayer" class="param">htmlLayer</a> .
+
+<h3 id="sectionName" class="param">sectionName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#section" class="param">section</a> /
+
+<h3 id="tagFeatureName" class="param">tagFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#tagFeature" class="param">tagFeature</a> /
 

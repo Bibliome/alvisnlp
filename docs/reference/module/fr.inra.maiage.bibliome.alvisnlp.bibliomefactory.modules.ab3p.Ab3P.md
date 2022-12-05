@@ -4,8 +4,6 @@
 
 synopsis
 
-**This module is experimental.**
-
 ## Description
 
 synopsis
@@ -57,6 +55,14 @@ Constant features to add to each relation created by this module.
 </div>
 Constant features to add to each tuple created by this module.
 
+<h3 id="abbreviationRelation" class="param">abbreviationRelation</h3>
+
+<div class="param-level param-level-default-value">Default value: `abbreviations`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+
+
 <h3 id="documentFilter" class="param">documentFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true`
@@ -81,17 +87,9 @@ Only process document that satisfy this expression.
 </div>
 
 
-<h3 id="longFormsLayerName" class="param">longFormsLayerName</h3>
+<h3 id="longFormsLayer" class="param">longFormsLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `long-forms`
-</div>
-<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
-</div>
-
-
-<h3 id="relationName" class="param">relationName</h3>
-
-<div class="param-level param-level-default-value">Default value: `abbreviations`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
@@ -113,11 +111,37 @@ Process only sections that satisfy this expression.
 </div>
 
 
-<h3 id="shortFormsLayerName" class="param">shortFormsLayerName</h3>
+<h3 id="shortFormsLayer" class="param">shortFormsLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `short-forms`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 
+
+## Deprecated parameters
+
+<h3 id="longFormsLayerName" class="param">longFormsLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#longFormsLayer" class="param">longFormsLayer</a> .
+
+<h3 id="relationName" class="param">relationName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#abbreviationRelation" class="param">abbreviationRelation</a> .
+
+<h3 id="shortFormsLayerName" class="param">shortFormsLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#shortFormsLayer" class="param">shortFormsLayer</a> .
 

@@ -17,6 +17,7 @@ Creates tuples for each element of a Cartesian product.
 <cartesianproducttuples class="CartesianProductTuples>
     <anchor></anchor>
     <arguments></arguments>
+    <relation></relation>
     <relationName></relationName>
 </cartesianproducttuples>
 ```
@@ -39,7 +40,7 @@ Elements from which arguments are evaluated.
 </div>
 Tuple role/argument pairs.
 
-<h3 id="relationName" class="param">relationName</h3>
+<h3 id="relation" class="param">relation</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -80,4 +81,14 @@ Only process document that satisfy this expression.
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 Process only sections that satisfy this expression.
+
+## Deprecated parameters
+
+<h3 id="relationName" class="param">relationName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecate alias for <a href="#relation" class="param">relation</a> .
 

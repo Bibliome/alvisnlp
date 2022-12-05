@@ -6,7 +6,7 @@ Matches a regular expression on sections contents and create an annotation for e
 
 ## Description
 
- *RegExp* searches for <a href="#pattern" class="param">pattern</a> in the contents of sections, then creates an annotation for each match. The created annotations will span on the entire match. The created annotations will be added in the layer named <a href="#targetLayerName" class="param">targetLayerName</a> of the corresponding section. If <a href="#pattern" class="param">pattern</a> contains groups, then the pattern elements inside groups will be matched but the grouping will not be taken into account in the creation of the annotation.
+ *RegExp* searches for <a href="#pattern" class="param">pattern</a> in the contents of sections, then creates an annotation for each match. The created annotations will span on the entire match. The created annotations will be added in the layer named <a href="#targetLayer" class="param">targetLayer</a> of the corresponding section. If <a href="#pattern" class="param">pattern</a> contains groups, then the pattern elements inside groups will be matched but the grouping will not be taken into account in the creation of the annotation.
 
 The created annotations will automatically have all features defined in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a> .
 
@@ -18,6 +18,7 @@ The created annotations will automatically have all features defined in <a href=
 ```xml
 <regexp class="RegExp>
     <pattern></pattern>
+    <targetLayer></targetLayer>
     <targetLayerName></targetLayerName>
 </regexp>
 ```
@@ -32,7 +33,7 @@ The created annotations will automatically have all features defined in <a href=
 </div>
 Regular expression to match.
 
-<h3 id="targetLayerName" class="param">targetLayerName</h3>
+<h3 id="targetLayer" class="param">targetLayer</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -65,4 +66,14 @@ Only process document that satisfy this expression.
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 Process only sections that satisfy this expression.
+
+## Deprecated parameters
+
+<h3 id="targetLayerName" class="param">targetLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#targetLayer" class="param">targetLayer</a> .
 

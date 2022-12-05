@@ -4,8 +4,6 @@
 
 UNDOCUMENTED
 
-**This module is experimental.**
-
 ## Description
 
 UNDOCUMENTED
@@ -39,4 +37,6 @@ UNDOCUMENTED
 <div class="param-type">Type: <a href="../converter/java.lang.Integer" class="converter">Integer</a>
 </div>
 UNDOCUMENTED
+
+## Deprecated parameters
 

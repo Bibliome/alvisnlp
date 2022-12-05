@@ -255,3 +255,5 @@ Number of threads.
 </div>
 Size of the context window [5].
 
+## Deprecated parameters
+

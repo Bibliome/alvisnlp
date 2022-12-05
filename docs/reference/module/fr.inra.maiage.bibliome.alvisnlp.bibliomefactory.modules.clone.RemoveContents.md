@@ -4,8 +4,6 @@
 
 synopsis
 
-**This module is experimental.**
-
 ## Description
 
 synopsis
@@ -17,13 +15,14 @@ synopsis
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <removecontents class="RemoveContents>
+    <stripLayer></stripLayer>
     <stripLayerName></stripLayerName>
 </removecontents>
 ```
 
 ## Mandatory parameters
 
-<h3 id="stripLayerName" class="param">stripLayerName</h3>
+<h3 id="stripLayer" class="param">stripLayer</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -80,4 +79,14 @@ Only process document that satisfy this expression.
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 Process only sections that satisfy this expression.
+
+## Deprecated parameters
+
+<h3 id="stripLayerName" class="param">stripLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#stripLayer" class="param">stripLayer</a> .
 

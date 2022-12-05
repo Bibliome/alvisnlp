@@ -72,3 +72,5 @@ Maximum number of assertion failures before *Assert* will stop checking.
 </div>
 If `true` and there is at least one assertion failure, then *Assert* will abort the processing of the corpus.
 
+## Deprecated parameters
+

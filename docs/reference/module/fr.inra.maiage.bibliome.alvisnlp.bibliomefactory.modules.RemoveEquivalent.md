@@ -4,8 +4,6 @@
 
 Removes duplicate elements.
 
-**This module is experimental.**
-
 ## Description
 
 synopsis
@@ -49,4 +47,6 @@ synopsis
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 
+
+## Deprecated parameters
 

@@ -2,11 +2,11 @@
 
 ## Synopsis
 
-Read files and annotations in [LLL format](XXX) .
+Read files and annotations in [LLL format](http://genome.jouy.inra.fr/texte/LLLchallenge/) .
 
 ## Description
 
- *LLLReader* reads files in <a href="#source" class="param">source</a> in [LLL challenge](XXX) format.
+ *LLLReader* reads files in <a href="#source" class="param">source</a> in [LLL challenge](http://genome.jouy.inra.fr/texte/LLLchallenge/) format.
 
 ## Snippet
 
@@ -71,7 +71,7 @@ Constant features to add to each section created by this module.
 </div>
 Constant features to add to each tuple created by this module.
 
-<h3 id="agentFeatureName" class="param">agentFeatureName</h3>
+<h3 id="agentFeature" class="param">agentFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `agent`
 </div>
@@ -79,7 +79,7 @@ Constant features to add to each tuple created by this module.
 </div>
 Feature that has the value `yes` for entities that represent an agent.
 
-<h3 id="dependenciesRelationName" class="param">dependenciesRelationName</h3>
+<h3 id="dependenciesRelation" class="param">dependenciesRelation</h3>
 
 <div class="param-level param-level-default-value">Default value: `dependencies`
 </div>
@@ -87,7 +87,7 @@ Feature that has the value `yes` for entities that represent an agent.
 </div>
 Name of the relation whose tuples represent dependencies.
 
-<h3 id="dependencyLabelFeatureName" class="param">dependencyLabelFeatureName</h3>
+<h3 id="dependencyLabelFeature" class="param">dependencyLabelFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `label`
 </div>
@@ -111,7 +111,7 @@ Name of the role of the argument that represent the dependency dependent.
 </div>
 Role of the argument that represent the genic interaction target.
 
-<h3 id="genicInteractionRelationName" class="param">genicInteractionRelationName</h3>
+<h3 id="genicInteractionRelation" class="param">genicInteractionRelation</h3>
 
 <div class="param-level param-level-default-value">Default value: `genicInteraction`
 </div>
@@ -135,7 +135,7 @@ Role of the argument that represent the genic interaction target.
 </div>
 Name of the role of the argument that represent the dependency head.
 
-<h3 id="idFeatureName" class="param">idFeatureName</h3>
+<h3 id="idFeature" class="param">idFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `id`
 </div>
@@ -143,7 +143,7 @@ Name of the role of the argument that represent the dependency head.
 </div>
 Feature where to store annotations and tuples identifiers.
 
-<h3 id="lemmaFeatureName" class="param">lemmaFeatureName</h3>
+<h3 id="lemmaFeature" class="param">lemmaFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `lemma`
 </div>
@@ -151,7 +151,7 @@ Feature where to store annotations and tuples identifiers.
 </div>
 Feature where to store the word lemma.
 
-<h3 id="sectionName" class="param">sectionName</h3>
+<h3 id="section" class="param">section</h3>
 
 <div class="param-level param-level-default-value">Default value: `text`
 </div>
@@ -159,7 +159,7 @@ Feature where to store the word lemma.
 </div>
 Name of the unique section created.
 
-<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+<h3 id="sentenceLayer" class="param">sentenceLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -167,7 +167,7 @@ Name of the unique section created.
 </div>
 Name of the layer where to store sentence annotations.
 
-<h3 id="targetFeatureName" class="param">targetFeatureName</h3>
+<h3 id="targetFeature" class="param">targetFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `target`
 </div>
@@ -175,11 +175,93 @@ Name of the layer where to store sentence annotations.
 </div>
 Feature that has the value `yes` for entities that represent a target.
 
-<h3 id="wordLayerName" class="param">wordLayerName</h3>
+<h3 id="wordLayer" class="param">wordLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the layer where to store word annotations.
+
+## Deprecated parameters
+
+<h3 id="agentFeatureName" class="param">agentFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated parameter alias for <a href="#agentFeature" class="param">agentFeature</a> .
+
+<h3 id="dependenciesRelationName" class="param">dependenciesRelationName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated parameter alias for <a href="#dependenciesRelation" class="param">dependenciesRelation</a> .
+
+<h3 id="dependencyLabelFeatureName" class="param">dependencyLabelFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated parameter alias for <a href="#dependencyLabelFeature" class="param">dependencyLabelFeature</a> .
+
+<h3 id="genicInteractionRelationName" class="param">genicInteractionRelationName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated parameter alias for <a href="#genicInteractionRelation" class="param">genicInteractionRelation</a> .
+
+<h3 id="idFeatureName" class="param">idFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated parameter alias for <a href="#idFeature" class="param">idFeature</a> .
+
+<h3 id="lemmaFeatureName" class="param">lemmaFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated parameter alias for <a href="#lemmaFeature" class="param">lemmaFeature</a> .
+
+<h3 id="sectionName" class="param">sectionName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated parameter alias for <a href="#section" class="param">section</a> .
+
+<h3 id="sentenceLayerName" class="param">sentenceLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#sentenceLayer" class="param">sentenceLayer</a> .
+
+<h3 id="targetFeatureName" class="param">targetFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated parameter alias for <a href="#targetFeature" class="param">targetFeature</a> .
+
+<h3 id="wordLayerName" class="param">wordLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#wordLayer" class="param">wordLayer</a> .
 

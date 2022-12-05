@@ -8,20 +8,20 @@ This module assumes WoSMig processed the same sections.
 
 ## Description
 
- *SeSMig* scans for annotations in <a href="#wordLayerName" class="param">wordLayerName</a> and detects a sentence boundaries defined as either:
+ *SeSMig* scans for annotations in <a href="#wordLayer" class="param">wordLayer</a> and detects a sentence boundaries defined as either:
 * an annotation whose feature <a href="#eosStatusFeature" class="param">eosStatusFeature</a> equals *eos* ;
 * an annotation whose surface form contains only characaters of the value of <a href="#strongPunctuations" class="param">strongPunctuations</a> and which is followed by an uppercase character;
 * an annotation whose feature <a href="#eosStatusFeature" class="param">eosStatusFeature</a> equals *maybe-eos* and which is followed by an uppercase character.
 
 
 
- *SeSMig* creates an annotation for each sentence and adds it into the <a href="#targetLayerName" class="param">targetLayerName</a> . The <a href="#eosStatusFeature" class="param">eosStatusFeature</a> of word annotations are given a new value:
+ *SeSMig* creates an annotation for each sentence and adds it into the <a href="#targetLayer" class="param">targetLayer</a> . The <a href="#eosStatusFeature" class="param">eosStatusFeature</a> of word annotations are given a new value:
 *  **eos** : for the last word of each sentence;
 *  **not-eos** : for all other words.
 
 
 
-If <a href="#noBreakLayerName" class="param">noBreakLayerName</a> is defined, then *SeSMig* will prevent sentence boundaries inside annotations in this layer.
+If <a href="#noBreakLayer" class="param">noBreakLayer</a> is defined, then *SeSMig* will prevent sentence boundaries inside annotations in this layer.
 
 ## Snippet
 
@@ -45,7 +45,7 @@ If <a href="#noBreakLayerName" class="param">noBreakLayerName</a> is defined, th
 </div>
 Constant features to add to each annotation created by this module.
 
-<h3 id="noBreakLayerName" class="param">noBreakLayerName</h3>
+<h3 id="noBreakLayer" class="param">noBreakLayer</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -93,7 +93,7 @@ Process only sections that satisfy this expression.
 </div>
 List of strong punctuations.
 
-<h3 id="targetLayerName" class="param">targetLayerName</h3>
+<h3 id="targetLayer" class="param">targetLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `sentences`
 </div>
@@ -109,11 +109,37 @@ Name of the layer where to store sentence annotations.
 </div>
 Name of the feature where to read word annotation type.
 
-<h3 id="wordLayerName" class="param">wordLayerName</h3>
+<h3 id="wordLayer" class="param">wordLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `words`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Name of the layer containing word annotations.
+
+## Deprecated parameters
+
+<h3 id="noBreakLayerName" class="param">noBreakLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#noBreakLayer" class="param">noBreakLayer</a> .
+
+<h3 id="targetLayerName" class="param">targetLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#targetLayer" class="param">targetLayer</a> .
+
+<h3 id="wordLayerName" class="param">wordLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#wordLayer" class="param">wordLayer</a> .
 

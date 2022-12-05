@@ -18,9 +18,9 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 
 
 
- *XLSProjector* creates an annotation for each matched row and adds these annotations to the layer named <a href="#targetLayerName" class="param">targetLayerName</a> . The created annotations will have features whose keys correspond to <a href="#valueFeatures" class="param">valueFeatures</a> and values to the data associated to the matched entry (columns in the XLS file). For instance if <a href="#valueFeatures" class="param">valueFeatures</a> is *[a,b,c]* , then each annotation will have three features named *a* , *b* and *c* with the respective values of the entry's second, third and fourth columns. A feature name left blank in <a href="#entryFeatureNames" class="param">entryFeatureNames</a> will not create a feature. Thus, in order not to keep the entry in the *a* feature, <a href="#entryFeatureNames" class="param">entryFeatureNames</a> should be *[,b,c]* . In addition, the created annotations will have the feature keys and values defined in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a> .
+ *XLSProjector* creates an annotation for each matched row and adds these annotations to the layer named <a href="#targetLayer" class="param">targetLayer</a> . The created annotations will have features whose keys correspond to <a href="#valueFeatures" class="param">valueFeatures</a> and values to the data associated to the matched entry (columns in the XLS file). For instance if <a href="#valueFeatures" class="param">valueFeatures</a> is *[a,b,c]* , then each annotation will have three features named *a* , *b* and *c* with the respective values of the entry's second, third and fourth columns. A feature name left blank in <a href="#valueFeatures" class="param">valueFeatures</a> will not create a feature. Thus, in order not to keep the entry in the *a* feature, <a href="#valueFeatures" class="param">valueFeatures</a> should be *[,b,c]* . In addition, the created annotations will have the feature keys and values defined in <a href="#constantAnnotationFeatures" class="param">constantAnnotationFeatures</a> .
 
-If specified, then *XLSProjector* assumes that <a href="#trieSource" class="param">trieSource</a> contains a compiled version of the dictionary. <a href="#dictFile" class="param">dictFile</a> is not read. If specified, *XLSProjector* writes a compiled version of the dictionary in <a href="#trieSink" class="param">trieSink</a> . The use of compiled dictionaries may accelerate the processing for large dictionaries.
+If specified, then *XLSProjector* assumes that <a href="#trieSource" class="param">trieSource</a> contains a compiled version of the dictionary. <a href="#xlsFile" class="param">xlsFile</a> is not read. If specified, *XLSProjector* writes a compiled version of the dictionary in <a href="#trieSink" class="param">trieSink</a> . The use of compiled dictionaries may accelerate the processing for large dictionaries.
 
 ## Snippet
 
@@ -29,6 +29,7 @@ If specified, then *XLSProjector* assumes that <a href="#trieSource" class="para
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <xlsprojector class="XLSProjector>
+    <targetLayer></targetLayer>
     <targetLayerName></targetLayerName>
     <valueFeatures></valueFeatures>
     <xlsFile></xlsFile>
@@ -37,7 +38,7 @@ If specified, then *XLSProjector* assumes that <a href="#trieSource" class="para
 
 ## Mandatory parameters
 
-<h3 id="targetLayerName" class="param">targetLayerName</h3>
+<h3 id="targetLayer" class="param">targetLayer</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -165,7 +166,7 @@ If set to *true* , then allow case folding on the first character of the entry k
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.MultipleEntryBehaviour" class="converter">MultipleEntryBehaviour</a>
 </div>
-Specifies the behavior if <a href="#dictFile" class="param">dictFile</a> contains several entries with the same key.
+Specifies the behavior if the lexicon contains several entries with the same key.
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 
@@ -222,4 +223,14 @@ If set to *true* , then all whitespace characters match each other (including '\
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
 If set to *true* , then allow case folding on the first character of each word.
+
+## Deprecated parameters
+
+<h3 id="targetLayerName" class="param">targetLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#targetLayer" class="param">targetLayer</a> .
 

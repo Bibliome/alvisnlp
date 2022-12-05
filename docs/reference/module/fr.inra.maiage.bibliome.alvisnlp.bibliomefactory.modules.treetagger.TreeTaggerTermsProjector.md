@@ -2,11 +2,11 @@
 
 ## Synopsis
 
-UNDOCUMENTED
+Project terms from a lexicon in tree tagger format.
 
 ## Description
 
-UNDOCUMENTED
+ *TreeTaggerTermsProjector* reads <a href="#termsFile" class="param">termsFile</a> and assumes a 3-column tree-tagger format. Entries shall be separated by a period ( *./SENT/.* ).
 
 ## Snippet
 
@@ -15,6 +15,7 @@ UNDOCUMENTED
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <treetaggertermsprojector class="TreeTaggerTermsProjector>
+    <targetLayer></targetLayer>
     <targetLayerName></targetLayerName>
     <termsFile></termsFile>
 </treetaggertermsprojector>
@@ -22,7 +23,7 @@ UNDOCUMENTED
 
 ## Mandatory parameters
 
-<h3 id="targetLayerName" class="param">targetLayerName</h3>
+<h3 id="targetLayer" class="param">targetLayer</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -36,7 +37,7 @@ Name of the layer that contains the match annotations.
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
-UNDOCUMENTED
+File where to read entries.
 
 ## Optional parameters
 
@@ -112,13 +113,13 @@ If set to *true* , then allow dicacritic removal on all characters. For instance
 </div>
 If set to *true* , then treat dash characters (-) as whitespace characters with regard to <a href="#allowJoined" class="param">allowJoined</a> . For instance, the contents *aminoacid* matches the entry *amino-acid* .
 
-<h3 id="lemmaFeatureName" class="param">lemmaFeatureName</h3>
+<h3 id="lemmaFeature" class="param">lemmaFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `lemma`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Feature where to store the term lemma.
 
 <h3 id="lemmaKeys" class="param">lemmaKeys</h3>
 
@@ -126,7 +127,7 @@ UNDOCUMENTED
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
-UNDOCUMENTED
+Use lemmas as keys instead of the surface form.
 
 <h3 id="matchStartCaseInsensitive" class="param">matchStartCaseInsensitive</h3>
 
@@ -142,15 +143,15 @@ If set to *true* , then allow case folding on the first character of the entry k
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.MultipleEntryBehaviour" class="converter">MultipleEntryBehaviour</a>
 </div>
-Specifies the behavior if <a href="#dictFile" class="param">dictFile</a> contains several entries with the same key.
+Specifies the behavior if the lexicon contains several entries with the same key.
 
-<h3 id="posFeatureName" class="param">posFeatureName</h3>
+<h3 id="posFeature" class="param">posFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `pos`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Feature where to store the POS tag of matches.
 
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 
@@ -192,13 +193,13 @@ Specifies the contents to match.
 </div>
 If set to *true* , then all whitespace characters match each other (including '\n', '\r', '\t', and non-breaking spaces).
 
-<h3 id="termFeatureName" class="param">termFeatureName</h3>
+<h3 id="termFeature" class="param">termFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `term`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Feature where to store the term surface form.
 
 <h3 id="wordStartCaseInsensitive" class="param">wordStartCaseInsensitive</h3>
 
@@ -207,4 +208,38 @@ UNDOCUMENTED
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
 If set to *true* , then allow case folding on the first character of each word.
+
+## Deprecated parameters
+
+<h3 id="lemmaFeatureName" class="param">lemmaFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#lemmaFeature" class="param">lemmaFeature</a> .
+
+<h3 id="posFeatureName" class="param">posFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#posFeature" class="param">posFeature</a> .
+
+<h3 id="targetLayerName" class="param">targetLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#targetLayer" class="param">targetLayer</a> .
+
+<h3 id="termFeatureName" class="param">termFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#termFeature" class="param">termFeature</a> .
 

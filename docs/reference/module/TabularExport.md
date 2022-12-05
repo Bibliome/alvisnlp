@@ -61,7 +61,7 @@ Directory where files are written.
 </div>
 <div class="param-type">Type: <a href="../converter/java.io.File" class="converter">File</a>
 </div>
-Path to a single file for the whole corpus. This parameter will override both <a href="#files" class="param">files</a> and <a href="#fileNames" class="param">fileNames</a> .
+Path to a single file for the whole corpus. This parameter will override both <a href="#files" class="param">files</a> and <a href="#fileName" class="param">fileName</a> .
 
 <h3 id="fileName" class="param">fileName</h3>
 
@@ -134,4 +134,6 @@ Character that separates columns.
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
 Use CSV Commons library for the output.
+
+## Deprecated parameters
 

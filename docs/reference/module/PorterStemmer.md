@@ -4,8 +4,6 @@
 
 synopsis
 
-**This module is experimental.**
-
 ## Description
 
 synopsis
@@ -48,14 +46,6 @@ Only process document that satisfy this expression.
 </div>
 
 
-<h3 id="layerName" class="param">layerName</h3>
-
-<div class="param-level param-level-default-value">Default value: `words`
-</div>
-<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
-</div>
-
-
 <h3 id="sectionFilter" class="param">sectionFilter</h3>
 
 <div class="param-level param-level-default-value">Default value: `true and layer:words`
@@ -71,4 +61,22 @@ Process only sections that satisfy this expression.
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 
+
+<h3 id="wordLayer" class="param">wordLayer</h3>
+
+<div class="param-level param-level-default-value">Default value: `words`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+
+
+## Deprecated parameters
+
+<h3 id="layerName" class="param">layerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#wordLayer" class="param">wordLayer</a> /
 

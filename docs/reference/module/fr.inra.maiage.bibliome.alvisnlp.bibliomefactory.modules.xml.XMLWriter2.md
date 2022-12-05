@@ -4,8 +4,6 @@
 
 Deprecated alias for <a href="../module/XMLWriter" class="module">XMLWriter</a> .
 
-**This module is obsolete, superceded by fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml.XMLWriter**
-
 ## Description
 
 ## Snippet
@@ -65,4 +63,6 @@ XSLT stylesheet that specifies the output.
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
 Either to indent the resulting XML.
+
+## Deprecated parameters
 

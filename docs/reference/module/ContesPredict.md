@@ -8,9 +8,9 @@ Predict terms concepts using [CONTES](https://github.com/ArnaudFerre/CONTES) .
 
 ## Description
 
- *ContesPredict* predicts the concept in <a href="#ontology" class="param">ontology</a> associated to each term in <a href="#termLayer" class="param">termLayer</a> .
+ *ContesPredict* predicts the concept in <a href="#ontology" class="param">ontology</a> associated to each term in <a href="#termClassifiers" class="param">termClassifiers</a> .
 
- *ContesPredict* uses a classifier specified by <a href="#regressionMatrix" class="param">regressionMatrix</a> that must have been produced by <a href="../module/ContesTrain" class="module">ContesTrain</a> .
+ *ContesPredict* uses a classifier specified by <a href="#termClassifiers" class="param">termClassifiers</a> that must have been produced by <a href="../module/ContesTrain" class="module">ContesTrain</a> .
 
 ## Snippet
 
@@ -23,6 +23,8 @@ Predict terms concepts using [CONTES](https://github.com/ArnaudFerre/CONTES) .
     <ontology></ontology>
     <python3Executable></python3Executable>
     <termClassifiers></termClassifiers>
+    <tokenLayer></tokenLayer>
+    <tokenLayerName></tokenLayerName>
 </contespredict>
 ```
 
@@ -60,6 +62,14 @@ Path to the Python 3 executable.
 </div>
 UNDOCUMENTED
 
+<h3 id="tokenLayer" class="param">tokenLayer</h3>
+
+<div class="param-level param-level-mandatory">Mandatory
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Name of the layer containing token annotations.
+
 ## Optional parameters
 
 <h3 id="additionalArguments" class="param">additionalArguments</h3>
@@ -94,19 +104,29 @@ UNDOCUMENTED
 </div>
 Default value for the decay factor.
 
-<h3 id="formFeatureName" class="param">formFeatureName</h3>
+<h3 id="formFeature" class="param">formFeature</h3>
 
 <div class="param-level param-level-default-value">Default value: `form`
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Feature to use as word form.
 
-<h3 id="tokenLayerName" class="param">tokenLayerName</h3>
+## Deprecated parameters
 
-<div class="param-level param-level-default-value">Default value: `words`
+<h3 id="formFeatureName" class="param">formFeatureName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-UNDOCUMENTED
+Deprecated alias for <a href="#formFeature" class="param">formFeature</a> .
+
+<h3 id="tokenLayerName" class="param">tokenLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#tokenLayer" class="param">tokenLayer</a> .
 

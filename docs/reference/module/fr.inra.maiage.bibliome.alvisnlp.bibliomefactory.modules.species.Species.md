@@ -4,8 +4,6 @@
 
 Calls the [Species]() taxon tagger.
 
-**This module is experimental.**
-
 ## Description
 
  *Species* applies the [Species](XXX) taxon tagger on the contents of the sections. The *Species* software must be installed in the <a href="#speciesDir" class="param">speciesDir</a> directory. *Species* crerates an annotation for each taxon tagged by *Species* .
@@ -18,6 +16,7 @@ Calls the [Species]() taxon tagger.
 ```xml
 <species class="Species>
     <speciesDir></speciesDir>
+    <targetLayer></targetLayer>
     <targetLayerName></targetLayerName>
 </species>
 ```
@@ -32,7 +31,7 @@ Calls the [Species]() taxon tagger.
 </div>
 Directory where the *Species* software is installed.
 
-<h3 id="targetLayerName" class="param">targetLayerName</h3>
+<h3 id="targetLayer" class="param">targetLayer</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
@@ -73,4 +72,14 @@ Only process document that satisfy this expression.
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
 Process only sections that satisfy this expression.
+
+## Deprecated parameters
+
+<h3 id="targetLayerName" class="param">targetLayerName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#targetLayer" class="param">targetLayer</a> .
 

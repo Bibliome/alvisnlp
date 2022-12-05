@@ -4,8 +4,6 @@
 
 Selects most relevant keywords in documents.
 
-**This module is experimental.**
-
 ## Description
 
  *KeywordsSelector* selects the most relevant keywords in documents. The candidate keywords are specified with <a href="#keywords" class="param">keywords</a> evaluated as a list of elements with the document as the context element. The keyword text is specified by <a href="#keywordForm" class="param">keywordForm</a> .
@@ -121,4 +119,6 @@ Function to use for ranking keywords. Available functions include the keyword fr
 <div class="param-type">Type: <a href="../converter/java.lang.Character" class="converter">Character</a>
 </div>
 
+
+## Deprecated parameters
 

@@ -4,8 +4,6 @@
 
 Deprecated alias for <a href="../module/XMLReader" class="module">XMLReader</a> .
 
-**This module is obsolete, superceded by fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml.XMLReader**
-
 ## Description
 
 ## Snippet
@@ -15,6 +13,7 @@ Deprecated alias for <a href="../module/XMLReader" class="module">XMLReader</a> 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <xmlreader2 class="XMLReader2>
+    <source></source>
     <sourcePath></sourcePath>
     <xslTransform></xslTransform>
 </xmlreader2>
@@ -22,13 +21,13 @@ Deprecated alias for <a href="../module/XMLReader" class="module">XMLReader</a> 
 
 ## Mandatory parameters
 
-<h3 id="sourcePath" class="param">sourcePath</h3>
+<h3 id="source" class="param">source</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
-Path to the source directory or source file.
+UNDOCUMENTED
 
 <h3 id="xslTransform" class="param">xslTransform</h3>
 
@@ -103,4 +102,14 @@ Set to true if the input is HTML rather than XML.
 <div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
 </div>
 If true, do not convert tag names to upper case.
+
+## Deprecated parameters
+
+<h3 id="sourcePath" class="param">sourcePath</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
+</div>
+Alias for <a href="#source" class="param">source</a> . Use <a href="#source" class="param">source</a> instead.
 
