@@ -99,7 +99,7 @@ Scopes for the generated candidates. The expression is evaluated as a list of el
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.ExecutableFile" class="converter">ExecutableFile</a>
 </div>
-Path to a conda executable. If this parameter is set, then RE-BERT will be executed under a Conda environment.
+Path to a conda executable. If not set, then *REBERTPredict* uses the conda from the environment PATH.
 
 <h3 id="condaEnvironment" class="param">condaEnvironment</h3>
 
@@ -107,7 +107,7 @@ Path to a conda executable. If this parameter is set, then RE-BERT will be execu
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-Name of the conda environment. If <a href="#conda" class="param">conda</a> is not set, then this will be ignored.
+Name of the conda environment. If this parameter is set, then RE-BERT will be executed under a Conda environment.
 
 <h3 id="constantRelationFeatures" class="param">constantRelationFeatures</h3>
 

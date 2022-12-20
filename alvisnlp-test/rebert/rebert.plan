@@ -21,8 +21,8 @@
   
   <seg>
     <rigid class="MergeLayers">
-      <sourceLayerNames>Bacteria,Habitat</sourceLayerNames>
-      <targetLayerName>rigid-entities</targetLayerName>
+      <sourceLayers>Bacteria,Habitat</sourceLayers>
+      <targetLayer>rigid-entities</targetLayer>
     </rigid>
 
     <seg href="res://segmentation.plan"/>

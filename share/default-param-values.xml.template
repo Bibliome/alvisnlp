@@ -113,4 +113,22 @@ limitations under the License.
     <fasttextExecutable></fasttextExecutable>
   </module>
   
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rebert.REBERTPredict">
+    <conda></conda>
+    <condaEnvironment></condaEnvironment>
+    <python></python>
+    <rebertDir></rebertDir>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.python.PythonScript">
+    <conda></conda>
+    <condaEnvironment></condaEnvironment>
+    <python></python>
+  </module>
+
+  <module class="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.python.Stanza">
+    <conda></conda>
+    <condaEnvironment></condaEnvironment>
+    <python></python>
+  </module>
 </default-param-values>

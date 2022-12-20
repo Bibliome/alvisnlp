@@ -68,7 +68,7 @@ limitations under the License.
 
 		<hyphen-correction>
 			<ref-before class="PatternMatcher">
-				<layerName>seg__pre-words</layerName>
+				<layer>seg__pre-words</layer>
 				<pattern>
 					[@seg__fix != "yes" and @form=~"^([A-Za-z][a-z]{0,2}|[0-9]+)$"]
 					[@form == "-" and @seg__hanging-hyphen != "yes"]
@@ -80,7 +80,7 @@ limitations under the License.
 			</ref-before>
 
 			<ref-after class="PatternMatcher">
-				<layerName>seg__pre-words</layerName>
+				<layer>seg__pre-words</layer>
 				<pattern>
 					[true]
 					[@form == "-" and @seg__hanging-hyphen != "yes"]

@@ -35,11 +35,11 @@
     </param-doc>
 
     <param-doc mandatory="optional" name="conda" short-type="ExecutableFile" type="fr.inra.maiage.bibliome.util.files.ExecutableFile">
-      <p>Path to a conda executable. If this parameter is set, then RE-BERT will be executed under a Conda environment.</p>
+      <p>Path to a conda executable. If not set, then <this/> uses the conda from the environment PATH.</p>
     </param-doc>
 
     <param-doc mandatory="optional" name="condaEnvironment" short-type="String" type="java.lang.String">
-      <p>Name of the conda environment. If <param>conda</param> is not set, then this will be ignored.</p>
+      <p>Name of the conda environment. If this parameter is set, then RE-BERT will be executed under a Conda environment.</p>
     </param-doc>
 
     <param-doc default-value="false" mandatory="default: false" name="createAssertedTuples" short-type="Boolean" type="java.lang.Boolean">

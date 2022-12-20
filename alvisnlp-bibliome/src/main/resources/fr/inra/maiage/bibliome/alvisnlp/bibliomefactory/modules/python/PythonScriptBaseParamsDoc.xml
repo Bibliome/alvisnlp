@@ -10,11 +10,11 @@
   </param-doc>
 
   <param-doc name="conda">
-    <p>Path to the conda executable for running the script under a conda environment. If this parameter is not set, then the script is not run in a conda environment. If this parameter is set, then <param>condaEnvironment</param> must be set.</p>
+    <p>Path to the conda executable. If not set, the <this/> uses the conda executable from PATH. If <param>condaEnvironment</param> is not set then this parameter is ignored.</p>
   </param-doc>
 
   <param-doc name="condaEnvironment">
-    <p>Name of the conda environment in which the script must be run. This parameter is ignored if <param>conda</param> is not set.</p>
+    <p>Name of the conda environment in which the script must be run. If this parameter is not set, then the script is not run in a conda environment.</p>
   </param-doc>
 
   <param-doc name="alvisnlpPythonDirectory">

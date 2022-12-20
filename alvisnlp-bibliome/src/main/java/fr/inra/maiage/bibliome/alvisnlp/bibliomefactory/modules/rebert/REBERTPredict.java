@@ -213,12 +213,7 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 				result = true;
 			}
 		}
-		if (conda == null) {
-			if (condaEnvironment != null) {
-				logger.warning("condaEnvironment will be ignored since conda is not set");
-			}
-		}
-		else {
+		if (conda != null) {
 			if (condaEnvironment == null) {
 				logger.severe("condaEnvironment is mandatory when conda is set");
 				result = false;

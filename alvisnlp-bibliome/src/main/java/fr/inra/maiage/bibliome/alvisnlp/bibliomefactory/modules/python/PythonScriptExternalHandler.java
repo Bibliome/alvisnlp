@@ -451,8 +451,13 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 	protected List<String> getCommandLine() {
 		List<String> result = new ArrayList<String>();
 		PythonScriptBase owner = getModule();
-		if (owner.getConda() != null) {
-			result.add(owner.getConda().getAbsolutePath());
+		if (owner.getCondaEnvironment() != null) {
+			if (owner.getConda() == null) {
+				result.add("conda");
+			}
+			else {
+				result.add(owner.getConda().getAbsolutePath());
+			}
 			result.add("run");
 			result.add("--no-capture-output");
 			result.add("--name");

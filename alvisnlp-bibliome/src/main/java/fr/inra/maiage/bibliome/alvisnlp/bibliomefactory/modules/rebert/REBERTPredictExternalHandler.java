@@ -203,8 +203,13 @@ public class REBERTPredictExternalHandler extends ExternalHandler<Corpus,REBERTP
 	protected List<String> getCommandLine() {
 		List<String> result = new ArrayList<String>();
 		REBERTPredict owner = getModule();
-		if (owner.getConda() != null) {
-			result.add(owner.getConda().getAbsolutePath());
+		if (owner.getCondaEnvironment() != null) {
+			if (owner.getConda() == null) {
+				result.add("conda");
+			}
+			else {
+				result.add(owner.getConda().getAbsolutePath());
+			}
 			result.add("run");
 			result.add("--name");
 			result.add(owner.getCondaEnvironment());
