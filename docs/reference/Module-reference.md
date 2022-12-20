@@ -145,7 +145,8 @@ This section presents the module classes that can be used to train and classify 
 | {% include module class="TEESTrain" %}    | {% include module class="TEESClassify" %}   | Tuples      | SVM                 | |
 | {% include module class="TomapTrain" %}   | {% include module class="TomapProjector" %} | Annotations | ToMap               | |
 | {% include module class="WapitiTrain" %}  | {% include module class="WapitiLabel" %}    | Annotations | CRF                 | |
-| {% include module class="WekaTrain" %}    | {% include module class="WekaPredict" %}    | Any         | Various             | Uses the <a href="https://www.cs.waikato.ac.nz/ml/weka/">Weka library</a> |
+| {% include module class="WekaTrain" %}    | {% include module class="WekaPredict" %}    | Any         | Various             | Uses the <a href="https://forgemia.inra.fr/bibliome/re-bert">Weka library</a> |
+| NA                                        | {% include module class="REBERTPredict" %}  | Tuples      | BERT                | Uses <a href="https://www.cs.waikato.ac.nz/ml/weka/">re-bert</a>  |
 | {% include module class="FasttextClassifierTrain" %}    | {% include module class="FasttextClassifierLabel" %}    | Any         | Word vectors             | Uses <a href="https://fasttext.cc/">Fasttext</a> |
 | {% include module class="OpenNLPDocumentCategorizerTrain" %}    | {% include module class="OpenNLPDocumentCategorizer" %}    | Any         | ME             | Uses the <a href="https://opennlp.apache.org/">OpenNLP library</a> |
 | {% include module class="ContesTrain" %}    | {% include module class="ContesPredict" %}    | Annotations         | Word Embedding, LR             | Uses <a href="https://github.com/ArnaudFerre/CONTES">CONTES</a> |

@@ -2,13 +2,17 @@
 
 ## Synopsis
 
-UNDOCUMENTED
+Writes the corpus data structure as a JSON file.
 
 **This module is experimental.**
 
 ## Description
 
-UNDOCUMENTED
+ *JsonExport* evaluates <a href="#files" class="param">files</a> as a list of elements with the corpus as the context element and creates a file for each result. The file is located in <a href="#outDir" class="param">outDir</a> and named after the result of <a href="#fileName" class="param">fileName</a> (evaluated as a string).
+
+If <a href="#corpusFile" class="param">corpusFile</a> is set, then it overrides <a href="#files" class="param">files</a> and <a href="#fileName" class="param">fileName</a> . The whole corpus goes into a single file.
+
+Each file is a JSON file with a structure specified by <a href="#json" class="param">json</a> .
 
 ## Snippet
 
@@ -30,7 +34,7 @@ UNDOCUMENTED
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.json.JsonValue" class="converter">JsonValue</a>
 </div>
-UNDOCUMENTED
+JSON value specification.
 
 <h3 id="outDir" class="param">outDir</h3>
 
@@ -38,7 +42,7 @@ UNDOCUMENTED
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.OutputDirectory" class="converter">OutputDirectory</a>
 </div>
-UNDOCUMENTED
+Directory where files are written.
 
 ## Optional parameters
 
@@ -48,7 +52,7 @@ UNDOCUMENTED
 </div>
 <div class="param-type">Type: <a href="../converter/java.io.File" class="converter">File</a>
 </div>
-UNDOCUMENTED
+Path to a single file for the whole corpus. This parameter will override both <a href="#files" class="param">files</a> and <a href="#fileName" class="param">fileName</a> .
 
 <h3 id="fileName" class="param">fileName</h3>
 
@@ -56,7 +60,7 @@ UNDOCUMENTED
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-UNDOCUMENTED
+Name of the file.
 
 <h3 id="files" class="param">files</h3>
 
@@ -64,7 +68,7 @@ UNDOCUMENTED
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression" class="converter">Expression</a>
 </div>
-UNDOCUMENTED
+Expression that specifies which element corresponds to each file.
 
 ## Deprecated parameters
 
