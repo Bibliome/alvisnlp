@@ -10,15 +10,14 @@
   <wapiti class="WapitiTrain">
     <documentFilter>@set == "train"</documentFilter>
     <modelFile>habitats.model</modelFile>
-    <features separator=";">
-      str:normalizeSpace(@form);
-      @pos;
-      str:normalizeSpace(@lemma);
-      @chunk;
-      bio:get:Habitat:words("Habitat")
-    </features>
+    <attributes>
+      <element offsets="-2:2">str:normalizeSpace(@form)</element>
+      <element offsets="-2:2">@pos</element>
+      <element offsets="-2:2">str:normalizeSpace(@lemma)</element>
+      <element offsets="-2:2">@chunk</element>
+    </attributes>
+    <targetClass>bio:get:Habitat:words("Habitat")</targetClass>
     <trainAlgorithm>rprop</trainAlgorithm>
-    <patternFile>patterns.crf</patternFile>
     <commandLineOptions separator=" ">-t 1 --rho1 0.5 --maxiter 0</commandLineOptions>
   </wapiti>
 </alvisnlp-plan>

@@ -19,25 +19,17 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.wapiti;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.wapiti.AbstractWapiti.WapitiResolvedObjects;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 
-public abstract class AbstractWapiti extends SectionModule<WapitiResolvedObjects> {
+public abstract class AbstractWapiti<T extends SectionResolvedObjects> extends SectionModule<T> {
 	private ExecutableFile wapitiExecutable;
 	private String[] commandLineOptions;
 	private String sentenceLayer = DefaultNames.getSentenceLayer();
 	private String tokenLayer = DefaultNames.getWordLayer();
-	private Expression[] features;
 	
 	@Override
 	protected String[] addLayersToSectionFilter() {
@@ -49,14 +41,11 @@ public abstract class AbstractWapiti extends SectionModule<WapitiResolvedObjects
 		return null;
 	}
 	
+	protected abstract Evaluator[] getAttributeEvaluators();
+	
 	@Param
 	public ExecutableFile getWapitiExecutable() {
 		return wapitiExecutable;
-	}
-
-	@Param(nameType=NameType.FEATURE)
-	public Expression[] getFeatures() {
-		return features;
 	}
 
 	@Param(mandatory=false)
@@ -108,28 +97,5 @@ public abstract class AbstractWapiti extends SectionModule<WapitiResolvedObjects
 
 	public void setWapitiExecutable(ExecutableFile wapitiExecutable) {
 		this.wapitiExecutable = wapitiExecutable;
-	}
-
-	public void setFeatures(Expression[] features) {
-		this.features = features;
-	}
-
-	protected static class WapitiResolvedObjects extends SectionResolvedObjects {
-		private final Evaluator[] features;
-		
-		public WapitiResolvedObjects(ProcessingContext<Corpus> ctx, AbstractWapiti module) throws ResolverException {
-			super(ctx, module);
-			this.features = rootResolver.resolveArray(module.features, Evaluator.class);
-		}
-
-		@Override
-		public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
-			super.collectUsedNames(nameUsage, defaultType);
-			nameUsage.collectUsedNamesArray(getFeatures(), defaultType);
-		}
-
-		public Evaluator[] getFeatures() {
-			return features;
-		}
 	}
 }

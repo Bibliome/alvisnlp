@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.wapiti.AbstractWapiti.WapitiResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
@@ -20,7 +19,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
 import fr.inra.maiage.bibliome.util.Iterators;
 
-abstract class AbstractWapitiExternalHandler<T extends AbstractWapiti> extends ExternalHandler<Corpus,T> {
+abstract class AbstractWapitiExternalHandler<T extends AbstractWapiti<?>> extends ExternalHandler<Corpus,T> {
 	protected AbstractWapitiExternalHandler(ProcessingContext<Corpus> processingContext, T module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
@@ -28,14 +27,14 @@ abstract class AbstractWapitiExternalHandler<T extends AbstractWapiti> extends E
 	@Override
 	protected void prepare() throws IOException, ModuleException {
 		EvaluationContext evalCtx = new EvaluationContext(getLogger());
-		AbstractWapiti owner = getModule();
-		WapitiResolvedObjects resObj = owner.getResolvedObjects();
+		AbstractWapiti<?> owner = getModule();
+		Evaluator[] attributes = owner.getAttributeEvaluators();
 		try (PrintStream ps = new PrintStream(getWapitiInputFile())) {
 			for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getAnnotable()))) {
 				for (Layer sentence : sec.getSentences(owner.getTokenLayer(), owner.getSentenceLayer())) {
 					for (Annotation a : sentence) {
 						boolean notFirst = false;
-						for (Evaluator feat : resObj.getFeatures()) {
+						for (Evaluator feat : attributes) {
 							if (notFirst) {
 								ps.print('\t');
 							}
@@ -74,7 +73,7 @@ abstract class AbstractWapitiExternalHandler<T extends AbstractWapiti> extends E
 
 	@Override
 	protected List<String> getCommandLine() {
-		AbstractWapiti owner = getModule();
+		AbstractWapiti<?> owner = getModule();
 		List<String> result = new ArrayList<String>();
 		result.add(owner.getWapitiExecutable().getAbsolutePath());
 		result.add(getMode());

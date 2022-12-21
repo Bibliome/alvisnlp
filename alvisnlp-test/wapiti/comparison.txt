@@ -1,8 +1,9 @@
 Document BB-cat+ner-10496597, section text
     False positives:
-        'gastric biopsies' at 1715
+        'patients with high' at 603
+        'patients with chronic' at 1122
     False negatives:
-        'gastric' at 36
+        'gastric mucosa' at 36
         'gastric mucosal-associated lymphoid tissue' at 211
         'gastric mucosal' at 211
         'gastric' at 211
@@ -10,6 +11,9 @@ Document BB-cat+ner-10496597, section text
         'monoclonal B cells' at 306
         'gastric MALT' at 544
         'patients with high-grade primary gastric lymphoma' at 603
+        'patients' at 603
+        'patients' at 603
+        'patients' at 603
         'with low-grade MALT lymphoma' at 657
         'MALT' at 672
         'with atypical lymphoid infiltrates' at 690
@@ -17,29 +21,32 @@ Document BB-cat+ner-10496597, section text
         'CD20' at 849
         'CD3' at 855
         'MALT' at 1055
+        'patients with chronic active gastritis' at 1122
         'CD20-positive cells' at 1210
         'lymphocytic' at 1233
-        'B' at 1432
         'cells' at 1440
         'lymphocytic' at 1449
         'Lymphoepithelial lesions' at 1671
         'Lymphoepithelial' at 1671
-        'gastric' at 1715
+        'monoclonal B cells' at 1796
         'CD20' at 1964
         'CD3' at 1973
         'gastric MALT' at 2026
-    True positives: 8
+    True positives: 7
     Span mismatches:
-        'gastric mucosa' at 36 should be 'gastric' at 36
+        'gastric' at 36 should be 'gastric mucosa' at 36
         'gastric' at 544 should be 'gastric MALT' at 544
-        'patients' at 603 should be 'patients with high-grade primary gastric lymphoma' at 603
+        'patients with high' at 603 should be 'patients with high-grade primary gastric lymphoma' at 603
         'gastric' at 636 should be 'patients with high-grade primary gastric lymphoma' at 603
+        'patients with high' at 603 should be 'patients' at 603
+        'patients with high' at 603 should be 'patients' at 603
+        'patients with high' at 603 should be 'patients' at 603
+        'patients with chronic' at 1122 should be 'patients with chronic active gastritis' at 1122
         'T cells' at 1438 should be 'cells' at 1440
-        'gastric biopsies' at 1715 should be 'gastric' at 1715
         'gastric' at 2026 should be 'gastric MALT' at 2026
-    Strict Recall      22.222222%
-    Strict Precision   88.888889%
-    Strict F1          35.555556
+    Strict Recall      19.444444%
+    Strict Precision   77.777778%
+    Strict F1          31.111111
 
     Relaxed Recall      25.000000%
     Relaxed Precision   100.000000%
@@ -47,12 +54,13 @@ Document BB-cat+ner-10496597, section text
 
 Document BB-cat+ner-11989773, section text
     False positives:
-        'food handler samples' at 1087
+        'chicken' at 510
     False negatives:
+        'chicken nugget processing plant' at 103
         'chicken nugget' at 103
-        'chicken' at 103
         'food handlers' at 477
         'food' at 477
+        'chicken nugget processing plant' at 510
         'chicken nugget' at 510
         'selective agars' at 662
         'PALCAM' at 679
@@ -60,55 +68,51 @@ Document BB-cat+ner-11989773, section text
         'HCLA' at 696
         'product samples' at 1041
         'food handler' at 1087
-        'food' at 1087
         'food handlers' at 1200
-        'food' at 1200
         'product samples' at 1227
-    True positives: 2
+    True positives: 3
     Span mismatches:
-        'chicken nugget processing plant' at 103 should be 'chicken nugget' at 103
-        'chicken nugget processing plant' at 103 should be 'chicken' at 103
-        'chicken nugget processing plant' at 510 should be 'chicken nugget' at 510
-        'food handler samples' at 1087 should be 'food handler' at 1087
-        'food handler samples' at 1087 should be 'food' at 1087
-    Strict Recall      11.764706%
-    Strict Precision   66.666667%
-    Strict F1          20.000000
+        'chicken' at 103 should be 'chicken nugget processing plant' at 103
+        'chicken' at 103 should be 'chicken nugget' at 103
+        'chicken' at 510 should be 'chicken nugget processing plant' at 510
+        'chicken' at 510 should be 'chicken nugget' at 510
+        'food' at 1087 should be 'food handler' at 1087
+        'food' at 1200 should be 'food handlers' at 1200
+    Strict Recall      17.647059%
+    Strict Precision   75.000000%
+    Strict F1          28.571429
 
-    Relaxed Recall      17.647059%
+    Relaxed Recall      23.529412%
     Relaxed Precision   100.000000%
-    Relaxed F1          30.000000
+    Relaxed F1          38.095238
 
 Document BB-cat+ner-12109661, section text
     False positives:
-        'gastric cancer patients' at 1076
-        'people' at 1264
+        'patients with chronic' at 965
     False negatives:
         'H. pylori-positive subjects' at 416
         'H. pylori-negative subjects' at 452
-        'gastric' at 527
+        'gastric mucosa' at 527
         'H. pylori-infected monkeys' at 555
         'control monkeys' at 596
         'gastric mucosa' at 705
+        'patients with chronic gastritis' at 965
         'patients with' at 965
         'gastric cancer' at 1001
-        'young Japanese gastric cancer patients' at 1061
         'gastric' at 1076
-        'young Japanese people' at 1249
-        'gastric' at 1360
-    True positives: 13
+        'gastric mucosa' at 1360
+    True positives: 14
     Span mismatches:
-        'gastric mucosa' at 527 should be 'gastric' at 527
+        'gastric' at 527 should be 'gastric mucosa' at 527
         'gastric' at 705 should be 'gastric mucosa' at 705
-        'patients with chronic gastritis' at 965 should be 'patients with' at 965
+        'patients with chronic' at 965 should be 'patients with chronic gastritis' at 965
+        'patients with chronic' at 965 should be 'patients with' at 965
         'gastric' at 1001 should be 'gastric cancer' at 1001
-        'gastric cancer patients' at 1076 should be 'young Japanese gastric cancer patients' at 1061
-        'gastric cancer patients' at 1076 should be 'gastric' at 1076
-        'people' at 1264 should be 'young Japanese people' at 1249
-        'gastric mucosa' at 1360 should be 'gastric' at 1360
-    Strict Recall      52.000000%
-    Strict Precision   86.666667%
-    Strict F1          65.000000
+        'young Japanese gastric cancer patients' at 1061 should be 'gastric' at 1076
+        'gastric' at 1360 should be 'gastric mucosa' at 1360
+    Strict Recall      56.000000%
+    Strict Precision   93.333333%
+    Strict F1          70.000000
 
     Relaxed Recall      60.000000%
     Relaxed Precision   100.000000%
@@ -118,20 +122,19 @@ Document BB-cat+ner-1214327, section text
     False positives:
     False negatives:
         'clinical' at 42
-        'clinical' at 210
-    True positives: 4
+    True positives: 5
     Span mismatches:
-    Strict Recall      66.666667%
+    Strict Recall      83.333333%
     Strict Precision   100.000000%
-    Strict F1          80.000000
+    Strict F1          90.909091
 
-    Relaxed Recall      66.666667%
+    Relaxed Recall      83.333333%
     Relaxed Precision   100.000000%
-    Relaxed F1          80.000000
+    Relaxed F1          90.909091
 
 Document BB-cat+ner-1356998, section text
     False positives:
-        'patients' at 421
+        'patients suffering from' at 421
         'PCR products' at 948
     False negatives:
         'Human' at 0
@@ -141,7 +144,7 @@ Document BB-cat+ner-1356998, section text
         'ticks' at 1191
     True positives: 3
     Span mismatches:
-        'patients' at 421 should be 'patients suffering from rickettsial disease of different degrees of severity' at 421
+        'patients suffering from' at 421 should be 'patients suffering from rickettsial disease of different degrees of severity' at 421
     Strict Recall      37.500000%
     Strict Precision   60.000000%
     Strict F1          46.153846
@@ -167,6 +170,7 @@ Document BB-cat+ner-14633026, section text
 
 Document BB-cat+ner-15293611, section text
     False positives:
+        'sputum samples' at 579
     False negatives:
         'paediatric' at 44
         'paediatric' at 44
@@ -175,7 +179,7 @@ Document BB-cat+ner-15293611, section text
         'cystic fibrosis units' at 65
         'cystic fibrosis (CF) units' at 158
         'Sputum' at 257
-        'regional paediatric' at 331
+        'productive patients' at 297
         'regional' at 331
         'paediatric' at 340
         'adult CF units' at 355
@@ -184,12 +188,16 @@ Document BB-cat+ner-15293611, section text
         'sputum' at 579
         'clinic' at 621
         'patient' at 783
+        'patients' at 798
         'lung' at 1045
-    True positives: 8
+    True positives: 7
     Span mismatches:
-    Strict Recall      32.000000%
-    Strict Precision   100.000000%
-    Strict F1          48.484848
+        'regional paediatric' at 331 should be 'regional' at 331
+        'regional paediatric' at 331 should be 'paediatric' at 340
+        'sputum samples' at 579 should be 'sputum' at 579
+    Strict Recall      28.000000%
+    Strict Precision   87.500000%
+    Strict F1          42.424242
 
     Relaxed Recall      32.000000%
     Relaxed Precision   100.000000%
@@ -197,17 +205,20 @@ Document BB-cat+ner-15293611, section text
 
 Document BB-cat+ner-15618837, section text
     False positives:
+        'patients with chronic' at 327
         'Patients' at 504
     False negatives:
+        'patients with chronic dyspepsia' at 327
         'clinic' at 371
         'Gastric biopsies' at 393
         'Patients with H. pylori infection' at 504
-    True positives: 3
+    True positives: 2
     Span mismatches:
+        'patients with chronic' at 327 should be 'patients with chronic dyspepsia' at 327
         'Patients' at 504 should be 'Patients with H. pylori infection' at 504
-    Strict Recall      50.000000%
-    Strict Precision   75.000000%
-    Strict F1          60.000000
+    Strict Recall      33.333333%
+    Strict Precision   50.000000%
+    Strict F1          40.000000
 
     Relaxed Recall      66.666667%
     Relaxed Precision   100.000000%
@@ -231,34 +242,40 @@ Document BB-cat+ner-16273411, section text
 
 Document BB-cat+ner-16458564, section text
     False positives:
+        'children;' at 1864
     False negatives:
         'age-matched healthy controls' at 338
+        'older children' at 1159
         'Children attending the hospitals' at 1321
         'Watery stool' at 1416
         'mucous stool' at 1485
         'mucous' at 1485
         'stools' at 1528
         'hospitals' at 1604
+        'children' at 1682
         'piped water' at 1746
         'latrine' at 1764
         'mothers' at 1807
+        'children' at 1864
         'mothers' at 1894
         'fresh water supply' at 2245
         'fresh water' at 2245
         'unhygienic septic tank' at 2265
-    True positives: 12
+    True positives: 9
     Span mismatches:
         'hospitals' at 1344 should be 'Children attending the hospitals' at 1321
-    Strict Recall      46.153846%
-    Strict Precision   100.000000%
-    Strict F1          63.157895
+        'children;' at 1864 should be 'children' at 1864
+    Strict Recall      34.615385%
+    Strict Precision   90.000000%
+    Strict F1          50.000000
 
-    Relaxed Recall      46.153846%
+    Relaxed Recall      38.461538%
     Relaxed Precision   100.000000%
-    Relaxed F1          63.157895
+    Relaxed F1          55.555556
 
 Document BB-cat+ner-16514151, section text
     False positives:
+        'nature cells' at 892
         'cells' at 1068
     False negatives:
         'rich medium' at 810
@@ -345,7 +362,7 @@ Document BB-cat+ner-18094887, section text
 
 Document BB-cat+ner-18694716, section text
     False positives:
-        'cell extracts' at 763
+        'complex sample' at 638
     False negatives:
         'LTQ Orbitrap high-resolution mass spectrometer' at 222
         'mixtures of pure compounds and uniformly 13C-labeled cell extracts' at 710
@@ -353,15 +370,13 @@ Document BB-cat+ner-18694716, section text
         'LTQ Obitrap' at 1328
     True positives: 0
     Span mismatches:
-        'cell extracts' at 763 should be 'mixtures of pure compounds and uniformly 13C-labeled cell extracts' at 710
-        'cell extracts' at 763 should be '13C-labeled cell' at 751
     Strict Recall      0.000000%
     Strict Precision   0.000000%
     Strict F1          NaN
 
-    Relaxed Recall      25.000000%
-    Relaxed Precision   100.000000%
-    Relaxed F1          40.000000
+    Relaxed Recall      0.000000%
+    Relaxed Precision   0.000000%
+    Relaxed F1          NaN
 
 Document BB-cat+ner-18789156, section text
     False positives:
@@ -369,26 +384,24 @@ Document BB-cat+ner-18789156, section text
         'monocyte-like THP-1 cells' at 73
         'immune cells' at 311
         'monocytes' at 333
-        'macrophages' at 347
         'cell' at 708
-        'human' at 850
+        'human monocyte-like THP-1 cells' at 850
         'monocyte-like THP-1 cells' at 856
         'monocyte-like THP-1 cells' at 1010
         'murine' at 1280
         'monocyte-like THP-1 cells' at 1514
         'cell' at 1781
         'monocyte-like THP-1 cells' at 2247
-    True positives: 5
+    True positives: 6
     Span mismatches:
-        'human monocyte-like THP-1 cells' at 850 should be 'human' at 850
-        'human monocyte-like THP-1 cells' at 850 should be 'monocyte-like THP-1 cells' at 856
-    Strict Recall      29.411765%
+        'human' at 850 should be 'human monocyte-like THP-1 cells' at 850
+    Strict Recall      35.294118%
     Strict Precision   100.000000%
-    Strict F1          45.454545
+    Strict F1          52.173913
 
-    Relaxed Recall      29.411765%
+    Relaxed Recall      35.294118%
     Relaxed Precision   100.000000%
-    Relaxed F1          45.454545
+    Relaxed F1          52.173913
 
 Document BB-cat+ner-19004249, section text
     False positives:
@@ -405,6 +418,10 @@ Document BB-cat+ner-19004249, section text
 
 Document BB-cat+ner-19339076, section text
     False positives:
+        'GM17' at 1196
+        'LM17' at 1665
+        'GM17' at 1749
+        'LM17' at 1948
     False negatives:
         'Bile' at 0
         'Bile' at 133
@@ -426,21 +443,26 @@ Document BB-cat+ner-19339076, section text
         'bile' at 1451
         'bile' at 1511
         'bile' at 1620
-        'GM17 medium' at 1628
         'bile' at 1657
         'LM17 medium' at 1665
+        'GM17 medium' at 1749
+        'LM17 medium' at 1948
         'bile' at 2011
         'bile' at 2064
         'bile' at 2352
-    True positives: 2
+    True positives: 1
     Span mismatches:
-    Strict Recall      7.142857%
-    Strict Precision   100.000000%
-    Strict F1          13.333333
+        'GM17' at 1196 should be 'GM17 medium' at 1196
+        'LM17' at 1665 should be 'LM17 medium' at 1665
+        'GM17' at 1749 should be 'GM17 medium' at 1749
+        'LM17' at 1948 should be 'LM17 medium' at 1948
+    Strict Recall      3.571429%
+    Strict Precision   20.000000%
+    Strict F1          6.060606
 
-    Relaxed Recall      7.142857%
+    Relaxed Recall      17.857143%
     Relaxed Precision   100.000000%
-    Relaxed F1          13.333333
+    Relaxed F1          30.303030
 
 Document BB-cat+ner-19552770, section text
     False positives:
@@ -456,6 +478,7 @@ Document BB-cat+ner-19552770, section text
         'male' at 274
         'female birds' at 283
         'birds' at 290
+        'game bird farm' at 304
         'game bird' at 304
         'cloacal swabs' at 676
         'Adult partridges' at 931
@@ -463,19 +486,18 @@ Document BB-cat+ner-19552770, section text
         'game birds' at 1063
         'animal species' at 1162
         'commercially reared partridges' at 1265
-    True positives: 2
+    True positives: 1
     Span mismatches:
         'male and female birds' at 274 should be 'male' at 274
         'male and female birds' at 274 should be 'female birds' at 283
         'male and female birds' at 274 should be 'birds' at 290
-        'game bird farm' at 304 should be 'game bird' at 304
-    Strict Recall      10.526316%
-    Strict Precision   66.666667%
-    Strict F1          18.181818
+    Strict Recall      5.263158%
+    Strict Precision   50.000000%
+    Strict F1          9.523810
 
-    Relaxed Recall      15.789474%
+    Relaxed Recall      10.526316%
     Relaxed Precision   100.000000%
-    Relaxed F1          27.272727
+    Relaxed F1          19.047619
 
 Document BB-cat+ner-19621381, section text
     False positives:
@@ -492,6 +514,12 @@ Document BB-cat+ner-19621381, section text
 
 Document BB-cat+ner-20174624, section text
     False positives:
+        'polymorphonuclear' at 229
+        'dendritic' at 563
+        'human monocyte-' at 804
+        'neutrophils with' at 944
+        'neutrophils' at 1769
+        'human innate' at 2008
     False negatives:
         'Neutrophils' at 0
         'cell' at 99
@@ -502,52 +530,68 @@ Document BB-cat+ner-20174624, section text
         'innate immune' at 347
         'murine' at 540
         'murine' at 540
+        'dendritic cells' at 563
+        'human monocyte-derived macrophages' at 804
         'human' at 804
         'HMDM' at 840
         'HMDMs' at 916
-        'human' at 938
+        'human neutrophils' at 938
         'PMN' at 1017
         'PMN' at 1100
         'PMNs' at 1148
         'PMN' at 1294
         'PMN' at 1495
         'PMN cell' at 1575
-        'human' at 1763
+        'human neutrophils' at 1763
         'PMN' at 1802
         'PMN cell' at 1903
         'PMN' at 1958
         'human innate immune' at 2008
+        'human' at 2008
         'PMN' at 2057
-    True positives: 13
+    True positives: 10
     Span mismatches:
         'human' at 148 should be 'human innate immune system' at 148
+        'polymorphonuclear' at 229 should be 'polymorphonuclear leukocytes' at 229
         'murine macrophages' at 540 should be 'murine' at 540
         'murine macrophages' at 540 should be 'murine' at 540
-        'human monocyte-derived macrophages' at 804 should be 'human' at 804
-        'human neutrophils' at 938 should be 'human' at 938
-        'human neutrophils' at 1763 should be 'human' at 1763
-        'human' at 2008 should be 'human innate immune' at 2008
-    Strict Recall      34.210526%
-    Strict Precision   100.000000%
-    Strict F1          50.980392
+        'dendritic' at 563 should be 'dendritic cells' at 563
+        'human monocyte-' at 804 should be 'human monocyte-derived macrophages' at 804
+        'human monocyte-' at 804 should be 'human' at 804
+        'human' at 938 should be 'human neutrophils' at 938
+        'neutrophils with' at 944 should be 'human neutrophils' at 938
+        'human' at 1763 should be 'human neutrophils' at 1763
+        'neutrophils' at 1769 should be 'human neutrophils' at 1763
+        'human innate' at 2008 should be 'human innate immune' at 2008
+        'human innate' at 2008 should be 'human' at 2008
+    Strict Recall      26.315789%
+    Strict Precision   62.500000%
+    Strict F1          37.037037
 
-    Relaxed Recall      34.210526%
+    Relaxed Recall      42.105263%
     Relaxed Precision   100.000000%
-    Relaxed F1          50.980392
+    Relaxed F1          59.259259
 
 Document BB-cat+ner-20580604, section text
     False positives:
+        'intestinal' at 149
+        'healthy individuals' at 175
+        'intestinal' at 449
+        'healthy individuals' at 475
+        'healthy individuals' at 1778
     False negatives:
         'probiotic fermented milk beverage' at 13
         'intestinal' at 118
         'intestinal environment of healthy individuals with soft stools' at 149
+        'healthy individuals with soft stools' at 175
         'soft stools' at 200
         'fermented milk beverage' at 239
         'bottle' at 348
         'probiotics' at 368
         'bottle' at 382
-        'intestinal' at 419
+        'intestinal microbiota' at 419
         'intestinal environment of healthy individuals with soft stools' at 449
+        'healthy individuals with soft stools' at 475
         'soft stools' at 500
         'soft stools' at 563
         'probiotics' at 652
@@ -569,28 +613,29 @@ Document BB-cat+ner-20580604, section text
         'probiotic fermented milk beverage' at 1601
         'intestine' at 1642
         'stool' at 1717
+        'healthy individuals with soft stool' at 1778
         'soft stool' at 1803
-    True positives: 6
+    True positives: 3
     Span mismatches:
         'intestinal microbiota' at 118 should be 'intestinal' at 118
-        'healthy individuals with soft stools' at 175 should be 'intestinal environment of healthy individuals with soft stools' at 149
-        'healthy individuals with soft stools' at 175 should be 'soft stools' at 200
-        'intestinal microbiota' at 419 should be 'intestinal' at 419
-        'healthy individuals with soft stools' at 475 should be 'intestinal environment of healthy individuals with soft stools' at 449
-        'healthy individuals with soft stools' at 475 should be 'soft stools' at 500
-        'healthy individuals with soft stool' at 1778 should be 'soft stool' at 1803
-    Strict Recall      15.789474%
-    Strict Precision   100.000000%
-    Strict F1          27.272727
+        'intestinal' at 149 should be 'intestinal environment of healthy individuals with soft stools' at 149
+        'healthy individuals' at 175 should be 'intestinal environment of healthy individuals with soft stools' at 149
+        'healthy individuals' at 175 should be 'healthy individuals with soft stools' at 175
+        'intestinal' at 419 should be 'intestinal microbiota' at 419
+        'intestinal' at 449 should be 'intestinal environment of healthy individuals with soft stools' at 449
+        'healthy individuals' at 475 should be 'intestinal environment of healthy individuals with soft stools' at 449
+        'healthy individuals' at 475 should be 'healthy individuals with soft stools' at 475
+        'healthy individuals' at 1778 should be 'healthy individuals with soft stool' at 1778
+    Strict Recall      7.894737%
+    Strict Precision   37.500000%
+    Strict F1          13.043478
 
-    Relaxed Recall      15.789474%
+    Relaxed Recall      21.052632%
     Relaxed Precision   100.000000%
-    Relaxed F1          27.272727
+    Relaxed F1          34.782609
 
 Document BB-cat+ner-21270066, section text
     False positives:
-        'HIV-infected patients presenting with isolated perianal ulcer' at 565
-        'MSM with perianal ulcer' at 1113
     False negatives:
         'perianal ulceration' at 39
         'perianal' at 39
@@ -612,28 +657,25 @@ Document BB-cat+ner-21270066, section text
         'perianal' at 1122
     True positives: 0
     Span mismatches:
-        'HIV-infected patients presenting with isolated perianal ulcer' at 565 should be 'HIV-infected patients presenting with isolated perianal ulcer disease' at 565
-        'HIV-infected patients presenting with isolated perianal ulcer' at 565 should be 'perianal ulcer' at 612
-        'HIV-infected patients presenting with isolated perianal ulcer' at 565 should be 'perianal' at 612
-        'MSM with perianal ulcer' at 1113 should be 'MSM with perianal ulcer disease' at 1113
-        'MSM with perianal ulcer' at 1113 should be 'perianal ulcer' at 1122
-        'MSM with perianal ulcer' at 1113 should be 'perianal' at 1122
     Strict Recall      0.000000%
-    Strict Precision   0.000000%
+    Strict Precision   NaN%
     Strict F1          NaN
 
-    Relaxed Recall      11.111111%
-    Relaxed Precision   100.000000%
-    Relaxed F1          20.000000
+    Relaxed Recall      0.000000%
+    Relaxed Precision   NaN%
+    Relaxed F1          NaN
 
 Document BB-cat+ner-21543877, section text
     False positives:
+        'human' at 218
     False negatives:
-    True positives: 1
+        'human population' at 218
+    True positives: 0
     Span mismatches:
-    Strict Recall      100.000000%
-    Strict Precision   100.000000%
-    Strict F1          100.000000
+        'human' at 218 should be 'human population' at 218
+    Strict Recall      0.000000%
+    Strict Precision   0.000000%
+    Strict F1          NaN
 
     Relaxed Recall      100.000000%
     Relaxed Precision   100.000000%
@@ -641,7 +683,7 @@ Document BB-cat+ner-21543877, section text
 
 Document BB-cat+ner-21695078, section text
     False positives:
-        'female mouse model of genital tract chlamydia' at 219
+        'female' at 219
     False negatives:
         'respiratory' at 42
         'infant' at 187
@@ -661,8 +703,7 @@ Document BB-cat+ner-21695078, section text
         'mucosal surfaces' at 1044
     True positives: 1
     Span mismatches:
-        'female mouse model of genital tract chlamydia' at 219 should be 'female mouse' at 219
-        'female mouse model of genital tract chlamydia' at 219 should be 'genital tract' at 241
+        'female' at 219 should be 'female mouse' at 219
     Strict Recall      5.882353%
     Strict Precision   50.000000%
     Strict F1          10.526316
@@ -673,17 +714,20 @@ Document BB-cat+ner-21695078, section text
 
 Document BB-cat+ner-21894542, section text
     False positives:
+        'marine' at 249
         'marine' at 357
     False negatives:
         'world's oceans' at 190
+        'marine environments' at 249
         'bacterial flora' at 319
         'marine organisms' at 357
-    True positives: 1
+    True positives: 0
     Span mismatches:
+        'marine' at 249 should be 'marine environments' at 249
         'marine' at 357 should be 'marine organisms' at 357
-    Strict Recall      25.000000%
-    Strict Precision   50.000000%
-    Strict F1          33.333333
+    Strict Recall      0.000000%
+    Strict Precision   0.000000%
+    Strict F1          NaN
 
     Relaxed Recall      50.000000%
     Relaxed Precision   100.000000%
@@ -762,7 +806,7 @@ Document BB-cat+ner-3544198, section text
     False positives:
     False negatives:
         'urine of leprosy patients' at 76
-        'leprosy patients' at 219
+        'urine of leprosy patients' at 210
         'urine' at 309
         'urine of LL patients' at 465
         'nitrocellulose paper' at 558
@@ -770,7 +814,7 @@ Document BB-cat+ner-3544198, section text
     True positives: 4
     Span mismatches:
         'leprosy patients' at 85 should be 'urine of leprosy patients' at 76
-        'urine of leprosy patients' at 210 should be 'leprosy patients' at 219
+        'leprosy patients' at 219 should be 'urine of leprosy patients' at 210
         'LL patients' at 474 should be 'urine of LL patients' at 465
         'LL patients' at 721 should be 'urine of LL patients' at 712
     Strict Recall      40.000000%
@@ -841,8 +885,7 @@ Document BB-cat+ner-8559802, section text
 
 Document BB-cat+ner-9521147, section text
     False positives:
-        'patients' at 766
-        'pooled sera' at 1332
+        'patients with' at 766
     False negatives:
         'clinical' at 156
         'clinical' at 434
@@ -852,21 +895,20 @@ Document BB-cat+ner-9521147, section text
         'soil' at 1203
         'soil' at 1217
         'sera from patients with melioidosis' at 1339
+        'hyperimmune mouse sera' at 1379
         'hyperimmune mouse' at 1379
-    True positives: 2
+    True positives: 1
     Span mismatches:
-        'patients' at 766 should be 'sera from patients with different clinical spectra and with other infections' at 756
-        'patients' at 766 should be 'patients with different clinical spectra and with other infections' at 766
-        'pooled sera' at 1332 should be 'sera from patients with melioidosis' at 1339
+        'patients with' at 766 should be 'sera from patients with different clinical spectra and with other infections' at 756
+        'patients with' at 766 should be 'patients with different clinical spectra and with other infections' at 766
         'patients with melioidosis' at 1349 should be 'sera from patients with melioidosis' at 1339
-        'hyperimmune mouse sera' at 1379 should be 'hyperimmune mouse' at 1379
-    Strict Recall      18.181818%
+    Strict Recall      9.090909%
     Strict Precision   50.000000%
-    Strict F1          26.666667
+    Strict F1          15.384615
 
-    Relaxed Recall      36.363636%
+    Relaxed Recall      18.181818%
     Relaxed Precision   100.000000%
-    Relaxed F1          53.333333
+    Relaxed F1          30.769231
 
 Document BB-cat+ner-9553794, section text
     False positives:
@@ -896,44 +938,44 @@ Document BB-cat+ner-9553794, section text
 Document BB-cat+ner-9745160, section text
     False positives:
         'patients with active duodenal ulcer' at 664
+        'Groups' at 1681
         'patients with PPI' at 1985
-        'patients with bismuth' at 2065
+        'patients' at 2065
         'clinical' at 2561
     False negatives:
+        'duodenal ulcer' at 59
         'duodenal' at 59
         'duodenal ulcer' at 165
         'duodenal' at 165
         'patients with active duodenal ulcer disease and H pylori infection' at 664
         'duodenal ulcer' at 685
         'duodenal' at 685
-        'ulcer' at 1436
         'ulcer' at 1776
         'patients with PPI-based triple therapy' at 1985
         'patients with bismuth-based triple therapy' at 2065
         'duodenal' at 2508
     True positives: 7
     Span mismatches:
-        'duodenal ulcer' at 59 should be 'duodenal' at 59
         'patients with active duodenal ulcer' at 664 should be 'patients with active duodenal ulcer disease and H pylori infection' at 664
         'patients with active duodenal ulcer' at 664 should be 'duodenal ulcer' at 685
         'patients with active duodenal ulcer' at 664 should be 'duodenal' at 685
         'patients with PPI' at 1985 should be 'patients with PPI-based triple therapy' at 1985
-        'patients with bismuth' at 2065 should be 'patients with bismuth-based triple therapy' at 2065
+        'patients' at 2065 should be 'patients with bismuth-based triple therapy' at 2065
         'duodenal ulcer' at 2508 should be 'duodenal' at 2508
     Strict Recall      38.888889%
-    Strict Precision   63.636364%
-    Strict F1          48.275862
+    Strict Precision   58.333333%
+    Strict F1          46.666667
 
     Relaxed Recall      55.555556%
-    Relaxed Precision   90.909091%
-    Relaxed F1          68.965517
+    Relaxed Precision   83.333333%
+    Relaxed F1          66.666667
 
 Global scores:
-    Strict Recall      23.157895%
-    Strict Precision   84.615385%
-    Strict F1          36.363636
+    Strict Recall      20.421053%
+    Strict Precision   71.323529%
+    Strict F1          31.751227
 
-    Relaxed Recall      26.736842%
-    Relaxed Precision   97.692308%
-    Relaxed F1          41.983471
+    Relaxed Recall      27.368421%
+    Relaxed Precision   95.588235%
+    Relaxed F1          42.553191
 

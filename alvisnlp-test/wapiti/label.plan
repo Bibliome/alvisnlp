@@ -10,13 +10,12 @@
   <wapiti class="WapitiLabel">
     <documentFilter>@set == "dev"</documentFilter>
     <modelFile base-dir="test">habitats.model</modelFile>
-    <features separator=";">
+    <attributes separator=";">
       str:normalizeSpace(@form);
       @pos;
       str:normalizeSpace(@lemma);
-      @chunk;
-      bio:get:Habitat:words("Habitat")
-    </features>
+      @chunk
+    </attributes>
     <labelFeature>predicted-bio-habitat</labelFeature>
   </wapiti>
 

@@ -19,22 +19,26 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.wapiti;
 
 import java.io.IOException;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.wapiti.WapitiTrain.WapitiTrainResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
-import fr.inra.maiage.bibliome.util.files.InputFile;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 @AlvisNLPModule
-public class WapitiTrain extends AbstractWapiti {
+public class WapitiTrain extends AbstractWapiti<WapitiTrainResolvedObjects> {
 	private OutputFile modelFile;
 	private String modelType;
 	private String trainAlgorithm;
-	private InputFile patternFile;
+	private WapitiAttribute[] attributes;
+	private Expression targetClass;
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -47,8 +51,34 @@ public class WapitiTrain extends AbstractWapiti {
 	}
 
 	@Override
-	protected WapitiResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
-		return new WapitiResolvedObjects(ctx, this);
+	protected WapitiTrainResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		return new WapitiTrainResolvedObjects(ctx, this);
+	}
+	
+	@Override
+	protected Evaluator[] getAttributeEvaluators() {
+		WapitiTrainResolvedObjects resObj = getResolvedObjects();
+		Evaluator[] result = new Evaluator[resObj.attributes.length + 1];
+		for (int i = 0; i < resObj.attributes.length; ++i) {
+			result[i] = resObj.attributes[i].getValue();
+		}
+		result[result.length - 1] = resObj.targetClass;
+		return result;
+	}
+
+	protected static class WapitiTrainResolvedObjects extends SectionResolvedObjects {
+		private final WapitiAttribute.Resolved[] attributes;
+		private final Evaluator targetClass;
+		
+		protected WapitiTrainResolvedObjects(ProcessingContext<Corpus> ctx,	WapitiTrain module) throws ResolverException {
+			super(ctx, module);
+			this.attributes = rootResolver.resolveArray(module.attributes, WapitiAttribute.Resolved.class);
+			this.targetClass = module.targetClass.resolveExpressions(rootResolver);
+		}
+
+		protected WapitiAttribute.Resolved[] getAttributes() {
+			return attributes;
+		}
 	}
 
 	@Param
@@ -66,9 +96,22 @@ public class WapitiTrain extends AbstractWapiti {
 		return trainAlgorithm;
 	}
 
-	@Param(mandatory=false)
-	public InputFile getPatternFile() {
-		return patternFile;
+	@Param
+	public WapitiAttribute[] getAttributes() {
+		return attributes;
+	}
+
+	@Param
+	public Expression getTargetClass() {
+		return targetClass;
+	}
+
+	public void setAttributes(WapitiAttribute[] attributes) {
+		this.attributes = attributes;
+	}
+
+	public void setTargetClass(Expression targetClass) {
+		this.targetClass = targetClass;
 	}
 
 	public void setModelFile(OutputFile modelFile) {
@@ -81,9 +124,5 @@ public class WapitiTrain extends AbstractWapiti {
 
 	public void setTrainAlgorithm(String trainAlgorithm) {
 		this.trainAlgorithm = trainAlgorithm;
-	}
-
-	public void setPatternFile(InputFile patternFile) {
-		this.patternFile = patternFile;
 	}
 }
