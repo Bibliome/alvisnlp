@@ -105,8 +105,8 @@ limitations under the License.
     <xsl:value-of select="concat($nl, $nl)"/>
     <xsl:text>&lt;button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">&#x1F4CB;&lt;/button></xsl:text>
     <xsl:value-of select="concat($nl, '```xml', $nl)"/>
-    <xsl:value-of select="concat('&lt;', $lc, ' class=&quot;', /alvisnlp-doc/@short-target, '&gt;', $nl)"/>
-    <xsl:for-each select="param-doc[not(@default-value) and @mandatory = 'required']">
+    <xsl:value-of select="concat('&lt;', $lc, ' class=&quot;', /alvisnlp-doc/@short-target, '&quot;&gt;', $nl)"/>
+    <xsl:for-each select="param-doc[not(@default-value) and @mandatory = 'required' and not(@deprecated)]">
       <xsl:sort select="@name"/>
       <xsl:for-each select="examples/*[name() = ../../@name and position() = 1]">
 	<xsl:text>    </xsl:text>
