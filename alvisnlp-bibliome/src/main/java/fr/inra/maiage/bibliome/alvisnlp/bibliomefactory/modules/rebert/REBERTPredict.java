@@ -55,7 +55,7 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 	private Boolean createAssertedTuples = false;
 	private Boolean createNegativeTuples = false;
 	private Integer negativeCategory = 0;
-	private String relationName;
+	private String relation;
 	private String subjectRole = "subject";
 	private String objectRole = "object";
 	private String sentenceLayer = DefaultNames.getSentenceLayer();
@@ -219,14 +219,14 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 				result = false;
 			}
 		}
-		if ((candidateGenerationScope == null) && (!createAssertedTuples) && (relationName == null)) {
+		if ((candidateGenerationScope == null) && (!createAssertedTuples) && (relation == null)) {
 			logger.warning("relationName will be ignored since candidateGenerationScope is not set and createAssertedTuples is false");
 		}
-		if ((candidateGenerationScope != null) && (relationName == null)) {
+		if ((candidateGenerationScope != null) && (relation == null)) {
 			logger.severe("relationName is mandatory since candidateGenerationScope is set");
 			result = false;
 		}
-		if (createAssertedTuples && (relationName != null)) {
+		if (createAssertedTuples && (relation != null)) {
 			logger.severe("relationName is mandatory since createAssertedTuples is true");
 			result = false;
 		}
@@ -342,9 +342,10 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		return explainFeaturePrefix;
 	}
 
+	@Deprecated
 	@Param(mandatory = false, nameType = NameType.RELATION)
 	public String getRelationName() {
-		return relationName;
+		return relation;
 	}
 
 	@Param
@@ -387,6 +388,15 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		return createAssertedTuples;
 	}
 
+	@Param(mandatory = false, nameType = NameType.RELATION)
+	public String getRelation() {
+		return relation;
+	}
+
+	public void setRelation(String relation) {
+		this.relation = relation;
+	}
+
 	public void setAssertedCandidates(Expression assertedCandidates) {
 		this.assertedCandidates = assertedCandidates;
 	}
@@ -412,7 +422,7 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 	}
 
 	public void setRelationName(String relationName) {
-		this.relationName = relationName;
+		this.relation = relationName;
 	}
 
 	public void setCreateNegativeTuples(Boolean createNegativeTuples) {

@@ -16,7 +16,7 @@ limitations under the License.
 -->
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.bionlpst.BioNLPSTReader">
   <synopsis>
-    <p>Reads documents and annotations in the <a href="XXX">BioNLP-ST 2013 a1/a2 format</a>.</p>
+    <p>Reads documents and annotations in the <a href="https://2013.bionlp-st.org/file-formats">BioNLP-ST 2013 a1/a2 format</a>.</p>
   </synopsis>
 
   <module-doc>
