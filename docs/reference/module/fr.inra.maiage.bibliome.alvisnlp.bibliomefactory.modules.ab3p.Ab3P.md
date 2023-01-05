@@ -14,7 +14,7 @@ synopsis
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<ab3p class="Ab3P>
+<ab3p class="Ab3P">
     <installDir></installDir>
 </ab3p>
 ```

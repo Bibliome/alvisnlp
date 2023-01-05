@@ -14,7 +14,7 @@ synopsis
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<rdfexport class="RDFExport>
+<rdfexport class="RDFExport">
     <fileName></fileName>
     <files></files>
     <outDir></outDir>

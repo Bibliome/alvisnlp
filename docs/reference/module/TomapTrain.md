@@ -16,7 +16,7 @@
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<tomaptrain class="TomapTrain>
+<tomaptrain class="TomapTrain">
     <conceptIdentifier></conceptIdentifier>
     <outFile></outFile>
     <rcFile></rcFile>

@@ -16,7 +16,7 @@ UNDOCUMENTED
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<reberttrain class="REBERTTrain>
+<reberttrain class="REBERTTrain">
     <dataFile></dataFile>
     <label></label>
     <objects></objects>

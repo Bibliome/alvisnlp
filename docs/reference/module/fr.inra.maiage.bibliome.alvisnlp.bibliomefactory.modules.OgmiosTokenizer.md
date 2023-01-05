@@ -22,9 +22,8 @@ If <a href="#separatorTokens" class="param">separatorTokens</a> is false, the *O
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<ogmiostokenizer class="OgmiosTokenizer>
+<ogmiostokenizer class="OgmiosTokenizer">
     <targetLayer></targetLayer>
-    <targetLayerName></targetLayerName>
     <tokenTypeFeature></tokenTypeFeature>
 </ogmiostokenizer>
 ```

@@ -14,13 +14,12 @@ UNDOCUMENTED
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<tydiexportprojector class="TyDIExportProjector>
+<tydiexportprojector class="TyDIExportProjector">
     <lemmaFile></lemmaFile>
     <mergeFile></mergeFile>
     <quasiSynonymsFile></quasiSynonymsFile>
     <synonymsFile></synonymsFile>
     <targetLayer></targetLayer>
-    <targetLayerName></targetLayerName>
 </tydiexportprojector>
 ```
 

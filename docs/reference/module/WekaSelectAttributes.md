@@ -14,7 +14,7 @@ Searches for discrimminating attributes with Weka.
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<wekaselectattributes class="WekaSelectAttributes>
+<wekaselectattributes class="WekaSelectAttributes">
     <evaluationFile></evaluationFile>
     <evaluator></evaluator>
     <examples></examples>

@@ -26,9 +26,8 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<yateatermsprojector class="YateaTermsProjector>
+<yateatermsprojector class="YateaTermsProjector">
     <targetLayer></targetLayer>
-    <targetLayerName></targetLayerName>
     <yateaFile></yateaFile>
 </yateatermsprojector>
 ```

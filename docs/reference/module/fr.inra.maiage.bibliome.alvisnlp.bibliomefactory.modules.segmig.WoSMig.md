@@ -26,7 +26,7 @@ The created annotations have the feature <a href="#annotationTypeFeature" class=
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<wosmig class="WoSMig>
+<wosmig class="WoSMig">
 </wosmig>
 ```
 

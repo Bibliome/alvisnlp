@@ -26,7 +26,7 @@ The stylesheet operates on an empty XML document bound to the root element, howe
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<xmlwriter class="XMLWriter>
+<xmlwriter class="XMLWriter">
     <fileName></fileName>
     <outDir></outDir>
     <roots></roots>

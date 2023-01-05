@@ -14,7 +14,7 @@ synopsis
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<removeequivalent class="RemoveEquivalent>
+<removeequivalent class="RemoveEquivalent">
     <equivalency></equivalency>
     <target></target>
 </removeequivalent>

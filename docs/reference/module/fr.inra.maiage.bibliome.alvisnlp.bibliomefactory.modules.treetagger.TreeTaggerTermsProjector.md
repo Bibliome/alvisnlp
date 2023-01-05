@@ -14,9 +14,8 @@ Project terms from a lexicon in tree tagger format.
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<treetaggertermsprojector class="TreeTaggerTermsProjector>
+<treetaggertermsprojector class="TreeTaggerTermsProjector">
     <targetLayer></targetLayer>
-    <targetLayerName></targetLayerName>
     <termsFile></termsFile>
 </treetaggertermsprojector>
 ```

@@ -14,10 +14,9 @@ Train a model that can be used to predict binary relations using TEES
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<teestrain class="TEESTrain>
+<teestrain class="TEESTrain">
     <modelTargetDir></modelTargetDir>
     <namedEntityLayer></namedEntityLayer>
-    <namedEntityLayerName></namedEntityLayerName>
     <python2Executable></python2Executable>
     <schema></schema>
     <teesHome></teesHome>

@@ -14,10 +14,9 @@ Computes annotation n-grams.
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<ngrams class="NGrams>
+<ngrams class="NGrams">
     <maxNGramSize></maxNGramSize>
     <targetLayer></targetLayer>
-    <targetLayerName></targetLayerName>
 </ngrams>
 ```
 

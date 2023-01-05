@@ -14,9 +14,9 @@ Candidate relations can be either asserted by specifying tuples of a relation, o
 
  <a href="#assertedCandidates" class="param">assertedCandidates</a> specifies the elements corresponding to asserted candidates. Arguments are specified with <a href="#assertedSubject" class="param">assertedSubject</a> and <a href="#assertedObject" class="param">assertedObject</a> .
 
- <a href="#candidateGenerationScope" class="param">candidateGenerationScope</a> specifies the scope of generated andidates,e.g.documents or sentences. The list of elements corresponding the arguments are specified with <a href="#generatedSubjects" class="param">generatedSubjects</a> and <a href="#generatedObjects" class="param">generatedObjects</a> . For each scope, *REBERTPredict* will generate a candidate for all combinations of subject and object.
+ <a href="#candidateGenerationScope" class="param">candidateGenerationScope</a> specifies the scope of generated andidates, *e.g.* documents or sentences. The list of elements corresponding the arguments are specified with <a href="#generatedSubjects" class="param">generatedSubjects</a> and <a href="#generatedObjects" class="param">generatedObjects</a> . For each scope, *REBERTPredict* will generate a candidate for all combinations of subject and object.
 
-The selection of the model is specified with <a href="#modelType" class="param">modelType</a> ( *bert* , *biobert* , or *scibert* ) and <a href="#fineTunedModel" class="param">fineTunedModel</a> . <a href="#ensembleNumber" class="param">ensembleNumber</a> is the number of models used to make a prediction, <a href="#ensembleNumber" class="param">ensembleNumber</a> must be less or equal than the number of finetuned models. The final prediction is aggregated by vote.
+The selection of the model is specified with <a href="#modelType" class="param">modelType</a> ( *bert* , *biobert* , or *scibert* ) and <a href="#finetunedModel" class="param">finetunedModel</a> . <a href="#ensembleNumber" class="param">ensembleNumber</a> is the number of models used to make a prediction, <a href="#ensembleNumber" class="param">ensembleNumber</a> must be less or equal than the number of finetuned models. The final prediction is aggregated by vote.
 
  *REBERTPredict* stores the prediction in <a href="#labelFeature" class="param">labelFeature</a> either in the asserted candidate, or a new tuple for generated candidates. *REBERTPredict* does not create tuples for negative predictions unless <a href="#createNegativeTuples" class="param">createNegativeTuples</a> .
 
@@ -26,7 +26,7 @@ The selection of the model is specified with <a href="#modelType" class="param">
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<rebertpredict class="REBERTPredict>
+<rebertpredict class="REBERTPredict">
     <finetunedModel></finetunedModel>
     <modelType></modelType>
     <rebertDir></rebertDir>
@@ -131,7 +131,7 @@ Constant features to add to each tuple created by this module.
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-Prefix for additional features (e.g.number of votes, probability).
+Prefix for additional features ( *e.g.* number of votes, probability).
 
 <h3 id="generatedObjects" class="param">generatedObjects</h3>
 
@@ -157,7 +157,7 @@ Subject (left) arguments of generated candidates within a scope. This expression
 </div>
 Path to the Python interpreter. If not set, then *REBERTPredict* will use the Python interpreter from the *PATH* environment variable.
 
-<h3 id="relationName" class="param">relationName</h3>
+<h3 id="relation" class="param">relation</h3>
 
 <div class="param-level param-level-optional">Optional
 </div>
@@ -262,4 +262,12 @@ Name of the subject (left) argument in tuples created for generated candidates.
 Use GPU instead of CPU.
 
 ## Deprecated parameters
+
+<h3 id="relationName" class="param">relationName</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Deprecated alias for <a href="#relation" class="param">relation</a> .
 

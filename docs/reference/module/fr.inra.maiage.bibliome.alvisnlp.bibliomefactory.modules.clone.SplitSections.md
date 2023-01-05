@@ -18,9 +18,8 @@ Creates a copy of annotations in other layers in the new section. Relation and t
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<splitsections class="SplitSections>
+<splitsections class="SplitSections">
     <selectLayer></selectLayer>
-    <selectLayerName></selectLayerName>
 </splitsections>
 ```
 

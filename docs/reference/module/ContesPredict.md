@@ -18,13 +18,12 @@ Predict terms concepts using [CONTES](https://github.com/ArnaudFerre/CONTES) .
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<contespredict class="ContesPredict>
+<contespredict class="ContesPredict">
     <contesDir></contesDir>
     <ontology></ontology>
     <python3Executable></python3Executable>
     <termClassifiers></termClassifiers>
     <tokenLayer></tokenLayer>
-    <tokenLayerName></tokenLayerName>
 </contespredict>
 ```
 

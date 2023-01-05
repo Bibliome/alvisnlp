@@ -16,7 +16,7 @@ UNDOCUMENTED
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<pubannotationexport class="PubAnnotationExport>
+<pubannotationexport class="PubAnnotationExport">
     <outFile></outFile>
 </pubannotationexport>
 ```

@@ -16,7 +16,7 @@ For each match, *PatternMatcher* applies all actions specified by <a href="#acti
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<patternmatcher class="PatternMatcher>
+<patternmatcher class="PatternMatcher">
     <actions></actions>
     <pattern></pattern>
 </patternmatcher>

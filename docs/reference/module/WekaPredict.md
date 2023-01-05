@@ -14,11 +14,10 @@ Classifies elements with a Weka classifier.
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<wekapredict class="WekaPredict>
+<wekapredict class="WekaPredict">
     <classifierFile></classifierFile>
     <examples></examples>
     <predictedClassFeature></predictedClassFeature>
-    <predictedClassFeatureKey></predictedClassFeatureKey>
     <relationDefinition></relationDefinition>
 </wekapredict>
 ```

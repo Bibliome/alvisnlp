@@ -14,9 +14,8 @@ synopsis
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<pubtatorreader class="PubTatorReader>
+<pubtatorreader class="PubTatorReader">
     <source></source>
-    <sourcePath></sourcePath>
 </pubtatorreader>
 ```
 

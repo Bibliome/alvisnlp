@@ -14,7 +14,7 @@ Maps elements according to a collection of mapping elements.
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<elementmapper class="ElementMapper>
+<elementmapper class="ElementMapper">
     <entries></entries>
     <form></form>
     <key></key>

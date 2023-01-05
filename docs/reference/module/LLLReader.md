@@ -14,7 +14,7 @@ Read files and annotations in [LLL format](http://genome.jouy.inra.fr/texte/LLLc
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<lllreader class="LLLReader>
+<lllreader class="LLLReader">
     <source></source>
 </lllreader>
 ```

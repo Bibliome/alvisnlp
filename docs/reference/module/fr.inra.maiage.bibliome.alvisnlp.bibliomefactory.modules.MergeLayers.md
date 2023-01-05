@@ -14,11 +14,9 @@ Creates a new layer in each section containing all annotations in source layers.
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<mergelayers class="MergeLayers>
-    <sourceLayerNames></sourceLayerNames>
+<mergelayers class="MergeLayers">
     <sourceLayers></sourceLayers>
     <targetLayer></targetLayer>
-    <targetLayerName></targetLayerName>
 </mergelayers>
 ```
 

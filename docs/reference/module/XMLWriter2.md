@@ -12,7 +12,7 @@ Deprecated alias for <a href="../module/XMLWriter" class="module">XMLWriter</a> 
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<xmlwriter2 class="XMLWriter2>
+<xmlwriter2 class="XMLWriter2">
     <fileName></fileName>
     <outDir></outDir>
     <roots></roots>
