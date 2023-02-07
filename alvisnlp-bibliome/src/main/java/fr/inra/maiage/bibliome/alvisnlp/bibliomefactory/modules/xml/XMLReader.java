@@ -115,27 +115,27 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 	protected Transformer getTransformer(ProcessingContext<Corpus> ctx) throws IOException, TransformerConfigurationException {
     	Transformer result = null;
     	TransformerFactory transformerFactory = TransformerFactory.newInstance();
-    	InputStream is = xslTransform.getInputStream();
+    	InputStream is = getXslTransform().getInputStream();
     	Logger logger = getLogger(ctx);
-    	logger.info("using transform: " + xslTransform.getStreamName(is));
+    	logger.info("using transform: " + getXslTransform().getStreamName(is));
     	Source source = new StreamSource(is);
     	result = transformerFactory.newTransformer(source);
     	is.close();
-    	if (stringParams != null)
-    		for (Map.Entry<String,String> e : stringParams.entrySet())
+    	if (getStringParams() != null)
+    		for (Map.Entry<String,String> e : getStringParams().entrySet())
     			result.setParameter(e.getKey(), e.getValue());
         return result;
 	}
 
     @TimeThis(task="read-file", category=TimerCategory.LOAD_RESOURCE)
 	protected Source getSource(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, InputStream file) throws SAXException, IOException, ParserConfigurationException {
-		if (html) {
+		if (getHtml()) {
 	        DOMParser parser = new DOMParser();
 	        parser.setFeature("http://xml.org/sax/features/namespaces", false);
 	        parser.setFeature("http://cyberneko.org/html/features/scanner/cdata-sections", true);
 	        parser.setFeature("http://cyberneko.org/html/features/parse-noscript-content", false);
-	        parser.setProperty("http://cyberneko.org/html/properties/default-encoding", source.getCharset());
-	        if (rawTagNames) {
+	        parser.setProperty("http://cyberneko.org/html/properties/default-encoding", getSource().getCharset());
+	        if (getRawTagNames()) {
 	        	parser.setProperty("http://cyberneko.org/html/properties/names/elems", "match");
 	        }
 	        else {
@@ -164,7 +164,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		try {
 			Transformer transformer = getTransformer(ctx);
 			Logger logger = getLogger(ctx);
-			for (InputStream is : Iterators.loop(source.getInputStreams())) {
+			for (InputStream is : Iterators.loop(getSource().getInputStreams())) {
 				processFile(ctx, logger, corpus, is, transformer);
 				is.close();
 			}
@@ -175,7 +175,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 	}
 
 	private void processFile(ProcessingContext<Corpus> ctx, Logger logger, Corpus corpus, InputStream file, Transformer transformer) throws IOException, SAXException, ParserConfigurationException, TransformerException {
-		String name = source.getStreamName(file);
+		String name = getSource().getStreamName(file);
 		logger.finer("reading: " + name);
 		transformer.reset();
 		transformer.setParameter(SOURCE_PATH_PARAMETER, name);
@@ -210,7 +210,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 	@Deprecated
 	@Param
 	public SourceStream getSourcePath() {
-		return source;
+		return getSource();
 	}
 
 	@Param
@@ -232,7 +232,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 	}
 
 	public void setSourcePath(SourceStream sourcePath) {
-		this.source = sourcePath;
+		setSource(sourcePath);
 	}
 
 	public void setHtml(Boolean html) {
