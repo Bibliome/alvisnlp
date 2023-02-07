@@ -32,7 +32,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
 
 class XMLReaderContext {
-	private final XMLReader owner;
+	private final AbstractXMLReader<?> owner;
 	private final Corpus corpus;
 	private final Deque<Element> elementStack = new ArrayDeque<Element>();
 	private final Deque<Document> documentStack = new ArrayDeque<Document>();
@@ -42,7 +42,7 @@ class XMLReaderContext {
 	private final Deque<Tuple> tupleStack = new ArrayDeque<Tuple>();
 	private final Deque<Map<String,Annotation>> refScope = new ArrayDeque<Map<String,Annotation>>();
 	
-	XMLReaderContext(XMLReader owner, Corpus corpus) {
+	XMLReaderContext(AbstractXMLReader<?> owner, Corpus corpus) {
 		super();
 		this.owner = owner;
 		this.corpus = corpus;

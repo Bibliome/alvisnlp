@@ -17,27 +17,12 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Map;
-import java.util.logging.Logger;
 import java.util.regex.Pattern;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParserFactory;
-import javax.xml.transform.Result;
-import javax.xml.transform.Source;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.sax.SAXResult;
-import javax.xml.transform.sax.SAXSource;
-import javax.xml.transform.stream.StreamSource;
 
 import org.apache.xalan.extensions.ExpressionContext;
 import org.apache.xalan.extensions.XSLProcessorContext;
@@ -47,40 +32,27 @@ import org.apache.xpath.NodeSet;
 import org.apache.xpath.XPath;
 import org.apache.xpath.XPathContext;
 import org.apache.xpath.objects.XObject;
-import org.cyberneko.html.parsers.DOMParser;
-import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.EntityResolver;
-import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
 
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreator;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.DocumentCreator;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.SectionCreator;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
-import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.StringCat;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 @AlvisNLPModule
-public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, AnnotationCreator, TupleCreator {
+public abstract class XMLReader extends AbstractXMLReader<ResolvedObjects> {
 	private static final org.w3c.dom.Document document;
 	static {
 		try {
@@ -90,9 +62,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 			throw new RuntimeException(pce);
 		}
 	}
-    public static final String SOURCE_PATH_PARAMETER = "source-path";
-    public static final String SOURCE_BASENAME_PARAMETER = "source-basename";
-    private static final String XML_READER_CONTEXT_PARAMETER = "xml-reader-context";
+
     public static final String INLINE_NAMESPACE = "http://bibliome.jouy.inra.fr/alvisnlp/bibliome-module-factory/inline";
 
     public static final String START_ATTRNAME = "start";
@@ -111,98 +81,35 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 		return new ResolvedObjects(ctx, this);
 	}
 
-    @TimeThis(task="read-xslt", category=TimerCategory.LOAD_RESOURCE)
-	protected Transformer getTransformer(ProcessingContext<Corpus> ctx) throws IOException, TransformerConfigurationException {
-    	Transformer result = null;
-    	TransformerFactory transformerFactory = TransformerFactory.newInstance();
-    	InputStream is = getXslTransform().getInputStream();
-    	Logger logger = getLogger(ctx);
-    	logger.info("using transform: " + getXslTransform().getStreamName(is));
-    	Source source = new StreamSource(is);
-    	result = transformerFactory.newTransformer(source);
-    	is.close();
-    	if (getStringParams() != null)
-    		for (Map.Entry<String,String> e : getStringParams().entrySet())
-    			result.setParameter(e.getKey(), e.getValue());
-        return result;
-	}
-
-    @TimeThis(task="read-file", category=TimerCategory.LOAD_RESOURCE)
-	protected Source getSource(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, InputStream file) throws SAXException, IOException, ParserConfigurationException {
-		if (getHtml()) {
-	        DOMParser parser = new DOMParser();
-	        parser.setFeature("http://xml.org/sax/features/namespaces", false);
-	        parser.setFeature("http://cyberneko.org/html/features/scanner/cdata-sections", true);
-	        parser.setFeature("http://cyberneko.org/html/features/parse-noscript-content", false);
-	        parser.setProperty("http://cyberneko.org/html/properties/default-encoding", getSource().getCharset());
-	        if (getRawTagNames()) {
-	        	parser.setProperty("http://cyberneko.org/html/properties/names/elems", "match");
-	        }
-	        else {
-	        	parser.setProperty("http://cyberneko.org/html/properties/names/elems", "lower");
-	        }
-	        parser.parse(new InputSource(file));
-	        Document doc = parser.getDocument();
-	        return new DOMSource(doc);
-		}
-		SAXParserFactory spf = SAXParserFactory.newInstance();
-		spf.setNamespaceAware(true);
-		spf.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
-	    org.xml.sax.XMLReader xmlReader = spf.newSAXParser().getXMLReader();
-	    xmlReader.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
-	    xmlReader.setEntityResolver(new EntityResolver() {
-	        @Override
-			public InputSource resolveEntity(String pid, String sid) throws SAXException {
-	            return new InputSource(new ByteArrayInputStream(new byte[] {}));
-	        }
-	    });
-	    return new SAXSource(xmlReader, new InputSource(file));
-	}
-
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
-			Transformer transformer = getTransformer(ctx);
-			Logger logger = getLogger(ctx);
-			for (InputStream is : Iterators.loop(getSource().getInputStreams())) {
-				processFile(ctx, logger, corpus, is, transformer);
-				is.close();
-			}
+			processDocuments(ctx, corpus);
 		}
 		catch (IOException | SAXException | ParserConfigurationException | TransformerException e) {
 			throw new ProcessingException(e);
 		}
 	}
-
-	private void processFile(ProcessingContext<Corpus> ctx, Logger logger, Corpus corpus, InputStream file, Transformer transformer) throws IOException, SAXException, ParserConfigurationException, TransformerException {
-		String name = getSource().getStreamName(file);
-		logger.finer("reading: " + name);
-		transformer.reset();
-		transformer.setParameter(SOURCE_PATH_PARAMETER, name);
-		transformer.setParameter(SOURCE_BASENAME_PARAMETER, new File(name).getName());
-		transformer.setParameter(XML_READER_CONTEXT_PARAMETER, new XMLReaderContext(this, corpus));
-		Source source = getSource(ctx, file);
-		doTransform(ctx, transformer, source);
-	}
-
-	@SuppressWarnings("static-method")
-	@TimeThis(task="transform")
-	protected void doTransform(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, Transformer transformer, Source source) throws TransformerException {
-		Result result = new SAXResult(new DefaultHandler());
-		transformer.transform(source, result);
+	
+	@Override
+	public SourceStream getXMLSource() {
+		return getSource();
 	}
 
 	@Param
+	@Override
 	public SourceStream getXslTransform() {
 		return xslTransform;
 	}
 
 	@Param(mandatory=false)
+	@Override
 	public Mapping getStringParams() {
 		return stringParams;
 	}
 
 	@Param
+	@Override
 	public Boolean getHtml() {
 		return html;
 	}
@@ -214,6 +121,7 @@ public abstract class XMLReader extends CorpusModule<ResolvedObjects> implements
 	}
 
 	@Param
+	@Override
 	public Boolean getRawTagNames() {
 		return rawTagNames;
 	}
