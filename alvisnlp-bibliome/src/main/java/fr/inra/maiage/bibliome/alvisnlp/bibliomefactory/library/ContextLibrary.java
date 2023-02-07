@@ -8,10 +8,11 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Function;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.FunctionLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Library;
 
 @Library("ctx")
-public abstract class Context {
+public abstract class ContextLibrary extends FunctionLibrary {
 	@Function
 	public static final String before(EvaluationContext ctx, Element elt, int size) {
 		Annotation a = DownCastElement.toAnnotation(elt);
