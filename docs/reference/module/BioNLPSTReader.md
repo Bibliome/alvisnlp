@@ -2,7 +2,7 @@
 
 ## Synopsis
 
-Reads documents and annotations in the [BioNLP-ST 2013 a1/a2 format](XXX) .
+Reads documents and annotations in the [BioNLP-ST 2013 a1/a2 format](https://2013.bionlp-st.org/file-formats) .
 
 ## Description
 
