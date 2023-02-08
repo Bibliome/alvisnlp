@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alvisnlp-doc author="" beta="true" date=""
+	short-target="TagTogReader"
+	target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml.TagTogReader">
+	<synopsis>
+		<p>Reads documents and annotations from <a href="https://www.tagtog.com/">TagTog</a> <a href="https://docs.tagtog.com/anndoc.html">JSON anndoc format</a>.</p>
+	</synopsis>
+
+	<module-doc>
+		<description>
+			<p><this/> reads a ZIP archive exported by <a href="https://www.tagtog.com/">TagTog</a> in <a href="https://docs.tagtog.com/anndoc.html">JSON anndoc format</a>. The archive must be downloaded by exporting a TagTog project.</p>
+		</description>
+
+		<param-doc name="annotatorFeature">
+			<p>Feature where to store the name of the annotator that created the entity or relation in TagTog.</p>
+		</param-doc>
+
+		<param-doc name="argumentPrefix">
+			<p>Prefix of the roles of arguments of relations.</p>
+		</param-doc>
+
+		<param-doc name="entitiesLayer">
+			<p>Layer where to place entity annotations.</p>
+		</param-doc>
+
+		<param-doc name="relation">
+			<p>Relation where to place TagTog relations.</p>
+		</param-doc>
+
+		<param-doc name="typeFeature">
+			<p>Feature where to store entity and relation types.</p>
+		</param-doc>
+
+		<param-doc name="zipFile">
+			<p>Path to TagTog's export archive.</p>
+		</param-doc>
+
+		<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
+		<include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.DocumentCreatorParamsDoc</include-doc>
+		<include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.SectionCreatorParamsDoc</include-doc>
+		<include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.AnnotationCreatorParamsDoc</include-doc>
+		<include-doc>fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreatorParamsDoc</include-doc>
+	</module-doc>
+</alvisnlp-doc>
