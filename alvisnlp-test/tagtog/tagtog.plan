@@ -12,9 +12,9 @@
     <columns separator=";">
       section.document.@id;
       @type;
-      ctx:sentence-before:sentences;
+      ctx:sentence-before;
       @form;
-      ctx:sentence-after:sentences
+      ctx:sentence-after
     </columns>
     <headers>
       "DOC",

@@ -1,6 +1,7 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DownCastElement;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
@@ -39,6 +40,11 @@ public abstract class ContextLibrary extends FunctionLibrary {
 		return contents.substring(end, to);
 	}
 
+	@Function(firstFtor = "sentence-before")
+	public static final String sentenceBefore(EvaluationContext ctx, Element elt) {
+		return sentenceBefore(ctx, elt, DefaultNames.getSentenceLayer());
+	}
+
 	@Function(firstFtor = "sentence-before", ftors = 1, nameTypes = {NameType.LAYER})
 	public static final String sentenceBefore(EvaluationContext ctx, Element elt, String layerName) {
 		Annotation a = DownCastElement.toAnnotation(elt);
@@ -59,6 +65,11 @@ public abstract class ContextLibrary extends FunctionLibrary {
 		return contents.substring(sent.getStart(), a.getStart());
 	}
 
+	@Function(firstFtor = "sentence-after")
+	public static final String sentenceAfter(EvaluationContext ctx, Element elt) {
+		return sentenceAfter(ctx, elt, DefaultNames.getSentenceLayer());
+	}
+	
 	@Function(firstFtor = "sentence-after", ftors = 1, nameTypes = {NameType.LAYER})
 	public static final String sentenceAfter(EvaluationContext ctx, Element elt, String layerName) {
 		Annotation a = DownCastElement.toAnnotation(elt);
@@ -79,6 +90,11 @@ public abstract class ContextLibrary extends FunctionLibrary {
 		return contents.substring(a.getEnd(), sent.getEnd());
 	}
 
+	@Function(firstFtor = "words-before")
+	public static final String wordsBefore(EvaluationContext ctx, Element elt, int size) {
+		return wordsBefore(ctx, elt, DefaultNames.getWordLayer(), size);
+	}
+	
 	@Function(firstFtor = "words-before", ftors = 1, nameTypes = {NameType.LAYER})
 	public static final String wordsBefore(EvaluationContext ctx, Element elt, String layerName, int size) {
 		Annotation a = DownCastElement.toAnnotation(elt);
@@ -103,6 +119,11 @@ public abstract class ContextLibrary extends FunctionLibrary {
 		return contents.substring(first.getStart(), a.getStart());
 	}
 
+	@Function(firstFtor = "words-after")
+	public static final String wordsAfter(EvaluationContext ctx, Element elt, int size) {
+		return wordsAfter(ctx, elt, DefaultNames.getWordLayer(), size);
+	}
+	
 	@Function(firstFtor = "words-after", ftors = 1, nameTypes = {NameType.LAYER})
 	public static final String wordsAfter(EvaluationContext ctx, Element elt, String layerName, int size) {
 		Annotation a = DownCastElement.toAnnotation(elt);
