@@ -1,0 +1,29 @@
+<alvisnlp-plan id="tagtog">
+  <read class="TagTogReader">
+    <zipFile>tagtog_Test_oligosaccharides.zip</zipFile>
+  </read>
+
+  <seg href="res://segmentation.plan"/>
+
+  <concord class="TabularExport">
+    <outDir>.</outDir>
+    <corpusFile>Test_oligosaccharides_concord.csv</corpusFile>
+    <lines>documents.sections.layer:entities</lines>
+    <columns separator=";">
+      section.document.@id;
+      @type;
+      ctx:sentence-before:sentences;
+      @form;
+      ctx:sentence-after:sentences
+    </columns>
+    <headers>
+      "DOC",
+      "TYPE",
+      "BEFORE",
+      "ENTITY",
+      "AFTER"
+    </headers>
+    <separator>,</separator>
+    <trueCSV/>
+  </concord>
+</alvisnlp-plan>
