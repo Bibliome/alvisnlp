@@ -2,14 +2,20 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
@@ -21,11 +27,13 @@ import org.xml.sax.SAXException;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.json.helper.JArray;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.json.helper.JObject;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml.TagTogReader.TagTogResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
@@ -47,22 +55,39 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 import fr.inra.maiage.bibliome.util.streams.StreamFactory;
 
 @AlvisNLPModule(beta = true)
-public abstract class TagTogReader extends AbstractXMLReader<ResolvedObjects> {
+public abstract class TagTogReader extends AbstractXMLReader<TagTogResolvedObjects> {
 	public static final String XSL_TRANSFORM_SOURCE = "res://fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/resources/XMLReader/tagtog2alvisnlp.xslt";
 	public static final String HTML_DIRECTORY = "plain.html";
 	public static final String LEGEND_FILE = "annotations-legend.json";
 	public static final String ANNOTATION_DIRECTORY = "ann.json";
 
-	private InputDirectory source;
+	private InputFile zipFile;
 	private String entitiesLayer = "entities";
 	private String relation = "relations";
 	private String typeFeature = "type";
-	private String annotatorFeature = "who";
-	private String argumentPrefix = "arg"; 
+	private String annotatorFeature = "annotator";
+	private String argumentPrefix = "arg";
 
+	public static class TagTogResolvedObjects extends ResolvedObjects {
+		private InputDirectory rootDir;
+		
+		public TagTogResolvedObjects(ProcessingContext<Corpus> ctx, TagTogReader module) throws ResolverException {
+			super(ctx, module);
+		}
+
+		public InputDirectory getRootDir() {
+			return rootDir;
+		}
+
+		public void setRootDir(InputDirectory rootDir) {
+			this.rootDir = rootDir;
+		}
+	}
+	
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		try {
+			extract(ctx);
 			processDocuments(ctx, corpus);
 			Mapping annotationTypes = readAnnotationTypes();
 			Logger logger = getLogger(ctx);
@@ -77,9 +102,50 @@ public abstract class TagTogReader extends AbstractXMLReader<ResolvedObjects> {
 		}
 	}
 	
+	private void extract(ProcessingContext<Corpus> ctx) throws IOException {
+		File tmpDir = getTempDir(ctx);
+		Path tmpPath = tmpDir.toPath();
+        try (ZipInputStream zis = new ZipInputStream(new FileInputStream(zipFile))) {
+        	Path rootName = null;
+            ZipEntry zipEntry = zis.getNextEntry();
+            while (zipEntry != null) {
+            	if (rootName == null) {
+            		rootName = new File(zipEntry.getName()).toPath().getName(0);
+            	}
+                boolean isDirectory = zipEntry.getName().endsWith(File.separator);
+                Path newPath = zipSlipProtect(zipEntry, tmpPath);
+                if (isDirectory) {
+                    Files.createDirectories(newPath);
+                }
+                else {
+                    if (newPath.getParent() != null) {
+                        if (Files.notExists(newPath.getParent())) {
+                            Files.createDirectories(newPath.getParent());
+                        }
+                    }
+                    Files.copy(zis, newPath, StandardCopyOption.REPLACE_EXISTING);
+                }
+                zipEntry = zis.getNextEntry();
+            }
+            zis.closeEntry();
+    		TagTogResolvedObjects resObj = getResolvedObjects();
+    		resObj.setRootDir(new InputDirectory(tmpDir, rootName.toString()));
+        }
+	}
+
+	private static Path zipSlipProtect(ZipEntry zipEntry, Path targetDir) throws IOException {
+		Path targetDirResolved = targetDir.resolve(zipEntry.getName());
+		Path normalizePath = targetDirResolved.normalize();
+		if (!normalizePath.startsWith(targetDir)) {
+			throw new IOException("Bad zip entry: " + zipEntry.getName());
+		}
+		return normalizePath;
+	}
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private Mapping readAnnotationTypes() throws FileNotFoundException, IOException, ParseException {
-		InputFile legendFile = new InputFile(source, LEGEND_FILE);
+		TagTogResolvedObjects resObj = getResolvedObjects();
+		InputFile legendFile = new InputFile(resObj.getRootDir(), LEGEND_FILE);
 		try (Reader reader = new FileReader(legendFile)) {
 			JSONParser parser = new JSONParser();
 			Map obj = (Map) parser.parse(reader);
@@ -222,13 +288,14 @@ public abstract class TagTogReader extends AbstractXMLReader<ResolvedObjects> {
 	}
 
 	private SourceStream getAnnotationSources() {
-		InputDirectory jsonDir = new InputDirectory(source, ANNOTATION_DIRECTORY);
+		TagTogResolvedObjects resObj = getResolvedObjects();
+		InputDirectory jsonDir = new InputDirectory(resObj.getRootDir(), ANNOTATION_DIRECTORY);
 		return new DirectorySourceStream("UTF-8", CompressionFilter.NONE, jsonDir, true, AcceptAllFiles.INSTANCE);
 	}
 
 	@Override
-	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
-		return new ResolvedObjects(ctx, this);
+	protected TagTogResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		return new TagTogResolvedObjects(ctx, this);
 	}
 
 	@Override
@@ -249,7 +316,8 @@ public abstract class TagTogReader extends AbstractXMLReader<ResolvedObjects> {
 
 	@Override
 	public SourceStream getXMLSource() {
-		InputDirectory htmlDir = new InputDirectory(source, HTML_DIRECTORY);
+		TagTogResolvedObjects resObj = getResolvedObjects();
+		InputDirectory htmlDir = new InputDirectory(resObj.getRootDir(), HTML_DIRECTORY);
 		return new DirectorySourceStream("UTF-8", CompressionFilter.NONE, htmlDir, true, AcceptAllFiles.INSTANCE);
 	}
 
@@ -264,11 +332,56 @@ public abstract class TagTogReader extends AbstractXMLReader<ResolvedObjects> {
 	}
 
 	@Param
-	public InputDirectory getSource() {
-		return source;
+	public InputFile getZipFile() {
+		return zipFile;
 	}
 
-	public void setSource(InputDirectory source) {
-		this.source = source;
+	@Param(nameType = NameType.LAYER)
+	public String getEntitiesLayer() {
+		return entitiesLayer;
+	}
+
+	@Param(nameType = NameType.RELATION)
+	public String getRelation() {
+		return relation;
+	}
+
+	@Param(nameType = NameType.FEATURE)
+	public String getTypeFeature() {
+		return typeFeature;
+	}
+
+	@Param(nameType = NameType.FEATURE)
+	public String getAnnotatorFeature() {
+		return annotatorFeature;
+	}
+
+	@Param(nameType = NameType.ARGUMENT)
+	public String getArgumentPrefix() {
+		return argumentPrefix;
+	}
+
+	public void setEntitiesLayer(String entitiesLayer) {
+		this.entitiesLayer = entitiesLayer;
+	}
+
+	public void setRelation(String relation) {
+		this.relation = relation;
+	}
+
+	public void setTypeFeature(String typeFeature) {
+		this.typeFeature = typeFeature;
+	}
+
+	public void setAnnotatorFeature(String annotatorFeature) {
+		this.annotatorFeature = annotatorFeature;
+	}
+
+	public void setArgumentPrefix(String argumentPrefix) {
+		this.argumentPrefix = argumentPrefix;
+	}
+
+	public void setZipFile(InputFile zipFile) {
+		this.zipFile = zipFile;
 	}
 }
