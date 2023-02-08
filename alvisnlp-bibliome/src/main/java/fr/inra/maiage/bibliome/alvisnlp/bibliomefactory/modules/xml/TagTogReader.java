@@ -7,24 +7,28 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.net.URISyntaxException;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.TransformerException;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.xml.sax.SAXException;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.json.helper.JArray;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.json.helper.JObject;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
@@ -33,6 +37,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
 import fr.inra.maiage.bibliome.util.Iterators;
+import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 import fr.inra.maiage.bibliome.util.streams.AcceptAllFiles;
@@ -50,8 +55,10 @@ public abstract class TagTogReader extends AbstractXMLReader<ResolvedObjects> {
 
 	private InputDirectory source;
 	private String entitiesLayer = "entities";
+	private String relation = "relations";
 	private String typeFeature = "type";
 	private String annotatorFeature = "who";
+	private String argumentPrefix = "arg"; 
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -93,59 +100,125 @@ public abstract class TagTogReader extends AbstractXMLReader<ResolvedObjects> {
 			String docId = getDocumentId(annotationSources, reader, corpus);
 			Document doc = corpus.getDocument(docId);
 			if (doc != null) {
-				JSONParser parser = new JSONParser();
-				JSONObject obj = (JSONObject) parser.parse(reader);
-				JSONArray entities = (JSONArray) obj.get("entities");
-				for (Object oEnt : entities) {
-					JSONObject jEnt = (JSONObject) oEnt;
-					String classId = (String) jEnt.get("classId");
-					String annotationType;
-					if (annotationTypes.containsKey(classId)) {
-						annotationType = annotationTypes.get(classId);
-					}
-					else {
-						annotationType = classId;
-						logger.warning("unknown annotation type: " + classId);
-					}
-					String part = (String) jEnt.get("part");
-					if (!doc.hasSection(part)) {
-						logger.warning("unknown part: " + part);
+				JObject obj = JObject.parse(reader);
+				JArray entities = obj.getArray("entities");
+				for (JObject jEnt : entities.asObjectArray()) {
+					String annotationType = getAnnotationType(logger, annotationTypes, jEnt);
+					Section sec = getSection(logger, doc, jEnt);
+					if (sec == null) {
 						continue;
 					}
-					Section sec = doc.sectionIterator(part).next();
 					Layer layer = sec.ensureLayer(entitiesLayer);
-					JSONArray offsets = (JSONArray) jEnt.get("offsets");
-					if (offsets.size() > 1) {
-						logger.warning("discontinuous entity");
-					}
-					for (Object oOff : offsets) {
-						JSONObject jOff = (JSONObject) oOff;
-						int start = (int) (long) jOff.get("start");
-						String text = (String) jOff.get("text");
-						int end = start + text.length();
-						Annotation a = new Annotation(this, layer, start, end);
-						if (!a.getForm().equals(text)) {
-							logger.warning("text mismatch, expected " + a.getForm() + ", got " + text);
+					createEntityAnnotation(logger, layer, jEnt, annotationType);
+				}
+				JArray relations = obj.getArray("relations");
+				for (JObject jRel : relations.asObjectArray()) {
+					String annotationType = getAnnotationType(logger, annotationTypes, jRel);
+					JArray jArgs = jRel.getArray("entities");
+					Tuple t = null;
+					int argN = 0;
+					for (String sArg : jArgs.asStringArray()) {
+						Annotation arg = getArgument(logger, annotationTypes, doc, sArg);
+						if (arg == null) {
+							continue;
 						}
-						a.addFeature(typeFeature, annotationType);
-						JSONObject confidence = (JSONObject) jEnt.get("confidence");
-						JSONArray who = (JSONArray) confidence.get("who");
-						for (Object w : who) {
-							a.addFeature(annotatorFeature, (String) w);
+						if (t == null) {
+							Section sec = arg.getSection();
+							Relation rel = sec.ensureRelation(this, relation);
+							t = new Tuple(this, rel);
+							t.addFeature(typeFeature, annotationType);
+							addAnnotatorFeature(jRel, t);
 						}
+						argN++;
+						t.setArgument(argumentPrefix + argN, arg);
 					}
 				}
 			}
 			else {
 				logger.warning("annotations for unknown document: " + docId);
 			}
+			reader.close();
 		}
+	}
+	
+	private Annotation getArgument(Logger logger, Mapping annotationTypes, Document doc, String sArg) {
+		List<String> argInfo = Strings.split(sArg, '|', -1);
+		String part = argInfo.get(0);
+		if (!doc.hasSection(part)) {
+			logger.warning("unknown part: " + part);
+			return null;
+		}
+		Section argSec = getSection(logger, doc, part);
+		Layer layer = argSec.ensureLayer(entitiesLayer);
+		String type = getAnnotationType(logger, annotationTypes, argInfo.get(1));
+		List<String> off = Strings.split(argInfo.get(2), ',', -1);
+		int start = Integer.parseInt(off.get(0));
+		int end = Integer.parseInt(off.get(1)) + 1;
+		for (Annotation a : layer.span(start, end)) {
+			if (a.getLastFeature(typeFeature).equals(type)) {
+				return a;
+			}
+		}
+		logger.warning("could not find entity: " + argInfo);
+		return null;
 	}
 	
 	private String getDocumentId(SourceStream annotationSources, Reader reader, Corpus corpus) {
 		String name = annotationSources.getStreamName(reader);
 		String baseName = new File(name).getName();
 		return baseName.replace(".ann.json", "");
+	}
+
+	private static String getAnnotationType(Logger logger, Mapping annotationTypes, String classId) {
+		if (annotationTypes.containsKey(classId)) {
+			return annotationTypes.get(classId);
+		}
+		logger.warning("unknown annotation type: " + classId);
+		return classId;
+	}
+	
+	private static String getAnnotationType(Logger logger, Mapping annotationTypes, JObject jAnn) {
+		String classId = jAnn.getString("classId");
+		return getAnnotationType(logger, annotationTypes, classId);
+	}
+	
+	private static Section getSection(Logger logger, Document doc, String part) {
+		if (doc.hasSection(part)) {
+			return doc.sectionIterator(part).next();
+		}
+		logger.warning("unknown part: " + part);
+		return null;
+	}
+
+	private static Section getSection(Logger logger, Document doc, JObject jEnt) {
+		String part = jEnt.getString("part");
+		return getSection(logger, doc, part);
+	}
+	
+	private void createEntityAnnotation(Logger logger, Layer layer, JObject jEnt, String annotationType) {
+		JArray offsets = jEnt.getArray("offsets");
+		if (offsets.size() > 1) {
+			logger.warning("discontinuous entity");
+		}
+		for (JObject jOff : offsets.asObjectArray()) {
+			int start = jOff.getInt("start");
+			String text = jOff.getString("text");
+			int end = start + text.length();
+			Annotation a = new Annotation(this, layer, start, end);
+			if (!a.getForm().equals(text)) {
+				logger.warning("text mismatch, expected " + a.getForm() + ", got " + text);
+			}
+			a.addFeature(typeFeature, annotationType);
+			addAnnotatorFeature(jEnt, a);
+		}
+	}
+	
+	private void addAnnotatorFeature(JObject jEnt, Element elt) {
+		JObject confidence = jEnt.getObject("confidence");
+		JArray who = confidence.getArray("who");
+		for (String w : who.asStringArray()) {
+			elt.addFeature(annotatorFeature, w);
+		}
 	}
 
 	private SourceStream getAnnotationSources() {
