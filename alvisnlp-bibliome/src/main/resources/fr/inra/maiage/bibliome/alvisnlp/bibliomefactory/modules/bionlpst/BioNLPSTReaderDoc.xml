@@ -26,34 +26,77 @@ limitations under the License.
   
     <param-doc name="a1Dir">
       <p>Path to the directory containing <code>.a1</code> files. If this parameter is not set, then <this/> does not read <code>a1</code> files. This directory must contain one <code>.a1</code> file for each <code>.txt</code> file found in <param>textDir</param>.</p>
+      <examples>
+        <a1Dir>/path/to/a1/</a1Dir>
+      </examples>
     </param-doc>
   
     <param-doc name="textDir">
       <p>Path to the directory containing <code>.txt</code> files.</p>
+      <examples>
+        <a1Dir>/path/to/txt/</a1Dir>
+      </examples>
     </param-doc>
   
     <param-doc name="equivalenceItemPrefix">
       <p>Prefix of the role of arguments that represent group elements.</p>
+      <examples>
+        <equivalenceItemPrefix>item</equivalenceItemPrefix>
+      </examples>
     </param-doc>
   
     <param-doc name="a2Dir">
       <p>Path to the directory containing <code>.a2</code> files. If this parameter is not set, then <this/> does not read <code>a2</code> files. This directory must contain one <code>.a2</code> file for each <code>.txt</code> file found in <param>textDir</param>.</p>
+      <examples>
+        <a1Dir>/path/to/a2/</a1Dir>
+      </examples>
     </param-doc>
   
     <param-doc name="schema">
       <p>Annotation schema against which the annotations are checked. <this/> aborts if the annotations do not check. If not set, the annotations are not checked.</p>
+      <examples>
+        <schema>
+			<text-bound type="Title" />
+			<text-bound type="Paragraph" />
+			<text-bound type="Microorganism" />
+			<text-bound type="Habitat" />
+			<text-bound type="Phenotype" />
+			<text-bound type="Geographical" />
+			<relation type="Lives_In">
+				<roles>Microorganism,Location</roles>
+				<mandatory-arguments>Microorganism,Location</mandatory-arguments>
+				<argument-types role="Microorganism">Microorganism</argument-types>
+				<argument-types role="Location">Habitat,Geographical,Microorganism</argument-types>
+			</relation>
+			<relation type="Exhibits">
+				<roles>Microorganism,Property</roles>
+				<mandatory-arguments>Microorganism,Property</mandatory-arguments>
+				<argument-types role="Microorganism">Microorganism</argument-types>
+				<argument-types role="Property">Phenotype </argument-types>
+			</relation>
+        </schema>
+      </examples>
     </param-doc>
   
     <param-doc name="charset">
       <p>Character encoding of all imported files.</p>
+      <examples>
+        <charset>UTF-8</charset>
+      </examples>
     </param-doc>
   
     <param-doc name="textBoundFragmentRolePrefix">
       <p>Prefix of the role of arguments that represent text-bound fragments.</p>
+      <examples>
+        <textBoundFragmentRolePrefix>frag</textBoundFragmentRolePrefix>
+      </examples>
     </param-doc>
   
     <param-doc name="equivalenceRelation">
       <p>Name of the relation whose tuples represent equivalences.</p>
+      <examples>
+        <equivalenceRelation>equiv</equivalenceRelation>
+      </examples>
     </param-doc>
   
     <param-doc name="equivalenceRelationName">
@@ -62,18 +105,30 @@ limitations under the License.
   
     <param-doc name="fragmentCountFeature">
       <p>Feature where to store the number of merged fragments. This feature is only set if <param>textBoundAsAnnotations</param> is <code>true</code>.</p>
+      <examples>
+        <fragmentCountFeature>fragments</fragmentCountFeature>
+      </examples>
     </param-doc>
   
     <param-doc name="idFeature">
       <p>Feature where to store the annotation identifier.</p>
+      <examples>
+        <idFeature>id</idFeature>
+      </examples>
     </param-doc>
   
     <param-doc name="typeFeature">
       <p>Feature where to store the type of the annotation.</p>
+      <examples>
+        <typeFeature>type</typeFeature>
+      </examples>
     </param-doc>
   
     <param-doc name="kindFeature">
       <p>Feature of relations contatining the annotation kind.</p>
+      <eaxmples>
+        <kindFeature>kind</kindFeature>
+      </eaxmples>
     </param-doc>
   
     <param-doc name="fragmentCountFeatureName">
@@ -98,10 +153,16 @@ limitations under the License.
   
     <param-doc name="textBoundAsAnnotations">
       <p>If <code>true</code>, <this/> imports text-bound annotations as annotations instead of tuples. Multiple fragments text-bound annotations are merged.</p>
+      <examples>
+        <textBoundAsAnnotations/>
+      </examples>
     </param-doc>
   
     <param-doc name="section">
       <p>Name of the unique section contating all the text.</p>
+      <examples>
+        <section>text</section>
+      </examples>
     </param-doc>
   
     <param-doc name="sectionName">
@@ -110,14 +171,23 @@ limitations under the License.
   
     <param-doc name="relationKind">
       <p>Kind value for relation annotations.</p>
+	  <eaxmples>
+	    <relationKind>relation</relationKind>
+	  </eaxmples>
     </param-doc>
   
     <param-doc name="textKind">
       <p>Kind value for text annotations.</p>
+      <examples>
+        <textKind>text-bound</textKind>
+      </examples>
     </param-doc>
   
     <param-doc name="eventKind">
       <p>Kind value for event annotations.</p>
+      <examples>
+        <eventKind>event</eventKind>
+      </examples>
     </param-doc>
     
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
