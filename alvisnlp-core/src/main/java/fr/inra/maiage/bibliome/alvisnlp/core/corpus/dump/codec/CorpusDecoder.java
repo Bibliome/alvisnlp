@@ -29,24 +29,25 @@ import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
 public class CorpusDecoder extends ElementDecoder<Corpus> {
 	private final DocumentDecoder docDecoder;
 	private final Unmarshaller<Document> docUnmarshaller;
+	private final Corpus corpus;
 	
-	public CorpusDecoder(Unmarshaller<String> stringUnmarshaller, int maxMmapSize) throws IOException {
+	public CorpusDecoder(Unmarshaller<String> stringUnmarshaller, Corpus corpus, int maxMmapSize) throws IOException {
 		super(stringUnmarshaller);
 		this.docDecoder = new DocumentDecoder(stringUnmarshaller, maxMmapSize);
 		ReadCache<Document> docCache = MapReadCache.hashMap();
 		this.docUnmarshaller = new Unmarshaller<Document>(stringUnmarshaller.getChannel(), docDecoder, docCache, maxMmapSize);
+		this.corpus = corpus;
 	}
 
 	@Override
 	public Corpus decode1(ByteBuffer buffer) {
-		Corpus result = new Corpus();
-		docDecoder.setCorpus(result);
+		docDecoder.setCorpus(corpus);
 		int nDocs = buffer.getInt();
 		for (int i = 0; i < nDocs; ++i) {
 			long docRef = buffer.getLong();
 			docUnmarshaller.read(docRef);
 		}
-		return result;
+		return corpus;
 	}
 
 	public DocumentDecoder getDocDecoder() {

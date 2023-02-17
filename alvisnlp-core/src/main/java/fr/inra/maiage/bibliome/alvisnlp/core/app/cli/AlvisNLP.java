@@ -66,13 +66,14 @@ public class AlvisNLP extends AbstractAlvisNLP<Corpus,CorpusModuleFactory,Corpus
     }
 	
 	private Corpus createCorpus(Logger logger, CorpusCommandLineProcessingContext ctx) throws IOException {
-        if (resumeFile == null) {
-			return new Corpus();
-        }
-        logger.info("reading corpus dump " + resumeFile.getCanonicalPath());
-        try (Undumper undumper = new Undumper(logger, resumeFile, ctx.getMaxMmapSize())) {
-        	return undumper.readCorpus();
-        }
+		Corpus result = new Corpus();
+		if (resumeFile != null) {
+			logger.info("reading corpus dump " + resumeFile.getCanonicalPath());
+			try (Undumper undumper = new Undumper(logger, resumeFile, ctx.getMaxMmapSize())) {
+				undumper.readCorpus(result);
+			}
+		}
+		return result;
 	}
 
 	@Override

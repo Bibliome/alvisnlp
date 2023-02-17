@@ -70,16 +70,15 @@ public class Undumper implements AutoCloseable {
 		channel.close();
 	}
 
-	public Corpus readCorpus() throws IOException {
+	public void readCorpus(Corpus corpus) throws IOException {
 		logger.info("undumping...");
 		ReadCache<String> stringCache = MapReadCache.hashMap();
 		Unmarshaller<String> stringUnmarshaller = new Unmarshaller<String>(channel, StringCodec.INSTANCE, stringCache, maxMmapSize);
-		CorpusDecoder corpusDecoder = new CorpusDecoder(stringUnmarshaller, maxMmapSize);
+		CorpusDecoder corpusDecoder = new CorpusDecoder(stringUnmarshaller, corpus, maxMmapSize);
 		ReadCache<Corpus> corpusCache = MapReadCache.hashMap();
 		Unmarshaller<Corpus> corpusUnmarshaller = new Unmarshaller<Corpus>(channel, corpusDecoder, corpusCache, maxMmapSize);
-		Corpus result = corpusUnmarshaller.read((int) channel.position());
+		corpusUnmarshaller.read((int) channel.position());
 		processTuplesArguments(corpusDecoder, corpusUnmarshaller, stringUnmarshaller);
-		return result;
 	}
 	
 	private static void processTuplesArguments(CorpusDecoder corpusDecoder, Unmarshaller<Corpus> corpusUnmarshaller, Unmarshaller<String> stringUnmarshaller) {
