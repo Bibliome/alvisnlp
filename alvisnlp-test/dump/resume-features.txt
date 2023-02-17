@@ -14994,3 +14994,4559 @@ id	R8
 type	Lives_In
 id	R9
 type	Lives_In
+fragments	1
+id	T4
+type	Bacteria
+form	Salmonellae
+fragments	1
+id	T5
+type	Habitat
+form	egg
+fragments	1
+id	T4
+type	Bacteria
+form	Salmonellae
+fragments	1
+id	T6
+type	Habitat
+form	egg products
+fragments	1
+id	T7
+type	Bacteria
+form	Salmonella
+fragments	1
+id	T12
+type	Habitat
+form	strontium selenite A broth
+fragments	1
+id	T7
+type	Bacteria
+form	Salmonella
+fragments	1
+id	T8
+type	Habitat
+form	egg pulp
+fragments	1
+id	T7
+type	Bacteria
+form	Salmonella
+fragments	1
+id	T11
+type	Habitat
+form	strontium selenite broth
+fragments	1
+id	T7
+type	Bacteria
+form	Salmonella
+fragments	1
+id	T10
+type	Habitat
+form	strontium chloride M broth
+fragments	1
+id	T14
+type	Bacteria
+form	salmonellae
+fragments	1
+id	T15
+type	Habitat
+form	egg products
+fragments	1
+id	T14
+type	Bacteria
+form	salmonellae
+fragments	1
+id	T16
+type	Habitat
+form	egg
+fragments	1
+id	T7
+type	Bacteria
+form	Staphylococcus aureus
+fragments	1
+id	T8
+type	Habitat
+form	patients
+fragments	1
+id	T10
+type	Bacteria
+form	Staphylococcus aureus
+fragments	1
+id	T12
+type	Habitat
+form	skilled nursing facility
+fragments	1
+id	T14
+type	Bacteria
+form	MRSA
+fragments	1
+id	T15
+type	Habitat
+form	SNF patients
+fragments	1
+id	T17
+type	Bacteria
+form	MRSA
+fragments	1
+id	T18
+type	Habitat
+form	patients
+fragments	1
+id	T26
+type	Bacteria
+form	MRSA
+fragments	1
+id	T27
+type	Habitat
+form	oxacillin screening agar
+fragments	1
+id	T23
+type	Habitat
+form	stool swab cultures
+fragments	1
+id	T26
+type	Bacteria
+form	MRSA
+fragments	2
+id	T21
+type	Habitat
+form	Nares and stool swab cultures
+fragments	1
+id	T26
+type	Bacteria
+form	MRSA
+fragments	1
+id	T22
+type	Habitat
+form	stool
+fragments	1
+id	T26
+type	Bacteria
+form	MRSA
+fragments	1
+id	T20
+type	Habitat
+form	Nares
+fragments	1
+id	T26
+type	Bacteria
+form	MRSA
+fragments	1
+id	T31
+type	Bacteria
+form	MRSA
+fragments	1
+id	T32
+type	Habitat
+form	SNF patients
+fragments	1
+id	T12
+type	Habitat
+form	skilled nursing facility
+fragments	1
+id	T13
+type	Habitat
+form	SNF
+fragments	1
+id	T10
+type	Bacteria
+form	Staphylococcus aureus
+fragments	1
+id	T11
+type	Bacteria
+form	MRSA
+fragments	1
+id	T5
+type	Bacteria
+form	R. eutropha H850
+fragments	1
+id	T6
+type	Habitat
+form	fructose medium
+fragments	1
+id	T5
+type	Habitat
+form	soil
+fragments	1
+id	T6
+type	Bacteria
+form	Anabaena sp. strain L-31
+fragments	1
+id	T5
+type	Habitat
+form	human
+fragments	1
+id	T7
+type	Bacteria
+form	Campylobacter jejuni
+fragments	1
+id	T6
+type	Habitat
+form	human gastrointestinal
+fragments	1
+id	T7
+type	Bacteria
+form	Campylobacter jejuni
+fragments	1
+id	T4
+type	Habitat
+form	marine
+fragments	1
+id	T5
+type	Bacteria
+form	Zobellia galactanivorans Dsij
+fragments	1
+id	T4
+type	Habitat
+form	plant
+fragments	1
+id	T5
+type	Bacteria
+form	Xanthomonas campestris pv. vesicatoria
+fragments	1
+id	T5
+type	Bacteria
+form	Xanthomonas campestris pv. vesicatoria
+fragments	1
+id	T7
+type	Habitat
+form	plant
+fragments	1
+id	T31
+type	Bacteria
+form	E. coli O157:H7
+fragments	1
+id	T33
+type	Habitat
+form	NB
+fragments	1
+id	T29
+type	Habitat
+form	TSB
+fragments	1
+id	T31
+type	Bacteria
+form	E. coli O157:H7
+fragments	1
+id	T31
+type	Bacteria
+form	E. coli O157:H7
+fragments	1
+id	T32
+type	Habitat
+form	TSB
+fragments	1
+id	T3
+type	Bacteria
+form	Escherichia coli O157:H7
+fragments	1
+id	T9
+type	Habitat
+form	lettuce
+fragments	1
+id	T3
+type	Bacteria
+form	Escherichia coli O157:H7
+fragments	1
+id	T7
+type	Habitat
+form	apple
+fragments	1
+id	T3
+type	Bacteria
+form	Escherichia coli O157:H7
+fragments	2
+id	T8
+type	Habitat
+form	apple and lettuce surfaces
+fragments	1
+id	T3
+type	Bacteria
+form	Escherichia coli O157:H7
+fragments	1
+id	T4
+type	Habitat
+form	tryptic soy broth
+fragments	1
+id	T3
+type	Bacteria
+form	Escherichia coli O157:H7
+fragments	1
+id	T6
+type	Habitat
+form	nutrient broth
+fragments	1
+id	T3
+type	Bacteria
+form	Escherichia coli O157:H7
+fragments	1
+id	T10
+type	Habitat
+form	lettuce surfaces
+fragments	1
+id	T17
+type	Bacteria
+form	Escherichia coli O157:H7
+fragments	1
+id	T28
+type	Habitat
+form	TSB
+fragments	1
+id	T17
+type	Bacteria
+form	Escherichia coli O157:H7
+fragments	1
+id	T20
+type	Habitat
+form	apple surfaces
+fragments	1
+id	T17
+type	Bacteria
+form	Escherichia coli O157:H7
+fragments	1
+id	T27
+type	Habitat
+form	apple surfaces
+fragments	1
+id	T17
+type	Bacteria
+form	Escherichia coli O157:H7
+fragments	1
+id	T23
+type	Habitat
+form	NB
+fragments	1
+id	T17
+type	Bacteria
+form	Escherichia coli O157:H7
+fragments	1
+id	T18
+type	Habitat
+form	lettuce
+fragments	1
+id	T17
+type	Bacteria
+form	Escherichia coli O157:H7
+fragments	1
+id	T21
+type	Habitat
+form	apple
+fragments	1
+id	T17
+type	Bacteria
+form	Escherichia coli O157:H7
+fragments	1
+id	T24
+type	Habitat
+form	lettuce
+fragments	1
+id	T15
+type	Habitat
+form	nutrient broth
+fragments	1
+id	T17
+type	Bacteria
+form	Escherichia coli O157:H7
+fragments	1
+id	T17
+type	Bacteria
+form	Escherichia coli O157:H7
+fragments	1
+id	T26
+type	Habitat
+form	apple
+fragments	1
+id	T17
+type	Bacteria
+form	Escherichia coli O157:H7
+fragments	2
+id	T19
+type	Habitat
+form	lettuce and apple surfaces
+fragments	1
+id	T17
+type	Bacteria
+form	Escherichia coli O157:H7
+fragments	2
+id	T25
+type	Habitat
+form	lettuce and apple surfaces
+fragments	1
+id	T12
+type	Habitat
+form	tryptic soy broth
+fragments	1
+id	T17
+type	Bacteria
+form	Escherichia coli O157:H7
+fragments	1
+id	T30
+type	Habitat
+form	NB
+fragments	1
+id	T31
+type	Bacteria
+form	E. coli O157:H7
+fragments	1
+id	T12
+type	Habitat
+form	tryptic soy broth
+fragments	1
+id	T14
+type	Habitat
+form	TSB
+fragments	1
+id	T15
+type	Habitat
+form	nutrient broth
+fragments	1
+id	T16
+type	Habitat
+form	NB
+fragments	1
+id	T4
+type	Bacteria
+form	Escherichia coli
+fragments	1
+id	T6
+type	Habitat
+form	pigs
+fragments	1
+id	T4
+type	Bacteria
+form	Escherichia coli
+fragments	1
+id	T8
+type	Habitat
+form	jejunal
+fragments	1
+id	T4
+type	Bacteria
+form	Escherichia coli
+fragments	1
+id	T7
+type	Habitat
+form	pigs' jejunal tissue
+fragments	1
+id	T10
+type	Bacteria
+form	Escherichia coli O8:K88
+fragments	1
+id	T12
+type	Habitat
+form	intestinal mucosa
+fragments	1
+id	T10
+type	Bacteria
+form	Escherichia coli O8:K88
+fragments	1
+id	T11
+type	Habitat
+form	intestinal
+fragments	1
+id	T39
+type	Bacteria
+form	E. coli
+fragments	1
+id	T41
+type	Habitat
+form	jejunal mucosa
+fragments	1
+id	T39
+type	Bacteria
+form	E. coli
+fragments	1
+id	T42
+type	Habitat
+form	jejunal
+fragments	1
+id	T40
+type	Bacteria
+form	Lb. gasseri K 7
+fragments	1
+id	T42
+type	Habitat
+form	jejunal
+fragments	1
+id	T40
+type	Bacteria
+form	Lb. gasseri K 7
+fragments	1
+id	T41
+type	Habitat
+form	jejunal mucosa
+fragments	1
+id	T48
+type	Bacteria
+form	E. coli
+fragments	1
+id	T52
+type	Habitat
+form	jejunal
+fragments	1
+id	T48
+type	Bacteria
+form	E. coli
+fragments	1
+id	T51
+type	Habitat
+form	pig jejunal tissue
+fragments	1
+id	T48
+type	Bacteria
+form	E. coli
+fragments	1
+id	T50
+type	Habitat
+form	pig
+fragments	1
+id	T7
+type	Bacteria
+form	Neisseria gonorrhoeae
+fragments	1
+id	T8
+type	Geographical
+form	South American
+fragments	1
+id	T10
+type	Habitat
+form	laboratories
+fragments	1
+id	T13
+type	Bacteria
+form	N. gonorrhoeae
+fragments	1
+id	T12
+type	Geographical
+form	Caribbean
+fragments	1
+id	T13
+type	Bacteria
+form	N. gonorrhoeae
+fragments	1
+id	T11
+type	Geographical
+form	Americas
+fragments	1
+id	T13
+type	Bacteria
+form	N. gonorrhoeae
+fragments	1
+id	T7
+type	Bacteria
+form	Neisseria gonorrhoeae
+fragments	1
+id	T9
+type	Geographical
+form	Caribbean
+fragments	1
+id	T4
+type	Habitat
+form	food
+fragments	1
+id	T5
+type	Bacteria
+form	Escherichia coli O157:H7
+fragments	1
+id	T4
+type	Bacteria
+form	Escherichia coli
+fragments	1
+id	T6
+type	Habitat
+form	human
+fragments	1
+id	T4
+type	Bacteria
+form	Serratia marcescens
+fragments	1
+id	T5
+type	Habitat
+form	ocular
+fragments	1
+id	T6
+type	Bacteria
+form	S. marcescens MG1
+fragments	1
+id	T7
+type	Habitat
+form	biofilm
+fragments	1
+id	T6
+type	Bacteria
+form	S. marcescens MG1
+fragments	1
+id	T8
+type	Habitat
+form	biofilm
+fragments	1
+id	T27
+type	Bacteria
+form	S. marcescens MG1
+fragments	1
+id	T31
+type	Habitat
+form	biotic surface
+fragments	1
+id	T27
+type	Bacteria
+form	S. marcescens MG1
+fragments	1
+id	T30
+type	Habitat
+form	abiotic surface
+fragments	1
+id	T27
+type	Bacteria
+form	S. marcescens MG1
+fragments	1
+id	T29
+type	Habitat
+form	abiotic surfaces
+fragments	1
+id	T27
+type	Bacteria
+form	S. marcescens MG1
+fragments	2
+id	T28
+type	Habitat
+form	biotic and abiotic surfaces
+fragments	1
+id	T6
+type	Bacteria
+form	nontypeable Haemophilus influenzae (NTHi)
+fragments	1
+id	T7
+type	Habitat
+form	throats of two healthy children
+fragments	1
+id	T6
+type	Bacteria
+form	nontypeable Haemophilus influenzae (NTHi)
+fragments	1
+id	T7
+type	Habitat
+form	throats of two healthy children
+fragments	1
+id	T10
+type	Bacteria
+form	NTHi
+fragments	1
+id	T11
+type	Habitat
+form	colonized children
+fragments	1
+id	T3
+type	Bacteria
+form	Haemophilus influenzae
+fragments	1
+id	T4
+type	Habitat
+form	children attending a day care center
+fragments	1
+id	T5
+type	Bacteria
+form	Staphylococcus
+fragments	1
+id	T6
+type	Habitat
+form	medical devices
+fragments	1
+id	T7
+type	Habitat
+form	Biomaterial
+fragments	1
+id	T8
+type	Bacteria
+form	Staphylococcus epidermidis
+fragments	1
+id	T8
+type	Bacteria
+form	Staphylococcus epidermidis
+fragments	1
+id	T10
+type	Habitat
+form	biofilm
+fragments	1
+id	T9
+type	Bacteria
+form	Staphylococcus aureus
+fragments	1
+id	T10
+type	Habitat
+form	biofilm
+fragments	1
+id	T7
+type	Habitat
+form	Biomaterial
+fragments	1
+id	T9
+type	Bacteria
+form	Staphylococcus aureus
+fragments	1
+id	T12
+type	Bacteria
+form	S. aureus
+fragments	1
+id	T14
+type	Habitat
+form	biofilm
+fragments	1
+id	T13
+type	Bacteria
+form	S. epidermidis
+fragments	1
+id	T14
+type	Habitat
+form	biofilm
+fragments	1
+id	T3
+type	Bacteria
+form	Staphylococcus
+fragments	1
+id	T4
+type	Habitat
+form	biofilms
+fragments	1
+id	T8
+type	Habitat
+form	sputum of patients who accepted chemotherapy
+fragments	1
+id	T16
+type	Bacteria
+form	Enterococcus
+fragments	2
+id	T7
+type	Habitat
+form	urine and sputum of patients who accepted chemotherapy
+fragments	1
+id	T14
+type	Bacteria
+form	Acinetobacter baumannii
+fragments	1
+id	T10
+type	Habitat
+form	nosocomial
+fragments	1
+id	T16
+type	Bacteria
+form	Enterococcus
+fragments	2
+id	T7
+type	Habitat
+form	urine and sputum of patients who accepted chemotherapy
+fragments	1
+id	T16
+type	Bacteria
+form	Enterococcus
+fragments	1
+id	T9
+type	Habitat
+form	patients who accepted chemotherapy
+fragments	1
+id	T16
+type	Bacteria
+form	Enterococcus
+fragments	2
+id	T6
+type	Habitat
+form	blood, urine and sputum of patients who accepted chemotherapy
+fragments	1
+id	T16
+type	Bacteria
+form	Enterococcus
+fragments	1
+id	T9
+type	Habitat
+form	patients who accepted chemotherapy
+fragments	1
+id	T11
+type	Bacteria
+form	Pseudomonas aeruginosa
+fragments	2
+id	T6
+type	Habitat
+form	blood, urine and sputum of patients who accepted chemotherapy
+fragments	1
+id	T11
+type	Bacteria
+form	Pseudomonas aeruginosa
+fragments	1
+id	T10
+type	Habitat
+form	nosocomial
+fragments	1
+id	T11
+type	Bacteria
+form	Pseudomonas aeruginosa
+fragments	2
+id	T7
+type	Habitat
+form	urine and sputum of patients who accepted chemotherapy
+fragments	1
+id	T11
+type	Bacteria
+form	Pseudomonas aeruginosa
+fragments	1
+id	T8
+type	Habitat
+form	sputum of patients who accepted chemotherapy
+fragments	1
+id	T11
+type	Bacteria
+form	Pseudomonas aeruginosa
+fragments	2
+id	T7
+type	Habitat
+form	urine and sputum of patients who accepted chemotherapy
+fragments	1
+id	T12
+type	Bacteria
+form	Enterobacter cloacae
+fragments	1
+id	T9
+type	Habitat
+form	patients who accepted chemotherapy
+fragments	1
+id	T12
+type	Bacteria
+form	Enterobacter cloacae
+fragments	1
+id	T10
+type	Habitat
+form	nosocomial
+fragments	1
+id	T12
+type	Bacteria
+form	Enterobacter cloacae
+fragments	1
+id	T8
+type	Habitat
+form	sputum of patients who accepted chemotherapy
+fragments	1
+id	T12
+type	Bacteria
+form	Enterobacter cloacae
+fragments	2
+id	T6
+type	Habitat
+form	blood, urine and sputum of patients who accepted chemotherapy
+fragments	1
+id	T12
+type	Bacteria
+form	Enterobacter cloacae
+fragments	1
+id	T8
+type	Habitat
+form	sputum of patients who accepted chemotherapy
+fragments	1
+id	T13
+type	Bacteria
+form	E. coli
+fragments	2
+id	T7
+type	Habitat
+form	urine and sputum of patients who accepted chemotherapy
+fragments	1
+id	T13
+type	Bacteria
+form	E. coli
+fragments	2
+id	T6
+type	Habitat
+form	blood, urine and sputum of patients who accepted chemotherapy
+fragments	1
+id	T13
+type	Bacteria
+form	E. coli
+fragments	1
+id	T10
+type	Habitat
+form	nosocomial
+fragments	1
+id	T13
+type	Bacteria
+form	E. coli
+fragments	1
+id	T8
+type	Habitat
+form	sputum of patients who accepted chemotherapy
+fragments	1
+id	T14
+type	Bacteria
+form	Acinetobacter baumannii
+fragments	1
+id	T9
+type	Habitat
+form	patients who accepted chemotherapy
+fragments	1
+id	T13
+type	Bacteria
+form	E. coli
+fragments	2
+id	T6
+type	Habitat
+form	blood, urine and sputum of patients who accepted chemotherapy
+fragments	1
+id	T14
+type	Bacteria
+form	Acinetobacter baumannii
+fragments	1
+id	T9
+type	Habitat
+form	patients who accepted chemotherapy
+fragments	1
+id	T14
+type	Bacteria
+form	Acinetobacter baumannii
+fragments	1
+id	T10
+type	Habitat
+form	nosocomial
+fragments	1
+id	T14
+type	Bacteria
+form	Acinetobacter baumannii
+fragments	1
+id	T3
+type	Bacteria
+form	Salmonella enterica
+fragments	1
+id	T6
+type	Habitat
+form	humans
+fragments	1
+id	T3
+type	Bacteria
+form	Salmonella enterica
+fragments	1
+id	T4
+type	Geographical
+form	northern Spain
+fragments	1
+id	T3
+type	Bacteria
+form	Salmonella enterica
+fragments	1
+id	T5
+type	Habitat
+form	animals
+fragments	1
+id	T7
+type	Bacteria
+form	Salmonella enterica
+fragments	1
+id	T9
+type	Habitat
+form	Spanish hospitals
+fragments	1
+id	T7
+type	Bacteria
+form	Salmonella enterica
+fragments	1
+id	T8
+type	Geographical
+form	Spanish
+fragments	1
+id	T9
+type	Habitat
+form	Spanish hospitals
+fragments	1
+id	T10
+type	Bacteria
+form	Virchow
+fragments	1
+id	T8
+type	Geographical
+form	Spanish
+fragments	1
+id	T10
+type	Bacteria
+form	Virchow
+fragments	1
+id	T9
+type	Habitat
+form	Spanish hospitals
+fragments	1
+id	T11
+type	Bacteria
+form	Livingstone
+fragments	1
+id	T8
+type	Geographical
+form	Spanish
+fragments	1
+id	T11
+type	Bacteria
+form	Livingstone
+fragments	1
+id	T16
+type	Bacteria
+form	S. enterica
+fragments	1
+id	T17
+type	Habitat
+form	hospitals
+fragments	1
+id	T23
+type	Habitat
+form	CSF
+fragments	1
+id	T28
+type	Bacteria
+form	M. pneumoniae
+fragments	1
+id	T6
+type	Bacteria
+form	Streptococcus pneumoniae
+fragments	1
+id	T14
+type	Geographical
+form	Japan
+fragments	1
+id	T7
+type	Bacteria
+form	Haemophilus influenzae
+fragments	1
+id	T14
+type	Geographical
+form	Japan
+fragments	1
+id	T8
+type	Bacteria
+form	Mycoplasma pneumoniae
+fragments	1
+id	T14
+type	Geographical
+form	Japan
+fragments	1
+id	T9
+type	Bacteria
+form	Neisseria meningitidis
+fragments	1
+id	T14
+type	Geographical
+form	Japan
+fragments	1
+id	T10
+type	Bacteria
+form	Escherichia coli
+fragments	1
+id	T14
+type	Geographical
+form	Japan
+fragments	1
+id	T11
+type	Bacteria
+form	Streptococcus agalactiae
+fragments	1
+id	T14
+type	Geographical
+form	Japan
+fragments	1
+id	T12
+type	Bacteria
+form	Staphylococcus aureus
+fragments	1
+id	T14
+type	Geographical
+form	Japan
+fragments	1
+id	T13
+type	Bacteria
+form	Listeria monocytogenes
+fragments	1
+id	T14
+type	Geographical
+form	Japan
+fragments	1
+id	T22
+type	Bacteria
+form	H. influenzae
+fragments	1
+id	T29
+type	Habitat
+form	patients with antibiotic administration
+fragments	1
+id	T22
+type	Bacteria
+form	H. influenzae
+fragments	1
+id	T23
+type	Habitat
+form	CSF
+fragments	1
+id	T23
+type	Habitat
+form	CSF
+fragments	1
+id	T24
+type	Bacteria
+form	S. pneumoniae
+fragments	1
+id	T24
+type	Bacteria
+form	S. pneumoniae
+fragments	1
+id	T29
+type	Habitat
+form	patients with antibiotic administration
+fragments	1
+id	T25
+type	Bacteria
+form	S. agalactiae
+fragments	1
+id	T29
+type	Habitat
+form	patients with antibiotic administration
+fragments	1
+id	T23
+type	Habitat
+form	CSF
+fragments	1
+id	T25
+type	Bacteria
+form	S. agalactiae
+fragments	1
+id	T23
+type	Habitat
+form	CSF
+fragments	1
+id	T26
+type	Bacteria
+form	E. coli
+fragments	1
+id	T26
+type	Bacteria
+form	E. coli
+fragments	1
+id	T29
+type	Habitat
+form	patients with antibiotic administration
+fragments	1
+id	T23
+type	Habitat
+form	CSF
+fragments	1
+id	T27
+type	Bacteria
+form	L. monocytogenes
+fragments	1
+id	T27
+type	Bacteria
+form	L. monocytogenes
+fragments	1
+id	T29
+type	Habitat
+form	patients with antibiotic administration
+fragments	1
+id	T28
+type	Bacteria
+form	M. pneumoniae
+fragments	1
+id	T29
+type	Habitat
+form	patients with antibiotic administration
+fragments	1
+id	T5
+type	Bacteria
+form	Pseudomonas fluorescens strain, TSS
+fragments	1
+id	T6
+type	Habitat
+form	diseased Japanese flounder cultured in a local farm
+fragments	1
+id	T13
+type	Bacteria
+form	TFM
+fragments	1
+id	T17
+type	Habitat
+form	Japanese flounder
+fragments	1
+id	T20
+type	Bacteria
+form	TFM
+fragments	1
+id	T21
+type	Habitat
+form	Japanese flounder
+fragments	1
+id	T18
+type	Habitat
+form	live vaccine
+fragments	1
+id	T20
+type	Bacteria
+form	TFM
+fragments	1
+id	T26
+type	Habitat
+form	Japanese flounder
+fragments	1
+id	T27
+type	Bacteria
+form	TFM
+fragments	1
+id	T3
+type	Bacteria
+form	Staphylococcus aureus
+fragments	1
+id	T5
+type	Habitat
+form	environmental surfaces in a jail setting
+fragments	1
+id	T3
+type	Bacteria
+form	Staphylococcus aureus
+fragments	1
+id	T6
+type	Habitat
+form	jail
+fragments	1
+id	T4
+type	Bacteria
+form	MRSA
+fragments	1
+id	T5
+type	Habitat
+form	environmental surfaces in a jail setting
+fragments	1
+id	T4
+type	Bacteria
+form	MRSA
+fragments	1
+id	T6
+type	Habitat
+form	jail
+fragments	1
+id	T11
+type	Habitat
+form	primary and secondary mannitol salts
+fragments	1
+id	T14
+type	Bacteria
+form	S. aureus
+fragments	1
+id	T7
+type	Habitat
+form	jail
+fragments	1
+id	T14
+type	Bacteria
+form	S. aureus
+fragments	1
+id	T12
+type	Habitat
+form	oxacillin-resistant screening agar
+fragments	1
+id	T14
+type	Bacteria
+form	S. aureus
+fragments	1
+id	T8
+type	Habitat
+form	jail environmental surfaces
+fragments	1
+id	T14
+type	Bacteria
+form	S. aureus
+fragments	1
+id	T12
+type	Habitat
+form	oxacillin-resistant screening agar
+fragments	1
+id	T15
+type	Bacteria
+form	MRSA
+fragments	1
+id	T15
+type	Bacteria
+form	MRSA
+fragments	1
+id	T16
+type	Habitat
+form	inmates' nasal
+fragments	1
+id	T11
+type	Habitat
+form	primary and secondary mannitol salts
+fragments	1
+id	T15
+type	Bacteria
+form	MRSA
+fragments	1
+id	T7
+type	Habitat
+form	jail
+fragments	1
+id	T15
+type	Bacteria
+form	MRSA
+fragments	1
+id	T15
+type	Bacteria
+form	MRSA
+fragments	1
+id	T17
+type	Habitat
+form	inmates
+fragments	1
+id	T8
+type	Habitat
+form	jail environmental surfaces
+fragments	1
+id	T15
+type	Bacteria
+form	MRSA
+fragments	1
+id	T19
+type	Habitat
+form	correctional facilities
+fragments	1
+id	T20
+type	Bacteria
+form	MRSA
+fragments	1
+id	T18
+type	Bacteria
+form	MRSA
+fragments	1
+id	T19
+type	Habitat
+form	correctional facilities
+fragments	1
+id	T16
+type	Bacteria
+form	Mycobacterium leprae
+fragments	1
+id	T18
+type	Habitat
+form	adult
+fragments	1
+id	T16
+type	Bacteria
+form	Mycobacterium leprae
+fragments	1
+id	T19
+type	Habitat
+form	adult PNS
+fragments	1
+id	T15
+type	Habitat
+form	human
+fragments	1
+id	T16
+type	Bacteria
+form	Mycobacterium leprae
+fragments	1
+id	T16
+type	Bacteria
+form	Mycobacterium leprae
+fragments	1
+id	T17
+type	Habitat
+form	Schwann cells of the adult PNS
+fragments	1
+id	T24
+type	Habitat
+form	myelin-free cells
+fragments	1
+id	T25
+type	Bacteria
+form	M. leprae
+fragments	1
+id	T26
+type	Bacteria
+form	M. leprae
+fragments	1
+id	T28
+type	Habitat
+form	infected cells
+fragments	1
+id	T31
+type	Bacteria
+form	M. leprae
+fragments	1
+id	T32
+type	Habitat
+form	PNS
+fragments	1
+id	T6
+type	Bacteria
+form	Francisella tularensis LVS
+fragments	1
+id	T9
+type	Habitat
+form	murine macrophage-like cell line J774
+fragments	1
+id	T10
+type	Bacteria
+form	Francisella tularensis
+fragments	1
+id	T12
+type	Habitat
+form	human cells
+fragments	1
+id	T10
+type	Bacteria
+form	Francisella tularensis
+fragments	1
+id	T13
+type	Habitat
+form	human
+fragments	1
+id	T10
+type	Bacteria
+form	Francisella tularensis
+fragments	1
+id	T11
+type	Habitat
+form	human
+fragments	1
+id	T14
+type	Bacteria
+form	F. tularensis LVS
+fragments	1
+id	T16
+type	Habitat
+form	macrophage-like cell line J774
+fragments	1
+id	T18
+type	Habitat
+form	J774 cells
+fragments	1
+id	T19
+type	Bacteria
+form	F. tularensis
+fragments	1
+id	T21
+type	Habitat
+form	J774 cell line
+fragments	1
+id	T22
+type	Bacteria
+form	F. tularensis
+fragments	1
+id	T8
+type	Bacteria
+form	Y. pseudotuberculosis
+fragments	1
+id	T10
+type	Habitat
+form	Peyer's patches
+fragments	1
+id	T8
+type	Bacteria
+form	Y. pseudotuberculosis
+fragments	1
+id	T12
+type	Habitat
+form	spleen
+fragments	1
+id	T8
+type	Bacteria
+form	Y. pseudotuberculosis
+fragments	1
+id	T11
+type	Habitat
+form	mesenteric lymph nodes
+fragments	1
+id	T4
+type	Bacteria
+form	Vibrio fischeri
+fragments	1
+id	T6
+type	Habitat
+form	Hawaiian bobtail squid
+fragments	1
+id	T4
+type	Bacteria
+form	Vibrio fischeri
+fragments	1
+id	T7
+type	Habitat
+form	Euprymna scolopes
+fragments	1
+id	T4
+type	Bacteria
+form	Vibrio fischeri
+fragments	1
+id	T8
+type	Habitat
+form	light organ
+fragments	1
+id	T9
+type	Bacteria
+form	V. fischeri
+fragments	1
+id	T11
+type	Habitat
+form	juvenile squid's light organ
+fragments	1
+id	T14
+type	Bacteria
+form	V. fischeri
+fragments	1
+id	T15
+type	Habitat
+form	E. scolopes
+fragments	1
+id	T4
+type	Bacteria
+form	Vibrio fischeri
+fragments	1
+id	T5
+type	Habitat
+form	marine
+fragments	1
+id	T6
+type	Habitat
+form	Hawaiian bobtail squid
+fragments	1
+id	T7
+type	Habitat
+form	Euprymna scolopes
+fragments	1
+id	T5
+type	Habitat
+form	human
+fragments	1
+id	T6
+type	Bacteria
+form	Staphylococcus aureus
+fragments	1
+id	T10
+type	Bacteria
+form	H.pylori
+fragments	1
+id	T11
+type	Habitat
+form	children
+fragments	1
+id	T17
+type	Bacteria
+form	H.pylori
+fragments	1
+id	T18
+type	Habitat
+form	children
+fragments	1
+id	T6
+type	Bacteria
+form	Helicobactor pylori
+fragments	1
+id	T7
+type	Habitat
+form	children
+fragments	1
+id	T8
+type	Bacteria
+form	Helicobacter pylori
+fragments	1
+id	T9
+type	Bacteria
+form	H.pylori
+fragments	1
+id	T10
+type	Bacteria
+form	H.pylori
+fragments	1
+id	T35
+type	Habitat
+form	intestinal
+fragments	1
+id	T36
+type	Bacteria
+form	C. perfringens
+fragments	1
+id	T7
+type	Bacteria
+form	Clostridium difficile
+fragments	1
+id	T16
+type	Geographical
+form	Olmsted County
+fragments	1
+id	T7
+type	Bacteria
+form	Clostridium difficile
+fragments	1
+id	T9
+type	Habitat
+form	inpatient cases of CDI (48.6% female; median age, 62.5 years; range, 0.1-103.7 years)
+fragments	1
+id	T7
+type	Bacteria
+form	Clostridium difficile
+fragments	1
+id	T11
+type	Habitat
+form	Patients with severe-complicated CDI
+fragments	1
+id	T7
+type	Bacteria
+form	Clostridium difficile
+fragments	1
+id	T22
+type	Habitat
+form	patients
+fragments	1
+id	T7
+type	Bacteria
+form	Clostridium difficile
+fragments	1
+id	T23
+type	Geographical
+form	Olmsted County
+fragments	1
+id	T7
+type	Bacteria
+form	Clostridium difficile
+fragments	1
+id	T17
+type	Geographical
+form	Minnesota
+fragments	1
+id	T7
+type	Bacteria
+form	Clostridium difficile
+fragments	1
+id	T13
+type	Habitat
+form	hospitalized patients
+fragments	1
+id	T7
+type	Bacteria
+form	Clostridium difficile
+fragments	1
+id	T15
+type	Habitat
+form	inpatients
+fragments	1
+id	T7
+type	Bacteria
+form	Clostridium difficile
+fragments	1
+id	T29
+type	Habitat
+form	hospitalized patients
+fragments	1
+id	T7
+type	Bacteria
+form	Clostridium difficile
+fragments	1
+id	T19
+type	Habitat
+form	inpatients
+fragments	1
+id	T5
+type	Bacteria
+form	Campylobacter
+fragments	1
+id	T7
+type	Geographical
+form	UK
+fragments	1
+id	T5
+type	Bacteria
+form	Campylobacter
+fragments	1
+id	T6
+type	Habitat
+form	UK retail poultry
+fragments	1
+id	T8
+type	Habitat
+form	clinical
+fragments	1
+id	T9
+type	Bacteria
+form	Campylobacter
+fragments	1
+id	T9
+type	Bacteria
+form	Campylobacter
+fragments	1
+id	T10
+type	Habitat
+form	retail poultry
+fragments	1
+id	T9
+type	Bacteria
+form	Campylobacter
+fragments	1
+id	T11
+type	Habitat
+form	human
+fragments	1
+id	T12
+type	Geographical
+form	UK
+fragments	1
+id	T13
+type	Bacteria
+form	Campylobacter
+fragments	1
+id	T13
+type	Bacteria
+form	Campylobacter
+fragments	1
+id	T14
+type	Habitat
+form	retail poultry
+fragments	1
+id	T16
+type	Habitat
+form	chicken
+fragments	1
+id	T17
+type	Bacteria
+form	Campylobacter
+fragments	1
+id	T18
+type	Bacteria
+form	Campylobacter
+fragments	1
+id	T20
+type	Habitat
+form	farmed chickens
+fragments	1
+id	T18
+type	Bacteria
+form	Campylobacter
+fragments	1
+id	T19
+type	Habitat
+form	humans
+fragments	1
+id	T4
+type	Bacteria
+form	Pseudomonas aeruginosa
+fragments	1
+id	T5
+type	Habitat
+form	susceptible individuals
+fragments	1
+id	T6
+type	Bacteria
+form	Salmonella Paratyphi A
+fragments	1
+id	T8
+type	Geographical
+form	Nepal
+fragments	1
+id	T6
+type	Bacteria
+form	Salmonella Paratyphi A
+fragments	1
+id	T7
+type	Habitat
+form	israeli travelers
+fragments	1
+id	T9
+type	Geographical
+form	Asia
+fragments	1
+id	T10
+type	Bacteria
+form	Salmonella Paratyphi A
+fragments	1
+id	T12
+type	Bacteria
+form	S. Paratyphi A
+fragments	1
+id	T14
+type	Geographical
+form	Nepal
+fragments	1
+id	T12
+type	Bacteria
+form	S. Paratyphi A
+fragments	1
+id	T13
+type	Habitat
+form	Israeli travelers
+fragments	1
+id	T16
+type	Habitat
+form	Israeli travelers
+fragments	1
+id	T18
+type	Bacteria
+form	S. Paratyphi A
+fragments	1
+id	T17
+type	Geographical
+form	Nepal
+fragments	1
+id	T18
+type	Bacteria
+form	S. Paratyphi A
+fragments	1
+id	T8
+type	Bacteria
+form	Salmonella
+fragments	1
+id	T9
+type	Habitat
+form	chickens
+fragments	1
+id	T16
+type	Habitat
+form	intracloacal
+fragments	1
+id	T18
+type	Bacteria
+form	S. Typhimurium
+fragments	1
+id	T17
+type	Habitat
+form	chickens
+fragments	1
+id	T18
+type	Bacteria
+form	S. Typhimurium
+fragments	1
+id	T17
+type	Habitat
+form	chickens
+fragments	1
+id	T20
+type	Bacteria
+form	Salmonella
+fragments	1
+id	T22
+type	Bacteria
+form	Salmonella
+fragments	1
+id	T23
+type	Habitat
+form	visceral organs
+fragments	1
+id	T22
+type	Bacteria
+form	Salmonella
+fragments	1
+id	T26
+type	Habitat
+form	chicks
+fragments	1
+id	T22
+type	Bacteria
+form	Salmonella
+fragments	1
+id	T25
+type	Habitat
+form	caecal wall of the chicks
+fragments	1
+id	T27
+type	Bacteria
+form	Salmonella
+fragments	1
+id	T30
+type	Habitat
+form	chickens
+fragments	1
+id	T27
+type	Bacteria
+form	Salmonella
+fragments	1
+id	T28
+type	Habitat
+form	caecal content of chickens
+fragments	1
+id	T18
+type	Bacteria
+form	S. Typhimurium
+fragments	1
+id	T19
+type	Bacteria
+form	S. Typhimurium
+fragments	1
+id	T11
+type	Bacteria
+form	MRSA
+fragments	1
+id	T14
+type	Habitat
+form	patient
+fragments	1
+id	T13
+type	Bacteria
+form	VRE
+fragments	1
+id	T14
+type	Habitat
+form	patient
+fragments	1
+id	T21
+type	Bacteria
+form	MRSA
+fragments	1
+id	T22
+type	Habitat
+form	patients
+fragments	1
+id	T23
+type	Bacteria
+form	VRE
+fragments	1
+id	T24
+type	Habitat
+form	patients
+fragments	1
+id	T9
+type	Bacteria
+form	Legionella pneumophila
+fragments	1
+id	T10
+type	Habitat
+form	host cell
+fragments	1
+id	T4
+type	Bacteria
+form	Mycoplasma
+fragments	1
+id	T7
+type	Geographical
+form	Georgia
+fragments	1
+id	T4
+type	Bacteria
+form	Mycoplasma
+fragments	1
+id	T6
+type	Habitat
+form	Gopherus polyphemus
+fragments	1
+id	T4
+type	Bacteria
+form	Mycoplasma
+fragments	1
+id	T5
+type	Habitat
+form	free-ranging gopher tortoises
+fragments	1
+id	T4
+type	Bacteria
+form	Mycoplasma
+fragments	1
+id	T8
+type	Geographical
+form	USA
+fragments	1
+id	T15
+type	Bacteria
+form	Mycoplasma agassizii
+fragments	1
+id	T17
+type	Habitat
+form	Georgia tortoise populations
+fragments	1
+id	T15
+type	Bacteria
+form	Mycoplasma agassizii
+fragments	1
+id	T18
+type	Geographical
+form	Georgia
+fragments	1
+id	T16
+type	Bacteria
+form	Mycoplasma testudineum
+fragments	1
+id	T18
+type	Geographical
+form	Georgia
+fragments	1
+id	T16
+type	Bacteria
+form	Mycoplasma testudineum
+fragments	1
+id	T17
+type	Habitat
+form	Georgia tortoise populations
+fragments	1
+id	T27
+type	Bacteria
+form	M. agassizii
+fragments	1
+id	T30
+type	Geographical
+form	Georgia
+fragments	1
+id	T27
+type	Bacteria
+form	M. agassizii
+fragments	1
+id	T29
+type	Habitat
+form	Georgia populations of gopher tortoises
+fragments	1
+id	T28
+type	Bacteria
+form	M. testudineum
+fragments	1
+id	T29
+type	Habitat
+form	Georgia populations of gopher tortoises
+fragments	1
+id	T28
+type	Bacteria
+form	M. testudineum
+fragments	1
+id	T30
+type	Geographical
+form	Georgia
+fragments	1
+id	T5
+type	Habitat
+form	free-ranging gopher tortoises
+fragments	1
+id	T6
+type	Habitat
+form	Gopherus polyphemus
+fragments	1
+id	T17
+type	Habitat
+form	Mtb-infected human blood
+fragments	1
+id	T18
+type	Bacteria
+form	Mtb
+fragments	1
+id	T18
+type	Bacteria
+form	Mtb
+fragments	1
+id	T19
+type	Habitat
+form	human
+fragments	1
+id	T4
+type	Bacteria
+form	Pseudomonas aeruginosa
+fragments	1
+id	T7
+type	Habitat
+form	patients with CF
+fragments	1
+id	T4
+type	Bacteria
+form	Pseudomonas aeruginosa
+fragments	1
+id	T6
+type	Habitat
+form	clinical
+fragments	1
+id	T4
+type	Bacteria
+form	Pseudomonas aeruginosa
+fragments	1
+id	T5
+type	Bacteria
+form	P. aeruginosa
+fragments	1
+id	T4
+type	Bacteria
+form	Vibrio salmonicida
+fragments	1
+id	T6
+type	Habitat
+form	fish farm sediments
+fragments	1
+id	T4
+type	Bacteria
+form	Vibrio salmonicida
+fragments	1
+id	T5
+type	Habitat
+form	fish farm
+fragments	1
+id	T3
+type	Habitat
+form	fish
+fragments	1
+id	T4
+type	Bacteria
+form	Vibrio salmonicida
+fragments	1
+id	T8
+type	Habitat
+form	fish
+fragments	1
+id	T9
+type	Bacteria
+form	Vibrio salmonicida
+fragments	1
+id	T9
+type	Bacteria
+form	Vibrio salmonicida
+fragments	1
+id	T10
+type	Habitat
+form	fish farm
+fragments	1
+id	T9
+type	Bacteria
+form	Vibrio salmonicida
+fragments	1
+id	T11
+type	Habitat
+form	fish farm sediments
+fragments	1
+id	T15
+type	Bacteria
+form	Vibrio
+fragments	1
+id	T18
+type	Habitat
+form	sediments
+fragments	1
+id	T15
+type	Bacteria
+form	Vibrio
+fragments	1
+id	T16
+type	Habitat
+form	intestinal tracts of healthy fish
+fragments	1
+id	T15
+type	Bacteria
+form	Vibrio
+fragments	1
+id	T17
+type	Habitat
+form	healthy fish
+fragments	1
+id	T19
+type	Bacteria
+form	V. salmonicida
+fragments	1
+id	T22
+type	Habitat
+form	sediment sample from a disease-free fish farm
+fragments	1
+id	T19
+type	Bacteria
+form	V. salmonicida
+fragments	1
+id	T20
+type	Habitat
+form	sediment samples from diseased farms
+fragments	1
+id	T19
+type	Bacteria
+form	V. salmonicida
+fragments	1
+id	T21
+type	Habitat
+form	diseased farms
+fragments	1
+id	T19
+type	Bacteria
+form	V. salmonicida
+fragments	1
+id	T23
+type	Habitat
+form	disease-free fish farm
+fragments	1
+id	T8
+type	Bacteria
+form	C. burnetii
+fragments	1
+id	T9
+type	Habitat
+form	normal yolk sacs
+fragments	1
+id	T13
+type	Habitat
+form	infected yolk sacs
+fragments	1
+id	T15
+type	Bacteria
+form	C. burnetii
+fragments	1
+id	T3
+type	Bacteria
+form	Coxiella burnetii
+fragments	1
+id	T11
+type	Habitat
+form	infected yolk sacs
+fragments	1
+id	T3
+type	Bacteria
+form	Coxiella burnetii
+fragments	1
+id	T5
+type	Bacteria
+form	Coxiella burnetii
+fragments	1
+id	T7
+type	Bacteria
+form	C. burnetii
+fragments	1
+id	T8
+type	Bacteria
+form	C. burnetii
+fragments	1
+id	T15
+type	Bacteria
+form	C. burnetii
+fragments	2
+id	T3
+type	Habitat
+form	Macaca mulatta sensitized with bacille Calmette Guerin cell wall vaccine and-or infected with virulent Mycobacterium tuberculosis
+fragments	1
+id	T6
+type	Bacteria
+form	Mycobacterium tuberculosis
+fragments	1
+id	T18
+type	Bacteria
+form	Mycoplasma pneumoniae
+fragments	1
+id	T19
+type	Habitat
+form	school age children with wheezing illness
+fragments	1
+id	T13
+type	Habitat
+form	patients with WARI
+fragments	1
+id	T15
+type	Bacteria
+form	Mycoplasma pneumoniae
+fragments	1
+id	T2
+type	Bacteria
+form	Serratia
+fragments	1
+id	T5
+type	Geographical
+form	Italy
+fragments	1
+id	T2
+type	Bacteria
+form	Serratia
+fragments	1
+id	T3
+type	Habitat
+form	Hospital S. Camillo De Lellis
+fragments	1
+id	T2
+type	Bacteria
+form	Serratia
+fragments	1
+id	T4
+type	Geographical
+form	Roma
+fragments	1
+id	T8
+type	Bacteria
+form	Vibrio cholerae O:1
+fragments	1
+id	T9
+type	Habitat
+form	household contacts of the patients
+fragments	1
+id	T12
+type	Habitat
+form	people with V. cholerae O:1 infection
+fragments	1
+id	T13
+type	Bacteria
+form	V. cholerae O:1
+fragments	1
+id	T19
+type	Bacteria
+form	V. cholerae O:1
+fragments	1
+id	T22
+type	Habitat
+form	lagoon on the outskirts of the city of Cagliari
+fragments	1
+id	T19
+type	Bacteria
+form	V. cholerae O:1
+fragments	1
+id	T21
+type	Habitat
+form	bivalves
+fragments	1
+id	T19
+type	Bacteria
+form	V. cholerae O:1
+fragments	1
+id	T20
+type	Habitat
+form	water
+fragments	1
+id	T19
+type	Bacteria
+form	V. cholerae O:1
+fragments	1
+id	T25
+type	Habitat
+form	Arselle
+fragments	1
+id	T3
+type	Bacteria
+form	Chlamydia trachomatis
+fragments	1
+id	T5
+type	Habitat
+form	McCoy cells
+fragments	1
+id	T4
+type	Bacteria
+form	C. psittaci
+fragments	1
+id	T5
+type	Habitat
+form	McCoy cells
+fragments	1
+id	T7
+type	Bacteria
+form	Chlamydia trachomatis
+fragments	1
+id	T9
+type	Habitat
+form	cycloheximide-treated McCoy cells
+fragments	1
+id	T8
+type	Bacteria
+form	C. psittaci
+fragments	1
+id	T9
+type	Habitat
+form	cycloheximide-treated McCoy cells
+fragments	1
+id	T10
+type	Bacteria
+form	C. trachomatis
+fragments	1
+id	T11
+type	Habitat
+form	clinical
+fragments	1
+id	T15
+type	Bacteria
+form	C. trachomatis
+fragments	1
+id	T16
+type	Habitat
+form	cases of trachoma
+fragments	1
+id	T16
+type	Habitat
+form	cases of trachoma
+fragments	1
+id	T18
+type	Bacteria
+form	serotypes A
+fragments	1
+id	T16
+type	Habitat
+form	cases of trachoma
+fragments	2
+id	T17
+type	Bacteria
+form	serotypes A, B
+fragments	1
+id	T16
+type	Habitat
+form	cases of trachoma
+fragments	2
+id	T19
+type	Bacteria
+form	serotypes A, B and C
+fragments	1
+id	T20
+type	Habitat
+form	oculogenital origin
+fragments	1
+id	T21
+type	Bacteria
+form	serotypes D-I
+fragments	1
+id	T5
+type	Bacteria
+form	Arhodomonas aquaeolei
+fragments	1
+id	T6
+type	Habitat
+form	petroleum reservoir production fluid
+fragments	1
+id	T11
+type	Bacteria
+form	A. aquaeolei
+fragments	1
+id	T16
+type	Habitat
+form	subterranean environment
+fragments	1
+id	T3
+type	Bacteria
+form	Arhodomonas aquaeolei
+fragments	1
+id	T4
+type	Habitat
+form	subterranean brine
+fragments	1
+id	T15
+type	Bacteria
+form	Helicobacter pylori
+fragments	1
+id	T16
+type	Habitat
+form	antrum
+fragments	1
+id	T26
+type	Bacteria
+form	H. pylori
+fragments	1
+id	T27
+type	Habitat
+form	patients
+fragments	1
+id	T28
+type	Habitat
+form	patients
+fragments	1
+id	T29
+type	Bacteria
+form	H. pylori
+fragments	1
+id	T3
+type	Habitat
+form	Respiratory
+fragments	1
+id	T4
+type	Bacteria
+form	Kingella kingae
+fragments	1
+id	T4
+type	Bacteria
+form	Kingella kingae
+fragments	1
+id	T5
+type	Habitat
+form	healthy children
+fragments	1
+id	T6
+type	Bacteria
+form	Kingella kingae
+fragments	1
+id	T8
+type	Habitat
+form	respiratory tract
+fragments	1
+id	T6
+type	Bacteria
+form	Kingella kingae
+fragments	1
+id	T7
+type	Habitat
+form	young children
+fragments	1
+id	T6
+type	Bacteria
+form	Kingella kingae
+fragments	1
+id	T10
+type	Habitat
+form	children
+fragments	1
+id	T30
+type	Habitat
+form	day-care center attendees
+fragments	1
+id	T31
+type	Bacteria
+form	K. kingae
+fragments	1
+id	T26
+type	Habitat
+form	throat
+fragments	1
+id	T31
+type	Bacteria
+form	K. kingae
+fragments	1
+id	T25
+type	Habitat
+form	throat cultures
+fragments	1
+id	T31
+type	Bacteria
+form	K. kingae
+fragments	1
+id	T32
+type	Bacteria
+form	K. kingae
+fragments	1
+id	T34
+type	Habitat
+form	children
+fragments	1
+id	T32
+type	Bacteria
+form	K. kingae
+fragments	1
+id	T33
+type	Habitat
+form	children
+fragments	1
+id	T36
+type	Bacteria
+form	K. kingae
+fragments	1
+id	T38
+type	Habitat
+form	surgical patients
+fragments	1
+id	T35
+type	Habitat
+form	colonized children
+fragments	1
+id	T36
+type	Bacteria
+form	K. kingae
+fragments	1
+id	T36
+type	Bacteria
+form	K. kingae
+fragments	1
+id	T37
+type	Habitat
+form	pharyngeal
+fragments	1
+id	T31
+type	Bacteria
+form	K. kingae
+fragments	1
+id	T32
+type	Bacteria
+form	K. kingae
+fragments	1
+id	T6
+type	Bacteria
+form	Non-O1 Vibrio cholerae
+fragments	1
+id	T7
+type	Habitat
+form	patients with cirrhosis
+fragments	1
+id	T11
+type	Habitat
+form	blood culture
+fragments	1
+id	T13
+type	Bacteria
+form	non-O1 V. cholerae
+fragments	1
+id	T12
+type	Habitat
+form	blood
+fragments	1
+id	T13
+type	Bacteria
+form	non-O1 V. cholerae
+fragments	1
+id	T13
+type	Bacteria
+form	non-O1 V. cholerae
+fragments	1
+id	T15
+type	Habitat
+form	Patients with underlying cirrhosis and the aforementioned bacteremia
+fragments	1
+id	T27
+type	Habitat
+form	Patients with decompensated cirrhosis
+fragments	1
+id	T28
+type	Bacteria
+form	non-O1 V. cholerae
+fragments	1
+id	T8
+type	Habitat
+form	animal models
+fragments	1
+id	T11
+type	Bacteria
+form	mycobacteria
+fragments	2
+id	T7
+type	Habitat
+form	man and animal models
+fragments	1
+id	T11
+type	Bacteria
+form	mycobacteria
+fragments	1
+id	T8
+type	Habitat
+form	animal models
+fragments	1
+id	T12
+type	Bacteria
+form	mycobacterial
+fragments	2
+id	T7
+type	Habitat
+form	man and animal models
+fragments	1
+id	T12
+type	Bacteria
+form	mycobacterial
+fragments	1
+id	T5
+type	Bacteria
+form	Helicobacter pullorum
+fragments	1
+id	T6
+type	Habitat
+form	asymptomatic poultry
+fragments	1
+id	T7
+type	Habitat
+form	human
+fragments	1
+id	T8
+type	Bacteria
+form	H. pullorum
+fragments	1
+id	T8
+type	Bacteria
+form	H. pullorum
+fragments	1
+id	T9
+type	Habitat
+form	immunocompromised patient
+fragments	1
+id	T3
+type	Bacteria
+form	Helicobacter pullorum
+fragments	1
+id	T4
+type	Habitat
+form	patients with enteritis
+fragments	1
+id	T5
+type	Bacteria
+form	Agrobacterium rhizogenes
+fragments	1
+id	T7
+type	Habitat
+form	plant
+fragments	1
+id	T3
+type	Bacteria
+form	Mycobacterium kansasii
+fragments	1
+id	T4
+type	Habitat
+form	patient with AIDS
+fragments	1
+id	T2
+type	Habitat
+form	Gingivomandibular
+fragments	1
+id	T3
+type	Bacteria
+form	Mycobacterium kansasii
+fragments	1
+id	T6
+type	Habitat
+form	healthy cows
+fragments	1
+id	T8
+type	Bacteria
+form	Escherichia coli
+fragments	1
+id	T4
+type	Bacteria
+form	Escherichia coli
+fragments	1
+id	T5
+type	Habitat
+form	cattle
+fragments	1
+id	T3
+type	Bacteria
+form	Helicobacter pylori
+fragments	1
+id	T5
+type	Habitat
+form	human immunodeficiency virus-infected outpatients
+fragments	1
+id	T15
+type	Bacteria
+form	H. pylori
+fragments	1
+id	T16
+type	Habitat
+form	subjects without hypoacidity
+fragments	1
+id	T14
+type	Habitat
+form	Subjects with hypoacidity
+fragments	1
+id	T15
+type	Bacteria
+form	H. pylori
+fragments	1
+id	T23
+type	Bacteria
+form	H. pylori
+fragments	2
+id	T24
+type	Habitat
+form	HIV-positive black and Hispanic populations
+fragments	1
+id	T23
+type	Bacteria
+form	H. pylori
+fragments	2
+id	T25
+type	Habitat
+form	HIV-positive black and Hispanic populations
+fragments	2
+id	T15
+type	Habitat
+form	patients with high-grade primary gastric lymphoma, 25 with low-grade MALT lymphoma, 32 with atypical lymphoid infiltrates, and 39 with Helicobacter pylori-chronic active gastritis
+fragments	1
+id	T19
+type	Bacteria
+form	Helicobacter pylori
+fragments	1
+id	T3
+type	Bacteria
+form	Listeria sp.
+fragments	1
+id	T5
+type	Habitat
+form	chicken nugget processing plant
+fragments	1
+id	T4
+type	Bacteria
+form	Listeria monocytogenes
+fragments	1
+id	T5
+type	Habitat
+form	chicken nugget processing plant
+fragments	1
+id	T8
+type	Bacteria
+form	Listeria sp.
+fragments	1
+id	T13
+type	Habitat
+form	chicken nugget
+fragments	1
+id	T8
+type	Bacteria
+form	Listeria sp.
+fragments	1
+id	T12
+type	Habitat
+form	chicken nugget processing plant
+fragments	1
+id	T9
+type	Bacteria
+form	Listeria monocytogenes
+fragments	1
+id	T12
+type	Habitat
+form	chicken nugget processing plant
+fragments	1
+id	T9
+type	Bacteria
+form	Listeria monocytogenes
+fragments	1
+id	T13
+type	Habitat
+form	chicken nugget
+fragments	1
+id	T9
+type	Bacteria
+form	Listeria monocytogenes
+fragments	1
+id	T17
+type	Habitat
+form	HCLA
+fragments	1
+id	T9
+type	Bacteria
+form	Listeria monocytogenes
+fragments	1
+id	T16
+type	Habitat
+form	LPM
+fragments	1
+id	T9
+type	Bacteria
+form	Listeria monocytogenes
+fragments	1
+id	T15
+type	Habitat
+form	PALCAM
+fragments	1
+id	T3
+type	Bacteria
+form	Helicobacter pylori
+fragments	1
+id	T5
+type	Geographical
+form	Japan
+fragments	1
+id	T7
+type	Bacteria
+form	Helicobacter pylori
+fragments	1
+id	T8
+type	Geographical
+form	Japan
+fragments	1
+id	T8
+type	Geographical
+form	Japan
+fragments	1
+id	T9
+type	Bacteria
+form	H. pylori
+fragments	1
+id	T12
+type	Habitat
+form	H. pylori-positive subjects
+fragments	1
+id	T11
+type	Bacteria
+form	H. pylori
+fragments	1
+id	T18
+type	Habitat
+form	H. pylori-infected monkeys
+fragments	1
+id	T17
+type	Bacteria
+form	H. pylori
+fragments	1
+id	T20
+type	Bacteria
+form	H. pylori
+fragments	1
+id	T21
+type	Habitat
+form	children
+fragments	1
+id	T27
+type	Bacteria
+form	H. pylori
+fragments	1
+id	T31
+type	Geographical
+form	Japan
+fragments	1
+id	T27
+type	Bacteria
+form	H. pylori
+fragments	2
+id	T28
+type	Habitat
+form	patients with chronic gastritis and gastric cancer
+fragments	1
+id	T27
+type	Bacteria
+form	H. pylori
+fragments	1
+id	T29
+type	Habitat
+form	patients with chronic gastritis
+fragments	1
+id	T32
+type	Bacteria
+form	H. pylori
+fragments	1
+id	T33
+type	Habitat
+form	young Japanese gastric cancer patients
+fragments	1
+id	T35
+type	Bacteria
+form	H. pylori
+fragments	1
+id	T37
+type	Habitat
+form	young Japanese people
+fragments	1
+id	T3
+type	Bacteria
+form	Vibrio parahaemolyticus
+fragments	1
+id	T4
+type	Habitat
+form	clinical
+fragments	1
+id	T3
+type	Bacteria
+form	Vibrio parahaemolyticus
+fragments	1
+id	T6
+type	Geographical
+form	West Africa
+fragments	1
+id	T3
+type	Bacteria
+form	Vibrio parahaemolyticus
+fragments	1
+id	T5
+type	Geographical
+form	Togo
+fragments	1
+id	T7
+type	Bacteria
+form	Vibro parahaemolyticus
+fragments	1
+id	T13
+type	Habitat
+form	fish samples
+fragments	1
+id	T7
+type	Bacteria
+form	Vibro parahaemolyticus
+fragments	1
+id	T9
+type	Geographical
+form	Togo
+fragments	1
+id	T7
+type	Bacteria
+form	Vibro parahaemolyticus
+fragments	1
+id	T8
+type	Habitat
+form	clinical
+fragments	1
+id	T7
+type	Bacteria
+form	Vibro parahaemolyticus
+fragments	1
+id	T14
+type	Geographical
+form	Togo
+fragments	1
+id	T7
+type	Bacteria
+form	Vibro parahaemolyticus
+fragments	1
+id	T12
+type	Habitat
+form	water
+fragments	1
+id	T7
+type	Bacteria
+form	Vibro parahaemolyticus
+fragments	1
+id	T11
+type	Habitat
+form	healthy carriers
+fragments	1
+id	T7
+type	Bacteria
+form	Vibro parahaemolyticus
+fragments	1
+id	T10
+type	Habitat
+form	gastroenteritis patients
+fragments	1
+id	T3
+type	Habitat
+form	Human
+fragments	1
+id	T5
+type	Bacteria
+form	spotted fever group
+fragments	1
+id	T4
+type	Habitat
+form	tick
+fragments	1
+id	T6
+type	Bacteria
+form	Rickettsia
+fragments	1
+id	T6
+type	Bacteria
+form	Rickettsia
+fragments	1
+id	T7
+type	Geographical
+form	Israel
+fragments	1
+id	T3
+type	Habitat
+form	Human
+fragments	1
+id	T6
+type	Bacteria
+form	Rickettsia
+fragments	1
+id	T9
+type	Bacteria
+form	rickettsiae
+fragments	1
+id	T14
+type	Habitat
+form	patients suffering from rickettsial disease of different degrees of severity
+fragments	1
+id	T9
+type	Bacteria
+form	rickettsiae
+fragments	1
+id	T10
+type	Geographical
+form	Israel
+fragments	1
+id	T9
+type	Bacteria
+form	rickettsiae
+fragments	1
+id	T20
+type	Geographical
+form	Israeli
+fragments	1
+id	T9
+type	Bacteria
+form	rickettsiae
+fragments	1
+id	T11
+type	Habitat
+form	ticks
+fragments	1
+id	T9
+type	Bacteria
+form	rickettsiae
+fragments	1
+id	T17
+type	Geographical
+form	Israeli
+fragments	1
+id	T9
+type	Bacteria
+form	rickettsiae
+fragments	1
+id	T12
+type	Habitat
+form	humans
+fragments	1
+id	T22
+type	Bacteria
+form	spotted fever group
+fragments	1
+id	T23
+type	Habitat
+form	ticks
+fragments	1
+id	T9
+type	Bacteria
+form	rickettsiae
+fragments	1
+id	T15
+type	Geographical
+form	Israeli
+fragments	1
+id	T22
+type	Bacteria
+form	spotted fever group
+fragments	1
+id	T24
+type	Habitat
+form	humans
+fragments	1
+id	T21
+type	Geographical
+form	Israeli
+fragments	1
+id	T22
+type	Bacteria
+form	spotted fever group
+fragments	1
+id	T6
+type	Bacteria
+form	Bacillus thuringiensis serovar sotto
+fragments	1
+id	T8
+type	Geographical
+form	Japan
+fragments	1
+id	T11
+type	Bacteria
+form	B. thuringiensis
+fragments	1
+id	T12
+type	Habitat
+form	Culex pipiens molestus
+fragments	1
+id	T6
+type	Bacteria
+form	Bacillus thuringiensis serovar sotto
+fragments	1
+id	T7
+type	Geographical
+form	Okinawa
+fragments	1
+id	T3
+type	Bacteria
+form	Pseudomonas aeruginosa
+fragments	1
+id	T7
+type	Habitat
+form	adult cystic fibrosis units
+fragments	1
+id	T3
+type	Bacteria
+form	Pseudomonas aeruginosa
+fragments	2
+id	T4
+type	Habitat
+form	paediatric and adult cystic fibrosis units
+fragments	1
+id	T8
+type	Bacteria
+form	Pseudomonas aeruginosa
+fragments	1
+id	T9
+type	Habitat
+form	cystic fibrosis (CF) units
+fragments	1
+id	T10
+type	Habitat
+form	Sputum
+fragments	1
+id	T18
+type	Bacteria
+form	P. aeruginosa
+fragments	1
+id	T11
+type	Habitat
+form	productive patients
+fragments	1
+id	T18
+type	Bacteria
+form	P. aeruginosa
+fragments	1
+id	T17
+type	Geographical
+form	Australia
+fragments	1
+id	T18
+type	Bacteria
+form	P. aeruginosa
+fragments	1
+id	T16
+type	Geographical
+form	Brisbane
+fragments	1
+id	T18
+type	Bacteria
+form	P. aeruginosa
+fragments	1
+id	T22
+type	Bacteria
+form	P. aeruginosa
+fragments	1
+id	T25
+type	Habitat
+form	patient
+fragments	1
+id	T22
+type	Bacteria
+form	P. aeruginosa
+fragments	1
+id	T26
+type	Habitat
+form	patients
+fragments	1
+id	T22
+type	Bacteria
+form	P. aeruginosa
+fragments	1
+id	T23
+type	Habitat
+form	patients
+fragments	1
+id	T22
+type	Bacteria
+form	P. aeruginosa
+fragments	1
+id	T24
+type	Habitat
+form	patients
+fragments	1
+id	T22
+type	Bacteria
+form	P. aeruginosa
+fragments	1
+id	T27
+type	Habitat
+form	patients
+fragments	1
+id	T22
+type	Bacteria
+form	P. aeruginosa
+fragments	1
+id	T28
+type	Habitat
+form	patients
+fragments	1
+id	T19
+type	Habitat
+form	sputum
+fragments	1
+id	T22
+type	Bacteria
+form	P. aeruginosa
+fragments	1
+id	T22
+type	Bacteria
+form	P. aeruginosa
+fragments	1
+id	T30
+type	Habitat
+form	patients
+fragments	1
+id	T20
+type	Habitat
+form	patients
+fragments	1
+id	T22
+type	Bacteria
+form	P. aeruginosa
+fragments	1
+id	T6
+type	Bacteria
+form	Helicobacter pylori
+fragments	1
+id	T7
+type	Geographical
+form	Republic of Yemen
+fragments	1
+id	T8
+type	Bacteria
+form	Helicobacter pylori
+fragments	1
+id	T9
+type	Habitat
+form	dyspeptic patients
+fragments	1
+id	T8
+type	Bacteria
+form	Helicobacter pylori
+fragments	1
+id	T10
+type	Geographical
+form	Republic of Yemen
+fragments	1
+id	T15
+type	Habitat
+form	Patients with H. pylori infection
+fragments	1
+id	T16
+type	Bacteria
+form	H. pylori
+fragments	1
+id	T21
+type	Bacteria
+form	H. pylori
+fragments	1
+id	T23
+type	Geographical
+form	Yemen
+fragments	1
+id	T21
+type	Bacteria
+form	H. pylori
+fragments	1
+id	T22
+type	Habitat
+form	dyspeptic patients
+fragments	1
+id	T5
+type	Bacteria
+form	Klebsiella pneumonia
+fragments	1
+id	T6
+type	Habitat
+form	humans
+fragments	1
+id	T9
+type	Bacteria
+form	Klebsiella pneumonia
+fragments	1
+id	T11
+type	Habitat
+form	38-year-old secondary recurrent aborter
+fragments	1
+id	T8
+type	Habitat
+form	humans
+fragments	1
+id	T9
+type	Bacteria
+form	Klebsiella pneumonia
+fragments	1
+id	T9
+type	Bacteria
+form	Klebsiella pneumonia
+fragments	1
+id	T10
+type	Habitat
+form	placenta of a 38-year-old secondary recurrent aborter
+fragments	1
+id	T5
+type	Bacteria
+form	Klebsiella pneumonia
+fragments	1
+id	T7
+type	Habitat
+form	animals
+fragments	1
+id	T14
+type	Habitat
+form	children with diarrhea
+fragments	1
+id	T15
+type	Bacteria
+form	Escherichia coli
+fragments	1
+id	T14
+type	Habitat
+form	children with diarrhea
+fragments	1
+id	T16
+type	Bacteria
+form	Shigella spp
+fragments	1
+id	T14
+type	Habitat
+form	children with diarrhea
+fragments	1
+id	T17
+type	Bacteria
+form	Bacteroides fragilis
+fragments	1
+id	T20
+type	Bacteria
+form	E. coli
+fragments	1
+id	T21
+type	Habitat
+form	children less than two years of age
+fragments	1
+id	T22
+type	Bacteria
+form	Shigella spp
+fragments	1
+id	T24
+type	Habitat
+form	older children
+fragments	1
+id	T23
+type	Bacteria
+form	B. fragilis
+fragments	1
+id	T24
+type	Habitat
+form	older children
+fragments	1
+id	T41
+type	Bacteria
+form	Escherichia coli
+fragments	1
+id	T45
+type	Geographical
+form	Hanoi
+fragments	1
+id	T41
+type	Bacteria
+form	Escherichia coli
+fragments	1
+id	T44
+type	Habitat
+form	children
+fragments	1
+id	T41
+type	Bacteria
+form	Escherichia coli
+fragments	1
+id	T46
+type	Geographical
+form	Vietnam
+fragments	1
+id	T42
+type	Bacteria
+form	Shigella spp
+fragments	1
+id	T45
+type	Geographical
+form	Hanoi
+fragments	1
+id	T42
+type	Bacteria
+form	Shigella spp
+fragments	1
+id	T46
+type	Geographical
+form	Vietnam
+fragments	1
+id	T42
+type	Bacteria
+form	Shigella spp
+fragments	1
+id	T44
+type	Habitat
+form	children
+fragments	1
+id	T43
+type	Bacteria
+form	Bacteroides fragilis
+fragments	1
+id	T44
+type	Habitat
+form	children
+fragments	1
+id	T43
+type	Bacteria
+form	Bacteroides fragilis
+fragments	1
+id	T46
+type	Geographical
+form	Vietnam
+fragments	1
+id	T43
+type	Bacteria
+form	Bacteroides fragilis
+fragments	1
+id	T45
+type	Geographical
+form	Hanoi
+fragments	1
+id	T69
+type	Bacteria
+form	R. parkeri
+fragments	1
+id	T71
+type	Habitat
+form	humans
+fragments	1
+id	T3
+type	Bacteria
+form	Rickettsia
+fragments	1
+id	T4
+type	Geographical
+form	São Paulo
+fragments	1
+id	T3
+type	Bacteria
+form	Rickettsia
+fragments	1
+id	T5
+type	Geographical
+form	Brazil
+fragments	1
+id	T6
+type	Bacteria
+form	rickettsial
+fragments	1
+id	T7
+type	Habitat
+form	animals
+fragments	1
+id	T6
+type	Bacteria
+form	rickettsial
+fragments	1
+id	T8
+type	Habitat
+form	humans
+fragments	1
+id	T6
+type	Bacteria
+form	rickettsial
+fragments	1
+id	T11
+type	Geographical
+form	São Paulo
+fragments	1
+id	T6
+type	Bacteria
+form	rickettsial
+fragments	1
+id	T10
+type	Habitat
+form	fleas
+fragments	1
+id	T6
+type	Bacteria
+form	rickettsial
+fragments	1
+id	T9
+type	Habitat
+form	ticks
+fragments	1
+id	T30
+type	Bacteria
+form	Rickettsia felis
+fragments	1
+id	T32
+type	Habitat
+form	fleas
+fragments	1
+id	T33
+type	Bacteria
+form	Rickettsia bellii
+fragments	1
+id	T34
+type	Habitat
+form	ticks
+fragments	2
+id	T54
+type	Habitat
+form	horse, and human sera
+fragments	1
+id	T57
+type	Bacteria
+form	R. rickettsii
+fragments	2
+id	T49
+type	Habitat
+form	opossum, dog, horse, and human sera
+fragments	1
+id	T57
+type	Bacteria
+form	R. rickettsii
+fragments	1
+id	T56
+type	Habitat
+form	human sera
+fragments	1
+id	T57
+type	Bacteria
+form	R. rickettsii
+fragments	2
+id	T63
+type	Habitat
+form	dog, and horse sera
+fragments	1
+id	T67
+type	Bacteria
+form	R. parkeri
+fragments	2
+id	T52
+type	Habitat
+form	dog, horse, and human sera
+fragments	1
+id	T57
+type	Bacteria
+form	R. rickettsii
+fragments	1
+id	T65
+type	Habitat
+form	horse sera
+fragments	1
+id	T67
+type	Bacteria
+form	R. parkeri
+fragments	2
+id	T61
+type	Habitat
+form	opossum, dog, and horse sera
+fragments	1
+id	T67
+type	Bacteria
+form	R. parkeri
+fragments	1
+id	T68
+type	Bacteria
+form	R. rickettsii
+fragments	1
+id	T70
+type	Habitat
+form	animals
+fragments	1
+id	T68
+type	Bacteria
+form	R. rickettsii
+fragments	1
+id	T71
+type	Habitat
+form	humans
+fragments	1
+id	T69
+type	Bacteria
+form	R. parkeri
+fragments	1
+id	T70
+type	Habitat
+form	animals
+fragments	1
+id	T5
+type	Bacteria
+form	Francisella tularensis
+fragments	1
+id	T6
+type	Habitat
+form	monocyte-like THP-1 cells
+fragments	1
+id	T7
+type	Bacteria
+form	Francisella tularensis
+fragments	1
+id	T8
+type	Habitat
+form	human
+fragments	1
+id	T16
+type	Bacteria
+form	LVS
+fragments	1
+id	T17
+type	Habitat
+form	human
+fragments	1
+id	T16
+type	Bacteria
+form	LVS
+fragments	1
+id	T18
+type	Habitat
+form	human monocyte-like THP-1 cells
+fragments	1
+id	T20
+type	Bacteria
+form	LVS
+fragments	1
+id	T21
+type	Habitat
+form	monocyte-like THP-1 cells
+fragments	1
+id	T28
+type	Bacteria
+form	Francisella tularensis
+fragments	1
+id	T29
+type	Habitat
+form	host tissues
+fragments	1
+id	T30
+type	Bacteria
+form	LVS
+fragments	1
+id	T31
+type	Habitat
+form	infected monocytes
+fragments	1
+id	T32
+type	Habitat
+form	human
+fragments	1
+id	T33
+type	Bacteria
+form	F. tularensis ssp tularensis
+fragments	1
+id	T14
+type	Bacteria
+form	Francisella tularensis Live Vaccine Strain
+fragments	1
+id	T15
+type	Bacteria
+form	LVS
+fragments	1
+id	T16
+type	Bacteria
+form	LVS
+fragments	1
+id	T3
+type	Habitat
+form	human
+fragments	1
+id	T5
+type	Bacteria
+form	Escherichia coli
+fragments	1
+id	T3
+type	Habitat
+form	human
+fragments	1
+id	T4
+type	Bacteria
+form	Staphylococcus aureus
+fragments	1
+id	T16
+type	Bacteria
+form	L. lactis subsp. cremoris
+fragments	1
+id	T20
+type	Habitat
+form	LM17 medium
+fragments	1
+id	T16
+type	Bacteria
+form	L. lactis subsp. cremoris
+fragments	1
+id	T17
+type	Habitat
+form	GM17 medium
+fragments	1
+id	T23
+type	Bacteria
+form	L. lactis subsp. lactis
+fragments	1
+id	T28
+type	Habitat
+form	LM17 medium
+fragments	1
+id	T23
+type	Bacteria
+form	L. lactis subsp. lactis
+fragments	1
+id	T26
+type	Habitat
+form	GM17 medium
+fragments	1
+id	T26
+type	Habitat
+form	GM17 medium
+fragments	1
+id	T29
+type	Habitat
+form	GM17 medium
+fragments	1
+id	T28
+type	Habitat
+form	LM17 medium
+fragments	1
+id	T30
+type	Habitat
+form	LM17 medium
+fragments	1
+id	T23
+type	Bacteria
+form	Campylobacter spp.
+fragments	1
+id	T24
+type	Habitat
+form	cloacal swabs
+fragments	1
+id	T23
+type	Bacteria
+form	Campylobacter spp.
+fragments	1
+id	T29
+type	Habitat
+form	younger ones
+fragments	1
+id	T20
+type	Geographical
+form	Southern Italy
+fragments	1
+id	T23
+type	Bacteria
+form	Campylobacter spp.
+fragments	1
+id	T20
+type	Geographical
+form	Southern Italy
+fragments	1
+id	T25
+type	Bacteria
+form	Campylobacter coli
+fragments	1
+id	T25
+type	Bacteria
+form	Campylobacter coli
+fragments	1
+id	T29
+type	Habitat
+form	younger ones
+fragments	1
+id	T25
+type	Bacteria
+form	Campylobacter coli
+fragments	1
+id	T28
+type	Habitat
+form	Adult partridges
+fragments	1
+id	T24
+type	Habitat
+form	cloacal swabs
+fragments	1
+id	T25
+type	Bacteria
+form	Campylobacter coli
+fragments	1
+id	T24
+type	Habitat
+form	cloacal swabs
+fragments	1
+id	T26
+type	Bacteria
+form	Campylobacter jejuni
+fragments	1
+id	T26
+type	Bacteria
+form	Campylobacter jejuni
+fragments	1
+id	T29
+type	Habitat
+form	younger ones
+fragments	1
+id	T20
+type	Geographical
+form	Southern Italy
+fragments	1
+id	T26
+type	Bacteria
+form	Campylobacter jejuni
+fragments	1
+id	T31
+type	Bacteria
+form	Campylobacter spp.
+fragments	1
+id	T33
+type	Habitat
+form	animal species
+fragments	1
+id	T26
+type	Bacteria
+form	Campylobacter jejuni
+fragments	1
+id	T28
+type	Habitat
+form	Adult partridges
+fragments	1
+id	T31
+type	Bacteria
+form	Campylobacter spp.
+fragments	1
+id	T32
+type	Habitat
+form	human
+fragments	1
+id	T30
+type	Habitat
+form	game birds
+fragments	1
+id	T31
+type	Bacteria
+form	Campylobacter spp.
+fragments	1
+id	T34
+type	Bacteria
+form	Campylobacter coli
+fragments	1
+id	T35
+type	Habitat
+form	commercially reared partridges
+fragments	1
+id	T14
+type	Bacteria
+form	Yersinia
+fragments	1
+id	T16
+type	Habitat
+form	humans
+fragments	1
+id	T26
+type	Bacteria
+form	Yersinia
+fragments	1
+id	T27
+type	Habitat
+form	human
+fragments	1
+id	T32
+type	Habitat
+form	human
+fragments	1
+id	T34
+type	Bacteria
+form	Yersinia
+fragments	1
+id	T52
+type	Bacteria
+form	Yersinia
+fragments	1
+id	T55
+type	Habitat
+form	human
+fragments	1
+id	T3
+type	Habitat
+form	probiotic fermented milk beverage
+fragments	1
+id	T4
+type	Bacteria
+form	Lactobacillus casei strain Shirota
+fragments	1
+id	T10
+type	Habitat
+form	fermented milk beverage
+fragments	1
+id	T11
+type	Bacteria
+form	Lactobacillus casei strain Shirota
+fragments	1
+id	T11
+type	Bacteria
+form	Lactobacillus casei strain Shirota
+fragments	1
+id	T15
+type	Habitat
+form	bottle
+fragments	1
+id	T11
+type	Bacteria
+form	Lactobacillus casei strain Shirota
+fragments	1
+id	T13
+type	Habitat
+form	bottle
+fragments	1
+id	T11
+type	Bacteria
+form	Lactobacillus casei strain Shirota
+fragments	1
+id	T14
+type	Habitat
+form	probiotics
+fragments	1
+id	T31
+type	Bacteria
+form	LcS
+fragments	1
+id	T32
+type	Habitat
+form	stool
+fragments	1
+id	T34
+type	Bacteria
+form	bifidobacteria
+fragments	1
+id	T35
+type	Habitat
+form	stools
+fragments	1
+id	T43
+type	Bacteria
+form	bifidobacteria
+fragments	1
+id	T44
+type	Habitat
+form	healthy individuals with soft stool
+fragments	1
+id	T11
+type	Bacteria
+form	Lactobacillus casei strain Shirota
+fragments	1
+id	T12
+type	Bacteria
+form	LcS
+fragments	1
+id	T18
+type	Habitat
+form	rectal
+fragments	1
+id	T19
+type	Bacteria
+form	Chlamydia trachomatis
+fragments	1
+id	T15
+type	Habitat
+form	HIV-infected patients presenting with isolated perianal ulcer disease
+fragments	1
+id	T19
+type	Bacteria
+form	Chlamydia trachomatis
+fragments	1
+id	T3
+type	Bacteria
+form	Chlamydia muridarum
+fragments	1
+id	T4
+type	Habitat
+form	respiratory
+fragments	1
+id	T5
+type	Bacteria
+form	Chlamydia trachomatis
+fragments	1
+id	T6
+type	Habitat
+form	infant
+fragments	1
+id	T8
+type	Habitat
+form	genital tract
+fragments	1
+id	T9
+type	Bacteria
+form	chlamydia
+fragments	1
+id	T7
+type	Habitat
+form	female mouse
+fragments	1
+id	T9
+type	Bacteria
+form	chlamydia
+fragments	1
+id	T14
+type	Bacteria
+form	C. muridarum
+fragments	1
+id	T15
+type	Habitat
+form	mice
+fragments	1
+id	T12
+type	Habitat
+form	mice
+fragments	1
+id	T14
+type	Bacteria
+form	C. muridarum
+fragments	1
+id	T14
+type	Bacteria
+form	C. muridarum
+fragments	1
+id	T15
+type	Habitat
+form	mice
+fragments	1
+id	T14
+type	Bacteria
+form	C. muridarum
+fragments	1
+id	T20
+type	Habitat
+form	TLR2-deficient mice
+fragments	1
+id	T4
+type	Bacteria
+form	Marinobacter
+fragments	1
+id	T8
+type	Habitat
+form	bacterial flora
+fragments	1
+id	T4
+type	Bacteria
+form	Marinobacter
+fragments	1
+id	T9
+type	Habitat
+form	marine organisms
+fragments	1
+id	T4
+type	Bacteria
+form	Marinobacter
+fragments	1
+id	T6
+type	Habitat
+form	world's oceans
+fragments	1
+id	T4
+type	Bacteria
+form	Marinobacter
+fragments	1
+id	T7
+type	Habitat
+form	marine environments
+fragments	1
+id	T5
+type	Bacteria
+form	C. burnetii
+fragments	1
+id	T6
+type	Habitat
+form	mice
+fragments	1
+id	T9
+type	Bacteria
+form	C. burnetii
+fragments	1
+id	T10
+type	Habitat
+form	aerosol
+fragments	1
+id	T11
+type	Habitat
+form	aerosolized
+fragments	1
+id	T12
+type	Bacteria
+form	C. burnetii
+fragments	1
+id	T17
+type	Bacteria
+form	C. burnetii
+fragments	1
+id	T18
+type	Habitat
+form	mice
+fragments	1
+id	T24
+type	Bacteria
+form	C. burnetii
+fragments	1
+id	T25
+type	Habitat
+form	human macrophages
+fragments	1
+id	T24
+type	Bacteria
+form	C. burnetii
+fragments	1
+id	T26
+type	Habitat
+form	human
+fragments	1
+id	T4
+type	Bacteria
+form	lactic acid bacterial
+fragments	1
+id	T8
+type	Habitat
+form	yoghurt
+fragments	1
+id	T5
+type	Bacteria
+form	Enterococcus
+fragments	1
+id	T7
+type	Habitat
+form	natural fermented koumiss
+fragments	1
+id	T5
+type	Bacteria
+form	Enterococcus
+fragments	1
+id	T8
+type	Habitat
+form	yoghurt
+fragments	1
+id	T6
+type	Bacteria
+form	Lactobacillus
+fragments	1
+id	T7
+type	Habitat
+form	natural fermented koumiss
+fragments	1
+id	T6
+type	Bacteria
+form	Lactobacillus
+fragments	1
+id	T8
+type	Habitat
+form	yoghurt
+fragments	1
+id	T4
+type	Bacteria
+form	lactic acid bacterial
+fragments	1
+id	T7
+type	Habitat
+form	natural fermented koumiss
+fragments	1
+id	T3
+type	Bacteria
+form	Escherichia coli
+fragments	1
+id	T4
+type	Habitat
+form	cellophane membrane disks
+fragments	1
+id	T3
+type	Bacteria
+form	Mycobacterium leprae
+fragments	1
+id	T4
+type	Habitat
+form	urine of leprosy patients
+fragments	1
+id	T6
+type	Bacteria
+form	Mycobacterium leprae
+fragments	1
+id	T7
+type	Habitat
+form	urine of leprosy patients
+fragments	1
+id	T6
+type	Bacteria
+form	Mycobacterium leprae
+fragments	1
+id	T8
+type	Habitat
+form	leprosy patients
+fragments	1
+id	T3
+type	Bacteria
+form	Mycobacterium leprae
+fragments	1
+id	T5
+type	Habitat
+form	leprosy patients
+fragments	1
+id	T6
+type	Geographical
+form	Queensland
+fragments	1
+id	T7
+type	Bacteria
+form	mycobacteria
+fragments	1
+id	T11
+type	Habitat
+form	children
+fragments	1
+id	T12
+type	Bacteria
+form	M. fortuitum-chelonei complex
+fragments	1
+id	T12
+type	Bacteria
+form	M. fortuitum-chelonei complex
+fragments	1
+id	T13
+type	Habitat
+form	superficial abscesses
+fragments	1
+id	T9
+type	Habitat
+form	lymph node
+fragments	1
+id	T12
+type	Bacteria
+form	M. fortuitum-chelonei complex
+fragments	1
+id	T9
+type	Habitat
+form	lymph node
+fragments	1
+id	T14
+type	Bacteria
+form	M. marinum
+fragments	1
+id	T9
+type	Habitat
+form	lymph node
+fragments	1
+id	T14
+type	Bacteria
+form	M. marinum
+fragments	1
+id	T9
+type	Habitat
+form	lymph node
+fragments	1
+id	T15
+type	Bacteria
+form	M. ulcerans
+fragments	1
+id	T11
+type	Habitat
+form	children
+fragments	1
+id	T15
+type	Bacteria
+form	M. ulcerans
+fragments	1
+id	T3
+type	Bacteria
+form	mycobacteria
+fragments	1
+id	T5
+type	Geographical
+form	Queensland
+fragments	1
+id	T4
+type	Bacteria
+form	Haemophilus influenzae type B
+fragments	1
+id	T7
+type	Geographical
+form	Germany
+fragments	1
+id	T4
+type	Bacteria
+form	Haemophilus influenzae type B
+fragments	1
+id	T6
+type	Geographical
+form	U.S.
+fragments	1
+id	T4
+type	Bacteria
+form	Haemophilus influenzae type B
+fragments	1
+id	T5
+type	Habitat
+form	clinical
+fragments	1
+id	T2
+type	Bacteria
+form	Vibrio fetus
+fragments	1
+id	T3
+type	Habitat
+form	human
+fragments	1
+id	T9
+type	Bacteria
+form	B. pseudomallei
+fragments	1
+id	T21
+type	Habitat
+form	hyperimmune mouse
+fragments	1
+id	T9
+type	Bacteria
+form	B. pseudomallei
+fragments	1
+id	T19
+type	Habitat
+form	patients with melioidosis
+fragments	1
+id	T12
+type	Bacteria
+form	Ara-
+fragments	1
+id	T13
+type	Habitat
+form	clinical
+fragments	1
+id	T14
+type	Bacteria
+form	Ara-
+fragments	1
+id	T15
+type	Habitat
+form	soil
+fragments	1
+id	T16
+type	Bacteria
+form	Ara+
+fragments	1
+id	T17
+type	Habitat
+form	soil
+fragments	1
+id	T6
+type	Habitat
+form	spoiled cold-smoked salmon
+fragments	1
+id	T7
+type	Bacteria
+form	lactic acid bacteria
+fragments	1
+id	T5
+type	Habitat
+form	microflora
+fragments	1
+id	T7
+type	Bacteria
+form	lactic acid bacteria
+fragments	1
+id	T9
+type	Habitat
+form	vacuum-packed cold-smoked salmon
+fragments	1
+id	T12
+type	Bacteria
+form	LAB
+fragments	1
+id	T10
+type	Habitat
+form	microflora
+fragments	1
+id	T12
+type	Bacteria
+form	LAB
+fragments	1
+id	T15
+type	Habitat
+form	vacuum-packed salmon
+fragments	1
+id	T16
+type	Bacteria
+form	Vibrio sp.
+fragments	1
+id	T15
+type	Habitat
+form	vacuum-packed salmon
+fragments	1
+id	T18
+type	Bacteria
+form	Enterobacteriaceae
+fragments	1
+id	T15
+type	Habitat
+form	vacuum-packed salmon
+fragments	1
+id	T19
+type	Bacteria
+form	Enterobacter agglomerans
+fragments	1
+id	T15
+type	Habitat
+form	vacuum-packed salmon
+fragments	1
+id	T20
+type	Bacteria
+form	Serratia liquefaciens
+fragments	1
+id	T15
+type	Habitat
+form	vacuum-packed salmon
+fragments	1
+id	T21
+type	Bacteria
+form	Rahnella aquatilis
+fragments	1
+id	T15
+type	Habitat
+form	vacuum-packed salmon
+fragments	1
+id	T22
+type	Bacteria
+form	Aeromonas hydrophila
+fragments	1
+id	T23
+type	Habitat
+form	LAB microflora
+fragments	1
+id	T25
+type	Bacteria
+form	Carnobacterium piscicola
+fragments	1
+id	T23
+type	Habitat
+form	LAB microflora
+fragments	1
+id	T24
+type	Bacteria
+form	LAB
+fragments	1
+id	T30
+type	Habitat
+form	salmon
+fragments	1
+id	T31
+type	Bacteria
+form	C. piscicola
+fragments	1
+id	T28
+type	Bacteria
+form	C. piscicola
+fragments	1
+id	T29
+type	Habitat
+form	cold-smoked salmon stored at 5 degrees C
+fragments	1
+id	T25
+type	Bacteria
+form	Carnobacterium piscicola
+fragments	1
+id	T27
+type	Bacteria
+form	Carnobacterium
+fragments	1
+id	T7
+type	Bacteria
+form	lactic acid bacteria
+fragments	1
+id	T8
+type	Bacteria
+form	LAB
+fragments	1
+id	T7
+type	Habitat
+form	duodenal ulcer
+fragments	1
+id	T8
+type	Bacteria
+form	Helicobacter pylori
+fragments	1
+id	T6
+type	Habitat
+form	duodenal
+fragments	1
+id	T8
+type	Bacteria
+form	Helicobacter pylori
+fragments	1
+id	T9
+type	Habitat
+form	duodenal ulcer
+fragments	1
+id	T11
+type	Bacteria
+form	Helicobacter pylori
+fragments	1
+id	T10
+type	Habitat
+form	duodenal
+fragments	1
+id	T11
+type	Bacteria
+form	Helicobacter pylori
+fragments	1
+id	T13
+type	Habitat
+form	patients with active duodenal ulcer disease and H pylori infection
+fragments	1
+id	T16
+type	Bacteria
+form	H pylori
+fragments	1
+id	T15
+type	Habitat
+form	duodenal ulcer
+fragments	1
+id	T16
+type	Bacteria
+form	H pylori
+fragments	1
+id	T14
+type	Habitat
+form	duodenal
+fragments	1
+id	T16
+type	Bacteria
+form	H pylori
+fragments	1
+id	T32
+type	Habitat
+form	duodenal
+fragments	1
+id	T33
+type	Bacteria
+form	H pylori
+fragments	1
+id	T31
+type	Habitat
+form	duodenal ulcer
+fragments	1
+id	T33
+type	Bacteria
+form	H pylori
