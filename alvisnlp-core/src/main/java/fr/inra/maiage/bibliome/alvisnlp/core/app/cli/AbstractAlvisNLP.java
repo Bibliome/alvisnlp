@@ -136,7 +136,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	/**
 	 * Name of the file from which to resume the processing.
 	 */
-	protected File resumeFile = null;
+	private final List<File> resumeFiles = new ArrayList<File>();
 	private Locale locale = Locale.getDefault();
 	private ResourceBundle bundle = ResourceBundle.getBundle(DocResourceConstants.RESOURCE, locale);
 	private Transformer xmlDocTransformer;
@@ -163,6 +163,10 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 		super();
 		xmlDocTransformer = XMLUtils.transformerFactory.newTransformer();
 		gitInfo = new GitInfo("/fr/inra/maiage/bibliome/alvisnlp/core/app/AlvisNLPGit.properties", "https://github.com/Bibliome/alvisnlp.git");
+	}
+
+	public List<File> getResumeFiles() {
+		return resumeFiles;
 	}
 
 	/**
@@ -288,8 +292,8 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	 * @param resumeFile
 	 */
 	@CLIOption("-resume")
-	public final void setResumeFile(File resumeFile) {
-		this.resumeFile = resumeFile;
+	public final void addResumeFile(File resumeFile) {
+		this.resumeFiles.add(resumeFile);
 	}
 	
 	@CLIOption("-maxMmapSize")
@@ -989,7 +993,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     	C result = newCommandLineProcessingContext();
     	result.setLocale(locale);
     	result.setDumps(dumps);
-        result.setResumeMode(resumeFile != null);
+        result.setResumeMode(!resumeFiles.isEmpty());
         result.setCleanTmpDir(cleanTmpDir);
         result.setMaxMmapSize(maxMmapSize);
     	return result;
