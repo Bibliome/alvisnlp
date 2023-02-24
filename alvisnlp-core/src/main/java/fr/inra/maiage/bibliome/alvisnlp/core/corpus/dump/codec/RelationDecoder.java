@@ -19,6 +19,7 @@ package fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
@@ -38,7 +39,7 @@ public class RelationDecoder extends ElementDecoder<Relation> implements Relatio
 	RelationDecoder(Unmarshaller<String> stringUnmarshaller, int maxMmapSize) throws IOException {
 		super(stringUnmarshaller);
 		this.tupleDecoder = new TupleDecoder(stringUnmarshaller);
-		this.tupleCache = MapReadCache.hashMap();
+		this.tupleCache = new MapReadCache<Tuple>(new LinkedHashMap<Long,Tuple>());
 		this.tupleUnmarshaller = new Unmarshaller<Tuple>(stringUnmarshaller.getChannel(), tupleDecoder, tupleCache, maxMmapSize);
 	}
 

@@ -90,7 +90,6 @@ public class Tuple extends AbstractElement {
     		if (elt != null)
     			result.add(elt);
     	}
-    	Collections.sort(result, ElementComparator.INSTANCE);
         return result;
     }
 
