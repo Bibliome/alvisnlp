@@ -225,8 +225,15 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 	private static org.w3c.dom.Element getElementProxy(Document doc, Element element) {
 		org.w3c.dom.Element result = doc.createElementNS(ALVISNLP_PROXY_NAMESPACE_URI, "element");
 //		System.err.println("elt: " + element + ", proxy: " + result);
-		for (String name : element.getFeatureKeys())
-			result.setAttribute(name, element.getLastFeature(name));
+		for (String name : element.getFeatureKeys()) {
+			try {
+				result.setAttribute(name.replaceAll("[ :\\[\\]]", "_"), element.getLastFeature(name));
+			}
+			catch (DOMException e) {
+				System.err.println("illegal name = " + name);
+				throw e;
+			}
+		}
 		result.setUserData(ELEMENT_USER_DATA, element, null);
 		return result;
 	}
