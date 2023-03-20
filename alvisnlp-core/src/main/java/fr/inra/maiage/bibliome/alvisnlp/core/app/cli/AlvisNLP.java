@@ -70,7 +70,7 @@ public class AlvisNLP extends AbstractAlvisNLP<Corpus,CorpusModuleFactory,Corpus
 		Corpus result = new Corpus();
 		for (File resumeFile : getResumeFiles()) {
 			logger.info("reading corpus dump " + resumeFile.getCanonicalPath());
-			try (Undumper undumper = new Undumper(logger, resumeFile, ctx.getMaxMmapSize())) {
+			try (Undumper undumper = new Undumper(logger, resumeFile)) {
 				undumper.readCorpus(result);
 			}
 		}

@@ -54,7 +54,6 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
     private final Timer<TimerCategory> timer;
     private final DefaultMap<String,Logger> loggers = new LoggerMap();
     private boolean cleanTmpDir = false;
-    private int maxMmapSize = Integer.MAX_VALUE;
     
     /**
      * Creates a new new processing context object. This object will have the following default behaviour:
@@ -166,15 +165,6 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
         resumeMode = mode;
     }
     
-    @Override
-    public int getMaxMmapSize() {
-		return maxMmapSize;
-	}
-
-	public void setMaxMmapSize(int maxMmapSize) {
-		this.maxMmapSize = maxMmapSize;
-	}
-
     @Override
     public void setDumps(boolean dumps) {
         this.dumps = dumps;

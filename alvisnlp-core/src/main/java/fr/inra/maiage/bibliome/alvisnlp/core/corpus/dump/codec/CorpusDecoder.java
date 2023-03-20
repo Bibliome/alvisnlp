@@ -18,10 +18,10 @@ limitations under the License.
 package fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
+import fr.inra.maiage.bibliome.util.marshall.DataBuffer;
 import fr.inra.maiage.bibliome.util.marshall.MapReadCache;
 import fr.inra.maiage.bibliome.util.marshall.ReadCache;
 import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
@@ -31,16 +31,16 @@ public class CorpusDecoder extends ElementDecoder<Corpus> {
 	private final Unmarshaller<Document> docUnmarshaller;
 	private final Corpus corpus;
 	
-	public CorpusDecoder(Unmarshaller<String> stringUnmarshaller, Corpus corpus, int maxMmapSize) throws IOException {
+	public CorpusDecoder(Unmarshaller<String> stringUnmarshaller, Corpus corpus) throws IOException {
 		super(stringUnmarshaller);
-		this.docDecoder = new DocumentDecoder(stringUnmarshaller, maxMmapSize);
+		this.docDecoder = new DocumentDecoder(stringUnmarshaller);
 		ReadCache<Document> docCache = MapReadCache.hashMap();
-		this.docUnmarshaller = new Unmarshaller<Document>(stringUnmarshaller.getChannel(), docDecoder, docCache, maxMmapSize);
+		this.docUnmarshaller = new Unmarshaller<Document>(stringUnmarshaller.getChannel(), docDecoder, docCache);
 		this.corpus = corpus;
 	}
 
 	@Override
-	public Corpus decode1(ByteBuffer buffer) {
+	public Corpus decode1(DataBuffer buffer) {
 		docDecoder.setCorpus(corpus);
 		int nDocs = buffer.getInt();
 		for (int i = 0; i < nDocs; ++i) {

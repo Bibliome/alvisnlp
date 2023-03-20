@@ -408,7 +408,7 @@ If you have a specific use-case that is currently not white listed feel free to 
     <dependency>
       <groupId>fr.jouy.inra.maiage.bibliome</groupId>
       <artifactId>bibliome-utils</artifactId>
-      <version>0.0.3-SNAPSHOT</version>
+      <version>0.0.3</version>
     </dependency>
   </dependencies>
 </project>

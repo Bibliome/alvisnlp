@@ -18,7 +18,6 @@ limitations under the License.
 package fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -27,6 +26,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.RelationCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.marshall.DataBuffer;
 import fr.inra.maiage.bibliome.util.marshall.MapReadCache;
 import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
 
@@ -36,15 +36,15 @@ public class RelationDecoder extends ElementDecoder<Relation> implements Relatio
 	private final Unmarshaller<Tuple> tupleUnmarshaller;
 	private Section section;
 
-	RelationDecoder(Unmarshaller<String> stringUnmarshaller, int maxMmapSize) throws IOException {
+	RelationDecoder(Unmarshaller<String> stringUnmarshaller) throws IOException {
 		super(stringUnmarshaller);
 		this.tupleDecoder = new TupleDecoder(stringUnmarshaller);
 		this.tupleCache = new MapReadCache<Tuple>(new LinkedHashMap<Long,Tuple>());
-		this.tupleUnmarshaller = new Unmarshaller<Tuple>(stringUnmarshaller.getChannel(), tupleDecoder, tupleCache, maxMmapSize);
+		this.tupleUnmarshaller = new Unmarshaller<Tuple>(stringUnmarshaller.getChannel(), tupleDecoder, tupleCache);
 	}
 
 	@Override
-	public Relation decode1(ByteBuffer buffer) {
+	public Relation decode1(DataBuffer buffer) {
 		String name = readString(buffer);
 		Relation relation = new Relation(this, section, name);
 		tupleDecoder.setRelation(relation);

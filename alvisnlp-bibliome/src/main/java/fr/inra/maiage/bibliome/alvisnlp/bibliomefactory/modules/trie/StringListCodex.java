@@ -5,6 +5,7 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.List;
 
+import fr.inra.maiage.bibliome.util.marshall.DataBuffer;
 import fr.inra.maiage.bibliome.util.marshall.Decoder;
 import fr.inra.maiage.bibliome.util.marshall.Encoder;
 import fr.inra.maiage.bibliome.util.marshall.StringCodec;
@@ -28,7 +29,7 @@ public enum StringListCodex implements Decoder<List<String>>, Encoder<List<Strin
 	}
 
 	@Override
-	public List<String> decode1(ByteBuffer buffer) {
+	public List<String> decode1(DataBuffer buffer) {
 		final int len = buffer.getInt();
 		String[] result = new String[len];
 		for (int i = 0; i < len; ++i)
@@ -37,6 +38,6 @@ public enum StringListCodex implements Decoder<List<String>>, Encoder<List<Strin
 	}
 
 	@Override
-	public void decode2(ByteBuffer buffer, List<String> object) {
+	public void decode2(DataBuffer buffer, List<String> object) {
 	}
 }

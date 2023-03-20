@@ -151,7 +151,6 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	private String outputDir;
 	private final Map<String,String> baseDirs = new LinkedHashMap<String,String>();
 	private boolean noColors = false;
-	private int maxMmapSize = Integer.MAX_VALUE;
 	private File analysisFile = null;
 	
 	/**
@@ -294,11 +293,6 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	@CLIOption("-resume")
 	public final void addResumeFile(File resumeFile) {
 		this.resumeFiles.add(resumeFile);
-	}
-	
-	@CLIOption("-maxMmapSize")
-	public final void setMaxMmapSize(int maxMmapSize) {
-		this.maxMmapSize = maxMmapSize;
 	}
 	
 	@CLIOption("-cleanTmp")
@@ -995,7 +989,6 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     	result.setDumps(dumps);
         result.setResumeMode(!resumeFiles.isEmpty());
         result.setCleanTmpDir(cleanTmpDir);
-        result.setMaxMmapSize(maxMmapSize);
     	return result;
     }
         
