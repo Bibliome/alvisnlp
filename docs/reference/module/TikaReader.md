@@ -55,6 +55,14 @@ Constant features to add to each document created by this module.
 </div>
 Constant features to add to each section created by this module.
 
+<h3 id="baseNameId" class="param">baseNameId</h3>
+
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
+Use the filename basename as document identifier, instead of the full absolute path.
+
 <h3 id="htmlLayer" class="param">htmlLayer</h3>
 
 <div class="param-level param-level-default-value">Default value: `html`

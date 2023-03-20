@@ -13,3 +13,5 @@ do
 	mv .pom.xml $pomfile
     fi
 done
+
+echo $ALVISNLP_VERSION >docs/_includes/version
