@@ -101,7 +101,7 @@ class Element:
         if self._serid is not None:
             raise ValueError('serid already assigned to element')
         if serid in self.corpus.all_elements:
-            raise ValueError('duplicate serid')
+            raise ValueError('duplicate serid: ' + serid)
         self._serid = serid
         self.corpus.all_elements[serid] = self
 
