@@ -46,7 +46,7 @@ public abstract class PythonScriptBase extends SectionModule<PythonScriptResolve
 		
 		PythonScriptResolvedObjects(ProcessingContext<Corpus> ctx, PythonScriptBase module) throws ResolverException {
 			super(ctx, module);
-			this.layerNames = module.getLayerNames() == null ? null : new HashSet<String>(Arrays.asList(module.getLayerNames()));
+			this.layerNames = module.getLayers() == null ? null : new HashSet<String>(Arrays.asList(module.getLayers()));
 			this.relationNames = module.getRelations() == null ? null : new HashSet<String>(Arrays.asList(module.getRelations()));
 			this.scriptParams = module.getScriptParams().resolveExpressions(rootResolver);
 		}
@@ -75,7 +75,7 @@ public abstract class PythonScriptBase extends SectionModule<PythonScriptResolve
 			}
 	        Layer result = new Layer(sec);
 	        for (Layer layer : sec.getAllLayers()) {
-	        	if ((layerNames == null) || layerNames.contains(layer.getName())) {
+	        	if (layerNames.contains(layer.getName())) {
 	        		for (Annotation ann : layer) {
 	        			result.add(ann);
 	        		}
