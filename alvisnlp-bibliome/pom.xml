@@ -135,6 +135,92 @@
 	</configuration>
       </plugin>
     </plugins>
+    <pluginManagement>
+    <plugins>
+      <plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-compiler-plugin</artifactId>
+	<version>3.1</version>
+	<configuration>
+	  <source>1.8</source>
+	  <target>1.8</target>
+	  <compilerArgs>
+	    <arg>-AmoduleFactoryName=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.BibliomeModuleFactory</arg>
+	    <arg>-AdataClass=fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus</arg>
+	    <arg>-AsequenceImplementationClass=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.Sequence_Impl</arg>
+	    <arg>-AfactoryInterface=fr.inra.maiage.bibliome.alvisnlp.core.factory.CorpusModuleFactory</arg>
+	    <arg>-AconverterFactoryName=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.BibliomeConverterFactory</arg>
+	    <arg>-AresourceBases=fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/resources</arg>
+	    <arg>-AshellModule=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.shell.Shell</arg>
+	    <arg>-AbrowserModule=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.HttpServer</arg>
+	    <arg>-Xlint:all</arg>
+	  </compilerArgs>
+	  <!--<verbose>true</verbose> -->
+	</configuration>
+      </plugin>
+
+      <plugin>
+	<groupId>org.codehaus.mojo</groupId>
+	<artifactId>javacc-maven-plugin</artifactId>
+	<version>2.6</version>
+	<executions>
+	  <execution>
+	    <id>expression-parser</id>
+	    <phase>generate-sources</phase>
+	    <goals>
+	      <goal>javacc</goal>
+	    </goals>
+	    <configuration>
+	      <errorReporting>true</errorReporting>
+	      <buildParser>true</buildParser>
+	      <keepLineColumn>true</keepLineColumn>
+	      <unicodeInput>true</unicodeInput>
+	      <debugParser>false</debugParser>
+	      <sanityCheck>true</sanityCheck>
+	      <buildTokenManager>true</buildTokenManager>
+	      <suppressWarnings>true</suppressWarnings>
+	      <sourceDirectory>src/main/resources/fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/converters/expression/parser</sourceDirectory>
+	      <outputDirectory>${project.build.directory}/generated-sources/javacc</outputDirectory>
+	    </configuration>
+	  </execution>
+	</executions>
+      </plugin>
+
+      <plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-dependency-plugin</artifactId>
+	<version>3.1.2</version>
+	<executions>
+	  <execution>
+	    <id>copy-dependencies</id>
+	    <phase>package</phase>
+	    <goals>
+	      <goal>copy-dependencies</goal>
+	    </goals>
+	    <configuration>
+	      <outputDirectory>${project.build.directory}/lib</outputDirectory>
+	    </configuration>
+	  </execution>
+	</executions>
+      </plugin>
+
+      <plugin>
+	<groupId>org.apache.maven.plugins</groupId>
+	<artifactId>maven-shade-plugin</artifactId>
+	<version>2.4.3</version>
+	<configuration>
+	  <transformers>
+	    <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+	    <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+	      <mainClass>fr.inra.maiage.bibliome.alvisnlp.core.app.cli.AlvisNLP</mainClass>
+	    </transformer>
+	  </transformers>
+	  <shadedArtifactAttached>true</shadedArtifactAttached>
+	  <shadedClassifierName>standalone</shadedClassifierName>
+	</configuration>
+      </plugin>
+    </plugins>
+    </pluginManagement>
   </build>
 
   <dependencies>
