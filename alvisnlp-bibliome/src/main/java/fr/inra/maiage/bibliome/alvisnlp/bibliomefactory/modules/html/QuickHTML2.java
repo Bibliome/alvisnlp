@@ -60,7 +60,7 @@ public class QuickHTML2 extends SectionModule<QuickHTML2ResolvedObjects> {
 			copyResource(logger, "fragments.js");
 			copyResource(logger, "quick-html.js");
 			copyResource(logger, "quick-html.css");
-			writeData(ctx, corpus);
+			writeData(logger, ctx, corpus);
 		}
 		catch (IOException e) {
 			throw new ProcessingException(e);
@@ -92,7 +92,8 @@ public class QuickHTML2 extends SectionModule<QuickHTML2ResolvedObjects> {
 		}
 	}
 	
-	private void writeData(ProcessingContext<Corpus> ctx, Corpus corpus) throws FileNotFoundException {
+	private void writeData(Logger logger, ProcessingContext<Corpus> ctx, Corpus corpus) throws FileNotFoundException {
+		logger.info("writing data.js");
 		try (PrintStream out = new PrintStream(new OutputFile(outDir, "data.js"))) {
 			JSONObject j = buildCorpusJSON(ctx, corpus);
 			String s = j.toJSONString();

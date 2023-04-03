@@ -1,3 +1,10 @@
+function featureCard(feature) {
+  return {
+    name: feature.charAt(0).toUpperCase() + feature.slice(1),
+    value: function(ment) { return ment.data[feature]; }
+  };
+}
+
 function selectDocument(event) {
   const docElt = event.target;
   if (docElt.classList.contains('selected')) {
@@ -30,7 +37,11 @@ function selectDocument(event) {
       'td.Form { font-style: italic; }'
     ]
   }, colorOptions));
-  cardStyler = new MentionCardStyler(fcg, colorOptions);
+  cardStyler = new MentionCardStyler(fcg, Object.assign({
+    rawCSS: [
+      'td.prop-value { font-family: monospace; }'
+    ]
+  }, colorOptions));
 
   const fragsElt = document.querySelector('#frags');
   fragsElt.innerHTML = '';
@@ -47,7 +58,9 @@ function selectDocument(event) {
     TableBuilder.COLUMN_TYPE,
     TableBuilder.COLUMN_FORM
   ]);
-  fcg.addBuilder('#card', MentionCardBuilder, cardStyler, [MentionCardBuilder.PROPERTY_TYPE]);
+  fcg.addBuilder('#card', MentionCardBuilder, cardStyler,
+    document.quickHTMLFeatures.map(featureCard)
+  );
   fcg.build();
 
   function hl(event) {

@@ -148,6 +148,7 @@ class FragmentBuildable {
   addBuilder(targetElement, builderClass, styler, ...args) {
     const builder = new builderClass(this, targetElement, styler, ...args);
     this.builders.push(builder);
+    return builder;
   }
 
   build() {
@@ -318,6 +319,7 @@ class Builder {
     this.targetElement.classList.add(this.id);
     this.styler = styler;
     this.buildRoot = null;
+    this.highlighted = [];
   }
 
   build() {
@@ -333,9 +335,11 @@ class Builder {
   }
 
   clearHighlight() {
+    this.highlighted = [];
   }
 
   highlight(mention) {
+    this.highlighted.push(mention);
   }
 
   static createElement(tag, content, parent) {
@@ -397,6 +401,7 @@ class MentionCardBuilder extends Builder {
   }
 
   clearHighlight() {
+    super.clearHighlight();
     const th = this.buildRoot.querySelector('th#mention-card-head');
     th.innerHTML = '∅';
     if (this.previousMentionType) {
@@ -409,6 +414,7 @@ class MentionCardBuilder extends Builder {
   }
 
   highlight(mention) {
+    super.highlight(mention);
     const th = this.buildRoot.querySelector('th#mention-card-head');
     th.innerHTML = mention.isEmpty ? '∅' : mention.form;
     if (this.previousMentionType) {
@@ -542,10 +548,12 @@ class TableBuilder extends Builder {
   }
 
   clearHighlight() {
+    super.clearHighlight();
     this.buildRoot.querySelectorAll(`.mention.highlight`).forEach(e => e.classList.remove('highlight'));
   }
 
   highlight(mention) {
+    super.highlight(mention);
     this.buildRoot.querySelectorAll(`.mention-${mention.id}`).forEach(e => e.classList.add('highlight'));
   }
 }
@@ -614,10 +622,12 @@ class FragmentBuilder extends Builder {
   }
 
   clearHighlight() {
+    super.clearHighlight();
     this.buildRoot.querySelectorAll(`.mention.highlight`).forEach(e => e.classList.remove('highlight'));
   }
 
   highlight(mention) {
+    super.highlight(mention);
     this.buildRoot.querySelectorAll(`.mention-${mention.id}`).forEach(e => e.classList.add('highlight'));
   }
 }
@@ -889,7 +899,7 @@ class FragmentHighlightColorMentionStyler extends ColorMentionStyler {
   buildStyleSheetRules() {
     const result = super.buildStyleSheetRules();
     const maxLevel = this.fragmentContainer.maxLevel;
-    result.push(`div { line-height: ${100+maxLevel*50}%}`)
+    result.push(`div { line-height: ${150+maxLevel*70}%}`)
     for (let lvl = 0; lvl <= maxLevel; ++lvl) {
       result.push(`.mention-level-${lvl} { padding-top: ${lvl*this.nestPadding}px; padding-bottom: ${lvl*this.nestPadding}px; }`);
     }
@@ -919,7 +929,7 @@ class MentionCardStyler extends ColorMentionStyler {
     result.push('table { border-spacing: 0px; width: 100%; }');
     result.push('thead th { border-bottom: solid 5px white; font-style: italic; text-align: left; }');
     result.push('td.prop-name { font-weight: bold; font-family: sans; width: 25%; border-bottom: solid 1px lightgrey; }');
-    result.push('td.prop-value { width: 75%; border-bottom: solid 1px lightgrey; }')
+    result.push('td.prop-value { width: 75%; border-bottom: solid 1px lightgrey; text-align: right; }')
     return result;
   }
 
