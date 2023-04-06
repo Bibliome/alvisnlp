@@ -71,7 +71,7 @@ function loadDocuments(data) {
   for (let doc of data.documents) {
     const docElt = document.createElement('DIV');
     docElt.classList.add('doc');
-    docElt.innerHTML = doc.id;
+    docElt.innerHTML = doc.title;
     docElt.sections = doc.sections;
     docElt.onclick = selectDocument;
     docDiv.appendChild(docElt);

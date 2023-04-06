@@ -14,6 +14,7 @@ import javax.ws.rs.ProcessingException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.DefaultExpressions;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.html.QuickHTML2.QuickHTML2ResolvedObjects;
@@ -23,8 +24,11 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
@@ -41,11 +45,22 @@ public class QuickHTML2 extends SectionModule<QuickHTML2ResolvedObjects> {
 	private String[] mentionLayers = null;
 	private String typeFeature = null;
 	private String[] features = new String[0];
-	private Mapping colors = null;
-	
+	private Mapping colorMap = null;
+	private String[] colors = null;
+	private Expression documentTitle = DefaultExpressions.DOCUMENT_ID;
+
 	public static class QuickHTML2ResolvedObjects extends SectionResolvedObjects {
+		private final Evaluator documentTitle;
+
 		public QuickHTML2ResolvedObjects(ProcessingContext<Corpus> ctx, QuickHTML2 module) throws ResolverException {
 			super(ctx, module);
+			this.documentTitle = module.documentTitle.resolveExpressions(rootResolver);
+		}
+
+		@Override
+		public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
+			super.collectUsedNames(nameUsage, defaultType);
+			documentTitle.collectUsedNames(nameUsage, defaultType);
 		}
 	}
 
@@ -124,15 +139,22 @@ public class QuickHTML2 extends SectionModule<QuickHTML2ResolvedObjects> {
 	}
 	
 	@SuppressWarnings("unchecked")
-	private JSONObject buildColorsJSON() {
-		if (colors == null) {
-			return null;
+	private Object buildColorsJSON() {
+		if (colorMap != null) {
+			JSONObject result = new JSONObject();
+			for (Map.Entry<String,String> e : colorMap.entrySet()) {
+				result.put(e.getKey(), e.getValue());
+			}
+			return result;
 		}
-		JSONObject result = new JSONObject();
-		for (Map.Entry<String,String> e : colors.entrySet()) {
-			result.put(e.getKey(), e.getValue());
+		if (colors != null) {
+			JSONArray result = new JSONArray();
+			for (String c : colors) {
+				result.add(c);
+			}
+			return result;
 		}
-		return result;
+		return null;
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -149,6 +171,8 @@ public class QuickHTML2 extends SectionModule<QuickHTML2ResolvedObjects> {
 	private JSONObject buildDocumentJSON(EvaluationContext evalCtx, Document doc) {
 		JSONObject result = new JSONObject();
 		result.put("id", doc.getId());
+		QuickHTML2ResolvedObjects resObj = getResolvedObjects();
+		result.put("title", resObj.documentTitle.evaluateString(evalCtx, doc));
 		result.put("sections", buildSectionsJSON(evalCtx, doc));
 		return result;
 	}
@@ -275,8 +299,50 @@ public class QuickHTML2 extends SectionModule<QuickHTML2ResolvedObjects> {
 	}
 
 	@Param(mandatory = false)
-	public Mapping getColors() {
+	public Mapping getColorMap() {
+		return colorMap;
+	}
+
+	@Deprecated
+	@Param(mandatory = false)
+	public String[] getColors() {
 		return colors;
+	}
+
+	@Deprecated
+	@Param(nameType = NameType.FEATURE)
+	public String getClassFeature() {
+		return typeFeature;
+	}
+	
+	@Deprecated
+	@Param(nameType = NameType.LAYER)
+	public String[] getLayers() {
+		return mentionLayers;
+	}
+	
+	@Param
+	public Expression getDocumentTitle() {
+		return documentTitle;
+	}
+
+	public void setDocumentTitle(Expression documentTitle) {
+		this.documentTitle = documentTitle;
+	}
+
+	@Deprecated
+	public void setLayers(String[] layers) {
+		this.mentionLayers = layers;
+	}
+	
+	@Deprecated
+	public void setClassFeature(String classFeature) {
+		this.typeFeature = classFeature;
+	}
+	
+	@Deprecated
+	public void setColors(String[] colors) {
+		this.colors = colors;
 	}
 
 	public void setOutDir(OutputDirectory outDir) {
@@ -303,7 +369,7 @@ public class QuickHTML2 extends SectionModule<QuickHTML2ResolvedObjects> {
 		this.features = features;
 	}
 
-	public void setColors(Mapping colors) {
-		this.colors = colors;
+	public void setColorMap(Mapping colorMap) {
+		this.colorMap = colorMap;
 	}
 }
