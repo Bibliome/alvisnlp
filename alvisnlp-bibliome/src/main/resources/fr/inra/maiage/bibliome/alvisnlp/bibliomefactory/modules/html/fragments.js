@@ -163,7 +163,9 @@ class FragmentBuildable {
     if (clear) {
       this.clearHighlight();
     }
-    this.builders.forEach(b => b.highlight(mention));
+    if (mention) {
+      this.builders.forEach(b => b.highlight(mention));
+    }
   }
 }
 
@@ -253,7 +255,9 @@ class FragmentContainer extends FragmentBuildable {
   }
 
   get mentions() {
-    this._mentions.sort(Mention.compare);
+    if (this._maxLevel === null) {
+      this._mentions.sort(Mention.compare);
+    }
     return this._mentions;
   }
 
@@ -326,7 +330,7 @@ class Builder {
     const shadowRoot = this.targetElement.shadowRoot;
     const df = document.createDocumentFragment();
     if (this.styler) {
-      const style = this.styler.createStyle();
+      const style = this.styler.createStyle(this.fragmentContainer);
       df.appendChild(style);
     }
     this.buildRoot = this.doBuild();
@@ -795,12 +799,12 @@ class MentionStyler {
     this.rawCSS = options.rawCSS || [];
   }
 
-  createStyle() {
+  createStyle(fragmentContainer) {
     const style = document.createElement('style');
     style.type = 'text/css';
     style.title = MentionStyler.STYLESHEET_TITLE;
     style.id = MentionStyler.STYLESHEET_TITLE;
-    style.innerHTML = this.buildStyleSheetRules().join('\n');
+    style.innerHTML = this.buildStyleSheetRules(fragmentContainer).join('\n');
     return style;
   }
 
@@ -811,70 +815,93 @@ class MentionStyler {
     return o;
   }
 
-  buildStyleSheetRules() {
+  buildStyleSheetRules(fragmentContainer) {
     return MentionStyler.coerceArray(this.rawCSS);
   }
 }
 
-class ColorMentionStyler extends MentionStyler {
-  constructor(fragmentContainer, options={}) {
-    super(options);
-    this.fragmentContainer = fragmentContainer;
-    this.mentionTypeColors = ColorMentionStyler._buildMentionTypeColors(fragmentContainer, options);
-  }
-
-  static _buildMentionTypeColors(fragmentContainer, options) {
-    if (options.mentionTypeColors) {
-      return Object.assign({'_default': 'lightgrey'}, options.mentionTypeColors);
-    }
-    if (options.mentionTypeColorFactory) {
-      const mtcf = options.mentionTypeColorFactory;
-      switch (mtcf.method || 'spread') {
-        case 'random': {
-          return ColorMentionStyler._defaultColors(ColorMentionStyler._randomPalette, fragmentContainer, mtcf.saturation, mtcf.lightness);
-        }
-        case 'spread': {
-          return ColorMentionStyler._defaultColors(ColorMentionStyler._spreadPalette, fragmentContainer, mtcf.startHue, mtcf.saturation, mtcf.lightness);
-        }
-      }
-    }
-    return {'_default': 'lightgrey'};
-  }
-
-  static _defaultColors(paletteFactory, fragmentContainer, ...args) {
-    const types = fragmentContainer.mentionTypes;
-    const colors = paletteFactory(types.length, ...args);
-    return Object.fromEntries(types.map((t, i) => [t, colors[i]]));
-  }
-
-  static _spreadPalette(n, startHue=0, saturation=50, lightness=80) {
-    const step = Math.round(360 / n);
-    return Array.from(
-      { length: n },
-      (_, i) => {
-        const hue = startHue + i * step;
-        return ColorMentionStyler.hsl(hue, saturation, lightness);
-    });
-  }
-
-  static _randomPalette(n, saturation=50, lightness=80) {
-    return Array.from(
-      { length: n },
-      (_, i) => {
-        const hue = Math.floor(Math.random() * 360);
-        return ColorMentionStyler.hsl(hue, saturation, lightness);
-    });
-  }
-
+class Colors {
   static hsl(h, s, l) {
     return `hsl(${h % 360},${s}%,${l}%)`;
   }
 
-  buildStyleSheetRules() {
-    const rules = super.buildStyleSheetRules();
-    for (const mType of this.fragmentContainer.mentionTypes) {
-      const color = this.mentionTypeColors[mType] || this.mentionTypeColors['_default'];
-      rules.push(this.buildMentionTypeRule(mType, color));
+  static spread(startHue=0, saturation=50, lightness=80) {
+    return function(types) {
+      const result = {};
+      const step = Math.round(360 / types.length);
+      let hue = startHue;
+      for (let t of types) {
+        result[t] = Colors.hsl(hue, saturation, lightness);
+        hue += step;
+      }
+      return result;
+    }
+  }
+
+  static random(saturation=50, lightness=80) {
+    return function(types) {
+      const result = {};
+      for (let t of types) {
+        const hue = Math.floor(Math.random() * 360);
+        result[t] = Colors.hsl(hue, saturation, lightness);
+      }
+      return result;
+    }
+  }
+}
+
+class ColorMentionStyler extends MentionStyler {
+  constructor(options={}) {
+    super(options);
+    this.colors = options.colors || 'lightgrey';
+  }
+
+  getColors(fragmentContainer) {
+    const types = fragmentContainer.mentionTypes;
+    switch (typeof this.colors) {
+      case 'string': return ColorMentionStyler._zip(types, [this.colors]);
+      case 'function': return this.colors(types);
+      case 'object': {
+        if (this.colors instanceof Array) {
+          return ColorMentionStyler._zip(types, this.colors);
+        }
+        return this._completeColors(types);
+      }
+    }
+  }
+
+  static _zip(types, colors) {
+    const result = {};
+    let last = 'lightgrey';
+    for (let i = 0; i < types.length; ++i) {
+      if (i < colors.length) {
+        last = colors[i];
+      }
+      result[types[i]] = last;
+    }
+    return result;
+  }
+
+  _completeColors(types) {
+    const result = Object.assign({}, this.colors);
+    let dflt = 'lightgrey';
+    for (let t of types) {
+      if (t in result) {
+        dflt = result[t];
+      }
+      else {
+        result[t] = dflt;
+      }
+    }
+    return result;
+  }
+
+  buildStyleSheetRules(fragmentContainer) {
+    const rules = super.buildStyleSheetRules(fragmentContainer);
+    const colors = this.getColors(fragmentContainer);
+    for (const mType of fragmentContainer.mentionTypes) {
+      const color = colors[mType];
+      rules.push(...MentionStyler.coerceArray(this.buildMentionTypeRule(mType, color)));
     }
     return rules;
   }
@@ -884,9 +911,9 @@ class ColorMentionStyler extends MentionStyler {
   }
 }
 
-class FragmentHighlightColorMentionStyler extends ColorMentionStyler {
-  constructor(fragmentContainer, options={}) {
-    super(fragmentContainer, options);
+class FragmentBoxColorMentionStyler extends ColorMentionStyler {
+  constructor(options={}) {
+    super(options);
     this.nestPadding = options.nestPadding || 4;
     this.borderWidth = options.borderWidth || 2;
     this.cornerRadius = options.cornerRadius || 6;
@@ -896,9 +923,9 @@ class FragmentHighlightColorMentionStyler extends ColorMentionStyler {
     this.highlightBorderColor = options.highlightBorderColor || 'red';
   }
 
-  buildStyleSheetRules() {
-    const result = super.buildStyleSheetRules();
-    const maxLevel = this.fragmentContainer.maxLevel;
+  buildStyleSheetRules(fragmentContainer) {
+    const result = super.buildStyleSheetRules(fragmentContainer);
+    const maxLevel = fragmentContainer.maxLevel;
     result.push(`div { line-height: ${150+maxLevel*70}%}`)
     for (let lvl = 0; lvl <= maxLevel; ++lvl) {
       result.push(`.mention-level-${lvl} { padding-top: ${lvl*this.nestPadding}px; padding-bottom: ${lvl*this.nestPadding}px; }`);
@@ -919,13 +946,47 @@ class FragmentHighlightColorMentionStyler extends ColorMentionStyler {
   }
 }
 
-class MentionCardStyler extends ColorMentionStyler {
-  constructor(fragmentContainer, options={}) {
-    super(fragmentContainer, options);
+class FragmentUnderlineColorMentionStyler extends ColorMentionStyler {
+  constructor(options={}) {
+    super(options);
+    this.nestPadding = options.nestPadding || 5;
+    this.borderWidth = options.borderWidth || 4;
+    this.cornerRadius = options.cornerRadius || 10;
+    this.emptyMention = options.emptyMention || '∅';
   }
 
-  buildStyleSheetRules() {
-    const result = super.buildStyleSheetRules();
+  buildStyleSheetRules(fragmentContainer) {
+    const result = super.buildStyleSheetRules(fragmentContainer);
+    const maxLevel = fragmentContainer.maxLevel;
+    result.push(`div { line-height: ${150+maxLevel*70}%}`)
+    for (let lvl = 0; lvl <= maxLevel; ++lvl) {
+      result.push(`.mention-level-${lvl} { padding-bottom: ${lvl*this.nestPadding}px; }`);
+    }
+    result.push(`span.mention { cursor: default; border-bottom-style: solid; border-bottom-width: ${this.borderWidth}px; padding-left: ${this.nestPadding}; padding-right: ${this.nestPadding}; }`);
+    result.push(`span.mention.first-slice { border-bottom-left-radius: ${this.cornerRadius}px; }`)
+    result.push(`span.mention.last-slice { border-bottom-right-radius: ${this.cornerRadius}px; }`)
+    result.push('span.mention.not-last-slice { padding-right: 0px; }');
+    result.push('span.mention.not-first-slice { padding-left: 0px; }');
+    result.push('span.mention.slicing-end { padding-right: 0px; }');
+    result.push(`span.mention.empty-mention::before { content: "${this.emptyMention}"; }`);
+    return result;
+  }
+
+  buildMentionTypeRule(mType, color) {
+    return [
+      `span.mention.${mType} { border-bottom-color: ${color}; }`,
+      `span.mention.${mType}.highlight { background-image: linear-gradient(0deg, ${color}, transparent); }`
+    ];
+  }
+}
+
+class MentionCardStyler extends ColorMentionStyler {
+  constructor(options={}) {
+    super(options);
+  }
+
+  buildStyleSheetRules(fragmentContainer) {
+    const result = super.buildStyleSheetRules(fragmentContainer);
     result.push('table { border-spacing: 0px; width: 100%; }');
     result.push('thead th { border-bottom: solid 5px white; font-style: italic; text-align: left; }');
     result.push('td.prop-name { font-weight: bold; font-family: sans; width: 25%; border-bottom: solid 1px lightgrey; }');
@@ -938,14 +999,14 @@ class MentionCardStyler extends ColorMentionStyler {
   }
 }
 
-class TableHighlightColorMentionStyler extends ColorMentionStyler {
-  constructor(fragmentContainer, options={}) {
-    super(fragmentContainer, options);
+class TableColorMentionStyler extends ColorMentionStyler {
+  constructor(options={}) {
+    super(options);
     this.highlightBorderColor = options.highlightBorderColor || 'red';
   }
 
-  buildStyleSheetRules() {
-    const result = super.buildStyleSheetRules();
+  buildStyleSheetRules(fragmentContainer) {
+    const result = super.buildStyleSheetRules(fragmentContainer);
     result.push('table { border-spacing: 0px; width: 100%; }');
     result.push('th { cursor: default; min-width: 3ch; }');
     result.push('th { text-align: left; font-family: sans; }');

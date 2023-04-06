@@ -22,23 +22,15 @@ function selectDocument(event) {
   }
   const fcg = new FragmentContainerGroup(...fca);
 
-  let colorOptions;
-  if (document.quickHTMLColors === null) {
-    colorOptions = { mentionTypeColorFactory: { method: 'spread' } }
-  }
-  else {
-    colorOptions = { mentionTypeColors: document.quickHTMLColors }
-  }
-  fragmentStyler = new FragmentHighlightColorMentionStyler(fcg, colorOptions);
-  tableStyler = new TableHighlightColorMentionStyler(fcg, Object.assign({
-    rawCSS: [
-    ]
-  }, colorOptions));
-  cardStyler = new MentionCardStyler(fcg, Object.assign({
+  const colors = document.quickHTMLColors || Colors.spread();
+  fragmentStyler = new FragmentBoxColorMentionStyler({colors: colors});
+  tableStyler = new TableColorMentionStyler({colors: colors});
+  cardStyler = new MentionCardStyler({
     rawCSS: [
       'td.prop-value { font-family: monospace; }'
-    ]
-  }, colorOptions));
+    ],
+    colors: colors
+  });
 
   const fragsElt = document.querySelector('#frags');
   fragsElt.innerHTML = '';
