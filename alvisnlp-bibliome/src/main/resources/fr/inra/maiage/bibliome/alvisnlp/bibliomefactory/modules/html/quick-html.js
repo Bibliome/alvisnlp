@@ -32,9 +32,6 @@ function selectDocument(event) {
   fragmentStyler = new FragmentHighlightColorMentionStyler(fcg, colorOptions);
   tableStyler = new TableHighlightColorMentionStyler(fcg, Object.assign({
     rawCSS: [
-      'td.N { font-family: monospace; text-align: right; }',
-      'td.Type { font-family: monospace; }',
-      'td.Form { font-style: italic; }'
     ]
   }, colorOptions));
   cardStyler = new MentionCardStyler(fcg, Object.assign({
@@ -70,6 +67,11 @@ function selectDocument(event) {
     }
   }
   fcg.allBuilders.forEach(b => b.buildRoot.onclick = hl);
+
+  const mentions = fcg.mentions;
+  if (mentions.length) {
+    fcg.highlight(mentions[0]);
+  }
 }
 
 function loadDocuments(data) {
