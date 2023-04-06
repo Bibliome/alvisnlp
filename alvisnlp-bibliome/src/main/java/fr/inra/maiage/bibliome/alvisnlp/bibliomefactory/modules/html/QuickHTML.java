@@ -17,7 +17,7 @@ import org.json.simple.JSONObject;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.DefaultExpressions;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.html.QuickHTML2.QuickHTML2ResolvedObjects;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.html.QuickHTML.QuickHTMLResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
@@ -38,7 +38,7 @@ import fr.inra.maiage.bibliome.util.files.OutputDirectory;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 @AlvisNLPModule(beta=true)
-public class QuickHTML2 extends SectionModule<QuickHTML2ResolvedObjects> {
+public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 	private OutputDirectory outDir;
 	private String layoutLayer = null;
 	private String tagFeature = "tag";
@@ -49,10 +49,10 @@ public class QuickHTML2 extends SectionModule<QuickHTML2ResolvedObjects> {
 	private String[] colors = null;
 	private Expression documentTitle = DefaultExpressions.DOCUMENT_ID;
 
-	public static class QuickHTML2ResolvedObjects extends SectionResolvedObjects {
+	public static class QuickHTMLResolvedObjects extends SectionResolvedObjects {
 		private final Evaluator documentTitle;
 
-		public QuickHTML2ResolvedObjects(ProcessingContext<Corpus> ctx, QuickHTML2 module) throws ResolverException {
+		public QuickHTMLResolvedObjects(ProcessingContext<Corpus> ctx, QuickHTML module) throws ResolverException {
 			super(ctx, module);
 			this.documentTitle = module.documentTitle.resolveExpressions(rootResolver);
 		}
@@ -84,7 +84,7 @@ public class QuickHTML2 extends SectionModule<QuickHTML2ResolvedObjects> {
 
 	private OutputStream copyResource(Logger logger, String name) throws IOException {
 		logger.info("copying " + name);
-		try (InputStream is = QuickHTML2.class.getResourceAsStream(name)) {
+		try (InputStream is = QuickHTML.class.getResourceAsStream(name)) {
 			OutputStream out = null;
 			try {
 				out = new FileOutputStream(new OutputFile(outDir, name));
@@ -171,7 +171,7 @@ public class QuickHTML2 extends SectionModule<QuickHTML2ResolvedObjects> {
 	private JSONObject buildDocumentJSON(EvaluationContext evalCtx, Document doc) {
 		JSONObject result = new JSONObject();
 		result.put("id", doc.getId());
-		QuickHTML2ResolvedObjects resObj = getResolvedObjects();
+		QuickHTMLResolvedObjects resObj = getResolvedObjects();
 		result.put("title", resObj.documentTitle.evaluateString(evalCtx, doc));
 		result.put("sections", buildSectionsJSON(evalCtx, doc));
 		return result;
@@ -264,8 +264,8 @@ public class QuickHTML2 extends SectionModule<QuickHTML2ResolvedObjects> {
 	}
 
 	@Override
-	protected QuickHTML2ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
-		return new QuickHTML2ResolvedObjects(ctx, this);
+	protected QuickHTMLResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		return new QuickHTMLResolvedObjects(ctx, this);
 	}
 
 	@Param
