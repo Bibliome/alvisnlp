@@ -17,37 +17,58 @@ limitations under the License.
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.html.QuickHTML">
 
   <synopsis>
-    <p>synopsis</p>
+    <p>Exports part of the layer contents in HTML.</p>
   </synopsis>
 
   <module-doc>
     <description>
-      <p>synopsis</p>
+      <p><this/> exports the annotations in HTML. Open with a browser the <code>index.html</code> file created in <param>outDir</param> to vizualize exported annotations.</p>
     </description>
   
     <param-doc name="features">
-      <p/>
+      <p>Mention features to display.</p>
     </param-doc>
   
     <param-doc name="tagFeature">
-      <p/>
+      <p>Feature containing the tag name for layout annotations.</p>
     </param-doc>
   
     <param-doc name="classFeature">
-      <p/>
+      <p>Deprecated alias for <param>typeFeature</param>/</p>
+    </param-doc>
+   
+    <param-doc name="typeFeature">
+      <p>Feature containing the type of the mention.</p>
+    </param-doc>
+    
+    <param-doc name="documentTitle">
+      <p>Expression evaluated as a string representing the document title.</p>
     </param-doc>
   
     <param-doc name="outDir">
-      <p/>
+      <p>Directory where to place exported files.</p>
     </param-doc>
   
     <param-doc name="layers">
-      <p/>
+      <p>Deprecated alias for <param>mentionLayers</param>.</p>
+    </param-doc>
+    
+    <param-doc name="layoutLayer">
+      <p>Layer containing layout (HTML) annotations, like <code>i</code>, <code>b</code> or <code>p</code>.</p>
+    </param-doc>
+   
+    <param-doc name="mentionLayers">
+      <p>Layers containing mentions (or named entities).</p>
     </param-doc>
   
     <param-doc name="colors">
-      <p/>
+      <p>List of colors used to render mentions. This is deprecated, use <param>colorMap</param> instead.</p>
     </param-doc>
+  
+    <param-doc name="colorMap">
+      <p>Map of colors used to render mentions. Keys are mention types and values are colors in CSS syntax.</p>
+    </param-doc>
+
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModuleParamsDoc</include-doc>
 </module-doc>
 </alvisnlp-doc>
