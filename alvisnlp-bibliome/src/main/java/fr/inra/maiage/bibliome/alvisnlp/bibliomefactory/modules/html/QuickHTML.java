@@ -190,6 +190,7 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 	private JSONObject buildSectionJSON(EvaluationContext evalCtx, Section sec) {
 		JSONObject result = new JSONObject();
 		result.put("name", sec.getName());
+		result.put("ord", sec.getOrder());
 		result.put("text", sec.getContents());
 		JSONArray layouts = buildLayoutsJSON(sec);
 		result.put("layouts", layouts);
