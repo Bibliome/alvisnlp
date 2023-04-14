@@ -375,6 +375,19 @@ class MentionCardBuilder extends Builder {
     value: function(ment) { return ment.type; }
   };
 
+  static autoLink(prop) {
+    return {
+      name: prop.name,
+      value: function(ment) {
+        const value = prop.value(ment);
+        if ((value != null) && (value.startsWith("http://") || value.startsWith("https://"))) {
+          return `<a target="_new" href="${value}">[link]</a>`;
+        }
+        return value;
+      }
+    }
+  }
+
   doBuild() {
     const table = document.createElement('TABLE');
     table.appendChild(this.buildThead());

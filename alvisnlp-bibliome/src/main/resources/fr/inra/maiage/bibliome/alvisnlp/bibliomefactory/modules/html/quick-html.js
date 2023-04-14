@@ -25,10 +25,10 @@ function linkCardProperty(fcg) {
 }
 
 function featureCard(feature) {
-  return {
+  return MentionCardBuilder.autoLink({
     name: feature.charAt(0).toUpperCase() + feature.slice(1),
     value: function(ment) { return ment.data[feature]; }
-  };
+  });
 }
 
 function getDocElt(doc) {
