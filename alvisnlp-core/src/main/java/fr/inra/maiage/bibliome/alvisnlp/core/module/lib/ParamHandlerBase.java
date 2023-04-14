@@ -38,7 +38,7 @@ public class ParamHandlerBase<A extends Annotable> implements ParamHandler<A> {
     private final String name;
     private final String nameType;
     private String paramSourceName;
-    private boolean inhibitCheck = false;
+    private boolean outputFeed = false;
     
     /**
      * Instantiates a new param handler base.
@@ -112,13 +112,13 @@ public class ParamHandlerBase<A extends Annotable> implements ParamHandler<A> {
     }
 
     @Override
-    public boolean isInhibitCheck() {
-		return inhibitCheck;
+    public boolean isOutputFeed() {
+		return outputFeed;
 	}
 
     @Override
-	public void setInhibitCheck(boolean inhibitCheck) {
-		this.inhibitCheck = inhibitCheck;
+	public void setOutputFeed(boolean outputFeed) {
+		this.outputFeed = outputFeed;
 	}
     
     @Override

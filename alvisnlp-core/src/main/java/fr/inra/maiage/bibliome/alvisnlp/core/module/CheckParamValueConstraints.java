@@ -42,7 +42,7 @@ public class CheckParamValueConstraints<A extends Annotable> extends AbstractPar
 	public void visitParam(ParamHandler<A> paramHandler, Logger logger) {
 		if (!paramHandler.isSet())
 			return;
-		if (paramHandler.isInhibitCheck())
+		if (paramHandler.isOutputFeed())
 			return;
 		Class<?> type = paramHandler.getType();
 		if (isCheckable(type)) {

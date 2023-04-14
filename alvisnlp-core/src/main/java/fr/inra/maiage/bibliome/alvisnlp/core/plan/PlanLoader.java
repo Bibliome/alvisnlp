@@ -511,7 +511,7 @@ public class PlanLoader<T extends Annotable> {
 		}
 		boolean outputFeed = XMLUtils.getBooleanAttribute(elt, OUTPUT_FEED_ATTRIBUTE_NAME, false);
 		if (outputFeed) {
-			paramHandler.setInhibitCheck(true);
+			paramHandler.setOutputFeed(true);
 		}
 		String baseDir = getBaseDir(elt);
 		Class<?> paramType = paramHandler.getType();
