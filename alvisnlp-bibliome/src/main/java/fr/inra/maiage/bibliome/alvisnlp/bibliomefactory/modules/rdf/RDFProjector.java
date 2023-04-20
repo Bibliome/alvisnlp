@@ -14,9 +14,10 @@ import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.shared.PrefixMapping;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.TrieProjector;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rdf.RDFProjector.ResourceLabel;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.TrieProjector;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
@@ -36,7 +37,7 @@ import fr.inra.maiage.bibliome.util.streams.SourceStream;
 import fr.inra.maiage.bibliome.util.trie.Trie;
 
 @AlvisNLPModule
-public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,Resource> {
+public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,ResourceLabel> {
 	private SourceStream source;
 	private Lang rdfFormat = Lang.RDFXML;
 	private String language = null;
@@ -57,19 +58,47 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 			"oboInOwl:hasSynonym"
 	};
 	private String uriFeature;
+	private String matchedLabelFeature = null;
+	private String matchedPropertyFeature = null;
+	private String matchedLanguageFeature = null;
 	private Mapping labelFeatures = new Mapping(
 			"rdfs-label", "rdfs:label",
 			"skos-prefLabel", "skos:prefLabel"
 			);
+	
+	public static class ResourceLabel {
+		private final Resource resource;
+		private final Property property;
+		private final RDFNode label;
+		
+		private ResourceLabel(Resource resource, Property property, RDFNode label) {
+			super();
+			this.resource = resource;
+			this.property = property;
+			this.label = label;
+		}
+
+		public Resource getResource() {
+			return resource;
+		}
+
+		public Property getProperty() {
+			return property;
+		}
+
+		public RDFNode getLabel() {
+			return label;
+		}
+	}
 
 	@Override
 	@TimeThis(task="create-trie", category=TimerCategory.LOAD_RESOURCE)
-	protected Trie<Resource> getTrie(ProcessingContext<Corpus> ctx, Logger logger, Corpus corpus) throws IOException, ModuleException {
+	protected Trie<ResourceLabel> getTrie(ProcessingContext<Corpus> ctx, Logger logger, Corpus corpus) throws IOException, ModuleException {
 		return super.getTrie(ctx, logger, corpus);
 	}
 
 	@Override
-	protected void fillTrie(Logger logger, Trie<Resource> trie, Corpus corpus) throws IOException, ModuleException {
+	protected void fillTrie(Logger logger, Trie<ResourceLabel> trie, Corpus corpus) throws IOException, ModuleException {
 		Model model = createModel(logger);
 		Property typeProp = model.getProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type");
 		Property[] labelPropertyProps = getProperties(model, labelURIs);
@@ -84,7 +113,8 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 					for (RDFNode node : Iterators.loop(model.listObjectsOfProperty(res, prop))) {
 						String label = getNodeValue(node);
 						if (label != null) {
-							trie.addEntry(label, res);
+							ResourceLabel resLabel = new ResourceLabel(res, prop, node);
+							trie.addEntry(label, resLabel);
 							nEntries++;
 						}
 					}
@@ -117,6 +147,14 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 		}
 		throw new RuntimeException("RDF node " + node + " is neither a literal nor a resource!");
 	}
+	
+	private static String getNodeLanguage(RDFNode node) {
+		if (node.isLiteral()) {
+			Literal lit = node.asLiteral();
+			return lit.getLanguage();
+		}
+		return "";
+	}
 
 	private Model createModel(Logger logger) throws IOException {
 		LoggingUtils.configureSilentLog4J();
@@ -145,25 +183,37 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 	}
 
 	@Override
-	protected Decoder<Resource> getDecoder() {
+	protected Decoder<ResourceLabel> getDecoder() {
 		return null;
 	}
 
 	@Override
-	protected Encoder<Resource> getEncoder() {
+	protected Encoder<ResourceLabel> getEncoder() {
 		return null;
 	}
 
 	@Override
-	protected void handleMatch(Resource value, Annotation a) {
-		a.addFeature(uriFeature, value.getURI());
-		Model model = value.getModel();
+	protected void handleMatch(ResourceLabel value, Annotation a) {
+		Resource res = value.getResource();
+		a.addFeature(uriFeature, res.getURI());
+		Model model = res.getModel();
 		for (Map.Entry<String,String> e : labelFeatures.entrySet()) {
 			String propURI = e.getValue();
 			Property prop = model.getProperty(model.expandPrefix(propURI));
-			for (RDFNode node : Iterators.loop(model.listObjectsOfProperty(value, prop))) {
+			for (RDFNode node : Iterators.loop(model.listObjectsOfProperty(res, prop))) {
 				a.addFeature(e.getKey(), getNodeValue(node));
 			}
+		}
+		if (matchedLabelFeature != null) {
+			String label = getNodeValue(value.getLabel());
+			a.addFeature(matchedLabelFeature, label);
+		}
+		if (matchedPropertyFeature != null) {
+			a.addFeature(matchedPropertyFeature, value.getProperty().getURI());
+		}
+		if (matchedLanguageFeature != null) {
+			String lang = getNodeLanguage(value.getLabel());
+			a.addFeature(matchedLanguageFeature, lang);
 		}
 	}
 

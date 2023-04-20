@@ -68,6 +68,18 @@ limitations under the License.
     <param-doc name="language">
       <p>Specify the language of labels to project. If this parameter is not set then labels of any language are projected. Labels without a language qualifier are always projected regardless of the value of this parameter.</p>
     </param-doc>
+    
+    <param-doc name="matchedLabelFeature">
+      <p>Feature where to store the matched label.</p>
+    </param-doc>
+    
+    <param-doc name="matchedPropertyFeature">
+      <p>Feature where to store the URI of the property of the matched label.</p>
+    </param-doc>
+    
+    <param-doc name="matchedPropertyLanguage">
+      <p>Feature where to store the language of the matched label.</p>
+    </param-doc>
 
 	<include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.trie.TrieProjectorParamsDoc</include-doc>
   </module-doc>
