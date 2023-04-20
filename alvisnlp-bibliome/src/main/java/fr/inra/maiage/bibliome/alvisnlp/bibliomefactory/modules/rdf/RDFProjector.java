@@ -268,17 +268,17 @@ public abstract class RDFProjector extends TrieProjector<SectionResolvedObjects,
 		return uriFeature;
 	}
 
-	@Param(nameType=NameType.FEATURE)
+	@Param(nameType=NameType.FEATURE, mandatory=false)
 	public String getMatchedLabelFeature() {
 		return matchedLabelFeature;
 	}
 
-	@Param(nameType=NameType.FEATURE)
+	@Param(nameType=NameType.FEATURE, mandatory = false)
 	public String getMatchedPropertyFeature() {
 		return matchedPropertyFeature;
 	}
 
-	@Param(nameType=NameType.FEATURE)
+	@Param(nameType=NameType.FEATURE, mandatory = false)
 	public String getMatchedLanguageFeature() {
 		return matchedLanguageFeature;
 	}

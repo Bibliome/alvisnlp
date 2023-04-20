@@ -25,9 +25,6 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
 <rdfprojector class="RDFProjector">
-    <matchedLabelFeature></matchedLabelFeature>
-    <matchedLanguageFeature></matchedLanguageFeature>
-    <matchedPropertyFeature></matchedPropertyFeature>
     <source></source>
     <targetLayer></targetLayer>
     <uriFeature></uriFeature>
@@ -35,30 +32,6 @@ The <a href="#subject" class="param">subject</a> parameter specifies which text 
 ```
 
 ## Mandatory parameters
-
-<h3 id="matchedLabelFeature" class="param">matchedLabelFeature</h3>
-
-<div class="param-level param-level-mandatory">Mandatory
-</div>
-<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
-</div>
-Feature where to store the matched label.
-
-<h3 id="matchedLanguageFeature" class="param">matchedLanguageFeature</h3>
-
-<div class="param-level param-level-mandatory">Mandatory
-</div>
-<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
-</div>
-UNDOCUMENTED
-
-<h3 id="matchedPropertyFeature" class="param">matchedPropertyFeature</h3>
-
-<div class="param-level param-level-mandatory">Mandatory
-</div>
-<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
-</div>
-Feature where to store the URI of the property of the matched label.
 
 <h3 id="source" class="param">source</h3>
 
@@ -101,6 +74,30 @@ Constant features to add to each annotation created by this module.
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Specify the language of labels to project. If this parameter is not set then labels of any language are projected. Labels without a language qualifier are always projected regardless of the value of this parameter.
+
+<h3 id="matchedLabelFeature" class="param">matchedLabelFeature</h3>
+
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Feature where to store the matched label.
+
+<h3 id="matchedLanguageFeature" class="param">matchedLanguageFeature</h3>
+
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+UNDOCUMENTED
+
+<h3 id="matchedPropertyFeature" class="param">matchedPropertyFeature</h3>
+
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+Feature where to store the URI of the property of the matched label.
 
 <h3 id="trieSink" class="param">trieSink</h3>
 
