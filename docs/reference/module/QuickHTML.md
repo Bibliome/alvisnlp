@@ -8,7 +8,7 @@ Exports part of the layer contents in HTML.
 
 ## Description
 
- *QuickHTML* exports the annotations in HTML. Open the `index.html` file created in <a href="#outDir" class="param">outDir</a> to vizualize exported annotations.
+ *QuickHTML* exports the annotations in HTML. Open with a browser the `index.html` file created in <a href="#outDir" class="param">outDir</a> to vizualize exported annotations.
 
 ## Snippet
 

@@ -77,7 +77,7 @@ limitations under the License.
       <p>Feature where to store the URI of the property of the matched label.</p>
     </param-doc>
     
-    <param-doc name="matchedPropertyLanguage">
+    <param-doc name="matchedPropertyFeature">
       <p>Feature where to store the language of the matched label.</p>
     </param-doc>
 
