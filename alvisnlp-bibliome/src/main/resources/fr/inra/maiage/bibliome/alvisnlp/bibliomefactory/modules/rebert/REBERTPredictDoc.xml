@@ -55,7 +55,11 @@
     </param-doc>
 
     <param-doc default-value="1" mandatory="default: 1" name="ensembleNumber" short-type="Integer" type="java.lang.Integer">
-      <p>Number of models that make a prediction. The value must be lower or equal to the number of models finetuned.</p>
+      <p>Number of models that make a prediction. The value must be lower or equal to the number of models finetuned. Either this parameter or <param>ensembleModels</param> is mandatory (and mutually exclusive).</p>
+    </param-doc>
+
+    <param-doc mandatory="default: 1" name="ensembleModels" short-type="Integer[]" type="java.lang.Integer[]">
+      <p>Models to use for the prediction. Either this parameter or <param>ensembleNumber</param> is mandatory (and mutually exclusive).</p>
     </param-doc>
 
     <param-doc mandatory="optional" name="explainFeaturePrefix" short-type="String" type="java.lang.String">

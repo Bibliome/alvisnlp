@@ -29,6 +29,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
 import fr.inra.maiage.bibliome.util.Pair;
+import fr.inra.maiage.bibliome.util.Strings;
 
 public class REBERTPredictExternalHandler extends ExternalHandler<Corpus,REBERTPredict> {
 	private final String[] labels;
@@ -104,7 +105,7 @@ public class REBERTPredictExternalHandler extends ExternalHandler<Corpus,REBERTP
 	private Tuple createTuple(Candidate cand, int cat) {
 		REBERTPredict owner = getModule();
 		if (owner.getCreateNegativeTuples() || (cat != owner.getNegativeCategory())) {
-			Relation rel = cand.getSubject().getSection().ensureRelation(owner, owner.getRelationName());
+			Relation rel = cand.getSubject().getSection().ensureRelation(owner, owner.getRelation());
 			Tuple t = new Tuple(owner, rel);
 			t.setArgument(owner.getSubjectRole(), cand.getSubject().getElement());
 			t.setArgument(owner.getObjectRole(), cand.getObject().getElement());
@@ -123,16 +124,18 @@ public class REBERTPredictExternalHandler extends ExternalHandler<Corpus,REBERTP
 		@SuppressWarnings("unchecked")
 		private ProbasReader() throws IOException {
 			CSVFormat format = CSVFormat.MYSQL.builder().setQuote('"').setDelimiter(',').build();
-			int ensembleNumber = getModule().getEnsembleNumber();
-			readers = new BufferedReader[ensembleNumber];
-			parsers = new CSVParser[ensembleNumber];
-			iterators = new Iterator[ensembleNumber];
+			int[] ensembleModels = getModels();
+			//int ensembleNumber = getModule().getEnsembleNumber();
+			readers = new BufferedReader[ensembleModels.length];
+			parsers = new CSVParser[ensembleModels.length];
+			iterators = new Iterator[ensembleModels.length];
 			try {
-				for (int ne = 0; ne < ensembleNumber; ++ne) {
+				for (int i = 0; i < ensembleModels.length; ++i) {
+					int ne = ensembleModels[i];
 					File outFile = new File(getRebertOutputDir(), "probas_ensemble_" + (ne + 1) + ".csv");
-					readers[ne] = new BufferedReader(new FileReader(outFile));
-					parsers[ne] = new CSVParser(readers[ne], format);
-					iterators[ne] = parsers[ne].iterator();
+					readers[i] = new BufferedReader(new FileReader(outFile));
+					parsers[i] = new CSVParser(readers[i], format);
+					iterators[i] = parsers[i].iterator();
 				}
 			}
 			catch (IOException e) {
@@ -146,6 +149,23 @@ public class REBERTPredictExternalHandler extends ExternalHandler<Corpus,REBERTP
 			}
 		}
 		
+		private int[] getModels() {
+			REBERTPredict module = getModule();
+			Integer[] ensembleModels = module.getEnsembleModels();
+			if (ensembleModels != null) {
+				int[] result = new int[ensembleModels.length];
+				for (int i = 0; i < result.length; ++i) {
+					result[i] = ensembleModels[i] - 1;
+				}
+				return result;
+			}
+			int[] result = new int[module.getEnsembleNumber()];
+			for (int i = 0; i < result.length; ++i) {
+				result[i] = i;
+			}
+			return result;
+		}
+		
 		public boolean hasNext() {
 			return iterators[0].hasNext();
 		}
@@ -153,34 +173,33 @@ public class REBERTPredictExternalHandler extends ExternalHandler<Corpus,REBERTP
 		public double[][] next() {
 			double[][] result = new double[readers.length][];
 			CSVRecord[] records = nextRecords();
-			for (int ne = 0; ne < result.length; ++ne) {
+			for (int i = 0; i < result.length; ++i) {
 				double[] probas = new double[categories.length];
 				for (int nc = 0; nc < probas.length; ++nc) {
-					probas[nc] = Double.parseDouble(records[ne].get(nc));
+					probas[nc] = Double.parseDouble(records[i].get(nc));
 				}
-				result[ne] = probas;
+				result[i] = probas;
 			}
 			return result;
 		}
 		
 		private CSVRecord[] nextRecords() {
 			CSVRecord[] result = new CSVRecord[readers.length];
-			for (int ne = 0; ne < result.length; ++ne) {
-				result[ne] = iterators[ne].next();
+			for (int i = 0; i < result.length; ++i) {
+				result[i] = iterators[i].next();
 			}
 			return result;
 		}
 		
 		public void close() throws IOException {
-			for (int ne = 0; ne < readers.length; ++ne) {
-				if ((parsers[ne] != null) && (!parsers[ne].isClosed())) {
-					parsers[ne].close();
+			for (int i = 0; i < readers.length; ++i) {
+				if ((parsers[i] != null) && (!parsers[i].isClosed())) {
+					parsers[i].close();
 				}
-				if (readers[ne] != null) {
-					readers[ne].close();
+				if (readers[i] != null) {
+					readers[i].close();
 				}
 			}
-			
 		}
 	}
 
@@ -235,6 +254,8 @@ public class REBERTPredictExternalHandler extends ExternalHandler<Corpus,REBERTP
 		result.add(Integer.toString(labels.length));
 		result.add("--num_ensemble");
 		result.add(owner.getEnsembleNumber().toString());
+		result.add("--ensemble_models");
+		result.add(Strings.joinStrings(owner.getEnsembleModels(), ','));
 		if (!owner.getUseGPU()) {
 			result.add("--force_cpu");
 		}
