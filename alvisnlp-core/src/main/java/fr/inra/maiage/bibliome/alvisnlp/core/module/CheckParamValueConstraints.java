@@ -17,9 +17,14 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.core.module;
 
+import java.io.File;
 import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.util.Checkable;
+import fr.inra.maiage.bibliome.util.files.InputDirectory;
+import fr.inra.maiage.bibliome.util.files.InputFile;
+import fr.inra.maiage.bibliome.util.streams.DirectorySourceStream;
+import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 
 public class CheckParamValueConstraints<A extends Annotable> extends AbstractParamVisitor<A,Logger> {
 	private final ProcessingContext<A> processingContext;
@@ -42,13 +47,16 @@ public class CheckParamValueConstraints<A extends Annotable> extends AbstractPar
 	public void visitParam(ParamHandler<A> paramHandler, Logger logger) {
 		if (!paramHandler.isSet())
 			return;
-		if (paramHandler.isOutputFeed())
+		if (paramHandler.isOutputFeed()) {
+			checkOutputFeed(paramHandler, logger);
 			return;
+		}
 		Class<?> type = paramHandler.getType();
 		if (isCheckable(type)) {
 			checkCheckable(logger, paramHandler.getValue());
+			return;
 		}
-		else if (type.isArray()) {
+		if (type.isArray()) {
 			if (isCheckable(type.getComponentType())) {
 				for (Object value : (Object[]) paramHandler.getValue())
 					checkCheckable(logger, value);
@@ -56,6 +64,47 @@ public class CheckParamValueConstraints<A extends Annotable> extends AbstractPar
 		}
 	}
 	
+	private void checkOutputFeed(ParamHandler<A> paramHandler, Logger logger) {
+		Object value = paramHandler.getValue();
+		Class<?> type = value.getClass();
+		if (InputFile.class.isAssignableFrom(type)) {
+			if (((InputFile) value).exists()) {
+				logger.severe("parameter " + paramHandler.getName() + " declared as output-feed but file " + value + " exists");
+				hasConstraintsErrors = true;
+			}
+			return;
+		}
+		if (InputDirectory.class.isAssignableFrom(type)) {
+			if (((InputDirectory) value).exists()) {
+				logger.severe("parameter " + paramHandler.getName() + " declared as output-feed but directory " + value + " exists");
+				hasConstraintsErrors = true;
+			}
+			return;
+		}
+		if (FileSourceStream.class.isAssignableFrom(type)) {
+			FileSourceStream fss = (FileSourceStream) value;
+			for (String name : fss.getStreamNames()) {
+				if (new File(name).exists()) {
+					logger.severe("parameter " + paramHandler.getName() + " declared as output-feed but file " + name + " exists");
+					hasConstraintsErrors = true;
+				}
+			}
+			return;
+		}
+		if (DirectorySourceStream.class.isAssignableFrom(type)) {
+			DirectorySourceStream fss = (DirectorySourceStream) value;
+			for (String name : fss.getStreamNames()) {
+				if (new File(name).exists()) {
+					logger.severe("parameter " + paramHandler.getName() + " declared as output-feed but file " + name + " exists");
+					hasConstraintsErrors = true;
+				}
+			}
+			return;
+		}
+		logger.warning("parameter " + paramHandler.getName() + " declared as output-feed but the type is not appropriate");
+		hasConstraintsErrors = true;
+	}
+
 	private static boolean isCheckable(Class<?> type) {
 		return Checkable.class.isAssignableFrom(type);
 	}
