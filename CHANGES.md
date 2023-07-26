@@ -60,3 +60,68 @@ Initial version since version policy is in force.
   - module PatternMatcher
   - module RemoveOverlaps
   - module YateaTermsProjector
+
+## 0.10.0
+
+* Definitive name is AlvisNLP
+* Removed
+  - support for OpenMinTeD
+  - modules XMIImport, XMIExport
+  - module BioLG
+  - module CopyFeature
+  - module RunProlog
+  - module FillDB
+  - module EnrichedDocumentWriter
+  - module ProminentConceptReporter
+  - module XMLWriter2ForINIST
+  - module AlvisREPrepareCrossValidation
+  - module AlvisDBIndexer
+  - module ADBWriter
+  - modules AlvisAEReader2, ExportCadixeJSON
+  - module EnjuParser2
+  - modules AttestedTermsProjector, TyDIProjector, YateaProjector, ElementProjector2, SimpleProjector2
+  - module FileMapper2
+  - modules SelectingElementClassifier, TaggingElementClassifier, TrainingElementClassifier
+  - module Script
+  - module WhatsWrongExport
+  - module AnimalReader
+  - support for custom entities in plans
+  - old plan syntax
+  - dumping from plan
+  - miscellanous deprecated parameters
+* Fixed
+  - documentation
+  - bug in TabularExport, create output directory if it does not exist
+  - dump framework
+  - bug in XMLWriter, will not crash if attribute name is illegal
+* New
+  - Python script interoperability framework
+  - module PythonScript: generic Python script module
+  - module Stanza: Stanza pipeline
+  - module REBERTPredict: relation extraction with BERT
+  - functions xafter, xbefore, xinside, xoutside, xoverlapping, xspan: same as no-x counterparts but includes context element
+  - parameter FileMapper#headerLine
+  - parameter QuickHTML#documentTitle
+  - command-line option -analysisFile
+  - module CoreNLP
+  - module MultiRegExp
+  - module JsonExport
+  - library ctx
+  - module TagTogReader
+  - parameter TikaReader#baseNameId
+* Improved
+  - compiled trie works around mmap limitations
+  - support for snippet examples in modules documentation
+  - homogenize parameter names: source for readers, feature/layer/section/relation/arg names
+  - homogenize dependency parser parameter names
+  - API: replace obsoleteUseInstead method with @deprecated
+  - cleaned code a bit
+  - install AlvisNLP in a dedicated directory
+  - updated dependencies versions
+
+### 0.10.1
+* Added
+  - REBERTPredict#ensembleModels
+* Improved
+  - QuickHTML
+  - check that output-feed parameters do not exist

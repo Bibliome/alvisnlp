@@ -125,6 +125,14 @@ Constant features to add to each relation created by this module.
 </div>
 Constant features to add to each tuple created by this module.
 
+<h3 id="ensembleModels" class="param">ensembleModels</h3>
+
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Integer%5B%5D" class="converter">Integer[]</a>
+</div>
+Models to use for the prediction. Either this parameter or <a href="#ensembleNumber" class="param">ensembleNumber</a> is mandatory (and mutually exclusive).
+
 <h3 id="explainFeaturePrefix" class="param">explainFeaturePrefix</h3>
 
 <div class="param-level param-level-optional">Optional
@@ -203,7 +211,7 @@ End position of candidates (asserted and generated). This expression is evaluate
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.Integer" class="converter">Integer</a>
 </div>
-Number of models that make a prediction. The value must be lower or equal to the number of models finetuned.
+Number of models that make a prediction. The value must be lower or equal to the number of models finetuned. Either this parameter or <a href="#ensembleModels" class="param">ensembleModels</a> is mandatory (and mutually exclusive).
 
 <h3 id="labelFeature" class="param">labelFeature</h3>
 
