@@ -172,17 +172,17 @@ public interface Sequence<T extends Annotable> extends Module<T> {
 		}
 
 		@Override
-		public boolean isInhibitCheck() {
+		public boolean isOutputFeed() {
 			for (ParamHandler<T> ph : paramHandlers)
-				if (!ph.isInhibitCheck())
+				if (!ph.isOutputFeed())
 					return false;
 			return true;
 		}
 
 		@Override
-		public void setInhibitCheck(boolean inhibitFileCheck) {
+		public void setOutputFeed(boolean outputFeed) {
 			for (ParamHandler<T> ph : paramHandlers)
-				ph.setInhibitCheck(inhibitFileCheck);
+				ph.setOutputFeed(outputFeed);
 		}
 
 		@Override

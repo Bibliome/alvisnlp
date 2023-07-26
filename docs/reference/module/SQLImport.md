@@ -16,7 +16,7 @@ synopsis
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<sqlimport class="SQLImport>
+<sqlimport class="SQLImport">
     <action></action>
     <parameters></parameters>
     <password></password>

@@ -20,7 +20,7 @@ The matches for each individual pattern will not overlap, however matches of dif
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<multiregexp class="MultiRegExp>
+<multiregexp class="MultiRegExp">
     <patternsFile></patternsFile>
     <targetLayer></targetLayer>
     <valueFeatures></valueFeatures>

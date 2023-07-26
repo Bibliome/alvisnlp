@@ -17,12 +17,11 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec;
 
-import java.nio.ByteBuffer;
-
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Tuple;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.marshall.DataBuffer;
 import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
 
 public class TupleDecoder extends ElementDecoder<Tuple> implements TupleCreator {
@@ -33,7 +32,7 @@ public class TupleDecoder extends ElementDecoder<Tuple> implements TupleCreator 
 	}
 
 	@Override
-	public Tuple decode1(ByteBuffer buffer) {
+	public Tuple decode1(DataBuffer buffer) {
 		int nArgs = buffer.getInt();
 		for (int i = 0; i < nArgs; ++i) {
 			buffer.getLong();

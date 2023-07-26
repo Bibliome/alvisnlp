@@ -14,12 +14,10 @@ Applies the [Stanford NLP named-entity recognition](https://nlp.stanford.edu/sof
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<stanfordner class="StanfordNER>
+<stanfordner class="StanfordNER">
     <classifierFile></classifierFile>
     <labelFeature></labelFeature>
-    <labelFeatureName></labelFeatureName>
     <targetLayer></targetLayer>
-    <targetLayerName></targetLayerName>
 </stanfordner>
 ```
 

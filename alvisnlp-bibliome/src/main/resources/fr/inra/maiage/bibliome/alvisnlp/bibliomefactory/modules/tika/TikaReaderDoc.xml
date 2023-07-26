@@ -24,6 +24,10 @@ limitations under the License.
       <p/>
     </description>
 
+    <param-doc name="baseNameId">
+      <p>Use the filename basename as document identifier, instead of the full absolute path.</p>
+    </param-doc>
+
     <param-doc name="charset">
       <p>Character set of the input files.</p>
     </param-doc>

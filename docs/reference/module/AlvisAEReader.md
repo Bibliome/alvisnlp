@@ -23,7 +23,7 @@ All AlvisAE annotations, including text-bound annotations, will be represented i
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<alvisaereader class="AlvisAEReader>
+<alvisaereader class="AlvisAEReader">
     <campaignId>135</campaignId>
     <password>***</password>
     <schema>psql_schema_name</schema>

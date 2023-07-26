@@ -17,10 +17,9 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec;
 
-import java.nio.ByteBuffer;
-
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.ElementCreator;
+import fr.inra.maiage.bibliome.util.marshall.DataBuffer;
 import fr.inra.maiage.bibliome.util.marshall.Decoder;
 import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
 
@@ -33,7 +32,7 @@ public abstract class ElementDecoder<E extends Element> implements Decoder<E>, E
 	}
 
 	@Override
-	public void decode2(ByteBuffer buffer, E object) {
+	public void decode2(DataBuffer buffer, E object) {
 		int nKeys = buffer.getInt();
 		for (int i = 0; i < nKeys; ++i) {
 			String k = readString(buffer);
@@ -45,7 +44,7 @@ public abstract class ElementDecoder<E extends Element> implements Decoder<E>, E
 		}
 	}
 	
-	protected String readString(ByteBuffer buf) {
+	protected String readString(DataBuffer buf) {
 		long ref = buf.getLong();
 		return stringUnmarshaller.read(ref);
 	}

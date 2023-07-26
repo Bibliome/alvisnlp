@@ -14,7 +14,7 @@ This module is project-specific and should be short-lived. It assumes a relation
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<antecedentchoice class="AntecedentChoice>
+<antecedentchoice class="AntecedentChoice">
 </antecedentchoice>
 ```
 

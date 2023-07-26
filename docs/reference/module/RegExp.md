@@ -16,10 +16,9 @@ The created annotations will automatically have all features defined in <a href=
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<regexp class="RegExp>
+<regexp class="RegExp">
     <pattern></pattern>
     <targetLayer></targetLayer>
-    <targetLayerName></targetLayerName>
 </regexp>
 ```
 

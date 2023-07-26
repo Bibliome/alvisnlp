@@ -32,9 +32,8 @@ Reads XML files and creates elements.
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<xmlreader class="XMLReader>
+<xmlreader class="XMLReader">
     <source></source>
-    <sourcePath></sourcePath>
     <xslTransform></xslTransform>
 </xmlreader>
 ```

@@ -18,7 +18,7 @@ Wapiti requires a set of patterns that specify the dependencies of each token. T
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<wapititrain class="WapitiTrain>
+<wapititrain class="WapitiTrain">
     <features></features>
     <modelFile></modelFile>
     <wapitiExecutable></wapitiExecutable>

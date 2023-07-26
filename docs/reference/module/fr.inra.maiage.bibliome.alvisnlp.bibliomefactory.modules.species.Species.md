@@ -14,10 +14,9 @@ Calls the [Species]() taxon tagger.
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<species class="Species>
+<species class="Species">
     <speciesDir></speciesDir>
     <targetLayer></targetLayer>
-    <targetLayerName></targetLayerName>
 </species>
 ```
 

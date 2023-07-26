@@ -45,7 +45,7 @@ This command prints which action expressions are allowed in the current session,
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<shell class="Shell>
+<shell class="Shell">
 </shell>
 ```
 

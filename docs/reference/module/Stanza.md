@@ -20,7 +20,7 @@ The tokenization can be inhibited for using the existing tokens and sentences by
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<stanza class="Stanza>
+<stanza class="Stanza">
     <alvisnlpPythonDirectory></alvisnlpPythonDirectory>
 </stanza>
 ```
@@ -43,7 +43,7 @@ Directory where the AlvisNLP Python library is found. In principle this paramete
 </div>
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.ExecutableFile" class="converter">ExecutableFile</a>
 </div>
-Path to the conda executable for running the script under a conda environment. If this parameter is not set, then the script is not run in a conda environment. If this parameter is set, then <a href="#condaEnvironment" class="param">condaEnvironment</a> must be set.
+Path to the conda executable. If not set, the *Stanza* uses the conda executable from PATH. If <a href="#condaEnvironment" class="param">condaEnvironment</a> is not set then this parameter is ignored.
 
 <h3 id="condaEnvironment" class="param">condaEnvironment</h3>
 
@@ -51,7 +51,7 @@ Path to the conda executable for running the script under a conda environment. I
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-Name of the conda environment in which the script must be run. This parameter is ignored if <a href="#conda" class="param">conda</a> is not set.
+Name of the conda environment in which the script must be run. If this parameter is not set, then the script is not run in a conda environment.
 
 <h3 id="constantAnnotationFeatures" class="param">constantAnnotationFeatures</h3>
 

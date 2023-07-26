@@ -28,6 +28,7 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.ElementCreator;
 import fr.inra.maiage.bibliome.util.Strings;
@@ -39,6 +40,7 @@ public abstract class AbstractElement implements Element, Serializable {
     private static final long serialVersionUID = 1L;
 
     private final String staticFeatureKey;
+    private final String stringId;
     private Map<String,List<String>> features = null;
 
     /**
@@ -54,6 +56,7 @@ public abstract class AbstractElement implements Element, Serializable {
 				addFeature(creatorFeatureKey, ec.getCreatorName());
 			}
 		}
+		this.stringId = UUID.randomUUID().toString();
 	}
 
 
@@ -233,7 +236,7 @@ public abstract class AbstractElement implements Element, Serializable {
 
     @Override
     public String getStringId() {
-    	return Integer.toHexString(System.identityHashCode(this));
+    	return stringId;
     }
 
 	@Override

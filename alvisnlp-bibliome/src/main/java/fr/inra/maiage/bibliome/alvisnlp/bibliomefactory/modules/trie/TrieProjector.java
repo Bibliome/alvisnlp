@@ -126,7 +126,7 @@ public abstract class TrieProjector<S extends SectionResolvedObjects,T> extends 
 		}
 		logger.info("loading trie from " + trieSource);
 		Decoder<T> valueDecoder = getDecoder();
-		return new Trie<T>(trieSource, valueDecoder, ctx.getMaxMmapSize());
+		return new Trie<T>(trieSource, valueDecoder);
 	}
 
 	/**

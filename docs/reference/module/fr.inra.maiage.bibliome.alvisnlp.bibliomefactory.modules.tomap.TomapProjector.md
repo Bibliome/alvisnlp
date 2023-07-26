@@ -14,10 +14,9 @@
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<tomapprojector class="TomapProjector>
+<tomapprojector class="TomapProjector">
     <conceptFeature></conceptFeature>
     <targetLayer></targetLayer>
-    <targetLayerName></targetLayerName>
     <tomapClassifier></tomapClassifier>
     <yateaFile></yateaFile>
 </tomapprojector>

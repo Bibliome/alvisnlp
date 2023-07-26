@@ -14,7 +14,7 @@ Writes each document in a file in the AlvisAE protocol format.
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<alvisaewriter class="AlvisAEWriter>
+<alvisaewriter class="AlvisAEWriter">
     <annotationSets></annotationSets>
     <documentDescription></documentDescription>
     <outDir></outDir>

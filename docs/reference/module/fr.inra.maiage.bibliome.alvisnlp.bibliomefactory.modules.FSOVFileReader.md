@@ -14,7 +14,7 @@ Project-specific text file reader.
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<fsovfilereader class="FSOVFileReader>
+<fsovfilereader class="FSOVFileReader">
     <sourcePath></sourcePath>
     <xmlDir></xmlDir>
 </fsovfilereader>

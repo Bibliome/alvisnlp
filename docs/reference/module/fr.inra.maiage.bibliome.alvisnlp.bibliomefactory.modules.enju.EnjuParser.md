@@ -14,7 +14,7 @@ Dependency parsing using [Enju parser](https://mynlp.is.s.u-tokyo.ac.jp/enju/) .
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<enjuparser class="EnjuParser>
+<enjuparser class="EnjuParser">
     <enjuExecutable></enjuExecutable>
 </enjuparser>
 ```

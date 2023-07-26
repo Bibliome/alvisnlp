@@ -397,6 +397,10 @@
 </h2>
 
 <h2 class="no-toc">
+<a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml.TagTogReader' | relative_url }}" class="module">TagTogReader</a>
+</h2>
+
+<h2 class="no-toc">
 <a href="{{ '/reference/module/fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.xml.XMLReader' | relative_url }}" class="module">XMLReader</a>
 </h2>
 

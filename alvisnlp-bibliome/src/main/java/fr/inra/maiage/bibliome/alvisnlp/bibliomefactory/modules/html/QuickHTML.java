@@ -1,45 +1,18 @@
-/*
-Copyright 2016, 2017 Institut National de la Recherche Agronomique
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-        http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-*/
-
-
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.html;
 
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintStream;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Comparator;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
 import java.util.logging.Logger;
 
-import javax.xml.transform.TransformerFactoryConfigurationError;
-import javax.xml.xpath.XPathExpressionException;
+import javax.ws.rs.ProcessingException;
 
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.xml.sax.SAXException;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.DefaultExpressions;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
@@ -47,7 +20,7 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.Se
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.html.QuickHTML.QuickHTMLResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Layer;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
@@ -57,40 +30,23 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverExceptio
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.files.OutputDirectory;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
-import fr.inra.maiage.bibliome.util.fragments.FragmentTag;
-import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
-@AlvisNLPModule
+@AlvisNLPModule(beta=true)
 public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
-	private static final String XPATH_DOMUMENT_TITLE = "/html/head/title";
-	private static final String XPATH_TITLE_HEADING = "/html/body/h1";
-	private static final String XPATH_PREVIOUS_DOCUMENT = "/html/body/div[@id = 'document-navigation']/div[@id = 'document-previous']";
-	private static final String XPATH_NEXT_DOCUMENT = "/html/body/div[@id = 'document-navigation']/div[@id = 'document-next']";
-	private static final String XPATH_DOCUMENT_DIV = "/html/body/div[@id = 'alvisnlp-document']";
-	private static final String XPATH_FRAGMENTS = "//span[@alvisnlp-id != '']";
-	private static final String XPATH_DOCUMENT_LIST = "/html/body/ul[@id = 'document-list']";
-	private static final String DEFAULT_ANNOTATION_CLASS = "-default";
-
-
 	private OutputDirectory outDir;
-	private String[] layers;
-	private String tagFeature;
-	private String classFeature;
-	private String[] features;
-	private String[] colors = {
-			"#FFFFFF",
-			"#FFD3A5",
-			"#8BB3C1",
-			"#FC4B77",
-			"#996992",
-			"#AA9B8C",
-	};
+	private String layoutLayer = null;
+	private String tagFeature = "tag";
+	private String[] mentionLayers = null;
+	private String typeFeature = null;
+	private String[] features = new String[0];
+	private Mapping colorMap = null;
+	private String[] colors = null;
 	private Expression documentTitle = DefaultExpressions.DOCUMENT_ID;
 
 	public static class QuickHTMLResolvedObjects extends SectionResolvedObjects {
@@ -104,83 +60,25 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 		@Override
 		public void collectUsedNames(NameUsage nameUsage, String defaultType) throws ModuleException {
 			super.collectUsedNames(nameUsage, defaultType);
-			this.documentTitle.collectUsedNames(nameUsage, defaultType);
+			documentTitle.collectUsedNames(nameUsage, defaultType);
 		}
-	}
-
-	@Override
-	protected QuickHTMLResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
-		return new QuickHTMLResolvedObjects(ctx, this);
 	}
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+		Logger logger = getLogger(ctx);
 		try {
-			Logger logger = getLogger(ctx);
-			EvaluationContext evalCtx = new EvaluationContext(logger);
-			Set<String> classes = new TreeSet<String>();
-			classes.add(DEFAULT_ANNOTATION_CLASS);
-			Document docList = createDocumentList();
 			if (!outDir.exists() && !outDir.mkdirs()) {
 				throw new ProcessingException("could not create directory " + outDir.getAbsolutePath());
 			}
-			generateDocuments(logger, evalCtx, corpus, classes, docList);
-			writeXHTMLDocument(docList, "index");
-			copyResource(logger, "common.css");
-			copyResource(logger, "jquery-1.11.1.min.js");
-			copyResource(logger, "document.js");
-			generateSpecificCSS(logger, classes);
+			copyResource(logger, "index.html");
+			copyResource(logger, "fragments.js");
+			copyResource(logger, "quick-html.js");
+			copyResource(logger, "quick-html.css");
+			writeData(logger, ctx, corpus);
 		}
-		catch (Exception e) {
+		catch (IOException e) {
 			throw new ProcessingException(e);
-		}
-	}
-
-	private static Document createDocumentList() throws SAXException, IOException {
-		// same ClassLoader as this class
-		try (InputStream is = QuickHTML.class.getResourceAsStream("index.html")) {
-			return XMLUtils.docBuilder.parse(is);
-		}
-	}
-
-	private void generateDocuments(Logger logger, EvaluationContext evalCtx, Corpus corpus, Set<String> classes, Document docList) throws XPathExpressionException, IOException, SAXException, TransformerFactoryConfigurationError {
-		logger.info("generating HTML documents");
-		Element docListUL = XMLUtils.evaluateElement(XPATH_DOCUMENT_LIST, docList);
-		Document docSkel = createDocumentSkeleton();
-		Iterator<fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document> docIt = documentIterator(evalCtx, corpus);
-		fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document prev = null;
-		fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document next = docIt.hasNext() ? docIt.next() : null;
-		while (next != null) {
-			fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc = next;
-			addDocumentListItem(docList, docListUL, evalCtx, doc);
-			next = docIt.hasNext() ? docIt.next() : null;
-			Document xmlDoc = createDocument(docSkel, evalCtx, doc, prev, next);
-			HTMLBuilderFragmentTagIterator frit = new HTMLBuilderFragmentTagIterator(this, classes);
-			for (Section sec : Iterators.loop(sectionIterator(evalCtx, doc))) {
-				createSection(xmlDoc, sec, frit);
-			}
-			writeXHTMLDocument(xmlDoc, doc.getId());
-			prev = doc;
-		}
-	}
-
-	private void addDocumentListItem(Document docList, Element docListUL, EvaluationContext evalCtx, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc) {
-		Element li = XMLUtils.createElement(docList, docListUL, -1, "li");
-		addClass(li, "documet-list-item");
-		addLinkToDocument(li, evalCtx, doc);
-	}
-
-	private void addLinkToDocument(Element parent, EvaluationContext evalCtx, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc) {
-		String id = doc.getId();
-		String title = getDocumentLTitle(evalCtx, doc);
-		Element a = XMLUtils.createElement(parent.getOwnerDocument(), parent, -1, "a", title);
-		a.setAttribute("href", id + ".html");
-	}
-
-	private static Document createDocumentSkeleton() throws IOException, SAXException {
-		// same ClassLoader as this class
-		try (InputStream is = QuickHTML.class.getResourceAsStream("document.html")) {
-			return XMLUtils.docBuilder.parse(is);
 		}
 	}
 
@@ -208,167 +106,152 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 			}
 		}
 	}
+	
+	private void writeData(Logger logger, ProcessingContext<Corpus> ctx, Corpus corpus) throws FileNotFoundException {
+		logger.info("writing data.js");
+		try (PrintStream out = new PrintStream(new OutputFile(outDir, "data.js"))) {
+			JSONObject j = buildCorpusJSON(ctx, corpus);
+			String s = j.toJSONString();
+			out.print("DATA = ");
+			out.print(s);
+			out.println(";");
+		}
+	}
 
-	private String getDocumentLTitle(EvaluationContext evalCtx, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc) {
+	@SuppressWarnings("unchecked")
+	private JSONObject buildCorpusJSON(ProcessingContext<Corpus> ctx, Corpus corpus) {
+		Logger logger = getLogger(ctx);
+		EvaluationContext evalCtx = new EvaluationContext(logger);
+		JSONObject result = new JSONObject();
+		result.put("documents", buildDocumentsJSON(evalCtx, corpus));
+		result.put("colors", buildColorsJSON());
+		result.put("features", buildFeaturesJSON());
+		return result;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private JSONArray buildFeaturesJSON() {
+		JSONArray result = new JSONArray();
+		for (String f : features) {
+			result.add(f);
+		}
+		return result;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private Object buildColorsJSON() {
+		if (colorMap != null) {
+			JSONObject result = new JSONObject();
+			for (Map.Entry<String,String> e : colorMap.entrySet()) {
+				result.put(e.getKey(), e.getValue());
+			}
+			return result;
+		}
+		if (colors != null) {
+			JSONArray result = new JSONArray();
+			for (String c : colors) {
+				result.add(c);
+			}
+			return result;
+		}
+		return null;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private JSONArray buildDocumentsJSON(EvaluationContext evalCtx, Corpus corpus) {
+		JSONArray result = new JSONArray();
+		for (Document doc : Iterators.loop(documentIterator(evalCtx, corpus))) {
+			JSONObject jDoc = buildDocumentJSON(evalCtx, doc);
+			result.add(jDoc);
+		}
+		return result;
+	}
+
+	@SuppressWarnings("unchecked")
+	private JSONObject buildDocumentJSON(EvaluationContext evalCtx, Document doc) {
+		JSONObject result = new JSONObject();
+		result.put("id", doc.getId());
 		QuickHTMLResolvedObjects resObj = getResolvedObjects();
-		return resObj.documentTitle.evaluateString(evalCtx, doc);
+		result.put("title", resObj.documentTitle.evaluateString(evalCtx, doc));
+		result.put("sections", buildSectionsJSON(evalCtx, doc));
+		return result;
 	}
-
-	private Document createDocument(Document docSkel, EvaluationContext evalCtx, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document doc, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document prev, fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document next) throws XPathExpressionException {
-		Document result = (Document) docSkel.cloneNode(true);
-		String title = getDocumentLTitle(evalCtx, doc);
-		Element docTitle = XMLUtils.evaluateElement(XPATH_DOMUMENT_TITLE, result);
-		docTitle.setTextContent(title);
-		Element titleHeading = XMLUtils.evaluateElement(XPATH_TITLE_HEADING, result);
-		titleHeading.setTextContent(title);
-		if (prev != null) {
-			Element prevDiv = XMLUtils.evaluateElement(XPATH_PREVIOUS_DOCUMENT, result);
-			addLinkToDocument(prevDiv, evalCtx, prev);
-		}
-		if (next != null) {
-			Element nextDiv = XMLUtils.evaluateElement(XPATH_NEXT_DOCUMENT, result);
-			addLinkToDocument(nextDiv, evalCtx, next);
+	
+	@SuppressWarnings("unchecked")
+	JSONArray buildSectionsJSON(EvaluationContext evalCtx, Document doc) {
+		JSONArray result = new JSONArray();
+		for (Section sec : Iterators.loop(sectionIterator(evalCtx, doc))) {
+			result.add(buildSectionJSON(evalCtx, sec));
 		}
 		return result;
 	}
 
-	private void createSection(Document xmlDoc, Section sec, HTMLBuilderFragmentTagIterator frit) throws XPathExpressionException {
-		Element docDiv = XMLUtils.evaluateElement(XPATH_DOCUMENT_DIV, xmlDoc);
-		Element secDiv = XMLUtils.createElement(xmlDoc, docDiv, 0, "div");
-		secDiv.setAttribute("class", "alvisnlp-section");
-		XMLUtils.createElement(xmlDoc, secDiv, -1, "h2", "Section: " + sec.getName());
-		Element contentsDiv = XMLUtils.createElement(xmlDoc, secDiv, -1, "div");
-		contentsDiv.setAttribute("class", "alvisnlp-contents");
-		Layer annotations = getAnnotations(sec);
-		frit.init(xmlDoc, contentsDiv);
-		FragmentTag.iterateFragments(frit, sec.getContents(), STABLE_COMPARATOR, annotations, 0);
-		stratify(xmlDoc);
-	}
-
-	private final Comparator<Annotation> STABLE_COMPARATOR = new Comparator<Annotation>() {
-		@Override
-		public int compare(Annotation o1, Annotation o2) {
-			String class1 = getAnnotationClass(o1);
-			String class2 = getAnnotationClass(o2);
-			if (class1.equals(class2)) {
-				return o1.hashCode() - o2.hashCode();
-			}
-			return class1.hashCode() - o2.hashCode();
-		}
-	};
-
-	String getAnnotationClass(Annotation a) {
-		if (a.hasFeature(classFeature)) {
-			return a.getLastFeature(classFeature);
-		}
-		return DEFAULT_ANNOTATION_CLASS;
-	}
-
-	String getAnnotationTag(Annotation a) {
-		if (tagFeature != null && a.hasFeature(tagFeature)) {
-			return a.getLastFeature(tagFeature);
-		}
-		return "span";
-	}
-
-	Collection<String> getFeatureKeys(Annotation a) {
-		if (features == null) {
-			return a.getFeatureKeys();
-		}
-		return Arrays.asList(features);
-	}
-
-	private void stratify(Document doc) throws XPathExpressionException {
-		Map<Element,Integer> cache = new LinkedHashMap<Element,Integer>();
-		List<Element> fragments = XMLUtils.evaluateElements(XPATH_FRAGMENTS, doc);
-		for (Element frag : fragments) {
-			stratify(cache, frag);
-		}
-		Map<String,Integer> strates = new LinkedHashMap<String,Integer>();
-		for (Element frag : fragments) {
-			String id = frag.getAttribute("alvisnlp-id");
-			int strate = cache.get(frag);
-			if (!strates.containsKey(id) || strate > strates.get(id).intValue()) {
-				strates.put(id, strate);
-			}
-		}
-		for (Element frag : fragments) {
-			String id = frag.getAttribute("alvisnlp-id");
-			int strate = strates.get(id);
-			addClass(frag, "strate-" + strate);
-		}
-	}
-
-	static void addClass(Element elt, String klass) {
-		klass = klass.trim();
-		if (klass.isEmpty()) {
-			return;
-		}
-		if (elt.hasAttribute("class")) {
-			elt.setAttribute("class", elt.getAttribute("class") + ' ' + klass);
-		}
-		else {
-			elt.setAttribute("class", klass);
-		}
-	}
-
-	private int stratify(Map<Element,Integer> cache, Element frag) {
-		if (cache.containsKey(frag)) {
-			return cache.get(frag);
-		}
-		int result = 0;
-		for (Element child : XMLUtils.childrenElements(frag)) {
-			int strate = stratify(cache, child) + 1;
-			if (strate > result) {
-				result = strate;
-			}
-		}
-		cache.put(frag, result);
+	@SuppressWarnings("unchecked")
+	private JSONObject buildSectionJSON(EvaluationContext evalCtx, Section sec) {
+		JSONObject result = new JSONObject();
+		result.put("name", sec.getName());
+		result.put("ord", sec.getOrder());
+		result.put("text", sec.getContents());
+		JSONArray layouts = buildLayoutsJSON(sec);
+		result.put("layouts", layouts);
+		JSONArray mentions = buildMentionsJSON(sec);
+		result.put("mentions", mentions);
 		return result;
 	}
-
-	private Layer getAnnotations(Section sec) {
-		if (layers == null) {
-			return sec.getAllAnnotations();
-		}
-		Layer result = new Layer(sec);
-		for (String name : layers) {
-			if (sec.hasLayer(name)) {
-				result.addAll(sec.getLayer(name));
+	
+	@SuppressWarnings("unchecked")
+	private JSONArray buildLayoutsJSON(Section sec) {
+		JSONArray result = new JSONArray();
+		if ((layoutLayer != null) && sec.hasLayer(layoutLayer)) {
+			for (Annotation a : sec.getLayer(layoutLayer)) {
+				JSONArray jLay = buildFragCtor(a, tagFeature);
+				result.add(jLay);
 			}
 		}
 		return result;
 	}
-
-	private void writeXHTMLDocument(Document xmlDoc, String name) throws TransformerFactoryConfigurationError {
-		OutputFile file = new OutputFile(outDir, name + ".html");
-		File dir = file.getParentFile();
-		if (!dir.exists()) {
-			dir.mkdirs();
-		}
-		XMLUtils.writeDOMToFile(xmlDoc, null, file);
-	}
-
-	private void generateSpecificCSS(Logger logger, Set<String> classes) throws IOException {
-		logger.info("generating specific.css");
-		try (PrintStream out = new PrintStream(new File(outDir, "specific.css"))) {
-			Iterator<String> colorIt = Arrays.asList(colors).iterator();
-			for (String klass : classes) {
-				if (!colorIt.hasNext()) {
-					colorIt = Arrays.asList(colors).iterator();
+	
+	@SuppressWarnings("unchecked")
+	private JSONArray buildMentionsJSON(Section sec) {
+		JSONArray result = new JSONArray();
+		for (String mLayer : mentionLayers) {
+			if (sec.hasLayer(mLayer)) {
+				for (Annotation a : sec.getLayer(mLayer)) {
+					JSONObject jMent = buildMentionJSON(a);
+					result.add(jMent);
 				}
-				String col = colorIt.next();
-				out.format(".%s {\n\tbackground-color: %s;\n}\n\n", klass, col);
-			}
-
-			for (int strate = 0; strate < 10; ++strate) {
-				int vPad = 1 + strate * 2;
-				int hPad = 1 + strate * 1;
-				out.format(".strate-%d {\n\tpadding-top: %dpx;\n\tpadding-bottom: %dpx;\n}\n\n", strate, vPad, vPad);
-				out.format(".strate-%d.alvisnlp-first-fragment {\n\tpadding-left: %dpx;\n}\n\n", strate, hPad);
-				out.format(".strate-%d.alvisnlp-last-fragment {\n\tpadding-right: %dpx;\n}\n\n", strate, hPad);
 			}
 		}
+		return result;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private JSONObject buildMentionJSON(Annotation a) {
+		JSONObject result = new JSONObject();
+		JSONArray ctor = buildFragCtor(a, typeFeature);
+		result.put("ctor", ctor);
+		JSONObject data = buildMentionData(a);
+		result.put("data", data);
+		return result;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private JSONArray buildFragCtor(Annotation a, String headFeature) {
+		JSONArray result = new JSONArray();
+		String head = a.getLastFeature(headFeature);
+		result.add(head);
+		result.add(a.getStart());
+		result.add(a.getEnd());
+		return result;
+	}
+	
+	@SuppressWarnings("unchecked")
+	private JSONObject buildMentionData(Annotation a) {
+		JSONObject result = new JSONObject();
+		for (String k : features) {
+			result.put(k, a.getLastFeature(k));
+		}
+		return result;
 	}
 
 	@Override
@@ -381,36 +264,64 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 		return null;
 	}
 
+	@Override
+	protected QuickHTMLResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		return new QuickHTMLResolvedObjects(ctx, this);
+	}
+
 	@Param
 	public OutputDirectory getOutDir() {
 		return outDir;
 	}
 
-	@Param(mandatory=false, nameType=NameType.LAYER)
-	public String[] getLayers() {
-		return layers;
+	@Param(mandatory = false, nameType = NameType.LAYER)
+	public String getLayoutLayer() {
+		return layoutLayer;
 	}
 
-	@Param(mandatory=false, nameType=NameType.FEATURE)
+	@Param(nameType = NameType.FEATURE)
 	public String getTagFeature() {
 		return tagFeature;
 	}
 
-	@Param(nameType=NameType.FEATURE)
-	public String getClassFeature() {
-		return classFeature;
+	@Param(nameType = NameType.LAYER)
+	public String[] getMentionLayers() {
+		return mentionLayers;
 	}
 
-	@Param(mandatory=false, nameType=NameType.FEATURE)
+	@Param(nameType = NameType.FEATURE)
+	public String getTypeFeature() {
+		return typeFeature;
+	}
+
+	@Param(nameType = NameType.FEATURE)
 	public String[] getFeatures() {
 		return features;
 	}
 
-	@Param
+	@Param(mandatory = false)
+	public Mapping getColorMap() {
+		return colorMap;
+	}
+
+	@Deprecated
+	@Param(mandatory = false)
 	public String[] getColors() {
 		return colors;
 	}
 
+	@Deprecated
+	@Param(nameType = NameType.FEATURE)
+	public String getClassFeature() {
+		return typeFeature;
+	}
+	
+	@Deprecated
+	@Param(nameType = NameType.LAYER)
+	public String[] getLayers() {
+		return mentionLayers;
+	}
+	
 	@Param
 	public Expression getDocumentTitle() {
 		return documentTitle;
@@ -420,6 +331,17 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 		this.documentTitle = documentTitle;
 	}
 
+	@Deprecated
+	public void setLayers(String[] layers) {
+		this.mentionLayers = layers;
+	}
+	
+	@Deprecated
+	public void setClassFeature(String classFeature) {
+		this.typeFeature = classFeature;
+	}
+	
+	@Deprecated
 	public void setColors(String[] colors) {
 		this.colors = colors;
 	}
@@ -428,19 +350,27 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 		this.outDir = outDir;
 	}
 
-	public void setLayers(String[] layers) {
-		this.layers = layers;
+	public void setLayoutLayer(String layoutLayer) {
+		this.layoutLayer = layoutLayer;
 	}
 
 	public void setTagFeature(String tagFeature) {
 		this.tagFeature = tagFeature;
 	}
 
-	public void setClassFeature(String classFeature) {
-		this.classFeature = classFeature;
+	public void setMentionLayers(String[] mentionLayers) {
+		this.mentionLayers = mentionLayers;
+	}
+
+	public void setTypeFeature(String typeFeature) {
+		this.typeFeature = typeFeature;
 	}
 
 	public void setFeatures(String[] features) {
 		this.features = features;
+	}
+
+	public void setColorMap(Mapping colorMap) {
+		this.colorMap = colorMap;
 	}
 }

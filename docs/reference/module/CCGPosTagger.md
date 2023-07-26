@@ -16,7 +16,7 @@ If <a href="#keepPreviousPos" class="param">keepPreviousPos</a> is set to *true*
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<ccgpostagger class="CCGPosTagger>
+<ccgpostagger class="CCGPosTagger">
     <executable></executable>
     <model></model>
 </ccgpostagger>

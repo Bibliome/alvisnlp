@@ -14,7 +14,7 @@ Reads a tabular file and applies actions for each line.
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<tabularreader class="TabularReader>
+<tabularreader class="TabularReader">
     <lineActions></lineActions>
     <source></source>
     <sourceElement></sourceElement>

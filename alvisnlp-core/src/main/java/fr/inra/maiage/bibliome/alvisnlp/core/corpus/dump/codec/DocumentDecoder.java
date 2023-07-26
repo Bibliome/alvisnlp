@@ -18,13 +18,13 @@ limitations under the License.
 package fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec;
 
 import java.io.IOException;
-import java.nio.ByteBuffer;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.DocumentCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
+import fr.inra.maiage.bibliome.util.marshall.DataBuffer;
 import fr.inra.maiage.bibliome.util.marshall.MapReadCache;
 import fr.inra.maiage.bibliome.util.marshall.ReadCache;
 import fr.inra.maiage.bibliome.util.marshall.Unmarshaller;
@@ -34,15 +34,15 @@ public class DocumentDecoder extends ElementDecoder<Document> implements Documen
 	private final Unmarshaller<Section> sectionUnmarshaller;
 	private Corpus corpus;
 	
-	DocumentDecoder(Unmarshaller<String> stringUnmarshaller, int maxMmapSize) throws IOException {
+	DocumentDecoder(Unmarshaller<String> stringUnmarshaller) throws IOException {
 		super(stringUnmarshaller);
-		this.sectionDecoder = new SectionDecoder(stringUnmarshaller, maxMmapSize);
+		this.sectionDecoder = new SectionDecoder(stringUnmarshaller);
 		ReadCache<Section> sectionCache = MapReadCache.hashMap();
-		this.sectionUnmarshaller = new Unmarshaller<Section>(stringUnmarshaller.getChannel(), sectionDecoder, sectionCache, maxMmapSize);
+		this.sectionUnmarshaller = new Unmarshaller<Section>(stringUnmarshaller.getChannel(), sectionDecoder, sectionCache);
 	}
 
 	@Override
-	public Document decode1(ByteBuffer buffer) {
+	public Document decode1(DataBuffer buffer) {
 		String id = readString(buffer);
 		Document result = Document.getDocument(this, corpus, id);
 		sectionDecoder.setDoc(result);

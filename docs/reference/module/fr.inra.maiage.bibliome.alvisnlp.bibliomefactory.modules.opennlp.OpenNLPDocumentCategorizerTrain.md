@@ -20,7 +20,7 @@ The classifier is stored in <a href="#model" class="param">model</a> . This file
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<opennlpdocumentcategorizertrain class="OpenNLPDocumentCategorizerTrain>
+<opennlpdocumentcategorizertrain class="OpenNLPDocumentCategorizerTrain">
     <categoryFeature></categoryFeature>
     <language></language>
     <model></model>

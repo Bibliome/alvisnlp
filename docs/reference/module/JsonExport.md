@@ -20,7 +20,7 @@ Each file is a JSON file with a structure specified by <a href="#json" class="pa
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<jsonexport class="JsonExport>
+<jsonexport class="JsonExport">
     <json></json>
     <outDir></outDir>
 </jsonexport>

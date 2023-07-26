@@ -22,9 +22,8 @@ The created documents will all have the features defined in <a href="#constantDo
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<textfilereader class="TextFileReader>
+<textfilereader class="TextFileReader">
     <source></source>
-    <sourcePath></sourcePath>
 </textfilereader>
 ```
 

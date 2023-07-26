@@ -16,6 +16,7 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.tika;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -54,6 +55,7 @@ public abstract class TikaReader extends CorpusModule<ResolvedObjects> implement
 	private String section = DefaultNames.getDefaultSectionName();
 	private String htmlLayer = "html";
 	private String tagFeature = "tag";
+    private Boolean baseNameId = false;
 
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
@@ -74,6 +76,13 @@ public abstract class TikaReader extends CorpusModule<ResolvedObjects> implement
 
 	private TikaReaderHandler parse(AutoDetectParser parser, ParseContext parseContext, InputStream is) throws IOException, SAXException, TikaException {
 		String name = source.getStreamName(is);
+		if (baseNameId) {
+			int slash = name.lastIndexOf(File.separatorChar) + 1;
+			int dot = name.lastIndexOf('.');
+			if (dot == -1 || dot < slash)
+				dot = name.length();
+			name = name.substring(slash, dot);
+		}
 		TikaReaderHandler result = new TikaReaderHandler(name);
 		parser.parse(is, result, result.getMetadata(), parseContext);
 		return result;
@@ -144,6 +153,15 @@ public abstract class TikaReader extends CorpusModule<ResolvedObjects> implement
 	@Param(nameType=NameType.SECTION)
 	public String getSection() {
 		return section;
+	}
+
+	@Param
+	public Boolean getBaseNameId() {
+		return baseNameId;
+	}
+
+	public void setBaseNameId(Boolean baseNameId) {
+		this.baseNameId = baseNameId;
 	}
 
 	public void setSection(String section) {

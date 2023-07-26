@@ -30,10 +30,9 @@ If <a href="#trieSink" class="param">trieSink</a> is specified, *TabularProjecto
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<tabularprojector class="TabularProjector>
+<tabularprojector class="TabularProjector">
     <dictFile></dictFile>
     <targetLayer></targetLayer>
-    <targetLayerName></targetLayerName>
 </tabularprojector>
 ```
 

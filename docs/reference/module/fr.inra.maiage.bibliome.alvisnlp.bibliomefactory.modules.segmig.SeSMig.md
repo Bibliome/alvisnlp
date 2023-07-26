@@ -29,7 +29,7 @@ If <a href="#noBreakLayer" class="param">noBreakLayer</a> is defined, then *SeSM
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<sesmig class="SeSMig>
+<sesmig class="SeSMig">
 </sesmig>
 ```
 

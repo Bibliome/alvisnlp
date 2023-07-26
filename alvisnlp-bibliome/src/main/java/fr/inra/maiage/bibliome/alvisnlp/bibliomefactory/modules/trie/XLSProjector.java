@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import org.apache.poi.EncryptedDocumentException;
-import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -56,7 +55,7 @@ public abstract class XLSProjector extends TrieProjector<SectionResolvedObjects,
 					fillSheetEntries(trie, sheet);
 				}
 			}
-			catch (EncryptedDocumentException|InvalidFormatException e) {
+			catch (EncryptedDocumentException e) {
 				throw new ProcessingException(e);
 			}
 		}
@@ -87,7 +86,7 @@ public abstract class XLSProjector extends TrieProjector<SectionResolvedObjects,
 	}
 
 	private static String getCellText(Cell cell) {
-		switch (cell.getCellTypeEnum()) {
+		switch (cell.getCellType()) {
 			case STRING: return cell.getStringCellValue();
 			case BOOLEAN: return Boolean.toString(cell.getBooleanCellValue());
 			case NUMERIC: return Double.toString(cell.getNumericCellValue());

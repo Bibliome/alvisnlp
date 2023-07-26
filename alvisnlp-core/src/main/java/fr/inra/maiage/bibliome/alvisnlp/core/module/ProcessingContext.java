@@ -106,7 +106,5 @@ public interface ProcessingContext<T extends Annotable> {
 	void setCleanTmpDir(boolean cleanTmpDir);
 	
 	Annotable.Dumper<T> getDumper(Logger logger, File file) throws IOException;
-	
-	int getMaxMmapSize();
 }
 

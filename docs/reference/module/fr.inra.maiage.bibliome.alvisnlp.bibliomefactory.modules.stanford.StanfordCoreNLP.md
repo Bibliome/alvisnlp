@@ -22,7 +22,7 @@ If <a href="#pretokenized" class="param">pretokenized</a> is set, then *Stanford
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<stanfordcorenlp class="StanfordCoreNLP>
+<stanfordcorenlp class="StanfordCoreNLP">
 </stanfordcorenlp>
 ```
 

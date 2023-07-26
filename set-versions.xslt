@@ -8,6 +8,7 @@
 		>
 
   <xsl:param name="alvisnlp-version"/>
+  <xsl:param name="bibliome-utils-version"/>
 
   <xsl:output method="xml" indent="yes"/>
   
@@ -15,7 +16,19 @@
     <xsl:copy/>
   </xsl:template>
 
-  <xsl:template match="mvn:version[../mvn:groupId = 'fr.jouy.inra.maiage.bibliome' and starts-with(../mvn:artifactId, 'alvisnlp')]">
+  <xsl:template match="mvn:dependency/mvn:version[../mvn:groupId = 'fr.jouy.inra.maiage.bibliome' and ../mvn:artifactId = 'bibliome-utils']">
+    <version><xsl:value-of select="$bibliome-utils-version"/></version>
+  </xsl:template>
+
+  <xsl:template match="mvn:dependency/mvn:version[../mvn:groupId = 'fr.jouy.inra.maiage.bibliome' and ../mvn:artifactId = 'alvisnlp-core']">
+    <version><xsl:value-of select="$alvisnlp-version"/></version>
+  </xsl:template>
+
+  <xsl:template match="mvn:project/mvn:version">
+    <version><xsl:value-of select="$alvisnlp-version"/></version>
+  </xsl:template>
+
+  <xsl:template match="mvn:parent/mvn:version">
     <version><xsl:value-of select="$alvisnlp-version"/></version>
   </xsl:template>
 

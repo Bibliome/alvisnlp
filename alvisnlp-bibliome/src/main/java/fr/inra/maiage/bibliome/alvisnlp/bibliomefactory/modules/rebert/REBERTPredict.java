@@ -55,7 +55,7 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 	private Boolean createAssertedTuples = false;
 	private Boolean createNegativeTuples = false;
 	private Integer negativeCategory = 0;
-	private String relationName;
+	private String relation;
 	private String subjectRole = "subject";
 	private String objectRole = "object";
 	private String sentenceLayer = DefaultNames.getSentenceLayer();
@@ -63,7 +63,8 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 	private String explainFeaturePrefix;
 	private String modelType;
 	private InputDirectory finetunedModel;
-	private Integer ensembleNumber = 1;
+	private Integer ensembleNumber;
+	private Integer[] ensembleModels;
 	private Boolean useGPU = false;
 	private EnsembleAggregator aggregator = EnsembleAggregator.VOTE;
 
@@ -219,19 +220,31 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 				result = false;
 			}
 		}
-		if ((candidateGenerationScope == null) && (!createAssertedTuples) && (relationName == null)) {
-			logger.warning("relationName will be ignored since candidateGenerationScope is not set and createAssertedTuples is false");
+		if ((candidateGenerationScope == null) && (!createAssertedTuples) && (relation == null)) {
+			logger.warning("relation will be ignored since candidateGenerationScope is not set and createAssertedTuples is false");
 		}
-		if ((candidateGenerationScope != null) && (relationName == null)) {
-			logger.severe("relationName is mandatory since candidateGenerationScope is set");
+		if ((candidateGenerationScope != null) && (relation == null)) {
+			logger.severe("relation is mandatory since candidateGenerationScope is set");
 			result = false;
 		}
-		if (createAssertedTuples && (relationName != null)) {
-			logger.severe("relationName is mandatory since createAssertedTuples is true");
+		if (createAssertedTuples && (relation != null)) {
+			logger.severe("relation is mandatory since createAssertedTuples is true");
 			result = false;
 		}
-		if (ensembleNumber < 1) {
-			logger.severe("ensembleNumber must be greater or equalt to 1");
+		if (ensembleNumber == null) {
+			if (ensembleModels == null) {
+				logger.severe("either ensembleNumber or ensembleModels is mandatory");
+				result = false;
+			}
+		}
+		else {
+			if (ensembleNumber < 1) {
+				logger.severe("ensembleNumber must be greater or equalt to 1");
+				result = false;
+			}
+			if (ensembleModels != null) {
+				logger.warning("ensembleNumber will be ignored since ensembleModels is set");
+			}
 		}
 		return result;
 	}
@@ -307,7 +320,7 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		return finetunedModel;
 	}
 
-	@Param
+	@Param(mandatory = false)
 	public Integer getEnsembleNumber() {
 		return ensembleNumber;
 	}
@@ -342,9 +355,10 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		return explainFeaturePrefix;
 	}
 
+	@Deprecated
 	@Param(mandatory = false, nameType = NameType.RELATION)
 	public String getRelationName() {
-		return relationName;
+		return relation;
 	}
 
 	@Param
@@ -387,6 +401,24 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		return createAssertedTuples;
 	}
 
+	@Param(mandatory = false, nameType = NameType.RELATION)
+	public String getRelation() {
+		return relation;
+	}
+
+	@Param(mandatory = false)
+	public Integer[] getEnsembleModels() {
+		return ensembleModels;
+	}
+
+	public void setEnsembleModels(Integer[] ensembleModels) {
+		this.ensembleModels = ensembleModels;
+	}
+
+	public void setRelation(String relation) {
+		this.relation = relation;
+	}
+
 	public void setAssertedCandidates(Expression assertedCandidates) {
 		this.assertedCandidates = assertedCandidates;
 	}
@@ -412,7 +444,7 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 	}
 
 	public void setRelationName(String relationName) {
-		this.relationName = relationName;
+		this.relation = relationName;
 	}
 
 	public void setCreateNegativeTuples(Boolean createNegativeTuples) {

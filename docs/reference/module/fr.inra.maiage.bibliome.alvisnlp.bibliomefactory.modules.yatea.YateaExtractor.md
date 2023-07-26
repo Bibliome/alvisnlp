@@ -16,7 +16,7 @@ The YaTeA is called using the executable set in <a href="#yateaExecutable" class
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<yateaextractor class="YateaExtractor>
+<yateaextractor class="YateaExtractor">
     <rcFile></rcFile>
     <yateaExecutable></yateaExecutable>
 </yateaextractor>

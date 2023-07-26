@@ -22,7 +22,7 @@ The set of predicted languages can be restricted with <a href="#includeLanguages
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<lingualid class="LinguaLID>
+<lingualid class="LinguaLID">
 </lingualid>
 ```
 

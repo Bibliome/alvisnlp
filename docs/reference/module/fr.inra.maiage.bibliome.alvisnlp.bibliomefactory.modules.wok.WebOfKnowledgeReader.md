@@ -28,7 +28,7 @@ The feature and section names are the 2-character field code. For an interpretat
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<webofknowledgereader class="WebOfKnowledgeReader>
+<webofknowledgereader class="WebOfKnowledgeReader">
     <source></source>
 </webofknowledgereader>
 ```

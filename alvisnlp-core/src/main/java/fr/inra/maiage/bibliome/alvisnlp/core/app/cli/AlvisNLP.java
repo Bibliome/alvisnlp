@@ -17,6 +17,7 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.core.app.cli;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -66,13 +67,14 @@ public class AlvisNLP extends AbstractAlvisNLP<Corpus,CorpusModuleFactory,Corpus
     }
 	
 	private Corpus createCorpus(Logger logger, CorpusCommandLineProcessingContext ctx) throws IOException {
-        if (resumeFile == null) {
-			return new Corpus();
-        }
-        logger.info("reading corpus dump " + resumeFile.getCanonicalPath());
-        try (Undumper undumper = new Undumper(logger, resumeFile, ctx.getMaxMmapSize())) {
-        	return undumper.readCorpus();
-        }
+		Corpus result = new Corpus();
+		for (File resumeFile : getResumeFiles()) {
+			logger.info("reading corpus dump " + resumeFile.getCanonicalPath());
+			try (Undumper undumper = new Undumper(logger, resumeFile)) {
+				undumper.readCorpus(result);
+			}
+		}
+		return result;
 	}
 
 	@Override

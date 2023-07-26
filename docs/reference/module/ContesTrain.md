@@ -16,13 +16,12 @@ Train a term concept classifier using [CONTES](https://github.com/ArnaudFerre/CO
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<contestrain class="ContesTrain>
+<contestrain class="ContesTrain">
     <contesDir></contesDir>
     <ontology></ontology>
     <python3Executable></python3Executable>
     <termClassifiers></termClassifiers>
     <tokenLayer></tokenLayer>
-    <tokenLayerName></tokenLayerName>
 </contestrain>
 ```
 

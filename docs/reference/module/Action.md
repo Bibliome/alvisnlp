@@ -18,7 +18,7 @@ Applies action expressions on selected elements.
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<action class="Action>
+<action class="Action">
     <action></action>
     <target></target>
 </action>

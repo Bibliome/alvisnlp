@@ -18,7 +18,7 @@ By default the metrics are computed for each distinct value of <a href="#referen
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<comparefeatures class="CompareFeatures>
+<comparefeatures class="CompareFeatures">
     <items></items>
     <outFile></outFile>
     <predictedFeature></predictedFeature>

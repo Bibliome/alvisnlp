@@ -14,7 +14,7 @@ Tests an assertion on specified elements.
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<assert class="Assert>
+<assert class="Assert">
     <assertion></assertion>
     <target></target>
 </assert>

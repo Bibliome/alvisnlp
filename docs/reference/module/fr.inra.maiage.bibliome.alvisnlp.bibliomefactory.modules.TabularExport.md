@@ -20,7 +20,7 @@ Each expression of <a href="#columns" class="param">columns</a> is evaluated as 
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<tabularexport class="TabularExport>
+<tabularexport class="TabularExport">
     <columns></columns>
     <lines></lines>
     <outDir></outDir>

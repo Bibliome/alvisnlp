@@ -21,6 +21,7 @@ Reader modules read files or streams as documents and sections.
 | {% include module class="PubTatorReader" %}       | <a href="https://www.ncbi.nlm.nih.gov/CBBresearch/Lu/Demo/PubTator/">PubTator</a>            | `sourcePath`                                        | Also creates annotations |
 | {% include module class="SQLImport" %}            | SGBDR               | `url`, `schema`, `username`, `password`, `query`            |  |
 | {% include module class="TabularReader" %}        | Tab-separated text  | `source`                                            |              |
+| {% include module class="TagTogReader" %}         | <a href="https://docs.tagtog.com/anndoc.html">TagTog anndoc</a>  | `zipFile`                                            |              |
 | {% include module class="TextFileReader" %}       | Text                | `sourcePath`                                        |              |
 | {% include module class="TikaReader" %}           | DOC, DOCX, PDF      | `source`                                            | Uses <a href="https://tika.apache.org/">Apache Tika</a> |
 | {% include module class="TokenizedReader" %}      | one line per token  | `source`                                            |  |

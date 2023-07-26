@@ -13,6 +13,7 @@
 	| documents.sections.layer
 	| documents.sections.relations
 	| documents.sections.relations.tuples
+	| documents.sections.relations.tuples.args
       ).nav:features
     </lines>
     <columns>@key,@value</columns>

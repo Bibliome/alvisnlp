@@ -14,7 +14,7 @@ Reads PDF or DOC files and adds a document in the corpus for each file.
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<tikareader class="TikaReader>
+<tikareader class="TikaReader">
     <source></source>
 </tikareader>
 ```
@@ -54,6 +54,14 @@ Constant features to add to each document created by this module.
 <div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping" class="converter">Mapping</a>
 </div>
 Constant features to add to each section created by this module.
+
+<h3 id="baseNameId" class="param">baseNameId</h3>
+
+<div class="param-level param-level-default-value">Default value: `false`
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.Boolean" class="converter">Boolean</a>
+</div>
+Use the filename basename as document identifier, instead of the full absolute path.
 
 <h3 id="htmlLayer" class="param">htmlLayer</h3>
 

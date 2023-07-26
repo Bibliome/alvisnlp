@@ -14,7 +14,7 @@ Looks for mentions of chemicals and molecule names using [Chemspot](https://www.
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<chemspot class="Chemspot>
+<chemspot class="Chemspot">
     <chemspotDir></chemspotDir>
 </chemspot>
 ```

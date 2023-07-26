@@ -14,11 +14,10 @@ Creates tuples for each element of a Cartesian product.
 
 <button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
 ```xml
-<cartesianproducttuples class="CartesianProductTuples>
+<cartesianproducttuples class="CartesianProductTuples">
     <anchor></anchor>
     <arguments></arguments>
     <relation></relation>
-    <relationName></relationName>
 </cartesianproducttuples>
 ```
 

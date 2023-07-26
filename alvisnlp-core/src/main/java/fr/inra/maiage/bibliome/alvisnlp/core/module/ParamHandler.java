@@ -60,16 +60,9 @@ public interface ParamHandler<A extends Annotable> {
      */
     boolean isMandatory();
 
-    /**
-     * Returns either if the file control flow check is inhibited.
-     */
-    boolean isInhibitCheck();
+    boolean isOutputFeed();
 
-    /**
-     * Sets either if the file control flow check is inhibited.
-     * @param inhibitFileCheck
-     */
-    void setInhibitCheck(boolean inhibitFileCheck);
+    void setOutputFeed(boolean outputFeed);
     
     Module<A> getModule();
     
