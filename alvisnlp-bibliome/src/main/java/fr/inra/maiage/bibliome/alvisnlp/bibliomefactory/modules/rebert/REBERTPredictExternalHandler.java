@@ -252,10 +252,14 @@ public class REBERTPredictExternalHandler extends ExternalHandler<Corpus,REBERTP
 		result.add(owner.getFinetunedModel().getAbsolutePath());
 		result.add("--num_labels");
 		result.add(Integer.toString(labels.length));
-		result.add("--num_ensemble");
-		result.add(owner.getEnsembleNumber().toString());
-		result.add("--ensemble_models");
-		result.add(Strings.joinStrings(owner.getEnsembleModels(), ','));
+		if (owner.getEnsembleNumber() != null) {
+			result.add("--num_ensemble");
+			result.add(owner.getEnsembleNumber().toString());
+		}
+		if (owner.getEnsembleModels() != null) {
+			result.add("--ensemble_models");
+			result.add(Strings.joinStrings(owner.getEnsembleModels(), ','));
+		}
 		if (!owner.getUseGPU()) {
 			result.add("--force_cpu");
 		}
