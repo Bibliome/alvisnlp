@@ -84,6 +84,7 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 			if (removeSections)
 				for (Section sec : sections)
 					doc.removeSection(sec);
+			System.gc();
 		}
 	}
 

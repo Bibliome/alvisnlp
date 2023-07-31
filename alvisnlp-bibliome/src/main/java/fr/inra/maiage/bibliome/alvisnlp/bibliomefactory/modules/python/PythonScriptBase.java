@@ -90,6 +90,7 @@ public abstract class PythonScriptBase extends SectionModule<PythonScriptResolve
 		try {
 			PythonScriptExternalHandler external = new PythonScriptExternalHandler(ctx, this, corpus);
 			external.start();
+			System.gc();
 		}
 		catch (IOException|InterruptedException e) {
 			throw new ProcessingException(e);

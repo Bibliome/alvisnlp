@@ -59,6 +59,7 @@ public abstract class RemoveContents extends SectionModule<SectionResolvedObject
 		}
 		cloneArgs(map);
 		removeOldSections(logger, map);
+		System.gc();
 	}
 
 	private void cloneSection(Logger logger, Map<Element,Element> map, Section sec) {

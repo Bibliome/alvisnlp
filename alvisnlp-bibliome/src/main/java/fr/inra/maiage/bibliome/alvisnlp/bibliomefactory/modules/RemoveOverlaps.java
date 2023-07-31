@@ -58,6 +58,9 @@ public class RemoveOverlaps extends SectionModule<SectionResolvedObjects> {
 			layer.removeOverlaps(annotationComparator, removeEqual, removeIncluded, removeOverlapping);
 			removed += n - layer.size();
 		}
+		if (removed > 0) {
+			System.gc();
+		}
 		getLogger(ctx).info("removed " + removed + " annotations");
 	}
 

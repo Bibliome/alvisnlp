@@ -88,6 +88,7 @@ public abstract class SplitSections extends SectionModule<SplitSectionsResolvedO
 			}
 		}
 		cloneArgs(map);
+		System.gc();
 	}
 
 	public static class SplitSectionsResolvedObjects extends SectionResolvedObjects {

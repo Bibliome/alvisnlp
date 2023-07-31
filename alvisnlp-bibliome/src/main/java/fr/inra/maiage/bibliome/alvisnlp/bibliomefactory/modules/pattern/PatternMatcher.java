@@ -118,6 +118,7 @@ public abstract class PatternMatcher extends SectionModule<PatternMatcherResolve
 		}
 		else {
 			logger.info("found " + nMatches + " matches");
+			System.gc();
 		}
 	}
 

@@ -30,6 +30,9 @@ public class ClearLayers extends SectionModule<SectionResolvedObjects> {
 				}
 			}
 		}
+		if (nLayers > 0)  {
+			System.gc();
+		}
 		logger.info("removed " + nLayers + " layers");
 	}
 

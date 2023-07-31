@@ -95,6 +95,7 @@ public abstract class InsertContents extends SectionModule<InsertContentsResolve
 		}
 		cloneArgs(map);
 		removeOldSections(logger, map);
+		System.gc();
 	}
 
 	private void cloneSection(Logger logger, Section oldSec, Map<Element,Element> map) {
