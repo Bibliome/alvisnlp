@@ -43,6 +43,10 @@
       <p>Parameters to pass through the the serialized data structure. Expressions are evaluated from the corpus as strings.</p>
     </param-doc>
     
+    <param-doc name="outputFile">
+      <p>Path where to write the script standard output. If this parameter is set, then <this/> will not read the script output for modifications.</p>
+    </param-doc>
+    
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.python.PythonScriptBaseParamsDoc</include-doc>
   </module-doc>
 </alvisnlp-doc>

@@ -71,7 +71,20 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 	}
 
 	@Override
+	public File getOutputFile() {
+		File outFile = getModule().getOutputFile();
+		if (outFile != null) {
+			return outFile;
+		}
+		return super.getOutputFile();
+	}
+
+	@Override
 	protected void collect() throws IOException, ModuleException {
+		File outFile = getModule().getOutputFile();
+		if (outFile != null) {
+			return;
+		}
 		File output = getOutputFile();
 		SourceStream source = new FileSourceStream("UTF-8", output.getAbsolutePath());
 		try (Reader r = source.getReader()) {

@@ -28,6 +28,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.types.ExpressionMapping;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.files.WorkingDirectory;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
@@ -113,6 +114,8 @@ public abstract class PythonScriptBase extends SectionModule<PythonScriptResolve
 	public abstract Boolean getCallPython();
 
 	public abstract SourceStream getScript();
+	
+	public abstract OutputFile getOutputFile();
 
 	@Override
 	protected String[] addLayersToSectionFilter() {

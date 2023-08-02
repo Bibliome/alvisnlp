@@ -4,6 +4,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.ExpressionMapping;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
 
 @AlvisNLPModule(beta = true)
 public abstract class Stanza extends InternalPythonScript {
@@ -46,6 +47,11 @@ public abstract class Stanza extends InternalPythonScript {
 		addScriptParam(mapping, "parse", parse);
 		addScriptParam(mapping, "constituency", constituency);
 		addScriptParam(mapping, "ner", ner);
+	}
+
+	@Override
+	public OutputFile getOutputFile() {
+		return null;
 	}
 
 	@Param

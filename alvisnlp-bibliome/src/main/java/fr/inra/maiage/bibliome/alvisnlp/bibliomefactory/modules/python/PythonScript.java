@@ -4,6 +4,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.ExpressionMapping;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule(beta=true)
@@ -14,6 +15,7 @@ public abstract class PythonScript extends PythonScriptBase {
 	private String[] layers;
 	private String[] relations;
 	private ExpressionMapping scriptParams = new ExpressionMapping();
+	private OutputFile outputFile;
 
 	@Override
 	protected boolean isScriptCopy() {
@@ -66,6 +68,16 @@ public abstract class PythonScript extends PythonScriptBase {
 	@Param(mandatory = false, nameType = NameType.LAYER)
 	public String[] getLayers() {
 		return layers;
+	}
+
+	@Override
+	@Param(mandatory = false)
+	public OutputFile getOutputFile() {
+		return outputFile;
+	}
+
+	public void setOutputFile(OutputFile outputFile) {
+		this.outputFile = outputFile;
 	}
 
 	public void setLayers(String[] layers) {
