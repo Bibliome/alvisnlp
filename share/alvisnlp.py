@@ -5,6 +5,7 @@ import uuid
 import collections
 import json
 import io
+import sys
 
 
 class Features:
@@ -416,9 +417,9 @@ class Span:
 
     def __init__(self, start: int, end: int) -> None:
         if start < 0:
-            raise ValueError('start (' + start + ') < 0')
+            raise ValueError('start (%d) < 0' % start)
         if end < start:
-            raise ValueError('end (' + end + ') < start (' + start + ')')
+            raise ValueError('end (%d) < start (%d)' % (end, start))
         self._start = start
         self._end = end
         self._order = (start, -end)
@@ -463,9 +464,12 @@ class Annotation(Element, Span):
     def __init__(self, sec: Section, start: int, end: int) -> None:
         Element.__init__(self)
         self._detached = False  # XXX check layers instead
-        Span.__init__(self, start, end)
+        if start == end:
+            sys.stderr.write('WARNING [%s %s %d] start == end (%d)\n' % (sec.document.identifier, sec.name, sec.order, end))
         if end > len(sec.contents):
-            raise ValueError('end (%d) > length (%d)' % (end, len(sec.contents)))
+            sys.stderr.write('WARNING [%s %s %d] end (%d) > length (%d)\n' % (sec.document.identifier, sec.name, sec.order, end, len(sec.contents)))
+            end = len(sec.contents)
+        Span.__init__(self, start, end)
         self._section = sec
         self._form = sec.contents[start:end]
         sec._add_event(CreateAnnotation(self))
