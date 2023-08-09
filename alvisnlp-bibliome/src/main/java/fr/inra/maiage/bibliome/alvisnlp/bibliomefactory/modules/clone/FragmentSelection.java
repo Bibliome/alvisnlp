@@ -29,6 +29,8 @@ public enum FragmentSelection implements ParamMapper<Section,Layer,String>, Anno
 		@Override
 		public Layer map(Section sec, String layerName) {
 			Layer layer = sec.ensureLayer(layerName);
+			//System.err.println("layer = " + layer);
+			//System.err.println("layer.size() = " + layer.size());
 			Layer result = new Layer(layer.getSection());
 			if (layer.isEmpty())
 				return result;
@@ -44,6 +46,9 @@ public enum FragmentSelection implements ParamMapper<Section,Layer,String>, Anno
 				}
 				end = Math.max(end, a.getEnd());
 			}
+			new Annotation(this, result, start, end);
+			//System.err.println("result = " + result);
+			//System.err.println("result.size() = " + result.size());
 			return result;
 		}
 

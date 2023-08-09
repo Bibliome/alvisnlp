@@ -74,6 +74,11 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 			Map<Annotation,Integer> offsets = computeOffsets(keepLayers);
 			Section newSection = new Section(this, doc, targetSection, newContents);
 
+			//System.err.println("fragmentSelection = " + fragmentSelection);
+			//System.err.println("keepLayers = " + keepLayers);
+			//System.err.println("newContents = '" + newContents + "'");
+			//System.err.println("offsets = " + offsets);
+
 			Map<Element,Element> mapping = new LinkedHashMap<Element,Element>();
 			for (int i = 0; i < sections.size(); ++i)
 				cloneSection(mapping, sections.get(i), keepLayers.get(i), newSection, offsets);
@@ -111,9 +116,9 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 	}
 
 	private void createSectionAnnotation(Map<Element,Element> mapping, Section sec, Layer keepLayer, Section newSection, Map<Annotation,Integer> offsets) {
-//		System.err.println("offsets = " + offsets);
-//		System.err.println("keepLayer = " + keepLayer);
-//		System.err.println("first = " + keepLayer.first());
+	    //System.err.println("offsets = " + offsets);
+	    //System.err.println("keepLayer = " + keepLayer);
+	    //System.err.println("first = " + keepLayer.first());
 		int start = offsets.get(keepLayer.first());
 		Annotation last = keepLayer.last();
 		int end = offsets.get(last) + last.getLength();
@@ -134,7 +139,9 @@ public abstract class MergeSections extends SectionModule<SectionResolvedObjects
 				}
 				Annotation z = zones.first();
 				int offset = offsets.get(z) - z.getStart();
-				clone(mapping, a, new Annotation(this, newLayer, offset + a.getStart(), offset + a.getEnd()));
+				int start = Math.max(a.getStart(), z.getStart());
+				int end = Math.min(a.getEnd(), z.getEnd());
+				clone(mapping, a, new Annotation(this, newLayer, offset + start, offset + end));
 			}
 		}
 
