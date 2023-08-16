@@ -3,6 +3,7 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treevi
 import java.util.ArrayList;
 import java.util.Collection;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.Constants;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 
 public class TreeviewFeatureNode extends TreeviewNode<Element> {
@@ -15,7 +16,7 @@ public class TreeviewFeatureNode extends TreeviewNode<Element> {
 
 	@Override
 	protected String getIdSuffix() {
-		return "values-" + key;
+		return "values" + Constants.FTOR_SEPARATOR + key;
 	}
 
 	@Override

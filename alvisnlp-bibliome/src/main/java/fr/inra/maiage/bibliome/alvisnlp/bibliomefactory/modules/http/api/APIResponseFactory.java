@@ -132,7 +132,7 @@ public class APIResponseFactory extends ResponseFactory {
 			return TreeviewElementNode.elementsToJSONArray(Collections.singletonList(corpus));
 		}
 		String id = params.get(Constants.Parameters.NODE_ID).get(0);
-		String[] split = id.split("-", 3);
+		String[] split = id.split(Constants.FTOR_SEPARATOR, 3);
 		String eltId = split[0];
 		Element elt = getElement(eltId);
 		String ftor = split[1];

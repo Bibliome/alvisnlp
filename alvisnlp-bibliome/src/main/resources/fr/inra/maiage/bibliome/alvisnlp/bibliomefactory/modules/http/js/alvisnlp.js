@@ -1,3 +1,4 @@
+var FTOR_SEPARATOR = '@@@';
 var theTree;
 var currentContentDocId = '';
 var layers = {};
@@ -36,7 +37,7 @@ function getSelectedId() {
 		return null;
 	}
 	var nodeId = sel[0];
-	var info = nodeId.split('-');
+	var info = nodeId.split(FTOR_SEPARATOR);
 	//console.log(nodeId);
 	return info[0];
 }
@@ -45,7 +46,7 @@ function insertEvaluationNode(eltId, expr, parentNode) {
 	$.get(
 		'/api/treeview',
 		{
-			parentId: eltId + '-evaluate',
+			parentId: eltId + FTOR_SEPARATOR + 'evaluate',
 			expr: expr
 		})
 		.done(
@@ -53,7 +54,7 @@ function insertEvaluationNode(eltId, expr, parentNode) {
 				//console.log(data);
 				theTree.addNode(
 					{
-						id: eltId + '-evaluation',
+						id: eltId + FTOR_SEPARATOR + 'evaluation',
 						text: '<span class="tree-node eval-node">'+expr+'</span>',
 						hasChildren: false,
 						imageHtml: '<img width="24" height="24" src="/res/icons/gear.png">',
@@ -82,8 +83,8 @@ function evaluateExpression() {
 	if (expr == '') {
 		return;
 	}
-	var eltNode = theTree.getNodeById(eltId + '-children');
-	var eltData = theTree.getDataById(eltId + '-children');
+	var eltNode = theTree.getNodeById(eltId + FTOR_SEPARATOR + 'children');
+	var eltData = theTree.getDataById(eltId + FTOR_SEPARATOR + 'children');
 	if (eltData.children === undefined) {
 		theTree.on('dataBound', function(e) {
 			insertEvaluationNode(eltId, expr, eltNode);
@@ -150,7 +151,7 @@ function focusFrags(frags, event, showInTree) {
 		if (showInTree) {
 			var docEltId = $(frag).parents('div.doc-container').data('eltid');
 			var secEltId = $(frag).parents('div.sec-container').data('eltid');
-			showAndExpandNodeArray([docEltId + '-children', secEltId + '-children', secEltId + '-annotations-' + layer, eltId + '-children'], true);
+			showAndExpandNodeArray([docEltId + FTOR_SEPARATOR + 'children', secEltId + FTOR_SEPARATOR + 'children', secEltId + FTOR_SEPARATOR + 'annotations' + FTOR_SEPARATOR + layer, eltId + FTOR_SEPARATOR + 'children'], true);
 		}
 	}
 	if (event !== undefined) {
@@ -242,7 +243,7 @@ function initTreeview() {
     theTree.on('select', function(e, node, id) {
 		checkCurrentCorpusId();
     	$('#btn-evaluate').removeClass('disabled');
-		var info = id.split('-');
+		var info = id.split(FTOR_SEPARATOR);
 		var eltId = info[0];
 		$.get(
 			'/api/info',
@@ -277,7 +278,7 @@ function focusExpression() {
 		return;
 	}
 	var nodeId = sel[0];
-	var info = nodeId.split('-');
+	var info = nodeId.split(FTOR_SEPARATOR);
 	var eltId = info[0];
 	var params = {
 		eltId: eltId

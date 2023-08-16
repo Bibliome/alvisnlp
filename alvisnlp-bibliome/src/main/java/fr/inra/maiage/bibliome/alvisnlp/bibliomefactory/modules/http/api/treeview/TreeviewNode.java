@@ -4,6 +4,7 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.treevi
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api.Constants;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 
 public abstract class TreeviewNode<T extends Element> {
@@ -25,7 +26,7 @@ public abstract class TreeviewNode<T extends Element> {
 	}
 	
 	private String getId() {
-		return String.format("%s-%s", elt.getStringId(), getIdSuffix());
+		return String.format("%s%s%s", elt.getStringId(), Constants.FTOR_SEPARATOR, getIdSuffix());
 	}
 	
 	private String getImageHTML() {

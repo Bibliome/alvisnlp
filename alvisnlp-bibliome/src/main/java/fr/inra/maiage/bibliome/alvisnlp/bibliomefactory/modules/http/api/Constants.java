@@ -3,6 +3,8 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.http.api;
 public enum Constants {
 	;
 
+	public static final String FTOR_SEPARATOR = "@@@";
+
 	public static enum Parameters {
 		;
 
