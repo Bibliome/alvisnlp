@@ -131,7 +131,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 		String server = props.getProperty("db.server");
 		String port = props.getProperty("db.port");
 		String dbname = props.getProperty("db.dbname");
-		String url = String.format("%s://%s:%s/%s", type, server, port, dbname);
+		String url = String.format("jdbc:%s://%s:%s/%s", type, server, port, dbname);
 		String username = props.getProperty("db.username");
 		String password = props.getProperty("db.password");
 		String schema = props.getProperty("db.schema");
