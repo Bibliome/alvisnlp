@@ -17,6 +17,8 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.alvisae;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -24,12 +26,13 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Properties;
 import java.util.logging.Logger;
+
+import org.json.simple.parser.ParseException;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
-import org.json.simple.parser.ParseException;
-
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
@@ -61,9 +64,11 @@ import fr.inra.maiage.bibliome.util.alvisae.LoadOptions;
 import fr.inra.maiage.bibliome.util.alvisae.SourceAnnotation;
 import fr.inra.maiage.bibliome.util.alvisae.TextBound;
 import fr.inra.maiage.bibliome.util.fragments.Fragment;
+import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule
 public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implements DocumentCreator, SectionCreator, TupleCreator, AnnotationCreator {
+	private SourceStream databasePropsFile;
 	private String url;
 	private String schema;
 	private String username;
@@ -115,9 +120,24 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	@Override
 	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
 		LoadOptions options = getLoadOptions();
-		try (Connection connection = openConnection(ctx)) {
+		Properties props = new Properties();
+		try (BufferedReader r = databasePropsFile.getBufferedReader()) {
+			props.load(r);
+		}
+		catch (IOException e) {
+			throw new ProcessingException(e);
+		}
+		String type = props.getProperty("db.type");
+		String server = props.getProperty("db.server");
+		String port = props.getProperty("db.port");
+		String dbname = props.getProperty("db.dbname");
+		String url = String.format("%s://%s:%s/%s", type, server, port, dbname);
+		String username = props.getProperty("db.username");
+		String password = props.getProperty("db.password");
+		String schema = props.getProperty("db.schema");
+		try (Connection connection = openConnection(ctx, url, username, password)) {
 			for (Integer cid : campaignId) {
-				Campaign campaign = loadCampaign(ctx, options, connection, cid);
+				Campaign campaign = loadCampaign(ctx, options, connection, schema, cid);
 				convertCorpus(ctx, corpus, campaign);
 			}
 		}
@@ -127,14 +147,14 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	}
 
 	@TimeThis(task="load-sql", category=TimerCategory.LOAD_RESOURCE)
-	protected Campaign loadCampaign(ProcessingContext<Corpus> ctx, LoadOptions options, Connection connection, int cid) throws SQLException, ParseException {
+	protected Campaign loadCampaign(ProcessingContext<Corpus> ctx, LoadOptions options, Connection connection, String schema, int cid) throws SQLException, ParseException {
 		Campaign campaign = new Campaign(oldModel, schema, cid);
 		campaign.load(getLogger(ctx), connection, options);
 		return campaign;
 	}
 
 	@TimeThis(task="open-connection")
-	protected Connection openConnection(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx) throws SQLException, ClassNotFoundException {
+	protected Connection openConnection(ProcessingContext<Corpus> ctx, String url, String username, String password) throws SQLException, ClassNotFoundException {
 //		Class.forName("org.postgresql.Driver");
 		Class.forName("org.postgresql.Driver", true, AlvisAEReader.class.getClassLoader());
 		return DriverManager.getConnection(url, username, password);
@@ -144,7 +164,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 		LoadOptions result = new LoadOptions();
 		result.setDocIds(asCollection(docIds));
 		result.setDocExternalIds(asCollection(docExternalIds));
-                result.setDocDescriptions(asCollection(docDescriptions));
+		result.setDocDescriptions(asCollection(docDescriptions));
 		result.setHead(head);
 		result.setTaskId(taskId);
 		result.setTaskName(taskName);
@@ -288,22 +308,26 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 		return new Section(this, aDoc, section, doc.getContents());
 	}
 
-	@Param
+	@Deprecated
+	@Param(mandatory = false)
 	public String getUrl() {
 		return url;
 	}
 
-	@Param
+	@Deprecated
+	@Param(mandatory = false)
 	public String getSchema() {
 		return schema;
 	}
 
-	@Param
+	@Deprecated
+	@Param(mandatory = false)
 	public String getUsername() {
 		return username;
 	}
 
-	@Param
+	@Deprecated
+	@Param(mandatory = false)
 	public String getPassword() {
 		return password;
 	}
@@ -522,6 +546,15 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	@Param(nameType=NameType.SECTION)
 	public String getSection() {
 		return section;
+	}
+
+	@Param
+	public SourceStream getDatabasePropsFile() {
+		return databasePropsFile;
+	}
+
+	public void setDatabasePropsFile(SourceStream databasePropsFile) {
+		this.databasePropsFile = databasePropsFile;
 	}
 
 	public void setSection(String section) {
