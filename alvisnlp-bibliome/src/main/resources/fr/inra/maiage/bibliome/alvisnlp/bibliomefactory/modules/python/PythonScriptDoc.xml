@@ -6,7 +6,7 @@
 
   <module-doc>
     <description>
-      <p><this/> assumes the script reads from standard input the AlvisNLP data structure serialized as JSON. <this/> also assumes the script writes the modifications serialized in JSON to the standard output.</p>
+      <p><this/> assumes the script reads from standard input the AlvisNLP data structure serialized as JSON. <this/> also assumes the script writes the modifications serialized in JSON to the standard output, unless <param>outputFile</param> is set.</p>
       <p>The <code>alvisnlp.py</code> library facilitates the deserialization, serialization, and manipulation of the AlvisNLP data structure. It is located in the directory specified by <param>alvisnlpPythonDirectory</param>.</p>
       <p>The script to run is specified with <param>script</param>.</p>
     </description>

@@ -21,8 +21,9 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p><this/> reads an AlvisAE server database and imports documents and annotation sets from an annotation campaign. The database connection is specified with <param>url</param>, <param>username</param>, <param>password</param> and <param>schema</param>. The <param>campaignId</param> parameter specifies the campaign identifier in the AlvisAE database (the AlvisAE client displays this identifier).</p>
-
+      <p>
+		  <this/> reads an AlvisAE server database and imports documents and annotation sets from an annotation campaign. The database connection and schema are specified with <param>databasePropsFile</param>. The <param>campaignId</param> parameter specifies the campaign identifier in the AlvisAE database (the AlvisAE client displays this identifier).
+	  </p>
       <p>
 	All AlvisAE annotations, including text-bound annotations, will be represented in AlvisNLP as relation tuples, in a relation named after the annotation type.
 	<ul>
@@ -33,6 +34,16 @@ limitations under the License.
       </p>
 
       <p>
+		The <param>databasePropsFile</param> is a Java Properties file that must contain the following keys:
+		<ul>
+		  <li><code>db.type</code>: type of RDBMS (eg <i>postgresql</i>);</li>
+		  <li><code>db.server</code>: address of the RDBMS, either name or IP;</li>
+		  <li><code>db.port</code>: port number of the RDBMS;</li>
+		  <li><code>db.dbname</code>: name of the database that contains AlvisAE annotations;</li>
+		  <li><code>db.username</code>: RDBMS username;</li>
+		  <li><code>db.password</code>: RDBMS password;</li>
+		  <li><code>db.schema</code>: schema containing the desired annotations.</li>
+		</ul>
       </p>
     </description>
   
@@ -45,7 +56,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="password">
-      <p>User password for JDBC connection.</p>
+      <p>User password for JDBC connection. Deprecated and <b>ignored</b>: use <param>databasePropsFile</param> instead.</p>
       <examples>
       	<password>***</password>
       </examples>
@@ -96,7 +107,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="username">
-      <p>PostgreSQL user name.</p>
+      <p>PostgreSQL user name. Deprecated and <b>ignored</b>: use <param>databasePropsFile</param> instead.</p>
       <examples>
       	<username>psql_user</username>
       </examples>
@@ -115,7 +126,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="schema">
-      <p>PostgreSQL schema.</p>
+      <p>PostgreSQL schema. Deprecated and <b>ignored</b>: use <param>databasePropsFile</param> instead.</p>
       <examples>
       	<schema>psql_schema_name</schema>
       </examples>
@@ -154,7 +165,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="url">
-      <p>PostgreSQL database URL.</p>
+      <p>PostgreSQL database URL. Deprecated and <b>ignored</b>: use <param>databasePropsFile</param> instead.</p>
       <examples>
       	<url>postgresql://server.name[:port]/dbname</url>
       </examples>
