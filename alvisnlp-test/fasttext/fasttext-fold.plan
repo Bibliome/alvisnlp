@@ -1,12 +1,7 @@
 <alvisnlp-plan id="fasttext-fold">
   <param name="fold">
-    <alias module="set-param" param="value"/>
+    <feature key="fold"/>
   </param>
-  
-  <set-param class="SetFeature">
-    <target>$</target>
-    <feature>fold</feature>
-  </set-param>
 
   <train class="FasttextClassifierTrain">
     <documents>documents[@fold != corpus.@fold]</documents>

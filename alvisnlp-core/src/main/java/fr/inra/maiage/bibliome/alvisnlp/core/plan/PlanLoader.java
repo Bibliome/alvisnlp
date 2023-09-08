@@ -87,6 +87,8 @@ public class PlanLoader<T extends Annotable> {
 	/** Tag name for alias target parameter. */
 	public static final String ALIAS_ELEMENT_NAME = "alias";
 	
+	public static final String CORPUS_FEATURE_ELEMENT_NAME = "feature";
+	
 	/** Attribute name for alias target parameter module path. */
 	public static final String MODULE_PATH_ATTRIBUTE_NAME = "module";
 	
@@ -336,7 +338,7 @@ public class PlanLoader<T extends Annotable> {
 		return result;
 	}
 
-	private void setAliasParam(Logger logger, Element elt, Sequence<T> sequence) throws PlanException, ParameterException {
+	private void setAliasParam(Logger logger, Element elt, Sequence<T> sequence) throws PlanException, ModuleException, ConverterException, ServiceException, SAXException, IOException, URISyntaxException {
 		String name = getAttribute(elt, NAME_ATTRIBUTE_NAME);
 		Sequence.CompositeParamHandler<T> ph = sequence.createAliasParam(name);
 		for (Node child : XMLUtils.childrenNodes(elt)) {
@@ -345,15 +347,33 @@ public class PlanLoader<T extends Annotable> {
 			if (child instanceof Element) {
 				Element childElement = (Element) child;
 				String childName = childElement.getTagName();
-				if (ALIAS_ELEMENT_NAME.equals(childName)) {
-					String modulePath = getAttribute(childElement, MODULE_PATH_ATTRIBUTE_NAME);
-					String paramName = getAttribute(childElement, PARAM_ATTRIBUTE_NAME, name);
-					ph.addParamHandler(modulePath, paramName);
-					continue;
+				switch (childName) {
+					case ALIAS_ELEMENT_NAME: {
+						String modulePath = getAttribute(childElement, MODULE_PATH_ATTRIBUTE_NAME);
+						String paramName = getAttribute(childElement, PARAM_ATTRIBUTE_NAME, name);
+						ph.addParamHandler(modulePath, paramName);
+						break;
+					}
+					case CORPUS_FEATURE_ELEMENT_NAME: {
+						String feature = childElement.getAttribute("key");
+						childElement.setAttribute(CLASS_ATTRIBUTE_NAME, "SetFeature");
+						Document doc = childElement.getOwnerDocument();
+						XMLUtils.createElement(doc, childElement, 0, "target", "$");
+						XMLUtils.createElement(doc, childElement, 0, "feature", feature);
+						String moduleId = "set-feature_" + feature;
+						Module<T> featureModule = loadModule(logger, name, childElement, moduleId);
+						sequence.addModule(featureModule, 0);
+						ph.addParamHandler(moduleId, "value");
+						break;
+					}
+					default: {
+						throw new PlanException("unexpected element: " + childName);				
+					}
 				}
-				throw new PlanException("unexpected element: " + childName);				
 			}
-			throw new PlanException("unexpected node: " + child);
+			else {
+				throw new PlanException("unexpected node: " + child);
+			}
 		}
 		for (ParamHandler<T> c : ph.getAllParamHandlers()) {
 			if (c.isDeprecated()) {
