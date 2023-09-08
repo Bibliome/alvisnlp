@@ -42,7 +42,7 @@ public class CCGPosTagger extends CCGBase<CCGResolvedObjects> {
 	private Boolean keepPreviousPos = false;
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			Logger logger = getLogger(ctx);
 			EvaluationContext evalCtx = new EvaluationContext(logger);
@@ -59,7 +59,7 @@ public class CCGPosTagger extends CCGBase<CCGResolvedObjects> {
 	}
 
 	@Override
-	protected CCGResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected CCGResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new CCGResolvedObjects(ctx, this);
 	}
 

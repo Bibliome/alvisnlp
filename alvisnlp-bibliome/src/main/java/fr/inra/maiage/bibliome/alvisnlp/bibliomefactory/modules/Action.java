@@ -46,7 +46,7 @@ public abstract class Action extends CorpusModule<ActionResolvedObjects> impleme
 	private Expression action;
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		ActionResolvedObjects res = new ActionResolvedObjects(ctx);
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
@@ -70,15 +70,12 @@ public abstract class Action extends CorpusModule<ActionResolvedObjects> impleme
 	}
 
 	class ActionResolvedObjects extends ResolvedObjects {
-		@SuppressWarnings("hiding")
 		private final Evaluator commit;
-		@SuppressWarnings("hiding")
 		private final Evaluator target;
-		@SuppressWarnings("hiding")
 		private final Evaluator action;
 		private final Variable targetVariable;
 
-		private ActionResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		private ActionResolvedObjects(ProcessingContext ctx) throws ResolverException {
 			super(ctx, Action.this);
 			VariableLibrary targetLib = new VariableLibrary("target");
 			targetVariable = targetLib.newVariable(null);
@@ -98,7 +95,7 @@ public abstract class Action extends CorpusModule<ActionResolvedObjects> impleme
 	}
 
 	@Override
-	protected ActionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ActionResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new ActionResolvedObjects(ctx);
 	}
 

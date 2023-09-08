@@ -79,7 +79,7 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> im
 		private final Evaluator[] footers;
 		private final Evaluator[] columns;
 
-		private TabularExportResolvedObjects(ProcessingContext<Corpus> ctx, TabularExport module) throws ResolverException {
+		private TabularExportResolvedObjects(ProcessingContext ctx, TabularExport module) throws ResolverException {
 			super(ctx, module);
 			VariableLibrary lineLib = new VariableLibrary("line");
 			lineVar = lineLib.newVariable(null);
@@ -122,7 +122,7 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> im
 	}
 
 	@Override
-	protected TabularExportResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected TabularExportResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new TabularExportResolvedObjects(ctx, this);
 	}
 
@@ -146,7 +146,7 @@ public class TabularExport extends CorpusModule<TabularExportResolvedObjects> im
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		TabularExportResolvedObjects resObj = getResolvedObjects();
     	Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);

@@ -29,6 +29,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.Undumper;
 import fr.inra.maiage.bibliome.alvisnlp.core.factory.CompoundCorpusModuleFactory;
 import fr.inra.maiage.bibliome.alvisnlp.core.factory.CorpusModuleFactory;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.util.Pair;
 import fr.inra.maiage.bibliome.util.clio.CLIOption;
 
@@ -37,7 +38,7 @@ import fr.inra.maiage.bibliome.util.clio.CLIOption;
  * @author rbossy
  *
  */
-public class AlvisNLP extends AbstractAlvisNLP<Corpus,CorpusModuleFactory,CorpusCommandLineProcessingContext> { 
+public class AlvisNLP extends AbstractAlvisNLP { 
 	private final List<Pair<String,String>> corpusFeatures = new ArrayList<Pair<String,String>>();
 	
 	/**
@@ -57,7 +58,7 @@ public class AlvisNLP extends AbstractAlvisNLP<Corpus,CorpusModuleFactory,Corpus
     }
 
 	@Override
-    protected Corpus getCorpus(Logger logger, CorpusCommandLineProcessingContext ctx) throws IOException {
+    protected Corpus getCorpus(Logger logger, ProcessingContext ctx) throws IOException {
 		Corpus result = createCorpus(logger, ctx);
         for (Pair<String,String> f : corpusFeatures) {
         	logger.info("setting corpus feature " + f.first + " = " + f.second);
@@ -66,7 +67,7 @@ public class AlvisNLP extends AbstractAlvisNLP<Corpus,CorpusModuleFactory,Corpus
         return result;
     }
 	
-	private Corpus createCorpus(Logger logger, CorpusCommandLineProcessingContext ctx) throws IOException {
+	private Corpus createCorpus(Logger logger, ProcessingContext ctx) throws IOException {
 		Corpus result = new Corpus();
 		for (File resumeFile : getResumeFiles()) {
 			logger.info("reading corpus dump " + resumeFile.getCanonicalPath());

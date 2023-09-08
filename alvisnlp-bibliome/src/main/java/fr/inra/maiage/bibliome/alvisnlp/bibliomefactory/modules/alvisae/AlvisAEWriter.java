@@ -72,16 +72,12 @@ public class AlvisAEWriter extends SectionModule<AlvisAEExportResolvedObjects> {
 	private Boolean publish = false;
 
 	class AlvisAEExportResolvedObjects extends SectionResolvedObjects {
-		@SuppressWarnings("hiding")
 		private final AnnotationSet.Resolved[] annotationSets;
-		@SuppressWarnings("hiding")
 		private final Evaluator fileName;
-		@SuppressWarnings("hiding")
 		private final Evaluator documentDescription;
-		@SuppressWarnings("hiding")
 		private final EvaluatorMapping documentProperties;
 
-		private AlvisAEExportResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		private AlvisAEExportResolvedObjects(ProcessingContext ctx) throws ResolverException {
 			super(ctx, AlvisAEWriter.this);
 			annotationSets = rootResolver.resolveArray(AlvisAEWriter.this.annotationSets, AnnotationSet.Resolved.class);
 			fileName = AlvisAEWriter.this.fileName.resolveExpressions(rootResolver);
@@ -100,12 +96,12 @@ public class AlvisAEWriter extends SectionModule<AlvisAEExportResolvedObjects> {
 	}
 
 	@Override
-	protected AlvisAEExportResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected AlvisAEExportResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new AlvisAEExportResolvedObjects(ctx);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			AlvisAEExportResolvedObjects resObj = getResolvedObjects();
 			CadixeExportContext exportContext = new CadixeExportContext(ctx);
@@ -156,7 +152,7 @@ public class AlvisAEWriter extends SectionModule<AlvisAEExportResolvedObjects> {
 	}
 
 	class CadixeExportContext {
-		private final ProcessingContext<Corpus> ctx;
+		private final ProcessingContext ctx;
 		private final Logger logger;
 		final EvaluationContext evalCtx;
 		private int docID = 0;
@@ -164,7 +160,7 @@ public class AlvisAEWriter extends SectionModule<AlvisAEExportResolvedObjects> {
 		private Object schema;
 		private final AnnotationReference.Record<Element> annotations = new AnnotationReference.Record<Element>();
 
-		CadixeExportContext(ProcessingContext<Corpus> ctx) {
+		CadixeExportContext(ProcessingContext ctx) {
 			super();
 			this.ctx = ctx;
 			logger = getLogger(ctx);

@@ -23,7 +23,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Sequence;
 import fr.inra.maiage.bibliome.util.service.CompositeServiceFactory;
@@ -31,36 +30,36 @@ import fr.inra.maiage.bibliome.util.service.CompositeServiceFactory;
 /**
  * Modules factory.
  */
-public class CompoundModuleFactory<T extends Annotable> extends CompositeServiceFactory<Class<? extends Module<T>>,Module<T>,ModuleFactory<T>> implements ModuleFactory<T> {
+public class CompoundModuleFactory extends CompositeServiceFactory<Class<? extends Module>,Module,ModuleFactory> implements ModuleFactory {
     @Override
-    public Collection<String> autoAlias(Class<? extends Module<T>> key) {
+    public Collection<String> autoAlias(Class<? extends Module> key) {
         return Arrays.asList(key.getCanonicalName(), key.getSimpleName());
     }
 
     @Override
-    public Collection<Class<? extends Module<T>>> supportedServices() {
+    public Collection<Class<? extends Module>> supportedServices() {
     	//weird, was that necessary?
-        List<Class<? extends Module<T>>> result = new ArrayList<Class<? extends Module<T>>>(super.supportedServices());
+        List<Class<? extends Module>> result = new ArrayList<Class<? extends Module>>(super.supportedServices());
         return Collections.unmodifiableCollection(result);
     }
 
 	@Override
-	public Sequence<T> newSequence() {
-		for (ModuleFactory<T> f : getServiceFactories())
+	public Sequence newSequence() {
+		for (ModuleFactory f : getServiceFactories())
 			return f.newSequence();
 		return null;
 	}
 
 	@Override
 	public String getShellModule() {
-		for (ModuleFactory<T> f : getServiceFactories())
+		for (ModuleFactory f : getServiceFactories())
 			return f.getShellModule();
 		return null;
 	}
 
 	@Override
 	public String getBrowserModule() {
-		for (ModuleFactory<T> f : getServiceFactories())
+		for (ModuleFactory f : getServiceFactories())
 			return f.getBrowserModule();
 		return null;
 	}

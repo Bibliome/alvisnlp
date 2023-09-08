@@ -17,17 +17,17 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.core.module;
 
-public abstract class AbstractParamVisitor<A extends Annotable,P> extends AbstractModuleVisitor<A,P> {
+public abstract class AbstractParamVisitor<P> extends AbstractModuleVisitor<P> {
 	protected AbstractParamVisitor(boolean onlyActiveModules) {
 		super(onlyActiveModules);
 	}
 
 	@Override
-	public void visitModule(Module<A> module, P param) throws ModuleException {
-		for (ParamHandler<A> paramHandler : module.getAllParamHandlers())
+	public void visitModule(Module module, P param) throws ModuleException {
+		for (ParamHandler paramHandler : module.getAllParamHandlers())
 			paramHandler.accept(this, param);
 	}
 	
 	@Override
-	public abstract void visitParam(ParamHandler<A> paramHandler, P param) throws ModuleException;
+	public abstract void visitParam(ParamHandler paramHandler, P param) throws ModuleException;
 }

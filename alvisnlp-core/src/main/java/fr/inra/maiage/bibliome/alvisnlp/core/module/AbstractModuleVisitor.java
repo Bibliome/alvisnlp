@@ -19,7 +19,7 @@ package fr.inra.maiage.bibliome.alvisnlp.core.module;
 
 import java.util.List;
 
-public abstract class AbstractModuleVisitor<A extends Annotable,P> implements ModuleVisitor<A,P> {
+public abstract class AbstractModuleVisitor<P> implements ModuleVisitor<P> {
 	private final boolean onlyActiveModules;
 	
 	protected AbstractModuleVisitor(boolean onlyActiveModules) {
@@ -27,7 +27,7 @@ public abstract class AbstractModuleVisitor<A extends Annotable,P> implements Mo
 		this.onlyActiveModules = onlyActiveModules;
 	}
 	
-	private List<Module<A>> getSubModules(Sequence<A> sequence) {
+	private List<Module> getSubModules(Sequence sequence) {
 		if (onlyActiveModules) {
 			return sequence.getActiveSubModules();
 		}
@@ -35,13 +35,13 @@ public abstract class AbstractModuleVisitor<A extends Annotable,P> implements Mo
 	}
 
 	@Override
-	public void visitSequence(Sequence<A> sequence, P param) throws ModuleException {
-		for (Module<A> module : getSubModules(sequence)) {
+	public void visitSequence(Sequence sequence, P param) throws ModuleException {
+		for (Module module : getSubModules(sequence)) {
 			module.accept(this, param);
 		}
 	}
 
 	@Override
-	public void visitParam(ParamHandler<A> paramHandler, P param) throws ModuleException {
+	public void visitParam(ParamHandler paramHandler, P param) throws ModuleException {
 	}
 }

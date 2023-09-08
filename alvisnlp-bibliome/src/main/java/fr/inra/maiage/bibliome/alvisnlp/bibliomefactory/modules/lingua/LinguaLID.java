@@ -42,7 +42,7 @@ public class LinguaLID extends CorpusModule<LinguaLIDResolvedObjects> {
 		private final Evaluator target;
 		private final Evaluator form;
 
-		private LinguaLIDResolvedObjects(ProcessingContext<Corpus> ctx, LinguaLID module) throws ResolverException {
+		private LinguaLIDResolvedObjects(ProcessingContext ctx, LinguaLID module) throws ResolverException {
 			super(ctx, module);
 			this.target = module.target.resolveExpressions(rootResolver);
 			this.form = module.form.resolveExpressions(rootResolver);
@@ -64,7 +64,7 @@ public class LinguaLID extends CorpusModule<LinguaLIDResolvedObjects> {
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		LinguaLIDResolvedObjects resObj = getResolvedObjects();
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
@@ -98,7 +98,7 @@ public class LinguaLID extends CorpusModule<LinguaLIDResolvedObjects> {
 	}
 
 	@Override
-	protected LinguaLIDResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected LinguaLIDResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new LinguaLIDResolvedObjects(ctx, this);
 	}
 

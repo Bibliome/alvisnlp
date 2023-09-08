@@ -80,7 +80,7 @@ public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects
 	public static class TomapTrainResolvedObjects extends SectionResolvedObjects {
 		private final Evaluator conceptIdentifier;
 
-		private TomapTrainResolvedObjects(ProcessingContext<Corpus> ctx, TomapTrain module) throws ResolverException {
+		private TomapTrainResolvedObjects(ProcessingContext ctx, TomapTrain module) throws ResolverException {
 			super(ctx, module);
 			conceptIdentifier = module.conceptIdentifier.resolveExpressions(rootResolver);
 		}
@@ -93,12 +93,12 @@ public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects
 	}
 
 	@Override
-	protected TomapTrainResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected TomapTrainResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new TomapTrainResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			YateaExtractorExternalHandler<TomapTrainResolvedObjects> ext = new YateaExtractorExternalHandler<TomapTrainResolvedObjects>(ctx, this, corpus);
 			ext.start();
@@ -122,7 +122,7 @@ public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects
 		}
 
 		@Override
-		public <S extends SectionResolvedObjects> InputFile ensureFile(AbstractYateaExtractor<S> module, ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException, IOException {
+		public <S extends SectionResolvedObjects> InputFile ensureFile(AbstractYateaExtractor<S> module, ProcessingContext ctx, Corpus corpus) throws ModuleException, IOException {
 			File tmpDir = module.getTempDir(ctx);
 			return new InputFile(tmpDir, "corpus.ttg"); // the same file as yatea input
 		}
@@ -160,7 +160,7 @@ public class TomapTrain extends AbstractYateaExtractor<TomapTrainResolvedObjects
 		return stream.getInputStream();
 	}
 
-	private Map<String,List<String>> getConceptMap(ProcessingContext<Corpus> ctx, Corpus corpus) {
+	private Map<String,List<String>> getConceptMap(ProcessingContext ctx, Corpus corpus) {
 		DefaultMap<String,List<String>> result = new DefaultArrayListHashMap<String,String>();
 		TomapTrainResolvedObjects resObj = getResolvedObjects();
 		Logger logger = getLogger(ctx);

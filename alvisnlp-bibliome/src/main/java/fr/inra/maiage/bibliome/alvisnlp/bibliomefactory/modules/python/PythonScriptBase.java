@@ -45,7 +45,7 @@ public abstract class PythonScriptBase extends SectionModule<PythonScriptResolve
 		private final Collection<String> relationNames;
 		private final EvaluatorMapping scriptParams;
 		
-		PythonScriptResolvedObjects(ProcessingContext<Corpus> ctx, PythonScriptBase module) throws ResolverException {
+		PythonScriptResolvedObjects(ProcessingContext ctx, PythonScriptBase module) throws ResolverException {
 			super(ctx, module);
 			this.layerNames = module.getLayers() == null ? null : new HashSet<String>(Arrays.asList(module.getLayers()));
 			this.relationNames = module.getRelations() == null ? null : new HashSet<String>(Arrays.asList(module.getRelations()));
@@ -87,7 +87,7 @@ public abstract class PythonScriptBase extends SectionModule<PythonScriptResolve
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			PythonScriptExternalHandler external = new PythonScriptExternalHandler(ctx, this, corpus);
 			external.start();
@@ -128,7 +128,7 @@ public abstract class PythonScriptBase extends SectionModule<PythonScriptResolve
 	}
 
 	@Override
-	protected PythonScriptResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected PythonScriptResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new PythonScriptResolvedObjects(ctx, this);
 	}
 

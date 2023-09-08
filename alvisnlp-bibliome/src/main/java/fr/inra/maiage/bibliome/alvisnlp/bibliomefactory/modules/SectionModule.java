@@ -45,7 +45,7 @@ public abstract class SectionModule<T extends SectionResolvedObjects> extends Do
     public static class SectionResolvedObjects extends DocumentResolvedObjects {
     	private final Evaluator sectionFilter;
     	
-    	public SectionResolvedObjects(ProcessingContext<Corpus> ctx, SectionModule<? extends SectionResolvedObjects> module) throws ResolverException {
+    	public SectionResolvedObjects(ProcessingContext ctx, SectionModule<? extends SectionResolvedObjects> module) throws ResolverException {
     		super(ctx, module);
     		sectionFilter = rootResolver.resolveNullable(module.getSectionFilter());
     	}

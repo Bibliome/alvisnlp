@@ -22,7 +22,7 @@ package fr.inra.maiage.bibliome.alvisnlp.core.module;
  * A parameter handler allows to manage a module parameter.
  * @author rbossy
  */
-public interface ParamHandler<A extends Annotable> {
+public interface ParamHandler {
 
     /**
      * Returns the type of the parameter.
@@ -64,11 +64,11 @@ public interface ParamHandler<A extends Annotable> {
 
     void setOutputFeed(boolean outputFeed);
     
-    Module<A> getModule();
+    Module getModule();
     
     String getNameType();
     
-    <P> void accept(ModuleVisitor<A,P> visitor, P param) throws ModuleException;
+    <P> void accept(ModuleVisitor<P> visitor, P param) throws ModuleException;
     
     String getParamSourceName();
     

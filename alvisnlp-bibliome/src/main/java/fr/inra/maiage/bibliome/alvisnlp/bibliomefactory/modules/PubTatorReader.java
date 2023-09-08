@@ -54,7 +54,7 @@ public abstract class PubTatorReader extends CorpusModule<ResolvedObjects> imple
 	private String offsetFeature = "offset";
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		try {
 			for (BufferedReader reader : Iterators.loop(source.getBufferedReaders())) {
@@ -134,7 +134,7 @@ public abstract class PubTatorReader extends CorpusModule<ResolvedObjects> imple
 	}
 
 	@Override
-	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
 	}
 

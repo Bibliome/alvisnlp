@@ -19,7 +19,7 @@ package fr.inra.maiage.bibliome.alvisnlp.core.module;
 
 import java.util.logging.Logger;
 
-public class CheckMandatoryParameters<A extends Annotable> extends AbstractParamVisitor<A,Logger> {
+public class CheckMandatoryParameters extends AbstractParamVisitor<Logger> {
 	private boolean hasUnsetMandatoryParam = false;
 	
 	public CheckMandatoryParameters() {
@@ -27,17 +27,17 @@ public class CheckMandatoryParameters<A extends Annotable> extends AbstractParam
 	}
 
 	@Override
-	public void visitParam(ParamHandler<A> paramHandler, Logger logger) {
+	public void visitParam(ParamHandler paramHandler, Logger logger) {
 		if ((!paramHandler.isDeprecated()) && paramHandler.isMandatory() && (!paramHandler.isSet())) {
-			Module<A> module = paramHandler.getModule();
+			Module module = paramHandler.getModule();
 			String moduleClass = module.getModuleClass();
 			logger.severe("unset mandatory parameter: " + module.getPath() + " (" + moduleClass.substring(moduleClass.lastIndexOf('.')) + ") " + paramHandler.getName());
 			hasUnsetMandatoryParam = true;
 		}
 	}
 	
-	public static <A extends Annotable> boolean visit(Logger logger, Module<A> module) throws ModuleException {
-		CheckMandatoryParameters<A> result = new CheckMandatoryParameters<A>();
+	public static boolean visit(Logger logger, Module module) throws ModuleException {
+		CheckMandatoryParameters result = new CheckMandatoryParameters();
 		module.accept(result, logger);
 		return result.hasUnsetMandatoryParam;
 	}

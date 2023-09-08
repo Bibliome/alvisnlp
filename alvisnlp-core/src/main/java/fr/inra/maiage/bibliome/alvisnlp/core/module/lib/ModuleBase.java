@@ -36,9 +36,9 @@ import javax.xml.xpath.XPathExpressionException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.documentation.Documentation;
 import fr.inra.maiage.bibliome.alvisnlp.core.documentation.ResourceDocumentation;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleVisitor;
@@ -57,19 +57,19 @@ import fr.inra.maiage.bibliome.util.xml.XMLUtils;
  * 
  * @author rbossy
  */
-public abstract class ModuleBase<T extends Annotable> implements Module<T> {
+public abstract class ModuleBase implements Module {
 	@SuppressWarnings("serial")
 	public static final Level HIGHLIGHT = new Level("HIGHLIGHT", Level.INFO.intValue() + 1) {};
 	public static final String UNKNOWN_SOURCE = "<<unknown source>>";
 
-    private final Map<String,ParamHandler<T>> paramHandlers  = new LinkedHashMap<String,ParamHandler<T>>();
+    private final Map<String,ParamHandler> paramHandlers  = new LinkedHashMap<String,ParamHandler>();
     private final String resourceBundleName;
     private Documentation documentation;
     private boolean beta;
     private boolean deprecated = false;
     private OutputFile dumpFile = null;
     private String id = null;
-    private Sequence<T> sequence = null;
+    private Sequence sequence = null;
 	private String creatorNameFeature;
 
     /**
@@ -117,7 +117,7 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
         for (Method method : klass.getMethods()) {
             Param annot = method.getAnnotation(Param.class);
             if (annot != null) {
-                ParamHandler<T> ph = createParamHandler(method, annot);
+                ParamHandler ph = createParamHandler(method, annot);
 		String name = ph.getName();
 		if (!(paramHandlers.containsKey(name) && method.isBridge())) {
 		    paramHandlers.put(ph.getName(), ph);
@@ -133,8 +133,8 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
      * @param annot
      * @throws NoSuchMethodException
      */
-    private ParamHandler<T> createParamHandler(Method getter, Param annot) throws NoSuchMethodException {
-        return new ParamHandlerBase<T>(this, getter, annot);
+    private ParamHandler createParamHandler(Method getter, Param annot) throws NoSuchMethodException {
+        return new ParamHandlerBase(this, getter, annot);
     }
 
     @Override
@@ -142,15 +142,15 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
     }
 
     @Override
-    public Collection<ParamHandler<T>> getAllParamHandlers() {
-        List<ParamHandler<T>> result = new ArrayList<ParamHandler<T>>(paramHandlers.values());
+    public Collection<ParamHandler> getAllParamHandlers() {
+        List<ParamHandler> result = new ArrayList<ParamHandler>(paramHandlers.values());
         Collections.sort(result, nameComparator);
         return Collections.unmodifiableCollection(result);
     }
     
-    private final static Comparator<ParamHandler<? extends Annotable>> nameComparator = new Comparator<ParamHandler<? extends Annotable>>() {
+    private final static Comparator<ParamHandler> nameComparator = new Comparator<ParamHandler>() {
         @Override
-        public int compare(ParamHandler<?> a, ParamHandler<?> b) {
+        public int compare(ParamHandler a, ParamHandler b) {
             return a.getName().compareTo(b.getName());
         }
     };
@@ -172,12 +172,12 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
 	}
 
 	@Override
-    public Logger getLogger(ProcessingContext<T> ctx) {
+    public Logger getLogger(ProcessingContext ctx) {
     	return ctx.getLogger(Strings.join(getAncestors("alvisnlp"), '.'));
     }
 
     @Override
-    public ParamHandler<T> getParamHandler(String name) throws UnexpectedParameterException {
+    public ParamHandler getParamHandler(String name) throws UnexpectedParameterException {
         if (paramHandlers.containsKey(name)) {
 			return paramHandlers.get(name);
 		}
@@ -191,7 +191,7 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
 
     private List<String> getAncestors(String prefix) {
     	List<String> result = new ArrayList<String>();
-    	for (Module<T> m = this; m != null; m = m.getSequence()) {
+    	for (Module m = this; m != null; m = m.getSequence()) {
 			result.add(m.getId());
 		}
     	if (prefix != null) {
@@ -202,11 +202,11 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
     }
     
     @Override
-    public Sequence<T> getSequence() {
+    public Sequence getSequence() {
         return sequence;
     }
 
-	public File getTempDir(ProcessingContext<T> ctx) {
+	public File getTempDir(ProcessingContext ctx) {
 		return ctx.getTempDir(this);
 	}
 
@@ -221,7 +221,7 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
     }
 
     @Override
-    public void setSequence(Sequence<T> sequence) {
+    public void setSequence(Sequence sequence) {
         if (this.sequence != null) {
 			sequence.removeModule(this);
 		}
@@ -245,7 +245,7 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
     }
     
     @Override
-    public void init(ProcessingContext<T> ctx) throws ModuleException {
+    public void init(ProcessingContext ctx) throws ModuleException {
     	Class<?> klass = searchAlvisNLPModuleAnnotation();
     	if (klass == null)
 			throw new RuntimeException("class does not extend a module class");
@@ -353,7 +353,7 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
     			result.put(name, e);
     		}
     		Document doc = moduleDocElt.getOwnerDocument();
-    		for (ParamHandler<T> ph : getAllParamHandlers()) {
+    		for (ParamHandler ph : getAllParamHandlers()) {
     			String name = ph.getName();
     			Element paramDocElt;
     			if (result.containsKey(name)) {
@@ -424,7 +424,7 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
 	}
 
 	@Override
-	public Timer<TimerCategory> getTimer(ProcessingContext<T> ctx) {
+	public Timer<TimerCategory> getTimer(ProcessingContext ctx) {
 		Timer<TimerCategory> parentTimer = sequence == null ? ctx.getTimer() : sequence.getTimer(ctx);
 		Timer<TimerCategory> result = parentTimer.getChild(id);
 		if (result != null)
@@ -433,7 +433,7 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
 	}
 
 	@Override
-	public Timer<TimerCategory> getTimer(ProcessingContext<T> ctx, String task, TimerCategory category, boolean start) {
+	public Timer<TimerCategory> getTimer(ProcessingContext ctx, String task, TimerCategory category, boolean start) {
 		Timer<TimerCategory> moduleTimer = getTimer(ctx);
 		Timer<TimerCategory> result = moduleTimer.getChild(task);
 		if (result == null)
@@ -448,7 +448,7 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
 	}
 
 	@Override
-	public Module<T> getModuleByPath(String modulePath) {
+	public Module getModuleByPath(String modulePath) {
 		return null;
 	}
 
@@ -478,12 +478,12 @@ public abstract class ModuleBase<T extends Annotable> implements Module<T> {
 	}
 
 	@Override
-	public <P> void accept(ModuleVisitor<T,P> visitor, P param) throws ModuleException {
+	public <P> void accept(ModuleVisitor<P> visitor, P param) throws ModuleException {
 		visitor.visitModule(this, param);
 	}
 
 	@Override
-	public boolean testProcess(ProcessingContext<T> ctx, T corpus) throws ModuleException {
+	public boolean testProcess(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		if (ctx.isResumeMode() && corpus.wasProcessedBy(getPath())) {
 			getLogger(ctx).info("skipping (resume)");
 			return false;

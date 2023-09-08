@@ -15,18 +15,18 @@ import fr.inra.maiage.bibliome.util.streams.TargetStream;
 import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 public class ResourceAnalysis {
-	private final ParamHandler<?> paramHandler;
+	private final ParamHandler paramHandler;
 	private final String location;
 	private final Mode mode;
 
-	private ResourceAnalysis(ParamHandler<?> paramHandler, String location, Mode mode) {
+	private ResourceAnalysis(ParamHandler paramHandler, String location, Mode mode) {
 		super();
 		this.paramHandler = paramHandler;
 		this.location = location;
 		this.mode = mode;
 	}
 
-	static ResourceAnalysis build(ParamHandler<?> paramHandler) {
+	static ResourceAnalysis build(ParamHandler paramHandler) {
 		if (!paramHandler.isSet()) {
 			return null;
 		}
@@ -87,7 +87,7 @@ public class ResourceAnalysis {
 		UNKNOWN;
 	}
 
-	public ParamHandler<?> getParamHandler() {
+	public ParamHandler getParamHandler() {
 		return paramHandler;
 	}
 

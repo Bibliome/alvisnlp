@@ -17,7 +17,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.util.Iterators;
 
 class WapitiLabelExternalHandler extends AbstractWapitiExternalHandler<WapitiLabel> {
-	WapitiLabelExternalHandler(ProcessingContext<Corpus> processingContext, WapitiLabel module, Corpus annotable) {
+	WapitiLabelExternalHandler(ProcessingContext processingContext, WapitiLabel module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
 
@@ -42,7 +42,7 @@ class WapitiLabelExternalHandler extends AbstractWapitiExternalHandler<WapitiLab
 		try (BufferedReader reader = new BufferedReader(new FileReader(getWapitiOutputFile()))) {
 			WapitiLabel owner = getModule();
 			EvaluationContext evalCtx = new EvaluationContext(getLogger());
-			for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getAnnotable()))) {
+			for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getCorpus()))) {
 				for (Layer sentence : sec.getSentences(owner.getTokenLayer(), owner.getSentenceLayer())) {
 					for (Annotation a : sentence) {
 						String line = reader.readLine();

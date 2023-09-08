@@ -65,7 +65,7 @@ public abstract class TrieProjector<S extends SectionResolvedObjects,T> extends 
 	private MultipleEntryBehaviour multipleEntryBehaviour = MultipleEntryBehaviour.ALL;
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		try (Trie<T> trie = getTrie(ctx, logger, corpus)) {
@@ -118,7 +118,7 @@ public abstract class TrieProjector<S extends SectionResolvedObjects,T> extends 
 	}
 
 	@TimeThis(task="create-trie", category=TimerCategory.LOAD_RESOURCE)
-	protected Trie<T> getTrie(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, Logger logger, Corpus corpus) throws IOException, ModuleException {
+	protected Trie<T> getTrie(ProcessingContext ctx, Logger logger, Corpus corpus) throws IOException, ModuleException {
 		if (trieSource == null) {
 			Trie<T> result = new Trie<T>();
 			fillTrie(logger, result, corpus);

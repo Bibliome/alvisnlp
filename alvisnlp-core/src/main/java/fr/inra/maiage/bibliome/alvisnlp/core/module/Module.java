@@ -21,6 +21,7 @@ package fr.inra.maiage.bibliome.alvisnlp.core.module;
 import java.util.Collection;
 import java.util.logging.Logger;
 
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.ElementCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.documentation.Documentable;
 import fr.inra.maiage.bibliome.util.Timer;
@@ -29,7 +30,7 @@ import fr.inra.maiage.bibliome.util.files.OutputFile;
 /**
  * A module is processing unit.
  */
-public interface Module<T extends Annotable> extends ElementCreator, Documentable {
+public interface Module extends ElementCreator, Documentable {
     /**
      * Returns this module identifier.
      * @return this module identifier
@@ -55,19 +56,19 @@ public interface Module<T extends Annotable> extends ElementCreator, Documentabl
      * @param ctx TODO
      * @return this module logger
      */
-    public Logger getLogger(ProcessingContext<T> ctx);
+    public Logger getLogger(ProcessingContext ctx);
 
     /**
      * Returns the parent sequence of this module.
      * @return the parent sequence of this module
      */
-    public Sequence<T> getSequence();
+    public Sequence getSequence();
 
     /**
      * Sets this module parent sequence.
      * @param sequence
      */
-    public void setSequence(Sequence<T> sequence);
+    public void setSequence(Sequence sequence);
 
     /**
      * Processes a corpus with this module.
@@ -75,7 +76,7 @@ public interface Module<T extends Annotable> extends ElementCreator, Documentabl
      * @param corpus corpus to process
      * @throws ModuleException if anything went seriously wrong during the processing
      */
-    public void process(ProcessingContext<T> ctx, T corpus) throws ModuleException;
+    public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException;
 
     /**
      * Returns the file where to dump an XML serialization of the corpus, if any.
@@ -97,13 +98,13 @@ public interface Module<T extends Annotable> extends ElementCreator, Documentabl
      * @return a handler for the parameter with the specified name
      * @throws UnexpectedParameterException if this module does not support the specified parameter
      */
-    public ParamHandler<T> getParamHandler(String name) throws UnexpectedParameterException;
+    public ParamHandler getParamHandler(String name) throws UnexpectedParameterException;
 
     /**
      * Returns parameter handlers for all supported parameters.
      * @return parameter handlers for all supported parameters
      */
-    public Collection<ParamHandler<T>> getAllParamHandlers();
+    public Collection<ParamHandler> getAllParamHandlers();
 
     /**
      * Release resources created during this module processing.
@@ -115,13 +116,13 @@ public interface Module<T extends Annotable> extends ElementCreator, Documentabl
      * This method should be called after its creation.
      * @throws ModuleException
      */
-    public void init(ProcessingContext<T> ctx) throws ModuleException;
+    public void init(ProcessingContext ctx) throws ModuleException;
 
 	/**
 	 * Returns the timer for this module.
 	 * @param ctx
 	 */
-	Timer<TimerCategory> getTimer(ProcessingContext<T> ctx);
+	Timer<TimerCategory> getTimer(ProcessingContext ctx);
 
 	/**
 	 * Returns a timer for the specified task and category.
@@ -130,15 +131,15 @@ public interface Module<T extends Annotable> extends ElementCreator, Documentabl
 	 * @param category
 	 * @param start either to start the timer
 	 */
-	Timer<TimerCategory> getTimer(ProcessingContext<T> ctx, String task, TimerCategory category, boolean start);
+	Timer<TimerCategory> getTimer(ProcessingContext ctx, String task, TimerCategory category, boolean start);
 	
-	Module<T> getModuleByPath(String modulePath);
+	Module getModuleByPath(String modulePath);
 	
 	boolean isBeta();
 	
-	<P> void accept(ModuleVisitor<T,P> visitor, P param) throws ModuleException;
+	<P> void accept(ModuleVisitor<P> visitor, P param) throws ModuleException;
 
-	boolean testProcess(ProcessingContext<T> ctx, T corpus) throws ModuleException;
+	boolean testProcess(ProcessingContext ctx, Corpus corpus) throws ModuleException;
 	
 	String getModuleSourceName();
 

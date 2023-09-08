@@ -47,7 +47,7 @@ import fr.inra.maiage.bibliome.util.Iterators;
 		})
 public abstract class MathLibrary extends FunctionLibrary {
 	@Function
-	public static final int sum(EvaluationContext ctx, @SuppressWarnings("unused") Element elt, Iterator<Element> elements, Evaluator value) {
+	public static final int sum(EvaluationContext ctx, Element elt, Iterator<Element> elements, Evaluator value) {
 		int result = 0;
 		for (Element e : Iterators.loop(elements))
 			result += value.evaluateInt(ctx, e);
@@ -55,7 +55,7 @@ public abstract class MathLibrary extends FunctionLibrary {
 	}
 	
 	@Function
-	public static final double sumd(EvaluationContext ctx, @SuppressWarnings("unused") Element elt, Iterator<Element> elements, Evaluator value) {
+	public static final double sumd(EvaluationContext ctx, Element elt, Iterator<Element> elements, Evaluator value) {
 		double result = 0;
 		for (Element e : Iterators.loop(elements))
 			result += value.evaluateDouble(ctx, e);
@@ -63,7 +63,7 @@ public abstract class MathLibrary extends FunctionLibrary {
 	}
 
 	@Function
-	public static final double prod(EvaluationContext ctx, @SuppressWarnings("unused") Element elt, Iterator<Element> elements, Evaluator value) {
+	public static final double prod(EvaluationContext ctx, Element elt, Iterator<Element> elements, Evaluator value) {
 		double result = 1;
 		for (Element e : Iterators.loop(elements))
 			result *= value.evaluateDouble(ctx, e);
@@ -71,7 +71,7 @@ public abstract class MathLibrary extends FunctionLibrary {
 	}
 
 	@Function
-	public static final int prodi(EvaluationContext ctx, @SuppressWarnings("unused") Element elt, Iterator<Element> elements, Evaluator value) {
+	public static final int prodi(EvaluationContext ctx, Element elt, Iterator<Element> elements, Evaluator value) {
 		int result = 1;
 		for (Element e : Iterators.loop(elements))
 			result *= value.evaluateInt(ctx, e);
@@ -79,7 +79,7 @@ public abstract class MathLibrary extends FunctionLibrary {
 	}
 	
 	@Function
-	public static final int mmin(EvaluationContext ctx, @SuppressWarnings("unused") Element elt, Iterator<Element> elements, Evaluator value) {
+	public static final int mmin(EvaluationContext ctx, Element elt, Iterator<Element> elements, Evaluator value) {
 		int result = Integer.MAX_VALUE;
 		for (Element e : Iterators.loop(elements))
 			result = Math.min(result, value.evaluateInt(ctx, e));
@@ -87,7 +87,7 @@ public abstract class MathLibrary extends FunctionLibrary {
 	}
 	
 	@Function
-	public static final int mmax(EvaluationContext ctx, @SuppressWarnings("unused") Element elt, Iterator<Element> elements, Evaluator value) {
+	public static final int mmax(EvaluationContext ctx, Element elt, Iterator<Element> elements, Evaluator value) {
 		int result = Integer.MIN_VALUE;
 		for (Element e : Iterators.loop(elements))
 			result = Math.max(result, value.evaluateInt(ctx, e));
@@ -95,7 +95,7 @@ public abstract class MathLibrary extends FunctionLibrary {
 	}
 	
 	@Function
-	public static final double mmind(EvaluationContext ctx, @SuppressWarnings("unused") Element elt, Iterator<Element> elements, Evaluator value) {
+	public static final double mmind(EvaluationContext ctx, Element elt, Iterator<Element> elements, Evaluator value) {
 		double result = Double.MAX_VALUE;
 		for (Element e : Iterators.loop(elements))
 			result = Math.min(result, value.evaluateInt(ctx, e));
@@ -103,7 +103,7 @@ public abstract class MathLibrary extends FunctionLibrary {
 	}
 	
 	@Function
-	public static final double mmaxd(EvaluationContext ctx, @SuppressWarnings("unused") Element elt, Iterator<Element> elements, Evaluator value) {
+	public static final double mmaxd(EvaluationContext ctx, Element elt, Iterator<Element> elements, Evaluator value) {
 		double result = Double.MIN_VALUE;
 		for (Element e : Iterators.loop(elements))
 			result = Math.max(result, value.evaluateInt(ctx, e));

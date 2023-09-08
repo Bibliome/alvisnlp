@@ -69,7 +69,7 @@ public class REBERTTrain extends SectionModule<REBERTTrainResolvedObjects> {
 		private final Variable subjectVariable;
 		private final Variable objectVariable;
 
-		public REBERTTrainResolvedObjects(ProcessingContext<Corpus> ctx, REBERTTrain module) throws ResolverException {
+		public REBERTTrainResolvedObjects(ProcessingContext ctx, REBERTTrain module) throws ResolverException {
 			super(ctx, module);
 			this.subjects = module.subjects.resolveExpressions(rootResolver);
 			this.objects = module.objects.resolveExpressions(rootResolver);
@@ -167,6 +167,7 @@ public class REBERTTrain extends SectionModule<REBERTTrainResolvedObjects> {
 	private static class ArgumentInfo implements Fragment {
 		private final String opening;
 		private final String closing;
+		@SuppressWarnings("unused")
 		private final Element element;
 		private final int start;
 		private final int end;
@@ -316,7 +317,7 @@ public class REBERTTrain extends SectionModule<REBERTTrainResolvedObjects> {
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		CSVFormat format = CSVFormat.MYSQL.withQuote('"').withDelimiter(',');
@@ -344,7 +345,7 @@ public class REBERTTrain extends SectionModule<REBERTTrainResolvedObjects> {
 	}
 
 	@Override
-	protected REBERTTrainResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected REBERTTrainResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new REBERTTrainResolvedObjects(ctx, this);
 	}
 

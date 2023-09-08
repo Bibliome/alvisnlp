@@ -178,7 +178,7 @@ public abstract class TyDIExportProjector extends TrieProjector<SectionResolvedO
 
 	@Override
 	@TimeThis(task="create-trie", category=TimerCategory.LOAD_RESOURCE)
-	protected Trie<String> getTrie(ProcessingContext<Corpus> ctx, Logger logger, Corpus corpus) throws IOException, ModuleException {
+	protected Trie<String> getTrie(ProcessingContext ctx, Logger logger, Corpus corpus) throws IOException, ModuleException {
 		return super.getTrie(ctx, logger, corpus);
 	}
 
@@ -203,7 +203,7 @@ public abstract class TyDIExportProjector extends TrieProjector<SectionResolvedO
 	}
 
 	@Override
-	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected SectionResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
 	}
 

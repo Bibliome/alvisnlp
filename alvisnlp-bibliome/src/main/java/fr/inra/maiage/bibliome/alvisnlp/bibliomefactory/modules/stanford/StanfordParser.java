@@ -47,7 +47,7 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	private Language language = Language.ENGLISH;
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
         LoggingUtils.configureSilentLog4J();
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
@@ -136,14 +136,14 @@ public abstract class StanfordParser extends SectionModule<StanfordParserResolve
 	}
 
 	@Override
-	protected StanfordParserResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected StanfordParserResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new StanfordParserResolvedObjects(ctx, this);
 	}
 
 	public static class StanfordParserResolvedObjects extends SectionResolvedObjects {
 		private final Evaluator sentenceFilter;
 
-		public StanfordParserResolvedObjects(ProcessingContext<Corpus> ctx, StanfordParser module) throws ResolverException {
+		public StanfordParserResolvedObjects(ProcessingContext ctx, StanfordParser module) throws ResolverException {
 			super(ctx, module);
 			this.sentenceFilter = module.sentenceFilter.resolveExpressions(rootResolver);
 		}

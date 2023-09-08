@@ -75,7 +75,7 @@ public class KeywordsSelector extends CorpusModule<KeywordSelectorResolvedObject
 		private final Evaluator keywords;
 		private final Evaluator keywordForm;
 
-		private KeywordSelectorResolvedObjects(ProcessingContext<Corpus> ctx, KeywordsSelector module) throws ResolverException {
+		private KeywordSelectorResolvedObjects(ProcessingContext ctx, KeywordsSelector module) throws ResolverException {
 			super(ctx, module);
 			documents = module.documents.resolveExpressions(rootResolver);
 			keywords = module.keywords.resolveExpressions(rootResolver);
@@ -94,12 +94,12 @@ public class KeywordsSelector extends CorpusModule<KeywordSelectorResolvedObject
 	}
 
 	@Override
-	protected KeywordSelectorResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected KeywordSelectorResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new KeywordSelectorResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try (PrintStream out = getPrintStream()) {
 			Logger logger = getLogger(ctx);
 			EvaluationContext evalCtx = new EvaluationContext(logger);
@@ -128,7 +128,7 @@ public class KeywordsSelector extends CorpusModule<KeywordSelectorResolvedObject
 		return outFile.getPrintStream();
 	}
 
-	private void handleKeywords(ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, PrintStream out, Element doc, List<KeywordScore> keywordRank) {
+	private void handleKeywords(ProcessingContext ctx, EvaluationContext evalCtx, PrintStream out, Element doc, List<KeywordScore> keywordRank) {
 		if (out != null) {
 			writeKeywords(ctx, evalCtx, out, doc, keywordRank);
 		}
@@ -138,7 +138,7 @@ public class KeywordsSelector extends CorpusModule<KeywordSelectorResolvedObject
 	}
 
 	@TimeThis(category=TimerCategory.EXPORT, task="write-keywords")
-	protected void writeKeywords(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, PrintStream out, Element doc, List<KeywordScore> keywordRank) {
+	protected void writeKeywords(ProcessingContext ctx, EvaluationContext evalCtx, PrintStream out, Element doc, List<KeywordScore> keywordRank) {
 		KeywordSelectorResolvedObjects resObj = getResolvedObjects();
 		String documentId = resObj.documentId.evaluateString(evalCtx, doc);
 		String prefix = documentId + separator;

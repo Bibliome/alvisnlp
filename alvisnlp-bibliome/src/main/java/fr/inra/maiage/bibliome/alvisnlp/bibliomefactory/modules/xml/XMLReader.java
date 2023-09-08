@@ -77,12 +77,12 @@ public abstract class XMLReader extends AbstractXMLReader<ResolvedObjects> {
     private Boolean rawTagNames = false;
 
     @Override
-	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			processDocuments(ctx, corpus);
 		}

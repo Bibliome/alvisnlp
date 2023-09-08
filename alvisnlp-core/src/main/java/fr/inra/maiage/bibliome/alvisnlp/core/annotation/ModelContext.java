@@ -38,7 +38,6 @@ import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.type.DeclaredType;
 import javax.lang.model.type.TypeMirror;
-import javax.lang.model.type.WildcardType;
 import javax.lang.model.util.ElementFilter;
 import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
@@ -137,15 +136,12 @@ class ModelContext {
 	
 	private static final TypeMirror getCorpusModule(Types typeUtils, Elements elementUtils) {
         TypeElement moduleTypeElement = elementUtils.getTypeElement(Module.class.getCanonicalName());
-        TypeElement corpusTypeElement = elementUtils.getTypeElement(Corpus.class.getCanonicalName());
-        TypeMirror corpusTypeMirror = corpusTypeElement.asType();
-        return typeUtils.getDeclaredType(moduleTypeElement, corpusTypeMirror);
+        return typeUtils.getDeclaredType(moduleTypeElement);
 	}
     
     private static final TypeMirror getModuleBase(Types typeUtils, Elements elementUtils) {
         TypeElement moduleBaseTypeElement = elementUtils.getTypeElement(ModuleBase.class.getCanonicalName());
-        WildcardType wildcard = typeUtils.getWildcardType(null, null);
-        return typeUtils.getDeclaredType(moduleBaseTypeElement, wildcard);
+        return typeUtils.getDeclaredType(moduleBaseTypeElement);
     }
     
     private static final TypeMirror getElementList(Types typeUtils, Elements elementUtils) {
@@ -227,11 +223,9 @@ class ModelContext {
 		return result;
 	}
     
-    boolean isRightDataClassModule(TypeElement moduleElement, String dataClass) {
+    boolean isRightDataClassModule(TypeElement moduleElement) {
         TypeElement moduleTypeElement = elementUtils.getTypeElement(Module.class.getCanonicalName());
-        TypeElement corpusTypeElement = elementUtils.getTypeElement(dataClass);
-        TypeMirror corpusTypeMirror = corpusTypeElement.asType();
-        DeclaredType expectedType = typeUtils.getDeclaredType(moduleTypeElement, corpusTypeMirror);
+        DeclaredType expectedType = typeUtils.getDeclaredType(moduleTypeElement);
     	return typeUtils.isAssignable(moduleElement.asType(), expectedType);    	
     }
 

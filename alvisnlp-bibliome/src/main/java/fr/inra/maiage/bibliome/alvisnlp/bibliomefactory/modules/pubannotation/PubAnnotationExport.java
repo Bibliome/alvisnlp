@@ -39,7 +39,7 @@ public class PubAnnotationExport extends SectionModule<PubAnnotationExportResolv
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		PubAnnotationExportResolvedObjects resObj = getResolvedObjects();
@@ -76,7 +76,7 @@ public class PubAnnotationExport extends SectionModule<PubAnnotationExportResolv
 	}
 
 	@Override
-	protected PubAnnotationExportResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected PubAnnotationExportResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new PubAnnotationExportResolvedObjects(ctx, this);
 	}
 
@@ -87,7 +87,7 @@ public class PubAnnotationExport extends SectionModule<PubAnnotationExportResolv
 		private final Evaluator sourceid;
 		private final Evaluator divid;
 
-		private PubAnnotationExportResolvedObjects(ProcessingContext<Corpus> ctx, PubAnnotationExport module) throws ResolverException {
+		private PubAnnotationExportResolvedObjects(ProcessingContext ctx, PubAnnotationExport module) throws ResolverException {
 			super(ctx, module);
 			LibraryResolver resolver = module.getLibraryResolver(ctx);
 			this.denotations = resolver.resolveArray(module.denotations, DenotationSpecification.Resolved.class);

@@ -16,14 +16,14 @@ import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-abstract class AbstractCCGExternalHandler<T extends CCGResolvedObjects,M extends CCGBase<T>> extends ExternalHandler<Corpus,M> {
+abstract class AbstractCCGExternalHandler<T extends CCGResolvedObjects,M extends CCGBase<T>> extends ExternalHandler<M> {
 	protected static final String BASE = "corpus_%8H%s";
 
 	protected final int run;
 	protected final List<Layer> sentences;
 	private final boolean inputNeedsPos;
 	
-	protected AbstractCCGExternalHandler(ProcessingContext<Corpus> processingContext, M module, Corpus annotable, int run, List<Layer> sentences, boolean inputNeedsPos) {
+	protected AbstractCCGExternalHandler(ProcessingContext processingContext, M module, Corpus annotable, int run, List<Layer> sentences, boolean inputNeedsPos) {
 		super(processingContext, module, annotable);
 		this.run = run;
 		this.sentences = sentences;

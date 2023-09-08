@@ -58,7 +58,7 @@ public abstract class StanfordCoreNLP extends SectionModule<SectionResolvedObjec
 	private Mapping pipelineProperties = new Mapping();
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		Properties props = buildCoreNLPProperties();
 		edu.stanford.nlp.pipeline.StanfordCoreNLP pipeline = new edu.stanford.nlp.pipeline.StanfordCoreNLP(props);
 		Logger logger = getLogger(ctx);
@@ -81,7 +81,7 @@ public abstract class StanfordCoreNLP extends SectionModule<SectionResolvedObjec
 	}
 
 	@Override
-	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected SectionResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
 	}
 

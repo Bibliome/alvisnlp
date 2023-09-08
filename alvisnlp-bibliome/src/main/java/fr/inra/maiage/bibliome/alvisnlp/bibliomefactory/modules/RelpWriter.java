@@ -80,7 +80,7 @@ public class RelpWriter extends SectionModule<RelpWriterResolvedObjects> {
 		private final Evaluator headForm;
 		private final Evaluator dependentForm;
 
-		private RelpWriterResolvedObjects(ProcessingContext<Corpus> ctx, RelpWriter module) throws ResolverException {
+		private RelpWriterResolvedObjects(ProcessingContext ctx, RelpWriter module) throws ResolverException {
 			super(ctx, module);
 			pmid = module.pmid.resolveExpressions(rootResolver);
 			wordForm = module.wordForm.resolveExpressions(rootResolver);
@@ -101,7 +101,7 @@ public class RelpWriter extends SectionModule<RelpWriterResolvedObjects> {
 	}
 
 	@Override
-	protected RelpWriterResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected RelpWriterResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new RelpWriterResolvedObjects(ctx, this);
 	}
 
@@ -116,7 +116,7 @@ public class RelpWriter extends SectionModule<RelpWriterResolvedObjects> {
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		try {
 			PrintStream out = outFile.getPrintStream();
@@ -191,7 +191,7 @@ public class RelpWriter extends SectionModule<RelpWriterResolvedObjects> {
 	}
 
 	@TimeThis(task="write-relp", category=TimerCategory.EXPORT)
-	protected void printSentenceHeader(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, PrintStream out, EvaluationContext evalCtx, Layer sentence, int sentNum) {
+	protected void printSentenceHeader(ProcessingContext ctx, PrintStream out, EvaluationContext evalCtx, Layer sentence, int sentNum) {
 		RelpWriterResolvedObjects resObj = getResolvedObjects();
 		out.println("PMID\t" + resObj.pmid.evaluateString(evalCtx, sentence.getSection().getDocument()));
     	out.println("Sentence " + sentNum);
@@ -214,7 +214,7 @@ public class RelpWriter extends SectionModule<RelpWriterResolvedObjects> {
 	}
 
 	@TimeThis(task="write-relp", category=TimerCategory.EXPORT)
-	protected void printLinkage(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, PrintStream out, Map<Annotation,Integer> wordIndex, int linkNum, Collection<Tuple> tuples, EvaluationContext evalCtx) {
+	protected void printLinkage(ProcessingContext ctx, PrintStream out, Map<Annotation,Integer> wordIndex, int linkNum, Collection<Tuple> tuples, EvaluationContext evalCtx) {
 		RelpWriterResolvedObjects resObj = getResolvedObjects();
 		out.println("Parse " + linkNum);
 		for (Tuple dep : tuples) {

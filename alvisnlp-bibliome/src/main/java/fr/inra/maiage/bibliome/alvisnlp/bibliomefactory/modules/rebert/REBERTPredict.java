@@ -78,7 +78,7 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		private final Evaluator start;
 		private final Evaluator end;
 				
-		public REBERTPredictResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		public REBERTPredictResolvedObjects(ProcessingContext ctx) throws ResolverException {
 			super(ctx, REBERTPredict.this);
 			this.assertedCandidates = rootResolver.resolveNullable(REBERTPredict.this.assertedCandidates);
 			this.assertedSubject = rootResolver.resolveNullable(REBERTPredict.this.assertedSubject);
@@ -250,7 +250,7 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			REBERTPredictExternalHandler ext = new REBERTPredictExternalHandler(ctx, this, corpus);
 			if (ext.hasCandidates()) {
@@ -266,7 +266,7 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 	}
 
 	@Override
-	protected REBERTPredictResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected REBERTPredictResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new REBERTPredictResolvedObjects(ctx);
 	}
 

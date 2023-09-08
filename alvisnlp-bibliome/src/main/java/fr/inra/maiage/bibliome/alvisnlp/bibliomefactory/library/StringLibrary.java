@@ -107,7 +107,7 @@ public abstract class StringLibrary extends FunctionLibrary {
 	}
 	
 	@Function
-	public static final String join(EvaluationContext ctx, @SuppressWarnings("unused") Element elt, Iterator<Element> items, Evaluator string, String separator) {
+	public static final String join(EvaluationContext ctx, Element elt, Iterator<Element> items, Evaluator string, String separator) {
 		StringCat strcat = new StringCat();
 		boolean notFirst = false;
 		while (items.hasNext()) {

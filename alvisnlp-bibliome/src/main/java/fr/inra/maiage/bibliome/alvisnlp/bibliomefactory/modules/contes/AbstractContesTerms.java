@@ -6,7 +6,6 @@ import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.contes.AbstractContesTerms.ContesTermsResolvedObject;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
@@ -120,14 +119,14 @@ public abstract class AbstractContesTerms<F extends AbstractFile,T extends Conte
 	}
 	
 	@Override
-	protected ContesTermsResolvedObject createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ContesTermsResolvedObject createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new ContesTermsResolvedObject(ctx, this);
 	}
 
 	public static class ContesTermsResolvedObject extends ResolvedObjects {
 		private final ContesTermClassifier.Resolved[] termClassifiers;
 		
-		public ContesTermsResolvedObject(ProcessingContext<Corpus> ctx, AbstractContesTerms<?,?> module) throws ResolverException {
+		public ContesTermsResolvedObject(ProcessingContext ctx, AbstractContesTerms<?,?> module) throws ResolverException {
 			super(ctx, module);
 			this.termClassifiers = rootResolver.resolveArray(module.termClassifiers, ContesTermClassifier.Resolved.class);
 		}

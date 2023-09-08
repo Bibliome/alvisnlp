@@ -23,12 +23,14 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.logging.Logger;
 
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.CorpusDumper;
 import fr.inra.maiage.bibliome.util.Timer;
 
 /**
  * A ProcessingContext object stores global parameters for the processing engine, such as: current locale, root temporary directory, etc.
  */
-public interface ProcessingContext<T extends Annotable> {
+public interface ProcessingContext {
     /**
      * Returns the current locale used for displaying documentation and error messages.
      * @return the current locale used for displaying documentation and error messages
@@ -53,7 +55,7 @@ public interface ProcessingContext<T extends Annotable> {
      */
     void setRootTempDir(File rootTempDir);
     
-    File getTempDir(Module<T> module);
+    File getTempDir(Module module);
 
     /**
      * Processes the specified corpus with the specified module.
@@ -61,7 +63,7 @@ public interface ProcessingContext<T extends Annotable> {
      * @param corpus
      * @throws ModuleException
      */
-    void processCorpus(Module<T> module, T corpus) throws ModuleException;
+    void processCorpus(Module module, Corpus corpus) throws ModuleException;
 
     /**
      * Returns the resume mode status. In the resume mode status, each module will check if the corpus has already been processed by it. If it is the case, the module will skip processing.
@@ -97,7 +99,7 @@ public interface ProcessingContext<T extends Annotable> {
      * @param logger
      * @throws ModuleException 
      */
-    public boolean checkPlan(Logger logger, Module<T> mainModule) throws ModuleException;
+    public boolean checkPlan(Logger logger, Module mainModule) throws ModuleException;
     
     Logger getLogger(String name);
 
@@ -105,6 +107,6 @@ public interface ProcessingContext<T extends Annotable> {
 	
 	void setCleanTmpDir(boolean cleanTmpDir);
 	
-	Annotable.Dumper<T> getDumper(Logger logger, File file) throws IOException;
+	CorpusDumper getDumper(Logger logger, File file) throws IOException;
 }
 

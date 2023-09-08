@@ -40,7 +40,7 @@ public class CompareFeatures extends CorpusModule<CompareFeaturesResolvedObjects
 	static class CompareFeaturesResolvedObjects extends ResolvedObjects {
 		private final Evaluator items;
 
-		public CompareFeaturesResolvedObjects(ProcessingContext<Corpus> ctx, CompareFeatures module) throws ResolverException {
+		public CompareFeaturesResolvedObjects(ProcessingContext ctx, CompareFeatures module) throws ResolverException {
 			super(ctx, module);
 			this.items = module.items.resolveExpressions(rootResolver);
 		}
@@ -53,12 +53,12 @@ public class CompareFeatures extends CorpusModule<CompareFeaturesResolvedObjects
 	}
 
 	@Override
-	protected CompareFeaturesResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected CompareFeaturesResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new CompareFeaturesResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		CompareFeaturesResolvedObjects resObj = getResolvedObjects();
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);

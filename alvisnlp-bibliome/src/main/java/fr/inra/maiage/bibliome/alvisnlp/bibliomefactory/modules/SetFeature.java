@@ -25,7 +25,7 @@ public class SetFeature extends CorpusModule<SetFeatureResolvedObjects> {
 	private String value;
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		SetFeatureResolvedObjects res = new SetFeatureResolvedObjects(ctx);
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
@@ -45,15 +45,14 @@ public class SetFeature extends CorpusModule<SetFeatureResolvedObjects> {
 	}
 
 	@Override
-	protected SetFeatureResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected SetFeatureResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new SetFeatureResolvedObjects(ctx);
 	}
 
 	class SetFeatureResolvedObjects extends ResolvedObjects {
-		@SuppressWarnings("hiding")
 		private final Evaluator target;
 
-		private SetFeatureResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		private SetFeatureResolvedObjects(ProcessingContext ctx) throws ResolverException {
 			super(ctx, SetFeature.this);
 			target = rootResolver.resolveNullable(SetFeature.this.target);
 		}

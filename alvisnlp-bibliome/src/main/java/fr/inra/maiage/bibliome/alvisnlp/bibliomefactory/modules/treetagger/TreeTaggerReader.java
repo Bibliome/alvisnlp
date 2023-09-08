@@ -95,12 +95,12 @@ public abstract class TreeTaggerReader extends CorpusModule<ResolvedObjects> imp
 	}
 
 	@Override
-	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		try {
 			for (BufferedReader r : Iterators.loop(source.getBufferedReaders())) {

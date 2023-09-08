@@ -64,7 +64,7 @@ public class AlvisIRIndexer extends CorpusModule<AlvisIRIndexerResolvedObjects> 
 	static class AlvisIRIndexerResolvedObjects extends ResolvedObjects {
 		private final IndexedDocumentsEvaluator documents;
 
-		private AlvisIRIndexerResolvedObjects(ProcessingContext<Corpus> ctx, AlvisIRIndexer module) throws ResolverException {
+		private AlvisIRIndexerResolvedObjects(ProcessingContext ctx, AlvisIRIndexer module) throws ResolverException {
 			super(ctx, module);
 			documents = module.documents.resolveExpressions(rootResolver);
 		}
@@ -77,12 +77,12 @@ public class AlvisIRIndexer extends CorpusModule<AlvisIRIndexerResolvedObjects> 
 	}
 
 	@Override
-	protected AlvisIRIndexerResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected AlvisIRIndexerResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new AlvisIRIndexerResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 
 		IndexGlobalAttributes globalAttributes = new IndexGlobalAttributes(tokenPositionGap, propertyKeys);

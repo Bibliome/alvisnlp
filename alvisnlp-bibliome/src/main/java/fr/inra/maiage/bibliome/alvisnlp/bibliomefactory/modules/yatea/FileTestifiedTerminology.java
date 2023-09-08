@@ -40,7 +40,7 @@ public class FileTestifiedTerminology implements TestifiedTerminology {
 	}
 
 	@Override
-	public <S extends SectionResolvedObjects> InputFile ensureFile(AbstractYateaExtractor<S> module, ProcessingContext<Corpus> ctx, Corpus corpus) {
+	public <S extends SectionResolvedObjects> InputFile ensureFile(AbstractYateaExtractor<S> module, ProcessingContext ctx, Corpus corpus) {
 		return termsFile;
 	}
 

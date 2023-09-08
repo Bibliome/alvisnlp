@@ -20,8 +20,8 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
 import fr.inra.maiage.bibliome.util.Iterators;
 
-abstract class AbstractWapitiExternalHandler<T extends AbstractWapiti> extends ExternalHandler<Corpus,T> {
-	protected AbstractWapitiExternalHandler(ProcessingContext<Corpus> processingContext, T module, Corpus annotable) {
+abstract class AbstractWapitiExternalHandler<T extends AbstractWapiti> extends ExternalHandler<T> {
+	protected AbstractWapitiExternalHandler(ProcessingContext processingContext, T module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
 
@@ -31,7 +31,7 @@ abstract class AbstractWapitiExternalHandler<T extends AbstractWapiti> extends E
 		AbstractWapiti owner = getModule();
 		WapitiResolvedObjects resObj = owner.getResolvedObjects();
 		try (PrintStream ps = new PrintStream(getWapitiInputFile())) {
-			for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getAnnotable()))) {
+			for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getCorpus()))) {
 				for (Layer sentence : sec.getSentences(owner.getTokenLayer(), owner.getSentenceLayer())) {
 					for (Annotation a : sentence) {
 						boolean notFirst = false;

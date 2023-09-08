@@ -35,7 +35,7 @@ public class WapitiLabel extends AbstractWapiti {
 	private InputFile modelFile;
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			new WapitiLabelExternalHandler(ctx, this, corpus).start();
 		}
@@ -45,7 +45,7 @@ public class WapitiLabel extends AbstractWapiti {
 	}
 
 	@Override
-	protected WapitiResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected WapitiResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new WapitiResolvedObjects(ctx, this);
 	}
 

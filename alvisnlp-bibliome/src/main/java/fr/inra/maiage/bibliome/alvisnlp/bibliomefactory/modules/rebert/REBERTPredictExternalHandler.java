@@ -31,12 +31,12 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
 import fr.inra.maiage.bibliome.util.Pair;
 import fr.inra.maiage.bibliome.util.Strings;
 
-public class REBERTPredictExternalHandler extends ExternalHandler<Corpus,REBERTPredict> {
+public class REBERTPredictExternalHandler extends ExternalHandler<REBERTPredict> {
 	private final String[] labels;
 	private final EvaluationContext evalCtx;
 	private final Collection<Candidate> candidates;
 
-	protected REBERTPredictExternalHandler(ProcessingContext<Corpus> processingContext, REBERTPredict module, Corpus annotable) throws ModuleException {
+	protected REBERTPredictExternalHandler(ProcessingContext processingContext, REBERTPredict module, Corpus annotable) throws ModuleException {
 		super(processingContext, module, annotable);
 		labels = module.readLabels();
 		Logger logger = module.getLogger(processingContext);

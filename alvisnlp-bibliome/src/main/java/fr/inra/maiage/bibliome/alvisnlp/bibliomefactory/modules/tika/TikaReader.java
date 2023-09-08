@@ -58,7 +58,7 @@ public abstract class TikaReader extends CorpusModule<ResolvedObjects> implement
     private Boolean baseNameId = false;
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		Logger.getLogger("org.apache.pdfbox").setLevel(Level.OFF);
 		AutoDetectParser parser = new AutoDetectParser();
 		ParseContext parseContext = new ParseContext();
@@ -109,7 +109,7 @@ public abstract class TikaReader extends CorpusModule<ResolvedObjects> implement
 	}
 
 	@Override
-	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
 	}
 

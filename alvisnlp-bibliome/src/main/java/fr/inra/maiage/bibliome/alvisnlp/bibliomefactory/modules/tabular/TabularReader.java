@@ -83,7 +83,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 		private final Evaluator sourceElement;
 		private final Evaluator[] lineActions;
 
-		private TabularReaderResolvedObjects(ProcessingContext<Corpus> ctx, TabularReader module) throws ResolverException {
+		private TabularReaderResolvedObjects(ProcessingContext ctx, TabularReader module) throws ResolverException {
 			super(ctx, module);
 			entryLib = new EntryLibrary();
 			rootResolver.addLibrary(entryLib);
@@ -100,12 +100,12 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 	}
 
 	@Override
-	protected TabularReaderResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected TabularReaderResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new TabularReaderResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		TabularReaderResolvedObjects resObj = getResolvedObjects();
     	Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(commitLines ? null : logger, this);
@@ -131,7 +131,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 	}
 
 	@TimeThis(task="read", category=TimerCategory.LOAD_RESOURCE)
-	protected void readLinesCSV(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, Corpus corpus, TabularReaderFileLines trfl) throws ProcessingException {
+	protected void readLinesCSV(ProcessingContext ctx, EvaluationContext evalCtx, Corpus corpus, TabularReaderFileLines trfl) throws ProcessingException {
 		TabularReaderResolvedObjects resObj = getResolvedObjects();
 		CSVFormat format = CSVFormat.DEFAULT.builder().setDelimiter(separator).setIgnoreEmptyLines(skipBlank).build();
 		try {
@@ -156,7 +156,7 @@ public abstract class TabularReader extends CorpusModule<TabularReaderResolvedOb
 	}
 
 	@TimeThis(task="read", category=TimerCategory.LOAD_RESOURCE)
-	protected void readLines(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, Corpus corpus, TabularReaderFileLines trfl) throws ProcessingException {
+	protected void readLines(ProcessingContext ctx, EvaluationContext evalCtx, Corpus corpus, TabularReaderFileLines trfl) throws ProcessingException {
 		TabularReaderResolvedObjects resObj = getResolvedObjects();
 		try {
 			for (BufferedReader r : Iterators.loop(source.getBufferedReaders())) {

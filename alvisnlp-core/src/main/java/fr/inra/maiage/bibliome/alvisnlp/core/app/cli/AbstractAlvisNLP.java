@@ -64,10 +64,10 @@ import fr.inra.maiage.bibliome.alvisnlp.core.converters.CompoundParamConverterFa
 import fr.inra.maiage.bibliome.alvisnlp.core.converters.ConverterException;
 import fr.inra.maiage.bibliome.alvisnlp.core.converters.ParamConverter;
 import fr.inra.maiage.bibliome.alvisnlp.core.converters.ParamConverterFactory;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.FunctionLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.core.documentation.Documentation;
 import fr.inra.maiage.bibliome.alvisnlp.core.factory.ModuleFactory;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.CheckCheckableModules;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.CheckMandatoryParameters;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.CheckParamValueConstraints;
@@ -78,6 +78,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleAnalysis;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ParamHandler;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ParameterException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Sequence;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.UnexpectedParameterException;
@@ -104,16 +105,16 @@ import fr.inra.maiage.bibliome.util.xml.XMLUtils;
  * Base class for the alvisnlp CLI.
  * @author rbossy
  *
- * @param <A>
+ * @param 
  * @param <M>
  * @param <C>
  */
-public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFactory<A>,C extends CommandLineProcessingContext<A>> extends CLIOParser {
+public abstract class AbstractAlvisNLP extends CLIOParser {
 	private static final String TYPE_ATTRIBUTE_NAME = "type";
 	private static final String SHORT_TYPE_ATTRIBUTE_NAME = "short-type";
 	
 	private final GitInfo gitInfo;
-	private final M moduleFactory = getModuleFactory();
+	private final ModuleFactory moduleFactory = getModuleFactory();
 	private final ParamConverterFactory converterFactory = getParamConverterFactory();
 
 	/**
@@ -268,12 +269,12 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	
 	@CLIOption("-alias")
 	public final void setAlias(String param, String value) { 
-		params.add(new ModuleParamSetter(new PlanSelector<A>(), new StringParamSetter(param, value)));
+		params.add(new ModuleParamSetter(new PlanSelector(), new StringParamSetter(param, value)));
 	}
 	
 	@CLIOption("-xalias")
 	public final void setXMLAlias(String value) { 
-		params.add(new ModuleParamSetter(new PlanSelector<A>(), new XMLParamSetter(value)));
+		params.add(new ModuleParamSetter(new PlanSelector(), new XMLParamSetter(value)));
 	}
 	
 	@CLIOption("-defaultParamValuesFile")
@@ -369,7 +370,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	@CLIOption(value="-supportedModules", stop=true)
 	public final void supportedModules() { 
         List<String> moduleNames = new ArrayList<String>();
-        for (Class<? extends Module<A>> mod : moduleFactory.supportedServices())
+        for (Class<? extends Module> mod : moduleFactory.supportedServices())
 			moduleNames.add(mod.getCanonicalName());
         Collections.sort(moduleNames);
         for (String name : moduleNames)
@@ -380,7 +381,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	public final void supportedModulesXML() throws TransformerException {
 		Document doc = XMLUtils.docBuilder.newDocument();
 		Element root = XMLUtils.createRootElement(doc, "alvisnlp-supported-modules");
-        for (Class<? extends Module<A>> mod : moduleFactory.supportedServices()) {
+        for (Class<? extends Module> mod : moduleFactory.supportedServices()) {
         	Element item = XMLUtils.createElement(doc, root, 1, "module-item");
         	item.setAttribute("target", mod.getCanonicalName());
         	item.setAttribute("short-target", mod.getSimpleName());
@@ -408,7 +409,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	}
 	
 	public Document getModuleDocumentation(String name) throws UnsupportedServiceException, AmbiguousAliasException, XPathExpressionException {
-    	Module<A> mod = moduleFactory.getServiceByAlias(name);
+    	Module mod = moduleFactory.getServiceByAlias(name);
     	Documentation documentation = mod.getDocumentation();
     	Document result = documentation.getDocument(locale);
     	String moduleClass = mod.getModuleClass();
@@ -416,7 +417,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     	return result;
 	}
 	
-	private void supplementModuleDocumentation(Module<A> mod, Document doc, String target, String shortTarget) throws XPathExpressionException {
+	private void supplementModuleDocumentation(Module mod, Document doc, String target, String shortTarget) throws XPathExpressionException {
     	Element alvisnlpDocElt = XMLUtils.evaluateElement("//alvisnlp-doc", doc);
     	if (alvisnlpDocElt == null) {
     		return;
@@ -425,7 +426,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     	alvisnlpDocElt.setAttribute("short-target", shortTarget);
     	Element moduleElt = XMLUtils.evaluateElement("module-doc|plan-doc", alvisnlpDocElt);
     	List<Element> paramDocs = XMLUtils.evaluateElements("param-doc", moduleElt);
-    	for (ParamHandler<A> ph : mod.getAllParamHandlers()) {
+    	for (ParamHandler ph : mod.getAllParamHandlers()) {
     		List<Element> l = XMLUtils.evaluateElements("param-doc[@name = '" + ph.getName() + "']", moduleElt);
     		if (l.isEmpty()) {
     			Element pe = doc.createElement("param-doc");
@@ -437,7 +438,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     	}
     	for (Element p : paramDocs) {
     		try {
-				ParamHandler<A> ph = mod.getParamHandler(p.getAttribute("name"));
+				ParamHandler ph = mod.getParamHandler(p.getAttribute("name"));
 				p.setAttribute("mandatory", getParamStatus(ph));
 				if (ph.isDeprecated()) {
 					p.setAttribute("deprecated", "yes");
@@ -452,7 +453,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     	}
 	}
 	
-	private String getParamStatus(ParamHandler<A> ph) {
+	private String getParamStatus(ParamHandler ph) {
         if (ph.isMandatory()) {
             if (ph.isSet()) {
 				try {
@@ -709,7 +710,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	/**
 	 * Returns a new module factory.
 	 */
-    protected abstract M getModuleFactory();
+    protected abstract ModuleFactory getModuleFactory();
     
     public static final ParamConverterFactory getParamConverterFactory() {
         CompoundParamConverterFactory result = new CompoundParamConverterFactory();
@@ -752,7 +753,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     	return (OutputFile) converter.convert(path);
     }
     
-    protected Logger getLogger(C ctx) throws FileNotFoundException, IOException, UnsupportedServiceException, ConverterException {
+    protected Logger getLogger(ProcessingContext ctx) throws FileNotFoundException, IOException, UnsupportedServiceException, ConverterException {
     	Logger result = ctx.getLogger("alvisnlp");
     	result.setLevel(logLevel);
         result.setUseParentHandlers(false);
@@ -791,35 +792,35 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	}
     
     private class ModuleParamSetter {
-    	private final ModuleSelector<A> moduleSelector;
-    	private final ParamSetter<A> paramSetter;
+    	private final ModuleSelector moduleSelector;
+    	private final ParamSetter paramSetter;
 		
-    	private ModuleParamSetter(ModuleSelector<A> moduleSelector, ParamSetter<A> paramSetter) {
+    	private ModuleParamSetter(ModuleSelector moduleSelector, ParamSetter paramSetter) {
 			super();
 			this.moduleSelector = moduleSelector;
 			this.paramSetter = paramSetter;
 		}
     	
-    	private void set(Logger logger, PlanLoader<A> planLoader, Sequence<A> plan) throws Exception {
-    		Module<A> module = moduleSelector.getModule(logger, plan);
+    	private void set(Logger logger, PlanLoader planLoader, Sequence plan) throws Exception {
+    		Module module = moduleSelector.getModule(logger, plan);
     		if (module != null) {
     			paramSetter.setValue(logger, planLoader, module);
     		}
     	}
     }
 
-    private interface ModuleSelector<A extends Annotable> {
-    	Module<A> getModule(Logger logger, Sequence<A> plan);
+    private interface ModuleSelector {
+    	Module getModule(Logger logger, Sequence plan);
     }
 
-    private static class PlanSelector<A extends Annotable> implements ModuleSelector<A> {
+    private static class PlanSelector implements ModuleSelector {
 		@Override
-		public Module<A> getModule(Logger logger, Sequence<A> plan) {
+		public Module getModule(Logger logger, Sequence plan) {
 			return plan;
 		}
     }
     
-    private class ModulePathSelector implements ModuleSelector<A> {
+    private class ModulePathSelector implements ModuleSelector {
     	private final String modulePath;
 
 		private ModulePathSelector(String modulePath) {
@@ -828,8 +829,8 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 		}
 
 		@Override
-		public Module<A> getModule(Logger logger, Sequence<A> plan) {
-			Module<A> result = plan.getModuleByPath(modulePath);
+		public Module getModule(Logger logger, Sequence plan) {
+			Module result = plan.getModuleByPath(modulePath);
 			if (result == null) {
         		logger.warning("there is no module with path: '" + modulePath + "'");	
 			}
@@ -846,11 +847,11 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     	return result;
     }
     
-    private interface ParamSetter<A extends Annotable> {
-    	void setValue(Logger logger, PlanLoader<A> planLoader, Module<A> module) throws Exception;
+    private interface ParamSetter {
+    	void setValue(Logger logger, PlanLoader planLoader, Module module) throws Exception;
     }
     
-    private class StringParamSetter implements ParamSetter<A> {
+    private class StringParamSetter implements ParamSetter {
     	private final String name;
     	private final String value;
 		
@@ -861,8 +862,8 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 		}
 
 		@Override
-		public void setValue(Logger logger, PlanLoader<A> planLoader, Module<A> module) throws ParameterException, ConverterException, UnsupportedServiceException {
-    		ParamHandler<A> h = module.getParamHandler(name);
+		public void setValue(Logger logger, PlanLoader planLoader, Module module) throws ParameterException, ConverterException, UnsupportedServiceException {
+    		ParamHandler h = module.getParamHandler(name);
 			ParamConverter conv = converterFactory.getService(h.getType());
 			conv.setInputDirs(inputDirs);
 			conv.setOutputDir(outputDir);
@@ -872,7 +873,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 		}
     }
 
-    private class ParamUnsetter implements ParamSetter<A> {
+    private class ParamUnsetter implements ParamSetter {
     	private final String name;
 
 		private ParamUnsetter(String name) {
@@ -881,14 +882,14 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 		}
 
 		@Override
-		public void setValue(Logger logger, PlanLoader<A> planLoader, Module<A> module) throws Exception {
-    		ParamHandler<A> h = module.getParamHandler(name);
+		public void setValue(Logger logger, PlanLoader planLoader, Module module) throws Exception {
+    		ParamHandler h = module.getParamHandler(name);
 			logger.config("unsetting " + h.getName() + " in " + module.getPath());
 			h.setValue(null);
 		}
     }
     
-    private class XMLParamSetter implements ParamSetter<A> {
+    private class XMLParamSetter implements ParamSetter {
     	private final String xmlValue;
 
 		private XMLParamSetter(String xmlValue) {
@@ -897,7 +898,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 		}
 
 		@Override
-		public void setValue(Logger logger, PlanLoader<A> planLoader, Module<A> module) throws ParameterException, ConverterException, UnsupportedServiceException, SAXException, IOException, PlanException, URISyntaxException {
+		public void setValue(Logger logger, PlanLoader planLoader, Module module) throws ParameterException, ConverterException, UnsupportedServiceException, SAXException, IOException, PlanException, URISyntaxException {
 			logger.config("setting XML value to module " + module.getPath() + ": '" + xmlValue + "'");
     		InputSource is = new InputSource(new StringReader(xmlValue));
     		Document doc = XMLUtils.docBuilder.parse(is);
@@ -906,7 +907,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 		}
     }
     
-	public Sequence<A> buildMainModule(C ctx) throws Exception {
+	public Sequence buildMainModule(ProcessingContext ctx) throws Exception {
     	if (planFile == null)
     		throw new PlanException("missing plan file path");
     	Logger logger = ctx.getLogger("alvisnlp");
@@ -917,14 +918,14 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
         docBuilderFactory.setFeature("http://xml.org/sax/features/use-entity-resolver2", true);
         DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
         Document defaultParamValuesDoc = getDefaultParamValuesDoc(docBuilder);
-		PlanLoader<A> planLoader = new PlanLoader<A>(moduleFactory, converterFactory, defaultParamValuesDoc, inputDirs, outputDir, baseDirs, buildResourceBases(), docBuilder, creatorNameFeature);
+		PlanLoader planLoader = new PlanLoader(moduleFactory, converterFactory, defaultParamValuesDoc, inputDirs, outputDir, baseDirs, buildResourceBases(), docBuilder, creatorNameFeature);
 
 		Document doc = planLoader.parseDoc(planFile);
 		logger.config("loading plan from " + planFile);
-		Sequence<A> result = planLoader.loadDocument(logger, planFile, doc);
+		Sequence result = planLoader.loadDocument(logger, planFile, doc);
         
         for (Pair<String,String> p : moreModules) {
-        	Module<A> module = moduleFactory.getServiceByAlias(p.second);
+        	Module module = moduleFactory.getServiceByAlias(p.second);
         	module.setId(p.first);
         	result.appendModule(module);
         }
@@ -955,7 +956,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 
         	for (Map.Entry<String,String> e : dumpModules.entrySet()) {
         		String modulePath = e.getKey();
-        		Module<A> module = result.getModuleByPath(modulePath);
+        		Module module = result.getModuleByPath(modulePath);
         		if (module == null) {
         			logger.warning("there is no module with path: '" + modulePath + "'");
         			continue;
@@ -981,10 +982,10 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 	/**
      * Returns a new processing context.
      */
-    protected abstract C newCommandLineProcessingContext();
+    protected abstract ProcessingContext newCommandLineProcessingContext();
     
-    protected C getProcessingContext() {
-    	C result = newCommandLineProcessingContext();
+    protected ProcessingContext getProcessingContext() {
+    	ProcessingContext result = newCommandLineProcessingContext();
     	result.setLocale(locale);
     	result.setDumps(dumps);
         result.setResumeMode(!resumeFiles.isEmpty());
@@ -1020,7 +1021,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     	logger.config("build time: " + gitInfo.getBuildTime());
     }
     
-    protected void initProcessingContext(Logger logger, C ctx, Module<A> mainModule) throws IOException, ModuleException{
+    protected void initProcessingContext(Logger logger, ProcessingContext ctx, Module mainModule) throws IOException, ModuleException{
     	ctx.setRootTempDir(buildRootTempDir(logger));
     	if (!writePlan) {
     		ctx.checkPlan(logger, mainModule);
@@ -1032,7 +1033,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
      * @param logger
      * @throws Exception
      */
-    protected abstract A getCorpus(Logger logger, C ctx) throws Exception;
+    protected abstract Corpus getCorpus(Logger logger, ProcessingContext ctx) throws Exception;
     	
     /**
      * Process the plan specified in command line.
@@ -1043,15 +1044,15 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
      * @throws Exception
      */
     public void process() throws IOException, UnsupportedServiceException, ConverterException {
-    	C ctx = getProcessingContext();
+    	ProcessingContext ctx = getProcessingContext();
     	Logger logger = getLogger(ctx);
     	logVersion(logger);
     	logEnvironment(logger);
 		try {
 	    	timer.start();
-			Module<A> mainModule = buildMainModule(ctx);
+			Module mainModule = buildMainModule(ctx);
 			initProcessingContext(logger, ctx, mainModule);
-			A corpus = getCorpus(logger, ctx);
+			Corpus corpus = getCorpus(logger, ctx);
 			if (noProcess) {
 				logger.info("skipping process...");
 			}
@@ -1089,7 +1090,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
 		}
     }
     
-    private void writeAnalysis(Module<A> mainModule) {
+    private void writeAnalysis(Module mainModule) {
     	if (analysisFile == null) {
     		return;
     	}
@@ -1139,16 +1140,16 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
     	}
     }
     
-    protected void logTimer(C ctx, Module<A> mainModule) throws ModuleException {
+    protected void logTimer(ProcessingContext ctx, Module mainModule) throws ModuleException {
     	Logger logger = ctx	.getLogger("alvisnlp.timer");
     	
     	logger.info("Hierarchical timer summary:");
     	recLogTimer(logger, timer, 100, "");
     	
     	if (!noProcess) {
-    		Stats<Module<A>,Count> moduleStats = new CountStats<Module<A>>(new LinkedHashMap<Module<A>,Count>());
-    		List<Module<A>> modules = CollectModules.visit(mainModule, true, false);
-    		for (Module<A> m : modules)
+    		Stats<Module,Count> moduleStats = new CountStats<Module>(new LinkedHashMap<Module,Count>());
+    		List<Module> modules = CollectModules.visit(mainModule, true, false);
+    		for (Module m : modules)
     			moduleStats.incr(m, m.getTimer(ctx).getTime());
     		logTimes(logger, "Time spent by effective module:", moduleStats);
     	}
@@ -1164,7 +1165,7 @@ public abstract class AbstractAlvisNLP<A extends Annotable,M extends ModuleFacto
      * @param logger
      * @param corpus
      */
-    protected abstract void logFinished(Logger logger, A corpus);
+    protected abstract void logFinished(Logger logger, Corpus corpus);
     
     /**
      * Run alvisnlp.

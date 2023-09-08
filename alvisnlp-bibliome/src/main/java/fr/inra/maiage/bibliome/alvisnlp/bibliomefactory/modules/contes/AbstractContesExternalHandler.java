@@ -11,8 +11,8 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
 
-abstract class AbstractContesExternalHandler<R extends ResolvedObjects,T extends CorpusModule<R> & AbstractContes> extends ExternalHandler<Corpus,T> {
-	protected AbstractContesExternalHandler(ProcessingContext<Corpus> processingContext, T module, Corpus annotable) {
+abstract class AbstractContesExternalHandler<R extends ResolvedObjects,T extends CorpusModule<R> & AbstractContes> extends ExternalHandler<T> {
+	protected AbstractContesExternalHandler(ProcessingContext processingContext, T module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
 

@@ -16,7 +16,7 @@ public abstract class ContesPredict extends AbstractContesTerms<InputFile,Contes
 	private String tokenLayer;
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			new ContesPredictExternalHandler(ctx, this, corpus).start();
 		}

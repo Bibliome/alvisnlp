@@ -31,7 +31,7 @@ public abstract class OpenNLPDocumentCategorizerBase extends CorpusModule<OpenNL
 		private final Evaluator tokens;
 		private final Evaluator form;
 		
-		private OpenNLPDocumentCategorizerResolvedObjects(ProcessingContext<Corpus> ctx, OpenNLPDocumentCategorizerBase module) throws ResolverException {
+		private OpenNLPDocumentCategorizerResolvedObjects(ProcessingContext ctx, OpenNLPDocumentCategorizerBase module) throws ResolverException {
 			super(ctx, module);
 			this.documents = module.documents.resolveExpressions(rootResolver);
 			this.tokens = module.tokens.resolveExpressions(rootResolver);
@@ -65,7 +65,7 @@ public abstract class OpenNLPDocumentCategorizerBase extends CorpusModule<OpenNL
 	}
 
 	@Override
-	protected OpenNLPDocumentCategorizerResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected OpenNLPDocumentCategorizerResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new OpenNLPDocumentCategorizerResolvedObjects(ctx, this);
 	}
 

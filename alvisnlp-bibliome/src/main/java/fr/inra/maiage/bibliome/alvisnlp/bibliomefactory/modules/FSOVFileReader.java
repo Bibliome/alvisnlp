@@ -187,12 +187,12 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
     }
 
 	@Override
-	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			for (BufferedReader r : Iterators.loop(sourcePath.getBufferedReaders())) {
 				processFile(ctx, corpus, r);
@@ -211,7 +211,7 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
 		return name.substring(slash + 1);
 	}
 
-	private void processFile(ProcessingContext<Corpus> ctx, Corpus corpus, BufferedReader r) throws IOException {
+	private void processFile(ProcessingContext ctx, Corpus corpus, BufferedReader r) throws IOException {
 		Logger logger = getLogger(ctx);
 		String streamName = sourcePath.getStreamName(r);
 		logger.finer("reading: " + streamName);
@@ -241,7 +241,7 @@ public abstract class FSOVFileReader extends CorpusModule<ResolvedObjects> imple
     		createDocument(corpus, name + Integer.toString(n), metadata, sb.toString());
     }
 
-    private Map<String,List<String>> getMetadata(ProcessingContext<Corpus> ctx, String file) {
+    private Map<String,List<String>> getMetadata(ProcessingContext ctx, String file) {
     	Map<String,List<String>> result = new LinkedHashMap<String,List<String>>();
     	File xmlFile = new File(xmlDir, file.replace(".txt", ".xml"));
 		try {

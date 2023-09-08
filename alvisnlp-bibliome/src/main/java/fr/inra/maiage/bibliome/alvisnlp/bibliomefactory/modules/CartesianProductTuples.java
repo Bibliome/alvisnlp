@@ -57,12 +57,10 @@ public abstract class CartesianProductTuples extends SectionModule<CartesianProd
 	private ExpressionMapping arguments;
 
 	class CartesianProductTuplesResolvedObjects extends SectionResolvedObjects {
-		@SuppressWarnings("hiding")
 		private final Evaluator anchor;
-		@SuppressWarnings("hiding")
 		private final EvaluatorMapping arguments;
 
-		private CartesianProductTuplesResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		private CartesianProductTuplesResolvedObjects(ProcessingContext ctx) throws ResolverException {
 			super(ctx, CartesianProductTuples.this);
 			anchor = rootResolver.resolveNullable(CartesianProductTuples.this.anchor);
 			arguments = rootResolver.resolveNullable(CartesianProductTuples.this.arguments);
@@ -77,12 +75,12 @@ public abstract class CartesianProductTuples extends SectionModule<CartesianProd
 	}
 
 	@Override
-	protected CartesianProductTuplesResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected CartesianProductTuplesResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new CartesianProductTuplesResolvedObjects(ctx);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		List<String> roles = new ArrayList<String>(arguments.keySet());
 		CartesianProductTuplesResolvedObjects resObj = getResolvedObjects();
 		List<Evaluator> argExprs = new ArrayList<Evaluator>(resObj.arguments.values());

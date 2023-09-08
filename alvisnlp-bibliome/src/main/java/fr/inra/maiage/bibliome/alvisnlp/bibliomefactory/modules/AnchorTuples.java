@@ -57,13 +57,11 @@ public abstract class AnchorTuples extends SectionModule<AnchorTuplesResolvedObj
 	private ExpressionMapping arguments;
 
 	class AnchorTuplesResolvedObjects extends SectionResolvedObjects {
-		@SuppressWarnings("hiding")
 		private final Evaluator anchor;
-		@SuppressWarnings("hiding")
 		private final EvaluatorMapping arguments;
 		private final Variable anchorVariable;
 
-		private AnchorTuplesResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		private AnchorTuplesResolvedObjects(ProcessingContext ctx) throws ResolverException {
 			super(ctx, AnchorTuples.this);
 			VariableLibrary anchorLibrary = new VariableLibrary("anchor");
 			anchorVariable = anchorLibrary.newVariable(null);
@@ -81,12 +79,12 @@ public abstract class AnchorTuples extends SectionModule<AnchorTuplesResolvedObj
 	}
 
 	@Override
-	protected AnchorTuplesResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected AnchorTuplesResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new AnchorTuplesResolvedObjects(ctx);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		AnchorTuplesResolvedObjects resObj = getResolvedObjects();
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);

@@ -45,7 +45,7 @@ public abstract class PropertiesLibrary extends FunctionLibrary {
 	public static final String NAME = "properties";
 	
 	@Function
-	public static final int start(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final int start(EvaluationContext ctx, Element elt) {
 		Annotation a = DownCastElement.toAnnotation(elt);
 		if (a == null)
 			return 0;
@@ -53,7 +53,7 @@ public abstract class PropertiesLibrary extends FunctionLibrary {
 	}
 	
 	@Function
-	public static final int end(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final int end(EvaluationContext ctx, Element elt) {
 		Annotation a = DownCastElement.toAnnotation(elt);
 		if (a == null)
 			return 0;
@@ -61,7 +61,7 @@ public abstract class PropertiesLibrary extends FunctionLibrary {
 	}
 	
 	@Function
-	public static final int length(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final int length(EvaluationContext ctx, Element elt) {
 		return elt.accept(LENGTH_VISITOR, null);
 	}
 	
@@ -103,7 +103,7 @@ public abstract class PropertiesLibrary extends FunctionLibrary {
 	};
 	
 	@Function
-	public static final String contents(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final String contents(EvaluationContext ctx, Element elt) {
 		Section sec = DownCastElement.toSection(elt);
 		if (sec == null)
 			return "";
@@ -162,7 +162,7 @@ public abstract class PropertiesLibrary extends FunctionLibrary {
 	}
 	
 	@Function
-	public static final int order(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final int order(EvaluationContext ctx, Element elt) {
 		Section sec = DownCastElement.toSection(elt);
 		if (sec == null) {
 			return 0;

@@ -30,7 +30,6 @@ import java.util.Set;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.filters.Filters;
 import fr.inra.maiage.bibliome.util.mappers.Mapper;
@@ -39,7 +38,7 @@ import fr.inra.maiage.bibliome.util.mappers.Mappers;
 /**
  * A Corpus object represents a set of documents to annotate.
  */
-public final class Corpus extends AbstractElement implements Annotable {
+public final class Corpus extends AbstractElement {
     public final static long           serialVersionUID = 1L;
     
     private final Map<String,Document> documents        = new LinkedHashMap<String,Document>();
@@ -148,17 +147,14 @@ public final class Corpus extends AbstractElement implements Annotable {
         documents.put(id, doc);
     }
 
-    @Override
     public boolean wasProcessedBy(String modulePath) {
         return processedBy.contains(modulePath);
     }
     
-    @Override
     public Collection<String> wasProcessedBy() {
     	return Collections.unmodifiableCollection(processedBy);
     }
 
-    @Override
 	public void hasBeenProcessedBy(String modulePath) {
         processedBy.add(modulePath);
     }

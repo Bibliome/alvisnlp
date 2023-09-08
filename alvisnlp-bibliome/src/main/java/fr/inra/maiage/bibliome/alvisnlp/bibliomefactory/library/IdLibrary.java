@@ -31,7 +31,7 @@ import fr.inra.maiage.bibliome.util.Iterators;
 @Library("id")
 public abstract class IdLibrary extends FunctionLibrary {
 	@Function
-	public static int unique(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static int unique(EvaluationContext ctx, Element elt) {
 		return System.identityHashCode(elt);
 	}
 	

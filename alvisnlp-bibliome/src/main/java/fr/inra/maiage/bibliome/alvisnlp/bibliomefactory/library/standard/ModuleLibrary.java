@@ -21,7 +21,6 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.logging.Logger;
 
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Function;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.FunctionLibrary;
@@ -36,22 +35,22 @@ import fr.inra.maiage.bibliome.util.Iterators;
 public abstract class ModuleLibrary extends FunctionLibrary {
 	public static final String NAME = "module";
 
-	private ProcessingContext<Corpus> ctx;
-	private Module<Corpus> module;
+	private ProcessingContext ctx;
+	private Module module;
 	
-	public ProcessingContext<Corpus> getCtx() {
+	public ProcessingContext getCtx() {
 		return ctx;
 	}
 
-	public void setCtx(ProcessingContext<Corpus> ctx) {
+	public void setCtx(ProcessingContext ctx) {
 		this.ctx = ctx;
 	}
 
-	public Module<Corpus> getModule() {
+	public Module getModule() {
 		return module;
 	}
 
-	public void setModule(Module<Corpus> module) {
+	public void setModule(Module module) {
 		this.module = module;
 	}
 
@@ -81,7 +80,7 @@ public abstract class ModuleLibrary extends FunctionLibrary {
 	
 	@Function
 	public String sequence() {
-		Sequence<?> seq = module.getSequence();
+		Sequence seq = module.getSequence();
 		if (seq == null) {
 			return "";
 		}

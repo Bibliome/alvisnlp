@@ -17,7 +17,7 @@ import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 public class FasttextClassifierLabelExternalHandler extends FasttextClassifierBaseExternalHandler<FasttextClassifierBaseResolvedObjects,FasttextClassifierLabel> {
-	public FasttextClassifierLabelExternalHandler(ProcessingContext<Corpus> processingContext, FasttextClassifierLabel module, Corpus annotable) {
+	public FasttextClassifierLabelExternalHandler(ProcessingContext processingContext, FasttextClassifierLabel module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
 
@@ -41,7 +41,7 @@ public class FasttextClassifierLabelExternalHandler extends FasttextClassifierBa
 		EvaluationContext evalCtx = new EvaluationContext(getLogger());
 		SourceStream source = new FileSourceStream("UTF-8", getOutputFile().getAbsolutePath());
 		try (BufferedReader r = source.getBufferedReader()) {
-			for (Element doc : Iterators.loop(resObj.getDocuments().evaluateElements(evalCtx, getAnnotable()))) {
+			for (Element doc : Iterators.loop(resObj.getDocuments().evaluateElements(evalCtx, getCorpus()))) {
 				String line = r.readLine();
 				if (line == null) {
 					throw new ProcessingException("fasttext output is short on lines: " + getOutputFile());

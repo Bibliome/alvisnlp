@@ -44,7 +44,7 @@ public class OpenNLPDocumentCategorizerTrain extends OpenNLPDocumentCategorizerB
 	private Integer iterations = 100;
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		ObjectStream<DocumentSample> trainingSet = getTrainingSet(logger, evalCtx, corpus);

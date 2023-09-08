@@ -59,7 +59,7 @@ public abstract class ElementProjector extends TrieProjector<ElementProjectorRes
 		private final Evaluator action;
 		private final EvaluationContext actionEvalCtx;
 
-		ElementProjectorResolvedObjects(ElementProjector module, ProcessingContext<Corpus> ctx) throws ResolverException {
+		ElementProjectorResolvedObjects(ElementProjector module, ProcessingContext ctx) throws ResolverException {
 			super(ctx, module);
 			LibraryResolver rootResolver = module.getLibraryResolver(ctx);
 			this.entries = module.entries.resolveExpressions(rootResolver);
@@ -99,7 +99,7 @@ public abstract class ElementProjector extends TrieProjector<ElementProjectorRes
 
 	@Override
 	@TimeThis(task="create-trie", category=TimerCategory.LOAD_RESOURCE)
-	protected Trie<Element> getTrie(ProcessingContext<Corpus> ctx, Logger logger, Corpus corpus) throws IOException, ModuleException {
+	protected Trie<Element> getTrie(ProcessingContext ctx, Logger logger, Corpus corpus) throws IOException, ModuleException {
 		return super.getTrie(ctx, logger, corpus);
 	}
 
@@ -126,7 +126,7 @@ public abstract class ElementProjector extends TrieProjector<ElementProjectorRes
 	}
 
 	@Override
-	protected ElementProjectorResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ElementProjectorResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new ElementProjectorResolvedObjects(this, ctx);
 	}
 

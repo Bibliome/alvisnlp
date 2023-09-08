@@ -24,15 +24,15 @@ package fr.inra.maiage.bibliome.alvisnlp.core.module;
 public class UnexpectedParameterException extends ParameterException {
     private static final long serialVersionUID = 1;
 
-    private static final String buildMessage(Module<?> module, String parameter) {
+    private static final String buildMessage(Module module, String parameter) {
         return "parameter " + parameter + " is not recognized by " + module.getPath();
     }
 
-    public UnexpectedParameterException(Module<?> module, String parameter) {
+    public UnexpectedParameterException(Module module, String parameter) {
         super(buildMessage(module, parameter), parameter);
     }
 
-    private UnexpectedParameterException(Throwable cause, Module<?> module, String parameter) {
+    private UnexpectedParameterException(Throwable cause, Module module, String parameter) {
         super(buildMessage(module, parameter), cause, parameter);
     }
 }

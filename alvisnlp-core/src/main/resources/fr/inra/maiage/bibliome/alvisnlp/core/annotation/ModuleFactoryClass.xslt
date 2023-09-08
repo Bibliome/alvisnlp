@@ -27,13 +27,13 @@ package <xsl:value-of select="@package"/>;
 
 @javax.annotation.Generated(value={"<xsl:value-of select="@generator"/>"}, date="<xsl:value-of select="@date"/>", comments="<xsl:value-of select="@generator-version"/>")
 @fr.inra.maiage.bibliome.util.service.Service(<xsl:value-of select="@factoryInterface"/>.class)
-public final class <xsl:value-of select="@name"/> extends fr.inra.maiage.bibliome.util.service.AbstractServiceFactory&lt;Class&lt;? extends fr.inra.maiage.bibliome.alvisnlp.core.module.Module&lt;<xsl:value-of select="@dataClass"/>&gt;>,fr.inra.maiage.bibliome.alvisnlp.core.module.Module&lt;<xsl:value-of select="@dataClass"/>&gt;> implements <xsl:value-of select="@factoryInterface"/> {
+public final class <xsl:value-of select="@name"/> extends fr.inra.maiage.bibliome.util.service.AbstractServiceFactory&lt;Class&lt;? extends fr.inra.maiage.bibliome.alvisnlp.core.module.Module>,fr.inra.maiage.bibliome.alvisnlp.core.module.Module> implements <xsl:value-of select="@factoryInterface"/> {
     public <xsl:value-of select="@name"/>() {<xsl:for-each select="module">
         addSupportedService(<xsl:value-of select="@full-name"/>.class);</xsl:for-each>
     }
     
     @Override
-    public fr.inra.maiage.bibliome.alvisnlp.core.module.Module&lt;<xsl:value-of select="@dataClass"/>&gt; getService(Class&lt;? extends fr.inra.maiage.bibliome.alvisnlp.core.module.Module&lt;<xsl:value-of select="@dataClass"/>&gt;> moduleClass) throws fr.inra.maiage.bibliome.util.service.UnsupportedServiceException {
+    public fr.inra.maiage.bibliome.alvisnlp.core.module.Module getService(Class&lt;? extends fr.inra.maiage.bibliome.alvisnlp.core.module.Module> moduleClass) throws fr.inra.maiage.bibliome.util.service.UnsupportedServiceException {
         try {<xsl:for-each select="module">
             if (<xsl:value-of select="@full-name"/>.class.equals(moduleClass))<xsl:choose>
                 	<xsl:when test="count(accessor|funlib|timed-method) = 0">
@@ -49,7 +49,7 @@ public final class <xsl:value-of select="@name"/> extends fr.inra.maiage.bibliom
     }
 
     @Override
-	public fr.inra.maiage.bibliome.alvisnlp.core.module.Sequence&lt;<xsl:value-of select="@dataClass"/>&gt; newSequence() {
+	public fr.inra.maiage.bibliome.alvisnlp.core.module.Sequence newSequence() {
 		return new <xsl:value-of select="@sequenceClass"/>();
 	}
 	

@@ -25,7 +25,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.util.Strings;
 
 class CCGParserExternalHandler extends AbstractCCGExternalHandler<CCGResolvedObjects,CCGParser>{
-	CCGParserExternalHandler(ProcessingContext<Corpus> processingContext, CCGParser module, Corpus annotable, int run, List<Layer> sentences) {
+	CCGParserExternalHandler(ProcessingContext processingContext, CCGParser module, Corpus annotable, int run, List<Layer> sentences) {
 		super(processingContext, module, annotable, run, sentences, true);
 	}
 

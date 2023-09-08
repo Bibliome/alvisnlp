@@ -54,7 +54,7 @@ public class WekaTrain extends PredictionElementClassifier {
 	private TargetStream arffFile;
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ProcessingException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ProcessingException {
 		try {
 	    	Logger logger = getLogger(ctx);
 	        EvaluationContext evalCtx = new EvaluationContext(logger);
@@ -73,13 +73,13 @@ public class WekaTrain extends PredictionElementClassifier {
 	}
 
 	@TimeThis(task="train", category=TimerCategory.EXTERNAL)
-	protected void trainClassifier(ProcessingContext<Corpus> ctx, Classifier classifier, IdentifiedInstances<Element> trainingSet) throws Exception {
+	protected void trainClassifier(ProcessingContext ctx, Classifier classifier, IdentifiedInstances<Element> trainingSet) throws Exception {
 		getLogger(ctx).info("training classifier");
 		classifier.buildClassifier(trainingSet);
 	}
 
 	@TimeThis(task="write-arff", category=TimerCategory.EXPORT)
-	protected void writeArff(ProcessingContext<Corpus> ctx, Instances instances) throws IOException {
+	protected void writeArff(ProcessingContext ctx, Instances instances) throws IOException {
 		if (arffFile == null)
 			return;
     	getLogger(ctx).info("writing training set into " + arffFile.getName());
@@ -89,7 +89,7 @@ public class WekaTrain extends PredictionElementClassifier {
 	}
 
 	@TimeThis(task="save-classifier", category=TimerCategory.EXPORT)
-	protected void writeClassifier(ProcessingContext<Corpus> ctx, Classifier classifier) throws IOException {
+	protected void writeClassifier(ProcessingContext ctx, Classifier classifier) throws IOException {
         getLogger(ctx).info("writing classifier");
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(getClassifierFile()));
         oos.writeObject(classifier);
@@ -98,7 +98,7 @@ public class WekaTrain extends PredictionElementClassifier {
 	}
 
 	@TimeThis(task="classifier-info", category=TimerCategory.EXPORT)
-	protected void writeClassifierInfo(ProcessingContext<Corpus> ctx, Classifier classifier) throws IOException {
+	protected void writeClassifierInfo(ProcessingContext ctx, Classifier classifier) throws IOException {
 		if (classifierInfoFile == null)
 			return;
     	getLogger(ctx).info("writing classifier info to " + classifierInfoFile.getName());
@@ -117,7 +117,7 @@ public class WekaTrain extends PredictionElementClassifier {
     	return result;
 	}
 
-	private void crossValidate(ProcessingContext<Corpus> ctx, Classifier classifier, IdentifiedInstances<Element> instances) throws Exception {
+	private void crossValidate(ProcessingContext ctx, Classifier classifier, IdentifiedInstances<Element> instances) throws Exception {
 		TargetStream evaluationFile = getEvaluationFile();
     	String foldFeatureKey = getFoldFeatureKey();
     	String predictedClassFeatureKey = getPredictedClassFeatureKey();
@@ -130,7 +130,7 @@ public class WekaTrain extends PredictionElementClassifier {
 	}
 
 	@TimeThis(task="cross-validation")
-	protected Evaluation crossValidate(ProcessingContext<Corpus> ctx, Classifier classifier, IdentifiedInstances<Element> instances, String[] classes, boolean withId) throws Exception {
+	protected Evaluation crossValidate(ProcessingContext ctx, Classifier classifier, IdentifiedInstances<Element> instances, String[] classes, boolean withId) throws Exception {
 		Logger logger = getLogger(ctx);
         logger.info("cross-validating " + crossFolds + " folds");
     	Random random = new Random(getRandomSeed());
@@ -161,7 +161,7 @@ public class WekaTrain extends PredictionElementClassifier {
 	}
 
 	@TimeThis(task="write-results", category=TimerCategory.EXPORT)
-	protected void writeCrossValidationResults(ProcessingContext<Corpus> ctx, TargetStream evaluationFile, Evaluation evaluation, String[] classes) throws Exception {
+	protected void writeCrossValidationResults(ProcessingContext ctx, TargetStream evaluationFile, Evaluation evaluation, String[] classes) throws Exception {
 		Logger logger = getLogger(ctx);
         logger.info("writing test results into " + evaluationFile.getName());
         try (PrintStream out = evaluationFile.getPrintStream()) {

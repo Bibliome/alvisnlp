@@ -20,7 +20,6 @@ package fr.inra.maiage.bibliome.alvisnlp.core.module.lib;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleVisitor;
@@ -30,8 +29,8 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ParameterException;
 /**
  * Base class for parameter handlers.
  */
-public class ParamHandlerBase<A extends Annotable> implements ParamHandler<A> {
-    private final ModuleBase<A> owner;
+public class ParamHandlerBase implements ParamHandler {
+    private final ModuleBase owner;
     private final Method getter;
     private final Method setter;
     private final Param annot;
@@ -47,7 +46,7 @@ public class ParamHandlerBase<A extends Annotable> implements ParamHandler<A> {
      * @param annot
      * @throws NoSuchMethodException
      */
-    protected ParamHandlerBase(ModuleBase<A> owner, Method getter, Param annot) throws NoSuchMethodException {
+    protected ParamHandlerBase(ModuleBase owner, Method getter, Param annot) throws NoSuchMethodException {
         super();
         this.owner = owner;
         this.getter = getter;
@@ -128,12 +127,12 @@ public class ParamHandlerBase<A extends Annotable> implements ParamHandler<A> {
     }
 
 	@Override
-	public <P> void accept(ModuleVisitor<A,P> visitor, P param) throws ModuleException {
+	public <P> void accept(ModuleVisitor<P> visitor, P param) throws ModuleException {
 		visitor.visitParam(this, param);
 	}
 
 	@Override
-	public Module<A> getModule() {
+	public Module getModule() {
 		return owner;
 	}
 

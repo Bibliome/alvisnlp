@@ -66,7 +66,7 @@ public class FileMapper extends Mapper<MapperResolvedObjects,List<String>> imple
     };
 
     @Override
-	protected MapperResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected MapperResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new MapperResolvedObjects(ctx, this);
 	}
 
@@ -83,7 +83,7 @@ public class FileMapper extends Mapper<MapperResolvedObjects,List<String>> imple
 	}
 
 	@Override
-	public void fillMapping(DefaultMap<String, List<List<String>>> mapping, ProcessingContext<Corpus> ctx, Corpus corpus) throws ProcessingException {
+	public void fillMapping(DefaultMap<String, List<List<String>>> mapping, ProcessingContext ctx, Corpus corpus) throws ProcessingException {
         try {
             Logger logger = getLogger(ctx);
             mapEntryLines.setLogger(logger);

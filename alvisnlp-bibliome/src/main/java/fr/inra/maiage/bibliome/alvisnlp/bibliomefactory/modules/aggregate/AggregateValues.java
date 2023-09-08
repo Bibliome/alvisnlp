@@ -58,7 +58,7 @@ public class AggregateValues extends CorpusModule<AggregateValuesResolvedObjects
 		private final Evaluator key;
 		private final Aggregator.Resolved[] aggregators;
 
-		private AggregateValuesResolvedObjects(ProcessingContext<Corpus> ctx, AggregateValues module) throws ResolverException {
+		private AggregateValuesResolvedObjects(ProcessingContext ctx, AggregateValues module) throws ResolverException {
 			super(ctx, module);
 			entries = module.entries.resolveExpressions(rootResolver);
 			key = module.key.resolveExpressions(rootResolver);
@@ -75,18 +75,18 @@ public class AggregateValues extends CorpusModule<AggregateValuesResolvedObjects
 	}
 
 	@Override
-	protected AggregateValuesResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected AggregateValuesResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new AggregateValuesResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		EntryMap entryMap = aggregateEntries(ctx, corpus);
 		writeEntries(ctx, entryMap);
 	}
 
 	@TimeThis(task="aggregate")
-	protected EntryMap aggregateEntries(ProcessingContext<Corpus> ctx, Corpus corpus) {
+	protected EntryMap aggregateEntries(ProcessingContext ctx, Corpus corpus) {
 		AggregateValuesResolvedObjects resObj = getResolvedObjects();
 		EntryMap result = new EntryMap(resObj.aggregators);
 		Logger logger = getLogger(ctx);
@@ -102,7 +102,7 @@ public class AggregateValues extends CorpusModule<AggregateValuesResolvedObjects
 	}
 
 	@TimeThis(task="write", category=TimerCategory.EXPORT)
-	protected void writeEntries(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, EntryMap entryMap) throws ProcessingException {
+	protected void writeEntries(ProcessingContext ctx, EntryMap entryMap) throws ProcessingException {
 		AggregateValuesResolvedObjects resObj = getResolvedObjects();
 		try (PrintStream out = outFile.getPrintStream()) {
 			for (Map.Entry<String,Object[]> e : entryMap.entrySet()) {

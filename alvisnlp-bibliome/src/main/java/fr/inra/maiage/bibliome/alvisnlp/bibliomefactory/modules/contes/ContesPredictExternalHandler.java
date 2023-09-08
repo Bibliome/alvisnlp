@@ -23,7 +23,7 @@ import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 class ContesPredictExternalHandler extends AbstractContesTermsExternalHandler<InputFile,ContesPredictTermClassifier,ContesPredict> {
-	ContesPredictExternalHandler(ProcessingContext<Corpus> processingContext, ContesPredict module, Corpus annotable) {
+	ContesPredictExternalHandler(ProcessingContext processingContext, ContesPredict module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
 
@@ -68,7 +68,7 @@ class ContesPredictExternalHandler extends AbstractContesTermsExternalHandler<In
 
 	private void setPredictionFeature(Map<String,Pair<String,String>> predictions, ContesTermClassifier.Resolved termClassifier) {
 		EvaluationContext ctx = new EvaluationContext(getLogger());
-		Corpus corpus = getAnnotable();
+		Corpus corpus = getCorpus();
 		String conceptFeatureName = termClassifier.getConceptFeatureName();
 		String similarityFeatureName = termClassifier.getSimilarityFeatureName();
 		Iterator<Section> sectionIt = corpus.sectionIterator(ctx, termClassifier.getDocumentFilter(), termClassifier.getSectionFilter());

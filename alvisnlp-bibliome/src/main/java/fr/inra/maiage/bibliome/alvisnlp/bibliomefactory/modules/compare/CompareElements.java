@@ -60,7 +60,7 @@ public class CompareElements extends CorpusModule<CompareElementsResolvedObjects
 		private final Evaluator predicted;
 		private final Evaluator face;
 
-		public CompareElementsResolvedObjects(ProcessingContext<Corpus> ctx, CompareElements module) throws ResolverException {
+		public CompareElementsResolvedObjects(ProcessingContext ctx, CompareElements module) throws ResolverException {
 			super(ctx, module);
 			sections = rootResolver.resolveNullable(module.sections);
 			reference = rootResolver.resolveNullable(module.reference);
@@ -79,12 +79,12 @@ public class CompareElements extends CorpusModule<CompareElementsResolvedObjects
 	}
 
 	@Override
-	protected CompareElementsResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected CompareElementsResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new CompareElementsResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		CompareElementsResolvedObjects resObj = getResolvedObjects();
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);

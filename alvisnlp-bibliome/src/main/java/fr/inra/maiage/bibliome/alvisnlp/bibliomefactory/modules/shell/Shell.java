@@ -46,12 +46,12 @@ public abstract class Shell extends CorpusModule<ResolvedObjects> implements Doc
 	private OutputFile historyFile = new OutputFile(System.getProperty("user.home"), ".alvisnlp/shell_history");
 
 	@Override
-	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 	    	Logger logger = getLogger(ctx);
 			ConsoleReader console = getConsoleReader(ctx);
@@ -71,22 +71,20 @@ public abstract class Shell extends CorpusModule<ResolvedObjects> implements Doc
 		}
 	}
 
-	@SuppressWarnings("static-method")
 	@TimeThis(task="prompt")
-	protected String readCommand(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, ConsoleReader console) throws IOException {
+	protected String readCommand(ProcessingContext ctx, ConsoleReader console) throws IOException {
 		System.out.print("\u001B[35;1m");
 		String result = console.readLine();
 		System.out.print("\u001B[0m");
 		return result;
 	}
 
-	@SuppressWarnings("static-method")
 	@TimeThis(task="execute")
-	protected void execCommand(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, ShellEnvironment env, String cmdStr) {
+	protected void execCommand(ProcessingContext ctx, ShellEnvironment env, String cmdStr) {
 		env.executeCommand(cmdStr);
 	}
 
-	private ConsoleReader getConsoleReader(ProcessingContext<Corpus> ctx) throws IOException {
+	private ConsoleReader getConsoleReader(ProcessingContext ctx) throws IOException {
 		ConsoleReader result = new ConsoleReader();
 		File tmpDir = getTempDir(ctx);
 		File historyFile = this.historyFile == null ? new File(tmpDir, "history") : this.historyFile;

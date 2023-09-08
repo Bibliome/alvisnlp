@@ -113,12 +113,12 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	private String htmlTagFeature = "tag";
 
 	@Override
-	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		LoadOptions options = getLoadOptions();
 		Properties props = new Properties();
 		try (BufferedReader r = databasePropsFile.getBufferedReader()) {
@@ -147,14 +147,14 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	}
 
 	@TimeThis(task="load-sql", category=TimerCategory.LOAD_RESOURCE)
-	protected Campaign loadCampaign(ProcessingContext<Corpus> ctx, LoadOptions options, Connection connection, String schema, int cid) throws SQLException, ParseException {
+	protected Campaign loadCampaign(ProcessingContext ctx, LoadOptions options, Connection connection, String schema, int cid) throws SQLException, ParseException {
 		Campaign campaign = new Campaign(oldModel, schema, cid);
 		campaign.load(getLogger(ctx), connection, options);
 		return campaign;
 	}
 
 	@TimeThis(task="open-connection")
-	protected Connection openConnection(ProcessingContext<Corpus> ctx, String url, String username, String password) throws SQLException, ClassNotFoundException {
+	protected Connection openConnection(ProcessingContext ctx, String url, String username, String password) throws SQLException, ClassNotFoundException {
 //		Class.forName("org.postgresql.Driver");
 		Class.forName("org.postgresql.Driver", true, AlvisAEReader.class.getClassLoader());
 		return DriverManager.getConnection(url, username, password);
@@ -186,7 +186,7 @@ public abstract class AlvisAEReader extends CorpusModule<ResolvedObjects> implem
 	}
 
 	@TimeThis(task="convert-documents", category=TimerCategory.COLLECT_DATA)
-	protected void convertCorpus(ProcessingContext<Corpus> ctx, Corpus corpus, Campaign campaign) {
+	protected void convertCorpus(ProcessingContext ctx, Corpus corpus, Campaign campaign) {
 		Logger logger = getLogger(ctx);
 		for (AlvisAEDocument doc : campaign.getDocuments()) {
 			convertDocument(logger, corpus, doc);

@@ -52,7 +52,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Library;
 })
 @SupportedOptions( {
 	"moduleFactoryName",
-	"dataClass",
 	"sequenceImplementationClass",
 	"factoryInterface",
 	"converterFactoryName",
@@ -82,12 +81,11 @@ public class AlvisNLPAnnotationProcessor extends AbstractProcessor {
 
 			if (annotations.contains(ctx.getModuleAnnotation())) {				
 				String moduleFactoryName = ctx.getOption("moduleFactoryName");
-				String dataClass = ctx.getOption("dataClass");
 				String sequenceImplementationClass = ctx.getOption("sequenceImplementationClass");
 				String factoryInterface = ctx.getOption("factoryInterface");
 				String shellModule = ctx.getOption("shellModule");
 				String browserModule = ctx.getOption("browserModule");
-				ModuleFactoryModel moduleFactory = new ModuleFactoryModel(moduleFactoryName, dataClass, sequenceImplementationClass, factoryInterface, prefix, shellModule, browserModule);
+				ModuleFactoryModel moduleFactory = new ModuleFactoryModel(moduleFactoryName, sequenceImplementationClass, factoryInterface, prefix, shellModule, browserModule);
 
 				ctx.note("processing module sources");
 				for (TypeElement moduleElement : ElementFilter.typesIn(roundEnv.getElementsAnnotatedWith(ctx.getModuleAnnotation()))) {
@@ -95,7 +93,7 @@ public class AlvisNLPAnnotationProcessor extends AbstractProcessor {
 					moduleFactory.addModule(ctx, module);
 				}
 
-				ctx.note("generating module factory for data class " + dataClass + " (" + moduleFactory.moduleCount() + " modules, " + moduleFactory.betaCount() + " beta, " + moduleFactory.obsoleteCount() + " obsolete)");
+				ctx.note("generating module factory (" + moduleFactory.moduleCount() + " modules, " + moduleFactory.betaCount() + " beta, " + moduleFactory.obsoleteCount() + " obsolete)");
 				moduleFactory.generateClass(ctx);
 				ctx.note("generating module classes");
 				moduleFactory.generateModules(ctx);

@@ -56,7 +56,7 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 	static class GeniaTaggerResolvedObjects extends SectionResolvedObjects {
 		final Evaluator sentenceFilter;
 
-		private GeniaTaggerResolvedObjects(ProcessingContext<Corpus> ctx, GeniaTagger module) throws ResolverException {
+		private GeniaTaggerResolvedObjects(ProcessingContext ctx, GeniaTagger module) throws ResolverException {
 			super(ctx, module);
 			sentenceFilter = module.sentenceFilter.resolveExpressions(rootResolver);
 		}
@@ -69,12 +69,12 @@ public class GeniaTagger extends SectionModule<GeniaTaggerResolvedObjects> {
 	}
 
 	@Override
-	protected GeniaTaggerResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected GeniaTaggerResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new GeniaTaggerResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			new GeniaTaggerExternalHandler(ctx, this, corpus).start();
 		}

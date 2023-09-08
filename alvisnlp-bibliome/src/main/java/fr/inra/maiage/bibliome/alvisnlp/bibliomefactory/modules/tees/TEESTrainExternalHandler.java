@@ -21,7 +21,7 @@ import fr.inra.maiage.bibliome.util.Files;
 class TEESTrainExternalHandler extends TEESMapperExternalHandler<TEESTrain> {
 	private final JAXBContext jaxbContext;
 
-	TEESTrainExternalHandler(ProcessingContext<Corpus> processingContext, TEESTrain module, Corpus annotable) throws JAXBException {
+	TEESTrainExternalHandler(ProcessingContext processingContext, TEESTrain module, Corpus annotable) throws JAXBException {
 		super(processingContext, module, annotable);
 		this.jaxbContext = JAXBContext.newInstance(CorpusTEES.class);
 	}

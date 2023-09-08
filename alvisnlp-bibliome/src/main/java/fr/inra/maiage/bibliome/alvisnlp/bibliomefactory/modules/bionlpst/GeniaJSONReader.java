@@ -59,7 +59,7 @@ public abstract class GeniaJSONReader extends CorpusModule<ResolvedObjects> impl
 	private String instanceIdFeature = "instance-id";
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		JSONParser parser = new JSONParser();
 		try {
@@ -141,7 +141,7 @@ public abstract class GeniaJSONReader extends CorpusModule<ResolvedObjects> impl
 		}
 	}
 
-	private void fillAnnotations(@SuppressWarnings("unused") Logger logger, Section sec, JSONObject json, Map<String,Element> eltMap) {
+	private void fillAnnotations(Logger logger, Section sec, JSONObject json, Map<String,Element> eltMap) {
 		JSONArray catanns = (JSONArray) json.get("catanns");
 		if (catanns == null) {
 			return;
@@ -163,7 +163,7 @@ public abstract class GeniaJSONReader extends CorpusModule<ResolvedObjects> impl
 		}
 	}
 
-	private Section getSection(@SuppressWarnings("unused") Logger logger, Corpus corpus, JSONObject json) {
+	private Section getSection(Logger logger, Corpus corpus, JSONObject json) {
 		String source_db = (String) json.get("source_db");
 		String source_id = (String) json.get("source_id");
 		int division_id = (int) (long) json.get("division_id");
@@ -181,7 +181,7 @@ public abstract class GeniaJSONReader extends CorpusModule<ResolvedObjects> impl
 	}
 
 	@Override
-	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
 	}
 

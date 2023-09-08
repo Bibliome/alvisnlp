@@ -41,7 +41,7 @@ import fr.inra.maiage.bibliome.util.streams.TargetStream;
 @AlvisNLPModule
 public class WekaPredict extends PredictionElementClassifier {
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ProcessingException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ProcessingException {
 		try {
 			Classifier classifier = loadClassifier(ctx);
 			ElementClassifierResolvedObjects resObj = getResolvedObjects();
@@ -54,7 +54,7 @@ public class WekaPredict extends PredictionElementClassifier {
 	}
 
 	@TimeThis(task="prediction")
-	protected void predictExamples(ProcessingContext<Corpus> ctx, Classifier classifier, IdentifiedInstances<Element> devSet, Corpus corpus) throws Exception {
+	protected void predictExamples(ProcessingContext ctx, Classifier classifier, IdentifiedInstances<Element> devSet, Corpus corpus) throws Exception {
 		ElementClassifierResolvedObjects resObj = getResolvedObjects();
 		RelationDefinition relationDefinition = resObj.getRelationDefinition();
 		Evaluator examples = resObj.getExamples();
@@ -74,7 +74,7 @@ public class WekaPredict extends PredictionElementClassifier {
 	}
 
 	@TimeThis(task="load-classifier", category=TimerCategory.LOAD_RESOURCE)
-	protected Classifier loadClassifier(ProcessingContext<Corpus> ctx) throws IOException, ClassNotFoundException {
+	protected Classifier loadClassifier(ProcessingContext ctx) throws IOException, ClassNotFoundException {
 		File classifierFile = getClassifierFile();
         getLogger(ctx).info("reading classifier from " + classifierFile.getCanonicalPath());
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(classifierFile));

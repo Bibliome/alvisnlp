@@ -48,10 +48,9 @@ public class DisambiguateAlternatives extends DocumentModule<DisambiguateAlterna
 	private Boolean warnIfAmbiguous = false;
 
 	class DisambiguateAlternativesResolvedObjects extends DocumentResolvedObjects {
-		@SuppressWarnings("hiding")
 		private final Evaluator target;
 
-		private DisambiguateAlternativesResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		private DisambiguateAlternativesResolvedObjects(ProcessingContext ctx) throws ResolverException {
 			super(ctx, DisambiguateAlternatives.this);
 			target = rootResolver.resolveNullable(DisambiguateAlternatives.this.target);
 		}
@@ -64,12 +63,12 @@ public class DisambiguateAlternatives extends DocumentModule<DisambiguateAlterna
 	}
 
 	@Override
-	protected DisambiguateAlternativesResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected DisambiguateAlternativesResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new DisambiguateAlternativesResolvedObjects(ctx);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		DisambiguateAlternativesResolvedObjects resObj = getResolvedObjects();
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);

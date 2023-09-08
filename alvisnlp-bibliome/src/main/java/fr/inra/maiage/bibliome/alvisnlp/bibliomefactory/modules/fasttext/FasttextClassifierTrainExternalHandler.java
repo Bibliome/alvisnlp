@@ -14,7 +14,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.IntegerMapping;
 
 public class FasttextClassifierTrainExternalHandler extends FasttextClassifierBaseExternalHandler<FasttextClassifierTrainResolvedObjects,FasttextClassifierTrain> {
-	public FasttextClassifierTrainExternalHandler(ProcessingContext<Corpus> processingContext, FasttextClassifierTrain module, Corpus annotable) {
+	public FasttextClassifierTrainExternalHandler(ProcessingContext processingContext, FasttextClassifierTrain module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
 

@@ -53,7 +53,7 @@ public abstract class CCGBase<T extends CCGResolvedObjects> extends SectionModul
 	public static class CCGResolvedObjects extends SectionResolvedObjects {
 		private final Evaluator sentenceFilter;
 
-		public CCGResolvedObjects(ProcessingContext<Corpus> ctx, CCGBase<? extends CCGResolvedObjects> module) throws ResolverException {
+		public CCGResolvedObjects(ProcessingContext ctx, CCGBase<? extends CCGResolvedObjects> module) throws ResolverException {
 			super(ctx, module);
 			this.sentenceFilter = module.sentenceFilter.resolveExpressions(rootResolver);
 		}

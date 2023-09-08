@@ -21,7 +21,7 @@ public class HttpServer extends CorpusModule<ResolvedObjects> {
 	private InputDirectory resourceBaseDir;
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			Logger logger = getLogger(ctx);
 			LibraryResolver resolver = getLibraryResolver(ctx);
@@ -39,7 +39,7 @@ public class HttpServer extends CorpusModule<ResolvedObjects> {
 	}
 
 	@Override
-	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
 	}
 

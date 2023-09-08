@@ -28,8 +28,8 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
 import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.Strings;
 
-class Ab3PExternalHandler extends ExternalHandler<Corpus,Ab3P> {
-	Ab3PExternalHandler(ProcessingContext<Corpus> processingContext, Ab3P module, Corpus annotable) {
+class Ab3PExternalHandler extends ExternalHandler<Ab3P> {
+	Ab3PExternalHandler(ProcessingContext processingContext, Ab3P module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
 
@@ -38,7 +38,7 @@ class Ab3PExternalHandler extends ExternalHandler<Corpus,Ab3P> {
 		Ab3P owner = getModule();
 		EvaluationContext evalCtx = new EvaluationContext(getLogger());
 		try (PrintStream ps = new PrintStream(getAb3PInputFile())) {
-			for (Document doc : Iterators.loop(owner.documentIterator(evalCtx, getAnnotable()))) {
+			for (Document doc : Iterators.loop(owner.documentIterator(evalCtx, getCorpus()))) {
 				for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, doc))) {
 					String rawContents = sec.getContents();
 					String lineContents = rawContents.replace('\n', ' ').trim();
@@ -58,7 +58,7 @@ class Ab3PExternalHandler extends ExternalHandler<Corpus,Ab3P> {
 		try (BufferedReader reader = new BufferedReader(new FileReader(getOutputFile()))) {
 			EvaluationContext evalCtx = new EvaluationContext(getLogger());
 			boolean eof = false;
-			for (Section sec : Iterators.loop(getModule().sectionIterator(evalCtx, getAnnotable()))) {
+			for (Section sec : Iterators.loop(getModule().sectionIterator(evalCtx, getCorpus()))) {
 				if (eof) {
 					throw new ProcessingException("output has too few lines");
 				}

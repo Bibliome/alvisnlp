@@ -17,7 +17,6 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules;
 
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.LibraryResolver;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
@@ -30,7 +29,7 @@ public class ResolvedObjects implements NameUser {
 	protected final LibraryResolver rootResolver;
 	private final Evaluator active;
 	
-	public ResolvedObjects(ProcessingContext<Corpus> ctx, CorpusModule<? extends ResolvedObjects> module) throws ResolverException {
+	public ResolvedObjects(ProcessingContext ctx, CorpusModule<? extends ResolvedObjects> module) throws ResolverException {
 		rootResolver = module.getLibraryResolver(ctx);
 		active = rootResolver.resolveNullable(module.getActive());
 	}

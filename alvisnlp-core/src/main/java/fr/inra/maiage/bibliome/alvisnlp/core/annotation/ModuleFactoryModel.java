@@ -49,7 +49,6 @@ import fr.inra.maiage.bibliome.util.xml.XMLUtils;
  *
  */
 class ModuleFactoryModel extends AbstractFactoryModel {
-	private final String dataClass;
 	private final String sequenceImplementationClass;
 	private final String factoryInterface;
 	private final String prefix;
@@ -63,9 +62,8 @@ class ModuleFactoryModel extends AbstractFactoryModel {
 	 * @param model
 	 * @param prefix
 	 */
-	ModuleFactoryModel(String fullName, String dataClass, String sequenceImplementationClass, String factoryInterface, String prefix, String shellModule, String browserModule) {
+	ModuleFactoryModel(String fullName, String sequenceImplementationClass, String factoryInterface, String prefix, String shellModule, String browserModule) {
 		super(fullName);
-		this.dataClass = dataClass;
 		this.sequenceImplementationClass = sequenceImplementationClass;
 		this.factoryInterface = factoryInterface;
 		this.prefix = prefix;
@@ -78,8 +76,7 @@ class ModuleFactoryModel extends AbstractFactoryModel {
 	 * @param module
 	 */
 	void addModule(ModelContext ctx, ModuleModel module) {
-//		if (!dataClass.equals(module.getDataClass()))
-		if (!ctx.isRightDataClassModule(module.getElement(), dataClass))
+		if (!ctx.isRightDataClassModule(module.getElement()))
 			throw new IllegalArgumentException();
 		modules.add(module);
 		clearDOM();
@@ -89,7 +86,6 @@ class ModuleFactoryModel extends AbstractFactoryModel {
 	protected void fillDOM(ModelContext ctx, Document doc) {
 		org.w3c.dom.Element root = doc.getDocumentElement();
 		root.setAttribute("generated-prefix", prefix);
-		root.setAttribute("dataClass", dataClass);
 		root.setAttribute("sequenceClass", sequenceImplementationClass);
 		root.setAttribute("factoryInterface", factoryInterface);
 		root.setAttribute("shellModule", shellModule);

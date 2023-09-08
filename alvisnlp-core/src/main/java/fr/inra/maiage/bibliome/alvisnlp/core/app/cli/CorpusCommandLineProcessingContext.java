@@ -27,14 +27,12 @@ import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.ArgumentElement;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.FeatureElement;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.CorpusDumper;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable.Dumper;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
@@ -45,7 +43,7 @@ import fr.inra.maiage.bibliome.util.Timer;
  * @author rbossy
  *
  */
-public class CorpusCommandLineProcessingContext extends CommandLineProcessingContext<Corpus> {
+public class CorpusCommandLineProcessingContext extends CommandLineProcessingContext {
 	/**
 	 * Creates an new processing context.
 	 * @param timer
@@ -55,7 +53,7 @@ public class CorpusCommandLineProcessingContext extends CommandLineProcessingCon
 	}
 
 	@Override
-	public boolean checkPlan(Logger logger, Module<Corpus> mainModule) throws ModuleException {
+	public boolean checkPlan(Logger logger, Module mainModule) throws ModuleException {
 		return super.checkPlan(logger, mainModule);
 	}
 
@@ -84,7 +82,7 @@ public class CorpusCommandLineProcessingContext extends CommandLineProcessingCon
 	}
 
 	@Override
-	public Dumper<Corpus> getDumper(Logger logger, File file) throws IOException {
+	public CorpusDumper getDumper(Logger logger, File file) throws IOException {
 		return new CorpusDumper(logger, file);
 	}
 }

@@ -17,10 +17,9 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.core.factory;
 
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 
 /**
  * Factory of modules for the legacy corpus data model.
  */
-public class CompoundCorpusModuleFactory extends CompoundModuleFactory<Corpus> implements CorpusModuleFactory {
+public class CompoundCorpusModuleFactory extends CompoundModuleFactory implements CorpusModuleFactory {
 }

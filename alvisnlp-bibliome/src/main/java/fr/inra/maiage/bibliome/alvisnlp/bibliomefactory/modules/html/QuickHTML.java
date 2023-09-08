@@ -52,7 +52,7 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 	public static class QuickHTMLResolvedObjects extends SectionResolvedObjects {
 		private final Evaluator documentTitle;
 
-		public QuickHTMLResolvedObjects(ProcessingContext<Corpus> ctx, QuickHTML module) throws ResolverException {
+		public QuickHTMLResolvedObjects(ProcessingContext ctx, QuickHTML module) throws ResolverException {
 			super(ctx, module);
 			this.documentTitle = module.documentTitle.resolveExpressions(rootResolver);
 		}
@@ -65,7 +65,7 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		try {
 			if (!outDir.exists() && !outDir.mkdirs()) {
@@ -107,7 +107,7 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 		}
 	}
 	
-	private void writeData(Logger logger, ProcessingContext<Corpus> ctx, Corpus corpus) throws FileNotFoundException {
+	private void writeData(Logger logger, ProcessingContext ctx, Corpus corpus) throws FileNotFoundException {
 		logger.info("writing data.js");
 		try (PrintStream out = new PrintStream(new OutputFile(outDir, "data.js"))) {
 			JSONObject j = buildCorpusJSON(ctx, corpus);
@@ -119,7 +119,7 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 	}
 
 	@SuppressWarnings("unchecked")
-	private JSONObject buildCorpusJSON(ProcessingContext<Corpus> ctx, Corpus corpus) {
+	private JSONObject buildCorpusJSON(ProcessingContext ctx, Corpus corpus) {
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		JSONObject result = new JSONObject();
@@ -265,7 +265,7 @@ public class QuickHTML extends SectionModule<QuickHTMLResolvedObjects> {
 	}
 
 	@Override
-	protected QuickHTMLResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected QuickHTMLResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new QuickHTMLResolvedObjects(ctx, this);
 	}
 

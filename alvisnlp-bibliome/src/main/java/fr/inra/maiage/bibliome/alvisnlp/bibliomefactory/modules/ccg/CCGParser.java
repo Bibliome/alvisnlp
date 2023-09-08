@@ -54,7 +54,7 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements D
 	private String supertagFeature = "supertag";
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			Logger logger = getLogger(ctx);
 			EvaluationContext evalCtx = new EvaluationContext(logger);
@@ -81,7 +81,7 @@ public abstract class CCGParser extends CCGBase<CCGResolvedObjects> implements D
 	}
 
 	@Override
-	protected CCGResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected CCGResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new CCGResolvedObjects(ctx, this);
 	}
 

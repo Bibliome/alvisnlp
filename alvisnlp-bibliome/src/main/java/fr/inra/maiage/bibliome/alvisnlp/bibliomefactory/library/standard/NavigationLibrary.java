@@ -182,7 +182,7 @@ public abstract class NavigationLibrary extends FunctionLibrary {
 	}
 	
 	@Function(ftors=1, nameTypes={NameType.LAYER})
-	public static final Iterator<Element> layer(@SuppressWarnings("unused") EvaluationContext ctx, Element elt, String name) {
+	public static final Iterator<Element> layer(EvaluationContext ctx, Element elt, String name) {
 		Section sec = DownCastElement.toSection(elt);
 		if (sec == null)
 			return Iterators.emptyIterator();
@@ -202,7 +202,7 @@ public abstract class NavigationLibrary extends FunctionLibrary {
 	}
 	
 	@Function(ftors=1, nameTypes={NameType.RELATION})
-	public static final Iterator<Element> relations(@SuppressWarnings("unused") EvaluationContext ctx, Element elt, String name) {
+	public static final Iterator<Element> relations(EvaluationContext ctx, Element elt, String name) {
 		Section sec = DownCastElement.toSection(elt);
 		if (sec == null)
 			return Iterators.emptyIterator();
@@ -229,7 +229,7 @@ public abstract class NavigationLibrary extends FunctionLibrary {
 	}
 	
 	@Function
-	public static final Iterator<Element> tuples(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final Iterator<Element> tuples(EvaluationContext ctx, Element elt) {
 		Relation rel = DownCastElement.toRelation(elt);
 		if (rel == null)
 			return Iterators.emptyIterator();
@@ -274,7 +274,7 @@ public abstract class NavigationLibrary extends FunctionLibrary {
 	};
 	
 	@Function(ftors=2, nameTypes={NameType.RELATION, NameType.ARGUMENT})
-	public static final Iterator<Element> tuples(@SuppressWarnings("unused") EvaluationContext ctx, Element elt, String relationName, String role) {
+	public static final Iterator<Element> tuples(EvaluationContext ctx, Element elt, String relationName, String role) {
 		Section sec = elt.accept(FIND_SECTION, null);
 		if (sec == null)
 			return Iterators.emptyIterator();
@@ -318,12 +318,12 @@ public abstract class NavigationLibrary extends FunctionLibrary {
 	}
 	
 	@Function(firstFtor="$")
-	public static final Iterator<Element> self(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final Iterator<Element> self(EvaluationContext ctx, Element elt) {
 		return Iterators.singletonIterator(elt);
 	}
 	
 	@Function(ftors=1, nameTypes={NameType.ARGUMENT})
-	public static final Iterator<Element> args(@SuppressWarnings("unused") EvaluationContext ctx, Element elt, String role) {
+	public static final Iterator<Element> args(EvaluationContext ctx, Element elt, String role) {
 		Tuple t = DownCastElement.toTuple(elt);
 		if (t == null)
 			return Iterators.emptyIterator();
@@ -345,7 +345,7 @@ public abstract class NavigationLibrary extends FunctionLibrary {
 	}
 	
 	@Function
-	public static final Iterator<Element> relation(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final Iterator<Element> relation(EvaluationContext ctx, Element elt) {
 		Tuple t = DownCastElement.toTuple(elt);
 		if (t == null)
 			return Iterators.emptyIterator();
@@ -403,7 +403,7 @@ public abstract class NavigationLibrary extends FunctionLibrary {
 	};
 	
 	@Function
-	public static final Iterator<Element> corpus(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final Iterator<Element> corpus(EvaluationContext ctx, Element elt) {
 		return Iterators.nonNullSingleton(elt.accept(ELEMENT_CORPUS, null));
 	}
 	
@@ -445,12 +445,12 @@ public abstract class NavigationLibrary extends FunctionLibrary {
 	};
 	
 	@Function
-	public static final Iterator<Element> document(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final Iterator<Element> document(EvaluationContext ctx, Element elt) {
 		return Iterators.nonNullSingleton(elt.accept(ELEMENT_DOCUMENT, null));
 	}
 	
 	@Function(ftors=1)
-	public static final Iterator<Element> documents(@SuppressWarnings("unused") EvaluationContext ctx, Element elt, String id) {
+	public static final Iterator<Element> documents(EvaluationContext ctx, Element elt, String id) {
 		Corpus corpus = DownCastElement.toCorpus(elt);
 		if (corpus == null)
 			return Iterators.emptyIterator();
@@ -509,12 +509,12 @@ public abstract class NavigationLibrary extends FunctionLibrary {
 	};
 	
 	@Function
-	public static final Iterator<Element> section(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final Iterator<Element> section(EvaluationContext ctx, Element elt) {
 		return Iterators.nonNullSingleton(elt.accept(ELEMENT_SECTION, null));
 	}
 	
 	@Function(ftors=1, nameTypes={NameType.SECTION})
-	public static final Iterator<Element> sections(@SuppressWarnings("unused") EvaluationContext ctx, Element elt, String name) {
+	public static final Iterator<Element> sections(EvaluationContext ctx, Element elt, String name) {
 		Document doc = DownCastElement.toDocument(elt);
 		if (doc == null)
 			return Iterators.emptyIterator();
@@ -536,7 +536,7 @@ public abstract class NavigationLibrary extends FunctionLibrary {
 	}
 	
 	@Function(firstFtor="sections-before")
-	public static final List<Element> sectionBefore(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final List<Element> sectionBefore(EvaluationContext ctx, Element elt) {
 		Section sec = DownCastElement.toSection(elt);
 		if (sec == null) {
 			return Collections.emptyList();
@@ -553,7 +553,7 @@ public abstract class NavigationLibrary extends FunctionLibrary {
 	}
 	
 	@Function(firstFtor="sections-before", ftors=1, nameTypes= {NameType.SECTION})
-	public static final List<Element> sectionBefore(@SuppressWarnings("unused") EvaluationContext ctx, Element elt, String name) {
+	public static final List<Element> sectionBefore(EvaluationContext ctx, Element elt, String name) {
 		Section sec = DownCastElement.toSection(elt);
 		if (sec == null) {
 			return Collections.emptyList();
@@ -570,7 +570,7 @@ public abstract class NavigationLibrary extends FunctionLibrary {
 	}
 	
 	@Function(firstFtor="sections-after")
-	public static final List<Element> sectionAfter(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final List<Element> sectionAfter(EvaluationContext ctx, Element elt) {
 		Section sec = DownCastElement.toSection(elt);
 		if (sec == null) {
 			return Collections.emptyList();
@@ -587,7 +587,7 @@ public abstract class NavigationLibrary extends FunctionLibrary {
 	}
 	
 	@Function(firstFtor="sections-after", ftors=1, nameTypes= {NameType.SECTION})
-	public static final List<Element> sectionAfter(@SuppressWarnings("unused") EvaluationContext ctx, Element elt, String name) {
+	public static final List<Element> sectionAfter(EvaluationContext ctx, Element elt, String name) {
 		Section sec = DownCastElement.toSection(elt);
 		if (sec == null) {
 			return Collections.emptyList();
@@ -604,7 +604,7 @@ public abstract class NavigationLibrary extends FunctionLibrary {
 	}
 	
 	@Function(ftors=1, nameTypes={NameType.FEATURE})
-	public static final List<Element> features(@SuppressWarnings("unused") EvaluationContext ctx, Element elt, String key) {
+	public static final List<Element> features(EvaluationContext ctx, Element elt, String key) {
 		if (!elt.hasFeature(key))
 			return Collections.emptyList();
 		List<String> values = elt.getFeature(key);
@@ -618,7 +618,7 @@ public abstract class NavigationLibrary extends FunctionLibrary {
 	}
 	
 	@Function
-	public static final List<Element> features(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final List<Element> features(EvaluationContext ctx, Element elt) {
 		List<Element> result = new ArrayList<Element>();
 		for (String key : elt.getFeatureKeys())
 			for (String value : elt.getFeature(key))
@@ -627,7 +627,7 @@ public abstract class NavigationLibrary extends FunctionLibrary {
 	}
 
 	@Function
-	public static final List<Element> arguments(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final List<Element> arguments(EvaluationContext ctx, Element elt) {
 		Tuple t = DownCastElement.toTuple(elt);
 		if (t == null)
 			return Collections.emptyList();
@@ -638,7 +638,7 @@ public abstract class NavigationLibrary extends FunctionLibrary {
 	}
 	
 	@Function
-	public static final Iterator<Element> parent(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final Iterator<Element> parent(EvaluationContext ctx, Element elt) {
 		return Iterators.singletonIterator(elt.getParent());
 	}
 }

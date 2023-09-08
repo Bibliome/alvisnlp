@@ -26,25 +26,25 @@ import fr.inra.maiage.bibliome.util.files.InputFile;
 import fr.inra.maiage.bibliome.util.streams.DirectorySourceStream;
 import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 
-public class CheckParamValueConstraints<A extends Annotable> extends AbstractParamVisitor<A,Logger> {
-	private final ProcessingContext<A> processingContext;
+public class CheckParamValueConstraints extends AbstractParamVisitor<Logger> {
+	private final ProcessingContext processingContext;
 	private boolean hasConstraintsErrors = false;
 
-	private CheckParamValueConstraints(ProcessingContext<A> processingContext) {
+	private CheckParamValueConstraints(ProcessingContext processingContext) {
 		super(true);
 		this.processingContext = processingContext;
 	}
 
 	@Override
-	public void visitModule(Module<A> module, Logger logger) throws ModuleException {
+	public void visitModule(Module module, Logger logger) throws ModuleException {
 		if (processingContext != null)
 			logger = module.getLogger(processingContext);
-		for (ParamHandler<A> paramHandler : module.getAllParamHandlers())
+		for (ParamHandler paramHandler : module.getAllParamHandlers())
 			paramHandler.accept(this, logger);
 	}
 
 	@Override
-	public void visitParam(ParamHandler<A> paramHandler, Logger logger) {
+	public void visitParam(ParamHandler paramHandler, Logger logger) {
 		if (!paramHandler.isSet())
 			return;
 		if (paramHandler.isOutputFeed()) {
@@ -64,7 +64,7 @@ public class CheckParamValueConstraints<A extends Annotable> extends AbstractPar
 		}
 	}
 	
-	private void checkOutputFeed(ParamHandler<A> paramHandler, Logger logger) {
+	private void checkOutputFeed(ParamHandler paramHandler, Logger logger) {
 		Object value = paramHandler.getValue();
 		Class<?> type = value.getClass();
 		if (InputFile.class.isAssignableFrom(type)) {
@@ -114,8 +114,8 @@ public class CheckParamValueConstraints<A extends Annotable> extends AbstractPar
 		hasConstraintsErrors = !checkable.check(logger) || hasConstraintsErrors;
 	}
 	
-	public static final <A extends Annotable> boolean visit(ProcessingContext<A> processingContext, Logger logger, Module<A> module) throws ModuleException {
-		CheckParamValueConstraints<A> visitor = new CheckParamValueConstraints<A>(processingContext);
+	public static final boolean visit(ProcessingContext processingContext, Logger logger, Module module) throws ModuleException {
+		CheckParamValueConstraints visitor = new CheckParamValueConstraints(processingContext);
 		module.accept(visitor, logger);
 		return visitor.hasConstraintsErrors;
 	}

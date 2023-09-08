@@ -25,7 +25,7 @@ package fr.inra.maiage.bibliome.alvisnlp.core.module;
 public class MissingParameterException extends ParameterException {
     private static final long serialVersionUID = 1;
 
-    private static final String buildMessage(Module<?> module, String parameter) {
+    private static final String buildMessage(Module module, String parameter) {
         return "mandatory parameter " + parameter + " is not set in " + module.getPath();
     }
 
@@ -33,11 +33,11 @@ public class MissingParameterException extends ParameterException {
 		super(parameter);
 	}
 
-	public MissingParameterException(Module<?> module, String parameter) {
+	public MissingParameterException(Module module, String parameter) {
         super(buildMessage(module, parameter), parameter);
     }
 
-    private MissingParameterException(Throwable cause, Module<?> module, String parameter) {
+    private MissingParameterException(Throwable cause, Module module, String parameter) {
         super(buildMessage(module, parameter), cause, parameter);
     }
 }

@@ -62,12 +62,12 @@ public class OBOMapper extends Mapper<MapperResolvedObjects,OBOClass> {
 	private String ontologyVersion;
 
     @Override
-	protected MapperResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected MapperResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new MapperResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void fillMapping(DefaultMap<String,List<OBOClass>> mapping, ProcessingContext<Corpus> ctx, Corpus corpus) throws ProcessingException {
+	public void fillMapping(DefaultMap<String,List<OBOClass>> mapping, ProcessingContext ctx, Corpus corpus) throws ProcessingException {
 		try {
 			OBOSession session = OBOUtils.parseOBO(oboFiles);
 			if (versionFeature != null) {

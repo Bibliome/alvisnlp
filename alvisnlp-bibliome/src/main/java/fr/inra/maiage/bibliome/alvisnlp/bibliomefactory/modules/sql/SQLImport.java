@@ -62,7 +62,7 @@ public abstract class SQLImport extends CorpusModule<SQLImportResolvedObjects> i
 		private final SQLParameterEvaluator[] parameters;
 		private final Evaluator action;
 
-		private SQLImportResolvedObjects(ProcessingContext<Corpus> ctx, SQLImport module) throws ResolverException {
+		private SQLImportResolvedObjects(ProcessingContext ctx, SQLImport module) throws ResolverException {
 			super(ctx, module);
 			resultSetLibrary = new ResultSetLibrary();
 			LibraryResolver resultSetResolver = resultSetLibrary.newLibraryResolver(rootResolver);
@@ -81,12 +81,12 @@ public abstract class SQLImport extends CorpusModule<SQLImportResolvedObjects> i
 	}
 
 	@Override
-	protected SQLImportResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected SQLImportResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new SQLImportResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		SQLImportResolvedObjects resObj = getResolvedObjects();
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
@@ -109,7 +109,7 @@ public abstract class SQLImport extends CorpusModule<SQLImportResolvedObjects> i
 	}
 
 	@TimeThis(task="fetch-results", category=TimerCategory.COLLECT_DATA)
-	protected void fetchResult(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, PreparedStatement statement, EvaluationContext actionCtx, Element elt) throws SQLException {
+	protected void fetchResult(ProcessingContext ctx, PreparedStatement statement, EvaluationContext actionCtx, Element elt) throws SQLException {
 		SQLImportResolvedObjects resObj = getResolvedObjects();
 		try (ResultSet resultSet = statement.executeQuery()) {
 			resObj.resultSetLibrary.setResultSet(resultSet);
@@ -120,7 +120,7 @@ public abstract class SQLImport extends CorpusModule<SQLImportResolvedObjects> i
 	}
 
 	@TimeThis(task="open-connection", category=TimerCategory.LOAD_RESOURCE)
-	protected Connection openConnection(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx) throws SQLException, ClassNotFoundException {
+	protected Connection openConnection(ProcessingContext ctx) throws SQLException, ClassNotFoundException {
 //		Class.forName("org.postgresql.Driver");
 		Class.forName("org.postgresql.Driver", true, SQLImport.class.getClassLoader());
 		return DriverManager.getConnection(url, username, password);

@@ -40,13 +40,12 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec.DocumentEncoder;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec.LayerEncoder;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec.RelationEncoder;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.codec.SectionEncoder;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable;
 import fr.inra.maiage.bibliome.util.marshall.Encoder;
 import fr.inra.maiage.bibliome.util.marshall.MapWriteCache;
 import fr.inra.maiage.bibliome.util.marshall.Marshaller;
 import fr.inra.maiage.bibliome.util.marshall.WriteCache;
 
-public class CorpusDumper implements Annotable.Dumper<Corpus> {
+public class CorpusDumper implements AutoCloseable {
 	private final Logger logger;
 	private final FileChannel channel;
 	
@@ -69,7 +68,6 @@ public class CorpusDumper implements Annotable.Dumper<Corpus> {
 		channel.close();
 	}
 
-	@Override
 	public void dump(Corpus annotable) throws IOException {
 		logger.info("dumping...");
 		CorpusEncoder corpusEncoder = new CorpusEncoder(channel);

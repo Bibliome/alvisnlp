@@ -18,7 +18,7 @@ import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 class CCGPosTaggerExternalHandler extends AbstractCCGExternalHandler<CCGResolvedObjects,CCGPosTagger> {
-	CCGPosTaggerExternalHandler(ProcessingContext<Corpus> processingContext, CCGPosTagger module, Corpus annotable, int run, List<Layer> sentences) {
+	CCGPosTaggerExternalHandler(ProcessingContext processingContext, CCGPosTagger module, Corpus annotable, int run, List<Layer> sentences) {
 		super(processingContext, module, annotable, run, sentences, false);
 	}
 	

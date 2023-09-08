@@ -34,11 +34,11 @@ import fr.inra.maiage.bibliome.util.fragments.SimpleFragment;
 import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-class EnjuParserExternalHandler extends ExternalHandler<Corpus,EnjuParser> {
+class EnjuParserExternalHandler extends ExternalHandler<EnjuParser> {
 	private final Collection<Layer> sentences = new ArrayList<Layer>();
 	private int maxSentenceLength = -1;
 
-	EnjuParserExternalHandler(ProcessingContext<Corpus> processingContext, EnjuParser module, Corpus annotable) {
+	EnjuParserExternalHandler(ProcessingContext processingContext, EnjuParser module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
 
@@ -54,7 +54,7 @@ class EnjuParserExternalHandler extends ExternalHandler<Corpus,EnjuParser> {
 		EnjuParserResolvedObjects resObj = owner.getResolvedObjects();
 		Evaluator sentenceFilter = resObj.getSentenceFilter();
 		EvaluationContext evalCtx = new EvaluationContext(getLogger());
-		for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getAnnotable())))
+		for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getCorpus())))
 			for (Layer sent : sec.getSentences(owner.getWordLayer(), owner.getSentenceLayer()))
 				if (sentenceFilter.evaluateBoolean(evalCtx, sent.getSentenceAnnotation()))
 					sentences.add(sent);

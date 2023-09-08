@@ -51,15 +51,12 @@ public class Assert extends CorpusModule<AssertResolvedObjects> {
 	private TargetStream outFile;
 
 	class AssertResolvedObjects extends ResolvedObjects {
-		@SuppressWarnings("hiding")
 		private final Evaluator target;
-		@SuppressWarnings("hiding")
 		private final Evaluator assertion;
 		private final Variable targetVariable;
-		@SuppressWarnings("hiding")
 		private final Evaluator message;
 
-		private AssertResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		private AssertResolvedObjects(ProcessingContext ctx) throws ResolverException {
 			super(ctx, Assert.this);
 			VariableLibrary targetLib = new VariableLibrary("target");
 			targetVariable = targetLib.newVariable(null);
@@ -86,7 +83,7 @@ public class Assert extends CorpusModule<AssertResolvedObjects> {
 	}
 
 	@Override
-	protected AssertResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected AssertResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new AssertResolvedObjects(ctx);
 	}
 
@@ -98,7 +95,7 @@ public class Assert extends CorpusModule<AssertResolvedObjects> {
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		AssertResolvedObjects resObj = getResolvedObjects();
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);

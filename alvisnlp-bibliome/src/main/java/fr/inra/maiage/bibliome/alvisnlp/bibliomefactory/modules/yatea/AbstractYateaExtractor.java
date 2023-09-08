@@ -27,7 +27,6 @@ import java.util.logging.Logger;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
@@ -89,7 +88,7 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
         };
     }
 
-    public Module<Corpus> getOwner() {
+    public Module getOwner() {
         return this;
     }
 
@@ -430,7 +429,7 @@ public abstract class AbstractYateaExtractor<S extends SectionResolvedObjects> e
     	return true;
 	}
 
-	protected WorkingDirectory getWorkingDirectory(ProcessingContext<Corpus> ctx) {
+	protected WorkingDirectory getWorkingDirectory(ProcessingContext ctx) {
     	if (workingDir != null) {
     		return workingDir;
     	}

@@ -22,7 +22,7 @@ import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 class ContesTrainExternalHandler extends AbstractContesTermsExternalHandler<OutputFile,ContesTrainTermClassifier,ContesTrain> {
-	ContesTrainExternalHandler(ProcessingContext<Corpus> processingContext, ContesTrain module, Corpus annotable) {
+	ContesTrainExternalHandler(ProcessingContext processingContext, ContesTrain module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
 
@@ -52,7 +52,7 @@ class ContesTrainExternalHandler extends AbstractContesTermsExternalHandler<Outp
 	@SuppressWarnings("unchecked")
 	private JSONObject getAttributions(ContesTermClassifier.Resolved termClassifier) {
 		EvaluationContext ctx = new EvaluationContext(getLogger());
-		Corpus corpus = getAnnotable();
+		Corpus corpus = getCorpus();
 		Iterator<Section> sectionIt = corpus.sectionIterator(ctx, termClassifier.getDocumentFilter(), termClassifier.getSectionFilter());
 		JSONObject result = new JSONObject();
 		for (Section sec : Iterators.loop(sectionIt)) {

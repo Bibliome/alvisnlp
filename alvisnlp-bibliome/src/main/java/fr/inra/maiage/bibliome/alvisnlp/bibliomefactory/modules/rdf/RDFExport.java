@@ -74,7 +74,7 @@ public class RDFExport extends CorpusModule<RDFExportResolvedObjects> {
 		private final Model model;
 		private final Evaluator[] statements;
 
-		private RDFExportResolvedObjects(ProcessingContext<Corpus> ctx, RDFExport module) throws ResolverException {
+		private RDFExportResolvedObjects(ProcessingContext ctx, RDFExport module) throws ResolverException {
 			super(ctx, module);
 			files = module.files.resolveExpressions(rootResolver);
 			fileName = module.fileName.resolveExpressions(rootResolver);
@@ -119,12 +119,12 @@ public class RDFExport extends CorpusModule<RDFExportResolvedObjects> {
 	}
 
 	@Override
-	protected RDFExportResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected RDFExportResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new RDFExportResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		RDFExportResolvedObjects resObj = getResolvedObjects();
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
@@ -154,12 +154,12 @@ public class RDFExport extends CorpusModule<RDFExportResolvedObjects> {
 	}
 
 	@TimeThis(task="write-rdf", category=TimerCategory.EXPORT)
-	protected void writeModel(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, OutputStream out, Model model) {
+	protected void writeModel(ProcessingContext ctx, OutputStream out, Model model) {
 		RDFDataMgr.write(out, model, format);
 	}
 
 	@TimeThis(task="create-model")
-	protected void fillModel(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, Element elt) {
+	protected void fillModel(ProcessingContext ctx, EvaluationContext evalCtx, Element elt) {
 		RDFExportResolvedObjects resObj = getResolvedObjects();
 		for (Evaluator stev : resObj.statements) {
 			Iterators.deplete(stev.evaluateElements(evalCtx, elt));

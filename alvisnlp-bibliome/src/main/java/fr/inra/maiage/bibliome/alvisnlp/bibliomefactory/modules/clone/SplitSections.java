@@ -71,7 +71,7 @@ public abstract class SplitSections extends SectionModule<SplitSectionsResolvedO
 			);
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		ElementMapping map = new ElementMapping();
@@ -95,7 +95,7 @@ public abstract class SplitSections extends SectionModule<SplitSectionsResolvedO
 		private final Evaluator docId;
 		private final Variable numVariable;
 
-		public SplitSectionsResolvedObjects(ProcessingContext<Corpus> ctx, SplitSections module) throws ResolverException {
+		public SplitSectionsResolvedObjects(ProcessingContext ctx, SplitSections module) throws ResolverException {
 			super(ctx, module);
 			VariableLibrary splitLib = new VariableLibrary("split");
 			numVariable = splitLib.newVariable("num");
@@ -244,7 +244,7 @@ public abstract class SplitSections extends SectionModule<SplitSectionsResolvedO
 	}
 
 	@Override
-	protected SplitSectionsResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected SplitSectionsResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new SplitSectionsResolvedObjects(ctx, this);
 	}
 

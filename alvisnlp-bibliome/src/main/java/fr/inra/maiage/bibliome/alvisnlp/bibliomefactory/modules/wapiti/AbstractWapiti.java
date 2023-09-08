@@ -20,7 +20,6 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.wapiti;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.SectionModule.SectionResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.wapiti.AbstractWapiti.WapitiResolvedObjects;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
@@ -117,7 +116,7 @@ public abstract class AbstractWapiti extends SectionModule<WapitiResolvedObjects
 	protected static class WapitiResolvedObjects extends SectionResolvedObjects {
 		private final Evaluator[] features;
 		
-		public WapitiResolvedObjects(ProcessingContext<Corpus> ctx, AbstractWapiti module) throws ResolverException {
+		public WapitiResolvedObjects(ProcessingContext ctx, AbstractWapiti module) throws ResolverException {
 			super(ctx, module);
 			this.features = rootResolver.resolveArray(module.features, Evaluator.class);
 		}

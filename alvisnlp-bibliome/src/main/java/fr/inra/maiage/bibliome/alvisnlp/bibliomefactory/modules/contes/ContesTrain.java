@@ -16,7 +16,7 @@ public abstract class ContesTrain extends AbstractContesTerms<OutputFile,ContesT
 	private String tokenLayer;
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			new ContesTrainExternalHandler(ctx, this, corpus).start();
 		}

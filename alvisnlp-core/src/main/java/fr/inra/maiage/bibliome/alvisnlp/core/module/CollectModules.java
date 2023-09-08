@@ -20,7 +20,7 @@ package fr.inra.maiage.bibliome.alvisnlp.core.module;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CollectModules<A extends Annotable> extends AbstractModuleVisitor<A,List<Module<A>>> {
+public class CollectModules extends AbstractModuleVisitor<List<Module>> {
 	private final boolean sequences;
 
 	private CollectModules(boolean onlyActiveModules, boolean sequences) {
@@ -29,20 +29,20 @@ public class CollectModules<A extends Annotable> extends AbstractModuleVisitor<A
 	}
 
 	@Override
-	public void visitModule(Module<A> module, List<Module<A>> param) {
+	public void visitModule(Module module, List<Module> param) {
 		param.add(module);
 	}
 
 	@Override
-	public void visitSequence(Sequence<A> sequence, List<Module<A>> param) throws ModuleException {
+	public void visitSequence(Sequence sequence, List<Module> param) throws ModuleException {
 		if (sequences)
 			param.add(sequence);
 		super.visitSequence(sequence, param);
 	}
 	
-	public static final <A extends Annotable> List<Module<A>> visit(Module<A> module, boolean onlyActiveModules, boolean sequences) throws ModuleException {
-		CollectModules<A> visitor = new CollectModules<A>(onlyActiveModules, sequences);
-		List<Module<A>> result = new ArrayList<Module<A>>();
+	public static final List<Module> visit(Module module, boolean onlyActiveModules, boolean sequences) throws ModuleException {
+		CollectModules visitor = new CollectModules(onlyActiveModules, sequences);
+		List<Module> result = new ArrayList<Module>();
 		module.accept(visitor, result);
 		return result;
 	}

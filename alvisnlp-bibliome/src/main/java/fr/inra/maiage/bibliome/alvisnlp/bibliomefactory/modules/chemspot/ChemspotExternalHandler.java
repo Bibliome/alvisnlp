@@ -20,8 +20,8 @@ import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.filelines.InvalidFileLineEntry;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 
-class ChemspotExternalHandler extends ExternalHandler<Corpus,Chemspot> {
-	ChemspotExternalHandler(ProcessingContext<Corpus> processingContext, Chemspot module, Corpus annotable) {
+class ChemspotExternalHandler extends ExternalHandler<Chemspot> {
+	ChemspotExternalHandler(ProcessingContext processingContext, Chemspot module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
 
@@ -31,7 +31,7 @@ class ChemspotExternalHandler extends ExternalHandler<Corpus,Chemspot> {
 		getChemspotOutputDir().mkdirs();
 		EvaluationContext evalCtx = new EvaluationContext(getLogger());
 		File inputDir = getChemspotInputDir();
-		for (Section sec : Iterators.loop(getModule().sectionIterator(evalCtx, getAnnotable()))) {
+		for (Section sec : Iterators.loop(getModule().sectionIterator(evalCtx, getCorpus()))) {
 			String name = sec.getFileName();
 			String content = sec.getContents();
 			InputFile file = new InputFile(inputDir, name + ".txt");
@@ -49,7 +49,7 @@ class ChemspotExternalHandler extends ExternalHandler<Corpus,Chemspot> {
 	protected void collect() throws IOException, ModuleException {
 		EvaluationContext evalCtx = new EvaluationContext(getLogger());
 		ChemspotFileLines<Layer,Annotation> chemspotFileLines = new CorpusChemspotFileLines(getLogger());
-		for (Section sec : Iterators.loop(getModule().sectionIterator(evalCtx, getAnnotable()))) {
+		for (Section sec : Iterators.loop(getModule().sectionIterator(evalCtx, getCorpus()))) {
 			String name = sec.getFileName();
 			Layer layer = sec.ensureLayer(getModule().getTargetLayer());
 			readOutput(chemspotFileLines, layer, name);

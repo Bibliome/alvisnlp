@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
@@ -18,23 +18,23 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.TimerCategory;
 import fr.inra.maiage.bibliome.util.Timer;
 
-public abstract class ExternalHandler<T extends Annotable,M extends Module<T>> {
-	private final ProcessingContext<T> processingContext;
+public abstract class ExternalHandler<M extends Module> {
+	private final ProcessingContext processingContext;
 	private final M module;
-	private final T annotable;
+	private final Corpus corpus;
 	private final File tempDir;
 	private final Logger logger;
 	
-	protected ExternalHandler(ProcessingContext<T> processingContext, M module, T annotable) {
+	protected ExternalHandler(ProcessingContext processingContext, M module, Corpus corpus) {
 		super();
 		this.processingContext = processingContext;
 		this.module = module;
-		this.annotable = annotable;
+		this.corpus = corpus;
 		this.tempDir = processingContext.getTempDir(module);
 		this.logger = module.getLogger(processingContext);
 	}
 	
-	public ProcessingContext<T> getProcessingContext() {
+	public ProcessingContext getProcessingContext() {
 		return processingContext;
 	}
 
@@ -42,8 +42,8 @@ public abstract class ExternalHandler<T extends Annotable,M extends Module<T>> {
 		return module;
 	}
 
-	public T getAnnotable() {
-		return annotable;
+	public Corpus getCorpus() {
+		return corpus;
 	}
 	
 	public Logger getLogger() {

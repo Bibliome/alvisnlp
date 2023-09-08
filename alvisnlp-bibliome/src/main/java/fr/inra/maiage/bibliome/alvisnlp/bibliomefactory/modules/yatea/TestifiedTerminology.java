@@ -29,5 +29,5 @@ import fr.inra.maiage.bibliome.util.Checkable;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 
 public interface TestifiedTerminology extends NameUser, Checkable {
-	<S extends SectionResolvedObjects> InputFile ensureFile(AbstractYateaExtractor<S> module, ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException, IOException;
+	<S extends SectionResolvedObjects> InputFile ensureFile(AbstractYateaExtractor<S> module, ProcessingContext ctx, Corpus corpus) throws ModuleException, IOException;
 }

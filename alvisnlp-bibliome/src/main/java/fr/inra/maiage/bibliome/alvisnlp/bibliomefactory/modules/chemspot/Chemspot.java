@@ -37,7 +37,7 @@ public abstract class Chemspot extends SectionModule<SectionResolvedObjects> imp
 	private String chemTypeFeature = "chem-type";
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			new ChemspotExternalHandler(ctx, this, corpus).start();
 		}
@@ -57,7 +57,7 @@ public abstract class Chemspot extends SectionModule<SectionResolvedObjects> imp
 	}
 
 	@Override
-	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected SectionResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
 	}
 

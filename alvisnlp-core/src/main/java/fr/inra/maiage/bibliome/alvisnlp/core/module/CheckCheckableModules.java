@@ -4,7 +4,7 @@ import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.util.Checkable;
 
-public class CheckCheckableModules<A extends Annotable> extends AbstractModuleVisitor<A,Logger> {
+public class CheckCheckableModules extends AbstractModuleVisitor<Logger> {
 	private boolean hasErrors = false;
 	
 	public CheckCheckableModules() {
@@ -12,7 +12,7 @@ public class CheckCheckableModules<A extends Annotable> extends AbstractModuleVi
 	}
 
 	@Override
-	public void visitModule(Module<A> module, Logger param) throws ModuleException {
+	public void visitModule(Module module, Logger param) throws ModuleException {
 		Class<?> moduleClass = module.getClass();
 		if (isCheckable(moduleClass)) {
 			Checkable checkable = (Checkable) module;
@@ -26,8 +26,8 @@ public class CheckCheckableModules<A extends Annotable> extends AbstractModuleVi
 		return Checkable.class.isAssignableFrom(type);
 	}
 	
-	public static final <A extends Annotable> boolean visit(Logger logger, Module<A> module) throws ModuleException {
-		CheckCheckableModules<A> visitor = new CheckCheckableModules<A>();
+	public static final boolean visit(Logger logger, Module module) throws ModuleException {
+		CheckCheckableModules visitor = new CheckCheckableModules();
 		module.accept(visitor, logger);
 		return visitor.hasErrors;
 	}

@@ -64,12 +64,12 @@ public abstract class WoSMig extends SectionModule<SectionResolvedObjects> imple
 	}
 
 	@Override
-	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected SectionResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		if (balancedPunctuations.length() % 2 != 0) {

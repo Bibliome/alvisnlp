@@ -42,7 +42,7 @@ public class WekaSelectAttributes extends ElementClassifier {
 	private String[] searchOptions;
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ProcessingException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ProcessingException {
 		try {
 			Logger logger = getLogger(ctx);
 	        EvaluationContext evalCtx = new EvaluationContext(logger);
@@ -56,13 +56,13 @@ public class WekaSelectAttributes extends ElementClassifier {
 	}
 
 	@TimeThis(task="select-attributes")
-	protected String selectAttributes(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, IdentifiedInstances<Element> trainingSet) throws Exception {
+	protected String selectAttributes(ProcessingContext ctx, IdentifiedInstances<Element> trainingSet) throws Exception {
 		ASEvaluation eval = ASEvaluation.forName(evaluator, evaluatorOptions);
 		return AttributeSelection.SelectAttributes(eval, getEvalOptions(), trainingSet);
 	}
 
 	@TimeThis(task="write-selection", category=TimerCategory.EXPORT)
-	protected void printResult(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, String selection) throws IOException {
+	protected void printResult(ProcessingContext ctx, String selection) throws IOException {
 		try (PrintStream ps = getEvaluationFile().getPrintStream()) {
 			ps.print(selection);
 		}

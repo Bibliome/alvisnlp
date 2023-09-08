@@ -33,10 +33,10 @@ import fr.inra.maiage.bibliome.util.filelines.InvalidFileLineEntry;
 import fr.inra.maiage.bibliome.util.filelines.TabularFormat;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
-class TreeTaggerExternalHandler extends ExternalHandler<Corpus,TreeTagger> {
+class TreeTaggerExternalHandler extends ExternalHandler<TreeTagger> {
 	private final Map<String,String> lexicon = new LinkedHashMap<String,String>();
 	
-	TreeTaggerExternalHandler(ProcessingContext<Corpus> processingContext, TreeTagger module, Corpus annotable) {
+	TreeTaggerExternalHandler(ProcessingContext processingContext, TreeTagger module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
 
@@ -97,7 +97,7 @@ class TreeTaggerExternalHandler extends ExternalHandler<Corpus,TreeTagger> {
     	TreeTagger owner = getModule();
     	try (PrintStream out = new PrintStream(getTreeTaggerInputFile(), owner.getInputCharset())) {
     		EvaluationContext evalCtx = new EvaluationContext(getLogger());
-    		for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getAnnotable()))) {
+    		for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getCorpus()))) {
     			for (Layer sent : sec.getSentences(owner.getWordLayer(), owner.getSentenceLayer())) {
     				for (Annotation word : sent) {
     					addInputToken(out, word.getLastFeature(owner.getFormFeature()), word.getLastFeature(owner.getPosFeature()), word.getLastFeature(owner.getLemmaFeature()));
@@ -136,7 +136,7 @@ class TreeTaggerExternalHandler extends ExternalHandler<Corpus,TreeTagger> {
 		TreeTagger owner = getModule();
 		try (BufferedReader r = new BufferedReader(new InputStreamReader(new FileInputStream(getTreeTaggerOutputFile()), owner.getOutputCharset()))) {
 			EvaluationContext evalCtx = new EvaluationContext(getLogger());
-			for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getAnnotable()))) {
+			for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getCorpus()))) {
 				for (Layer sent : sec.getSentences(owner.getWordLayer(), owner.getSentenceLayer())) {
 					for (Annotation word : sent) {
 						Pair<String,String> tok = scanNextLine(r);

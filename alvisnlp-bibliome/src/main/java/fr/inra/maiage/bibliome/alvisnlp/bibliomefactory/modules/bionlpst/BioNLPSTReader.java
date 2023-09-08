@@ -104,12 +104,12 @@ public abstract class BioNLPSTReader extends CorpusModule<ResolvedObjects> imple
 	private DocumentSchema schema;
 
 	@Override
-	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		FileFilter filter = new PatternFileFilter(Pattern.compile("\\.txt$"), false, false);
 		Logger logger = getLogger(ctx);
 		Timer<TimerCategory> a1Timer = getTimer(ctx, "parse-a1", TimerCategory.LOAD_RESOURCE, false);

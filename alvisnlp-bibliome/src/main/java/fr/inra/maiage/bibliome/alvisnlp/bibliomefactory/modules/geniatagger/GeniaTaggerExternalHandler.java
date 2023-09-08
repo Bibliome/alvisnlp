@@ -29,10 +29,10 @@ import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-public class GeniaTaggerExternalHandler extends ExternalHandler<Corpus,GeniaTagger> {
+public class GeniaTaggerExternalHandler extends ExternalHandler<GeniaTagger> {
 	private final EvaluationContext evalCtx;
 	
-	public GeniaTaggerExternalHandler(ProcessingContext<Corpus> processingContext, GeniaTagger module, Corpus annotable) {
+	public GeniaTaggerExternalHandler(ProcessingContext processingContext, GeniaTagger module, Corpus annotable) {
 		super(processingContext, module, annotable);
 		this.evalCtx = new EvaluationContext(getLogger());
 	}
@@ -108,7 +108,7 @@ public class GeniaTaggerExternalHandler extends ExternalHandler<Corpus,GeniaTagg
 	}
 
 	private Iterator<Annotation> getSentenceIterator(Evaluator resolvedDocumentFilter, Evaluator resolvedSectionFilter, Evaluator resolvedSentenceFilter) {
-        return Iterators.flatten(Mappers.apply(new AnnotationCollector(evalCtx, getModule().getSentenceLayer(), resolvedSentenceFilter), getAnnotable().sectionIterator(evalCtx, resolvedDocumentFilter, resolvedSectionFilter)));
+        return Iterators.flatten(Mappers.apply(new AnnotationCollector(evalCtx, getModule().getSentenceLayer(), resolvedSentenceFilter), getCorpus().sectionIterator(evalCtx, resolvedDocumentFilter, resolvedSectionFilter)));
 	}
     
     private static class AnnotationCollector implements Mapper<Section,Iterator<Annotation>> {
@@ -165,7 +165,7 @@ public class GeniaTaggerExternalHandler extends ExternalHandler<Corpus,GeniaTagg
 			throw new ProcessingException("geniatagger output is short on lines");
 	}
 	
-	private String getPOS(@SuppressWarnings("unused") String form, String pos, String lemma) {
+	private String getPOS(String form, String pos, String lemma) {
 		if (!getModule().getTreeTaggerTagset()) {
 			return pos;
 		}

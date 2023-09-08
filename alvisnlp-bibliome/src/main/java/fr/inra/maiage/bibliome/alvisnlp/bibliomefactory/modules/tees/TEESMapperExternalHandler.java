@@ -26,13 +26,13 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.MultiMapping;
 import fr.inra.maiage.bibliome.util.Iterators;
 
-abstract class TEESMapperExternalHandler<T extends TEESMapper> extends ExternalHandler<Corpus,T> {
+abstract class TEESMapperExternalHandler<T extends TEESMapper> extends ExternalHandler<T> {
 	private final Map<String,CorpusTEES> corpora = new LinkedHashMap<String,CorpusTEES>();
 	private final Map<String,Section> sentId2Sections =  new LinkedHashMap<String,Section>();
 	private final Map<String,Element> entId2Elements =  new LinkedHashMap<String,Element>();
 	private final Map<String,String> origId2teesId = new LinkedHashMap<String,String>();
 
-	protected TEESMapperExternalHandler(ProcessingContext<Corpus> processingContext, T module, Corpus annotable) {
+	protected TEESMapperExternalHandler(ProcessingContext processingContext, T module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
 
@@ -41,7 +41,7 @@ abstract class TEESMapperExternalHandler<T extends TEESMapper> extends ExternalH
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		TEESMapper owner = getModule();
 		logger.info("Creating TEES input files");
-		for (Document documentAlvis : Iterators.loop(owner.documentIterator(evalCtx, getAnnotable()))) {
+		for (Document documentAlvis : Iterators.loop(owner.documentIterator(evalCtx, getCorpus()))) {
 			String set = getSet(documentAlvis);
 			CorpusTEES corpus = getCorpus(set);
 			

@@ -41,7 +41,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ModuleBase;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.TimeThis;
 
-public abstract class CorpusModule<T extends ResolvedObjects> extends ModuleBase<Corpus> implements NameUser {
+public abstract class CorpusModule<T extends ResolvedObjects> extends ModuleBase implements NameUser {
 	private Expression active = ConstantsLibrary.TRUE;
 	private UserFunction[] userFunctions = new UserFunction[0];
 	
@@ -74,10 +74,10 @@ public abstract class CorpusModule<T extends ResolvedObjects> extends ModuleBase
 		return resolvedObjects;
 	}
 	
-	protected abstract T createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException;
+	protected abstract T createResolvedObjects(ProcessingContext ctx) throws ResolverException;
 
 	@Override
-	public boolean testProcess(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public boolean testProcess(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		if (super.testProcess(ctx, corpus)) {
 //			System.err.println("[testProcess] getClass() = " + getClass()); 
@@ -90,7 +90,7 @@ public abstract class CorpusModule<T extends ResolvedObjects> extends ModuleBase
 		return false;
 	}
 
-	protected LibraryResolver getLibraryResolver(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected LibraryResolver getLibraryResolver(ProcessingContext ctx) throws ResolverException {
 		LibraryResolver result = new LibraryResolver();
 		Class<FunctionLibrary> klass = FunctionLibrary.class;
 		for (FunctionLibrary lib : ServiceLoader.load(klass, klass.getClassLoader())) {
@@ -113,7 +113,7 @@ public abstract class CorpusModule<T extends ResolvedObjects> extends ModuleBase
 	}
 	
 	private void fillUserLib(UserLibrary userLib) {
-		for (Module<Corpus> mod = this; mod != null; mod = mod.getSequence()) {
+		for (Module mod = this; mod != null; mod = mod.getSequence()) {
 			if (mod instanceof CorpusModule) {
 				CorpusModule<?> cmod = (CorpusModule<?>) mod;
 				for (UserFunction fun : cmod.getUserFunctions()) {
@@ -123,9 +123,8 @@ public abstract class CorpusModule<T extends ResolvedObjects> extends ModuleBase
 		}
 	}
 
-	@SuppressWarnings("static-method")
 	@TimeThis(task="commit")
-	protected void commit(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, EvaluationContext evalCtx) {
+	protected void commit(ProcessingContext ctx, EvaluationContext evalCtx) {
 		evalCtx.commit();
 	}
 
@@ -137,7 +136,7 @@ public abstract class CorpusModule<T extends ResolvedObjects> extends ModuleBase
 	}
 
 	@Override
-	public void init(ProcessingContext<Corpus> ctx) throws ModuleException {
+	public void init(ProcessingContext ctx) throws ModuleException {
 		super.init(ctx);
 		resolvedObjects = createResolvedObjects(ctx);
 //		System.err.println("getClass() = " + getClass()); 

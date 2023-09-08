@@ -71,7 +71,7 @@ public abstract class TagTogReader extends AbstractXMLReader<TagTogResolvedObjec
 	public static class TagTogResolvedObjects extends ResolvedObjects {
 		private InputDirectory rootDir;
 		
-		public TagTogResolvedObjects(ProcessingContext<Corpus> ctx, TagTogReader module) throws ResolverException {
+		public TagTogResolvedObjects(ProcessingContext ctx, TagTogReader module) throws ResolverException {
 			super(ctx, module);
 		}
 
@@ -85,7 +85,7 @@ public abstract class TagTogReader extends AbstractXMLReader<TagTogResolvedObjec
 	}
 	
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			extract(ctx);
 			processDocuments(ctx, corpus);
@@ -102,7 +102,7 @@ public abstract class TagTogReader extends AbstractXMLReader<TagTogResolvedObjec
 		}
 	}
 	
-	private void extract(ProcessingContext<Corpus> ctx) throws IOException {
+	private void extract(ProcessingContext ctx) throws IOException {
 		File tmpDir = getTempDir(ctx);
 		Path tmpPath = tmpDir.toPath();
         try (ZipInputStream zis = new ZipInputStream(new FileInputStream(zipFile))) {
@@ -159,7 +159,7 @@ public abstract class TagTogReader extends AbstractXMLReader<TagTogResolvedObjec
 		}
 	}
 	
-	private void readAnnotations(ProcessingContext<Corpus> ctx, Corpus corpus, Mapping annotationTypes) throws IOException, ParseException {
+	private void readAnnotations(ProcessingContext ctx, Corpus corpus, Mapping annotationTypes) throws IOException, ParseException {
 		Logger logger = getLogger(ctx);
 		SourceStream annotationSources = getAnnotationSources();
 		for (BufferedReader reader : Iterators.loop(annotationSources.getBufferedReaders())) {
@@ -294,7 +294,7 @@ public abstract class TagTogReader extends AbstractXMLReader<TagTogResolvedObjec
 	}
 
 	@Override
-	protected TagTogResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected TagTogResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new TagTogResolvedObjects(ctx, this);
 	}
 

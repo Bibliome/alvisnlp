@@ -49,7 +49,7 @@ public abstract class ElementClassifier extends CorpusModule<ElementClassifierRe
 		private final RelationDefinition relationDefinition;
 		private final Evaluator examples;
 		
-		private ElementClassifierResolvedObjects(ProcessingContext<Corpus> ctx, ElementClassifier module) throws ResolverException, IOException {
+		private ElementClassifierResolvedObjects(ProcessingContext ctx, ElementClassifier module) throws ResolverException, IOException {
 			super(ctx, module);
 			examples = module.examples.resolveExpressions(rootResolver);
 			relationDefinition = rootResolver.resolveNullable(module.relationDefinition);
@@ -73,7 +73,7 @@ public abstract class ElementClassifier extends CorpusModule<ElementClassifierRe
 	}
 
 	@Override
-	protected ElementClassifierResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ElementClassifierResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		try {
 			return new ElementClassifierResolvedObjects(ctx, this);
 		}
@@ -83,7 +83,7 @@ public abstract class ElementClassifier extends CorpusModule<ElementClassifierRe
 	}
 
 	@TimeThis(task="create-training-set", category=TimerCategory.PREPARE_DATA)
-	protected IdentifiedInstances<Element> getTrainingSet(ProcessingContext<Corpus> ctx, Corpus corpus, EvaluationContext evalCtx, boolean withId) throws IOException {
+	protected IdentifiedInstances<Element> getTrainingSet(ProcessingContext ctx, Corpus corpus, EvaluationContext evalCtx, boolean withId) throws IOException {
 		ElementClassifierResolvedObjects resObj = getResolvedObjects();
 		RelationDefinition relationDefinition = resObj.getRelationDefinition();
 		Evaluator examples = resObj.getExamples();

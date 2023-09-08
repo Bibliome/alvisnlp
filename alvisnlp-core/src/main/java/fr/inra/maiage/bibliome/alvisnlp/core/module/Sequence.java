@@ -28,19 +28,19 @@ import fr.inra.maiage.bibliome.alvisnlp.core.documentation.Documentation;
 /**
  * A sequence is a module that gathers a list of submodules to run sequentially.
  */
-public interface Sequence<T extends Annotable> extends Module<T> {
+public interface Sequence extends Module {
     /**
      * Adds a submodule at the end of the current list of modules.
      * @param module
      */
-    void appendModule(Module<T> module) throws ModuleException;
+    void appendModule(Module module) throws ModuleException;
 
     /**
      * Adds a module at a specified position in the list of submodules.
      * @param module
      * @param index
      */
-    void addModule(Module<T> module, int index) throws ModuleException;
+    void addModule(Module module, int index) throws ModuleException;
 
     /**
      * Adds a module in the list of submodules at the position after the specified reference module.
@@ -48,7 +48,7 @@ public interface Sequence<T extends Annotable> extends Module<T> {
      * @param module
      * @param ref
      */
-    void addModuleAfter(Module<T> module, Module<T> ref) throws ModuleException;
+    void addModuleAfter(Module module, Module ref) throws ModuleException;
 
     /**
      * Adds a module in the list of submodules at the position before the specified reference module.
@@ -56,13 +56,13 @@ public interface Sequence<T extends Annotable> extends Module<T> {
      * @param module
      * @param ref
      */
-    void addModuleBefore(Module<T> module, Module<T> ref) throws ModuleException;
+    void addModuleBefore(Module module, Module ref) throws ModuleException;
 
     /**
      * Removes a module from the submodules.
      * @param module
      */
-    void removeModule(Module<T> module);
+    void removeModule(Module module);
 
     boolean hasModule(String id);
     
@@ -70,13 +70,13 @@ public interface Sequence<T extends Annotable> extends Module<T> {
      * Returns the module in this sequence with the specified identifier.
      * @param id
      */
-    Module<T> getModule(String id);
+    Module getModule(String id);
     
     /**
      * Returns the module in this sequence at the specified position.
      * @param index
      */
-    Module<T> getModule(int index);
+    Module getModule(int index);
     
     /**
      * Returns the number of modules in this sequence.
@@ -87,31 +87,31 @@ public interface Sequence<T extends Annotable> extends Module<T> {
      * Returns the index of the specified module.
      * @param module
      */
-    int getIndexOf(Module<T> module);
+    int getIndexOf(Module module);
     
-    List<Module<T>> getSubModules();
+    List<Module> getSubModules();
     
-    List<Module<T>> getActiveSubModules();
+    List<Module> getActiveSubModules();
 
-    CompositeParamHandler<T> createAliasParam(String name) throws ParameterException;
+    CompositeParamHandler createAliasParam(String name) throws ParameterException;
 
-	static final class CompositeParamHandler<T extends Annotable> implements ParamHandler<T> {
-		private final Sequence<T> module;
+	static final class CompositeParamHandler implements ParamHandler {
+		private final Sequence module;
 		private final String name;
-		private final List<ParamHandler<T>> paramHandlers = new ArrayList<ParamHandler<T>>();
+		private final List<ParamHandler> paramHandlers = new ArrayList<ParamHandler>();
 	    private String paramSourceName;
 		
-		public CompositeParamHandler(Sequence<T> module, String name) {
+		public CompositeParamHandler(Sequence module, String name) {
 			super();
 			this.module = module;
 			this.name = name;
 		}
 		
-		private void addParamHandler(ParamHandler<T> ph) throws ParameterException {
+		private void addParamHandler(ParamHandler ph) throws ParameterException {
 			if (paramHandlers.contains(ph))
 				throw new RuntimeException("duplicate parameter");
 			if (!paramHandlers.isEmpty()) {
-				ParamHandler<T> first = firstHandler();
+				ParamHandler first = firstHandler();
 				Class<?> type = first.getType();
 				if (!type.equals(ph.getType()))
 					throw new RuntimeException("type mismatch");
@@ -122,18 +122,18 @@ public interface Sequence<T extends Annotable> extends Module<T> {
 		}
 		
 		public void addParamHandler(String modulePath, String parameterName) throws ParameterException {
-			Module<T> module = getModule().getModuleByPath(modulePath);
+			Module module = getModule().getModuleByPath(modulePath);
 			if (module == null)
 				throw new RuntimeException("no such module: " + modulePath);
-			ParamHandler<T> ph = module.getParamHandler(parameterName);
+			ParamHandler ph = module.getParamHandler(parameterName);
 			addParamHandler(ph);
 		}
 
-		public final ParamHandler<T> firstHandler() {
+		public final ParamHandler firstHandler() {
 			return paramHandlers.get(0);
 		}
 		
-		public List<ParamHandler<T>> getAllParamHandlers() {
+		public List<ParamHandler> getAllParamHandlers() {
 			return Collections.unmodifiableList(paramHandlers);
 		}
 		
@@ -154,7 +154,7 @@ public interface Sequence<T extends Annotable> extends Module<T> {
 
 		@Override
 		public void setValue(Object value) throws ParameterException {
-			for (ParamHandler<T> ph : paramHandlers)
+			for (ParamHandler ph : paramHandlers)
 				ph.setValue(value);
 		}
 
@@ -165,7 +165,7 @@ public interface Sequence<T extends Annotable> extends Module<T> {
 
 		@Override
 		public boolean isMandatory() {
-			for (ParamHandler<T> ph : paramHandlers)
+			for (ParamHandler ph : paramHandlers)
 				if (ph.isMandatory())
 					return true;
 			return false;
@@ -173,7 +173,7 @@ public interface Sequence<T extends Annotable> extends Module<T> {
 
 		@Override
 		public boolean isOutputFeed() {
-			for (ParamHandler<T> ph : paramHandlers)
+			for (ParamHandler ph : paramHandlers)
 				if (!ph.isOutputFeed())
 					return false;
 			return true;
@@ -181,20 +181,20 @@ public interface Sequence<T extends Annotable> extends Module<T> {
 
 		@Override
 		public void setOutputFeed(boolean outputFeed) {
-			for (ParamHandler<T> ph : paramHandlers)
+			for (ParamHandler ph : paramHandlers)
 				ph.setOutputFeed(outputFeed);
 		}
 
 		@Override
-		public <P> void accept(ModuleVisitor<T,P> visitor, P param) throws ModuleException {
-			for (ParamHandler<T> ph : paramHandlers) {
+		public <P> void accept(ModuleVisitor<P> visitor, P param) throws ModuleException {
+			for (ParamHandler ph : paramHandlers) {
 				ph.accept(visitor, param);
 				return;
 			}
 		}
 
 		@Override
-		public Module<T> getModule() {
+		public Module getModule() {
 			return module;
 		}
 

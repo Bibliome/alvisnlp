@@ -26,7 +26,7 @@ public class TEESClassifyExternalHandler extends TEESMapperExternalHandler<TEESC
 	private static final String OUTPUT_PREFIX = "tees-output";
 	private final JAXBContext jaxbContext;
 
-	protected TEESClassifyExternalHandler(ProcessingContext<Corpus> processingContext, TEESClassify module, Corpus annotable) throws JAXBException {
+	protected TEESClassifyExternalHandler(ProcessingContext processingContext, TEESClassify module, Corpus annotable) throws JAXBException {
 		super(processingContext, module, annotable);
 		jaxbContext = JAXBContext.newInstance(CorpusTEES.class);
 	}

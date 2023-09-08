@@ -52,7 +52,7 @@ public abstract class Mapper<S extends MapperResolvedObjects,T> extends CorpusMo
     	private final Evaluator target;
 		private final Evaluator form;
 
-		public MapperResolvedObjects(ProcessingContext<Corpus> ctx, Mapper<? extends MapperResolvedObjects,?> module) throws ResolverException {
+		public MapperResolvedObjects(ProcessingContext ctx, Mapper<? extends MapperResolvedObjects,?> module) throws ResolverException {
 			super(ctx, module);
 			target = rootResolver.resolveNullable(module.target);
 			form = rootResolver.resolveNullable(module.form);
@@ -67,7 +67,7 @@ public abstract class Mapper<S extends MapperResolvedObjects,T> extends CorpusMo
     }
     
     @Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
     	MapperResolvedObjects resObj = getResolvedObjects();
     	Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
@@ -108,7 +108,7 @@ public abstract class Mapper<S extends MapperResolvedObjects,T> extends CorpusMo
         }
     }
 
-    public abstract void fillMapping(DefaultMap<String,List<T>> mapping, ProcessingContext<Corpus> ctx, Corpus corpus) throws ProcessingException;
+    public abstract void fillMapping(DefaultMap<String,List<T>> mapping, ProcessingContext ctx, Corpus corpus) throws ProcessingException;
     
     protected abstract void handleMatch(Element target, T value);
 

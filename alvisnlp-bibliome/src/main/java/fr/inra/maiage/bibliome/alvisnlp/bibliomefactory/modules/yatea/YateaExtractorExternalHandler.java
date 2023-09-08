@@ -33,12 +33,12 @@ import fr.inra.maiage.bibliome.util.files.InputFile;
 import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
-public class YateaExtractorExternalHandler<S extends SectionResolvedObjects> extends ExternalHandler<Corpus,AbstractYateaExtractor<S>> {
+public class YateaExtractorExternalHandler<S extends SectionResolvedObjects> extends ExternalHandler<AbstractYateaExtractor<S>> {
 	private final EvaluationContext evalCtx;
 	private final Properties defaultConfig = new Properties();
 	private final Properties options = new Properties();
 	
-	public YateaExtractorExternalHandler(ProcessingContext<Corpus> processingContext, AbstractYateaExtractor<S> module, Corpus annotable) {
+	public YateaExtractorExternalHandler(ProcessingContext processingContext, AbstractYateaExtractor<S> module, Corpus annotable) {
 		super(processingContext, module, annotable);
 		this.evalCtx = new EvaluationContext(getLogger());
 	}
@@ -47,7 +47,7 @@ public class YateaExtractorExternalHandler<S extends SectionResolvedObjects> ext
 	protected void prepare() throws IOException, ModuleException {
 		ensureDirs();
 		TestifiedTerminology testifiedTerminology = getModule().getTestifiedTerminology();
-		InputFile testifiedTerminologyFile = testifiedTerminology == null ? null : testifiedTerminology.ensureFile(getModule(), getProcessingContext(), getAnnotable());
+		InputFile testifiedTerminologyFile = testifiedTerminology == null ? null : testifiedTerminology.ensureFile(getModule(), getProcessingContext(), getCorpus());
 		createRCFile(testifiedTerminologyFile);
 		createInput();
 	}
@@ -166,7 +166,7 @@ public class YateaExtractorExternalHandler<S extends SectionResolvedObjects> ext
         catch (FileNotFoundException | UnsupportedEncodingException e) {
 			throw new ProcessingException(e);
         }
-        for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getAnnotable()))) {
+        for (Section sec : Iterators.loop(owner.sectionIterator(evalCtx, getCorpus()))) {
             if (owner.getDocumentTokens()) {
                 String s = Strings.normalizeSpace(sec.getDocument().getId() + "/" + sec.getName());
             	ttgOut.printf("%s\tDOCUMENT\t%s\n", s, s);

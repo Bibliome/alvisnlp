@@ -46,7 +46,7 @@ public abstract class AbstractXMLReader<T extends ResolvedObjects> extends Corpu
     public static final String SOURCE_BASENAME_PARAMETER = "source-basename";
     protected static final String XML_READER_CONTEXT_PARAMETER = "xml-reader-context";
 
-    protected void processDocuments(ProcessingContext<Corpus> ctx, Corpus corpus) throws IOException, TransformerException, SAXException, ParserConfigurationException {
+    protected void processDocuments(ProcessingContext ctx, Corpus corpus) throws IOException, TransformerException, SAXException, ParserConfigurationException {
 		Transformer transformer = getTransformer(ctx);
 		Logger logger = getLogger(ctx);
 		for (InputStream is : Iterators.loop(getXMLSource().getInputStreams())) {
@@ -56,7 +56,7 @@ public abstract class AbstractXMLReader<T extends ResolvedObjects> extends Corpu
 	}
 
     @TimeThis(task="read-xslt", category=TimerCategory.LOAD_RESOURCE)
-	protected Transformer getTransformer(ProcessingContext<Corpus> ctx) throws IOException, TransformerConfigurationException {
+	protected Transformer getTransformer(ProcessingContext ctx) throws IOException, TransformerConfigurationException {
     	Transformer result = null;
     	TransformerFactory transformerFactory = TransformerFactory.newInstance();
     	InputStream is = getXslTransform().getInputStream();
@@ -71,7 +71,7 @@ public abstract class AbstractXMLReader<T extends ResolvedObjects> extends Corpu
         return result;
 	}
 
-	private void processDocument(ProcessingContext<Corpus> ctx, Logger logger, Corpus corpus, InputStream file, Transformer transformer) throws TransformerException, SAXException, IOException, ParserConfigurationException {
+	private void processDocument(ProcessingContext ctx, Logger logger, Corpus corpus, InputStream file, Transformer transformer) throws TransformerException, SAXException, IOException, ParserConfigurationException {
 		String name = getXMLSource().getStreamName(file);
 		logger.finer("reading: " + name);
 		transformer.reset();
@@ -83,7 +83,7 @@ public abstract class AbstractXMLReader<T extends ResolvedObjects> extends Corpu
 	}
 
     @TimeThis(task="read-file", category=TimerCategory.LOAD_RESOURCE)
-	protected Source getSource(ProcessingContext<Corpus> ctx, InputStream file) throws SAXException, IOException, ParserConfigurationException {
+	protected Source getSource(ProcessingContext ctx, InputStream file) throws SAXException, IOException, ParserConfigurationException {
 		if (getHtml()) {
 	        DOMParser parser = new DOMParser();
 	        parser.setFeature("http://xml.org/sax/features/namespaces", false);
@@ -115,7 +115,7 @@ public abstract class AbstractXMLReader<T extends ResolvedObjects> extends Corpu
 	}
 
 	@TimeThis(task="transform")
-	protected void doTransform(ProcessingContext<Corpus> ctx, Transformer transformer, Source source) throws TransformerException {
+	protected void doTransform(ProcessingContext ctx, Transformer transformer, Source source) throws TransformerException {
 		Result result = new SAXResult(new DefaultHandler());
 		transformer.transform(source, result);
 	}

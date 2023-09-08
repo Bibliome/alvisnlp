@@ -17,8 +17,8 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.core.module;
 
-public interface ModuleVisitor<A extends Annotable,P> {
-	void visitSequence(Sequence<A> sequence, P param) throws ModuleException;
-	void visitModule(Module<A> module, P param) throws ModuleException;
-	void visitParam(ParamHandler<A> paramHandler, P param) throws ModuleException;
+public interface ModuleVisitor<P> {
+	void visitSequence(Sequence sequence, P param) throws ModuleException;
+	void visitModule(Module module, P param) throws ModuleException;
+	void visitParam(ParamHandler paramHandler, P param) throws ModuleException;
 }

@@ -37,10 +37,10 @@ import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonScriptBase> {
+public class PythonScriptExternalHandler extends ExternalHandler<PythonScriptBase> {
 	private final EvaluationContext evalCtx;
 
-	public PythonScriptExternalHandler(ProcessingContext<Corpus> processingContext, PythonScriptBase module, Corpus annotable) {
+	public PythonScriptExternalHandler(ProcessingContext processingContext, PythonScriptBase module, Corpus annotable) {
 		super(processingContext, module, annotable);
 		this.evalCtx = new EvaluationContext(getLogger());
 	}
@@ -48,7 +48,7 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 	@Override
 	protected void prepare() throws IOException, ModuleException {
 		JsonSerializer serializer = new JsonSerializer(evalCtx, getModule().getResolvedObjects());
-		JSONObject json = getAnnotable().accept(serializer, null);
+		JSONObject json = getCorpus().accept(serializer, null);
 		File input = getInputFile();
 		TargetStream target = new FileTargetStream("UTF-8", input.getAbsolutePath());
 		try (Writer out = target.getWriter()) {
@@ -172,7 +172,7 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 	}
 	
 	private void handleCorpusEvents(JSONObject j) {
-		Corpus corpus = getAnnotable();
+		Corpus corpus = getCorpus();
 		Map<String,Document> docMap = new HashMap<String,Document>();
 		PythonScriptBase.PythonScriptResolvedObjects resObj = getModule().getResolvedObjects();
 		for (Document doc : Iterators.loop(corpus.documentIterator(evalCtx, resObj.getDocumentFilter()))) {
@@ -189,7 +189,7 @@ public class PythonScriptExternalHandler extends ExternalHandler<Corpus,PythonSc
 	}
 
 	private void handleCorpusEvent(Map<String,Document> docMap, JSONObject jEvent) {
-		Corpus corpus = getAnnotable();
+		Corpus corpus = getCorpus();
 		if (handleFeatureEvent(corpus, jEvent)) {
 			return;
 		}

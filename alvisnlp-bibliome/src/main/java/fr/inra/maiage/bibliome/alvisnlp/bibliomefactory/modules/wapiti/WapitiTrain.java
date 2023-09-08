@@ -37,7 +37,7 @@ public class WapitiTrain extends AbstractWapiti {
 	private InputFile patternFile;
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			new WapitiTrainExternalHandler(ctx, this, corpus).start();
 		}
@@ -47,7 +47,7 @@ public class WapitiTrain extends AbstractWapiti {
 	}
 
 	@Override
-	protected WapitiResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected WapitiResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new WapitiResolvedObjects(ctx, this);
 	}
 

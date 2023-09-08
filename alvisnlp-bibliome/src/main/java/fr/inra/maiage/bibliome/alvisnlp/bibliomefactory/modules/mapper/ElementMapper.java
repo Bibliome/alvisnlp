@@ -52,7 +52,7 @@ public class ElementMapper extends Mapper<ElementMapperResolvedObjects,List<Stri
 		private final Evaluator key;
 		private final Evaluator[] values;
 
-		private ElementMapperResolvedObjects(ProcessingContext<Corpus> ctx, ElementMapper module) throws ResolverException {
+		private ElementMapperResolvedObjects(ProcessingContext ctx, ElementMapper module) throws ResolverException {
 			super(ctx, module);
 			entries = module.entries.resolveExpressions(rootResolver);
 			key = module.key.resolveExpressions(rootResolver);
@@ -69,12 +69,12 @@ public class ElementMapper extends Mapper<ElementMapperResolvedObjects,List<Stri
     }
 
 	@Override
-	protected ElementMapperResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ElementMapperResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new ElementMapperResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void fillMapping(DefaultMap<String, List<List<String>>> mapping, ProcessingContext<Corpus> ctx, Corpus corpus) throws ProcessingException {
+	public void fillMapping(DefaultMap<String, List<List<String>>> mapping, ProcessingContext ctx, Corpus corpus) throws ProcessingException {
 		ElementMapperResolvedObjects resObj = getResolvedObjects();
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);

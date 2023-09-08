@@ -204,13 +204,13 @@ public abstract class YateaTermsProjector extends TrieProjector<SectionResolvedO
 	}
 
 	@Override
-	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected SectionResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
 	}
 
 	@Override
 	@TimeThis(task="create-trie", category=TimerCategory.LOAD_RESOURCE)
-	protected Trie<Term> getTrie(ProcessingContext<Corpus> ctx, Logger logger, Corpus corpus) throws IOException, ModuleException {
+	protected Trie<Term> getTrie(ProcessingContext ctx, Logger logger, Corpus corpus) throws IOException, ModuleException {
 		return super.getTrie(ctx, logger, corpus);
 	}
 

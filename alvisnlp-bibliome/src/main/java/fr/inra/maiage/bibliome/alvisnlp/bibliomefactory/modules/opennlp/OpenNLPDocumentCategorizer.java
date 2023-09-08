@@ -25,7 +25,7 @@ public class OpenNLPDocumentCategorizer extends OpenNLPDocumentCategorizerBase {
 	private String scoresFeaturePrefix;
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
 		OpenNLPDocumentCategorizerResolvedObjects resObj = getResolvedObjects();

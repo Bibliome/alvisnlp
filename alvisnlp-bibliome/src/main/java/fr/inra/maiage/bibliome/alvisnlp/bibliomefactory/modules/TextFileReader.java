@@ -165,12 +165,12 @@ public abstract class TextFileReader extends CorpusModule<ResolvedObjects> imple
 	}
 
 	@Override
-	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			for (BufferedReader r : Iterators.loop(source.getBufferedReaders())) {
 				processFile(corpus, r);

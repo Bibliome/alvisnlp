@@ -26,7 +26,7 @@ import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 class Word2VecExternalHandler extends AbstractContesExternalHandler<SectionResolvedObjects,Word2Vec> {
-	Word2VecExternalHandler(ProcessingContext<Corpus> processingContext, Word2Vec module, Corpus annotable) {
+	Word2VecExternalHandler(ProcessingContext processingContext, Word2Vec module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
 
@@ -45,7 +45,7 @@ class Word2VecExternalHandler extends AbstractContesExternalHandler<SectionResol
 		EvaluationContext ctx = new EvaluationContext(getLogger());
 		try (PrintStream ps = new PrintStream(getWord2VecInputFile(), "UTF-8")) {
 			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(ps, "UTF-8"));
-			for (Section sec : Iterators.loop(owner.sectionIterator(ctx, getAnnotable()))) {
+			for (Section sec : Iterators.loop(owner.sectionIterator(ctx, getCorpus()))) {
 				for (Layer sent : sec.getSentences(owner.getTokenLayer(), owner.getSentenceLayer())) {
 					for (Annotation tok : sent) {
 						String form = StringLibrary.normalizeSpace(tok.getLastFeature(owner.getFormFeature()));
@@ -74,7 +74,7 @@ class Word2VecExternalHandler extends AbstractContesExternalHandler<SectionResol
 		}
 		EvaluationContext ctx = new EvaluationContext(getLogger());
 		Map<String,String> wordVectors = readWordVectors();
-		for (Section sec : Iterators.loop(owner.sectionIterator(ctx, getAnnotable()))) {
+		for (Section sec : Iterators.loop(owner.sectionIterator(ctx, getCorpus()))) {
 			for (Layer sent : sec.getSentences(owner.getTokenLayer(), owner.getSentenceLayer())) {
 				for (Annotation tok : sent) {
 					String form = StringLibrary.normalizeSpace(tok.getLastFeature(owner.getFormFeature()));

@@ -28,8 +28,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
 
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.CorpusDumper;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.AbstractParamVisitor;
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.GlobalNameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
@@ -46,7 +47,7 @@ import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
 /**
  * Base class for processing contexts of alvisnlp CLI.
  */
-public abstract class CommandLineProcessingContext<T extends Annotable> implements ProcessingContext<T> {
+public abstract class CommandLineProcessingContext implements ProcessingContext {
     private Locale                                    locale;
     private File                                      rootTempDir;
     private boolean                                   resumeMode;
@@ -93,9 +94,9 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
     }
     
     @Override
-    public File getTempDir(Module<T> module) {
+    public File getTempDir(Module module) {
     	List<String> path = new LinkedList<String>();
-    	for (Module<T> m = module; m != null; m = m.getSequence()) {
+    	for (Module m = module; m != null; m = m.getSequence()) {
 			String id = m.getId();
 			path.add(0, id);
 		}
@@ -107,7 +108,7 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
     }
 
 	@Override
-    public void processCorpus(Module<T> module, T corpus) throws ModuleException {
+    public void processCorpus(Module module, Corpus corpus) throws ModuleException {
         if (module == null) {
 			return;
 		}
@@ -142,7 +143,7 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
     	Timer<TimerCategory> dumpTimer = timer.newChild("dump", TimerCategory.DUMP);
     	timer.start();
     	dumpTimer.start();
-        try (Annotable.Dumper<T> dumper = getDumper(moduleLogger, dumpFile)) {
+        try (CorpusDumper dumper = getDumper(moduleLogger, dumpFile)) {
         	dumper.dump(corpus);
         }
         catch (Exception e) {
@@ -202,14 +203,14 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
 	}
 
 	@Override
-	public boolean checkPlan(Logger logger, Module<T> mainModule) throws ModuleException {
+	public boolean checkPlan(Logger logger, Module mainModule) throws ModuleException {
 		return checkNameUsage(logger, mainModule);
 	}
 
-	private boolean checkNameUsage(Logger logger, Module<T> mainModule) throws ModuleException {
+	private boolean checkNameUsage(Logger logger, Module mainModule) throws ModuleException {
 		Collection<String> nameTypes = getNameTypes();
 		GlobalNameUsage globalNameUsage = new GlobalNameUsage(nameTypes);
-		NameUsageVisitor<T> visitor = new NameUsageVisitor<T>();
+		NameUsageVisitor visitor = new NameUsageVisitor();
 		mainModule.accept(visitor, globalNameUsage);
 		for (String nameType : nameTypes) {
 			Map<String,Set<String>> names = globalNameUsage.getUsedNames(nameType);
@@ -238,13 +239,13 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
 		}
 	}
 	
-	private static class NameUsageVisitor<T extends Annotable> extends AbstractParamVisitor<T,GlobalNameUsage> {
+	private static class NameUsageVisitor extends AbstractParamVisitor<GlobalNameUsage> {
 		private NameUsageVisitor() {
 			super(true);
 		}
 
 		@Override
-		public void visitModule(Module<T> module, GlobalNameUsage param) throws ModuleException {
+		public void visitModule(Module module, GlobalNameUsage param) throws ModuleException {
 			super.visitModule(module, param);
 			Class<?> moduleClass = module.getClass();
 			if (NameUser.class.isAssignableFrom(moduleClass)) {
@@ -254,12 +255,12 @@ public abstract class CommandLineProcessingContext<T extends Annotable> implemen
 		}
 
 		@Override
-		public void visitParam(ParamHandler<T> paramHandler, GlobalNameUsage param) throws ModuleException {
+		public void visitParam(ParamHandler paramHandler, GlobalNameUsage param) throws ModuleException {
 			Object value = paramHandler.getValue();
 			if (value == null) {
 				return;
 			}
-			Module<T> module = paramHandler.getModule();
+			Module module = paramHandler.getModule();
 			String path = module.getPath();
 			Class<?> paramType = paramHandler.getType();
 			String nameType = paramHandler.getNameType();

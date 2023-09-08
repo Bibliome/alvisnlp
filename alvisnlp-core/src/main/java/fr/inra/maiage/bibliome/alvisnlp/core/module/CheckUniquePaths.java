@@ -21,7 +21,7 @@ import java.util.Collection;
 import java.util.LinkedHashSet;
 import java.util.logging.Logger;
 
-public class CheckUniquePaths<A extends Annotable> extends AbstractModuleVisitor<A, Logger> {
+public class CheckUniquePaths extends AbstractModuleVisitor<Logger> {
 	private final Collection<String> seenPaths = new LinkedHashSet<String>();
 	private boolean duplicatePath = false;
 	
@@ -30,13 +30,13 @@ public class CheckUniquePaths<A extends Annotable> extends AbstractModuleVisitor
 	}
 	
 	@Override
-	public void visitSequence(Sequence<A> sequence, Logger logger) throws ModuleException {
+	public void visitSequence(Sequence sequence, Logger logger) throws ModuleException {
 		visitModule(sequence, logger);
 		super.visitSequence(sequence, logger);
 	}
 
 	@Override
-	public void visitModule(Module<A> module, Logger logger) {
+	public void visitModule(Module module, Logger logger) {
 		String path = module.getPath();
 		if (seenPaths.contains(path)) {
 			logger.severe("duplicate module path: " + path);
@@ -45,8 +45,8 @@ public class CheckUniquePaths<A extends Annotable> extends AbstractModuleVisitor
 		seenPaths.add(path);
 	}
 	
-	public static <A extends Annotable> boolean visit(Logger logger, Module<A> module) throws ModuleException {
-		CheckUniquePaths<A> result = new CheckUniquePaths<A>();
+	public static boolean visit(Logger logger, Module module) throws ModuleException {
+		CheckUniquePaths result = new CheckUniquePaths();
 		module.accept(result, logger);
 		return result.duplicatePath;
 	}

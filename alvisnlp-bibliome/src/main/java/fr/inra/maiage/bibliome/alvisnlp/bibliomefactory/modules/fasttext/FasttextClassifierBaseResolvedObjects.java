@@ -1,7 +1,6 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.fasttext;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
@@ -12,7 +11,7 @@ class FasttextClassifierBaseResolvedObjects extends ResolvedObjects {
 	private final Evaluator documents;
 	private final FasttextAttribute.Resolved[] attributes;
 
-	public FasttextClassifierBaseResolvedObjects(ProcessingContext<Corpus> ctx, FasttextClassifierBase<?> module) throws ResolverException {
+	public FasttextClassifierBaseResolvedObjects(ProcessingContext ctx, FasttextClassifierBase<?> module) throws ResolverException {
 		super(ctx, module);
 		this.documents = module.getDocuments().resolveExpressions(rootResolver);
 		this.attributes = rootResolver.resolveArray(module.getAttributes(), FasttextAttribute.Resolved.class);

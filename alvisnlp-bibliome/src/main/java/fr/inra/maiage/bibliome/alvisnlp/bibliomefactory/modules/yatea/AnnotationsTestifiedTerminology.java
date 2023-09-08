@@ -53,7 +53,7 @@ public class AnnotationsTestifiedTerminology implements TestifiedTerminology {
 	}
 
 	@Override
-	public <S extends SectionResolvedObjects> InputFile ensureFile(AbstractYateaExtractor<S> module, ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException, IOException {
+	public <S extends SectionResolvedObjects> InputFile ensureFile(AbstractYateaExtractor<S> module, ProcessingContext ctx, Corpus corpus) throws ModuleException, IOException {
 		File tmpDir = module.getTempDir(ctx);
 		InputFile result = new InputFile(tmpDir, "attested-terms.ttg");
 		TargetStream ts = new FileTargetStream("ISO-8859-1", result.getAbsolutePath());

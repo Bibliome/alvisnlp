@@ -17,7 +17,6 @@ limitations under the License.
 
 package fr.inra.maiage.bibliome.alvisnlp.core.factory;
 
-import fr.inra.maiage.bibliome.alvisnlp.core.module.Annotable;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Sequence;
 import fr.inra.maiage.bibliome.util.service.ServiceFactory;
@@ -25,8 +24,8 @@ import fr.inra.maiage.bibliome.util.service.ServiceFactory;
 /**
  * A factory for creating Module objects.
  */
-public interface ModuleFactory<T extends Annotable> extends ServiceFactory<Class<? extends Module<T>>,Module<T>> {
-	Sequence<T> newSequence();
+public interface ModuleFactory extends ServiceFactory<Class<? extends Module>,Module> {
+	Sequence newSequence();
 	String getShellModule();
 	String getBrowserModule();
 }

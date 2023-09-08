@@ -43,9 +43,9 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 
 @AlvisNLPModule
-public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequence<Corpus> {
-    private final List<Module<Corpus>> moduleSequence = new ArrayList<Module<Corpus>>();
-    private final Map<String,CompositeParamHandler<Corpus>> params = new LinkedHashMap<String,CompositeParamHandler<Corpus>>();
+public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequence {
+    private final List<Module> moduleSequence = new ArrayList<Module>();
+    private final Map<String,CompositeParamHandler> params = new LinkedHashMap<String,CompositeParamHandler>();
     private final Map<String,String> properties = new LinkedHashMap<String,String>();
     private String sourceName = null;
     private String[] select;
@@ -55,24 +55,24 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
     }
 
 	@Override
-	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
 	}
 
     @Override
-    public void appendModule(Module<Corpus> module) {
+    public void appendModule(Module module) {
         moduleSequence.add(module);
         module.setSequence(this);
     }
 
     @Override
-    public void addModule(Module<Corpus> module, int index) {
+    public void addModule(Module module, int index) {
         moduleSequence.add(index, module);
         module.setSequence(this);
     }
 
     @Override
-    public void addModuleAfter(Module<Corpus> module, Module<Corpus> ref) {
+    public void addModuleAfter(Module module, Module ref) {
         int index = moduleSequence.indexOf(ref);
         if (index < 0) {
 			throw new RuntimeException("reference module " + ref.getId() + " does not belong to sequence " + getId());
@@ -81,7 +81,7 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
     }
 
     @Override
-    public void addModuleBefore(Module<Corpus> module, Module<Corpus> ref) {
+    public void addModuleBefore(Module module, Module ref) {
         int index = moduleSequence.indexOf(ref);
         if (index < 0) {
 			throw new RuntimeException("reference module " + ref.getId() + " does not belong to sequence " + getId());
@@ -90,12 +90,12 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
     }
 
     @Override
-    public void removeModule(Module<Corpus> module) {
+    public void removeModule(Module module) {
         moduleSequence.remove(module);
         Collection<String> toRemove = new ArrayList<String>();
-        for (CompositeParamHandler<Corpus> cph : params.values()) {
-        	ParamHandler<Corpus> ph = cph.firstHandler();
-        	Module<?> m = ph.getModule();
+        for (CompositeParamHandler cph : params.values()) {
+        	ParamHandler ph = cph.firstHandler();
+        	Module m = ph.getModule();
         	if (m == module) {
         		toRemove.add(cph.getName());
         	}
@@ -106,15 +106,15 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
     }
 
     @Override
-    public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+    public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
     	if (select == null) {
-    		for (Module<Corpus> mod : moduleSequence) {
+    		for (Module mod : moduleSequence) {
     			ctx.processCorpus(mod, corpus);
     		}
     	}
     	else {
     		Set<String> set = new LinkedHashSet<String>(Arrays.asList(select));
-    		for (Module<Corpus> mod : moduleSequence) {
+    		for (Module mod : moduleSequence) {
     			if (set.contains(mod.getId())) {
     				ctx.processCorpus(mod, corpus);
     			}
@@ -129,7 +129,7 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
 
 	@Override
 	public boolean hasModule(String id) {
-    	for (Module<Corpus> m : moduleSequence) {
+    	for (Module m : moduleSequence) {
 			if (id.equals(m.getId())) {
 				return true;
 			}
@@ -138,8 +138,8 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
 	}
 
 	@Override
-    public Module<Corpus> getModule(String id) {
-    	for (Module<Corpus> m : moduleSequence) {
+    public Module getModule(String id) {
+    	for (Module m : moduleSequence) {
 			if (id.equals(m.getId())) {
 				return m;
 			}
@@ -148,29 +148,29 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
     }
 
     @Override
-    public Collection<ParamHandler<Corpus>> getAllParamHandlers() {
-    	Collection<ParamHandler<Corpus>> result = new ArrayList<ParamHandler<Corpus>>(super.getAllParamHandlers());
+    public Collection<ParamHandler> getAllParamHandlers() {
+    	Collection<ParamHandler> result = new ArrayList<ParamHandler>(super.getAllParamHandlers());
     	result.addAll(params.values());
     	return result;
     }
 
     @Override
-    public ParamHandler<Corpus> getParamHandler(String name) throws UnexpectedParameterException {
+    public ParamHandler getParamHandler(String name) throws UnexpectedParameterException {
     	if (params.containsKey(name))
     		return params.get(name);
     	return super.getParamHandler(name);
     }
 
     @Override
-    public void init(ProcessingContext<Corpus> ctx) throws ModuleException {
+    public void init(ProcessingContext ctx) throws ModuleException {
     	super.init(ctx);
-        for (Module<Corpus> mod : moduleSequence) {
+        for (Module mod : moduleSequence) {
 			mod.init(ctx);
 		}
     }
 
 	@Override
-	public Module<Corpus> getModule(int index) {
+	public Module getModule(int index) {
 		if (index < 0)
 			return null;
 		if (index >= moduleSequence.size())
@@ -184,7 +184,7 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
 	}
 
 	@Override
-	public int getIndexOf(Module<Corpus> module) {
+	public int getIndexOf(Module module) {
 		for (int i = 0; i < moduleSequence.size(); ++i)
 			if (module == moduleSequence.get(i))
 				return i;
@@ -192,44 +192,44 @@ public class Sequence_Impl extends CorpusModule<ResolvedObjects> implements Sequ
 	}
 
 	@Override
-	public Module<Corpus> getModuleByPath(String modulePath) {
+	public Module getModuleByPath(String modulePath) {
 		int dot = modulePath.indexOf('.');
 		if (dot < 0)
 			return getModule(modulePath);
 		String moduleName = modulePath.substring(0, dot);
-		Module<Corpus> subModule = getModule(moduleName);
+		Module subModule = getModule(moduleName);
 		if (subModule == null)
 			return null;
 		return subModule.getModuleByPath(modulePath.substring(dot + 1));
 	}
 
 	@Override
-	public CompositeParamHandler<Corpus> createAliasParam(String name) throws ParameterException {
+	public CompositeParamHandler createAliasParam(String name) throws ParameterException {
 		if (params.containsKey(name))
 			throw new ParameterException("duplicate alias " + name + " in " + getPath(), name);
-		CompositeParamHandler<Corpus> result = new CompositeParamHandler<Corpus>(this, name);
+		CompositeParamHandler result = new CompositeParamHandler(this, name);
 		params.put(name, result);
 		return result;
 	}
 
 	@Override
-	public <P> void accept(ModuleVisitor<Corpus,P> visitor, P param) throws ModuleException {
+	public <P> void accept(ModuleVisitor<P> visitor, P param) throws ModuleException {
 		visitor.visitSequence(this, param);
 	}
 
 	@Override
-	public List<Module<Corpus>> getSubModules() {
+	public List<Module> getSubModules() {
 		return Collections.unmodifiableList(moduleSequence);
 	}
 
     @Override
-	public List<Module<Corpus>> getActiveSubModules() {
+	public List<Module> getActiveSubModules() {
     	if (select == null) {
     		return getSubModules();
     	}
-    	List<Module<Corpus>> result = new ArrayList<Module<Corpus>>(moduleSequence.size());
+    	List<Module> result = new ArrayList<Module>(moduleSequence.size());
 		Set<String> set = new LinkedHashSet<String>(Arrays.asList(select));
-		for (Module<Corpus> mod : moduleSequence) {
+		for (Module mod : moduleSequence) {
 			if (set.contains(mod.getId())) {
 				result.add(mod);
 			}

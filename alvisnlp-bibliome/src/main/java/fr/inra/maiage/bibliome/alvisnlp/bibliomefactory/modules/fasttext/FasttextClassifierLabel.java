@@ -18,7 +18,7 @@ public class FasttextClassifierLabel extends FasttextClassifierBase<FasttextClas
 	private String probabilityFeature;
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			FasttextClassifierLabelExternalHandler ext = new FasttextClassifierLabelExternalHandler(ctx, this, corpus);
 			ext.start();
@@ -29,7 +29,7 @@ public class FasttextClassifierLabel extends FasttextClassifierBase<FasttextClas
 	}
 
 	@Override
-	protected FasttextClassifierBaseResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected FasttextClassifierBaseResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new FasttextClassifierBaseResolvedObjects(ctx, this);
 	}
 

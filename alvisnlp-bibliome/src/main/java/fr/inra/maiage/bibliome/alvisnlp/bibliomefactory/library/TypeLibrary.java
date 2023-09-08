@@ -154,12 +154,12 @@ public abstract class TypeLibrary extends FunctionLibrary {
 	}
 	
 	@Function
-	public static final String get(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final String get(EvaluationContext ctx, Element elt) {
 		return elt.accept(GET_TYPE_VISITOR, null);
 	}
 	
 	@Function(ftors=1)
-	public static final boolean test(@SuppressWarnings("unused") EvaluationContext ctx, Element elt, String t) {
+	public static final boolean test(EvaluationContext ctx, Element elt, String t) {
 		if (t.isEmpty())
 			return false;
 		TestType test = TestType.get(t.charAt(0));
@@ -169,32 +169,32 @@ public abstract class TypeLibrary extends FunctionLibrary {
 	}
 	
 	@Function
-	public static final boolean corpus(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final boolean corpus(EvaluationContext ctx, Element elt) {
 		return elt.accept(TestType.CORPUS, null);
 	}
 	
 	@Function
-	public static final boolean document(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final boolean document(EvaluationContext ctx, Element elt) {
 		return elt.accept(TestType.DOCUMENT, null);
 	}
 	
 	@Function
-	public static final boolean section(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final boolean section(EvaluationContext ctx, Element elt) {
 		return elt.accept(TestType.SECTION, null);
 	}
 	
 	@Function
-	public static final boolean annotation(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final boolean annotation(EvaluationContext ctx, Element elt) {
 		return elt.accept(TestType.ANNOTATION, null);
 	}
 	
 	@Function
-	public static final boolean relation(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final boolean relation(EvaluationContext ctx, Element elt) {
 		return elt.accept(TestType.RELATION, null);
 	}
 	
 	@Function
-	public static final boolean tuple(@SuppressWarnings("unused") EvaluationContext ctx, Element elt) {
+	public static final boolean tuple(EvaluationContext ctx, Element elt) {
 		return elt.accept(TestType.TUPLE, null);
 	}
 }

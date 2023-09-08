@@ -42,7 +42,6 @@ import fr.inra.maiage.bibliome.util.xml.XMLUtils;
  */
 class ModuleModel {
 	private final TypeElement element;
-	private final String dataClass;
 	private final String simpleName;
 	private final String fullName;
 	private final String packageName;
@@ -63,7 +62,6 @@ class ModuleModel {
 		if (!moduleElement.getTypeParameters().isEmpty())
 			throw new ModelException("module cannot be generic: " + moduleElement.getQualifiedName());
 		element = moduleElement;
-		dataClass = ctx.getModuleDataClass(moduleElement);
 		simpleName = moduleElement.getSimpleName().toString();
 		fullName = moduleElement.getQualifiedName().toString();
 		packageName = fullName.substring(0, fullName.lastIndexOf('.'));
@@ -113,10 +111,6 @@ class ModuleModel {
 	 */
 	public String getPackageName() {
 		return packageName;
-	}
-	
-	public String getDataClass() {
-		return dataClass;
 	}
 
 	/**

@@ -94,7 +94,7 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 		private final Evaluator roots;
 		private final Evaluator fileName;
 
-		private XMLWriterResolvedObjects(ProcessingContext<Corpus> ctx, XMLWriter module) throws ResolverException {
+		private XMLWriterResolvedObjects(ProcessingContext ctx, XMLWriter module) throws ResolverException {
 			super(ctx, module);
 			roots = rootResolver.resolveNullable(module.roots);
 			fileName = module.fileName.resolveExpressions(rootResolver);
@@ -110,12 +110,12 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 	}
 
 	@Override
-	protected XMLWriterResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected XMLWriterResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new XMLWriterResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 	    	Logger logger = getLogger(ctx);
 	    	EVALUATION_CONTEXT = new EvaluationContext(logger);
@@ -146,14 +146,13 @@ public class XMLWriter extends CorpusModule<XMLWriterResolvedObjects> {
 		}
 	}
 
-	@SuppressWarnings("static-method")
 	@TimeThis(task="transform", category=TimerCategory.EXPORT)
-	protected void doTransform(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx, Transformer transformer, Source source, Result result) throws TransformerException {
+	protected void doTransform(ProcessingContext ctx, Transformer transformer, Source source, Result result) throws TransformerException {
 		transformer.transform(source, result);
 	}
 
 	@TimeThis(task="read-xslt", category=TimerCategory.LOAD_RESOURCE)
-	protected Transformer getTransformer(@SuppressWarnings("unused") ProcessingContext<Corpus> ctx) throws IOException, TransformerConfigurationException {
+	protected Transformer getTransformer(ProcessingContext ctx) throws IOException, TransformerConfigurationException {
 		TransformerFactory factory = TransformerFactory.newInstance();
 		try (InputStream is = xslTransform.getInputStream()) {
 			Source transformerSource = new StreamSource(is);

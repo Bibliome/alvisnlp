@@ -43,7 +43,7 @@ public class JsonExport extends CorpusModule<JsonExportResolvedObjects> implemen
 		private final Evaluator fileName;
 		private final JsonValue.Resolved json;
 		
-		private JsonExportResolvedObjects(ProcessingContext<Corpus> ctx, JsonExport module) throws ResolverException {
+		private JsonExportResolvedObjects(ProcessingContext ctx, JsonExport module) throws ResolverException {
 			super(ctx, module);
 			if (module.corpusFile == null) {
 				files = rootResolver.resolveNullable(module.files);
@@ -58,7 +58,7 @@ public class JsonExport extends CorpusModule<JsonExportResolvedObjects> implemen
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		JsonExportResolvedObjects resObj = getResolvedObjects();
     	Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
@@ -79,12 +79,12 @@ public class JsonExport extends CorpusModule<JsonExportResolvedObjects> implemen
 	}
 	
 	@TimeThis(task = "write", category = TimerCategory.EXPORT)
-	protected void writeJson(ProcessingContext<Corpus> ctx, PrintStream ps, Object jValue) {
+	protected void writeJson(ProcessingContext ctx, PrintStream ps, Object jValue) {
 		ps.print(jValue);
 	}
 	
 	@TimeThis(task = "convert", category = TimerCategory.PREPARE_DATA)
-	protected Object convertToJson(ProcessingContext<Corpus> ctx, EvaluationContext evalCtx, Element fileElement) {
+	protected Object convertToJson(ProcessingContext ctx, EvaluationContext evalCtx, Element fileElement) {
 		JsonExportResolvedObjects resObj = getResolvedObjects();
 		return resObj.json.create(evalCtx, fileElement);
 	}
@@ -112,7 +112,7 @@ public class JsonExport extends CorpusModule<JsonExportResolvedObjects> implemen
 	}
 
 	@Override
-	protected JsonExportResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected JsonExportResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new JsonExportResolvedObjects(ctx, this);
 	}
 

@@ -79,7 +79,7 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 	private String rightRole = "right";
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			FileFilter filter = new PatternFileFilter(Pattern.compile("\\.txt$"), false, false);
 			File[] txtFiles = textDir.listFiles(filter);
@@ -102,7 +102,7 @@ public abstract class I2B2Reader extends CorpusModule<ResolvedObjects> implement
 	}
 
 	@Override
-	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
 	}
 

@@ -18,10 +18,10 @@ import fr.inra.maiage.bibliome.util.Strings;
 import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-public abstract class FasttextClassifierBaseExternalHandler<R extends FasttextClassifierBaseResolvedObjects, M extends FasttextClassifierBase<R>> extends ExternalHandler<Corpus,M> {
+public abstract class FasttextClassifierBaseExternalHandler<R extends FasttextClassifierBaseResolvedObjects, M extends FasttextClassifierBase<R>> extends ExternalHandler<M> {
 	protected static final String FASTTEXT_CLASS_FEATURE_PREFIX = "__label__";
 
-	protected FasttextClassifierBaseExternalHandler(ProcessingContext<Corpus> processingContext, M module, Corpus annotable) {
+	protected FasttextClassifierBaseExternalHandler(ProcessingContext processingContext, M module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
 	
@@ -29,7 +29,7 @@ public abstract class FasttextClassifierBaseExternalHandler<R extends FasttextCl
 		TargetStream target = new FileTargetStream("UTF-8", file.getAbsolutePath());
 		try (PrintStream ps = target.getPrintStream()) {
 			int nDocs = 0;
-			for (Element doc : Iterators.loop(documents.evaluateElements(evalCtx, getAnnotable()))) {
+			for (Element doc : Iterators.loop(documents.evaluateElements(evalCtx, getCorpus()))) {
 				Collection<String> line = getDocumentLine(evalCtx, doc, attributes, includeClass);
 				int w = classWeights ? getDocWeight(doc) : 1;
 				for (int i = 0; i < w; ++i) {

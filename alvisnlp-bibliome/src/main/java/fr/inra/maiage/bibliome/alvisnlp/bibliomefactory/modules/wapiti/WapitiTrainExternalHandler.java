@@ -9,7 +9,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 
 class WapitiTrainExternalHandler extends AbstractWapitiExternalHandler<WapitiTrain> {
-	WapitiTrainExternalHandler(ProcessingContext<Corpus> processingContext, WapitiTrain module, Corpus annotable) {
+	WapitiTrainExternalHandler(ProcessingContext processingContext, WapitiTrain module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
 

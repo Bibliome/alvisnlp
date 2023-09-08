@@ -44,7 +44,7 @@ public class FasttextClassifierTrain extends FasttextClassifierBase<FasttextClas
 	private String autotuneMetric = null;
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			FasttextClassifierTrainExternalHandler ext = new FasttextClassifierTrainExternalHandler(ctx, this, corpus);
 			ext.start();
@@ -75,7 +75,7 @@ public class FasttextClassifierTrain extends FasttextClassifierBase<FasttextClas
 	}
 
 	@Override
-	protected FasttextClassifierTrainResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected FasttextClassifierTrainResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new FasttextClassifierTrainResolvedObjects(ctx, this);
 	}
 

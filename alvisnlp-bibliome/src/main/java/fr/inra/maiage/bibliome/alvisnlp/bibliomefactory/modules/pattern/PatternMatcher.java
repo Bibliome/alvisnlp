@@ -64,7 +64,7 @@ public abstract class PatternMatcher extends SectionModule<PatternMatcherResolve
 		private final MatchActionContext matchCtx;
 		private final MatchAction[] actions;
 
-		private PatternMatcherResolvedObjects(ProcessingContext<Corpus> ctx, PatternMatcher module) throws ResolverException {
+		private PatternMatcherResolvedObjects(ProcessingContext ctx, PatternMatcher module) throws ResolverException {
 			super(ctx, module);
 			pattern = module.pattern.resolveExpressions(rootResolver);
 			matchCtx = new MatchActionContext(module, pattern, module.layer);
@@ -83,12 +83,12 @@ public abstract class PatternMatcher extends SectionModule<PatternMatcherResolve
 	}
 
 	@Override
-	protected PatternMatcherResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected PatternMatcherResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new PatternMatcherResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		PatternMatcherResolvedObjects resObj = getResolvedObjects();
 		Logger logger = getLogger(ctx);
 		resObj.matchCtx.setLogger(logger);
@@ -132,7 +132,7 @@ public abstract class PatternMatcher extends SectionModule<PatternMatcherResolve
 		return null;
 	}
 
-	private Collection<List<Element>> getSequences(ProcessingContext<Corpus> ctx, Layer layer) {
+	private Collection<List<Element>> getSequences(ProcessingContext ctx, Layer layer) {
 		if (layer.hasOverlaps())
 			return overlappingBehaviour.getSequences(getLogger(ctx), layer, annotationComparator);
 		return Collections.singleton(layer.asElementList());

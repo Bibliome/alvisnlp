@@ -53,7 +53,7 @@ public class RemoveEquivalent extends CorpusModule<RemoveEquivalentResolvedObjec
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		RemoveEquivalentResolvedObjects resObj = getResolvedObjects();
 		Logger logger = getLogger(ctx);
 		EvaluationContext evalCtx = new EvaluationContext(logger);
@@ -112,7 +112,7 @@ public class RemoveEquivalent extends CorpusModule<RemoveEquivalentResolvedObjec
 	}
 
 	@Override
-	protected RemoveEquivalentResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected RemoveEquivalentResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new RemoveEquivalentResolvedObjects(ctx);
 	}
 
@@ -125,7 +125,7 @@ public class RemoveEquivalent extends CorpusModule<RemoveEquivalentResolvedObjec
 		@SuppressWarnings("hiding")
 		private final Comparator<Element> priority;
 
-		private RemoveEquivalentResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		private RemoveEquivalentResolvedObjects(ProcessingContext ctx) throws ResolverException {
 			super(ctx, RemoveEquivalent.this);
 			this.target = RemoveEquivalent.this.target.resolveExpressions(rootResolver);
 			VariableLibrary otherLib = new VariableLibrary("other");

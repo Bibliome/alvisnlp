@@ -25,11 +25,11 @@ import fr.inra.maiage.bibliome.util.files.OutputFile;
 import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
-class SpeciesExternalHandler extends ExternalHandler<Corpus,Species> {
+class SpeciesExternalHandler extends ExternalHandler<Species> {
 	private static final String ENCODING = "ISO-8859-1";
 	private final Map<String,Section> sectionMap = new LinkedHashMap<String,Section>();;
 
-	SpeciesExternalHandler(ProcessingContext<Corpus> processingContext, Species module, Corpus annotable) {
+	SpeciesExternalHandler(ProcessingContext processingContext, Species module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
 
@@ -39,7 +39,7 @@ class SpeciesExternalHandler extends ExternalHandler<Corpus,Species> {
 		EvaluationContext evalCtx = new EvaluationContext(getLogger());
 		try {
 			File inputDir = getSpeciesInputDir();
-			for (Section sec : Iterators.loop(getModule().sectionIterator(evalCtx, getAnnotable()))) {
+			for (Section sec : Iterators.loop(getModule().sectionIterator(evalCtx, getCorpus()))) {
 				int n = sectionMap.size();
 				String fileName = Integer.toHexString(n) + ".txt";
 				sectionMap.put(fileName, sec);

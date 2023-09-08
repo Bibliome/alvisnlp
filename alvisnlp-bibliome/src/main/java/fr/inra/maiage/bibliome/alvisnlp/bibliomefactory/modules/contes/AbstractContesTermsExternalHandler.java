@@ -21,7 +21,7 @@ import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
 import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 abstract class AbstractContesTermsExternalHandler<F extends AbstractFile,T extends ContesTermClassifier<F>,M extends AbstractContesTerms<F,T>> extends AbstractContesExternalHandler<ContesTermsResolvedObject,M> {
-	protected AbstractContesTermsExternalHandler(ProcessingContext<Corpus> processingContext, M module, Corpus annotable) {
+	protected AbstractContesTermsExternalHandler(ProcessingContext processingContext, M module, Corpus annotable) {
 		super(processingContext, module, annotable);
 	}
 
@@ -42,7 +42,7 @@ abstract class AbstractContesTermsExternalHandler<F extends AbstractFile,T exten
 		JSONObject result = new JSONObject();
 		EvaluationContext ctx = new EvaluationContext(getLogger());
 		AbstractContesTerms<F,T> owner = getModule();
-		Corpus corpus = getAnnotable();
+		Corpus corpus = getCorpus();
 		Iterator<Section> sectionIt = corpus.sectionIterator(ctx, termClassifier.getDocumentFilter(), termClassifier.getSectionFilter());
 		for (Section sec : Iterators.loop(sectionIt)) {
 			Layer tokens = sec.getLayer(owner.getTokenLayerName());

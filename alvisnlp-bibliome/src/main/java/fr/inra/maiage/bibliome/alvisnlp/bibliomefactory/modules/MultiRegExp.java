@@ -42,7 +42,7 @@ public abstract class MultiRegExp extends SectionModule<SectionResolvedObjects> 
 	private Boolean matchWordBoundaries = false;
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
         try {
 			Logger logger = getLogger(ctx);
 			List<Pair<Pattern,List<String>>> patterns = getPatterns(logger);
@@ -118,7 +118,7 @@ public abstract class MultiRegExp extends SectionModule<SectionResolvedObjects> 
 	}
 
 	@Override
-	protected SectionResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected SectionResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new SectionResolvedObjects(ctx, this);
 	}
 

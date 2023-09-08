@@ -10,22 +10,22 @@ import org.w3c.dom.Element;
 import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 public class ModuleAnalysis {
-	private final Module<?> module;
+	private final Module module;
 	private final List<ResourceAnalysis> resourceAnalysis = new ArrayList<ResourceAnalysis>();
 	private final List<ModuleAnalysis> children = new ArrayList<ModuleAnalysis>();
 	
-	public ModuleAnalysis(Module<?> module) {
+	public ModuleAnalysis(Module module) {
 		super();
 		this.module = module;
-		for (ParamHandler<?> ph : module.getAllParamHandlers()) {
+		for (ParamHandler ph : module.getAllParamHandlers()) {
 			ResourceAnalysis r = ResourceAnalysis.build(ph);
 			if (r != null) {
 				resourceAnalysis.add(r);
 			}
 		}
 		if (module instanceof Sequence) {
-			Sequence<?> sequence = (Sequence<?>) module;
-			for (Module<?> child : sequence.getSubModules()) {
+			Sequence sequence = (Sequence) module;
+			for (Module child : sequence.getSubModules()) {
 				ModuleAnalysis ma = new ModuleAnalysis(child);
 				children.add(ma);
 			}
@@ -33,7 +33,7 @@ public class ModuleAnalysis {
 	}
 
 	public boolean isSourceInherited() {
-		Sequence<?> parent = module.getSequence();
+		Sequence parent = module.getSequence();
 		if (parent == null) {
 			return false;
 		}
@@ -42,7 +42,7 @@ public class ModuleAnalysis {
 		return source.equals(parentSource);
 	}
 
-	public Module<?> getModule() {
+	public Module getModule() {
 		return module;
 	}
 
@@ -80,7 +80,7 @@ public class ModuleAnalysis {
 			elt.setAttribute("plan-source", module.getModuleSourceName());
 		}
 		if (topLevel) {
-			for (ParamHandler<?> ph : module.getAllParamHandlers()) {
+			for (ParamHandler ph : module.getAllParamHandlers()) {
 				Element pe = XMLUtils.createElement(doc, elt, 0, "param");
 				pe.setAttribute("name", ph.getName());
 				pe.setAttribute("type", ph.getType().getCanonicalName());

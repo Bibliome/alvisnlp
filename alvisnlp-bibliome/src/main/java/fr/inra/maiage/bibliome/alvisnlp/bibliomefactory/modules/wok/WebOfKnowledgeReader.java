@@ -47,12 +47,12 @@ public abstract class WebOfKnowledgeReader extends CorpusModule<ResolvedObjects>
 	private Boolean tabularFormat = false;
 
     @Override
-	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try (BufferedReader reader = source.getBufferedReader()) {
 			WoKReaderStatus status = new WoKReaderStatus(this, corpus);
 			while (true) {
@@ -76,7 +76,7 @@ public abstract class WebOfKnowledgeReader extends CorpusModule<ResolvedObjects>
 	}
 
 	@TimeThis(task="read", category=TimerCategory.LOAD_RESOURCE)
-	protected void read(@SuppressWarnings("unused") ProcessingContext<Corpus> corpus, WoKReaderStatus status, String line) throws ProcessingException {
+	protected void read(ProcessingContext corpus, WoKReaderStatus status, String line) throws ProcessingException {
 		if (tabularFormat) {
 			status.readTabularLine(line);
 		}

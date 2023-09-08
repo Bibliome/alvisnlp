@@ -62,7 +62,7 @@ public abstract class InsertContents extends SectionModule<InsertContentsResolve
 		private final Evaluator offset;
 		private final Evaluator insert;
 
-		private InsertContentsResolvedObjects(ProcessingContext<Corpus> ctx, InsertContents module) throws ResolverException {
+		private InsertContentsResolvedObjects(ProcessingContext ctx, InsertContents module) throws ResolverException {
 			super(ctx, module);
 			this.points = module.points.resolveExpressions(rootResolver);
 			this.offset = module.offset.resolveExpressions(rootResolver);
@@ -71,7 +71,7 @@ public abstract class InsertContents extends SectionModule<InsertContentsResolve
 	}
 
 	@Override
-	protected InsertContentsResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected InsertContentsResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new InsertContentsResolvedObjects(ctx, this);
 	}
 
@@ -86,7 +86,7 @@ public abstract class InsertContents extends SectionModule<InsertContentsResolve
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		Logger logger = getLogger(ctx);
 		Map<Element,Element> map = new LinkedHashMap<Element,Element>();
 		EvaluationContext evalCtx = new EvaluationContext(logger);

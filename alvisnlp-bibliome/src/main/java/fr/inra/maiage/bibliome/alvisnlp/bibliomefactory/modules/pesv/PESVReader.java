@@ -47,7 +47,7 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 	private String propertiesFeature = "properties";
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			Logger logger = getLogger(ctx);
 			loadDocuments(logger, corpus);
@@ -178,7 +178,7 @@ public abstract class PESVReader extends CorpusModule<ResolvedObjects> implement
 	}
 
 	@Override
-	protected ResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected ResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new ResolvedObjects(ctx, this);
 	}
 

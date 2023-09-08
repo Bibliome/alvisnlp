@@ -54,7 +54,7 @@ public abstract class DocumentModule<T extends DocumentResolvedObjects> extends 
     public static class DocumentResolvedObjects extends ResolvedObjects {
     	private final Evaluator documentFilter;
     	
-    	protected DocumentResolvedObjects(ProcessingContext<Corpus> ctx, DocumentModule<? extends DocumentResolvedObjects> module) throws ResolverException {
+    	protected DocumentResolvedObjects(ProcessingContext ctx, DocumentModule<? extends DocumentResolvedObjects> module) throws ResolverException {
     		super(ctx, module);
     		documentFilter = rootResolver.resolveNullable(module.getDocumentFilter());
     	}

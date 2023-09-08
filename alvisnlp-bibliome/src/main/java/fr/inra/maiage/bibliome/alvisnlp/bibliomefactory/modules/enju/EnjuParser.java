@@ -63,10 +63,9 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	private String dependentTypeFeature = "arg-type";
 
 	class EnjuParserResolvedObjects extends SectionResolvedObjects {
-		@SuppressWarnings("hiding")
 		private final Evaluator sentenceFilter;
 
-		private EnjuParserResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+		private EnjuParserResolvedObjects(ProcessingContext ctx) throws ResolverException {
 			super(ctx, EnjuParser.this);
 			sentenceFilter = EnjuParser.this.sentenceFilter.resolveExpressions(rootResolver);
 		}
@@ -83,12 +82,12 @@ public abstract class EnjuParser extends SectionModule<EnjuParserResolvedObjects
 	}
 
 	@Override
-	protected EnjuParserResolvedObjects createResolvedObjects(ProcessingContext<Corpus> ctx) throws ResolverException {
+	protected EnjuParserResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
 		return new EnjuParserResolvedObjects(ctx);
 	}
 
 	@Override
-	public void process(ProcessingContext<Corpus> ctx, Corpus corpus) throws ModuleException {
+	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			new EnjuParserExternalHandler(ctx, this, corpus).start();;
 		}
