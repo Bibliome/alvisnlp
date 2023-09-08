@@ -347,7 +347,7 @@ public class PlanLoader<T extends Annotable> {
 				String childName = childElement.getTagName();
 				if (ALIAS_ELEMENT_NAME.equals(childName)) {
 					String modulePath = getAttribute(childElement, MODULE_PATH_ATTRIBUTE_NAME);
-					String paramName = getAttribute(childElement, PARAM_ATTRIBUTE_NAME);
+					String paramName = getAttribute(childElement, PARAM_ATTRIBUTE_NAME, name);
 					ph.addParamHandler(modulePath, paramName);
 					continue;
 				}
@@ -436,6 +436,12 @@ public class PlanLoader<T extends Annotable> {
 		if (elt.hasAttribute(name))
 			return elt.getAttribute(name);
 		throw new PlanException("missing attribute: " + name);
+	}
+
+	private static String getAttribute(Element elt, String name, String defaultValue) throws PlanException {
+		if (elt.hasAttribute(name))
+			return elt.getAttribute(name);
+		return defaultValue;
 	}
 
 	private Module<T> importPlan(Logger logger, Element elt) throws PlanException, ModuleException, SAXException, IOException, ServiceException, ConverterException, URISyntaxException {
