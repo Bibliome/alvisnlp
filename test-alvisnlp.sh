@@ -257,8 +257,8 @@ do
     fi
     TESTS="$TESTS $TEST_NAME"
     export TEST_WD="$WORKING_DIR"/"$TEST_NAME"
+    rm -fr "$TEST_WD"
     mkdir -p "$TEST_WD"
-    rm -fr "$TEST_WD"/tmp
     log Test: "$t"
     log Output redirected to: "$TEST_WD"/test.out
     if (cd "$TEST_WD" ; /bin/bash -o errexit "$t") &>"$TEST_WD"/test.out

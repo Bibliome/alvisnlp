@@ -1,0 +1,46 @@
+<alvisnlp-plan id="dump">
+  <read href="BioNLP-ST-2016_BB-cat+ner/read.plan">
+    <textBoundAsAnnotations/>
+  </read>
+
+  <layout>
+    <title class="Action">
+      <target>documents.sections.layer:Title</target>
+      <action>set:feat:tag("h2") | add:layout</action>
+      <setFeatures/>
+      <addToLayer/>
+    </title>
+
+    <paragraph class="Action">
+      <target>documents.sections.layer:Paragraph</target>
+      <action>set:feat:tag("p") | add:layout</action>
+      <setFeatures/>
+      <addToLayer/>
+    </paragraph>
+  </layout>
+
+  <urls>
+    <OBT class="Action">
+      <active>false</active>
+      <target>documents.sections.layer:Habitat</target>
+      <action>set:feat:OntoBiotope-link("https://agroportal.lirmm.fr/ontologies/ONTOBIOTOPE/?p=classes&amp;conceptid=http%3A%2F%2Fpurl.obolibrary.org%2Fobo%2F" ^ str:replace(@OntoBiotope, ":", "_"))</action>
+      <setFeatures/>
+    </OBT>
+
+    <NCBI class="Action">
+      <target>documents.sections.layer:Bacteria</target>
+      <action>set:feat:NCBI_Taxonomy-link("https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?mode=Info&amp;id=" ^ @NCBI_Taxonomy)</action>
+      <setFeatures/>
+    </NCBI>
+  </urls>
+
+  <html class="QuickHTML">
+    <documentFilter>@set != "test"</documentFilter>
+    <outDir>html</outDir>
+    <documentTitle>"[" ^ @set ^ "] " ^ @id</documentTitle>
+    <layoutLayer>layout</layoutLayer>
+    <mentionLayers>Bacteria,Habitat</mentionLayers>
+    <typeFeature>type</typeFeature>
+    <features>id,OntoBiotope,NCBI_Taxonomy,NCBI_Taxonomy-link</features>
+  </html>
+</alvisnlp-plan>
