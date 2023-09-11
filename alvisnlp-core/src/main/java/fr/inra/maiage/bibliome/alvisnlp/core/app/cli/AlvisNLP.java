@@ -27,8 +27,8 @@ import javax.xml.transform.TransformerConfigurationException;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.Undumper;
-import fr.inra.maiage.bibliome.alvisnlp.core.factory.CompoundCorpusModuleFactory;
-import fr.inra.maiage.bibliome.alvisnlp.core.factory.CorpusModuleFactory;
+import fr.inra.maiage.bibliome.alvisnlp.core.factory.CompoundModuleFactory;
+import fr.inra.maiage.bibliome.alvisnlp.core.factory.ModuleFactory;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.util.Pair;
 import fr.inra.maiage.bibliome.util.clio.CLIOption;
@@ -51,9 +51,9 @@ public class AlvisNLP extends AbstractAlvisNLP {
 	}
 	
 	@Override
-    protected CorpusModuleFactory getModuleFactory() {
-        CompoundCorpusModuleFactory result = new CompoundCorpusModuleFactory();
-        result.loadServiceFactories(CorpusModuleFactory.class, null, null, null);
+    protected ModuleFactory getModuleFactory() {
+        CompoundModuleFactory result = new CompoundModuleFactory();
+        result.loadServiceFactories(ModuleFactory.class, null, null, null);
         return result;
     }
 

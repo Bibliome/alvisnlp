@@ -61,9 +61,8 @@
 	  <target>1.8</target>
 	  <compilerArgs>
 	    <arg>-AmoduleFactoryName=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.BibliomeModuleFactory</arg>
-	    <arg>-AdataClass=fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus</arg>
 	    <arg>-AsequenceImplementationClass=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.Sequence_Impl</arg>
-	    <arg>-AfactoryInterface=fr.inra.maiage.bibliome.alvisnlp.core.factory.CorpusModuleFactory</arg>
+	    <arg>-AfactoryInterface=fr.inra.maiage.bibliome.alvisnlp.core.factory.ModuleFactory</arg>
 	    <arg>-AconverterFactoryName=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.BibliomeConverterFactory</arg>
 	    <arg>-AresourceBases=fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/resources</arg>
 	    <arg>-AshellModule=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.shell.Shell</arg>
@@ -148,7 +147,7 @@
 	    <arg>-AmoduleFactoryName=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.BibliomeModuleFactory</arg>
 	    <arg>-AdataClass=fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus</arg>
 	    <arg>-AsequenceImplementationClass=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.Sequence_Impl</arg>
-	    <arg>-AfactoryInterface=fr.inra.maiage.bibliome.alvisnlp.core.factory.CorpusModuleFactory</arg>
+	    <arg>-AfactoryInterface=fr.inra.maiage.bibliome.alvisnlp.core.factory.ModuleFactory</arg>
 	    <arg>-AconverterFactoryName=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.BibliomeConverterFactory</arg>
 	    <arg>-AresourceBases=fr/inra/maiage/bibliome/alvisnlp/bibliomefactory/resources</arg>
 	    <arg>-AshellModule=fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.shell.Shell</arg>
