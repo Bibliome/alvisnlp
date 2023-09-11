@@ -29,7 +29,7 @@ import java.util.Set;
 import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.CorpusDumper;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.Dumper;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.AbstractParamVisitor;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.GlobalNameUsage;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.Module;
@@ -143,7 +143,7 @@ public abstract class CommandLineProcessingContext implements ProcessingContext 
     	Timer<TimerCategory> dumpTimer = timer.newChild("dump", TimerCategory.DUMP);
     	timer.start();
     	dumpTimer.start();
-        try (CorpusDumper dumper = getDumper(moduleLogger, dumpFile)) {
+        try (Dumper dumper = getDumper(moduleLogger, dumpFile)) {
         	dumper.dump(corpus);
         }
         catch (Exception e) {

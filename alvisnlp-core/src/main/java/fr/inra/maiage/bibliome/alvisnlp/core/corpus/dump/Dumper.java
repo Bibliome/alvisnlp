@@ -45,21 +45,21 @@ import fr.inra.maiage.bibliome.util.marshall.MapWriteCache;
 import fr.inra.maiage.bibliome.util.marshall.Marshaller;
 import fr.inra.maiage.bibliome.util.marshall.WriteCache;
 
-public class CorpusDumper implements AutoCloseable {
+public class Dumper implements AutoCloseable {
 	private final Logger logger;
 	private final FileChannel channel;
 	
-	public CorpusDumper(Logger logger, FileChannel channel) {
+	public Dumper(Logger logger, FileChannel channel) {
 		super();
 		this.logger = logger;
 		this.channel = channel;
 	}
 	
-	public CorpusDumper(Logger logger, Path path) throws IOException {
+	public Dumper(Logger logger, Path path) throws IOException {
 		this(logger, FileChannel.open(path, StandardOpenOption.READ, StandardOpenOption.WRITE, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.CREATE));
 	}
 	
-	public CorpusDumper(Logger logger, File file) throws IOException {
+	public Dumper(Logger logger, File file) throws IOException {
 		this(logger, file.toPath());
 	}
 

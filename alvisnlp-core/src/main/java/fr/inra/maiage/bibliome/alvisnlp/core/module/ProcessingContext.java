@@ -24,7 +24,7 @@ import java.util.Locale;
 import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.CorpusDumper;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.Dumper;
 import fr.inra.maiage.bibliome.util.Timer;
 
 /**
@@ -107,6 +107,6 @@ public interface ProcessingContext {
 	
 	void setCleanTmpDir(boolean cleanTmpDir);
 	
-	CorpusDumper getDumper(Logger logger, File file) throws IOException;
+	Dumper getDumper(Logger logger, File file) throws IOException;
 }
 
