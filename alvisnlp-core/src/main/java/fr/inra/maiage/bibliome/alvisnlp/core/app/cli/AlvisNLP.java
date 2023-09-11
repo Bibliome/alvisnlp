@@ -79,8 +79,8 @@ public class AlvisNLP extends AbstractAlvisNLP {
 	}
 
 	@Override
-	protected CorpusCommandLineProcessingContext newCommandLineProcessingContext() {
-		return new CorpusCommandLineProcessingContext(timer);
+	protected CommandLineProcessingContext newCommandLineProcessingContext() {
+		return new CommandLineProcessingContext(timer);
 	}
 
     public static void main(String[] args) throws Exception {

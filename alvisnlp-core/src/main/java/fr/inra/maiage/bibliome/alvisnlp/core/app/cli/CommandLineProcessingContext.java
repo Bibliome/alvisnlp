@@ -19,8 +19,12 @@ limitations under the License.
 package fr.inra.maiage.bibliome.alvisnlp.core.app.cli;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
@@ -28,7 +32,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Logger;
 
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.ArgumentElement;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Document;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.FeatureElement;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Section;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.dump.Dumper;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.AbstractParamVisitor;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.GlobalNameUsage;
@@ -47,7 +58,7 @@ import fr.inra.maiage.bibliome.util.defaultmap.DefaultMap;
 /**
  * Base class for processing contexts of alvisnlp CLI.
  */
-public abstract class CommandLineProcessingContext implements ProcessingContext {
+public class CommandLineProcessingContext implements ProcessingContext {
     private Locale                                    locale;
     private File                                      rootTempDir;
     private boolean                                   resumeMode;
@@ -296,12 +307,35 @@ public abstract class CommandLineProcessingContext implements ProcessingContext 
 		}
 	}
 	
-	protected abstract Collection<String> getNameTypes();
+	protected Collection<String> getNameTypes() {
+		return Arrays.asList(NameType.getAllNameTypes());
+	}
 	
-	protected abstract Collection<String> getIgnoreNameTypes(String nameType);
+	protected Collection<String> getIgnoreNameTypes(String nameType) {
+		switch (nameType) {
+			case NameType.FEATURE:
+				return new LinkedHashSet<String>(Arrays.asList(
+						"",
+						ArgumentElement.ROLE_FEATURE_KEY,
+						FeatureElement.KEY_FEATURE_KEY,
+						FeatureElement.VALUE_FEATURE_KEY,
+						Document.ID_FEATURE_NAME,
+						Section.NAME_FEATURE_NAME,
+						Annotation.FORM_FEATURE_NAME,
+						Relation.NAME_FEATURE_NAME
+						));
+			default:
+				return Collections.emptySet();
+		}
+	}
 
 	@Override
 	public void setCleanTmpDir(boolean cleanTmpDir) {
 		this.cleanTmpDir = cleanTmpDir;
+	}
+
+	@Override
+	public Dumper getDumper(Logger logger, File file) throws IOException {
+		return new Dumper(logger, file);
 	}
 }
