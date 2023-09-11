@@ -41,6 +41,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 
+import fr.inra.maiage.bibliome.alvisnlp.core.factory.ModuleFactory;
 import fr.inra.maiage.bibliome.util.xml.XMLUtils;
 
 /**
@@ -50,7 +51,6 @@ import fr.inra.maiage.bibliome.util.xml.XMLUtils;
  */
 class ModuleFactoryModel extends AbstractFactoryModel {
 	private final String sequenceImplementationClass;
-	private final String factoryInterface;
 	private final String prefix;
 	private final String shellModule;
 	private final String browserModule;
@@ -62,10 +62,9 @@ class ModuleFactoryModel extends AbstractFactoryModel {
 	 * @param model
 	 * @param prefix
 	 */
-	ModuleFactoryModel(String fullName, String sequenceImplementationClass, String factoryInterface, String prefix, String shellModule, String browserModule) {
+	ModuleFactoryModel(String fullName, String sequenceImplementationClass, String prefix, String shellModule, String browserModule) {
 		super(fullName);
 		this.sequenceImplementationClass = sequenceImplementationClass;
-		this.factoryInterface = factoryInterface;
 		this.prefix = prefix;
 		this.shellModule = shellModule;
 		this.browserModule = browserModule;
@@ -87,7 +86,7 @@ class ModuleFactoryModel extends AbstractFactoryModel {
 		org.w3c.dom.Element root = doc.getDocumentElement();
 		root.setAttribute("generated-prefix", prefix);
 		root.setAttribute("sequenceClass", sequenceImplementationClass);
-		root.setAttribute("factoryInterface", factoryInterface);
+		root.setAttribute("factoryInterface", ModuleFactory.class.getCanonicalName());
 		root.setAttribute("shellModule", shellModule);
 		root.setAttribute("browserModule", browserModule);
 		for (ModuleModel module : modules)
@@ -173,7 +172,7 @@ class ModuleFactoryModel extends AbstractFactoryModel {
 
 	@Override
 	public String getServiceClass() {
-		return factoryInterface;
+		return ModuleFactory.class.getCanonicalName();
 	}
 
 	@Override
