@@ -21,9 +21,11 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.AbstractListEvaluator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ConstantsLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
@@ -32,11 +34,73 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.FunctionLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Library;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.NameUsage;
+import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.filters.Filters;
 
 @Library("select")
 public abstract class SelectLibrary extends FunctionLibrary {
 	public static final String NAME = "select";
+	
+	@Function
+	public static final Iterator<Element> until(EvaluationContext ctx, Element elt, Evaluator e, Evaluator until) {
+		return new FromUntilIterator(e.evaluateElements(ctx, elt), ctx, ConstantsLibrary.EVALUATOR_TRUE, until);
+	}
+	
+	@Function
+	public static final Iterator<Element> from(EvaluationContext ctx, Element elt, Evaluator e, Evaluator from) {
+		return new FromUntilIterator(e.evaluateElements(ctx, elt), ctx, from, ConstantsLibrary.EVALUATOR_TRUE);
+	}
+	
+	@Function(firstFtor = "from-until")
+	public static final Iterator<Element> fromUntil(EvaluationContext ctx, Element elt, Evaluator e, Evaluator from, Evaluator until) {
+		return new FromUntilIterator(e.evaluateElements(ctx, elt), ctx, from, until);
+	}
+	
+	private static final class FromUntilIterator implements Iterator<Element> {
+		private final Iterator<Element> matrix;
+		private final EvaluationContext evalCtx;
+		private final Evaluator until;
+		private Element first;
+		private boolean last = false;
+		
+		private FromUntilIterator(Iterator<Element> matrix, EvaluationContext evalCtx, Evaluator from, Evaluator until) {
+			super();
+			this.matrix = matrix;
+			this.evalCtx = evalCtx;
+			this.until = until;
+			this.first = lookupFirst(matrix, evalCtx, from);
+		}
+		
+		private static Element lookupFirst(Iterator<Element> matrix, EvaluationContext evalCtx, Evaluator from) {
+			for (Element elt : Iterators.loop(matrix)) {
+				if (from.evaluateBoolean(evalCtx, elt)) {
+					return elt;
+				}
+			}
+			return null;
+		}
+
+		@Override
+		public boolean hasNext() {
+			return (first != null) || (matrix.hasNext() && !last);
+		}
+
+		@Override
+		public Element next() {
+			Element result = first;
+			if (result == null) {
+				if (last) {
+					throw new NoSuchElementException();
+				}
+				result = matrix.next();
+			}
+			else {
+				first = null;
+			}
+			last = until.evaluateBoolean(evalCtx, result);
+			return result;
+		}
+	}
 	
 	@Function(firstFtor="[]")
 	public static final Iterator<Element> filter(EvaluationContext ctx, Element elt, Evaluator e, Evaluator filter) {
