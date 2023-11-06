@@ -137,6 +137,17 @@ public class StatementLibrary extends FunctionLibrary {
 				objectBuilder = getNodeBuilder(ftor, resolvedArgs.next());
 				break;
 			}
+			case "typed":
+			case "typed-literal":
+			case "tlit": {
+				checkRangeArity(ftors, args, 3, 4);
+				if (args.size() == 4) {
+					subjectBuilder = new ResourceURINodeBuilder(resolvedArgs.next());
+				}
+				propertyURI = resolvedArgs.next();
+				objectBuilder = new TypedLiteralNodeBuilder(resolvedArgs.next(), resolvedArgs.next());
+				break;
+			}
 			case "mres":
 			case "multi-resource":
 			case "resources": {
@@ -308,6 +319,22 @@ public class StatementLibrary extends FunctionLibrary {
 		public RDFNode createNode(EvaluationContext ctx, Element elt) {
 			String value = specification.evaluateString(ctx, elt);
 			return model.createLiteral(value);
+		}
+	}
+	
+	private class TypedLiteralNodeBuilder extends AbstractNodeBuilder {
+		private final Evaluator dtype;
+
+		private TypedLiteralNodeBuilder(Evaluator specification, Evaluator dtype) {
+			super(specification);
+			this.dtype = dtype;
+		}
+
+		@Override
+		public RDFNode createNode(EvaluationContext ctx, Element elt) {
+			String value = specification.evaluateString(ctx, elt);
+			String type = dtype.evaluateString(ctx, elt);
+			return model.createTypedLiteral(value, type);
 		}
 	}
 	
