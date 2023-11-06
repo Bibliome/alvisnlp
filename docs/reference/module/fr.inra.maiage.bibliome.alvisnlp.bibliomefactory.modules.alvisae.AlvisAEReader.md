@@ -6,7 +6,7 @@
 
 ## Description
 
- *AlvisAEReader* reads an AlvisAE server database and imports documents and annotation sets from an annotation campaign. The database connection is specified with <a href="#url" class="param">url</a> , <a href="#username" class="param">username</a> , <a href="#password" class="param">password</a> and <a href="#schema" class="param">schema</a> . The <a href="#campaignId" class="param">campaignId</a> parameter specifies the campaign identifier in the AlvisAE database (the AlvisAE client displays this identifier).
+ *AlvisAEReader* reads an AlvisAE server database and imports documents and annotation sets from an annotation campaign. The database connection and schema are specified with <a href="#databasePropsFile" class="param">databasePropsFile</a> . The <a href="#campaignId" class="param">campaignId</a> parameter specifies the campaign identifier in the AlvisAE database (the AlvisAE client displays this identifier).
 
 All AlvisAE annotations, including text-bound annotations, will be represented in AlvisNLP as relation tuples, in a relation named after the annotation type.
 * For *text-bound* annotations, each fragment is represented in an annotation stored in the layer <a href="#fragmentsLayer" class="param">fragmentsLayer</a> . The tuple references the fragments through its arguments; their role name is <a href="#fragmentRolePrefix" class="param">fragmentRolePrefix</a> with the fragment order appended (starting at zero). Thus a single-fragment annotation will have a single argument with role `frag0` . The type of the annotation is stored in the feature <a href="#typeFeature" class="param">typeFeature</a> of the tuple and of each fragment.
@@ -14,6 +14,15 @@ All AlvisAE annotations, including text-bound annotations, will be represented i
 * A *relation* tuple hareferences its arguments in a straightforward way.
 
 
+
+The <a href="#databasePropsFile" class="param">databasePropsFile</a> is a Java Properties file that must contain the following keys:
+*  `db.type` : type of RDBMS (egpostgresql);
+*  `db.server` : address of the RDBMS, either name or IP;
+*  `db.port` : port number of the RDBMS;
+*  `db.dbname` : name of the database that contains AlvisAE annotations;
+*  `db.username` : RDBMS username;
+*  `db.password` : RDBMS password;
+*  `db.schema` : schema containing the desired annotations.
 
 
 
@@ -25,10 +34,7 @@ All AlvisAE annotations, including text-bound annotations, will be represented i
 ```xml
 <alvisaereader class="AlvisAEReader">
     <campaignId>135</campaignId>
-    <password>***</password>
-    <schema>psql_schema_name</schema>
-    <url>postgresql://server.name[:port]/dbname</url>
-    <username>psql_user</username>
+    <databasePropsFile></databasePropsFile>
 </alvisaereader>
 ```
 
@@ -57,69 +63,13 @@ Identifiers of the AlvisAE campaigns to import.
 <campaignId>1,2,3</campaignId>
 ```
 
-<h3 id="password" class="param">password</h3>
+<h3 id="databasePropsFile" class="param">databasePropsFile</h3>
 
 <div class="param-level param-level-mandatory">Mandatory
 </div>
-<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.streams.SourceStream" class="converter">SourceStream</a>
 </div>
-User password for JDBC connection.
-
-<div class="param-examples-header" onclick="toggle_examples(this)" id="examples-password">> Examples
-</div>
-
-<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
-```xml
-<password>***</password>
-```
-
-<h3 id="schema" class="param">schema</h3>
-
-<div class="param-level param-level-mandatory">Mandatory
-</div>
-<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
-</div>
-PostgreSQL schema.
-
-<div class="param-examples-header" onclick="toggle_examples(this)" id="examples-schema">> Examples
-</div>
-
-<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
-```xml
-<schema>psql_schema_name</schema>
-```
-
-<h3 id="url" class="param">url</h3>
-
-<div class="param-level param-level-mandatory">Mandatory
-</div>
-<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
-</div>
-PostgreSQL database URL.
-
-<div class="param-examples-header" onclick="toggle_examples(this)" id="examples-url">> Examples
-</div>
-
-<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
-```xml
-<url>postgresql://server.name[:port]/dbname</url>
-```
-
-<h3 id="username" class="param">username</h3>
-
-<div class="param-level param-level-mandatory">Mandatory
-</div>
-<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
-</div>
-PostgreSQL user name.
-
-<div class="param-examples-header" onclick="toggle_examples(this)" id="examples-username">> Examples
-</div>
-
-<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
-```xml
-<username>psql_user</username>
-```
+UNDOCUMENTED
 
 ## Optional parameters
 
@@ -477,6 +427,38 @@ Deprecated alias for <a href="#fragmentsLayer" class="param">fragmentsLayer</a> 
 </div>
 Deprecated alias for <a href="#htmlLayer" class="param">htmlLayer</a> .
 
+<h3 id="password" class="param">password</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+User password for JDBC connection. Deprecated andignored: use <a href="#databasePropsFile" class="param">databasePropsFile</a> instead.
+
+<div class="param-examples-header" onclick="toggle_examples(this)" id="examples-password">> Examples
+</div>
+
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
+```xml
+<password>***</password>
+```
+
+<h3 id="schema" class="param">schema</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+PostgreSQL schema. Deprecated andignored: use <a href="#databasePropsFile" class="param">databasePropsFile</a> instead.
+
+<div class="param-examples-header" onclick="toggle_examples(this)" id="examples-schema">> Examples
+</div>
+
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
+```xml
+<schema>psql_schema_name</schema>
+```
+
 <h3 id="sectionName" class="param">sectionName</h3>
 
 <div class="param-level param-level-deprecated">Deprecated
@@ -484,4 +466,36 @@ Deprecated alias for <a href="#htmlLayer" class="param">htmlLayer</a> .
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
 Deprecated alias for <a href="#section" class="param">section</a> .
+
+<h3 id="url" class="param">url</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+PostgreSQL database URL. Deprecated andignored: use <a href="#databasePropsFile" class="param">databasePropsFile</a> instead.
+
+<div class="param-examples-header" onclick="toggle_examples(this)" id="examples-url">> Examples
+</div>
+
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
+```xml
+<url>postgresql://server.name[:port]/dbname</url>
+```
+
+<h3 id="username" class="param">username</h3>
+
+<div class="param-level param-level-deprecated">Deprecated
+</div>
+<div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
+</div>
+PostgreSQL user name. Deprecated andignored: use <a href="#databasePropsFile" class="param">databasePropsFile</a> instead.
+
+<div class="param-examples-header" onclick="toggle_examples(this)" id="examples-username">> Examples
+</div>
+
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
+```xml
+<username>psql_user</username>
+```
 

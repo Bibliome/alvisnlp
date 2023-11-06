@@ -1,19 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Copyright 2016, 2017 Institut National de la Recherche Agronomique
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-        http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
--->
 <alvisnlp-doc author="" date="" target="fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rdf.RDFExport">
 <!--
 Copyright 2016 Institut National de la Recherche Agronomique
@@ -32,41 +17,69 @@ limitations under the License.
 -->
 
   <synopsis>
-    <p>synopsis</p>
+    <p>Export annotations in RDF format.</p>
   </synopsis>
 
   <module-doc>
     <description>
-      <p>synopsis</p>
+      <p><this/> creates an RDF file for each element of <param>files</param>. The file name is obtained by evaluating <param>fileName</param> as a string.</p>
+      <p>The triplet content of the files is specified by <param>statements</param>. <param>statements</param> provide the following libraries:
+      <ul>
+		  <li>one library for each entry in <param>prefixes</param>, which allows to write abbreviated URIs (<em>e.g.</em> <code>rdf:type</code>);</li>
+		  <li><code>uri</code> with two functions:
+			  <ul>
+				  <li><code>uri:set(URI)</code>: registers the default URI of the current element (<code>URI</code> is evaluated as a string);</li>
+				  <li><code>uri:get</code>: evaluates as the URI previously registered for the current element;</li>
+			  </ul>
+		  </li>
+		  <li><code>stmt</code> with several functions to specify the triplets to write into files:
+		  	<ul>
+				  <li><code>stmt:res(SUBJ, PROP, OBJ)</code>: specifies a triplet where the object is a resource;</li>
+				  <li><code>stmt:lit(SUBJ, PROP, OBJ)</code>: specifies a triplet where the object is an untyped literal;</li>
+				  <li><code>stmt:bool(SUBJ, PROP, OBJ)</code>: specifies a triplet where the object is a boolean literal;</li>
+				  <li><code>stmt:int(SUBJ, PROP, OBJ)</code>: specifies a triplet where the object is an integer literal;</li>
+				  <li><code>stmt:str(SUBJ, PROP, OBJ)</code>: specifies a triplet where the object is a string literal;</li>
+				  <li><code>stmt:double(SUBJ, PROP, OBJ)</code>: specifies a triplet where the object is a double literal;</li>
+				  <li><code>stmt:typed(SUBJ, PROP, OBJ, TYPE)</code>: specifies a triplet where the object is a custom type literal;</li>
+				  <li><code>stmt:lang(SUBJ, PROP, OBJ, LANG)</code>: specifies a triplet where the object is a string literal with a language qualifier;</li>
+			  </ul>
+			  All arguments are evaluated as strings, then interpreted as resource URIs or literals. The <code>SUBJ</code> argument is optional: if omitted the subject is the URI registered for the current element.
+		  </li>
+	  </ul>
+      </p>
     </description>
   
     <param-doc name="prefixes">
-      <p/>
+      <p>Map of URI prefixes. Prefixes declared in this parameter are visible as libraries in <param>statements</param>. The following prefixes do not need to be specified: <code>rdf</code>, <code>rdfs</code>, <code>dc</code>, <code>rss</code>, <code>owl</code>.</p>
     </param-doc>
   
     <param-doc name="files">
-      <p/>
+      <p>Files to write. Evaluated as elements from the corpus. <this/> creates a file for each element.</p>
     </param-doc>
   
     <param-doc name="statements">
-      <p/>
+      <p>Triplets to write in files.</p>
     </param-doc>
   
     <param-doc name="charset">
-      <p/>
+      <p>Charset to use.</p>
     </param-doc>
   
     <param-doc name="format">
-      <p/>
+      <p>Serialization format. Accepted values are listed <a href="https://javadoc.io/doc/org.apache.jena/jena-arq/latest/org.apache.jena.arq/org/apache/jena/riot/RDFFormat.html">here</a>.</p>
     </param-doc>
   
     <param-doc name="outDir">
-      <p/>
+      <p>Base directory of output files.</p> 
     </param-doc>
   
     <param-doc name="fileName">
-      <p/>
+      <p>Name of the file. Evaluated as a string from the element representing the file (result of <param>files</param>.</p>
     </param-doc>
+    
+    <param-doc name="startServer">
+		<p>If set, then <this/> starts a Fuseki server so you can query your graph.</p>
+	</param-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
 </module-doc>
 </alvisnlp-doc>
