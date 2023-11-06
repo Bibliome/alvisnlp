@@ -325,16 +325,27 @@ public class Layer extends AbstractCollection<Annotation> implements Serializabl
         List<Annotation> list;
         if (hasOverlaps()) {
             list = new ArrayList<Annotation>();
-            for (Annotation annot : annotations.subList(0, fromi))
-                if (annot.getEnd() > from)
+            for (Annotation annot : annotations.subList(0, fromi)) {
+                if (annot.getEnd() > from) {
                     list.add(annot);
-            for (Annotation annot : annotations.subList(fromi, toi))
-                list.add(annot);
+                }
+            }
+            if (toi > fromi) {
+            	for (Annotation annot : annotations.subList(fromi, toi - 1)) {
+            		list.add(annot);
+            	}
+            }
         }
         else {
-            if ((fromi > 0) && (annotations.get(fromi - 1).getEnd() > from))
+            if ((fromi > 0) && (annotations.get(fromi - 1).getEnd() > from)) {
                 fromi--;
-            list = annotations.subList(fromi, toi);
+            }
+            if (toi > fromi) {
+            	list = annotations.subList(fromi, toi - 1);
+            }
+            else {
+            	list = Collections.emptyList();
+            }
         }
         return subLayer(list);
     }
