@@ -8,7 +8,7 @@ Runs a Python script. This module is useful for processing the corpus with Pytho
 
 ## Description
 
- *PythonScript* assumes the script reads from standard input the AlvisNLP data structure serialized as JSON. *PythonScript* also assumes the script writes the modifications serialized in JSON to the standard output.
+ *PythonScript* assumes the script reads from standard input the AlvisNLP data structure serialized as JSON. *PythonScript* also assumes the script writes the modifications serialized in JSON to the standard output, unless <a href="#outputFile" class="param">outputFile</a> is set.
 
 The `alvisnlp.py` library facilitates the deserialization, serialization, and manipulation of the AlvisNLP data structure. It is located in the directory specified by <a href="#alvisnlpPythonDirectory" class="param">alvisnlpPythonDirectory</a> .
 
@@ -117,6 +117,14 @@ Additional variable values to pass to the script's environment.
 <div class="param-type">Type: <a href="../converter/java.lang.String%5B%5D" class="converter">String[]</a>
 </div>
 Names of layers to serialize. Layers not mentioned in this parameter will not be serialized. Use this to limit the amount of serialized data. By default *PythonScript* serializes all annotations in all layers.
+
+<h3 id="outputFile" class="param">outputFile</h3>
+
+<div class="param-level param-level-optional">Optional
+</div>
+<div class="param-type">Type: <a href="../converter/fr.inra.maiage.bibliome.util.files.OutputFile" class="converter">OutputFile</a>
+</div>
+Path where to write the script standard output. If this parameter is set, then *PythonScript* will not read the script output for modifications.
 
 <h3 id="python" class="param">python</h3>
 
