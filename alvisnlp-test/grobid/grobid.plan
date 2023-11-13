@@ -1,0 +1,5 @@
+<alvisnlp-plan id="grobid-test">
+  <read class="GrobidReader">
+    <grobidHome>/home/rbossy/code/grobid-github/grobid-home</grobidHome>
+  </read>
+</alvisnlp-plan>

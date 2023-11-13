@@ -230,6 +230,20 @@
       <groupId>org.apache.tika</groupId>
       <artifactId>tika-parsers</artifactId>
       <version>1.28.3</version>
+      <exclusions> <!-- breaks grobid that uses version 2.10.1 instead of 2.13.5 -->
+	<exclusion>
+	  <groupId>com.fasterxml.jackson.core</groupId>
+	  <artifactId>jackson-core</artifactId>
+	</exclusion>
+	<exclusion>
+	  <groupId>com.fasterxml.jackson.core</groupId>
+	  <artifactId>jackson-databind</artifactId>
+	</exclusion>
+	<exclusion>
+	  <groupId>com.fasterxml.jackson.core</groupId>
+	  <artifactId>jackson-annotations</artifactId>
+	</exclusion>
+      </exclusions>
     </dependency>
 
     <dependency>
@@ -415,6 +429,14 @@
       <groupId>fr.jouy.inra.maiage.bibliome</groupId>
       <artifactId>alvisdb-core</artifactId>
       <version>0.1</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.grobid</groupId>
+        <artifactId>grobid-core</artifactId>
+        <version>0.8.0-SNAPSHOT</version>
+        <scope>system</scope>
+        <systemPath>/home/rbossy/code/grobid-github/grobid-core/build/libs/grobid-core-0.8.0-SNAPSHOT-onejar.jar</systemPath>
     </dependency>
   </dependencies>
 </project>
