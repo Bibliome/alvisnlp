@@ -64,8 +64,12 @@ public enum ShellCommand {
 					throw new RuntimeException("could not determine the expression type, force one with boolean, int, double, string or elements");
 				default:
 					Iterator<Element> it = expr.evaluateElements(env.getEvaluationContext(), env.getCurrentElement());
-					for (Element elt : Iterators.loop(it))
+					int n = 0;
+					for (Element elt : Iterators.loop(it)) {
 						System.out.println(elt.accept(PrintElement.INSTANCE, null));
+						n++;
+					}
+					System.out.println("# " + n + " elements");
 			}
 			env.getEvaluationContext().commit();
 		}

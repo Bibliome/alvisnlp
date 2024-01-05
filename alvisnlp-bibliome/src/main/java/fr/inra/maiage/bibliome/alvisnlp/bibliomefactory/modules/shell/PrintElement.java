@@ -38,11 +38,19 @@ class PrintElement implements ElementVisitor<String,Void> {
 		"Annotation: " +
 		a.getStringId() +
 		" '" +
-		Strings.escapeJava(a.getForm()) +
+		Strings.escapeJava(getAnnotationForm(a)) +
 		"' " +
 		a.getStart() +
 		'-' +
 		a.getEnd();
+	}
+	
+	private static String getAnnotationForm(Annotation a) {
+		String form = a.getForm();
+		if (form.length() <= 25) {
+			return form;
+		}
+		return form.substring(0, 10) + " ... " + form.substring(form.length() - 10);
 	}
 
 	@Override
@@ -78,7 +86,7 @@ class PrintElement implements ElementVisitor<String,Void> {
 				notFirst = true;
 			sb.append(role);
 			sb.append(" = ");
-			sb.append(t.getArgument(role));
+			sb.append(t.getArgument(role).accept(this, null));
 		}
 		sb.append(']');
 		return sb.toString();
