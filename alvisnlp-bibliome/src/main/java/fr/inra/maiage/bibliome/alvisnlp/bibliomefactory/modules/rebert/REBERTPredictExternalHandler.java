@@ -20,6 +20,7 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
+import org.apache.commons.io.FileUtils;
 
 import com.google.common.io.Files;
 
@@ -331,6 +332,12 @@ public class REBERTPredictExternalHandler extends ExternalHandler<REBERTPredict>
 		OutputFile f = getRunScriptFile(filename);
 		TargetStream strm = new FileTargetStream("UTF-8", f);
 		return strm.getPrintStream();
+	}
+	
+	void readPredictions() throws IOException, ModuleException {
+		REBERTPredict owner = getModule();
+		FileUtils.copyDirectory(owner.getPredictionsDirectory(), getRebertOutputDir());
+		collect();
 	}
 
 	@Override
