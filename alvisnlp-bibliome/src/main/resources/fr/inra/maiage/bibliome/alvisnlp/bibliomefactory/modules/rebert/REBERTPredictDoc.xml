@@ -126,6 +126,10 @@
       <p>Use GPU instead of CPU.</p>
     </param-doc>
 
+    <param-doc name="runScriptDirectory">
+      <p>Do not run REBERT. Instead creates a directory with a script and input file for running from shell. This option is useful for running REBERT on a different platform than AlvisNLP.</p>
+    </param-doc>
+
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModuleParamsDoc</include-doc>
     <include-doc>fr.inra.maiage.bibliome.alvisnlp.core.module.ActionInterfaceParamsDoc</include-doc>
   </module-doc>

@@ -35,6 +35,7 @@ import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.InputFile;
+import fr.inra.maiage.bibliome.util.files.OutputDirectory;
 import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
@@ -67,6 +68,7 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 	private Integer[] ensembleModels;
 	private Boolean useGPU = false;
 	private EnsembleAggregator aggregator = EnsembleAggregator.VOTE;
+	private OutputDirectory runScriptDirectory = null;
 
 	public class REBERTPredictResolvedObjects extends ResolvedObjects {
 		private final Evaluator assertedCandidates;
@@ -254,7 +256,13 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		try {
 			REBERTPredictExternalHandler ext = new REBERTPredictExternalHandler(ctx, this, corpus);
 			if (ext.hasCandidates()) {
-				ext.start();
+				if (runScriptDirectory == null) {
+					ext.start();
+				}
+				else {
+					getLogger(ctx).info("running inhibited, writing data and run scripts in " + runScriptDirectory.getAbsolutePath());
+					ext.writeRunScript();
+				}
 			}
 			else {
 				getLogger(ctx).warning("no candidate");
@@ -409,6 +417,15 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 	@Param(mandatory = false)
 	public Integer[] getEnsembleModels() {
 		return ensembleModels;
+	}
+
+	@Param(mandatory = false)
+	public OutputDirectory getRunScriptDirectory() {
+		return runScriptDirectory;
+	}
+
+	public void setRunScriptDirectory(OutputDirectory runScriptDirectory) {
+		this.runScriptDirectory = runScriptDirectory;
 	}
 
 	public void setEnsembleModels(Integer[] ensembleModels) {
