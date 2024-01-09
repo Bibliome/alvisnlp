@@ -6,9 +6,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +20,8 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
+
+import com.google.common.io.Files;
 
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
@@ -30,6 +34,10 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.ExternalHandler;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.types.Mapping;
 import fr.inra.maiage.bibliome.util.Pair;
 import fr.inra.maiage.bibliome.util.Strings;
+import fr.inra.maiage.bibliome.util.files.OutputDirectory;
+import fr.inra.maiage.bibliome.util.files.OutputFile;
+import fr.inra.maiage.bibliome.util.streams.FileTargetStream;
+import fr.inra.maiage.bibliome.util.streams.TargetStream;
 
 public class REBERTPredictExternalHandler extends ExternalHandler<REBERTPredict> {
 	private final String[] labels;
@@ -217,39 +225,57 @@ public class REBERTPredictExternalHandler extends ExternalHandler<REBERTPredict>
 	protected String getCollectTask() {
 		return "rebert-collect-results";
 	}
-
-	@Override
-	protected List<String> getCommandLine() {
+	
+	private Map<String,String> getCommandLineMnemonics(boolean deferred) {
+		Map<String,String> result = new HashMap<String,String>();
+		REBERTPredict owner = getModule();
+		result.put("CONDA_EXECUTABLE", owner.getConda() == null ? "conda" : owner.getConda().getAbsolutePath());
+		result.put("CONDA_ENVIRONMENT", owner.getCondaEnvironment());
+		result.put("PYTHON", owner.getPython() == null ? "python" : owner.getPython().getAbsolutePath());
+		result.put("REBERT_DIR", owner.getRebertDir().getAbsolutePath());
+		result.put("DATA_FILE", deferred ? "input.csv" : getRebertInputFile().getAbsolutePath());
+		result.put("FINETUNED_MODEL", owner.getFinetunedModel().getAbsolutePath());
+		result.put("OUTPUT_DIR", deferred ? "output" : getRebertOutputDir().getAbsolutePath());
+		result.put("FORCE_CPU", owner.getUseGPU() ? "" : "--force_cpu");
+		return result;
+	}
+	
+	private String getMnemonicValue(Map<String,String> mnemonics, String key, boolean deferred) {
+		if (deferred) {
+			return "$" + key;
+		}
+		return mnemonics.get(key);
+	}
+	
+	private String getRebertFile(Map<String,String> mnemonics, String file, boolean deferred) {
+		if (deferred) {
+			return "$REBERT_DIR/" + file; 
+		}
+		String rebertDir = mnemonics.get("REBERT_DIR");
+		return rebertDir + "/" + file;
+	}
+	
+	private List<String> getCommandLine(Map<String,String> mnemonics, boolean deferred) {
 		List<String> result = new ArrayList<String>();
 		REBERTPredict owner = getModule();
 		if (owner.getCondaEnvironment() != null) {
-			if (owner.getConda() == null) {
-				result.add("conda");
-			}
-			else {
-				result.add(owner.getConda().getAbsolutePath());
-			}
+			result.add(getMnemonicValue(mnemonics, "CONDA_EXECUTABLE", deferred));
 			result.add("run");
 			result.add("--name");
-			result.add(owner.getCondaEnvironment());
+			result.add(getMnemonicValue(mnemonics, "CONDA_ENVIRONMENT", deferred));
 		}
-		if (owner.getPython() == null) {
-			result.add("python");
-		}
-		else {
-			result.add(owner.getPython().getAbsolutePath());
-		}
-		result.add(getRebertFile("eval.py").getAbsolutePath());
+		result.add(getMnemonicValue(mnemonics, "PYTHON", deferred));
+		result.add(getRebertFile(mnemonics, "eval.py", deferred));
 		result.add("--data_dir");
-		result.add(getRebertInputFile().getAbsolutePath());
+		result.add(getMnemonicValue(mnemonics, "DATA_FILE", deferred));
 		result.add("--model_type");
 		result.add(owner.getModelType());
 		result.add("--config_name_or_path");
-		result.add(getRebertFile("config/" + owner.getModelType() + ".json").getAbsolutePath());
+		result.add(getRebertFile(mnemonics, "config/" + owner.getModelType() + ".json", deferred));
 		result.add("--pretrained_model_path");
-		result.add(getRebertFile("pretrained_model").getAbsolutePath());
+		result.add(getRebertFile(mnemonics, "pretrained_model", deferred));
 		result.add("--finetuned_model_path");
-		result.add(owner.getFinetunedModel().getAbsolutePath());
+		result.add(getMnemonicValue(mnemonics, "FINETUNED_MODEL", deferred));
 		result.add("--num_labels");
 		result.add(Integer.toString(labels.length));
 		if (owner.getEnsembleNumber() != null) {
@@ -260,12 +286,56 @@ public class REBERTPredictExternalHandler extends ExternalHandler<REBERTPredict>
 			result.add("--ensemble_models");
 			result.add(Strings.joinStrings(owner.getEnsembleModels(), ','));
 		}
-		if (!owner.getUseGPU()) {
-			result.add("--force_cpu");
+		if (deferred) {
+			result.add(getMnemonicValue(mnemonics, "FORCE_CPU", deferred));
+		}
+		else {
+			if (!owner.getUseGPU()) {
+				result.add("--force_cpu");
+			}
 		}
 		result.add("--output_dir");
-		result.add(getRebertOutputDir().getAbsolutePath());
+		result.add(getMnemonicValue(mnemonics, "OUTPUT_DIR", deferred));
 		return result;
+	}
+
+	void writeRunScript() throws IOException, ModuleException {
+		OutputDirectory runScriptDirectory = getModule().getRunScriptDirectory();
+		runScriptDirectory.mkdirs();
+
+		Map<String,String> mnemonics = getCommandLineMnemonics(true);
+		try (PrintStream ps = openRunScript("config.sh")) {
+			for (Map.Entry<String,String> e : mnemonics.entrySet()) {
+				ps.format("%s=\"%s\"\n", e.getKey(), e.getValue());
+			}
+		}
+		
+		List<String> cli = getCommandLine(mnemonics, true);
+		try (PrintStream ps = openRunScript("run.sh")) {
+			ps.print(". config.sh\n\n");
+			Strings.join(ps, cli, ' ');
+			ps.println();
+		}
+		
+		prepare();
+		OutputFile dataFile = getRunScriptFile("input.csv");
+		Files.copy(getRebertInputFile(), dataFile);
+	}
+	
+	private OutputFile getRunScriptFile(String filename) {
+		OutputDirectory runScriptDirectory = getModule().getRunScriptDirectory();
+		return new OutputFile(runScriptDirectory, filename);
+	}
+	
+	private PrintStream openRunScript(String filename) throws IOException {
+		OutputFile f = getRunScriptFile(filename);
+		TargetStream strm = new FileTargetStream("UTF-8", f);
+		return strm.getPrintStream();
+	}
+
+	@Override
+	protected List<String> getCommandLine() {
+		return getCommandLine(getCommandLineMnemonics(false), false);
 	}
 	
 	private File getRebertFile(String fileName) {
