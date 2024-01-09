@@ -69,6 +69,7 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 	private Boolean useGPU = false;
 	private EnsembleAggregator aggregator = EnsembleAggregator.VOTE;
 	private OutputDirectory runScriptDirectory = null;
+	private InputDirectory predictionsDirectory = null;
 
 	public class REBERTPredictResolvedObjects extends ResolvedObjects {
 		private final Evaluator assertedCandidates;
@@ -256,12 +257,18 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		try {
 			REBERTPredictExternalHandler ext = new REBERTPredictExternalHandler(ctx, this, corpus);
 			if (ext.hasCandidates()) {
-				if (runScriptDirectory == null) {
-					ext.start();
-				}
-				else {
+				if (runScriptDirectory != null) {
 					getLogger(ctx).info("running inhibited, writing data and run scripts in " + runScriptDirectory.getAbsolutePath());
 					ext.writeRunScript();
+				}
+				else {
+					if (predictionsDirectory != null) {
+						getLogger(ctx).info("running inhibited, reading predictions from " + predictionsDirectory.getAbsolutePath());
+						ext.readPredictions();
+					}
+					else {
+						ext.start();
+					}
 				}
 			}
 			else {
@@ -422,6 +429,15 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 	@Param(mandatory = false)
 	public OutputDirectory getRunScriptDirectory() {
 		return runScriptDirectory;
+	}
+
+	@Param(mandatory = false)
+	public InputDirectory getPredictionsDirectory() {
+		return predictionsDirectory;
+	}
+
+	public void setPredictionsDirectory(InputDirectory predictionsDirectory) {
+		this.predictionsDirectory = predictionsDirectory;
 	}
 
 	public void setRunScriptDirectory(OutputDirectory runScriptDirectory) {
