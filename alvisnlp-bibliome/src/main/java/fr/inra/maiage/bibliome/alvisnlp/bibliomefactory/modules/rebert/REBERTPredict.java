@@ -21,6 +21,7 @@ import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.RelationCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreator;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ConstantsLibrary;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
@@ -75,9 +76,11 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		private final Evaluator assertedCandidates;
 		private final Evaluator assertedSubject;
 		private final Evaluator assertedObject;
+		private final Evaluator assertedLabel;
 		private final Evaluator candidateGenerationScope;
 		private final Evaluator generatedSubjects;
 		private final Evaluator generatedObjects;
+		private final Evaluator generatedLabel;
 		private final Evaluator start;
 		private final Evaluator end;
 				
@@ -86,9 +89,11 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 			this.assertedCandidates = rootResolver.resolveNullable(REBERTPredict.this.assertedCandidates);
 			this.assertedSubject = rootResolver.resolveNullable(REBERTPredict.this.assertedSubject);
 			this.assertedObject = rootResolver.resolveNullable(REBERTPredict.this.assertedObject);
+			this.assertedLabel = REBERTPredict.this.getAssertedLabel().resolveExpressions(rootResolver);
 			this.candidateGenerationScope = REBERTPredict.this.candidateGenerationScope.resolveExpressions(rootResolver);
 			this.generatedSubjects = REBERTPredict.this.generatedSubjects.resolveExpressions(rootResolver);
 			this.generatedObjects = REBERTPredict.this.generatedObjects.resolveExpressions(rootResolver);
+			this.generatedLabel = REBERTPredict.this.getGeneratedLabel().resolveExpressions(rootResolver);
 			this.start = REBERTPredict.this.start.resolveExpressions(rootResolver);
 			this.end = REBERTPredict.this.end.resolveExpressions(rootResolver);
 		}
@@ -142,14 +147,16 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 				for (Element xpl : Iterators.loop(getAssertedCandidates().evaluateElements(evalCtx, corpus))) {
 					Element subject = getSingleArgument(evalCtx, xpl, getAssertedSubject());
 					Element object = getSingleArgument(evalCtx, xpl, getAssertedObject());
-					Candidate cand = new Candidate(true, REBERTPredict.this, evalCtx, xpl, subject, object, "");
+					String label = assertedLabel.evaluateString(evalCtx, xpl);
+					Candidate cand = new Candidate(true, REBERTPredict.this, evalCtx, xpl, subject, object, label);
 					result.add(cand);
 				}
 			}
 			for (Element scope : Iterators.loop(getCandidateGenerationScope().evaluateElements(evalCtx, corpus))) {
+				String label = generatedLabel.evaluateString(evalCtx, scope);
 				for (Element subject : Iterators.loop(getGeneratedSubjects().evaluateElements(evalCtx, scope))) {
 					for (Element object : Iterators.loop(getGeneratedObjects().evaluateElements(evalCtx, scope))) {
-						Candidate cand = new Candidate(false, REBERTPredict.this, evalCtx, scope, subject, object, "");
+						Candidate cand = new Candidate(false, REBERTPredict.this, evalCtx, scope, subject, object, label);
 						result.add(cand);
 					}
 				}
@@ -278,6 +285,14 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		catch (IOException | InterruptedException e) {
 			throw new ProcessingException(e);
 		}
+	}
+	
+	public Expression getAssertedLabel() {
+		return ConstantsLibrary.create("");
+	}
+	
+	public Expression getGeneratedLabel() {
+		return ConstantsLibrary.create("");
 	}
 
 	@Override
