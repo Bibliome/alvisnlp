@@ -11,12 +11,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.DefaultExpressions;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rebert.REBERTPredict.REBERTPredictResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.RelationCreator;
@@ -31,47 +28,26 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
-import fr.inra.maiage.bibliome.util.Checkable;
 import fr.inra.maiage.bibliome.util.Iterators;
-import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.InputFile;
-import fr.inra.maiage.bibliome.util.files.OutputDirectory;
 import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
 import fr.inra.maiage.bibliome.util.streams.SourceStream;
 
 @AlvisNLPModule(beta = true)
-public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedObjects> implements RelationCreator, TupleCreator, Checkable {
-	private ExecutableFile conda;
-	private String condaEnvironment;
-	private ExecutableFile python;
-	private InputDirectory rebertDir;
-	private Expression assertedCandidates;
-	private Expression assertedSubject;
-	private Expression assertedObject;
-	private Expression candidateGenerationScope;
-	private Expression generatedSubjects;
-	private Expression generatedObjects;
-	private Expression start = DefaultExpressions.ANNOTATION_START;
-	private Expression end = DefaultExpressions.ANNOTATION_END;
+public abstract class REBERTPredict extends REBERTBase implements RelationCreator, TupleCreator {
 	private Boolean createAssertedTuples = false;
 	private Boolean createNegativeTuples = false;
 	private Integer negativeCategory = 0;
 	private String relation;
 	private String subjectRole = "subject";
 	private String objectRole = "object";
-	private String sentenceLayer = DefaultNames.getSentenceLayer();
 	private String labelFeature = "predicted-label";
 	private String explainFeaturePrefix;
-	private String modelType;
 	private InputDirectory finetunedModel;
-	private Integer ensembleNumber;
 	private Integer[] ensembleModels;
-	private Boolean useGPU = false;
 	private EnsembleAggregator aggregator = EnsembleAggregator.VOTE;
-	private OutputDirectory runScriptDirectory = null;
-	private InputDirectory predictionsDirectory = null;
-
+	
 	public class REBERTPredictResolvedObjects extends ResolvedObjects {
 		private final Evaluator assertedCandidates;
 		private final Evaluator assertedSubject;
@@ -165,7 +141,8 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		}
 	}
 
-	String[] readLabels() throws ModuleException {
+	@Override
+	protected String[] getLabels() {
 		SourceStream source = new FileSourceStream("UTF-8", new InputFile(getFinetunedModel(), "id2label.json"));
 		try (Reader r = source.getReader()) {
 			JSONParser parser = new JSONParser();
@@ -177,59 +154,13 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 			return result;
 		}
 		catch (ParseException | IOException e) {
-			throw new ModuleException(e);
+			throw new RuntimeException(e);
 		}
 	}
 
 	@Override
 	public boolean check(Logger logger) {
-		boolean result = true;
-		if (candidateGenerationScope == null) {
-			if (assertedCandidates == null) {
-				logger.severe("either candidateGenerationScope or assertedCandidates must be set");
-				result = false;
-			}
-			if (generatedSubjects != null) {
-				logger.warning("generatedSubjects will be ignored since candidateGenerationScope is not set");
-			}
-			if (generatedObjects != null) {
-				logger.warning("generatedObjects will be ignored since candidateGenerationScope is not set");
-			}
-		}
-		else {
-			if (generatedSubjects == null) {
-				logger.severe("generatedSubjects is mandatory when candidateGenerationScope is set");
-				result = false;
-			}
-			if (generatedObjects == null) {
-				logger.severe("generatedObjects is mandatory when candidateGenerationScope is set");
-				result = false;
-			}
-		}
-		if (assertedCandidates == null) {
-			if (assertedSubject != null) {
-				logger.warning("assertedSubject will be ignored since assertedCandidates is not set");
-			}
-			if (assertedObject != null) {
-				logger.warning("assertedObject will be ignored since assertedCandidates is not set");
-			}
-		}
-		else {
-			if (assertedSubject == null) {
-				logger.severe("assertedSubject is mandatory when assertedCandidates is set");
-				result = true;
-			}
-			if (assertedObject == null) {
-				logger.severe("assertedObject is mandatory when assertedCandidates is set");
-				result = true;
-			}
-		}
-		if (conda != null) {
-			if (condaEnvironment == null) {
-				logger.severe("condaEnvironment is mandatory when conda is set");
-				result = false;
-			}
-		}
+		boolean result = super.check(logger);
 		if ((candidateGenerationScope == null) && (!createAssertedTuples) && (relation == null)) {
 			logger.warning("relation will be ignored since candidateGenerationScope is not set and createAssertedTuples is false");
 		}
@@ -241,14 +172,14 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 			logger.severe("relation is mandatory since createAssertedTuples is true");
 			result = false;
 		}
-		if (ensembleNumber == null) {
+		if (getEnsembleNumber() == null) {
 			if (ensembleModels == null) {
 				logger.severe("either ensembleNumber or ensembleModels is mandatory");
 				result = false;
 			}
 		}
 		else {
-			if (ensembleNumber < 1) {
+			if (getEnsembleNumber() < 1) {
 				logger.severe("ensembleNumber must be greater or equalt to 1");
 				result = false;
 			}
@@ -257,6 +188,11 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 			}
 		}
 		return result;
+	}
+	
+	@Override
+	protected REBERTPredictResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
+		return new REBERTPredictResolvedObjects(ctx);
 	}
 
 	@Override
@@ -295,84 +231,14 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		return ConstantsLibrary.create("");
 	}
 
-	@Override
-	protected REBERTPredictResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
-		return new REBERTPredictResolvedObjects(ctx);
-	}
-
-	@Param
-	public InputDirectory getRebertDir() {
-		return rebertDir;
-	}
-
-	@Param(mandatory = false)
-	public Expression getCandidateGenerationScope() {
-		return candidateGenerationScope;
-	}
-
-	@Param(mandatory = false)
-	public Expression getGeneratedSubjects() {
-		return generatedSubjects;
-	}
-
-	@Param(mandatory = false)
-	public Expression getGeneratedObjects() {
-		return generatedObjects;
-	}
-
-	@Param
-	public Expression getStart() {
-		return start;
-	}
-
-	@Param
-	public Expression getEnd() {
-		return end;
-	}
-
-	@Param(nameType = NameType.LAYER)
-	public String getSentenceLayer() {
-		return sentenceLayer;
-	}
-
 	@Param(nameType = NameType.FEATURE)
 	public String getLabelFeature() {
 		return labelFeature;
 	}
 
 	@Param
-	public String getModelType() {
-		return modelType;
-	}
-
-	@Param
 	public InputDirectory getFinetunedModel() {
 		return finetunedModel;
-	}
-
-	@Param(mandatory = false)
-	public Integer getEnsembleNumber() {
-		return ensembleNumber;
-	}
-
-	@Param(mandatory = false)
-	public ExecutableFile getConda() {
-		return conda;
-	}
-
-	@Param(mandatory = false)
-	public String getCondaEnvironment() {
-		return condaEnvironment;
-	}
-
-	@Param(mandatory = false)
-	public ExecutableFile getPython() {
-		return python;
-	}
-
-	@Param
-	public Boolean getUseGPU() {
-		return useGPU;
 	}
 
 	@Param
@@ -392,11 +258,6 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 	}
 
 	@Param
-	public Boolean getCreateNegativeTuples() {
-		return createNegativeTuples;
-	}
-
-	@Param
 	public Integer getNegativeCategory() {
 		return negativeCategory;
 	}
@@ -411,26 +272,6 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		return objectRole;
 	}
 
-	@Param(mandatory = false)
-	public Expression getAssertedCandidates() {
-		return assertedCandidates;
-	}
-
-	@Param(mandatory = false)
-	public Expression getAssertedSubject() {
-		return assertedSubject;
-	}
-
-	@Param(mandatory = false)
-	public Expression getAssertedObject() {
-		return assertedObject;
-	}
-
-	@Param
-	public Boolean getCreateAssertedTuples() {
-		return createAssertedTuples;
-	}
-
 	@Param(mandatory = false, nameType = NameType.RELATION)
 	public String getRelation() {
 		return relation;
@@ -441,42 +282,22 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		return ensembleModels;
 	}
 
-	@Param(mandatory = false)
-	public OutputDirectory getRunScriptDirectory() {
-		return runScriptDirectory;
+	@Param
+	public Boolean getCreateNegativeTuples() {
+		return createNegativeTuples;
 	}
 
-	@Param(mandatory = false)
-	public InputDirectory getPredictionsDirectory() {
-		return predictionsDirectory;
-	}
-
-	public void setPredictionsDirectory(InputDirectory predictionsDirectory) {
-		this.predictionsDirectory = predictionsDirectory;
-	}
-
-	public void setRunScriptDirectory(OutputDirectory runScriptDirectory) {
-		this.runScriptDirectory = runScriptDirectory;
-	}
-
-	public void setEnsembleModels(Integer[] ensembleModels) {
-		this.ensembleModels = ensembleModels;
+	@Param
+	public Boolean getCreateAssertedTuples() {
+		return createAssertedTuples;
 	}
 
 	public void setRelation(String relation) {
 		this.relation = relation;
 	}
 
-	public void setAssertedCandidates(Expression assertedCandidates) {
-		this.assertedCandidates = assertedCandidates;
-	}
-
-	public void setAssertedSubject(Expression assertedSubject) {
-		this.assertedSubject = assertedSubject;
-	}
-
-	public void setAssertedObject(Expression assertedObject) {
-		this.assertedObject = assertedObject;
+	public void setEnsembleModels(Integer[] ensembleModels) {
+		this.ensembleModels = ensembleModels;
 	}
 
 	public void setCreateAssertedTuples(Boolean createAssertedTuples) {
@@ -511,63 +332,11 @@ public abstract class REBERTPredict extends CorpusModule<REBERTPredictResolvedOb
 		this.aggregator = aggregator;
 	}
 
-	public void setUseGPU(Boolean useGPU) {
-		this.useGPU = useGPU;
-	}
-
-	public void setConda(ExecutableFile conda) {
-		this.conda = conda;
-	}
-
-	public void setCondaEnvironment(String condaEnvironment) {
-		this.condaEnvironment = condaEnvironment;
-	}
-
-	public void setPython(ExecutableFile python) {
-		this.python = python;
-	}
-
-	public void setRebertDir(InputDirectory rebertDir) {
-		this.rebertDir = rebertDir;
-	}
-
-	public void setCandidateGenerationScope(Expression candidateGenerationScope) {
-		this.candidateGenerationScope = candidateGenerationScope;
-	}
-
-	public void setGeneratedSubjects(Expression generatedSubjects) {
-		this.generatedSubjects = generatedSubjects;
-	}
-
-	public void setGeneratedObjects(Expression generatedObjects) {
-		this.generatedObjects = generatedObjects;
-	}
-
-	public void setStart(Expression start) {
-		this.start = start;
-	}
-
-	public void setEnd(Expression end) {
-		this.end = end;
-	}
-
-	public void setSentenceLayer(String sentenceLayer) {
-		this.sentenceLayer = sentenceLayer;
-	}
-
 	public void setLabelFeature(String labelFeature) {
 		this.labelFeature = labelFeature;
 	}
 
-	public void setModelType(String modelType) {
-		this.modelType = modelType;
-	}
-
 	public void setFinetunedModel(InputDirectory finetunedModel) {
 		this.finetunedModel = finetunedModel;
-	}
-
-	public void setEnsembleNumber(Integer ensembleNumber) {
-		this.ensembleNumber = ensembleNumber;
 	}
 }

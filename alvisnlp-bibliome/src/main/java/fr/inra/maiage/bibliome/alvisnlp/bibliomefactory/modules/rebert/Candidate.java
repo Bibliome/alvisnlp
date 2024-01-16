@@ -16,7 +16,7 @@ public class Candidate {
 	private final Argument object;
 	private final String label;
 	
-	public Candidate(boolean asserted, REBERTPredict owner, EvaluationContext evalCtx, Element supportElement, Element subject, Element object, String label) throws ModuleException {
+	public Candidate(boolean asserted, REBERTBase owner, EvaluationContext evalCtx, Element supportElement, Element subject, Element object, String label) throws ModuleException {
 		super();
 		this.asserted = asserted;
 		this.supportElement = supportElement;
