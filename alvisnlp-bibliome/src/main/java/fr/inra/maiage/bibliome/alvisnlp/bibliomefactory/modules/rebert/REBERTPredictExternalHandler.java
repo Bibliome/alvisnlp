@@ -22,8 +22,6 @@ import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
 import org.apache.commons.io.FileUtils;
 
-import com.google.common.io.Files;
-
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Relation;
@@ -320,7 +318,7 @@ public class REBERTPredictExternalHandler extends ExternalHandler<REBERTPredict>
 		
 		prepare();
 		OutputFile dataFile = getRunScriptFile("input.csv");
-		Files.copy(getRebertInputFile(), dataFile);
+		FileUtils.copyFile(getRebertInputFile(), dataFile);
 	}
 	
 	private OutputFile getRunScriptFile(String filename) {
@@ -343,10 +341,6 @@ public class REBERTPredictExternalHandler extends ExternalHandler<REBERTPredict>
 	@Override
 	protected List<String> getCommandLine() {
 		return getCommandLine(getCommandLineMnemonics(false), false);
-	}
-	
-	private File getRebertFile(String fileName) {
-		return new File(getModule().getRebertDir(), fileName);
 	}
 	
 	private File getRebertInputFile() {
