@@ -22,7 +22,7 @@ public class Argument implements Fragment {
 	private final Section section;
 	private final Annotation sentence;
 	
-	public Argument(REBERTPredict owner, EvaluationContext evalCtx, String[] tags, Element element) throws ModuleException {
+	public Argument(REBERTBase owner, EvaluationContext evalCtx, String[] tags, Element element) throws ModuleException {
 		this.tags = tags;
 		REBERTPredictResolvedObjects resObj = owner.getResolvedObjects();
 		this.element = element;
