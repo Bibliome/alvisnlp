@@ -1,7 +1,7 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rebert;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.library.standard.NavigationLibrary;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rebert.REBERTPredict.REBERTPredictResolvedObjects;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rebert.REBERTBase.REBERTBaseResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Annotation;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DownCastElement;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
@@ -24,8 +24,8 @@ public class Argument implements Fragment {
 	
 	public Argument(REBERTBase owner, EvaluationContext evalCtx, String[] tags, Element element) throws ModuleException {
 		this.tags = tags;
-		REBERTPredictResolvedObjects resObj = owner.getResolvedObjects();
 		this.element = element;
+		REBERTBaseResolvedObjects resObj = owner.getResolvedObjects();
 		start = resObj.getStart().evaluateInt(evalCtx, element);
 		end = resObj.getEnd().evaluateInt(evalCtx, element);
 		section = DownCastElement.toSection(NavigationLibrary.section(evalCtx, element).next());
