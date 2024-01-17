@@ -179,6 +179,7 @@ public class REBERTPredictExternalHandler extends REBERTBaseExternalHandler<REBE
 
 	@Override
 	protected void completeCommandLineMnemonics(Map<String,String> mnemonics, boolean deferred) {
+		mnemonics.put("OUTPUT_DIR", deferred ? "output" : getRebertOutputDir().getAbsolutePath());
 		mnemonics.put("FINETUNED_MODEL", getModule().getFinetunedModel().getAbsolutePath());
 	}
 
@@ -225,10 +226,5 @@ public class REBERTPredictExternalHandler extends REBERTBaseExternalHandler<REBE
 		result.add("--output_dir");
 		result.add(getMnemonicValue(mnemonics, "OUTPUT_DIR", deferred));
 		return result;
-	}
-
-	@Override
-	protected String getOutputFilename() {
-		return null;
 	}
 }

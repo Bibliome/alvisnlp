@@ -40,7 +40,7 @@ public abstract class REBERTPredict extends REBERTBase implements RelationCreato
 	private EnsembleAggregator aggregator = EnsembleAggregator.VOTE;
 
 	@Override
-	protected String[] getLabels() {
+	public String[] getLabels() {
 		SourceStream source = new FileSourceStream("UTF-8", new InputFile(getFinetunedModel(), "id2label.json"));
 		try (Reader r = source.getReader()) {
 			JSONParser parser = new JSONParser();

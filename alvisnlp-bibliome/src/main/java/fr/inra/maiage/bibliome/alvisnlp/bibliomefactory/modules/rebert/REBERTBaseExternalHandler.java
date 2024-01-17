@@ -81,7 +81,6 @@ public abstract class REBERTBaseExternalHandler<R extends REBERTBase> extends Ex
 		result.put("PYTHON", owner.getPython() == null ? "python" : owner.getPython().getAbsolutePath());
 		result.put("REBERT_DIR", owner.getRebertDir().getAbsolutePath());
 		result.put("DATA_FILE", deferred ? "input.csv" : getRebertInputFile().getAbsolutePath());
-		result.put("OUTPUT_DIR", deferred ? "output" : getRebertOutputDir().getAbsolutePath());
 		result.put("FORCE_CPU", owner.getUseGPU() ? "" : "--force_cpu");
 		completeCommandLineMnemonics(result, deferred);
 		return result;
@@ -168,4 +167,8 @@ public abstract class REBERTBaseExternalHandler<R extends REBERTBase> extends Ex
 		return null;
 	}
 
+	@Override
+	protected String getOutputFilename() {
+		return null;
+	}
 }
