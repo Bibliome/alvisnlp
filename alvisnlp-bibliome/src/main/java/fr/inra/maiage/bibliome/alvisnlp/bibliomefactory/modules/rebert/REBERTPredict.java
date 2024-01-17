@@ -2,25 +2,17 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rebert;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.LinkedHashSet;
 import java.util.logging.Logger;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rebert.REBERTPredict.REBERTPredictResolvedObjects;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.RelationCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.creators.TupleCreator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ConstantsLibrary;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
-import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
@@ -28,7 +20,6 @@ import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingException;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.AlvisNLPModule;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
-import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.InputFile;
 import fr.inra.maiage.bibliome.util.streams.FileSourceStream;
@@ -47,99 +38,6 @@ public abstract class REBERTPredict extends REBERTBase implements RelationCreato
 	private InputDirectory finetunedModel;
 	private Integer[] ensembleModels;
 	private EnsembleAggregator aggregator = EnsembleAggregator.VOTE;
-	
-	public class REBERTPredictResolvedObjects extends ResolvedObjects {
-		private final Evaluator assertedCandidates;
-		private final Evaluator assertedSubject;
-		private final Evaluator assertedObject;
-		private final Evaluator assertedLabel;
-		private final Evaluator candidateGenerationScope;
-		private final Evaluator generatedSubjects;
-		private final Evaluator generatedObjects;
-		private final Evaluator generatedLabel;
-		private final Evaluator start;
-		private final Evaluator end;
-				
-		public REBERTPredictResolvedObjects(ProcessingContext ctx) throws ResolverException {
-			super(ctx, REBERTPredict.this);
-			this.assertedCandidates = rootResolver.resolveNullable(REBERTPredict.this.assertedCandidates);
-			this.assertedSubject = rootResolver.resolveNullable(REBERTPredict.this.assertedSubject);
-			this.assertedObject = rootResolver.resolveNullable(REBERTPredict.this.assertedObject);
-			this.assertedLabel = REBERTPredict.this.getAssertedLabel().resolveExpressions(rootResolver);
-			this.candidateGenerationScope = REBERTPredict.this.candidateGenerationScope.resolveExpressions(rootResolver);
-			this.generatedSubjects = REBERTPredict.this.generatedSubjects.resolveExpressions(rootResolver);
-			this.generatedObjects = REBERTPredict.this.generatedObjects.resolveExpressions(rootResolver);
-			this.generatedLabel = REBERTPredict.this.getGeneratedLabel().resolveExpressions(rootResolver);
-			this.start = REBERTPredict.this.start.resolveExpressions(rootResolver);
-			this.end = REBERTPredict.this.end.resolveExpressions(rootResolver);
-		}
-
-		public Evaluator getAssertedCandidates() {
-			return assertedCandidates;
-		}
-
-		public Evaluator getAssertedSubject() {
-			return assertedSubject;
-		}
-
-		public Evaluator getAssertedObject() {
-			return assertedObject;
-		}
-
-		public Evaluator getCandidateGenerationScope() {
-			return candidateGenerationScope;
-		}
-
-		public Evaluator getGeneratedSubjects() {
-			return generatedSubjects;
-		}
-
-		public Evaluator getGeneratedObjects() {
-			return generatedObjects;
-		}
-
-		public Evaluator getStart() {
-			return start;
-		}
-
-		public Evaluator getEnd() {
-			return end;
-		}
-		
-		private Element getSingleArgument(EvaluationContext evalCtx, Element example, Evaluator argEval) {
-			if (argEval == null) {
-				return null;
-			}
-			Iterator<Element> argIt = argEval.evaluateElements(evalCtx, example);
-			if (argIt.hasNext()) {
-				return argIt.next();
-			}
-			return null;
-		}
-
-		public Collection<Candidate> createCandidates(EvaluationContext evalCtx, Corpus corpus) throws ModuleException {
-			Collection<Candidate> result = new LinkedHashSet<Candidate>();
-			if (getAssertedCandidates() != null) {
-				for (Element xpl : Iterators.loop(getAssertedCandidates().evaluateElements(evalCtx, corpus))) {
-					Element subject = getSingleArgument(evalCtx, xpl, getAssertedSubject());
-					Element object = getSingleArgument(evalCtx, xpl, getAssertedObject());
-					String label = assertedLabel.evaluateString(evalCtx, xpl);
-					Candidate cand = new Candidate(true, REBERTPredict.this, evalCtx, xpl, subject, object, label);
-					result.add(cand);
-				}
-			}
-			for (Element scope : Iterators.loop(getCandidateGenerationScope().evaluateElements(evalCtx, corpus))) {
-				String label = generatedLabel.evaluateString(evalCtx, scope);
-				for (Element subject : Iterators.loop(getGeneratedSubjects().evaluateElements(evalCtx, scope))) {
-					for (Element object : Iterators.loop(getGeneratedObjects().evaluateElements(evalCtx, scope))) {
-						Candidate cand = new Candidate(false, REBERTPredict.this, evalCtx, scope, subject, object, label);
-						result.add(cand);
-					}
-				}
-			}
-			return result;
-		}
-	}
 
 	@Override
 	protected String[] getLabels() {
@@ -191,8 +89,8 @@ public abstract class REBERTPredict extends REBERTBase implements RelationCreato
 	}
 	
 	@Override
-	protected REBERTPredictResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
-		return new REBERTPredictResolvedObjects(ctx);
+	protected REBERTBaseResolvedObjects createResolvedObjects(ProcessingContext ctx) throws ResolverException {
+		return new REBERTBaseResolvedObjects(ctx);
 	}
 
 	@Override
@@ -222,11 +120,13 @@ public abstract class REBERTPredict extends REBERTBase implements RelationCreato
 			throw new ProcessingException(e);
 		}
 	}
-	
+
+	@Override
 	public Expression getAssertedLabel() {
 		return ConstantsLibrary.create("");
 	}
 	
+	@Override
 	public Expression getGeneratedLabel() {
 		return ConstantsLibrary.create("");
 	}

@@ -1,20 +1,32 @@
 package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rebert;
 
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.logging.Logger;
 
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.CorpusModule;
 import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.DefaultExpressions;
-import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rebert.REBERTPredict.REBERTPredictResolvedObjects;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.ResolvedObjects;
+import fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rebert.REBERTBase.REBERTBaseResolvedObjects;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Corpus;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.DefaultNames;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.Element;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.NameType;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.EvaluationContext;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Evaluator;
 import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.Expression;
+import fr.inra.maiage.bibliome.alvisnlp.core.corpus.expressions.ResolverException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ModuleException;
+import fr.inra.maiage.bibliome.alvisnlp.core.module.ProcessingContext;
 import fr.inra.maiage.bibliome.alvisnlp.core.module.lib.Param;
 import fr.inra.maiage.bibliome.util.Checkable;
+import fr.inra.maiage.bibliome.util.Iterators;
 import fr.inra.maiage.bibliome.util.files.ExecutableFile;
 import fr.inra.maiage.bibliome.util.files.InputDirectory;
 import fr.inra.maiage.bibliome.util.files.OutputDirectory;
 
-public abstract class REBERTBase extends CorpusModule<REBERTPredictResolvedObjects> implements Checkable {
+public abstract class REBERTBase extends CorpusModule<REBERTBaseResolvedObjects> implements Checkable {
 	private ExecutableFile conda;
 	private String condaEnvironment;
 	private ExecutableFile python;
@@ -39,6 +51,103 @@ public abstract class REBERTBase extends CorpusModule<REBERTPredictResolvedObjec
 	}
 	
 	protected abstract String[] getLabels();
+	
+	public abstract Expression getAssertedLabel();
+	
+	public abstract Expression getGeneratedLabel();
+
+	public class REBERTBaseResolvedObjects extends ResolvedObjects {
+		private final Evaluator assertedCandidates;
+		private final Evaluator assertedSubject;
+		private final Evaluator assertedObject;
+		private final Evaluator assertedLabel;
+		private final Evaluator candidateGenerationScope;
+		private final Evaluator generatedSubjects;
+		private final Evaluator generatedObjects;
+		private final Evaluator generatedLabel;
+		private final Evaluator start;
+		private final Evaluator end;
+				
+		public REBERTBaseResolvedObjects(ProcessingContext ctx) throws ResolverException {
+			super(ctx, REBERTBase.this);
+			this.assertedCandidates = rootResolver.resolveNullable(REBERTBase.this.assertedCandidates);
+			this.assertedSubject = rootResolver.resolveNullable(REBERTBase.this.assertedSubject);
+			this.assertedObject = rootResolver.resolveNullable(REBERTBase.this.assertedObject);
+			this.assertedLabel = REBERTBase.this.getAssertedLabel().resolveExpressions(rootResolver);
+			this.candidateGenerationScope = REBERTBase.this.candidateGenerationScope.resolveExpressions(rootResolver);
+			this.generatedSubjects = REBERTBase.this.generatedSubjects.resolveExpressions(rootResolver);
+			this.generatedObjects = REBERTBase.this.generatedObjects.resolveExpressions(rootResolver);
+			this.generatedLabel = REBERTBase.this.getGeneratedLabel().resolveExpressions(rootResolver);
+			this.start = REBERTBase.this.start.resolveExpressions(rootResolver);
+			this.end = REBERTBase.this.end.resolveExpressions(rootResolver);
+		}
+
+		public Evaluator getAssertedCandidates() {
+			return assertedCandidates;
+		}
+
+		public Evaluator getAssertedSubject() {
+			return assertedSubject;
+		}
+
+		public Evaluator getAssertedObject() {
+			return assertedObject;
+		}
+
+		public Evaluator getCandidateGenerationScope() {
+			return candidateGenerationScope;
+		}
+
+		public Evaluator getGeneratedSubjects() {
+			return generatedSubjects;
+		}
+
+		public Evaluator getGeneratedObjects() {
+			return generatedObjects;
+		}
+
+		public Evaluator getStart() {
+			return start;
+		}
+
+		public Evaluator getEnd() {
+			return end;
+		}
+		
+		private Element getSingleArgument(EvaluationContext evalCtx, Element example, Evaluator argEval) {
+			if (argEval == null) {
+				return null;
+			}
+			Iterator<Element> argIt = argEval.evaluateElements(evalCtx, example);
+			if (argIt.hasNext()) {
+				return argIt.next();
+			}
+			return null;
+		}
+
+		public Collection<Candidate> createCandidates(EvaluationContext evalCtx, Corpus corpus) throws ModuleException {
+			Collection<Candidate> result = new LinkedHashSet<Candidate>();
+			if (getAssertedCandidates() != null) {
+				for (Element xpl : Iterators.loop(getAssertedCandidates().evaluateElements(evalCtx, corpus))) {
+					Element subject = getSingleArgument(evalCtx, xpl, getAssertedSubject());
+					Element object = getSingleArgument(evalCtx, xpl, getAssertedObject());
+					String label = assertedLabel.evaluateString(evalCtx, xpl);
+					Candidate cand = new Candidate(true, REBERTBase.this, evalCtx, xpl, subject, object, label);
+					result.add(cand);
+				}
+			}
+			for (Element scope : Iterators.loop(getCandidateGenerationScope().evaluateElements(evalCtx, corpus))) {
+				String label = generatedLabel.evaluateString(evalCtx, scope);
+				for (Element subject : Iterators.loop(getGeneratedSubjects().evaluateElements(evalCtx, scope))) {
+					for (Element object : Iterators.loop(getGeneratedObjects().evaluateElements(evalCtx, scope))) {
+						Candidate cand = new Candidate(false, REBERTBase.this, evalCtx, scope, subject, object, label);
+						result.add(cand);
+					}
+				}
+			}
+			return result;
+		}
+	}
 
 	@Override
 	public boolean check(Logger logger) {
