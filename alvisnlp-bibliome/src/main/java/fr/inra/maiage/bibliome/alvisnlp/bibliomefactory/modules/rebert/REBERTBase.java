@@ -50,7 +50,7 @@ public abstract class REBERTBase extends CorpusModule<REBERTBaseResolvedObjects>
 		super();
 	}
 	
-	protected abstract String[] getLabels();
+	public abstract String[] getLabels();
 	
 	public abstract Expression getAssertedLabel();
 	
