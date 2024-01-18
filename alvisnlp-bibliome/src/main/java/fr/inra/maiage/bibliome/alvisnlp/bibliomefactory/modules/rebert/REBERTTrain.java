@@ -2,6 +2,7 @@ package fr.inra.maiage.bibliome.alvisnlp.bibliomefactory.modules.rebert;
 
 import java.io.IOException;
 import java.io.PrintStream;
+import java.util.logging.Logger;
 
 import org.apache.commons.io.FileUtils;
 
@@ -32,7 +33,8 @@ public abstract class REBERTTrain extends REBERTBase {
 	public void process(ProcessingContext ctx, Corpus corpus) throws ModuleException {
 		try {
 			REBERTBaseExternalHandler<REBERTTrain> ext = new REBERTTrainExternalHandler(ctx, this, corpus);
-			createFinetunedModelDirectory();
+			Logger logger = getLogger(ctx);
+			createFinetunedModelDirectory(logger);
 			if (ext.hasCandidates()) {
 				if (runScriptDirectory != null) {
 					getLogger(ctx).info("running inhibited, writing data and run scripts in " + runScriptDirectory.getAbsolutePath());
@@ -51,8 +53,9 @@ public abstract class REBERTTrain extends REBERTBase {
 		}
 	}
 
-	private void createFinetunedModelDirectory() throws IOException {
+	private void createFinetunedModelDirectory(Logger logger) throws IOException {
 		OutputFile id2labelFile = new OutputFile(finetunedModel, "id2label.json");
+		logger.info("creating " + id2labelFile.getAbsolutePath());
 		FileUtils.createParentDirectories(id2labelFile);
 		TargetStream ts = new FileTargetStream("UTF-8", id2labelFile);
 		try (PrintStream ps = ts.getPrintStream()) {
