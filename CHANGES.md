@@ -120,8 +120,30 @@ Initial version since version policy is in force.
   - updated dependencies versions
 
 ### 0.10.1
+
 * Added
   - REBERTPredict#ensembleModels
 * Improved
   - QuickHTML
   - check that output-feed parameters do not exist
+
+### 10.2
+
+* Improved
+  - memory management when deleting elements
+  - alias syntax see #169
+  - code simplification
+  - test for QuickHTML
+  - RDFExport supports type and language for literals
+  - Shell exports
+
+* Added
+  - PythonScript#outputFile
+  - AlvisAEReader#databasePropsFile replaces database access parameters
+
+* Fixed
+  - bug in MergeSections
+  - bug in HttpServer
+  - bug in overlapping()
+  - bug in parameter conversion of user functions
+  
