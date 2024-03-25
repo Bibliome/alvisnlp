@@ -6,7 +6,7 @@
   <groupId>fr.jouy.inra.maiage.bibliome</groupId>
   <artifactId>alvisnlp</artifactId>
   <packaging>pom</packaging>
-  <version>10.2</version>
+  <version>0.10.2</version>
   <name>AlvisNLP</name>
 
   <repositories>

@@ -127,7 +127,7 @@ Initial version since version policy is in force.
   - QuickHTML
   - check that output-feed parameters do not exist
 
-### 10.2
+### 0.10.2
 
 * Improved
   - memory management when deleting elements
