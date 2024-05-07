@@ -408,7 +408,7 @@
     <dependency>
       <groupId>fr.jouy.inra.maiage.bibliome</groupId>
       <artifactId>alvisir-core</artifactId>
-      <version>0.5</version>
+      <version>0.6.2</version>
     </dependency>
 
     <dependency>
