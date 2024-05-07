@@ -410,11 +410,5 @@
       <artifactId>alvisir-core</artifactId>
       <version>0.6.2</version>
     </dependency>
-
-    <dependency>
-      <groupId>fr.jouy.inra.maiage.bibliome</groupId>
-      <artifactId>alvisdb-core</artifactId>
-      <version>0.1</version>
-    </dependency>
   </dependencies>
 </project>
