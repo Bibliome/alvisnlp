@@ -6,7 +6,7 @@ Applies the [Stanford NLP named-entity recognition](https://nlp.stanford.edu/sof
 
 ## Description
 
-Applies the [Stanford NLP named-entity recognition](https://nlp.stanford.edu/software/CRF-NER.shtml) .
+Applies the [Stanford NLP named-entity recognition. *StanfordNER* requires sentence splitting and tokenization.](https://nlp.stanford.edu/software/CRF-NER.shtml) .
 
 ## Snippet
 

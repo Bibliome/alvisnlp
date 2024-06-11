@@ -16,7 +16,7 @@ All AlvisAE annotations, including text-bound annotations, will be represented i
 
 
 The <a href="#databasePropsFile" class="param">databasePropsFile</a> is a Java Properties file that must contain the following keys:
-*  `db.type` : type of RDBMS (egpostgresql);
+*  `db.type` : type of RDBMS (eg *postgresql* );
 *  `db.server` : address of the RDBMS, either name or IP;
 *  `db.port` : port number of the RDBMS;
 *  `db.dbname` : name of the database that contains AlvisAE annotations;
@@ -433,7 +433,7 @@ Deprecated alias for <a href="#htmlLayer" class="param">htmlLayer</a> .
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-User password for JDBC connection. Deprecated andignored: use <a href="#databasePropsFile" class="param">databasePropsFile</a> instead.
+User password for JDBC connection. Deprecated and **ignored** : use <a href="#databasePropsFile" class="param">databasePropsFile</a> instead.
 
 <div class="param-examples-header" onclick="toggle_examples(this)" id="examples-password">> Examples
 </div>
@@ -449,7 +449,7 @@ User password for JDBC connection. Deprecated andignored: use <a href="#database
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-PostgreSQL schema. Deprecated andignored: use <a href="#databasePropsFile" class="param">databasePropsFile</a> instead.
+PostgreSQL schema. Deprecated and **ignored** : use <a href="#databasePropsFile" class="param">databasePropsFile</a> instead.
 
 <div class="param-examples-header" onclick="toggle_examples(this)" id="examples-schema">> Examples
 </div>
@@ -473,7 +473,7 @@ Deprecated alias for <a href="#section" class="param">section</a> .
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-PostgreSQL database URL. Deprecated andignored: use <a href="#databasePropsFile" class="param">databasePropsFile</a> instead.
+PostgreSQL database URL. Deprecated and **ignored** : use <a href="#databasePropsFile" class="param">databasePropsFile</a> instead.
 
 <div class="param-examples-header" onclick="toggle_examples(this)" id="examples-url">> Examples
 </div>
@@ -489,7 +489,7 @@ PostgreSQL database URL. Deprecated andignored: use <a href="#databasePropsFile"
 </div>
 <div class="param-type">Type: <a href="../converter/java.lang.String" class="converter">String</a>
 </div>
-PostgreSQL user name. Deprecated andignored: use <a href="#databasePropsFile" class="param">databasePropsFile</a> instead.
+PostgreSQL user name. Deprecated and **ignored** : use <a href="#databasePropsFile" class="param">databasePropsFile</a> instead.
 
 <div class="param-examples-header" onclick="toggle_examples(this)" id="examples-username">> Examples
 </div>
