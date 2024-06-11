@@ -22,7 +22,7 @@ limitations under the License.
 
   <module-doc>
     <description>
-      <p>Applies the <a href="https://nlp.stanford.edu/software/CRF-NER.shtml">Stanford NLP named-entity recognition. <this/> requires sentence splitting and tokenization.</a>.</p>
+      <p>Applies the <a href="https://nlp.stanford.edu/software/CRF-NER.shtml">Stanford NLP named-entity recognition</a>. <this/> requires sentence splitting and tokenization.</p>
     </description>
   
     <param-doc name="sentenceLayer">
