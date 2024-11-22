@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import fr.inra.maiage.bibliome.util.count.Count;
+import fr.inra.maiage.bibliome.util.count.CountStats;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.io.FileUtils;
@@ -49,11 +51,17 @@ public abstract class REBERTBaseExternalHandler<R extends REBERTBase> extends Ex
 		try (Writer writer = new FileWriter(getRebertInputFile())) {
 			try (CSVPrinter printer = new CSVPrinter(writer, format)) {
 				printer.printRecord("text", "sentence_1", "sentence_2", "label");
+				CountStats<String> labelCounts = new CountStats<String>(new HashMap<String, Count>());
 				for (Candidate cand : candidates) {
 					Object[] candRec = cand.getRecord();
 					printer.printRecord(candRec);
+					labelCounts.get(cand.getLabel()).incr();
 				}
-				getLogger().info("prepared " + candidates.size() + " candidates");
+				Logger logger = getLogger();
+				logger.info("prepared " + candidates.size() + " candidates");
+				for (String label : labelCounts.keySet()) {
+					logger.info("for " + label + ": " + labelCounts.get(label).get());
+				}
 			}
 		}
 	}

@@ -185,11 +185,11 @@ public abstract class REBERTBase extends CorpusModule<REBERTBaseResolvedObjects>
 		else {
 			if (assertedSubject == null) {
 				logger.severe("assertedSubject is mandatory when assertedCandidates is set");
-				result = true;
+				result = false;
 			}
 			if (assertedObject == null) {
 				logger.severe("assertedObject is mandatory when assertedCandidates is set");
-				result = true;
+				result = false;
 			}
 		}
 		if (conda != null) {
