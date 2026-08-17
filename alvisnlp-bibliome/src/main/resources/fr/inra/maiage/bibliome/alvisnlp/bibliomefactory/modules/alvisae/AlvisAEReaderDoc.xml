@@ -36,7 +36,7 @@ limitations under the License.
       <p>
 		The <param>databasePropsFile</param> is a Java Properties file that must contain the following keys:
 		<ul>
-		  <li><code>db.type</code>: type of RDBMS (eg <i>postgresql</i>);</li>
+		  <li><code>db.type</code>: type of RDBMS (eg <em>postgresql</em>);</li>
 		  <li><code>db.server</code>: address of the RDBMS, either name or IP;</li>
 		  <li><code>db.port</code>: port number of the RDBMS;</li>
 		  <li><code>db.dbname</code>: name of the database that contains AlvisAE annotations;</li>
@@ -56,7 +56,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="password">
-      <p>User password for JDBC connection. Deprecated and <b>ignored</b>: use <param>databasePropsFile</param> instead.</p>
+      <p>User password for JDBC connection. Deprecated and <strong>ignored</strong>: use <param>databasePropsFile</param> instead.</p>
       <examples>
       	<password>***</password>
       </examples>
@@ -107,7 +107,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="username">
-      <p>PostgreSQL user name. Deprecated and <b>ignored</b>: use <param>databasePropsFile</param> instead.</p>
+      <p>PostgreSQL user name. Deprecated and <strong>ignored</strong>: use <param>databasePropsFile</param> instead.</p>
       <examples>
       	<username>psql_user</username>
       </examples>
@@ -126,7 +126,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="schema">
-      <p>PostgreSQL schema. Deprecated and <b>ignored</b>: use <param>databasePropsFile</param> instead.</p>
+      <p>PostgreSQL schema. Deprecated and <strong>ignored</strong>: use <param>databasePropsFile</param> instead.</p>
       <examples>
       	<schema>psql_schema_name</schema>
       </examples>
@@ -165,7 +165,7 @@ limitations under the License.
     </param-doc>
   
     <param-doc name="url">
-      <p>PostgreSQL database URL. Deprecated and <b>ignored</b>: use <param>databasePropsFile</param> instead.</p>
+      <p>PostgreSQL database URL. Deprecated and <strong>ignored</strong>: use <param>databasePropsFile</param> instead.</p>
       <examples>
       	<url>postgresql://server.name[:port]/dbname</url>
       </examples>

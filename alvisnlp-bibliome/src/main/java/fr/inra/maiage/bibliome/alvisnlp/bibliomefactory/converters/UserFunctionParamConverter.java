@@ -49,7 +49,7 @@ public class UserFunctionParamConverter extends AbstractParamConverter<UserFunct
 		}
 		if (xmlValue.hasAttribute("params")) {
 			String[] a = convertComponent(String[].class, xmlValue.getAttribute("params"));
-			ftors = Arrays.asList(a);
+			params = Arrays.asList(a);
 		}
 		if (xmlValue.hasAttribute("body")) {
 			body = convertComponent(Expression.class, xmlValue.getAttribute("body"));

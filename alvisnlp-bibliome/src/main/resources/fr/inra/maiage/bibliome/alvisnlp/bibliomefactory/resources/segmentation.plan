@@ -48,8 +48,7 @@ limitations under the License.
 			</remove-fixed-overlaps>
 
 			<tag-fixed class="Action">
-				<commit>documents.sections</commit>
-				<target>layer:seg__pre-fixed</target>
+				<target>documents.sections.layer:seg__pre-fixed</target>
 				<action>set:feat:seg__fix("yes")</action>
 				<setFeatures/>
 			</tag-fixed>

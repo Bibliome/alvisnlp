@@ -126,9 +126,9 @@ limitations under the License.
   
     <param-doc name="kindFeature">
       <p>Feature of relations contatining the annotation kind.</p>
-      <eaxmples>
+      <examples>
         <kindFeature>kind</kindFeature>
-      </eaxmples>
+      </examples>
     </param-doc>
   
     <param-doc name="fragmentCountFeatureName">
@@ -171,9 +171,9 @@ limitations under the License.
   
     <param-doc name="relationKind">
       <p>Kind value for relation annotations.</p>
-	  <eaxmples>
+	  <examples>
 	    <relationKind>relation</relationKind>
-	  </eaxmples>
+	  </examples>
     </param-doc>
   
     <param-doc name="textKind">

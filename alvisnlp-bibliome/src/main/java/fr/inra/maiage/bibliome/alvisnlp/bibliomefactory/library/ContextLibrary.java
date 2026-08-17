@@ -135,7 +135,7 @@ public abstract class ContextLibrary extends FunctionLibrary {
 			return "";
 		}
 		Layer layer = sec.getLayer(layerName);
-		Layer words = layer.before(a.getStart());
+		Layer words = layer.after(a.getEnd());
 		if (words.isEmpty()) {
 			return "";
 		}

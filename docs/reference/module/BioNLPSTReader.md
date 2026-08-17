@@ -234,7 +234,15 @@ Feature where to store the annotation identifier.
 </div>
 Feature of relations contatining the annotation kind.
 
-kind<h3 id="relationKind" class="param">relationKind</h3>
+<div class="param-examples-header" onclick="toggle_examples(this)" id="examples-kindFeature">> Examples
+</div>
+
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
+```xml
+<kindFeature>kind</kindFeature>
+```
+
+<h3 id="relationKind" class="param">relationKind</h3>
 
 <div class="param-level param-level-default-value">Default value: `relation`
 </div>
@@ -242,7 +250,15 @@ kind<h3 id="relationKind" class="param">relationKind</h3>
 </div>
 Kind value for relation annotations.
 
-relation<h3 id="section" class="param">section</h3>
+<div class="param-examples-header" onclick="toggle_examples(this)" id="examples-relationKind">> Examples
+</div>
+
+<button class="copy-code-button" title="Copy to clipboard" onclick="copy_code(this)">📋</button>
+```xml
+<relationKind>relation</relationKind>
+```
+
+<h3 id="section" class="param">section</h3>
 
 <div class="param-level param-level-default-value">Default value: `text`
 </div>
