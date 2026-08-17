@@ -55,7 +55,7 @@ public abstract class REBERTBaseExternalHandler<R extends REBERTBase> extends Ex
 				for (Candidate cand : candidates) {
 					Object[] candRec = cand.getRecord();
 					printer.printRecord(candRec);
-					labelCounts.get(cand.getLabel()).incr();
+					labelCounts.safeGet(cand.getLabel()).incr();
 				}
 				Logger logger = getLogger();
 				logger.info("prepared " + candidates.size() + " candidates");
